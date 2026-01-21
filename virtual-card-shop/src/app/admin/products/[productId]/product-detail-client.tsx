@@ -1,17 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 type ProductSetRow = {
   id: string;
   name: string | null;
   isBase: boolean;
+  isInsert: boolean;
   oddsPerPack: number | null;
-  _count?: { cards: number };
 };
 
-type Product = {
+type ProductResponse = {
   id: string;
   year: number | null;
   brand: string | null;
@@ -20,67 +20,60 @@ type Product = {
   packsPerBox: number | null;
   packImageUrl: string | null;
   boxImageUrl: string | null;
+  cardsPerPack: number | null; // ✅
   productSets: ProductSetRow[];
-  _count?: { productSets: number };
 };
 
-function centsToDollars(cents: number | null | undefined) {
-  const c = typeof cents === "number" ? cents : 0;
-  return (c / 100).toFixed(2);
-}
-
-// Accepts "$0.75", "0.75", ".75"
-function dollarsToCentsLoose(input: string) {
-  const cleaned = input.replace(/[^0-9.]/g, "");
-  if (!cleaned) return 0;
-  const n = Number(cleaned);
+function dollarsToCents(s: string) {
+  const n = Number(s);
   if (!Number.isFinite(n)) return 0;
   return Math.round(n * 100);
 }
+function centsToDollars(cents: number | null | undefined) {
+  const n = typeof cents === "number" && Number.isFinite(cents) ? cents : 0;
+  return (n / 100).toFixed(2);
+}
 
 export default function ProductDetailClient({ productId }: { productId: string }) {
-  const [data, setData] = useState<Product | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [data, setData] = useState<ProductResponse | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [pageError, setPageError] = useState<string | null>(null);
+
+  const [saveOk, setSaveOk] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
-  // ✅ Uncontrolled input ref + key to reset defaultValue on reload
-  const packPriceRef = useRef<HTMLInputElement | null>(null);
-  const [packPriceKey, setPackPriceKey] = useState(0);
-
-  // Create Product Set form state
-  const [psId, setPsId] = useState("");
-  const [psName, setPsName] = useState("");
-  const [psIsBase, setPsIsBase] = useState(true);
-  const [psOdds, setPsOdds] = useState<string>("");
-  const [creatingPS, setCreatingPS] = useState(false);
+  // Create product set form
+  const [newSetId, setNewSetId] = useState("");
+  const [newSetName, setNewSetName] = useState("Base");
+  const [newIsBase, setNewIsBase] = useState(true);
+  const [newIsInsert, setNewIsInsert] = useState(false);
+  const [newOddsPerPack, setNewOddsPerPack] = useState<string>("");
 
   async function load() {
-    if (!productId || productId === "undefined") {
-      setError(`Missing productId in URL (received: "${productId}")`);
+    setLoading(true);
+    setPageError(null);
+    setSaveOk(null);
+
+    try {
+      const res = await fetch(`/api/products/${encodeURIComponent(productId)}`, { cache: "no-store" });
+      const raw = await res.text();
+
+      let j: any;
+      try {
+        j = JSON.parse(raw);
+      } catch {
+        throw new Error(`API returned non-JSON (${res.status}): ${raw.slice(0, 140)}`);
+      }
+
+      if (!res.ok) throw new Error(j?.error ?? `Failed to load (${res.status})`);
+
+      setData(j as ProductResponse);
+      setNewSetId(`${productId}_Base`);
+    } catch (e: any) {
+      setPageError(e?.message ?? "Failed to load");
       setData(null);
-      return;
-    }
-
-    setError(null);
-
-    const res = await fetch(`/api/products/${encodeURIComponent(productId)}`, { cache: "no-store" });
-    if (!res.ok) {
-      const j = await res.json().catch(() => ({}));
-      setError(j?.error ?? `Failed to load product (${res.status})`);
-      setData(null);
-      return;
-    }
-
-    const j = (await res.json()) as Product;
-    setData(j);
-
-    // ✅ force pack price input to re-mount with new defaultValue
-    setPackPriceKey((k) => k + 1);
-
-    if (!psId) {
-      setPsId(`${productId}_Base`);
-      setPsName("Base");
-      setPsIsBase(true);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -89,31 +82,17 @@ export default function ProductDetailClient({ productId }: { productId: string }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
-  function patch(p: Partial<Product>) {
-    setData((prev) => (prev ? { ...prev, ...p } : prev));
+  function patch(patch: Partial<ProductResponse>) {
+    setData((prev) => (prev ? { ...prev, ...patch } : prev));
   }
 
-  function commitPackPriceDisplayFormatting() {
-    const el = packPriceRef.current;
-    if (!el) return;
-    const cents = dollarsToCentsLoose(el.value);
-    el.value = centsToDollars(cents);
-  }
-
-  async function save() {
+  async function saveProduct() {
     if (!data) return;
 
-    // ✅ Read directly from the input (guaranteed to be what user typed)
-    const raw = packPriceRef.current?.value ?? "0";
-    const packPriceCentsToSave = dollarsToCentsLoose(raw);
-
-    // normalize display after save click
-    if (packPriceRef.current) {
-      packPriceRef.current.value = centsToDollars(packPriceCentsToSave);
-    }
-
     setSaving(true);
-    setError(null);
+    setPageError(null);
+    setSaveOk(null);
+
     try {
       const res = await fetch(`/api/products/${encodeURIComponent(productId)}`, {
         method: "PUT",
@@ -122,65 +101,72 @@ export default function ProductDetailClient({ productId }: { productId: string }
           year: data.year,
           brand: data.brand,
           sport: data.sport,
-          packPriceCents: packPriceCentsToSave,
+          packPriceCents: data.packPriceCents ?? 0,
           packsPerBox: data.packsPerBox,
           packImageUrl: data.packImageUrl,
           boxImageUrl: data.boxImageUrl,
+          cardsPerPack: data.cardsPerPack, // ✅
         }),
       });
 
-      if (!res.ok) {
-        const j = await res.json().catch(() => ({}));
-        throw new Error(j?.error ?? `Save failed (${res.status})`);
+      const raw = await res.text();
+      let j: any = {};
+      try {
+        j = raw ? JSON.parse(raw) : {};
+      } catch {
+        throw new Error(`Save returned non-JSON (${res.status}): ${raw.slice(0, 140)}`);
       }
 
+      if (!res.ok) throw new Error(j?.error ?? `Save failed (${res.status})`);
+
+      setSaveOk("Saved product.");
       await load();
     } catch (e: any) {
-      setError(e?.message ?? "Save failed");
+      setPageError(e?.message ?? "Save failed");
     } finally {
       setSaving(false);
     }
   }
 
   async function createProductSet() {
-    const id = psId.trim();
-    if (!id) return;
+    setPageError(null);
+    setSaveOk(null);
 
-    setCreatingPS(true);
-    setError(null);
     try {
+      if (newIsBase && newIsInsert) {
+        throw new Error("A Product Set cannot be both Base and Insert.");
+      }
+
+      const oddsNum = newOddsPerPack.trim() === "" ? null : Number(newOddsPerPack.trim());
+      const oddsPerPack = oddsNum !== null && Number.isFinite(oddsNum) ? Math.trunc(oddsNum) : null;
+
       const res = await fetch("/api/product-sets", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          id,
+          id: newSetId.trim(),
           productId,
-          name: psName.trim() ? psName.trim() : null,
-          isBase: psIsBase,
-          oddsPerPack: psOdds.trim() === "" ? null : Number(psOdds),
+          name: newSetName.trim() || null,
+          isBase: newIsBase,
+          isInsert: newIsInsert,
+          oddsPerPack,
         }),
       });
 
-      if (!res.ok) {
-        const j = await res.json().catch(() => ({}));
-        throw new Error(j?.error ?? `Create Product Set failed (${res.status})`);
+      const raw = await res.text();
+      let j: any = {};
+      try {
+        j = raw ? JSON.parse(raw) : {};
+      } catch {
+        throw new Error(`Create returned non-JSON (${res.status}): ${raw.slice(0, 140)}`);
       }
 
-      if (psIsBase) {
-        setPsIsBase(false);
-        setPsName("Elite");
-        setPsId(`${productId}_Elite`);
-      } else {
-        setPsId("");
-        setPsName("");
-      }
-      setPsOdds("");
+      if (!res.ok) throw new Error(j?.error ?? `Create failed (${res.status})`);
 
+      setSaveOk("Created product set.");
       await load();
     } catch (e: any) {
-      setError(e?.message ?? "Create Product Set failed");
-    } finally {
-      setCreatingPS(false);
+      setPageError(e?.message ?? "Create failed");
     }
   }
 
@@ -188,7 +174,7 @@ export default function ProductDetailClient({ productId }: { productId: string }
     <div style={{ padding: 16 }}>
       <h1 style={{ fontSize: 32, fontWeight: 800 }}>Admin: Product Detail</h1>
 
-      <div style={{ marginTop: 12, display: "flex", gap: 12, alignItems: "center" }}>
+      <div style={{ marginTop: 8, display: "flex", gap: 12 }}>
         <Link href="/admin/products" style={{ textDecoration: "underline" }}>
           ← Back to Products
         </Link>
@@ -199,140 +185,173 @@ export default function ProductDetailClient({ productId }: { productId: string }
 
       <hr style={{ margin: "16px 0" }} />
 
-      {error && (
+      {pageError && (
         <div style={{ marginBottom: 12, padding: 10, background: "#fee", border: "1px solid #f99" }}>
-          {error}
+          {pageError}
+        </div>
+      )}
+      {saveOk && (
+        <div style={{ marginBottom: 12, padding: 10, background: "#efe", border: "1px solid #9f9" }}>
+          {saveOk}
         </div>
       )}
 
-      {!data ? (
+      {loading || !data ? (
         <div>Loading…</div>
       ) : (
         <>
-          <h2 style={{ fontSize: 20, fontWeight: 800, marginBottom: 8 }}>{data.id}</h2>
+          <div style={{ fontSize: 20, fontWeight: 800, marginBottom: 10 }}>{data.id}</div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: 10, maxWidth: 760 }}>
-            <label>Year</label>
+          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr", gap: 10, maxWidth: 760 }}>
+            <div>Year</div>
             <input
               value={data.year ?? ""}
-              onChange={(e) => patch({ year: e.target.value === "" ? null : Number(e.target.value) })}
-              style={{ padding: 8 }}
+              onChange={(e) => {
+                const v = e.target.value.trim();
+                if (v === "") return patch({ year: null });
+                const n = Number(v);
+                patch({ year: Number.isFinite(n) ? Math.trunc(n) : null });
+              }}
+              style={{ padding: 6 }}
             />
 
-            <label>Brand</label>
-            <input value={data.brand ?? ""} onChange={(e) => patch({ brand: e.target.value || null })} style={{ padding: 8 }} />
+            <div>Brand</div>
+            <input value={data.brand ?? ""} onChange={(e) => patch({ brand: e.target.value || null })} style={{ padding: 6 }} />
 
-            <label>Sport</label>
-            <input value={data.sport ?? ""} onChange={(e) => patch({ sport: e.target.value || null })} style={{ padding: 8 }} />
+            <div>Sport</div>
+            <input value={data.sport ?? ""} onChange={(e) => patch({ sport: e.target.value || null })} style={{ padding: 6 }} />
 
-            <label>Pack Price ($)</label>
+            <div>Pack Price ($)</div>
             <input
-              key={packPriceKey}
-              ref={packPriceRef}
-              type="text"
-              inputMode="decimal"
-              defaultValue={centsToDollars(data.packPriceCents)}
-              onBlur={commitPackPriceDisplayFormatting}
-              placeholder="0.75"
-              style={{ padding: 8 }}
+              value={centsToDollars(data.packPriceCents)}
+              onChange={(e) => patch({ packPriceCents: dollarsToCents(e.target.value) })}
+              style={{ padding: 6 }}
             />
 
-            <label>Packs per Box</label>
+            <div>Packs per Box</div>
             <input
               value={data.packsPerBox ?? ""}
-              onChange={(e) => patch({ packsPerBox: e.target.value === "" ? null : Number(e.target.value) })}
-              style={{ padding: 8 }}
+              onChange={(e) => {
+                const v = e.target.value.trim();
+                if (v === "") return patch({ packsPerBox: null });
+                const n = Number(v);
+                patch({ packsPerBox: Number.isFinite(n) ? Math.trunc(n) : null });
+              }}
+              style={{ padding: 6 }}
             />
 
-            <label>Pack Image URL</label>
+            {/* ✅ NEW */}
+            <div>Cards per Pack</div>
+            <input
+              value={data.cardsPerPack ?? ""}
+              onChange={(e) => {
+                const v = e.target.value.trim();
+                if (v === "") return patch({ cardsPerPack: null });
+                const n = Number(v);
+                patch({ cardsPerPack: Number.isFinite(n) ? Math.max(1, Math.trunc(n)) : null });
+              }}
+              placeholder="Required for ripping"
+              style={{ padding: 6 }}
+            />
+
+            <div>Pack Image URL</div>
             <input
               value={data.packImageUrl ?? ""}
               onChange={(e) => patch({ packImageUrl: e.target.value || null })}
-              style={{ padding: 8 }}
+              style={{ padding: 6 }}
             />
 
-            <label>Box Image URL</label>
+            <div>Box Image URL</div>
             <input
               value={data.boxImageUrl ?? ""}
               onChange={(e) => patch({ boxImageUrl: e.target.value || null })}
-              style={{ padding: 8 }}
+              style={{ padding: 6 }}
             />
           </div>
 
           <div style={{ marginTop: 12 }}>
-            <button onClick={save} disabled={saving} style={{ padding: "8px 12px" }}>
-              {saving ? "Saving…" : "Save Product"}
+            <button onClick={saveProduct} disabled={saving} style={{ padding: "8px 12px" }}>
+              {saving ? "Saving..." : "Save Product"}
             </button>
           </div>
 
           <hr style={{ margin: "18px 0" }} />
 
-          <h3 style={{ fontSize: 18, fontWeight: 800 }}>Create Product Set</h3>
-          <p style={{ marginTop: 6 }}>
-            These are the “pools” inside the product (Base, Elite, etc.). Cards will eventually belong to a Product Set via{" "}
-            <code>productSetId</code>.
-          </p>
+          <h2 style={{ fontSize: 20, fontWeight: 800, marginBottom: 8 }}>Create Product Set</h2>
 
-          <div style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: 10, maxWidth: 760 }}>
-            <label>Product Set ID</label>
-            <input value={psId} onChange={(e) => setPsId(e.target.value)} style={{ padding: 8 }} />
+          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr", gap: 10, maxWidth: 760 }}>
+            <div>Product Set ID</div>
+            <input value={newSetId} onChange={(e) => setNewSetId(e.target.value)} style={{ padding: 6 }} />
 
-            <label>Name</label>
-            <input value={psName} onChange={(e) => setPsName(e.target.value)} style={{ padding: 8 }} />
+            <div>Name</div>
+            <input value={newSetName} onChange={(e) => setNewSetName(e.target.value)} style={{ padding: 6 }} />
 
-            <label>Is Base?</label>
+            <div>Is Base?</div>
+            <label style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <input
+                type="checkbox"
+                checked={newIsBase}
+                onChange={(e) => {
+                  const v = e.target.checked;
+                  setNewIsBase(v);
+                  if (v) setNewIsInsert(false);
+                }}
+              />
+              {newIsBase ? "Yes" : "No"}
+            </label>
+
+            <div>Is Insert?</div>
+            <label style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <input
+                type="checkbox"
+                checked={newIsInsert}
+                onChange={(e) => {
+                  const v = e.target.checked;
+                  setNewIsInsert(v);
+                  if (v) setNewIsBase(false);
+                }}
+              />
+              {newIsInsert ? "Yes" : "No"}
+            </label>
+
+            <div>Odds per Pack</div>
             <input
-              type="checkbox"
-              checked={psIsBase}
-              onChange={(e) => setPsIsBase(e.target.checked)}
-              style={{ width: 18, height: 18 }}
-            />
-
-            <label>Odds per Pack</label>
-            <input
-              value={psOdds}
-              onChange={(e) => setPsOdds(e.target.value)}
+              value={newOddsPerPack}
+              onChange={(e) => setNewOddsPerPack(e.target.value)}
               placeholder='Optional (e.g. 84 for "1:84")'
-              style={{ padding: 8 }}
+              style={{ padding: 6 }}
             />
           </div>
 
           <div style={{ marginTop: 12 }}>
-            <button onClick={createProductSet} disabled={creatingPS || !psId.trim()} style={{ padding: "8px 12px" }}>
-              {creatingPS ? "Creating…" : "Create Product Set"}
+            <button onClick={createProductSet} style={{ padding: "8px 12px" }}>
+              Create Product Set
             </button>
           </div>
 
           <hr style={{ margin: "18px 0" }} />
 
-          <h3 style={{ fontSize: 18, fontWeight: 800 }}>Existing Product Sets</h3>
-
-          <div style={{ overflowX: "auto", border: "1px solid #ddd", marginTop: 10 }}>
+          <h2 style={{ fontSize: 18, fontWeight: 800, marginBottom: 8 }}>Existing Product Sets</h2>
+          <div style={{ border: "1px solid #ddd" }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead style={{ background: "#f7f7f7" }}>
                 <tr>
-                  {["Product Set ID", "Name", "Base?", "Odds (1:X packs)", "Cards"].map((h) => (
-                    <th key={h} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid #ddd", whiteSpace: "nowrap" }}>
+                  {["Product Set ID"].map((h) => (
+                    <th key={h} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid #ddd" }}>
                       {h}
                     </th>
                   ))}
                 </tr>
               </thead>
               <tbody>
-                {data.productSets.map((ps, idx) => (
+                {(data.productSets ?? []).map((ps, idx) => (
                   <tr key={ps.id} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
-                    <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 700 }}>{ps.id}</td>
-                    <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{ps.name ?? "—"}</td>
-                    <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{ps.isBase ? "Yes" : "No"}</td>
-                    <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{ps.oddsPerPack ?? "—"}</td>
-                    <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{ps._count?.cards ?? "—"}</td>
+                    <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{ps.id}</td>
                   </tr>
                 ))}
-                {data.productSets.length === 0 && (
+                {(data.productSets ?? []).length === 0 && (
                   <tr>
-                    <td colSpan={5} style={{ padding: 12 }}>
-                      No product sets yet for this product.
-                    </td>
+                    <td style={{ padding: 12 }}>No product sets yet.</td>
                   </tr>
                 )}
               </tbody>

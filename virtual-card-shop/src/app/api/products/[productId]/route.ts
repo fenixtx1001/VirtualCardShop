@@ -8,48 +8,46 @@ type Ctx =
 async function getParam(ctx: Ctx) {
   const p: any = (ctx as any).params;
   const params = typeof p?.then === "function" ? await p : p;
-  const productId = params?.productId ?? params?.productid;
-  return productId as string | undefined;
+  const raw = params?.productId ?? params?.productid;
+  return typeof raw === "string" ? decodeURIComponent(raw) : undefined;
+}
+
+function stringOrNull(v: unknown): string | null {
+  const s = String(v ?? "").trim();
+  return s.length ? s : null;
+}
+
+function intOrNull(v: unknown): number | null {
+  if (v === null || v === undefined) return null;
+  const s = String(v).trim();
+  if (!s) return null;
+  const n = Number(s);
+  return Number.isFinite(n) ? Math.trunc(n) : null;
 }
 
 export async function GET(_req: Request, ctx: Ctx) {
   const productId = await getParam(ctx);
-
   if (!productId || productId === "undefined") {
-    return NextResponse.json(
-      { error: "Missing productId in route params" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Missing productId in route params" }, { status: 400 });
   }
 
   const product = await prisma.product.findUnique({
     where: { id: productId },
     include: {
-      productSets: {
-        orderBy: [{ isBase: "desc" }, { name: "asc" }, { id: "asc" }],
-        include: {
-          _count: { select: { cards: true } },
-        },
-      },
+      productSets: { orderBy: [{ isBase: "desc" }, { isInsert: "desc" }, { id: "asc" }] },
       _count: { select: { productSets: true } },
     },
   });
 
-  if (!product) {
-    return NextResponse.json({ error: "Product not found" }, { status: 404 });
-  }
+  if (!product) return NextResponse.json({ error: "Product not found" }, { status: 404 });
 
   return NextResponse.json(product);
 }
 
 export async function PUT(req: Request, ctx: Ctx) {
   const productId = await getParam(ctx);
-
   if (!productId || productId === "undefined") {
-    return NextResponse.json(
-      { error: "Missing productId in route params" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Missing productId in route params" }, { status: 400 });
   }
 
   const body = await req.json().catch(() => ({}));
@@ -57,13 +55,14 @@ export async function PUT(req: Request, ctx: Ctx) {
   const updated = await prisma.product.update({
     where: { id: productId },
     data: {
-      year: body.year ?? null,
-      brand: body.brand ?? null,
-      sport: body.sport ?? null,
-      packPriceCents: typeof body.packPriceCents === "number" ? body.packPriceCents : 0,
-      packsPerBox: body.packsPerBox ?? null,
-      packImageUrl: body.packImageUrl ?? null,
-      boxImageUrl: body.boxImageUrl ?? null,
+      year: body?.year === "" ? null : body?.year ?? undefined,
+      brand: stringOrNull(body?.brand),
+      sport: stringOrNull(body?.sport),
+      packPriceCents: body?.packPriceCents ?? undefined,
+      packsPerBox: body?.packsPerBox ?? undefined,
+      packImageUrl: stringOrNull(body?.packImageUrl),
+      boxImageUrl: stringOrNull(body?.boxImageUrl),
+      cardsPerPack: intOrNull(body?.cardsPerPack), // ✅
     },
   });
 

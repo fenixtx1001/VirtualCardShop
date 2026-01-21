@@ -1,17 +1,17 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
-function intOrNull(v: unknown): number | null {
-  if (v === null || v === undefined || v === "") return null;
-  const n = Number(v);
-  if (!Number.isFinite(n)) return null;
-  return Math.trunc(n);
+function stringOrNull(v: unknown): string | null {
+  const s = String(v ?? "").trim();
+  return s.length ? s : null;
 }
 
-function stringOrNull(v: unknown): string | null {
+function intOrNull(v: unknown): number | null {
   if (v === null || v === undefined) return null;
   const s = String(v).trim();
-  return s.length ? s : null;
+  if (!s) return null;
+  const n = Number(s);
+  return Number.isFinite(n) ? Math.trunc(n) : null;
 }
 
 export async function GET() {
@@ -29,23 +29,21 @@ export async function POST(req: Request) {
   const body = await req.json().catch(() => ({}));
 
   const id = stringOrNull(body?.id);
-  if (!id) {
-    return NextResponse.json({ error: "Missing required field: id" }, { status: 400 });
-  }
+  if (!id) return NextResponse.json({ error: "Missing required field: id" }, { status: 400 });
 
-  // Create a product with sensible defaults
   const created = await prisma.product.create({
     data: {
       id,
-      year: intOrNull(body?.year),
+      year: body?.year ?? null,
       brand: stringOrNull(body?.brand),
       sport: stringOrNull(body?.sport),
-      packPriceCents: intOrNull(body?.packPriceCents) ?? 0,
-      packsPerBox: intOrNull(body?.packsPerBox),
+      packPriceCents: body?.packPriceCents ?? 0,
+      packsPerBox: body?.packsPerBox ?? null,
       packImageUrl: stringOrNull(body?.packImageUrl),
       boxImageUrl: stringOrNull(body?.boxImageUrl),
+      cardsPerPack: intOrNull(body?.cardsPerPack), // ✅
     },
   });
 
-  return NextResponse.json(created, { status: 201 });
+  return NextResponse.json(created);
 }

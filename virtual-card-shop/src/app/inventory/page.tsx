@@ -16,6 +16,7 @@ type Row = {
     packsPerBox: number | null;
     packImageUrl: string | null;
     boxImageUrl: string | null;
+    cardsPerPack?: number | null; // ✅ add if your API includes it
   };
   updatedAt: string;
 };
@@ -35,7 +36,13 @@ export default function InventoryPage() {
     setErr(null);
     try {
       const res = await fetch("/api/inventory", { cache: "no-store" });
-      const j = await res.json().catch(() => null);
+      const raw = await res.text();
+      let j: any = null;
+      try {
+        j = raw ? JSON.parse(raw) : null;
+      } catch {
+        throw new Error(`Inventory returned non-JSON (${res.status}): ${raw.slice(0, 140)}`);
+      }
       if (!res.ok) throw new Error(j?.error ?? `Failed to load (${res.status})`);
       setRows(j);
     } catch (e: any) {
@@ -52,9 +59,7 @@ export default function InventoryPage() {
   return (
     <div style={{ fontFamily: "system-ui" }}>
       <h1 style={{ fontSize: 32, fontWeight: 900, marginTop: 0 }}>Inventory</h1>
-      <p style={{ marginTop: 6 }}>
-        Unopened packs you own. (Boxes are stored as packs.)
-      </p>
+      <p style={{ marginTop: 6 }}>Unopened packs you own. (Boxes are stored as packs.)</p>
 
       <div style={{ marginTop: 10, display: "flex", gap: 10, alignItems: "center" }}>
         <button onClick={load} style={{ padding: "8px 12px" }}>
@@ -62,6 +67,9 @@ export default function InventoryPage() {
         </button>
         <Link href="/shop" style={{ textDecoration: "underline", fontWeight: 700 }}>
           Go to Shop
+        </Link>
+        <Link href="/" style={{ textDecoration: "underline", fontWeight: 700 }}>
+          Home
         </Link>
       </div>
 
@@ -80,8 +88,16 @@ export default function InventoryPage() {
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
             <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
               <tr>
-                {["Product", "Packs Owned", "Pack Price", "Updated"].map((h) => (
-                  <th key={h} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid #ddd", whiteSpace: "nowrap" }}>
+                {["Product", "Packs Owned", "Pack Price", "Cards/Pack", "Updated", "Action"].map((h) => (
+                  <th
+                    key={h}
+                    style={{
+                      textAlign: "left",
+                      padding: 8,
+                      borderBottom: "1px solid #ddd",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
                     {h}
                   </th>
                 ))}
@@ -90,20 +106,34 @@ export default function InventoryPage() {
             <tbody>
               {rows.map((r, idx) => {
                 const zebra = idx % 2 === 0 ? "#fff" : "#fcfcfc";
+                const canOpen = (r.packsOwned ?? 0) > 0;
+
+                // ✅ This should match the route you already used successfully.
+                // If your route differs, tell me the URL you used and I’ll update this line.
+                const openHref = `/inventory/open/${encodeURIComponent(r.productId)}`;
+
                 return (
                   <tr key={r.id} style={{ background: zebra }}>
                     <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 800 }}>{r.productId}</td>
                     <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.packsOwned}</td>
                     <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>${centsToDollars(r.product.packPriceCents)}</td>
+                    <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.product.cardsPerPack ?? "—"}</td>
+                    <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{new Date(r.updatedAt).toLocaleString()}</td>
                     <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
-                      {new Date(r.updatedAt).toLocaleString()}
+                      {canOpen ? (
+                        <Link href={openHref} style={{ textDecoration: "underline", fontWeight: 800 }}>
+                          Open Pack
+                        </Link>
+                      ) : (
+                        <span style={{ color: "#777" }}>No packs</span>
+                      )}
                     </td>
                   </tr>
                 );
               })}
               {rows.length === 0 ? (
                 <tr>
-                  <td colSpan={4} style={{ padding: 12 }}>
+                  <td colSpan={6} style={{ padding: 12 }}>
                     No inventory yet. Buy packs/boxes in the Shop.
                   </td>
                 </tr>

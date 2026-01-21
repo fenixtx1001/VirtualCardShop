@@ -30,6 +30,9 @@ model Product {
   packImageUrl   String?
   boxImageUrl    String?
 
+  // ✅ No default. Admin must set this per product.
+  cardsPerPack   Int?
+
   productSets ProductSet[]
 
   createdAt         DateTime          @default(now())
@@ -42,9 +45,13 @@ model ProductSet {
   productId   String
   name        String?
   isBase      Boolean @default(false)
+
+  // ✅ Flag inserts at the ProductSet level (not per card)
+  isInsert    Boolean @default(false)
+
   oddsPerPack Int? // e.g. 84 means "1:84 packs"
 
-  product Product @relation(fields: [productId], references: [id])
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
   cards   Card[]
 
   createdAt DateTime @default(now())
@@ -56,7 +63,7 @@ model ProductSet {
 model Card {
   id Int @id @default(autoincrement())
 
-  // Legacy relationship (keep for now so nothing breaks)
+  // Legacy relationship (keep so nothing breaks)
   setId String
   set   Set    @relation(fields: [setId], references: [id])
 
@@ -69,15 +76,18 @@ model Card {
   team       String?
   position   String?
   subset     String?
-  insert     String?
   variant    String?
 
   bookValue     Float   @default(0)
   quantityOwned Int     @default(0)
-  imageUrl      String?
+
+  // ✅ Front/back images
+  frontImageUrl String?
+  backImageUrl  String?
+
+  ownerships CardOwnership[]
 
   @@unique([setId, cardNumber])
-  // allows enforcing uniqueness within a ProductSet when productSetId is set
   @@unique([productSetId, cardNumber])
   @@index([setId])
   @@index([player])
@@ -92,6 +102,7 @@ model User {
   updatedAt    DateTime  @updatedAt
 
   sealedInventory SealedInventory[]
+  cardOwnerships  CardOwnership[]
 }
 
 model SealedInventory {
@@ -106,4 +117,17 @@ model SealedInventory {
   product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 
   @@unique([userId, productId])
+}
+
+model CardOwnership {
+  id       Int    @id @default(autoincrement())
+  userId   String
+  cardId   Int
+  quantity Int    @default(0)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  card Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, cardId])
+  @@index([cardId])
 }
