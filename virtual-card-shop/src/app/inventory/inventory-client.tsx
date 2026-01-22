@@ -98,6 +98,9 @@ export default function InventoryClient() {
   const rows = data?.inventory ?? [];
   const sorted = useMemo(() => [...rows].sort((a, b) => a.productId.localeCompare(b.productId)), [rows]);
 
+  const thStyle: React.CSSProperties = { textAlign: "left", padding: 8, borderBottom: "1px solid #ddd", whiteSpace: "nowrap" };
+  const tdStyle: React.CSSProperties = { padding: 8, borderBottom: "1px solid #eee" };
+
   return (
     <main>
       <h1 style={{ fontSize: 32, fontWeight: 900, margin: "6px 0 10px" }}>Inventory</h1>
@@ -132,40 +135,66 @@ export default function InventoryClient() {
 
           <div style={{ overflowX: "auto", border: "1px solid #ddd" }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
-              <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
+              <thead style={{ position: "sticky", top: 0, background: "#f7f7f7", zIndex: 2 }}>
                 <tr>
-                  {["Product", "Packs Owned", "Pack", "Box"].map((h) => (
-                    <th key={h} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid #ddd", whiteSpace: "nowrap" }}>
+                  {["Product", "Packs Owned", "Pack", "Box", "Action"].map((h) => (
+                    <th key={h} style={thStyle}>
                       {h}
                     </th>
                   ))}
                 </tr>
               </thead>
+
               <tbody>
-                {sorted.map((r, idx) => (
-                  <tr key={r.productId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
-                    <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 800 }}>{r.productId}</td>
-                    <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.packsOwned}</td>
-                    <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
-                      {r.product.packImageUrl ? (
-                        <img src={r.product.packImageUrl} alt="Pack" style={{ width: 48, height: 64, objectFit: "cover", border: "1px solid #eee" }} />
-                      ) : (
-                        "—"
-                      )}
-                    </td>
-                    <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
-                      {r.product.boxImageUrl ? (
-                        <img src={r.product.boxImageUrl} alt="Box" style={{ width: 64, height: 48, objectFit: "cover", border: "1px solid #eee" }} />
-                      ) : (
-                        "—"
-                      )}
-                    </td>
-                  </tr>
-                ))}
+                {sorted.map((r, idx) => {
+                  const openHref = `/open-pack/${encodeURIComponent(r.productId)}`;
+                  const canOpen = (r.packsOwned ?? 0) > 0;
+
+                  return (
+                    <tr key={r.productId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
+                      <td style={{ ...tdStyle, fontWeight: 800 }}>{r.productId}</td>
+                      <td style={tdStyle}>{r.packsOwned}</td>
+
+                      <td style={tdStyle}>
+                        {r.product.packImageUrl ? (
+                          <img
+                            src={r.product.packImageUrl}
+                            alt="Pack"
+                            style={{ width: 48, height: 64, objectFit: "cover", border: "1px solid #eee" }}
+                          />
+                        ) : (
+                          "—"
+                        )}
+                      </td>
+
+                      <td style={tdStyle}>
+                        {r.product.boxImageUrl ? (
+                          <img
+                            src={r.product.boxImageUrl}
+                            alt="Box"
+                            style={{ width: 64, height: 48, objectFit: "cover", border: "1px solid #eee" }}
+                          />
+                        ) : (
+                          "—"
+                        )}
+                      </td>
+
+                      <td style={tdStyle}>
+                        {canOpen ? (
+                          <Link href={openHref} style={{ textDecoration: "underline", fontWeight: 800 }}>
+                            Open Pack
+                          </Link>
+                        ) : (
+                          <span style={{ color: "#666" }}>—</span>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
 
                 {sorted.length === 0 && (
                   <tr>
-                    <td colSpan={4} style={{ padding: 12 }}>
+                    <td colSpan={5} style={{ padding: 12 }}>
                       No unopened packs yet. Buy something in the Shop.
                     </td>
                   </tr>

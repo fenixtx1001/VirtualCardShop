@@ -10,8 +10,6 @@ async function getParam(ctx: Ctx) {
   const params = typeof p?.then === "function" ? await p : p;
 
   const raw = params?.productSetId ?? params?.productsetid;
-
-  // Next can sometimes pass already-decoded; decode safely either way
   const id = typeof raw === "string" ? decodeURIComponent(raw) : undefined;
   return id as string | undefined;
 }
@@ -29,26 +27,28 @@ function numberOrNull(v: unknown): number | null {
   return Number.isFinite(n) ? n : null;
 }
 
-export async function GET(_req: Request, ctx: Ctx) {
+function clampInt(n: number, min: number, max: number) {
+  return Math.max(min, Math.min(max, n));
+}
+
+export async function GET(req: Request, ctx: Ctx) {
   try {
     const productSetId = await getParam(ctx);
 
     if (!productSetId || productSetId === "undefined") {
-      return NextResponse.json(
-        { error: "Missing productSetId in route params" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Missing productSetId in route params" }, { status: 400 });
     }
 
+    const url = new URL(req.url);
+    const page = clampInt(Number(url.searchParams.get("page") ?? "1"), 1, 999999);
+    const pageSize = clampInt(Number(url.searchParams.get("pageSize") ?? "100"), 1, 500);
+
+    // Get productSet + product + count (fast)
     const productSet = await prisma.productSet.findUnique({
       where: { id: productSetId },
       include: {
         product: true,
         _count: { select: { cards: true } },
-        cards: {
-          orderBy: [{ cardNumber: "asc" }],
-          take: 5000, // bump as needed
-        },
       },
     });
 
@@ -56,12 +56,57 @@ export async function GET(_req: Request, ctx: Ctx) {
       return NextResponse.json({ error: "Product Set not found" }, { status: 404 });
     }
 
-    return NextResponse.json(productSet);
+    const totalCards = productSet._count?.cards ?? 0;
+    const totalPages = Math.max(1, Math.ceil(totalCards / pageSize));
+    const safePage = clampInt(page, 1, totalPages);
+    const skip = (safePage - 1) * pageSize;
+
+    /**
+     * IMPORTANT:
+     * We must sort numerically by cardNumber BEFORE pagination,
+     * otherwise "10" comes before "2" and page 1 won't even include 2-9.
+     *
+     * SQLite numeric sort trick:
+     * ORDER BY CAST(trim(cardNumber) AS INTEGER), then trim(cardNumber)
+     *
+     * This works well for normal numeric card numbers.
+     * If you later have weird formats, we can expand the ORDER BY logic.
+     */
+    const cards = await prisma.$queryRaw<any[]>`
+  SELECT
+    id,
+    cardNumber,
+    player,
+    team,
+    position,
+    subset,
+    variant,
+    quantityOwned,
+    bookValue,
+    frontImageUrl,
+    backImageUrl,
+    productSetId
+  FROM Card
+  WHERE productSetId = ${productSetId}
+  ORDER BY
+    CAST(trim(cardNumber) AS INTEGER) ASC,
+    trim(cardNumber) ASC,
+    id ASC
+  LIMIT ${pageSize} OFFSET ${skip};
+`;
+
+    return NextResponse.json({
+      ...productSet,
+      cards,
+      pagination: {
+        page: safePage,
+        pageSize,
+        totalCards,
+        totalPages,
+      },
+    });
   } catch (e: any) {
-    return NextResponse.json(
-      { error: e?.message ?? "Failed to load product set" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: e?.message ?? "Failed to load product set" }, { status: 500 });
   }
 }
 
@@ -70,25 +115,16 @@ export async function PUT(req: Request, ctx: Ctx) {
     const productSetId = await getParam(ctx);
 
     if (!productSetId || productSetId === "undefined") {
-      return NextResponse.json(
-        { error: "Missing productSetId in route params" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Missing productSetId in route params" }, { status: 400 });
     }
 
     const body = await req.json().catch(() => ({}));
 
-    const isBase =
-      typeof body.isBase === "boolean" ? body.isBase : undefined;
-    const isInsert =
-      typeof body.isInsert === "boolean" ? body.isInsert : undefined;
+    const isBase = typeof body.isBase === "boolean" ? body.isBase : undefined;
+    const isInsert = typeof body.isInsert === "boolean" ? body.isInsert : undefined;
 
-    // Enforce mutual exclusivity (server-side too)
     if (isBase === true && isInsert === true) {
-      return NextResponse.json(
-        { error: "A Product Set cannot be both Base and Insert." },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "A Product Set cannot be both Base and Insert." }, { status: 400 });
     }
 
     const updated = await prisma.productSet.update({
@@ -103,10 +139,7 @@ export async function PUT(req: Request, ctx: Ctx) {
 
     return NextResponse.json({ ok: true, productSet: updated });
   } catch (e: any) {
-    return NextResponse.json(
-      { error: e?.message ?? "Save failed" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: e?.message ?? "Save failed" }, { status: 500 });
   }
 }
 
@@ -115,13 +148,9 @@ export async function DELETE(_req: Request, ctx: Ctx) {
     const productSetId = await getParam(ctx);
 
     if (!productSetId || productSetId === "undefined") {
-      return NextResponse.json(
-        { error: "Missing productSetId in route params" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Missing productSetId in route params" }, { status: 400 });
     }
 
-    // Pull card ids first so we can delete ownership rows safely.
     const cards = await prisma.card.findMany({
       where: { productSetId },
       select: { id: true },
@@ -150,10 +179,6 @@ export async function DELETE(_req: Request, ctx: Ctx) {
       deletedCards: cardIds.length,
     });
   } catch (e: any) {
-    // Common: Prisma throws if productSet doesn't exist
-    return NextResponse.json(
-      { error: e?.message ?? "Delete failed" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: e?.message ?? "Delete failed" }, { status: 500 });
   }
 }

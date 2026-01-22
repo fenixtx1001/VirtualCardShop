@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 
 type EconomyState = {
   balanceCents: number;
@@ -33,6 +33,10 @@ export default function AppHeader() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const tickRef = useRef<number | null>(null);
+
+  // ✅ Sticky spacer support
+  const headerRef = useRef<HTMLElement | null>(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
 
   async function loadEconomy() {
     try {
@@ -72,7 +76,6 @@ export default function AppHeader() {
       const data = (await res.json()) as EconomyState;
       setEco(data);
 
-      // Optional: tell the rest of the app economy changed
       window.dispatchEvent(new CustomEvent(ECONOMY_CHANGED_EVENT));
     } catch (e: any) {
       setErrorMsg(e?.message ?? "Claim failed");
@@ -142,77 +145,107 @@ export default function AppHeader() {
     return formatDollars(eco.balanceCents);
   }, [eco]);
 
+  // ✅ Measure header height so content never slides underneath
+  useLayoutEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+
+    const measure = () => setHeaderHeight(el.offsetHeight);
+    measure();
+
+    // Re-measure on resize
+    window.addEventListener("resize", measure);
+
+    // Re-measure if fonts/layout settle a tick later
+    const t = window.setTimeout(measure, 50);
+
+    return () => {
+      window.removeEventListener("resize", measure);
+      window.clearTimeout(t);
+    };
+  }, []);
+
   return (
-    <header
-      style={{
-        borderBottom: "1px solid #ddd",
-        padding: "12px 16px",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        background: "#fafafa",
-        gap: 16,
-      }}
-    >
-      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-        <div style={{ fontSize: 20, fontWeight: 800 }}>Virtual Card Shop</div>
+    <>
+      <header
+        ref={(node) => {
+          headerRef.current = node;
+        }}
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 1000,
+          borderBottom: "1px solid #ddd",
+          padding: "12px 16px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          background: "#fafafa",
+          gap: 16,
+        }}
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+          <div style={{ fontSize: 20, fontWeight: 800 }}>Virtual Card Shop</div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-          <div style={{ fontSize: 13 }}>
-            <span style={{ fontWeight: 700 }}>Bank:</span> {balanceText}
-          </div>
-
-          <button
-            onClick={claimReward}
-            disabled={!eco?.canClaim || loading}
-            style={{
-              fontSize: 12,
-              padding: "6px 10px",
-              borderRadius: 8,
-              border: "1px solid #ccc",
-              background: eco?.canClaim && !loading ? "white" : "#f2f2f2",
-              cursor: eco?.canClaim && !loading ? "pointer" : "not-allowed",
-              fontWeight: 700,
-            }}
-            title={
-              eco?.canClaim
-                ? "Claim $10 reward"
-                : eco
-                ? `Available in ${formatCountdown(eco.msUntilNextClaim)}`
-                : "Loading…"
-            }
-          >
-            {loading ? "Claiming…" : "Claim $10"}
-          </button>
-
-          {eco && !eco.canClaim && (
-            <div style={{ fontSize: 12, color: "#444" }}>
-              Next reward in{" "}
-              <span style={{ fontWeight: 700 }}>{formatCountdown(eco.msUntilNextClaim)}</span>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+            <div style={{ fontSize: 13 }}>
+              <span style={{ fontWeight: 700 }}>Bank:</span> {balanceText}
             </div>
-          )}
 
-          {errorMsg && <div style={{ fontSize: 12, color: "#b00020" }}>{errorMsg}</div>}
+            <button
+              onClick={claimReward}
+              disabled={!eco?.canClaim || loading}
+              style={{
+                fontSize: 12,
+                padding: "6px 10px",
+                borderRadius: 8,
+                border: "1px solid #ccc",
+                background: eco?.canClaim && !loading ? "white" : "#f2f2f2",
+                cursor: eco?.canClaim && !loading ? "pointer" : "not-allowed",
+                fontWeight: 700,
+              }}
+              title={
+                eco?.canClaim
+                  ? "Claim $10 reward"
+                  : eco
+                  ? `Available in ${formatCountdown(eco.msUntilNextClaim)}`
+                  : "Loading…"
+              }
+            >
+              {loading ? "Claiming…" : "Claim $10"}
+            </button>
+
+            {eco && !eco.canClaim && (
+              <div style={{ fontSize: 12, color: "#444" }}>
+                Next reward in <span style={{ fontWeight: 700 }}>{formatCountdown(eco.msUntilNextClaim)}</span>
+              </div>
+            )}
+
+            {errorMsg && <div style={{ fontSize: 12, color: "#b00020" }}>{errorMsg}</div>}
+          </div>
         </div>
-      </div>
 
-      <nav style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "flex-end" }}>
-        <Link href="/" style={{ textDecoration: "underline" }}>
-          Home
-        </Link>
-        <Link href="/shop" style={{ textDecoration: "underline" }}>
-          Shop
-        </Link>
-        <Link href="/inventory" style={{ textDecoration: "underline" }}>
-          Inventory
-        </Link>
-        <Link href="/collection" style={{ textDecoration: "underline" }}>
-          Collection
-        </Link>
-        <Link href="/admin" style={{ textDecoration: "underline" }}>
-          Admin
-        </Link>
-      </nav>
-    </header>
+        <nav style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "flex-end" }}>
+          <Link href="/" style={{ textDecoration: "underline" }}>
+            Home
+          </Link>
+          <Link href="/shop" style={{ textDecoration: "underline" }}>
+            Shop
+          </Link>
+          <Link href="/inventory" style={{ textDecoration: "underline" }}>
+            Inventory
+          </Link>
+          <Link href="/collection" style={{ textDecoration: "underline" }}>
+            Collection
+          </Link>
+          <Link href="/admin" style={{ textDecoration: "underline" }}>
+            Admin
+          </Link>
+        </nav>
+      </header>
+
+      {/* Spacer so page content never tucks under the sticky header */}
+      <div style={{ height: headerHeight }} />
+    </>
   );
 }

@@ -16,7 +16,7 @@ type Row = {
     packsPerBox: number | null;
     packImageUrl: string | null;
     boxImageUrl: string | null;
-    cardsPerPack?: number | null; // ✅ add if your API includes it
+    cardsPerPack?: number | null;
   };
   updatedAt: string;
 };
@@ -103,14 +103,14 @@ export default function InventoryPage() {
                 ))}
               </tr>
             </thead>
+
             <tbody>
               {rows.map((r, idx) => {
                 const zebra = idx % 2 === 0 ? "#fff" : "#fcfcfc";
                 const canOpen = (r.packsOwned ?? 0) > 0;
 
-                // ✅ This should match the route you already used successfully.
-                // If your route differs, tell me the URL you used and I’ll update this line.
-                const openHref = `/inventory/open/${encodeURIComponent(r.productId)}`;
+                // ✅ Link DIRECTLY to open-pack route (no redirect hop)
+                const openHref = `/open-pack/${encodeURIComponent(r.productId)}`;
 
                 return (
                   <tr key={r.id} style={{ background: zebra }}>
@@ -131,6 +131,7 @@ export default function InventoryPage() {
                   </tr>
                 );
               })}
+
               {rows.length === 0 ? (
                 <tr>
                   <td colSpan={6} style={{ padding: 12 }}>
