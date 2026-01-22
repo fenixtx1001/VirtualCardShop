@@ -1,53 +1,134 @@
-import { NextResponse } from "next/server";
+// src/app/sets/[setId]/cards/[id]/route.ts
+export const runtime = "nodejs";
+
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
-export async function PATCH(
-  req: Request,
-  ctx: { params: { setId: string; id: string } }
-) {
-  try {
-    const setId = decodeURIComponent(ctx.params.setId);
-    const id = Number(ctx.params.id);
+function stringOrNull(v: unknown): string | null {
+  const s = typeof v === "string" ? v.trim() : "";
+  return s.length ? s : null;
+}
 
-    if (!Number.isFinite(id)) {
-      return NextResponse.json(
-        { ok: false, error: "Invalid card id" },
-        { status: 400 }
-      );
+function numberOrNull(v: unknown): number | null {
+  if (v === null || v === undefined) return null;
+  if (typeof v === "number" && Number.isFinite(v)) return v;
+  if (typeof v === "string" && v.trim() === "") return null;
+  const n = Number(v);
+  return Number.isFinite(n) ? n : null;
+}
+
+async function getParams(ctx: any) {
+  const p: any = ctx?.params;
+  const params = typeof p?.then === "function" ? await p : p;
+
+  const setId = typeof params?.setId === "string" ? decodeURIComponent(params.setId) : "";
+  const id = typeof params?.id === "string" ? decodeURIComponent(params.id) : "";
+
+  return { setId, id };
+}
+
+export async function GET(_req: NextRequest, ctx: any) {
+  try {
+    const { setId, id } = await getParams(ctx);
+
+    if (!setId || !id) {
+      return NextResponse.json({ error: "Missing setId or id in route params" }, { status: 400 });
     }
 
-    const body = await req.json();
+    const cardIdNum = Number(id);
+    if (!Number.isFinite(cardIdNum)) {
+      return NextResponse.json({ error: "Invalid card id" }, { status: 400 });
+    }
 
-    // Only allow patching fields we expect from the admin UI
-    const data: any = {};
+    const card = await prisma.card.findFirst({
+      where: { id: cardIdNum, setId },
+    });
 
-    if (body.player !== undefined) data.player = String(body.player);
-    if (body.team !== undefined) data.team = body.team === null ? null : String(body.team);
-    if (body.position !== undefined) data.position = body.position === null ? null : String(body.position);
-    if (body.subset !== undefined) data.subset = body.subset === null ? null : String(body.subset);
-    if (body.insert !== undefined) data.insert = body.insert === null ? null : String(body.insert);
-    if (body.variant !== undefined) data.variant = body.variant === null ? null : String(body.variant);
+    if (!card) {
+      return NextResponse.json({ error: "Card not found" }, { status: 404 });
+    }
 
-    // IMPORTANT: schema says bookValue is Float (dollars), not cents
-    if (body.bookValue !== undefined) {
-      const n = Number(body.bookValue);
-      data.bookValue = Number.isFinite(n) ? n : 0;
+    return NextResponse.json({ ok: true, card });
+  } catch (e: any) {
+    return NextResponse.json({ error: e?.message ?? "Failed to load card" }, { status: 500 });
+  }
+}
+
+export async function PATCH(req: NextRequest, ctx: any) {
+  try {
+    const { setId, id } = await getParams(ctx);
+
+    if (!setId || !id) {
+      return NextResponse.json({ error: "Missing setId or id in route params" }, { status: 400 });
+    }
+
+    const cardIdNum = Number(id);
+    if (!Number.isFinite(cardIdNum)) {
+      return NextResponse.json({ error: "Invalid card id" }, { status: 400 });
+    }
+
+    const body = await req.json().catch(() => ({} as any));
+
+    const existing = await prisma.card.findFirst({
+      where: { id: cardIdNum, setId },
+      select: { id: true },
+    });
+
+    if (!existing) {
+      return NextResponse.json({ error: "Card not found" }, { status: 404 });
     }
 
     const updated = await prisma.card.update({
-      where: {
-        // Make sure the card belongs to this set
-        id,
-        setId,
+      where: { id: cardIdNum },
+      data: {
+        cardNumber: stringOrNull(body.cardNumber) ?? undefined,
+        player: stringOrNull(body.player) ?? undefined,
+        team: stringOrNull(body.team) ?? undefined,
+        position: stringOrNull(body.position) ?? undefined,
+        subset: stringOrNull(body.subset) ?? undefined,
+        variant: stringOrNull(body.variant) ?? undefined,
+
+        bookValue: numberOrNull(body.bookValue) ?? undefined,
+        quantityOwned: numberOrNull(body.quantityOwned) ?? undefined,
+
+        frontImageUrl: stringOrNull(body.frontImageUrl) ?? undefined,
+        backImageUrl: stringOrNull(body.backImageUrl) ?? undefined,
       },
-      data,
     });
 
     return NextResponse.json({ ok: true, card: updated });
-  } catch (err: any) {
-    return NextResponse.json(
-      { ok: false, error: err?.message ?? "Unknown error" },
-      { status: 500 }
-    );
+  } catch (e: any) {
+    return NextResponse.json({ error: e?.message ?? "Update failed" }, { status: 500 });
+  }
+}
+
+export async function DELETE(_req: NextRequest, ctx: any) {
+  try {
+    const { setId, id } = await getParams(ctx);
+
+    if (!setId || !id) {
+      return NextResponse.json({ error: "Missing setId or id in route params" }, { status: 400 });
+    }
+
+    const cardIdNum = Number(id);
+    if (!Number.isFinite(cardIdNum)) {
+      return NextResponse.json({ error: "Invalid card id" }, { status: 400 });
+    }
+
+    const existing = await prisma.card.findFirst({
+      where: { id: cardIdNum, setId },
+      select: { id: true },
+    });
+
+    if (!existing) {
+      return NextResponse.json({ error: "Card not found" }, { status: 404 });
+    }
+
+    await prisma.cardOwnership.deleteMany({ where: { cardId: cardIdNum } });
+    await prisma.card.delete({ where: { id: cardIdNum } });
+
+    return NextResponse.json({ ok: true, deletedId: cardIdNum });
+  } catch (e: any) {
+    return NextResponse.json({ error: e?.message ?? "Delete failed" }, { status: 500 });
   }
 }

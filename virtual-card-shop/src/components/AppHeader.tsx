@@ -10,7 +10,14 @@ type EconomyState = {
   msUntilNextClaim: number;
 };
 
+type CollectionStats = {
+  ok: boolean;
+  cardsOwned: number;
+  collectionValueCents: number;
+};
+
 const ECONOMY_CHANGED_EVENT = "vcs:economy-changed";
+const COLLECTION_CHANGED_EVENT = "vcs:collection-changed";
 
 function formatDollars(cents: number) {
   return (cents / 100).toLocaleString(undefined, {
@@ -29,12 +36,14 @@ function formatCountdown(ms: number) {
 
 export default function AppHeader() {
   const [eco, setEco] = useState<EconomyState | null>(null);
+  const [stats, setStats] = useState<CollectionStats | null>(null);
+
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const tickRef = useRef<number | null>(null);
 
-  // ✅ Sticky spacer support
+  // Sticky spacer support
   const headerRef = useRef<HTMLElement | null>(null);
   const [headerHeight, setHeaderHeight] = useState(0);
 
@@ -47,6 +56,20 @@ export default function AppHeader() {
       setEco(data);
     } catch (e: any) {
       setErrorMsg(e?.message ?? "Failed to load economy");
+    }
+  }
+
+  async function loadCollectionStats() {
+    try {
+      const res = await fetch("/api/collection/stats", { cache: "no-store" });
+      if (!res.ok) {
+        setStats(null);
+        return;
+      }
+      const data = (await res.json()) as CollectionStats;
+      setStats(data);
+    } catch {
+      setStats(null);
     }
   }
 
@@ -75,7 +98,6 @@ export default function AppHeader() {
 
       const data = (await res.json()) as EconomyState;
       setEco(data);
-
       window.dispatchEvent(new CustomEvent(ECONOMY_CHANGED_EVENT));
     } catch (e: any) {
       setErrorMsg(e?.message ?? "Claim failed");
@@ -87,16 +109,23 @@ export default function AppHeader() {
   // Initial load
   useEffect(() => {
     loadEconomy();
+    loadCollectionStats();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Listen for economy changes triggered elsewhere (e.g., shop purchase)
+  // Listen for economy changes triggered elsewhere
   useEffect(() => {
-    const handler = () => {
-      loadEconomy();
-    };
+    const handler = () => loadEconomy();
     window.addEventListener(ECONOMY_CHANGED_EVENT, handler as EventListener);
     return () => window.removeEventListener(ECONOMY_CHANGED_EVENT, handler as EventListener);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Listen for collection changes (we’ll dispatch this after pack opens later)
+  useEffect(() => {
+    const handler = () => loadCollectionStats();
+    window.addEventListener(COLLECTION_CHANGED_EVENT, handler as EventListener);
+    return () => window.removeEventListener(COLLECTION_CHANGED_EVENT, handler as EventListener);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -145,7 +174,17 @@ export default function AppHeader() {
     return formatDollars(eco.balanceCents);
   }, [eco]);
 
-  // ✅ Measure header height so content never slides underneath
+  const collectionValueText = useMemo(() => {
+    if (!stats) return "—";
+    return formatDollars(stats.collectionValueCents ?? 0);
+  }, [stats]);
+
+  const cardsOwnedText = useMemo(() => {
+    if (!stats) return "—";
+    return (stats.cardsOwned ?? 0).toLocaleString();
+  }, [stats]);
+
+  // Measure header height so content never slides underneath
   useLayoutEffect(() => {
     const el = headerRef.current;
     if (!el) return;
@@ -153,10 +192,7 @@ export default function AppHeader() {
     const measure = () => setHeaderHeight(el.offsetHeight);
     measure();
 
-    // Re-measure on resize
     window.addEventListener("resize", measure);
-
-    // Re-measure if fonts/layout settle a tick later
     const t = window.setTimeout(measure, 50);
 
     return () => {
@@ -175,21 +211,21 @@ export default function AppHeader() {
           position: "sticky",
           top: 0,
           zIndex: 1000,
-          borderBottom: "1px solid #ddd",
+          borderBottom: "1px solid #e7e3dc",
           padding: "12px 16px",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          background: "#fafafa",
+          background: "#fbfaf7",
           gap: 16,
         }}
       >
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-          <div style={{ fontSize: 20, fontWeight: 800 }}>Virtual Card Shop</div>
+          <div style={{ fontSize: 20, fontWeight: 900, letterSpacing: -0.3 }}>Virtual Card Shop</div>
 
           <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ fontSize: 13 }}>
-              <span style={{ fontWeight: 700 }}>Bank:</span> {balanceText}
+              <span style={{ fontWeight: 800 }}>Bank:</span> {balanceText}
             </div>
 
             <button
@@ -198,11 +234,11 @@ export default function AppHeader() {
               style={{
                 fontSize: 12,
                 padding: "6px 10px",
-                borderRadius: 8,
-                border: "1px solid #ccc",
-                background: eco?.canClaim && !loading ? "white" : "#f2f2f2",
+                borderRadius: 10,
+                border: "1px solid #d7d2c8",
+                background: eco?.canClaim && !loading ? "white" : "#f2efe9",
                 cursor: eco?.canClaim && !loading ? "pointer" : "not-allowed",
-                fontWeight: 700,
+                fontWeight: 800,
               }}
               title={
                 eco?.canClaim
@@ -217,9 +253,19 @@ export default function AppHeader() {
 
             {eco && !eco.canClaim && (
               <div style={{ fontSize: 12, color: "#444" }}>
-                Next reward in <span style={{ fontWeight: 700 }}>{formatCountdown(eco.msUntilNextClaim)}</span>
+                Next reward in <span style={{ fontWeight: 800 }}>{formatCountdown(eco.msUntilNextClaim)}</span>
               </div>
             )}
+
+            {/* Collector pride stats */}
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginLeft: 6 }}>
+              <div style={{ fontSize: 12, color: "#444" }}>
+                <span style={{ fontWeight: 800 }}>Collection Value:</span> {collectionValueText}
+              </div>
+              <div style={{ fontSize: 12, color: "#444" }}>
+                <span style={{ fontWeight: 800 }}>Cards Owned:</span> {cardsOwnedText}
+              </div>
+            </div>
 
             {errorMsg && <div style={{ fontSize: 12, color: "#b00020" }}>{errorMsg}</div>}
           </div>
@@ -244,7 +290,6 @@ export default function AppHeader() {
         </nav>
       </header>
 
-      {/* Spacer so page content never tucks under the sticky header */}
       <div style={{ height: headerHeight }} />
     </>
   );

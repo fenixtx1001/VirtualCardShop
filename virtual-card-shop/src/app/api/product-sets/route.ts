@@ -1,53 +1,88 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
-function intOrNull(v: unknown): number | null {
-  if (v === null || v === undefined || v === "") return null;
-  const n = Number(v);
-  if (!Number.isFinite(n)) return null;
-  return Math.trunc(n);
-}
-
-function stringOrNull(v: unknown): string | null {
-  if (v === null || v === undefined) return null;
-  const s = String(v).trim();
-  return s.length ? s : null;
-}
-
 export async function GET() {
-  const productSets = await prisma.productSet.findMany({
-    orderBy: [{ productId: "asc" }, { isBase: "desc" }, { name: "asc" }, { id: "asc" }],
-    include: {
-      product: true,
-      _count: { select: { cards: true } },
-    },
-  });
+  try {
+    // 1) Load product sets (lightweight)
+    const productSets = await prisma.productSet.findMany({
+      select: {
+        id: true,
+        productId: true,
+        name: true,
+        isBase: true,
+        isInsert: true,
+        oddsPerPack: true,
+        _count: { select: { cards: true } },
+      },
+      orderBy: [{ productId: "asc" }, { id: "asc" }],
+    });
 
-  return NextResponse.json(productSets);
-}
+    if (!productSets.length) return NextResponse.json([]);
 
-export async function POST(req: Request) {
-  const body = await req.json().catch(() => ({}));
+    // 2) Compute conditional counts per productSetId in SQLite (fast, one query)
+    //    - priced: bookValue > 0
+    //    - front: frontImageUrl non-null and not empty
+    //    - back:  backImageUrl non-null and not empty
+    const statsRows = await prisma.$queryRaw<
+      Array<{
+        productSetId: string;
+        totalCards: number;
+        pricedCards: number;
+        frontCards: number;
+        backCards: number;
+      }>
+    >`
+      SELECT
+        productSetId as productSetId,
+        COUNT(*) as totalCards,
+        SUM(CASE WHEN bookValue IS NOT NULL AND bookValue > 0 THEN 1 ELSE 0 END) as pricedCards,
+        SUM(CASE WHEN frontImageUrl IS NOT NULL AND TRIM(frontImageUrl) <> '' THEN 1 ELSE 0 END) as frontCards,
+        SUM(CASE WHEN backImageUrl IS NOT NULL AND TRIM(backImageUrl) <> '' THEN 1 ELSE 0 END) as backCards
+      FROM Card
+      GROUP BY productSetId;
+    `;
 
-  const id = stringOrNull(body?.id);
-  const productId = stringOrNull(body?.productId);
+    const statsBySetId = new Map<
+      string,
+      { totalCards: number; pricedCards: number; frontCards: number; backCards: number }
+    >();
 
-  if (!id) return NextResponse.json({ error: "Missing required field: id" }, { status: 400 });
-  if (!productId) return NextResponse.json({ error: "Missing required field: productId" }, { status: 400 });
+    for (const r of statsRows) {
+      statsBySetId.set(String(r.productSetId), {
+        totalCards: Number(r.totalCards ?? 0),
+        pricedCards: Number(r.pricedCards ?? 0),
+        frontCards: Number(r.frontCards ?? 0),
+        backCards: Number(r.backCards ?? 0),
+      });
+    }
 
-  // Ensure product exists
-  const product = await prisma.product.findUnique({ where: { id: productId } });
-  if (!product) return NextResponse.json({ error: "Product not found" }, { status: 404 });
+    const withStats = productSets.map((ps) => {
+      const s = statsBySetId.get(ps.id) ?? {
+        totalCards: ps._count?.cards ?? 0,
+        pricedCards: 0,
+        frontCards: 0,
+        backCards: 0,
+      };
 
-  const created = await prisma.productSet.create({
-    data: {
-      id,
-      productId,
-      name: stringOrNull(body?.name),
-      isBase: Boolean(body?.isBase),
-      oddsPerPack: intOrNull(body?.oddsPerPack),
-    },
-  });
+      const total = Number(s.totalCards ?? 0);
+      const pct = (n: number) => (total > 0 ? Math.round((n / total) * 1000) / 10 : 0); // 1 decimal
 
-  return NextResponse.json(created, { status: 201 });
+      return {
+        ...ps,
+        stats: {
+          totalCards: total,
+          pricedCards: s.pricedCards,
+          frontCards: s.frontCards,
+          backCards: s.backCards,
+          pctPriced: pct(s.pricedCards),
+          pctFront: pct(s.frontCards),
+          pctBack: pct(s.backCards),
+        },
+      };
+    });
+
+    return NextResponse.json(withStats);
+  } catch (e: any) {
+    return NextResponse.json({ error: e?.message ?? "Failed to load product sets" }, { status: 500 });
+  }
 }

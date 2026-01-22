@@ -3,10 +3,11 @@ export const runtime = "nodejs";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
-// ---------------- helpers ----------------
+// --- helpers ----------------------------------------------------
 
 function stripTcdbThumbTokens(line: string) {
   // TCDB often includes two (or more) leading "Image thumbnail" columns
+  // Remove any repeated "Image thumbnail" at the start of the line.
   return line.replace(/^(\s*Image\s+thumbnail\s*)+/i, "").trim();
 }
 
@@ -31,7 +32,8 @@ function looksLikeChecklist(text: string) {
 }
 
 function parsePlayerField(raw: string) {
-  // Example: "Ron Gant DK, UER"  -> DK => subset, others => variant
+  // Example: "Ron Gant DK, UER"
+  // DK -> subset, other flags -> variant
   const cleaned = raw.replace(/\s*,\s*/g, ", ").trim();
 
   let player = cleaned;
@@ -59,143 +61,277 @@ function parsePlayerField(raw: string) {
   return { player, subset, variant };
 }
 
-async function ensureLegacyPlaceholderSet() {
-  // Card.setId is still required in your schema (legacy relationship)
-  const id = "LEGACY_PLACEHOLDER";
-  const existing = await prisma.set.findUnique({ where: { id } });
-  if (existing) return;
+/**
+ * IMPORTANT:
+ * Your schema still has a legacy `Card.setId` uniqueness constraint:
+ *   @@unique([setId, cardNumber])  (or similar)
+ *
+ * So we cannot use ONE placeholder setId for ALL productSets.
+ * Instead we create a dedicated "legacy set" per productSetId.
+ *
+ * This avoids the collision you're hitting when importing a second productSet.
+ */
+async function ensureLegacySetForProductSet(productSetId: string) {
+  const legacySetId = `PS__${productSetId}`; // stable + unique
+
+  const existing = await prisma.set.findUnique({ where: { id: legacySetId } });
+  if (existing) return legacySetId;
 
   await prisma.set.create({
     data: {
-      id,
+      id: legacySetId,
       year: null,
-      brand: "Legacy Placeholder",
+      brand: "Legacy ProductSet",
       sport: null,
       packPriceCents: 0,
     },
   });
+
+  return legacySetId;
 }
 
-type ParsedRow = {
-  cardNumber: string;
-  player: string;
-  team: string | null;
-  subset: string | null;
-  variant: string | null;
-};
-
-function parsePaste(raw: string): ParsedRow[] {
-  const lines = raw
-    .split(/\r?\n/)
-    .map((l) => l.trimEnd())
-    .filter((l) => l.trim().length > 0);
-
-  const out: ParsedRow[] = [];
-
-  for (const rawLine of lines) {
-    const cleaned = stripTcdbThumbTokens(rawLine);
-    if (!cleaned) continue;
-
-    const parts = splitLine(cleaned);
-    if (parts.length < 1) continue;
-
-    const cardNumber = (parts[0] ?? "").trim();
-    const playerFieldRaw = (parts[1] ?? "").trim();
-    const teamRaw = (parts[2] ?? "").trim();
-
-    if (!cardNumber) continue;
-
-    const hint = [playerFieldRaw, teamRaw, cleaned].join(" ");
-    const isChecklist = looksLikeChecklist(hint);
-
-    if (!playerFieldRaw && !isChecklist) continue;
-
-    let player = playerFieldRaw || "Checklist";
-    let subset: string | null = null;
-    let variant: string | null = null;
-
-    if (isChecklist) {
-      subset = "Checklist";
-      if (!playerFieldRaw) player = "Checklist";
-    } else {
-      const parsed = parsePlayerField(playerFieldRaw);
-      player = parsed.player;
-      subset = parsed.subset;
-      variant = parsed.variant;
-    }
-
-    out.push({
-      cardNumber: String(cardNumber),
-      player,
-      team: teamRaw ? teamRaw : null,
-      subset: subset ?? null,
-      variant: variant ?? null,
-    });
-  }
-
-  return out;
-}
-
-// ---------------- handler ----------------
+// --- handler ----------------------------------------------------
 
 export async function POST(req: Request) {
   try {
     const body = await req.json().catch(() => ({} as any));
 
-    // Support BOTH payload shapes so nothing breaks:
-    // New UI: { productSetIdOverride, data }
-    // Old UI: { setIdOverride, text }
+    // NEW payload (ProductSet import)
     const productSetIdOverride = (body?.productSetIdOverride ?? "").toString().trim();
     const data = (body?.data ?? "").toString();
 
+    // LEGACY payload (Set import)
     const setIdOverride = (body?.setIdOverride ?? "").toString().trim();
     const text = (body?.text ?? "").toString();
 
     const isProductSetMode = !!productSetIdOverride;
 
+    // Validate input based on mode
     if (isProductSetMode) {
       if (!data.trim()) {
         return NextResponse.json({ ok: false, error: "No paste data provided" }, { status: 400 });
       }
 
+      // Ensure ProductSet exists
       const productSetId = productSetIdOverride;
       const productSet = await prisma.productSet.findUnique({ where: { id: productSetId } });
       if (!productSet) {
         return NextResponse.json({ ok: false, error: `ProductSet not found: ${productSetId}` }, { status: 404 });
       }
 
-      await ensureLegacyPlaceholderSet();
+      // ✅ This is the key fix:
+      // create/use a unique legacy setId per ProductSet so (setId, cardNumber) never collides across productSets
+      const legacySetId = await ensureLegacySetForProductSet(productSetId);
 
-      const parsed = parsePaste(data);
-      if (parsed.length === 0) {
-        return NextResponse.json({ ok: false, error: "No valid rows found to import" }, { status: 400 });
-      }
-
-      // Faster + safe, and IMPORTANTLY: no `insert` field anywhere.
       let inserted = 0;
       let updated = 0;
+      let skipped = 0;
+      const errors: Array<{ line: number; reason: string; raw: string }> = [];
 
-      for (const r of parsed) {
-        const existing = await prisma.card.findUnique({
-          where: {
-            productSetId_cardNumber: {
-              productSetId,
-              cardNumber: r.cardNumber,
+      const lines = data
+        .split(/\r?\n/)
+        .map((l: string) => l.trimEnd())
+        .filter((l: string) => l.trim().length > 0);
+
+      for (let i = 0; i < lines.length; i++) {
+        const rawLine = lines[i];
+
+        try {
+          const cleaned = stripTcdbThumbTokens(rawLine);
+          if (!cleaned) {
+            skipped++;
+            continue;
+          }
+
+          const parts = splitLine(cleaned);
+
+          // Expected (after stripping thumbs):
+          // [cardNumber, playerField, team, ...]
+          if (parts.length < 1) {
+            skipped++;
+            continue;
+          }
+
+          const cardNumber = (parts[0] ?? "").trim();
+          const playerFieldRaw = (parts[1] ?? "").trim();
+          const teamRaw = (parts[2] ?? "").trim();
+
+          if (!cardNumber) {
+            skipped++;
+            continue;
+          }
+
+          const checklistHintText = [playerFieldRaw, teamRaw, cleaned].join(" ");
+          const isChecklist = looksLikeChecklist(checklistHintText);
+
+          if (!playerFieldRaw && !isChecklist) {
+            skipped++;
+            continue;
+          }
+
+          let player = playerFieldRaw || "Checklist";
+          let subset: string | null = null;
+          let variant: string | null = null;
+
+          if (isChecklist) {
+            subset = "Checklist";
+            if (!playerFieldRaw) player = "Checklist";
+          } else {
+            const parsed = parsePlayerField(playerFieldRaw);
+            player = parsed.player;
+            subset = parsed.subset;
+            variant = parsed.variant;
+          }
+
+          // We treat "exists" as: same productSetId + same cardNumber
+          const existing = await prisma.card.findUnique({
+            where: {
+              productSetId_cardNumber: {
+                productSetId,
+                cardNumber: String(cardNumber),
+              },
             },
-          },
+          });
+
+          if (!existing) {
+            await prisma.card.create({
+              data: {
+                // ✅ FIX: unique per productSet (prevents the collision you're seeing)
+                setId: legacySetId,
+
+                productSetId,
+                cardNumber: String(cardNumber),
+                player,
+                team: teamRaw || null,
+                position: null,
+                subset: subset || null,
+                variant: variant || null,
+                bookValue: 0,
+                quantityOwned: 0,
+                frontImageUrl: null,
+                backImageUrl: null,
+              },
+            });
+            inserted++;
+          } else {
+            await prisma.card.update({
+              where: { id: existing.id },
+              data: {
+                player,
+                team: teamRaw || null,
+                subset: subset || null,
+                variant: variant || null,
+              },
+            });
+            updated++;
+          }
+        } catch (e: any) {
+          errors.push({
+            line: i + 1,
+            reason: e?.message ?? String(e),
+            raw: rawLine,
+          });
+        }
+      }
+
+      return NextResponse.json({
+        ok: true,
+        mode: "productSet",
+        productSetId: productSetIdOverride,
+        inserted,
+        updated,
+        skipped,
+        errorCount: errors.length,
+        errors: errors.slice(0, 50),
+      });
+    }
+
+    // ----- LEGACY MODE (Set import) -----
+    const setId = setIdOverride || "Unknown Set";
+
+    if (!text.trim()) {
+      return NextResponse.json({ ok: false, error: "No paste text provided" }, { status: 400 });
+    }
+
+    // Ensure the Set exists (minimal; you can enrich later)
+    await prisma.set.upsert({
+      where: { id: setId },
+      update: {},
+      create: { id: setId },
+    });
+
+    let inserted = 0;
+    let updated = 0;
+    let skipped = 0;
+    const errors: Array<{ line: number; reason: string; raw: string }> = [];
+
+    const lines = text
+      .split(/\r?\n/)
+      .map((l: string) => l.trimEnd())
+      .filter((l: string) => l.trim().length > 0);
+
+    for (let i = 0; i < lines.length; i++) {
+      const rawLine = lines[i];
+
+      try {
+        const cleaned = stripTcdbThumbTokens(rawLine);
+        if (!cleaned) {
+          skipped++;
+          continue;
+        }
+
+        const parts = splitLine(cleaned);
+
+        if (parts.length < 1) {
+          skipped++;
+          continue;
+        }
+
+        const cardNumber = (parts[0] ?? "").trim();
+        const playerFieldRaw = (parts[1] ?? "").trim();
+        const teamRaw = (parts[2] ?? "").trim();
+
+        if (!cardNumber) {
+          skipped++;
+          continue;
+        }
+
+        const checklistHintText = [playerFieldRaw, teamRaw, cleaned].join(" ");
+        const isChecklist = looksLikeChecklist(checklistHintText);
+
+        if (!playerFieldRaw && !isChecklist) {
+          skipped++;
+          continue;
+        }
+
+        let player = playerFieldRaw || "Checklist";
+        let subset: string | null = null;
+        let variant: string | null = null;
+
+        if (isChecklist) {
+          subset = "Checklist";
+          if (!playerFieldRaw) player = "Checklist";
+        } else {
+          const parsed = parsePlayerField(playerFieldRaw);
+          player = parsed.player;
+          subset = parsed.subset;
+          variant = parsed.variant;
+        }
+
+        const existing = await prisma.card.findUnique({
+          where: { setId_cardNumber: { setId, cardNumber: String(cardNumber) } },
         });
 
         if (!existing) {
           await prisma.card.create({
             data: {
-              setId: "LEGACY_PLACEHOLDER",
-              productSetId,
-              cardNumber: r.cardNumber,
-              player: r.player,
-              team: r.team,
+              setId,
+              cardNumber: String(cardNumber),
+              player,
+              team: teamRaw || null,
               position: null,
-              subset: r.subset,
-              variant: r.variant,
+              subset: subset || null,
+              variant: variant || null,
               bookValue: 0,
               quantityOwned: 0,
               frontImageUrl: null,
@@ -207,79 +343,20 @@ export async function POST(req: Request) {
           await prisma.card.update({
             where: { id: existing.id },
             data: {
-              player: r.player,
-              team: r.team,
-              subset: r.subset,
-              variant: r.variant,
+              player,
+              team: teamRaw || null,
+              subset: subset || null,
+              variant: variant || null,
             },
           });
           updated++;
         }
-      }
-
-      return NextResponse.json({
-        ok: true,
-        mode: "productSet",
-        productSetId,
-        inserted,
-        updated,
-        total: parsed.length,
-      });
-    }
-
-    // ------- Legacy Set mode (keep it working) -------
-    if (!text.trim()) {
-      return NextResponse.json({ ok: false, error: "No paste text provided" }, { status: 400 });
-    }
-
-    const setId = setIdOverride || "Unknown Set";
-    await prisma.set.upsert({
-      where: { id: setId },
-      update: {},
-      create: { id: setId },
-    });
-
-    const parsed = parsePaste(text);
-    if (parsed.length === 0) {
-      return NextResponse.json({ ok: false, error: "No valid rows found to import" }, { status: 400 });
-    }
-
-    let inserted = 0;
-    let updated = 0;
-
-    for (const r of parsed) {
-      const existing = await prisma.card.findUnique({
-        where: { setId_cardNumber: { setId, cardNumber: r.cardNumber } },
-      });
-
-      if (!existing) {
-        await prisma.card.create({
-          data: {
-            setId,
-            cardNumber: r.cardNumber,
-            player: r.player,
-            team: r.team,
-            position: null,
-            subset: r.subset,
-            variant: r.variant,
-            bookValue: 0,
-            quantityOwned: 0,
-            frontImageUrl: null,
-            backImageUrl: null,
-          },
+      } catch (e: any) {
+        errors.push({
+          line: i + 1,
+          reason: e?.message ?? String(e),
+          raw: rawLine,
         });
-        inserted++;
-      } else {
-        await prisma.card.update({
-          where: { id: existing.id },
-          data: {
-            player: r.player,
-            team: r.team,
-            subset: r.subset,
-            variant: r.variant,
-          },
-        });
-        updated++;
       }
     }
 
@@ -289,7 +366,9 @@ export async function POST(req: Request) {
       setId,
       inserted,
       updated,
-      total: parsed.length,
+      skipped,
+      errorCount: errors.length,
+      errors: errors.slice(0, 50),
     });
   } catch (err: any) {
     return NextResponse.json({ ok: false, error: err?.message ?? "Unknown error" }, { status: 500 });

@@ -21,8 +21,7 @@ type ChecklistResponse = {
   totalCards: number;
   uniqueOwned: number;
   percentComplete: number;
-  rows?: ChecklistRow[];  // some versions
-  cards?: ChecklistRow[]; // other versions
+  rows: ChecklistRow[];
 };
 
 export default function ChecklistClient({ productId }: { productId: string }) {
@@ -62,7 +61,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
   }, [productId]);
 
   const sorted = useMemo(() => {
-    const rows = (data?.rows ?? data?.cards ?? []) as ChecklistRow[];
+    const rows = data?.rows ?? [];
     return [...rows].sort((a, b) => {
       const an = Number(a.cardNumber);
       const bn = Number(b.cardNumber);
@@ -76,7 +75,10 @@ export default function ChecklistClient({ productId }: { productId: string }) {
   return (
     <div style={{ fontFamily: "system-ui", padding: 16 }}>
       <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
-        <Link href={`/collection/${encodeURIComponent(productId)}`} style={{ textDecoration: "underline", fontWeight: 800 }}>
+        <Link
+          href={`/collection/${encodeURIComponent(productId)}`}
+          style={{ textDecoration: "underline", fontWeight: 800 }}
+        >
           ← Back to Set
         </Link>
 
@@ -93,7 +95,11 @@ export default function ChecklistClient({ productId }: { productId: string }) {
 
       <hr style={{ margin: "14px 0" }} />
 
-      {err && <div style={{ marginBottom: 12, padding: 10, background: "#fee", border: "1px solid #f99" }}>{err}</div>}
+      {err && (
+        <div style={{ marginBottom: 12, padding: 10, background: "#fee", border: "1px solid #f99" }}>
+          {err}
+        </div>
+      )}
 
       {loading ? (
         <div>Loading…</div>
@@ -105,19 +111,27 @@ export default function ChecklistClient({ productId }: { productId: string }) {
             Complete: {data.percentComplete.toFixed(1)}% ({data.uniqueOwned}/{data.totalCards} unique)
           </div>
 
-          {sorted.length === 0 ? (
+          {sorted.length === 0 && (
             <div style={{ padding: 10, border: "1px solid #ddd", background: "#fffdf2" }}>
-              Checklist loaded but returned 0 rows. This usually means your API is returning a different field name (fixed above),
-              or your API query is filtering out the set.
+              Checklist loaded but returned 0 rows. This usually means the product has no cards or
+              the productSets are mis-linked.
             </div>
-          ) : null}
+          )}
 
           <div style={{ overflowX: "auto", border: "1px solid #ddd" }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
                 <tr>
                   {["Owned", "#", "Player", "Team", "Subset", "Variant", "Type", "Qty"].map((h) => (
-                    <th key={h} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid #ddd", whiteSpace: "nowrap" }}>
+                    <th
+                      key={h}
+                      style={{
+                        textAlign: "left",
+                        padding: 8,
+                        borderBottom: "1px solid #ddd",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
                       {h}
                     </th>
                   ))}
@@ -128,14 +142,34 @@ export default function ChecklistClient({ productId }: { productId: string }) {
                   const owned = (r.ownedQty ?? 0) > 0;
                   return (
                     <tr key={r.cardId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>{owned ? "✅" : "⬜"}</td>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>{r.cardNumber}</td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                        {owned ? "✅" : "⬜"}
+                      </td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                        {r.cardNumber}
+                      </td>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.player}</td>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.team ?? "—"}</td>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.subset ?? "—"}</td>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.variant ?? "—"}</td>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.isInsert ? "Insert" : "Base"}</td>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 800 }}>{r.ownedQty ?? 0}</td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
+                        {r.team ?? "—"}
+                      </td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
+                        {r.subset ?? "—"}
+                      </td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
+                        {r.variant ?? "—"}
+                      </td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
+                        {r.isInsert ? "Insert" : "Base"}
+                      </td>
+                      <td
+                        style={{
+                          padding: 8,
+                          borderBottom: "1px solid #eee",
+                          fontWeight: 800,
+                        }}
+                      >
+                        {r.ownedQty ?? 0}
+                      </td>
                     </tr>
                   );
                 })}
