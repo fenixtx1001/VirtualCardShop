@@ -9,83 +9,64 @@ datasource db {
 }
 
 model Set {
-  id             String  @id
+  id             String   @id
   year           Int?
   brand          String?
   sport          String?
-  packPriceCents Int?    @default(0)
-
-  cards     Card[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  packPriceCents Int?     @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  cards          Card[]
 }
 
 model Product {
-  id             String  @id
-  year           Int?
-  brand          String?
-  sport          String?
-  packPriceCents Int?    @default(0)
-  packsPerBox    Int?
-  packImageUrl   String?
-  boxImageUrl    String?
-
-  // ✅ No default. Admin must set this per product.
-  cardsPerPack   Int?
-
-  productSets ProductSet[]
-
+  id                String            @id
+  year              Int?
+  brand             String?
+  sport             String?
+  packPriceCents    Int?              @default(0)
+  packsPerBox       Int?
+  packImageUrl      String?
+  boxImageUrl       String?
+  cardsPerPack      Int?
   createdAt         DateTime          @default(now())
   updatedAt         DateTime          @updatedAt
+  productSets       ProductSet[]
   sealedInventories SealedInventory[]
 }
 
 model ProductSet {
-  id          String  @id
+  id          String   @id
   productId   String
   name        String?
-  isBase      Boolean @default(false)
-
-  // ✅ Flag inserts at the ProductSet level (not per card)
-  isInsert    Boolean @default(false)
-
-  oddsPerPack Int? // e.g. 84 means "1:84 packs"
-
-  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
-  cards   Card[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  isBase      Boolean  @default(false)
+  isInsert    Boolean  @default(false)
+  oddsPerPack Int?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  cards       Card[]
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
 
   @@index([productId])
 }
 
 model Card {
-  id Int @id @default(autoincrement())
-
-  // Legacy relationship (keep so nothing breaks)
-  setId String
-  set   Set    @relation(fields: [setId], references: [id])
-
-  // New relationship
-  productSetId String?
-  productSet   ProductSet? @relation(fields: [productSetId], references: [id])
-
-  cardNumber String
-  player     String
-  team       String?
-  position   String?
-  subset     String?
-  variant    String?
-
-  bookValue     Float   @default(0)
-  quantityOwned Int     @default(0)
-
-  // ✅ Front/back images
+  id            Int             @id @default(autoincrement())
+  setId         String
+  productSetId  String?
+  cardNumber    String
+  player        String
+  team          String?
+  position      String?
+  subset        String?
+  variant       String?
+  bookValue     Float           @default(0)
+  quantityOwned Int             @default(0)
   frontImageUrl String?
   backImageUrl  String?
-
-  ownerships CardOwnership[]
+  productSet    ProductSet?     @relation(fields: [productSetId], references: [id])
+  set           Set             @relation(fields: [setId], references: [id])
+  ownerships    CardOwnership[]
 
   @@unique([setId, cardNumber])
   @@unique([productSetId, cardNumber])
@@ -95,14 +76,13 @@ model Card {
 }
 
 model User {
-  id           String    @id
-  balanceCents Int       @default(5000) // $50
-  nextRewardAt DateTime? // null means can claim immediately
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
-
-  sealedInventory SealedInventory[]
+  id              String            @id
+  balanceCents    Int               @default(5000)
+  nextRewardAt    DateTime?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
   cardOwnerships  CardOwnership[]
+  sealedInventory SealedInventory[]
 }
 
 model SealedInventory {
@@ -112,9 +92,8 @@ model SealedInventory {
   packsOwned Int      @default(0)
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
-
-  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, productId])
 }
@@ -124,9 +103,8 @@ model CardOwnership {
   userId   String
   cardId   Int
   quantity Int    @default(0)
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  card Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  card     Card   @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, cardId])
   @@index([cardId])

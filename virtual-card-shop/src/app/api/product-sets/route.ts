@@ -1,3 +1,6 @@
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
@@ -19,10 +22,7 @@ export async function GET() {
 
     if (!productSets.length) return NextResponse.json([]);
 
-    // 2) Compute conditional counts per productSetId in SQLite (fast, one query)
-    //    - priced: bookValue > 0
-    //    - front: frontImageUrl non-null and not empty
-    //    - back:  backImageUrl non-null and not empty
+    // 2) Compute conditional counts per productSetId (Postgres-safe)
     const statsRows = await prisma.$queryRaw<
       Array<{
         productSetId: string;
@@ -33,13 +33,14 @@ export async function GET() {
       }>
     >`
       SELECT
-        productSetId as productSetId,
-        COUNT(*) as totalCards,
-        SUM(CASE WHEN bookValue IS NOT NULL AND bookValue > 0 THEN 1 ELSE 0 END) as pricedCards,
-        SUM(CASE WHEN frontImageUrl IS NOT NULL AND TRIM(frontImageUrl) <> '' THEN 1 ELSE 0 END) as frontCards,
-        SUM(CASE WHEN backImageUrl IS NOT NULL AND TRIM(backImageUrl) <> '' THEN 1 ELSE 0 END) as backCards
-      FROM Card
-      GROUP BY productSetId;
+        "productSetId" as "productSetId",
+        COUNT(*)::int as "totalCards",
+        COALESCE(SUM(CASE WHEN "bookValue" IS NOT NULL AND "bookValue" > 0 THEN 1 ELSE 0 END), 0)::int as "pricedCards",
+        COALESCE(SUM(CASE WHEN "frontImageUrl" IS NOT NULL AND TRIM("frontImageUrl") <> '' THEN 1 ELSE 0 END), 0)::int as "frontCards",
+        COALESCE(SUM(CASE WHEN "backImageUrl" IS NOT NULL AND TRIM("backImageUrl") <> '' THEN 1 ELSE 0 END), 0)::int as "backCards"
+      FROM "Card"
+      WHERE "productSetId" IS NOT NULL
+      GROUP BY "productSetId";
     `;
 
     const statsBySetId = new Map<
@@ -83,6 +84,60 @@ export async function GET() {
 
     return NextResponse.json(withStats);
   } catch (e: any) {
-    return NextResponse.json({ error: e?.message ?? "Failed to load product sets" }, { status: 500 });
+    return NextResponse.json(
+      { error: e?.message ?? "Failed to load product sets" },
+      { status: 500 }
+    );
+  }
+}
+
+export async function POST(req: Request) {
+  try {
+    const body = await req.json();
+
+    const id = typeof body?.id === "string" ? body.id.trim() : "";
+    const productId = typeof body?.productId === "string" ? body.productId.trim() : "";
+    const name = typeof body?.name === "string" ? body.name.trim() : null;
+
+    if (!id) return NextResponse.json({ error: "Missing required field: id" }, { status: 400 });
+    if (!productId)
+      return NextResponse.json({ error: "Missing required field: productId" }, { status: 400 });
+
+    const isBase = !!body?.isBase;
+    const isInsert = !!body?.isInsert;
+
+    if (isBase && isInsert) {
+      return NextResponse.json(
+        { error: "A Product Set cannot be both Base and Insert." },
+        { status: 400 }
+      );
+    }
+
+    const oddsPerPack =
+      body?.oddsPerPack === null || body?.oddsPerPack === undefined || body?.oddsPerPack === ""
+        ? null
+        : Number(body.oddsPerPack);
+
+    if (oddsPerPack !== null && !Number.isFinite(oddsPerPack)) {
+      return NextResponse.json({ error: "oddsPerPack must be a number or null." }, { status: 400 });
+    }
+
+    const created = await prisma.productSet.create({
+      data: {
+        id,
+        productId,
+        name,
+        isBase,
+        isInsert,
+        oddsPerPack,
+      },
+    });
+
+    return NextResponse.json(created, { status: 201 });
+  } catch (e: any) {
+    return NextResponse.json(
+      { error: e?.message ?? "Failed to create product set" },
+      { status: 500 }
+    );
   }
 }

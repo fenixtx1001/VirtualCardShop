@@ -74,24 +74,32 @@ export async function GET(req: Request, ctx: Ctx) {
      */
     const cards = await prisma.$queryRaw<any[]>`
   SELECT
-    id,
-    cardNumber,
-    player,
-    team,
-    position,
-    subset,
-    variant,
-    quantityOwned,
-    bookValue,
-    frontImageUrl,
-    backImageUrl,
-    productSetId
-  FROM Card
-  WHERE productSetId = ${productSetId}
+    "id",
+    "cardNumber",
+    "player",
+    "team",
+    "position",
+    "subset",
+    "variant",
+    "quantityOwned",
+    "bookValue",
+    "frontImageUrl",
+    "backImageUrl",
+    "productSetId"
+  FROM "Card"
+  WHERE "productSetId" = ${productSetId}
   ORDER BY
-    CAST(trim(cardNumber) AS INTEGER) ASC,
-    trim(cardNumber) ASC,
-    id ASC
+    -- numeric-first sort for purely numeric card numbers
+    CASE
+      WHEN TRIM("cardNumber") ~ '^[0-9]+$' THEN 0
+      ELSE 1
+    END ASC,
+    CASE
+      WHEN TRIM("cardNumber") ~ '^[0-9]+$' THEN CAST(TRIM("cardNumber") AS INTEGER)
+      ELSE NULL
+    END ASC,
+    TRIM("cardNumber") ASC,
+    "id" ASC
   LIMIT ${pageSize} OFFSET ${skip};
 `;
 
