@@ -4,14 +4,14 @@ export const dynamic = "force-dynamic";
 import { NextResponse } from "next/server";
 import path from "path";
 import { promises as fs } from "fs";
-
-// Cloudinary (optional, used when env vars exist)
 import { v2 as cloudinary } from "cloudinary";
 
+function isProd() {
+  return process.env.VERCEL_ENV === "production" || process.env.NODE_ENV === "production";
+}
+
 function sanitizeFilename(name: string) {
-  // keep letters, numbers, dash, underscore, dot
   const base = name.toLowerCase().replace(/[^a-z0-9._-]+/g, "-");
-  // prevent sneaky paths
   return base.replace(/^-+/, "").replace(/-+$/, "") || "upload";
 }
 
@@ -46,28 +46,18 @@ async function uploadToCloudinary(buffer: Buffer, filename: string, mime: string
   return await new Promise<{
     url: string;
     public_id: string;
-    bytes?: number;
-    format?: string;
-    width?: number;
-    height?: number;
   }>((resolve, reject) => {
     const stream = cloudinary.uploader.upload_stream(
       {
         resource_type: "image",
         public_id,
         overwrite: false,
-        // Keep originals reasonably sized; you can remove this if you want full-res always
-        // transformation: [{ quality: "auto", fetch_format: "auto" }],
       },
       (err, result) => {
         if (err || !result) return reject(err ?? new Error("Cloudinary upload failed"));
         resolve({
           url: (result.secure_url || result.url) as string,
           public_id: result.public_id as string,
-          bytes: result.bytes,
-          format: result.format as string,
-          width: result.width as number,
-          height: result.height as number,
         });
       }
     );
@@ -99,35 +89,51 @@ async function uploadToLocalPublic(buffer: Buffer, originalName: string, mime: s
 
 export async function POST(req: Request) {
   try {
+    console.log("[upload] start", {
+      vercelEnv: process.env.VERCEL_ENV,
+      nodeEnv: process.env.NODE_ENV,
+      cloudinaryConfigured: cloudinaryConfigured(),
+    });
+
     const form = await req.formData();
     const file = form.get("file");
 
     if (!file || !(file instanceof File)) {
+      console.warn("[upload] missing file");
       return NextResponse.json({ error: "Missing file" }, { status: 400 });
     }
 
-    // Basic validation
     const mime = file.type || "";
     if (!mime.startsWith("image/")) {
+      console.warn("[upload] invalid mime", mime);
       return NextResponse.json({ error: "Only image uploads are allowed" }, { status: 400 });
     }
 
-    // Size limit: 5MB
     const maxBytes = 5 * 1024 * 1024;
     if (file.size > maxBytes) {
+      console.warn("[upload] too large", file.size);
       return NextResponse.json({ error: "File too large (max 5MB)" }, { status: 400 });
     }
 
-    const arrayBuffer = await file.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
+    const buffer = Buffer.from(await file.arrayBuffer());
 
-    // If Cloudinary is configured, use it (works on Vercel)
+    // In production, REQUIRE Cloudinary (don’t silently fall back and fail on Vercel FS)
+    if (isProd() && !cloudinaryConfigured()) {
+      console.error("[upload] cloudinary env missing in production");
+      return NextResponse.json(
+        { error: "Upload not configured: missing Cloudinary env vars in production." },
+        { status: 500 }
+      );
+    }
+
     if (cloudinaryConfigured()) {
+      console.log("[upload] uploading to cloudinary", { name: file.name, size: file.size, mime });
       const result = await uploadToCloudinary(buffer, file.name || "image", mime);
+      console.log("[upload] cloudinary ok", { public_id: result.public_id });
+
       return NextResponse.json({
         ok: true,
         url: result.url,
-        // Optional but useful for future migration/deletes:
         storageProvider: "cloudinary",
         storageKey: result.public_id,
         bytes: file.size,
@@ -135,8 +141,10 @@ export async function POST(req: Request) {
       });
     }
 
-    // Otherwise, fallback to local filesystem (dev only)
+    // Local fallback (dev only)
+    console.log("[upload] uploading locally", { name: file.name, size: file.size, mime });
     const local = await uploadToLocalPublic(buffer, file.name || "image", mime);
+
     return NextResponse.json({
       ok: true,
       url: local.url,
@@ -146,6 +154,7 @@ export async function POST(req: Request) {
       mime,
     });
   } catch (e: any) {
+    console.error("[upload] error", e);
     return NextResponse.json({ error: e?.message ?? "Upload failed" }, { status: 500 });
   }
 }
