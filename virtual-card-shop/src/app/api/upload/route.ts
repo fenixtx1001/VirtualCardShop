@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 import path from "path";
 import { promises as fs } from "fs";
 import { v2 as cloudinary } from "cloudinary";
+import { r2Configured, uploadToR2 } from "@/lib/r2Upload";
 
 function isProd() {
   return process.env.VERCEL_ENV === "production" || process.env.NODE_ENV === "production";
@@ -92,6 +93,7 @@ export async function POST(req: Request) {
     console.log("[upload] start", {
       vercelEnv: process.env.VERCEL_ENV,
       nodeEnv: process.env.NODE_ENV,
+      r2Configured: r2Configured(),
       cloudinaryConfigured: cloudinaryConfigured(),
     });
 
@@ -117,15 +119,40 @@ export async function POST(req: Request) {
 
     const buffer = Buffer.from(await file.arrayBuffer());
 
-    // In production, REQUIRE Cloudinary (don’t silently fall back and fail on Vercel FS)
-    if (isProd() && !cloudinaryConfigured()) {
-      console.error("[upload] cloudinary env missing in production");
+    // In production, REQUIRE R2 (and do not silently fall back to local FS).
+    if (isProd() && !r2Configured()) {
+      console.error("[upload] R2 env missing in production");
       return NextResponse.json(
-        { error: "Upload not configured: missing Cloudinary env vars in production." },
+        { error: "Upload not configured: missing R2 env vars in production." },
         { status: 500 }
       );
     }
 
+    // Prefer R2 whenever configured.
+    if (r2Configured()) {
+      const original = sanitizeFilename(file.name || "image");
+      const originalExt = path.extname(original);
+      const ext = originalExt || extFromMime(mime) || ".img";
+      const baseName = originalExt ? original.slice(0, -originalExt.length) : original;
+      const stamp = Date.now();
+
+      // Keep keys stable & simple. You can refine later (by product/set/etc).
+      const key = `virtual-card-shop/uploads/${baseName}-${stamp}${ext}`;
+
+      console.log("[upload] uploading to R2", { name: file.name, size: file.size, mime, key });
+      const url = await uploadToR2({ buffer, key, contentType: mime });
+
+      return NextResponse.json({
+        ok: true,
+        url,
+        storageProvider: "r2",
+        storageKey: key,
+        bytes: file.size,
+        mime,
+      });
+    }
+
+    // Optional fallback during transition ONLY (dev / local testing).
     if (cloudinaryConfigured()) {
       console.log("[upload] uploading to cloudinary", { name: file.name, size: file.size, mime });
       const result = await uploadToCloudinary(buffer, file.name || "image", mime);

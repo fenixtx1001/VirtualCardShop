@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getOrCreateDefaultUser } from "@/lib/default-user";
 
-export async function GET(_: Request, { params }: { params: Promise<{ productId: string }> }) {
+export async function GET(req: Request, { params }: { params: Promise<{ productId: string }> }) {
   try {
     const { productId } = await params;
     const id = decodeURIComponent(productId || "").trim();
@@ -10,8 +10,9 @@ export async function GET(_: Request, { params }: { params: Promise<{ productId:
 
     const user = await getOrCreateDefaultUser();
 
-    // Load ALL cards for this product (across all productSets under the product),
-    // and join ownership (quantity) for this user.
+    // Load product + its productSets so we can:
+    // - default to the Base set for "completion"
+    // - support future UI toggles between Base vs Inserts
     const product = await prisma.product.findUnique({
       where: { id },
       include: { productSets: true },
@@ -19,10 +20,33 @@ export async function GET(_: Request, { params }: { params: Promise<{ productId:
 
     if (!product) return NextResponse.json({ error: `Product not found: ${id}` }, { status: 404 });
 
-    const setIds = product.productSets.map((ps) => ps.id);
+    // Optional: allow client to request a specific productSet checklist
+    const url = new URL(req.url);
+    const rawProductSetId = url.searchParams.get("productSetId");
+    const productSetId = rawProductSetId ? decodeURIComponent(rawProductSetId).trim() : "";
+
+    const baseSet = product.productSets.find((ps) => ps.isBase) ?? product.productSets[0];
+    if (!baseSet) {
+      return NextResponse.json(
+        { error: `Product has no productSets: ${id}` },
+        { status: 400 }
+      );
+    }
+
+    const selectedSet =
+      productSetId
+        ? product.productSets.find((ps) => ps.id === productSetId) ?? null
+        : baseSet;
+
+    if (!selectedSet) {
+      return NextResponse.json(
+        { error: `productSetId not found on product: ${productSetId}` },
+        { status: 404 }
+      );
+    }
 
     const cards = await prisma.card.findMany({
-      where: { productSetId: { in: setIds } },
+      where: { productSetId: selectedSet.id },
       select: {
         id: true,
         cardNumber: true,
@@ -46,8 +70,6 @@ export async function GET(_: Request, { params }: { params: Promise<{ productId:
     const ownedMap = new Map<number, number>();
     for (const o of ownership) ownedMap.set(o.cardId, o.quantity);
 
-    const baseSetIds = new Set(product.productSets.filter((ps) => ps.isBase).map((ps) => ps.id));
-
     const rows = cards.map((c) => ({
       cardId: c.id,
       cardNumber: c.cardNumber,
@@ -55,7 +77,8 @@ export async function GET(_: Request, { params }: { params: Promise<{ productId:
       team: c.team,
       subset: c.subset,
       variant: c.variant,
-      isInsert: c.productSetId ? !baseSetIds.has(c.productSetId) : false,
+      // this is now accurate for the selected set
+      isInsert: !selectedSet.isBase,
       bookValue: c.bookValue ?? 0,
       ownedQty: ownedMap.get(c.id) ?? 0,
     }));
@@ -67,9 +90,21 @@ export async function GET(_: Request, { params }: { params: Promise<{ productId:
     return NextResponse.json({
       ok: true,
       productId: id,
+
+      // New: productSet-scoped stats (what you want)
+      productSetId: selectedSet.id,
+      productSetIsBase: selectedSet.isBase,
       totalCards,
       uniqueOwned,
       percentComplete,
+
+      // New: so the UI can add Base/Inserts toggle next
+      productSets: product.productSets.map((ps) => ({
+        id: ps.id,
+        isBase: ps.isBase,
+        name: (ps as any).name ?? null, // safe if you don't have name
+      })),
+
       rows,
     });
   } catch (e: any) {

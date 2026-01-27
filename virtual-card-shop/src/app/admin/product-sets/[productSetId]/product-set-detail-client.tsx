@@ -120,6 +120,16 @@ async function runWithConcurrency<T>(
   await Promise.all(runners);
 }
 
+type SortMode =
+  | "CARDNO_ASC"
+  | "BOOK_DESC"
+  | "BOOK_ASC"
+  | "PLAYER_ASC"
+  | "TEAM_ASC"
+  | "SUBSET_ASC"
+  | "VARIANT_ASC"
+  | "NEEDS_SETUP_FIRST";
+
 export default function ProductSetDetailClient({ productSetId }: { productSetId: string }) {
   const [data, setData] = useState<ProductSetResponse | null>(null);
   const [loading, setLoading] = useState(true);
@@ -136,6 +146,9 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
   // Needs setup toggle
   const [needsSetupOnly, setNeedsSetupOnly] = useState(false);
+
+  // Sorting (NEW)
+  const [sortMode, setSortMode] = useState<SortMode>("CARDNO_ASC");
 
   // Pagination state
   const [page, setPage] = useState(1);
@@ -214,59 +227,6 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productSetId, page, pageSize]);
 
-  // ✅ FIXED: numeric-aware sorting
-  const sortedCards = useMemo(() => {
-    const cards = data?.cards ?? [];
-    const arr = [...cards];
-    arr.sort((x, y) => {
-      const a = parseCardNumberSortKey(x.cardNumber);
-      const b = parseCardNumberSortKey(y.cardNumber);
-      if (a.bucket !== b.bucket) return a.bucket - b.bucket;
-      if (a.a !== b.a) return a.a - b.a;
-      if (a.b !== b.b) return a.b - b.b;
-      if (a.suf !== b.suf) return a.suf.localeCompare(b.suf);
-      // deterministic fallback
-      return x.id - y.id;
-    });
-    return arr;
-  }, [data]);
-
-  const filterOptions = useMemo(() => {
-    const cards = data?.cards ?? [];
-    const subsets = new Set<string>();
-    const variants = new Set<string>();
-
-    for (const c of cards) {
-      subsets.add(normalizeOpt(c.subset));
-      variants.add(normalizeOpt(c.variant));
-    }
-
-    const sortAlpha = (a: string, b: string) => {
-      if (a === "—" && b !== "—") return -1;
-      if (a !== "—" && b === "—") return 1;
-      return a.localeCompare(b);
-    };
-
-    return {
-      subsets: Array.from(subsets).sort(sortAlpha),
-      variants: Array.from(variants).sort(sortAlpha),
-    };
-  }, [data]);
-
-  const filteredCards = useMemo(() => {
-    const q = query.trim().toLowerCase();
-
-    return sortedCards.filter((c) => {
-      if (subsetFilter !== "ALL" && normalizeOpt(c.subset) !== subsetFilter) return false;
-      if (variantFilter !== "ALL" && normalizeOpt(c.variant) !== variantFilter) return false;
-      if (needsSetupOnly && !needsSetup(c)) return false;
-
-      if (!q) return true;
-      const hay = `${c.cardNumber} ${c.player} ${c.team ?? ""}`.toLowerCase();
-      return hay.includes(q);
-    });
-  }, [sortedCards, query, subsetFilter, variantFilter, needsSetupOnly]);
-
   function patchCard(cardId: number, patch: Partial<CardRow>) {
     setData((prev) => {
       if (!prev) return prev;
@@ -300,6 +260,117 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
     if (!base) return true;
     return base !== buildBaselineComparable(card);
   }
+
+  // ✅ Sorting + filtering (updated pipeline)
+  const sortedCards = useMemo(() => {
+    const cards = data?.cards ?? [];
+    const arr = [...cards];
+
+    const cmpCardNo = (x: CardRow, y: CardRow) => {
+      const a = parseCardNumberSortKey(x.cardNumber);
+      const b = parseCardNumberSortKey(y.cardNumber);
+      if (a.bucket !== b.bucket) return a.bucket - b.bucket;
+      if (a.a !== b.a) return a.a - b.a;
+      if (a.b !== b.b) return a.b - b.b;
+      if (a.suf !== b.suf) return a.suf.localeCompare(b.suf);
+      return x.id - y.id;
+    };
+
+    const cmpStr = (a: any, b: any) => String(a ?? "").localeCompare(String(b ?? ""), undefined, { sensitivity: "base" });
+
+    arr.sort((x, y) => {
+      switch (sortMode) {
+        case "BOOK_DESC": {
+          const ax = getEffectiveBookValue(x);
+          const ay = getEffectiveBookValue(y);
+          if (ay !== ax) return ay - ax;
+          return cmpCardNo(x, y);
+        }
+        case "BOOK_ASC": {
+          const ax = getEffectiveBookValue(x);
+          const ay = getEffectiveBookValue(y);
+          if (ax !== ay) return ax - ay;
+          return cmpCardNo(x, y);
+        }
+        case "PLAYER_ASC": {
+          const p = cmpStr(x.player, y.player);
+          if (p !== 0) return p;
+          return cmpCardNo(x, y);
+        }
+        case "TEAM_ASC": {
+          const t = cmpStr(x.team, y.team);
+          if (t !== 0) return t;
+          return cmpCardNo(x, y);
+        }
+        case "SUBSET_ASC": {
+          const s = cmpStr(x.subset, y.subset);
+          if (s !== 0) return s;
+          return cmpCardNo(x, y);
+        }
+        case "VARIANT_ASC": {
+          const v = cmpStr(x.variant, y.variant);
+          if (v !== 0) return v;
+          return cmpCardNo(x, y);
+        }
+        case "NEEDS_SETUP_FIRST": {
+          const nx = needsSetup({ ...x, bookValue: getEffectiveBookValue(x) }) ? 1 : 0;
+          const ny = needsSetup({ ...y, bookValue: getEffectiveBookValue(y) }) ? 1 : 0;
+          if (ny !== nx) return ny - nx; // needs-setup first
+          // Within needs-setup bucket, show highest book first to focus attention
+          const ax = getEffectiveBookValue(x);
+          const ay = getEffectiveBookValue(y);
+          if (ay !== ax) return ay - ax;
+          return cmpCardNo(x, y);
+        }
+        case "CARDNO_ASC":
+        default:
+          return cmpCardNo(x, y);
+      }
+    });
+
+    return arr;
+  }, [data, sortMode, bookDraft]); // include bookDraft so typing affects BOOK sort immediately
+
+  const filterOptions = useMemo(() => {
+    const cards = data?.cards ?? [];
+    const subsets = new Set<string>();
+    const variants = new Set<string>();
+
+    for (const c of cards) {
+      subsets.add(normalizeOpt(c.subset));
+      variants.add(normalizeOpt(c.variant));
+    }
+
+    const sortAlpha = (a: string, b: string) => {
+      if (a === "—" && b !== "—") return -1;
+      if (a !== "—" && b === "—") return 1;
+      return a.localeCompare(b);
+    };
+
+    return {
+      subsets: Array.from(subsets).sort(sortAlpha),
+      variants: Array.from(variants).sort(sortAlpha),
+    };
+  }, [data]);
+
+  const filteredCards = useMemo(() => {
+    const q = query.trim().toLowerCase();
+
+    return sortedCards.filter((c) => {
+      if (subsetFilter !== "ALL" && normalizeOpt(c.subset) !== subsetFilter) return false;
+      if (variantFilter !== "ALL" && normalizeOpt(c.variant) !== variantFilter) return false;
+
+      // needsSetupOnly uses effective book draft too
+      if (needsSetupOnly) {
+        const effective = { ...c, bookValue: getEffectiveBookValue(c) };
+        if (!needsSetup(effective)) return false;
+      }
+
+      if (!q) return true;
+      const hay = `${c.cardNumber} ${c.player} ${c.team ?? ""}`.toLowerCase();
+      return hay.includes(q);
+    });
+  }, [sortedCards, query, subsetFilter, variantFilter, needsSetupOnly, bookDraft]);
 
   async function saveCard(card: CardRow) {
     setSavingCardId(card.id);
@@ -358,7 +429,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
     try {
       let toSave = filteredCards;
-      if (saveNeedsOnly) toSave = toSave.filter(needsSetup);
+      if (saveNeedsOnly) toSave = toSave.filter((c) => needsSetup({ ...c, bookValue: getEffectiveBookValue(c) }));
       toSave = toSave.filter(isDirty);
 
       if (toSave.length === 0) {
@@ -463,7 +534,6 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
     }
   }
 
-  const headerCell: React.CSSProperties = { textAlign: "left", padding: 8, borderBottom: "1px solid #ddd", whiteSpace: "nowrap" };
   const bodyCell: React.CSSProperties = { padding: 8, borderBottom: "1px solid #eee" };
 
   const totalCards = data?._count?.cards ?? data?.pagination?.totalCards ?? 0;
@@ -587,7 +657,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
           <PaginationControls />
 
-          {/* Search + Filters (applies within THIS PAGE of rows) */}
+          {/* Search + Filters + SORT */}
           <div
             style={{
               display: "flex",
@@ -635,6 +705,20 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
               <span style={{ color: "#555", fontSize: 12 }}>(price=0 or missing images)</span>
             </label>
 
+            <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+              <div style={{ fontWeight: 700 }}>Sort</div>
+              <select value={sortMode} onChange={(e) => setSortMode(e.target.value as SortMode)} style={{ padding: 8, width: 220 }}>
+                <option value="CARDNO_ASC">Card # (default)</option>
+                <option value="BOOK_DESC">Book (high → low)</option>
+                <option value="BOOK_ASC">Book (low → high)</option>
+                <option value="NEEDS_SETUP_FIRST">Needs setup first</option>
+                <option value="PLAYER_ASC">Player (A → Z)</option>
+                <option value="TEAM_ASC">Team (A → Z)</option>
+                <option value="SUBSET_ASC">Subset (A → Z)</option>
+                <option value="VARIANT_ASC">Variant (A → Z)</option>
+              </select>
+            </div>
+
             <div style={{ marginLeft: "auto", display: "flex", flexDirection: "column", gap: 4 }}>
               <div style={{ fontWeight: 700 }}>Showing</div>
               <div style={{ padding: "8px 0" }}>
@@ -648,6 +732,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                 setSubsetFilter("ALL");
                 setVariantFilter("ALL");
                 setNeedsSetupOnly(false);
+                setSortMode("CARDNO_ASC");
               }}
               style={{ padding: "10px 12px" }}
             >

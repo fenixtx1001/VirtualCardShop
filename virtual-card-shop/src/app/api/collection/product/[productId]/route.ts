@@ -2,89 +2,110 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getOrCreateDefaultUser } from "@/lib/default-user";
 
-export const dynamic = "force-dynamic";
+type Ctx =
+  | { params: { productId?: string } }
+  | { params: Promise<{ productId?: string }> };
 
-export async function GET(
-  _req: Request,
-  ctx: { params: Promise<{ productId?: string }> | { productId?: string } }
-) {
+async function getParam(ctx: Ctx) {
+  const p: any = (ctx as any).params;
+  const params = typeof p?.then === "function" ? await p : p;
+  const raw = params?.productId;
+  const id = typeof raw === "string" ? decodeURIComponent(raw) : undefined;
+  return (id ?? "").trim();
+}
+
+export async function GET(req: Request, ctx: Ctx) {
   try {
-    const p: any = (ctx as any).params;
-    const params = typeof p?.then === "function" ? await p : p;
-
-    const raw = params?.productId;
-    const productId = typeof raw === "string" ? decodeURIComponent(raw) : "";
-
-    if (!productId) {
-      return NextResponse.json({ error: "Missing productId" }, { status: 400 });
-    }
+    const productId = await getParam(ctx);
+    if (!productId) return NextResponse.json({ error: "Missing productId" }, { status: 400 });
 
     const user = await getOrCreateDefaultUser();
 
     const product = await prisma.product.findUnique({
       where: { id: productId },
-      include: { productSets: true },
+      include: {
+        productSets: {
+          select: { id: true, isBase: true, name: true },
+        },
+      },
     });
 
     if (!product) {
       return NextResponse.json({ error: `Product not found: ${productId}` }, { status: 404 });
     }
 
-    const productSetIds = product.productSets.map((ps) => ps.id);
-    if (productSetIds.length === 0) {
+    // Determine selected ProductSet
+    const url = new URL(req.url);
+    const requested = (url.searchParams.get("productSetId") ?? "").trim();
+
+    const baseSet = product.productSets.find((ps) => ps.isBase) ?? product.productSets[0];
+    const selected =
+      product.productSets.find((ps) => ps.id === requested) ??
+      baseSet ??
+      product.productSets[0];
+
+    if (!selected) {
       return NextResponse.json(
-        { error: `No ProductSets found for product: ${productId}` },
+        { error: `No productSets found for product: ${productId}` },
         { status: 400 }
       );
     }
 
+    // Total cards in THIS productSet (denominator)
     const totalCards = await prisma.card.count({
-      where: { productSetId: { in: productSetIds } },
+      where: { productSetId: selected.id },
     });
 
+    // Owned cards in THIS productSet (for list + numerator)
     const owned = await prisma.cardOwnership.findMany({
       where: {
         userId: user.id,
-        card: { productSetId: { in: productSetIds } },
+        quantity: { gt: 0 },
+        card: { productSetId: selected.id },
       },
-      include: {
+      select: {
+        quantity: true,
         card: {
-          include: {
-            productSet: true,
+          select: {
+            id: true,
+            cardNumber: true,
+            player: true,
+            team: true,
+            subset: true,
+            variant: true,
+            bookValue: true,
+            productSetId: true,
+            frontImageUrl: true,
+            backImageUrl: true,
           },
         },
       },
-      orderBy: {
-        cardId: "asc",
-      },
     });
+
+    const cards = owned.map((o) => ({
+      cardId: o.card.id,
+      cardNumber: o.card.cardNumber,
+      player: o.card.player,
+      team: o.card.team,
+      subset: o.card.subset,
+      variant: o.card.variant,
+      isInsert: !selected.isBase, // within selected set, this is consistent
+      quantity: o.quantity,
+      bookValue: o.card.bookValue ?? null,
+      frontImageUrl: o.card.frontImageUrl ?? null,
+      backImageUrl: o.card.backImageUrl ?? null,
+    }));
 
     const uniqueOwned = owned.length;
     const totalQty = owned.reduce((sum, o) => sum + (o.quantity ?? 0), 0);
     const percentComplete = totalCards > 0 ? (uniqueOwned / totalCards) * 100 : 0;
 
-    const cards = owned.map((o) => {
-      const c = o.card;
-      const isInsert = c.productSet?.isBase === false;
-
-      return {
-        cardId: c.id,
-        cardNumber: c.cardNumber,
-        player: c.player,
-        team: c.team,
-        subset: c.subset,
-        variant: c.variant,
-        isInsert,
-        quantity: o.quantity ?? 0,
-        bookValue: c.bookValue ?? null,
-        frontImageUrl: c.frontImageUrl ?? null,
-        backImageUrl: c.backImageUrl ?? null, // ✅ added for flip
-      };
-    });
-
     return NextResponse.json({
       ok: true,
       productId,
+      productSetId: selected.id,
+      productSetIsBase: selected.isBase,
+      productSets: product.productSets,
       uniqueOwned,
       totalCards,
       percentComplete,
@@ -93,7 +114,7 @@ export async function GET(
     });
   } catch (e: any) {
     return NextResponse.json(
-      { error: e?.message ?? "Failed to load collection product view" },
+      { error: e?.message ?? "Failed to load product collection" },
       { status: 500 }
     );
   }

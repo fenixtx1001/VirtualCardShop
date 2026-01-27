@@ -9,9 +9,11 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.975.0",
     "@prisma/client": "^6.19.2",
     "cloudinary": "^2.9.0",
     "csv-parse": "^6.1.0",
+    "dotenv": "^17.2.3",
     "next": "16.1.1",
     "prisma": "^6.19.2",
     "react": "19.2.3",
@@ -23,6 +25,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }

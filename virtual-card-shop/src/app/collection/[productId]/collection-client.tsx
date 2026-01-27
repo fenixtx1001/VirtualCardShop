@@ -3,14 +3,24 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
+type ProductSetOption = {
+  id: string;
+  name: string;
+  isBase: boolean;
+  totalCards: number; // denominator for that set
+};
+
 type CardRow = {
   cardId: number;
+  productSetId: string | null;
+
   cardNumber: string;
   player: string;
   team: string | null;
   subset: string | null;
   variant: string | null;
   isInsert: boolean;
+
   quantity: number;
   bookValue: number | null;
   frontImageUrl: string | null;
@@ -20,10 +30,11 @@ type CardRow = {
 type ApiResponse = {
   ok: boolean;
   productId: string;
-  uniqueOwned: number;
-  totalCards: number;
-  percentComplete: number;
-  totalQty: number;
+
+  // For dropdown + denominators
+  productSets: ProductSetOption[];
+
+  // Owned card rows (across all sets)
   cards: CardRow[];
 };
 
@@ -31,6 +42,30 @@ function fmtMoney(v: number | null | undefined) {
   const n = typeof v === "number" && Number.isFinite(v) ? v : 0;
   return `$${n.toFixed(2)}`;
 }
+
+function safeNum(v: any, fallback = 0) {
+  return typeof v === "number" && Number.isFinite(v) ? v : fallback;
+}
+
+function normalizeName(ps: ProductSetOption) {
+  // If a name exists, use it. Otherwise fall back to id.
+  const s = String(ps.name || ps.id || "").trim();
+  return s || ps.id;
+}
+
+function compareCardNumbers(a: string, b: string) {
+  const an = Number(a);
+  const bn = Number(b);
+  const aNum = Number.isFinite(an);
+  const bNum = Number.isFinite(bn);
+  if (aNum && bNum) return an - bn;
+  return String(a).localeCompare(String(b));
+}
+
+type FilterKey =
+  | "ALL"
+  | "BASE"
+  | { setId: string }; // a specific productSet
 
 export default function CollectionSetClient({ productId }: { productId: string }) {
   // 🔐 HARD GUARD — prevents undefined ever leaking into fetches
@@ -51,15 +86,17 @@ export default function CollectionSetClient({ productId }: { productId: string }
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [showBack, setShowBack] = useState(false);
 
+  // dropdown filter state
+  const [filter, setFilter] = useState<FilterKey>("BASE"); // default to Base for “set completion” feel
+
   async function load() {
     setLoading(true);
     setErr(null);
 
     try {
-      const res = await fetch(
-        `/api/collection/product/${encodeURIComponent(productId)}`,
-        { cache: "no-store" }
-      );
+      const res = await fetch(`/api/collection/product/${encodeURIComponent(productId)}`, {
+        cache: "no-store",
+      });
 
       const raw = await res.text();
       let j: any = null;
@@ -67,9 +104,7 @@ export default function CollectionSetClient({ productId }: { productId: string }
       try {
         j = raw ? JSON.parse(raw) : null;
       } catch {
-        throw new Error(
-          `Set returned non-JSON (${res.status}): ${raw.slice(0, 180)}`
-        );
+        throw new Error(`Set returned non-JSON (${res.status}): ${raw.slice(0, 180)}`);
       }
 
       if (!res.ok) {
@@ -90,27 +125,108 @@ export default function CollectionSetClient({ productId }: { productId: string }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
-  const cards = data?.cards ?? [];
+  const productSets = data?.productSets ?? [];
+  const ownedCardsAll = data?.cards ?? [];
 
-  // ✅ Always ensure a valid selected card after load / refresh
+  const baseSetIds = useMemo(() => {
+    const s = new Set<string>();
+    for (const ps of productSets) if (ps.isBase) s.add(ps.id);
+    return s;
+  }, [productSets]);
+
+  // dropdown options
+  const dropdownOptions = useMemo(() => {
+    // Sort: Base(s) first, then others alpha
+    const base = productSets.filter((p) => p.isBase);
+    const inserts = productSets.filter((p) => !p.isBase).sort((a, b) => normalizeName(a).localeCompare(normalizeName(b)));
+
+    return {
+      base,
+      inserts,
+      all: productSets,
+    };
+  }, [productSets]);
+
+  // Ensure current filter is valid (e.g. if productSets load after initial render)
   useEffect(() => {
-    if (!cards.length) {
+    if (!productSets.length) return;
+
+    // If filter points to a missing setId, fall back to BASE
+    if (typeof filter === "object" && "setId" in filter) {
+      const exists = productSets.some((ps) => ps.id === filter.setId);
+      if (!exists) setFilter("BASE");
+    }
+  }, [productSets, filter]);
+
+  // Filter owned cards by dropdown
+  const ownedCardsFiltered = useMemo(() => {
+    if (!data) return [];
+
+    if (filter === "ALL") return ownedCardsAll;
+
+    if (filter === "BASE") {
+      return ownedCardsAll.filter((c) => c.productSetId && baseSetIds.has(c.productSetId));
+    }
+
+    // specific set
+    const setId = filter.setId;
+    return ownedCardsAll.filter((c) => c.productSetId === setId);
+  }, [data, ownedCardsAll, filter, baseSetIds]);
+
+  // Sort the “Your Cards” list correctly (# numeric, not text)
+  const ownedCardsSorted = useMemo(() => {
+    const copy = [...ownedCardsFiltered];
+    copy.sort((a, b) => compareCardNumbers(a.cardNumber, b.cardNumber));
+    return copy;
+  }, [ownedCardsFiltered]);
+
+  // Denominator for the selected filter
+  const denomTotalCards = useMemo(() => {
+    if (!data) return 0;
+
+    if (filter === "ALL") {
+      // sum totals across all productSets
+      return dropdownOptions.all.reduce((acc, ps) => acc + safeNum(ps.totalCards), 0);
+    }
+
+    if (filter === "BASE") {
+      return dropdownOptions.base.reduce((acc, ps) => acc + safeNum(ps.totalCards), 0);
+    }
+
+    const ps = productSets.find((p) => p.id === filter.setId);
+    return ps ? safeNum(ps.totalCards) : 0;
+  }, [data, filter, dropdownOptions, productSets]);
+
+  // Stats for the selected filter
+  const stats = useMemo(() => {
+    const uniqueOwned = ownedCardsSorted.length; // only owned rows are returned
+    const totalQty = ownedCardsSorted.reduce((acc, c) => acc + safeNum(c.quantity), 0);
+    const totalCards = denomTotalCards;
+
+    const percentComplete = totalCards > 0 ? (uniqueOwned / totalCards) * 100 : 0;
+
+    return { uniqueOwned, totalQty, totalCards, percentComplete };
+  }, [ownedCardsSorted, denomTotalCards]);
+
+  // ✅ Always ensure a valid selected card after load / refresh / filter change
+  useEffect(() => {
+    if (!ownedCardsSorted.length) {
       setSelectedId(null);
       return;
     }
 
     setSelectedId((prev) => {
-      const stillExists = cards.some((c) => c.cardId === prev);
-      return stillExists ? prev : cards[0].cardId;
+      const stillExists = ownedCardsSorted.some((c) => c.cardId === prev);
+      return stillExists ? prev : ownedCardsSorted[0].cardId;
     });
 
     setShowBack(false);
-  }, [cards]);
+  }, [ownedCardsSorted]);
 
   const selected = useMemo(() => {
-    if (!cards.length) return null;
-    return cards.find((c) => c.cardId === selectedId) ?? cards[0];
-  }, [cards, selectedId]);
+    if (!ownedCardsSorted.length) return null;
+    return ownedCardsSorted.find((c) => c.cardId === selectedId) ?? ownedCardsSorted[0];
+  }, [ownedCardsSorted, selectedId]);
 
   const imageUrl = useMemo(() => {
     if (!selected) return null;
@@ -122,6 +238,13 @@ export default function CollectionSetClient({ productId }: { productId: string }
     setSelectedId(id);
     setShowBack(false);
   }
+
+  const filterLabel = useMemo(() => {
+    if (filter === "ALL") return "All (Base + Inserts)";
+    if (filter === "BASE") return "Base Set";
+    const ps = productSets.find((p) => p.id === filter.setId);
+    return ps ? normalizeName(ps) : "Set";
+  }, [filter, productSets]);
 
   return (
     <div style={{ fontFamily: "system-ui", padding: 16 }}>
@@ -144,6 +267,36 @@ export default function CollectionSetClient({ productId }: { productId: string }
         >
           Checklist →
         </Link>
+
+        {/* Dropdown filter */}
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginLeft: 8 }}>
+          <div style={{ fontSize: 12, color: "#666", fontWeight: 800 }}>Viewing</div>
+          <select
+            value={
+              filter === "ALL" ? "ALL" : filter === "BASE" ? "BASE" : `SET:${filter.setId}`
+            }
+            onChange={(e) => {
+              const v = e.target.value;
+              if (v === "ALL") setFilter("ALL");
+              else if (v === "BASE") setFilter("BASE");
+              else if (v.startsWith("SET:")) setFilter({ setId: v.slice("SET:".length) });
+            }}
+            style={{ padding: "8px 10px", fontWeight: 800 }}
+          >
+            <option value="BASE">Base Set</option>
+            <option value="ALL">All (Base + Inserts)</option>
+
+            {dropdownOptions.inserts.length > 0 && (
+              <optgroup label="Insert Sets">
+                {dropdownOptions.inserts.map((ps) => (
+                  <option key={ps.id} value={`SET:${ps.id}`}>
+                    {normalizeName(ps)} ({ps.totalCards})
+                  </option>
+                ))}
+              </optgroup>
+            )}
+          </select>
+        </div>
       </div>
 
       <hr style={{ margin: "14px 0" }} />
@@ -164,19 +317,23 @@ export default function CollectionSetClient({ productId }: { productId: string }
           <div style={{ display: "flex", gap: 18, flexWrap: "wrap", marginBottom: 12 }}>
             <div>
               <div style={{ fontSize: 12, color: "#666" }}>Complete</div>
-              <div style={{ fontWeight: 900 }}>{data.percentComplete.toFixed(1)}%</div>
+              <div style={{ fontWeight: 900 }}>{stats.percentComplete.toFixed(1)}%</div>
             </div>
             <div>
               <div style={{ fontSize: 12, color: "#666" }}>Unique Owned</div>
-              <div style={{ fontWeight: 900 }}>{data.uniqueOwned}</div>
+              <div style={{ fontWeight: 900 }}>{stats.uniqueOwned}</div>
             </div>
             <div>
               <div style={{ fontSize: 12, color: "#666" }}>Total Cards</div>
-              <div style={{ fontWeight: 900 }}>{data.totalCards}</div>
+              <div style={{ fontWeight: 900 }}>{stats.totalCards}</div>
             </div>
             <div>
               <div style={{ fontSize: 12, color: "#666" }}>Total Qty</div>
-              <div style={{ fontWeight: 900 }}>{data.totalQty}</div>
+              <div style={{ fontWeight: 900 }}>{stats.totalQty}</div>
+            </div>
+
+            <div style={{ marginLeft: "auto", color: "#666", fontSize: 12, fontWeight: 800 }}>
+              {filterLabel}
             </div>
           </div>
 
@@ -223,8 +380,12 @@ export default function CollectionSetClient({ productId }: { productId: string }
               </div>
 
               <div style={{ marginTop: 12, display: "grid", gap: 6, fontSize: 14 }}>
-                <div><b>Qty:</b> {selected?.quantity ?? 0}</div>
-                <div><b>Book:</b> {fmtMoney(selected?.bookValue)}</div>
+                <div>
+                  <b>Qty:</b> {selected?.quantity ?? 0}
+                </div>
+                <div>
+                  <b>Book:</b> {fmtMoney(selected?.bookValue)}
+                </div>
                 <div style={{ color: "#444" }}>
                   {selected?.team ?? "—"}
                   {selected?.subset ? ` • ${selected.subset}` : ""}
@@ -244,7 +405,14 @@ export default function CollectionSetClient({ productId }: { productId: string }
                 overflow: "hidden",
               }}
             >
-              <div style={{ padding: 10, borderBottom: "1px solid #ddd", background: "#f7f7f7", fontWeight: 900 }}>
+              <div
+                style={{
+                  padding: 10,
+                  borderBottom: "1px solid #ddd",
+                  background: "#f7f7f7",
+                  fontWeight: 900,
+                }}
+              >
                 Your Cards (click a row)
               </div>
 
@@ -260,7 +428,7 @@ export default function CollectionSetClient({ productId }: { productId: string }
                     </tr>
                   </thead>
                   <tbody>
-                    {cards.map((c, idx) => {
+                    {ownedCardsSorted.map((c, idx) => {
                       const active = c.cardId === selected?.cardId;
                       return (
                         <tr
@@ -287,10 +455,10 @@ export default function CollectionSetClient({ productId }: { productId: string }
                       );
                     })}
 
-                    {cards.length === 0 && (
+                    {ownedCardsSorted.length === 0 && (
                       <tr>
                         <td colSpan={4} style={{ padding: 12 }}>
-                          No cards owned in this set yet.
+                          No cards owned in this selection yet.
                         </td>
                       </tr>
                     )}

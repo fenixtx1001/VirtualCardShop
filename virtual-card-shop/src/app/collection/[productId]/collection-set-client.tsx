@@ -3,6 +3,12 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
+type ProductSetOption = {
+  id: string;
+  isBase: boolean;
+  name: string | null;
+};
+
 type CardRow = {
   cardId: number;
   cardNumber: string;
@@ -20,6 +26,12 @@ type CardRow = {
 type ApiResponse = {
   ok: boolean;
   productId: string;
+
+  // ✅ new (from API)
+  productSetId: string;
+  productSetIsBase: boolean;
+  productSets: ProductSetOption[];
+
   uniqueOwned: number;
   totalCards: number;
   percentComplete: number;
@@ -32,30 +44,104 @@ function fmtMoney(v: number | null | undefined) {
   return `$${n.toFixed(2)}`;
 }
 
+function safeNum(v: any, fallback = 0) {
+  return typeof v === "number" && Number.isFinite(v) ? v : fallback;
+}
+
+// --- Card number-aware sorting (ignores any prefix)
+// Works for: "BC-14", "DK-007", "10a", "A12b", etc.
+function parseCardNo(raw: string | null | undefined) {
+  const s = (raw ?? "").trim();
+  const lower = s.toLowerCase();
+
+  const m = lower.match(/(\d+)/);
+  if (!m || m.index == null) {
+    return { n: Number.POSITIVE_INFINITY, suf: lower, raw: lower };
+  }
+
+  const numStr = m[1];
+  const n = parseInt(numStr, 10);
+
+  const start = m.index;
+  const end = start + numStr.length;
+  const suffixRaw = lower.slice(end);
+  const suf = suffixRaw.replace(/[^a-z0-9]+/g, "");
+
+  return {
+    n: Number.isFinite(n) ? n : Number.POSITIVE_INFINITY,
+    suf,
+    raw: lower,
+  };
+}
+
+function cardNoCompare(aNo: string, bNo: string) {
+  const a = parseCardNo(aNo);
+  const b = parseCardNo(bNo);
+  if (a.n !== b.n) return a.n - b.n;
+  if (a.suf !== b.suf) return a.suf.localeCompare(b.suf);
+  return a.raw.localeCompare(b.raw);
+}
+
+function formatSetLabel(ps: ProductSetOption) {
+  const base = ps.name?.trim() ? ps.name!.trim() : ps.id;
+  return ps.isBase ? `Base — ${base}` : `Insert — ${base}`;
+}
+
 export default function CollectionSetClient({ productId }: { productId: string }) {
+  // 🔐 HARD GUARD — prevents undefined ever leaking into fetches
+  if (!productId) {
+    return (
+      <div style={{ padding: 16, fontFamily: "system-ui" }}>
+        <div style={{ padding: 12, background: "#fee", border: "1px solid #f99" }}>
+          Missing productId
+        </div>
+      </div>
+    );
+  }
+
   const [data, setData] = useState<ApiResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
 
+  // dropdown state
+  const [selectedProductSetId, setSelectedProductSetId] = useState<string>("");
+
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [showBack, setShowBack] = useState(false);
 
-  async function load() {
+  async function load(explicitProductSetId?: string) {
     setLoading(true);
     setErr(null);
+
     try {
-      const res = await fetch(`/api/collection/product/${encodeURIComponent(productId)}`, {
-        cache: "no-store",
-      });
+      const qs = new URLSearchParams();
+      const psid = (explicitProductSetId ?? selectedProductSetId).trim();
+      if (psid) qs.set("productSetId", psid);
+
+      const url =
+        `/api/collection/product/${encodeURIComponent(productId)}` +
+        (qs.toString() ? `?${qs.toString()}` : "");
+
+      const res = await fetch(url, { cache: "no-store" });
+
       const raw = await res.text();
       let j: any = null;
+
       try {
         j = raw ? JSON.parse(raw) : null;
       } catch {
         throw new Error(`Set returned non-JSON (${res.status}): ${raw.slice(0, 180)}`);
       }
+
       if (!res.ok) throw new Error(j?.error ?? `Failed (${res.status})`);
-      setData(j as ApiResponse);
+
+      const next = j as ApiResponse;
+      setData(next);
+
+      // lock dropdown to whatever API selected if we don't have a selection yet
+      if (!selectedProductSetId && next?.productSetId) {
+        setSelectedProductSetId(next.productSetId);
+      }
     } catch (e: any) {
       setErr(e?.message ?? "Failed to load set");
       setData(null);
@@ -69,15 +155,32 @@ export default function CollectionSetClient({ productId }: { productId: string }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
-  const cards = data?.cards ?? [];
+  // Sort productSets: base first, then inserts
+  const productSetsSorted = useMemo(() => {
+    const arr = data?.productSets ?? [];
+    return [...arr].sort((a, b) => Number(b.isBase) - Number(a.isBase));
+  }, [data]);
 
-  // Default select first card when data loads
+  // Sort owned cards list using cardNoCompare
+  const cards = useMemo(() => {
+    const arr = data?.cards ?? [];
+    return [...arr].sort((a, b) => cardNoCompare(a.cardNumber, b.cardNumber));
+  }, [data]);
+
+  // ✅ Always ensure a valid selected card after load / refresh
   useEffect(() => {
-    if (!cards.length) return;
-    setSelectedId((prev) => (prev == null ? cards[0].cardId : prev));
+    if (!cards.length) {
+      setSelectedId(null);
+      return;
+    }
+
+    setSelectedId((prev) => {
+      const stillExists = cards.some((c) => c.cardId === prev);
+      return stillExists ? prev : cards[0].cardId;
+    });
+
     setShowBack(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data?.productId, cards.length]);
+  }, [cards]);
 
   const selected = useMemo(() => {
     if (!cards.length) return null;
@@ -86,10 +189,8 @@ export default function CollectionSetClient({ productId }: { productId: string }
 
   const imageUrl = useMemo(() => {
     if (!selected) return null;
-    const front = selected.frontImageUrl;
-    const back = selected.backImageUrl;
-    if (showBack) return back ?? front ?? null;
-    return front ?? back ?? null;
+    if (showBack) return selected.backImageUrl ?? selected.frontImageUrl ?? null;
+    return selected.frontImageUrl ?? selected.backImageUrl ?? null;
   }, [selected, showBack]);
 
   function selectCard(id: number) {
@@ -97,8 +198,11 @@ export default function CollectionSetClient({ productId }: { productId: string }
     setShowBack(false);
   }
 
+  const pct = safeNum(data?.percentComplete, 0);
+
   return (
     <div style={{ fontFamily: "system-ui", padding: 16 }}>
+      {/* Header */}
       <div style={{ display: "flex", gap: 12, alignItems: "baseline", flexWrap: "wrap" }}>
         <Link href="/collection" style={{ textDecoration: "underline", fontWeight: 700 }}>
           ← Back to Collection
@@ -107,16 +211,51 @@ export default function CollectionSetClient({ productId }: { productId: string }
       </div>
 
       <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 10, flexWrap: "wrap" }}>
-        <button onClick={load} style={{ padding: "8px 12px" }}>
+        <button onClick={() => load()} style={{ padding: "8px 12px" }}>
           Refresh
         </button>
 
-        <Link href={`/checklist/${encodeURIComponent(productId)}`} style={{ textDecoration: "underline", fontWeight: 800 }}>
+        <Link
+          href={`/checklist/${encodeURIComponent(productId)}`}
+          style={{ textDecoration: "underline", fontWeight: 800 }}
+        >
           Checklist →
         </Link>
       </div>
 
       <hr style={{ margin: "14px 0" }} />
+
+      {/* ✅ ProductSet dropdown */}
+      {data?.productSets?.length ? (
+        <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap", marginBottom: 12 }}>
+          <div style={{ fontWeight: 900 }}>Viewing:</div>
+          <select
+            value={selectedProductSetId}
+            onChange={(e) => {
+              const nextId = e.target.value;
+              setSelectedProductSetId(nextId);
+              load(nextId);
+            }}
+            style={{
+              padding: "8px 10px",
+              border: "1px solid #ddd",
+              borderRadius: 10,
+              minWidth: 320,
+              fontWeight: 700,
+            }}
+          >
+            {productSetsSorted.map((ps) => (
+              <option key={ps.id} value={ps.id}>
+                {formatSetLabel(ps)}
+              </option>
+            ))}
+          </select>
+
+          <div style={{ color: "#666", fontWeight: 700 }}>
+            {data.productSetIsBase ? "Base set completion" : "Insert set completion"}
+          </div>
+        </div>
+      ) : null}
 
       {err && (
         <div style={{ marginBottom: 12, padding: 10, background: "#fee", border: "1px solid #f99" }}>
@@ -130,40 +269,47 @@ export default function CollectionSetClient({ productId }: { productId: string }
         <div>No data.</div>
       ) : (
         <>
+          {/* Stats */}
           <div style={{ display: "flex", gap: 18, flexWrap: "wrap", marginBottom: 12 }}>
             <div>
               <div style={{ fontSize: 12, color: "#666" }}>Complete</div>
-              <div style={{ fontWeight: 900 }}>{data.percentComplete.toFixed(1)}%</div>
+              <div style={{ fontWeight: 900 }}>{pct.toFixed(1)}%</div>
             </div>
             <div>
               <div style={{ fontSize: 12, color: "#666" }}>Unique Owned</div>
-              <div style={{ fontWeight: 900 }}>{data.uniqueOwned}</div>
+              <div style={{ fontWeight: 900 }}>{safeNum(data.uniqueOwned)}</div>
             </div>
             <div>
               <div style={{ fontSize: 12, color: "#666" }}>Total Cards</div>
-              <div style={{ fontWeight: 900 }}>{data.totalCards}</div>
+              <div style={{ fontWeight: 900 }}>{safeNum(data.totalCards)}</div>
             </div>
             <div>
               <div style={{ fontSize: 12, color: "#666" }}>Total Qty</div>
-              <div style={{ fontWeight: 900 }}>{data.totalQty}</div>
+              <div style={{ fontWeight: 900 }}>{safeNum(data.totalQty)}</div>
             </div>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, alignItems: "start" }}>
-            {/* LEFT: big card */}
+          {/* Split layout */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: 16,
+              alignItems: "start",
+            }}
+          >
+            {/* LEFT: Card preview */}
             <div style={{ border: "1px solid #ddd", padding: 12, minHeight: 520 }}>
-              <div style={{ display: "flex", justifyContent: "space-between", gap: 12, marginBottom: 10 }}>
-                <div style={{ fontWeight: 900, fontSize: 16 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10 }}>
+                <div style={{ fontWeight: 900 }}>
                   #{selected?.cardNumber ?? "—"} — {selected?.player ?? "—"}
                 </div>
-                <div style={{ fontSize: 12, color: "#666" }}>Click card to flip ({showBack ? "Back" : "Front"})</div>
+                <div style={{ fontSize: 12, color: "#666" }}>
+                  Click card to flip ({showBack ? "Back" : "Front"})
+                </div>
               </div>
 
-              <div
-                onClick={() => setShowBack((v) => !v)}
-                style={{ cursor: "pointer", display: "grid", placeItems: "center" }}
-                title="Click to flip"
-              >
+              <div onClick={() => setShowBack((v) => !v)} style={{ cursor: "pointer", display: "grid", placeItems: "center" }}>
                 {imageUrl ? (
                   <img
                     src={imageUrl}
@@ -171,13 +317,14 @@ export default function CollectionSetClient({ productId }: { productId: string }
                     style={{
                       width: "100%",
                       maxWidth: 520,
-                      height: "auto",
                       border: "1px solid #ddd",
                       background: "#fff",
                     }}
                   />
                 ) : (
-                  <div style={{ width: "100%", padding: 18, border: "1px solid #ddd" }}>(No image for this card yet)</div>
+                  <div style={{ width: "100%", padding: 18, border: "1px solid #ddd" }}>
+                    (No image for this card yet)
+                  </div>
                 )}
               </div>
 
@@ -192,13 +339,21 @@ export default function CollectionSetClient({ productId }: { productId: string }
                   {selected?.team ?? "—"}
                   {selected?.subset ? ` • ${selected.subset}` : ""}
                   {selected?.variant ? ` • ${selected.variant}` : ""}
-                  {selected?.isInsert ? " • Insert" : " • Base"}
+                  {data.productSetIsBase ? " • Base" : " • Insert"}
                 </div>
               </div>
             </div>
 
-            {/* RIGHT: scrollable widget */}
-            <div style={{ border: "1px solid #ddd", height: 620, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+            {/* RIGHT: Scrollable list */}
+            <div
+              style={{
+                border: "1px solid #ddd",
+                height: 620,
+                display: "flex",
+                flexDirection: "column",
+                overflow: "hidden",
+              }}
+            >
               <div style={{ padding: 10, borderBottom: "1px solid #ddd", background: "#f7f7f7", fontWeight: 900 }}>
                 Your Cards (click a row)
               </div>
@@ -208,17 +363,7 @@ export default function CollectionSetClient({ productId }: { productId: string }
                   <thead style={{ position: "sticky", top: 0, background: "#fff" }}>
                     <tr>
                       {["#", "Player", "Qty", "Book"].map((h) => (
-                        <th
-                          key={h}
-                          style={{
-                            textAlign: "left",
-                            padding: 10,
-                            borderBottom: "1px solid #eee",
-                            fontSize: 12,
-                            color: "#555",
-                            whiteSpace: "nowrap",
-                          }}
-                        >
+                        <th key={h} style={{ padding: 10, borderBottom: "1px solid #eee", fontSize: 12 }}>
                           {h}
                         </th>
                       ))}
@@ -236,18 +381,18 @@ export default function CollectionSetClient({ productId }: { productId: string }
                             background: active ? "#eef6ff" : idx % 2 === 0 ? "#fff" : "#fcfcfc",
                           }}
                         >
-                          <td style={{ padding: 10, borderBottom: "1px solid #f0f0f0", fontWeight: 800 }}>{c.cardNumber}</td>
-                          <td style={{ padding: 10, borderBottom: "1px solid #f0f0f0" }}>
+                          <td style={{ padding: 10, fontWeight: 800 }}>{c.cardNumber}</td>
+                          <td style={{ padding: 10 }}>
                             <div style={{ fontWeight: 800 }}>{c.player}</div>
                             <div style={{ fontSize: 12, color: "#666" }}>
                               {c.team ?? "—"}
                               {c.subset ? ` • ${c.subset}` : ""}
                               {c.variant ? ` • ${c.variant}` : ""}
-                              {c.isInsert ? " • Insert" : ""}
+                              {!data.productSetIsBase ? " • Insert" : ""}
                             </div>
                           </td>
-                          <td style={{ padding: 10, borderBottom: "1px solid #f0f0f0", fontWeight: 800 }}>{c.quantity}</td>
-                          <td style={{ padding: 10, borderBottom: "1px solid #f0f0f0" }}>{fmtMoney(c.bookValue)}</td>
+                          <td style={{ padding: 10, fontWeight: 800 }}>{c.quantity}</td>
+                          <td style={{ padding: 10 }}>{fmtMoney(c.bookValue)}</td>
                         </tr>
                       );
                     })}
@@ -255,7 +400,7 @@ export default function CollectionSetClient({ productId }: { productId: string }
                     {cards.length === 0 && (
                       <tr>
                         <td colSpan={4} style={{ padding: 12 }}>
-                          No cards owned in this set yet.
+                          No cards owned in this product set yet.
                         </td>
                       </tr>
                     )}
