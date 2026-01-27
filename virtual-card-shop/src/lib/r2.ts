@@ -1,24 +1,21 @@
+// src/lib/r2.ts
 import { S3Client } from "@aws-sdk/client-s3";
 
-let _client: S3Client | null = null;
+const endpoint = process.env.CLOUDFLARE_R2_ENDPOINT;
+const accessKeyId = process.env.CLOUDFLARE_R2_ACCESS_KEY_ID;
+const secretAccessKey = process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY;
 
-function req(name: string) {
-  const v = process.env[name];
-  if (!v) throw new Error(`Missing env var: ${name}`);
-  return v.trim();
-}
+if (!endpoint) throw new Error("Missing env CLOUDFLARE_R2_ENDPOINT");
+if (!accessKeyId) throw new Error("Missing env CLOUDFLARE_R2_ACCESS_KEY_ID");
+if (!secretAccessKey) throw new Error("Missing env CLOUDFLARE_R2_SECRET_ACCESS_KEY");
 
-export function getR2Client() {
-  if (_client) return _client;
+// ✅ Named export: r2
+export const r2 = new S3Client({
+  region: "auto",
+  endpoint,
+  credentials: { accessKeyId, secretAccessKey },
+});
 
-  _client = new S3Client({
-    region: "auto",
-    endpoint: `https://${req("R2_ACCOUNT_ID")}.r2.cloudflarestorage.com`,
-    credentials: {
-      accessKeyId: req("R2_ACCESS_KEY_ID"),
-      secretAccessKey: req("R2_SECRET_ACCESS_KEY"),
-    },
-  });
-
-  return _client;
-}
+// Optional helpers (useful elsewhere)
+export const R2_BUCKET = process.env.CLOUDFLARE_R2_BUCKET ?? "";
+export const R2_PUBLIC_BASE_URL = process.env.CLOUDFLARE_R2_PUBLIC_BASE_URL ?? "";
