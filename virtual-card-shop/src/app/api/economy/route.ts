@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
-import { getOrCreateDefaultUser } from "@/lib/default-user";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/auth";
+import { prisma } from "@/lib/prisma";
 
 function buildEconomyResponse(user: { balanceCents: number; nextRewardAt: Date | null }) {
   const nowMs = Date.now();
@@ -17,12 +19,34 @@ function buildEconomyResponse(user: { balanceCents: number; nextRewardAt: Date |
 }
 
 export async function GET() {
-  const user = await getOrCreateDefaultUser();
+  const session = await getServerSession(authOptions);
 
-  return NextResponse.json(
-    buildEconomyResponse({
-      balanceCents: user.balanceCents,
-      nextRewardAt: user.nextRewardAt,
-    })
-  );
+  // If not signed in, return a "logged out" economy response.
+  // This prevents the header from showing an error before login.
+  const email = session?.user?.email?.toLowerCase().trim();
+  if (!email) {
+    return NextResponse.json(
+      buildEconomyResponse({
+        balanceCents: 0,
+        nextRewardAt: null,
+      })
+    );
+  }
+
+  const user = await prisma.user.findUnique({
+    where: { email },
+    select: { balanceCents: true, nextRewardAt: true },
+  });
+
+  // Shouldn't happen with NextAuth + PrismaAdapter, but be safe.
+  if (!user) {
+    return NextResponse.json(
+      buildEconomyResponse({
+        balanceCents: 0,
+        nextRewardAt: null,
+      })
+    );
+  }
+
+  return NextResponse.json(buildEconomyResponse(user));
 }
