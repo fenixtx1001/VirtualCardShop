@@ -29,6 +29,7 @@ model Product {
   packImageUrl      String?
   boxImageUrl       String?
   cardsPerPack      Int?
+  released          Boolean           @default(false)
   createdAt         DateTime          @default(now())
   updatedAt         DateTime          @updatedAt
   productSets       ProductSet[]

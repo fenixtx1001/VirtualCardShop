@@ -13,6 +13,7 @@ type ProductRow = {
   packsPerBox: number | null;
   packImageUrl: string | null;
   boxImageUrl: string | null;
+  released: boolean; // ✅ NEW
   _count?: { productSets: number };
 };
 
@@ -75,11 +76,18 @@ export default function ProductsClient() {
       const res = await fetch("/api/products", { cache: "no-store" });
       if (!res.ok) throw new Error(`Failed to load products (${res.status})`);
       const data = (await res.json()) as ProductRow[];
-      setRows(data);
+
+      // ✅ safety: if older API responses don't include released, default false
+      const normalized = data.map((r: any) => ({
+        ...r,
+        released: typeof r.released === "boolean" ? r.released : false,
+      })) as ProductRow[];
+
+      setRows(normalized);
 
       // ✅ initialize buffered pack price display values from server data
       const map: Record<string, string> = {};
-      for (const r of data) map[r.id] = centsToDollars(r.packPriceCents);
+      for (const r of normalized) map[r.id] = centsToDollars(r.packPriceCents);
       setPackPriceDisplay(map);
     } catch (e: any) {
       setError(e?.message ?? "Failed to load products");
@@ -130,6 +138,7 @@ export default function ProductsClient() {
           packsPerBox: latest.packsPerBox,
           packImageUrl: latest.packImageUrl,
           boxImageUrl: latest.boxImageUrl,
+          released: latest.released, // ✅ NEW
         }),
       });
 
@@ -232,6 +241,7 @@ export default function ProductsClient() {
                   "Year",
                   "Brand",
                   "Sport",
+                  "Released", // ✅ NEW
                   "Pack Price ($)",
                   "Packs/Box",
                   "Product Sets",
@@ -292,6 +302,22 @@ export default function ProductsClient() {
                         value={r.sport ?? ""}
                         onChange={(e) => updateRow(r.id, { sport: e.target.value || null })}
                         style={{ width: 140, padding: 6 }}
+                      />
+                    </td>
+
+                    {/* ✅ Released checkbox */}
+                    <td
+                      style={{
+                        padding: 8,
+                        borderBottom: "1px solid #eee",
+                        textAlign: "center",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={!!r.released}
+                        onChange={(e) => updateRow(r.id, { released: e.target.checked })}
                       />
                     </td>
 
@@ -372,7 +398,7 @@ export default function ProductsClient() {
               })}
               {sortedRows.length === 0 && (
                 <tr>
-                  <td colSpan={10} style={{ padding: 12 }}>
+                  <td colSpan={11} style={{ padding: 12 }}>
                     No products found.
                   </td>
                 </tr>

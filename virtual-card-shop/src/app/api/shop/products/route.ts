@@ -9,6 +9,7 @@ function computeBoxPriceCents(packPriceCents: number, packsPerBox: number) {
 
 export async function GET() {
   const products = await prisma.product.findMany({
+    where: { released: true }, // ✅ NEW: only show released products in the shop
     orderBy: [{ year: "asc" }, { brand: "asc" }, { id: "asc" }],
     include: {
       _count: { select: { productSets: true } },
@@ -31,6 +32,7 @@ export async function GET() {
       boxImageUrl: p.boxImageUrl,
       productSetsCount: p._count?.productSets ?? 0,
       boxPriceCents: box,
+      released: p.released, // ✅ NEW: include for completeness/debugging
     };
   });
 

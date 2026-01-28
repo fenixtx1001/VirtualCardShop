@@ -25,6 +25,17 @@ function intOrNull(v: unknown): number | null {
   return Number.isFinite(n) ? Math.trunc(n) : null;
 }
 
+// ✅ NEW: safe boolean parsing (supports true/false and "true"/"false")
+function boolOrUndefined(v: unknown): boolean | undefined {
+  if (v === undefined) return undefined;
+  if (v === null) return undefined;
+  if (typeof v === "boolean") return v;
+  const s = String(v).trim().toLowerCase();
+  if (s === "true") return true;
+  if (s === "false") return false;
+  return undefined;
+}
+
 export async function GET(_req: Request, ctx: Ctx) {
   const productId = await getParam(ctx);
   if (!productId || productId === "undefined") {
@@ -63,6 +74,7 @@ export async function PUT(req: Request, ctx: Ctx) {
       packImageUrl: stringOrNull(body?.packImageUrl),
       boxImageUrl: stringOrNull(body?.boxImageUrl),
       cardsPerPack: intOrNull(body?.cardsPerPack), // ✅
+      released: boolOrUndefined(body?.released), // ✅ NEW
     },
   });
 

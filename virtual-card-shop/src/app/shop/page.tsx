@@ -15,6 +15,9 @@ type ProductRow = {
   packImageUrl: string | null;
   boxImageUrl: string | null;
   productSetsCount: number;
+
+  // ✅ NEW (used to hide unreleased products)
+  released?: boolean;
 };
 
 function centsToDollars(cents: number | null | undefined) {
@@ -116,7 +119,15 @@ export default function ShopPage() {
       const res = await fetch("/api/shop/products", { cache: "no-store" });
       const j = await res.json().catch(() => null);
       if (!res.ok) throw new Error(j?.error ?? `Failed to load (${res.status})`);
-      setRows(j);
+
+      // ✅ normalize + safety filter: only show released products
+      const incoming = Array.isArray(j) ? (j as ProductRow[]) : [];
+      const normalized = incoming.map((p: any) => ({
+        ...p,
+        released: typeof p?.released === "boolean" ? p.released : false,
+      })) as ProductRow[];
+
+      setRows(normalized.filter((p) => p.released === true));
     } catch (e: any) {
       setErr(e?.message ?? "Failed to load shop");
     } finally {
@@ -182,17 +193,15 @@ export default function ShopPage() {
     const query = q.trim().toLowerCase();
 
     let out = rows.filter((r) => {
+      // ✅ extra safety: never show unreleased
+      if (r.released !== true) return false;
+
       if (sport !== "all" && (r.sport ?? "") !== sport) return false;
       if (year !== "all" && String(r.year ?? "") !== year) return false;
 
       if (!query) return true;
 
-      const hay = [
-        r.id,
-        r.brand ?? "",
-        r.sport ?? "",
-        r.year ?? "",
-      ]
+      const hay = [r.id, r.brand ?? "", r.sport ?? "", r.year ?? ""]
         .join(" ")
         .toLowerCase();
 

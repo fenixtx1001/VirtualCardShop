@@ -50,29 +50,36 @@ function extFrom(contentType: string | null, url: string) {
 
 function makeKey(params: {
   productSetId: string;
-  cardId: string | number;
+  folderId: string; // ✅ cardNumber (string)
   side: "front" | "back";
   sourceUrl: string;
   ext: string;
 }) {
   const hash = crypto.createHash("sha1").update(params.sourceUrl).digest("hex").slice(0, 10);
-  return `virtual-card-shop/cards/${params.productSetId}/${String(params.cardId)}/${params.side}-${hash}${params.ext}`;
+  return `virtual-card-shop/cards/${params.productSetId}/${params.folderId}/${params.side}-${hash}${params.ext}`;
 }
 
 async function migrateOneUrl(params: {
-  cardId: string | number;
+  folderId: string;
   productSetId: string;
   side: "front" | "back";
   sourceUrl: string;
 }) {
   const res = await fetch(params.sourceUrl);
   if (!res.ok) {
-    throw new Error(`HTTP ${res.status} fetching ${params.side} for card ${params.cardId}`);
+    throw new Error(`HTTP ${res.status} fetching ${params.side} for folderId=${params.folderId}`);
   }
 
   const contentType = res.headers.get("content-type");
   const ext = extFrom(contentType, params.sourceUrl);
-  const key = makeKey({ ...params, ext });
+
+  const key = makeKey({
+    productSetId: params.productSetId,
+    folderId: params.folderId,
+    side: params.side,
+    sourceUrl: params.sourceUrl,
+    ext,
+  });
 
   const buffer = Buffer.from(await res.arrayBuffer());
 
@@ -101,11 +108,15 @@ async function main() {
 
   const cards = await prisma.card.findMany({
     where: {
-      OR: [{ frontImageUrl: { contains: "cloudinary.com" } }, { backImageUrl: { contains: "cloudinary.com" } }],
+      OR: [
+        { frontImageUrl: { contains: "cloudinary.com" } },
+        { backImageUrl: { contains: "cloudinary.com" } },
+      ],
     },
     select: {
       id: true,
       productSetId: true,
+      cardNumber: true, // ✅ THIS was missing before
       frontImageUrl: true,
       backImageUrl: true,
     },
@@ -120,12 +131,12 @@ async function main() {
   let failed = 0;
 
   for (const c of cards) {
-    const cardId = c.id as any;
-    const productSetId = c.productSetId as any;
+    const productSetId = String(c.productSetId ?? "").trim();
+    const folderId = String(c.cardNumber ?? "").trim() || String(c.id); // ✅ prefer cardNumber
 
-    if (productSetId == null || String(productSetId).trim() === "") {
+    if (!productSetId) {
       skipped++;
-      console.warn(`[migrate] skip card ${String(cardId)} (missing productSetId)`);
+      console.warn(`[migrate] skip card id=${c.id} (missing productSetId)`);
       continue;
     }
 
@@ -133,24 +144,24 @@ async function main() {
     if (isCloudinaryUrl(c.frontImageUrl)) {
       try {
         const out = await migrateOneUrl({
-          cardId,
-          productSetId: String(productSetId),
+          folderId,
+          productSetId,
           side: "front",
           sourceUrl: c.frontImageUrl!,
         });
 
         if (!DRY_RUN) {
           await prisma.card.update({
-            where: { id: c.id as any },
+            where: { id: c.id },
             data: { frontImageUrl: out.newUrl },
           });
         }
 
         migratedFront++;
-        console.log(`[migrate] ✓ front ${String(cardId)} → ${out.newUrl}`);
+        console.log(`[migrate] ✓ front id=${c.id} cardNumber=${folderId} → ${out.newUrl}`);
       } catch (e: any) {
         failed++;
-        console.error(`[migrate] ✗ front ${String(cardId)}:`, e?.message ?? e);
+        console.error(`[migrate] ✗ front id=${c.id}:`, e?.message ?? e);
       }
     } else {
       skipped++;
@@ -160,24 +171,24 @@ async function main() {
     if (isCloudinaryUrl(c.backImageUrl)) {
       try {
         const out = await migrateOneUrl({
-          cardId,
-          productSetId: String(productSetId),
+          folderId,
+          productSetId,
           side: "back",
           sourceUrl: c.backImageUrl!,
         });
 
         if (!DRY_RUN) {
           await prisma.card.update({
-            where: { id: c.id as any },
+            where: { id: c.id },
             data: { backImageUrl: out.newUrl },
           });
         }
 
         migratedBack++;
-        console.log(`[migrate] ✓ back  ${String(cardId)} → ${out.newUrl}`);
+        console.log(`[migrate] ✓ back  id=${c.id} cardNumber=${folderId} → ${out.newUrl}`);
       } catch (e: any) {
         failed++;
-        console.error(`[migrate] ✗ back  ${String(cardId)}:`, e?.message ?? e);
+        console.error(`[migrate] ✗ back  id=${c.id}:`, e?.message ?? e);
       }
     } else {
       skipped++;
