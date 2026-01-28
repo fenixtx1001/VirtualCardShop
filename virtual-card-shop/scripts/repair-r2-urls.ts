@@ -4,6 +4,7 @@ dotenv.config({ path: ".env.local" });
 
 import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3";
 import { prisma } from "../src/lib/prisma";
+import type { ListObjectsV2CommandOutput } from "@aws-sdk/client-s3";
 
 function assertEnv(name: string) {
   const v = process.env[name];
@@ -60,7 +61,7 @@ async function listKeys(prefix: string) {
 
   // small pagination loop
   for (let i = 0; i < 10; i++) {
-    const resp = await r2.send(
+    const resp: ListObjectsV2CommandOutput = await r2.send(
       new ListObjectsV2Command({
         Bucket: R2_BUCKET_NAME,
         Prefix: prefix,
