@@ -77,13 +77,28 @@ model Card {
 }
 
 model User {
-  id              String            @id
-  balanceCents    Int               @default(5000)
-  nextRewardAt    DateTime?
-  createdAt       DateTime          @default(now())
-  updatedAt       DateTime          @updatedAt
+  id           String    @id @default(cuid())
+
+  // ✅ NextAuth profile fields
+  email        String?   @unique
+  name         String?
+  image        String?
+  emailVerified DateTime?
+
+  // ✅ Your game economy fields (unchanged)
+  balanceCents Int       @default(5000)
+  nextRewardAt DateTime?
+
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  // ✅ Your existing relations
   cardOwnerships  CardOwnership[]
   sealedInventory SealedInventory[]
+
+  // ✅ NextAuth relations
+  accounts     Account[]
+  sessions     Session[]
 }
 
 model SealedInventory {
@@ -109,4 +124,47 @@ model CardOwnership {
 
   @@unique([userId, cardId])
   @@index([cardId])
+}
+
+/* =========================
+   NextAuth / Auth.js models
+   ========================= */
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
 }
