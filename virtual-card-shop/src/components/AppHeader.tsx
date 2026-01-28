@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useSession } from "next-auth/react";
+import AuthButton from "@/components/AuthButton";
 
 type EconomyState = {
   balanceCents: number;
@@ -35,6 +37,8 @@ function formatCountdown(ms: number) {
 }
 
 export default function AppHeader() {
+  const { data: session, status } = useSession();
+
   const [eco, setEco] = useState<EconomyState | null>(null);
   const [stats, setStats] = useState<CollectionStats | null>(null);
 
@@ -201,6 +205,9 @@ export default function AppHeader() {
     };
   }, []);
 
+  const signedInEmail =
+    status === "authenticated" ? (session?.user?.email ?? null) : null;
+
   return (
     <>
       <header
@@ -271,23 +278,37 @@ export default function AppHeader() {
           </div>
         </div>
 
-        <nav style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "flex-end" }}>
-          <Link href="/" style={{ textDecoration: "underline" }}>
-            Home
-          </Link>
-          <Link href="/shop" style={{ textDecoration: "underline" }}>
-            Shop
-          </Link>
-          <Link href="/inventory" style={{ textDecoration: "underline" }}>
-            Inventory
-          </Link>
-          <Link href="/collection" style={{ textDecoration: "underline" }}>
-            Collection
-          </Link>
-          <Link href="/admin" style={{ textDecoration: "underline" }}>
-            Admin
-          </Link>
-        </nav>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 8 }}>
+          <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap", justifyContent: "flex-end" }}>
+            {signedInEmail ? (
+              <div style={{ fontSize: 12, color: "#444" }}>
+                Signed in as <span style={{ fontWeight: 800 }}>{signedInEmail}</span>
+              </div>
+            ) : (
+              <div style={{ fontSize: 12, color: "#777" }}>Not signed in</div>
+            )}
+
+            <AuthButton />
+          </div>
+
+          <nav style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "flex-end" }}>
+            <Link href="/" style={{ textDecoration: "underline" }}>
+              Home
+            </Link>
+            <Link href="/shop" style={{ textDecoration: "underline" }}>
+              Shop
+            </Link>
+            <Link href="/inventory" style={{ textDecoration: "underline" }}>
+              Inventory
+            </Link>
+            <Link href="/collection" style={{ textDecoration: "underline" }}>
+              Collection
+            </Link>
+            <Link href="/admin" style={{ textDecoration: "underline" }}>
+              Admin
+            </Link>
+          </nav>
+        </div>
       </header>
 
       <div style={{ height: headerHeight }} />
