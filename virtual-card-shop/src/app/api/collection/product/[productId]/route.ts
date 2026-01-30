@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { getOrCreateDefaultUser } from "@/lib/default-user";
+import { requireUser } from "@/lib/current-user";
 
 type Ctx =
   | { params: { productId?: string } }
@@ -14,12 +14,16 @@ async function getParam(ctx: Ctx) {
   return (id ?? "").trim();
 }
 
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
 export async function GET(req: Request, ctx: Ctx) {
   try {
     const productId = await getParam(ctx);
     if (!productId) return NextResponse.json({ error: "Missing productId" }, { status: 400 });
 
-    const user = await getOrCreateDefaultUser();
+    // ✅ Use the signed-in user (no default fallback)
+    const user = await requireUser();
 
     const product = await prisma.product.findUnique({
       where: { id: productId },
@@ -59,7 +63,7 @@ export async function GET(req: Request, ctx: Ctx) {
     // Owned cards in THIS productSet (for list + numerator)
     const owned = await prisma.cardOwnership.findMany({
       where: {
-        userId: user.id,
+        userId: user.id, // ✅ key change
         quantity: { gt: 0 },
         card: { productSetId: selected.id },
       },
@@ -89,7 +93,7 @@ export async function GET(req: Request, ctx: Ctx) {
       team: o.card.team,
       subset: o.card.subset,
       variant: o.card.variant,
-      isInsert: !selected.isBase, // within selected set, this is consistent
+      isInsert: !selected.isBase, // keeping your existing behavior
       quantity: o.quantity,
       bookValue: o.card.bookValue ?? null,
       frontImageUrl: o.card.frontImageUrl ?? null,
@@ -113,9 +117,10 @@ export async function GET(req: Request, ctx: Ctx) {
       cards,
     });
   } catch (e: any) {
+    const status = e?.status ?? 500;
     return NextResponse.json(
       { error: e?.message ?? "Failed to load product collection" },
-      { status: 500 }
+      { status }
     );
   }
 }

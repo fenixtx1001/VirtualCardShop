@@ -1,6 +1,7 @@
+// src/app/api/rip/open/route.ts
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { getOrCreateDefaultUser } from "@/lib/default-user";
+import { requireUser } from "@/lib/current-user";
 
 type Body = { productId?: string };
 
@@ -19,28 +20,41 @@ export async function POST(req: Request) {
   try {
     const body = (await req.json().catch(() => ({}))) as Body;
     const productId = (body.productId ?? "").trim();
-    if (!productId) return NextResponse.json({ error: "Missing productId" }, { status: 400 });
+    if (!productId) {
+      return NextResponse.json({ error: "Missing productId" }, { status: 400 });
+    }
 
-    const user = await getOrCreateDefaultUser();
+    // ✅ Option B: must be signed in; this user is the owner of the pack + cards
+    const user = await requireUser();
 
     const product = await prisma.product.findUnique({
       where: { id: productId },
       include: { productSets: true },
     });
 
-    if (!product) return NextResponse.json({ error: `Product not found: ${productId}` }, { status: 404 });
+    if (!product) {
+      return NextResponse.json(
+        { error: `Product not found: ${productId}` },
+        { status: 404 }
+      );
+    }
 
     const cardsPerPack = product.cardsPerPack ?? 15;
 
     // Must have at least 1 base set
     const baseSets = product.productSets.filter((ps) => ps.isBase);
     if (baseSets.length === 0) {
-      return NextResponse.json({ error: "No Base ProductSet found for this product." }, { status: 400 });
+      return NextResponse.json(
+        { error: "No Base ProductSet found for this product." },
+        { status: 400 }
+      );
     }
     const baseSetIds = baseSets.map((s) => s.id);
 
     // Insert pools = non-base with oddsPerPack set (optional)
-    const insertSets = product.productSets.filter((ps) => !ps.isBase && ps.oddsPerPack && ps.oddsPerPack > 0);
+    const insertSets = product.productSets.filter(
+      (ps) => !ps.isBase && ps.oddsPerPack && ps.oddsPerPack > 0
+    );
 
     // Open pack transaction: decrement sealed pack, select cards, upsert ownership
     const result = await prisma.$transaction(async (tx) => {
@@ -118,7 +132,9 @@ export async function POST(req: Request) {
         if (pool.length === 0) continue;
 
         // prevent duplicates with base + already chosen inserts
-        const taken = new Set<number>([...chosenBase, ...chosenInserts].map((c) => c.id));
+        const taken = new Set<number>(
+          [...chosenBase, ...chosenInserts].map((c) => c.id)
+        );
         const filtered = pool.filter((c) => !taken.has(c.id));
         if (filtered.length === 0) continue;
 
@@ -137,7 +153,7 @@ export async function POST(req: Request) {
       }
 
       // Now upsert ownership and return ownedAfter
-      const enriched = [];
+      const enriched: any[] = [];
       for (const c of pulled) {
         const ownership = await tx.cardOwnership.upsert({
           where: { userId_cardId: { userId: user.id, cardId: c.id } },
@@ -155,8 +171,6 @@ export async function POST(req: Request) {
         });
       }
 
-      // Optional: sort by cardNumber for the pack list (reveal order remains as returned)
-      // (We leave reveal order as-is. Your UI already reveals in the order returned.)
       return enriched;
     });
 
@@ -168,6 +182,10 @@ export async function POST(req: Request) {
       cards: result,
     });
   } catch (e: any) {
-    return NextResponse.json({ error: e?.message ?? "Open pack failed" }, { status: 500 });
+    const status = e?.status ?? (e?.message === "Unauthorized" ? 401 : 500);
+    return NextResponse.json(
+      { error: e?.message ?? "Open pack failed" },
+      { status }
+    );
   }
 }

@@ -1,14 +1,21 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { getOrCreateDefaultUser } from "@/lib/default-user";
+import { requireUser } from "@/lib/current-user";
 
-export async function GET(req: Request, { params }: { params: Promise<{ productId: string }> }) {
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
+export async function GET(
+  req: Request,
+  { params }: { params: Promise<{ productId: string }> }
+) {
   try {
     const { productId } = await params;
     const id = decodeURIComponent(productId || "").trim();
     if (!id) return NextResponse.json({ error: "Missing productId" }, { status: 400 });
 
-    const user = await getOrCreateDefaultUser();
+    // ✅ Logged-in user (no default fallback)
+    const user = await requireUser();
 
     // Load product + its productSets so we can:
     // - default to the Base set for "completion"
@@ -27,16 +34,12 @@ export async function GET(req: Request, { params }: { params: Promise<{ productI
 
     const baseSet = product.productSets.find((ps) => ps.isBase) ?? product.productSets[0];
     if (!baseSet) {
-      return NextResponse.json(
-        { error: `Product has no productSets: ${id}` },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: `Product has no productSets: ${id}` }, { status: 400 });
     }
 
-    const selectedSet =
-      productSetId
-        ? product.productSets.find((ps) => ps.id === productSetId) ?? null
-        : baseSet;
+    const selectedSet = productSetId
+      ? product.productSets.find((ps) => ps.id === productSetId) ?? null
+      : baseSet;
 
     if (!selectedSet) {
       return NextResponse.json(
@@ -57,11 +60,12 @@ export async function GET(req: Request, { params }: { params: Promise<{ productI
         productSetId: true,
         bookValue: true,
       },
+      orderBy: [{ cardNumber: "asc" }],
     });
 
     const ownership = await prisma.cardOwnership.findMany({
       where: {
-        userId: user.id,
+        userId: user.id, // ✅ key change
         cardId: { in: cards.map((c) => c.id) },
       },
       select: { cardId: true, quantity: true },
@@ -91,14 +95,14 @@ export async function GET(req: Request, { params }: { params: Promise<{ productI
       ok: true,
       productId: id,
 
-      // New: productSet-scoped stats (what you want)
+      // productSet-scoped stats
       productSetId: selectedSet.id,
       productSetIsBase: selectedSet.isBase,
       totalCards,
       uniqueOwned,
       percentComplete,
 
-      // New: so the UI can add Base/Inserts toggle next
+      // so the UI can add Base/Inserts toggle next
       productSets: product.productSets.map((ps) => ({
         id: ps.id,
         isBase: ps.isBase,
@@ -108,6 +112,10 @@ export async function GET(req: Request, { params }: { params: Promise<{ productI
       rows,
     });
   } catch (e: any) {
-    return NextResponse.json({ error: e?.message ?? "Checklist failed" }, { status: 500 });
+    const status = e?.status ?? 500;
+    return NextResponse.json(
+      { error: e?.message ?? "Checklist failed" },
+      { status }
+    );
   }
 }

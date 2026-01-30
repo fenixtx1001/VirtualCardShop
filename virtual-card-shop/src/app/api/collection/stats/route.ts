@@ -3,15 +3,21 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
 
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   try {
     const user = await requireUser();
 
     const owned = await prisma.cardOwnership.findMany({
-      where: { userId: user.id },
+      where: {
+        userId: user.id,
+        quantity: { gt: 0 },
+      },
       select: {
         quantity: true,
-        card: { select: { bookValue: true } }, // <-- your schema uses bookValue (not bookValueCents)
+        card: { select: { bookValue: true } }, // ✅ correct field
       },
     });
 
@@ -22,9 +28,11 @@ export async function GET() {
       const qty = row.quantity ?? 0;
       cardsOwned += qty;
 
-      // Treat bookValue as cents (consistent with the rest of your app’s “*Cents” fields)
-      const bv = row.card.bookValue ?? 0;
-      valueCents += qty * bv;
+      // bookValue is stored in dollars (e.g., 0.05), so convert → cents
+      const dollars = row.card.bookValue ?? 0;
+      const cents = Math.round(dollars * 100);
+
+      valueCents += qty * cents;
     }
 
     return NextResponse.json({
@@ -34,9 +42,6 @@ export async function GET() {
     });
   } catch (e: any) {
     const status = e?.status ?? 500;
-    return NextResponse.json(
-      { ok: false, error: e?.message ?? "Failed" },
-      { status }
-    );
+    return NextResponse.json({ ok: false, error: e?.message ?? "Failed" }, { status });
   }
 }

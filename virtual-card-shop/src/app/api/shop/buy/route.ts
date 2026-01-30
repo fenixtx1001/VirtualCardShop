@@ -1,104 +1,141 @@
+// src/app/api/shop/buy/route.ts
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { getOrCreateDefaultUser, DEFAULT_USER_ID } from "@/lib/default-user";
+import { requireUser } from "@/lib/current-user";
 
-type Body =
-  | { productId: string; kind: "pack"; quantity: number }
-  | { productId: string; kind: "box"; quantity: number };
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
-function computeBoxPriceCents(packPriceCents: number, packsPerBox: number) {
-  // 25% box discount
-  return Math.round(packPriceCents * packsPerBox * 0.75);
+type BuyKind = "pack" | "box";
+
+function calcCostCents(params: {
+  kind: BuyKind;
+  quantity: number;
+  packPriceCents: number;
+  packsPerBox: number | null;
+}) {
+  const { kind, quantity, packPriceCents, packsPerBox } = params;
+
+  if (kind === "pack") {
+    return packPriceCents * quantity;
+  }
+
+  const ppb = packsPerBox ?? 0;
+  const boxPrice = Math.round(packPriceCents * ppb * 0.75); // your rule: packPrice * packsPerBox * 0.75
+  return boxPrice * quantity;
 }
 
 export async function POST(req: Request) {
-  const body = (await req.json().catch(() => ({}))) as Partial<Body>;
+  try {
+    const user = await requireUser();
 
-  const productId = String((body as any).productId ?? "");
-  const kind = (body as any).kind as "pack" | "box";
-  const quantity = Number((body as any).quantity);
+    const body = await req.json().catch(() => ({}));
+    const productId = String(body?.productId ?? "");
+    const kind = String(body?.kind ?? "") as BuyKind;
+    const quantity = Number(body?.quantity ?? 1);
 
-  if (!productId) {
-    return NextResponse.json({ error: "Missing productId" }, { status: 400 });
-  }
-  if (kind !== "pack" && kind !== "box") {
-    return NextResponse.json({ error: "Invalid kind" }, { status: 400 });
-  }
-  if (!Number.isFinite(quantity) || quantity <= 0 || quantity > 999) {
-    return NextResponse.json({ error: "Invalid quantity" }, { status: 400 });
-  }
+    if (!productId) {
+      return NextResponse.json({ ok: false, error: "Missing productId" }, { status: 400 });
+    }
+    if (kind !== "pack" && kind !== "box") {
+      return NextResponse.json({ ok: false, error: "Invalid kind" }, { status: 400 });
+    }
+    if (!Number.isFinite(quantity) || quantity <= 0) {
+      return NextResponse.json({ ok: false, error: "Invalid quantity" }, { status: 400 });
+    }
 
-  // Ensure canonical user exists (SAME user used by economy)
-  const user = await getOrCreateDefaultUser();
+    const product = await prisma.product.findUnique({
+      where: { id: productId },
+      select: {
+        id: true,
+        packPriceCents: true,
+        packsPerBox: true,
+      },
+    });
 
-  const product = await prisma.product.findUnique({
-    where: { id: productId },
-  });
+    if (!product) {
+      return NextResponse.json({ ok: false, error: "Product not found" }, { status: 404 });
+    }
 
-  if (!product) {
-    return NextResponse.json({ error: "Product not found" }, { status: 404 });
-  }
+    const packPriceCents = product.packPriceCents ?? 0;
+    const costCents = calcCostCents({
+      kind,
+      quantity,
+      packPriceCents,
+      packsPerBox: product.packsPerBox ?? null,
+    });
 
-  const packPrice = typeof product.packPriceCents === "number" ? product.packPriceCents : 0;
-  const packsPerBox = typeof product.packsPerBox === "number" ? product.packsPerBox : 0;
+    const packsToAdd =
+      kind === "pack" ? quantity : (product.packsPerBox ?? 0) * quantity;
 
-  let costCents = 0;
-  let packsToAdd = 0;
-
-  if (kind === "pack") {
-    costCents = packPrice * quantity;
-    packsToAdd = quantity;
-  } else {
-    if (!packsPerBox || packsPerBox <= 0) {
+    if (packsToAdd <= 0) {
       return NextResponse.json(
-        { error: "Product has no packsPerBox set" },
+        { ok: false, error: "Product packsPerBox is missing/invalid for box purchase" },
         { status: 400 }
       );
     }
-    costCents = computeBoxPriceCents(packPrice, packsPerBox) * quantity;
-    packsToAdd = packsPerBox * quantity;
-  }
 
-  if (user.balanceCents < costCents) {
+    const result = await prisma.$transaction(async (tx) => {
+      // lock user balance row first
+      const u = await tx.user.findUnique({
+        where: { id: user.id },
+        select: { balanceCents: true },
+      });
+
+      if (!u) throw new Error("User not found");
+      if ((u.balanceCents ?? 0) < costCents) {
+        const err = new Error("Insufficient funds");
+        (err as any).status = 400;
+        throw err;
+      }
+
+      // decrement balance
+      const updatedUser = await tx.user.update({
+        where: { id: user.id },
+        data: { balanceCents: { decrement: costCents } },
+        select: { balanceCents: true },
+      });
+
+      // upsert sealed inventory for THIS user
+      const inv = await tx.sealedInventory.upsert({
+        where: {
+          userId_productId: {
+            userId: user.id,
+            productId,
+          },
+        },
+        create: {
+          userId: user.id,
+          productId,
+          packsOwned: packsToAdd,
+        },
+        update: {
+          packsOwned: { increment: packsToAdd },
+        },
+        select: { packsOwned: true },
+      });
+
+      return {
+        balanceCents: updatedUser.balanceCents ?? 0,
+        packsOwned: inv.packsOwned ?? 0,
+      };
+    });
+
+    return NextResponse.json({
+      ok: true,
+      productId,
+      kind,
+      quantity,
+      costCents,
+      packsAdded: packsToAdd,
+      balanceCents: result.balanceCents,
+      packsOwned: result.packsOwned,
+    });
+  } catch (e: any) {
+    const status = e?.status ?? 500;
     return NextResponse.json(
-      {
-        error: "Insufficient funds",
-        balanceCents: user.balanceCents,
-        costCents,
-      },
-      { status: 400 }
+      { ok: false, error: e?.message ?? "Buy failed" },
+      { status }
     );
   }
-
-  const updated = await prisma.$transaction(async (tx) => {
-    const updatedUser = await tx.user.update({
-      where: { id: DEFAULT_USER_ID },
-      data: { balanceCents: { decrement: costCents } },
-      select: { balanceCents: true },
-    });
-
-    const inventory = await tx.sealedInventory.upsert({
-      where: { userId_productId: { userId: DEFAULT_USER_ID, productId } },
-      update: { packsOwned: { increment: packsToAdd } },
-      create: {
-        userId: DEFAULT_USER_ID,
-        productId,
-        packsOwned: packsToAdd,
-      },
-      select: { packsOwned: true },
-    });
-
-    return { updatedUser, inventory };
-  });
-
-  return NextResponse.json({
-    ok: true,
-    productId,
-    kind,
-    quantity,
-    costCents,
-    packsAdded: packsToAdd,
-    balanceCents: updated.updatedUser.balanceCents,
-    packsOwned: updated.inventory.packsOwned,
-  });
 }
