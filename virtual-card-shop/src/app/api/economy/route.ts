@@ -23,8 +23,10 @@ export async function GET() {
 
   // If not signed in, return a "logged out" economy response.
   // This prevents the header from showing an error before login.
+  const userId = (session?.user as any)?.id as string | undefined;
   const email = session?.user?.email?.toLowerCase().trim();
-  if (!email) {
+
+  if (!userId && !email) {
     return NextResponse.json(
       buildEconomyResponse({
         balanceCents: 0,
@@ -33,12 +35,13 @@ export async function GET() {
     );
   }
 
+  // Prefer userId (most reliable), fall back to email.
   const user = await prisma.user.findUnique({
-    where: { email },
+    where: userId ? { id: userId } : { email: email! },
     select: { balanceCents: true, nextRewardAt: true },
   });
 
-  // Shouldn't happen with NextAuth + PrismaAdapter, but be safe.
+  // Shouldn't happen because signIn upserts the user, but be safe.
   if (!user) {
     return NextResponse.json(
       buildEconomyResponse({

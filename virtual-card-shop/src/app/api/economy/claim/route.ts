@@ -1,6 +1,7 @@
+// src/app/api/economy/claim/route.ts
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { getOrCreateDefaultUser, DEFAULT_USER_ID } from "@/lib/default-user";
+import { requireUser } from "@/lib/current-user";
 
 const REWARD_CENTS = 1000; // $10
 const COOLDOWN_MS = 30 * 60 * 1000; // 30 minutes
@@ -21,33 +22,37 @@ function buildEconomyResponse(user: { balanceCents: number; nextRewardAt: Date |
 }
 
 export async function POST() {
-  // Ensure the default user exists
-  await getOrCreateDefaultUser();
+  let userId: string;
+
+  try {
+    const user = await requireUser(); // throws 401 if not signed in
+    userId = user.id;
+  } catch (e: any) {
+    const status = e?.status ?? 401;
+    return NextResponse.json({ error: e?.message ?? "Unauthorized" }, { status });
+  }
 
   const now = new Date();
 
   const result = await prisma.$transaction(async (tx) => {
     const user = await tx.user.findUnique({
-      where: { id: DEFAULT_USER_ID },
+      where: { id: userId },
       select: { balanceCents: true, nextRewardAt: true },
     });
 
     if (!user) {
-      throw new Error("Default user not found after creation.");
+      throw new Error(`User not found (${userId}).`);
     }
 
     const canClaim =
       user.nextRewardAt === null || now.getTime() >= user.nextRewardAt.getTime();
 
-    if (!canClaim) {
-      // Not eligible; return unchanged state
-      return user;
-    }
+    if (!canClaim) return user;
 
     const nextRewardAt = new Date(now.getTime() + COOLDOWN_MS);
 
     return tx.user.update({
-      where: { id: DEFAULT_USER_ID },
+      where: { id: userId },
       data: {
         balanceCents: { increment: REWARD_CENTS },
         nextRewardAt,

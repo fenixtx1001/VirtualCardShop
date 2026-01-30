@@ -1,19 +1,20 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { getOrCreateDefaultUser } from "@/lib/default-user";
+import { requireUser } from "@/lib/current-user";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
-    const user = await getOrCreateDefaultUser();
+    // ✅ Option B: must be signed in. No default fallback.
+    const user = await requireUser();
 
     /**
      * Find all card ownerships for this user, bring along:
      * card -> productSet (id, isBase) -> product (id + images)
      *
-     * IMPORTANT CHANGE:
+     * IMPORTANT:
      * We only count ownership toward progress if the card belongs to a BASE productSet.
      */
     const owned = await prisma.cardOwnership.findMany({
@@ -78,7 +79,7 @@ export async function GET() {
 
       // cardOwnership is one row per user+card, so this is already "unique"
       cur.uniqueOwned += 1;
-      cur.totalQty += o.quantity;
+      cur.totalQty += o.quantity ?? 0;
       if (!cur.packImageUrl && p.packImageUrl) cur.packImageUrl = p.packImageUrl;
 
       ownedByProduct.set(key, cur);
@@ -138,7 +139,7 @@ export async function GET() {
         return {
           productId: pid,
           uniqueOwned: ownedAgg.uniqueOwned,
-          totalCards: total, // ✅ now base (770) instead of 814
+          totalCards: total,
           percentComplete: pct,
           packImageUrl: ownedAgg.packImageUrl,
           totalQty: ownedAgg.totalQty,
@@ -148,9 +149,10 @@ export async function GET() {
 
     return NextResponse.json(out);
   } catch (e: any) {
+    const status = e?.status ?? 500;
     return NextResponse.json(
       { error: e?.message ?? "Failed to load collection summary" },
-      { status: 500 }
+      { status }
     );
   }
 }

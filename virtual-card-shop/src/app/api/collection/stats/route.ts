@@ -1,45 +1,42 @@
+// src/app/api/collection/stats/route.ts
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { getOrCreateDefaultUser } from "@/lib/default-user";
+import { requireUser } from "@/lib/current-user";
 
 export async function GET() {
   try {
-    const user = await getOrCreateDefaultUser();
+    const user = await requireUser();
 
-    // Grab every owned card with quantity + bookValue
     const owned = await prisma.cardOwnership.findMany({
-      where: { userId: user.id, quantity: { gt: 0 } },
+      where: { userId: user.id },
       select: {
         quantity: true,
-        card: {
-          select: {
-            bookValue: true, // likely stored as dollars (number)
-          },
-        },
+        card: { select: { bookValue: true } }, // <-- your schema uses bookValue (not bookValueCents)
       },
     });
 
-    let cardsOwned = 0; // total quantity (includes duplicates)
-    let collectionValueCents = 0;
+    let cardsOwned = 0;
+    let valueCents = 0;
 
-    for (const o of owned) {
-      const qty = o.quantity ?? 0;
+    for (const row of owned) {
+      const qty = row.quantity ?? 0;
       cardsOwned += qty;
 
-      const bookValueDollars = o.card.bookValue ?? 0;
-      const valueCents = Math.round(bookValueDollars * 100) * qty;
-      collectionValueCents += valueCents;
+      // Treat bookValue as cents (consistent with the rest of your app’s “*Cents” fields)
+      const bv = row.card.bookValue ?? 0;
+      valueCents += qty * bv;
     }
 
     return NextResponse.json({
       ok: true,
       cardsOwned,
-      collectionValueCents,
+      collectionValueCents: valueCents,
     });
   } catch (e: any) {
+    const status = e?.status ?? 500;
     return NextResponse.json(
-      { error: e?.message ?? "Failed to load collection stats" },
-      { status: 500 }
+      { ok: false, error: e?.message ?? "Failed" },
+      { status }
     );
   }
 }
