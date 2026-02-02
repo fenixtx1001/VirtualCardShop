@@ -9,6 +9,13 @@ type ProductSetOption = {
   name: string | null;
 };
 
+type UserOption = {
+  id: string;
+  name: string | null;
+  email: string;
+  image: string | null;
+};
+
 type ChecklistRow = {
   cardId: number;
   cardNumber: string;
@@ -18,14 +25,24 @@ type ChecklistRow = {
   variant: string | null;
   isInsert: boolean;
   bookValue: number | null;
+
+  // Selected user's qty (i.e., whose collection we're viewing)
   ownedQty: number;
+
+  // Only present when comparing another user (selectedUserId !== me)
+  myOwnedQty?: number;
 };
 
 type ChecklistResponse = {
   ok: boolean;
+
+  // identity + mode (from API)
+  currentUserId: string;
+  selectedUserId: string;
+  isCompareMode: boolean;
+
   productId: string;
 
-  // ✅ new (from API)
   productSetId: string;
   productSetIsBase: boolean;
   productSets: ProductSetOption[];
@@ -33,24 +50,23 @@ type ChecklistResponse = {
   totalCards: number;
   uniqueOwned: number;
   percentComplete: number;
+
+  // pagination
+  page: number;
+  pageSize: number;
+  totalPages: number;
+
   rows: ChecklistRow[];
 };
 
 // --- Card number-aware sorting (ignores any prefix)
-// Examples handled:
-//   "BC-1" < "BC-2" < "BC-10"
-//   "DK-007" < "DK-8"
-//   "10" < "10a" < "10b" < "11"
-//   "A12b" sorts like 12b
 function parseCardNo(raw: string | null | undefined) {
   const s = (raw ?? "").trim();
   const lower = s.toLowerCase();
 
-  // Find the first run of digits anywhere in the string.
   const m = lower.match(/(\d+)/);
 
   if (!m || m.index == null) {
-    // No digits at all -> push to bottom, sort by text
     return {
       hasNum: false,
       n: Number.POSITIVE_INFINITY,
@@ -62,8 +78,6 @@ function parseCardNo(raw: string | null | undefined) {
   const numStr = m[1];
   const n = parseInt(numStr, 10);
 
-  // Everything AFTER that digit-run becomes the suffix for tie-breaking.
-  // We also normalize by removing separators/spaces, keeping only a-z0-9.
   const start = m.index;
   const end = start + numStr.length;
   const suffixRaw = lower.slice(end);
@@ -82,20 +96,24 @@ function cardNoCompare(aNo: string, bNo: string) {
   const a = parseCardNo(aNo);
   const b = parseCardNo(bNo);
 
-  // numeric first (prefix ignored)
   if (a.n !== b.n) return a.n - b.n;
-
-  // see "10a" vs "10b"
   if (a.suf !== b.suf) return a.suf.localeCompare(b.suf);
-
-  // stable fallback (still does not prioritize prefix; it's only for deterministic ordering)
   return a.raw.localeCompare(b.raw);
 }
 
 function formatSetLabel(ps: ProductSetOption) {
-  // Prefer name if you have it; otherwise show the id
   const base = ps.name?.trim() ? ps.name!.trim() : ps.id;
   return ps.isBase ? `Base — ${base}` : `Insert — ${base}`;
+}
+
+function formatUserLabel(u: UserOption) {
+  const name = (u.name ?? "").trim();
+  if (name) return name;
+  return u.email;
+}
+
+function clampInt(n: number, min: number, max: number) {
+  return Math.max(min, Math.min(max, n));
 }
 
 export default function ChecklistClient({ productId }: { productId: string }) {
@@ -103,20 +121,68 @@ export default function ChecklistClient({ productId }: { productId: string }) {
   const [err, setErr] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // dropdown state
+  // ProductSet dropdown state
   const [selectedProductSetId, setSelectedProductSetId] = useState<string>("");
 
-  async function load(explicitProductSetId?: string) {
+  // Compare dropdown state (selected user)
+  // Empty string means "Me" (we omit selectedUserId from query)
+  const [selectedUserId, setSelectedUserId] = useState<string>("");
+
+  // Pagination state
+  const [page, setPage] = useState<number>(1);
+  const pageSize = 100; // lock to 100 for now
+  const [jumpTo, setJumpTo] = useState<string>("");
+
+  // Users list for dropdown
+  const [users, setUsers] = useState<UserOption[]>([]);
+  const [usersLoading, setUsersLoading] = useState<boolean>(false);
+
+  async function loadUsers() {
+    setUsersLoading(true);
+    try {
+      const res = await fetch("/api/users", { cache: "no-store" });
+      const raw = await res.text();
+
+      let j: any = null;
+      try {
+        j = raw ? JSON.parse(raw) : null;
+      } catch {
+        throw new Error(`Users returned non-JSON (${res.status}): ${raw.slice(0, 140)}`);
+      }
+
+      if (!res.ok) throw new Error(j?.error ?? `Failed (${res.status})`);
+
+      const list = (j?.users ?? []) as UserOption[];
+      setUsers(list);
+    } catch (e: any) {
+      // Don’t hard-fail the checklist if users endpoint isn’t ready yet.
+      // We'll show only "Me" in the dropdown.
+      setUsers([]);
+    } finally {
+      setUsersLoading(false);
+    }
+  }
+
+  async function load(opts?: { productSetId?: string; selectedUserId?: string; page?: number }) {
     setLoading(true);
     setErr(null);
 
     try {
       const qs = new URLSearchParams();
-      const psid = (explicitProductSetId ?? selectedProductSetId).trim();
+
+      const psid = (opts?.productSetId ?? selectedProductSetId).trim();
       if (psid) qs.set("productSetId", psid);
 
+      const suid = (opts?.selectedUserId ?? selectedUserId).trim();
+      if (suid) qs.set("selectedUserId", suid);
+
+      const nextPage = opts?.page ?? page;
+      qs.set("page", String(nextPage));
+      qs.set("pageSize", String(pageSize));
+
+      // IMPORTANT: use the upgraded route: /api/checklist/[productId]
       const url =
-        `/api/checklist/product/${encodeURIComponent(productId)}` +
+        `/api/checklist/${encodeURIComponent(productId)}` +
         (qs.toString() ? `?${qs.toString()}` : "");
 
       const res = await fetch(url, { cache: "no-store" });
@@ -134,9 +200,14 @@ export default function ChecklistClient({ productId }: { productId: string }) {
       const next = j as ChecklistResponse;
       setData(next);
 
-      // If we don't have a selection yet, lock the dropdown to whatever the API chose (base by default)
+      // If we don't have a set selection yet, lock dropdown to whatever API chose (base by default)
       if (!selectedProductSetId && next?.productSetId) {
         setSelectedProductSetId(next.productSetId);
+      }
+
+      // Keep local page in sync with server (clamped)
+      if (typeof next?.page === "number") {
+        setPage(next.page);
       }
     } catch (e: any) {
       setErr(e?.message ?? "Failed to load checklist");
@@ -147,20 +218,64 @@ export default function ChecklistClient({ productId }: { productId: string }) {
   }
 
   useEffect(() => {
-    load();
+    // On first load, fetch users for dropdown (non-blocking) + load checklist
+    loadUsers();
+    load({ page: 1 });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
+  // When productSet changes, reset to page 1
+  function onChangeProductSet(nextId: string) {
+    setSelectedProductSetId(nextId);
+    setPage(1);
+    setJumpTo("");
+    load({ productSetId: nextId, page: 1 });
+  }
+
+  // When selected user changes, reset to page 1
+  function onChangeSelectedUser(nextId: string) {
+    setSelectedUserId(nextId);
+    setPage(1);
+    setJumpTo("");
+    load({ selectedUserId: nextId, page: 1 });
+  }
+
   const sorted = useMemo(() => {
+    // We only receive one page at a time now; sorting is just within that page
     const rows = data?.rows ?? [];
     return [...rows].sort((a, b) => cardNoCompare(a.cardNumber, b.cardNumber));
   }, [data]);
 
   const productSetsSorted = useMemo(() => {
     const arr = data?.productSets ?? [];
-    // Base first, then inserts
     return [...arr].sort((a, b) => Number(b.isBase) - Number(a.isBase));
   }, [data]);
+
+  const compareMode = Boolean(data?.isCompareMode);
+
+  const totalPages = data?.totalPages ?? 1;
+  const canPrev = (data?.page ?? 1) > 1;
+  const canNext = (data?.page ?? 1) < totalPages;
+
+  function goPrev() {
+    if (!canPrev) return;
+    const next = (data?.page ?? 1) - 1;
+    setPage(next);
+    load({ page: next });
+  }
+
+  function goNext() {
+    if (!canNext) return;
+    const next = (data?.page ?? 1) + 1;
+    setPage(next);
+    load({ page: next });
+  }
+
+  function doJump() {
+    const n = clampInt(parseInt(jumpTo || "1", 10) || 1, 1, totalPages);
+    setPage(n);
+    load({ page: n });
+  }
 
   return (
     <div style={{ fontFamily: "system-ui", padding: 16 }}>
@@ -185,43 +300,132 @@ export default function ChecklistClient({ productId }: { productId: string }) {
 
       <hr style={{ margin: "14px 0" }} />
 
-      {/* ✅ ProductSet dropdown */}
-      {data?.productSets?.length ? (
-        <div
-          style={{
-            display: "flex",
-            gap: 10,
-            alignItems: "center",
-            flexWrap: "wrap",
-            marginBottom: 12,
-          }}
-        >
+      {/* Controls row */}
+      <div
+        style={{
+          display: "flex",
+          gap: 12,
+          alignItems: "center",
+          flexWrap: "wrap",
+          marginBottom: 12,
+        }}
+      >
+        {/* User dropdown (compare mode) */}
+        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
           <div style={{ fontWeight: 900 }}>Viewing:</div>
           <select
-            value={selectedProductSetId}
-            onChange={(e) => {
-              const nextId = e.target.value;
-              setSelectedProductSetId(nextId);
-              load(nextId);
-            }}
+            value={selectedUserId}
+            onChange={(e) => onChangeSelectedUser(e.target.value)}
             style={{
               padding: "8px 10px",
               border: "1px solid #ddd",
               borderRadius: 10,
-              minWidth: 260,
-              fontWeight: 700,
+              minWidth: 220,
+              fontWeight: 800,
             }}
           >
-            {productSetsSorted.map((ps) => (
-              <option key={ps.id} value={ps.id}>
-                {formatSetLabel(ps)}
-              </option>
-            ))}
+            <option value="">Me</option>
+            {usersLoading ? null : users
+              // Don’t show “Me” again in the list (API will still include you)
+              .filter((u) => u.id !== data?.currentUserId)
+              .map((u) => (
+                <option key={u.id} value={u.id}>
+                  {formatUserLabel(u)}
+                </option>
+              ))}
           </select>
+        </div>
 
-          <div style={{ color: "#666", fontWeight: 700 }}>
-            {data.productSetIsBase ? "Base set completion" : "Insert set completion"}
+        {/* ProductSet dropdown */}
+        {data?.productSets?.length ? (
+          <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+            <div style={{ fontWeight: 900 }}>Set:</div>
+            <select
+              value={selectedProductSetId}
+              onChange={(e) => onChangeProductSet(e.target.value)}
+              style={{
+                padding: "8px 10px",
+                border: "1px solid #ddd",
+                borderRadius: 10,
+                minWidth: 280,
+                fontWeight: 800,
+              }}
+            >
+              {productSetsSorted.map((ps) => (
+                <option key={ps.id} value={ps.id}>
+                  {formatSetLabel(ps)}
+                </option>
+              ))}
+            </select>
+
+            <div style={{ color: "#666", fontWeight: 700 }}>
+              {data.productSetIsBase ? "Base set completion" : "Insert set completion"}
+            </div>
           </div>
+        ) : null}
+
+        {/* Pagination controls */}
+        <div style={{ display: "flex", gap: 8, alignItems: "center", marginLeft: "auto" }}>
+          <button
+            onClick={goPrev}
+            disabled={!canPrev || loading}
+            style={{ padding: "6px 10px", opacity: !canPrev || loading ? 0.5 : 1 }}
+          >
+            ← Prev
+          </button>
+
+          <div style={{ fontWeight: 900, whiteSpace: "nowrap" }}>
+            Page {data?.page ?? 1} of {totalPages}
+          </div>
+
+          <button
+            onClick={goNext}
+            disabled={!canNext || loading}
+            style={{ padding: "6px 10px", opacity: !canNext || loading ? 0.5 : 1 }}
+          >
+            Next →
+          </button>
+
+          <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+            <input
+              value={jumpTo}
+              onChange={(e) => setJumpTo(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") doJump();
+              }}
+              placeholder="Jump"
+              inputMode="numeric"
+              style={{
+                width: 80,
+                padding: "6px 8px",
+                border: "1px solid #ddd",
+                borderRadius: 10,
+                fontWeight: 800,
+              }}
+            />
+            <button onClick={doJump} disabled={loading} style={{ padding: "6px 10px" }}>
+              Go
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Compare mode helper */}
+      {compareMode ? (
+        <div
+          style={{
+            marginBottom: 12,
+            padding: 10,
+            border: "1px solid #d9e6ff",
+            background: "#f5f9ff",
+            borderRadius: 12,
+            fontWeight: 800,
+          }}
+        >
+          Primary checks show <span style={{ fontWeight: 900 }}>their</span> collection.
+          <span style={{ marginLeft: 10 }}>
+            Small dot in <span style={{ fontWeight: 900 }}>Me</span> column means <span style={{ fontWeight: 900 }}>you</span> own it.
+          </span>
         </div>
       ) : null}
 
@@ -251,7 +455,34 @@ export default function ChecklistClient({ productId }: { productId: string }) {
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
                 <tr>
-                  {["Owned", "#", "Player", "Team", "Subset", "Variant", "Type", "Qty"].map((h) => (
+                  {/* Selected user's owned */}
+                  <th
+                    style={{
+                      textAlign: "left",
+                      padding: 8,
+                      borderBottom: "1px solid #ddd",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    Owned
+                  </th>
+
+                  {/* Compare: my indicator (Option A) */}
+                  {compareMode ? (
+                    <th
+                      style={{
+                        textAlign: "left",
+                        padding: 8,
+                        borderBottom: "1px solid #ddd",
+                        whiteSpace: "nowrap",
+                      }}
+                      title="You own this card"
+                    >
+                      Me
+                    </th>
+                  ) : null}
+
+                  {["#", "Player", "Team", "Subset", "Variant", "Type", "Qty"].map((h) => (
                     <th
                       key={h}
                       style={{
@@ -266,14 +497,37 @@ export default function ChecklistClient({ productId }: { productId: string }) {
                   ))}
                 </tr>
               </thead>
+
               <tbody>
                 {sorted.map((r, idx) => {
                   const owned = (r.ownedQty ?? 0) > 0;
+                  const myOwned = (r.myOwnedQty ?? 0) > 0;
+
                   return (
                     <tr key={r.cardId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
                         {owned ? "✅" : "⬜"}
                       </td>
+
+                      {compareMode ? (
+                        <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
+                          {myOwned ? (
+                            <span
+                              title="You own this"
+                              style={{
+                                display: "inline-block",
+                                width: 10,
+                                height: 10,
+                                borderRadius: 999,
+                                background: "#2b6cb0",
+                              }}
+                            />
+                          ) : (
+                            <span style={{ display: "inline-block", width: 10, height: 10 }} />
+                          )}
+                        </td>
+                      ) : null}
+
                       <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
                         {r.cardNumber}
                       </td>
