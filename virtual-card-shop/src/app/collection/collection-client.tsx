@@ -54,10 +54,15 @@ export default function CollectionClient() {
         Click a set to view your owned cards + completion. Checklist shows every card with an owned checkbox.
       </p>
 
-      <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 10 }}>
+      <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 10, flexWrap: "wrap" }}>
         <button onClick={load} style={{ padding: "8px 12px" }}>
           Refresh
         </button>
+
+        <Link href="/collection/search" style={{ textDecoration: "underline", fontWeight: 900 }}>
+          Search Collection
+        </Link>
+
         <Link href="/inventory" style={{ textDecoration: "underline", fontWeight: 700 }}>
           Inventory
         </Link>

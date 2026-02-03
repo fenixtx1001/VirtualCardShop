@@ -78,8 +78,7 @@ function parseCardNo(raw: string | null | undefined) {
   const numStr = m[1];
   const n = parseInt(numStr, 10);
 
-  const start = m.index;
-  const end = start + numStr.length;
+  const end = (m.index ?? 0) + numStr.length;
   const suffixRaw = lower.slice(end);
 
   const suf = suffixRaw.replace(/[^a-z0-9]+/g, "");
@@ -154,9 +153,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
 
       const list = (j?.users ?? []) as UserOption[];
       setUsers(list);
-    } catch (e: any) {
-      // Don’t hard-fail the checklist if users endpoint isn’t ready yet.
-      // We'll show only "Me" in the dropdown.
+    } catch {
       setUsers([]);
     } finally {
       setUsersLoading(false);
@@ -180,7 +177,6 @@ export default function ChecklistClient({ productId }: { productId: string }) {
       qs.set("page", String(nextPage));
       qs.set("pageSize", String(pageSize));
 
-      // IMPORTANT: use the upgraded route: /api/checklist/[productId]
       const url =
         `/api/checklist/${encodeURIComponent(productId)}` +
         (qs.toString() ? `?${qs.toString()}` : "");
@@ -200,12 +196,10 @@ export default function ChecklistClient({ productId }: { productId: string }) {
       const next = j as ChecklistResponse;
       setData(next);
 
-      // If we don't have a set selection yet, lock dropdown to whatever API chose (base by default)
       if (!selectedProductSetId && next?.productSetId) {
         setSelectedProductSetId(next.productSetId);
       }
 
-      // Keep local page in sync with server (clamped)
       if (typeof next?.page === "number") {
         setPage(next.page);
       }
@@ -218,13 +212,11 @@ export default function ChecklistClient({ productId }: { productId: string }) {
   }
 
   useEffect(() => {
-    // On first load, fetch users for dropdown (non-blocking) + load checklist
     loadUsers();
     load({ page: 1 });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
-  // When productSet changes, reset to page 1
   function onChangeProductSet(nextId: string) {
     setSelectedProductSetId(nextId);
     setPage(1);
@@ -232,7 +224,6 @@ export default function ChecklistClient({ productId }: { productId: string }) {
     load({ productSetId: nextId, page: 1 });
   }
 
-  // When selected user changes, reset to page 1
   function onChangeSelectedUser(nextId: string) {
     setSelectedUserId(nextId);
     setPage(1);
@@ -241,7 +232,6 @@ export default function ChecklistClient({ productId }: { productId: string }) {
   }
 
   const sorted = useMemo(() => {
-    // We only receive one page at a time now; sorting is just within that page
     const rows = data?.rows ?? [];
     return [...rows].sort((a, b) => cardNoCompare(a.cardNumber, b.cardNumber));
   }, [data]);
@@ -325,14 +315,15 @@ export default function ChecklistClient({ productId }: { productId: string }) {
             }}
           >
             <option value="">Me</option>
-            {usersLoading ? null : users
-              // Don’t show “Me” again in the list (API will still include you)
-              .filter((u) => u.id !== data?.currentUserId)
-              .map((u) => (
-                <option key={u.id} value={u.id}>
-                  {formatUserLabel(u)}
-                </option>
-              ))}
+            {usersLoading
+              ? null
+              : users
+                  .filter((u) => u.id !== data?.currentUserId)
+                  .map((u) => (
+                    <option key={u.id} value={u.id}>
+                      {formatUserLabel(u)}
+                    </option>
+                  ))}
           </select>
         </div>
 
@@ -410,7 +401,6 @@ export default function ChecklistClient({ productId }: { productId: string }) {
         </div>
       </div>
 
-      {/* Compare mode helper */}
       {compareMode ? (
         <div
           style={{
@@ -455,42 +445,23 @@ export default function ChecklistClient({ productId }: { productId: string }) {
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
                 <tr>
-                  {/* Selected user's owned */}
-                  <th
-                    style={{
-                      textAlign: "left",
-                      padding: 8,
-                      borderBottom: "1px solid #ddd",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
+                  <th style={{ textAlign: "left", padding: 8, borderBottom: "1px solid #ddd", whiteSpace: "nowrap" }}>
                     Owned
                   </th>
 
-                  {/* Compare: my indicator (Option A) */}
                   {compareMode ? (
                     <th
-                      style={{
-                        textAlign: "left",
-                        padding: 8,
-                        borderBottom: "1px solid #ddd",
-                        whiteSpace: "nowrap",
-                      }}
+                      style={{ textAlign: "left", padding: 8, borderBottom: "1px solid #ddd", whiteSpace: "nowrap" }}
                       title="You own this card"
                     >
                       Me
                     </th>
                   ) : null}
 
-                  {["#", "Player", "Team", "Subset", "Variant", "Type", "Qty"].map((h) => (
+                  {["#", "Player", "Team", "Subset", "Variant", "Type", "Qty", "Details"].map((h) => (
                     <th
                       key={h}
-                      style={{
-                        textAlign: "left",
-                        padding: 8,
-                        borderBottom: "1px solid #ddd",
-                        whiteSpace: "nowrap",
-                      }}
+                      style={{ textAlign: "left", padding: 8, borderBottom: "1px solid #ddd", whiteSpace: "nowrap" }}
                     >
                       {h}
                     </th>
@@ -540,6 +511,15 @@ export default function ChecklistClient({ productId }: { productId: string }) {
                       </td>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 800 }}>
                         {r.ownedQty ?? 0}
+                      </td>
+
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
+                        <Link
+                          href={`/cards/${encodeURIComponent(String(r.cardId))}`}
+                          style={{ textDecoration: "underline", fontWeight: 900 }}
+                        >
+                          Details
+                        </Link>
                       </td>
                     </tr>
                   );
