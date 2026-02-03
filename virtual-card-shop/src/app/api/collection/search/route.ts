@@ -55,6 +55,11 @@ export async function GET(req: Request) {
             subset: true,
             variant: true,
             bookValue: true,
+
+            // ✅ ADD images so UI can show card tiles
+            frontImageUrl: true,
+            backImageUrl: true,
+
             set: {
               select: {
                 id: true,
@@ -82,7 +87,6 @@ export async function GET(req: Request) {
         },
       },
       orderBy: [
-        // stable and useful default ordering
         { card: { player: "asc" } },
         { card: { cardNumber: "asc" } },
       ],
@@ -110,6 +114,10 @@ export async function GET(req: Request) {
 
         productSetName: c.productSet?.name ?? null,
         productSetIsBase: typeof c.productSet?.isBase === "boolean" ? c.productSet.isBase : null,
+
+        // ✅ return images
+        frontImageUrl: c.frontImageUrl ?? null,
+        backImageUrl: c.backImageUrl ?? null,
       };
     });
 
