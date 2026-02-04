@@ -12,11 +12,24 @@ type ProductRow = {
   packPriceCents: number;
   packsPerBox: number | null;
   boxPriceCents: number | null;
+
+  // raw fields (still returned)
   packImageUrl: string | null;
   boxImageUrl: string | null;
+
+  // ✅ NEW from /api/shop/products (fallback: boxImageUrl ?? packImageUrl)
+  displayBoxImageUrl?: string | null;
+
+  // optional debug from API (safe to ignore if absent)
+  debug?: {
+    hasPackImage?: boolean;
+    hasBoxImage?: boolean;
+    displayBoxFrom?: string;
+  };
+
   productSetsCount: number;
 
-  // ✅ NEW (used to hide unreleased products)
+  // used to hide unreleased products
   released?: boolean;
 };
 
@@ -33,7 +46,7 @@ function safeImgSrc(url: string | null | undefined) {
 function Thumb({
   src,
   label,
-  size = 160,
+  size = 190,
 }: {
   src: string | null;
   label: string;
@@ -73,8 +86,7 @@ function Thumb({
       alt={`${label} image`}
       loading="lazy"
       decoding="async"
-      referrerPolicy="no-referrer"
-      crossOrigin="anonymous"
+      // ✅ IMPORTANT: removed referrerPolicy + crossOrigin because these often break hotlinked images
       onError={() => setBroken(true)}
       style={{
         width: size,
@@ -120,7 +132,7 @@ export default function ShopPage() {
       const j = await res.json().catch(() => null);
       if (!res.ok) throw new Error(j?.error ?? `Failed to load (${res.status})`);
 
-      // ✅ normalize + safety filter: only show released products
+      // normalize + safety filter: only show released products
       const incoming = Array.isArray(j) ? (j as ProductRow[]) : [];
       const normalized = incoming.map((p: any) => ({
         ...p,
@@ -193,7 +205,7 @@ export default function ShopPage() {
     const query = q.trim().toLowerCase();
 
     let out = rows.filter((r) => {
-      // ✅ extra safety: never show unreleased
+      // extra safety: never show unreleased
       if (r.released !== true) return false;
 
       if (sport !== "all" && (r.sport ?? "") !== sport) return false;
@@ -336,8 +348,8 @@ export default function ShopPage() {
             const packBuying = buyingKey === packKey;
             const boxBuying = buyingKey === boxKey;
 
-            const packSrc = safeImgSrc(p.packImageUrl);
-            const boxSrc = safeImgSrc(p.boxImageUrl);
+            // ✅ Use API fallback: boxImageUrl ?? packImageUrl (returned as displayBoxImageUrl)
+            const boxOnlySrc = safeImgSrc(p.displayBoxImageUrl ?? p.boxImageUrl ?? p.packImageUrl);
 
             const derivedBox =
               p.packsPerBox && p.packsPerBox > 0
@@ -364,10 +376,37 @@ export default function ShopPage() {
                   </div>
                 </div>
 
+                {/* ✅ SINGLE image slot (box-only UI) */}
+                <div style={{ padding: 14, display: "flex", justifyContent: "center" }}>
+                  <Thumb src={boxOnlySrc} label="Box" size={190} />
+                </div>
+
+                {/* ✅ Optional debug line to help us prove what's wrong (safe, small, functional) */}
+                <div style={{ padding: "0 14px 10px", fontSize: 11, color: "#666" }}>
+                  {boxOnlySrc ? (
+                    <>
+                      Image source:{" "}
+                      <span style={{ fontWeight: 800 }}>{p.debug?.displayBoxFrom ?? "displayBoxImageUrl/box/pack"}</span>{" "}
+                      •{" "}
+                      <a href={boxOnlySrc} target="_blank" rel="noreferrer">
+                        Open image
+                      </a>
+                    </>
+                  ) : (
+                    <>
+                      No image URL found (boxImageUrl and packImageUrl are empty).{" "}
+                      <span style={{ fontWeight: 800 }}>
+                        (hasBox={String(!!p.boxImageUrl)}, hasPack={String(!!p.packImageUrl)})
+                      </span>
+                    </>
+                  )}
+                </div>
+
+                {/* ✅ Keep pack + box purchase UI and styling exactly as before */}
                 <div style={{ padding: 14, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                     <div style={{ fontSize: 12, fontWeight: 900, color: "#333" }}>Pack</div>
-                    <Thumb src={packSrc} label="Pack" />
+
                     <div style={{ fontSize: 12 }}>
                       <span style={{ fontWeight: 900 }}>Price:</span> ${centsToDollars(p.packPriceCents)}
                     </div>
@@ -398,7 +437,7 @@ export default function ShopPage() {
 
                   <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                     <div style={{ fontSize: 12, fontWeight: 900, color: "#333" }}>Box</div>
-                    <Thumb src={boxSrc} label="Box" />
+
                     <div style={{ fontSize: 12 }}>
                       <span style={{ fontWeight: 900 }}>Price:</span>{" "}
                       {boxPriceCents === null ? "—" : `$${centsToDollars(boxPriceCents)}`}
