@@ -17,9 +17,37 @@ type ProductRow = {
   _count?: { productSets: number };
 };
 
+type EvItem = {
+  productId: string;
+  released: boolean;
+  cardsPerPack: number;
+  avgBaseValue: number;
+  expectedInsertsPerPack: number;
+  evPerPack: number; // dollars (book value)
+  packPriceDollars: number;
+  evPerDollar: number | null;
+  inserts: Array<{
+    productSetId: string;
+    oddsPerPack: number;
+    pHit: number;
+    avgInsertValue: number;
+    insertCardCount: number;
+  }>;
+};
+
 function centsToDollars(cents: number | null | undefined) {
   const c = typeof cents === "number" ? cents : 0;
   return (c / 100).toFixed(2);
+}
+
+function fmtMoney(n: number | null | undefined) {
+  if (typeof n !== "number" || !Number.isFinite(n)) return "—";
+  return `$${n.toFixed(2)}`;
+}
+
+function fmtRatio(n: number | null | undefined) {
+  if (typeof n !== "number" || !Number.isFinite(n)) return "—";
+  return n.toFixed(2);
 }
 
 // Accepts "$0.75", "0.75", ".75"
@@ -42,6 +70,12 @@ export default function ProductsClient() {
 
   // ✅ per-row buffered display value for Pack Price input
   const [packPriceDisplay, setPackPriceDisplay] = useState<Record<string, string>>({});
+
+  // ✅ EV cache in client (computed server-side)
+  const [evByProductId, setEvByProductId] = useState<Record<string, EvItem>>({});
+  const [evLoading, setEvLoading] = useState(false);
+  const [evError, setEvError] = useState<string | null>(null);
+  const [evRefreshingId, setEvRefreshingId] = useState<string | null>(null);
 
   function setPackDisplay(id: string, v: string) {
     setPackPriceDisplay((prev) => ({ ...prev, [id]: v }));
@@ -96,8 +130,51 @@ export default function ProductsClient() {
     }
   }
 
+  async function loadEvAll() {
+    setEvLoading(true);
+    setEvError(null);
+    try {
+      const res = await fetch("/api/admin/products/ev", { cache: "no-store" });
+      const j = await res.json().catch(() => null);
+      if (!res.ok) throw new Error(j?.error ?? `Failed to load EV (${res.status})`);
+
+      const items: EvItem[] = Array.isArray(j?.items) ? j.items : [];
+      const map: Record<string, EvItem> = {};
+      for (const it of items) map[it.productId] = it;
+      setEvByProductId(map);
+    } catch (e: any) {
+      setEvError(e?.message ?? "Failed to load EV");
+    } finally {
+      setEvLoading(false);
+    }
+  }
+
+  async function refreshEvOne(productId: string) {
+    setEvRefreshingId(productId);
+    setEvError(null);
+    try {
+      const res = await fetch(`/api/admin/products/ev?productId=${encodeURIComponent(productId)}`, {
+        cache: "no-store",
+      });
+      const j = await res.json().catch(() => null);
+      if (!res.ok) throw new Error(j?.error ?? `Failed to load EV (${res.status})`);
+
+      const items: EvItem[] = Array.isArray(j?.items) ? j.items : [];
+      const it = items.find((x) => x.productId === productId);
+      if (it) {
+        setEvByProductId((prev) => ({ ...prev, [productId]: it }));
+      }
+    } catch (e: any) {
+      setEvError(e?.message ?? "Failed to refresh EV");
+    } finally {
+      setEvRefreshingId(null);
+    }
+  }
+
   useEffect(() => {
     load();
+    // EV is optional; load in parallel
+    loadEvAll();
   }, []);
 
   const sortedRows = useMemo(() => {
@@ -148,6 +225,9 @@ export default function ProductsClient() {
       }
 
       await load();
+      // Price changes affect EV ÷ Price (but EV itself is book-based).
+      // Refresh this one row’s EV so the ratio updates instantly.
+      await refreshEvOne(row.id);
     } catch (e: any) {
       setError(e?.message ?? "Save failed");
     } finally {
@@ -173,6 +253,7 @@ export default function ProductsClient() {
       }
       setNewId("");
       await load();
+      await loadEvAll();
     } catch (e: any) {
       setError(e?.message ?? "Create failed");
     } finally {
@@ -221,6 +302,21 @@ export default function ProductsClient() {
         <button onClick={load} style={{ padding: "8px 12px" }}>
           Refresh
         </button>
+
+        {/* EV controls (non-blocking) */}
+        <div style={{ marginLeft: "auto", display: "flex", gap: 8, alignItems: "center" }}>
+          <button
+            onClick={loadEvAll}
+            disabled={evLoading}
+            title="Recalculate EV values (server-side averages)"
+            style={{ padding: "8px 12px" }}
+          >
+            {evLoading ? "EV Loading..." : "Refresh EV"}
+          </button>
+          <span style={{ fontSize: 12, color: "#555" }}>
+            {evError ? `EV: ${evError}` : evLoading ? "Computing…" : "EV ready"}
+          </span>
+        </div>
       </div>
 
       {error && (
@@ -245,6 +341,8 @@ export default function ProductsClient() {
                   "Pack Price ($)",
                   "Packs/Box",
                   "Product Sets",
+                  "Avg Return/Pack ($)", // ✅ NEW
+                  "EV ÷ Price", // ✅ NEW
                   "Pack Image",
                   "Box Image",
                   "Actions",
@@ -267,6 +365,9 @@ export default function ProductsClient() {
               {sortedRows.map((r, idx) => {
                 const zebra = idx % 2 === 0 ? "#fff" : "#fcfcfc";
                 const saving = savingId === r.id;
+
+                const ev = evByProductId[r.id];
+                const evRefreshing = evRefreshingId === r.id;
 
                 return (
                   <tr key={r.id} style={{ background: zebra }}>
@@ -347,6 +448,39 @@ export default function ProductsClient() {
                       {r._count?.productSets ?? "—"}
                     </td>
 
+                    {/* ✅ NEW: EV per pack */}
+                    <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap" }}>
+                      <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                        <div style={{ fontWeight: 800 }}>
+                          {ev ? fmtMoney(ev.evPerPack) : "—"}
+                        </div>
+                        <div style={{ fontSize: 12, color: "#666" }}>
+                          {ev ? `${ev.cardsPerPack} cards • ~${ev.expectedInsertsPerPack.toFixed(2)} inserts` : ""}
+                        </div>
+                        <div>
+                          <button
+                            onClick={() => refreshEvOne(r.id)}
+                            disabled={evRefreshing}
+                            style={{ padding: "4px 8px", fontSize: 12 }}
+                            title="Recompute EV for this product (uses latest book values)"
+                          >
+                            {evRefreshing ? "Recalc…" : "Recalc"}
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+
+                    {/* ✅ NEW: EV ÷ Price */}
+                    <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap" }}>
+                      {ev?.evPerDollar != null ? (
+                        <span title="Expected book value per $1 spent on a pack">
+                          {fmtRatio(ev.evPerDollar)}
+                        </span>
+                      ) : (
+                        "—"
+                      )}
+                    </td>
+
                     {/* ✅ Pack image uploader + URL input */}
                     <td style={{ padding: 8, borderBottom: "1px solid #eee", minWidth: 340 }}>
                       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
@@ -398,7 +532,7 @@ export default function ProductsClient() {
               })}
               {sortedRows.length === 0 && (
                 <tr>
-                  <td colSpan={11} style={{ padding: 12 }}>
+                  <td colSpan={13} style={{ padding: 12 }}>
                     No products found.
                   </td>
                 </tr>
