@@ -1,3 +1,4 @@
+// src/app/api/collection/summary/route.ts
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
@@ -5,42 +6,43 @@ import { requireUser } from "@/lib/current-user";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+function toNumber(v: any) {
+  if (v == null) return 0;
+  if (typeof v === "number") return Number.isFinite(v) ? v : 0;
+  if (typeof v === "string") {
+    const n = Number(v);
+    return Number.isFinite(n) ? n : 0;
+  }
+  // Decimal.js-like (Prisma Decimal)
+  if (typeof v === "object" && typeof v.toNumber === "function") {
+    try {
+      const n = v.toNumber();
+      return Number.isFinite(n) ? n : 0;
+    } catch {
+      return 0;
+    }
+  }
+  return 0;
+}
+
 export async function GET() {
   try {
-    // ✅ Option B: must be signed in. No default fallback.
     const user = await requireUser();
 
-    /**
-     * Find all card ownerships for this user, bring along:
-     * card -> productSet (id, isBase) -> product (id + images)
-     *
-     * IMPORTANT:
-     * We only count ownership toward progress if the card belongs to a BASE productSet.
-     */
+    // Pull ALL ownerships for the user (qty > 0), including card -> productSet -> productId.
     const owned = await prisma.cardOwnership.findMany({
-      where: {
-        userId: user.id,
-        quantity: { gt: 0 },
-        card: { productSetId: { not: null } },
-      },
+      where: { userId: user.id, quantity: { gt: 0 } },
       select: {
         quantity: true,
         card: {
           select: {
             id: true,
+            bookValue: true,
             productSet: {
               select: {
                 id: true,
+                productId: true,
                 isBase: true,
-                product: {
-                  select: {
-                    id: true,
-                    packImageUrl: true,
-                    boxImageUrl: true,
-                    packPriceCents: true,
-                    cardsPerPack: true,
-                  },
-                },
               },
             },
           },
@@ -48,111 +50,122 @@ export async function GET() {
       },
     });
 
-    // Aggregate owned UNIQUE cards + total qty by productId (BASE ONLY)
-    const ownedByProduct = new Map<
+    // Aggregate per productId:
+    // - totalQty (all owned cards within product)
+    // - totalValueCents (all owned cards within product)
+    // - uniqueOwned (BASE only, for completion)
+    // - baseSetIds (to compute totalCards in base)
+    const byProduct = new Map<
       string,
       {
         productId: string;
-        uniqueOwned: number;
         totalQty: number;
-        packImageUrl: string | null;
+        totalValueCents: number;
+        uniqueOwnedBaseSet: Set<number>;
+        baseSetIds: Set<string>;
       }
     >();
 
-    for (const o of owned) {
-      const ps = o.card.productSet;
-      if (!ps) continue;
+    for (const r of owned) {
+      const qty = typeof r.quantity === "number" ? r.quantity : 0;
+      const ps = (r as any).card?.productSet;
+      const productId = String(ps?.productId ?? "").trim();
+      if (!productId) continue;
 
-      // ✅ Only count BASE cards toward completion
-      if (!ps.isBase) continue;
+      const bookValueDollars = toNumber((r as any).card?.bookValue); // stored in dollars
+      const valueCents = Math.round(bookValueDollars * 100) * qty;
 
-      const p = ps.product;
-      const key = p.id;
-
-      const cur =
-        ownedByProduct.get(key) ?? {
-          productId: key,
-          uniqueOwned: 0,
+      let agg = byProduct.get(productId);
+      if (!agg) {
+        agg = {
+          productId,
           totalQty: 0,
-          packImageUrl: p.packImageUrl ?? null,
+          totalValueCents: 0,
+          uniqueOwnedBaseSet: new Set<number>(),
+          baseSetIds: new Set<string>(),
         };
+        byProduct.set(productId, agg);
+      }
 
-      // cardOwnership is one row per user+card, so this is already "unique"
-      cur.uniqueOwned += 1;
-      cur.totalQty += o.quantity ?? 0;
-      if (!cur.packImageUrl && p.packImageUrl) cur.packImageUrl = p.packImageUrl;
+      agg.totalQty += qty;
+      agg.totalValueCents += valueCents;
 
-      ownedByProduct.set(key, cur);
+      // For completion stats, we only count BASE set cards
+      if (ps?.isBase) {
+        agg.uniqueOwnedBaseSet.add((r as any).card?.id);
+        if (ps?.id) agg.baseSetIds.add(String(ps.id));
+      }
     }
 
-    const productIds = [...ownedByProduct.keys()];
+    const productIds = Array.from(byProduct.keys());
     if (productIds.length === 0) return NextResponse.json([]);
 
-    /**
-     * Total cards per productSet (groupBy productSetId),
-     * then roll up to productId BUT we will use BASE totals only.
-     */
-    const totalsBySet = await prisma.card.groupBy({
-      by: ["productSetId"],
-      _count: { _all: true },
-      where: {
-        productSet: {
-          productId: { in: productIds },
-        },
+    // Load product metadata for images
+    const products = await prisma.product.findMany({
+      where: { id: { in: productIds } },
+      select: {
+        id: true,
+        packImageUrl: true,
       },
     });
 
-    const sets = await prisma.productSet.findMany({
-      where: { productId: { in: productIds } },
-      select: { id: true, productId: true, isBase: true },
+    const packImageByProduct = new Map<string, string | null>();
+    for (const p of products) packImageByProduct.set(p.id, p.packImageUrl ?? null);
+
+    // Compute totalCards for BASE sets per product:
+    // 1) find base productSets for these products
+    const baseSets = await prisma.productSet.findMany({
+      where: { productId: { in: productIds }, isBase: true },
+      select: { id: true, productId: true },
     });
 
-    const metaBySetId = new Map<string, { productId: string; isBase: boolean }>();
-    for (const s of sets) {
-      metaBySetId.set(s.id, { productId: s.productId, isBase: s.isBase });
+    const baseSetIds = baseSets.map((s) => s.id);
+    const baseSetIdToProductId = new Map<string, string>();
+    for (const s of baseSets) baseSetIdToProductId.set(s.id, s.productId);
+
+    // 2) count cards grouped by base productSetId
+    const counts = baseSetIds.length
+      ? await prisma.card.groupBy({
+          by: ["productSetId"],
+          where: { productSetId: { in: baseSetIds } },
+          _count: { _all: true },
+        })
+      : [];
+
+    const totalCardsByProduct = new Map<string, number>();
+    for (const c of counts) {
+      const psid = c.productSetId as string;
+      const pid = baseSetIdToProductId.get(psid);
+      if (!pid) continue;
+      totalCardsByProduct.set(pid, (totalCardsByProduct.get(pid) ?? 0) + (c._count?._all ?? 0));
     }
 
-    const totalByProduct = new Map<string, { totalAll: number; totalBase: number }>();
-    for (const t of totalsBySet) {
-      const setId = t.productSetId;
-      if (!setId) continue;
+    // Build response (array)
+    const out = productIds.map((pid) => {
+      const agg = byProduct.get(pid)!;
 
-      const meta = metaBySetId.get(setId);
-      if (!meta) continue;
+      const totalCards = totalCardsByProduct.get(pid) ?? 0;
+      const uniqueOwned = agg.uniqueOwnedBaseSet.size;
+      const percentComplete = totalCards ? (uniqueOwned / totalCards) * 100 : 0;
 
-      const cur = totalByProduct.get(meta.productId) ?? { totalAll: 0, totalBase: 0 };
-      cur.totalAll += t._count._all;
-      if (meta.isBase) cur.totalBase += t._count._all;
-      totalByProduct.set(meta.productId, cur);
-    }
+      return {
+        productId: pid,
+        uniqueOwned,
+        totalQty: agg.totalQty,
+        totalCards,
+        percentComplete,
+        packImageUrl: packImageByProduct.get(pid) ?? null,
 
-    const out = productIds
-      .map((pid) => {
-        const ownedAgg = ownedByProduct.get(pid)!;
-        const totalsAgg = totalByProduct.get(pid) ?? { totalAll: 0, totalBase: 0 };
-
-        // ✅ Use BASE denominator if present; otherwise fall back to all (safety)
-        const total = totalsAgg.totalBase > 0 ? totalsAgg.totalBase : totalsAgg.totalAll;
-
-        const pct = total > 0 ? Math.round((ownedAgg.uniqueOwned / total) * 1000) / 10 : 0; // 1 decimal
-
-        return {
-          productId: pid,
-          uniqueOwned: ownedAgg.uniqueOwned,
-          totalCards: total,
-          percentComplete: pct,
-          packImageUrl: ownedAgg.packImageUrl,
-          totalQty: ownedAgg.totalQty,
-        };
-      })
-      .sort((a, b) => a.productId.localeCompare(b.productId));
+        // ✅ NEW
+        totalValueCents: agg.totalValueCents,
+      };
+    });
 
     return NextResponse.json(out);
   } catch (e: any) {
-    const status = e?.status ?? 500;
     return NextResponse.json(
-      { error: e?.message ?? "Failed to load collection summary" },
-      { status }
+      { ok: false, error: e?.message ?? "Failed to load collection summary" },
+      { status: 500 }
     );
   }
 }

@@ -26,17 +26,16 @@ type ChecklistRow = {
   isInsert: boolean;
   bookValue: number | null;
 
-  // Selected user's qty (i.e., whose collection we're viewing)
   ownedQty: number;
-
-  // Only present when comparing another user (selectedUserId !== me)
   myOwnedQty?: number;
 };
+
+type SortKey = "cardNumber" | "owned" | "qty" | "player" | "team" | "subset" | "variant";
+type SortDir = "asc" | "desc";
 
 type ChecklistResponse = {
   ok: boolean;
 
-  // identity + mode (from API)
   currentUserId: string;
   selectedUserId: string;
   isCompareMode: boolean;
@@ -51,61 +50,22 @@ type ChecklistResponse = {
   uniqueOwned: number;
   percentComplete: number;
 
-  // ✅ NEW: set value totals (whole productSet)
   setTotalBookValue: number;
   setOwnedBookValue: number;
   setMissingBookValue: number;
   setOwnedValuePercent: number;
   mySetOwnedBookValue?: number | null;
 
-  // pagination
   page: number;
   pageSize: number;
   totalPages: number;
 
+  // These come back from the updated API (safe even if you don’t use them)
+  sortKey?: SortKey;
+  sortDir?: SortDir;
+
   rows: ChecklistRow[];
 };
-
-// --- Card number-aware sorting (ignores any prefix)
-function parseCardNo(raw: string | null | undefined) {
-  const s = (raw ?? "").trim();
-  const lower = s.toLowerCase();
-
-  const m = lower.match(/(\d+)/);
-
-  if (!m || m.index == null) {
-    return {
-      hasNum: false,
-      n: Number.POSITIVE_INFINITY,
-      suf: lower,
-      raw: lower,
-    };
-  }
-
-  const numStr = m[1];
-  const n = parseInt(numStr, 10);
-
-  const end = (m.index ?? 0) + numStr.length;
-  const suffixRaw = lower.slice(end);
-
-  const suf = suffixRaw.replace(/[^a-z0-9]+/g, "");
-
-  return {
-    hasNum: Number.isFinite(n),
-    n: Number.isFinite(n) ? n : Number.POSITIVE_INFINITY,
-    suf,
-    raw: lower,
-  };
-}
-
-function cardNoCompare(aNo: string, bNo: string) {
-  const a = parseCardNo(aNo);
-  const b = parseCardNo(bNo);
-
-  if (a.n !== b.n) return a.n - b.n;
-  if (a.suf !== b.suf) return a.suf.localeCompare(b.suf);
-  return a.raw.localeCompare(b.raw);
-}
 
 function formatSetLabel(ps: ProductSetOption) {
   const base = ps.name?.trim() ? ps.name!.trim() : ps.id;
@@ -128,6 +88,11 @@ function money(v: any) {
   return `$${safe.toFixed(2)}`;
 }
 
+function sortIcon(active: boolean, dir: SortDir) {
+  if (!active) return "";
+  return dir === "asc" ? " ▲" : " ▼";
+}
+
 export default function ChecklistClient({ productId }: { productId: string }) {
   const [data, setData] = useState<ChecklistResponse | null>(null);
   const [err, setErr] = useState<string | null>(null);
@@ -136,14 +101,17 @@ export default function ChecklistClient({ productId }: { productId: string }) {
   // ProductSet dropdown state
   const [selectedProductSetId, setSelectedProductSetId] = useState<string>("");
 
-  // Compare dropdown state (selected user)
-  // Empty string means "Me" (we omit selectedUserId from query)
+  // Compare dropdown state
   const [selectedUserId, setSelectedUserId] = useState<string>("");
 
   // Pagination state
   const [page, setPage] = useState<number>(1);
-  const pageSize = 100; // lock to 100 for now
+  const pageSize = 100;
   const [jumpTo, setJumpTo] = useState<string>("");
+
+  // ✅ NEW: sort state (server-side)
+  const [sortKey, setSortKey] = useState<SortKey>("cardNumber");
+  const [sortDir, setSortDir] = useState<SortDir>("asc");
 
   // Users list for dropdown
   const [users, setUsers] = useState<UserOption[]>([]);
@@ -173,7 +141,13 @@ export default function ChecklistClient({ productId }: { productId: string }) {
     }
   }
 
-  async function load(opts?: { productSetId?: string; selectedUserId?: string; page?: number }) {
+  async function load(opts?: {
+    productSetId?: string;
+    selectedUserId?: string;
+    page?: number;
+    sortKey?: SortKey;
+    sortDir?: SortDir;
+  }) {
     setLoading(true);
     setErr(null);
 
@@ -189,6 +163,12 @@ export default function ChecklistClient({ productId }: { productId: string }) {
       const nextPage = opts?.page ?? page;
       qs.set("page", String(nextPage));
       qs.set("pageSize", String(pageSize));
+
+      // ✅ NEW: sort params
+      const sk = (opts?.sortKey ?? sortKey) as SortKey;
+      const sd = (opts?.sortDir ?? sortDir) as SortDir;
+      qs.set("sortKey", sk);
+      qs.set("sortDir", sd);
 
       const url =
         `/api/checklist/${encodeURIComponent(productId)}` +
@@ -209,13 +189,19 @@ export default function ChecklistClient({ productId }: { productId: string }) {
       const next = j as ChecklistResponse;
       setData(next);
 
+      // keep dropdown default in sync
       if (!selectedProductSetId && next?.productSetId) {
         setSelectedProductSetId(next.productSetId);
       }
 
+      // keep pagination in sync (API may clamp)
       if (typeof next?.page === "number") {
         setPage(next.page);
       }
+
+      // keep sort in sync (API echoes it)
+      if (next?.sortKey) setSortKey(next.sortKey);
+      if (next?.sortDir) setSortDir(next.sortDir);
     } catch (e: any) {
       setErr(e?.message ?? "Failed to load checklist");
       setData(null);
@@ -226,7 +212,14 @@ export default function ChecklistClient({ productId }: { productId: string }) {
 
   useEffect(() => {
     loadUsers();
-    load({ page: 1 });
+    // reset to defaults when switching products
+    setSelectedProductSetId("");
+    setSelectedUserId("");
+    setPage(1);
+    setJumpTo("");
+    setSortKey("cardNumber");
+    setSortDir("asc");
+    load({ page: 1, sortKey: "cardNumber", sortDir: "asc" });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
@@ -243,11 +236,6 @@ export default function ChecklistClient({ productId }: { productId: string }) {
     setJumpTo("");
     load({ selectedUserId: nextId, page: 1 });
   }
-
-  const sorted = useMemo(() => {
-    const rows = data?.rows ?? [];
-    return [...rows].sort((a, b) => cardNoCompare(a.cardNumber, b.cardNumber));
-  }, [data]);
 
   const productSetsSorted = useMemo(() => {
     const arr = data?.productSets ?? [];
@@ -279,6 +267,45 @@ export default function ChecklistClient({ productId }: { productId: string }) {
     setPage(n);
     load({ page: n });
   }
+
+  // ✅ NEW: header click handler (server-side sort)
+  function onSort(nextKey: SortKey) {
+    const isSame = nextKey === sortKey;
+
+    let nextDir: SortDir;
+    if (isSame) {
+      nextDir = sortDir === "asc" ? "desc" : "asc";
+    } else {
+      // sensible defaults
+      if (nextKey === "owned" || nextKey === "qty") nextDir = "desc";
+      else nextDir = "asc";
+    }
+
+    setSortKey(nextKey);
+    setSortDir(nextDir);
+    setPage(1);
+    setJumpTo("");
+
+    load({ sortKey: nextKey, sortDir: nextDir, page: 1 });
+  }
+
+  const rows = data?.rows ?? [];
+
+  const thClickable: React.CSSProperties = {
+    textAlign: "left",
+    padding: 8,
+    borderBottom: "1px solid #ddd",
+    whiteSpace: "nowrap",
+    cursor: "pointer",
+    userSelect: "none",
+  };
+
+  const thPlain: React.CSSProperties = {
+    textAlign: "left",
+    padding: 8,
+    borderBottom: "1px solid #ddd",
+    whiteSpace: "nowrap",
+  };
 
   return (
     <div style={{ fontFamily: "system-ui", padding: 16 }}>
@@ -313,7 +340,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
           marginBottom: 12,
         }}
       >
-        {/* User dropdown (compare mode) */}
+        {/* User dropdown */}
         <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
           <div style={{ fontWeight: 900 }}>Viewing:</div>
           <select
@@ -449,7 +476,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
             Complete: {data.percentComplete.toFixed(1)}% ({data.uniqueOwned}/{data.totalCards} unique)
           </div>
 
-          {/* ✅ NEW: value summary */}
+          {/* Value summary */}
           <div
             style={{
               marginBottom: 12,
@@ -480,13 +507,12 @@ export default function ChecklistClient({ productId }: { productId: string }) {
 
             {compareMode && data.mySetOwnedBookValue != null ? (
               <div>
-                My Owned Value:{" "}
-                <span style={{ fontWeight: 900 }}>{money(data.mySetOwnedBookValue)}</span>
+                My Owned Value: <span style={{ fontWeight: 900 }}>{money(data.mySetOwnedBookValue)}</span>
               </div>
             ) : null}
           </div>
 
-          {sorted.length === 0 && (
+          {rows.length === 0 && (
             <div style={{ padding: 10, border: "1px solid #ddd", background: "#fffdf2" }}>
               Checklist loaded but returned 0 rows. This usually means the product set has no cards.
             </div>
@@ -496,32 +522,76 @@ export default function ChecklistClient({ productId }: { productId: string }) {
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
                 <tr>
-                  <th style={{ textAlign: "left", padding: 8, borderBottom: "1px solid #ddd", whiteSpace: "nowrap" }}>
-                    Owned
+                  <th
+                    style={thClickable}
+                    onClick={() => onSort("owned")}
+                    title="Sort by Owned (whole set, then paged)"
+                  >
+                    Owned{sortIcon(sortKey === "owned", sortDir)}
                   </th>
 
                   {compareMode ? (
-                    <th
-                      style={{ textAlign: "left", padding: 8, borderBottom: "1px solid #ddd", whiteSpace: "nowrap" }}
-                      title="You own this card"
-                    >
+                    <th style={thPlain} title="You own this card">
                       Me
                     </th>
                   ) : null}
 
-                  {["#", "Player", "Team", "Subset", "Variant", "Type", "Qty", "Details"].map((h) => (
-                    <th
-                      key={h}
-                      style={{ textAlign: "left", padding: 8, borderBottom: "1px solid #ddd", whiteSpace: "nowrap" }}
-                    >
-                      {h}
-                    </th>
-                  ))}
+                  <th
+                    style={thClickable}
+                    onClick={() => onSort("cardNumber")}
+                    title="Sort by Card Number"
+                  >
+                    #{sortIcon(sortKey === "cardNumber", sortDir)}
+                  </th>
+
+                  <th
+                    style={thClickable}
+                    onClick={() => onSort("player")}
+                    title="Sort by Player"
+                  >
+                    Player{sortIcon(sortKey === "player", sortDir)}
+                  </th>
+
+                  <th
+                    style={thClickable}
+                    onClick={() => onSort("team")}
+                    title="Sort by Team"
+                  >
+                    Team{sortIcon(sortKey === "team", sortDir)}
+                  </th>
+
+                  <th
+                    style={thClickable}
+                    onClick={() => onSort("subset")}
+                    title="Sort by Subset"
+                  >
+                    Subset{sortIcon(sortKey === "subset", sortDir)}
+                  </th>
+
+                  <th
+                    style={thClickable}
+                    onClick={() => onSort("variant")}
+                    title="Sort by Variant"
+                  >
+                    Variant{sortIcon(sortKey === "variant", sortDir)}
+                  </th>
+
+                  <th style={thPlain}>Type</th>
+
+                  <th
+                    style={thClickable}
+                    onClick={() => onSort("qty")}
+                    title="Sort by Qty (whole set, then paged)"
+                  >
+                    Qty{sortIcon(sortKey === "qty", sortDir)}
+                  </th>
+
+                  <th style={thPlain}>Details</th>
                 </tr>
               </thead>
 
               <tbody>
-                {sorted.map((r, idx) => {
+                {rows.map((r, idx) => {
                   const owned = (r.ownedQty ?? 0) > 0;
                   const myOwned = (r.myOwnedQty ?? 0) > 0;
 

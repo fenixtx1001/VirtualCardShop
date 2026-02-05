@@ -29,36 +29,21 @@ function clampInt(n: number, min: number, max: number) {
 }
 
 // --- Card number-aware sorting (ignores any prefix)
-// Examples handled:
-//   "BC-1" < "BC-2" < "BC-10"
-//   "DK-007" < "DK-8"
-//   "10" < "10a" < "10b" < "11"
-//   "A12b" sorts like 12b
 function parseCardNo(raw: string | null | undefined) {
   const s = (raw ?? "").trim();
   const lower = s.toLowerCase();
 
-  // Find the first run of digits anywhere in the string.
   const m = lower.match(/(\d+)/);
-
   if (!m || m.index == null) {
-    // No digits at all -> push to bottom, sort by text
-    return {
-      n: Number.POSITIVE_INFINITY,
-      suf: lower,
-      raw: lower,
-    };
+    return { n: Number.POSITIVE_INFINITY, suf: lower, raw: lower };
   }
 
   const numStr = m[1];
   const n = parseInt(numStr, 10);
 
-  // Everything AFTER that digit-run becomes the suffix for tie-breaking.
   const start = m.index;
   const end = start + numStr.length;
   const suffixRaw = lower.slice(end);
-
-  // Normalize by removing separators/spaces, keeping only a-z0-9.
   const suf = suffixRaw.replace(/[^a-z0-9]+/g, "");
 
   return {
@@ -85,7 +70,6 @@ function toNumber(v: any) {
     const n = Number(v);
     return Number.isFinite(n) ? n : 0;
   }
-  // Decimal.js-like
   if (typeof v === "object" && typeof v.toNumber === "function") {
     try {
       const n = v.toNumber();
@@ -97,6 +81,45 @@ function toNumber(v: any) {
   return 0;
 }
 
+type SortKey =
+  | "cardNumber"
+  | "owned"
+  | "qty"
+  | "player"
+  | "team"
+  | "subset"
+  | "variant"
+  | "bookValue";
+
+type SortDir = "asc" | "desc";
+
+function parseSort(url: URL): { sortKey: SortKey; sortDir: SortDir } {
+  const rawKey = (url.searchParams.get("sortKey") ?? "").trim();
+  const rawDir = (url.searchParams.get("sortDir") ?? "").trim().toLowerCase();
+
+  const allowed: SortKey[] = [
+    "cardNumber",
+    "owned",
+    "qty",
+    "player",
+    "team",
+    "subset",
+    "variant",
+    "bookValue",
+  ];
+
+  const sortKey = (allowed.includes(rawKey as SortKey) ? rawKey : "cardNumber") as SortKey;
+  const sortDir = (rawDir === "desc" ? "desc" : "asc") as SortDir;
+
+  return { sortKey, sortDir };
+}
+
+function cmpText(a: any, b: any) {
+  const as = String(a ?? "").toLowerCase();
+  const bs = String(b ?? "").toLowerCase();
+  return as.localeCompare(bs);
+}
+
 export async function GET(req: Request, ctx: Ctx) {
   try {
     const { currentUser, selectedUserId, isCompareMode } =
@@ -104,10 +127,7 @@ export async function GET(req: Request, ctx: Ctx) {
 
     const productId = await getProductId(ctx);
     if (!productId) {
-      return NextResponse.json(
-        { ok: false, error: "Missing productId" },
-        { status: 400 }
-      );
+      return NextResponse.json({ ok: false, error: "Missing productId" }, { status: 400 });
     }
 
     const url = new URL(req.url);
@@ -119,9 +139,10 @@ export async function GET(req: Request, ctx: Ctx) {
 
     // Optional productSetId query param
     const rawProductSetId = url.searchParams.get("productSetId");
-    const requestedSetId = rawProductSetId
-      ? decodeURIComponent(rawProductSetId).trim()
-      : "";
+    const requestedSetId = rawProductSetId ? decodeURIComponent(rawProductSetId).trim() : "";
+
+    // ✅ NEW: sort params
+    const { sortKey, sortDir } = parseSort(url);
 
     // Load product + its productSets so we can default to Base, and allow toggling sets.
     const product = await prisma.product.findUnique({
@@ -165,21 +186,9 @@ export async function GET(req: Request, ctx: Ctx) {
     const safePage = clampInt(page, 1, totalPages);
     const skip = (safePage - 1) * pageSize;
 
-    // ✅ KEY CHANGE:
-    // We need numeric-aware ordering BEFORE slicing into pages.
-    // So we fetch (id, cardNumber) for the full set, sort in memory, then page IDs.
-    const allCardKeys = await prisma.card.findMany({
+    // ✅ Pull all cards' sort fields (cheap enough for set sizes like 770, 600, etc.)
+    const allCards = await prisma.card.findMany({
       where: { productSetId: selectedSet.id },
-      select: { id: true, cardNumber: true },
-    });
-
-    allCardKeys.sort((a, b) => cardNoCompare(a.cardNumber, b.cardNumber));
-
-    const pageCardIds = allCardKeys.slice(skip, skip + pageSize).map((c) => c.id);
-
-    // Fetch full card data for this page
-    const pageCardsRaw = await prisma.card.findMany({
-      where: { id: { in: pageCardIds } },
       select: {
         id: true,
         cardNumber: true,
@@ -187,16 +196,104 @@ export async function GET(req: Request, ctx: Ctx) {
         team: true,
         subset: true,
         variant: true,
-        productSetId: true,
         bookValue: true,
+        productSetId: true,
       },
     });
 
-    // Re-order pageCards to match pageCardIds order (Prisma doesn't guarantee IN-order)
-    const cardById = new Map<number, (typeof pageCardsRaw)[number]>();
-    for (const c of pageCardsRaw) cardById.set(c.id, c);
+    // ✅ Pull ownership for the whole set for sorting (selected user + me in compare mode)
+    const userIdsToFetch = isCompareMode
+      ? [selectedUserId, currentUser.id]
+      : [selectedUserId];
 
-    const cards = pageCardIds.map((id) => cardById.get(id)).filter(Boolean) as typeof pageCardsRaw;
+    const ownershipAll = await prisma.cardOwnership.findMany({
+      where: {
+        userId: { in: userIdsToFetch },
+        quantity: { gt: 0 },
+        card: { productSetId: selectedSet.id },
+      },
+      select: { userId: true, cardId: true, quantity: true },
+    });
+
+    const selectedOwnedMap = new Map<number, number>();
+    const myOwnedMap = new Map<number, number>();
+
+    for (const o of ownershipAll) {
+      if (o.userId === selectedUserId) selectedOwnedMap.set(o.cardId, o.quantity);
+      if (o.userId === currentUser.id) myOwnedMap.set(o.cardId, o.quantity);
+    }
+
+    // ✅ Sort across the WHOLE set, then paginate
+    const dir = sortDir === "desc" ? -1 : 1;
+
+    allCards.sort((a, b) => {
+      const aOwnedQty = selectedOwnedMap.get(a.id) ?? 0;
+      const bOwnedQty = selectedOwnedMap.get(b.id) ?? 0;
+
+      const aOwned = aOwnedQty > 0 ? 1 : 0;
+      const bOwned = bOwnedQty > 0 ? 1 : 0;
+
+      const aBV = toNumber((a as any).bookValue);
+      const bBV = toNumber((b as any).bookValue);
+
+      let primary = 0;
+
+      switch (sortKey) {
+        case "cardNumber":
+          primary = cardNoCompare(a.cardNumber, b.cardNumber);
+          break;
+
+        case "owned":
+          // owned first (desc) is the natural view; but respect sortDir
+          primary = (aOwned - bOwned) * dir;
+          // If descending, we want owned(1) first => reverse
+          if (sortDir === "desc") primary = (bOwned - aOwned);
+          break;
+
+        case "qty":
+          primary = (aOwnedQty - bOwnedQty) * dir;
+          // natural: bigger qty first when desc
+          if (sortDir === "desc") primary = (bOwnedQty - aOwnedQty);
+          break;
+
+        case "player":
+          primary = cmpText(a.player, b.player) * dir;
+          break;
+
+        case "team":
+          primary = cmpText(a.team, b.team) * dir;
+          break;
+
+        case "subset":
+          primary = cmpText(a.subset, b.subset) * dir;
+          break;
+
+        case "variant":
+          primary = cmpText(a.variant, b.variant) * dir;
+          break;
+
+        case "bookValue":
+          primary = (aBV - bBV) * dir;
+          if (sortDir === "desc") primary = (bBV - aBV);
+          break;
+
+        default:
+          primary = cardNoCompare(a.cardNumber, b.cardNumber);
+      }
+
+      if (primary !== 0) return primary;
+
+      // Stable tie-breakers (so paging doesn’t “shuffle” on refresh)
+      // 1) card number
+      const cn = cardNoCompare(a.cardNumber, b.cardNumber);
+      if (cn !== 0) return cn;
+
+      // 2) id
+      return a.id - b.id;
+    });
+
+    const pageCards = allCards.slice(skip, skip + pageSize);
+    const pageCardIds = pageCards.map((c) => c.id);
 
     // Completion stats (selected user) across the WHOLE set
     const uniqueOwnedRows = await prisma.cardOwnership.findMany({
@@ -212,56 +309,11 @@ export async function GET(req: Request, ctx: Ctx) {
     const uniqueOwned = uniqueOwnedRows.length;
     const percentComplete = totalCards ? (uniqueOwned / totalCards) * 100 : 0;
 
-    // Ownership for the current page (selected user + me in compare mode)
-    const userIdsToFetch = isCompareMode
-      ? [selectedUserId, currentUser.id]
-      : [selectedUserId];
-
-    const ownershipRows = await prisma.cardOwnership.findMany({
-      where: {
-        userId: { in: userIdsToFetch },
-        cardId: { in: pageCardIds },
-        quantity: { gt: 0 },
-      },
-      select: { userId: true, cardId: true, quantity: true },
-    });
-
-    const selectedOwnedMap = new Map<number, number>();
-    const myOwnedMap = new Map<number, number>();
-
-    for (const o of ownershipRows) {
-      if (o.userId === selectedUserId) selectedOwnedMap.set(o.cardId, o.quantity);
-      if (o.userId === currentUser.id) myOwnedMap.set(o.cardId, o.quantity);
-    }
-
-    const rows = cards.map((c) => {
-      const ownedQty = selectedOwnedMap.get(c.id) ?? 0;
-
-      const baseRow: any = {
-        cardId: c.id,
-        cardNumber: c.cardNumber,
-        player: c.player,
-        team: c.team,
-        subset: c.subset,
-        variant: c.variant,
-        isInsert: !selectedSet.isBase,
-        bookValue: toNumber(c.bookValue),
-        ownedQty,
-      };
-
-      if (isCompareMode) {
-        baseRow.myOwnedQty = myOwnedMap.get(c.id) ?? 0;
-      }
-
-      return baseRow;
-    });
-
     // ✅ NEW: Set value totals for the SELECTED productSet (whole set, not paged)
     const agg = await prisma.card.aggregate({
       where: { productSetId: selectedSet.id },
       _sum: { bookValue: true },
     });
-
     const setTotalBookValue = toNumber((agg as any)?._sum?.bookValue);
 
     // Selected user's owned book value across entire set
@@ -309,7 +361,30 @@ export async function GET(req: Request, ctx: Ctx) {
     }
 
     const setMissingBookValue = Math.max(0, setTotalBookValue - setOwnedBookValue);
-    const setOwnedValuePercent = setTotalBookValue > 0 ? (setOwnedBookValue / setTotalBookValue) * 100 : 0;
+    const setOwnedValuePercent =
+      setTotalBookValue > 0 ? (setOwnedBookValue / setTotalBookValue) * 100 : 0;
+
+    const rows = pageCards.map((c) => {
+      const ownedQty = selectedOwnedMap.get(c.id) ?? 0;
+
+      const baseRow: any = {
+        cardId: c.id,
+        cardNumber: c.cardNumber,
+        player: c.player,
+        team: c.team,
+        subset: c.subset,
+        variant: c.variant,
+        isInsert: !selectedSet.isBase,
+        bookValue: toNumber((c as any).bookValue),
+        ownedQty,
+      };
+
+      if (isCompareMode) {
+        baseRow.myOwnedQty = myOwnedMap.get(c.id) ?? 0;
+      }
+
+      return baseRow;
+    });
 
     return NextResponse.json({
       ok: true,
@@ -329,12 +404,26 @@ export async function GET(req: Request, ctx: Ctx) {
       uniqueOwned,
       percentComplete,
 
-      // ✅ NEW: value totals for the selected ProductSet
+      // value totals for the selected ProductSet
       setTotalBookValue,
       setOwnedBookValue,
       setMissingBookValue,
       setOwnedValuePercent,
       ...(isCompareMode ? { mySetOwnedBookValue } : {}),
+
+      // ✅ NEW: sort info
+      sortKey,
+      sortDir,
+      allowedSortKeys: [
+        "cardNumber",
+        "owned",
+        "qty",
+        "player",
+        "team",
+        "subset",
+        "variant",
+        "bookValue",
+      ],
 
       // pagination
       page: safePage,
@@ -352,9 +441,6 @@ export async function GET(req: Request, ctx: Ctx) {
     });
   } catch (e: any) {
     const status = e?.status ?? 500;
-    return NextResponse.json(
-      { ok: false, error: e?.message ?? "Checklist failed" },
-      { status }
-    );
+    return NextResponse.json({ ok: false, error: e?.message ?? "Checklist failed" }, { status });
   }
 }
