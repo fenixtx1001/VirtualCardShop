@@ -239,7 +239,6 @@ export default function InventoryPage() {
                                 alt="Pack"
                                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
                                 onError={(e) => {
-                                  // fallback: show "Pack" if image fails
                                   const img = e.currentTarget;
                                   img.style.display = "none";
                                   (img.parentElement as any).textContent = "Pack";
@@ -269,13 +268,21 @@ export default function InventoryPage() {
                           {r.cardsPerPack != null ? r.cardsPerPack : "—"}
                         </td>
 
-                        <td style={{ padding: 12, borderBottom: "1px solid #eee", color: colors.subtext, fontWeight: 800 }}>
+                        <td
+                          style={{
+                            padding: 12,
+                            borderBottom: "1px solid #eee",
+                            color: colors.subtext,
+                            fontWeight: 800,
+                          }}
+                        >
                           {formatDateTime(r.updatedAt)}
                         </td>
 
                         <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
+                          {/* ✅ FIX: use the real open-pack route */}
                           <Link
-                            href={`/rip-pack?productId=${encodeURIComponent(r.productId)}`}
+                            href={`/open-pack/${encodeURIComponent(r.productId)}`}
                             style={{
                               display: "inline-flex",
                               alignItems: "center",
@@ -302,7 +309,15 @@ export default function InventoryPage() {
           </div>
 
           {/* Footer hint */}
-          <div style={{ padding: 12, borderTop: `1px solid ${colors.border}`, color: colors.subtext, fontSize: 12, fontWeight: 700 }}>
+          <div
+            style={{
+              padding: 12,
+              borderTop: `1px solid ${colors.border}`,
+              color: colors.subtext,
+              fontSize: 12,
+              fontWeight: 700,
+            }}
+          >
             Tip: if you don’t see pack art, add a Pack Image on <span style={{ fontWeight: 900 }}>Admin → Products</span>.
           </div>
         </div>
