@@ -1,3 +1,4 @@
+// src/app/shop/page.tsx
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -41,6 +42,13 @@ function centsToDollars(cents: number | null | undefined) {
 function safeImgSrc(url: string | null | undefined) {
   const u = (url ?? "").trim();
   return u.length ? u : null;
+}
+
+// ✅ Friendly display name from productId (no DB changes)
+function formatFriendlyProductName(productId: string) {
+  const s = String(productId || "").trim();
+  if (!s) return "—";
+  return s.replace(/_/g, " ").replace(/\s+/g, " ").trim();
 }
 
 function Thumb({
@@ -213,7 +221,10 @@ export default function ShopPage() {
 
       if (!query) return true;
 
-      const hay = [r.id, r.brand ?? "", r.sport ?? "", r.year ?? ""]
+      // ✅ include friendly name in search too
+      const friendly = formatFriendlyProductName(r.id);
+
+      const hay = [r.id, friendly, r.brand ?? "", r.sport ?? "", r.year ?? ""]
         .join(" ")
         .toLowerCase();
 
@@ -221,7 +232,10 @@ export default function ShopPage() {
     });
 
     out.sort((a, b) => {
-      if (sort === "name") return a.id.localeCompare(b.id);
+      if (sort === "name") {
+        // ✅ sort by friendly display name, not raw ID
+        return formatFriendlyProductName(a.id).localeCompare(formatFriendlyProductName(b.id));
+      }
       if (sort === "year_desc") return (b.year ?? 0) - (a.year ?? 0);
       if (sort === "price_asc") return (a.packPriceCents ?? 0) - (b.packPriceCents ?? 0);
       if (sort === "price_desc") return (b.packPriceCents ?? 0) - (a.packPriceCents ?? 0);
@@ -348,6 +362,8 @@ export default function ShopPage() {
             const packBuying = buyingKey === packKey;
             const boxBuying = buyingKey === boxKey;
 
+            const displayName = formatFriendlyProductName(p.id);
+
             // ✅ Use API fallback: boxImageUrl ?? packImageUrl (returned as displayBoxImageUrl)
             const boxOnlySrc = safeImgSrc(p.displayBoxImageUrl ?? p.boxImageUrl ?? p.packImageUrl);
 
@@ -370,7 +386,8 @@ export default function ShopPage() {
                 }}
               >
                 <div style={{ padding: 14, borderBottom: "1px solid #eee", background: "#fafafa" }}>
-                  <div style={{ fontSize: 16, fontWeight: 900 }}>{p.id}</div>
+                  {/* ✅ Friendly name display */}
+                  <div style={{ fontSize: 16, fontWeight: 900 }}>{displayName}</div>
                   <div style={{ fontSize: 12, color: "#555", marginTop: 4 }}>
                     {(p.year ?? "—")} • {(p.brand ?? "—")} • {(p.sport ?? "—")} • Product Sets: {p.productSetsCount}
                   </div>

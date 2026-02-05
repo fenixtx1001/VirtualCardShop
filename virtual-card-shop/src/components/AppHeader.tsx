@@ -125,7 +125,7 @@ export default function AppHeader() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Listen for collection changes (we’ll dispatch this after pack opens later)
+  // Listen for collection changes
   useEffect(() => {
     const handler = () => loadCollectionStats();
     window.addEventListener(COLLECTION_CHANGED_EVENT, handler as EventListener);
@@ -205,8 +205,7 @@ export default function AppHeader() {
     };
   }, []);
 
-  const signedInEmail =
-    status === "authenticated" ? (session?.user?.email ?? null) : null;
+  const signedInEmail = status === "authenticated" ? (session?.user?.email ?? null) : null;
 
   return (
     <>
@@ -218,21 +217,25 @@ export default function AppHeader() {
           position: "sticky",
           top: 0,
           zIndex: 1000,
-          borderBottom: "1px solid #e7e3dc",
+          borderBottom: "1px solid var(--border-2)",
           padding: "12px 16px",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          background: "#fbfaf7",
+          background: "rgba(251, 250, 247, 0.85)",
+          backdropFilter: "blur(10px)",
           gap: 16,
+          boxShadow: "0 1px 0 rgba(0,0,0,0.03)",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-          <div style={{ fontSize: 20, fontWeight: 900, letterSpacing: -0.3 }}>Virtual Card Shop</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+          <div style={{ fontSize: 18, fontWeight: 950, letterSpacing: -0.3 }}>
+            Virtual Card Shop
+          </div>
 
           <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-            <div style={{ fontSize: 13 }}>
-              <span style={{ fontWeight: 800 }}>Bank:</span> {balanceText}
+            <div style={{ fontSize: 13, color: "var(--muted)" }}>
+              <span style={{ fontWeight: 900, color: "var(--text)" }}>Bank:</span> {balanceText}
             </div>
 
             <button
@@ -242,10 +245,10 @@ export default function AppHeader() {
                 fontSize: 12,
                 padding: "6px 10px",
                 borderRadius: 10,
-                border: "1px solid #d7d2c8",
-                background: eco?.canClaim && !loading ? "white" : "#f2efe9",
+                border: "1px solid var(--border)",
+                background: eco?.canClaim && !loading ? "#fff" : "rgba(255,255,255,0.6)",
                 cursor: eco?.canClaim && !loading ? "pointer" : "not-allowed",
-                fontWeight: 800,
+                fontWeight: 900,
               }}
               title={
                 eco?.canClaim
@@ -259,39 +262,42 @@ export default function AppHeader() {
             </button>
 
             {eco && !eco.canClaim && (
-              <div style={{ fontSize: 12, color: "#444" }}>
-                Next reward in <span style={{ fontWeight: 800 }}>{formatCountdown(eco.msUntilNextClaim)}</span>
+              <div style={{ fontSize: 12, color: "var(--muted)" }}>
+                Next reward in{" "}
+                <span style={{ fontWeight: 900, color: "var(--text)" }}>
+                  {formatCountdown(eco.msUntilNextClaim)}
+                </span>
               </div>
             )}
 
-            {/* Collector pride stats */}
             <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginLeft: 6 }}>
-              <div style={{ fontSize: 12, color: "#444" }}>
-                <span style={{ fontWeight: 800 }}>Collection Value:</span> {collectionValueText}
+              <div style={{ fontSize: 12, color: "var(--muted)" }}>
+                <span style={{ fontWeight: 900, color: "var(--text)" }}>Collection Value:</span>{" "}
+                {collectionValueText}
               </div>
-              <div style={{ fontSize: 12, color: "#444" }}>
-                <span style={{ fontWeight: 800 }}>Cards Owned:</span> {cardsOwnedText}
+              <div style={{ fontSize: 12, color: "var(--muted)" }}>
+                <span style={{ fontWeight: 900, color: "var(--text)" }}>Cards Owned:</span> {cardsOwnedText}
               </div>
             </div>
 
-            {errorMsg && <div style={{ fontSize: 12, color: "#b00020" }}>{errorMsg}</div>}
+            {errorMsg && <div style={{ fontSize: 12, color: "var(--danger)" }}>{errorMsg}</div>}
           </div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 8 }}>
           <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap", justifyContent: "flex-end" }}>
             {signedInEmail ? (
-              <div style={{ fontSize: 12, color: "#444" }}>
-                Signed in as <span style={{ fontWeight: 800 }}>{signedInEmail}</span>
+              <div style={{ fontSize: 12, color: "var(--muted)" }}>
+                Signed in as <span style={{ fontWeight: 900, color: "var(--text)" }}>{signedInEmail}</span>
               </div>
             ) : (
-              <div style={{ fontSize: 12, color: "#777" }}>Not signed in</div>
+              <div style={{ fontSize: 12, color: "var(--muted)" }}>Not signed in</div>
             )}
 
             <AuthButton />
           </div>
 
-          <nav style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "flex-end" }}>
+          <nav style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "flex-end", fontWeight: 800 }}>
             <Link href="/" style={{ textDecoration: "underline" }}>
               Home
             </Link>
@@ -303,6 +309,9 @@ export default function AppHeader() {
             </Link>
             <Link href="/collection" style={{ textDecoration: "underline" }}>
               Collection
+            </Link>
+            <Link href="/showcase" style={{ textDecoration: "underline" }}>
+              Showcase
             </Link>
             <Link href="/admin" style={{ textDecoration: "underline" }}>
               Admin

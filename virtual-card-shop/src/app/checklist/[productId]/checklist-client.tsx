@@ -51,6 +51,13 @@ type ChecklistResponse = {
   uniqueOwned: number;
   percentComplete: number;
 
+  // ✅ NEW: set value totals (whole productSet)
+  setTotalBookValue: number;
+  setOwnedBookValue: number;
+  setMissingBookValue: number;
+  setOwnedValuePercent: number;
+  mySetOwnedBookValue?: number | null;
+
   // pagination
   page: number;
   pageSize: number;
@@ -113,6 +120,12 @@ function formatUserLabel(u: UserOption) {
 
 function clampInt(n: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n));
+}
+
+function money(v: any) {
+  const n = typeof v === "number" ? v : Number(v ?? 0);
+  const safe = Number.isFinite(n) ? n : 0;
+  return `$${safe.toFixed(2)}`;
 }
 
 export default function ChecklistClient({ productId }: { productId: string }) {
@@ -414,7 +427,8 @@ export default function ChecklistClient({ productId }: { productId: string }) {
         >
           Primary checks show <span style={{ fontWeight: 900 }}>their</span> collection.
           <span style={{ marginLeft: 10 }}>
-            Small dot in <span style={{ fontWeight: 900 }}>Me</span> column means <span style={{ fontWeight: 900 }}>you</span> own it.
+            Small dot in <span style={{ fontWeight: 900 }}>Me</span> column means{" "}
+            <span style={{ fontWeight: 900 }}>you</span> own it.
           </span>
         </div>
       ) : null}
@@ -431,8 +445,45 @@ export default function ChecklistClient({ productId }: { productId: string }) {
         <div>No data.</div>
       ) : (
         <>
-          <div style={{ fontWeight: 900, marginBottom: 10 }}>
+          <div style={{ fontWeight: 900, marginBottom: 8 }}>
             Complete: {data.percentComplete.toFixed(1)}% ({data.uniqueOwned}/{data.totalCards} unique)
+          </div>
+
+          {/* ✅ NEW: value summary */}
+          <div
+            style={{
+              marginBottom: 12,
+              padding: 10,
+              border: "1px solid #eee",
+              background: "#fafafa",
+              borderRadius: 12,
+              display: "flex",
+              gap: 14,
+              flexWrap: "wrap",
+              alignItems: "center",
+              fontWeight: 800,
+            }}
+          >
+            <div>
+              Set Value: <span style={{ fontWeight: 900 }}>{money(data.setTotalBookValue)}</span>
+            </div>
+            <div>
+              Owned Value: <span style={{ fontWeight: 900 }}>{money(data.setOwnedBookValue)}</span>
+            </div>
+            <div>
+              Missing Value: <span style={{ fontWeight: 900 }}>{money(data.setMissingBookValue)}</span>
+            </div>
+            <div>
+              Value Complete:{" "}
+              <span style={{ fontWeight: 900 }}>{(data.setOwnedValuePercent ?? 0).toFixed(1)}%</span>
+            </div>
+
+            {compareMode && data.mySetOwnedBookValue != null ? (
+              <div>
+                My Owned Value:{" "}
+                <span style={{ fontWeight: 900 }}>{money(data.mySetOwnedBookValue)}</span>
+              </div>
+            ) : null}
           </div>
 
           {sorted.length === 0 && (

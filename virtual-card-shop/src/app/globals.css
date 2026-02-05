@@ -1,42 +1,195 @@
+/* src/app/globals.css */
+
+/* --- Theme tokens (cozy + clean) --- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Warm paper background + ink */
+  --bg: #fbfaf7;
+  --bg-2: #f4f1ea;
+  --card: #ffffff;
+  --text: #1f2328;
+  --muted: #5b636e;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  /* Borders + shadows */
+  --border: rgba(31, 35, 40, 0.12);
+  --border-2: rgba(31, 35, 40, 0.08);
+  --shadow-sm: 0 1px 0 rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+  /* Accent (nostalgic blue) */
+  --accent: #2b6cb0;
+  --accent-2: #1f5a98;
+  --accent-soft: rgba(43, 108, 176, 0.10);
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Success / warning */
+  --success: #2f855a;
+  --danger: #b00020;
+
+  /* Radii */
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 18px;
+
+  /* Spacing */
+  --pad: 16px;
+
+  /* Fonts */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
 }
 
 * {
   box-sizing: border-box;
+}
+
+html,
+body {
   padding: 0;
   margin: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+body {
+  font-family: var(--font-sans);
+  color: var(--text);
+
+  /* Cozy paper + subtle depth */
+  background:
+    radial-gradient(1200px 500px at 50% -20%, rgba(43, 108, 176, 0.10), transparent 60%),
+    radial-gradient(900px 400px at 10% 0%, rgba(47, 133, 90, 0.08), transparent 55%),
+    radial-gradient(900px 400px at 90% 20%, rgba(255, 170, 85, 0.10), transparent 55%),
+    linear-gradient(180deg, var(--bg), var(--bg-2));
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* Better default text rendering */
+body,
+button,
+input,
+select,
+textarea {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration-color: rgba(31, 35, 40, 0.35);
+  text-underline-offset: 3px;
+}
+a:hover {
+  text-decoration-color: rgba(31, 35, 40, 0.6);
+}
+
+/* --- Buttons / Inputs (global polish) --- */
+button {
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 8px 12px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.02s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+button:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(31, 35, 40, 0.18);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03), 0 8px 18px rgba(0, 0, 0, 0.05);
+}
+button:active {
+  transform: translateY(1px);
+}
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+input,
+select,
+textarea {
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 8px 10px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(43, 108, 176, 0.45);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+/* --- Layout helpers you can use anywhere --- */
+.vcs-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px var(--pad);
+}
+
+.vcs-card {
+  background: var(--card);
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.vcs-card-pad {
+  padding: 16px;
+}
+
+.vcs-muted {
+  color: var(--muted);
+}
+
+.vcs-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-2);
+  background: rgba(255, 255, 255, 0.85);
+  font-weight: 800;
+  font-size: 12px;
+}
+
+/* --- Tables (keep admin readable but a bit nicer) --- */
+table {
+  border-color: var(--border-2);
+}
+thead th {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+}
+
+/* --- Progress bars (if you're using <progress> or div bars) --- */
+progress {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border-2);
+  background: rgba(255, 255, 255, 0.7);
+}
+progress::-webkit-progress-bar {
+  background: rgba(255, 255, 255, 0.7);
+}
+progress::-webkit-progress-value {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+progress::-moz-progress-bar {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+/* Horizontal rules feel softer */
+hr {
+  border: none;
+  border-top: 1px solid var(--border-2);
+}
+
+/* Small nice selection */
+::selection {
+  background: rgba(43, 108, 176, 0.18);
 }

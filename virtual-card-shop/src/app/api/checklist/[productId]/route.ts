@@ -77,6 +77,26 @@ function cardNoCompare(aNo: string, bNo: string) {
   return a.raw.localeCompare(b.raw);
 }
 
+// Prisma may return Decimal for bookValue; normalize safely to number.
+function toNumber(v: any) {
+  if (v == null) return 0;
+  if (typeof v === "number") return Number.isFinite(v) ? v : 0;
+  if (typeof v === "string") {
+    const n = Number(v);
+    return Number.isFinite(n) ? n : 0;
+  }
+  // Decimal.js-like
+  if (typeof v === "object" && typeof v.toNumber === "function") {
+    try {
+      const n = v.toNumber();
+      return Number.isFinite(n) ? n : 0;
+    } catch {
+      return 0;
+    }
+  }
+  return 0;
+}
+
 export async function GET(req: Request, ctx: Ctx) {
   try {
     const { currentUser, selectedUserId, isCompareMode } =
@@ -225,7 +245,7 @@ export async function GET(req: Request, ctx: Ctx) {
         subset: c.subset,
         variant: c.variant,
         isInsert: !selectedSet.isBase,
-        bookValue: c.bookValue ?? 0,
+        bookValue: toNumber(c.bookValue),
         ownedQty,
       };
 
@@ -235,6 +255,61 @@ export async function GET(req: Request, ctx: Ctx) {
 
       return baseRow;
     });
+
+    // ✅ NEW: Set value totals for the SELECTED productSet (whole set, not paged)
+    const agg = await prisma.card.aggregate({
+      where: { productSetId: selectedSet.id },
+      _sum: { bookValue: true },
+    });
+
+    const setTotalBookValue = toNumber((agg as any)?._sum?.bookValue);
+
+    // Selected user's owned book value across entire set
+    const ownedAllRows = await prisma.cardOwnership.findMany({
+      where: {
+        userId: selectedUserId,
+        quantity: { gt: 0 },
+        card: { productSetId: selectedSet.id },
+      },
+      select: {
+        quantity: true,
+        card: { select: { bookValue: true } },
+      },
+    });
+
+    let setOwnedBookValue = 0;
+    for (const r of ownedAllRows) {
+      const qty = typeof r.quantity === "number" ? r.quantity : 0;
+      const bv = toNumber((r as any).card?.bookValue);
+      setOwnedBookValue += qty * bv;
+    }
+
+    // My owned book value (compare mode only)
+    let mySetOwnedBookValue: number | null = null;
+    if (isCompareMode) {
+      const myRows = await prisma.cardOwnership.findMany({
+        where: {
+          userId: currentUser.id,
+          quantity: { gt: 0 },
+          card: { productSetId: selectedSet.id },
+        },
+        select: {
+          quantity: true,
+          card: { select: { bookValue: true } },
+        },
+      });
+
+      let sum = 0;
+      for (const r of myRows) {
+        const qty = typeof r.quantity === "number" ? r.quantity : 0;
+        const bv = toNumber((r as any).card?.bookValue);
+        sum += qty * bv;
+      }
+      mySetOwnedBookValue = sum;
+    }
+
+    const setMissingBookValue = Math.max(0, setTotalBookValue - setOwnedBookValue);
+    const setOwnedValuePercent = setTotalBookValue > 0 ? (setOwnedBookValue / setTotalBookValue) * 100 : 0;
 
     return NextResponse.json({
       ok: true,
@@ -253,6 +328,13 @@ export async function GET(req: Request, ctx: Ctx) {
       totalCards,
       uniqueOwned,
       percentComplete,
+
+      // ✅ NEW: value totals for the selected ProductSet
+      setTotalBookValue,
+      setOwnedBookValue,
+      setMissingBookValue,
+      setOwnedValuePercent,
+      ...(isCompareMode ? { mySetOwnedBookValue } : {}),
 
       // pagination
       page: safePage,
