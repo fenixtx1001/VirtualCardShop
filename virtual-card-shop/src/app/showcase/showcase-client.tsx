@@ -35,7 +35,7 @@ type TopCardRow = {
 
   bookValue: number;
   qty: number;
-  ownedValue: number; // now == bookValue (single-card value)
+  ownedValue: number; // single-card value
   frontImageUrl: string | null;
 };
 
@@ -80,12 +80,14 @@ function formatUserLabel(u: UserOption) {
   return email || "Unknown";
 }
 
-function insertLabel(c: TopCardRow) {
-  if (!c.isInsert) return "";
+/**
+ * Show ProductSet name for ALL cards (base or insert).
+ * We intentionally prefer name over id, and if name is missing, we show nothing.
+ */
+function productSetParen(c: TopCardRow) {
   const name = (c.productSetName ?? "").trim();
   if (name) return `(${name})`;
-  const id = (c.productSetId ?? "").trim();
-  return id ? `(${id})` : "(Insert)";
+  return "";
 }
 
 export default function ShowcaseClient() {
@@ -610,35 +612,36 @@ export default function ShowcaseClient() {
                   </tr>
                 </thead>
                 <tbody>
-                  {topCards.map((c, idx) => (
-                    <tr key={c.cardId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
-                      <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                        #{c.cardNumber}{" "}
-                        {c.isInsert ? (
-                          <span style={{ color: colors.subtext, fontWeight: 800 }}>{insertLabel(c)}</span>
-                        ) : null}
-                      </td>
-                      <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>{c.player}</td>
-                      <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>{c.team ?? "—"}</td>
-                      <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                        {money(c.bookValue)}
-                      </td>
-                      <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                        {safeInt(c.qty)}
-                      </td>
-                      <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                        {money(c.ownedValue)}
-                      </td>
-                      <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
-                        <Link
-                          href={`/cards/${encodeURIComponent(String(c.cardId))}`}
-                          style={{ textDecoration: "underline", fontWeight: 900, color: colors.accent }}
-                        >
-                          Details
-                        </Link>
-                      </td>
-                    </tr>
-                  ))}
+                  {topCards.map((c, idx) => {
+                    const ps = productSetParen(c);
+                    return (
+                      <tr key={c.cardId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
+                        <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                          #{c.cardNumber}{" "}
+                          {ps ? <span style={{ color: colors.subtext, fontWeight: 800 }}>{ps}</span> : null}
+                        </td>
+                        <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>{c.player}</td>
+                        <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>{c.team ?? "—"}</td>
+                        <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                          {money(c.bookValue)}
+                        </td>
+                        <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                          {safeInt(c.qty)}
+                        </td>
+                        <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                          {money(c.ownedValue)}
+                        </td>
+                        <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
+                          <Link
+                            href={`/cards/${encodeURIComponent(String(c.cardId))}`}
+                            style={{ textDecoration: "underline", fontWeight: 900, color: colors.accent }}
+                          >
+                            Details
+                          </Link>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
@@ -651,94 +654,95 @@ export default function ShowcaseClient() {
                 gap: 12,
               }}
             >
-              {topCards.map((c) => (
-                <div
-                  key={c.cardId}
-                  style={{
-                    border: `1px solid ${colors.border}`,
-                    borderRadius: 16,
-                    background: "#fff",
-                    overflow: "hidden",
-                    boxShadow: "0 6px 18px rgba(0,0,0,0.05)",
-                  }}
-                >
-                  <div style={{ padding: 12, borderBottom: `1px solid ${colors.border}` }}>
-                    <div style={{ fontWeight: 900 }}>
-                      #{c.cardNumber} — {c.player}{" "}
-                      {c.isInsert ? (
-                        <span style={{ marginLeft: 6, color: colors.subtext, fontWeight: 800 }}>
-                          {insertLabel(c)}
-                        </span>
-                      ) : null}
-                    </div>
-                    <div style={{ marginTop: 4, fontSize: 12, color: colors.subtext }}>
-                      {c.team ?? "—"}
-                      {c.subset ? ` • ${c.subset}` : ""}
-                      {c.variant ? ` • ${c.variant}` : ""}
-                    </div>
-                  </div>
-
-                  <div style={{ padding: 12 }}>
-                    <div
-                      style={{
-                        width: "100%",
-                        aspectRatio: "3 / 4",
-                        borderRadius: 14,
-                        border: `1px solid ${colors.border}`,
-                        background: colors.muted,
-                        overflow: "hidden",
-                        display: "grid",
-                        placeItems: "center",
-                        color: "#777",
-                        fontWeight: 900,
-                      }}
-                    >
-                      {c.frontImageUrl ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={c.frontImageUrl}
-                          alt=""
-                          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                          onError={(e) => {
-                            e.currentTarget.style.display = "none";
-                          }}
-                        />
-                      ) : (
-                        "No image"
-                      )}
-                    </div>
-
-                    <div style={{ marginTop: 10, display: "flex", justifyContent: "space-between", gap: 10 }}>
-                      <div style={{ fontSize: 12, color: colors.subtext, fontWeight: 800 }}>
-                        Book: <span style={{ fontWeight: 900, color: colors.text }}>{money(c.bookValue)}</span>
+              {topCards.map((c) => {
+                const ps = productSetParen(c);
+                return (
+                  <div
+                    key={c.cardId}
+                    style={{
+                      border: `1px solid ${colors.border}`,
+                      borderRadius: 16,
+                      background: "#fff",
+                      overflow: "hidden",
+                      boxShadow: "0 6px 18px rgba(0,0,0,0.05)",
+                    }}
+                  >
+                    <div style={{ padding: 12, borderBottom: `1px solid ${colors.border}` }}>
+                      <div style={{ fontWeight: 900 }}>
+                        #{c.cardNumber} — {c.player}{" "}
+                        {ps ? (
+                          <span style={{ marginLeft: 6, color: colors.subtext, fontWeight: 800 }}>{ps}</span>
+                        ) : null}
                       </div>
-                      <div style={{ fontSize: 12, color: colors.subtext, fontWeight: 800 }}>
-                        Qty: <span style={{ fontWeight: 900, color: colors.text }}>{safeInt(c.qty)}</span>
+                      <div style={{ marginTop: 4, fontSize: 12, color: colors.subtext }}>
+                        {c.team ?? "—"}
+                        {c.subset ? ` • ${c.subset}` : ""}
+                        {c.variant ? ` • ${c.variant}` : ""}
                       </div>
                     </div>
 
-                    <div style={{ marginTop: 6, fontSize: 13, fontWeight: 900 }}>
-                      Card Value: {money(c.ownedValue)}
-                    </div>
-
-                    <div style={{ marginTop: 10 }}>
-                      <Link
-                        href={`/cards/${encodeURIComponent(String(c.cardId))}`}
+                    <div style={{ padding: 12 }}>
+                      <div
                         style={{
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: 8,
-                          textDecoration: "none",
+                          width: "100%",
+                          aspectRatio: "3 / 4",
+                          borderRadius: 14,
+                          border: `1px solid ${colors.border}`,
+                          background: colors.muted,
+                          overflow: "hidden",
+                          display: "grid",
+                          placeItems: "center",
+                          color: "#777",
                           fontWeight: 900,
-                          color: colors.accent,
                         }}
                       >
-                        Details <span aria-hidden>→</span>
-                      </Link>
+                        {c.frontImageUrl ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={c.frontImageUrl}
+                            alt=""
+                            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                            onError={(e) => {
+                              e.currentTarget.style.display = "none";
+                            }}
+                          />
+                        ) : (
+                          "No image"
+                        )}
+                      </div>
+
+                      <div style={{ marginTop: 10, display: "flex", justifyContent: "space-between", gap: 10 }}>
+                        <div style={{ fontSize: 12, color: colors.subtext, fontWeight: 800 }}>
+                          Book: <span style={{ fontWeight: 900, color: colors.text }}>{money(c.bookValue)}</span>
+                        </div>
+                        <div style={{ fontSize: 12, color: colors.subtext, fontWeight: 800 }}>
+                          Qty: <span style={{ fontWeight: 900, color: colors.text }}>{safeInt(c.qty)}</span>
+                        </div>
+                      </div>
+
+                      <div style={{ marginTop: 6, fontSize: 13, fontWeight: 900 }}>
+                        Card Value: {money(c.ownedValue)}
+                      </div>
+
+                      <div style={{ marginTop: 10 }}>
+                        <Link
+                          href={`/cards/${encodeURIComponent(String(c.cardId))}`}
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: 8,
+                            textDecoration: "none",
+                            fontWeight: 900,
+                            color: colors.accent,
+                          }}
+                        >
+                          Details <span aria-hidden>→</span>
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
         </section>
