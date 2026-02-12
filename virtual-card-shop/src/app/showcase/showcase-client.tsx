@@ -1,6 +1,7 @@
 // src/app/showcase/showcase-client.tsx
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 type UserOption = {
@@ -27,12 +28,15 @@ type TopCardRow = {
   team: string | null;
   subset: string | null;
   variant: string | null;
+
   isInsert: boolean;
+  productSetId: string | null;
+  productSetName: string | null;
+
   bookValue: number;
   qty: number;
   ownedValue: number; // now == bookValue (single-card value)
   frontImageUrl: string | null;
-  productSetId: string | null;
 };
 
 type TopCardsResponse = {
@@ -76,6 +80,14 @@ function formatUserLabel(u: UserOption) {
   return email || "Unknown";
 }
 
+function insertLabel(c: TopCardRow) {
+  if (!c.isInsert) return "";
+  const name = (c.productSetName ?? "").trim();
+  if (name) return `(${name})`;
+  const id = (c.productSetId ?? "").trim();
+  return id ? `(${id})` : "(Insert)";
+}
+
 export default function ShowcaseClient() {
   const [users, setUsers] = useState<UserOption[]>([]);
   const [usersLoading, setUsersLoading] = useState(false);
@@ -95,7 +107,7 @@ export default function ShowcaseClient() {
   const [topPage, setTopPage] = useState(1);
   const [topTotalPages, setTopTotalPages] = useState(1);
   const [topTotal, setTopTotal] = useState(0);
-  const topPageSize = 20; // 20 per page
+  const topPageSize = 20;
 
   const [jumpTo, setJumpTo] = useState<string>("");
 
@@ -190,7 +202,6 @@ export default function ShowcaseClient() {
     loadLeaderboard();
   }, []);
 
-  // When selected user changes, reset Top Cards pagination to page 1
   useEffect(() => {
     setTopPage(1);
     setJumpTo("");
@@ -329,7 +340,15 @@ export default function ShowcaseClient() {
           </div>
 
           {lbErr ? (
-            <div style={{ marginTop: 12, padding: 10, background: "#fff1f1", border: "1px solid #f3b7b7", borderRadius: 12 }}>
+            <div
+              style={{
+                marginTop: 12,
+                padding: 10,
+                background: "#fff1f1",
+                border: "1px solid #f3b7b7",
+                borderRadius: 12,
+              }}
+            >
               {lbErr}
             </div>
           ) : null}
@@ -548,7 +567,15 @@ export default function ShowcaseClient() {
           </div>
 
           {topErr ? (
-            <div style={{ marginTop: 12, padding: 10, background: "#fff1f1", border: "1px solid #f3b7b7", borderRadius: 12 }}>
+            <div
+              style={{
+                marginTop: 12,
+                padding: 10,
+                background: "#fff1f1",
+                border: "1px solid #f3b7b7",
+                borderRadius: 12,
+              }}
+            >
               {topErr}
             </div>
           ) : null}
@@ -561,10 +588,10 @@ export default function ShowcaseClient() {
             </div>
           ) : viewMode === "table" ? (
             <div style={{ marginTop: 12, overflowX: "auto" }}>
-              <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 860 }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 920 }}>
                 <thead style={{ background: "#f7f7f7" }}>
                   <tr>
-                    {["Card", "Player", "Team", "Book Value", "Qty", "Card Value"].map((h) => (
+                    {["Card", "Player", "Team", "Book Value", "Qty", "Card Value", "Details"].map((h) => (
                       <th
                         key={h}
                         style={{
@@ -586,7 +613,10 @@ export default function ShowcaseClient() {
                   {topCards.map((c, idx) => (
                     <tr key={c.cardId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
                       <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                        #{c.cardNumber}
+                        #{c.cardNumber}{" "}
+                        {c.isInsert ? (
+                          <span style={{ color: colors.subtext, fontWeight: 800 }}>{insertLabel(c)}</span>
+                        ) : null}
                       </td>
                       <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>{c.player}</td>
                       <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>{c.team ?? "—"}</td>
@@ -598,6 +628,14 @@ export default function ShowcaseClient() {
                       </td>
                       <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
                         {money(c.ownedValue)}
+                      </td>
+                      <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
+                        <Link
+                          href={`/cards/${encodeURIComponent(String(c.cardId))}`}
+                          style={{ textDecoration: "underline", fontWeight: 900, color: colors.accent }}
+                        >
+                          Details
+                        </Link>
                       </td>
                     </tr>
                   ))}
@@ -626,8 +664,12 @@ export default function ShowcaseClient() {
                 >
                   <div style={{ padding: 12, borderBottom: `1px solid ${colors.border}` }}>
                     <div style={{ fontWeight: 900 }}>
-                      #{c.cardNumber} — {c.player}
-                      {c.isInsert ? <span style={{ marginLeft: 6, color: colors.subtext }}>(Insert)</span> : null}
+                      #{c.cardNumber} — {c.player}{" "}
+                      {c.isInsert ? (
+                        <span style={{ marginLeft: 6, color: colors.subtext, fontWeight: 800 }}>
+                          {insertLabel(c)}
+                        </span>
+                      ) : null}
                     </div>
                     <div style={{ marginTop: 4, fontSize: 12, color: colors.subtext }}>
                       {c.team ?? "—"}
@@ -678,6 +720,22 @@ export default function ShowcaseClient() {
                     <div style={{ marginTop: 6, fontSize: 13, fontWeight: 900 }}>
                       Card Value: {money(c.ownedValue)}
                     </div>
+
+                    <div style={{ marginTop: 10 }}>
+                      <Link
+                        href={`/cards/${encodeURIComponent(String(c.cardId))}`}
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: 8,
+                          textDecoration: "none",
+                          fontWeight: 900,
+                          color: colors.accent,
+                        }}
+                      >
+                        Details <span aria-hidden>→</span>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -704,13 +762,9 @@ export default function ShowcaseClient() {
           {favLoading ? (
             <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>Loading…</div>
           ) : favorites.length === 0 ? (
-            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>
-              No favorites yet.
-            </div>
+            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>No favorites yet.</div>
           ) : (
-            <div style={{ marginTop: 12 }}>
-              Favorites loaded: {favorites.length}
-            </div>
+            <div style={{ marginTop: 12 }}>Favorites loaded: {favorites.length}</div>
           )}
         </section>
       </div>

@@ -19,6 +19,9 @@ function clampInt(n: number, min: number, max: number) {
  * - page (optional) default 1
  * - pageSize (optional) default 20 (max 50)
  * - maxTotal is capped at 100 cards
+ *
+ * Insert label:
+ * - If insert, API returns productSetName (ps.name fallback ps.id)
  */
 export async function GET(req: Request) {
   try {
@@ -33,7 +36,6 @@ export async function GET(req: Request) {
     const maxTotal = 100;
     const offset = (page - 1) * pageSize;
 
-    // Count distinct owned cards with a positive quantity
     const totalRow = await prisma.$queryRaw<Array<{ total: number }>>`
       SELECT COUNT(*)::int AS total
       FROM "CardOwnership" co
@@ -47,13 +49,9 @@ export async function GET(req: Request) {
     const total = Math.min(totalAll, maxTotal);
 
     const totalPages = Math.max(1, Math.ceil(total / pageSize));
-
-    // If user jumps past the end, clamp
     const safePage = clampInt(page, 1, totalPages);
     const safeOffset = (safePage - 1) * pageSize;
 
-    // Fetch page rows, sorted by SINGLE-card value.
-    // We keep qty for display, and "ownedValue" = bookValue (single card).
     const rows = await prisma.$queryRaw<
       Array<{
         cardId: number;
@@ -62,12 +60,16 @@ export async function GET(req: Request) {
         team: string | null;
         subset: string | null;
         variant: string | null;
+
         isInsert: boolean;
+        productSetId: string | null;
+        productSetName: string | null;
+
         bookValue: number;
         qty: number;
         ownedValue: number; // single-card value (same as bookValue)
+
         frontImageUrl: string | null;
-        productSetId: string | null;
       }>
     >`
       SELECT
@@ -77,17 +79,19 @@ export async function GET(req: Request) {
         c.team AS "team",
         c.subset AS "subset",
         c.variant AS "variant",
-        (CASE WHEN c."productSetId" IS NOT NULL
-          THEN (SELECT ps."isInsert" FROM "ProductSet" ps WHERE ps.id = c."productSetId")
-          ELSE false
-        END) AS "isInsert",
+
+        ps."isInsert" AS "isInsert",
+        c."productSetId" AS "productSetId",
+        COALESCE(NULLIF(TRIM(ps.name), ''), ps.id) AS "productSetName",
+
         c."bookValue"::float AS "bookValue",
         co.quantity::int AS "qty",
         c."bookValue"::float AS "ownedValue",
-        c."frontImageUrl" AS "frontImageUrl",
-        c."productSetId" AS "productSetId"
+
+        c."frontImageUrl" AS "frontImageUrl"
       FROM "CardOwnership" co
       JOIN "Card" c ON c.id = co."cardId"
+      LEFT JOIN "ProductSet" ps ON ps.id = c."productSetId"
       WHERE co."userId" = ${userId}
         AND co.quantity > 0
         AND c."bookValue" IS NOT NULL
