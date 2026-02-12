@@ -18,7 +18,8 @@ const colors = {
   card: "#ffffff",
   border: "#e7e3dc",
   text: "#1f1f1f",
-  subtext: "#5a5a5a",
+  // ✅ Darker subtext for mobile readability
+  subtext: "#4b4b4b",
   accent: "#2f6fed",
   muted: "#f2efe9",
 };
@@ -43,26 +44,18 @@ function formatProductId(productId: string) {
 }
 
 /**
- * FIX #3 (pack images not rendering):
- * - If packImageUrl is a full https URL -> use as-is
- * - If it's a relative path ("/uploads/..", "uploads/..") -> force absolute by prefixing window.location.origin
- * This avoids situations where an env/proxy/basePath causes the browser to request the wrong host.
+ * If packImageUrl is absolute -> use as-is
+ * If relative -> make absolute with window.location.origin
  */
 function resolveImageUrl(maybeUrl: string | null | undefined) {
   const u = safeImgSrc(maybeUrl);
   if (!u) return null;
 
-  // Already absolute
   if (/^https?:\/\//i.test(u)) return u;
-
-  // Data URL (just in case)
   if (/^data:/i.test(u)) return u;
 
-  // Make absolute in the browser
   const path = u.startsWith("/") ? u : `/${u}`;
-  if (typeof window !== "undefined") {
-    return `${window.location.origin}${path}`;
-  }
+  if (typeof window !== "undefined") return `${window.location.origin}${path}`;
   return path;
 }
 
@@ -102,7 +95,6 @@ export default function HomePage() {
     loadProgress();
   }, []);
 
-  // Keep the emoji action tiles only (per your feedback)
   const actionCards = useMemo(
     () => [
       {
@@ -138,7 +130,8 @@ export default function HomePage() {
       style={{
         minHeight: "calc(100vh - 80px)",
         padding: 20,
-        fontFamily: "system-ui",
+        fontFamily:
+          'ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"',
         color: colors.text,
         background: `
           radial-gradient(1200px 700px at 15% 10%, rgba(47,111,237,0.08), transparent 60%),
@@ -148,12 +141,28 @@ export default function HomePage() {
         `,
       }}
     >
+      {/* ✅ Light global polish: better tap targets + consistent focus */}
+      <style jsx global>{`
+        a {
+          -webkit-tap-highlight-color: transparent;
+        }
+        button,
+        a,
+        input,
+        select {
+          outline: none;
+        }
+        button:focus-visible,
+        a:focus-visible,
+        input:focus-visible,
+        select:focus-visible {
+          box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.22);
+          border-radius: 12px;
+        }
+      `}</style>
+
       <div style={{ maxWidth: 1120, margin: "0 auto" }}>
-        {/* HERO (cleaned up):
-            - Removed chip boxes ("cozy..." + "your personal card universe")
-            - Removed duplicate Open Packs / Shop / Collection buttons
-            - Removed Quick Links box entirely
-        */}
+        {/* HERO */}
         <div
           style={{
             background: colors.card,
@@ -179,14 +188,22 @@ export default function HomePage() {
           />
 
           <div style={{ position: "relative" }}>
-            <div style={{ fontSize: 36, fontWeight: 950, letterSpacing: -0.7 }}>
+            <div
+              style={{
+                fontSize: "clamp(26px, 4vw, 36px)",
+                fontWeight: 950,
+                letterSpacing: -0.7,
+                lineHeight: 1.08,
+              }}
+            >
               Virtual Card Shop
             </div>
+
             <div
               style={{
                 marginTop: 8,
                 color: colors.subtext,
-                fontSize: 15,
+                fontSize: "clamp(13px, 1.8vw, 15px)",
                 lineHeight: 1.6,
                 maxWidth: 760,
               }}
@@ -197,7 +214,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Action tiles (emoji version only) */}
+        {/* ACTION TILES */}
         <div
           style={{
             display: "grid",
@@ -216,16 +233,34 @@ export default function HomePage() {
                   padding: 16,
                   boxShadow: "0 1px 0 rgba(0,0,0,0.03)",
                   cursor: "pointer",
+                  transition: "transform 120ms ease, box-shadow 120ms ease",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.boxShadow =
+                    "0 16px 36px rgba(0,0,0,0.07)";
+                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(-1px)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = "0 1px 0 rgba(0,0,0,0.03)";
+                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
                 }}
               >
-                <div style={{ display: "flex", justifyContent: "space-between", gap: 10, alignItems: "center" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    gap: 10,
+                    alignItems: "center",
+                  }}
+                >
                   <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
                     <div style={{ fontSize: 20 }}>{c.icon}</div>
                     <div style={{ fontSize: 17, fontWeight: 950 }}>{c.title}</div>
                   </div>
                   <div style={{ fontWeight: 950, color: colors.accent, fontSize: 18 }}>→</div>
                 </div>
-                <div style={{ marginTop: 8, color: colors.subtext, fontSize: 13, lineHeight: 1.4 }}>
+
+                <div style={{ marginTop: 8, color: colors.subtext, fontSize: 13, lineHeight: 1.45 }}>
                   {c.subtitle}
                 </div>
               </div>
@@ -233,7 +268,7 @@ export default function HomePage() {
           ))}
         </div>
 
-        {/* Sets in progress */}
+        {/* SETS IN PROGRESS */}
         <div
           style={{
             background: colors.card,
@@ -245,8 +280,8 @@ export default function HomePage() {
         >
           <div style={{ display: "flex", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
             <div>
-              <div style={{ fontSize: 16, fontWeight: 950 }}>Sets in Progress</div>
-              <div style={{ marginTop: 4, color: colors.subtext, fontSize: 13 }}>
+              <div style={{ fontSize: 18, fontWeight: 950 }}>Sets in Progress</div>
+              <div style={{ marginTop: 4, color: colors.subtext, fontSize: 13, lineHeight: 1.45 }}>
                 Closest-to-complete first — like your binder checklist, but cleaner.
               </div>
             </div>
@@ -260,6 +295,7 @@ export default function HomePage() {
                 padding: "9px 12px",
                 fontWeight: 900,
                 cursor: "pointer",
+                height: 38,
               }}
               title="Refresh progress"
             >
@@ -275,6 +311,7 @@ export default function HomePage() {
                 background: "#fff1f1",
                 border: "1px solid #f3b7b7",
                 borderRadius: 12,
+                fontWeight: 800,
               }}
             >
               {progressError}
@@ -295,11 +332,14 @@ export default function HomePage() {
               <div style={{ fontWeight: 950, color: colors.text, marginBottom: 6 }}>
                 No progress to show yet.
               </div>
-              <div style={{ fontSize: 13, lineHeight: 1.45 }}>
+              <div style={{ fontSize: 13, lineHeight: 1.55 }}>
                 Rip some packs and your progress bars will start showing up here.
               </div>
               <div style={{ marginTop: 10 }}>
-                <Link href="/shop" style={{ textDecoration: "underline", fontWeight: 900, color: colors.accent }}>
+                <Link
+                  href="/shop"
+                  style={{ textDecoration: "underline", fontWeight: 900, color: colors.accent }}
+                >
                   Go to Shop →
                 </Link>
               </div>
@@ -309,7 +349,6 @@ export default function HomePage() {
               {sortedSets.map((s) => {
                 const pct = clamp(safeNum(s.percentComplete), 0, 100);
                 const displayName = formatProductId(s.productId);
-
                 const resolvedPackSrc = resolveImageUrl(s.packImageUrl);
 
                 return (
@@ -317,18 +356,26 @@ export default function HomePage() {
                     key={s.productId}
                     style={{
                       border: `1px solid ${colors.border}`,
-                      borderRadius: 14,
+                      borderRadius: 16,
                       padding: 12,
                       background: "linear-gradient(180deg, #ffffff, #fbfaf7)",
                     }}
                   >
-                    <div style={{ display: "grid", gridTemplateColumns: "70px 1fr", gap: 12, alignItems: "center" }}>
+                    {/* ✅ Responsive set row: stacks on mobile without media-query gymnastics */}
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "78px 1fr",
+                        gap: 12,
+                        alignItems: "start",
+                      }}
+                    >
                       {/* Pack thumbnail */}
                       <div
                         style={{
-                          width: 70,
-                          height: 70,
-                          borderRadius: 14,
+                          width: 78,
+                          height: 78,
+                          borderRadius: 16,
                           border: `1px solid ${colors.border}`,
                           background: "#fff",
                           display: "grid",
@@ -351,7 +398,6 @@ export default function HomePage() {
                               background: "#fff",
                             }}
                             onError={(e) => {
-                              // if image fails, fall back to a clean placeholder (prevents broken icon)
                               const img = e.currentTarget as HTMLImageElement;
                               img.style.display = "none";
                               const parent = img.parentElement as HTMLElement | null;
@@ -359,8 +405,7 @@ export default function HomePage() {
                                 parent.style.display = "grid";
                                 parent.style.placeItems = "center";
                                 parent.style.padding = "6px";
-                                parent.innerHTML =
-                                  `<div style="font-size:11px;color:${colors.subtext};text-align:center">Pack image<br/>failed</div>`;
+                                parent.innerHTML = `<div style="font-size:11px;color:${colors.subtext};text-align:center">Pack image<br/>failed</div>`;
                               }
                             }}
                           />
@@ -373,12 +418,32 @@ export default function HomePage() {
                         )}
                       </div>
 
-                      <div>
-                        <div style={{ display: "flex", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
-                          <div style={{ fontWeight: 950 }}>{displayName}</div>
-                          <div style={{ color: colors.subtext, fontWeight: 900, fontSize: 13 }}>
+                      {/* Content */}
+                      <div style={{ minWidth: 0 }}>
+                        {/* Top row: title + condensed stats */}
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            gap: 10,
+                            flexWrap: "wrap",
+                            alignItems: "baseline",
+                          }}
+                        >
+                          <div style={{ fontWeight: 950, fontSize: 15, lineHeight: 1.2, minWidth: 200 }}>
+                            {displayName}
+                          </div>
+
+                          <div
+                            style={{
+                              color: colors.subtext,
+                              fontWeight: 850,
+                              fontSize: 13,
+                              whiteSpace: "nowrap",
+                            }}
+                          >
                             {pct.toFixed(1)}% • {safeNum(s.uniqueOwned)}/{safeNum(s.totalCards)} unique •{" "}
-                            {safeNum(s.totalQty)} cards owned
+                            {safeNum(s.totalQty)} owned
                           </div>
                         </div>
 
@@ -399,7 +464,7 @@ export default function HomePage() {
                               width: `${pct}%`,
                               height: "100%",
                               background:
-                                "linear-gradient(90deg, rgba(47,111,237,0.90), rgba(47,111,237,0.65))",
+                                "linear-gradient(90deg, rgba(47,111,237,0.92), rgba(47,111,237,0.62))",
                               borderRadius: 999,
                               transition: "width 220ms ease",
                               boxShadow: "0 6px 14px rgba(47,111,237,0.18)",
@@ -407,19 +472,62 @@ export default function HomePage() {
                           />
                         </div>
 
-                        <div style={{ marginTop: 10, display: "flex", gap: 12, flexWrap: "wrap" }}>
+                        {/* Actions (pill buttons) */}
+                        <div
+                          style={{
+                            marginTop: 10,
+                            display: "flex",
+                            gap: 10,
+                            flexWrap: "wrap",
+                          }}
+                        >
                           <Link
                             href={`/collection/${encodeURIComponent(s.productId)}`}
-                            style={{ textDecoration: "underline", fontWeight: 900, color: colors.accent }}
+                            style={{
+                              textDecoration: "none",
+                              fontWeight: 900,
+                              color: colors.text,
+                              background: "#fff",
+                              border: `1px solid ${colors.border}`,
+                              padding: "7px 10px",
+                              borderRadius: 999,
+                              display: "inline-flex",
+                              alignItems: "center",
+                              gap: 8,
+                            }}
                           >
-                            View Set
+                            View Set <span style={{ color: colors.accent }}>→</span>
                           </Link>
+
                           <Link
                             href={`/checklist/${encodeURIComponent(s.productId)}`}
-                            style={{ textDecoration: "underline", fontWeight: 900, color: colors.subtext }}
+                            style={{
+                              textDecoration: "none",
+                              fontWeight: 900,
+                              color: colors.subtext,
+                              background: colors.muted,
+                              border: `1px solid ${colors.border}`,
+                              padding: "7px 10px",
+                              borderRadius: 999,
+                              display: "inline-flex",
+                              alignItems: "center",
+                              gap: 8,
+                            }}
                           >
                             Checklist
                           </Link>
+                        </div>
+
+                        {/* Tiny ID line (optional; keeps desktop clean, still useful) */}
+                        <div
+                          style={{
+                            marginTop: 8,
+                            fontSize: 12,
+                            color: "#6a6a6a",
+                            wordBreak: "break-word",
+                          }}
+                        >
+                          {s.productId}
                         </div>
                       </div>
                     </div>
