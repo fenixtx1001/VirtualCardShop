@@ -423,7 +423,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           margin-bottom: 8px;
         }
 
-        /* Flip card */
+        /* Flip card (NO 3D rotate; use crossfade to avoid mirrored front bugs) */
         .flip-wrap {
           width: 100%;
           max-width: 420px;
@@ -436,7 +436,6 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           position: relative;
           width: 100%;
           aspect-ratio: 2.5 / 3.5; /* feels like a card */
-          perspective: 1200px;
         }
 
         .flip-card {
@@ -445,27 +444,34 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           border-radius: 16px;
           border: 1px solid ${colors.border};
           background: ${colors.muted};
-          transform-style: preserve-3d;
-          transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
           box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
           overflow: hidden;
-        }
-
-        .flip-card.is-flipped {
-          transform: rotateY(180deg);
         }
 
         .face {
           position: absolute;
           inset: 0;
-          backface-visibility: hidden;
           display: grid;
           place-items: center;
           background: white;
+          opacity: 0;
+          transition: opacity 180ms ease, transform 180ms ease;
+          transform: scale(0.995);
         }
 
-        .face.back {
-          transform: rotateY(180deg);
+        .flip-card .face.front {
+          opacity: 1;
+          transform: scale(1);
+        }
+
+        .flip-card.is-flipped .face.front {
+          opacity: 0;
+          transform: scale(0.995);
+        }
+
+        .flip-card.is-flipped .face.back {
+          opacity: 1;
+          transform: scale(1);
         }
 
         .face img {
