@@ -49,6 +49,34 @@ type TopCardsResponse = {
   error?: string;
 };
 
+type FavoriteCard = {
+  id: number;
+  productSetId: string | null;
+  cardNumber: string;
+  player: string;
+  team: string | null;
+  subset: string | null;
+  variant: string | null;
+  isInsert: boolean;
+  bookValue: number;
+  frontImageUrl: string | null;
+  backImageUrl: string | null;
+  productSet?: { id: string; name: string | null; productId: string; isInsert?: boolean } | null;
+};
+
+type FavoritesRandomResponse = {
+  ok: boolean;
+  limit: number;
+  cards: FavoriteCard[];
+  error?: string;
+};
+
+type FavoriteIdsResponse = {
+  ok: boolean;
+  ids: number[];
+  error?: string;
+};
+
 const colors = {
   bg: "#fbfaf7",
   card: "#ffffff",
@@ -58,6 +86,8 @@ const colors = {
   accent: "#2f6fed",
   muted: "#f2efe9",
 };
+
+const starGold = "#f2c94c";
 
 function money(n: any) {
   const v = typeof n === "number" && Number.isFinite(n) ? n : 0;
@@ -90,6 +120,12 @@ function productSetParen(c: TopCardRow) {
   return "";
 }
 
+function productSetParenFav(c: FavoriteCard) {
+  const name = (c.productSet?.name ?? "").trim();
+  if (name) return `(${name})`;
+  return "";
+}
+
 export default function ShowcaseClient() {
   const [users, setUsers] = useState<UserOption[]>([]);
   const [usersLoading, setUsersLoading] = useState(false);
@@ -115,9 +151,20 @@ export default function ShowcaseClient() {
 
   const [viewMode, setViewMode] = useState<"cards" | "table">("cards");
 
-  // favorites (stub for now)
-  const [favorites, setFavorites] = useState<TopCardRow[]>([]);
+  // ⭐ Favorites (Shoebox)
+  const [favCards, setFavCards] = useState<FavoriteCard[]>([]);
   const [favLoading, setFavLoading] = useState(false);
+  const [favErr, setFavErr] = useState<string | null>(null);
+  const [favIdx, setFavIdx] = useState(0);
+  const [favFlipped, setFavFlipped] = useState(false);
+
+  // ⭐ Favorite ID set (drives star UI and optimistic behavior)
+  // IMPORTANT: This should NOT depend on Shoebox loading.
+  const [favoriteIds, setFavoriteIds] = useState<Set<number>>(new Set());
+  const [favIdsLoading, setFavIdsLoading] = useState(false);
+  const [favIdsErr, setFavIdsErr] = useState<string | null>(null);
+
+  const isViewingMe = selectedUserId === "";
 
   async function loadUsers() {
     setUsersLoading(true);
@@ -181,21 +228,137 @@ export default function ShowcaseClient() {
     }
   }
 
-  async function loadFavorites(userId: string) {
-    setFavLoading(true);
-    try {
-      const qs = new URLSearchParams();
-      if (userId) qs.set("userId", userId);
-      qs.set("limit", "60");
+  // ✅ Load favorite ids (drives the star UI)
+  async function loadFavoriteIds() {
+    if (!isViewingMe) {
+      setFavoriteIds(new Set());
+      setFavIdsErr(null);
+      setFavIdsLoading(false);
+      return;
+    }
 
-      const res = await fetch(`/api/showcase/favorites?${qs.toString()}`, { cache: "no-store" });
+    setFavIdsLoading(true);
+    setFavIdsErr(null);
+    try {
+      const res = await fetch(`/api/favorites/ids?limit=50000`, { cache: "no-store" });
       const raw = await res.text();
       const j = raw ? JSON.parse(raw) : null;
-      setFavorites(Array.isArray(j?.rows) ? j.rows : []);
-    } catch {
-      setFavorites([]);
+
+      if (!res.ok) throw new Error(j?.error ?? `Failed (${res.status})`);
+
+      const data = j as FavoriteIdsResponse;
+      const ids = Array.isArray(data?.ids) ? data.ids : [];
+      setFavoriteIds(new Set(ids));
+    } catch (e: any) {
+      // IMPORTANT: do NOT clear favorites on failure (prevents “stars revert”)
+      setFavIdsErr(e?.message ?? "Failed to load favorites");
+    } finally {
+      setFavIdsLoading(false);
+    }
+  }
+
+  async function loadFavoritesRandom() {
+    // Favorites are personal (no cross-user viewing right now)
+    if (!isViewingMe) {
+      setFavCards([]);
+      setFavErr(null);
+      setFavLoading(false);
+      setFavIdx(0);
+      setFavFlipped(false);
+      return;
+    }
+
+    setFavLoading(true);
+    setFavErr(null);
+    try {
+      const res = await fetch(`/api/favorites/random?limit=60`, { cache: "no-store" });
+      const raw = await res.text();
+      const j = raw ? JSON.parse(raw) : null;
+
+      if (!res.ok) throw new Error(j?.error ?? `Failed (${res.status})`);
+
+      const data = j as FavoritesRandomResponse;
+      const cards = Array.isArray(data?.cards) ? data.cards : [];
+
+      setFavCards(cards);
+      setFavIdx(0);
+      setFavFlipped(false);
+    } catch (e: any) {
+      setFavCards([]);
+      setFavErr(e?.message ?? "Failed to load Favorites Shoebox.");
+      setFavIdx(0);
+      setFavFlipped(false);
+      // NOTE: we do NOT touch favoriteIds here.
     } finally {
       setFavLoading(false);
+    }
+  }
+
+  async function toggleFavorite(cardId: number) {
+    if (!isViewingMe) return;
+
+    const wasFav = favoriteIds.has(cardId);
+
+    // optimistic: immediately update the star visuals
+    setFavoriteIds((prev) => {
+      const next = new Set(prev);
+      if (wasFav) next.delete(cardId);
+      else next.add(cardId);
+      return next;
+    });
+
+    // If we unstarred and that card is in the shoebox list, remove it locally
+    if (wasFav) {
+      setFavCards((prev) => {
+        const next = prev.filter((c) => c.id !== cardId);
+        setFavIdx((i) => (next.length ? Math.min(i, next.length - 1) : 0));
+        setFavFlipped(false);
+        return next;
+      });
+    }
+
+    try {
+      const res = await fetch("/api/favorites/toggle", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cardId }),
+      });
+
+      const raw = await res.text();
+      const j = raw ? JSON.parse(raw) : null;
+
+      if (!res.ok) throw new Error(j?.error ?? `Failed (${res.status})`);
+
+      const favorited = !!j?.favorited;
+
+      // reconcile if server disagrees
+      if (favorited !== !wasFav) {
+        setFavoriteIds((prev) => {
+          const next = new Set(prev);
+          if (favorited) next.add(cardId);
+          else next.delete(cardId);
+          return next;
+        });
+      }
+
+      // keep ids authoritative
+      await loadFavoriteIds();
+
+      // if we just favorited, try to refresh shoebox (but failures won't nuke stars anymore)
+      if (favorited && !wasFav) {
+        await loadFavoritesRandom();
+      }
+    } catch {
+      // rollback optimistic on error
+      setFavoriteIds((prev) => {
+        const next = new Set(prev);
+        if (wasFav) next.add(cardId);
+        else next.delete(cardId);
+        return next;
+      });
+
+      // keep things in sync
+      await loadFavoriteIds();
     }
   }
 
@@ -208,9 +371,37 @@ export default function ShowcaseClient() {
     setTopPage(1);
     setJumpTo("");
     loadTopCards(selectedUserId, 1);
-    loadFavorites(selectedUserId);
+
+    // favorites
+    loadFavoriteIds();
+    loadFavoritesRandom();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedUserId]);
+
+  // Keyboard controls for shoebox (only when viewing Me)
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      if (!isViewingMe) return;
+      if (favCards.length === 0) return;
+
+      if (e.code === "Space") {
+        e.preventDefault();
+        setFavFlipped(false);
+        setFavIdx((v) => (v + 1) % favCards.length);
+      } else if (e.key === "ArrowRight") {
+        setFavFlipped(false);
+        setFavIdx((v) => (v + 1) % favCards.length);
+      } else if (e.key === "ArrowLeft") {
+        setFavFlipped(false);
+        setFavIdx((v) => (v - 1 + favCards.length) % favCards.length);
+      } else if (e.key.toLowerCase() === "f") {
+        setFavFlipped((x) => !x);
+      }
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [favCards.length, isViewingMe]);
 
   const selectedLabel = useMemo(() => {
     if (!selectedUserId) return "Me";
@@ -241,6 +432,8 @@ export default function ShowcaseClient() {
     loadTopCards(selectedUserId, n);
   }
 
+  const favCurrent = favCards[favIdx] ?? null;
+
   return (
     <main
       style={{
@@ -251,8 +444,94 @@ export default function ShowcaseClient() {
         fontFamily: "system-ui",
       }}
     >
+      <style jsx global>{`
+        .vcs-btn {
+          border: 1px solid ${colors.border};
+          background: ${colors.muted};
+          border-radius: 10px;
+          padding: 8px 12px;
+          font-weight: 900;
+          cursor: pointer;
+          height: 38px;
+        }
+        .vcs-btn:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+
+        /* Shoebox flip: simple crossfade (no mirrored front bug) */
+        .vcs-flip-wrap {
+          width: 100%;
+          max-width: 420px;
+          margin: 0 auto;
+          cursor: pointer;
+          user-select: none;
+        }
+        .vcs-flip-scene {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 2.5 / 3.5;
+        }
+        .vcs-flip-card {
+          position: absolute;
+          inset: 0;
+          border-radius: 16px;
+          border: 1px solid ${colors.border};
+          background: ${colors.muted};
+          box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+          overflow: hidden;
+        }
+        .vcs-face {
+          position: absolute;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          background: white;
+          opacity: 0;
+          transition: opacity 160ms ease, transform 160ms ease;
+          transform: scale(0.996);
+        }
+        .vcs-flip-card .vcs-face.front {
+          opacity: 1;
+          transform: scale(1);
+        }
+        .vcs-flip-card.is-flipped .vcs-face.front {
+          opacity: 0;
+          transform: scale(0.996);
+        }
+        .vcs-flip-card.is-flipped .vcs-face.back {
+          opacity: 1;
+          transform: scale(1);
+        }
+        .vcs-face img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          background: white;
+        }
+        .vcs-img-missing {
+          height: 100%;
+          width: 100%;
+          display: grid;
+          place-items: center;
+          color: ${colors.subtext};
+          font-weight: 900;
+          font-size: 12px;
+          text-align: center;
+          padding: 14px;
+          background: #f8f6f1;
+        }
+        @media (max-width: 560px) {
+          .vcs-btn {
+            padding: 10px 12px;
+            border-radius: 14px;
+            height: auto;
+          }
+        }
+      `}</style>
+
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        {/* Header card */}
+        {/* Header */}
         <div
           style={{
             background: colors.card,
@@ -269,6 +548,12 @@ export default function ShowcaseClient() {
               <div style={{ marginTop: 6, color: colors.subtext, fontSize: 13, lineHeight: 1.5 }}>
                 Leaderboards, top cards, and the stuff worth flexing.
               </div>
+
+              {isViewingMe && (favIdsLoading || favIdsErr) ? (
+                <div style={{ marginTop: 8, fontSize: 12, fontWeight: 800, color: colors.subtext }}>
+                  {favIdsLoading ? "Loading favorites…" : favIdsErr ? "Favorites may be out of sync." : null}
+                </div>
+              ) : null}
             </div>
 
             <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
@@ -299,17 +584,10 @@ export default function ShowcaseClient() {
                 onClick={() => {
                   loadLeaderboard();
                   loadTopCards(selectedUserId, topPage);
-                  loadFavorites(selectedUserId);
+                  loadFavoriteIds();
+                  loadFavoritesRandom();
                 }}
-                style={{
-                  border: `1px solid ${colors.border}`,
-                  background: colors.muted,
-                  borderRadius: 10,
-                  padding: "8px 12px",
-                  fontWeight: 900,
-                  cursor: "pointer",
-                  height: 38,
-                }}
+                className="vcs-btn"
                 title="Refresh Showcase"
               >
                 Refresh
@@ -427,9 +705,7 @@ export default function ShowcaseClient() {
                       <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
                         {safeInt(r.totalCards).toLocaleString()}
                       </td>
-                      <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                        {money(r.totalValue)}
-                      </td>
+                      <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>{money(r.totalValue)}</td>
                       <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
                         {safeInt(r.completedBaseSets).toLocaleString()}
                       </td>
@@ -461,42 +737,16 @@ export default function ShowcaseClient() {
             </div>
 
             <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-              {/* Pagination */}
               <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-                <button
-                  onClick={goTopPrev}
-                  disabled={!canPrevTop || topLoading}
-                  style={{
-                    border: `1px solid ${colors.border}`,
-                    background: colors.muted,
-                    borderRadius: 10,
-                    padding: "8px 10px",
-                    fontWeight: 900,
-                    cursor: !canPrevTop || topLoading ? "not-allowed" : "pointer",
-                    opacity: !canPrevTop || topLoading ? 0.6 : 1,
-                  }}
-                >
+                <button onClick={goTopPrev} disabled={!canPrevTop || topLoading} className="vcs-btn">
                   ← Prev
                 </button>
 
                 <div style={{ fontWeight: 900, color: colors.subtext, whiteSpace: "nowrap" }}>
-                  Page {topPage} of {topTotalPages}{" "}
-                  <span style={{ fontWeight: 800 }}>• {topTotal} cards</span>
+                  Page {topPage} of {topTotalPages} <span style={{ fontWeight: 800 }}>• {topTotal} cards</span>
                 </div>
 
-                <button
-                  onClick={goTopNext}
-                  disabled={!canNextTop || topLoading}
-                  style={{
-                    border: `1px solid ${colors.border}`,
-                    background: colors.muted,
-                    borderRadius: 10,
-                    padding: "8px 10px",
-                    fontWeight: 900,
-                    cursor: !canNextTop || topLoading ? "not-allowed" : "pointer",
-                    opacity: !canNextTop || topLoading ? 0.6 : 1,
-                  }}
-                >
+                <button onClick={goTopNext} disabled={!canNextTop || topLoading} className="vcs-btn">
                   Next →
                 </button>
 
@@ -518,49 +768,24 @@ export default function ShowcaseClient() {
                       background: "white",
                     }}
                   />
-                  <button
-                    onClick={doTopJump}
-                    disabled={topLoading}
-                    style={{
-                      border: `1px solid ${colors.border}`,
-                      background: colors.muted,
-                      borderRadius: 10,
-                      padding: "8px 10px",
-                      fontWeight: 900,
-                      cursor: topLoading ? "not-allowed" : "pointer",
-                      opacity: topLoading ? 0.6 : 1,
-                    }}
-                  >
+                  <button onClick={doTopJump} disabled={topLoading} className="vcs-btn">
                     Go
                   </button>
                 </div>
               </div>
 
-              {/* View toggle */}
               <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                 <button
                   onClick={() => setViewMode("cards")}
-                  style={{
-                    border: `1px solid ${colors.border}`,
-                    background: viewMode === "cards" ? "#ffffff" : colors.muted,
-                    borderRadius: 10,
-                    padding: "8px 10px",
-                    fontWeight: 900,
-                    cursor: "pointer",
-                  }}
+                  className="vcs-btn"
+                  style={{ background: viewMode === "cards" ? "#ffffff" : colors.muted }}
                 >
                   Cards
                 </button>
                 <button
                   onClick={() => setViewMode("table")}
-                  style={{
-                    border: `1px solid ${colors.border}`,
-                    background: viewMode === "table" ? "#ffffff" : colors.muted,
-                    borderRadius: 10,
-                    padding: "8px 10px",
-                    fontWeight: 900,
-                    cursor: "pointer",
-                  }}
+                  className="vcs-btn"
+                  style={{ background: viewMode === "table" ? "#ffffff" : colors.muted }}
                 >
                   Table
                 </button>
@@ -585,15 +810,13 @@ export default function ShowcaseClient() {
           {topLoading ? (
             <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>Loading…</div>
           ) : topCards.length === 0 ? (
-            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>
-              No owned cards yet (or no book values set).
-            </div>
+            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>No owned cards yet (or no book values set).</div>
           ) : viewMode === "table" ? (
             <div style={{ marginTop: 12, overflowX: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 920 }}>
                 <thead style={{ background: "#f7f7f7" }}>
                   <tr>
-                    {["Card", "Player", "Team", "Book Value", "Qty", "Card Value", "Details"].map((h) => (
+                    {["Card", "Player", "Team", "Book Value", "Qty", "Card Value", "Details", "★"].map((h) => (
                       <th
                         key={h}
                         style={{
@@ -614,23 +837,18 @@ export default function ShowcaseClient() {
                 <tbody>
                   {topCards.map((c, idx) => {
                     const ps = productSetParen(c);
+                    const isFav = isViewingMe && favoriteIds.has(c.cardId);
+
                     return (
                       <tr key={c.cardId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
                         <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                          #{c.cardNumber}{" "}
-                          {ps ? <span style={{ color: colors.subtext, fontWeight: 800 }}>{ps}</span> : null}
+                          #{c.cardNumber} {ps ? <span style={{ color: colors.subtext, fontWeight: 800 }}>{ps}</span> : null}
                         </td>
                         <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>{c.player}</td>
                         <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>{c.team ?? "—"}</td>
-                        <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                          {money(c.bookValue)}
-                        </td>
-                        <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                          {safeInt(c.qty)}
-                        </td>
-                        <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                          {money(c.ownedValue)}
-                        </td>
+                        <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>{money(c.bookValue)}</td>
+                        <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>{safeInt(c.qty)}</td>
+                        <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>{money(c.ownedValue)}</td>
                         <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
                           <Link
                             href={`/cards/${encodeURIComponent(String(c.cardId))}`}
@@ -638,6 +856,27 @@ export default function ShowcaseClient() {
                           >
                             Details
                           </Link>
+                        </td>
+                        <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
+                          {isViewingMe ? (
+                            <button
+                              onClick={() => toggleFavorite(c.cardId)}
+                              title={isFav ? "Unfavorite" : "Favorite"}
+                              style={{
+                                border: `1px solid ${colors.border}`,
+                                background: isFav ? "#fff9dd" : colors.muted,
+                                borderRadius: 10,
+                                padding: "6px 10px",
+                                fontWeight: 950,
+                                cursor: "pointer",
+                                color: isFav ? starGold : "#444",
+                              }}
+                            >
+                              {isFav ? "★" : "☆"}
+                            </button>
+                          ) : (
+                            <span style={{ color: colors.subtext, fontWeight: 800 }}>—</span>
+                          )}
                         </td>
                       </tr>
                     );
@@ -656,6 +895,8 @@ export default function ShowcaseClient() {
             >
               {topCards.map((c) => {
                 const ps = productSetParen(c);
+                const isFav = isViewingMe && favoriteIds.has(c.cardId);
+
                 return (
                   <div
                     key={c.cardId}
@@ -668,12 +909,34 @@ export default function ShowcaseClient() {
                     }}
                   >
                     <div style={{ padding: 12, borderBottom: `1px solid ${colors.border}` }}>
-                      <div style={{ fontWeight: 900 }}>
-                        #{c.cardNumber} — {c.player}{" "}
-                        {ps ? (
-                          <span style={{ marginLeft: 6, color: colors.subtext, fontWeight: 800 }}>{ps}</span>
+                      <div style={{ fontWeight: 900, display: "flex", justifyContent: "space-between", gap: 10 }}>
+                        <div style={{ minWidth: 0 }}>
+                          #{c.cardNumber} — {c.player}{" "}
+                          {ps ? <span style={{ marginLeft: 6, color: colors.subtext, fontWeight: 800 }}>{ps}</span> : null}
+                        </div>
+
+                        {isViewingMe ? (
+                          <button
+                            onClick={() => toggleFavorite(c.cardId)}
+                            title={isFav ? "Unfavorite" : "Favorite"}
+                            style={{
+                              border: `1px solid ${colors.border}`,
+                              background: isFav ? "#fff9dd" : colors.muted,
+                              borderRadius: 10,
+                              padding: "6px 10px",
+                              fontWeight: 950,
+                              cursor: "pointer",
+                              flex: "0 0 auto",
+                              lineHeight: 1,
+                              color: isFav ? starGold : "#444",
+                              boxShadow: isFav ? "0 6px 14px rgba(242,201,76,0.22)" : "none",
+                            }}
+                          >
+                            {isFav ? "★" : "☆"}
+                          </button>
                         ) : null}
                       </div>
+
                       <div style={{ marginTop: 4, fontSize: 12, color: colors.subtext }}>
                         {c.team ?? "—"}
                         {c.subset ? ` • ${c.subset}` : ""}
@@ -720,9 +983,7 @@ export default function ShowcaseClient() {
                         </div>
                       </div>
 
-                      <div style={{ marginTop: 6, fontSize: 13, fontWeight: 900 }}>
-                        Card Value: {money(c.ownedValue)}
-                      </div>
+                      <div style={{ marginTop: 6, fontSize: 13, fontWeight: 900 }}>Card Value: {money(c.ownedValue)}</div>
 
                       <div style={{ marginTop: 10 }}>
                         <Link
@@ -747,7 +1008,7 @@ export default function ShowcaseClient() {
           )}
         </section>
 
-        {/* Favorites (stub) */}
+        {/* ⭐ Favorites Shoebox (BELOW Top Cards) */}
         <section
           style={{
             background: colors.card,
@@ -758,17 +1019,170 @@ export default function ShowcaseClient() {
             marginBottom: 14,
           }}
         >
-          <div style={{ fontSize: 16, fontWeight: 900 }}>Favorites</div>
-          <div style={{ marginTop: 4, fontSize: 13, color: colors.subtext }}>
-            Starred cards for <span style={{ fontWeight: 900 }}>{selectedLabel}</span>. (We’ll wire up starring next.)
+          <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
+            <div>
+              <div style={{ fontSize: 16, fontWeight: 900 }}>Favorites Shoebox</div>
+              <div style={{ marginTop: 4, fontSize: 13, color: colors.subtext }}>
+                Flip through your starred cards in a fresh random order each time.
+              </div>
+            </div>
+
+            <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+              <button className="vcs-btn" onClick={loadFavoritesRandom} disabled={!isViewingMe || favLoading} title="Shuffle favorites">
+                Shuffle
+              </button>
+              <div style={{ fontSize: 12, color: colors.subtext, fontWeight: 800, whiteSpace: "nowrap" }}>
+                {isViewingMe ? (favLoading ? "Loading…" : `${favCards.length} cards`) : "Personal"}
+              </div>
+            </div>
           </div>
 
-          {favLoading ? (
+          {!isViewingMe ? (
+            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>
+              Favorites are personal. Switch “Viewing” to <b>Me</b> to use the shoebox.
+            </div>
+          ) : favErr ? (
+            <div
+              style={{
+                marginTop: 12,
+                padding: 10,
+                background: "#fff1f1",
+                border: "1px solid #f3b7b7",
+                borderRadius: 12,
+                fontWeight: 900,
+              }}
+            >
+              {favErr}
+            </div>
+          ) : favLoading ? (
             <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>Loading…</div>
-          ) : favorites.length === 0 ? (
-            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>No favorites yet.</div>
+          ) : favCards.length === 0 ? (
+            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>
+              No favorites yet. Star cards above and they’ll appear here.
+            </div>
           ) : (
-            <div style={{ marginTop: 12 }}>Favorites loaded: {favorites.length}</div>
+            <div
+              style={{
+                marginTop: 12,
+                display: "grid",
+                gridTemplateColumns: "minmax(260px, 420px) 1fr",
+                gap: 14,
+                alignItems: "start",
+              }}
+            >
+              <div>
+                <div
+                  className="vcs-flip-wrap"
+                  onClick={() => setFavFlipped((x) => !x)}
+                  title="Click to flip (or press F). Space/→ for next, ← for prev."
+                >
+                  <div className="vcs-flip-scene">
+                    <div className={`vcs-flip-card ${favFlipped ? "is-flipped" : ""}`}>
+                      <div className="vcs-face front">
+                        {favCurrent?.frontImageUrl ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img src={favCurrent.frontImageUrl} alt="Card front" />
+                        ) : (
+                          <div className="vcs-img-missing">(No front image)</div>
+                        )}
+                      </div>
+
+                      <div className="vcs-face back">
+                        {favCurrent?.backImageUrl ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img src={favCurrent.backImageUrl} alt="Card back" />
+                        ) : (
+                          <div className="vcs-img-missing">(No back image)</div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ marginTop: 12, display: "flex", gap: 10, flexWrap: "wrap" }}>
+                  <button
+                    className="vcs-btn"
+                    onClick={() => {
+                      setFavFlipped(false);
+                      setFavIdx((v) => (v - 1 + favCards.length) % favCards.length);
+                    }}
+                  >
+                    ← Prev
+                  </button>
+                  <button
+                    className="vcs-btn"
+                    onClick={() => {
+                      setFavFlipped(false);
+                      setFavIdx((v) => (v + 1) % favCards.length);
+                    }}
+                  >
+                    Next →
+                  </button>
+                  <button className="vcs-btn" onClick={() => setFavFlipped((x) => !x)}>
+                    {favFlipped ? "Show Front" : "Flip (F)"}
+                  </button>
+                  <button
+                    className="vcs-btn"
+                    onClick={() => favCurrent && toggleFavorite(favCurrent.id)}
+                    title="Unfavorite this card"
+                    style={{ background: "#fff9dd", color: starGold }}
+                  >
+                    ★ Starred
+                  </button>
+                </div>
+
+                <div style={{ marginTop: 8, fontSize: 12, color: colors.subtext, fontWeight: 800 }}>
+                  Tip: <b>Space</b>/<b>→</b> next • <b>←</b> prev • <b>F</b> flip
+                </div>
+              </div>
+
+              <div
+                style={{
+                  border: `1px solid ${colors.border}`,
+                  borderRadius: 16,
+                  background: "#fff",
+                  padding: 12,
+                }}
+              >
+                <div style={{ fontSize: 12, fontWeight: 900, color: colors.subtext }}>Now viewing</div>
+                <div style={{ marginTop: 6, fontSize: 20, fontWeight: 950, letterSpacing: -0.3 }}>
+                  #{favCurrent?.cardNumber} — {favCurrent?.player}
+                </div>
+                <div style={{ marginTop: 6, fontSize: 13, color: colors.subtext, fontWeight: 800, lineHeight: 1.4 }}>
+                  {favCurrent?.team ?? "—"}
+                  {favCurrent?.subset ? ` • ${favCurrent.subset}` : ""}
+                  {favCurrent?.variant ? ` • ${favCurrent.variant}` : ""}{" "}
+                  {productSetParenFav(favCurrent) ? ` ${productSetParenFav(favCurrent)}` : ""}
+                </div>
+
+                <div style={{ marginTop: 10, display: "grid", gap: 8, fontSize: 13, fontWeight: 900 }}>
+                  <div>
+                    Type:{" "}
+                    <span style={{ color: colors.subtext, fontWeight: 800 }}>{favCurrent?.isInsert ? "Insert" : "Base"}</span>
+                  </div>
+                  <div>
+                    Book: <span style={{ color: colors.subtext, fontWeight: 800 }}>{money(favCurrent?.bookValue)}</span>
+                  </div>
+                  <div>
+                    Position:{" "}
+                    <span style={{ color: colors.subtext, fontWeight: 800 }}>
+                      {favIdx + 1} / {favCards.length}
+                    </span>
+                  </div>
+                </div>
+
+                <div style={{ marginTop: 12 }}>
+                  {favCurrent ? (
+                    <Link
+                      href={`/cards/${encodeURIComponent(String(favCurrent.id))}`}
+                      style={{ textDecoration: "none", fontWeight: 900, color: colors.accent }}
+                    >
+                      Open details →
+                    </Link>
+                  ) : null}
+                </div>
+              </div>
+            </div>
           )}
         </section>
       </div>

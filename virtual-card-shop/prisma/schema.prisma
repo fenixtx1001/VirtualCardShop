@@ -69,6 +69,9 @@ model Card {
   set           Set             @relation(fields: [setId], references: [id])
   ownerships    CardOwnership[]
 
+  // ⭐ Favorites relation
+  favoritedBy   CardFavorite[]
+
   @@unique([setId, cardNumber])
   @@unique([productSetId, cardNumber])
   @@index([setId])
@@ -77,28 +80,31 @@ model Card {
 }
 
 model User {
-  id           String    @id @default(cuid())
+  id            String    @id @default(cuid())
 
   // ✅ NextAuth profile fields
-  email        String?   @unique
-  name         String?
-  image        String?
+  email         String?   @unique
+  name          String?
+  image         String?
   emailVerified DateTime?
 
   // ✅ Your game economy fields (unchanged)
-  balanceCents Int       @default(5000)
-  nextRewardAt DateTime?
+  balanceCents  Int       @default(5000)
+  nextRewardAt  DateTime?
 
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 
   // ✅ Your existing relations
   cardOwnerships  CardOwnership[]
   sealedInventory SealedInventory[]
 
+  // ⭐ Favorites relation
+  favorites       CardFavorite[]
+
   // ✅ NextAuth relations
-  accounts     Account[]
-  sessions     Session[]
+  accounts      Account[]
+  sessions      Session[]
 }
 
 model SealedInventory {
@@ -168,3 +174,18 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model CardFavorite {
+  id        Int      @id @default(autoincrement())
+  userId    String
+  cardId    Int
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  card Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, cardId], name: "userId_cardId")
+  @@index([cardId])
+  @@index([userId])
+}
+
