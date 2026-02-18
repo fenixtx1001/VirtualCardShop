@@ -71,9 +71,36 @@ type FavoritesRandomResponse = {
   error?: string;
 };
 
-type FavoriteIdsResponse = {
+type PrestigeSummary = {
   ok: boolean;
-  ids: number[];
+  summary: {
+    setsWithAnyCompletion: number;
+    totalTimesCompleted: number;
+    totalClaimableCompletions: number;
+    bonusAwardedCents: number;
+    buckets: {
+      lvl1: number;
+      lvl2: number;
+      lvl3: number;
+      lvl4: number;
+      lvl5: number;
+      lvl10plus: number;
+      lvl25plus: number;
+    };
+  };
+  claimable: Array<{
+    productSetId: string;
+    productId: string | null;
+    productSetName: string | null;
+    isBase: boolean;
+    isInsert: boolean;
+    timesCompleted: number;
+    claimedCompletions: number;
+    claimable: number;
+    setValue: number;
+    nextRewardCents: number;
+    bonusAwardedCents: number;
+  }>;
   error?: string;
 };
 
@@ -92,6 +119,11 @@ const starGold = "#f2c94c";
 function money(n: any) {
   const v = typeof n === "number" && Number.isFinite(n) ? n : 0;
   return v.toLocaleString(undefined, { style: "currency", currency: "USD" });
+}
+
+function centsToMoney(cents: any) {
+  const v = typeof cents === "number" && Number.isFinite(cents) ? cents : 0;
+  return money(v / 100);
 }
 
 function safeInt(n: any) {
@@ -124,6 +156,49 @@ function productSetParenFav(c: FavoriteCard) {
   const name = (c.productSet?.name ?? "").trim();
   if (name) return `(${name})`;
   return "";
+}
+
+/**
+ * Prestige tier styling (NO numbers inside icons — labels do the numeric work).
+ * Distinct + tiered via icon + tint + border.
+ */
+function medalForLevel(level: number) {
+  if (level >= 25) return { icon: "🏆", bg: "#fff4d6", border: "#f2d38a", text: "#6b4c00" };
+  if (level >= 10) return { icon: "💎", bg: "#eef7ff", border: "#b9dbff", text: "#124a8a" };
+  if (level >= 5) return { icon: "👑", bg: "#fff3e6", border: "#f2c9a6", text: "#7a3d00" };
+  if (level >= 4) return { icon: "🥇", bg: "#fff7dc", border: "#f2d38a", text: "#6b4c00" };
+  if (level >= 3) return { icon: "🥈", bg: "#f4f4f4", border: "#d7d7d7", text: "#333" };
+  if (level >= 2) return { icon: "🥉", bg: "#fff1ea", border: "#f1c2aa", text: "#6b2a12" };
+  if (level >= 1) return { icon: "🎖️", bg: "#eef4ff", border: "#c8dbff", text: "#1f3f7a" };
+  return { icon: "•", bg: colors.muted, border: colors.border, text: colors.subtext };
+}
+
+function prestigeTileStyle(kind: "1x" | "2x" | "3x" | "4x" | "5p" | "10p" | "25p") {
+  // Slightly different tints than table pills so tiles feel “designed”, not copied.
+  switch (kind) {
+    case "25p":
+      return { icon: "🏆", bg: "#fff7e6", border: "#f2d38a", ring: "rgba(242, 211, 138, 0.35)" };
+    case "10p":
+      return { icon: "💎", bg: "#f1f8ff", border: "#b9dbff", ring: "rgba(185, 219, 255, 0.40)" };
+    case "5p":
+      return { icon: "👑", bg: "#fff4ec", border: "#f2c9a6", ring: "rgba(242, 201, 166, 0.38)" };
+    case "4x":
+      return { icon: "🥇", bg: "#fff9e2", border: "#f2d38a", ring: "rgba(242, 211, 138, 0.30)" };
+    case "3x":
+      return { icon: "🥈", bg: "#f6f6f6", border: "#d7d7d7", ring: "rgba(215, 215, 215, 0.45)" };
+    case "2x":
+      return { icon: "🥉", bg: "#fff3ee", border: "#f1c2aa", ring: "rgba(241, 194, 170, 0.40)" };
+    case "1x":
+    default:
+      return { icon: "🎖️", bg: "#f0f6ff", border: "#c8dbff", ring: "rgba(200, 219, 255, 0.45)" };
+  }
+}
+
+function labelForTimesCompleted(n: number) {
+  if (n >= 25) return "25+";
+  if (n >= 10) return "10+";
+  if (n >= 5) return "5+";
+  return `${safeInt(n)}×`;
 }
 
 export default function ShowcaseClient() {
@@ -159,10 +234,12 @@ export default function ShowcaseClient() {
   const [favFlipped, setFavFlipped] = useState(false);
 
   // ⭐ Favorite ID set (drives star UI and optimistic behavior)
-  // IMPORTANT: This should NOT depend on Shoebox loading.
   const [favoriteIds, setFavoriteIds] = useState<Set<number>>(new Set());
-  const [favIdsLoading, setFavIdsLoading] = useState(false);
-  const [favIdsErr, setFavIdsErr] = useState<string | null>(null);
+
+  // 🏆 Prestige
+  const [prestige, setPrestige] = useState<PrestigeSummary | null>(null);
+  const [prestigeLoading, setPrestigeLoading] = useState(false);
+  const [prestigeErr, setPrestigeErr] = useState<string | null>(null);
 
   const isViewingMe = selectedUserId === "";
 
@@ -228,41 +305,13 @@ export default function ShowcaseClient() {
     }
   }
 
-  // ✅ Load favorite ids (drives the star UI)
-  async function loadFavoriteIds() {
-    if (!isViewingMe) {
-      setFavoriteIds(new Set());
-      setFavIdsErr(null);
-      setFavIdsLoading(false);
-      return;
-    }
-
-    setFavIdsLoading(true);
-    setFavIdsErr(null);
-    try {
-      const res = await fetch(`/api/favorites/ids?limit=50000`, { cache: "no-store" });
-      const raw = await res.text();
-      const j = raw ? JSON.parse(raw) : null;
-
-      if (!res.ok) throw new Error(j?.error ?? `Failed (${res.status})`);
-
-      const data = j as FavoriteIdsResponse;
-      const ids = Array.isArray(data?.ids) ? data.ids : [];
-      setFavoriteIds(new Set(ids));
-    } catch (e: any) {
-      // IMPORTANT: do NOT clear favorites on failure (prevents “stars revert”)
-      setFavIdsErr(e?.message ?? "Failed to load favorites");
-    } finally {
-      setFavIdsLoading(false);
-    }
-  }
-
   async function loadFavoritesRandom() {
     // Favorites are personal (no cross-user viewing right now)
     if (!isViewingMe) {
       setFavCards([]);
       setFavErr(null);
       setFavLoading(false);
+      setFavoriteIds(new Set());
       setFavIdx(0);
       setFavFlipped(false);
       return;
@@ -281,25 +330,82 @@ export default function ShowcaseClient() {
       const cards = Array.isArray(data?.cards) ? data.cards : [];
 
       setFavCards(cards);
+      setFavoriteIds(new Set(cards.map((c) => c.id)));
       setFavIdx(0);
       setFavFlipped(false);
     } catch (e: any) {
       setFavCards([]);
-      setFavErr(e?.message ?? "Failed to load Favorites Shoebox.");
+      setFavoriteIds(new Set());
+      setFavErr(e?.message ?? "Failed to load favorites");
       setFavIdx(0);
       setFavFlipped(false);
-      // NOTE: we do NOT touch favoriteIds here.
     } finally {
       setFavLoading(false);
+    }
+  }
+
+  async function loadPrestige() {
+    // Prestige is personal for now (like Favorites)
+    if (!isViewingMe) {
+      setPrestige(null);
+      setPrestigeErr(null);
+      setPrestigeLoading(false);
+      return;
+    }
+
+    setPrestigeLoading(true);
+    setPrestigeErr(null);
+    try {
+      const res = await fetch(`/api/prestige/summary?limit=60`, { cache: "no-store" });
+      const raw = await res.text();
+      const j = raw ? JSON.parse(raw) : null;
+      if (!res.ok) throw new Error(j?.error ?? `Failed (${res.status})`);
+      setPrestige(j as PrestigeSummary);
+    } catch (e: any) {
+      setPrestige(null);
+      setPrestigeErr(e?.message ?? "Failed to load prestige");
+    } finally {
+      setPrestigeLoading(false);
+    }
+  }
+
+  async function redeemPrestige(productSetId: string) {
+    if (!isViewingMe) return;
+    try {
+      const res = await fetch(`/api/prestige/redeem`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ productSetId }),
+      });
+      const raw = await res.text();
+      const j = raw ? JSON.parse(raw) : null;
+      if (!res.ok) throw new Error(j?.error ?? `Failed (${res.status})`);
+
+      // refresh summary
+      await loadPrestige();
+    } catch {
+      await loadPrestige();
+    }
+  }
+
+  async function redeemAllPrestige() {
+    if (!isViewingMe) return;
+    try {
+      const res = await fetch(`/api/prestige/redeem-all`, { method: "POST" });
+      const raw = await res.text();
+      const j = raw ? JSON.parse(raw) : null;
+      if (!res.ok) throw new Error(j?.error ?? `Failed (${res.status})`);
+      await loadPrestige();
+    } catch {
+      await loadPrestige();
     }
   }
 
   async function toggleFavorite(cardId: number) {
     if (!isViewingMe) return;
 
-    const wasFav = favoriteIds.has(cardId);
-
     // optimistic: immediately update the star visuals
+    const wasFav = favoriteIds.has(cardId);
     setFavoriteIds((prev) => {
       const next = new Set(prev);
       if (wasFav) next.delete(cardId);
@@ -307,7 +413,7 @@ export default function ShowcaseClient() {
       return next;
     });
 
-    // If we unstarred and that card is in the shoebox list, remove it locally
+    // if we unstarred the currently-loaded shoebox card, also remove it from the local shoebox list
     if (wasFav) {
       setFavCards((prev) => {
         const next = prev.filter((c) => c.id !== cardId);
@@ -326,12 +432,11 @@ export default function ShowcaseClient() {
 
       const raw = await res.text();
       const j = raw ? JSON.parse(raw) : null;
-
       if (!res.ok) throw new Error(j?.error ?? `Failed (${res.status})`);
 
       const favorited = !!j?.favorited;
 
-      // reconcile if server disagrees
+      // If server disagrees, reconcile
       if (favorited !== !wasFav) {
         setFavoriteIds((prev) => {
           const next = new Set(prev);
@@ -341,10 +446,7 @@ export default function ShowcaseClient() {
         });
       }
 
-      // keep ids authoritative
-      await loadFavoriteIds();
-
-      // if we just favorited, try to refresh shoebox (but failures won't nuke stars anymore)
+      // If we favorited a new card, refresh shoebox so it appears in the stack
       if (favorited && !wasFav) {
         await loadFavoritesRandom();
       }
@@ -356,9 +458,8 @@ export default function ShowcaseClient() {
         else next.delete(cardId);
         return next;
       });
-
-      // keep things in sync
-      await loadFavoriteIds();
+      // safest: reload shoebox state
+      await loadFavoritesRandom();
     }
   }
 
@@ -371,10 +472,8 @@ export default function ShowcaseClient() {
     setTopPage(1);
     setJumpTo("");
     loadTopCards(selectedUserId, 1);
-
-    // favorites
-    loadFavoriteIds();
     loadFavoritesRandom();
+    loadPrestige();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedUserId]);
 
@@ -548,12 +647,6 @@ export default function ShowcaseClient() {
               <div style={{ marginTop: 6, color: colors.subtext, fontSize: 13, lineHeight: 1.5 }}>
                 Leaderboards, top cards, and the stuff worth flexing.
               </div>
-
-              {isViewingMe && (favIdsLoading || favIdsErr) ? (
-                <div style={{ marginTop: 8, fontSize: 12, fontWeight: 800, color: colors.subtext }}>
-                  {favIdsLoading ? "Loading favorites…" : favIdsErr ? "Favorites may be out of sync." : null}
-                </div>
-              ) : null}
             </div>
 
             <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
@@ -584,8 +677,8 @@ export default function ShowcaseClient() {
                 onClick={() => {
                   loadLeaderboard();
                   loadTopCards(selectedUserId, topPage);
-                  loadFavoriteIds();
                   loadFavoritesRandom();
+                  loadPrestige();
                 }}
                 className="vcs-btn"
                 title="Refresh Showcase"
@@ -705,7 +798,9 @@ export default function ShowcaseClient() {
                       <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
                         {safeInt(r.totalCards).toLocaleString()}
                       </td>
-                      <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>{money(r.totalValue)}</td>
+                      <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                        {money(r.totalValue)}
+                      </td>
                       <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
                         {safeInt(r.completedBaseSets).toLocaleString()}
                       </td>
@@ -715,6 +810,228 @@ export default function ShowcaseClient() {
               </tbody>
             </table>
           </div>
+        </section>
+
+        {/* 🏆 Prestige */}
+        <section
+          style={{
+            background: colors.card,
+            border: `1px solid ${colors.border}`,
+            borderRadius: 16,
+            padding: 16,
+            boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
+            marginBottom: 14,
+          }}
+        >
+          <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
+            <div>
+              <div style={{ fontSize: 16, fontWeight: 900 }}>Set Prestige</div>
+              <div style={{ marginTop: 4, fontSize: 13, color: colors.subtext }}>
+                Earn bonus rewards by completing ProductSets multiple times. Rewards are <b>redeemable</b> (not automatic).
+              </div>
+            </div>
+
+            <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+              <button className="vcs-btn" onClick={loadPrestige} disabled={!isViewingMe || prestigeLoading}>
+                Refresh
+              </button>
+              <button
+                className="vcs-btn"
+                onClick={redeemAllPrestige}
+                disabled={!isViewingMe || prestigeLoading || !(prestige?.summary?.totalClaimableCompletions ?? 0)}
+                title="Redeem all available prestige rewards"
+                style={{ background: "#eef4ff" }}
+              >
+                Claim All
+              </button>
+            </div>
+          </div>
+
+          {!isViewingMe ? (
+            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>
+              Prestige is personal. Switch “Viewing” to <b>Me</b>.
+            </div>
+          ) : prestigeErr ? (
+            <div
+              style={{
+                marginTop: 12,
+                padding: 10,
+                background: "#fff1f1",
+                border: "1px solid #f3b7b7",
+                borderRadius: 12,
+                fontWeight: 900,
+              }}
+            >
+              {prestigeErr}
+            </div>
+          ) : prestigeLoading ? (
+            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>Loading…</div>
+          ) : !prestige ? (
+            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>No prestige data yet.</div>
+          ) : (
+            <>
+              <div
+                style={{
+                  marginTop: 12,
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))",
+                  gap: 10,
+                }}
+              >
+                {[
+                  { k: "1×", v: prestige.summary.buckets.lvl1, kind: "1x" as const },
+                  { k: "2×", v: prestige.summary.buckets.lvl2, kind: "2x" as const },
+                  { k: "3×", v: prestige.summary.buckets.lvl3, kind: "3x" as const },
+                  { k: "4×", v: prestige.summary.buckets.lvl4, kind: "4x" as const },
+                  { k: "5+", v: prestige.summary.buckets.lvl5, kind: "5p" as const },
+                  { k: "10+", v: prestige.summary.buckets.lvl10plus, kind: "10p" as const },
+                  { k: "25+", v: prestige.summary.buckets.lvl25plus, kind: "25p" as const },
+                ].map((x) => {
+                  const s = prestigeTileStyle(x.kind);
+                  return (
+                    <div
+                      key={x.k}
+                      style={{
+                        border: `1px solid ${s.border}`,
+                        borderRadius: 14,
+                        padding: 12,
+                        background: s.bg,
+                        display: "flex",
+                        justifyContent: "space-between",
+                        gap: 10,
+                        alignItems: "center",
+                        boxShadow: `0 10px 24px ${s.ring}`,
+                      }}
+                    >
+                      <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+                        <div
+                          style={{
+                            width: 34,
+                            height: 34,
+                            borderRadius: 999,
+                            display: "grid",
+                            placeItems: "center",
+                            background: "#ffffff",
+                            border: `1px solid ${s.border}`,
+                            boxShadow: "0 10px 18px rgba(0,0,0,0.06)",
+                            fontSize: 18,
+                          }}
+                          aria-hidden
+                        >
+                          {s.icon}
+                        </div>
+                        <div>
+                          <div style={{ fontSize: 12, color: colors.subtext, fontWeight: 900 }}>{x.k}</div>
+                          <div style={{ fontSize: 16, fontWeight: 950 }}>{safeInt(x.v).toLocaleString()}</div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div style={{ marginTop: 10, display: "flex", gap: 14, flexWrap: "wrap", color: colors.subtext, fontWeight: 800, fontSize: 12 }}>
+                <div>
+                  Claimable completions: <b style={{ color: colors.text }}>{safeInt(prestige.summary.totalClaimableCompletions)}</b>
+                </div>
+                <div>
+                  Lifetime claimed: <b style={{ color: colors.text }}>{centsToMoney(prestige.summary.bonusAwardedCents)}</b>
+                </div>
+              </div>
+
+              {prestige.claimable.length === 0 ? (
+                <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>
+                  Nothing to claim right now. Open packs and complete sets to earn claimable rewards.
+                </div>
+              ) : (
+                <div style={{ marginTop: 12, overflowX: "auto" }}>
+                  <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 920 }}>
+                    <thead style={{ background: "#f7f7f7" }}>
+                      <tr>
+                        {["Set", "Prestige", "Claimable", "Next Reward", "Type", ""].map((h) => (
+                          <th
+                            key={h}
+                            style={{
+                              textAlign: "left",
+                              padding: 12,
+                              borderBottom: `1px solid ${colors.border}`,
+                              whiteSpace: "nowrap",
+                              fontWeight: 900,
+                              fontSize: 12,
+                              color: "#333",
+                            }}
+                          >
+                            {h}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {prestige.claimable.map((r, idx) => {
+                        const medal = medalForLevel(r.timesCompleted);
+                        const type = r.isBase ? "Base" : r.isInsert ? "Insert" : "Set";
+                        const label = labelForTimesCompleted(r.timesCompleted);
+
+                        return (
+                          <tr key={r.productSetId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
+                            <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
+                              <div style={{ fontWeight: 950 }}>{r.productSetName?.trim() || r.productSetId}</div>
+                              <div style={{ fontSize: 12, color: colors.subtext, fontWeight: 800 }}>{r.productId ?? ""}</div>
+                            </td>
+
+                            <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
+                              <span
+                                style={{
+                                  display: "inline-flex",
+                                  alignItems: "center",
+                                  gap: 8,
+                                  border: `1px solid ${medal.border}`,
+                                  background: medal.bg,
+                                  borderRadius: 999,
+                                  padding: "6px 10px",
+                                  fontWeight: 950,
+                                  color: medal.text,
+                                  boxShadow: "0 10px 20px rgba(0,0,0,0.05)",
+                                }}
+                                title={`Current completion level: ${safeInt(r.timesCompleted)}×`}
+                              >
+                                <span aria-hidden>{medal.icon}</span>
+                                <span>{label}</span>
+                              </span>
+                            </td>
+
+                            <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 950 }}>
+                              {safeInt(r.claimable)}
+                            </td>
+
+                            <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 950 }}>
+                              {centsToMoney(r.nextRewardCents)}
+                              <div style={{ fontSize: 12, color: colors.subtext, fontWeight: 800 }}>
+                                (Set value {money(r.setValue)})
+                              </div>
+                            </td>
+
+                            <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>{type}</td>
+
+                            <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
+                              <button
+                                className="vcs-btn"
+                                onClick={() => redeemPrestige(r.productSetId)}
+                                title="Claim rewards for this set"
+                                style={{ background: "#eef4ff" }}
+                              >
+                                Claim
+                              </button>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </>
+          )}
         </section>
 
         {/* Top cards */}
@@ -810,7 +1127,9 @@ export default function ShowcaseClient() {
           {topLoading ? (
             <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>Loading…</div>
           ) : topCards.length === 0 ? (
-            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>No owned cards yet (or no book values set).</div>
+            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>
+              No owned cards yet (or no book values set).
+            </div>
           ) : viewMode === "table" ? (
             <div style={{ marginTop: 12, overflowX: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 920 }}>
@@ -1008,7 +1327,7 @@ export default function ShowcaseClient() {
           )}
         </section>
 
-        {/* ⭐ Favorites Shoebox (BELOW Top Cards) */}
+        {/* ⭐ Favorites Shoebox (below Top Cards) */}
         <section
           style={{
             background: colors.card,
@@ -1158,7 +1477,9 @@ export default function ShowcaseClient() {
                 <div style={{ marginTop: 10, display: "grid", gap: 8, fontSize: 13, fontWeight: 900 }}>
                   <div>
                     Type:{" "}
-                    <span style={{ color: colors.subtext, fontWeight: 800 }}>{favCurrent?.isInsert ? "Insert" : "Base"}</span>
+                    <span style={{ color: colors.subtext, fontWeight: 800 }}>
+                      {favCurrent?.isInsert ? "Insert" : "Base"}
+                    </span>
                   </div>
                   <div>
                     Book: <span style={{ color: colors.subtext, fontWeight: 800 }}>{money(favCurrent?.bookValue)}</span>

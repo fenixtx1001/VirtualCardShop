@@ -13,6 +13,15 @@ type SummaryRow = {
   packImageUrl: string | null;
 };
 
+type PrestigeLevelRow = {
+  productSetId: string;
+  totalCards: number;
+  level: number; // min qty across all cards
+  nextLevel: number; // level + 1
+  nextPct: number; // 0..100
+  completedOnce: boolean; // level >= 1
+};
+
 const colors = {
   paper: "#fbfaf7",
   card: "#ffffff",
@@ -59,9 +68,69 @@ function resolveImageUrl(maybeUrl: string | null | undefined) {
   return path;
 }
 
+function labelForTimesCompleted(level: number) {
+  const v = Math.max(0, Math.floor(level));
+  if (v >= 25) return "25+";
+  if (v >= 10) return "10+";
+  if (v >= 5) return "5+";
+  if (v >= 1) return `${v}×`;
+  return "";
+}
+
+function badgeForLevel(level: number) {
+  // Tiny + distinct + no confusing numbers inside the icon itself
+  if (level >= 25) return { icon: "🏆", bg: "#fff4d6", border: "#f2d38a", text: "#6b4c00" };
+  if (level >= 10) return { icon: "💎", bg: "#eef6ff", border: "#c8dbff", text: "#124a8a" };
+  if (level >= 5) return { icon: "👑", bg: "#fff1ea", border: "#f1c2aa", text: "#7a3d00" };
+  if (level >= 4) return { icon: "🥇", bg: "#fff7dc", border: "#f2d38a", text: "#6b4c00" };
+  if (level >= 3) return { icon: "🥈", bg: "#f4f4f4", border: "#d7d7d7", text: "#333" };
+  if (level >= 2) return { icon: "🥉", bg: "#fff1ea", border: "#f1c2aa", text: "#6b2a12" };
+  if (level >= 1) return { icon: "🎖️", bg: "#eef4ff", border: "#c8dbff", text: "#1f3f7a" };
+  return null;
+}
+
 export default function HomePage() {
   const [sets, setSets] = useState<SummaryRow[]>([]);
   const [progressError, setProgressError] = useState<string | null>(null);
+
+  // 🏆 Prestige levels keyed by productSetId (here: your SummaryRow.productId)
+  const [prestigeById, setPrestigeById] = useState<Record<string, PrestigeLevelRow>>({});
+
+  async function loadPrestigeLevels(productSetIds: string[]) {
+    const uniq = Array.from(new Set(productSetIds.map((s) => (s ?? "").trim()).filter(Boolean)));
+    if (uniq.length === 0) {
+      setPrestigeById({});
+      return;
+    }
+
+    try {
+      const res = await fetch(`/api/prestige/levels?ids=${encodeURIComponent(uniq.join(","))}`, { cache: "no-store" });
+      const raw = await res.text();
+      const j = raw ? JSON.parse(raw) : null;
+
+      if (!res.ok || !j?.ok || !j?.levels) {
+        // Fail silently; Home should never break from prestige.
+        setPrestigeById({});
+        return;
+      }
+
+      const next: Record<string, PrestigeLevelRow> = {};
+      for (const [k, v] of Object.entries<any>(j.levels)) {
+        next[k] = {
+          productSetId: String(v?.productSetId ?? k),
+          totalCards: safeNum(v?.totalCards, 0),
+          level: safeNum(v?.level, 0),
+          nextLevel: safeNum(v?.nextLevel, safeNum(v?.level, 0) + 1),
+          nextPct: safeNum(v?.nextPct, 0),
+          completedOnce: !!v?.completedOnce,
+        };
+      }
+
+      setPrestigeById(next);
+    } catch {
+      setPrestigeById({});
+    }
+  }
 
   async function loadProgress() {
     setProgressError(null);
@@ -74,20 +143,23 @@ export default function HomePage() {
       try {
         j = raw ? JSON.parse(raw) : null;
       } catch {
-        throw new Error(
-          `Collection summary returned non-JSON (${res.status}): ${raw.slice(0, 140)}`
-        );
+        throw new Error(`Collection summary returned non-JSON (${res.status}): ${raw.slice(0, 140)}`);
       }
 
       if (!res.ok) {
         throw new Error(j?.error ?? `Failed to load collection summary (${res.status})`);
       }
 
+      // ✅ Keep your existing behavior: this endpoint returns an ARRAY
       const arr = Array.isArray(j) ? (j as SummaryRow[]) : [];
       setSets(arr);
+
+      // Load prestige info for these ProductSet IDs (your productId is the ProductSet id)
+      await loadPrestigeLevels(arr.map((x) => x.productId));
     } catch (e: any) {
       setProgressError(e?.message ?? "Failed to load set progress");
       setSets([]);
+      setPrestigeById({});
     }
   }
 
@@ -208,8 +280,7 @@ export default function HomePage() {
                 maxWidth: 760,
               }}
             >
-              A modern collector’s desk — with that 90s feeling of ripping packs, organizing sets, and
-              chasing the next big pull.
+              A modern collector’s desk — with that 90s feeling of ripping packs, organizing sets, and chasing the next big pull.
             </div>
           </div>
         </div>
@@ -236,8 +307,7 @@ export default function HomePage() {
                   transition: "transform 120ms ease, box-shadow 120ms ease",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.boxShadow =
-                    "0 16px 36px rgba(0,0,0,0.07)";
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = "0 16px 36px rgba(0,0,0,0.07)";
                   (e.currentTarget as HTMLDivElement).style.transform = "translateY(-1px)";
                 }}
                 onMouseLeave={(e) => {
@@ -245,14 +315,7 @@ export default function HomePage() {
                   (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
                 }}
               >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    gap: 10,
-                    alignItems: "center",
-                  }}
-                >
+                <div style={{ display: "flex", justifyContent: "space-between", gap: 10, alignItems: "center" }}>
                   <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
                     <div style={{ fontSize: 20 }}>{c.icon}</div>
                     <div style={{ fontSize: 17, fontWeight: 950 }}>{c.title}</div>
@@ -260,9 +323,7 @@ export default function HomePage() {
                   <div style={{ fontWeight: 950, color: colors.accent, fontSize: 18 }}>→</div>
                 </div>
 
-                <div style={{ marginTop: 8, color: colors.subtext, fontSize: 13, lineHeight: 1.45 }}>
-                  {c.subtitle}
-                </div>
+                <div style={{ marginTop: 8, color: colors.subtext, fontSize: 13, lineHeight: 1.45 }}>{c.subtitle}</div>
               </div>
             </Link>
           ))}
@@ -329,17 +390,12 @@ export default function HomePage() {
                 background: "linear-gradient(180deg, #fff, #fbfaf7)",
               }}
             >
-              <div style={{ fontWeight: 950, color: colors.text, marginBottom: 6 }}>
-                No progress to show yet.
-              </div>
+              <div style={{ fontWeight: 950, color: colors.text, marginBottom: 6 }}>No progress to show yet.</div>
               <div style={{ fontSize: 13, lineHeight: 1.55 }}>
                 Rip some packs and your progress bars will start showing up here.
               </div>
               <div style={{ marginTop: 10 }}>
-                <Link
-                  href="/shop"
-                  style={{ textDecoration: "underline", fontWeight: 900, color: colors.accent }}
-                >
+                <Link href="/shop" style={{ textDecoration: "underline", fontWeight: 900, color: colors.accent }}>
                   Go to Shop →
                 </Link>
               </div>
@@ -350,6 +406,16 @@ export default function HomePage() {
                 const pct = clamp(safeNum(s.percentComplete), 0, 100);
                 const displayName = formatProductId(s.productId);
                 const resolvedPackSrc = resolveImageUrl(s.packImageUrl);
+
+                const totalCards = safeNum(s.totalCards);
+                const uniqueOwned = safeNum(s.uniqueOwned);
+
+                // ✅ Base completion remains 100% conceptually
+                const baseComplete = totalCards > 0 && uniqueOwned >= totalCards;
+
+                const prestige = prestigeById[s.productId];
+                const level = safeNum(prestige?.level, 0);
+                const badge = level >= 1 ? badgeForLevel(level) : null;
 
                 return (
                   <div
@@ -430,8 +496,42 @@ export default function HomePage() {
                             alignItems: "baseline",
                           }}
                         >
-                          <div style={{ fontWeight: 950, fontSize: 15, lineHeight: 1.2, minWidth: 200 }}>
-                            {displayName}
+                          <div
+                            style={{
+                              fontWeight: 950,
+                              fontSize: 15,
+                              lineHeight: 1.2,
+                              minWidth: 200,
+                              display: "flex",
+                              gap: 8,
+                              alignItems: "center",
+                              flexWrap: "wrap",
+                            }}
+                          >
+                            <span>{displayName}</span>
+
+                            {badge ? (
+                              <span
+                                title={`Prestige: ${labelForTimesCompleted(level) || "—"}`}
+                                style={{
+                                  display: "inline-flex",
+                                  alignItems: "center",
+                                  gap: 6,
+                                  padding: "3px 8px",
+                                  borderRadius: 999,
+                                  border: `1px solid ${badge.border}`,
+                                  background: badge.bg,
+                                  color: badge.text,
+                                  fontWeight: 950,
+                                  fontSize: 11,
+                                  lineHeight: 1.15,
+                                  boxShadow: "0 8px 18px rgba(0,0,0,0.06)",
+                                }}
+                              >
+                                <span aria-hidden>{badge.icon}</span>
+                                <span>{labelForTimesCompleted(level)}</span>
+                              </span>
+                            ) : null}
                           </div>
 
                           <div
@@ -442,8 +542,7 @@ export default function HomePage() {
                               whiteSpace: "nowrap",
                             }}
                           >
-                            {pct.toFixed(1)}% • {safeNum(s.uniqueOwned)}/{safeNum(s.totalCards)} unique •{" "}
-                            {safeNum(s.totalQty)} owned
+                            {pct.toFixed(1)}% • {safeNum(s.uniqueOwned)}/{safeNum(s.totalCards)} unique • {safeNum(s.totalQty)} owned
                           </div>
                         </div>
 
@@ -463,14 +562,30 @@ export default function HomePage() {
                             style={{
                               width: `${pct}%`,
                               height: "100%",
-                              background:
-                                "linear-gradient(90deg, rgba(47,111,237,0.92), rgba(47,111,237,0.62))",
+                              background: "linear-gradient(90deg, rgba(47,111,237,0.92), rgba(47,111,237,0.62))",
                               borderRadius: 999,
                               transition: "width 220ms ease",
                               boxShadow: "0 6px 14px rgba(47,111,237,0.18)",
                             }}
                           />
                         </div>
+
+                        {/* ✅ Prestige progress (only once base completion is achieved) */}
+                        {baseComplete ? (
+                          <div style={{ marginTop: 8, fontSize: 12, color: colors.subtext, fontWeight: 850 }}>
+                            <span style={{ color: colors.text, fontWeight: 950 }}>
+                              Completed {labelForTimesCompleted(Math.max(1, level || 1))}
+                            </span>
+                            {prestige ? (
+                              <>
+                                <span> • </span>
+                                <span>
+                                  {safeNum(prestige.nextPct, 0).toFixed(1)}% to {Math.max(2, safeNum(prestige.nextLevel, level + 1))}×
+                                </span>
+                              </>
+                            ) : null}
+                          </div>
+                        ) : null}
 
                         {/* Actions (pill buttons) */}
                         <div

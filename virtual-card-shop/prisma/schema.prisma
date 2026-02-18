@@ -37,16 +37,17 @@ model Product {
 }
 
 model ProductSet {
-  id          String   @id
+  id          String               @id
   productId   String
   name        String?
-  isBase      Boolean  @default(false)
-  isInsert    Boolean  @default(false)
+  isBase      Boolean              @default(false)
+  isInsert    Boolean              @default(false)
   oddsPerPack Int?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @updatedAt
   cards       Card[]
-  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  product     Product              @relation(fields: [productId], references: [id], onDelete: Cascade)
+  prestiges   ProductSetPrestige[]
 
   @@index([productId])
 }
@@ -70,7 +71,7 @@ model Card {
   ownerships    CardOwnership[]
 
   // ⭐ Favorites relation
-  favoritedBy   CardFavorite[]
+  favoritedBy CardFavorite[]
 
   @@unique([setId, cardNumber])
   @@unique([productSetId, cardNumber])
@@ -80,31 +81,32 @@ model Card {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id String @id @default(cuid())
 
   // ✅ NextAuth profile fields
-  email         String?   @unique
-  name          String?
-  image         String?
-  emailVerified DateTime?
+  email               String?              @unique
+  name                String?
+  image               String?
+  emailVerified       DateTime?
+  productSetPrestiges ProductSetPrestige[]
 
   // ✅ Your game economy fields (unchanged)
-  balanceCents  Int       @default(5000)
-  nextRewardAt  DateTime?
+  balanceCents Int       @default(5000)
+  nextRewardAt DateTime?
 
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // ✅ Your existing relations
   cardOwnerships  CardOwnership[]
   sealedInventory SealedInventory[]
 
   // ⭐ Favorites relation
-  favorites       CardFavorite[]
+  favorites CardFavorite[]
 
   // ✅ NextAuth relations
-  accounts      Account[]
-  sessions      Session[]
+  accounts Account[]
+  sessions Session[]
 }
 
 model SealedInventory {
@@ -132,9 +134,11 @@ model CardOwnership {
   @@index([cardId])
 }
 
-/* =========================
-   NextAuth / Auth.js models
-   ========================= */
+/**
+ * =========================
+ * NextAuth / Auth.js models
+ * =========================
+ */
 
 model Account {
   id                String  @id @default(cuid())
@@ -187,5 +191,29 @@ model CardFavorite {
   @@unique([userId, cardId], name: "userId_cardId")
   @@index([cardId])
   @@index([userId])
+}
+
+model ProductSetPrestige {
+  id               Int      @id @default(autoincrement())
+  userId           String
+  productSetId     String
+
+  // total completions ever achieved (we can keep it in sync, but it's optional)
+  timesCompleted   Int      @default(0)
+
+  // completions the user has already redeemed rewards for
+  claimedCompletions Int    @default(0)
+
+  // lifetime rewards paid (cents)
+  bonusAwardedCents Int     @default(0)
+
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productSet  ProductSet @relation(fields: [productSetId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, productSetId])
+  @@index([productSetId])
 }
 

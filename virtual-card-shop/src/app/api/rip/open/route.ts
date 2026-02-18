@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { syncPrestigeProgressForProductSets } from "@/lib/prestige";
 
 type Body = { productId?: string };
 
@@ -24,7 +25,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Missing productId" }, { status: 400 });
     }
 
-    // ✅ Option B: must be signed in; this user is the owner of the pack + cards
+    // ✅ must be signed in; this user is the owner of the pack + cards
     const user = await requireUser();
 
     const product = await prisma.product.findUnique({
@@ -33,10 +34,7 @@ export async function POST(req: Request) {
     });
 
     if (!product) {
-      return NextResponse.json(
-        { error: `Product not found: ${productId}` },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: `Product not found: ${productId}` }, { status: 404 });
     }
 
     const cardsPerPack = product.cardsPerPack ?? 15;
@@ -44,19 +42,13 @@ export async function POST(req: Request) {
     // Must have at least 1 base set
     const baseSets = product.productSets.filter((ps) => ps.isBase);
     if (baseSets.length === 0) {
-      return NextResponse.json(
-        { error: "No Base ProductSet found for this product." },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "No Base ProductSet found for this product." }, { status: 400 });
     }
     const baseSetIds = baseSets.map((s) => s.id);
 
     // Insert pools = non-base with oddsPerPack set (optional)
-    const insertSets = product.productSets.filter(
-      (ps) => !ps.isBase && ps.oddsPerPack && ps.oddsPerPack > 0
-    );
+    const insertSets = product.productSets.filter((ps) => !ps.isBase && ps.oddsPerPack && ps.oddsPerPack > 0);
 
-    // Open pack transaction: decrement sealed pack, select cards, upsert ownership
     const result = await prisma.$transaction(async (tx) => {
       const inv = await tx.sealedInventory.findUnique({
         where: { userId_productId: { userId: user.id, productId } },
@@ -102,9 +94,7 @@ export async function POST(req: Request) {
       });
 
       if (baseCards.length < baseNeeded) {
-        throw new Error(
-          `Not enough base cards to build a pack. Need ${baseNeeded}, found ${baseCards.length}.`
-        );
+        throw new Error(`Not enough base cards to build a pack. Need ${baseNeeded}, found ${baseCards.length}.`);
       }
 
       // Pick base cards (no dupes within pack)
@@ -132,9 +122,7 @@ export async function POST(req: Request) {
         if (pool.length === 0) continue;
 
         // prevent duplicates with base + already chosen inserts
-        const taken = new Set<number>(
-          [...chosenBase, ...chosenInserts].map((c) => c.id)
-        );
+        const taken = new Set<number>([...chosenBase, ...chosenInserts].map((c) => c.id));
         const filtered = pool.filter((c) => !taken.has(c.id));
         if (filtered.length === 0) continue;
 
@@ -152,7 +140,7 @@ export async function POST(req: Request) {
         pulled.push(...pickUnique(remainingBase, need));
       }
 
-      // Now upsert ownership and return ownedAfter
+      // Upsert ownership and return ownedAfter
       const enriched: any[] = [];
       for (const c of pulled) {
         const ownership = await tx.cardOwnership.upsert({
@@ -171,6 +159,19 @@ export async function POST(req: Request) {
         });
       }
 
+      // ✅ Prestige progress sync (NO MONEY HERE)
+      const productSetIdsTouched = Array.from(
+        new Set(pulled.map((c) => String(c.productSetId ?? "").trim()).filter(Boolean))
+      );
+
+      if (productSetIdsTouched.length > 0) {
+        await syncPrestigeProgressForProductSets({
+          tx,
+          userId: user.id,
+          productSetIds: productSetIdsTouched,
+        });
+      }
+
       return enriched;
     });
 
@@ -183,9 +184,6 @@ export async function POST(req: Request) {
     });
   } catch (e: any) {
     const status = e?.status ?? (e?.message === "Unauthorized" ? 401 : 500);
-    return NextResponse.json(
-      { error: e?.message ?? "Open pack failed" },
-      { status }
-    );
+    return NextResponse.json({ error: e?.message ?? "Open pack failed" }, { status });
   }
 }
