@@ -7,6 +7,13 @@ import { redeemPrestigeForProductSet } from "@/lib/prestige";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+function shortErr(e: any) {
+  const code = e?.code ?? e?.name ?? "UNKNOWN";
+  let message = String(e?.message ?? "Unknown error");
+  if (message.length > 260) message = message.slice(0, 260) + "…";
+  return { code, message };
+}
+
 export async function POST(req: Request) {
   try {
     const user = await requireUser();
@@ -18,6 +25,8 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: "Missing productSetId." }, { status: 400 });
     }
 
+    // NOTE: Self-only enforcement:
+    // We do not accept userId from the client and always use the authenticated user.
     const result = await prisma.$transaction(async (tx) => {
       return redeemPrestigeForProductSet({ tx, userId: user.id, productSetId });
     });
@@ -34,6 +43,9 @@ export async function POST(req: Request) {
       { status: 200 }
     );
   } catch (e: any) {
-    return NextResponse.json({ ok: false, error: "Failed to redeem prestige." }, { status: 500 });
+    return NextResponse.json(
+      { ok: false, error: "Failed to redeem prestige.", extra: shortErr(e) },
+      { status: 500 }
+    );
   }
 }

@@ -345,18 +345,15 @@ export default function ShowcaseClient() {
   }
 
   async function loadPrestige() {
-    // Prestige is personal for now (like Favorites)
-    if (!isViewingMe) {
-      setPrestige(null);
-      setPrestigeErr(null);
-      setPrestigeLoading(false);
-      return;
-    }
-
+    // Prestige is now PUBLIC (read-only for other users).
     setPrestigeLoading(true);
     setPrestigeErr(null);
     try {
-      const res = await fetch(`/api/prestige/summary?limit=60`, { cache: "no-store" });
+      const qs = new URLSearchParams();
+      qs.set("limit", "60");
+      if (selectedUserId) qs.set("userId", selectedUserId);
+
+      const res = await fetch(`/api/prestige/summary?${qs.toString()}`, { cache: "no-store" });
       const raw = await res.text();
       const j = raw ? JSON.parse(raw) : null;
       if (!res.ok) throw new Error(j?.error ?? `Failed (${res.status})`);
@@ -798,9 +795,7 @@ export default function ShowcaseClient() {
                       <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
                         {safeInt(r.totalCards).toLocaleString()}
                       </td>
-                      <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                        {money(r.totalValue)}
-                      </td>
+                      <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>{money(r.totalValue)}</td>
                       <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
                         {safeInt(r.completedBaseSets).toLocaleString()}
                       </td>
@@ -829,17 +824,22 @@ export default function ShowcaseClient() {
               <div style={{ marginTop: 4, fontSize: 13, color: colors.subtext }}>
                 Earn bonus rewards by completing ProductSets multiple times. Rewards are <b>redeemable</b> (not automatic).
               </div>
+              {!isViewingMe ? (
+                <div style={{ marginTop: 6, fontSize: 12, color: colors.subtext, fontWeight: 900 }}>
+                  Viewing <b>{selectedLabel}</b> • Prestige is public • Claiming is disabled for other users.
+                </div>
+              ) : null}
             </div>
 
             <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-              <button className="vcs-btn" onClick={loadPrestige} disabled={!isViewingMe || prestigeLoading}>
+              <button className="vcs-btn" onClick={loadPrestige} disabled={prestigeLoading}>
                 Refresh
               </button>
               <button
                 className="vcs-btn"
                 onClick={redeemAllPrestige}
                 disabled={!isViewingMe || prestigeLoading || !(prestige?.summary?.totalClaimableCompletions ?? 0)}
-                title="Redeem all available prestige rewards"
+                title={!isViewingMe ? "You can’t claim rewards for another user." : "Redeem all available prestige rewards"}
                 style={{ background: "#eef4ff" }}
               >
                 Claim All
@@ -847,11 +847,7 @@ export default function ShowcaseClient() {
             </div>
           </div>
 
-          {!isViewingMe ? (
-            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>
-              Prestige is personal. Switch “Viewing” to <b>Me</b>.
-            </div>
-          ) : prestigeErr ? (
+          {prestigeErr ? (
             <div
               style={{
                 marginTop: 12,
@@ -930,7 +926,17 @@ export default function ShowcaseClient() {
                 })}
               </div>
 
-              <div style={{ marginTop: 10, display: "flex", gap: 14, flexWrap: "wrap", color: colors.subtext, fontWeight: 800, fontSize: 12 }}>
+              <div
+                style={{
+                  marginTop: 10,
+                  display: "flex",
+                  gap: 14,
+                  flexWrap: "wrap",
+                  color: colors.subtext,
+                  fontWeight: 800,
+                  fontSize: 12,
+                }}
+              >
                 <div>
                   Claimable completions: <b style={{ color: colors.text }}>{safeInt(prestige.summary.totalClaimableCompletions)}</b>
                 </div>
@@ -940,9 +946,7 @@ export default function ShowcaseClient() {
               </div>
 
               {prestige.claimable.length === 0 ? (
-                <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>
-                  Nothing to claim right now. Open packs and complete sets to earn claimable rewards.
-                </div>
+                <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>Nothing to claim right now.</div>
               ) : (
                 <div style={{ marginTop: 12, overflowX: "auto" }}>
                   <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 920 }}>
@@ -1000,9 +1004,7 @@ export default function ShowcaseClient() {
                               </span>
                             </td>
 
-                            <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 950 }}>
-                              {safeInt(r.claimable)}
-                            </td>
+                            <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 950 }}>{safeInt(r.claimable)}</td>
 
                             <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 950 }}>
                               {centsToMoney(r.nextRewardCents)}
@@ -1017,7 +1019,8 @@ export default function ShowcaseClient() {
                               <button
                                 className="vcs-btn"
                                 onClick={() => redeemPrestige(r.productSetId)}
-                                title="Claim rewards for this set"
+                                disabled={!isViewingMe}
+                                title={!isViewingMe ? "You can’t claim rewards for another user." : "Claim rewards for this set"}
                                 style={{ background: "#eef4ff" }}
                               >
                                 Claim
@@ -1127,9 +1130,7 @@ export default function ShowcaseClient() {
           {topLoading ? (
             <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>Loading…</div>
           ) : topCards.length === 0 ? (
-            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>
-              No owned cards yet (or no book values set).
-            </div>
+            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>No owned cards yet (or no book values set).</div>
           ) : viewMode === "table" ? (
             <div style={{ marginTop: 12, overflowX: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 920 }}>
@@ -1376,9 +1377,7 @@ export default function ShowcaseClient() {
           ) : favLoading ? (
             <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>Loading…</div>
           ) : favCards.length === 0 ? (
-            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>
-              No favorites yet. Star cards above and they’ll appear here.
-            </div>
+            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>No favorites yet. Star cards above and they’ll appear here.</div>
           ) : (
             <div
               style={{
@@ -1471,15 +1470,12 @@ export default function ShowcaseClient() {
                   {favCurrent?.team ?? "—"}
                   {favCurrent?.subset ? ` • ${favCurrent.subset}` : ""}
                   {favCurrent?.variant ? ` • ${favCurrent.variant}` : ""}{" "}
-                  {productSetParenFav(favCurrent) ? ` ${productSetParenFav(favCurrent)}` : ""}
+                  {favCurrent ? (productSetParenFav(favCurrent) ? ` ${productSetParenFav(favCurrent)}` : "") : ""}
                 </div>
 
                 <div style={{ marginTop: 10, display: "grid", gap: 8, fontSize: 13, fontWeight: 900 }}>
                   <div>
-                    Type:{" "}
-                    <span style={{ color: colors.subtext, fontWeight: 800 }}>
-                      {favCurrent?.isInsert ? "Insert" : "Base"}
-                    </span>
+                    Type: <span style={{ color: colors.subtext, fontWeight: 800 }}>{favCurrent?.isInsert ? "Insert" : "Base"}</span>
                   </div>
                   <div>
                     Book: <span style={{ color: colors.subtext, fontWeight: 800 }}>{money(favCurrent?.bookValue)}</span>

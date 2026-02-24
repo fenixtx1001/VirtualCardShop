@@ -73,6 +73,11 @@ model Card {
   // ⭐ Favorites relation
   favoritedBy CardFavorite[]
 
+  // 🏪 Shop relations
+  shopOffers      ShopOffer[]
+  shopInventory   ShopInventory?
+  shopTransactions ShopTransaction[]
+
   @@unique([setId, cardNumber])
   @@unique([productSetId, cardNumber])
   @@index([setId])
@@ -103,6 +108,10 @@ model User {
 
   // ⭐ Favorites relation
   favorites CardFavorite[]
+
+  // 🏪 Shop relations
+  shopOffers       ShopOffer[]
+  shopTransactions ShopTransaction[]
 
   // ✅ NextAuth relations
   accounts Account[]
@@ -217,3 +226,74 @@ model ProductSetPrestige {
   @@index([productSetId])
 }
 
+/**
+ * =========================
+ * Shop / Singles / Offers
+ * =========================
+ *
+ * - Offers are per-user, per-card, and last 24 hours.
+ * - Active offer cap: 15 per user.
+ * - No cancel.
+ * - When user sells any quantity against an offer, the offer becomes accepted (inactive).
+ * - Shop inventory is global per-card.
+ */
+
+model ShopOffer {
+  id              Int      @id @default(autoincrement())
+  userId          String
+  cardId          Int
+
+  // Offer percent stored as basis points: 5000 = 50.00%, 9500 = 95.00%
+  offerBps        Int
+
+  createdAt       DateTime @default(now())
+  expiresAt       DateTime
+
+  // If accepted, offer becomes inactive immediately
+  acceptedAt      DateTime?
+  acceptedQty     Int      @default(0)
+  acceptedTotalCents Int   @default(0)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  card Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
+
+  @@index([userId, expiresAt])
+  @@index([userId, cardId])
+  @@index([cardId])
+}
+
+model ShopInventory {
+  id        Int      @id @default(autoincrement())
+  cardId    Int      @unique
+  quantity  Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  card Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
+
+  @@index([quantity])
+}
+
+model ShopTransaction {
+  id        Int      @id @default(autoincrement())
+  userId    String
+  cardId    Int
+
+  // "SELL_TO_SHOP" or "BUY_FROM_SHOP"
+  kind      String
+
+  quantity  Int
+  perCardCents Int
+  totalCents Int
+
+  // For SELL transactions, store offer bps used (optional for BUY)
+  offerBps  Int?
+
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  card Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([cardId, createdAt])
+}

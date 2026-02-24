@@ -60,7 +60,6 @@ type ChecklistResponse = {
   pageSize: number;
   totalPages: number;
 
-  // These come back from the updated API (safe even if you don’t use them)
   sortKey?: SortKey;
   sortDir?: SortDir;
 
@@ -117,6 +116,11 @@ export default function ChecklistClient({ productId }: { productId: string }) {
   const [users, setUsers] = useState<UserOption[]>([]);
   const [usersLoading, setUsersLoading] = useState<boolean>(false);
 
+  // ✅ NEW: per-row offer request UI state
+  const [offerMsg, setOfferMsg] = useState<string | null>(null);
+  const [offerErr, setOfferErr] = useState<string | null>(null);
+  const [offeringCardId, setOfferingCardId] = useState<number | null>(null);
+
   async function loadUsers() {
     setUsersLoading(true);
     try {
@@ -170,9 +174,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
       qs.set("sortKey", sk);
       qs.set("sortDir", sd);
 
-      const url =
-        `/api/checklist/${encodeURIComponent(productId)}` +
-        (qs.toString() ? `?${qs.toString()}` : "");
+      const url = `/api/checklist/${encodeURIComponent(productId)}` + (qs.toString() ? `?${qs.toString()}` : "");
 
       const res = await fetch(url, { cache: "no-store" });
       const raw = await res.text();
@@ -219,6 +221,8 @@ export default function ChecklistClient({ productId }: { productId: string }) {
     setJumpTo("");
     setSortKey("cardNumber");
     setSortDir("asc");
+    setOfferErr(null);
+    setOfferMsg(null);
     load({ page: 1, sortKey: "cardNumber", sortDir: "asc" });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
@@ -227,6 +231,8 @@ export default function ChecklistClient({ productId }: { productId: string }) {
     setSelectedProductSetId(nextId);
     setPage(1);
     setJumpTo("");
+    setOfferErr(null);
+    setOfferMsg(null);
     load({ productSetId: nextId, page: 1 });
   }
 
@@ -234,6 +240,8 @@ export default function ChecklistClient({ productId }: { productId: string }) {
     setSelectedUserId(nextId);
     setPage(1);
     setJumpTo("");
+    setOfferErr(null);
+    setOfferMsg(null);
     load({ selectedUserId: nextId, page: 1 });
   }
 
@@ -289,6 +297,44 @@ export default function ChecklistClient({ productId }: { productId: string }) {
     load({ sortKey: nextKey, sortDir: nextDir, page: 1 });
   }
 
+  // ✅ NEW: request offer directly from checklist row
+  async function requestOfferForCard(cardId: number) {
+    if (compareMode) {
+      setOfferErr("Switch Viewing to Me to request shop offers.");
+      setOfferMsg(null);
+      return;
+    }
+
+    setOfferingCardId(cardId);
+    setOfferErr(null);
+    setOfferMsg(null);
+
+    try {
+      const res = await fetch("/api/shop/singles/offers", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cardId }),
+      });
+
+      const raw = await res.text();
+      let j: any = {};
+      try {
+        j = raw ? JSON.parse(raw) : {};
+      } catch {
+        throw new Error(`Non-JSON from offer (${res.status}): ${raw.slice(0, 140)}`);
+      }
+
+      if (!res.ok) throw new Error(j?.error ?? `Offer request failed (${res.status})`);
+
+      const reused = Boolean(j?.reused);
+      setOfferMsg(reused ? "Offer already active for that card (reused)." : "Offer created (24h).");
+    } catch (e: any) {
+      setOfferErr(e?.message ?? "Offer request failed");
+    } finally {
+      setOfferingCardId(null);
+    }
+  }
+
   const rows = data?.rows ?? [];
 
   const thClickable: React.CSSProperties = {
@@ -307,13 +353,20 @@ export default function ChecklistClient({ productId }: { productId: string }) {
     whiteSpace: "nowrap",
   };
 
+  const actionBtnStyle: React.CSSProperties = {
+    padding: "6px 10px",
+    borderRadius: 10,
+    border: "1px solid #ccc",
+    background: "white",
+    fontWeight: 900,
+    cursor: "pointer",
+    whiteSpace: "nowrap",
+  };
+
   return (
     <div style={{ fontFamily: "system-ui", padding: 16 }}>
       <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
-        <Link
-          href={`/collection/${encodeURIComponent(productId)}`}
-          style={{ textDecoration: "underline", fontWeight: 800 }}
-        >
+        <Link href={`/collection/${encodeURIComponent(productId)}`} style={{ textDecoration: "underline", fontWeight: 800 }}>
           ← Back to Set
         </Link>
 
@@ -389,19 +442,13 @@ export default function ChecklistClient({ productId }: { productId: string }) {
               ))}
             </select>
 
-            <div style={{ color: "#666", fontWeight: 700 }}>
-              {data.productSetIsBase ? "Base set completion" : "Insert set completion"}
-            </div>
+            <div style={{ color: "#666", fontWeight: 700 }}>{data.productSetIsBase ? "Base set completion" : "Insert set completion"}</div>
           </div>
         ) : null}
 
         {/* Pagination controls */}
         <div style={{ display: "flex", gap: 8, alignItems: "center", marginLeft: "auto" }}>
-          <button
-            onClick={goPrev}
-            disabled={!canPrev || loading}
-            style={{ padding: "6px 10px", opacity: !canPrev || loading ? 0.5 : 1 }}
-          >
+          <button onClick={goPrev} disabled={!canPrev || loading} style={{ padding: "6px 10px", opacity: !canPrev || loading ? 0.5 : 1 }}>
             ← Prev
           </button>
 
@@ -409,11 +456,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
             Page {data?.page ?? 1} of {totalPages}
           </div>
 
-          <button
-            onClick={goNext}
-            disabled={!canNext || loading}
-            style={{ padding: "6px 10px", opacity: !canNext || loading ? 0.5 : 1 }}
-          >
+          <button onClick={goNext} disabled={!canNext || loading} style={{ padding: "6px 10px", opacity: !canNext || loading ? 0.5 : 1 }}>
             Next →
           </button>
 
@@ -454,17 +497,30 @@ export default function ChecklistClient({ productId }: { productId: string }) {
         >
           Primary checks show <span style={{ fontWeight: 900 }}>their</span> collection.
           <span style={{ marginLeft: 10 }}>
-            Small dot in <span style={{ fontWeight: 900 }}>Me</span> column means{" "}
-            <span style={{ fontWeight: 900 }}>you</span> own it.
+            Small dot in <span style={{ fontWeight: 900 }}>Me</span> column means <span style={{ fontWeight: 900 }}>you</span> own it.
+          </span>
+          <span style={{ marginLeft: 10, color: "#444" }}>
+            (Shop offers are disabled in compare mode.)
           </span>
         </div>
       ) : null}
 
-      {err && (
-        <div style={{ marginBottom: 12, padding: 10, background: "#fee", border: "1px solid #f99" }}>
-          {err}
+      {offerErr ? (
+        <div style={{ marginBottom: 12, padding: 10, background: "#fee", border: "1px solid #f99", borderRadius: 12 }}>
+          {offerErr}
         </div>
-      )}
+      ) : null}
+
+      {offerMsg ? (
+        <div style={{ marginBottom: 12, padding: 10, background: "#efe", border: "1px solid #9f9", borderRadius: 12 }}>
+          {offerMsg}{" "}
+          <Link href="/shop" style={{ textDecoration: "underline", fontWeight: 900 }}>
+            Open Shop →
+          </Link>
+        </div>
+      ) : null}
+
+      {err && <div style={{ marginBottom: 12, padding: 10, background: "#fee", border: "1px solid #f99" }}>{err}</div>}
 
       {loading ? (
         <div>Loading…</div>
@@ -501,8 +557,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
               Missing Value: <span style={{ fontWeight: 900 }}>{money(data.setMissingBookValue)}</span>
             </div>
             <div>
-              Value Complete:{" "}
-              <span style={{ fontWeight: 900 }}>{(data.setOwnedValuePercent ?? 0).toFixed(1)}%</span>
+              Value Complete: <span style={{ fontWeight: 900 }}>{(data.setOwnedValuePercent ?? 0).toFixed(1)}%</span>
             </div>
 
             {compareMode && data.mySetOwnedBookValue != null ? (
@@ -522,11 +577,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
                 <tr>
-                  <th
-                    style={thClickable}
-                    onClick={() => onSort("owned")}
-                    title="Sort by Owned (whole set, then paged)"
-                  >
+                  <th style={thClickable} onClick={() => onSort("owned")} title="Sort by Owned (whole set, then paged)">
                     Owned{sortIcon(sortKey === "owned", sortDir)}
                   </th>
 
@@ -536,53 +587,29 @@ export default function ChecklistClient({ productId }: { productId: string }) {
                     </th>
                   ) : null}
 
-                  <th
-                    style={thClickable}
-                    onClick={() => onSort("cardNumber")}
-                    title="Sort by Card Number"
-                  >
+                  <th style={thClickable} onClick={() => onSort("cardNumber")} title="Sort by Card Number">
                     #{sortIcon(sortKey === "cardNumber", sortDir)}
                   </th>
 
-                  <th
-                    style={thClickable}
-                    onClick={() => onSort("player")}
-                    title="Sort by Player"
-                  >
+                  <th style={thClickable} onClick={() => onSort("player")} title="Sort by Player">
                     Player{sortIcon(sortKey === "player", sortDir)}
                   </th>
 
-                  <th
-                    style={thClickable}
-                    onClick={() => onSort("team")}
-                    title="Sort by Team"
-                  >
+                  <th style={thClickable} onClick={() => onSort("team")} title="Sort by Team">
                     Team{sortIcon(sortKey === "team", sortDir)}
                   </th>
 
-                  <th
-                    style={thClickable}
-                    onClick={() => onSort("subset")}
-                    title="Sort by Subset"
-                  >
+                  <th style={thClickable} onClick={() => onSort("subset")} title="Sort by Subset">
                     Subset{sortIcon(sortKey === "subset", sortDir)}
                   </th>
 
-                  <th
-                    style={thClickable}
-                    onClick={() => onSort("variant")}
-                    title="Sort by Variant"
-                  >
+                  <th style={thClickable} onClick={() => onSort("variant")} title="Sort by Variant">
                     Variant{sortIcon(sortKey === "variant", sortDir)}
                   </th>
 
                   <th style={thPlain}>Type</th>
 
-                  <th
-                    style={thClickable}
-                    onClick={() => onSort("qty")}
-                    title="Sort by Qty (whole set, then paged)"
-                  >
+                  <th style={thClickable} onClick={() => onSort("qty")} title="Sort by Qty (whole set, then paged)">
                     Qty{sortIcon(sortKey === "qty", sortDir)}
                   </th>
 
@@ -597,9 +624,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
 
                   return (
                     <tr key={r.cardId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                        {owned ? "✅" : "⬜"}
-                      </td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>{owned ? "✅" : "⬜"}</td>
 
                       {compareMode ? (
                         <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
@@ -620,27 +645,33 @@ export default function ChecklistClient({ productId }: { productId: string }) {
                         </td>
                       ) : null}
 
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                        {r.cardNumber}
-                      </td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>{r.cardNumber}</td>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.player}</td>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.team ?? "—"}</td>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.subset ?? "—"}</td>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.variant ?? "—"}</td>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
-                        {r.isInsert ? "Insert" : "Base"}
-                      </td>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 800 }}>
-                        {r.ownedQty ?? 0}
-                      </td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.isInsert ? "Insert" : "Base"}</td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 800 }}>{r.ownedQty ?? 0}</td>
 
                       <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
-                        <Link
-                          href={`/cards/${encodeURIComponent(String(r.cardId))}`}
-                          style={{ textDecoration: "underline", fontWeight: 900 }}
-                        >
-                          Details
-                        </Link>
+                        <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+                          <Link href={`/cards/${encodeURIComponent(String(r.cardId))}`} style={{ textDecoration: "underline", fontWeight: 900 }}>
+                            Details
+                          </Link>
+
+                          <button
+                            onClick={() => requestOfferForCard(r.cardId)}
+                            disabled={compareMode || offeringCardId === r.cardId}
+                            title={compareMode ? "Switch Viewing to Me to request offers." : "Request a 24h shop offer for this card."}
+                            style={{
+                              ...actionBtnStyle,
+                              opacity: compareMode || offeringCardId === r.cardId ? 0.55 : 1,
+                              cursor: compareMode || offeringCardId === r.cardId ? "not-allowed" : "pointer",
+                            }}
+                          >
+                            {offeringCardId === r.cardId ? "Requesting…" : "Get Offer (24h)"}
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   );
