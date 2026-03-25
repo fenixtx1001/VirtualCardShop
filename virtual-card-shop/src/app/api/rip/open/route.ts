@@ -9,7 +9,6 @@ type Body = { productId?: string };
 function pickUnique<T>(arr: T[], n: number) {
   if (n <= 0) return [];
   const copy = [...arr];
-  // Fisher–Yates shuffle
   for (let i = copy.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [copy[i], copy[j]] = [copy[j], copy[i]];
@@ -21,11 +20,11 @@ export async function POST(req: Request) {
   try {
     const body = (await req.json().catch(() => ({}))) as Body;
     const productId = (body.productId ?? "").trim();
+
     if (!productId) {
       return NextResponse.json({ error: "Missing productId" }, { status: 400 });
     }
 
-    // ✅ must be signed in; this user is the owner of the pack + cards
     const user = await requireUser();
 
     const product = await prisma.product.findUnique({
@@ -38,16 +37,21 @@ export async function POST(req: Request) {
     }
 
     const cardsPerPack = product.cardsPerPack ?? 15;
+    const packPriceCents = product.packPriceCents ?? 0;
 
-    // Must have at least 1 base set
     const baseSets = product.productSets.filter((ps) => ps.isBase);
     if (baseSets.length === 0) {
-      return NextResponse.json({ error: "No Base ProductSet found for this product." }, { status: 400 });
+      return NextResponse.json(
+        { error: "No Base ProductSet found for this product." },
+        { status: 400 }
+      );
     }
+
     const baseSetIds = baseSets.map((s) => s.id);
 
-    // Insert pools = non-base with oddsPerPack set (optional)
-    const insertSets = product.productSets.filter((ps) => !ps.isBase && ps.oddsPerPack && ps.oddsPerPack > 0);
+    const insertSets = product.productSets.filter(
+      (ps) => !ps.isBase && ps.oddsPerPack && ps.oddsPerPack > 0
+    );
 
     const result = await prisma.$transaction(async (tx) => {
       const inv = await tx.sealedInventory.findUnique({
@@ -58,25 +62,24 @@ export async function POST(req: Request) {
         throw new Error("You do not own any packs of this product.");
       }
 
-      // decrement 1 pack
       await tx.sealedInventory.update({
         where: { userId_productId: { userId: user.id, productId } },
         data: { packsOwned: { decrement: 1 } },
       });
 
-      // Decide how many inserts hit (each insert set is an independent 1-in-N roll)
       const insertsToPull: { setId: string; count: number }[] = [];
+
       for (const s of insertSets) {
         const n = s.oddsPerPack ?? 0;
         if (n > 0) {
-          const hit = Math.floor(Math.random() * n) === 0; // 1 in N
+          const hit = Math.floor(Math.random() * n) === 0;
           if (hit) insertsToPull.push({ setId: s.id, count: 1 });
         }
       }
+
       const totalInserts = insertsToPull.reduce((a, b) => a + b.count, 0);
       const baseNeeded = Math.max(0, cardsPerPack - totalInserts);
 
-      // Load base pool cards
       const baseCards = await tx.card.findMany({
         where: { productSetId: { in: baseSetIds } },
         select: {
@@ -90,18 +93,44 @@ export async function POST(req: Request) {
           frontImageUrl: true,
           backImageUrl: true,
           bookValue: true,
+          productSet: {
+            select: {
+              id: true,
+              name: true,
+              isBase: true,
+              oddsPerPack: true,
+            },
+          },
         },
       });
 
       if (baseCards.length < baseNeeded) {
-        throw new Error(`Not enough base cards to build a pack. Need ${baseNeeded}, found ${baseCards.length}.`);
+        throw new Error(
+          `Not enough base cards to build a pack. Need ${baseNeeded}, found ${baseCards.length}.`
+        );
       }
 
-      // Pick base cards (no dupes within pack)
       const chosenBase = pickUnique(baseCards, baseNeeded);
 
-      // Pick insert cards (no dupes within pack)
-      const chosenInserts: any[] = [];
+      const chosenInserts: Array<{
+        id: number;
+        productSetId: string | null;
+        cardNumber: string;
+        player: string;
+        team: string | null;
+        subset: string | null;
+        variant: string | null;
+        frontImageUrl: string | null;
+        backImageUrl: string | null;
+        bookValue: number;
+        productSet: {
+          id: string;
+          name: string;
+          isBase: boolean;
+          oddsPerPack: number | null;
+        } | null;
+      }> = [];
+
       for (const ins of insertsToPull) {
         const pool = await tx.card.findMany({
           where: { productSetId: ins.setId },
@@ -116,12 +145,19 @@ export async function POST(req: Request) {
             frontImageUrl: true,
             backImageUrl: true,
             bookValue: true,
+            productSet: {
+              select: {
+                id: true,
+                name: true,
+                isBase: true,
+                oddsPerPack: true,
+              },
+            },
           },
         });
 
         if (pool.length === 0) continue;
 
-        // prevent duplicates with base + already chosen inserts
         const taken = new Set<number>([...chosenBase, ...chosenInserts].map((c) => c.id));
         const filtered = pool.filter((c) => !taken.has(c.id));
         if (filtered.length === 0) continue;
@@ -132,7 +168,6 @@ export async function POST(req: Request) {
 
       const pulled = [...chosenBase, ...chosenInserts];
 
-      // Safety: if inserts rolled but failed due to no pool, backfill with more base to hit exact count
       if (pulled.length < cardsPerPack) {
         const taken = new Set<number>(pulled.map((c) => c.id));
         const remainingBase = baseCards.filter((c) => !taken.has(c.id));
@@ -140,8 +175,23 @@ export async function POST(req: Request) {
         pulled.push(...pickUnique(remainingBase, need));
       }
 
-      // Upsert ownership and return ownedAfter
-      const enriched: any[] = [];
+      const enriched: Array<{
+        id: number;
+        productSetId: string | null;
+        productSetName: string | null;
+        productSetOddsPerPack: number | null;
+        cardNumber: string;
+        player: string;
+        team: string | null;
+        subset: string | null;
+        variant: string | null;
+        frontImageUrl: string | null;
+        backImageUrl: string | null;
+        isInsert: boolean;
+        bookValue: number;
+        ownedAfter: number;
+      }> = [];
+
       for (const c of pulled) {
         const ownership = await tx.cardOwnership.upsert({
           where: { userId_cardId: { userId: user.id, cardId: c.id } },
@@ -150,16 +200,26 @@ export async function POST(req: Request) {
           select: { quantity: true },
         });
 
-        const isInsert = !baseSetIds.includes(c.productSetId ?? "");
+        const isInsert = !(c.productSet?.isBase ?? true);
 
         enriched.push({
-          ...c,
+          id: c.id,
+          productSetId: c.productSetId,
+          productSetName: c.productSet?.name ?? null,
+          productSetOddsPerPack: c.productSet?.oddsPerPack ?? null,
+          cardNumber: c.cardNumber,
+          player: c.player,
+          team: c.team,
+          subset: c.subset,
+          variant: c.variant,
+          frontImageUrl: c.frontImageUrl,
+          backImageUrl: c.backImageUrl,
           isInsert,
+          bookValue: c.bookValue,
           ownedAfter: ownership.quantity,
         });
       }
 
-      // ✅ Prestige progress sync (NO MONEY HERE)
       const productSetIdsTouched = Array.from(
         new Set(pulled.map((c) => String(c.productSetId ?? "").trim()).filter(Boolean))
       );
@@ -179,11 +239,13 @@ export async function POST(req: Request) {
       ok: true,
       productId,
       packImageUrl: product.packImageUrl ?? null,
+      packPriceCents,
       cardsPerPack,
       cards: result,
     });
-  } catch (e: any) {
-    const status = e?.status ?? (e?.message === "Unauthorized" ? 401 : 500);
-    return NextResponse.json({ error: e?.message ?? "Open pack failed" }, { status });
+  } catch (e: unknown) {
+    const err = e as { status?: number; message?: string };
+    const status = err?.status ?? (err?.message === "Unauthorized" ? 401 : 500);
+    return NextResponse.json({ error: err?.message ?? "Open pack failed" }, { status });
   }
 }

@@ -7,6 +7,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 type Card = {
   id: number;
   productSetId: string | null;
+  productSetName: string | null;
+  productSetOddsPerPack: number | null;
   cardNumber: string;
   player: string;
   team: string | null;
@@ -23,6 +25,7 @@ type OpenResult = {
   ok: boolean;
   productId: string;
   packImageUrl: string | null;
+  packPriceCents: number;
   cardsPerPack: number;
   cards: Card[];
 };
@@ -35,7 +38,7 @@ type PackMeta = {
 };
 
 const colors = {
-  bg: "#fbfaf7", // warm off-white
+  bg: "#fbfaf7",
   card: "#ffffff",
   border: "#e7e3dc",
   text: "#1f1f1f",
@@ -49,6 +52,12 @@ const colors = {
   errBorder: "#f3b7b7",
   okBg: "#eefbf1",
   okBorder: "#a7e7b6",
+  posBg: "#eefbf1",
+  posBorder: "#a7e7b6",
+  negBg: "#fff1f1",
+  negBorder: "#f3b7b7",
+  neutralBg: "#f8f6f1",
+  neutralBorder: "#e7e3dc",
 };
 
 function money(v: number | null | undefined) {
@@ -56,8 +65,25 @@ function money(v: number | null | undefined) {
   return `$${n.toFixed(2)}`;
 }
 
+function centsToDollars(cents: number | null | undefined) {
+  const n = typeof cents === "number" && Number.isFinite(cents) ? cents : 0;
+  return n / 100;
+}
+
 function cx(...parts: Array<string | false | null | undefined>) {
   return parts.filter(Boolean).join(" ");
+}
+
+function getInsertLabel(card: Card | null) {
+  if (!card?.isInsert) return null;
+  return card.productSetName?.trim() || "Insert";
+}
+
+function getInsertOddsLabel(card: Card | null) {
+  if (!card?.isInsert) return null;
+  const odds = card.productSetOddsPerPack;
+  if (!odds || odds <= 0) return null;
+  return `1:${odds} packs`;
 }
 
 export default function OpenPackClient({ productId }: { productId: string }) {
@@ -70,8 +96,6 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
   const [opened, setOpened] = useState(false);
   const [idx, setIdx] = useState(0);
-
-  // Flip state for the CURRENT card
   const [flipped, setFlipped] = useState(false);
 
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -79,11 +103,12 @@ export default function OpenPackClient({ productId }: { productId: string }) {
   const cards = data?.cards ?? [];
   const current = cards[idx] ?? null;
   const prevCard = idx > 0 ? cards[idx - 1] : null;
+  const currentInsertLabel = getInsertLabel(current);
+  const currentInsertOddsLabel = getInsertOddsLabel(current);
 
   const canNext = opened && idx < cards.length - 1;
   const canPrev = opened && idx > 0;
 
-  // ---- Pack meta (so pack image shows before opening) ----
   useEffect(() => {
     let cancelled = false;
 
@@ -96,14 +121,15 @@ export default function OpenPackClient({ productId }: { productId: string }) {
         });
 
         const raw = await res.text();
-        let j: any = {};
+        let j: unknown = {};
         try {
           j = raw ? JSON.parse(raw) : {};
         } catch {
           throw new Error(`Meta returned non-JSON (${res.status}): ${raw.slice(0, 140)}`);
         }
 
-        if (!res.ok) throw new Error(j?.error ?? `Failed to load pack meta (${res.status})`);
+        const parsed = j as { error?: string };
+        if (!res.ok) throw new Error(parsed?.error ?? `Failed to load pack meta (${res.status})`);
         if (!cancelled) setMeta(j as PackMeta);
       } catch {
         if (!cancelled) setMeta(null);
@@ -120,6 +146,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
   const titleText = meta?.displayName ?? productId;
   const packImageUrl = meta?.packImageUrl ?? data?.packImageUrl ?? null;
+  const packPrice = centsToDollars(data?.packPriceCents);
 
   const progressText = useMemo(() => {
     if (!opened || !cards.length) return "";
@@ -132,12 +159,31 @@ export default function OpenPackClient({ productId }: { productId: string }) {
     return data.cardsPerPack !== data.cards.length;
   }, [opened, data]);
 
-  // stack (last few opened)
   const stack = useMemo(() => {
     if (!opened) return [];
     const openedCards = cards.slice(0, idx);
     return openedCards.slice(-4);
   }, [opened, cards, idx]);
+
+  const revealedCards = useMemo(() => {
+    if (!opened || !cards.length) return [];
+    return cards.slice(0, idx + 1);
+  }, [opened, cards, idx]);
+
+  const revealedValue = useMemo(() => {
+    return revealedCards.reduce((sum, card) => sum + (card.bookValue ?? 0), 0);
+  }, [revealedCards]);
+
+  const packDelta = useMemo(() => {
+    return revealedValue - packPrice;
+  }, [revealedValue, packPrice]);
+
+  const valueTone = useMemo(() => {
+    if (!opened) return "neutral";
+    if (packDelta > 0.0001) return "positive";
+    if (packDelta < -0.0001) return "negative";
+    return "neutral";
+  }, [opened, packDelta]);
 
   async function openPack() {
     setLoading(true);
@@ -155,22 +201,24 @@ export default function OpenPackClient({ productId }: { productId: string }) {
       });
 
       const raw = await res.text();
-      let j: any = {};
+      let j: unknown = {};
       try {
         j = raw ? JSON.parse(raw) : {};
       } catch {
         throw new Error(`Open returned non-JSON (${res.status}): ${raw.slice(0, 140)}`);
       }
 
-      if (!res.ok) throw new Error(j?.error ?? `Open failed (${res.status})`);
+      const parsed = j as { error?: string };
+      if (!res.ok) throw new Error(parsed?.error ?? `Open failed (${res.status})`);
 
       const result = j as OpenResult;
       setData(result);
       setOpened(true);
 
       setTimeout(() => containerRef.current?.focus(), 0);
-    } catch (e: any) {
-      setError(e?.message ?? "Open pack failed");
+    } catch (e: unknown) {
+      const err = e as { message?: string };
+      setError(err?.message ?? "Open pack failed");
     } finally {
       setLoading(false);
     }
@@ -188,7 +236,6 @@ export default function OpenPackClient({ productId }: { productId: string }) {
     setIdx((v) => Math.max(v - 1, 0));
   }
 
-  // Spacebar + arrow keys
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       if (!opened) return;
@@ -207,8 +254,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [opened, cards.length, idx]);
+  }, [opened, cards.length, idx, canNext, canPrev]);
 
   const cardFront = current?.frontImageUrl ?? null;
   const cardBack = current?.backImageUrl ?? null;
@@ -222,6 +268,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
     if (!current) return "—";
     const parts = [
       current.team ?? "—",
+      current.isInsert && current.productSetName ? `• ${current.productSetName}` : "",
       current.subset ? `• ${current.subset}` : "",
       current.variant ? `• ${current.variant}` : "",
     ].filter(Boolean);
@@ -397,11 +444,6 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           border-color: ${colors.warnBorder};
         }
 
-        .alert.ok {
-          background: ${colors.okBg};
-          border-color: ${colors.okBorder};
-        }
-
         .open-grid {
           display: grid;
           grid-template-columns: 420px 360px 1fr;
@@ -423,7 +465,63 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           margin-bottom: 8px;
         }
 
-        /* Flip card (NO 3D rotate; use crossfade to avoid mirrored front bugs) */
+        .value-box {
+          border-radius: 16px;
+          border: 1px solid ${colors.neutralBorder};
+          background: ${colors.neutralBg};
+          padding: 12px;
+          margin-bottom: 12px;
+        }
+
+        .value-box.positive {
+          background: ${colors.posBg};
+          border-color: ${colors.posBorder};
+        }
+
+        .value-box.negative {
+          background: ${colors.negBg};
+          border-color: ${colors.negBorder};
+        }
+
+        .value-box.neutral {
+          background: ${colors.neutralBg};
+          border-color: ${colors.neutralBorder};
+        }
+
+        .value-grid {
+          display: grid;
+          gap: 6px;
+        }
+
+        .value-head {
+          font-size: 12px;
+          font-weight: 900;
+          color: ${colors.subtext};
+        }
+
+        .value-main {
+          font-size: 22px;
+          font-weight: 950;
+          letter-spacing: -0.3px;
+        }
+
+        .value-sub {
+          font-size: 13px;
+          font-weight: 800;
+        }
+
+        .value-positive {
+          color: #1e7a35;
+        }
+
+        .value-negative {
+          color: #b42318;
+        }
+
+        .value-neutral {
+          color: ${colors.text};
+        }
+
         .flip-wrap {
           width: 100%;
           max-width: 420px;
@@ -435,7 +533,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
         .flip-scene {
           position: relative;
           width: 100%;
-          aspect-ratio: 2.5 / 3.5; /* feels like a card */
+          aspect-ratio: 2.5 / 3.5;
         }
 
         .flip-card {
@@ -650,7 +748,6 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           font-weight: 750;
         }
 
-        /* Responsive: collapse to 1 column on smaller screens */
         @media (max-width: 980px) {
           .open-grid {
             grid-template-columns: 1fr;
@@ -663,7 +760,6 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           }
         }
 
-        /* Mobile: slightly bigger text + comfy padding, darker text for readability */
         @media (max-width: 560px) {
           .vcs-pack-root {
             padding: 12px;
@@ -676,15 +772,18 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           }
           .vcs-pack-title .sub {
             font-size: 13px;
-            color: #3f3f3f; /* darker on phones */
+            color: #3f3f3f;
           }
           .hint {
-            color: #3f3f3f; /* darker on phones */
+            color: #3f3f3f;
           }
           .panel {
             padding: 12px;
           }
           .stat-title {
+            font-size: 20px;
+          }
+          .value-main {
             font-size: 20px;
           }
           .btn {
@@ -695,7 +794,6 @@ export default function OpenPackClient({ productId }: { productId: string }) {
       `}</style>
 
       <div className="vcs-pack-wrap">
-        {/* Top header */}
         <div className="vcs-pack-hero">
           <div className="vcs-pack-title">
             <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
@@ -726,23 +824,19 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                 </div>
               </>
             ) : (
-              <>
-                <Link href="/shop" className="btn">
-                  Shop →
-                </Link>
-              </>
+              <Link href="/shop" className="btn">
+                Shop →
+              </Link>
             )}
           </div>
         </div>
 
-        {/* Errors */}
         {error && (
           <div className={cx("alert", "err")} style={{ marginTop: 12 }}>
             {error}
           </div>
         )}
 
-        {/* Stage */}
         <div className="vcs-pack-stage">
           {!opened ? (
             <div style={{ display: "grid", gap: 12 }}>
@@ -759,7 +853,6 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                 ) : packImageUrl ? (
                   <div className="panel" style={{ width: 300 }}>
                     <div className="panel-title">Pack art</div>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img className="pack-img" src={packImageUrl} alt="Pack" />
                   </div>
                 ) : (
@@ -807,6 +900,30 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                 <span className="pill">{progressText}</span>
               </div>
 
+              <div className={cx("value-box", valueTone === "positive" && "positive", valueTone === "negative" && "negative", valueTone === "neutral" && "neutral")}>
+                <div className="value-grid">
+                  <div className="value-head">Running pack value</div>
+                  <div className="value-main">{money(revealedValue)}</div>
+                  <div className="value-sub">
+                    Pack price: <b>{money(packPrice)}</b>
+                    {" • "}
+                    Difference:{" "}
+                    <span
+                      className={
+                        valueTone === "positive"
+                          ? "value-positive"
+                          : valueTone === "negative"
+                          ? "value-negative"
+                          : "value-neutral"
+                      }
+                    >
+                      {packDelta > 0 ? "+" : ""}
+                      {money(packDelta)}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
               {mismatch && (
                 <div className={cx("alert", "warn")} style={{ marginBottom: 12 }}>
                   Heads up: server returned <b>{data?.cards.length}</b> cards but product says{" "}
@@ -815,7 +932,6 @@ export default function OpenPackClient({ productId }: { productId: string }) {
               )}
 
               <div className="open-grid">
-                {/* Current card */}
                 <div className="panel">
                   <div className="panel-title">Current card</div>
 
@@ -824,7 +940,6 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                       <div className={cx("flip-card", flipped && "is-flipped")}>
                         <div className="face front">
                           {cardFront ? (
-                            // eslint-disable-next-line @next/next/no-img-element
                             <img src={cardFront} alt="Card front" />
                           ) : (
                             <div className="img-missing">(No front image)</div>
@@ -833,7 +948,6 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
                         <div className="face back">
                           {cardBack ? (
-                            // eslint-disable-next-line @next/next/no-img-element
                             <img src={cardBack} alt="Card back" />
                           ) : (
                             <div className="img-missing">(No back image)</div>
@@ -856,14 +970,12 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                   </div>
                 </div>
 
-                {/* Opened stack */}
                 <div className="panel">
                   <div className="panel-title">Opened stack (top card back)</div>
 
                   <div className="stack-mini">
                     <div className="stack-top">
                       {prevCard?.backImageUrl ? (
-                        // eslint-disable-next-line @next/next/no-img-element
                         <img src={prevCard.backImageUrl} alt="Top of stack (back)" />
                       ) : prevCard ? (
                         <div className="stack-placeholder">(No back image)</div>
@@ -874,27 +986,24 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
                     {stack.length > 1 && (
                       <div className="stack-fan" aria-hidden="true">
-                        {stack
-                          .slice(0, -1)
-                          .map((c, i) => {
-                            const offset = (stack.length - 2 - i) * 10;
-                            return (
-                              <div
-                                key={c.id}
-                                className="stack-chip"
-                                style={{ left: offset, top: offset }}
-                                title={`#${c.cardNumber} — ${c.player}`}
-                              >
-                                Back
-                              </div>
-                            );
-                          })}
+                        {stack.slice(0, -1).map((c, i) => {
+                          const offset = (stack.length - 2 - i) * 10;
+                          return (
+                            <div
+                              key={c.id}
+                              className="stack-chip"
+                              style={{ left: offset, top: offset }}
+                              title={`#${c.cardNumber} — ${c.player}`}
+                            >
+                              Back
+                            </div>
+                          );
+                        })}
                       </div>
                     )}
                   </div>
                 </div>
 
-                {/* Info */}
                 <div className="panel">
                   <div className="panel-title">Details</div>
 
@@ -903,8 +1012,18 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
                   <div className="kv">
                     <div>
-                      <b>Type:</b> {current?.isInsert ? "Insert" : "Base"}
+                      <b>Type:</b>{" "}
+                      {current?.isInsert
+                        ? `Insert${currentInsertLabel ? ` • ${currentInsertLabel}` : ""}`
+                        : "Base"}
                     </div>
+
+                    {current?.isInsert && currentInsertOddsLabel ? (
+                      <div>
+                        <b>Odds:</b> {currentInsertOddsLabel}
+                      </div>
+                    ) : null}
+
                     <div>
                       <b>Book:</b> {money(current?.bookValue)} &nbsp;•&nbsp; <b>You own:</b>{" "}
                       {current?.ownedAfter ?? "—"}
@@ -914,33 +1033,48 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                   {packImageUrl ? (
                     <div className="pack-art">
                       <div className="panel-title">Pack art</div>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img className="pack-img" src={packImageUrl} alt="Pack" />
                     </div>
                   ) : null}
                 </div>
               </div>
 
-              {/* Completion summary */}
               {isDone && (
                 <div className="summary">
                   <h3>Pack complete.</h3>
                   <div style={{ fontSize: 13, fontWeight: 800, color: colors.text }}>
-                    You received <b>{cards.length}</b> cards (expected{" "}
-                    <b>{data?.cardsPerPack ?? cards.length}</b>).
+                    You received <b>{cards.length}</b> cards (expected <b>{data?.cardsPerPack ?? cards.length}</b>).
+                  </div>
+
+                  <div style={{ marginTop: 8, fontSize: 13, fontWeight: 800 }}>
+                    Final total: <b>{money(revealedValue)}</b>
+                    {" • "}
+                    Pack price: <b>{money(packPrice)}</b>
+                    {" • "}
+                    Net:{" "}
+                    <b>
+                      {packDelta > 0 ? "+" : ""}
+                      {money(packDelta)}
+                    </b>
                   </div>
 
                   <ol>
-                    {cards.map((c) => (
-                      <li key={c.id}>
-                        <div className="line1">
-                          #{c.cardNumber} — {c.player} {c.isInsert ? "(Insert)" : ""}
-                        </div>
-                        <div className="line2">
-                          Book: <b>{money(c.bookValue)}</b> • You own: <b>{c.ownedAfter}</b>
-                        </div>
-                      </li>
-                    ))}
+                    {cards.map((c) => {
+                      const insertLabel = getInsertLabel(c);
+                      const insertOddsLabel = getInsertOddsLabel(c);
+
+                      return (
+                        <li key={c.id}>
+                          <div className="line1">
+                            #{c.cardNumber} — {c.player} {insertLabel ? `(${insertLabel})` : ""}
+                          </div>
+                          <div className="line2">
+                            Book: <b>{money(c.bookValue)}</b> • You own: <b>{c.ownedAfter}</b>
+                            {insertOddsLabel ? ` • Odds: ${insertOddsLabel}` : ""}
+                          </div>
+                        </li>
+                      );
+                    })}
                   </ol>
                 </div>
               )}
