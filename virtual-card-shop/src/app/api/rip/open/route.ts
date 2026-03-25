@@ -125,7 +125,7 @@ export async function POST(req: Request) {
         bookValue: number;
         productSet: {
           id: string;
-          name: string;
+          name: string | null;
           isBase: boolean;
           oddsPerPack: number | null;
         } | null;
