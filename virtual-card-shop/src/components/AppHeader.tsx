@@ -310,6 +310,9 @@ export default function AppHeader() {
             <Link href="/collection" style={{ textDecoration: "underline" }}>
               Collection
             </Link>
+            <Link href="/analytics" style={{ textDecoration: "underline" }}>
+               Analytics
+            </Link>
             <Link href="/showcase" style={{ textDecoration: "underline" }}>
               Showcase
             </Link>
