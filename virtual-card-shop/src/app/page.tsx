@@ -590,10 +590,11 @@ export default function HomePage() {
                         {/* Actions (pill buttons) */}
                         <div
                           style={{
-                            marginTop: 10,
+                            marginTop: 8,
                             display: "flex",
-                            gap: 10,
+                            gap: 8,
                             flexWrap: "wrap",
+                            alignItems: "center",
                           }}
                         >
                           <Link
@@ -601,14 +602,17 @@ export default function HomePage() {
                             style={{
                               textDecoration: "none",
                               fontWeight: 900,
+                              fontSize: 13,
+                              lineHeight: 1,
                               color: colors.text,
                               background: "#fff",
                               border: `1px solid ${colors.border}`,
-                              padding: "7px 10px",
+                              padding: "6px 10px",
                               borderRadius: 999,
                               display: "inline-flex",
                               alignItems: "center",
-                              gap: 8,
+                              gap: 6,
+                              minHeight: 34,
                             }}
                           >
                             View Set <span style={{ color: colors.accent }}>→</span>
@@ -619,14 +623,17 @@ export default function HomePage() {
                             style={{
                               textDecoration: "none",
                               fontWeight: 900,
+                              fontSize: 13,
+                              lineHeight: 1,
                               color: colors.subtext,
                               background: colors.muted,
                               border: `1px solid ${colors.border}`,
-                              padding: "7px 10px",
+                              padding: "6px 10px",
                               borderRadius: 999,
                               display: "inline-flex",
                               alignItems: "center",
-                              gap: 8,
+                              gap: 6,
+                              minHeight: 34,
                             }}
                           >
                             Checklist
