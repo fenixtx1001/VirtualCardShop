@@ -632,18 +632,6 @@ export default function HomePage() {
                             Checklist
                           </Link>
                         </div>
-
-                        {/* Tiny ID line (optional; keeps desktop clean, still useful) */}
-                        <div
-                          style={{
-                            marginTop: 8,
-                            fontSize: 12,
-                            color: "#6a6a6a",
-                            wordBreak: "break-word",
-                          }}
-                        >
-                          {s.productId}
-                        </div>
                       </div>
                     </div>
                   </div>

@@ -15,23 +15,20 @@ type ProductRow = {
   packPriceCents: number;
   packsPerBox: number | null;
   boxPriceCents: number | null;
-
   packImageUrl: string | null;
   boxImageUrl: string | null;
-
   displayBoxImageUrl?: string | null;
-
   debug?: {
     hasPackImage?: boolean;
     hasBoxImage?: boolean;
     displayBoxFrom?: string;
   };
-
   productSetsCount: number;
   released?: boolean;
 };
 
 type SortKey = "name" | "year_desc" | "price_asc" | "price_desc";
+type SinglesSortKey = "default" | "price_asc" | "price_desc";
 
 type OfferCard = {
   id: number;
@@ -58,11 +55,26 @@ type ShopOfferRow = {
   card?: OfferCard;
 };
 
+type ShopInventoryCard = {
+  id: number;
+  player: string;
+  team: string | null;
+  cardNumber: string;
+  subset: string | null;
+  variant: string | null;
+  bookValue: number;
+  frontImageUrl: string | null;
+  productSetId: string | null;
+  friendlySetName?: string | null;
+  friendlyProductLabel?: string | null;
+};
+
 type ShopInventoryRow = {
   cardId: number;
   quantity: number;
   updatedAt?: string;
-  card: OfferCard;
+  youOwnQty: number;
+  card: ShopInventoryCard;
 };
 
 function centsToDollars(cents: number | null | undefined) {
@@ -79,6 +91,20 @@ function formatFriendlyProductName(productId: string) {
   const s = String(productId || "").trim();
   if (!s) return "—";
   return s.replace(/_/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function formatFriendlyProductSetLabel(card: ShopInventoryCard) {
+  const setName = (card.friendlySetName ?? "").trim();
+  const productLabel = (card.friendlyProductLabel ?? "").trim();
+
+  if (setName && productLabel) return `${productLabel} • ${setName}`;
+  if (setName) return setName;
+  if (card.productSetId) return formatFriendlyProductName(card.productSetId);
+  return "—";
+}
+
+function compactMetaLine(parts: Array<string | null | undefined>) {
+  return parts.map((x) => (x ?? "").trim()).filter(Boolean).join(" • ");
 }
 
 function Thumb({
@@ -166,7 +192,7 @@ function tabBtnStyle(active: boolean): CSSProperties {
 }
 
 /** ---------------------------
- *  SEALED TAB (existing UI)
+ *  SEALED TAB
  *  ------------------------- */
 function SealedShopTab() {
   const [rows, setRows] = useState<ProductRow[]>([]);
@@ -263,14 +289,11 @@ function SealedShopTab() {
 
     let out = rows.filter((r) => {
       if (r.released !== true) return false;
-
       if (sport !== "all" && (r.sport ?? "") !== sport) return false;
       if (year !== "all" && String(r.year ?? "") !== year) return false;
-
       if (!query) return true;
 
       const friendly = formatFriendlyProductName(r.id);
-
       const hay = [r.id, friendly, r.brand ?? "", r.sport ?? "", r.year ?? ""].join(" ").toLowerCase();
 
       return hay.includes(query);
@@ -405,7 +428,6 @@ function SealedShopTab() {
             const boxBuying = buyingKey === boxKey;
 
             const displayName = formatFriendlyProductName(p.id);
-
             const boxOnlySrc = safeImgSrc(p.displayBoxImageUrl ?? p.boxImageUrl ?? p.packImageUrl);
 
             const derivedBox =
@@ -439,8 +461,7 @@ function SealedShopTab() {
                   {boxOnlySrc ? (
                     <>
                       Image source:{" "}
-                      <span style={{ fontWeight: 800 }}>{p.debug?.displayBoxFrom ?? "displayBoxImageUrl/box/pack"}</span>{" "}
-                      •{" "}
+                      <span style={{ fontWeight: 800 }}>{p.debug?.displayBoxFrom ?? "displayBoxImageUrl/box/pack"}</span> •{" "}
                       <a href={boxOnlySrc} target="_blank" rel="noreferrer">
                         Open image
                       </a>
@@ -542,7 +563,7 @@ function SealedShopTab() {
 }
 
 /** ---------------------------
- *  SINGLES TAB (new UI)
+ *  SINGLES TAB
  *  ------------------------- */
 function SinglesShopTab() {
   const [offers, setOffers] = useState<ShopOfferRow[]>([]);
@@ -563,6 +584,9 @@ function SinglesShopTab() {
   const [invQ, setInvQ] = useState("");
   const [invPage, setInvPage] = useState(1);
   const [invTotalPages, setInvTotalPages] = useState(1);
+  const [invTotal, setInvTotal] = useState(0);
+  const [invSort, setInvSort] = useState<SinglesSortKey>("default");
+  const [onlyNeed, setOnlyNeed] = useState(false);
 
   const [buyQty, setBuyQty] = useState<Record<number, number>>({});
   const [buyingCardId, setBuyingCardId] = useState<number | null>(null);
@@ -583,7 +607,12 @@ function SinglesShopTab() {
     }
   }
 
-  async function loadInventory(page = invPage, q = invQ) {
+  async function loadInventory(
+    page = invPage,
+    q = invQ,
+    sort = invSort,
+    needOnly = onlyNeed
+  ) {
     setInvLoading(true);
     setInvErr(null);
     try {
@@ -591,6 +620,8 @@ function SinglesShopTab() {
       if (q.trim()) params.set("q", q.trim());
       params.set("page", String(page));
       params.set("pageSize", "30");
+      params.set("sort", sort);
+      if (needOnly) params.set("onlyNeed", "1");
 
       const res = await fetch(`/api/shop/singles/inventory?${params.toString()}`, { cache: "no-store" });
       const j = await res.json().catch(() => null);
@@ -599,6 +630,7 @@ function SinglesShopTab() {
       setInvRows(Array.isArray(j?.rows) ? (j.rows as ShopInventoryRow[]) : []);
       setInvTotalPages(typeof j?.totalPages === "number" ? j.totalPages : 1);
       setInvPage(typeof j?.page === "number" ? j.page : page);
+      setInvTotal(typeof j?.total === "number" ? j.total : 0);
     } catch (e: any) {
       setInvErr(e?.message ?? "Failed to load shop inventory");
     } finally {
@@ -608,7 +640,7 @@ function SinglesShopTab() {
 
   useEffect(() => {
     loadOffers();
-    loadInventory(1, "");
+    loadInventory(1, "", "default", false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -676,7 +708,7 @@ function SinglesShopTab() {
       setOffersMsg(`Sold x${j.quantity} for $${centsToDollars(j.totalCents)} @ ${pctBpsToText(j.offerBps)}.`);
       window.dispatchEvent(new CustomEvent(ECONOMY_CHANGED_EVENT));
       await loadOffers();
-      await loadInventory(invPage, invQ);
+      await loadInventory(invPage, invQ, invSort, onlyNeed);
     } catch (e: any) {
       setOffersErr(e?.message ?? "Sell failed");
     } finally {
@@ -709,7 +741,7 @@ function SinglesShopTab() {
 
       setOffersMsg(`Bought x${j.quantity} for $${centsToDollars(j.totalCents)}.`);
       window.dispatchEvent(new CustomEvent(ECONOMY_CHANGED_EVENT));
-      await loadInventory(invPage, invQ);
+      await loadInventory(invPage, invQ, invSort, onlyNeed);
     } catch (e: any) {
       setInvErr(e?.message ?? "Buy failed");
     } finally {
@@ -740,14 +772,12 @@ function SinglesShopTab() {
       ) : null}
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 12 }}>
-        {/* Request offer */}
         <div style={{ border: "1px solid #ddd", borderRadius: 14, padding: 12, background: "#fafafa" }}>
           <div style={{ fontWeight: 900, marginBottom: 8 }}>Request an offer</div>
           <div style={{ fontSize: 12, color: "#555", marginBottom: 10 }}>
             Current active offers: <b>{activeCount}</b> / 15
           </div>
 
-          {/* ✅ NEW: picker */}
           <YourCardsPicker
             onPick={(id) => {
               setRequestCardId(String(id));
@@ -759,7 +789,6 @@ function SinglesShopTab() {
 
           <div style={{ height: 10 }} />
 
-          {/* Keep manual input as fallback */}
           <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
             <input
               value={requestCardId}
@@ -803,7 +832,6 @@ function SinglesShopTab() {
           </div>
         </div>
 
-        {/* Active offers list */}
         <div style={{ border: "1px solid #ddd", borderRadius: 14, padding: 12 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 12 }}>
             <div style={{ fontWeight: 900 }}>Active Offers</div>
@@ -865,10 +893,10 @@ function SinglesShopTab() {
                       <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
                         <div style={{ fontWeight: 900 }}>{fmtOfferLine(o)}</div>
                         <div style={{ fontSize: 12, color: "#555" }}>
-                          Offer: <b>{pctBpsToText(o.offerBps)}</b>{" "}
+                          Offer: <b>{pctBpsToText(o.offerBps)}</b>
                           {o.card ? (
                             <>
-                              • Book: <b>${Number(o.card.bookValue ?? 0).toFixed(2)}</b>
+                              {" "}• Book: <b>${Number(o.card.bookValue ?? 0).toFixed(2)}</b>
                             </>
                           ) : null}
                         </div>
@@ -907,19 +935,58 @@ function SinglesShopTab() {
           )}
         </div>
 
-        {/* Shop inventory */}
         <div style={{ border: "1px solid #ddd", borderRadius: 14, padding: 12 }}>
           <div style={{ fontWeight: 900, marginBottom: 8 }}>Shop Inventory (Singles)</div>
 
-          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              gap: 8,
+              flexWrap: "wrap",
+              alignItems: "center",
+            }}
+          >
             <input
               value={invQ}
               onChange={(e) => setInvQ(e.target.value)}
-              placeholder="Search shop inventory (player, team, card #, subset)…"
+              placeholder="Search shop inventory (player, team, card #, subset, set)…"
               style={{ padding: "10px 12px", borderRadius: 12, border: "1px solid #ccc", minWidth: 320 }}
             />
+
+            <select
+              value={invSort}
+              onChange={(e) => setInvSort(e.target.value as SinglesSortKey)}
+              style={{ padding: "10px 12px", borderRadius: 12, border: "1px solid #ccc" }}
+            >
+              <option value="default">Sort: Stock / newest</option>
+              <option value="price_asc">Sort: Price (low → high)</option>
+              <option value="price_desc">Sort: Price (high → low)</option>
+            </select>
+
+            <label
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                padding: "10px 12px",
+                borderRadius: 12,
+                border: "1px solid #ddd",
+                background: "#fafafa",
+                fontSize: 13,
+                fontWeight: 700,
+                cursor: "pointer",
+              }}
+            >
+              <input
+                type="checkbox"
+                checked={onlyNeed}
+                onChange={(e) => setOnlyNeed(e.target.checked)}
+              />
+              Only cards I need
+            </label>
+
             <button
-              onClick={() => loadInventory(1, invQ)}
+              onClick={() => loadInventory(1, invQ, invSort, onlyNeed)}
               disabled={invLoading}
               style={{
                 padding: "10px 12px",
@@ -933,14 +1000,34 @@ function SinglesShopTab() {
               {invLoading ? "Searching…" : "Search"}
             </button>
 
+            <button
+              onClick={() => {
+                setInvQ("");
+                setInvSort("default");
+                setOnlyNeed(false);
+                loadInventory(1, "", "default", false);
+              }}
+              disabled={invLoading}
+              style={{
+                padding: "10px 12px",
+                borderRadius: 12,
+                border: "1px solid #ccc",
+                background: invLoading ? "#f2f2f2" : "white",
+                fontWeight: 900,
+                cursor: invLoading ? "not-allowed" : "pointer",
+              }}
+            >
+              Reset
+            </button>
+
             <div style={{ marginLeft: "auto", fontSize: 12, color: "#555" }}>
-              Page <b>{invPage}</b> / {invTotalPages}
+              Showing <b>{invRows.length}</b> of <b>{invTotal}</b> • Page <b>{invPage}</b> / {invTotalPages}
             </div>
 
             <button
               onClick={() => {
                 const next = Math.max(1, invPage - 1);
-                loadInventory(next, invQ);
+                loadInventory(next, invQ, invSort, onlyNeed);
               }}
               disabled={invLoading || invPage <= 1}
               style={{
@@ -958,7 +1045,7 @@ function SinglesShopTab() {
             <button
               onClick={() => {
                 const next = Math.min(invTotalPages, invPage + 1);
-                loadInventory(next, invQ);
+                loadInventory(next, invQ, invSort, onlyNeed);
               }}
               disabled={invLoading || invPage >= invTotalPages}
               style={{
@@ -991,6 +1078,8 @@ function SinglesShopTab() {
               {invRows.map((r) => {
                 const img = safeImgSrc(r.card?.frontImageUrl ?? null);
                 const priceCents = Math.round((Number(r.card.bookValue ?? 0) || 0) * 100);
+                const detailsLine = compactMetaLine([r.card.team, r.card.subset, r.card.variant]);
+                const setLine = formatFriendlyProductSetLabel(r.card);
 
                 return (
                   <div
@@ -1028,16 +1117,25 @@ function SinglesShopTab() {
                     <div style={{ display: "grid", gap: 6 }}>
                       <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
                         <div style={{ fontWeight: 900 }}>
-                          {r.card.player} {r.card.cardNumber ? `#${r.card.cardNumber}` : ""}{" "}
-                          <span style={{ fontWeight: 600, color: "#666" }}>({r.quantity} in stock)</span>
+                          {r.card.player} {r.card.cardNumber ? `#${r.card.cardNumber}` : ""}
+                          <span style={{ fontWeight: 600, color: "#666" }}> ({r.quantity} in stock)</span>
                         </div>
+
                         <div style={{ fontSize: 12, color: "#555" }}>
                           Price: <b>${centsToDollars(priceCents)}</b> • Card ID: {r.cardId}
                         </div>
                       </div>
 
                       <div style={{ fontSize: 12, color: "#666" }}>
-                        {[r.card.team, r.card.subset, r.card.variant].filter(Boolean).join(" • ") || "—"}
+                        {detailsLine || "—"}
+                      </div>
+
+                      <div style={{ fontSize: 12, color: "#444", fontWeight: 700 }}>
+                        {setLine}
+                      </div>
+
+                      <div style={{ fontSize: 12, color: r.youOwnQty > 0 ? "#1f5133" : "#666", fontWeight: 800 }}>
+                        You own: {r.youOwnQty}
                       </div>
 
                       <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>

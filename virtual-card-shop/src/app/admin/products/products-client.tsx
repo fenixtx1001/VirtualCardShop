@@ -13,7 +13,7 @@ type ProductRow = {
   packsPerBox: number | null;
   packImageUrl: string | null;
   boxImageUrl: string | null;
-  released: boolean; // ✅ NEW
+  released: boolean;
   _count?: { productSets: number };
 };
 
@@ -23,7 +23,7 @@ type EvItem = {
   cardsPerPack: number;
   avgBaseValue: number;
   expectedInsertsPerPack: number;
-  evPerPack: number; // dollars (book value)
+  evPerPack: number;
   packPriceDollars: number;
   evPerDollar: number | null;
   inserts: Array<{
@@ -34,6 +34,14 @@ type EvItem = {
     insertCardCount: number;
   }>;
 };
+
+type SortKey =
+  | "id_asc"
+  | "id_desc"
+  | "year_desc"
+  | "year_asc"
+  | "brand_asc"
+  | "sport_asc";
 
 function centsToDollars(cents: number | null | undefined) {
   const c = typeof cents === "number" ? cents : 0;
@@ -50,13 +58,32 @@ function fmtRatio(n: number | null | undefined) {
   return n.toFixed(2);
 }
 
-// Accepts "$0.75", "0.75", ".75"
 function dollarsToCentsLoose(input: string) {
   const cleaned = input.replace(/[^0-9.]/g, "");
   if (!cleaned) return 0;
   const n = Number(cleaned);
   if (!Number.isFinite(n)) return 0;
   return Math.round(n * 100);
+}
+
+function norm(v: string | null | undefined) {
+  return String(v ?? "").trim().toLowerCase();
+}
+
+function uniqueSortedStrings(values: Array<string | null | undefined>) {
+  return Array.from(
+    new Set(
+      values
+        .map((v) => String(v ?? "").trim())
+        .filter(Boolean)
+    )
+  ).sort((a, b) => a.localeCompare(b));
+}
+
+function uniqueSortedYears(values: Array<number | null | undefined>) {
+  return Array.from(
+    new Set(values.filter((v): v is number => typeof v === "number" && Number.isFinite(v)))
+  ).sort((a, b) => b - a);
 }
 
 export default function ProductsClient() {
@@ -68,14 +95,19 @@ export default function ProductsClient() {
   const [savingId, setSavingId] = useState<string | null>(null);
   const [creating, setCreating] = useState(false);
 
-  // ✅ per-row buffered display value for Pack Price input
   const [packPriceDisplay, setPackPriceDisplay] = useState<Record<string, string>>({});
 
-  // ✅ EV cache in client (computed server-side)
   const [evByProductId, setEvByProductId] = useState<Record<string, EvItem>>({});
   const [evLoading, setEvLoading] = useState(false);
   const [evError, setEvError] = useState<string | null>(null);
   const [evRefreshingId, setEvRefreshingId] = useState<string | null>(null);
+
+  const [search, setSearch] = useState("");
+  const [yearFilter, setYearFilter] = useState<string>("all");
+  const [brandFilter, setBrandFilter] = useState<string>("all");
+  const [sportFilter, setSportFilter] = useState<string>("all");
+  const [releasedFilter, setReleasedFilter] = useState<string>("all");
+  const [sort, setSort] = useState<SortKey>("id_asc");
 
   function setPackDisplay(id: string, v: string) {
     setPackPriceDisplay((prev) => ({ ...prev, [id]: v }));
@@ -95,7 +127,6 @@ export default function ProductsClient() {
       })
     );
 
-    // normalize display string to 2 decimals after commit
     setPackPriceDisplay((prev) => {
       const raw = prev[id];
       const cents = dollarsToCentsLoose(raw ?? "0");
@@ -111,7 +142,6 @@ export default function ProductsClient() {
       if (!res.ok) throw new Error(`Failed to load products (${res.status})`);
       const data = (await res.json()) as ProductRow[];
 
-      // ✅ safety: if older API responses don't include released, default false
       const normalized = data.map((r: any) => ({
         ...r,
         released: typeof r.released === "boolean" ? r.released : false,
@@ -119,7 +149,6 @@ export default function ProductsClient() {
 
       setRows(normalized);
 
-      // ✅ initialize buffered pack price display values from server data
       const map: Record<string, string> = {};
       for (const r of normalized) map[r.id] = centsToDollars(r.packPriceCents);
       setPackPriceDisplay(map);
@@ -173,13 +202,8 @@ export default function ProductsClient() {
 
   useEffect(() => {
     load();
-    // EV is optional; load in parallel
     loadEvAll();
   }, []);
-
-  const sortedRows = useMemo(() => {
-    return [...rows].sort((a, b) => a.id.localeCompare(b.id));
-  }, [rows]);
 
   function updateRow(id: string, patch: Partial<ProductRow>) {
     setRows((prev) => prev.map((r) => (r.id === id ? { ...r, ...patch } : r)));
@@ -189,15 +213,11 @@ export default function ProductsClient() {
     setSavingId(row.id);
     setError(null);
     try {
-      // ✅ ensure pack price is committed before save
       commitPackDisplayToCents(row.id);
 
-      // We need the most current version of the row (after commit),
-      // so read it from state right before sending.
       const latest = (() => {
         const found = rows.find((r) => r.id === row.id);
         if (!found) return row;
-        // If commit hasn't re-rendered yet, compute cents directly from display
         const cents = dollarsToCentsLoose(
           packPriceDisplay[row.id] ?? centsToDollars(found.packPriceCents)
         );
@@ -215,7 +235,7 @@ export default function ProductsClient() {
           packsPerBox: latest.packsPerBox,
           packImageUrl: latest.packImageUrl,
           boxImageUrl: latest.boxImageUrl,
-          released: latest.released, // ✅ NEW
+          released: latest.released,
         }),
       });
 
@@ -225,8 +245,6 @@ export default function ProductsClient() {
       }
 
       await load();
-      // Price changes affect EV ÷ Price (but EV itself is book-based).
-      // Refresh this one row’s EV so the ratio updates instantly.
       await refreshEvOne(row.id);
     } catch (e: any) {
       setError(e?.message ?? "Save failed");
@@ -259,6 +277,74 @@ export default function ProductsClient() {
     } finally {
       setCreating(false);
     }
+  }
+
+  const yearOptions = useMemo(() => uniqueSortedYears(rows.map((r) => r.year)), [rows]);
+  const brandOptions = useMemo(() => uniqueSortedStrings(rows.map((r) => r.brand)), [rows]);
+  const sportOptions = useMemo(() => uniqueSortedStrings(rows.map((r) => r.sport)), [rows]);
+
+  const filteredSortedRows = useMemo(() => {
+    const q = search.trim().toLowerCase();
+
+    let out = rows.filter((r) => {
+      if (yearFilter !== "all" && String(r.year ?? "") !== yearFilter) return false;
+      if (brandFilter !== "all" && norm(r.brand) !== norm(brandFilter)) return false;
+      if (sportFilter !== "all" && norm(r.sport) !== norm(sportFilter)) return false;
+
+      if (releasedFilter === "released" && !r.released) return false;
+      if (releasedFilter === "unreleased" && r.released) return false;
+
+      if (!q) return true;
+
+      const hay = [
+        r.id,
+        r.year ?? "",
+        r.brand ?? "",
+        r.sport ?? "",
+        r.released ? "released" : "unreleased",
+      ]
+        .join(" ")
+        .toLowerCase();
+
+      return hay.includes(q);
+    });
+
+    out.sort((a, b) => {
+      if (sort === "id_asc") return a.id.localeCompare(b.id);
+      if (sort === "id_desc") return b.id.localeCompare(a.id);
+      if (sort === "year_desc") {
+        const byYear = (b.year ?? -Infinity) - (a.year ?? -Infinity);
+        if (byYear !== 0) return byYear;
+        return a.id.localeCompare(b.id);
+      }
+      if (sort === "year_asc") {
+        const byYear = (a.year ?? Infinity) - (b.year ?? Infinity);
+        if (byYear !== 0) return byYear;
+        return a.id.localeCompare(b.id);
+      }
+      if (sort === "brand_asc") {
+        const byBrand = norm(a.brand).localeCompare(norm(b.brand));
+        if (byBrand !== 0) return byBrand;
+        return a.id.localeCompare(b.id);
+      }
+      if (sort === "sport_asc") {
+        const bySport = norm(a.sport).localeCompare(norm(b.sport));
+        if (bySport !== 0) return bySport;
+        return a.id.localeCompare(b.id);
+      }
+      return a.id.localeCompare(b.id);
+    });
+
+    return out;
+  }, [rows, search, yearFilter, brandFilter, sportFilter, releasedFilter, sort]);
+
+  function resetFilters() {
+    setSearch("");
+    setYearFilter("all");
+    setBrandFilter("all");
+    setSportFilter("all");
+    setReleasedFilter("all");
+    setSort("id_asc");
   }
 
   return (
@@ -303,7 +389,6 @@ export default function ProductsClient() {
           Refresh
         </button>
 
-        {/* EV controls (non-blocking) */}
         <div style={{ marginLeft: "auto", display: "flex", gap: 8, alignItems: "center" }}>
           <button
             onClick={loadEvAll}
@@ -316,6 +401,96 @@ export default function ProductsClient() {
           <span style={{ fontSize: 12, color: "#555" }}>
             {evError ? `EV: ${evError}` : evLoading ? "Computing…" : "EV ready"}
           </span>
+        </div>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          gap: 8,
+          alignItems: "center",
+          flexWrap: "wrap",
+          marginBottom: 12,
+          padding: 12,
+          border: "1px solid #ddd",
+          background: "#fafafa",
+        }}
+      >
+        <input
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search Product ID, year, brand, sport…"
+          style={{ padding: 8, width: 280 }}
+        />
+
+        <select
+          value={yearFilter}
+          onChange={(e) => setYearFilter(e.target.value)}
+          style={{ padding: 8 }}
+        >
+          <option value="all">All years</option>
+          {yearOptions.map((y) => (
+            <option key={y} value={String(y)}>
+              {y}
+            </option>
+          ))}
+        </select>
+
+        <select
+          value={brandFilter}
+          onChange={(e) => setBrandFilter(e.target.value)}
+          style={{ padding: 8 }}
+        >
+          <option value="all">All brands</option>
+          {brandOptions.map((b) => (
+            <option key={b} value={b}>
+              {b}
+            </option>
+          ))}
+        </select>
+
+        <select
+          value={sportFilter}
+          onChange={(e) => setSportFilter(e.target.value)}
+          style={{ padding: 8 }}
+        >
+          <option value="all">All sports</option>
+          {sportOptions.map((s) => (
+            <option key={s} value={s}>
+              {s}
+            </option>
+          ))}
+        </select>
+
+        <select
+          value={releasedFilter}
+          onChange={(e) => setReleasedFilter(e.target.value)}
+          style={{ padding: 8 }}
+        >
+          <option value="all">Released + unreleased</option>
+          <option value="released">Released only</option>
+          <option value="unreleased">Unreleased only</option>
+        </select>
+
+        <select
+          value={sort}
+          onChange={(e) => setSort(e.target.value as SortKey)}
+          style={{ padding: 8 }}
+        >
+          <option value="id_asc">Sort: Product ID (A → Z)</option>
+          <option value="id_desc">Sort: Product ID (Z → A)</option>
+          <option value="year_desc">Sort: Year (new → old)</option>
+          <option value="year_asc">Sort: Year (old → new)</option>
+          <option value="brand_asc">Sort: Brand</option>
+          <option value="sport_asc">Sort: Sport</option>
+        </select>
+
+        <button onClick={resetFilters} style={{ padding: "8px 12px" }}>
+          Reset Filters
+        </button>
+
+        <div style={{ marginLeft: "auto", fontSize: 12, color: "#555" }}>
+          Showing <b>{filteredSortedRows.length}</b> / {rows.length}
         </div>
       </div>
 
@@ -337,12 +512,12 @@ export default function ProductsClient() {
                   "Year",
                   "Brand",
                   "Sport",
-                  "Released", // ✅ NEW
+                  "Released",
                   "Pack Price ($)",
                   "Packs/Box",
                   "Product Sets",
-                  "Avg Return/Pack ($)", // ✅ NEW
-                  "EV ÷ Price", // ✅ NEW
+                  "Avg Return/Pack ($)",
+                  "EV ÷ Price",
                   "Pack Image",
                   "Box Image",
                   "Actions",
@@ -362,7 +537,7 @@ export default function ProductsClient() {
               </tr>
             </thead>
             <tbody>
-              {sortedRows.map((r, idx) => {
+              {filteredSortedRows.map((r, idx) => {
                 const zebra = idx % 2 === 0 ? "#fff" : "#fcfcfc";
                 const saving = savingId === r.id;
 
@@ -406,7 +581,6 @@ export default function ProductsClient() {
                       />
                     </td>
 
-                    {/* ✅ Released checkbox */}
                     <td
                       style={{
                         padding: 8,
@@ -423,7 +597,6 @@ export default function ProductsClient() {
                     </td>
 
                     <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
-                      {/* ✅ buffered string, commit on blur */}
                       <input
                         type="text"
                         inputMode="decimal"
@@ -448,7 +621,6 @@ export default function ProductsClient() {
                       {r._count?.productSets ?? "—"}
                     </td>
 
-                    {/* ✅ NEW: EV per pack */}
                     <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap" }}>
                       <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
                         <div style={{ fontWeight: 800 }}>
@@ -470,7 +642,6 @@ export default function ProductsClient() {
                       </div>
                     </td>
 
-                    {/* ✅ NEW: EV ÷ Price */}
                     <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap" }}>
                       {ev?.evPerDollar != null ? (
                         <span title="Expected book value per $1 spent on a pack">
@@ -481,7 +652,6 @@ export default function ProductsClient() {
                       )}
                     </td>
 
-                    {/* ✅ Pack image uploader + URL input */}
                     <td style={{ padding: 8, borderBottom: "1px solid #eee", minWidth: 340 }}>
                       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                         <ImageUploader
@@ -498,7 +668,6 @@ export default function ProductsClient() {
                       </div>
                     </td>
 
-                    {/* ✅ Box image uploader + URL input */}
                     <td style={{ padding: 8, borderBottom: "1px solid #eee", minWidth: 340 }}>
                       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                         <ImageUploader
@@ -530,7 +699,7 @@ export default function ProductsClient() {
                   </tr>
                 );
               })}
-              {sortedRows.length === 0 && (
+              {filteredSortedRows.length === 0 && (
                 <tr>
                   <td colSpan={13} style={{ padding: 12 }}>
                     No products found.
