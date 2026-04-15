@@ -5,6 +5,15 @@ import { useEffect, useMemo, useState } from "react";
 type ViewMode = "summary" | "cards";
 type ScopeMode = "me" | "all_users" | "single_user";
 type UniverseMode = "owned" | "all";
+type GroupByMode =
+  | "player"
+  | "team"
+  | "product"
+  | "product_set"
+  | "brand"
+  | "year"
+  | "sport";
+
 type CardsSortMode =
   | "owned_value_desc"
   | "book_value_desc"
@@ -12,7 +21,22 @@ type CardsSortMode =
   | "owned_qty_desc"
   | "player_asc"
   | "year_desc"
-  | "brand_asc";
+  | "brand_asc"
+  | "card_number_asc"
+  | "a_value_desc"
+  | "b_value_desc"
+  | "diff_value_desc"
+  | "a_qty_desc"
+  | "b_qty_desc"
+  | "diff_qty_desc";
+
+type SummarySortMode =
+  | "owned_value_desc"
+  | "owned_qty_desc"
+  | "unique_cards_desc"
+  | "avg_book_value_desc"
+  | "max_book_value_desc"
+  | "name_asc";
 
 type UserOption = {
   id: string;
@@ -39,14 +63,23 @@ type MetaResponse = {
   productSets: ProductSetOption[];
 };
 
+type CompareStats = {
+  aQty: number;
+  aValue: number;
+  bQty: number;
+  bValue: number;
+  diffQty: number;
+  diffValue: number;
+};
+
 type AnalyticsCardRow = {
   cardId: number;
   player: string;
   cardNumber: string;
   team: string | null;
   bookValue: number;
-  ownedQty: number;
-  ownedValue: number;
+  ownedQty?: number;
+  ownedValue?: number;
   frontImageUrl: string | null;
   year: number | null;
   brand: string | null;
@@ -55,6 +88,19 @@ type AnalyticsCardRow = {
   productLabel: string | null;
   productSetId: string | null;
   productSetLabel: string | null;
+  compare?: CompareStats;
+};
+
+type AnalyticsSummaryRow = {
+  key: string;
+  label: string;
+  uniqueCards: number;
+  ownedQty: number;
+  ownedValue: number;
+  totalBookValue: number;
+  maxBookValue: number;
+  topCardLabel: string;
+  avgBookValue: number;
 };
 
 function fmtMoney(n: number | null | undefined) {
@@ -75,9 +121,14 @@ export default function AnalyticsClient() {
   const [view, setView] = useState<ViewMode>("summary");
   const [scope, setScope] = useState<ScopeMode>("me");
   const [universe, setUniverse] = useState<UniverseMode>("owned");
-  const [groupBy, setGroupBy] = useState("player");
+  const [groupBy, setGroupBy] = useState<GroupByMode>("player");
 
-  const [sortBy, setSortBy] = useState<CardsSortMode>("owned_value_desc");
+  const [compareMode, setCompareMode] = useState(false);
+  const [compareUserAId, setCompareUserAId] = useState("");
+  const [compareUserBId, setCompareUserBId] = useState("");
+
+  const [cardsSortBy, setCardsSortBy] = useState<CardsSortMode>("owned_value_desc");
+  const [summarySortBy, setSummarySortBy] = useState<SummarySortMode>("owned_value_desc");
 
   const [search, setSearch] = useState("");
   const [sport, setSport] = useState("all");
@@ -92,7 +143,9 @@ export default function AnalyticsClient() {
   const [users, setUsers] = useState<UserOption[]>([]);
   const [meta, setMeta] = useState<MetaResponse | null>(null);
 
-  const [rows, setRows] = useState<AnalyticsCardRow[]>([]);
+  const [cardRows, setCardRows] = useState<AnalyticsCardRow[]>([]);
+  const [summaryRows, setSummaryRows] = useState<AnalyticsSummaryRow[]>([]);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -119,7 +172,12 @@ export default function AnalyticsClient() {
       if (!usersRes.ok) throw new Error(usersJson?.error ?? `Failed to load analytics users (${usersRes.status})`);
 
       setMeta(metaJson as MetaResponse);
-      setUsers(Array.isArray(usersJson?.users) ? usersJson.users : []);
+      const fetchedUsers = Array.isArray(usersJson?.users) ? usersJson.users : [];
+      setUsers(fetchedUsers);
+
+      if (!compareUserAId && fetchedUsers.length > 0) {
+        setCompareUserAId(fetchedUsers[0]?.id ?? "");
+      }
     } catch (e: any) {
       setMetaError(e?.message ?? "Failed to load analytics metadata");
     } finally {
@@ -134,11 +192,18 @@ export default function AnalyticsClient() {
       const params = new URLSearchParams();
       params.set("scope", scope);
       params.set("universe", universe);
-      params.set("sort", sortBy);
+      params.set("sort", cardsSortBy);
       params.set("page", String(nextPage));
       params.set("pageSize", "50");
 
-      if (scope === "single_user" && selectedUserId) params.set("selectedUserId", selectedUserId);
+      if (compareMode && view === "cards") {
+        params.set("compareMode", "1");
+        if (compareUserAId) params.set("compareUserAId", compareUserAId);
+        if (compareUserBId) params.set("compareUserBId", compareUserBId);
+      } else {
+        if (scope === "single_user" && selectedUserId) params.set("selectedUserId", selectedUserId);
+      }
+
       if (search.trim()) params.set("search", search.trim());
       if (sport !== "all") params.set("sport", sport);
       if (year !== "all") params.set("year", year);
@@ -153,7 +218,7 @@ export default function AnalyticsClient() {
 
       if (!res.ok) throw new Error(j?.error ?? `Failed to load analytics cards (${res.status})`);
 
-      setRows(Array.isArray(j?.rows) ? j.rows : []);
+      setCardRows(Array.isArray(j?.rows) ? j.rows : []);
       setPage(typeof j?.page === "number" ? j.page : nextPage);
       setTotalPages(typeof j?.totalPages === "number" ? j.totalPages : 1);
       setTotal(typeof j?.total === "number" ? j.total : 0);
@@ -164,28 +229,104 @@ export default function AnalyticsClient() {
     }
   }
 
+  async function loadSummary(nextPage = page) {
+    setLoading(true);
+    setError(null);
+    try {
+      const params = new URLSearchParams();
+      params.set("scope", scope);
+      params.set("universe", universe);
+      params.set("groupBy", groupBy);
+      params.set("sort", summarySortBy);
+      params.set("page", String(nextPage));
+      params.set("pageSize", "50");
+
+      if (scope === "single_user" && selectedUserId) params.set("selectedUserId", selectedUserId);
+      if (search.trim()) params.set("search", search.trim());
+      if (sport !== "all") params.set("sport", sport);
+      if (year !== "all") params.set("year", year);
+      if (brand !== "all") params.set("brand", brand);
+      if (productId !== "all") params.set("productId", productId);
+      if (productSetId !== "all") params.set("productSetId", productSetId);
+      if (team.trim()) params.set("team", team.trim());
+      if (player.trim()) params.set("player", player.trim());
+
+      const res = await fetch(`/api/analytics/summary?${params.toString()}`, { cache: "no-store" });
+      const j = await res.json().catch(() => null);
+
+      if (!res.ok) throw new Error(j?.error ?? `Failed to load analytics summary (${res.status})`);
+
+      setSummaryRows(Array.isArray(j?.rows) ? j.rows : []);
+      setPage(typeof j?.page === "number" ? j.page : nextPage);
+      setTotalPages(typeof j?.totalPages === "number" ? j.totalPages : 1);
+      setTotal(typeof j?.total === "number" ? j.total : 0);
+    } catch (e: any) {
+      setError(e?.message ?? "Failed to load analytics summary");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   useEffect(() => {
     loadMeta();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    if (view !== "cards") return;
+    if (!compareUserAId && users.length > 0) {
+      setCompareUserAId(users[0].id);
+    }
+  }, [users, compareUserAId]);
+
+  useEffect(() => {
+    if (view === "cards" && compareMode) {
+      if (!compareUserAId) {
+        setCardRows([]);
+        setTotal(0);
+        setPage(1);
+        setTotalPages(1);
+        return;
+      }
+      loadCards(1);
+      return;
+    }
+
     if (scope === "single_user" && !selectedUserId) {
-      setRows([]);
+      setCardRows([]);
+      setSummaryRows([]);
       setTotal(0);
       setPage(1);
       setTotalPages(1);
       return;
     }
-    loadCards(1);
+
+    if (view === "cards") {
+      loadCards(1);
+    } else {
+      loadSummary(1);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [view, scope, universe, sortBy, selectedUserId]);
+  }, [
+    view,
+    scope,
+    universe,
+    cardsSortBy,
+    summarySortBy,
+    groupBy,
+    selectedUserId,
+    compareMode,
+    compareUserAId,
+    compareUserBId,
+  ]);
 
   const filteredProductSets = useMemo(() => {
     const sets = meta?.productSets ?? [];
     if (productId === "all") return sets;
     return sets.filter((ps) => ps.productId === productId);
   }, [meta, productId]);
+
+  const compareUserAOptions = users;
+  const compareUserBOptions = users.filter((u) => u.id !== compareUserAId);
 
   function resetFilters() {
     setSearch("");
@@ -196,12 +337,18 @@ export default function AnalyticsClient() {
     setProductSetId("all");
     setTeam("");
     setPlayer("");
-    setSortBy("owned_value_desc");
+    setCardsSortBy("owned_value_desc");
+    setSummarySortBy("owned_value_desc");
     setScope("me");
     setUniverse("owned");
+    setGroupBy("player");
     setSelectedUserId("");
+    setCompareMode(false);
+    setCompareUserBId("");
     setPage(1);
   }
+
+  const compareModeActive = view === "cards" && compareMode;
 
   return (
     <div style={{ padding: 16 }}>
@@ -231,25 +378,72 @@ export default function AnalyticsClient() {
           <option value="cards">Cards</option>
         </select>
 
-        <select value={scope} onChange={(e) => setScope(e.target.value as ScopeMode)} style={{ padding: 8 }}>
-          <option value="me">My Collection</option>
-          <option value="all_users">All Users</option>
-          <option value="single_user">Specific User</option>
-        </select>
-
-        {scope === "single_user" && (
+        {view === "cards" && (
           <select
-            value={selectedUserId}
-            onChange={(e) => setSelectedUserId(e.target.value)}
-            style={{ padding: 8, minWidth: 220 }}
+            value={compareMode ? "compare" : "standard"}
+            onChange={(e) => setCompareMode(e.target.value === "compare")}
+            style={{ padding: 8 }}
           >
-            <option value="">Select a user…</option>
-            {users.map((u) => (
-              <option key={u.id} value={u.id}>
-                {u.label}
-              </option>
-            ))}
+            <option value="standard">Standard Mode</option>
+            <option value="compare">Compare Mode</option>
           </select>
+        )}
+
+        {compareModeActive ? (
+          <>
+            <select
+              value={compareUserAId}
+              onChange={(e) => {
+                const nextA = e.target.value;
+                setCompareUserAId(nextA);
+                if (compareUserBId === nextA) setCompareUserBId("");
+              }}
+              style={{ padding: 8, minWidth: 220 }}
+            >
+              <option value="">User A…</option>
+              {compareUserAOptions.map((u) => (
+                <option key={u.id} value={u.id}>
+                  {u.label}
+                </option>
+              ))}
+            </select>
+
+            <select
+              value={compareUserBId}
+              onChange={(e) => setCompareUserBId(e.target.value)}
+              style={{ padding: 8, minWidth: 220 }}
+            >
+              <option value="">User B…</option>
+              {compareUserBOptions.map((u) => (
+                <option key={u.id} value={u.id}>
+                  {u.label}
+                </option>
+              ))}
+            </select>
+          </>
+        ) : (
+          <>
+            <select value={scope} onChange={(e) => setScope(e.target.value as ScopeMode)} style={{ padding: 8 }}>
+              <option value="me">My Collection</option>
+              <option value="all_users">All Users</option>
+              <option value="single_user">Specific User</option>
+            </select>
+
+            {scope === "single_user" && (
+              <select
+                value={selectedUserId}
+                onChange={(e) => setSelectedUserId(e.target.value)}
+                style={{ padding: 8, minWidth: 220 }}
+              >
+                <option value="">Select a user…</option>
+                {users.map((u) => (
+                  <option key={u.id} value={u.id}>
+                    {u.label}
+                  </option>
+                ))}
+              </select>
+            )}
+          </>
         )}
 
         <select value={universe} onChange={(e) => setUniverse(e.target.value as UniverseMode)} style={{ padding: 8 }}>
@@ -258,26 +452,55 @@ export default function AnalyticsClient() {
         </select>
 
         {view === "summary" && (
-          <select value={groupBy} onChange={(e) => setGroupBy(e.target.value)} style={{ padding: 8 }}>
-            <option value="player">Player</option>
-            <option value="team">Team</option>
-            <option value="product">Product</option>
-            <option value="product_set">Product Set</option>
-            <option value="brand">Brand</option>
-            <option value="year">Year</option>
-            <option value="sport">Sport</option>
+          <select value={groupBy} onChange={(e) => setGroupBy(e.target.value as GroupByMode)} style={{ padding: 8 }}>
+            <option value="player">Group: Player</option>
+            <option value="team">Group: Team</option>
+            <option value="product">Group: Product</option>
+            <option value="product_set">Group: Product Set</option>
+            <option value="brand">Group: Brand</option>
+            <option value="year">Group: Year</option>
+            <option value="sport">Group: Sport</option>
           </select>
         )}
 
-        {view === "cards" && (
-          <select value={sortBy} onChange={(e) => setSortBy(e.target.value as CardsSortMode)} style={{ padding: 8 }}>
+        {view === "cards" ? (
+          <select value={cardsSortBy} onChange={(e) => setCardsSortBy(e.target.value as CardsSortMode)} style={{ padding: 8 }}>
+            {!compareModeActive ? (
+              <>
+                <option value="owned_value_desc">Sort: Owned Value</option>
+                <option value="book_value_desc">Sort: Book Value (high → low)</option>
+                <option value="book_value_asc">Sort: Book Value (low → high)</option>
+                <option value="owned_qty_desc">Sort: Owned Qty</option>
+                <option value="player_asc">Sort: Player</option>
+                <option value="card_number_asc">Sort: Card Number</option>
+                <option value="year_desc">Sort: Year</option>
+                <option value="brand_asc">Sort: Brand</option>
+              </>
+            ) : (
+              <>
+                <option value="a_value_desc">Sort: User A Value</option>
+                <option value="b_value_desc">Sort: User B Value</option>
+                <option value="diff_value_desc">Sort: Diff Value</option>
+                <option value="a_qty_desc">Sort: User A Qty</option>
+                <option value="b_qty_desc">Sort: User B Qty</option>
+                <option value="diff_qty_desc">Sort: Diff Qty</option>
+                <option value="book_value_desc">Sort: Book Value (high → low)</option>
+                <option value="book_value_asc">Sort: Book Value (low → high)</option>
+                <option value="player_asc">Sort: Player</option>
+                <option value="card_number_asc">Sort: Card Number</option>
+                <option value="year_desc">Sort: Year</option>
+                <option value="brand_asc">Sort: Brand</option>
+              </>
+            )}
+          </select>
+        ) : (
+          <select value={summarySortBy} onChange={(e) => setSummarySortBy(e.target.value as SummarySortMode)} style={{ padding: 8 }}>
             <option value="owned_value_desc">Sort: Owned Value</option>
-            <option value="book_value_desc">Sort: Book Value (high → low)</option>
-            <option value="book_value_asc">Sort: Book Value (low → high)</option>
             <option value="owned_qty_desc">Sort: Owned Qty</option>
-            <option value="player_asc">Sort: Player</option>
-            <option value="year_desc">Sort: Year</option>
-            <option value="brand_asc">Sort: Brand</option>
+            <option value="unique_cards_desc">Sort: Unique Cards</option>
+            <option value="avg_book_value_desc">Sort: Avg Book Value</option>
+            <option value="max_book_value_desc">Sort: Max Book Value</option>
+            <option value="name_asc">Sort: Name</option>
           </select>
         )}
 
@@ -359,8 +582,13 @@ export default function AnalyticsClient() {
         />
 
         <button
-          onClick={() => loadCards(1)}
-          disabled={view !== "cards" || loading || metaLoading || (scope === "single_user" && !selectedUserId)}
+          onClick={() => (view === "cards" ? loadCards(1) : loadSummary(1))}
+          disabled={
+            loading ||
+            metaLoading ||
+            (!compareModeActive && scope === "single_user" && !selectedUserId) ||
+            (compareModeActive && !compareUserAId)
+          }
           style={{ padding: "8px 12px", fontWeight: 800 }}
         >
           {loading ? "Loading..." : "Apply"}
@@ -391,12 +619,12 @@ export default function AnalyticsClient() {
           background: "white",
         }}
       >
-        {view === "summary" ? (
-          <div style={{ fontWeight: 700 }}>Summary table coming next phase…</div>
-        ) : metaLoading ? (
+        {metaLoading ? (
           <div>Loading analytics metadata…</div>
-        ) : scope === "single_user" && !selectedUserId ? (
-          <div>Select a user to load card analytics.</div>
+        ) : !compareModeActive && scope === "single_user" && !selectedUserId ? (
+          <div>Select a user to load analytics.</div>
+        ) : compareModeActive && !compareUserAId ? (
+          <div>Select User A to load compare analytics.</div>
         ) : (
           <>
             <div
@@ -411,35 +639,256 @@ export default function AnalyticsClient() {
               }}
             >
               <div>
-                Showing <b>{rows.length}</b> of <b>{total}</b> cards
+                {view === "cards"
+                  ? `Showing ${cardRows.length} of ${total} cards`
+                  : `Showing ${summaryRows.length} of ${total} groups`}
               </div>
               <div>
-                Scope: <b>{scope === "me" ? "My Collection" : scope === "all_users" ? "All Users" : "Specific User"}</b> • Universe:{" "}
-                <b>{universe === "owned" ? "Owned Only" : "All Known Cards"}</b>
+                {compareModeActive ? (
+                  <>
+                    Mode: <b>Compare</b> • Universe: <b>{universe === "owned" ? "Owned Only" : "All Known Cards"}</b>
+                  </>
+                ) : (
+                  <>
+                    Scope: <b>{scope === "me" ? "My Collection" : scope === "all_users" ? "All Users" : "Specific User"}</b> • Universe:{" "}
+                    <b>{universe === "owned" ? "Owned Only" : "All Known Cards"}</b>
+                    {view === "summary" ? (
+                      <>
+                        {" "}• Grouped by <b>{groupBy.replace("_", " ")}</b>
+                      </>
+                    ) : null}
+                  </>
+                )}
               </div>
             </div>
 
             {loading ? (
-              <div>Loading cards…</div>
-            ) : rows.length === 0 ? (
-              <div>No cards found for this filter set.</div>
+              <div>Loading…</div>
+            ) : view === "cards" ? (
+              cardRows.length === 0 ? (
+                <div>No cards found for this filter set.</div>
+              ) : (
+                <div style={{ overflowX: "auto", border: "1px solid #eee", borderRadius: 12 }}>
+                  <table style={{ width: "100%", borderCollapse: "collapse", minWidth: compareModeActive ? 1420 : 1180 }}>
+                    <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
+                      <tr>
+                        {(
+                          compareModeActive
+                            ? [
+                                "Img",
+                                "Player",
+                                "Card #",
+                                "Team",
+                                "Year",
+                                "Brand",
+                                "Product",
+                                "Product Set",
+                                "Book Value",
+                                "A Qty",
+                                "A Value",
+                                "B Qty",
+                                "B Value",
+                                "Diff Qty",
+                                "Diff Value",
+                              ]
+                            : [
+                                "Img",
+                                "Player",
+                                "Card #",
+                                "Team",
+                                "Year",
+                                "Brand",
+                                "Product",
+                                "Product Set",
+                                "Book Value",
+                                "Owned Qty",
+                                "Owned Value",
+                              ]
+                        ).map((h) => (
+                          <th
+                            key={h}
+                            style={{
+                              textAlign: "left",
+                              padding: 8,
+                              borderBottom: "1px solid #ddd",
+                              whiteSpace: "nowrap",
+                            }}
+                          >
+                            {h}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {cardRows.map((r, idx) => {
+                        const zebra = idx % 2 === 0 ? "#fff" : "#fcfcfc";
+                        const img = safeImgSrc(r.frontImageUrl);
+
+                        return (
+                          <tr key={r.cardId} style={{ background: zebra }}>
+                            <td style={{ padding: 8, borderBottom: "1px solid #eee", width: 64 }}>
+                              <div
+                                style={{
+                                  width: 44,
+                                  height: 44,
+                                  borderRadius: 8,
+                                  overflow: "hidden",
+                                  border: "1px solid #ddd",
+                                  background: "white",
+                                  display: "grid",
+                                  placeItems: "center",
+                                }}
+                              >
+                                {img ? (
+                                  <img
+                                    src={img}
+                                    alt="Card"
+                                    loading="lazy"
+                                    decoding="async"
+                                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                                  />
+                                ) : (
+                                  <div style={{ fontSize: 10, color: "#777" }}>No img</div>
+                                )}
+                              </div>
+                            </td>
+
+                            <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 800 }}>
+                              {r.player}
+                            </td>
+
+                            <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap" }}>
+                              {r.cardNumber || "—"}
+                            </td>
+
+                            <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
+                              {r.team || "—"}
+                            </td>
+
+                            <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap" }}>
+                              {r.year ?? "—"}
+                            </td>
+
+                            <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
+                              {r.brand || "—"}
+                            </td>
+
+                            <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
+                              {r.productLabel || "—"}
+                            </td>
+
+                            <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
+                              {r.productSetLabel || "—"}
+                            </td>
+
+                            <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap", fontWeight: 700 }}>
+                              {fmtMoney(r.bookValue)}
+                            </td>
+
+                            {compareModeActive ? (
+                              <>
+                                <td
+                                  style={{
+                                    padding: 8,
+                                    borderBottom: "1px solid #eee",
+                                    whiteSpace: "nowrap",
+                                    fontWeight: 800,
+                                    color: (r.compare?.aQty ?? 0) > 0 ? "#1f5133" : "#666",
+                                  }}
+                                >
+                                  {r.compare?.aQty ?? 0}
+                                </td>
+                                <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap", fontWeight: 800 }}>
+                                  {fmtMoney(r.compare?.aValue ?? 0)}
+                                </td>
+                                <td
+                                  style={{
+                                    padding: 8,
+                                    borderBottom: "1px solid #eee",
+                                    whiteSpace: "nowrap",
+                                    fontWeight: 800,
+                                    color: (r.compare?.bQty ?? 0) > 0 ? "#1f5133" : "#666",
+                                  }}
+                                >
+                                  {r.compare?.bQty ?? 0}
+                                </td>
+                                <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap", fontWeight: 800 }}>
+                                  {fmtMoney(r.compare?.bValue ?? 0)}
+                                </td>
+                                <td
+                                  style={{
+                                    padding: 8,
+                                    borderBottom: "1px solid #eee",
+                                    whiteSpace: "nowrap",
+                                    fontWeight: 800,
+                                    color:
+                                      (r.compare?.diffQty ?? 0) > 0
+                                        ? "#1f5133"
+                                        : (r.compare?.diffQty ?? 0) < 0
+                                        ? "#8a1c1c"
+                                        : "#666",
+                                  }}
+                                >
+                                  {r.compare?.diffQty ?? 0}
+                                </td>
+                                <td
+                                  style={{
+                                    padding: 8,
+                                    borderBottom: "1px solid #eee",
+                                    whiteSpace: "nowrap",
+                                    fontWeight: 800,
+                                    color:
+                                      (r.compare?.diffValue ?? 0) > 0
+                                        ? "#1f5133"
+                                        : (r.compare?.diffValue ?? 0) < 0
+                                        ? "#8a1c1c"
+                                        : "#666",
+                                  }}
+                                >
+                                  {fmtMoney(r.compare?.diffValue ?? 0)}
+                                </td>
+                              </>
+                            ) : (
+                              <>
+                                <td
+                                  style={{
+                                    padding: 8,
+                                    borderBottom: "1px solid #eee",
+                                    whiteSpace: "nowrap",
+                                    fontWeight: 800,
+                                    color: (r.ownedQty ?? 0) > 0 ? "#1f5133" : "#666",
+                                  }}
+                                >
+                                  {r.ownedQty ?? 0}
+                                </td>
+
+                                <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap", fontWeight: 800 }}>
+                                  {fmtMoney(r.ownedValue ?? 0)}
+                                </td>
+                              </>
+                            )}
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              )
+            ) : summaryRows.length === 0 ? (
+              <div>No summary rows found for this filter set.</div>
             ) : (
               <div style={{ overflowX: "auto", border: "1px solid #eee", borderRadius: 12 }}>
-                <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 1180 }}>
+                <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 980 }}>
                   <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
                     <tr>
                       {[
-                        "Img",
-                        "Player",
-                        "Card #",
-                        "Team",
-                        "Year",
-                        "Brand",
-                        "Product",
-                        "Product Set",
-                        "Book Value",
+                        "Group",
+                        "Unique Cards",
                         "Owned Qty",
                         "Owned Value",
+                        "Avg Book Value",
+                        "Max Book Value",
+                        "Top Card",
                       ].map((h) => (
                         <th
                           key={h}
@@ -456,71 +905,17 @@ export default function AnalyticsClient() {
                     </tr>
                   </thead>
                   <tbody>
-                    {rows.map((r, idx) => {
+                    {summaryRows.map((r, idx) => {
                       const zebra = idx % 2 === 0 ? "#fff" : "#fcfcfc";
-                      const img = safeImgSrc(r.frontImageUrl);
 
                       return (
-                        <tr key={r.cardId} style={{ background: zebra }}>
-                          <td style={{ padding: 8, borderBottom: "1px solid #eee", width: 64 }}>
-                            <div
-                              style={{
-                                width: 44,
-                                height: 44,
-                                borderRadius: 8,
-                                overflow: "hidden",
-                                border: "1px solid #ddd",
-                                background: "white",
-                                display: "grid",
-                                placeItems: "center",
-                              }}
-                            >
-                              {img ? (
-                                <img
-                                  src={img}
-                                  alt="Card"
-                                  loading="lazy"
-                                  decoding="async"
-                                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                                />
-                              ) : (
-                                <div style={{ fontSize: 10, color: "#777" }}>No img</div>
-                              )}
-                            </div>
-                          </td>
-
+                        <tr key={r.key} style={{ background: zebra }}>
                           <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 800 }}>
-                            {r.player}
+                            {r.label}
                           </td>
-
                           <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap" }}>
-                            {r.cardNumber || "—"}
+                            {r.uniqueCards.toLocaleString()}
                           </td>
-
-                          <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
-                            {r.team || "—"}
-                          </td>
-
-                          <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap" }}>
-                            {r.year ?? "—"}
-                          </td>
-
-                          <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
-                            {r.brand || "—"}
-                          </td>
-
-                          <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
-                            {r.productLabel || "—"}
-                          </td>
-
-                          <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
-                            {r.productSetLabel || "—"}
-                          </td>
-
-                          <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap", fontWeight: 700 }}>
-                            {fmtMoney(r.bookValue)}
-                          </td>
-
                           <td
                             style={{
                               padding: 8,
@@ -530,11 +925,19 @@ export default function AnalyticsClient() {
                               color: r.ownedQty > 0 ? "#1f5133" : "#666",
                             }}
                           >
-                            {r.ownedQty}
+                            {r.ownedQty.toLocaleString()}
                           </td>
-
                           <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap", fontWeight: 800 }}>
                             {fmtMoney(r.ownedValue)}
+                          </td>
+                          <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap" }}>
+                            {fmtMoney(r.avgBookValue)}
+                          </td>
+                          <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap" }}>
+                            {fmtMoney(r.maxBookValue)}
+                          </td>
+                          <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
+                            {r.topCardLabel || "—"}
                           </td>
                         </tr>
                       );
@@ -546,7 +949,7 @@ export default function AnalyticsClient() {
 
             <div style={{ display: "flex", justifyContent: "flex-end", gap: 8, marginTop: 12 }}>
               <button
-                onClick={() => loadCards(Math.max(1, page - 1))}
+                onClick={() => (view === "cards" ? loadCards(Math.max(1, page - 1)) : loadSummary(Math.max(1, page - 1)))}
                 disabled={loading || page <= 1}
                 style={{ padding: "8px 12px", fontWeight: 800 }}
               >
@@ -556,7 +959,11 @@ export default function AnalyticsClient() {
                 Page <b>{page}</b> / {totalPages}
               </div>
               <button
-                onClick={() => loadCards(Math.min(totalPages, page + 1))}
+                onClick={() =>
+                  view === "cards"
+                    ? loadCards(Math.min(totalPages, page + 1))
+                    : loadSummary(Math.min(totalPages, page + 1))
+                }
                 disabled={loading || page >= totalPages}
                 style={{ padding: "8px 12px", fontWeight: 800 }}
               >

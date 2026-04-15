@@ -19,6 +19,27 @@ function norm(s: string | null | undefined) {
   return String(s ?? "").trim().toLowerCase();
 }
 
+function compareCardNumber(a: string | null | undefined, b: string | null | undefined) {
+  const aa = String(a ?? "").trim();
+  const bb = String(b ?? "").trim();
+
+  const re = /^(\d+)(.*)$/;
+  const ma = aa.match(re);
+  const mb = bb.match(re);
+
+  if (ma && mb) {
+    const na = parseInt(ma[1], 10);
+    const nb = parseInt(mb[1], 10);
+    if (na !== nb) return na - nb;
+
+    const sa = ma[2].trim().toLowerCase();
+    const sb = mb[2].trim().toLowerCase();
+    return sa.localeCompare(sb);
+  }
+
+  return aa.localeCompare(bb, undefined, { numeric: true, sensitivity: "base" });
+}
+
 type ScopeMode = "me" | "all_users" | "single_user";
 type UniverseMode = "owned" | "all";
 type SortMode =
@@ -28,16 +49,28 @@ type SortMode =
   | "owned_qty_desc"
   | "player_asc"
   | "year_desc"
-  | "brand_asc";
+  | "brand_asc"
+  | "card_number_asc"
+  | "a_value_desc"
+  | "b_value_desc"
+  | "diff_value_desc"
+  | "a_qty_desc"
+  | "b_qty_desc"
+  | "diff_qty_desc";
 
 export async function GET(req: Request) {
   try {
     const me = await requireUser();
     const url = new URL(req.url);
 
+    const compareMode = url.searchParams.get("compareMode") === "1";
+
     const scope = (url.searchParams.get("scope") ?? "me") as ScopeMode;
     const universe = (url.searchParams.get("universe") ?? "owned") as UniverseMode;
+
     const selectedUserId = (url.searchParams.get("selectedUserId") ?? "").trim() || null;
+    const compareUserAId = (url.searchParams.get("compareUserAId") ?? "").trim() || null;
+    const compareUserBId = (url.searchParams.get("compareUserBId") ?? "").trim() || null;
 
     const search = (url.searchParams.get("search") ?? "").trim();
     const sport = (url.searchParams.get("sport") ?? "").trim();
@@ -56,7 +89,6 @@ export async function GET(req: Request) {
       scope === "me" ? me.id : scope === "single_user" ? selectedUserId : null;
 
     const where: any = {};
-
     const andClauses: any[] = [];
 
     if (player) {
@@ -160,24 +192,50 @@ export async function GET(req: Request) {
       andClauses.push({ OR: orClauses });
     }
 
-    if (universe === "owned") {
-      if (scope === "all_users") {
-        andClauses.push({
-          ownerships: {
-            some: {
-              quantity: { gt: 0 },
+    if (compareMode) {
+      if (universe === "owned") {
+        if (compareUserAId && compareUserBId) {
+          andClauses.push({
+            ownerships: {
+              some: {
+                OR: [
+                  { userId: compareUserAId, quantity: { gt: 0 } },
+                  { userId: compareUserBId, quantity: { gt: 0 } },
+                ],
+              },
             },
-          },
-        });
-      } else if (targetUserId) {
-        andClauses.push({
-          ownerships: {
-            some: {
-              userId: targetUserId,
-              quantity: { gt: 0 },
+          });
+        } else if (compareUserAId) {
+          andClauses.push({
+            ownerships: {
+              some: {
+                userId: compareUserAId,
+                quantity: { gt: 0 },
+              },
             },
-          },
-        });
+          });
+        }
+      }
+    } else {
+      if (universe === "owned") {
+        if (scope === "all_users") {
+          andClauses.push({
+            ownerships: {
+              some: {
+                quantity: { gt: 0 },
+              },
+            },
+          });
+        } else if (targetUserId) {
+          andClauses.push({
+            ownerships: {
+              some: {
+                userId: targetUserId,
+                quantity: { gt: 0 },
+              },
+            },
+          });
+        }
       }
     }
 
@@ -203,44 +261,103 @@ export async function GET(req: Request) {
             },
           },
         },
-        ownerships:
-          scope === "all_users"
-            ? {
-                where: { quantity: { gt: 0 } },
-                select: {
-                  userId: true,
-                  quantity: true,
-                },
-              }
-            : {
-                where: targetUserId
+        ownerships: compareMode
+          ? {
+              where: {
+                quantity: { gt: 0 },
+                ...(compareUserAId || compareUserBId
                   ? {
-                      userId: targetUserId,
-                      quantity: { gt: 0 },
+                      userId: {
+                        in: [compareUserAId, compareUserBId].filter(Boolean) as string[],
+                      },
                     }
-                  : { quantity: { gt: 0 } },
-                select: {
-                  userId: true,
-                  quantity: true,
-                },
+                  : {}),
               },
+              select: {
+                userId: true,
+                quantity: true,
+              },
+            }
+          : scope === "all_users"
+          ? {
+              where: { quantity: { gt: 0 } },
+              select: {
+                userId: true,
+                quantity: true,
+              },
+            }
+          : {
+              where: targetUserId
+                ? {
+                    userId: targetUserId,
+                    quantity: { gt: 0 },
+                  }
+                : { quantity: { gt: 0 } },
+              select: {
+                userId: true,
+                quantity: true,
+              },
+            },
       },
     });
 
     const rows = cards.map((c) => {
-      const ownedQty =
-        scope === "all_users"
-          ? c.ownerships.reduce((sum, o) => sum + (o.quantity ?? 0), 0)
-          : c.ownerships[0]?.quantity ?? 0;
-
-      const bookValue = Number(c.bookValue ?? 0);
-      const ownedValue = ownedQty * bookValue;
-
       const product = c.productSet?.product;
       const productLabel = [product?.year, product?.brand, product?.sport]
         .filter(Boolean)
         .join(" ")
         .trim();
+
+      const bookValue = Number(c.bookValue ?? 0);
+
+      if (compareMode) {
+        const aQty =
+          compareUserAId
+            ? c.ownerships.find((o) => o.userId === compareUserAId)?.quantity ?? 0
+            : 0;
+
+        const bQty =
+          compareUserBId
+            ? c.ownerships.find((o) => o.userId === compareUserBId)?.quantity ?? 0
+            : 0;
+
+        const aValue = aQty * bookValue;
+        const bValue = bQty * bookValue;
+        const diffQty = aQty - bQty;
+        const diffValue = aValue - bValue;
+
+        return {
+          cardId: c.id,
+          player: c.player,
+          cardNumber: c.cardNumber,
+          team: c.team,
+          bookValue,
+          frontImageUrl: c.frontImageUrl,
+          year: product?.year ?? null,
+          brand: product?.brand ?? null,
+          sport: product?.sport ?? null,
+          productId: product?.id ?? c.productSet?.productId ?? null,
+          productLabel: productLabel || friendlyId(product?.id ?? c.productSet?.productId),
+          productSetId: c.productSetId,
+          productSetLabel:
+            (c.productSet?.name ?? "").trim() || friendlyId(c.productSetId),
+          compare: {
+            aQty,
+            aValue,
+            bQty,
+            bValue,
+            diffQty,
+            diffValue,
+          },
+        };
+      }
+
+      const ownedQty =
+        scope === "all_users"
+          ? c.ownerships.reduce((sum, o) => sum + (o.quantity ?? 0), 0)
+          : c.ownerships[0]?.quantity ?? 0;
+
+      const ownedValue = ownedQty * bookValue;
 
       return {
         cardId: c.id,
@@ -262,15 +379,43 @@ export async function GET(req: Request) {
       };
     });
 
-    rows.sort((a, b) => {
+    rows.sort((a: any, b: any) => {
+      if (compareMode) {
+        if (sort === "a_value_desc") {
+          if (b.compare.aValue !== a.compare.aValue) return b.compare.aValue - a.compare.aValue;
+          return a.player.localeCompare(b.player);
+        }
+        if (sort === "b_value_desc") {
+          if (b.compare.bValue !== a.compare.bValue) return b.compare.bValue - a.compare.bValue;
+          return a.player.localeCompare(b.player);
+        }
+        if (sort === "diff_value_desc") {
+          if (b.compare.diffValue !== a.compare.diffValue) return b.compare.diffValue - a.compare.diffValue;
+          return a.player.localeCompare(b.player);
+        }
+        if (sort === "a_qty_desc") {
+          if (b.compare.aQty !== a.compare.aQty) return b.compare.aQty - a.compare.aQty;
+          return a.player.localeCompare(b.player);
+        }
+        if (sort === "b_qty_desc") {
+          if (b.compare.bQty !== a.compare.bQty) return b.compare.bQty - a.compare.bQty;
+          return a.player.localeCompare(b.player);
+        }
+        if (sort === "diff_qty_desc") {
+          if (b.compare.diffQty !== a.compare.diffQty) return b.compare.diffQty - a.compare.diffQty;
+          return a.player.localeCompare(b.player);
+        }
+      }
+
       if (sort === "owned_value_desc") {
-        if (b.ownedValue !== a.ownedValue) return b.ownedValue - a.ownedValue;
+        const av = compareMode ? a.compare.aValue : a.ownedValue;
+        const bv = compareMode ? b.compare.aValue : b.ownedValue;
+        if (bv !== av) return bv - av;
         if (b.bookValue !== a.bookValue) return b.bookValue - a.bookValue;
         return a.player.localeCompare(b.player);
       }
       if (sort === "book_value_desc") {
         if (b.bookValue !== a.bookValue) return b.bookValue - a.bookValue;
-        if (b.ownedValue !== a.ownedValue) return b.ownedValue - a.ownedValue;
         return a.player.localeCompare(b.player);
       }
       if (sort === "book_value_asc") {
@@ -278,14 +423,16 @@ export async function GET(req: Request) {
         return a.player.localeCompare(b.player);
       }
       if (sort === "owned_qty_desc") {
-        if (b.ownedQty !== a.ownedQty) return b.ownedQty - a.ownedQty;
+        const av = compareMode ? a.compare.aQty : a.ownedQty;
+        const bv = compareMode ? b.compare.aQty : b.ownedQty;
+        if (bv !== av) return bv - av;
         if (b.bookValue !== a.bookValue) return b.bookValue - a.bookValue;
         return a.player.localeCompare(b.player);
       }
       if (sort === "player_asc") {
         const byPlayer = norm(a.player).localeCompare(norm(b.player));
         if (byPlayer !== 0) return byPlayer;
-        return norm(a.cardNumber).localeCompare(norm(b.cardNumber));
+        return compareCardNumber(a.cardNumber, b.cardNumber);
       }
       if (sort === "year_desc") {
         const ay = a.year ?? -Infinity;
@@ -297,6 +444,11 @@ export async function GET(req: Request) {
         const byBrand = norm(a.brand).localeCompare(norm(b.brand));
         if (byBrand !== 0) return byBrand;
         return a.player.localeCompare(b.player);
+      }
+      if (sort === "card_number_asc") {
+        const byCard = compareCardNumber(a.cardNumber, b.cardNumber);
+        if (byCard !== 0) return byCard;
+        return norm(a.player).localeCompare(norm(b.player));
       }
       return 0;
     });
