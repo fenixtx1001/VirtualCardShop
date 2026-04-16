@@ -202,123 +202,118 @@ export default function InventoryPage() {
               <tbody>
                 {!loading && sorted.length === 0 ? (
                   <tr>
-                    <td colSpan={7} style={{ padding: 14, color: colors.subtext, fontWeight: 800 }}>
-                      No unopened packs yet. Hit the Shop and grab a few packs to get started.
+                    <td
+                      colSpan={7}
+                      style={{
+                        padding: 16,
+                        color: colors.subtext,
+                      }}
+                    >
+                      No unopened packs yet. Head to the shop and grab some wax.
                     </td>
                   </tr>
-                ) : (
-                  sorted.map((r, idx) => {
-                    const zebra = idx % 2 === 0 ? "#fff" : "#fcfcfc";
-                    const name = formatFriendlyProductName(r.productId);
+                ) : null}
 
-                    return (
-                      <tr key={r.productId} style={{ background: zebra }}>
-                        {/* Pack image */}
-                        <td style={{ padding: 12, borderBottom: "1px solid #eee", width: 70 }}>
-                          <div
-                            style={{
-                              width: 46,
-                              height: 46,
-                              borderRadius: 12,
-                              border: `1px solid ${colors.border}`,
-                              background: colors.muted,
-                              overflow: "hidden",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              fontWeight: 900,
-                              color: "#777",
-                              fontSize: 12,
-                            }}
-                            title={r.packImageUrl ? "Pack image" : "No pack image"}
-                          >
-                            {r.packImageUrl ? (
-                              // eslint-disable-next-line @next/next/no-img-element
-                              <img
-                                src={r.packImageUrl}
-                                alt="Pack"
-                                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                                onError={(e) => {
-                                  const img = e.currentTarget;
-                                  img.style.display = "none";
-                                  (img.parentElement as any).textContent = "Pack";
-                                }}
-                              />
-                            ) : (
-                              "Pack"
-                            )}
-                          </div>
-                        </td>
+                {sorted.map((r, idx) => {
+                  const friendlyName = formatFriendlyProductName(r.productId);
 
-                        {/* Friendly product */}
-                        <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
-                          <div style={{ fontWeight: 900 }}>{name}</div>
-                          <div style={{ fontSize: 12, color: colors.subtext, marginTop: 2 }}>{r.productId}</div>
-                        </td>
-
-                        <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                          {Number(r.packsOwned ?? 0).toLocaleString()}
-                        </td>
-
-                        <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                          {formatDollars(r.packPriceCents ?? 0)}
-                        </td>
-
-                        <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                          {r.cardsPerPack != null ? r.cardsPerPack : "—"}
-                        </td>
-
-                        <td
+                  return (
+                    <tr
+                      key={`${r.productId}-${idx}`}
+                      style={{
+                        borderBottom: `1px solid ${colors.border}`,
+                        background: idx % 2 === 0 ? "#fff" : "#fcfcfc",
+                      }}
+                    >
+                      {/* pack image */}
+                      <td style={{ padding: 10, verticalAlign: "middle", width: 64 }}>
+                        <div
                           style={{
-                            padding: 12,
-                            borderBottom: "1px solid #eee",
-                            color: colors.subtext,
-                            fontWeight: 800,
+                            width: 36,
+                            height: 52,
+                            borderRadius: 8,
+                            overflow: "hidden",
+                            border: `1px solid ${colors.border}`,
+                            background: "#fff",
+                            display: "grid",
+                            placeItems: "center",
                           }}
                         >
-                          {formatDateTime(r.updatedAt)}
-                        </td>
+                          {r.packImageUrl ? (
+                            <img
+                              src={r.packImageUrl}
+                              alt={friendlyName}
+                              loading="lazy"
+                              decoding="async"
+                              style={{
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                              }}
+                            />
+                          ) : (
+                            <div style={{ fontSize: 10, color: colors.subtext }}>No image</div>
+                          )}
+                        </div>
+                      </td>
 
-                        <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
-                          {/* ✅ FIX: use the real open-pack route */}
-                          <Link
-                            href={`/open-pack/${encodeURIComponent(r.productId)}`}
-                            style={{
-                              display: "inline-flex",
-                              alignItems: "center",
-                              gap: 8,
-                              textDecoration: "none",
-                              fontWeight: 900,
-                              color: "white",
-                              background: colors.accent,
-                              padding: "8px 10px",
-                              borderRadius: 10,
-                              boxShadow: "0 8px 18px rgba(47,111,237,0.18)",
-                              whiteSpace: "nowrap",
-                            }}
-                          >
-                            Open Pack <span style={{ fontWeight: 900 }}>→</span>
-                          </Link>
-                        </td>
-                      </tr>
-                    );
-                  })
-                )}
+                      {/* product */}
+                      <td style={{ padding: 12, verticalAlign: "middle" }}>
+                        <div style={{ fontWeight: 900, fontSize: 15, lineHeight: 1.2 }}>{friendlyName}</div>
+                      </td>
+
+                      {/* packs owned */}
+                      <td style={{ padding: 12, verticalAlign: "middle", fontWeight: 900 }}>{r.packsOwned}</td>
+
+                      {/* pack price */}
+                      <td style={{ padding: 12, verticalAlign: "middle", fontWeight: 900 }}>
+                        {formatDollars(r.packPriceCents)}
+                      </td>
+
+                      {/* cards per pack */}
+                      <td style={{ padding: 12, verticalAlign: "middle", fontWeight: 900 }}>
+                        {r.cardsPerPack ?? "—"}
+                      </td>
+
+                      {/* updated */}
+                      <td style={{ padding: 12, verticalAlign: "middle", fontWeight: 900 }}>
+                        {formatDateTime(r.updatedAt)}
+                      </td>
+
+                      {/* action */}
+                      <td style={{ padding: 12, verticalAlign: "middle" }}>
+                        <Link
+                          href={`/open-pack/${encodeURIComponent(r.productId)}`}
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: 8,
+                            background: colors.accent,
+                            color: "#fff",
+                            textDecoration: "none",
+                            fontWeight: 900,
+                            padding: "8px 12px",
+                            borderRadius: 10,
+                            whiteSpace: "nowrap",
+                            boxShadow: "0 8px 18px rgba(47,111,237,0.18)",
+                          }}
+                        >
+                          Open Pack <span>→</span>
+                        </Link>
+                      </td>
+                    </tr>
+                  );
+                })}
+
+                {loading ? (
+                  <tr>
+                    <td colSpan={7} style={{ padding: 16 }}>
+                      Loading inventory…
+                    </td>
+                  </tr>
+                ) : null}
               </tbody>
             </table>
-          </div>
-
-          {/* Footer hint */}
-          <div
-            style={{
-              padding: 12,
-              borderTop: `1px solid ${colors.border}`,
-              color: colors.subtext,
-              fontSize: 12,
-              fontWeight: 700,
-            }}
-          >
-            Tip: if you don’t see pack art, add a Pack Image on <span style={{ fontWeight: 900 }}>Admin → Products</span>.
           </div>
         </div>
       </div>

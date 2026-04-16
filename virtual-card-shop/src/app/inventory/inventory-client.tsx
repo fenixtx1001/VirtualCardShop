@@ -34,6 +34,12 @@ function msToClock(ms: number) {
   return hh > 0 ? `${hh}:${pad(m2)}:${pad(ss)}` : `${m2}:${pad(ss)}`;
 }
 
+function formatFriendlyProductName(productId: string) {
+  const s = String(productId || "").trim();
+  if (!s) return "—";
+  return s.replace(/_/g, " ").replace(/\s+/g, " ").trim();
+}
+
 export default function InventoryClient() {
   const [data, setData] = useState<MeResponse | null>(null);
   const [err, setErr] = useState<string | null>(null);
@@ -98,8 +104,17 @@ export default function InventoryClient() {
   const rows = data?.inventory ?? [];
   const sorted = useMemo(() => [...rows].sort((a, b) => a.productId.localeCompare(b.productId)), [rows]);
 
-  const thStyle: React.CSSProperties = { textAlign: "left", padding: 8, borderBottom: "1px solid #ddd", whiteSpace: "nowrap" };
-  const tdStyle: React.CSSProperties = { padding: 8, borderBottom: "1px solid #eee" };
+  const thStyle: React.CSSProperties = {
+    textAlign: "left",
+    padding: 8,
+    borderBottom: "1px solid #ddd",
+    whiteSpace: "nowrap",
+  };
+
+  const tdStyle: React.CSSProperties = {
+    padding: 8,
+    borderBottom: "1px solid #eee",
+  };
 
   return (
     <main>
@@ -152,7 +167,10 @@ export default function InventoryClient() {
 
                   return (
                     <tr key={r.productId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
-                      <td style={{ ...tdStyle, fontWeight: 800 }}>{r.productId}</td>
+                      <td style={{ ...tdStyle, fontWeight: 800 }}>
+                        {formatFriendlyProductName(r.productId)}
+                      </td>
+
                       <td style={tdStyle}>{r.packsOwned}</td>
 
                       <td style={tdStyle}>
