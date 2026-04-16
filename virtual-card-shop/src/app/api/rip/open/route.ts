@@ -16,6 +16,56 @@ function pickUnique<T>(arr: T[], n: number) {
   return copy.slice(0, Math.min(n, copy.length));
 }
 
+type PulledCard = {
+  id: number;
+  productSetId: string | null;
+  cardNumber: string;
+  player: string;
+  team: string | null;
+  subset: string | null;
+  variant: string | null;
+  frontImageUrl: string | null;
+  backImageUrl: string | null;
+  bookValue: number;
+  productSet: {
+    id: string;
+    name: string | null;
+    isBase: boolean;
+    oddsPerPack: number | null;
+  } | null;
+};
+
+type EnrichedCard = {
+  id: number;
+  productSetId: string | null;
+  productSetName: string | null;
+  productSetOddsPerPack: number | null;
+  cardNumber: string;
+  player: string;
+  team: string | null;
+  subset: string | null;
+  variant: string | null;
+  frontImageUrl: string | null;
+  backImageUrl: string | null;
+  isInsert: boolean;
+  bookValue: number;
+  ownedBefore: number;
+  ownedAfter: number;
+
+  // Prestige UI fields
+  prestigeTargetLevel: number | null;
+  isNeededForNextPrestige: boolean;
+  hitNextPrestigeWithThisCard: boolean;
+};
+
+type SetPrestigeSnapshot = {
+  totalCards: number;
+  currentPrestigeLevel: number;
+  nextPrestigeLevel: number;
+  beforeQtyByCardId: Map<number, number>;
+  missingForNextPrestigeBefore: Set<number>;
+};
+
 export async function POST(req: Request) {
   try {
     const body = (await req.json().catch(() => ({}))) as Body;
@@ -112,24 +162,7 @@ export async function POST(req: Request) {
 
       const chosenBase = pickUnique(baseCards, baseNeeded);
 
-      const chosenInserts: Array<{
-        id: number;
-        productSetId: string | null;
-        cardNumber: string;
-        player: string;
-        team: string | null;
-        subset: string | null;
-        variant: string | null;
-        frontImageUrl: string | null;
-        backImageUrl: string | null;
-        bookValue: number;
-        productSet: {
-          id: string;
-          name: string | null;
-          isBase: boolean;
-          oddsPerPack: number | null;
-        } | null;
-      }> = [];
+      const chosenInserts: PulledCard[] = [];
 
       for (const ins of insertsToPull) {
         const pool = await tx.card.findMany({
@@ -166,7 +199,7 @@ export async function POST(req: Request) {
         if (pick) chosenInserts.push(pick);
       }
 
-      const pulled = [...chosenBase, ...chosenInserts];
+      const pulled: PulledCard[] = [...chosenBase, ...chosenInserts];
 
       if (pulled.length < cardsPerPack) {
         const taken = new Set<number>(pulled.map((c) => c.id));
@@ -175,24 +208,74 @@ export async function POST(req: Request) {
         pulled.push(...pickUnique(remainingBase, need));
       }
 
-      const enriched: Array<{
-        id: number;
-        productSetId: string | null;
-        productSetName: string | null;
-        productSetOddsPerPack: number | null;
-        cardNumber: string;
-        player: string;
-        team: string | null;
-        subset: string | null;
-        variant: string | null;
-        frontImageUrl: string | null;
-        backImageUrl: string | null;
-        isInsert: boolean;
-        bookValue: number;
-        ownedAfter: number;
-      }> = [];
+      const productSetIdsTouched = Array.from(
+        new Set(pulled.map((c) => String(c.productSetId ?? "").trim()).filter(Boolean))
+      );
+
+      // Snapshot each touched set BEFORE ownership increments
+      const setSnapshots = new Map<string, SetPrestigeSnapshot>();
+
+      for (const productSetId of productSetIdsTouched) {
+        const cardsInSet = await tx.card.findMany({
+          where: { productSetId },
+          select: { id: true },
+          orderBy: { id: "asc" },
+        });
+
+        const ownershipsInSet = await tx.cardOwnership.findMany({
+          where: {
+            userId: user.id,
+            card: { productSetId },
+          },
+          select: {
+            cardId: true,
+            quantity: true,
+          },
+        });
+
+        const beforeQtyByCardId = new Map<number, number>();
+        for (const ownership of ownershipsInSet) {
+          beforeQtyByCardId.set(ownership.cardId, ownership.quantity);
+        }
+
+        let currentPrestigeLevel = Number.POSITIVE_INFINITY;
+        const missingForNextPrestigeBefore = new Set<number>();
+
+        for (const card of cardsInSet) {
+          const qty = beforeQtyByCardId.get(card.id) ?? 0;
+          if (qty < currentPrestigeLevel) currentPrestigeLevel = qty;
+        }
+
+        if (!Number.isFinite(currentPrestigeLevel)) {
+          currentPrestigeLevel = 0;
+        }
+
+        const nextPrestigeLevel = currentPrestigeLevel + 1;
+
+        for (const card of cardsInSet) {
+          const qty = beforeQtyByCardId.get(card.id) ?? 0;
+          if (qty < nextPrestigeLevel) {
+            missingForNextPrestigeBefore.add(card.id);
+          }
+        }
+
+        setSnapshots.set(productSetId, {
+          totalCards: cardsInSet.length,
+          currentPrestigeLevel,
+          nextPrestigeLevel,
+          beforeQtyByCardId,
+          missingForNextPrestigeBefore,
+        });
+      }
+
+      const enriched: EnrichedCard[] = [];
 
       for (const c of pulled) {
+        const beforeQty =
+          c.productSetId && setSnapshots.has(c.productSetId)
+            ? (setSnapshots.get(c.productSetId)!.beforeQtyByCardId.get(c.id) ?? 0)
+            : 0;
+
         const ownership = await tx.cardOwnership.upsert({
           where: { userId_cardId: { userId: user.id, cardId: c.id } },
           create: { userId: user.id, cardId: c.id, quantity: 1 },
@@ -216,13 +299,53 @@ export async function POST(req: Request) {
           backImageUrl: c.backImageUrl,
           isInsert,
           bookValue: c.bookValue,
+          ownedBefore: beforeQty,
           ownedAfter: ownership.quantity,
+          prestigeTargetLevel: null,
+          isNeededForNextPrestige: false,
+          hitNextPrestigeWithThisCard: false,
         });
       }
 
-      const productSetIdsTouched = Array.from(
-        new Set(pulled.map((c) => String(c.productSetId ?? "").trim()).filter(Boolean))
-      );
+      // Apply the exact three-scenario prestige logic
+      // Scenario 1: card does not matter for next prestige -> no UI flags
+      // Scenario 2: card is one of multiple needed -> isNeededForNextPrestige = true
+      // Scenario 3: card is the final one needed -> isNeededForNextPrestige = true AND hitNextPrestigeWithThisCard = true
+      for (const [productSetId, snapshot] of setSnapshots.entries()) {
+        const indicesForSet = enriched
+          .map((card, index) => ({ card, index }))
+          .filter(({ card }) => card.productSetId === productSetId);
+
+        if (indicesForSet.length === 0) continue;
+
+        const remainingMissing = new Set<number>(snapshot.missingForNextPrestigeBefore);
+        let milestoneAssigned = false;
+
+        for (const { card, index } of indicesForSet) {
+          const beforeQty = card.ownedBefore;
+          const afterQty = card.ownedAfter;
+          const target = snapshot.nextPrestigeLevel;
+
+          const thisCardWasNeeded =
+            beforeQty < target &&
+            afterQty >= target &&
+            remainingMissing.has(card.id);
+
+          if (!thisCardWasNeeded) {
+            continue;
+          }
+
+          enriched[index].prestigeTargetLevel = target;
+          enriched[index].isNeededForNextPrestige = true;
+
+          remainingMissing.delete(card.id);
+
+          if (!milestoneAssigned && remainingMissing.size === 0) {
+            enriched[index].hitNextPrestigeWithThisCard = true;
+            milestoneAssigned = true;
+          }
+        }
+      }
 
       if (productSetIdsTouched.length > 0) {
         await syncPrestigeProgressForProductSets({

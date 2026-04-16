@@ -19,6 +19,10 @@ type Card = {
   isInsert: boolean;
   bookValue: number;
   ownedAfter: number;
+
+  prestigeTargetLevel: number | null;
+  isNeededForNextPrestige: boolean;
+  hitNextPrestigeWithThisCard: boolean;
 };
 
 type OpenResult = {
@@ -86,6 +90,16 @@ function getInsertOddsLabel(card: Card | null) {
   return `1:${odds} packs`;
 }
 
+function getPrestigeProgressLabel(card: Card | null) {
+  if (!card?.isNeededForNextPrestige || !card.prestigeTargetLevel) return null;
+  return `Needed for Prestige x${card.prestigeTargetLevel}`;
+}
+
+function getPrestigeBannerLabel(card: Card | null) {
+  if (!card?.hitNextPrestigeWithThisCard || !card.prestigeTargetLevel) return null;
+  return `Prestige x${card.prestigeTargetLevel} reached!`;
+}
+
 export default function OpenPackClient({ productId }: { productId: string }) {
   const [loading, setLoading] = useState(false);
   const [metaLoading, setMetaLoading] = useState(false);
@@ -105,6 +119,8 @@ export default function OpenPackClient({ productId }: { productId: string }) {
   const prevCard = idx > 0 ? cards[idx - 1] : null;
   const currentInsertLabel = getInsertLabel(current);
   const currentInsertOddsLabel = getInsertOddsLabel(current);
+  const currentPrestigeProgressLabel = getPrestigeProgressLabel(current);
+  const currentPrestigeBannerLabel = getPrestigeBannerLabel(current);
 
   const canNext = opened && idx < cards.length - 1;
   const canPrev = opened && idx > 0;
@@ -276,6 +292,8 @@ export default function OpenPackClient({ productId }: { productId: string }) {
   }, [current]);
 
   const isDone = opened && !canNext;
+  const currentHasPrestigeProgress = Boolean(current?.isNeededForNextPrestige);
+  const currentHitPrestige = Boolean(current?.hitNextPrestigeWithThisCard);
 
   return (
     <main className="vcs-pack-root">
@@ -536,6 +554,42 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           aspect-ratio: 2.5 / 3.5;
         }
 
+        .flip-celebration {
+          position: absolute;
+          inset: -10px;
+          border-radius: 24px;
+          pointer-events: none;
+          opacity: 0;
+          transition: opacity 180ms ease;
+        }
+
+        .flip-celebration.active {
+          opacity: 1;
+          background:
+            radial-gradient(circle at 50% 50%, rgba(255, 219, 77, 0.28) 0%, rgba(255, 219, 77, 0.14) 35%, rgba(255, 219, 77, 0.05) 58%, rgba(255, 219, 77, 0) 74%),
+            radial-gradient(circle at 50% 50%, rgba(255, 170, 0, 0.18) 0%, rgba(255, 170, 0, 0.06) 42%, rgba(255, 170, 0, 0) 70%);
+          filter: blur(6px);
+          animation: prestigePulse 1.8s ease-in-out infinite;
+        }
+
+        .flip-banner {
+          position: absolute;
+          top: -12px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 3;
+          background: linear-gradient(135deg, #ffe082 0%, #ffca28 45%, #f59e0b 100%);
+          color: #3b2a00;
+          border: 1px solid rgba(120, 81, 0, 0.2);
+          border-radius: 999px;
+          padding: 7px 14px;
+          font-size: 12px;
+          font-weight: 950;
+          letter-spacing: 0.2px;
+          box-shadow: 0 12px 28px rgba(245, 158, 11, 0.28);
+          white-space: nowrap;
+        }
+
         .flip-card {
           position: absolute;
           inset: 0;
@@ -544,6 +598,13 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           background: ${colors.muted};
           box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
           overflow: hidden;
+        }
+
+        .flip-card.prestige-hit {
+          border-color: rgba(245, 158, 11, 0.55);
+          box-shadow:
+            0 0 0 2px rgba(255, 209, 102, 0.45),
+            0 18px 40px rgba(245, 158, 11, 0.22);
         }
 
         .face {
@@ -640,6 +701,44 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
         .kv b {
           font-weight: 950;
+        }
+
+        .prestige-progress-box {
+          margin-top: 12px;
+          border-radius: 14px;
+          border: 1px solid #a7e7b6;
+          background: #eefbf1;
+          padding: 12px;
+        }
+
+        .prestige-progress-box.hit {
+          border-color: #f3c15f;
+          background: linear-gradient(180deg, #fff8df 0%, #fff2c7 100%);
+          box-shadow: 0 10px 24px rgba(245, 158, 11, 0.14);
+        }
+
+        .prestige-progress-title {
+          font-size: 12px;
+          font-weight: 950;
+          color: #1f1f1f;
+          margin-bottom: 4px;
+          text-transform: uppercase;
+          letter-spacing: 0.35px;
+        }
+
+        .prestige-progress-main {
+          font-size: 15px;
+          font-weight: 950;
+          color: #1f1f1f;
+          line-height: 1.35;
+        }
+
+        .prestige-progress-sub {
+          margin-top: 4px;
+          font-size: 12px;
+          font-weight: 800;
+          color: #4d4d4d;
+          line-height: 1.4;
         }
 
         .pack-art {
@@ -741,11 +840,37 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           opacity: 0.9;
         }
 
+        .summary .line3 {
+          margin-top: 3px;
+          font-size: 12px;
+          font-weight: 900;
+          color: #1e7a35;
+        }
+
+        .summary .line3.hit {
+          color: #a16207;
+        }
+
         .footer-tip {
           margin-top: 10px;
           color: ${colors.subtext};
           font-size: 12px;
           font-weight: 750;
+        }
+
+        @keyframes prestigePulse {
+          0% {
+            transform: scale(0.985);
+            opacity: 0.72;
+          }
+          50% {
+            transform: scale(1.015);
+            opacity: 1;
+          }
+          100% {
+            transform: scale(0.985);
+            opacity: 0.72;
+          }
         }
 
         @media (max-width: 980px) {
@@ -789,6 +914,10 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           .btn {
             padding: 10px 12px;
             border-radius: 14px;
+          }
+          .flip-banner {
+            font-size: 11px;
+            padding: 7px 12px;
           }
         }
       `}</style>
@@ -937,7 +1066,13 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
                   <div className="flip-wrap" onClick={() => setFlipped((x) => !x)} title="Click to flip (or press F)">
                     <div className="flip-scene">
-                      <div className={cx("flip-card", flipped && "is-flipped")}>
+                      {currentHitPrestige && currentPrestigeBannerLabel ? (
+                        <div className="flip-banner">{currentPrestigeBannerLabel}</div>
+                      ) : null}
+
+                      <div className={cx("flip-celebration", currentHitPrestige && "active")} />
+
+                      <div className={cx("flip-card", flipped && "is-flipped", currentHitPrestige && "prestige-hit")}>
                         <div className="face front">
                           {cardFront ? (
                             <img src={cardFront} alt="Card front" />
@@ -1030,6 +1165,20 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                     </div>
                   </div>
 
+                  {currentHasPrestigeProgress && currentPrestigeProgressLabel ? (
+                    <div className={cx("prestige-progress-box", currentHitPrestige && "hit")}>
+                      <div className="prestige-progress-title">
+                        {currentHitPrestige ? "Prestige reached" : "Prestige progress"}
+                      </div>
+                      <div className="prestige-progress-main">{currentPrestigeProgressLabel}</div>
+                      <div className="prestige-progress-sub">
+                        {currentHitPrestige
+                          ? `This was the final card needed to reach Prestige x${current?.prestigeTargetLevel}.`
+                          : `This card was one of the copies you still needed for Prestige x${current?.prestigeTargetLevel}.`}
+                      </div>
+                    </div>
+                  ) : null}
+
                   {packImageUrl ? (
                     <div className="pack-art">
                       <div className="panel-title">Pack art</div>
@@ -1062,6 +1211,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                     {cards.map((c) => {
                       const insertLabel = getInsertLabel(c);
                       const insertOddsLabel = getInsertOddsLabel(c);
+                      const prestigeProgressLabel = getPrestigeProgressLabel(c);
 
                       return (
                         <li key={c.id}>
@@ -1072,6 +1222,13 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                             Book: <b>{money(c.bookValue)}</b> • You own: <b>{c.ownedAfter}</b>
                             {insertOddsLabel ? ` • Odds: ${insertOddsLabel}` : ""}
                           </div>
+                          {c.isNeededForNextPrestige && prestigeProgressLabel ? (
+                            <div className={cx("line3", c.hitNextPrestigeWithThisCard && "hit")}>
+                              {c.hitNextPrestigeWithThisCard
+                                ? `${prestigeProgressLabel} • This card hit it.`
+                                : prestigeProgressLabel}
+                            </div>
+                          ) : null}
                         </li>
                       );
                     })}
