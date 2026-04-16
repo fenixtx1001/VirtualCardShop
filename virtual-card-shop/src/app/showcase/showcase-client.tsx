@@ -35,7 +35,7 @@ type TopCardRow = {
 
   bookValue: number;
   qty: number;
-  ownedValue: number; // single-card value
+  ownedValue: number;
   frontImageUrl: string | null;
 };
 
@@ -71,6 +71,29 @@ type FavoritesRandomResponse = {
   error?: string;
 };
 
+type PrestigeBucketKey =
+  | "lvl1"
+  | "lvl2"
+  | "lvl3"
+  | "lvl4"
+  | "lvl5"
+  | "lvl10"
+  | "lvl25"
+  | "lvl50"
+  | "lvl75"
+  | "lvl100";
+
+type PrestigeBucketSet = {
+  productSetId: string;
+  productId: string | null;
+  productSetName: string | null;
+  isBase: boolean;
+  isInsert: boolean;
+  timesCompleted: number;
+  claimedCompletions: number;
+  claimable: number;
+};
+
 type PrestigeSummary = {
   ok: boolean;
   summary: {
@@ -78,15 +101,8 @@ type PrestigeSummary = {
     totalTimesCompleted: number;
     totalClaimableCompletions: number;
     bonusAwardedCents: number;
-    buckets: {
-      lvl1: number;
-      lvl2: number;
-      lvl3: number;
-      lvl4: number;
-      lvl5: number;
-      lvl10plus: number;
-      lvl25plus: number;
-    };
+    buckets: Record<PrestigeBucketKey, number>;
+    bucketSets: Record<PrestigeBucketKey, PrestigeBucketSet[]>;
   };
   claimable: Array<{
     productSetId: string;
@@ -98,7 +114,8 @@ type PrestigeSummary = {
     claimedCompletions: number;
     claimable: number;
     setValue: number;
-    nextRewardCents: number;
+    rewardReadyCents: number;
+    nextMilestoneLevel: number | null;
     bonusAwardedCents: number;
   }>;
   error?: string;
@@ -115,6 +132,19 @@ const colors = {
 };
 
 const starGold = "#f2c94c";
+
+const PRESTIGE_BUCKET_ORDER: Array<{ key: PrestigeBucketKey; label: string; level: number }> = [
+  { key: "lvl1", label: "1×", level: 1 },
+  { key: "lvl2", label: "2×", level: 2 },
+  { key: "lvl3", label: "3×", level: 3 },
+  { key: "lvl4", label: "4×", level: 4 },
+  { key: "lvl5", label: "5×", level: 5 },
+  { key: "lvl10", label: "10×", level: 10 },
+  { key: "lvl25", label: "25×", level: 25 },
+  { key: "lvl50", label: "50×", level: 50 },
+  { key: "lvl75", label: "75×", level: 75 },
+  { key: "lvl100", label: "100×", level: 100 },
+];
 
 function money(n: any) {
   const v = typeof n === "number" && Number.isFinite(n) ? n : 0;
@@ -142,10 +172,6 @@ function formatUserLabel(u: UserOption) {
   return email || "Unknown";
 }
 
-/**
- * Show ProductSet name for ALL cards (base or insert).
- * We intentionally prefer name over id, and if name is missing, we show nothing.
- */
 function productSetParen(c: TopCardRow) {
   const name = (c.productSetName ?? "").trim();
   if (name) return `(${name})`;
@@ -158,54 +184,116 @@ function productSetParenFav(c: FavoriteCard) {
   return "";
 }
 
-/**
- * Prestige tier styling (NO numbers inside icons — labels do the numeric work).
- * Distinct + tiered via icon + tint + border.
- */
-function medalForLevel(level: number) {
-  if (level >= 25) return { icon: "🏆", bg: "#fff4d6", border: "#f2d38a", text: "#6b4c00" };
-  if (level >= 10) return { icon: "💎", bg: "#eef7ff", border: "#b9dbff", text: "#124a8a" };
-  if (level >= 5) return { icon: "👑", bg: "#fff3e6", border: "#f2c9a6", text: "#7a3d00" };
-  if (level >= 4) return { icon: "🥇", bg: "#fff7dc", border: "#f2d38a", text: "#6b4c00" };
-  if (level >= 3) return { icon: "🥈", bg: "#f4f4f4", border: "#d7d7d7", text: "#333" };
-  if (level >= 2) return { icon: "🥉", bg: "#fff1ea", border: "#f1c2aa", text: "#6b2a12" };
-  if (level >= 1) return { icon: "🎖️", bg: "#eef4ff", border: "#c8dbff", text: "#1f3f7a" };
-  return { icon: "•", bg: colors.muted, border: colors.border, text: colors.subtext };
-}
-
-function prestigeTileStyle(kind: "1x" | "2x" | "3x" | "4x" | "5p" | "10p" | "25p") {
-  // Slightly different tints than table pills so tiles feel “designed”, not copied.
-  switch (kind) {
-    case "25p":
-      return { icon: "🏆", bg: "#fff7e6", border: "#f2d38a", ring: "rgba(242, 211, 138, 0.35)" };
-    case "10p":
-      return { icon: "💎", bg: "#f1f8ff", border: "#b9dbff", ring: "rgba(185, 219, 255, 0.40)" };
-    case "5p":
-      return { icon: "👑", bg: "#fff4ec", border: "#f2c9a6", ring: "rgba(242, 201, 166, 0.38)" };
-    case "4x":
-      return { icon: "🥇", bg: "#fff9e2", border: "#f2d38a", ring: "rgba(242, 211, 138, 0.30)" };
-    case "3x":
-      return { icon: "🥈", bg: "#f6f6f6", border: "#d7d7d7", ring: "rgba(215, 215, 215, 0.45)" };
-    case "2x":
-      return { icon: "🥉", bg: "#fff3ee", border: "#f1c2aa", ring: "rgba(241, 194, 170, 0.40)" };
-    case "1x":
-    default:
-      return { icon: "🎖️", bg: "#f0f6ff", border: "#c8dbff", ring: "rgba(200, 219, 255, 0.45)" };
+function currentMilestoneForLevel(level: number) {
+  let current = 0;
+  for (const item of PRESTIGE_BUCKET_ORDER) {
+    if (level >= item.level) current = item.level;
   }
+  return current;
 }
 
-function labelForTimesCompleted(n: number) {
-  if (n >= 25) return "25+";
-  if (n >= 10) return "10+";
-  if (n >= 5) return "5+";
-  return `${safeInt(n)}×`;
+function labelForCurrentMilestone(level: number) {
+  const current = currentMilestoneForLevel(level);
+  return current > 0 ? `${current}×` : "—";
+}
+
+function prestigeToneForLevel(level: number) {
+  const milestone = currentMilestoneForLevel(level);
+
+  if (milestone >= 100) {
+    return {
+      bg: "linear-gradient(135deg, #fff1bf 0%, #ffd66b 55%, #f4b840 100%)",
+      border: "#d7a737",
+      text: "#4d3200",
+      ring: "rgba(212, 157, 47, 0.22)",
+      dot: "#7a5200",
+    };
+  }
+  if (milestone >= 75) {
+    return {
+      bg: "linear-gradient(135deg, #ffe9f1 0%, #ffd3e2 100%)",
+      border: "#efb3c9",
+      text: "#7c2048",
+      ring: "rgba(205, 75, 128, 0.18)",
+      dot: "#a52f5f",
+    };
+  }
+  if (milestone >= 50) {
+    return {
+      bg: "linear-gradient(135deg, #f2eaff 0%, #e5d6ff 100%)",
+      border: "#ccb6ff",
+      text: "#56308f",
+      ring: "rgba(115, 79, 191, 0.16)",
+      dot: "#6d43bf",
+    };
+  }
+  if (milestone >= 25) {
+    return {
+      bg: "linear-gradient(135deg, #eef6ff 0%, #dcebff 100%)",
+      border: "#bfd8ff",
+      text: "#184b8b",
+      ring: "rgba(47, 111, 237, 0.14)",
+      dot: "#2f6fed",
+    };
+  }
+  if (milestone >= 10) {
+    return {
+      bg: "linear-gradient(135deg, #fff4e5 0%, #ffe9cc 100%)",
+      border: "#f0d1a4",
+      text: "#845100",
+      ring: "rgba(214, 141, 27, 0.14)",
+      dot: "#b56d10",
+    };
+  }
+  if (milestone >= 5) {
+    return {
+      bg: "linear-gradient(135deg, #f7f1ea 0%, #f1e4d4 100%)",
+      border: "#dec6aa",
+      text: "#6d4620",
+      ring: "rgba(120, 83, 36, 0.12)",
+      dot: "#9a6530",
+    };
+  }
+  if (milestone >= 4) {
+    return {
+      bg: "linear-gradient(135deg, #fff6dc 0%, #ffecb0 100%)",
+      border: "#ecd17e",
+      text: "#6c4d00",
+      ring: "rgba(196, 154, 37, 0.12)",
+      dot: "#9b7300",
+    };
+  }
+  if (milestone >= 3) {
+    return {
+      bg: "linear-gradient(135deg, #f6f7f8 0%, #e9edf1 100%)",
+      border: "#cfd7df",
+      text: "#39424d",
+      ring: "rgba(102, 117, 133, 0.12)",
+      dot: "#677585",
+    };
+  }
+  if (milestone >= 2) {
+    return {
+      bg: "linear-gradient(135deg, #fff1ea 0%, #ffe0d0 100%)",
+      border: "#efc1a8",
+      text: "#6b2f12",
+      ring: "rgba(173, 87, 46, 0.12)",
+      dot: "#a5532b",
+    };
+  }
+  return {
+    bg: "linear-gradient(135deg, #eef4ff 0%, #dbe8ff 100%)",
+    border: "#bfd2ff",
+    text: "#21447b",
+    ring: "rgba(47, 111, 237, 0.12)",
+    dot: "#2f6fed",
+  };
 }
 
 export default function ShowcaseClient() {
   const [users, setUsers] = useState<UserOption[]>([]);
   const [usersLoading, setUsersLoading] = useState(false);
 
-  // "" === Me
   const [selectedUserId, setSelectedUserId] = useState<string>("");
 
   const [leaderboard, setLeaderboard] = useState<LeaderRow[]>([]);
@@ -216,7 +304,6 @@ export default function ShowcaseClient() {
   const [topLoading, setTopLoading] = useState(false);
   const [topErr, setTopErr] = useState<string | null>(null);
 
-  // Top cards pagination
   const [topPage, setTopPage] = useState(1);
   const [topTotalPages, setTopTotalPages] = useState(1);
   const [topTotal, setTopTotal] = useState(0);
@@ -226,20 +313,18 @@ export default function ShowcaseClient() {
 
   const [viewMode, setViewMode] = useState<"cards" | "table">("cards");
 
-  // ⭐ Favorites (Shoebox)
   const [favCards, setFavCards] = useState<FavoriteCard[]>([]);
   const [favLoading, setFavLoading] = useState(false);
   const [favErr, setFavErr] = useState<string | null>(null);
   const [favIdx, setFavIdx] = useState(0);
   const [favFlipped, setFavFlipped] = useState(false);
 
-  // ⭐ Favorite ID set (drives star UI and optimistic behavior)
   const [favoriteIds, setFavoriteIds] = useState<Set<number>>(new Set());
 
-  // 🏆 Prestige
   const [prestige, setPrestige] = useState<PrestigeSummary | null>(null);
   const [prestigeLoading, setPrestigeLoading] = useState(false);
   const [prestigeErr, setPrestigeErr] = useState<string | null>(null);
+  const [selectedPrestigeBucket, setSelectedPrestigeBucket] = useState<PrestigeBucketKey | null>(null);
 
   const isViewingMe = selectedUserId === "";
 
@@ -306,7 +391,6 @@ export default function ShowcaseClient() {
   }
 
   async function loadFavoritesRandom() {
-    // Favorites are personal (no cross-user viewing right now)
     if (!isViewingMe) {
       setFavCards([]);
       setFavErr(null);
@@ -345,7 +429,6 @@ export default function ShowcaseClient() {
   }
 
   async function loadPrestige() {
-    // Prestige is now PUBLIC (read-only for other users).
     setPrestigeLoading(true);
     setPrestigeErr(null);
     try {
@@ -377,8 +460,6 @@ export default function ShowcaseClient() {
       const raw = await res.text();
       const j = raw ? JSON.parse(raw) : null;
       if (!res.ok) throw new Error(j?.error ?? `Failed (${res.status})`);
-
-      // refresh summary
       await loadPrestige();
     } catch {
       await loadPrestige();
@@ -401,7 +482,6 @@ export default function ShowcaseClient() {
   async function toggleFavorite(cardId: number) {
     if (!isViewingMe) return;
 
-    // optimistic: immediately update the star visuals
     const wasFav = favoriteIds.has(cardId);
     setFavoriteIds((prev) => {
       const next = new Set(prev);
@@ -410,7 +490,6 @@ export default function ShowcaseClient() {
       return next;
     });
 
-    // if we unstarred the currently-loaded shoebox card, also remove it from the local shoebox list
     if (wasFav) {
       setFavCards((prev) => {
         const next = prev.filter((c) => c.id !== cardId);
@@ -433,7 +512,6 @@ export default function ShowcaseClient() {
 
       const favorited = !!j?.favorited;
 
-      // If server disagrees, reconcile
       if (favorited !== !wasFav) {
         setFavoriteIds((prev) => {
           const next = new Set(prev);
@@ -443,19 +521,16 @@ export default function ShowcaseClient() {
         });
       }
 
-      // If we favorited a new card, refresh shoebox so it appears in the stack
       if (favorited && !wasFav) {
         await loadFavoritesRandom();
       }
     } catch {
-      // rollback optimistic on error
       setFavoriteIds((prev) => {
         const next = new Set(prev);
         if (wasFav) next.add(cardId);
         else next.delete(cardId);
         return next;
       });
-      // safest: reload shoebox state
       await loadFavoritesRandom();
     }
   }
@@ -468,13 +543,13 @@ export default function ShowcaseClient() {
   useEffect(() => {
     setTopPage(1);
     setJumpTo("");
+    setSelectedPrestigeBucket(null);
     loadTopCards(selectedUserId, 1);
     loadFavoritesRandom();
     loadPrestige();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedUserId]);
 
-  // Keyboard controls for shoebox (only when viewing Me)
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       if (!isViewingMe) return;
@@ -530,6 +605,10 @@ export default function ShowcaseClient() {
 
   const favCurrent = favCards[favIdx] ?? null;
 
+  const selectedBucketMeta = PRESTIGE_BUCKET_ORDER.find((x) => x.key === selectedPrestigeBucket) ?? null;
+  const selectedBucketRows =
+    selectedPrestigeBucket && prestige ? prestige.summary.bucketSets[selectedPrestigeBucket] ?? [] : [];
+
   return (
     <main
       style={{
@@ -554,8 +633,6 @@ export default function ShowcaseClient() {
           opacity: 0.6;
           cursor: not-allowed;
         }
-
-        /* Shoebox flip: simple crossfade (no mirrored front bug) */
         .vcs-flip-wrap {
           width: 100%;
           max-width: 420px;
@@ -627,7 +704,6 @@ export default function ShowcaseClient() {
       `}</style>
 
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        {/* Header */}
         <div
           style={{
             background: colors.card,
@@ -686,7 +762,6 @@ export default function ShowcaseClient() {
           </div>
         </div>
 
-        {/* Leaderboard */}
         <section
           style={{
             background: colors.card,
@@ -780,7 +855,6 @@ export default function ShowcaseClient() {
                             title={r.email ?? ""}
                           >
                             {r.image ? (
-                              // eslint-disable-next-line @next/next/no-img-element
                               <img src={r.image} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                             ) : (
                               (r.name?.trim()?.[0] ?? r.email?.trim()?.[0] ?? "?").toUpperCase()
@@ -807,7 +881,6 @@ export default function ShowcaseClient() {
           </div>
         </section>
 
-        {/* 🏆 Prestige */}
         <section
           style={{
             background: colors.card,
@@ -874,30 +947,30 @@ export default function ShowcaseClient() {
                   gap: 10,
                 }}
               >
-                {[
-                  { k: "1×", v: prestige.summary.buckets.lvl1, kind: "1x" as const },
-                  { k: "2×", v: prestige.summary.buckets.lvl2, kind: "2x" as const },
-                  { k: "3×", v: prestige.summary.buckets.lvl3, kind: "3x" as const },
-                  { k: "4×", v: prestige.summary.buckets.lvl4, kind: "4x" as const },
-                  { k: "5+", v: prestige.summary.buckets.lvl5, kind: "5p" as const },
-                  { k: "10+", v: prestige.summary.buckets.lvl10plus, kind: "10p" as const },
-                  { k: "25+", v: prestige.summary.buckets.lvl25plus, kind: "25p" as const },
-                ].map((x) => {
-                  const s = prestigeTileStyle(x.kind);
+                {PRESTIGE_BUCKET_ORDER.map((x) => {
+                  const count = prestige.summary.buckets[x.key] ?? 0;
+                  const tone = prestigeToneForLevel(x.level);
+                  const active = selectedPrestigeBucket === x.key;
+
                   return (
-                    <div
-                      key={x.k}
+                    <button
+                      key={x.key}
+                      onClick={() => setSelectedPrestigeBucket((prev) => (prev === x.key ? null : x.key))}
                       style={{
-                        border: `1px solid ${s.border}`,
+                        border: `1px solid ${tone.border}`,
                         borderRadius: 14,
                         padding: 12,
-                        background: s.bg,
+                        background: tone.bg,
                         display: "flex",
                         justifyContent: "space-between",
                         gap: 10,
                         alignItems: "center",
-                        boxShadow: `0 10px 24px ${s.ring}`,
+                        boxShadow: active ? `0 14px 30px ${tone.ring}` : `0 10px 24px ${tone.ring}`,
+                        cursor: "pointer",
+                        transform: active ? "translateY(-1px)" : "translateY(0)",
+                        transition: "transform 120ms ease, box-shadow 120ms ease",
                       }}
+                      title={`Show sets in the ${x.label} prestige bucket`}
                     >
                       <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
                         <div
@@ -908,20 +981,33 @@ export default function ShowcaseClient() {
                             display: "grid",
                             placeItems: "center",
                             background: "#ffffff",
-                            border: `1px solid ${s.border}`,
+                            border: `1px solid ${tone.border}`,
                             boxShadow: "0 10px 18px rgba(0,0,0,0.06)",
-                            fontSize: 18,
                           }}
                           aria-hidden
                         >
-                          {s.icon}
+                          <span
+                            style={{
+                              width: 8,
+                              height: 8,
+                              borderRadius: 999,
+                              background: tone.dot,
+                              display: "inline-block",
+                            }}
+                          />
                         </div>
-                        <div>
-                          <div style={{ fontSize: 12, color: colors.subtext, fontWeight: 900 }}>{x.k}</div>
-                          <div style={{ fontSize: 16, fontWeight: 950 }}>{safeInt(x.v).toLocaleString()}</div>
+                        <div style={{ textAlign: "left" }}>
+                          <div style={{ fontSize: 12, color: colors.subtext, fontWeight: 900 }}>{x.label}</div>
+                          <div style={{ fontSize: 16, fontWeight: 950, color: tone.text }}>
+                            {safeInt(count).toLocaleString()}
+                          </div>
                         </div>
                       </div>
-                    </div>
+
+                      <div style={{ fontSize: 12, color: colors.subtext, fontWeight: 900 }}>
+                        {active ? "Hide" : "View"}
+                      </div>
+                    </button>
                   );
                 })}
               </div>
@@ -945,6 +1031,131 @@ export default function ShowcaseClient() {
                 </div>
               </div>
 
+              {selectedBucketMeta ? (
+                <div
+                  style={{
+                    marginTop: 12,
+                    border: `1px solid ${colors.border}`,
+                    borderRadius: 14,
+                    background: "#fff",
+                    overflow: "hidden",
+                  }}
+                >
+                  <div
+                    style={{
+                      padding: 12,
+                      borderBottom: `1px solid ${colors.border}`,
+                      display: "flex",
+                      justifyContent: "space-between",
+                      gap: 10,
+                      flexWrap: "wrap",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div>
+                      <div style={{ fontSize: 15, fontWeight: 950 }}>
+                        {selectedBucketMeta.label} bucket — {safeInt(selectedBucketRows.length).toLocaleString()} sets
+                      </div>
+                      <div style={{ marginTop: 4, fontSize: 12, color: colors.subtext, fontWeight: 800 }}>
+                        Showing the sets currently counted in this prestige bucket for <b>{selectedLabel}</b>.
+                      </div>
+                    </div>
+
+                    <button className="vcs-btn" onClick={() => setSelectedPrestigeBucket(null)}>
+                      Close
+                    </button>
+                  </div>
+
+                  {selectedBucketRows.length === 0 ? (
+                    <div style={{ padding: 12, color: colors.subtext, fontWeight: 800 }}>No sets in this bucket right now.</div>
+                  ) : (
+                    <div style={{ overflowX: "auto" }}>
+                      <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 880 }}>
+                        <thead style={{ background: "#f7f7f7" }}>
+                          <tr>
+                            {["Set", "Current Level", "Claimable", "Type", ""].map((h) => (
+                              <th
+                                key={h}
+                                style={{
+                                  textAlign: "left",
+                                  padding: 12,
+                                  borderBottom: `1px solid ${colors.border}`,
+                                  whiteSpace: "nowrap",
+                                  fontWeight: 900,
+                                  fontSize: 12,
+                                  color: "#333",
+                                }}
+                              >
+                                {h}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {selectedBucketRows.map((r, idx) => {
+                            const type = r.isBase ? "Base" : r.isInsert ? "Insert" : "Set";
+                            const tone = prestigeToneForLevel(r.timesCompleted);
+                            return (
+                              <tr key={r.productSetId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
+                                <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
+                                  <div style={{ fontWeight: 950 }}>{r.productSetName?.trim() || r.productSetId}</div>
+                                  <div style={{ fontSize: 12, color: colors.subtext, fontWeight: 800 }}>{r.productId ?? ""}</div>
+                                </td>
+
+                                <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
+                                  <span
+                                    style={{
+                                      display: "inline-flex",
+                                      alignItems: "center",
+                                      gap: 8,
+                                      border: `1px solid ${tone.border}`,
+                                      background: tone.bg,
+                                      borderRadius: 999,
+                                      padding: "6px 10px",
+                                      fontWeight: 950,
+                                      color: tone.text,
+                                      boxShadow: `0 10px 20px ${tone.ring}`,
+                                    }}
+                                    title={`Current completion level: ${safeInt(r.timesCompleted)}×`}
+                                  >
+                                    <span
+                                      aria-hidden
+                                      style={{
+                                        width: 7,
+                                        height: 7,
+                                        borderRadius: 999,
+                                        background: tone.dot,
+                                        display: "inline-block",
+                                      }}
+                                    />
+                                    <span>{safeInt(r.timesCompleted)}×</span>
+                                  </span>
+                                </td>
+
+                                <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 950 }}>
+                                  {safeInt(r.claimable)}
+                                </td>
+
+                                <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>{type}</td>
+
+                                <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
+                                  <Link
+                                    href={`/checklist/${encodeURIComponent(r.productSetId)}`}
+                                    style={{ textDecoration: "underline", fontWeight: 900, color: colors.accent }}
+                                  >
+                                    Checklist
+                                  </Link>
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                </div>
+              ) : null}
+
               {prestige.claimable.length === 0 ? (
                 <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>Nothing to claim right now.</div>
               ) : (
@@ -952,7 +1163,7 @@ export default function ShowcaseClient() {
                   <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 920 }}>
                     <thead style={{ background: "#f7f7f7" }}>
                       <tr>
-                        {["Set", "Prestige", "Claimable", "Next Reward", "Type", ""].map((h) => (
+                        {["Set", "Prestige", "Claimable", "Reward Ready", "Type", ""].map((h) => (
                           <th
                             key={h}
                             style={{
@@ -972,9 +1183,8 @@ export default function ShowcaseClient() {
                     </thead>
                     <tbody>
                       {prestige.claimable.map((r, idx) => {
-                        const medal = medalForLevel(r.timesCompleted);
                         const type = r.isBase ? "Base" : r.isInsert ? "Insert" : "Set";
-                        const label = labelForTimesCompleted(r.timesCompleted);
+                        const tone = prestigeToneForLevel(r.timesCompleted);
 
                         return (
                           <tr key={r.productSetId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
@@ -989,27 +1199,39 @@ export default function ShowcaseClient() {
                                   display: "inline-flex",
                                   alignItems: "center",
                                   gap: 8,
-                                  border: `1px solid ${medal.border}`,
-                                  background: medal.bg,
+                                  border: `1px solid ${tone.border}`,
+                                  background: tone.bg,
                                   borderRadius: 999,
                                   padding: "6px 10px",
                                   fontWeight: 950,
-                                  color: medal.text,
-                                  boxShadow: "0 10px 20px rgba(0,0,0,0.05)",
+                                  color: tone.text,
+                                  boxShadow: `0 10px 20px ${tone.ring}`,
                                 }}
-                                title={`Current completion level: ${safeInt(r.timesCompleted)}×`}
+                                title={`Current completion level: ${safeInt(r.timesCompleted)}× • milestone ${labelForCurrentMilestone(
+                                  r.timesCompleted
+                                )}`}
                               >
-                                <span aria-hidden>{medal.icon}</span>
-                                <span>{label}</span>
+                                <span
+                                  aria-hidden
+                                  style={{
+                                    width: 7,
+                                    height: 7,
+                                    borderRadius: 999,
+                                    background: tone.dot,
+                                    display: "inline-block",
+                                  }}
+                                />
+                                <span>{safeInt(r.timesCompleted)}×</span>
                               </span>
                             </td>
 
                             <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 950 }}>{safeInt(r.claimable)}</td>
 
                             <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 950 }}>
-                              {centsToMoney(r.nextRewardCents)}
+                              {centsToMoney(r.rewardReadyCents)}
                               <div style={{ fontSize: 12, color: colors.subtext, fontWeight: 800 }}>
-                                (Set value {money(r.setValue)})
+                                Set value {money(r.setValue)}
+                                {r.nextMilestoneLevel ? ` • Next milestone ${r.nextMilestoneLevel}×` : ""}
                               </div>
                             </td>
 
@@ -1037,7 +1259,6 @@ export default function ShowcaseClient() {
           )}
         </section>
 
-        {/* Top cards */}
         <section
           style={{
             background: colors.card,
@@ -1178,7 +1399,7 @@ export default function ShowcaseClient() {
                           </Link>
                         </td>
                         <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
-                          {isViewingMe ? (
+                          {isFav ? (
                             <button
                               onClick={() => toggleFavorite(c.cardId)}
                               title={isFav ? "Unfavorite" : "Favorite"}
@@ -1280,7 +1501,6 @@ export default function ShowcaseClient() {
                         }}
                       >
                         {c.frontImageUrl ? (
-                          // eslint-disable-next-line @next/next/no-img-element
                           <img
                             src={c.frontImageUrl}
                             alt=""
@@ -1328,7 +1548,6 @@ export default function ShowcaseClient() {
           )}
         </section>
 
-        {/* ⭐ Favorites Shoebox (below Top Cards) */}
         <section
           style={{
             background: colors.card,
@@ -1398,7 +1617,6 @@ export default function ShowcaseClient() {
                     <div className={`vcs-flip-card ${favFlipped ? "is-flipped" : ""}`}>
                       <div className="vcs-face front">
                         {favCurrent?.frontImageUrl ? (
-                          // eslint-disable-next-line @next/next/no-img-element
                           <img src={favCurrent.frontImageUrl} alt="Card front" />
                         ) : (
                           <div className="vcs-img-missing">(No front image)</div>
@@ -1407,7 +1625,6 @@ export default function ShowcaseClient() {
 
                       <div className="vcs-face back">
                         {favCurrent?.backImageUrl ? (
-                          // eslint-disable-next-line @next/next/no-img-element
                           <img src={favCurrent.backImageUrl} alt="Card back" />
                         ) : (
                           <div className="vcs-img-missing">(No back image)</div>

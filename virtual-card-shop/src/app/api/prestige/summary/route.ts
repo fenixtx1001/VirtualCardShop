@@ -7,14 +7,22 @@ import { computeProductSetLevel } from "@/lib/prestige";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+const MILESTONES = [1, 2, 3, 4, 5, 10, 25, 50, 75, 100] as const;
+
+type BucketKey =
+  | "lvl1"
+  | "lvl2"
+  | "lvl3"
+  | "lvl4"
+  | "lvl5"
+  | "lvl10"
+  | "lvl25"
+  | "lvl50"
+  | "lvl75"
+  | "lvl100";
+
 function clampInt(n: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n));
-}
-
-function pctForLevel(level: number) {
-  // 2% per completion level, capped at 50%
-  const pct = level * 0.02;
-  return Math.max(0, Math.min(0.5, pct));
 }
 
 function shortErr(e: any) {
@@ -24,20 +32,76 @@ function shortErr(e: any) {
   return { code, message };
 }
 
+function getMultiplierForLevel(level: number) {
+  switch (level) {
+    case 1:
+      return 0.05;
+    case 2:
+      return 0.075;
+    case 3:
+      return 0.1;
+    case 4:
+      return 0.15;
+    case 5:
+      return 0.25;
+    case 10:
+      return 0.5;
+    case 25:
+      return 2.0;
+    case 50:
+      return 3.0;
+    case 75:
+      return 5.0;
+    case 100:
+      return 8.0;
+    default:
+      return 0;
+  }
+}
+
+function getBucketKey(level: number): BucketKey | null {
+  if (level >= 100) return "lvl100";
+  if (level >= 75) return "lvl75";
+  if (level >= 50) return "lvl50";
+  if (level >= 25) return "lvl25";
+  if (level >= 10) return "lvl10";
+  if (level >= 5) return "lvl5";
+  if (level === 4) return "lvl4";
+  if (level === 3) return "lvl3";
+  if (level === 2) return "lvl2";
+  if (level === 1) return "lvl1";
+  return null;
+}
+
+function nextMilestoneAfter(level: number) {
+  for (const m of MILESTONES) {
+    if (m > level) return m;
+  }
+  return null;
+}
+
+function rewardReadyCentsForRange(fromClaimed: number, toCompleted: number, setValue: number) {
+  let total = 0;
+
+  for (let lvl = fromClaimed + 1; lvl <= toCompleted; lvl++) {
+    const multiplier = getMultiplierForLevel(lvl);
+    if (multiplier > 0) {
+      total += Math.round(setValue * multiplier * 100);
+    }
+  }
+
+  return total;
+}
+
 export async function GET(req: Request) {
   try {
-    // Viewer must be logged in, but can view other users’ prestige (read-only).
     const viewer = await requireUser();
     const url = new URL(req.url);
 
     const limit = clampInt(parseInt(url.searchParams.get("limit") ?? "60", 10) || 60, 1, 200);
-
-    // Optional: view another user's prestige on Showcase.
     const requestedUserId = (url.searchParams.get("userId") ?? "").trim();
     const targetUserId = requestedUserId || viewer.id;
 
-    // Pull prestige rows (created when we sync progress after pack opens,
-    // and also created lazily on redeem)
     const rows = await prisma.productSetPrestige.findMany({
       where: { userId: targetUserId },
       include: {
@@ -49,16 +113,42 @@ export async function GET(req: Request) {
       take: 5000,
     });
 
-    // Buckets: mutually exclusive ranges for UI tiles
-    // 1×, 2×, 3×, 4×, 5–9×, 10–24×, 25×+
-    const buckets = {
+    const buckets: Record<BucketKey, number> = {
       lvl1: 0,
       lvl2: 0,
       lvl3: 0,
       lvl4: 0,
-      lvl5: 0, // 5–9
-      lvl10plus: 0, // 10–24
-      lvl25plus: 0, // 25+
+      lvl5: 0,
+      lvl10: 0,
+      lvl25: 0,
+      lvl50: 0,
+      lvl75: 0,
+      lvl100: 0,
+    };
+
+    const bucketSets: Record<
+      BucketKey,
+      Array<{
+        productSetId: string;
+        productId: string | null;
+        productSetName: string | null;
+        isBase: boolean;
+        isInsert: boolean;
+        timesCompleted: number;
+        claimedCompletions: number;
+        claimable: number;
+      }>
+    > = {
+      lvl1: [],
+      lvl2: [],
+      lvl3: [],
+      lvl4: [],
+      lvl5: [],
+      lvl10: [],
+      lvl25: [],
+      lvl50: [],
+      lvl75: [],
+      lvl100: [],
     };
 
     let setsWithAnyCompletion = 0;
@@ -69,25 +159,32 @@ export async function GET(req: Request) {
     const claimableCandidates = rows.filter((r) => (r.timesCompleted ?? 0) > (r.claimedCompletions ?? 0));
     const claimableTop = claimableCandidates.slice(0, limit);
 
-    // For claimable preview, compute current level + setValue (can be expensive)
-    // We only compute for the top N claimables.
     const claimable = await prisma.$transaction(async (tx) => {
-      const out: any[] = [];
+      const out: Array<{
+        productSetId: string;
+        productId: string | null;
+        productSetName: string | null;
+        isBase: boolean;
+        isInsert: boolean;
+        timesCompleted: number;
+        claimedCompletions: number;
+        claimable: number;
+        setValue: number;
+        rewardReadyCents: number;
+        nextMilestoneLevel: number | null;
+        bonusAwardedCents: number;
+      }> = [];
 
       for (const r of claimableTop) {
         const productSetId = r.productSetId;
-
         const { level: currentLevel, setValue } = await computeProductSetLevel(tx, targetUserId, productSetId);
 
-        // Keep timesCompleted forward-moving (no money here)
         const timesCompleted = Math.max(r.timesCompleted ?? 0, currentLevel);
         const claimed = r.claimedCompletions ?? 0;
         const canClaim = Math.max(0, timesCompleted - claimed);
 
-        // Preview next claim payout (for the NEXT unclaimed level)
-        const nextLevel = claimed + 1;
-        const pct = pctForLevel(nextLevel);
-        const nextRewardCents = Math.round(setValue * pct * 100);
+        const rewardReadyCents = rewardReadyCentsForRange(claimed, timesCompleted, setValue);
+        const nextMilestoneLevel = nextMilestoneAfter(claimed);
 
         out.push({
           productSetId,
@@ -99,7 +196,8 @@ export async function GET(req: Request) {
           claimedCompletions: claimed,
           claimable: canClaim,
           setValue,
-          nextRewardCents,
+          rewardReadyCents,
+          nextMilestoneLevel,
           bonusAwardedCents: r.bonusAwardedCents ?? 0,
         });
       }
@@ -116,28 +214,43 @@ export async function GET(req: Request) {
       totalClaimableCompletions += Math.max(0, t - claimed);
       bonusAwardedCents += r.bonusAwardedCents ?? 0;
 
-      // Mutually exclusive buckets
-      if (t === 1) buckets.lvl1++;
-      else if (t === 2) buckets.lvl2++;
-      else if (t === 3) buckets.lvl3++;
-      else if (t === 4) buckets.lvl4++;
-      else if (t >= 5 && t < 10) buckets.lvl5++;
-      else if (t >= 10 && t < 25) buckets.lvl10plus++;
-      else if (t >= 25) buckets.lvl25plus++;
+      const bucketKey = getBucketKey(t);
+      if (!bucketKey) continue;
+
+      buckets[bucketKey]++;
+
+      bucketSets[bucketKey].push({
+        productSetId: r.productSetId,
+        productId: r.productSet?.productId ?? null,
+        productSetName: r.productSet?.name ?? null,
+        isBase: !!r.productSet?.isBase,
+        isInsert: !!r.productSet?.isInsert,
+        timesCompleted: t,
+        claimedCompletions: claimed,
+        claimable: Math.max(0, t - claimed),
+      });
+    }
+
+    for (const key of Object.keys(bucketSets) as BucketKey[]) {
+      bucketSets[key].sort((a, b) => {
+        if (b.timesCompleted !== a.timesCompleted) return b.timesCompleted - a.timesCompleted;
+        return (a.productSetName ?? a.productSetId).localeCompare(b.productSetName ?? b.productSetId);
+      });
     }
 
     return NextResponse.json(
       {
         ok: true,
-        targetUserId, // helpful for debugging
+        targetUserId,
         summary: {
           setsWithAnyCompletion,
           totalTimesCompleted,
           totalClaimableCompletions,
           bonusAwardedCents,
           buckets,
+          bucketSets,
         },
-        claimable, // top N claimables with preview data
+        claimable,
       },
       { status: 200 }
     );
