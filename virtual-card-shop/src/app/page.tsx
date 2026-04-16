@@ -27,11 +27,12 @@ const colors = {
   card: "#ffffff",
   border: "#e7e3dc",
   text: "#1f1f1f",
-  // ✅ Darker subtext for mobile readability
   subtext: "#4b4b4b",
   accent: "#2f6fed",
   muted: "#f2efe9",
 };
+
+const PRESTIGE_BADGES = [1, 2, 3, 4, 5, 10, 25, 50, 75, 100];
 
 function clamp(n: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n));
@@ -68,32 +69,130 @@ function resolveImageUrl(maybeUrl: string | null | undefined) {
   return path;
 }
 
-function labelForTimesCompleted(level: number) {
+function getCurrentPrestigeMilestone(level: number) {
   const v = Math.max(0, Math.floor(level));
-  if (v >= 25) return "25+";
-  if (v >= 10) return "10+";
-  if (v >= 5) return "5+";
-  if (v >= 1) return `${v}×`;
-  return "";
+  let current = 0;
+  for (const milestone of PRESTIGE_BADGES) {
+    if (v >= milestone) current = milestone;
+  }
+  return current;
 }
 
-function badgeForLevel(level: number) {
-  // Tiny + distinct + no confusing numbers inside the icon itself
-  if (level >= 25) return { icon: "🏆", bg: "#fff4d6", border: "#f2d38a", text: "#6b4c00" };
-  if (level >= 10) return { icon: "💎", bg: "#eef6ff", border: "#c8dbff", text: "#124a8a" };
-  if (level >= 5) return { icon: "👑", bg: "#fff1ea", border: "#f1c2aa", text: "#7a3d00" };
-  if (level >= 4) return { icon: "🥇", bg: "#fff7dc", border: "#f2d38a", text: "#6b4c00" };
-  if (level >= 3) return { icon: "🥈", bg: "#f4f4f4", border: "#d7d7d7", text: "#333" };
-  if (level >= 2) return { icon: "🥉", bg: "#fff1ea", border: "#f1c2aa", text: "#6b2a12" };
-  if (level >= 1) return { icon: "🎖️", bg: "#eef4ff", border: "#c8dbff", text: "#1f3f7a" };
+function labelForMilestoneBadge(level: number) {
+  const currentMilestone = getCurrentPrestigeMilestone(level);
+  if (currentMilestone <= 0) return "";
+  return `${currentMilestone}×`;
+}
+
+function getBadgeTone(level: number) {
+  const milestone = getCurrentPrestigeMilestone(level);
+
+  if (milestone >= 100) {
+    return {
+      bg: "linear-gradient(135deg, #fff1bf 0%, #ffd66b 55%, #f4b840 100%)",
+      border: "#d7a737",
+      text: "#4d3200",
+      glow: "0 12px 28px rgba(212, 157, 47, 0.22)",
+      dot: "#7a5200",
+    };
+  }
+
+  if (milestone >= 75) {
+    return {
+      bg: "linear-gradient(135deg, #ffe9f1 0%, #ffd3e2 100%)",
+      border: "#efb3c9",
+      text: "#7c2048",
+      glow: "0 10px 24px rgba(205, 75, 128, 0.16)",
+      dot: "#a52f5f",
+    };
+  }
+
+  if (milestone >= 50) {
+    return {
+      bg: "linear-gradient(135deg, #f2eaff 0%, #e5d6ff 100%)",
+      border: "#ccb6ff",
+      text: "#56308f",
+      glow: "0 10px 24px rgba(115, 79, 191, 0.14)",
+      dot: "#6d43bf",
+    };
+  }
+
+  if (milestone >= 25) {
+    return {
+      bg: "linear-gradient(135deg, #eef6ff 0%, #dcebff 100%)",
+      border: "#bfd8ff",
+      text: "#184b8b",
+      glow: "0 10px 24px rgba(47, 111, 237, 0.12)",
+      dot: "#2f6fed",
+    };
+  }
+
+  if (milestone >= 10) {
+    return {
+      bg: "linear-gradient(135deg, #fff4e5 0%, #ffe9cc 100%)",
+      border: "#f0d1a4",
+      text: "#845100",
+      glow: "0 8px 20px rgba(214, 141, 27, 0.12)",
+      dot: "#b56d10",
+    };
+  }
+
+  if (milestone >= 5) {
+    return {
+      bg: "linear-gradient(135deg, #f7f1ea 0%, #f1e4d4 100%)",
+      border: "#dec6aa",
+      text: "#6d4620",
+      glow: "0 8px 18px rgba(120, 83, 36, 0.10)",
+      dot: "#9a6530",
+    };
+  }
+
+  if (milestone >= 4) {
+    return {
+      bg: "linear-gradient(135deg, #fff6dc 0%, #ffecb0 100%)",
+      border: "#ecd17e",
+      text: "#6c4d00",
+      glow: "0 8px 18px rgba(196, 154, 37, 0.10)",
+      dot: "#9b7300",
+    };
+  }
+
+  if (milestone >= 3) {
+    return {
+      bg: "linear-gradient(135deg, #f6f7f8 0%, #e9edf1 100%)",
+      border: "#cfd7df",
+      text: "#39424d",
+      glow: "0 8px 18px rgba(102, 117, 133, 0.10)",
+      dot: "#677585",
+    };
+  }
+
+  if (milestone >= 2) {
+    return {
+      bg: "linear-gradient(135deg, #fff1ea 0%, #ffe0d0 100%)",
+      border: "#efc1a8",
+      text: "#6b2f12",
+      glow: "0 8px 18px rgba(173, 87, 46, 0.10)",
+      dot: "#a5532b",
+    };
+  }
+
+  if (milestone >= 1) {
+    return {
+      bg: "linear-gradient(135deg, #eef4ff 0%, #dbe8ff 100%)",
+      border: "#bfd2ff",
+      text: "#21447b",
+      glow: "0 8px 18px rgba(47, 111, 237, 0.10)",
+      dot: "#2f6fed",
+    };
+  }
+
   return null;
 }
 
 export default function HomePage() {
   const [sets, setSets] = useState<SummaryRow[]>([]);
   const [progressError, setProgressError] = useState<string | null>(null);
-
-  // 🏆 Prestige levels keyed by productSetId (here: your SummaryRow.productId)
   const [prestigeById, setPrestigeById] = useState<Record<string, PrestigeLevelRow>>({});
 
   async function loadPrestigeLevels(productSetIds: string[]) {
@@ -104,12 +203,13 @@ export default function HomePage() {
     }
 
     try {
-      const res = await fetch(`/api/prestige/levels?ids=${encodeURIComponent(uniq.join(","))}`, { cache: "no-store" });
+      const res = await fetch(`/api/prestige/levels?ids=${encodeURIComponent(uniq.join(","))}`, {
+        cache: "no-store",
+      });
       const raw = await res.text();
       const j = raw ? JSON.parse(raw) : null;
 
       if (!res.ok || !j?.ok || !j?.levels) {
-        // Fail silently; Home should never break from prestige.
         setPrestigeById({});
         return;
       }
@@ -150,11 +250,9 @@ export default function HomePage() {
         throw new Error(j?.error ?? `Failed to load collection summary (${res.status})`);
       }
 
-      // ✅ Keep your existing behavior: this endpoint returns an ARRAY
       const arr = Array.isArray(j) ? (j as SummaryRow[]) : [];
       setSets(arr);
 
-      // Load prestige info for these ProductSet IDs (your productId is the ProductSet id)
       await loadPrestigeLevels(arr.map((x) => x.productId));
     } catch (e: any) {
       setProgressError(e?.message ?? "Failed to load set progress");
@@ -213,7 +311,6 @@ export default function HomePage() {
         `,
       }}
     >
-      {/* ✅ Light global polish: better tap targets + consistent focus */}
       <style jsx global>{`
         a {
           -webkit-tap-highlight-color: transparent;
@@ -234,7 +331,6 @@ export default function HomePage() {
       `}</style>
 
       <div style={{ maxWidth: 1120, margin: "0 auto" }}>
-        {/* HERO */}
         <div
           style={{
             background: colors.card,
@@ -285,7 +381,6 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* ACTION TILES */}
         <div
           style={{
             display: "grid",
@@ -329,7 +424,6 @@ export default function HomePage() {
           ))}
         </div>
 
-        {/* SETS IN PROGRESS */}
         <div
           style={{
             background: colors.card,
@@ -409,13 +503,12 @@ export default function HomePage() {
 
                 const totalCards = safeNum(s.totalCards);
                 const uniqueOwned = safeNum(s.uniqueOwned);
-
-                // ✅ Base completion remains 100% conceptually
                 const baseComplete = totalCards > 0 && uniqueOwned >= totalCards;
 
                 const prestige = prestigeById[s.productId];
                 const level = safeNum(prestige?.level, 0);
-                const badge = level >= 1 ? badgeForLevel(level) : null;
+                const badgeLabel = level >= 1 ? labelForMilestoneBadge(level) : "";
+                const badgeTone = level >= 1 ? getBadgeTone(level) : null;
 
                 return (
                   <div
@@ -427,7 +520,6 @@ export default function HomePage() {
                       background: "linear-gradient(180deg, #ffffff, #fbfaf7)",
                     }}
                   >
-                    {/* ✅ Responsive set row: stacks on mobile without media-query gymnastics */}
                     <div
                       style={{
                         display: "grid",
@@ -436,7 +528,6 @@ export default function HomePage() {
                         alignItems: "start",
                       }}
                     >
-                      {/* Pack thumbnail */}
                       <div
                         style={{
                           width: 78,
@@ -484,9 +575,7 @@ export default function HomePage() {
                         )}
                       </div>
 
-                      {/* Content */}
                       <div style={{ minWidth: 0 }}>
-                        {/* Top row: title + condensed stats */}
                         <div
                           style={{
                             display: "flex",
@@ -510,26 +599,36 @@ export default function HomePage() {
                           >
                             <span>{displayName}</span>
 
-                            {badge ? (
+                            {badgeTone && badgeLabel ? (
                               <span
-                                title={`Prestige: ${labelForTimesCompleted(level) || "—"}`}
+                                title={`Prestige milestone reached: ${badgeLabel}`}
                                 style={{
                                   display: "inline-flex",
                                   alignItems: "center",
-                                  gap: 6,
-                                  padding: "3px 8px",
+                                  gap: 7,
+                                  padding: "4px 9px",
                                   borderRadius: 999,
-                                  border: `1px solid ${badge.border}`,
-                                  background: badge.bg,
-                                  color: badge.text,
+                                  border: `1px solid ${badgeTone.border}`,
+                                  background: badgeTone.bg,
+                                  color: badgeTone.text,
                                   fontWeight: 950,
                                   fontSize: 11,
                                   lineHeight: 1.15,
-                                  boxShadow: "0 8px 18px rgba(0,0,0,0.06)",
+                                  boxShadow: badgeTone.glow,
                                 }}
                               >
-                                <span aria-hidden>{badge.icon}</span>
-                                <span>{labelForTimesCompleted(level)}</span>
+                                <span
+                                  aria-hidden
+                                  style={{
+                                    width: 7,
+                                    height: 7,
+                                    borderRadius: 999,
+                                    background: badgeTone.dot,
+                                    display: "inline-block",
+                                    flexShrink: 0,
+                                  }}
+                                />
+                                <span>{badgeLabel}</span>
                               </span>
                             ) : null}
                           </div>
@@ -546,7 +645,6 @@ export default function HomePage() {
                           </div>
                         </div>
 
-                        {/* Progress bar */}
                         <div
                           style={{
                             marginTop: 10,
@@ -570,11 +668,10 @@ export default function HomePage() {
                           />
                         </div>
 
-                        {/* ✅ Prestige progress (only once base completion is achieved) */}
                         {baseComplete ? (
                           <div style={{ marginTop: 8, fontSize: 12, color: colors.subtext, fontWeight: 850 }}>
                             <span style={{ color: colors.text, fontWeight: 950 }}>
-                              Completed {labelForTimesCompleted(Math.max(1, level || 1))}
+                              Completed {Math.max(1, Math.floor(level || 1))}×
                             </span>
                             {prestige ? (
                               <>
@@ -587,7 +684,6 @@ export default function HomePage() {
                           </div>
                         ) : null}
 
-                        {/* Actions (pill buttons) */}
                         <div
                           style={{
                             marginTop: 8,

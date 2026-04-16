@@ -9,13 +9,29 @@ export type PrestigeAward = {
   setValue: number; // dollars
 };
 
-function clamp(n: number, min: number, max: number) {
-  return Math.max(min, Math.min(max, n));
+const PRESTIGE_MILESTONE_MULTIPLIERS: Record<number, number> = {
+  1: 0.05,
+  2: 0.075,
+  3: 0.1,
+  4: 0.15,
+  5: 0.25,
+  10: 0.5,
+  25: 2.0,
+  50: 3.0,
+  75: 5.0,
+  100: 8.0,
+};
+
+function safeMoney(n: number) {
+  return typeof n === "number" && Number.isFinite(n) ? n : 0;
 }
 
-function pctForLevel(level: number) {
-  // 2% per completion level, capped at 50%
-  return clamp(level * 0.02, 0, 0.5);
+export function getPrestigeRewardMultiplier(level: number) {
+  return PRESTIGE_MILESTONE_MULTIPLIERS[level] ?? 0;
+}
+
+export function isPrestigeRewardMilestone(level: number) {
+  return Object.prototype.hasOwnProperty.call(PRESTIGE_MILESTONE_MULTIPLIERS, level);
 }
 
 /**
@@ -48,7 +64,7 @@ export async function computeProductSetLevel(
   let setValue = 0;
 
   for (const c of cards) {
-    const bv = typeof c.bookValue === "number" && Number.isFinite(c.bookValue) ? c.bookValue : 0;
+    const bv = safeMoney(c.bookValue);
     setValue += bv;
 
     const q = qtyById.get(c.id) ?? 0;
@@ -110,7 +126,7 @@ export async function syncPrestigeProgressForProductSets(opts: {
 /**
  * Redeem for ONE ProductSet:
  * - claimable completions = currentLevel - claimedCompletions
- * - awards calculated per newly-claimed completion level
+ * - awards only when crossing prestige milestones
  * - increments user.balanceCents + bonusAwardedCents, advances claimedCompletions
  *
  * This is what your Showcase "Claim" button should call.
@@ -162,16 +178,19 @@ export async function redeemPrestigeForProductSet(opts: {
   const toLevel = currentLevel;
 
   for (let lvl = alreadyClaimed + 1; lvl <= currentLevel; lvl++) {
-    const pct = pctForLevel(lvl);
-    const cents = Math.round(setValue * pct * 100);
-    if (cents > 0) awardedCents += cents;
+    const multiplier = getPrestigeRewardMultiplier(lvl);
+    if (multiplier > 0) {
+      const cents = Math.round(setValue * multiplier * 100);
+      if (cents > 0) awardedCents += cents;
+    }
   }
 
-  // Apply payout + advance claimed completions (milestone protection)
-  await tx.user.update({
-    where: { id: userId },
-    data: { balanceCents: { increment: awardedCents } },
-  });
+  if (awardedCents > 0) {
+    await tx.user.update({
+      where: { id: userId },
+      data: { balanceCents: { increment: awardedCents } },
+    });
+  }
 
   await tx.productSetPrestige.update({
     where: { userId_productSetId: { userId, productSetId } },
