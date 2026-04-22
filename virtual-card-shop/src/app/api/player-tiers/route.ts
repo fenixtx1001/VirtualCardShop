@@ -45,7 +45,7 @@ function tierRank(tier: PlayerTier | null | undefined) {
 
 type ProfileRow = {
   id: number;
-  sport: string | null;
+  sport: string;
   canonicalName: string;
   normalizedName: string;
   tier: PlayerTier | null;
@@ -67,7 +67,7 @@ export async function GET(req: Request) {
     const where: any = {};
 
     if (sport && sport !== "Unknown") where.sport = sport;
-    if (sport === "Unknown") where.sport = null;
+    if (sport === "Unknown") where.sport = "";
 
     const rawRows = (await prisma.playerTierProfile.findMany({
       where,
@@ -134,8 +134,8 @@ export async function GET(req: Request) {
     }
 
     rows.sort((a, b) => {
-      const sportA = a.sport ?? "Unknown";
-      const sportB = b.sport ?? "Unknown";
+      const sportA = a.sport || "Unknown";
+      const sportB = b.sport || "Unknown";
       const sportCmp = sportA.localeCompare(sportB);
       if (sportCmp !== 0) return sportCmp;
 
@@ -145,15 +145,15 @@ export async function GET(req: Request) {
       return a.canonicalName.localeCompare(b.canonicalName);
     });
 
-    const sportCountsMap = new Map<string | null, number>();
+    const sportCountsMap = new Map<string, number>();
     for (const row of Array.from(dedupedMap.values())) {
-      const key = row.sport ?? null;
+      const key = row.sport ?? "";
       sportCountsMap.set(key, (sportCountsMap.get(key) ?? 0) + 1);
     }
 
     const sports = Array.from(sportCountsMap.entries())
       .map(([sportValue, count]) => ({
-        sport: sportValue,
+        sport: sportValue === "" ? null : sportValue,
         count,
       }))
       .sort((a, b) => {
@@ -167,7 +167,10 @@ export async function GET(req: Request) {
 
     return NextResponse.json({
       ok: true,
-      rows: pagedRows,
+      rows: pagedRows.map((row) => ({
+        ...row,
+        sport: row.sport === "" ? null : row.sport,
+      })),
       pagination: {
         page,
         pageSize,
@@ -190,7 +193,7 @@ export async function POST(req: Request) {
 
     const canonicalName = cleanCanonicalPlayerName(body.canonicalName);
     const normalizedName = normalizePlayerName(canonicalName);
-    const sport = String(body.sport ?? "").trim() || null;
+    const sport = String(body.sport ?? "").trim();
     const tier = body.tier ?? null;
     const notes = typeof body.notes === "string" ? body.notes.trim() || null : null;
 
@@ -224,7 +227,13 @@ export async function POST(req: Request) {
       },
     });
 
-    return NextResponse.json({ ok: true, row });
+    return NextResponse.json({
+      ok: true,
+      row: {
+        ...row,
+        sport: row.sport === "" ? null : row.sport,
+      },
+    });
   } catch (e: any) {
     return NextResponse.json(
       { ok: false, error: e?.message ?? "Failed to save player tier" },

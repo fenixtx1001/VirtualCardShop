@@ -138,7 +138,7 @@ export async function ensurePlayerTierProfile(params: {
 }) {
   const canonicalName = cleanCanonicalPlayerName(params.player);
   const normalizedName = normalizePlayerName(canonicalName);
-  const sport = params.sport?.trim() || null;
+  const sport = params.sport?.trim() || "";
 
   if (!canonicalName || !normalizedName) {
     return null;
@@ -214,7 +214,7 @@ export async function getDefaultPriceForPlayer(params: {
     } satisfies DefaultPriceResult;
   }
 
-  const sport = productSet.product?.sport?.trim() || null;
+  const sport = productSet.product?.sport?.trim() || "";
 
   const profile = await params.prisma.playerTierProfile.findUnique({
     where: {
@@ -236,7 +236,7 @@ export async function getDefaultPriceForPlayer(params: {
       ok: false,
       normalizedName,
       canonicalName,
-      sport,
+      sport: sport || null,
       tier: null,
       defaultPrice: null,
       reason: "no-tier-profile",
@@ -248,7 +248,7 @@ export async function getDefaultPriceForPlayer(params: {
       ok: false,
       normalizedName,
       canonicalName: profile.canonicalName,
-      sport,
+      sport: profile.sport || null,
       tier: null,
       defaultPrice: null,
       reason: "unassigned-tier",
@@ -261,7 +261,7 @@ export async function getDefaultPriceForPlayer(params: {
       ok: false,
       normalizedName,
       canonicalName: profile.canonicalName,
-      sport,
+      sport: profile.sport || null,
       tier: profile.tier,
       defaultPrice: null,
       reason: "no-price-for-tier",
@@ -272,7 +272,7 @@ export async function getDefaultPriceForPlayer(params: {
     ok: true,
     normalizedName,
     canonicalName: profile.canonicalName,
-    sport,
+    sport: profile.sport || null,
     tier: profile.tier,
     defaultPrice,
     reason: "ok",

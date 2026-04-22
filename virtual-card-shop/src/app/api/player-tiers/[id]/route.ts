@@ -1,4 +1,3 @@
-// src/app/api/player-tiers/[id]/route.ts
 import { NextResponse } from "next/server";
 import { PlayerTier } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
@@ -12,8 +11,7 @@ async function getId(ctx: Ctx) {
   const p: any = (ctx as any).params;
   const params = typeof p?.then === "function" ? await p : p;
   const raw = params?.id;
-  const id = typeof raw === "string" ? Number(raw) : NaN;
-  return Number.isFinite(id) ? id : null;
+  return typeof raw === "string" ? raw : "";
 }
 
 function validTier(v: unknown): v is PlayerTier {
@@ -29,30 +27,20 @@ function validTier(v: unknown): v is PlayerTier {
 
 export async function PUT(req: Request, ctx: Ctx) {
   try {
-    const id = await getId(ctx);
-    if (!id) return NextResponse.json({ ok: false, error: "Invalid id" }, { status: 400 });
+    const idRaw = await getId(ctx);
+    const id = Number(idRaw);
+
+    if (!Number.isInteger(id) || id <= 0) {
+      return NextResponse.json({ ok: false, error: "Invalid id" }, { status: 400 });
+    }
 
     const body = await req.json().catch(() => ({} as any));
 
-    const existing = await prisma.playerTierProfile.findUnique({
-      where: { id },
-    });
-
-    if (!existing) {
-      return NextResponse.json({ ok: false, error: "Player tier profile not found" }, { status: 404 });
-    }
-
-    const canonicalName =
-      body.canonicalName !== undefined
-        ? cleanCanonicalPlayerName(body.canonicalName)
-        : existing.canonicalName;
-
+    const canonicalName = cleanCanonicalPlayerName(body.canonicalName);
     const normalizedName = normalizePlayerName(canonicalName);
-    const sport =
-      body.sport !== undefined ? String(body.sport ?? "").trim() || null : existing.sport;
-
-    const tier =
-      body.tier !== undefined ? body.tier : existing.tier;
+    const sport = String(body.sport ?? "").trim();
+    const tier = body.tier ?? null;
+    const notes = typeof body.notes === "string" ? body.notes.trim() || null : null;
 
     if (!canonicalName || !normalizedName) {
       return NextResponse.json({ ok: false, error: "canonicalName is required" }, { status: 400 });
@@ -69,14 +57,42 @@ export async function PUT(req: Request, ctx: Ctx) {
         canonicalName,
         normalizedName,
         tier,
-        notes: body.notes !== undefined ? (String(body.notes ?? "").trim() || null) : existing.notes,
+        notes,
       },
     });
 
-    return NextResponse.json({ ok: true, row });
+    return NextResponse.json({
+      ok: true,
+      row: {
+        ...row,
+        sport: row.sport === "" ? null : row.sport,
+      },
+    });
   } catch (e: any) {
     return NextResponse.json(
       { ok: false, error: e?.message ?? "Failed to update player tier" },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(_req: Request, ctx: Ctx) {
+  try {
+    const idRaw = await getId(ctx);
+    const id = Number(idRaw);
+
+    if (!Number.isInteger(id) || id <= 0) {
+      return NextResponse.json({ ok: false, error: "Invalid id" }, { status: 400 });
+    }
+
+    await prisma.playerTierProfile.delete({
+      where: { id },
+    });
+
+    return NextResponse.json({ ok: true });
+  } catch (e: any) {
+    return NextResponse.json(
+      { ok: false, error: e?.message ?? "Failed to delete player tier" },
       { status: 500 }
     );
   }
