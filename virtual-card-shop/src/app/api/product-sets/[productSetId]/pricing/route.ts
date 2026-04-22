@@ -46,7 +46,7 @@ export async function POST(req: Request, ctx: Ctx) {
       return NextResponse.json({ ok: false, error: "ProductSet not found" }, { status: 404 });
     }
 
-    const sport = productSet.product?.sport?.trim() || null;
+    const sport = productSet.product?.sport?.trim() || "";
 
     const cards = await prisma.card.findMany({
       where: { productSetId },
@@ -64,19 +64,9 @@ export async function POST(req: Request, ctx: Ctx) {
     const seen = new Set<string>();
 
     for (const card of cards) {
-      const key = `${sport ?? ""}::${card.player ?? ""}`;
+      const key = `${sport}::${card.player ?? ""}`;
       if (seen.has(key)) continue;
       seen.add(key);
-
-      const before = await prisma.playerTierProfile.findMany({
-        where: {
-          sport,
-          normalizedName: undefined,
-        },
-        take: 0,
-      });
-
-      void before;
 
       const existing = await ensurePlayerTierProfile({
         prisma,
@@ -143,7 +133,8 @@ export async function POST(req: Request, ctx: Ctx) {
         continue;
       }
 
-      const oldBookValue = typeof card.bookValue === "number" && Number.isFinite(card.bookValue) ? card.bookValue : 0;
+      const oldBookValue =
+        typeof card.bookValue === "number" && Number.isFinite(card.bookValue) ? card.bookValue : 0;
 
       await prisma.card.update({
         where: { id: card.id },

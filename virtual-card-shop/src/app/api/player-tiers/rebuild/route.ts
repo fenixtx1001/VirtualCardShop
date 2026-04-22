@@ -1,15 +1,18 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import {
-  normalizePlayerName,
-  cleanCanonicalPlayerName,
-} from "@/lib/player-tiers";
+import { cleanCanonicalPlayerName, normalizePlayerName } from "@/lib/player-tiers";
 
 export async function POST() {
   try {
     const cards = await prisma.card.findMany({
+      where: {
+        player: {
+          not: "",
+        },
+      },
       select: {
         player: true,
+        productSetId: true,
         productSet: {
           select: {
             product: {
@@ -19,35 +22,23 @@ export async function POST() {
             },
           },
         },
-        set: {
-          select: {
-            sport: true,
-          },
-        },
       },
     });
 
-    let scanned = 0;
-    let inserted = 0;
+    let created = 0;
+    let updated = 0;
     const seen = new Set<string>();
 
     for (const card of cards) {
       const canonicalName = cleanCanonicalPlayerName(card.player);
-      if (!canonicalName) continue;
-
       const normalizedName = normalizePlayerName(canonicalName);
-      if (!normalizedName) continue;
+      const sport = card.productSet?.product?.sport?.trim() || "";
 
-      const sport =
-        card.productSet?.product?.sport?.trim() ||
-        card.set?.sport?.trim() ||
-        null;
+      if (!canonicalName || !normalizedName) continue;
 
-      const key = `${sport ?? ""}::${normalizedName}`;
+      const key = `${sport}::${normalizedName}`;
       if (seen.has(key)) continue;
       seen.add(key);
-
-      scanned++;
 
       const existing = await prisma.playerTierProfile.findUnique({
         where: {
@@ -58,34 +49,38 @@ export async function POST() {
         },
       });
 
-      if (!existing) {
+      if (existing) {
+        await prisma.playerTierProfile.update({
+          where: { id: existing.id },
+          data: {
+            canonicalName,
+            normalizedName,
+          },
+        });
+        updated += 1;
+      } else {
         await prisma.playerTierProfile.create({
           data: {
             sport,
             canonicalName,
             normalizedName,
             tier: null,
+            notes: null,
           },
         });
-        inserted++;
+        created += 1;
       }
     }
 
-    const unassigned = await prisma.playerTierProfile.count({
-      where: { tier: null },
-    });
-
     return NextResponse.json({
       ok: true,
-      summary: {
-        scannedDistinctPlayers: scanned,
-        insertedProfiles: inserted,
-        unassignedProfiles: unassigned,
-      },
+      created,
+      updated,
+      totalUniquePlayersSeen: seen.size,
     });
   } catch (e: any) {
     return NextResponse.json(
-      { ok: false, error: e?.message ?? "Failed to rebuild player repository" },
+      { ok: false, error: e?.message ?? "Failed to rebuild player tiers" },
       { status: 500 }
     );
   }

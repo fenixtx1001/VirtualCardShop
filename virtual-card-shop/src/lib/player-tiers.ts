@@ -132,7 +132,7 @@ export function defaultPriceForTier(
 }
 
 export async function ensurePlayerTierProfile(params: {
-  prisma: PrismaClient | PrismaClient["$extends"];
+  prisma: PrismaClient;
   sport: string | null | undefined;
   player: string | null | undefined;
 }) {
@@ -165,7 +165,7 @@ export async function ensurePlayerTierProfile(params: {
 }
 
 export async function getDefaultPriceForPlayer(params: {
-  prisma: PrismaClient | PrismaClient["$extends"];
+  prisma: PrismaClient;
   productSetId: string;
   player: string | null | undefined;
 }) {
