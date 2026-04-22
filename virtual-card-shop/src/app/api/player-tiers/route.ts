@@ -65,7 +65,6 @@ export async function GET(req: Request) {
     const pageSize = clampInt(parseInt(url.searchParams.get("pageSize") ?? "100", 10) || 100, 1, 500);
 
     const where: any = {};
-
     if (sport && sport !== "Unknown") where.sport = sport;
     if (sport === "Unknown") where.sport = "";
 
@@ -77,8 +76,8 @@ export async function GET(req: Request) {
     const dedupedMap = new Map<string, ProfileRow>();
 
     for (const row of rawRows) {
-      const cleanedCanonicalName = cleanCanonicalPlayerName(row.canonicalName);
-      const cleanedNormalizedName = normalizePlayerName(cleanedCanonicalName);
+      const cleanedCanonicalName = await cleanCanonicalPlayerName(row.canonicalName);
+      const cleanedNormalizedName = await normalizePlayerName(cleanedCanonicalName);
       const sportKey = row.sport ?? "";
       const key = `${sportKey}::${cleanedNormalizedName}`;
 
@@ -104,6 +103,7 @@ export async function GET(req: Request) {
 
       const existingHasNotes = !!existing.notes?.trim();
       const candidateHasNotes = !!candidate.notes?.trim();
+
       if (!existingHasNotes && candidateHasNotes) {
         dedupedMap.set(key, candidate);
         continue;
@@ -121,7 +121,7 @@ export async function GET(req: Request) {
     let rows = Array.from(dedupedMap.values());
 
     if (q) {
-      const normalizedQ = normalizePlayerName(q);
+      const normalizedQ = await normalizePlayerName(q);
       rows = rows.filter((row) => {
         const canonicalMatch = row.canonicalName.toLowerCase().includes(q.toLowerCase());
         const normalizedMatch = row.normalizedName.includes(normalizedQ);
@@ -191,8 +191,8 @@ export async function POST(req: Request) {
   try {
     const body = await req.json().catch(() => ({} as any));
 
-    const canonicalName = cleanCanonicalPlayerName(body.canonicalName);
-    const normalizedName = normalizePlayerName(canonicalName);
+    const canonicalName = await cleanCanonicalPlayerName(body.canonicalName);
+    const normalizedName = await normalizePlayerName(canonicalName);
     const sport = String(body.sport ?? "").trim();
     const tier = body.tier ?? null;
     const notes = typeof body.notes === "string" ? body.notes.trim() || null : null;

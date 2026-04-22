@@ -48,6 +48,16 @@ type PlayerTierResponse = {
   error?: string;
 };
 
+type IgnoreTokenRow = {
+  id: number;
+  token: string;
+  normalizedToken: string;
+  isEnabled: boolean;
+  notes: string | null;
+  createdAt?: string;
+  updatedAt?: string;
+};
+
 const TIER_OPTIONS: Array<{ value: TierValue; label: string }> = [
   { value: "", label: "Unassigned" },
   { value: "COMMON", label: "Common" },
@@ -105,10 +115,15 @@ export default function PlayerTiersClient() {
   const [totalPages, setTotalPages] = useState(1);
 
   const [sportsSummary, setSportsSummary] = useState<SportsSummaryRow[]>([]);
-
   const [drafts, setDrafts] = useState<Record<number, DraftRow>>({});
   const [savingId, setSavingId] = useState<number | null>(null);
   const [rebuilding, setRebuilding] = useState(false);
+
+  const [ignoreTokens, setIgnoreTokens] = useState<IgnoreTokenRow[]>([]);
+  const [loadingTokens, setLoadingTokens] = useState(false);
+  const [newToken, setNewToken] = useState("");
+  const [newTokenNotes, setNewTokenNotes] = useState("");
+  const [savingToken, setSavingToken] = useState(false);
 
   async function load(nextPage = page, nextPageSize = pageSize) {
     setLoading(true);
@@ -165,8 +180,30 @@ export default function PlayerTiersClient() {
     }
   }
 
+  async function loadIgnoreTokens() {
+    setLoadingTokens(true);
+    try {
+      const res = await fetch("/api/player-tier-ignore-tokens", { cache: "no-store" });
+      const raw = await res.text();
+      let j: any = {};
+      try {
+        j = raw ? JSON.parse(raw) : {};
+      } catch {
+        throw new Error(`Ignore tokens returned non-JSON (${res.status})`);
+      }
+
+      if (!res.ok || !j?.ok) throw new Error(j?.error ?? `Failed to load ignore tokens (${res.status})`);
+      setIgnoreTokens(Array.isArray(j.rows) ? j.rows : []);
+    } catch (e: any) {
+      setErr(e?.message ?? "Failed to load ignore tokens");
+    } finally {
+      setLoadingTokens(false);
+    }
+  }
+
   useEffect(() => {
     load(1, pageSize);
+    loadIgnoreTokens();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -272,7 +309,7 @@ export default function PlayerTiersClient() {
       if (!res.ok || !j?.ok) throw new Error(j?.error ?? `Rebuild failed (${res.status})`);
 
       setOkMsg(
-        `Repository rebuilt. Scanned ${j?.summary?.scannedDistinctPlayers ?? 0} distinct players • inserted ${j?.summary?.insertedProfiles ?? 0} • unassigned ${j?.summary?.unassignedProfiles ?? 0}.`
+        `Repository rebuilt. Scanned ${j?.summary?.scannedDistinctPlayers ?? 0} distinct players • inserted ${j?.summary?.insertedProfiles ?? 0} • updated ${j?.summary?.updatedProfiles ?? 0} • deleted duplicate rows ${j?.summary?.deletedDuplicates ?? 0} • unassigned ${j?.summary?.unassignedProfiles ?? 0}.`
       );
 
       await load(1, pageSize);
@@ -280,6 +317,101 @@ export default function PlayerTiersClient() {
       setErr(e?.message ?? "Rebuild failed");
     } finally {
       setRebuilding(false);
+    }
+  }
+
+  async function addIgnoreToken() {
+    setSavingToken(true);
+    setErr(null);
+    setOkMsg(null);
+
+    try {
+      const res = await fetch("/api/player-tier-ignore-tokens", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          token: newToken,
+          notes: newTokenNotes,
+        }),
+      });
+
+      const raw = await res.text();
+      let j: any = {};
+      try {
+        j = raw ? JSON.parse(raw) : {};
+      } catch {
+        throw new Error(`Save token returned non-JSON (${res.status})`);
+      }
+
+      if (!res.ok || !j?.ok) throw new Error(j?.error ?? `Save token failed (${res.status})`);
+
+      setNewToken("");
+      setNewTokenNotes("");
+      setOkMsg(`Saved ignore token "${j.row.token}"`);
+      await loadIgnoreTokens();
+    } catch (e: any) {
+      setErr(e?.message ?? "Failed to save ignore token");
+    } finally {
+      setSavingToken(false);
+    }
+  }
+
+  async function toggleIgnoreToken(row: IgnoreTokenRow) {
+    setErr(null);
+    setOkMsg(null);
+
+    try {
+      const res = await fetch(`/api/player-tier-ignore-tokens/${encodeURIComponent(String(row.id))}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          isEnabled: !row.isEnabled,
+        }),
+      });
+
+      const raw = await res.text();
+      let j: any = {};
+      try {
+        j = raw ? JSON.parse(raw) : {};
+      } catch {
+        throw new Error(`Toggle token returned non-JSON (${res.status})`);
+      }
+
+      if (!res.ok || !j?.ok) throw new Error(j?.error ?? `Toggle token failed (${res.status})`);
+
+      setOkMsg(`${j.row.token} ${j.row.isEnabled ? "enabled" : "disabled"}`);
+      await loadIgnoreTokens();
+    } catch (e: any) {
+      setErr(e?.message ?? "Failed to update ignore token");
+    }
+  }
+
+  async function deleteIgnoreToken(row: IgnoreTokenRow) {
+    const ok = window.confirm(`Delete ignore token "${row.token}"?`);
+    if (!ok) return;
+
+    setErr(null);
+    setOkMsg(null);
+
+    try {
+      const res = await fetch(`/api/player-tier-ignore-tokens/${encodeURIComponent(String(row.id))}`, {
+        method: "DELETE",
+      });
+
+      const raw = await res.text();
+      let j: any = {};
+      try {
+        j = raw ? JSON.parse(raw) : {};
+      } catch {
+        throw new Error(`Delete token returned non-JSON (${res.status})`);
+      }
+
+      if (!res.ok || !j?.ok) throw new Error(j?.error ?? `Delete token failed (${res.status})`);
+
+      setOkMsg(`Deleted ignore token "${row.token}"`);
+      await loadIgnoreTokens();
+    } catch (e: any) {
+      setErr(e?.message ?? "Failed to delete ignore token");
     }
   }
 
@@ -309,9 +441,13 @@ export default function PlayerTiersClient() {
       <div style={{ display: "flex", justifyContent: "space-between", gap: 12, alignItems: "flex-start" }}>
         <div>
           <h1 style={{ fontSize: 32, marginBottom: 8 }}>Admin: Player Repository / Tiers</h1>
-          <p style={{ marginTop: 0, maxWidth: 900 }}>
-            Assign player tiers here. Product Set pricing tools use these tiers plus the Product Set’s tier default
+          <p style={{ marginTop: 0, maxWidth: 950 }}>
+            Assign player tiers here. Product Set pricing tools use these tiers plus the Product Set tier default
             prices to fill or overwrite card book values.
+          </p>
+          <p style={{ marginTop: 0, maxWidth: 950 }}>
+            Ignore tokens are global trailing artifacts that should be ignored for player identity. True suffixes like
+            Jr., Sr., II, III, and IV are preserved automatically.
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <Link href="/admin" style={{ textDecoration: "underline" }}>
@@ -328,7 +464,7 @@ export default function PlayerTiersClient() {
           disabled={rebuilding || loading}
           style={{ padding: "10px 14px", fontWeight: 800 }}
         >
-          {rebuilding ? "Rebuilding…" : "Refresh / Rebuild Repository"}
+          {rebuilding ? "Rebuilding…" : "Rebuild / Deduplicate Repository"}
         </button>
       </div>
 
@@ -341,6 +477,101 @@ export default function PlayerTiersClient() {
       {okMsg ? (
         <div style={{ marginBottom: 12, padding: 10, background: "#efe", border: "1px solid #9f9" }}>{okMsg}</div>
       ) : null}
+
+      <section
+        style={{
+          border: "1px solid #ddd",
+          background: "#fafafa",
+          padding: 12,
+          marginBottom: 18,
+        }}
+      >
+        <h2 style={{ marginTop: 0 }}>Ignore trailing tokens</h2>
+
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "end", marginBottom: 12 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+            <label style={{ fontWeight: 700 }}>Token</label>
+            <input
+              value={newToken}
+              onChange={(e) => setNewToken(e.target.value)}
+              placeholder="Example: FIN"
+              style={{ padding: 8, width: 180 }}
+            />
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+            <label style={{ fontWeight: 700 }}>Notes</label>
+            <input
+              value={newTokenNotes}
+              onChange={(e) => setNewTokenNotes(e.target.value)}
+              placeholder="Optional"
+              style={{ padding: 8, width: 260 }}
+            />
+          </div>
+
+          <button onClick={addIgnoreToken} disabled={savingToken} style={{ padding: "10px 12px", fontWeight: 800 }}>
+            {savingToken ? "Saving…" : "Add token"}
+          </button>
+
+          <button onClick={loadIgnoreTokens} disabled={loadingTokens} style={{ padding: "10px 12px" }}>
+            {loadingTokens ? "Refreshing…" : "Refresh tokens"}
+          </button>
+        </div>
+
+        <div style={{ fontSize: 13, color: "#555", marginBottom: 10 }}>
+          Examples to add here: <b>FIN</b>, <b>IN</b>, <b>TP</b>. After adding tokens, click{" "}
+          <b>Rebuild / Deduplicate Repository</b>.
+        </div>
+
+        <div style={{ overflowX: "auto", border: "1px solid #ddd" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 640 }}>
+            <thead style={{ background: "#f7f7f7" }}>
+              <tr>
+                {["ID", "Token", "Normalized", "Enabled", "Notes", "Actions"].map((h) => (
+                  <th
+                    key={h}
+                    style={{
+                      textAlign: "left",
+                      padding: 8,
+                      borderBottom: "1px solid #ddd",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {ignoreTokens.map((row, idx) => (
+                <tr key={row.id} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
+                  <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{row.id}</td>
+                  <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 700 }}>{row.token}</td>
+                  <td style={{ padding: 8, borderBottom: "1px solid #eee", color: "#666" }}>{row.normalizedToken}</td>
+                  <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{row.isEnabled ? "Yes" : "No"}</td>
+                  <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{row.notes ?? "—"}</td>
+                  <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap" }}>
+                    <button onClick={() => toggleIgnoreToken(row)} style={{ padding: "6px 10px", marginRight: 8 }}>
+                      {row.isEnabled ? "Disable" : "Enable"}
+                    </button>
+                    <button onClick={() => deleteIgnoreToken(row)} style={{ padding: "6px 10px", color: "red" }}>
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+
+              {ignoreTokens.length === 0 ? (
+                <tr>
+                  <td colSpan={6} style={{ padding: 12 }}>
+                    No ignore tokens yet.
+                  </td>
+                </tr>
+              ) : null}
+            </tbody>
+          </table>
+        </div>
+      </section>
 
       <div
         style={{
@@ -411,11 +642,7 @@ export default function PlayerTiersClient() {
           Apply Filters
         </button>
 
-        <button
-          onClick={resetFilters}
-          disabled={loading || rebuilding}
-          style={{ padding: "10px 12px" }}
-        >
+        <button onClick={resetFilters} disabled={loading || rebuilding} style={{ padding: "10px 12px" }}>
           Reset
         </button>
 

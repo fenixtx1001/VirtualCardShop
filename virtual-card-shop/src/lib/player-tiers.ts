@@ -1,4 +1,5 @@
 import { PlayerTier, PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prisma";
 
 type ProductSetWithDefaults = {
   commonPrice: number | null;
@@ -25,58 +26,171 @@ export type DefaultPriceResult = {
     | "no-price-for-tier";
 };
 
-const TRAILING_PLAYER_DESIGNATION_PATTERNS: RegExp[] = [
-  /\bRC\b\.?$/i,
-  /\bROO\b\.?$/i,
-  /\bROOKIE\b\.?$/i,
-  /\bROOKIE[\s-]?CARD\b\.?$/i,
-  /\bAS\b\.?$/i,
-  /\bALL[\s-]?STAR\b\.?$/i,
-  /\bMVP\b\.?$/i,
-  /\bCY\b\.?$/i,
-  /\bSN\d+\b\.?$/i,
-  /\bSN[\s-]?\d+\b\.?$/i,
-  /\bAUTO\b\.?$/i,
-  /\bAUTOGRAPH\b\.?$/i,
-  /\bAU\b\.?$/i,
+const PRESERVED_SUFFIXES = new Set(["jr", "sr", "ii", "iii", "iv", "v"]);
+
+const BUILT_IN_IGNORE_TOKENS = [
+  "rc",
+  "roo",
+  "rookie",
+  "rookie card",
+  "as",
+  "all star",
+  "mvp",
+  "cy",
+  "auto",
+  "autograph",
+  "au",
+  "fin",
+  "in",
+  "tp",
 ];
 
-function stripTrailingPlayerDesignations(input: string) {
-  let s = input.trim();
+const TRAILING_REGEX_PATTERNS: RegExp[] = [
+  /\bSN\d+\b\.?$/i,
+  /\bSN[\s-]?\d+\b\.?$/i,
+  /\b#?\d+\/\d+\b\.?$/i,
+];
+
+type IgnoreTokenCache = {
+  tokens: string[];
+  expiresAt: number;
+};
+
+let ignoreTokenCache: IgnoreTokenCache | null = null;
+const IGNORE_TOKEN_CACHE_MS = 60_000;
+
+function collapseWhitespace(input: string) {
+  return input.replace(/\s+/g, " ").trim();
+}
+
+export function normalizeIgnoreToken(input: string | null | undefined) {
+  return collapseWhitespace(String(input ?? ""))
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[’'`]/g, "")
+    .replace(/[^a-zA-Z0-9\s]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+function normalizeWord(input: string | null | undefined) {
+  return String(input ?? "")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[’'`]/g, "")
+    .replace(/[^a-zA-Z0-9]+/g, "")
+    .trim()
+    .toLowerCase();
+}
+
+function stripTrailingPunctuation(input: string) {
+  return input.replace(/[,\-–—:;()/.]+$/g, "").trim();
+}
+
+async function getIgnoreTokens(forceRefresh = false) {
+  const now = Date.now();
+  if (!forceRefresh && ignoreTokenCache && ignoreTokenCache.expiresAt > now) {
+    return ignoreTokenCache.tokens;
+  }
+
+  const dbRows = await prisma.playerTierIgnoreToken.findMany({
+    where: { isEnabled: true },
+    select: { normalizedToken: true },
+    orderBy: [{ normalizedToken: "asc" }],
+  });
+
+  const tokens = Array.from(
+    new Set(
+      [...BUILT_IN_IGNORE_TOKENS, ...dbRows.map((r) => normalizeIgnoreToken(r.normalizedToken))]
+        .map((t) => normalizeIgnoreToken(t))
+        .filter(Boolean)
+    )
+  ).sort((a, b) => b.split(" ").length - a.split(" ").length || b.length - a.length);
+
+  ignoreTokenCache = {
+    tokens,
+    expiresAt: now + IGNORE_TOKEN_CACHE_MS,
+  };
+
+  return tokens;
+}
+
+export function clearPlayerTierIgnoreTokenCache() {
+  ignoreTokenCache = null;
+}
+
+async function stripTrailingIgnoredTokens(input: string) {
+  let current = collapseWhitespace(String(input ?? ""));
+  if (!current) return "";
+
+  const ignoreTokens = await getIgnoreTokens();
 
   while (true) {
-    const next = s
-      .replace(/[,\-–—:;()/.]+$/g, "")
-      .replace(/\s+/g, " ")
-      .trim();
-
+    let next = stripTrailingPunctuation(current);
     let changed = false;
 
-    for (const pattern of TRAILING_PLAYER_DESIGNATION_PATTERNS) {
-      const stripped = next.replace(pattern, "").trim();
+    for (const pattern of TRAILING_REGEX_PATTERNS) {
+      const stripped = stripTrailingPunctuation(next.replace(pattern, ""));
       if (stripped !== next) {
-        s = stripped;
+        next = stripped;
         changed = true;
         break;
       }
     }
 
-    if (!changed) {
-      s = next;
+    if (changed) {
+      current = next;
+      continue;
+    }
+
+    const words = next.split(/\s+/).filter(Boolean);
+    if (words.length === 0) {
+      current = "";
       break;
     }
+
+    const lastWordNorm = normalizeWord(words[words.length - 1]);
+    if (PRESERVED_SUFFIXES.has(lastWordNorm)) {
+      current = next;
+      break;
+    }
+
+    let matchedPhraseLength = 0;
+    for (const token of ignoreTokens) {
+      const tokenWords = token.split(/\s+/).filter(Boolean);
+      if (tokenWords.length === 0) continue;
+      if (words.length <= tokenWords.length) continue;
+
+      const candidateWords = words.slice(words.length - tokenWords.length).map((w) => normalizeWord(w));
+      const matches = tokenWords.every((tw, idx) => candidateWords[idx] === normalizeWord(tw));
+
+      if (matches) {
+        matchedPhraseLength = tokenWords.length;
+        break;
+      }
+    }
+
+    if (matchedPhraseLength > 0) {
+      current = stripTrailingPunctuation(words.slice(0, words.length - matchedPhraseLength).join(" "));
+      continue;
+    }
+
+    current = next;
+    break;
   }
 
-  return s;
+  return current;
 }
 
-export function cleanCanonicalPlayerName(input: string | null | undefined) {
-  const collapsed = String(input ?? "").replace(/\s+/g, " ").trim();
-  return stripTrailingPlayerDesignations(collapsed);
+export async function cleanCanonicalPlayerName(input: string | null | undefined) {
+  const collapsed = collapseWhitespace(String(input ?? ""));
+  if (!collapsed) return "";
+  return stripTrailingIgnoredTokens(collapsed);
 }
 
-export function normalizePlayerName(input: string | null | undefined) {
-  const canonical = cleanCanonicalPlayerName(input);
+export async function normalizePlayerName(input: string | null | undefined) {
+  const canonical = await cleanCanonicalPlayerName(input);
 
   return canonical
     .normalize("NFKD")
@@ -136,8 +250,8 @@ export async function ensurePlayerTierProfile(params: {
   sport: string | null | undefined;
   player: string | null | undefined;
 }) {
-  const canonicalName = cleanCanonicalPlayerName(params.player);
-  const normalizedName = normalizePlayerName(canonicalName);
+  const canonicalName = await cleanCanonicalPlayerName(params.player);
+  const normalizedName = await normalizePlayerName(canonicalName);
   const sport = params.sport?.trim() || "";
 
   if (!canonicalName || !normalizedName) {
@@ -169,8 +283,8 @@ export async function getDefaultPriceForPlayer(params: {
   productSetId: string;
   player: string | null | undefined;
 }) {
-  const canonicalName = cleanCanonicalPlayerName(params.player);
-  const normalizedName = normalizePlayerName(canonicalName);
+  const canonicalName = await cleanCanonicalPlayerName(params.player);
+  const normalizedName = await normalizePlayerName(canonicalName);
 
   if (!canonicalName || !normalizedName) {
     return {

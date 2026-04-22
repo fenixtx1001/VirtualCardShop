@@ -36,8 +36,8 @@ export async function PUT(req: Request, ctx: Ctx) {
 
     const body = await req.json().catch(() => ({} as any));
 
-    const canonicalName = cleanCanonicalPlayerName(body.canonicalName);
-    const normalizedName = normalizePlayerName(canonicalName);
+    const canonicalName = await cleanCanonicalPlayerName(body.canonicalName);
+    const normalizedName = await normalizePlayerName(canonicalName);
     const sport = String(body.sport ?? "").trim();
     const tier = body.tier ?? null;
     const notes = typeof body.notes === "string" ? body.notes.trim() || null : null;

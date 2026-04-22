@@ -112,6 +112,18 @@ model PlayerTierProfile {
   @@index([tier])
 }
 
+model PlayerTierIgnoreToken {
+  id              Int      @id @default(autoincrement())
+  token           String
+  normalizedToken String   @unique
+  isEnabled       Boolean  @default(true)
+  notes           String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([isEnabled])
+}
+
 model User {
   id String @id @default(cuid())
 
