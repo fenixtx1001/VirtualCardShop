@@ -43,6 +43,45 @@ type ProductSetResponse = {
   };
 };
 
+type DefaultingInfo = {
+  reason:
+    | "ok"
+    | "no-player"
+    | "no-product-set"
+    | "no-tier-profile"
+    | "unassigned-tier"
+    | "no-price-for-tier"
+    | "loading"
+    | "error";
+  tier: string | null;
+  tierLabel: string;
+  defaultPrice: number | null;
+  normalizedName?: string;
+  error?: string | null;
+};
+
+type PricingActionResponse = {
+  ok: boolean;
+  action?: "syncPlayers" | "fillBlankPrices" | "overwriteAllPrices";
+  summary?: {
+    scannedCards?: number;
+    insertedProfiles?: number;
+    updatedCards?: number;
+    skippedNoTier?: number;
+    skippedNoPrice?: number;
+    skippedAlreadyPriced?: number;
+    unassignedCount?: number;
+  };
+  touched?: Array<{
+    cardId: number;
+    player: string;
+    oldBookValue: number;
+    newBookValue: number;
+    tierLabel: string;
+  }>;
+  error?: string;
+};
+
 function moneyToDisplay(v: number) {
   if (typeof v !== "number" || !Number.isFinite(v)) return "0.00";
   return v.toFixed(2);
@@ -130,12 +169,55 @@ type SortMode =
   | "VARIANT_ASC"
   | "NEEDS_SETUP_FIRST";
 
+function pricingHintColor(info: DefaultingInfo | undefined) {
+  if (!info) return "#777";
+  switch (info.reason) {
+    case "ok":
+      return "#0f6b32";
+    case "unassigned-tier":
+      return "#8a5a00";
+    case "no-tier-profile":
+      return "#8a5a00";
+    case "no-price-for-tier":
+      return "#8a1f1f";
+    case "error":
+      return "#8a1f1f";
+    default:
+      return "#666";
+  }
+}
+
+function pricingHintText(info: DefaultingInfo | undefined) {
+  if (!info) return "Checking default…";
+  switch (info.reason) {
+    case "loading":
+      return "Checking default…";
+    case "ok":
+      return `Tier: ${info.tierLabel} • Default: ${moneyToDisplay(info.defaultPrice ?? 0)}`;
+    case "unassigned-tier":
+      return "Tier: Unassigned";
+    case "no-tier-profile":
+      return "Player not yet in repository";
+    case "no-price-for-tier":
+      return `Tier: ${info.tierLabel} • No product-set default price configured`;
+    case "no-player":
+      return "No player name";
+    case "no-product-set":
+      return "No product set";
+    case "error":
+      return info.error || "Default lookup failed";
+    default:
+      return "No default pricing data";
+  }
+}
+
 export default function ProductSetDetailClient({ productSetId }: { productSetId: string }) {
   const [data, setData] = useState<ProductSetResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [pageError, setPageError] = useState<string | null>(null);
 
   const [savingCardId, setSavingCardId] = useState<number | null>(null);
+  const [defaultingCardId, setDefaultingCardId] = useState<number | null>(null);
   const [saveError, setSaveError] = useState<string | null>(null);
   const [saveOk, setSaveOk] = useState<string | null>(null);
 
@@ -147,7 +229,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
   // Needs setup toggle
   const [needsSetupOnly, setNeedsSetupOnly] = useState(false);
 
-  // Sorting (NEW)
+  // Sorting
   const [sortMode, setSortMode] = useState<SortMode>("CARDNO_ASC");
 
   // Pagination state
@@ -156,6 +238,10 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
   // Draft strings for Book input
   const [bookDraft, setBookDraft] = useState<Record<number, string>>({});
+
+  // Track defaulting metadata by card
+  const [defaultingById, setDefaultingById] = useState<Record<number, DefaultingInfo>>({});
+  const [pricingBusy, setPricingBusy] = useState(false);
 
   // Track baseline
   const baselineRef = useRef<Map<number, string>>(new Map());
@@ -206,7 +292,6 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
             position: c.position ?? null,
             subset: c.subset ?? null,
             variant: c.variant ?? null,
-            quantityOwned: c.quantityOwned ?? 0,
             bookValue: typeof c.bookValue === "number" ? c.bookValue : 0,
             frontImageUrl: c.frontImageUrl ?? null,
             backImageUrl: c.backImageUrl ?? null,
@@ -226,6 +311,80 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
     load(page, pageSize);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productSetId, page, pageSize]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadDefaultingForPage() {
+      const cards = data?.cards ?? [];
+      if (!cards.length) {
+        setDefaultingById({});
+        return;
+      }
+
+      const initial: Record<number, DefaultingInfo> = {};
+      for (const c of cards) {
+        initial[c.id] = {
+          reason: "loading",
+          tier: null,
+          tierLabel: "Checking…",
+          defaultPrice: null,
+        };
+      }
+      setDefaultingById(initial);
+
+      await runWithConcurrency(
+        cards,
+        6,
+        async (card) => {
+          try {
+            const res = await fetch(`/api/cards/${encodeURIComponent(String(card.id))}/default-price`, {
+              cache: "no-store",
+            });
+            const raw = await res.text();
+            let j: any = {};
+            try {
+              j = raw ? JSON.parse(raw) : {};
+            } catch {
+              j = {};
+            }
+
+            const info: DefaultingInfo = {
+              reason: j?.defaulting?.reason ?? (res.ok ? "error" : "error"),
+              tier: j?.defaulting?.tier ?? null,
+              tierLabel: j?.defaulting?.tierLabel ?? "Unknown",
+              defaultPrice:
+                typeof j?.defaulting?.defaultPrice === "number" ? j.defaulting.defaultPrice : null,
+              normalizedName: j?.defaulting?.normalizedName,
+              error: !res.ok ? j?.error ?? "Default lookup failed" : null,
+            };
+
+            if (!cancelled) {
+              setDefaultingById((prev) => ({ ...prev, [card.id]: info }));
+            }
+          } catch (e: any) {
+            if (!cancelled) {
+              setDefaultingById((prev) => ({
+                ...prev,
+                [card.id]: {
+                  reason: "error",
+                  tier: null,
+                  tierLabel: "Error",
+                  defaultPrice: null,
+                  error: e?.message ?? "Default lookup failed",
+                },
+              }));
+            }
+          }
+        }
+      );
+    }
+
+    loadDefaultingForPage();
+    return () => {
+      cancelled = true;
+    };
+  }, [data?.cards]);
 
   function patchCard(cardId: number, patch: Partial<CardRow>) {
     setData((prev) => {
@@ -248,7 +407,6 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
       position: card.position ?? null,
       subset: card.subset ?? null,
       variant: card.variant ?? null,
-      quantityOwned: card.quantityOwned ?? 0,
       bookValue: getEffectiveBookValue(card),
       frontImageUrl: card.frontImageUrl ?? null,
       backImageUrl: card.backImageUrl ?? null,
@@ -261,7 +419,6 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
     return base !== buildBaselineComparable(card);
   }
 
-  // ✅ Sorting + filtering (updated pipeline)
   const sortedCards = useMemo(() => {
     const cards = data?.cards ?? [];
     const arr = [...cards];
@@ -276,7 +433,8 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
       return x.id - y.id;
     };
 
-    const cmpStr = (a: any, b: any) => String(a ?? "").localeCompare(String(b ?? ""), undefined, { sensitivity: "base" });
+    const cmpStr = (a: any, b: any) =>
+      String(a ?? "").localeCompare(String(b ?? ""), undefined, { sensitivity: "base" });
 
     arr.sort((x, y) => {
       switch (sortMode) {
@@ -315,8 +473,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
         case "NEEDS_SETUP_FIRST": {
           const nx = needsSetup({ ...x, bookValue: getEffectiveBookValue(x) }) ? 1 : 0;
           const ny = needsSetup({ ...y, bookValue: getEffectiveBookValue(y) }) ? 1 : 0;
-          if (ny !== nx) return ny - nx; // needs-setup first
-          // Within needs-setup bucket, show highest book first to focus attention
+          if (ny !== nx) return ny - nx;
           const ax = getEffectiveBookValue(x);
           const ay = getEffectiveBookValue(y);
           if (ay !== ax) return ay - ax;
@@ -329,7 +486,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
     });
 
     return arr;
-  }, [data, sortMode, bookDraft]); // include bookDraft so typing affects BOOK sort immediately
+  }, [data, sortMode, bookDraft]);
 
   const filterOptions = useMemo(() => {
     const cards = data?.cards ?? [];
@@ -360,7 +517,6 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
       if (subsetFilter !== "ALL" && normalizeOpt(c.subset) !== subsetFilter) return false;
       if (variantFilter !== "ALL" && normalizeOpt(c.variant) !== variantFilter) return false;
 
-      // needsSetupOnly uses effective book draft too
       if (needsSetupOnly) {
         const effective = { ...c, bookValue: getEffectiveBookValue(c) };
         if (!needsSetup(effective)) return false;
@@ -390,7 +546,6 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
           position: card.position,
           subset: card.subset,
           variant: card.variant,
-          quantityOwned: card.quantityOwned,
           bookValue,
           frontImageUrl: card.frontImageUrl ?? null,
           backImageUrl: card.backImageUrl ?? null,
@@ -458,7 +613,6 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                 position: card.position,
                 subset: card.subset,
                 variant: card.variant,
-                quantityOwned: card.quantityOwned,
                 bookValue,
                 frontImageUrl: card.frontImageUrl ?? null,
                 backImageUrl: card.backImageUrl ?? null,
@@ -524,6 +678,12 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
         return next;
       });
 
+      setDefaultingById((prev) => {
+        const next = { ...prev };
+        delete next[card.id];
+        return next;
+      });
+
       baselineRef.current.delete(card.id);
 
       setSaveOk(`Deleted ${label}`);
@@ -534,6 +694,138 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
     }
   }
 
+  async function refreshPlayerRepository() {
+    setPricingBusy(true);
+    setSaveError(null);
+    setSaveOk(null);
+
+    try {
+      const res = await fetch(`/api/product-sets/${encodeURIComponent(productSetId)}/pricing`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "syncPlayers" }),
+      });
+
+      const raw = await res.text();
+      let j: PricingActionResponse | any = {};
+      try {
+        j = raw ? JSON.parse(raw) : {};
+      } catch {
+        throw new Error(`Repository refresh returned non-JSON (${res.status})`);
+      }
+
+      if (!res.ok || !j?.ok) throw new Error(j?.error ?? `Repository refresh failed (${res.status})`);
+
+      setSaveOk(
+        `Repository refreshed. Scanned ${j?.summary?.scannedCards ?? 0} cards • inserted ${j?.summary?.insertedProfiles ?? 0} player profile(s) • unassigned in sport: ${j?.summary?.unassignedCount ?? 0}.`
+      );
+
+      await load(page, pageSize);
+    } catch (e: any) {
+      setSaveError(e?.message ?? "Repository refresh failed");
+    } finally {
+      setPricingBusy(false);
+    }
+  }
+
+  async function runPricingAction(action: "fillBlankPrices" | "overwriteAllPrices") {
+    setPricingBusy(true);
+    setSaveError(null);
+    setSaveOk(null);
+
+    try {
+      const res = await fetch(`/api/product-sets/${encodeURIComponent(productSetId)}/pricing`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action }),
+      });
+
+      const raw = await res.text();
+      let j: PricingActionResponse | any = {};
+      try {
+        j = raw ? JSON.parse(raw) : {};
+      } catch {
+        throw new Error(`Pricing action returned non-JSON (${res.status})`);
+      }
+
+      if (!res.ok || !j?.ok) throw new Error(j?.error ?? `Pricing action failed (${res.status})`);
+
+      const s = j?.summary ?? {};
+      const actionLabel = action === "fillBlankPrices" ? "Fill Blank Prices" : "Overwrite All Prices";
+
+      setSaveOk(
+        `${actionLabel} complete. Updated ${s.updatedCards ?? 0} card(s) • skipped no tier: ${s.skippedNoTier ?? 0} • skipped no price: ${s.skippedNoPrice ?? 0}${action === "fillBlankPrices" ? ` • already priced: ${s.skippedAlreadyPriced ?? 0}` : ""}.`
+      );
+
+      await load(page, pageSize);
+    } catch (e: any) {
+      setSaveError(e?.message ?? "Pricing action failed");
+    } finally {
+      setPricingBusy(false);
+    }
+  }
+
+  async function fillBlankPrices() {
+    await runPricingAction("fillBlankPrices");
+  }
+
+  async function overwriteAllPrices() {
+    const ok = window.confirm(
+      "Overwrite all prices on this product set with tier defaults?\n\nThis will replace manual pricing where a tier + product-set default exists."
+    );
+    if (!ok) return;
+    await runPricingAction("overwriteAllPrices");
+  }
+
+  async function useDefaultForCard(card: CardRow) {
+    setDefaultingCardId(card.id);
+    setSaveError(null);
+    setSaveOk(null);
+
+    try {
+      const res = await fetch(`/api/cards/${encodeURIComponent(String(card.id))}/default-price`, {
+        method: "POST",
+      });
+
+      const raw = await res.text();
+      let j: any = {};
+      try {
+        j = raw ? JSON.parse(raw) : {};
+      } catch {
+        throw new Error(`Default price returned non-JSON (${res.status})`);
+      }
+
+      if (!res.ok || !j?.ok) {
+        throw new Error(j?.error ?? `Failed to apply default price (${res.status})`);
+      }
+
+      const nextBook =
+        typeof j?.card?.bookValue === "number"
+          ? j.card.bookValue
+          : typeof j?.defaulting?.defaultPrice === "number"
+          ? j.defaulting.defaultPrice
+          : card.bookValue;
+
+      patchCard(card.id, { bookValue: nextBook });
+      setBookDraft((prev) => ({ ...prev, [card.id]: moneyToDisplay(nextBook) }));
+      setDefaultingById((prev) => ({
+        ...prev,
+        [card.id]: {
+          reason: j?.defaulting?.reason ?? "ok",
+          tier: j?.defaulting?.tier ?? null,
+          tierLabel: j?.defaulting?.tierLabel ?? "Unknown",
+          defaultPrice: typeof j?.defaulting?.defaultPrice === "number" ? j.defaulting.defaultPrice : null,
+          normalizedName: j?.defaulting?.normalizedName,
+        },
+      }));
+      setSaveOk(`Applied default price to #${card.cardNumber} ${card.player}`);
+    } catch (e: any) {
+      setSaveError(e?.message ?? "Failed to apply default price");
+    } finally {
+      setDefaultingCardId(null);
+    }
+  }
+
   const bodyCell: React.CSSProperties = { padding: 8, borderBottom: "1px solid #eee" };
 
   const totalCards = data?._count?.cards ?? data?.pagination?.totalCards ?? 0;
@@ -541,21 +833,42 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
   function PaginationControls() {
     return (
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", justifyContent: "space-between", margin: "10px 0" }}>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 10,
+          alignItems: "center",
+          justifyContent: "space-between",
+          margin: "10px 0",
+        }}
+      >
         <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-          <button onClick={() => setPage(1)} disabled={page <= 1 || bulkSaving} style={{ padding: "6px 10px" }}>
+          <button onClick={() => setPage(1)} disabled={page <= 1 || bulkSaving || pricingBusy} style={{ padding: "6px 10px" }}>
             « First
           </button>
-          <button onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={page <= 1 || bulkSaving} style={{ padding: "6px 10px" }}>
+          <button
+            onClick={() => setPage((p) => Math.max(1, p - 1))}
+            disabled={page <= 1 || bulkSaving || pricingBusy}
+            style={{ padding: "6px 10px" }}
+          >
             ‹ Prev
           </button>
           <div style={{ fontSize: 13 }}>
             Page <b>{page}</b> of <b>{totalPages}</b> (Total cards: <b>{totalCards}</b>)
           </div>
-          <button onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={page >= totalPages || bulkSaving} style={{ padding: "6px 10px" }}>
+          <button
+            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+            disabled={page >= totalPages || bulkSaving || pricingBusy}
+            style={{ padding: "6px 10px" }}
+          >
             Next ›
           </button>
-          <button onClick={() => setPage(totalPages)} disabled={page >= totalPages || bulkSaving} style={{ padding: "6px 10px" }}>
+          <button
+            onClick={() => setPage(totalPages)}
+            disabled={page >= totalPages || bulkSaving || pricingBusy}
+            style={{ padding: "6px 10px" }}
+          >
             Last »
           </button>
         </div>
@@ -570,7 +883,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                 setPageSize(Number.isFinite(next) ? next : 100);
                 setPage(1);
               }}
-              disabled={bulkSaving}
+              disabled={bulkSaving || pricingBusy}
               style={{ padding: "6px 10px" }}
             >
               {[25, 50, 100, 200].map((n) => (
@@ -582,11 +895,20 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
           </div>
 
           <label style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13 }}>
-            <input type="checkbox" checked={saveNeedsOnly} onChange={(e) => setSaveNeedsOnly(e.target.checked)} disabled={bulkSaving} />
+            <input
+              type="checkbox"
+              checked={saveNeedsOnly}
+              onChange={(e) => setSaveNeedsOnly(e.target.checked)}
+              disabled={bulkSaving || pricingBusy}
+            />
             Save needs-setup only
           </label>
 
-          <button onClick={saveThisPage} disabled={bulkSaving || loading || !data} style={{ padding: "8px 12px", fontWeight: 800 }}>
+          <button
+            onClick={saveThisPage}
+            disabled={bulkSaving || loading || !data || pricingBusy}
+            style={{ padding: "8px 12px", fontWeight: 800 }}
+          >
             {bulkSaving ? "Saving…" : "Save This Page"}
           </button>
         </div>
@@ -609,16 +931,28 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
           </div>
         </div>
 
-        <button onClick={() => load(page, pageSize)} style={{ padding: "8px 12px" }} disabled={bulkSaving}>
+        <button onClick={() => load(page, pageSize)} style={{ padding: "8px 12px" }} disabled={bulkSaving || pricingBusy}>
           Refresh
         </button>
       </div>
 
       <hr style={{ margin: "16px 0" }} />
 
-      {pageError && <div style={{ marginBottom: 12, padding: 10, background: "#fee", border: "1px solid #f99" }}>{pageError}</div>}
-      {saveError && <div style={{ marginBottom: 12, padding: 10, background: "#fee", border: "1px solid #f99" }}>{saveError}</div>}
-      {saveOk && <div style={{ marginBottom: 12, padding: 10, background: "#efe", border: "1px solid #9f9" }}>{saveOk}</div>}
+      {pageError && (
+        <div style={{ marginBottom: 12, padding: 10, background: "#fee", border: "1px solid #f99" }}>
+          {pageError}
+        </div>
+      )}
+      {saveError && (
+        <div style={{ marginBottom: 12, padding: 10, background: "#fee", border: "1px solid #f99" }}>
+          {saveError}
+        </div>
+      )}
+      {saveOk && (
+        <div style={{ marginBottom: 12, padding: 10, background: "#efe", border: "1px solid #9f9" }}>
+          {saveOk}
+        </div>
+      )}
 
       {bulkProgress ? (
         <div style={{ marginBottom: 12, padding: 10, background: "#fffbe6", border: "1px solid #ffe58f" }}>
@@ -636,7 +970,9 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
               </li>
             ))}
           </ul>
-          {bulkErrors.length > 20 ? <div style={{ fontSize: 12, marginTop: 6 }}>…and {bulkErrors.length - 20} more</div> : null}
+          {bulkErrors.length > 20 ? (
+            <div style={{ fontSize: 12, marginTop: 6 }}>…and {bulkErrors.length - 20} more</div>
+          ) : null}
         </div>
       ) : null}
 
@@ -648,16 +984,61 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
             <div style={{ fontSize: 20, fontWeight: 800 }}>{data.id}</div>
             <div style={{ color: "#333", marginTop: 4 }}>
               Product:{" "}
-              <Link href={`/admin/products/${encodeURIComponent(data.productId)}`} style={{ textDecoration: "underline", fontWeight: 700 }}>
+              <Link
+                href={`/admin/products/${encodeURIComponent(data.productId)}`}
+                style={{ textDecoration: "underline", fontWeight: 700 }}
+              >
                 {data.productId}
               </Link>{" "}
               • {data.isBase ? "Base" : "Non-base"} • Total Cards: {totalCards}
             </div>
           </div>
 
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 10,
+              alignItems: "center",
+              border: "1px solid #ddd",
+              background: "#f8fafc",
+              padding: 12,
+              marginBottom: 12,
+            }}
+          >
+            <div style={{ fontWeight: 800 }}>Pricing Tools</div>
+
+            <button
+              onClick={refreshPlayerRepository}
+              disabled={pricingBusy || bulkSaving || loading}
+              style={{ padding: "8px 12px", fontWeight: 800 }}
+            >
+              {pricingBusy ? "Working…" : "Refresh Player Repository"}
+            </button>
+
+            <button
+              onClick={fillBlankPrices}
+              disabled={pricingBusy || bulkSaving || loading}
+              style={{ padding: "8px 12px", fontWeight: 800 }}
+            >
+              Fill Blank Prices
+            </button>
+
+            <button
+              onClick={overwriteAllPrices}
+              disabled={pricingBusy || bulkSaving || loading}
+              style={{ padding: "8px 12px", fontWeight: 800, background: "#fff4e5" }}
+            >
+              Overwrite All Prices
+            </button>
+
+            <div style={{ color: "#555", fontSize: 12, marginLeft: "auto" }}>
+              Uses tier defaults when a player has an assigned tier and this product set has a configured default for that tier.
+            </div>
+          </div>
+
           <PaginationControls />
 
-          {/* Search + Filters + SORT */}
           <div
             style={{
               display: "flex",
@@ -672,7 +1053,12 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
           >
             <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
               <div style={{ fontWeight: 700 }}>Search</div>
-              <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Card #, player, team…" style={{ padding: 8, width: 260 }} />
+              <input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Card #, player, team…"
+                style={{ padding: 8, width: 260 }}
+              />
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
@@ -744,8 +1130,11 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead style={{ background: "#f7f7f7" }}>
                 <tr>
-                  {["Row", "Card #", "Player", "Team", "Subset", "Variant", "Front Image", "Back Image", "Qty", "Book", "Actions"].map((h) => (
-                    <th key={h} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid #ddd", whiteSpace: "nowrap" }}>
+                  {["Row", "Card #", "Player", "Team", "Subset", "Variant", "Front Image", "Back Image", "Book", "Actions"].map((h) => (
+                    <th
+                      key={h}
+                      style={{ textAlign: "left", padding: 8, borderBottom: "1px solid #ddd", whiteSpace: "nowrap" }}
+                    >
                       {h}
                     </th>
                   ))}
@@ -756,29 +1145,62 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                 {filteredCards.map((c, idx) => {
                   const zebra = idx % 2 === 0 ? "#fff" : "#fcfcfc";
                   const saving = savingCardId === c.id;
+                  const defaulting = defaultingCardId === c.id;
+                  const info = defaultingById[c.id];
 
                   return (
                     <tr key={c.id} style={{ background: zebra }}>
                       <td style={{ ...bodyCell, width: 60 }}>{idx + 1}</td>
 
                       <td style={{ ...bodyCell, width: 110 }}>
-                        <input value={c.cardNumber} onChange={(e) => patchCard(c.id, { cardNumber: e.target.value })} style={{ width: "100%", padding: 6 }} />
+                        <input
+                          value={c.cardNumber}
+                          onChange={(e) => patchCard(c.id, { cardNumber: e.target.value })}
+                          style={{ width: "100%", padding: 6 }}
+                        />
                       </td>
 
-                      <td style={{ ...bodyCell, minWidth: 260 }}>
-                        <input value={c.player ?? ""} onChange={(e) => patchCard(c.id, { player: e.target.value })} style={{ width: "100%", padding: 6 }} />
+                      <td style={{ ...bodyCell, minWidth: 280 }}>
+                        <input
+                          value={c.player ?? ""}
+                          onChange={(e) => patchCard(c.id, { player: e.target.value })}
+                          style={{ width: "100%", padding: 6 }}
+                        />
+                        <div
+                          style={{
+                            marginTop: 6,
+                            fontSize: 12,
+                            color: pricingHintColor(info),
+                            fontWeight: 700,
+                            lineHeight: 1.35,
+                          }}
+                        >
+                          {pricingHintText(info)}
+                        </div>
                       </td>
 
                       <td style={{ ...bodyCell, minWidth: 220 }}>
-                        <input value={c.team ?? ""} onChange={(e) => patchCard(c.id, { team: e.target.value || null })} style={{ width: "100%", padding: 6 }} />
+                        <input
+                          value={c.team ?? ""}
+                          onChange={(e) => patchCard(c.id, { team: e.target.value || null })}
+                          style={{ width: "100%", padding: 6 }}
+                        />
                       </td>
 
                       <td style={{ ...bodyCell, minWidth: 180 }}>
-                        <input value={c.subset ?? ""} onChange={(e) => patchCard(c.id, { subset: e.target.value || null })} style={{ width: "100%", padding: 6 }} />
+                        <input
+                          value={c.subset ?? ""}
+                          onChange={(e) => patchCard(c.id, { subset: e.target.value || null })}
+                          style={{ width: "100%", padding: 6 }}
+                        />
                       </td>
 
                       <td style={{ ...bodyCell, minWidth: 160 }}>
-                        <input value={c.variant ?? ""} onChange={(e) => patchCard(c.id, { variant: e.target.value || null })} style={{ width: "100%", padding: 6 }} />
+                        <input
+                          value={c.variant ?? ""}
+                          onChange={(e) => patchCard(c.id, { variant: e.target.value || null })}
+                          style={{ width: "100%", padding: 6 }}
+                        />
                       </td>
 
                       <td style={{ ...bodyCell, minWidth: 420 }}>
@@ -797,7 +1219,11 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                             ) : null}
                           </div>
 
-                          <ImageUploader label="Upload front image" value={c.frontImageUrl} onUploaded={(url) => patchCard(c.id, { frontImageUrl: url })} />
+                          <ImageUploader
+                            label="Upload front image"
+                            value={c.frontImageUrl}
+                            onUploaded={(url) => patchCard(c.id, { frontImageUrl: url })}
+                          />
                         </div>
                       </td>
 
@@ -817,23 +1243,15 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                             ) : null}
                           </div>
 
-                          <ImageUploader label="Upload back image" value={c.backImageUrl} onUploaded={(url) => patchCard(c.id, { backImageUrl: url })} />
+                          <ImageUploader
+                            label="Upload back image"
+                            value={c.backImageUrl}
+                            onUploaded={(url) => patchCard(c.id, { backImageUrl: url })}
+                          />
                         </div>
                       </td>
 
-                      <td style={{ ...bodyCell, width: 90 }}>
-                        <input
-                          inputMode="numeric"
-                          value={String(c.quantityOwned ?? 0)}
-                          onChange={(e) => {
-                            const n = Number(e.target.value);
-                            patchCard(c.id, { quantityOwned: Number.isFinite(n) ? n : 0 });
-                          }}
-                          style={{ width: "100%", padding: 6 }}
-                        />
-                      </td>
-
-                      <td style={{ ...bodyCell, width: 110 }}>
+                      <td style={{ ...bodyCell, width: 150 }}>
                         <input
                           value={bookDraft[c.id] ?? moneyToDisplay(c.bookValue ?? 0)}
                           onChange={(e) => setBookDraft((prev) => ({ ...prev, [c.id]: e.target.value }))}
@@ -845,13 +1263,29 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                           }}
                           style={{ width: "100%", padding: 6 }}
                         />
+                        <button
+                          onClick={() => useDefaultForCard(c)}
+                          disabled={saving || defaulting || bulkSaving || pricingBusy}
+                          style={{ marginTop: 8, width: "100%", padding: "6px 8px", fontWeight: 800 }}
+                          title="Apply the configured tier default for this player on this product set"
+                        >
+                          {defaulting ? "Applying…" : "Use Default"}
+                        </button>
                       </td>
 
                       <td style={{ ...bodyCell, whiteSpace: "nowrap" }}>
-                        <button onClick={() => saveCard(c)} disabled={saving || bulkSaving} style={{ padding: "6px 10px", marginRight: 8 }}>
+                        <button
+                          onClick={() => saveCard(c)}
+                          disabled={saving || bulkSaving || pricingBusy}
+                          style={{ padding: "6px 10px", marginRight: 8 }}
+                        >
                           {saving ? "Saving..." : "Save"}
                         </button>
-                        <button onClick={() => deleteCard(c)} disabled={saving || bulkSaving} style={{ padding: "6px 10px" }}>
+                        <button
+                          onClick={() => deleteCard(c)}
+                          disabled={saving || bulkSaving || pricingBusy}
+                          style={{ padding: "6px 10px" }}
+                        >
                           Delete
                         </button>
                       </td>
@@ -861,7 +1295,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
                 {filteredCards.length === 0 && (
                   <tr>
-                    <td colSpan={11} style={{ padding: 12 }}>
+                    <td colSpan={10} style={{ padding: 12 }}>
                       No cards match your search/filters on this page.
                     </td>
                   </tr>

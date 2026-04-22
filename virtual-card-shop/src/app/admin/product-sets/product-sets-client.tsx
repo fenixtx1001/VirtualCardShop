@@ -11,15 +11,21 @@ type ProductSetRow = {
   isBase: boolean;
   isInsert: boolean;
   oddsPerPack: number | null;
+  commonPrice: number | null;
+  semiStarPrice: number | null;
+  unlistedStarPrice: number | null;
+  star1Price: number | null;
+  star2Price: number | null;
+  star3Price: number | null;
   _count?: { cards: number };
   stats?: {
     totalCards: number;
     pricedCards: number;
     frontCards: number;
     backCards: number;
-    pctPriced: number; // 0-100
-    pctFront: number; // 0-100
-    pctBack: number; // 0-100
+    pctPriced: number;
+    pctFront: number;
+    pctBack: number;
   };
 };
 
@@ -34,12 +40,25 @@ type ProductMeta = {
 function safeNum(v: any, fallback = 0) {
   return typeof v === "number" && Number.isFinite(v) ? v : fallback;
 }
+
 function norm(s: any) {
   return String(s ?? "").trim().toLowerCase();
 }
+
 function pctText(v: any) {
   const n = safeNum(v, 0);
   return `${n.toFixed(1)}%`;
+}
+
+function priceInputValue(v: number | null | undefined) {
+  return v === null || v === undefined || !Number.isFinite(v) ? "" : String(v);
+}
+
+function parseNullableNumberInput(v: string) {
+  const s = v.trim();
+  if (!s) return null;
+  const n = Number(s);
+  return Number.isFinite(n) ? n : null;
 }
 
 export default function ProductSetsClient() {
@@ -51,7 +70,6 @@ export default function ProductSetsClient() {
   const [savingId, setSavingId] = useState<string | null>(null);
   const [saveOk, setSaveOk] = useState<string | null>(null);
 
-  // Optional enrichment for filters (sport/year) if /api/products exists
   const [products, setProducts] = useState<ProductMeta[]>([]);
   const productMetaById = useMemo(() => {
     const m = new Map<string, ProductMeta>();
@@ -59,7 +77,6 @@ export default function ProductSetsClient() {
     return m;
   }, [products]);
 
-  // --- Filters
   const [q, setQ] = useState("");
   const [productFilter, setProductFilter] = useState<string>("");
   const [onlyBase, setOnlyBase] = useState(false);
@@ -133,7 +150,6 @@ export default function ProductSetsClient() {
     loadProductsForFilters();
   }, []);
 
-  // Sorting
   const sortedRows = useMemo(() => {
     return [...rows].sort((a, b) => {
       const p = a.productId.localeCompare(b.productId);
@@ -148,12 +164,10 @@ export default function ProductSetsClient() {
     });
   }, [rows]);
 
-  // Editing helpers
   function patchRow(id: string, patch: Partial<ProductSetRow>) {
     setRows((prev) => prev.map((r) => (r.id === id ? { ...r, ...patch } : r)));
   }
 
-  // Mutually exclusive only when CHECKING
   function setBase(id: string, v: boolean) {
     setRows((prev) =>
       prev.map((r) => {
@@ -190,6 +204,12 @@ export default function ProductSetsClient() {
           isBase: row.isBase,
           isInsert: row.isInsert,
           oddsPerPack: row.oddsPerPack,
+          commonPrice: row.commonPrice,
+          semiStarPrice: row.semiStarPrice,
+          unlistedStarPrice: row.unlistedStarPrice,
+          star1Price: row.star1Price,
+          star2Price: row.star2Price,
+          star3Price: row.star3Price,
         }),
       });
 
@@ -244,7 +264,6 @@ export default function ProductSetsClient() {
     }
   }
 
-  // Filter options
   const productIds = useMemo(() => {
     const set = new Set(rows.map((r) => r.productId));
     return [...set].sort((a, b) => a.localeCompare(b));
@@ -330,6 +349,10 @@ export default function ProductSetsClient() {
       <p style={{ marginTop: 6 }}>
         Product Sets are the pools inside a Product (Base, Inserts, etc.). Cards attach via <code>productSetId</code>.
       </p>
+      <p style={{ marginTop: 6, maxWidth: 1100 }}>
+        Tier default prices are set at the Product Set level. These values are used with the Player Repository / Tiers
+        tool to assign or overwrite default book values by player tier.
+      </p>
 
       <div style={{ marginTop: 12, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
         <Link href="/admin" style={{ textDecoration: "underline" }}>
@@ -337,6 +360,9 @@ export default function ProductSetsClient() {
         </Link>
         <Link href="/admin/products" style={{ textDecoration: "underline" }}>
           Admin: Products
+        </Link>
+        <Link href="/admin/player-tiers" style={{ textDecoration: "underline" }}>
+          Admin: Player Repository / Tiers
         </Link>
         <button onClick={load} style={{ padding: "8px 12px" }}>
           Refresh
@@ -348,7 +374,6 @@ export default function ProductSetsClient() {
 
       <hr style={{ margin: "16px 0" }} />
 
-      {/* Filters */}
       <div
         style={{
           border: "1px solid #ddd",
@@ -482,6 +507,12 @@ export default function ProductSetsClient() {
                   "Base?",
                   "Insert?",
                   "Odds (1:X packs)",
+                  "Common $",
+                  "Semi-Star $",
+                  "Unlisted Star $",
+                  "Star 1 $",
+                  "Star 2 $",
+                  "Star 3 $",
                   "Priced",
                   "Front",
                   "Back",
@@ -505,9 +536,13 @@ export default function ProductSetsClient() {
                 const frontPct = r.stats?.pctFront ?? 0;
                 const backPct = r.stats?.pctBack ?? 0;
 
-                // Compact display keeps it from feeling busy
                 const mini = (pct: number, count: number) =>
                   total > 0 ? `${pctText(pct)} (${count}/${total})` : "—";
+
+                const priceInputStyle: CSSProperties = {
+                  width: 92,
+                  padding: 6,
+                };
 
                 return (
                   <tr key={r.id} style={{ background: zebra }}>
@@ -566,6 +601,66 @@ export default function ProductSetsClient() {
                       />
                     </td>
 
+                    <td style={td}>
+                      <input
+                        inputMode="decimal"
+                        value={priceInputValue(r.commonPrice)}
+                        onChange={(e) => patchRow(r.id, { commonPrice: parseNullableNumberInput(e.target.value) })}
+                        placeholder="—"
+                        style={priceInputStyle}
+                      />
+                    </td>
+
+                    <td style={td}>
+                      <input
+                        inputMode="decimal"
+                        value={priceInputValue(r.semiStarPrice)}
+                        onChange={(e) => patchRow(r.id, { semiStarPrice: parseNullableNumberInput(e.target.value) })}
+                        placeholder="—"
+                        style={priceInputStyle}
+                      />
+                    </td>
+
+                    <td style={td}>
+                      <input
+                        inputMode="decimal"
+                        value={priceInputValue(r.unlistedStarPrice)}
+                        onChange={(e) => patchRow(r.id, { unlistedStarPrice: parseNullableNumberInput(e.target.value) })}
+                        placeholder="—"
+                        style={priceInputStyle}
+                      />
+                    </td>
+
+                    <td style={td}>
+                      <input
+                        inputMode="decimal"
+                        value={priceInputValue(r.star1Price)}
+                        onChange={(e) => patchRow(r.id, { star1Price: parseNullableNumberInput(e.target.value) })}
+                        placeholder="—"
+                        style={priceInputStyle}
+                      />
+                    </td>
+
+                    <td style={td}>
+                      <input
+                        inputMode="decimal"
+                        value={priceInputValue(r.star2Price)}
+                        onChange={(e) => patchRow(r.id, { star2Price: parseNullableNumberInput(e.target.value) })}
+                        placeholder="—"
+                        style={priceInputStyle}
+                      />
+                    </td>
+
+                    <td style={td}>
+                      <input
+                        inputMode="decimal"
+                        value={priceInputValue(r.star3Price)}
+                        onChange={(e) => patchRow(r.id, { star3Price: parseNullableNumberInput(e.target.value) })}
+                        placeholder="—"
+                        style={priceInputStyle}
+                      />
+                    </td>
+
                     <td style={{ ...td, fontSize: 12, opacity: 0.9 }}>
                       {mini(pricedPct, safeNum(r.stats?.pricedCards ?? 0))}
                     </td>
@@ -595,7 +690,7 @@ export default function ProductSetsClient() {
 
               {visibleRows.length === 0 && (
                 <tr>
-                  <td colSpan={11} style={{ padding: 12 }}>
+                  <td colSpan={17} style={{ padding: 12 }}>
                     No matching product sets. Try clearing filters.
                   </td>
                 </tr>

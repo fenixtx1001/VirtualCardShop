@@ -4,9 +4,16 @@ export const dynamic = "force-dynamic";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
+function numberOrNull(v: unknown): number | null {
+  if (v === null || v === undefined) return null;
+  if (typeof v === "number" && Number.isFinite(v)) return v;
+  if (typeof v === "string" && v.trim() === "") return null;
+  const n = Number(v);
+  return Number.isFinite(n) ? n : null;
+}
+
 export async function GET() {
   try {
-    // 1) Load product sets (lightweight)
     const productSets = await prisma.productSet.findMany({
       select: {
         id: true,
@@ -15,6 +22,12 @@ export async function GET() {
         isBase: true,
         isInsert: true,
         oddsPerPack: true,
+        commonPrice: true,
+        semiStarPrice: true,
+        unlistedStarPrice: true,
+        star1Price: true,
+        star2Price: true,
+        star3Price: true,
         _count: { select: { cards: true } },
       },
       orderBy: [{ productId: "asc" }, { id: "asc" }],
@@ -22,7 +35,6 @@ export async function GET() {
 
     if (!productSets.length) return NextResponse.json([]);
 
-    // 2) Compute conditional counts per productSetId (Postgres-safe)
     const statsRows = await prisma.$queryRaw<
       Array<{
         productSetId: string;
@@ -66,7 +78,7 @@ export async function GET() {
       };
 
       const total = Number(s.totalCards ?? 0);
-      const pct = (n: number) => (total > 0 ? Math.round((n / total) * 1000) / 10 : 0); // 1 decimal
+      const pct = (n: number) => (total > 0 ? Math.round((n / total) * 1000) / 10 : 0);
 
       return {
         ...ps,
@@ -100,8 +112,9 @@ export async function POST(req: Request) {
     const name = typeof body?.name === "string" ? body.name.trim() : null;
 
     if (!id) return NextResponse.json({ error: "Missing required field: id" }, { status: 400 });
-    if (!productId)
+    if (!productId) {
       return NextResponse.json({ error: "Missing required field: productId" }, { status: 400 });
+    }
 
     const isBase = !!body?.isBase;
     const isInsert = !!body?.isInsert;
@@ -119,7 +132,10 @@ export async function POST(req: Request) {
         : Number(body.oddsPerPack);
 
     if (oddsPerPack !== null && !Number.isFinite(oddsPerPack)) {
-      return NextResponse.json({ error: "oddsPerPack must be a number or null." }, { status: 400 });
+      return NextResponse.json(
+        { error: "oddsPerPack must be a number or null." },
+        { status: 400 }
+      );
     }
 
     const created = await prisma.productSet.create({
@@ -130,6 +146,12 @@ export async function POST(req: Request) {
         isBase,
         isInsert,
         oddsPerPack,
+        commonPrice: numberOrNull(body?.commonPrice),
+        semiStarPrice: numberOrNull(body?.semiStarPrice),
+        unlistedStarPrice: numberOrNull(body?.unlistedStarPrice),
+        star1Price: numberOrNull(body?.star1Price),
+        star2Price: numberOrNull(body?.star2Price),
+        star3Price: numberOrNull(body?.star3Price),
       },
     });
 

@@ -43,7 +43,6 @@ export async function GET(req: Request, ctx: Ctx) {
     const page = clampInt(Number(url.searchParams.get("page") ?? "1"), 1, 999999);
     const pageSize = clampInt(Number(url.searchParams.get("pageSize") ?? "100"), 1, 500);
 
-    // Get productSet + product + count (fast)
     const productSet = await prisma.productSet.findUnique({
       where: { id: productSetId },
       include: {
@@ -61,47 +60,35 @@ export async function GET(req: Request, ctx: Ctx) {
     const safePage = clampInt(page, 1, totalPages);
     const skip = (safePage - 1) * pageSize;
 
-    /**
-     * IMPORTANT:
-     * We must sort numerically by cardNumber BEFORE pagination,
-     * otherwise "10" comes before "2" and page 1 won't even include 2-9.
-     *
-     * SQLite numeric sort trick:
-     * ORDER BY CAST(trim(cardNumber) AS INTEGER), then trim(cardNumber)
-     *
-     * This works well for normal numeric card numbers.
-     * If you later have weird formats, we can expand the ORDER BY logic.
-     */
     const cards = await prisma.$queryRaw<any[]>`
-  SELECT
-    "id",
-    "cardNumber",
-    "player",
-    "team",
-    "position",
-    "subset",
-    "variant",
-    "quantityOwned",
-    "bookValue",
-    "frontImageUrl",
-    "backImageUrl",
-    "productSetId"
-  FROM "Card"
-  WHERE "productSetId" = ${productSetId}
-  ORDER BY
-    -- numeric-first sort for purely numeric card numbers
-    CASE
-      WHEN TRIM("cardNumber") ~ '^[0-9]+$' THEN 0
-      ELSE 1
-    END ASC,
-    CASE
-      WHEN TRIM("cardNumber") ~ '^[0-9]+$' THEN CAST(TRIM("cardNumber") AS INTEGER)
-      ELSE NULL
-    END ASC,
-    TRIM("cardNumber") ASC,
-    "id" ASC
-  LIMIT ${pageSize} OFFSET ${skip};
-`;
+      SELECT
+        "id",
+        "cardNumber",
+        "player",
+        "team",
+        "position",
+        "subset",
+        "variant",
+        "quantityOwned",
+        "bookValue",
+        "frontImageUrl",
+        "backImageUrl",
+        "productSetId"
+      FROM "Card"
+      WHERE "productSetId" = ${productSetId}
+      ORDER BY
+        CASE
+          WHEN TRIM("cardNumber") ~ '^[0-9]+$' THEN 0
+          ELSE 1
+        END ASC,
+        CASE
+          WHEN TRIM("cardNumber") ~ '^[0-9]+$' THEN CAST(TRIM("cardNumber") AS INTEGER)
+          ELSE NULL
+        END ASC,
+        TRIM("cardNumber") ASC,
+        "id" ASC
+      LIMIT ${pageSize} OFFSET ${skip};
+    `;
 
     return NextResponse.json({
       ...productSet,
@@ -142,6 +129,13 @@ export async function PUT(req: Request, ctx: Ctx) {
         isBase: isBase ?? undefined,
         isInsert: isInsert ?? undefined,
         oddsPerPack: numberOrNull(body.oddsPerPack),
+
+        commonPrice: numberOrNull(body.commonPrice),
+        semiStarPrice: numberOrNull(body.semiStarPrice),
+        unlistedStarPrice: numberOrNull(body.unlistedStarPrice),
+        star1Price: numberOrNull(body.star1Price),
+        star2Price: numberOrNull(body.star2Price),
+        star3Price: numberOrNull(body.star3Price),
       },
     });
 

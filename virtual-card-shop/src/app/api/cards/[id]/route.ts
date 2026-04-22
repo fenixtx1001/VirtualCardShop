@@ -1,5 +1,7 @@
+// src/app/api/cards/[id]/route.ts
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { ensurePlayerTierProfile } from "@/lib/player-tiers";
 
 type Ctx =
   | { params: { id?: string } }
@@ -25,14 +27,41 @@ function strOrNull(v: any) {
   return s.length ? s : null;
 }
 
-export async function PUT(req: Request, ctx: Ctx) {
+async function saveCard(req: Request, ctx: Ctx) {
   try {
     const id = await getId(ctx);
     if (!id) return NextResponse.json({ error: "Invalid card id" }, { status: 400 });
 
     const body = await req.json().catch(() => ({} as any));
 
-    // Back-compat: if older UI sends imageUrl, treat it as frontImageUrl
+    const existing = await prisma.card.findUnique({
+      where: { id },
+      select: {
+        id: true,
+        productSetId: true,
+        player: true,
+        set: {
+          select: {
+            sport: true,
+          },
+        },
+        productSet: {
+          select: {
+            id: true,
+            product: {
+              select: {
+                sport: true,
+              },
+            },
+          },
+        },
+      },
+    });
+
+    if (!existing) {
+      return NextResponse.json({ error: "Card not found" }, { status: 404 });
+    }
+
     const frontImageUrl =
       typeof body.frontImageUrl === "string"
         ? body.frontImageUrl
@@ -52,15 +81,37 @@ export async function PUT(req: Request, ctx: Ctx) {
         position: strOrNull(body.position),
         subset: strOrNull(body.subset),
         variant: strOrNull(body.variant),
-
-        // ✅ DO NOT send `insert` — it is removed/unused in your flow now.
-
         quantityOwned: numOrNull(body.quantityOwned) ?? undefined,
         bookValue: numOrNull(body.bookValue) ?? undefined,
-
         frontImageUrl,
         backImageUrl,
       },
+      select: {
+        id: true,
+        setId: true,
+        productSetId: true,
+        cardNumber: true,
+        player: true,
+        team: true,
+        position: true,
+        subset: true,
+        variant: true,
+        bookValue: true,
+        quantityOwned: true,
+        frontImageUrl: true,
+        backImageUrl: true,
+      },
+    });
+
+    const sport =
+      existing.productSet?.product?.sport?.trim() ||
+      existing.set?.sport?.trim() ||
+      null;
+
+    await ensurePlayerTierProfile({
+      prisma,
+      sport,
+      player: updated.player,
     });
 
     return NextResponse.json({ ok: true, card: updated });
@@ -70,6 +121,14 @@ export async function PUT(req: Request, ctx: Ctx) {
       { status: 500 }
     );
   }
+}
+
+export async function PUT(req: Request, ctx: Ctx) {
+  return saveCard(req, ctx);
+}
+
+export async function PATCH(req: Request, ctx: Ctx) {
+  return saveCard(req, ctx);
 }
 
 export async function DELETE(_req: Request, ctx: Ctx) {

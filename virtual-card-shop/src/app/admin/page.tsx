@@ -17,6 +17,9 @@ export default function AdminHomePage() {
           <a href="/admin/product-sets">Admin: Product Sets</a>
         </li>
         <li>
+          <a href="/admin/player-tiers">Admin: Player Repository / Tiers</a>
+        </li>
+        <li>
           <a href="/admin/sets">Admin: Sets (legacy)</a>
         </li>
         <li>
@@ -29,6 +32,11 @@ export default function AdminHomePage() {
       <p style={{ maxWidth: 820 }}>
         Recommended workflow: start in <b>Products</b>, create/select a Product, then create its Product Sets
         (Base/Elite/etc.), then import or attach cards to the right Product Set.
+      </p>
+
+      <p style={{ maxWidth: 820, marginTop: 14 }}>
+        For pricing automation, use <b>Player Repository / Tiers</b> to assign player tiers, then go to a Product Set
+        and use the pricing tools to fill blank prices, overwrite all prices, or pull a default on a single row.
       </p>
     </main>
   );

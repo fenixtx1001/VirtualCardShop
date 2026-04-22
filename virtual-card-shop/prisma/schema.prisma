@@ -8,6 +8,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum PlayerTier {
+  COMMON
+  SEMI_STAR
+  UNLISTED_STAR
+  STAR_1
+  STAR_2
+  STAR_3
+}
+
 model Set {
   id             String   @id
   year           Int?
@@ -37,45 +46,47 @@ model Product {
 }
 
 model ProductSet {
-  id          String               @id
-  productId   String
-  name        String?
-  isBase      Boolean              @default(false)
-  isInsert    Boolean              @default(false)
-  oddsPerPack Int?
-  createdAt   DateTime             @default(now())
-  updatedAt   DateTime             @updatedAt
-  cards       Card[]
-  product     Product              @relation(fields: [productId], references: [id], onDelete: Cascade)
-  prestiges   ProductSetPrestige[]
+  id                      String               @id
+  productId               String
+  name                    String?
+  isBase                  Boolean              @default(false)
+  isInsert                Boolean              @default(false)
+  oddsPerPack             Int?
+  commonPrice             Float?
+  semiStarPrice           Float?
+  unlistedStarPrice       Float?
+  star1Price              Float?
+  star2Price              Float?
+  star3Price              Float?
+  createdAt               DateTime             @default(now())
+  updatedAt               DateTime             @updatedAt
+  cards                   Card[]
+  product                 Product              @relation(fields: [productId], references: [id], onDelete: Cascade)
+  prestiges               ProductSetPrestige[]
 
   @@index([productId])
 }
 
 model Card {
-  id            Int             @id @default(autoincrement())
-  setId         String
-  productSetId  String?
-  cardNumber    String
-  player        String
-  team          String?
-  position      String?
-  subset        String?
-  variant       String?
-  bookValue     Float           @default(0)
-  quantityOwned Int             @default(0)
-  frontImageUrl String?
-  backImageUrl  String?
-  productSet    ProductSet?     @relation(fields: [productSetId], references: [id])
-  set           Set             @relation(fields: [setId], references: [id])
-  ownerships    CardOwnership[]
-
-  // ⭐ Favorites relation
-  favoritedBy CardFavorite[]
-
-  // 🏪 Shop relations
-  shopOffers      ShopOffer[]
-  shopInventory   ShopInventory?
+  id               Int               @id @default(autoincrement())
+  setId            String
+  productSetId     String?
+  cardNumber       String
+  player           String
+  team             String?
+  position         String?
+  subset           String?
+  variant          String?
+  bookValue        Float             @default(0)
+  quantityOwned    Int               @default(0)
+  frontImageUrl    String?
+  backImageUrl     String?
+  productSet       ProductSet?       @relation(fields: [productSetId], references: [id])
+  set              Set               @relation(fields: [setId], references: [id])
+  ownerships       CardOwnership[]
+  favoritedBy      CardFavorite[]
+  shopOffers       ShopOffer[]
+  shopInventory    ShopInventory?
   shopTransactions ShopTransaction[]
 
   @@unique([setId, cardNumber])
@@ -85,35 +96,42 @@ model Card {
   @@index([productSetId])
 }
 
+model PlayerTierProfile {
+  id             Int        @id @default(autoincrement())
+  sport          String     @default("")
+  canonicalName  String
+  normalizedName String
+  tier           PlayerTier?
+  notes          String?
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  @@unique([sport, normalizedName])
+  @@index([sport])
+  @@index([normalizedName])
+  @@index([tier])
+}
+
 model User {
   id String @id @default(cuid())
 
-  // ✅ NextAuth profile fields
   email               String?              @unique
   name                String?
   image               String?
   emailVerified       DateTime?
   productSetPrestiges ProductSetPrestige[]
 
-  // ✅ Your game economy fields (unchanged)
   balanceCents Int       @default(5000)
   nextRewardAt DateTime?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  // ✅ Your existing relations
   cardOwnerships  CardOwnership[]
   sealedInventory SealedInventory[]
-
-  // ⭐ Favorites relation
   favorites CardFavorite[]
-
-  // 🏪 Shop relations
   shopOffers       ShopOffer[]
   shopTransactions ShopTransaction[]
-
-  // ✅ NextAuth relations
   accounts Account[]
   sessions Session[]
 }
@@ -142,12 +160,6 @@ model CardOwnership {
   @@unique([userId, cardId])
   @@index([cardId])
 }
-
-/**
- * =========================
- * NextAuth / Auth.js models
- * =========================
- */
 
 model Account {
   id                String  @id @default(cuid())
@@ -203,21 +215,14 @@ model CardFavorite {
 }
 
 model ProductSetPrestige {
-  id               Int      @id @default(autoincrement())
-  userId           String
-  productSetId     String
-
-  // total completions ever achieved (we can keep it in sync, but it's optional)
-  timesCompleted   Int      @default(0)
-
-  // completions the user has already redeemed rewards for
-  claimedCompletions Int    @default(0)
-
-  // lifetime rewards paid (cents)
-  bonusAwardedCents Int     @default(0)
-
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  id                 Int       @id @default(autoincrement())
+  userId             String
+  productSetId       String
+  timesCompleted     Int       @default(0)
+  claimedCompletions Int       @default(0)
+  bonusAwardedCents  Int       @default(0)
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
 
   user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   productSet  ProductSet @relation(fields: [productSetId], references: [id], onDelete: Cascade)
@@ -226,33 +231,16 @@ model ProductSetPrestige {
   @@index([productSetId])
 }
 
-/**
- * =========================
- * Shop / Singles / Offers
- * =========================
- *
- * - Offers are per-user, per-card, and last 24 hours.
- * - Active offer cap: 15 per user.
- * - No cancel.
- * - When user sells any quantity against an offer, the offer becomes accepted (inactive).
- * - Shop inventory is global per-card.
- */
-
 model ShopOffer {
-  id              Int      @id @default(autoincrement())
-  userId          String
-  cardId          Int
-
-  // Offer percent stored as basis points: 5000 = 50.00%, 9500 = 95.00%
-  offerBps        Int
-
-  createdAt       DateTime @default(now())
-  expiresAt       DateTime
-
-  // If accepted, offer becomes inactive immediately
-  acceptedAt      DateTime?
-  acceptedQty     Int      @default(0)
-  acceptedTotalCents Int   @default(0)
+  id                 Int      @id @default(autoincrement())
+  userId             String
+  cardId             Int
+  offerBps           Int
+  createdAt          DateTime @default(now())
+  expiresAt          DateTime
+  acceptedAt         DateTime?
+  acceptedQty        Int      @default(0)
+  acceptedTotalCents Int      @default(0)
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   card Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
@@ -275,21 +263,15 @@ model ShopInventory {
 }
 
 model ShopTransaction {
-  id        Int      @id @default(autoincrement())
-  userId    String
-  cardId    Int
-
-  // "SELL_TO_SHOP" or "BUY_FROM_SHOP"
-  kind      String
-
-  quantity  Int
+  id           Int      @id @default(autoincrement())
+  userId       String
+  cardId       Int
+  kind         String
+  quantity     Int
   perCardCents Int
-  totalCents Int
-
-  // For SELL transactions, store offer bps used (optional for BUY)
-  offerBps  Int?
-
-  createdAt DateTime @default(now())
+  totalCents   Int
+  offerBps     Int?
+  createdAt    DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   card Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
