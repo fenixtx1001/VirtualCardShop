@@ -37,6 +37,19 @@ type ProductMeta = {
   brand?: string | null;
 };
 
+type ProductSetDraft = {
+  name: string;
+  isBase: boolean;
+  isInsert: boolean;
+  oddsPerPack: string;
+  commonPrice: string;
+  semiStarPrice: string;
+  unlistedStarPrice: string;
+  star1Price: string;
+  star2Price: string;
+  star3Price: string;
+};
+
 function safeNum(v: any, fallback = 0) {
   return typeof v === "number" && Number.isFinite(v) ? v : fallback;
 }
@@ -50,7 +63,7 @@ function pctText(v: any) {
   return `${n.toFixed(1)}%`;
 }
 
-function priceInputValue(v: number | null | undefined) {
+function numberToInputString(v: number | null | undefined) {
   return v === null || v === undefined || !Number.isFinite(v) ? "" : String(v);
 }
 
@@ -61,8 +74,24 @@ function parseNullableNumberInput(v: string) {
   return Number.isFinite(n) ? n : null;
 }
 
+function createDraft(row: ProductSetRow): ProductSetDraft {
+  return {
+    name: row.name ?? "",
+    isBase: !!row.isBase,
+    isInsert: !!row.isInsert,
+    oddsPerPack: numberToInputString(row.oddsPerPack),
+    commonPrice: numberToInputString(row.commonPrice),
+    semiStarPrice: numberToInputString(row.semiStarPrice),
+    unlistedStarPrice: numberToInputString(row.unlistedStarPrice),
+    star1Price: numberToInputString(row.star1Price),
+    star2Price: numberToInputString(row.star2Price),
+    star3Price: numberToInputString(row.star3Price),
+  };
+}
+
 export default function ProductSetsClient() {
   const [rows, setRows] = useState<ProductSetRow[]>([]);
+  const [drafts, setDrafts] = useState<Record<string, ProductSetDraft>>({});
   const [loading, setLoading] = useState(true);
   const [loadingProducts, setLoadingProducts] = useState(false);
 
@@ -106,6 +135,12 @@ export default function ProductSetsClient() {
 
       const arr = Array.isArray(data) ? (data as ProductSetRow[]) : [];
       setRows(arr);
+
+      const nextDrafts: Record<string, ProductSetDraft> = {};
+      for (const row of arr) {
+        nextDrafts[row.id] = createDraft(row);
+      }
+      setDrafts(nextDrafts);
     } catch (e: any) {
       setError(e?.message ?? "Failed to load product sets");
     } finally {
@@ -164,35 +199,39 @@ export default function ProductSetsClient() {
     });
   }, [rows]);
 
-  function patchRow(id: string, patch: Partial<ProductSetRow>) {
-    setRows((prev) => prev.map((r) => (r.id === id ? { ...r, ...patch } : r)));
+  function patchDraft(id: string, patch: Partial<ProductSetDraft>) {
+    setDrafts((prev) => ({
+      ...prev,
+      [id]: {
+        ...(prev[id] ?? createDraft(rows.find((r) => r.id === id)!)),
+        ...patch,
+      },
+    }));
   }
 
   function setBase(id: string, v: boolean) {
-    setRows((prev) =>
-      prev.map((r) => {
-        if (r.id !== id) return r;
-        return { ...r, isBase: v, isInsert: v ? false : r.isInsert };
-      })
-    );
+    patchDraft(id, {
+      isBase: v,
+      isInsert: v ? false : drafts[id]?.isInsert ?? false,
+    });
   }
 
   function setInsert(id: string, v: boolean) {
-    setRows((prev) =>
-      prev.map((r) => {
-        if (r.id !== id) return r;
-        return { ...r, isInsert: v, isBase: v ? false : r.isBase };
-      })
-    );
+    patchDraft(id, {
+      isInsert: v,
+      isBase: v ? false : drafts[id]?.isBase ?? false,
+    });
   }
 
   async function saveRow(row: ProductSetRow) {
+    const draft = drafts[row.id] ?? createDraft(row);
+
     setSavingId(row.id);
     setError(null);
     setSaveOk(null);
 
     try {
-      if (row.isBase && row.isInsert) {
+      if (draft.isBase && draft.isInsert) {
         throw new Error("A Product Set cannot be both Base and Insert.");
       }
 
@@ -200,16 +239,16 @@ export default function ProductSetsClient() {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: row.name,
-          isBase: row.isBase,
-          isInsert: row.isInsert,
-          oddsPerPack: row.oddsPerPack,
-          commonPrice: row.commonPrice,
-          semiStarPrice: row.semiStarPrice,
-          unlistedStarPrice: row.unlistedStarPrice,
-          star1Price: row.star1Price,
-          star2Price: row.star2Price,
-          star3Price: row.star3Price,
+          name: draft.name.trim() || null,
+          isBase: draft.isBase,
+          isInsert: draft.isInsert,
+          oddsPerPack: parseNullableNumberInput(draft.oddsPerPack),
+          commonPrice: parseNullableNumberInput(draft.commonPrice),
+          semiStarPrice: parseNullableNumberInput(draft.semiStarPrice),
+          unlistedStarPrice: parseNullableNumberInput(draft.unlistedStarPrice),
+          star1Price: parseNullableNumberInput(draft.star1Price),
+          star2Price: parseNullableNumberInput(draft.star2Price),
+          star3Price: parseNullableNumberInput(draft.star3Price),
         }),
       });
 
@@ -530,6 +569,7 @@ export default function ProductSetsClient() {
               {visibleRows.map((r, idx) => {
                 const zebra = idx % 2 === 0 ? "#fff" : "#fcfcfc";
                 const saving = savingId === r.id;
+                const draft = drafts[r.id] ?? createDraft(r);
 
                 const total = safeNum(r.stats?.totalCards ?? r._count?.cards ?? 0);
                 const pricedPct = r.stats?.pctPriced ?? 0;
@@ -571,31 +611,28 @@ export default function ProductSetsClient() {
 
                     <td style={{ ...td, whiteSpace: "normal", minWidth: 220 }}>
                       <input
-                        value={r.name ?? ""}
-                        onChange={(e) => patchRow(r.id, { name: e.target.value })}
+                        value={draft.name}
+                        onChange={(e) => patchDraft(r.id, { name: e.target.value })}
                         placeholder="(e.g., Bonus Cards)"
                         style={{ width: "100%", padding: 6 }}
                       />
                     </td>
 
                     <td style={td}>
-                      <input type="checkbox" checked={!!r.isBase} onChange={(e) => setBase(r.id, e.target.checked)} /> {r.isBase ? "Yes" : "No"}
+                      <input type="checkbox" checked={!!draft.isBase} onChange={(e) => setBase(r.id, e.target.checked)} /> {draft.isBase ? "Yes" : "No"}
                     </td>
 
                     <td style={td}>
-                      <input type="checkbox" checked={!!r.isInsert} onChange={(e) => setInsert(r.id, e.target.checked)} /> {r.isInsert ? "Yes" : "No"}
+                      <input type="checkbox" checked={!!draft.isInsert} onChange={(e) => setInsert(r.id, e.target.checked)} /> {draft.isInsert ? "Yes" : "No"}
                     </td>
 
                     <td style={td}>
                       <input
+                        type="number"
+                        step="1"
                         inputMode="numeric"
-                        value={r.oddsPerPack ?? ""}
-                        onChange={(e) => {
-                          const v = e.target.value.trim();
-                          if (v === "") return patchRow(r.id, { oddsPerPack: null });
-                          const n = Number(v);
-                          patchRow(r.id, { oddsPerPack: Number.isFinite(n) ? n : null });
-                        }}
+                        value={draft.oddsPerPack}
+                        onChange={(e) => patchDraft(r.id, { oddsPerPack: e.target.value })}
                         placeholder="—"
                         style={{ width: 140, padding: 6 }}
                       />
@@ -603,9 +640,11 @@ export default function ProductSetsClient() {
 
                     <td style={td}>
                       <input
+                        type="number"
+                        step="0.01"
                         inputMode="decimal"
-                        value={priceInputValue(r.commonPrice)}
-                        onChange={(e) => patchRow(r.id, { commonPrice: parseNullableNumberInput(e.target.value) })}
+                        value={draft.commonPrice}
+                        onChange={(e) => patchDraft(r.id, { commonPrice: e.target.value })}
                         placeholder="—"
                         style={priceInputStyle}
                       />
@@ -613,9 +652,11 @@ export default function ProductSetsClient() {
 
                     <td style={td}>
                       <input
+                        type="number"
+                        step="0.01"
                         inputMode="decimal"
-                        value={priceInputValue(r.semiStarPrice)}
-                        onChange={(e) => patchRow(r.id, { semiStarPrice: parseNullableNumberInput(e.target.value) })}
+                        value={draft.semiStarPrice}
+                        onChange={(e) => patchDraft(r.id, { semiStarPrice: e.target.value })}
                         placeholder="—"
                         style={priceInputStyle}
                       />
@@ -623,9 +664,11 @@ export default function ProductSetsClient() {
 
                     <td style={td}>
                       <input
+                        type="number"
+                        step="0.01"
                         inputMode="decimal"
-                        value={priceInputValue(r.unlistedStarPrice)}
-                        onChange={(e) => patchRow(r.id, { unlistedStarPrice: parseNullableNumberInput(e.target.value) })}
+                        value={draft.unlistedStarPrice}
+                        onChange={(e) => patchDraft(r.id, { unlistedStarPrice: e.target.value })}
                         placeholder="—"
                         style={priceInputStyle}
                       />
@@ -633,9 +676,11 @@ export default function ProductSetsClient() {
 
                     <td style={td}>
                       <input
+                        type="number"
+                        step="0.01"
                         inputMode="decimal"
-                        value={priceInputValue(r.star1Price)}
-                        onChange={(e) => patchRow(r.id, { star1Price: parseNullableNumberInput(e.target.value) })}
+                        value={draft.star1Price}
+                        onChange={(e) => patchDraft(r.id, { star1Price: e.target.value })}
                         placeholder="—"
                         style={priceInputStyle}
                       />
@@ -643,9 +688,11 @@ export default function ProductSetsClient() {
 
                     <td style={td}>
                       <input
+                        type="number"
+                        step="0.01"
                         inputMode="decimal"
-                        value={priceInputValue(r.star2Price)}
-                        onChange={(e) => patchRow(r.id, { star2Price: parseNullableNumberInput(e.target.value) })}
+                        value={draft.star2Price}
+                        onChange={(e) => patchDraft(r.id, { star2Price: e.target.value })}
                         placeholder="—"
                         style={priceInputStyle}
                       />
@@ -653,9 +700,11 @@ export default function ProductSetsClient() {
 
                     <td style={td}>
                       <input
+                        type="number"
+                        step="0.01"
                         inputMode="decimal"
-                        value={priceInputValue(r.star3Price)}
-                        onChange={(e) => patchRow(r.id, { star3Price: parseNullableNumberInput(e.target.value) })}
+                        value={draft.star3Price}
+                        onChange={(e) => patchDraft(r.id, { star3Price: e.target.value })}
                         placeholder="—"
                         style={priceInputStyle}
                       />
