@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { cleanCanonicalPlayerName, normalizePlayerName } from "@/lib/player-tiers";
+import { PlayerTierProfile } from "@prisma/client";
 
 function tierRank(tier: string | null | undefined) {
   switch (tier) {
@@ -19,6 +20,23 @@ function tierRank(tier: string | null | undefined) {
     default:
       return 0;
   }
+}
+
+function chooseSurvivor(rows: PlayerTierProfile[]) {
+  return [...rows].sort((a, b) => {
+    const tierCmp = tierRank(b.tier) - tierRank(a.tier);
+    if (tierCmp !== 0) return tierCmp;
+
+    const aHasNotes = !!a.notes?.trim();
+    const bHasNotes = !!b.notes?.trim();
+    if (aHasNotes !== bHasNotes) return aHasNotes ? -1 : 1;
+
+    const aLen = (a.canonicalName ?? "").length;
+    const bLen = (b.canonicalName ?? "").length;
+    if (aLen !== bLen) return aLen - bLen;
+
+    return a.id - b.id;
+  })[0];
 }
 
 export async function POST() {
@@ -73,23 +91,25 @@ export async function POST() {
       orderBy: [{ id: "asc" }],
     });
 
-    const groupedExisting = new Map<string, typeof existingRows>();
+    const groupedExisting = new Map<string, PlayerTierProfile[]>();
 
     for (const row of existingRows) {
       const canonicalName = await cleanCanonicalPlayerName(row.canonicalName);
       const normalizedName = await normalizePlayerName(canonicalName);
       const sport = row.sport?.trim() || "";
-      const key = `${sport}::${normalizedName}`;
 
-      const nextRow = {
+      if (!canonicalName || !normalizedName) continue;
+
+      const normalizedRow: PlayerTierProfile = {
         ...row,
         sport,
         canonicalName,
         normalizedName,
       };
 
+      const key = `${sport}::${normalizedName}`;
       const list = groupedExisting.get(key) ?? [];
-      list.push(nextRow);
+      list.push(normalizedRow);
       groupedExisting.set(key, list);
     }
 
@@ -97,70 +117,65 @@ export async function POST() {
     let insertedProfiles = 0;
     let updatedProfiles = 0;
 
-    for (const [key, rows] of groupedExisting.entries()) {
-      const sorted = [...rows].sort((a, b) => {
-        const tierCmp = tierRank(b.tier) - tierRank(a.tier);
-        if (tierCmp !== 0) return tierCmp;
+    await prisma.$transaction(async (tx) => {
+      const survivorMap = new Map<string, PlayerTierProfile>();
 
-        const aHasNotes = !!a.notes?.trim();
-        const bHasNotes = !!b.notes?.trim();
-        if (aHasNotes !== bHasNotes) return aHasNotes ? -1 : 1;
+      for (const [key, rows] of groupedExisting.entries()) {
+        const survivor = chooseSurvivor(rows);
+        const duplicateIds = rows.filter((r) => r.id !== survivor.id).map((r) => r.id);
 
-        return a.canonicalName.length - b.canonicalName.length;
-      });
-
-      const survivor = sorted[0];
-      const duplicates = sorted.slice(1);
-
-      await prisma.playerTierProfile.update({
-        where: { id: survivor.id },
-        data: {
-          sport: survivor.sport,
-          canonicalName: survivor.canonicalName,
-          normalizedName: survivor.normalizedName,
-        },
-      });
-
-      if (duplicates.length > 0) {
-        await prisma.playerTierProfile.deleteMany({
-          where: {
-            id: {
-              in: duplicates.map((r) => r.id),
+        if (duplicateIds.length > 0) {
+          await tx.playerTierProfile.deleteMany({
+            where: {
+              id: {
+                in: duplicateIds,
+              },
             },
+          });
+          deletedDuplicates += duplicateIds.length;
+        }
+
+        await tx.playerTierProfile.update({
+          where: { id: survivor.id },
+          data: {
+            sport: survivor.sport,
+            canonicalName: survivor.canonicalName,
+            normalizedName: survivor.normalizedName,
           },
         });
-        deletedDuplicates += duplicates.length;
+
+        survivorMap.set(key, survivor);
       }
 
-      groupedExisting.set(key, [survivor]);
-    }
+      for (const [key, desired] of desiredMap.entries()) {
+        const existing = survivorMap.get(key);
 
-    for (const [key, desired] of desiredMap.entries()) {
-      const existing = groupedExisting.get(key)?.[0];
+        if (existing) {
+          await tx.playerTierProfile.update({
+            where: { id: existing.id },
+            data: {
+              sport: desired.sport,
+              canonicalName: desired.canonicalName,
+              normalizedName: desired.normalizedName,
+            },
+          });
+          updatedProfiles += 1;
+        } else {
+          const created = await tx.playerTierProfile.create({
+            data: {
+              sport: desired.sport,
+              canonicalName: desired.canonicalName,
+              normalizedName: desired.normalizedName,
+              tier: null,
+              notes: null,
+            },
+          });
 
-      if (existing) {
-        await prisma.playerTierProfile.update({
-          where: { id: existing.id },
-          data: {
-            sport: desired.sport,
-            canonicalName: desired.canonicalName,
-            normalizedName: desired.normalizedName,
-          },
-        });
-        updatedProfiles += 1;
-      } else {
-        await prisma.playerTierProfile.create({
-          data: {
-            sport: desired.sport,
-            canonicalName: desired.canonicalName,
-            normalizedName: desired.normalizedName,
-            tier: null,
-            notes: null,
-          },
-        });
-        insertedProfiles += 1;
+          survivorMap.set(key, created);
+          insertedProfiles += 1;
+        }
       }
-    }
+    });
 
     const unassignedProfiles = await prisma.playerTierProfile.count({
       where: {
