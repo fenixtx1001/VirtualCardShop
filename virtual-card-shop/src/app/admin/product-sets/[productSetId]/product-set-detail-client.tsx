@@ -82,6 +82,8 @@ type PricingActionResponse = {
   error?: string;
 };
 
+type AutoSaveState = "pending" | "saving" | "saved" | "error";
+
 function moneyToDisplay(v: number) {
   if (typeof v !== "number" || !Number.isFinite(v)) return "0.00";
   return v.toFixed(2);
@@ -221,6 +223,9 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
   const [saveError, setSaveError] = useState<string | null>(null);
   const [saveOk, setSaveOk] = useState<string | null>(null);
 
+  // Per-card autosave status for row-level feedback
+  const [autoSaveById, setAutoSaveById] = useState<Record<number, AutoSaveState | undefined>>({});
+
   // Search + filters
   const [query, setQuery] = useState("");
   const [subsetFilter, setSubsetFilter] = useState("ALL");
@@ -246,11 +251,34 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
   // Track baseline
   const baselineRef = useRef<Map<number, string>>(new Map());
 
+  // Autosave refs: keep latest data/drafts available inside timers
+  const dataRef = useRef<ProductSetResponse | null>(null);
+  const bookDraftRef = useRef<Record<number, string>>({});
+  const autoSaveTimersRef = useRef<Record<number, ReturnType<typeof setTimeout>>>({});
+  const autoSaveInFlightRef = useRef<Record<number, boolean>>({});
+
   // Save page progress
   const [bulkSaving, setBulkSaving] = useState(false);
   const [bulkProgress, setBulkProgress] = useState<{ done: number; total: number } | null>(null);
   const [bulkErrors, setBulkErrors] = useState<string[]>([]);
   const [saveNeedsOnly, setSaveNeedsOnly] = useState(true);
+
+  useEffect(() => {
+    dataRef.current = data;
+  }, [data]);
+
+  useEffect(() => {
+    bookDraftRef.current = bookDraft;
+  }, [bookDraft]);
+
+  useEffect(() => {
+    return () => {
+      for (const timer of Object.values(autoSaveTimersRef.current)) {
+        clearTimeout(timer);
+      }
+      autoSaveTimersRef.current = {};
+    };
+  }, []);
 
   async function load(p = page, ps = pageSize) {
     setLoading(true);
@@ -276,10 +304,12 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
       const payload = j as ProductSetResponse;
       setData(payload);
+      dataRef.current = payload;
 
       const nextDraft: Record<number, string> = {};
       for (const c of payload.cards ?? []) nextDraft[c.id] = moneyToDisplay(c.bookValue ?? 0);
       setBookDraft(nextDraft);
+      bookDraftRef.current = nextDraft;
 
       const map = new Map<number, string>();
       for (const c of payload.cards ?? []) {
@@ -302,6 +332,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
     } catch (e: any) {
       setPageError(e?.message ?? "Failed to load");
       setData(null);
+      dataRef.current = null;
     } finally {
       setLoading(false);
     }
@@ -386,15 +417,14 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
     };
   }, [data?.cards]);
 
-  function patchCard(cardId: number, patch: Partial<CardRow>) {
-    setData((prev) => {
-      if (!prev) return prev;
-      return { ...prev, cards: prev.cards.map((c) => (c.id === cardId ? { ...c, ...patch } : c)) };
-    });
-  }
-
   function getEffectiveBookValue(card: CardRow) {
     const draft = bookDraft[card.id];
+    if (typeof draft === "string") return displayToMoney(draft);
+    return typeof card.bookValue === "number" ? card.bookValue : 0;
+  }
+
+  function getEffectiveBookValueFromRefs(card: CardRow) {
+    const draft = bookDraftRef.current[card.id];
     if (typeof draft === "string") return displayToMoney(draft);
     return typeof card.bookValue === "number" ? card.bookValue : 0;
   }
@@ -411,6 +441,141 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
       frontImageUrl: card.frontImageUrl ?? null,
       backImageUrl: card.backImageUrl ?? null,
     });
+  }
+
+  function buildBaselineComparableFromRefs(card: CardRow) {
+    return JSON.stringify({
+      cardNumber: card.cardNumber ?? "",
+      player: card.player ?? "",
+      team: card.team ?? null,
+      position: card.position ?? null,
+      subset: card.subset ?? null,
+      variant: card.variant ?? null,
+      bookValue: getEffectiveBookValueFromRefs(card),
+      frontImageUrl: card.frontImageUrl ?? null,
+      backImageUrl: card.backImageUrl ?? null,
+    });
+  }
+
+  function getLatestCard(cardId: number, patch: Partial<CardRow> = {}) {
+    const current = dataRef.current?.cards.find((c) => c.id === cardId);
+    if (!current) return null;
+    return { ...current, ...patch };
+  }
+
+  function buildSavePayload(card: CardRow) {
+    const bookValue = getEffectiveBookValueFromRefs(card);
+
+    return {
+      cardNumber: card.cardNumber,
+      player: card.player,
+      team: card.team,
+      position: card.position,
+      subset: card.subset,
+      variant: card.variant,
+      bookValue,
+      frontImageUrl: card.frontImageUrl ?? null,
+      backImageUrl: card.backImageUrl ?? null,
+    };
+  }
+
+  async function saveCardNow(cardId: number, patch: Partial<CardRow> = {}, source: "auto" | "manual" = "auto") {
+    const card = getLatestCard(cardId, patch);
+    if (!card) return;
+
+    if (autoSaveInFlightRef.current[cardId]) {
+      scheduleAutoSave(cardId, patch, 700);
+      return;
+    }
+
+    autoSaveInFlightRef.current[cardId] = true;
+    setSavingCardId(cardId);
+    setAutoSaveById((prev) => ({ ...prev, [cardId]: source === "auto" ? "saving" : "saving" }));
+
+    if (source === "manual") {
+      setSaveError(null);
+      setSaveOk(null);
+    }
+
+    try {
+      const res = await fetch(`/api/cards/${encodeURIComponent(String(cardId))}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(buildSavePayload(card)),
+      });
+
+      const raw = await res.text();
+      let j: any = {};
+      try {
+        j = raw ? JSON.parse(raw) : {};
+      } catch {
+        throw new Error(`Save returned non-JSON (${res.status}): ${raw.slice(0, 140)}`);
+      }
+
+      if (!res.ok) throw new Error(j?.error ?? `Save failed (${res.status})`);
+
+      const savedBook = getEffectiveBookValueFromRefs(card);
+      baselineRef.current.set(cardId, buildBaselineComparableFromRefs({ ...card, bookValue: savedBook }));
+      patchCard(cardId, { bookValue: savedBook }, { autosave: false });
+      setBookDraft((prev) => {
+        const next = { ...prev, [cardId]: moneyToDisplay(savedBook) };
+        bookDraftRef.current = next;
+        return next;
+      });
+
+      setAutoSaveById((prev) => ({ ...prev, [cardId]: "saved" }));
+      if (source === "manual") setSaveOk(`Saved card #${card.cardNumber}`);
+
+      window.setTimeout(() => {
+        setAutoSaveById((prev) => {
+          if (prev[cardId] !== "saved") return prev;
+          return { ...prev, [cardId]: undefined };
+        });
+      }, 1400);
+    } catch (e: any) {
+      setAutoSaveById((prev) => ({ ...prev, [cardId]: "error" }));
+      if (source === "manual") setSaveError(e?.message ?? "Save failed");
+      else setSaveError(`Autosave failed for card #${card.cardNumber}: ${e?.message ?? "Save failed"}`);
+    } finally {
+      autoSaveInFlightRef.current[cardId] = false;
+      setSavingCardId(null);
+    }
+  }
+
+  function scheduleAutoSave(cardId: number, patch: Partial<CardRow> = {}, delayMs = 800) {
+    const existing = autoSaveTimersRef.current[cardId];
+    if (existing) clearTimeout(existing);
+
+    setAutoSaveById((prev) => ({ ...prev, [cardId]: "pending" }));
+
+    autoSaveTimersRef.current[cardId] = setTimeout(() => {
+      delete autoSaveTimersRef.current[cardId];
+      saveCardNow(cardId, patch, "auto");
+    }, delayMs);
+  }
+
+  function patchCard(
+    cardId: number,
+    patch: Partial<CardRow>,
+    options: { autosave?: boolean; autosaveDelayMs?: number } = {}
+  ) {
+    const shouldAutosave = options.autosave !== false;
+
+    setData((prev) => {
+      if (!prev) return prev;
+
+      const next = {
+        ...prev,
+        cards: prev.cards.map((c) => (c.id === cardId ? { ...c, ...patch } : c)),
+      };
+
+      dataRef.current = next;
+      return next;
+    });
+
+    if (shouldAutosave) {
+      scheduleAutoSave(cardId, patch, options.autosaveDelayMs ?? 800);
+    }
   }
 
   function isDirty(card: CardRow) {
@@ -529,48 +694,13 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
   }, [sortedCards, query, subsetFilter, variantFilter, needsSetupOnly, bookDraft]);
 
   async function saveCard(card: CardRow) {
-    setSavingCardId(card.id);
-    setSaveError(null);
-    setSaveOk(null);
-
-    try {
-      const bookValue = getEffectiveBookValue(card);
-
-      const res = await fetch(`/api/cards/${encodeURIComponent(String(card.id))}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          cardNumber: card.cardNumber,
-          player: card.player,
-          team: card.team,
-          position: card.position,
-          subset: card.subset,
-          variant: card.variant,
-          bookValue,
-          frontImageUrl: card.frontImageUrl ?? null,
-          backImageUrl: card.backImageUrl ?? null,
-        }),
-      });
-
-      const raw = await res.text();
-      let j: any;
-      try {
-        j = JSON.parse(raw);
-      } catch {
-        throw new Error(`Save returned non-JSON (${res.status}): ${raw.slice(0, 140)}`);
-      }
-
-      if (!res.ok) throw new Error(j?.error ?? `Save failed (${res.status})`);
-
-      baselineRef.current.set(card.id, buildBaselineComparable({ ...card, bookValue }));
-      patchCard(card.id, { bookValue });
-      setBookDraft((prev) => ({ ...prev, [card.id]: moneyToDisplay(bookValue) }));
-      setSaveOk(`Saved card #${card.cardNumber}`);
-    } catch (e: any) {
-      setSaveError(e?.message ?? "Save failed");
-    } finally {
-      setSavingCardId(null);
+    const existing = autoSaveTimersRef.current[card.id];
+    if (existing) {
+      clearTimeout(existing);
+      delete autoSaveTimersRef.current[card.id];
     }
+
+    await saveCardNow(card.id, {}, "manual");
   }
 
   async function saveThisPage() {
@@ -631,7 +761,11 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
             }
 
             baselineRef.current.set(card.id, buildBaselineComparable({ ...card, bookValue }));
-            setBookDraft((prev) => ({ ...prev, [card.id]: moneyToDisplay(bookValue) }));
+            setBookDraft((prev) => {
+              const next = { ...prev, [card.id]: moneyToDisplay(bookValue) };
+              bookDraftRef.current = next;
+              return next;
+            });
           } catch (e: any) {
             errs.push(`Card ${card.cardNumber}: ${e?.message ?? "save failed"}`);
           }
@@ -670,11 +804,16 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
       if (!res.ok) throw new Error(j?.error ?? `Delete failed (${res.status})`);
 
-      setData((prev) => (prev ? { ...prev, cards: prev.cards.filter((c) => c.id !== card.id) } : prev));
+      setData((prev) => {
+        const next = prev ? { ...prev, cards: prev.cards.filter((c) => c.id !== card.id) } : prev;
+        dataRef.current = next;
+        return next;
+      });
 
       setBookDraft((prev) => {
         const next = { ...prev };
         delete next[card.id];
+        bookDraftRef.current = next;
         return next;
       });
 
@@ -806,8 +945,12 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
           ? j.defaulting.defaultPrice
           : card.bookValue;
 
-      patchCard(card.id, { bookValue: nextBook });
-      setBookDraft((prev) => ({ ...prev, [card.id]: moneyToDisplay(nextBook) }));
+      patchCard(card.id, { bookValue: nextBook }, { autosave: true, autosaveDelayMs: 100 });
+      setBookDraft((prev) => {
+        const next = { ...prev, [card.id]: moneyToDisplay(nextBook) };
+        bookDraftRef.current = next;
+        return next;
+      });
       setDefaultingById((prev) => ({
         ...prev,
         [card.id]: {
@@ -824,6 +967,15 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
     } finally {
       setDefaultingCardId(null);
     }
+  }
+
+  function autoSaveText(cardId: number) {
+    const status = autoSaveById[cardId];
+    if (savingCardId === cardId || status === "saving") return "Saving…";
+    if (status === "pending") return "Autosave pending…";
+    if (status === "saved") return "Saved";
+    if (status === "error") return "Autosave failed";
+    return "";
   }
 
   const bodyCell: React.CSSProperties = { padding: 8, borderBottom: "1px solid #eee" };
@@ -1222,7 +1374,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                           <ImageUploader
                             label="Upload front image"
                             value={c.frontImageUrl}
-                            onUploaded={(url) => patchCard(c.id, { frontImageUrl: url })}
+                            onUploaded={(url) => patchCard(c.id, { frontImageUrl: url }, { autosaveDelayMs: 100 })}
                           />
                         </div>
                       </td>
@@ -1246,7 +1398,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                           <ImageUploader
                             label="Upload back image"
                             value={c.backImageUrl}
-                            onUploaded={(url) => patchCard(c.id, { backImageUrl: url })}
+                            onUploaded={(url) => patchCard(c.id, { backImageUrl: url }, { autosaveDelayMs: 100 })}
                           />
                         </div>
                       </td>
@@ -1254,15 +1406,34 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                       <td style={{ ...bodyCell, width: 150 }}>
                         <input
                           value={bookDraft[c.id] ?? moneyToDisplay(c.bookValue ?? 0)}
-                          onChange={(e) => setBookDraft((prev) => ({ ...prev, [c.id]: e.target.value }))}
+                          onChange={(e) => {
+                            const nextRaw = e.target.value;
+                            setBookDraft((prev) => {
+                              const next = { ...prev, [c.id]: nextRaw };
+                              bookDraftRef.current = next;
+                              return next;
+                            });
+
+                            const parsed = displayToMoney(nextRaw);
+                            patchCard(c.id, { bookValue: parsed }, { autosaveDelayMs: 900 });
+                          }}
                           onBlur={() => {
                             const raw = bookDraft[c.id] ?? moneyToDisplay(c.bookValue ?? 0);
                             const parsed = displayToMoney(raw);
-                            patchCard(c.id, { bookValue: parsed });
-                            setBookDraft((prev) => ({ ...prev, [c.id]: moneyToDisplay(parsed) }));
+                            patchCard(c.id, { bookValue: parsed }, { autosaveDelayMs: 100 });
+                            setBookDraft((prev) => {
+                              const next = { ...prev, [c.id]: moneyToDisplay(parsed) };
+                              bookDraftRef.current = next;
+                              return next;
+                            });
                           }}
                           style={{ width: "100%", padding: 6 }}
                         />
+
+                        <div style={{ minHeight: 18, marginTop: 4, fontSize: 12, color: autoSaveById[c.id] === "error" ? "#8a1f1f" : "#666" }}>
+                          {autoSaveText(c.id)}
+                        </div>
+
                         <button
                           onClick={() => useDefaultForCard(c)}
                           disabled={saving || defaulting || bulkSaving || pricingBusy}
