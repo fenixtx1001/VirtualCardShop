@@ -8,21 +8,14 @@ export const dynamic = "force-dynamic";
 
 type BuyKind = "pack" | "box";
 
-function calcCostCents(params: {
-  kind: BuyKind;
-  quantity: number;
-  packPriceCents: number;
-  packsPerBox: number | null;
-}) {
-  const { kind, quantity, packPriceCents, packsPerBox } = params;
-
-  if (kind === "pack") {
-    return packPriceCents * quantity;
+function getDailySeed() {
+  const now = new Date();
+  const key = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;
+  let hash = 0;
+  for (let i = 0; i < key.length; i++) {
+    hash = (hash * 31 + key.charCodeAt(i)) >>> 0;
   }
-
-  const ppb = packsPerBox ?? 0;
-  const boxPrice = Math.round(packPriceCents * ppb * 0.75); // your rule: packPrice * packsPerBox * 0.75
-  return boxPrice * quantity;
+  return hash;
 }
 
 export async function POST(req: Request) {
@@ -44,6 +37,16 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: "Invalid quantity" }, { status: 400 });
     }
 
+    const products = await prisma.product.findMany({
+      where: { released: true },
+      orderBy: [{ year: "asc" }, { brand: "asc" }, { id: "asc" }],
+      select: { id: true },
+    });
+
+    const seed = getDailySeed();
+    const dailyIndex = products.length > 0 ? seed % products.length : -1;
+    const dailyProductId = products[dailyIndex]?.id;
+
     const product = await prisma.product.findUnique({
       where: { id: productId },
       select: {
@@ -57,26 +60,33 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: "Product not found" }, { status: 404 });
     }
 
-    const packPriceCents = product.packPriceCents ?? 0;
-    const costCents = calcCostCents({
-      kind,
-      quantity,
-      packPriceCents,
-      packsPerBox: product.packsPerBox ?? null,
-    });
+    const isDailyDeal = productId === dailyProductId;
+
+    const packPrice = product.packPriceCents ?? 0;
+    const ppb = product.packsPerBox ?? 0;
+
+    let unitCost = 0;
+
+    if (kind === "pack") {
+      unitCost = isDailyDeal ? Math.round(packPrice * 0.9) : packPrice;
+    } else {
+      const baseBox = Math.round(packPrice * ppb * 0.75);
+      unitCost = isDailyDeal ? Math.round(baseBox * 0.9) : baseBox;
+    }
+
+    const costCents = unitCost * quantity;
 
     const packsToAdd =
       kind === "pack" ? quantity : (product.packsPerBox ?? 0) * quantity;
 
     if (packsToAdd <= 0) {
       return NextResponse.json(
-        { ok: false, error: "Product packsPerBox is missing/invalid for box purchase" },
+        { ok: false, error: "Invalid packsPerBox" },
         { status: 400 }
       );
     }
 
     const result = await prisma.$transaction(async (tx) => {
-      // lock user balance row first
       const u = await tx.user.findUnique({
         where: { id: user.id },
         select: { balanceCents: true },
@@ -89,14 +99,12 @@ export async function POST(req: Request) {
         throw err;
       }
 
-      // decrement balance
       const updatedUser = await tx.user.update({
         where: { id: user.id },
         data: { balanceCents: { decrement: costCents } },
         select: { balanceCents: true },
       });
 
-      // upsert sealed inventory for THIS user
       const inv = await tx.sealedInventory.upsert({
         where: {
           userId_productId: {

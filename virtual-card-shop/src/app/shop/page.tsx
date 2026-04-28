@@ -25,6 +25,20 @@ type ProductRow = {
   };
   productSetsCount: number;
   released?: boolean;
+
+  isDailyDeal?: boolean;
+  dailyDealDateKey?: string | null;
+  dailyDealDiscountBps?: number;
+
+  standardPackPriceCents?: number;
+  standardBoxPriceCents?: number | null;
+  dealPackPriceCents?: number;
+  dealBoxPriceCents?: number | null;
+  effectivePackPriceCents?: number;
+  effectiveBoxPriceCents?: number | null;
+
+  createdAt?: string | null;
+  isNewProduct?: boolean;
 };
 
 type SortKey = "name" | "year_desc" | "price_asc" | "price_desc";
@@ -80,6 +94,92 @@ type ShopInventoryRow = {
 function centsToDollars(cents: number | null | undefined) {
   const c = typeof cents === "number" ? cents : 0;
   return (c / 100).toFixed(2);
+}
+
+function dailyDealLabel(p: ProductRow | null | undefined) {
+  if (!p?.isDailyDeal) return null;
+  const bps = typeof p.dailyDealDiscountBps === "number" ? p.dailyDealDiscountBps : 1000;
+  const pct = Math.round(bps / 100);
+  return `${pct}% OFF TODAY`;
+}
+
+function effectivePackPrice(p: ProductRow) {
+  return typeof p.effectivePackPriceCents === "number" ? p.effectivePackPriceCents : p.packPriceCents;
+}
+
+function standardPackPrice(p: ProductRow) {
+  return typeof p.standardPackPriceCents === "number" ? p.standardPackPriceCents : p.packPriceCents;
+}
+
+function effectiveBoxPrice(p: ProductRow, derivedBox: number | null) {
+  if (typeof p.effectiveBoxPriceCents === "number") return p.effectiveBoxPriceCents;
+  return p.boxPriceCents ?? derivedBox;
+}
+
+function standardBoxPrice(p: ProductRow, derivedBox: number | null) {
+  if (typeof p.standardBoxPriceCents === "number") return p.standardBoxPriceCents;
+  return p.boxPriceCents ?? derivedBox;
+}
+
+function PriceLine({
+  label,
+  standardCents,
+  effectiveCents,
+  isDeal,
+  suffix,
+}: {
+  label: string;
+  standardCents: number | null;
+  effectiveCents: number | null;
+  isDeal: boolean;
+  suffix?: string;
+}) {
+  return (
+    <div style={{ fontSize: 12 }}>
+      <span style={{ fontWeight: 900 }}>{label}:</span>{" "}
+      {effectiveCents === null ? (
+        "—"
+      ) : isDeal && standardCents !== null && standardCents > effectiveCents ? (
+        <>
+          <span style={{ textDecoration: "line-through", color: "#777", marginRight: 6 }}>
+            ${centsToDollars(standardCents)}
+          </span>
+          <span style={{ fontWeight: 1000, color: "#9b1c1c" }}>${centsToDollars(effectiveCents)}</span>
+        </>
+      ) : (
+        <>${centsToDollars(effectiveCents)}</>
+      )}
+      {suffix ? <span style={{ color: "#666" }}> {suffix}</span> : null}
+    </div>
+  );
+}
+
+function NewProductBadge() {
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: 8,
+        right: 8,
+        zIndex: 3,
+        display: "flex",
+        alignItems: "center",
+        gap: 5,
+        borderRadius: 999,
+        padding: "5px 9px",
+        background: "#0f172a",
+        color: "white",
+        fontSize: 11,
+        fontWeight: 1000,
+        letterSpacing: 0.3,
+        boxShadow: "0 0 16px rgba(34, 197, 94, 0.75)",
+        border: "1px solid rgba(34, 197, 94, 0.9)",
+      }}
+      title="Added within the past week"
+    >
+      ✨ New
+    </div>
+  );
 }
 
 function safeImgSrc(url: string | null | undefined) {
@@ -302,13 +402,18 @@ function SealedShopTab() {
     out.sort((a, b) => {
       if (sort === "name") return formatFriendlyProductName(a.id).localeCompare(formatFriendlyProductName(b.id));
       if (sort === "year_desc") return (b.year ?? 0) - (a.year ?? 0);
-      if (sort === "price_asc") return (a.packPriceCents ?? 0) - (b.packPriceCents ?? 0);
-      if (sort === "price_desc") return (b.packPriceCents ?? 0) - (a.packPriceCents ?? 0);
+      if (sort === "price_asc") return effectivePackPrice(a) - effectivePackPrice(b);
+      if (sort === "price_desc") return effectivePackPrice(b) - effectivePackPrice(a);
       return 0;
     });
 
     return out;
   }, [rows, q, sport, year, sort]);
+
+  const dailyDeal = useMemo(
+    () => rows.find((r) => r.released === true && r.isDailyDeal === true) ?? null,
+    [rows]
+  );
 
   return (
     <div style={{ fontFamily: "system-ui" }}>
@@ -316,7 +421,7 @@ function SealedShopTab() {
         <div>
           <h1 style={{ fontSize: 34, fontWeight: 900, marginTop: 0, marginBottom: 6 }}>Shop</h1>
           <div style={{ color: "#444" }}>
-            Buy packs or discounted boxes. Boxes are priced at packPrice × packsPerBox × 0.75.
+            Buy packs or discounted boxes. Boxes are priced at packPrice × packsPerBox × 0.75. One daily deal gets an extra 10% off packs and boxes until midnight.
           </div>
         </div>
 
@@ -399,6 +504,143 @@ function SealedShopTab() {
         </div>
       </div>
 
+      {dailyDeal ? (
+        <div
+          style={{
+            marginTop: 16,
+            border: "2px solid #f0b429",
+            borderRadius: 18,
+            overflow: "hidden",
+            background: "linear-gradient(135deg, #fff7cc 0%, #fffdf2 48%, #ffffff 100%)",
+            boxShadow: "0 0 22px rgba(240, 180, 41, 0.38)",
+          }}
+        >
+          <div
+            style={{
+              padding: "12px 16px",
+              background: "rgba(240, 180, 41, 0.18)",
+              borderBottom: "1px solid rgba(240, 180, 41, 0.4)",
+              display: "flex",
+              justifyContent: "space-between",
+              gap: 12,
+              alignItems: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            <div>
+              <div style={{ fontSize: 13, fontWeight: 1000, letterSpacing: 1.2, color: "#8a5a00" }}>
+                🔥 DAILY DEAL
+              </div>
+              <div style={{ fontSize: 24, fontWeight: 1000 }}>
+                {formatFriendlyProductName(dailyDeal.id)}
+              </div>
+              <div style={{ fontSize: 12, color: "#555", marginTop: 4 }}>
+                {dailyDeal.year ?? "—"} • {dailyDeal.brand ?? "—"} • {dailyDeal.sport ?? "—"} • Changes at midnight
+              </div>
+            </div>
+
+            <div
+              style={{
+                borderRadius: 999,
+                padding: "8px 12px",
+                background: "#111",
+                color: "white",
+                fontSize: 12,
+                fontWeight: 1000,
+              }}
+            >
+              {dailyDealLabel(dailyDeal)}
+            </div>
+          </div>
+
+          <div
+            style={{
+              padding: 16,
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gap: 18,
+              alignItems: "center",
+            }}
+          >
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <div style={{ position: "relative", display: "inline-block" }}>
+                {dailyDeal.isNewProduct ? <NewProductBadge /> : null}
+                <Thumb
+                  src={safeImgSrc(dailyDeal.displayBoxImageUrl ?? dailyDeal.boxImageUrl ?? dailyDeal.packImageUrl)}
+                  label="Daily Deal Box"
+                  size={200}
+                />
+              </div>
+            </div>
+
+            <div style={{ display: "grid", gap: 12 }}>
+              {(() => {
+                const derivedBox =
+                  dailyDeal.packsPerBox && dailyDeal.packsPerBox > 0
+                    ? computeBoxPriceCents(dailyDeal.packPriceCents, dailyDeal.packsPerBox)
+                    : null;
+
+                const packKey = `${dailyDeal.id}:pack`;
+                const boxKey = `${dailyDeal.id}:box`;
+
+                return (
+                  <>
+                    <PriceLine
+                      label="Pack deal"
+                      standardCents={standardPackPrice(dailyDeal)}
+                      effectiveCents={effectivePackPrice(dailyDeal)}
+                      isDeal={dailyDeal.isDailyDeal === true}
+                    />
+
+                    <PriceLine
+                      label="Box deal"
+                      standardCents={standardBoxPrice(dailyDeal, derivedBox)}
+                      effectiveCents={effectiveBoxPrice(dailyDeal, derivedBox)}
+                      isDeal={dailyDeal.isDailyDeal === true}
+                      suffix={dailyDeal.packsPerBox ? `• ${dailyDeal.packsPerBox} packs/box` : ""}
+                    />
+
+                    <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 4 }}>
+                      <button
+                        onClick={() => buy(dailyDeal.id, "pack")}
+                        disabled={buyingKey === packKey}
+                        style={{
+                          padding: "10px 14px",
+                          borderRadius: 12,
+                          border: "1px solid #111",
+                          background: buyingKey === packKey ? "#f2f2f2" : "#111",
+                          color: buyingKey === packKey ? "#555" : "white",
+                          fontWeight: 1000,
+                          cursor: buyingKey === packKey ? "not-allowed" : "pointer",
+                        }}
+                      >
+                        {buyingKey === packKey ? "Buying…" : "Buy Daily Deal Pack"}
+                      </button>
+
+                      <button
+                        onClick={() => buy(dailyDeal.id, "box")}
+                        disabled={buyingKey === boxKey}
+                        style={{
+                          padding: "10px 14px",
+                          borderRadius: 12,
+                          border: "1px solid #111",
+                          background: buyingKey === boxKey ? "#f2f2f2" : "white",
+                          color: "#111",
+                          fontWeight: 1000,
+                          cursor: buyingKey === boxKey ? "not-allowed" : "pointer",
+                        }}
+                      >
+                        {buyingKey === boxKey ? "Buying…" : "Buy Daily Deal Box"}
+                      </button>
+                    </div>
+                  </>
+                );
+              })()}
+            </div>
+          </div>
+        </div>
+      ) : null}
+
       <hr style={{ margin: "16px 0" }} />
 
       {err ? (
@@ -433,28 +675,51 @@ function SealedShopTab() {
             const derivedBox =
               p.packsPerBox && p.packsPerBox > 0 ? computeBoxPriceCents(p.packPriceCents, p.packsPerBox) : null;
 
-            const boxPriceCents = p.boxPriceCents ?? derivedBox;
+            const boxPriceCents = effectiveBoxPrice(p, derivedBox);
+            const originalBoxPriceCents = standardBoxPrice(p, derivedBox);
+            const packPriceCents = effectivePackPrice(p);
+            const originalPackPriceCents = standardPackPrice(p);
+            const isDeal = p.isDailyDeal === true;
 
             return (
               <div
                 key={p.id}
                 style={{
-                  border: "1px solid #ddd",
+                  border: isDeal ? "2px solid #f0b429" : "1px solid #ddd",
                   borderRadius: 16,
-                  background: "white",
+                  background: isDeal ? "linear-gradient(180deg, #fffdf2 0%, #ffffff 45%)" : "white",
                   overflow: "hidden",
-                  boxShadow: "0 1px 0 rgba(0,0,0,0.03)",
+                  boxShadow: isDeal ? "0 0 16px rgba(240, 180, 41, 0.32)" : "0 1px 0 rgba(0,0,0,0.03)",
                 }}
               >
                 <div style={{ padding: 14, borderBottom: "1px solid #eee", background: "#fafafa" }}>
                   <div style={{ fontSize: 16, fontWeight: 900 }}>{displayName}</div>
+                  {isDeal ? (
+                    <div
+                      style={{
+                        display: "inline-block",
+                        marginTop: 6,
+                        borderRadius: 999,
+                        padding: "4px 8px",
+                        background: "#111",
+                        color: "white",
+                        fontSize: 11,
+                        fontWeight: 1000,
+                      }}
+                    >
+                      🔥 DAILY DEAL • {dailyDealLabel(p)}
+                    </div>
+                  ) : null}
                   <div style={{ fontSize: 12, color: "#555", marginTop: 4 }}>
                     {(p.year ?? "—")} • {(p.brand ?? "—")} • {(p.sport ?? "—")} • Product Sets: {p.productSetsCount}
                   </div>
                 </div>
 
                 <div style={{ padding: 14, display: "flex", justifyContent: "center" }}>
-                  <Thumb src={boxOnlySrc} label="Box" size={190} />
+                  <div style={{ position: "relative", display: "inline-block" }}>
+                    {p.isNewProduct ? <NewProductBadge /> : null}
+                    <Thumb src={boxOnlySrc} label="Box" size={190} />
+                  </div>
                 </div>
 
                 <div style={{ padding: "0 14px 10px", fontSize: 11, color: "#666" }}>
@@ -480,9 +745,12 @@ function SealedShopTab() {
                   <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                     <div style={{ fontSize: 12, fontWeight: 900, color: "#333" }}>Pack</div>
 
-                    <div style={{ fontSize: 12 }}>
-                      <span style={{ fontWeight: 900 }}>Price:</span> ${centsToDollars(p.packPriceCents)}
-                    </div>
+                    <PriceLine
+                      label="Price"
+                      standardCents={originalPackPriceCents}
+                      effectiveCents={packPriceCents}
+                      isDeal={isDeal}
+                    />
 
                     <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                       <input
@@ -511,11 +779,13 @@ function SealedShopTab() {
                   <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                     <div style={{ fontSize: 12, fontWeight: 900, color: "#333" }}>Box</div>
 
-                    <div style={{ fontSize: 12 }}>
-                      <span style={{ fontWeight: 900 }}>Price:</span>{" "}
-                      {boxPriceCents === null ? "—" : `$${centsToDollars(boxPriceCents)}`}
-                      <span style={{ color: "#666" }}>{p.packsPerBox ? ` • ${p.packsPerBox} packs/box` : ""}</span>
-                    </div>
+                    <PriceLine
+                      label="Price"
+                      standardCents={originalBoxPriceCents}
+                      effectiveCents={boxPriceCents}
+                      isDeal={isDeal}
+                      suffix={p.packsPerBox ? `• ${p.packsPerBox} packs/box` : ""}
+                    />
 
                     <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                       <input
