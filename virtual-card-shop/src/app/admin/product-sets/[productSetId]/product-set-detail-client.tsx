@@ -364,58 +364,67 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
       }
       setDefaultingById(initial);
 
-      await runWithConcurrency(
-        cards,
-        6,
-        async (card) => {
-          try {
-            const res = await fetch(`/api/cards/${encodeURIComponent(String(card.id))}/default-price`, {
-              cache: "no-store",
-            });
-            const raw = await res.text();
-            let j: any = {};
-            try {
-              j = raw ? JSON.parse(raw) : {};
-            } catch {
-              j = {};
-            }
+      try {
+        const res = await fetch(
+          `/api/product-sets/${encodeURIComponent(productSetId)}/default-prices`,
+          { cache: "no-store" }
+        );
 
-            const info: DefaultingInfo = {
-              reason: j?.defaulting?.reason ?? (res.ok ? "error" : "error"),
-              tier: j?.defaulting?.tier ?? null,
-              tierLabel: j?.defaulting?.tierLabel ?? "Unknown",
-              defaultPrice:
-                typeof j?.defaulting?.defaultPrice === "number" ? j.defaulting.defaultPrice : null,
-              normalizedName: j?.defaulting?.normalizedName,
-              error: !res.ok ? j?.error ?? "Default lookup failed" : null,
-            };
+        const raw = await res.text();
+        let j: any = {};
 
-            if (!cancelled) {
-              setDefaultingById((prev) => ({ ...prev, [card.id]: info }));
-            }
-          } catch (e: any) {
-            if (!cancelled) {
-              setDefaultingById((prev) => ({
-                ...prev,
-                [card.id]: {
-                  reason: "error",
-                  tier: null,
-                  tierLabel: "Error",
-                  defaultPrice: null,
-                  error: e?.message ?? "Default lookup failed",
-                },
-              }));
-            }
-          }
+        try {
+          j = raw ? JSON.parse(raw) : {};
+        } catch {}
+
+        if (!res.ok || !j?.ok) {
+          throw new Error(j?.error ?? "Failed to load default prices");
         }
-      );
+
+        const results = j.results ?? {};
+        const mapped: Record<number, DefaultingInfo> = {};
+
+        for (const card of cards) {
+          const r = results[card.id];
+
+          mapped[card.id] = {
+            reason: r?.reason ?? "error",
+            tier: r?.tier ?? null,
+            tierLabel: r?.tierLabel ?? "Unknown",
+            defaultPrice: typeof r?.defaultPrice === "number" ? r.defaultPrice : null,
+            normalizedName: r?.normalizedName,
+            error: null,
+          };
+        }
+
+        if (!cancelled) {
+          setDefaultingById(mapped);
+        }
+      } catch (e: any) {
+        const fallback: Record<number, DefaultingInfo> = {};
+
+        for (const c of cards) {
+          fallback[c.id] = {
+            reason: "error",
+            tier: null,
+            tierLabel: "Error",
+            defaultPrice: null,
+            error: e?.message ?? "Failed",
+          };
+        }
+
+        if (!cancelled) {
+          setDefaultingById(fallback);
+        }
+      }
     }
 
     loadDefaultingForPage();
+
     return () => {
       cancelled = true;
     };
-  }, [data?.cards]);
+  }, [data?.cards, productSetId]);
 
   function getEffectiveBookValue(card: CardRow) {
     const draft = bookDraft[card.id];
