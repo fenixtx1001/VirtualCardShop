@@ -1,17 +1,18 @@
+export const revalidate = 60;
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
-type Ctx =
-  | { params: { productSetId?: string; productsetid?: string } }
-  | { params: Promise<{ productSetId?: string; productsetid?: string }> };
+type RouteParams = { productSetId?: string; productsetid?: string; setId?: string };
+type Ctx = { params: RouteParams | Promise<RouteParams> };
+
+type ProductSetRouteError = { message?: string };
 
 async function getParam(ctx: Ctx) {
-  const p: any = (ctx as any).params;
-  const params = typeof p?.then === "function" ? await p : p;
+  const params = await ctx.params;
 
-  const raw = params?.productSetId ?? params?.productsetid;
+  const raw = params?.productSetId ?? params?.productsetid ?? params?.setId;
   const id = typeof raw === "string" ? decodeURIComponent(raw) : undefined;
-  return id as string | undefined;
+  return id;
 }
 
 function stringOrNull(v: unknown): string | null {
@@ -31,6 +32,11 @@ function clampInt(n: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n));
 }
 
+function getErrorMessage(e: unknown, fallback: string) {
+  const err = e as ProductSetRouteError;
+  return typeof err?.message === "string" ? err.message : fallback;
+}
+
 export async function GET(req: Request, ctx: Ctx) {
   try {
     const productSetId = await getParam(ctx);
@@ -45,7 +51,19 @@ export async function GET(req: Request, ctx: Ctx) {
 
     const productSet = await prisma.productSet.findUnique({
       where: { id: productSetId },
-      include: {
+      select: {
+        id: true,
+        productId: true,
+        name: true,
+        isBase: true,
+        isInsert: true,
+        oddsPerPack: true,
+        commonPrice: true,
+        semiStarPrice: true,
+        unlistedStarPrice: true,
+        star1Price: true,
+        star2Price: true,
+        star3Price: true,
         product: true,
         _count: { select: { cards: true } },
       },
@@ -55,44 +73,47 @@ export async function GET(req: Request, ctx: Ctx) {
       return NextResponse.json({ error: "Product Set not found" }, { status: 404 });
     }
 
-    const totalCards = productSet._count?.cards ?? 0;
+    const totalCards = productSet._count.cards;
     const totalPages = Math.max(1, Math.ceil(totalCards / pageSize));
     const safePage = clampInt(page, 1, totalPages);
     const skip = (safePage - 1) * pageSize;
 
-    const cards = await prisma.$queryRaw<any[]>`
-      SELECT
-        "id",
-        "cardNumber",
-        "player",
-        "team",
-        "position",
-        "subset",
-        "variant",
-        "quantityOwned",
-        "bookValue",
-        "frontImageUrl",
-        "backImageUrl",
-        "productSetId"
-      FROM "Card"
-      WHERE "productSetId" = ${productSetId}
-      ORDER BY
-        CASE
-          WHEN TRIM("cardNumber") ~ '^[0-9]+$' THEN 0
-          ELSE 1
-        END ASC,
-        CASE
-          WHEN TRIM("cardNumber") ~ '^[0-9]+$' THEN CAST(TRIM("cardNumber") AS INTEGER)
-          ELSE NULL
-        END ASC,
-        TRIM("cardNumber") ASC,
-        "id" ASC
-      LIMIT ${pageSize} OFFSET ${skip};
-    `;
+    const cards = await prisma.card.findMany({
+      where: { productSetId },
+      select: {
+        id: true,
+        cardNumber: true,
+        player: true,
+        team: true,
+        position: true,
+        subset: true,
+        variant: true,
+        quantityOwned: true,
+        bookValue: true,
+        frontImageUrl: true,
+        backImageUrl: true,
+        productSetId: true,
+      },
+      orderBy: [{ id: "asc" }],
+      skip,
+      take: pageSize,
+    });
+
+    const sortedCards = cards.sort((a, b) => {
+      const aNum = String(a.cardNumber ?? "").trim();
+      const bNum = String(b.cardNumber ?? "").trim();
+      const aIsNumeric = /^\d+$/.test(aNum);
+      const bIsNumeric = /^\d+$/.test(bNum);
+
+      if (aIsNumeric && bIsNumeric) return Number(aNum) - Number(bNum);
+      if (aIsNumeric) return -1;
+      if (bIsNumeric) return 1;
+      return aNum.localeCompare(bNum, undefined, { numeric: true, sensitivity: "base" });
+    });
 
     return NextResponse.json({
       ...productSet,
-      cards,
+      cards: sortedCards,
       pagination: {
         page: safePage,
         pageSize,
@@ -100,8 +121,8 @@ export async function GET(req: Request, ctx: Ctx) {
         totalPages,
       },
     });
-  } catch (e: any) {
-    return NextResponse.json({ error: e?.message ?? "Failed to load product set" }, { status: 500 });
+  } catch (e: unknown) {
+    return NextResponse.json({ error: getErrorMessage(e, "Failed to load product set") }, { status: 500 });
   }
 }
 
@@ -129,7 +150,6 @@ export async function PUT(req: Request, ctx: Ctx) {
         isBase: isBase ?? undefined,
         isInsert: isInsert ?? undefined,
         oddsPerPack: numberOrNull(body.oddsPerPack),
-
         commonPrice: numberOrNull(body.commonPrice),
         semiStarPrice: numberOrNull(body.semiStarPrice),
         unlistedStarPrice: numberOrNull(body.unlistedStarPrice),
@@ -140,8 +160,8 @@ export async function PUT(req: Request, ctx: Ctx) {
     });
 
     return NextResponse.json({ ok: true, productSet: updated });
-  } catch (e: any) {
-    return NextResponse.json({ error: e?.message ?? "Save failed" }, { status: 500 });
+  } catch (e: unknown) {
+    return NextResponse.json({ error: getErrorMessage(e, "Save failed") }, { status: 500 });
   }
 }
 
@@ -180,7 +200,7 @@ export async function DELETE(_req: Request, ctx: Ctx) {
       deletedProductSetId: productSetId,
       deletedCards: cardIds.length,
     });
-  } catch (e: any) {
-    return NextResponse.json({ error: e?.message ?? "Delete failed" }, { status: 500 });
+  } catch (e: unknown) {
+    return NextResponse.json({ error: getErrorMessage(e, "Delete failed") }, { status: 500 });
   }
 }

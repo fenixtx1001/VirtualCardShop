@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 type SetModel = {
   id: string;
@@ -27,6 +27,8 @@ type CardModel = {
   imageUrl?: string | null;
 };
 
+type SaveStatus = "idle" | "dirty" | "autosaving" | "saving" | "saved" | "error";
+
 function dollars(n: number) {
   const x = Number(n);
   if (!Number.isFinite(x)) return "0.00";
@@ -46,6 +48,10 @@ function intFromInput(s: string) {
   return Math.trunc(n);
 }
 
+function sameValue(a: unknown, b: unknown) {
+  return String(a ?? "") === String(b ?? "");
+}
+
 export default function SetDetailClient({ setId }: { setId: string }) {
   // IMPORTANT: decode once here for consistent API usage
   const decodedSetId = useMemo(() => decodeURIComponent(setId), [setId]);
@@ -60,6 +66,14 @@ export default function SetDetailClient({ setId }: { setId: string }) {
 
   // Local editing state so inputs don't reset / flicker
   const [drafts, setDrafts] = useState<Record<number, Partial<CardModel>>>({});
+
+  // Per-row autosave status
+  const [saveStatuses, setSaveStatuses] = useState<Record<number, SaveStatus>>({});
+
+  // Debounce timers and latest draft patches for autosave
+  const autoSaveTimersRef = useRef<Record<number, ReturnType<typeof setTimeout>>>({});
+  const latestDraftsRef = useRef<Record<number, Partial<CardModel>>>({});
+  const savingRef = useRef<Record<number, boolean>>({});
 
   async function load() {
     setLoading(true);
@@ -94,10 +108,14 @@ export default function SetDetailClient({ setId }: { setId: string }) {
 
       setCards(list);
       setDrafts({}); // reset drafts on reload
+      latestDraftsRef.current = {};
+      setSaveStatuses({});
     } catch (e: any) {
       setSet(null);
       setCards([]);
       setDrafts({});
+      latestDraftsRef.current = {};
+      setSaveStatuses({});
       setError(e?.message ?? String(e));
     } finally {
       setLoading(false);
@@ -106,6 +124,13 @@ export default function SetDetailClient({ setId }: { setId: string }) {
 
   useEffect(() => {
     load();
+
+    return () => {
+      for (const timer of Object.values(autoSaveTimersRef.current)) {
+        clearTimeout(timer);
+      }
+      autoSaveTimersRef.current = {};
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [decodedSetId]);
 
@@ -116,14 +141,24 @@ export default function SetDetailClient({ setId }: { setId: string }) {
     return card[key];
   }
 
-  function setDraft(id: number, patch: Partial<CardModel>) {
-    setDrafts((prev) => ({ ...prev, [id]: { ...(prev[id] ?? {}), ...patch } }));
+  function markStatus(id: number, status: SaveStatus) {
+    setSaveStatuses((prev) => ({ ...prev, [id]: status }));
   }
 
-  const updateCard = async (id: number, patch: Partial<CardModel>) => {
+  async function updateCard(id: number, patch: Partial<CardModel>, mode: "autosaving" | "saving" = "saving") {
+    if (!patch || Object.keys(patch).length === 0) return;
+
+    // If a save for this row is already running, wait for the next scheduled save instead of stacking simultaneous requests.
+    if (savingRef.current[id]) {
+      scheduleAutoSave(id, patch, 500);
+      return;
+    }
+
     // optimistic local update
     setCards((prev) => prev.map((c) => (c.id === id ? ({ ...c, ...patch } as CardModel) : c)));
     setSavingCardId(id);
+    markStatus(id, mode);
+    savingRef.current[id] = true;
 
     try {
       const res = await fetch(`/api/cards/${encodeURIComponent(String(id))}`, {
@@ -144,23 +179,81 @@ export default function SetDetailClient({ setId }: { setId: string }) {
 
         const next = { ...existing };
         for (const k of Object.keys(patch) as (keyof CardModel)[]) {
-          delete (next as any)[k];
+          if (sameValue((next as any)[k], (patch as any)[k])) {
+            delete (next as any)[k];
+          }
         }
 
         const out = { ...prev };
         if (Object.keys(next).length === 0) delete out[id];
         else out[id] = next;
 
+        latestDraftsRef.current[id] = next;
         return out;
       });
+
+      markStatus(id, "saved");
+
+      window.setTimeout(() => {
+        setSaveStatuses((prev) => {
+          if (prev[id] !== "saved") return prev;
+          return { ...prev, [id]: "idle" };
+        });
+      }, 1200);
     } catch (e: any) {
+      markStatus(id, "error");
+
       // revert optimistic update by reloading (simple + reliable)
       alert(e?.message ?? String(e));
       await load();
     } finally {
+      savingRef.current[id] = false;
       setSavingCardId(null);
+
+      // If the user typed more while the save was in-flight, save that latest draft too.
+      const latest = latestDraftsRef.current[id];
+      if (latest && Object.keys(latest).length > 0) {
+        scheduleAutoSave(id, latest, 500);
+      }
     }
-  };
+  }
+
+  function scheduleAutoSave(id: number, patch: Partial<CardModel>, delayMs = 800) {
+    const existing = autoSaveTimersRef.current[id];
+    if (existing) clearTimeout(existing);
+
+    markStatus(id, "dirty");
+
+    autoSaveTimersRef.current[id] = setTimeout(() => {
+      const latestPatch = latestDraftsRef.current[id] ?? patch;
+      updateCard(id, latestPatch, "autosaving");
+    }, delayMs);
+  }
+
+  function flushAutoSave(id: number, patch?: Partial<CardModel>) {
+    const existing = autoSaveTimersRef.current[id];
+    if (existing) {
+      clearTimeout(existing);
+      delete autoSaveTimersRef.current[id];
+    }
+
+    const latestPatch = patch ?? latestDraftsRef.current[id] ?? drafts[id];
+    if (latestPatch && Object.keys(latestPatch).length > 0) {
+      updateCard(id, latestPatch, "saving");
+    }
+  }
+
+  function setDraft(id: number, patch: Partial<CardModel>) {
+    setDrafts((prev) => {
+      const nextForRow = { ...(prev[id] ?? {}), ...patch };
+      const next = { ...prev, [id]: nextForRow };
+
+      latestDraftsRef.current[id] = nextForRow;
+      scheduleAutoSave(id, nextForRow);
+
+      return next;
+    });
+  }
 
   // Small shared styles (plain inline so you don’t have to touch CSS files)
   const styles = {
@@ -206,7 +299,7 @@ export default function SetDetailClient({ setId }: { setId: string }) {
       background: "white",
     } as React.CSSProperties,
     smallLink: { fontSize: 12, marginLeft: 8 } as React.CSSProperties,
-    status: { fontSize: 12, color: "#666" } as React.CSSProperties,
+    status: { fontSize: 12, color: "#666", minWidth: 82, display: "inline-block" } as React.CSSProperties,
   };
 
   if (loading) {
@@ -228,6 +321,18 @@ export default function SetDetailClient({ setId }: { setId: string }) {
     );
   }
 
+  function statusText(cardId: number) {
+    const status = saveStatuses[cardId] ?? "idle";
+    if (savingCardId === cardId && status === "saving") return "Saving…";
+    if (savingCardId === cardId && status === "autosaving") return "Autosaving…";
+    if (status === "dirty") return "Autosave pending…";
+    if (status === "autosaving") return "Autosaving…";
+    if (status === "saving") return "Saving…";
+    if (status === "saved") return "Saved";
+    if (status === "error") return "Save failed";
+    return "";
+  }
+
   return (
     <div style={styles.page}>
       <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 16 }}>
@@ -244,6 +349,10 @@ export default function SetDetailClient({ setId }: { setId: string }) {
       {error && <pre style={styles.preError}>{error}</pre>}
 
       <h2 style={{ marginTop: 22, fontSize: 18 }}>Checklist</h2>
+
+      <div style={{ marginTop: 6, fontSize: 12, color: "#666" }}>
+        Edits now autosave after you stop typing. Press <b>Enter</b> or leave a cell to save immediately.
+      </div>
 
       <div style={styles.tableWrap}>
         <table style={styles.table}>
@@ -287,9 +396,9 @@ export default function SetDetailClient({ setId }: { setId: string }) {
                       value={cardNumber}
                       style={{ ...styles.input, width: 90 }}
                       onChange={(e) => setDraft(c.id, { cardNumber: e.target.value })}
-                      onBlur={(e) => updateCard(c.id, { cardNumber: e.target.value })}
+                      onBlur={() => flushAutoSave(c.id)}
                       onKeyDown={(e) => {
-                        if (e.key === "Enter") (e.target as HTMLInputElement).blur();
+                        if (e.key === "Enter") flushAutoSave(c.id);
                       }}
                     />
                   </td>
@@ -300,9 +409,9 @@ export default function SetDetailClient({ setId }: { setId: string }) {
                       value={player}
                       style={{ ...styles.input, width: 220 }}
                       onChange={(e) => setDraft(c.id, { player: e.target.value })}
-                      onBlur={(e) => updateCard(c.id, { player: e.target.value })}
+                      onBlur={() => flushAutoSave(c.id)}
                       onKeyDown={(e) => {
-                        if (e.key === "Enter") (e.target as HTMLInputElement).blur();
+                        if (e.key === "Enter") flushAutoSave(c.id);
                       }}
                     />
                   </td>
@@ -313,9 +422,9 @@ export default function SetDetailClient({ setId }: { setId: string }) {
                       value={team}
                       style={{ ...styles.input, width: 190 }}
                       onChange={(e) => setDraft(c.id, { team: e.target.value })}
-                      onBlur={(e) => updateCard(c.id, { team: e.target.value })}
+                      onBlur={() => flushAutoSave(c.id)}
                       onKeyDown={(e) => {
-                        if (e.key === "Enter") (e.target as HTMLInputElement).blur();
+                        if (e.key === "Enter") flushAutoSave(c.id);
                       }}
                     />
                   </td>
@@ -326,9 +435,9 @@ export default function SetDetailClient({ setId }: { setId: string }) {
                       value={position}
                       style={{ ...styles.input, width: 70 }}
                       onChange={(e) => setDraft(c.id, { position: e.target.value })}
-                      onBlur={(e) => updateCard(c.id, { position: e.target.value })}
+                      onBlur={() => flushAutoSave(c.id)}
                       onKeyDown={(e) => {
-                        if (e.key === "Enter") (e.target as HTMLInputElement).blur();
+                        if (e.key === "Enter") flushAutoSave(c.id);
                       }}
                     />
                   </td>
@@ -339,9 +448,9 @@ export default function SetDetailClient({ setId }: { setId: string }) {
                       value={subset}
                       style={{ ...styles.input, width: 160 }}
                       onChange={(e) => setDraft(c.id, { subset: e.target.value })}
-                      onBlur={(e) => updateCard(c.id, { subset: e.target.value })}
+                      onBlur={() => flushAutoSave(c.id)}
                       onKeyDown={(e) => {
-                        if (e.key === "Enter") (e.target as HTMLInputElement).blur();
+                        if (e.key === "Enter") flushAutoSave(c.id);
                       }}
                     />
                   </td>
@@ -352,9 +461,9 @@ export default function SetDetailClient({ setId }: { setId: string }) {
                       value={insert}
                       style={{ ...styles.input, width: 160 }}
                       onChange={(e) => setDraft(c.id, { insert: e.target.value })}
-                      onBlur={(e) => updateCard(c.id, { insert: e.target.value })}
+                      onBlur={() => flushAutoSave(c.id)}
                       onKeyDown={(e) => {
-                        if (e.key === "Enter") (e.target as HTMLInputElement).blur();
+                        if (e.key === "Enter") flushAutoSave(c.id);
                       }}
                     />
                   </td>
@@ -365,9 +474,9 @@ export default function SetDetailClient({ setId }: { setId: string }) {
                       value={variant}
                       style={{ ...styles.input, width: 120 }}
                       onChange={(e) => setDraft(c.id, { variant: e.target.value })}
-                      onBlur={(e) => updateCard(c.id, { variant: e.target.value })}
+                      onBlur={() => flushAutoSave(c.id)}
                       onKeyDown={(e) => {
-                        if (e.key === "Enter") (e.target as HTMLInputElement).blur();
+                        if (e.key === "Enter") flushAutoSave(c.id);
                       }}
                     />
                   </td>
@@ -378,9 +487,9 @@ export default function SetDetailClient({ setId }: { setId: string }) {
                       value={dollars(bookValue)}
                       style={{ ...styles.input, width: 90 }}
                       onChange={(e) => setDraft(c.id, { bookValue: numberFromInput(e.target.value) })}
-                      onBlur={(e) => updateCard(c.id, { bookValue: numberFromInput(e.target.value) })}
+                      onBlur={() => flushAutoSave(c.id)}
                       onKeyDown={(e) => {
-                        if (e.key === "Enter") (e.target as HTMLInputElement).blur();
+                        if (e.key === "Enter") flushAutoSave(c.id);
                       }}
                     />
                   </td>
@@ -391,13 +500,9 @@ export default function SetDetailClient({ setId }: { setId: string }) {
                       value={String(quantityOwned)}
                       style={{ ...styles.input, width: 70 }}
                       onChange={(e) => setDraft(c.id, { quantityOwned: Math.max(0, intFromInput(e.target.value)) })}
-                      onBlur={(e) =>
-                        updateCard(c.id, {
-                          quantityOwned: Math.max(0, intFromInput(e.target.value)),
-                        })
-                      }
+                      onBlur={() => flushAutoSave(c.id)}
                       onKeyDown={(e) => {
-                        if (e.key === "Enter") (e.target as HTMLInputElement).blur();
+                        if (e.key === "Enter") flushAutoSave(c.id);
                       }}
                     />
                   </td>
@@ -410,9 +515,9 @@ export default function SetDetailClient({ setId }: { setId: string }) {
                         placeholder="https://..."
                         style={{ ...styles.input, width: 340 }}
                         onChange={(e) => setDraft(c.id, { imageUrl: e.target.value })}
-                        onBlur={(e) => updateCard(c.id, { imageUrl: e.target.value })}
+                        onBlur={() => flushAutoSave(c.id)}
                         onKeyDown={(e) => {
-                          if (e.key === "Enter") (e.target as HTMLInputElement).blur();
+                          if (e.key === "Enter") flushAutoSave(c.id);
                         }}
                       />
                       {imageUrl?.startsWith("http") ? (
@@ -431,7 +536,7 @@ export default function SetDetailClient({ setId }: { setId: string }) {
 
                   {/* status */}
                   <td style={styles.td}>
-                    <span style={styles.status}>{savingCardId === c.id ? "Saving…" : ""}</span>
+                    <span style={styles.status}>{statusText(c.id)}</span>
                   </td>
                 </tr>
               );
@@ -449,7 +554,8 @@ export default function SetDetailClient({ setId }: { setId: string }) {
       </div>
 
       <div style={{ marginTop: 12, fontSize: 12, color: "#666" }}>
-        Tip: Press <b>Enter</b> to save a cell (it blurs + triggers save). Header stays visible while you scroll.
+        Tip: Edits autosave after a short pause. Press <b>Enter</b> or leave a cell to force save immediately.
+        Header stays visible while you scroll.
       </div>
     </div>
   );

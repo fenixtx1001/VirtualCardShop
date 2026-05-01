@@ -343,11 +343,22 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productSetId, page, pageSize]);
 
+  // Efficiency note:
+  // This key changes when the loaded page changes, but NOT every time an editable
+  // field changes. The prior effect depended on `data?.cards`, and `patchCard()`
+  // creates a new cards array on every keystroke/autosave. That caused the
+  // default-prices endpoint to be called again and again while editing rows.
+  const defaultingPageKey = useMemo(() => {
+    const cards = data?.cards ?? [];
+    return cards.map((c) => c.id).join(",");
+  }, [data?.cards]);
+
   useEffect(() => {
     let cancelled = false;
+    const controller = new AbortController();
 
     async function loadDefaultingForPage() {
-      const cards = data?.cards ?? [];
+      const cards = dataRef.current?.cards ?? [];
       if (!cards.length) {
         setDefaultingById({});
         return;
@@ -367,7 +378,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
       try {
         const res = await fetch(
           `/api/product-sets/${encodeURIComponent(productSetId)}/default-prices`,
-          { cache: "no-store" }
+          { cache: "no-store", signal: controller.signal }
         );
 
         const raw = await res.text();
@@ -401,6 +412,8 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
           setDefaultingById(mapped);
         }
       } catch (e: any) {
+        if (e?.name === "AbortError") return;
+
         const fallback: Record<number, DefaultingInfo> = {};
 
         for (const c of cards) {
@@ -423,8 +436,9 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
     return () => {
       cancelled = true;
+      controller.abort();
     };
-  }, [data?.cards, productSetId]);
+  }, [defaultingPageKey, productSetId]);
 
   function getEffectiveBookValue(card: CardRow) {
     const draft = bookDraft[card.id];
