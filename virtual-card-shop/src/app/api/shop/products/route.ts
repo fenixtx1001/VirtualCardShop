@@ -66,6 +66,41 @@ function pickDailyDealProductId(productIds: string[], dateKey: string) {
   return sorted[idx] ?? null;
 }
 
+async function getOrCreateDailyDealProductId(productIds: string[], dateKey: string) {
+  if (productIds.length === 0) return null;
+
+  const existing = await prisma.dailyDeal.findUnique({
+    where: { dateKey },
+    select: { productId: true },
+  });
+
+  if (existing?.productId) return existing.productId;
+
+  const productId = pickDailyDealProductId(productIds, dateKey);
+  if (!productId) return null;
+
+  try {
+    const created = await prisma.dailyDeal.create({
+      data: { dateKey, productId },
+      select: { productId: true },
+    });
+
+    return created.productId;
+  } catch (e: any) {
+    // If two requests hit at the same time, one may create the row first.
+    // In that case, read the saved row and use it.
+    if (e?.code === "P2002") {
+      const winner = await prisma.dailyDeal.findUnique({
+        where: { dateKey },
+        select: { productId: true },
+      });
+      return winner?.productId ?? productId;
+    }
+
+    throw e;
+  }
+}
+
 export async function GET() {
   try {
     const products = await prisma.product.findMany({
@@ -77,7 +112,7 @@ export async function GET() {
     });
 
     const dailyDealDateKey = getDailyDealDateKey();
-    const dailyDealProductId = pickDailyDealProductId(
+    const dailyDealProductId = await getOrCreateDailyDealProductId(
       products.map((p) => p.id),
       dailyDealDateKey
     );
@@ -117,7 +152,6 @@ export async function GET() {
 
         productSetsCount: p._count?.productSets ?? 0,
 
-        // Critical: shop page filters on this
         released: p.released,
 
         isDailyDeal,
