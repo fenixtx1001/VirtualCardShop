@@ -21,6 +21,18 @@ type BucketKey =
   | "lvl75"
   | "lvl100";
 
+type BucketSet = {
+  productSetId: string;
+  productId: string | null;
+  productSetName: string | null;
+  isBase: boolean;
+  isInsert: boolean;
+  timesCompleted: number;
+  claimedCompletions: number;
+  claimable: number;
+  sampleImageUrl: string | null;
+};
+
 function clampInt(n: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n));
 }
@@ -93,6 +105,17 @@ function rewardReadyCentsForRange(fromClaimed: number, toCompleted: number, setV
   return total;
 }
 
+function stableIndex(seed: string, max: number) {
+  if (max <= 0) return 0;
+
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) {
+    hash = (hash * 31 + seed.charCodeAt(i)) >>> 0;
+  }
+
+  return hash % max;
+}
+
 export async function GET(req: Request) {
   try {
     const viewer = await requireUser();
@@ -113,6 +136,40 @@ export async function GET(req: Request) {
       take: 5000,
     });
 
+    const productSetIds = Array.from(new Set(rows.map((r) => r.productSetId).filter(Boolean)));
+
+    const sampleCards =
+      productSetIds.length > 0
+        ? await prisma.card.findMany({
+            where: {
+              productSetId: { in: productSetIds },
+              frontImageUrl: { not: null },
+            },
+            select: {
+              productSetId: true,
+              frontImageUrl: true,
+            },
+            orderBy: { id: "asc" },
+          })
+        : [];
+
+    const sampleImagesByProductSetId = new Map<string, string | null>();
+    const groupedImages = new Map<string, string[]>();
+
+    for (const card of sampleCards) {
+      if (!card.productSetId || !card.frontImageUrl) continue;
+
+      const arr = groupedImages.get(card.productSetId) ?? [];
+      arr.push(card.frontImageUrl);
+      groupedImages.set(card.productSetId, arr);
+    }
+
+    for (const productSetId of productSetIds) {
+      const images = groupedImages.get(productSetId) ?? [];
+      const idx = stableIndex(`${targetUserId}:${productSetId}`, images.length);
+      sampleImagesByProductSetId.set(productSetId, images[idx] ?? null);
+    }
+
     const buckets: Record<BucketKey, number> = {
       lvl1: 0,
       lvl2: 0,
@@ -126,19 +183,7 @@ export async function GET(req: Request) {
       lvl100: 0,
     };
 
-    const bucketSets: Record<
-      BucketKey,
-      Array<{
-        productSetId: string;
-        productId: string | null;
-        productSetName: string | null;
-        isBase: boolean;
-        isInsert: boolean;
-        timesCompleted: number;
-        claimedCompletions: number;
-        claimable: number;
-      }>
-    > = {
+    const bucketSets: Record<BucketKey, BucketSet[]> = {
       lvl1: [],
       lvl2: [],
       lvl3: [],
@@ -228,6 +273,7 @@ export async function GET(req: Request) {
         timesCompleted: t,
         claimedCompletions: claimed,
         claimable: Math.max(0, t - claimed),
+        sampleImageUrl: sampleImagesByProductSetId.get(r.productSetId) ?? null,
       });
     }
 

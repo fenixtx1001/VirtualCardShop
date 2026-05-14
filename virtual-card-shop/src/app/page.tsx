@@ -13,6 +13,21 @@ type SummaryRow = {
   packImageUrl: string | null;
 };
 
+type InventoryRow = {
+  productId: string;
+  packsOwned: number;
+  updatedAt: string;
+  packPriceCents: number;
+  cardsPerPack: number | null;
+  packImageUrl: string | null;
+};
+
+type InventoryResponse = {
+  ok: boolean;
+  rows: InventoryRow[];
+  error?: string;
+};
+
 type PrestigeLevelRow = {
   productSetId: string;
   totalCards: number;
@@ -30,6 +45,8 @@ const colors = {
   subtext: "#4b4b4b",
   accent: "#2f6fed",
   muted: "#f2efe9",
+  softBlue: "#eef4ff",
+  softGold: "#fff7df",
 };
 
 const PRESTIGE_BADGES = [1, 2, 3, 4, 5, 10, 25, 50, 75, 100];
@@ -50,7 +67,23 @@ function safeImgSrc(url: string | null | undefined) {
 function formatProductId(productId: string) {
   const s = String(productId || "").trim();
   if (!s) return "—";
-  return s.replace(/_/g, " ").replace(/\s+/g, " ").trim();
+
+  return s
+    .replace(/_/g, " ")
+    .replace(/\bBase\b/gi, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function formatDateShort(iso: string | null | undefined) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+
+  return d.toLocaleDateString(undefined, {
+    month: "short",
+    day: "numeric",
+  });
 }
 
 /**
@@ -190,8 +223,266 @@ function getBadgeTone(level: number) {
   return null;
 }
 
+function ProgressBar({ pct, height = 10 }: { pct: number; height?: number }) {
+  const value = clamp(pct, 0, 100);
+
+  return (
+    <div
+      style={{
+        height,
+        borderRadius: 999,
+        background: colors.muted,
+        overflow: "hidden",
+        border: `1px solid ${colors.border}`,
+        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.7)",
+      }}
+    >
+      <div
+        style={{
+          width: `${value}%`,
+          height: "100%",
+          background: "linear-gradient(90deg, rgba(47,111,237,0.95), rgba(47,111,237,0.58))",
+          borderRadius: 999,
+          transition: "width 260ms ease",
+          boxShadow: "0 6px 14px rgba(47,111,237,0.18)",
+        }}
+      />
+    </div>
+  );
+}
+
+function PackThumb({ src, alt, size = 58 }: { src: string | null | undefined; alt: string; size?: number }) {
+  const resolved = resolveImageUrl(src);
+
+  return (
+    <div
+      style={{
+        width: size,
+        height: size,
+        borderRadius: 14,
+        border: `1px solid ${colors.border}`,
+        background: "#fff",
+        display: "grid",
+        placeItems: "center",
+        overflow: "hidden",
+        flex: "0 0 auto",
+      }}
+      title={alt}
+    >
+      {resolved ? (
+        <img
+          src={resolved}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          referrerPolicy="no-referrer"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+            background: "#fff",
+          }}
+          onError={(e) => {
+            const img = e.currentTarget as HTMLImageElement;
+            img.style.display = "none";
+            const parent = img.parentElement as HTMLElement | null;
+            if (parent) {
+              parent.style.display = "grid";
+              parent.style.placeItems = "center";
+              parent.style.padding = "6px";
+              parent.innerHTML = `<div style="font-size:11px;color:${colors.subtext};text-align:center">No image</div>`;
+            }
+          }}
+        />
+      ) : (
+        <div style={{ fontSize: 11, color: colors.subtext, textAlign: "center", padding: 6 }}>No image</div>
+      )}
+    </div>
+  );
+}
+
+function PrestigeBadge({ level }: { level: number }) {
+  const label = level >= 1 ? labelForMilestoneBadge(level) : "";
+  const tone = level >= 1 ? getBadgeTone(level) : null;
+
+  if (!tone || !label) return null;
+
+  return (
+    <span
+      title={`Prestige milestone reached: ${label}`}
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 7,
+        padding: "4px 9px",
+        borderRadius: 999,
+        border: `1px solid ${tone.border}`,
+        background: tone.bg,
+        color: tone.text,
+        fontWeight: 950,
+        fontSize: 11,
+        lineHeight: 1.15,
+        boxShadow: tone.glow,
+      }}
+    >
+      <span
+        aria-hidden
+        style={{
+          width: 7,
+          height: 7,
+          borderRadius: 999,
+          background: tone.dot,
+          display: "inline-block",
+          flexShrink: 0,
+        }}
+      />
+      <span>{label}</span>
+    </span>
+  );
+}
+
+function SectionCard({
+  title,
+  subtitle,
+  href,
+  linkText,
+  children,
+}: {
+  title: string;
+  subtitle: string;
+  href?: string;
+  linkText?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section
+      style={{
+        background: colors.card,
+        border: `1px solid ${colors.border}`,
+        borderRadius: 18,
+        padding: 14,
+        boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
+        minWidth: 0,
+      }}
+    >
+      <div style={{ display: "flex", justifyContent: "space-between", gap: 10, alignItems: "start", marginBottom: 12 }}>
+        <div>
+          <div style={{ fontSize: 17, fontWeight: 950, letterSpacing: -0.2 }}>{title}</div>
+          <div style={{ marginTop: 3, color: colors.subtext, fontSize: 12, lineHeight: 1.4 }}>{subtitle}</div>
+        </div>
+
+        {href && linkText ? (
+          <Link
+            href={href}
+            style={{
+              textDecoration: "none",
+              color: colors.accent,
+              fontWeight: 900,
+              fontSize: 12,
+              whiteSpace: "nowrap",
+            }}
+          >
+            {linkText} →
+          </Link>
+        ) : null}
+      </div>
+
+      {children}
+    </section>
+  );
+}
+
+function EmptyMiniState({ children }: { children: React.ReactNode }) {
+  return (
+    <div
+      style={{
+        padding: 12,
+        border: `1px dashed ${colors.border}`,
+        borderRadius: 14,
+        color: colors.subtext,
+        background: "linear-gradient(180deg, #fff, #fbfaf7)",
+        fontSize: 13,
+        lineHeight: 1.45,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+function MiniSetCard({
+  row,
+  prestige,
+  helper,
+}: {
+  row: SummaryRow;
+  prestige?: PrestigeLevelRow;
+  helper: React.ReactNode;
+}) {
+  const pct = clamp(safeNum(row.percentComplete), 0, 100);
+  const displayName = formatProductId(row.productId);
+  const totalCards = safeNum(row.totalCards);
+  const uniqueOwned = safeNum(row.uniqueOwned);
+  const remaining = Math.max(0, totalCards - uniqueOwned);
+  const level = safeNum(prestige?.level, 0);
+
+  return (
+    <div className="homeMiniCard">
+      <div style={{ display: "flex", gap: 10, alignItems: "center", minWidth: 0 }}>
+        <PackThumb src={row.packImageUrl} alt={`${displayName} pack`} size={56} />
+
+        <div style={{ minWidth: 0, flex: 1 }}>
+          <div
+            style={{
+              display: "flex",
+              gap: 7,
+              alignItems: "center",
+              flexWrap: "wrap",
+              minWidth: 0,
+            }}
+          >
+            <Link
+              href={`/collection/${encodeURIComponent(row.productId)}`}
+              style={{
+                color: colors.text,
+                textDecoration: "none",
+                fontWeight: 950,
+                fontSize: 14,
+                lineHeight: 1.15,
+              }}
+            >
+              {displayName}
+            </Link>
+            <PrestigeBadge level={level} />
+          </div>
+
+          <div style={{ marginTop: 5, color: colors.subtext, fontSize: 12, fontWeight: 850 }}>
+            {pct.toFixed(pct >= 99.95 ? 0 : 1)}% • {remaining === 0 ? "Complete" : `${remaining} left`}
+          </div>
+        </div>
+      </div>
+
+      <div style={{ marginTop: 10 }}>
+        <ProgressBar pct={pct} />
+      </div>
+
+      <div style={{ marginTop: 8, color: colors.subtext, fontSize: 12, fontWeight: 800, lineHeight: 1.35 }}>{helper}</div>
+
+      <div style={{ marginTop: 10, display: "flex", gap: 8, flexWrap: "wrap" }}>
+        <Link className="homePillLink primary" href={`/collection/${encodeURIComponent(row.productId)}`}>
+          View Set
+        </Link>
+        <Link className="homePillLink" href={`/checklist/${encodeURIComponent(row.productId)}`}>
+          Checklist
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 export default function HomePage() {
   const [sets, setSets] = useState<SummaryRow[]>([]);
+  const [inventoryRows, setInventoryRows] = useState<InventoryRow[]>([]);
   const [progressError, setProgressError] = useState<string | null>(null);
   const [prestigeById, setPrestigeById] = useState<Record<string, PrestigeLevelRow>>({});
 
@@ -232,6 +523,24 @@ export default function HomePage() {
     }
   }
 
+  async function loadInventoryActivity() {
+    try {
+      const res = await fetch("/api/inventory", { cache: "no-store" });
+      const raw = await res.text();
+      const j = raw ? JSON.parse(raw) : null;
+
+      if (!res.ok || !j?.ok) {
+        setInventoryRows([]);
+        return;
+      }
+
+      const data = j as InventoryResponse;
+      setInventoryRows(Array.isArray(data?.rows) ? data.rows : []);
+    } catch {
+      setInventoryRows([]);
+    }
+  }
+
   async function loadProgress() {
     setProgressError(null);
 
@@ -253,10 +562,11 @@ export default function HomePage() {
       const arr = Array.isArray(j) ? (j as SummaryRow[]) : [];
       setSets(arr);
 
-      await loadPrestigeLevels(arr.map((x) => x.productId));
+      await Promise.all([loadPrestigeLevels(arr.map((x) => x.productId)), loadInventoryActivity()]);
     } catch (e: any) {
       setProgressError(e?.message ?? "Failed to load set progress");
       setSets([]);
+      setInventoryRows([]);
       setPrestigeById({});
     }
   }
@@ -281,7 +591,7 @@ export default function HomePage() {
       },
       {
         title: "View Collection",
-        subtitle: "Browse your cards, sets, and progress.",
+        subtitle: "Search, filter, and browse every set.",
         href: "/collection",
         icon: "📚",
       },
@@ -289,11 +599,59 @@ export default function HomePage() {
     []
   );
 
-  const sortedSets = useMemo(() => {
-    const copy = [...sets];
-    copy.sort((a, b) => safeNum(b.percentComplete) - safeNum(a.percentComplete));
-    return copy;
+  const collectionByProductId = useMemo(() => {
+    const map = new Map<string, SummaryRow>();
+    for (const row of sets) map.set(row.productId, row);
+    return map;
   }, [sets]);
+
+  const closestToCompletion = useMemo(() => {
+    return [...sets]
+      .filter((s) => {
+        const totalCards = safeNum(s.totalCards);
+        const uniqueOwned = safeNum(s.uniqueOwned);
+        return totalCards > 0 && uniqueOwned > 0 && uniqueOwned < totalCards;
+      })
+      .sort((a, b) => {
+        const aLeft = safeNum(a.totalCards) - safeNum(a.uniqueOwned);
+        const bLeft = safeNum(b.totalCards) - safeNum(b.uniqueOwned);
+        if (aLeft !== bLeft) return aLeft - bLeft;
+        return safeNum(b.percentComplete) - safeNum(a.percentComplete);
+      })
+      .slice(0, 5);
+  }, [sets]);
+
+  const recentlyActive = useMemo(() => {
+    return [...inventoryRows]
+      .filter((r) => collectionByProductId.has(r.productId))
+      .sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime())
+      .map((r) => {
+        const collection = collectionByProductId.get(r.productId)!;
+        return { ...collection, activityDate: r.updatedAt, packsOwned: r.packsOwned };
+      })
+      .slice(0, 5);
+  }, [collectionByProductId, inventoryRows]);
+
+  const prestigeTargets = useMemo(() => {
+    return [...sets]
+      .map((s) => ({ row: s, prestige: prestigeById[s.productId] }))
+      .filter(({ row, prestige }) => {
+        const totalCards = safeNum(row.totalCards);
+        const uniqueOwned = safeNum(row.uniqueOwned);
+        return totalCards > 0 && uniqueOwned >= totalCards && prestige && safeNum(prestige.totalCards) > 0;
+      })
+      .sort((a, b) => {
+        const aPct = safeNum(a.prestige?.nextPct);
+        const bPct = safeNum(b.prestige?.nextPct);
+        if (bPct !== aPct) return bPct - aPct;
+        return formatProductId(a.row.productId).localeCompare(formatProductId(b.row.productId));
+      })
+      .slice(0, 5);
+  }, [prestigeById, sets]);
+
+  const totalSets = sets.length;
+  const completeSets = sets.filter((s) => safeNum(s.totalCards) > 0 && safeNum(s.uniqueOwned) >= safeNum(s.totalCards)).length;
+  const incompleteSets = Math.max(0, totalSets - completeSets);
 
   return (
     <main
@@ -328,10 +686,57 @@ export default function HomePage() {
           box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.22);
           border-radius: 12px;
         }
+        .homeActionCard,
+        .homeMiniCard {
+          transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+        }
+        .homeActionCard:hover,
+        .homeMiniCard:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.07);
+          border-color: rgba(47, 111, 237, 0.26);
+        }
+        .homeMiniCard {
+          border: 1px solid ${colors.border};
+          border-radius: 16px;
+          padding: 12px;
+          background: linear-gradient(180deg, #ffffff, #fbfaf7);
+        }
+        .homePillLink {
+          text-decoration: none;
+          font-weight: 900;
+          font-size: 12px;
+          line-height: 1;
+          color: ${colors.subtext};
+          background: ${colors.muted};
+          border: 1px solid ${colors.border};
+          padding: 7px 10px;
+          border-radius: 999px;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          min-height: 32px;
+        }
+        .homePillLink.primary {
+          color: ${colors.text};
+          background: #ffffff;
+        }
+        @media (max-width: 720px) {
+          main {
+            padding: 14px !important;
+          }
+          .homeHero {
+            padding: 16px !important;
+          }
+          .homeDashboardGrid {
+            grid-template-columns: 1fr !important;
+          }
+        }
       `}</style>
 
       <div style={{ maxWidth: 1120, margin: "0 auto" }}>
         <div
+          className="homeHero"
           style={{
             background: colors.card,
             border: `1px solid ${colors.border}`,
@@ -376,7 +781,49 @@ export default function HomePage() {
                 maxWidth: 760,
               }}
             >
-              A modern collector’s desk — with that 90s feeling of ripping packs, organizing sets, and chasing the next big pull.
+              Your collecting command center — what to finish next, what you touched recently, and which prestige chase is closest.
+            </div>
+
+            <div style={{ marginTop: 12, display: "flex", gap: 10, flexWrap: "wrap" }}>
+              <div
+                style={{
+                  background: colors.softBlue,
+                  border: "1px solid #cfe0ff",
+                  borderRadius: 999,
+                  padding: "6px 10px",
+                  fontSize: 12,
+                  fontWeight: 900,
+                  color: "#21447b",
+                }}
+              >
+                {totalSets.toLocaleString()} sets
+              </div>
+              <div
+                style={{
+                  background: colors.softGold,
+                  border: "1px solid #ecd17e",
+                  borderRadius: 999,
+                  padding: "6px 10px",
+                  fontSize: 12,
+                  fontWeight: 900,
+                  color: "#6c4d00",
+                }}
+              >
+                {completeSets.toLocaleString()} complete
+              </div>
+              <div
+                style={{
+                  background: "#fff",
+                  border: `1px solid ${colors.border}`,
+                  borderRadius: 999,
+                  padding: "6px 10px",
+                  fontSize: 12,
+                  fontWeight: 900,
+                  color: colors.subtext,
+                }}
+              >
+                {incompleteSets.toLocaleString()} in progress
+              </div>
             </div>
           </div>
         </div>
@@ -392,6 +839,7 @@ export default function HomePage() {
           {actionCards.map((c) => (
             <Link key={c.title} href={c.href} style={{ textDecoration: "none", color: "inherit" }}>
               <div
+                className="homeActionCard"
                 style={{
                   background: "linear-gradient(180deg, #ffffff, #fbfaf7)",
                   border: `1px solid ${colors.border}`,
@@ -399,15 +847,6 @@ export default function HomePage() {
                   padding: 16,
                   boxShadow: "0 1px 0 rgba(0,0,0,0.03)",
                   cursor: "pointer",
-                  transition: "transform 120ms ease, box-shadow 120ms ease",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = "0 16px 36px rgba(0,0,0,0.07)";
-                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(-1px)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = "0 1px 0 rgba(0,0,0,0.03)";
-                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
                 }}
               >
                 <div style={{ display: "flex", justifyContent: "space-between", gap: 10, alignItems: "center" }}>
@@ -424,324 +863,154 @@ export default function HomePage() {
           ))}
         </div>
 
+        {progressError ? (
+          <div
+            style={{
+              marginBottom: 14,
+              padding: 10,
+              background: "#fff1f1",
+              border: "1px solid #f3b7b7",
+              borderRadius: 12,
+              fontWeight: 800,
+            }}
+          >
+            {progressError}
+          </div>
+        ) : null}
+
         <div
+          className="homeDashboardGrid"
           style={{
-            background: colors.card,
-            border: `1px solid ${colors.border}`,
-            borderRadius: 18,
-            padding: 16,
-            boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 14,
+            alignItems: "start",
           }}
         >
-          <div style={{ display: "flex", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
-            <div>
-              <div style={{ fontSize: 18, fontWeight: 950 }}>Sets in Progress</div>
-              <div style={{ marginTop: 4, color: colors.subtext, fontSize: 13, lineHeight: 1.45 }}>
-                Closest-to-complete first — like your binder checklist, but cleaner.
-              </div>
-            </div>
+          <SectionCard
+            title="Closest to Completion"
+            subtitle="The shortest path to finishing a set."
+            href="/collection"
+            linkText="All sets"
+          >
+            {closestToCompletion.length === 0 ? (
+              <EmptyMiniState>
+                No incomplete sets with progress right now. Rip some packs or check your finished sets in Collection.
+              </EmptyMiniState>
+            ) : (
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {closestToCompletion.map((row) => {
+                  const remaining = Math.max(0, safeNum(row.totalCards) - safeNum(row.uniqueOwned));
 
-            <button
-              onClick={loadProgress}
-              style={{
-                border: `1px solid ${colors.border}`,
-                background: colors.muted,
-                borderRadius: 12,
-                padding: "9px 12px",
-                fontWeight: 900,
-                cursor: "pointer",
-                height: 38,
-              }}
-              title="Refresh progress"
+                  return (
+                    <MiniSetCard
+                      key={row.productId}
+                      row={row}
+                      prestige={prestigeById[row.productId]}
+                      helper={
+                        <>
+                          <b style={{ color: colors.text }}>{remaining.toLocaleString()}</b> cards left to complete the base set.
+                        </>
+                      }
+                    />
+                  );
+                })}
+              </div>
+            )}
+          </SectionCard>
+
+          <SectionCard
+            title="Next Prestige Targets"
+            subtitle="Completed sets closest to another prestige level."
+            href="/showcase"
+            linkText="Showcase"
+          >
+            {prestigeTargets.length === 0 ? (
+              <EmptyMiniState>
+                No prestige targets yet. Complete a base set once and your next chase will show here.
+              </EmptyMiniState>
+            ) : (
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {prestigeTargets.map(({ row, prestige }) => {
+                  const level = safeNum(prestige?.level);
+                  const nextLevel = safeNum(prestige?.nextLevel, level + 1);
+                  const nextPct = safeNum(prestige?.nextPct);
+
+                  return (
+                    <MiniSetCard
+                      key={row.productId}
+                      row={row}
+                      prestige={prestige}
+                      helper={
+                        <>
+                          <b style={{ color: colors.text }}>
+                            {nextPct.toFixed(nextPct >= 99.95 ? 0 : 1)}%
+                          </b>{" "}
+                          to {nextLevel.toLocaleString()}× prestige.
+                        </>
+                      }
+                    />
+                  );
+                })}
+              </div>
+            )}
+          </SectionCard>
+
+          <div style={{ gridColumn: "1 / -1" }}>
+            <SectionCard
+              title="Recently Active"
+              subtitle="Sets tied to your most recently changed pack inventory."
+              href="/inventory"
+              linkText="Inventory"
             >
-              Refresh
-            </button>
+              {recentlyActive.length === 0 ? (
+                <EmptyMiniState>
+                  No recent activity yet. Buy or open packs and this will become your quick “where was I?” list.
+                </EmptyMiniState>
+              ) : (
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+                    gap: 10,
+                  }}
+                >
+                  {recentlyActive.map((row) => (
+                    <MiniSetCard
+                      key={row.productId}
+                      row={row}
+                      prestige={prestigeById[row.productId]}
+                      helper={
+                        <>
+                          Updated <b style={{ color: colors.text }}>{formatDateShort(row.activityDate) || "recently"}</b>
+                          {" • "}
+                          <b style={{ color: colors.text }}>{safeNum(row.packsOwned).toLocaleString()}</b> packs unopened.
+                        </>
+                      }
+                    />
+                  ))}
+                </div>
+              )}
+            </SectionCard>
           </div>
+        </div>
 
-          {progressError ? (
-            <div
-              style={{
-                marginTop: 12,
-                padding: 10,
-                background: "#fff1f1",
-                border: "1px solid #f3b7b7",
-                borderRadius: 12,
-                fontWeight: 800,
-              }}
-            >
-              {progressError}
-            </div>
-          ) : null}
-
-          {sortedSets.length === 0 ? (
-            <div
-              style={{
-                marginTop: 14,
-                padding: 14,
-                border: `1px dashed ${colors.border}`,
-                borderRadius: 14,
-                color: colors.subtext,
-                background: "linear-gradient(180deg, #fff, #fbfaf7)",
-              }}
-            >
-              <div style={{ fontWeight: 950, color: colors.text, marginBottom: 6 }}>No progress to show yet.</div>
-              <div style={{ fontSize: 13, lineHeight: 1.55 }}>
-                Rip some packs and your progress bars will start showing up here.
-              </div>
-              <div style={{ marginTop: 10 }}>
-                <Link href="/shop" style={{ textDecoration: "underline", fontWeight: 900, color: colors.accent }}>
-                  Go to Shop →
-                </Link>
-              </div>
-            </div>
-          ) : (
-            <div style={{ marginTop: 14, display: "flex", flexDirection: "column", gap: 12 }}>
-              {sortedSets.map((s) => {
-                const pct = clamp(safeNum(s.percentComplete), 0, 100);
-                const displayName = formatProductId(s.productId);
-                const resolvedPackSrc = resolveImageUrl(s.packImageUrl);
-
-                const totalCards = safeNum(s.totalCards);
-                const uniqueOwned = safeNum(s.uniqueOwned);
-                const baseComplete = totalCards > 0 && uniqueOwned >= totalCards;
-
-                const prestige = prestigeById[s.productId];
-                const level = safeNum(prestige?.level, 0);
-                const badgeLabel = level >= 1 ? labelForMilestoneBadge(level) : "";
-                const badgeTone = level >= 1 ? getBadgeTone(level) : null;
-
-                return (
-                  <div
-                    key={s.productId}
-                    style={{
-                      border: `1px solid ${colors.border}`,
-                      borderRadius: 16,
-                      padding: 12,
-                      background: "linear-gradient(180deg, #ffffff, #fbfaf7)",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "grid",
-                        gridTemplateColumns: "78px 1fr",
-                        gap: 12,
-                        alignItems: "start",
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: 78,
-                          height: 78,
-                          borderRadius: 16,
-                          border: `1px solid ${colors.border}`,
-                          background: "#fff",
-                          display: "grid",
-                          placeItems: "center",
-                          overflow: "hidden",
-                        }}
-                        title="Pack art"
-                      >
-                        {resolvedPackSrc ? (
-                          <img
-                            src={resolvedPackSrc}
-                            alt="Pack"
-                            loading="lazy"
-                            decoding="async"
-                            referrerPolicy="no-referrer"
-                            style={{
-                              width: "100%",
-                              height: "100%",
-                              objectFit: "contain",
-                              background: "#fff",
-                            }}
-                            onError={(e) => {
-                              const img = e.currentTarget as HTMLImageElement;
-                              img.style.display = "none";
-                              const parent = img.parentElement as HTMLElement | null;
-                              if (parent) {
-                                parent.style.display = "grid";
-                                parent.style.placeItems = "center";
-                                parent.style.padding = "6px";
-                                parent.innerHTML = `<div style="font-size:11px;color:${colors.subtext};text-align:center">Pack image<br/>failed</div>`;
-                              }
-                            }}
-                          />
-                        ) : (
-                          <div style={{ fontSize: 11, color: colors.subtext, textAlign: "center", padding: 6 }}>
-                            No pack
-                            <br />
-                            image
-                          </div>
-                        )}
-                      </div>
-
-                      <div style={{ minWidth: 0 }}>
-                        <div
-                          style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            gap: 10,
-                            flexWrap: "wrap",
-                            alignItems: "baseline",
-                          }}
-                        >
-                          <div
-                            style={{
-                              fontWeight: 950,
-                              fontSize: 15,
-                              lineHeight: 1.2,
-                              minWidth: 200,
-                              display: "flex",
-                              gap: 8,
-                              alignItems: "center",
-                              flexWrap: "wrap",
-                            }}
-                          >
-                            <span>{displayName}</span>
-
-                            {badgeTone && badgeLabel ? (
-                              <span
-                                title={`Prestige milestone reached: ${badgeLabel}`}
-                                style={{
-                                  display: "inline-flex",
-                                  alignItems: "center",
-                                  gap: 7,
-                                  padding: "4px 9px",
-                                  borderRadius: 999,
-                                  border: `1px solid ${badgeTone.border}`,
-                                  background: badgeTone.bg,
-                                  color: badgeTone.text,
-                                  fontWeight: 950,
-                                  fontSize: 11,
-                                  lineHeight: 1.15,
-                                  boxShadow: badgeTone.glow,
-                                }}
-                              >
-                                <span
-                                  aria-hidden
-                                  style={{
-                                    width: 7,
-                                    height: 7,
-                                    borderRadius: 999,
-                                    background: badgeTone.dot,
-                                    display: "inline-block",
-                                    flexShrink: 0,
-                                  }}
-                                />
-                                <span>{badgeLabel}</span>
-                              </span>
-                            ) : null}
-                          </div>
-
-                          <div
-                            style={{
-                              color: colors.subtext,
-                              fontWeight: 850,
-                              fontSize: 13,
-                              whiteSpace: "nowrap",
-                            }}
-                          >
-                            {pct.toFixed(1)}% • {safeNum(s.uniqueOwned)}/{safeNum(s.totalCards)} unique • {safeNum(s.totalQty)} owned
-                          </div>
-                        </div>
-
-                        <div
-                          style={{
-                            marginTop: 10,
-                            height: 12,
-                            borderRadius: 999,
-                            background: colors.muted,
-                            overflow: "hidden",
-                            border: `1px solid ${colors.border}`,
-                            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.7)",
-                          }}
-                        >
-                          <div
-                            style={{
-                              width: `${pct}%`,
-                              height: "100%",
-                              background: "linear-gradient(90deg, rgba(47,111,237,0.92), rgba(47,111,237,0.62))",
-                              borderRadius: 999,
-                              transition: "width 220ms ease",
-                              boxShadow: "0 6px 14px rgba(47,111,237,0.18)",
-                            }}
-                          />
-                        </div>
-
-                        {baseComplete ? (
-                          <div style={{ marginTop: 8, fontSize: 12, color: colors.subtext, fontWeight: 850 }}>
-                            <span style={{ color: colors.text, fontWeight: 950 }}>
-                              Completed {Math.max(1, Math.floor(level || 1))}×
-                            </span>
-                            {prestige ? (
-                              <>
-                                <span> • </span>
-                                <span>
-                                  {safeNum(prestige.nextPct, 0).toFixed(1)}% to {Math.max(2, safeNum(prestige.nextLevel, level + 1))}×
-                                </span>
-                              </>
-                            ) : null}
-                          </div>
-                        ) : null}
-
-                        <div
-                          style={{
-                            marginTop: 8,
-                            display: "flex",
-                            gap: 8,
-                            flexWrap: "wrap",
-                            alignItems: "center",
-                          }}
-                        >
-                          <Link
-                            href={`/collection/${encodeURIComponent(s.productId)}`}
-                            style={{
-                              textDecoration: "none",
-                              fontWeight: 900,
-                              fontSize: 13,
-                              lineHeight: 1,
-                              color: colors.text,
-                              background: "#fff",
-                              border: `1px solid ${colors.border}`,
-                              padding: "6px 10px",
-                              borderRadius: 999,
-                              display: "inline-flex",
-                              alignItems: "center",
-                              gap: 6,
-                              minHeight: 34,
-                            }}
-                          >
-                            View Set <span style={{ color: colors.accent }}>→</span>
-                          </Link>
-
-                          <Link
-                            href={`/checklist/${encodeURIComponent(s.productId)}`}
-                            style={{
-                              textDecoration: "none",
-                              fontWeight: 900,
-                              fontSize: 13,
-                              lineHeight: 1,
-                              color: colors.subtext,
-                              background: colors.muted,
-                              border: `1px solid ${colors.border}`,
-                              padding: "6px 10px",
-                              borderRadius: 999,
-                              display: "inline-flex",
-                              alignItems: "center",
-                              gap: 6,
-                              minHeight: 34,
-                            }}
-                          >
-                            Checklist
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          )}
+        <div style={{ marginTop: 14, display: "flex", justifyContent: "center" }}>
+          <button
+            onClick={loadProgress}
+            style={{
+              border: `1px solid ${colors.border}`,
+              background: colors.muted,
+              borderRadius: 12,
+              padding: "9px 12px",
+              fontWeight: 900,
+              cursor: "pointer",
+              minHeight: 38,
+            }}
+            title="Refresh home dashboard"
+          >
+            Refresh Dashboard
+          </button>
         </div>
 
         <div style={{ height: 26 }} />

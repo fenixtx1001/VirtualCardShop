@@ -19,10 +19,12 @@ export const dynamic = "force-dynamic";
  *     [productSetId]: {
  *       productSetId,
  *       totalCards,
- *       level,          // min qty across all cards (0 if any missing)
- *       nextLevel,      // level + 1
- *       nextPct,        // 0..100 (how many cards have qty >= nextLevel)
- *       completedOnce,  // level >= 1
+ *       level,              // min qty across all cards (0 if any missing)
+ *       nextLevel,          // level + 1
+ *       nextPct,            // 0..100 (how many cards have qty >= nextLevel)
+ *       cardsAtNextLevel,   // count of cards already at nextLevel
+ *       cardsNeededForNext, // cards still needed to reach nextLevel
+ *       completedOnce,      // level >= 1
  *     }
  *   }
  * }
@@ -80,6 +82,8 @@ export async function GET(req: Request) {
         level: number;
         nextLevel: number;
         nextPct: number;
+        cardsAtNextLevel: number;
+        cardsNeededForNext: number;
         completedOnce: boolean;
       }
     > = {};
@@ -95,6 +99,8 @@ export async function GET(req: Request) {
           level: 0,
           nextLevel: 1,
           nextPct: 0,
+          cardsAtNextLevel: 0,
+          cardsNeededForNext: 0,
           completedOnce: false,
         };
         continue;
@@ -111,13 +117,14 @@ export async function GET(req: Request) {
       const level = Math.max(0, Math.floor(minQty));
       const nextLevel = level + 1;
 
-      let haveNext = 0;
+      let cardsAtNextLevel = 0;
       for (const cardId of cardIds) {
         const q = qtyByCardId.get(cardId) ?? 0;
-        if (q >= nextLevel) haveNext++;
+        if (q >= nextLevel) cardsAtNextLevel++;
       }
 
-      const nextPct = totalCards ? Math.round((haveNext / totalCards) * 1000) / 10 : 0;
+      const nextPct = totalCards ? Math.round((cardsAtNextLevel / totalCards) * 1000) / 10 : 0;
+      const cardsNeededForNext = Math.max(0, totalCards - cardsAtNextLevel);
 
       levels[productSetId] = {
         productSetId,
@@ -125,6 +132,8 @@ export async function GET(req: Request) {
         level,
         nextLevel,
         nextPct,
+        cardsAtNextLevel,
+        cardsNeededForNext,
         completedOnce: level >= 1,
       };
     }

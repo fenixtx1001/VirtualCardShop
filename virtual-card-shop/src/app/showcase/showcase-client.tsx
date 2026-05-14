@@ -92,6 +92,7 @@ type PrestigeBucketSet = {
   timesCompleted: number;
   claimedCompletions: number;
   claimable: number;
+  sampleImageUrl?: string | null;
 };
 
 type PrestigeSummary = {
@@ -1097,9 +1098,45 @@ export default function ShowcaseClient() {
                             const tone = prestigeToneForLevel(r.timesCompleted);
                             return (
                               <tr key={r.productSetId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
-                                <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
-                                  <div style={{ fontWeight: 950 }}>{r.productSetName?.trim() || r.productSetId}</div>
-                                  <div style={{ fontSize: 12, color: colors.subtext, fontWeight: 800 }}>{r.productId ?? ""}</div>
+                                <td style={{ padding: 10, borderBottom: "1px solid #eee" }}>
+                                  <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
+                                    <div
+                                      style={{
+                                        width: 34,
+                                        height: 44,
+                                        borderRadius: 7,
+                                        overflow: "hidden",
+                                        border: `1px solid ${colors.border}`,
+                                        background: colors.muted,
+                                        flex: "0 0 auto",
+                                        display: "grid",
+                                        placeItems: "center",
+                                        color: colors.subtext,
+                                        fontSize: 10,
+                                        fontWeight: 900,
+                                      }}
+                                      title={r.productSetName?.trim() || r.productSetId}
+                                    >
+                                      {r.sampleImageUrl ? (
+                                        <img
+                                          src={r.sampleImageUrl}
+                                          alt=""
+                                          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                                          onError={(e) => {
+                                            e.currentTarget.style.display = "none";
+                                          }}
+                                        />
+                                      ) : (
+                                        <span>No img</span>
+                                      )}
+                                    </div>
+
+                                    <div style={{ minWidth: 0 }}>
+                                      <div style={{ fontWeight: 950, lineHeight: 1.2 }}>
+                                        {r.productSetName?.trim() || r.productSetId}
+                                      </div>
+                                    </div>
+                                  </div>
                                 </td>
 
                                 <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>

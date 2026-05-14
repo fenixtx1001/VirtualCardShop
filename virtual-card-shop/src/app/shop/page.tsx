@@ -1,6 +1,17 @@
 // src/app/shop/page.tsx
 "use client";
 
+function formatProductName(productId: string) {
+  const s = String(productId || "").trim();
+  if (!s) return "—";
+  return s
+    .replace(/_/g, " ")
+    .replace(/\bBase\b/gi, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+
 import type { CSSProperties } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { YourCardsPicker } from "./your-cards-picker";

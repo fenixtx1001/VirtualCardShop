@@ -19,6 +19,8 @@ type InventoryResponse = {
   error?: string;
 };
 
+const HIDE_ZERO_PACKS_STORAGE_KEY = "vcs.inventory.hideZeroPacks";
+
 // Cozy palette (match Home)
 const colors = {
   bg: "#fbfaf7",
@@ -50,10 +52,21 @@ function formatDateTime(iso: string) {
   return d.toLocaleString();
 }
 
+function readHideZeroPacksPreference() {
+  if (typeof window === "undefined") return true;
+  const saved = window.localStorage.getItem(HIDE_ZERO_PACKS_STORAGE_KEY);
+
+  // Default to hiding 0-pack products. Only show them if the user explicitly turns the filter off.
+  if (saved === null) return true;
+
+  return saved === "1";
+}
+
 export default function InventoryPage() {
   const [rows, setRows] = useState<InventoryRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
+  const [hideZeroPacks, setHideZeroPacks] = useState(() => readHideZeroPacksPreference());
 
   async function load() {
     setLoading(true);
@@ -85,12 +98,26 @@ export default function InventoryPage() {
     load();
   }, []);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.localStorage.setItem(HIDE_ZERO_PACKS_STORAGE_KEY, hideZeroPacks ? "1" : "0");
+  }, [hideZeroPacks]);
+
   const sorted = useMemo(() => {
     const copy = [...rows];
     // keep your current “recently updated” feel
     copy.sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
     return copy;
   }, [rows]);
+
+  const visibleRows = useMemo(() => {
+    if (!hideZeroPacks) return sorted;
+    return sorted.filter((r) => (r.packsOwned ?? 0) > 0);
+  }, [hideZeroPacks, sorted]);
+
+  const zeroPackCount = useMemo(() => {
+    return sorted.filter((r) => (r.packsOwned ?? 0) <= 0).length;
+  }, [sorted]);
 
   return (
     <main
@@ -176,6 +203,45 @@ export default function InventoryPage() {
             boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
           }}
         >
+          <div
+            style={{
+              padding: "10px 12px",
+              borderBottom: `1px solid ${colors.border}`,
+              display: "flex",
+              justifyContent: "space-between",
+              gap: 12,
+              alignItems: "center",
+              flexWrap: "wrap",
+              background: "#fff",
+            }}
+          >
+            <label
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                fontSize: 13,
+                fontWeight: 900,
+                color: colors.text,
+                cursor: "pointer",
+                userSelect: "none",
+              }}
+            >
+              <input
+                type="checkbox"
+                checked={hideZeroPacks}
+                onChange={(e) => setHideZeroPacks(e.target.checked)}
+                style={{ width: 16, height: 16 }}
+              />
+              Hide 0-pack products
+            </label>
+
+            <div style={{ fontSize: 12, color: colors.subtext, fontWeight: 800 }}>
+              Showing {visibleRows.length.toLocaleString()} of {sorted.length.toLocaleString()} products
+              {zeroPackCount > 0 ? ` • ${zeroPackCount.toLocaleString()} with 0 packs` : ""}
+            </div>
+          </div>
+
           <div style={{ overflowX: "auto" }}>
             <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 860 }}>
               <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
@@ -200,7 +266,7 @@ export default function InventoryPage() {
               </thead>
 
               <tbody>
-                {!loading && sorted.length === 0 ? (
+                {!loading && visibleRows.length === 0 ? (
                   <tr>
                     <td
                       colSpan={7}
@@ -209,12 +275,14 @@ export default function InventoryPage() {
                         color: colors.subtext,
                       }}
                     >
-                      No unopened packs yet. Head to the shop and grab some wax.
+                      {hideZeroPacks
+                        ? "No unopened packs right now. Turn off the 0-pack filter to see all products you’ve purchased before."
+                        : "No unopened packs yet. Head to the shop and grab some wax."}
                     </td>
                   </tr>
                 ) : null}
 
-                {sorted.map((r, idx) => {
+                {visibleRows.map((r, idx) => {
                   const friendlyName = formatFriendlyProductName(r.productId);
 
                   return (
