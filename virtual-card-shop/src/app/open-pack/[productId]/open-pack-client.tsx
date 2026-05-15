@@ -1521,21 +1521,73 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                       const prestigeProgressLabel = getPrestigeProgressLabel(c);
 
                       return (
-                        <li key={c.id}>
-                          <div className="line1">
-                            #{c.cardNumber} — {c.player} {insertLabel ? `(${insertLabel})` : ""}
+                        <li
+                          key={c.id}
+                          style={{
+                            display: "grid",
+                            gridTemplateColumns: "56px 1fr",
+                            gap: 10,
+                            alignItems: "start",
+                          }}
+                        >
+                          <div
+                            style={{
+                              width: 56,
+                              height: 78,
+                              borderRadius: 10,
+                              overflow: "hidden",
+                              border: `1px solid ${colors.border}`,
+                              background: "white",
+                              flexShrink: 0,
+                            }}
+                          >
+                            {c.frontImageUrl ? (
+                              <img
+                                src={c.frontImageUrl}
+                                alt={c.player}
+                                style={{
+                                  width: "100%",
+                                  height: "100%",
+                                  objectFit: "cover",
+                                  display: "block",
+                                }}
+                              />
+                            ) : (
+                              <div
+                                style={{
+                                  width: "100%",
+                                  height: "100%",
+                                  display: "grid",
+                                  placeItems: "center",
+                                  fontSize: 10,
+                                  fontWeight: 900,
+                                  color: colors.subtext,
+                                  background: colors.soft,
+                                  textAlign: "center",
+                                  padding: 4,
+                                }}
+                              >
+                                No Image
+                              </div>
+                            )}
                           </div>
-                          <div className="line2">
-                            Value: <b>{money(c.bookValue)}</b> • You own: <b>{c.ownedAfter}</b>
-                            {insertOddsLabel ? ` • Odds: ${insertOddsLabel}` : ""}
-                          </div>
-                          {c.isNeededForNextPrestige && prestigeProgressLabel ? (
-                            <div className={cx("line3", c.hitNextPrestigeWithThisCard && "hit")}>
-                              {c.hitNextPrestigeWithThisCard
-                                ? `${prestigeProgressLabel} • This card hit it.`
-                                : prestigeProgressLabel}
+
+                          <div>
+                            <div className="line1">
+                              #{c.cardNumber} — {c.player} {insertLabel ? `(${insertLabel})` : ""}
                             </div>
-                          ) : null}
+                            <div className="line2">
+                              Value: <b>{money(c.bookValue)}</b> • You own: <b>{c.ownedAfter}</b>
+                              {insertOddsLabel ? ` • Odds: ${insertOddsLabel}` : ""}
+                            </div>
+                            {c.isNeededForNextPrestige && prestigeProgressLabel ? (
+                              <div className={cx("line3", c.hitNextPrestigeWithThisCard && "hit")}>
+                                {c.hitNextPrestigeWithThisCard
+                                  ? `${prestigeProgressLabel} • This card hit it.`
+                                  : prestigeProgressLabel}
+                              </div>
+                            ) : null}
+                          </div>
                         </li>
                       );
                     })}
