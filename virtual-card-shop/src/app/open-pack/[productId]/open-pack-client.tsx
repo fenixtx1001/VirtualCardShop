@@ -170,6 +170,11 @@ export default function OpenPackClient({ productId }: { productId: string }) {
     return `${idx + 1} / ${cards.length} (expected ${expected})`;
   }, [opened, cards.length, idx, data?.cardsPerPack]);
 
+  const mobileProgressText = useMemo(() => {
+    if (!opened || !cards.length) return "";
+    return `${idx + 1}/${cards.length}`;
+  }, [opened, cards.length, idx]);
+
   const mismatch = useMemo(() => {
     if (!opened || !data) return false;
     return data.cardsPerPack !== data.cards.length;
@@ -540,6 +545,18 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           color: ${colors.text};
         }
 
+        .mobile-rip-hud {
+          display: none;
+        }
+
+        .mobile-current-meta {
+          display: none;
+        }
+
+        .mobile-summary-actions {
+          display: none;
+        }
+
         .flip-wrap {
           width: 100%;
           max-width: 420px;
@@ -887,37 +904,291 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
         @media (max-width: 560px) {
           .vcs-pack-root {
-            padding: 12px;
+            padding: 10px;
           }
-          .vcs-pack-stage {
-            padding: 12px;
+
+          .vcs-pack-wrap {
+            max-width: 100%;
           }
+
+          .vcs-pack-hero {
+            padding: 10px;
+            border-radius: 16px;
+            gap: 8px;
+          }
+
+          .vcs-pack-title {
+            min-width: 0;
+            width: 100%;
+          }
+
+          .vcs-pack-title > div:first-child {
+            justify-content: space-between;
+          }
+
           .vcs-pack-title h1 {
-            font-size: 17px;
+            font-size: 15px;
+            line-height: 1.2;
           }
+
           .vcs-pack-title .sub {
+            display: none;
+          }
+
+          .vcs-pack-actions {
+            width: 100%;
+            gap: 8px;
+          }
+
+          .vcs-pack-actions > .pill {
+            display: none;
+          }
+
+          .vcs-pack-actions .btn {
+            flex: 1 1 auto;
+            justify-content: center;
+          }
+
+          .vcs-pack-stage {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 16px;
+          }
+
+          .mobile-rip-hud {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            display: grid;
+            grid-template-columns: 1fr 1fr 68px;
+            gap: 8px;
+            align-items: center;
+            margin: -2px -2px 10px;
+            padding: 8px;
+            border: 1px solid ${colors.border};
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+          }
+
+          .mobile-hud-item {
+            display: grid;
+            gap: 2px;
+            min-width: 0;
+          }
+
+          .mobile-hud-label {
+            font-size: 10px;
+            line-height: 1;
+            font-weight: 900;
+            color: ${colors.subtext};
+            text-transform: uppercase;
+            letter-spacing: 0.25px;
+          }
+
+          .mobile-hud-value {
+            font-size: 14px;
+            line-height: 1.1;
+            font-weight: 950;
+            color: ${colors.text};
+          }
+
+          .mobile-hud-value.positive {
+            color: #1e7a35;
+          }
+
+          .mobile-hud-value.negative {
+            color: #b42318;
+          }
+
+          .mobile-hud-card {
+            border-radius: 999px;
+            padding: 7px 9px;
+            background: ${colors.muted};
+            text-align: center;
+            font-weight: 950;
             font-size: 13px;
-            color: #3f3f3f;
+            color: ${colors.text};
+            white-space: nowrap;
           }
-          .hint {
-            color: #3f3f3f;
+
+          .controls-row {
+            display: none;
           }
+
+          .desktop-value {
+            display: none;
+          }
+
+          .open-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+          }
+
           .panel {
-            padding: 12px;
+            border-radius: 16px;
+            padding: 10px;
           }
-          .stat-title {
-            font-size: 20px;
+
+          .card-panel {
+            order: 1;
+            padding: 10px;
           }
+
+          .details-panel {
+            order: 2;
+          }
+
+          .stack-panel {
+            order: 3;
+            display: none;
+          }
+
+          .stack-panel.done {
+            display: block;
+          }
+
+          .panel-title {
+            font-size: 12px;
+            margin-bottom: 8px;
+          }
+
+          .card-panel .panel-title {
+            display: none;
+          }
+
+          .flip-wrap {
+            max-width: min(94vw, 440px);
+          }
+
+          .flip-card {
+            border-radius: 18px;
+          }
+
+          .flip-banner {
+            font-size: 11px;
+            padding: 7px 12px;
+          }
+
+          .mobile-current-meta {
+            display: block;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 14px;
+            background: linear-gradient(180deg, #fff, #fbfaf7);
+            border: 1px solid ${colors.border};
+          }
+
+          .mobile-current-title {
+            font-size: 18px;
+            font-weight: 950;
+            line-height: 1.15;
+            letter-spacing: -0.2px;
+          }
+
+          .mobile-current-sub {
+            margin-top: 4px;
+            color: ${colors.subtext};
+            font-size: 13px;
+            font-weight: 800;
+            line-height: 1.35;
+          }
+
+          .mobile-current-stats {
+            margin-top: 7px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            color: ${colors.text};
+            font-size: 13px;
+            font-weight: 900;
+          }
+
+          .card-panel .nav-buttons,
+          .card-panel > div:last-child {
+            width: 100%;
+            display: grid !important;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px !important;
+          }
+
+          .card-panel > div:last-child .btn {
+            justify-content: center;
+            padding: 10px 8px;
+          }
+
+          .details-panel .stat-title,
+          .details-panel .stat-sub,
+          .details-panel .kv {
+            display: none;
+          }
+
+          .pack-art {
+            display: none;
+          }
+
           .value-main {
             font-size: 20px;
           }
+
           .btn {
             padding: 10px 12px;
             border-radius: 14px;
           }
-          .flip-banner {
-            font-size: 11px;
-            padding: 7px 12px;
+
+          .summary {
+            margin-top: 10px;
+            padding: 14px;
+            border-radius: 18px;
+          }
+
+          .summary h3 {
+            font-size: 22px;
+            margin-bottom: 6px;
+          }
+
+          .summary ol {
+            list-style: none;
+            padding: 0;
+            margin-top: 12px;
+            display: grid;
+            gap: 8px;
+          }
+
+          .summary li {
+            margin: 0;
+            padding: 10px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.68);
+            border: 1px solid rgba(167, 231, 182, 0.75);
+          }
+
+          .summary .line1 {
+            font-size: 15px;
+            line-height: 1.2;
+          }
+
+          .summary .line2 {
+            margin-top: 4px;
+            font-size: 12px;
+          }
+
+          .mobile-summary-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+          }
+
+          .mobile-summary-actions .btn {
+            flex: 1 1 auto;
+            justify-content: center;
+          }
+
+          .footer-tip {
+            display: none;
           }
         }
       `}</style>
@@ -1011,6 +1282,27 @@ export default function OpenPackClient({ productId }: { productId: string }) {
             </div>
           ) : (
             <div ref={containerRef} tabIndex={-1} style={{ outline: "none" }}>
+              <div className="mobile-rip-hud">
+                <div className="mobile-hud-item">
+                  <div className="mobile-hud-label">Value</div>
+                  <div className="mobile-hud-value">{money(revealedValue)}</div>
+                </div>
+                <div className="mobile-hud-item">
+                  <div className="mobile-hud-label">Net</div>
+                  <div
+                    className={cx(
+                      "mobile-hud-value",
+                      valueTone === "positive" && "positive",
+                      valueTone === "negative" && "negative"
+                    )}
+                  >
+                    {packDelta > 0 ? "+" : ""}
+                    {money(packDelta)}
+                  </div>
+                </div>
+                <div className="mobile-hud-card">{mobileProgressText}</div>
+              </div>
+
               <div className="controls-row">
                 <div className="controls-left">
                   <div className="hint">
@@ -1029,7 +1321,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                 <span className="pill">{progressText}</span>
               </div>
 
-              <div className={cx("value-box", valueTone === "positive" && "positive", valueTone === "negative" && "negative", valueTone === "neutral" && "neutral")}>
+              <div className={cx("value-box", "desktop-value", valueTone === "positive" && "positive", valueTone === "negative" && "negative", valueTone === "neutral" && "neutral")}>
                 <div className="value-grid">
                   <div className="value-head">Running pack value</div>
                   <div className="value-main">{money(revealedValue)}</div>
@@ -1061,7 +1353,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
               )}
 
               <div className="open-grid">
-                <div className="panel">
+                <div className="panel card-panel">
                   <div className="panel-title">Current card</div>
 
                   <div className="flip-wrap" onClick={() => setFlipped((x) => !x)} title="Click to flip (or press F)">
@@ -1092,6 +1384,21 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                     </div>
                   </div>
 
+                  <div className="mobile-current-meta">
+                    <div className="mobile-current-title">{cardTitle}</div>
+                    <div className="mobile-current-sub">{subline}</div>
+                    <div className="mobile-current-stats">
+                      <span>{current?.isInsert ? `Insert${currentInsertLabel ? ` • ${currentInsertLabel}` : ""}` : "Base"}</span>
+                      <span>Value: {money(current?.bookValue)}</span>
+                      <span>You own: {current?.ownedAfter ?? "—"}</span>
+                    </div>
+                    {current?.isInsert && currentInsertOddsLabel ? (
+                      <div style={{ marginTop: 5, color: colors.subtext, fontSize: 12, fontWeight: 800 }}>
+                        Odds: {currentInsertOddsLabel}
+                      </div>
+                    ) : null}
+                  </div>
+
                   <div style={{ marginTop: 12, display: "flex", gap: 10, flexWrap: "wrap" }}>
                     <button className="btn" onClick={prev} disabled={!canPrev}>
                       ← Prev
@@ -1105,7 +1412,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                   </div>
                 </div>
 
-                <div className="panel">
+                <div className={cx("panel", "stack-panel", isDone && "done")}>
                   <div className="panel-title">Opened stack (top card back)</div>
 
                   <div className="stack-mini">
@@ -1139,7 +1446,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                   </div>
                 </div>
 
-                <div className="panel">
+                <div className="panel details-panel">
                   <div className="panel-title">Details</div>
 
                   <div className="stat-title">{cardTitle}</div>
@@ -1160,7 +1467,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                     ) : null}
 
                     <div>
-                      <b>Book:</b> {money(current?.bookValue)} &nbsp;•&nbsp; <b>You own:</b>{" "}
+                      <b>Value:</b> {money(current?.bookValue)} &nbsp;•&nbsp; <b>You own:</b>{" "}
                       {current?.ownedAfter ?? "—"}
                     </div>
                   </div>
@@ -1219,7 +1526,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                             #{c.cardNumber} — {c.player} {insertLabel ? `(${insertLabel})` : ""}
                           </div>
                           <div className="line2">
-                            Book: <b>{money(c.bookValue)}</b> • You own: <b>{c.ownedAfter}</b>
+                            Value: <b>{money(c.bookValue)}</b> • You own: <b>{c.ownedAfter}</b>
                             {insertOddsLabel ? ` • Odds: ${insertOddsLabel}` : ""}
                           </div>
                           {c.isNeededForNextPrestige && prestigeProgressLabel ? (
@@ -1233,6 +1540,18 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                       );
                     })}
                   </ol>
+
+                  <div className="mobile-summary-actions">
+                    <button className="btn primary" onClick={openPack} disabled={loading || !productId}>
+                      {loading ? "Opening…" : "Open Another"}
+                    </button>
+                    <Link href="/inventory" className="btn">
+                      Inventory
+                    </Link>
+                    <Link href={`/checklist/${encodeURIComponent(productId)}`} className="btn">
+                      Checklist
+                    </Link>
+                  </div>
                 </div>
               )}
 
