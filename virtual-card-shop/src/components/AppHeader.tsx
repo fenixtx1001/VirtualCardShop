@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import AuthButton from "@/components/AuthButton";
 
@@ -20,6 +21,7 @@ type CollectionStats = {
 
 const ECONOMY_CHANGED_EVENT = "vcs:economy-changed";
 const COLLECTION_CHANGED_EVENT = "vcs:collection-changed";
+const RIP_MODE_EVENT = "vcs:rip-mode";
 
 function formatDollars(cents: number) {
   return (cents / 100).toLocaleString(undefined, {
@@ -38,12 +40,16 @@ function formatCountdown(ms: number) {
 
 export default function AppHeader() {
   const { data: session, status } = useSession();
+  const pathname = usePathname();
 
   const [eco, setEco] = useState<EconomyState | null>(null);
   const [stats, setStats] = useState<CollectionStats | null>(null);
 
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  const [compactRipMode, setCompactRipMode] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const tickRef = useRef<number | null>(null);
 
@@ -109,6 +115,32 @@ export default function AppHeader() {
       setLoading(false);
     }
   }
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
+
+  useEffect(() => {
+    function handleRipMode(event: Event) {
+      const custom = event as CustomEvent<boolean>;
+      setCompactRipMode(Boolean(custom.detail));
+    }
+
+    window.addEventListener(RIP_MODE_EVENT, handleRipMode as EventListener);
+
+    return () => {
+      window.removeEventListener(RIP_MODE_EVENT, handleRipMode as EventListener);
+    };
+  }, []);
 
   // Initial load
   useEffect(() => {
@@ -203,9 +235,104 @@ export default function AppHeader() {
       window.removeEventListener("resize", measure);
       window.clearTimeout(t);
     };
-  }, []);
+  }, [compactRipMode, isMobile]);
 
   const signedInEmail = status === "authenticated" ? (session?.user?.email ?? null) : null;
+
+  const showCompactMobileRipHeader =
+    isMobile &&
+    pathname?.startsWith("/open-pack/") &&
+    compactRipMode;
+
+  if (showCompactMobileRipHeader) {
+    return (
+      <>
+        <header
+          ref={(node) => {
+            headerRef.current = node;
+          }}
+          style={{
+            position: "sticky",
+            top: 0,
+            zIndex: 1000,
+            borderBottom: "1px solid var(--border-2)",
+            padding: "10px 14px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            background: "rgba(251, 250, 247, 0.94)",
+            backdropFilter: "blur(10px)",
+            gap: 10,
+            boxShadow: "0 1px 0 rgba(0,0,0,0.03)",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              flexWrap: "wrap",
+              minWidth: 0,
+            }}
+          >
+            <div
+              style={{
+                fontSize: 15,
+                fontWeight: 950,
+                letterSpacing: -0.2,
+                whiteSpace: "nowrap",
+              }}
+            >
+              VCS
+            </div>
+
+            <div style={{ fontSize: 12, color: "var(--muted)" }}>
+              <span style={{ fontWeight: 900, color: "var(--text)" }}>{balanceText}</span>
+            </div>
+
+            {eco && !eco.canClaim ? (
+              <div style={{ fontSize: 12, color: "var(--muted)", whiteSpace: "nowrap" }}>
+                Reward {formatCountdown(eco.msUntilNextClaim)}
+              </div>
+            ) : eco?.canClaim ? (
+              <button
+                onClick={claimReward}
+                disabled={loading}
+                style={{
+                  fontSize: 12,
+                  padding: "5px 8px",
+                  borderRadius: 999,
+                  border: "1px solid var(--border)",
+                  background: "#fff",
+                  cursor: loading ? "not-allowed" : "pointer",
+                  fontWeight: 900,
+                  whiteSpace: "nowrap",
+                }}
+                title="Claim $10 reward"
+              >
+                {loading ? "Claiming…" : "Claim $10"}
+              </button>
+            ) : null}
+          </div>
+
+          <Link
+            href="/inventory"
+            style={{
+              fontSize: 12,
+              fontWeight: 900,
+              textDecoration: "underline",
+              whiteSpace: "nowrap",
+              color: "var(--text)",
+            }}
+          >
+            Exit Rip →
+          </Link>
+        </header>
+
+        <div style={{ height: headerHeight }} />
+      </>
+    );
+  }
 
   return (
     <>

@@ -41,6 +41,8 @@ type PackMeta = {
   packImageUrl: string | null;
 };
 
+const RIP_MODE_EVENT = "vcs:rip-mode";
+
 const colors = {
   bg: "#fbfaf7",
   card: "#ffffff",
@@ -297,6 +299,24 @@ export default function OpenPackClient({ productId }: { productId: string }) {
   }, [current]);
 
   const isDone = opened && !canNext;
+
+  useEffect(() => {
+    const activeRip = opened && !isDone;
+
+    window.dispatchEvent(
+      new CustomEvent(RIP_MODE_EVENT, {
+        detail: activeRip,
+      })
+    );
+
+    return () => {
+      window.dispatchEvent(
+        new CustomEvent(RIP_MODE_EVENT, {
+          detail: false,
+        })
+      );
+    };
+  }, [opened, isDone]);
   const currentHasPrestigeProgress = Boolean(current?.isNeededForNextPrestige);
   const currentHitPrestige = Boolean(current?.hitNextPrestigeWithThisCard);
 
