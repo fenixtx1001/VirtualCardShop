@@ -478,7 +478,7 @@ export default function PlayerTiersClient() {
         <div style={{ marginBottom: 12, padding: 10, background: "#efe", border: "1px solid #9f9" }}>{okMsg}</div>
       ) : null}
 
-      <section
+      <details
         style={{
           border: "1px solid #ddd",
           background: "#fafafa",
@@ -486,7 +486,16 @@ export default function PlayerTiersClient() {
           marginBottom: 18,
         }}
       >
-        <h2 style={{ marginTop: 0 }}>Ignore trailing tokens</h2>
+        <summary
+          style={{
+            cursor: "pointer",
+            fontWeight: 900,
+            fontSize: 20,
+            marginBottom: 12,
+          }}
+        >
+          Ignore trailing tokens ({ignoreTokens.length})
+        </summary>
 
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "end", marginBottom: 12 }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
@@ -571,7 +580,7 @@ export default function PlayerTiersClient() {
             </tbody>
           </table>
         </div>
-      </section>
+      </details>
 
       <div
         style={{

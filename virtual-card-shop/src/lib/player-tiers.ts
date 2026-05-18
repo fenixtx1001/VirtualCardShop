@@ -48,6 +48,8 @@ const BUILT_IN_IGNORE_TOKENS = [
 const TRAILING_REGEX_PATTERNS: RegExp[] = [
   /\bSN\d+\b\.?$/i,
   /\bSN[\s-]?\d+\b\.?$/i,
+  /\bPR\d+\b\.?$/i,
+  /\bPR[\s-]?\d+\b\.?$/i,
   /\b#?\d+\/\d+\b\.?$/i,
 ];
 
