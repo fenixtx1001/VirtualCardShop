@@ -331,6 +331,12 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           font-family: system-ui;
         }
 
+        .vcs-pack-root *,
+        .vcs-pack-root *::before,
+        .vcs-pack-root *::after {
+          box-sizing: border-box;
+        }
+
         .vcs-pack-wrap {
           max-width: 1160px;
           margin: 0 auto;
@@ -925,10 +931,14 @@ export default function OpenPackClient({ productId }: { productId: string }) {
         @media (max-width: 560px) {
           .vcs-pack-root {
             padding: 10px;
+            overflow-x: hidden;
           }
 
           .vcs-pack-wrap {
+            width: 100%;
             max-width: 100%;
+            min-width: 0;
+            overflow-x: hidden;
           }
 
           .vcs-pack-hero {
@@ -970,9 +980,13 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           }
 
           .vcs-pack-stage {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
             padding: 10px;
             margin-top: 10px;
             border-radius: 16px;
+            overflow-x: hidden;
           }
 
           .mobile-rip-hud {
@@ -1042,23 +1056,33 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           }
 
           .open-grid {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
             display: flex;
             flex-direction: column;
             gap: 10px;
+            overflow-x: hidden;
           }
 
           .panel {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
             border-radius: 16px;
             padding: 10px;
+            overflow-wrap: anywhere;
           }
 
           .card-panel {
             order: 1;
-            padding: 10px;
+            padding: 8px;
+            overflow: hidden;
           }
 
           .details-panel {
             order: 2;
+            overflow: hidden;
           }
 
           .stack-panel {
@@ -1080,7 +1104,18 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           }
 
           .flip-wrap {
-            max-width: min(94vw, 440px);
+            width: 100%;
+            max-width: min(440px, 100%);
+            min-width: 0;
+            margin-left: auto;
+            margin-right: auto;
+          }
+
+          .flip-scene {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            aspect-ratio: 2.5 / 3.5;
           }
 
           .flip-card {
@@ -1094,29 +1129,49 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
           .mobile-current-meta {
             display: block;
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
             margin-top: 10px;
             padding: 10px;
             border-radius: 14px;
             background: linear-gradient(180deg, #fff, #fbfaf7);
             border: 1px solid ${colors.border};
+            min-height: 128px;
+            overflow: hidden;
           }
 
           .mobile-current-title {
+            min-width: 0;
             font-size: 18px;
             font-weight: 950;
             line-height: 1.15;
             letter-spacing: -0.2px;
+            overflow-wrap: anywhere;
+            word-break: normal;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
           }
 
           .mobile-current-sub {
+            min-width: 0;
             margin-top: 4px;
             color: ${colors.subtext};
             font-size: 13px;
             font-weight: 800;
             line-height: 1.35;
+            overflow-wrap: anywhere;
+            word-break: normal;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
           }
 
           .mobile-current-stats {
+            min-width: 0;
             margin-top: 7px;
             display: flex;
             gap: 8px;
@@ -1124,6 +1179,13 @@ export default function OpenPackClient({ productId }: { productId: string }) {
             color: ${colors.text};
             font-size: 13px;
             font-weight: 900;
+            overflow-wrap: anywhere;
+          }
+
+          .mobile-current-stats span {
+            min-width: 0;
+            max-width: 100%;
+            overflow-wrap: anywhere;
           }
 
           .card-panel .nav-buttons,
