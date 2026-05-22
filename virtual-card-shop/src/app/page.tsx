@@ -34,6 +34,8 @@ type PrestigeLevelRow = {
   level: number; // min qty across all cards
   nextLevel: number; // level + 1
   nextPct: number; // 0..100
+  cardsAtNextLevel: number;
+  cardsNeededForNext: number;
   completedOnce: boolean; // level >= 1
 };
 
@@ -513,6 +515,8 @@ export default function HomePage() {
           level: safeNum(v?.level, 0),
           nextLevel: safeNum(v?.nextLevel, safeNum(v?.level, 0) + 1),
           nextPct: safeNum(v?.nextPct, 0),
+          cardsAtNextLevel: safeNum(v?.cardsAtNextLevel, 0),
+          cardsNeededForNext: safeNum(v?.cardsNeededForNext, 0),
           completedOnce: !!v?.completedOnce,
         };
       }
@@ -935,6 +939,7 @@ export default function HomePage() {
                   const level = safeNum(prestige?.level);
                   const nextLevel = safeNum(prestige?.nextLevel, level + 1);
                   const nextPct = safeNum(prestige?.nextPct);
+                  const cardsNeededForNext = safeNum(prestige?.cardsNeededForNext);
 
                   return (
                     <MiniSetCard
@@ -943,10 +948,12 @@ export default function HomePage() {
                       prestige={prestige}
                       helper={
                         <>
+                          <b style={{ color: colors.text }}>{cardsNeededForNext.toLocaleString()}</b>{" "}
+                          cards needed to reach {nextLevel.toLocaleString()}× prestige. {" "}
                           <b style={{ color: colors.text }}>
                             {nextPct.toFixed(nextPct >= 99.95 ? 0 : 1)}%
                           </b>{" "}
-                          to {nextLevel.toLocaleString()}× prestige.
+                          there.
                         </>
                       }
                     />
