@@ -9,6 +9,12 @@ type ProductSetOption = {
   name: string | null;
 };
 
+type GradeBreakdownRow = {
+  grade: number;
+  label: string;
+  quantity: number;
+};
+
 type CardRow = {
   cardId: number;
   cardNumber: string;
@@ -18,6 +24,10 @@ type CardRow = {
   variant: string | null;
   isInsert: boolean;
   quantity: number;
+  rawQuantity?: number;
+  gradedQuantity?: number;
+  highestGrade?: number | null;
+  gradeBreakdown?: GradeBreakdownRow[];
   bookValue: number | null;
   frontImageUrl: string | null;
   backImageUrl: string | null;
@@ -26,16 +36,15 @@ type CardRow = {
 type ApiResponse = {
   ok: boolean;
   productId: string;
-
-  // ✅ new (from API)
   productSetId: string;
   productSetIsBase: boolean;
   productSets: ProductSetOption[];
-
   uniqueOwned: number;
   totalCards: number;
   percentComplete: number;
   totalQty: number;
+  totalRawQty?: number;
+  totalGradedQty?: number;
   cards: CardRow[];
 };
 
@@ -48,30 +57,19 @@ function safeNum(v: any, fallback = 0) {
   return typeof v === "number" && Number.isFinite(v) ? v : fallback;
 }
 
-// --- Card number-aware sorting (ignores any prefix)
-// Works for: "BC-14", "DK-007", "10a", "A12b", etc.
 function parseCardNo(raw: string | null | undefined) {
   const s = (raw ?? "").trim();
   const lower = s.toLowerCase();
 
   const m = lower.match(/(\d+)/);
-  if (!m || m.index == null) {
-    return { n: Number.POSITIVE_INFINITY, suf: lower, raw: lower };
-  }
+  if (!m || m.index == null) return { n: Number.POSITIVE_INFINITY, suf: lower, raw: lower };
 
   const numStr = m[1];
   const n = parseInt(numStr, 10);
-
-  const start = m.index;
-  const end = start + numStr.length;
-  const suffixRaw = lower.slice(end);
+  const suffixRaw = lower.slice(m.index + numStr.length);
   const suf = suffixRaw.replace(/[^a-z0-9]+/g, "");
 
-  return {
-    n: Number.isFinite(n) ? n : Number.POSITIVE_INFINITY,
-    suf,
-    raw: lower,
-  };
+  return { n: Number.isFinite(n) ? n : Number.POSITIVE_INFINITY, suf, raw: lower };
 }
 
 function cardNoCompare(aNo: string, bNo: string) {
@@ -83,12 +81,56 @@ function cardNoCompare(aNo: string, bNo: string) {
 }
 
 function formatSetLabel(ps: ProductSetOption) {
-  const base = ps.name?.trim() ? ps.name!.trim() : ps.id;
+  const base = ps.name?.trim() ? ps.name.trim() : ps.id;
   return ps.isBase ? `Base — ${base}` : `Insert — ${base}`;
 }
 
+function gradeLabel(grade: number) {
+  return grade === 0 ? "Raw" : `VCS ${grade}`;
+}
+
+function normalizeBreakdown(card: CardRow | null | undefined): GradeBreakdownRow[] {
+  if (!card) return [];
+
+  const breakdown = Array.isArray(card.gradeBreakdown) ? card.gradeBreakdown : [];
+
+  if (breakdown.length > 0) {
+    return [...breakdown].sort((a, b) => {
+      const av = a.grade === 0 ? -1 : a.grade;
+      const bv = b.grade === 0 ? -1 : b.grade;
+      return av - bv;
+    });
+  }
+
+  return [{ grade: 0, label: "Raw", quantity: safeNum(card.quantity) }];
+}
+
+function GradePill({ grade, quantity }: { grade: number; quantity: number }) {
+  const isRaw = grade === 0;
+
+  return (
+    <span
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 6,
+        padding: "5px 8px",
+        borderRadius: 999,
+        border: "1px solid #ddd",
+        background: isRaw ? "#f7f7f7" : "#eef6ff",
+        color: isRaw ? "#333" : "#16477d",
+        fontSize: 12,
+        fontWeight: 900,
+        whiteSpace: "nowrap",
+      }}
+      title={`${gradeLabel(grade)} quantity`}
+    >
+      {gradeLabel(grade)} <span style={{ color: "#555" }}>×{quantity}</span>
+    </span>
+  );
+}
+
 export default function CollectionSetClient({ productId }: { productId: string }) {
-  // 🔐 HARD GUARD — prevents undefined ever leaking into fetches
   if (!productId) {
     return (
       <div style={{ padding: 16, fontFamily: "system-ui" }}>
@@ -102,10 +144,7 @@ export default function CollectionSetClient({ productId }: { productId: string }
   const [data, setData] = useState<ApiResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
-
-  // dropdown state
   const [selectedProductSetId, setSelectedProductSetId] = useState<string>("");
-
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [showBack, setShowBack] = useState(false);
 
@@ -123,10 +162,9 @@ export default function CollectionSetClient({ productId }: { productId: string }
         (qs.toString() ? `?${qs.toString()}` : "");
 
       const res = await fetch(url, { cache: "no-store" });
-
       const raw = await res.text();
-      let j: any = null;
 
+      let j: any = null;
       try {
         j = raw ? JSON.parse(raw) : null;
       } catch {
@@ -138,7 +176,6 @@ export default function CollectionSetClient({ productId }: { productId: string }
       const next = j as ApiResponse;
       setData(next);
 
-      // lock dropdown to whatever API selected if we don't have a selection yet
       if (!selectedProductSetId && next?.productSetId) {
         setSelectedProductSetId(next.productSetId);
       }
@@ -155,19 +192,16 @@ export default function CollectionSetClient({ productId }: { productId: string }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
-  // Sort productSets: base first, then inserts
   const productSetsSorted = useMemo(() => {
     const arr = data?.productSets ?? [];
     return [...arr].sort((a, b) => Number(b.isBase) - Number(a.isBase));
   }, [data]);
 
-  // Sort owned cards list using cardNoCompare
   const cards = useMemo(() => {
     const arr = data?.cards ?? [];
     return [...arr].sort((a, b) => cardNoCompare(a.cardNumber, b.cardNumber));
   }, [data]);
 
-  // ✅ Always ensure a valid selected card after load / refresh
   useEffect(() => {
     if (!cards.length) {
       setSelectedId(null);
@@ -187,6 +221,8 @@ export default function CollectionSetClient({ productId }: { productId: string }
     return cards.find((c) => c.cardId === selectedId) ?? cards[0];
   }, [cards, selectedId]);
 
+  const selectedBreakdown = useMemo(() => normalizeBreakdown(selected), [selected]);
+
   const imageUrl = useMemo(() => {
     if (!selected) return null;
     if (showBack) return selected.backImageUrl ?? selected.frontImageUrl ?? null;
@@ -199,10 +235,11 @@ export default function CollectionSetClient({ productId }: { productId: string }
   }
 
   const pct = safeNum(data?.percentComplete, 0);
+  const totalRawQty = safeNum(data?.totalRawQty, cards.reduce((sum, c) => sum + safeNum(c.rawQuantity), 0));
+  const totalGradedQty = safeNum(data?.totalGradedQty, cards.reduce((sum, c) => sum + safeNum(c.gradedQuantity), 0));
 
   return (
     <div style={{ fontFamily: "system-ui", padding: 16 }}>
-      {/* Header */}
       <div style={{ display: "flex", gap: 12, alignItems: "baseline", flexWrap: "wrap" }}>
         <Link href="/collection" style={{ textDecoration: "underline", fontWeight: 700 }}>
           ← Back to Collection
@@ -225,7 +262,6 @@ export default function CollectionSetClient({ productId }: { productId: string }
 
       <hr style={{ margin: "14px 0" }} />
 
-      {/* ✅ ProductSet dropdown */}
       {data?.productSets?.length ? (
         <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap", marginBottom: 12 }}>
           <div style={{ fontWeight: 900 }}>Viewing:</div>
@@ -269,7 +305,6 @@ export default function CollectionSetClient({ productId }: { productId: string }
         <div>No data.</div>
       ) : (
         <>
-          {/* Stats */}
           <div style={{ display: "flex", gap: 18, flexWrap: "wrap", marginBottom: 12 }}>
             <div>
               <div style={{ fontSize: 12, color: "#666" }}>Complete</div>
@@ -287,9 +322,16 @@ export default function CollectionSetClient({ productId }: { productId: string }
               <div style={{ fontSize: 12, color: "#666" }}>Total Qty</div>
               <div style={{ fontWeight: 900 }}>{safeNum(data.totalQty)}</div>
             </div>
+            <div>
+              <div style={{ fontSize: 12, color: "#666" }}>Raw</div>
+              <div style={{ fontWeight: 900 }}>{totalRawQty}</div>
+            </div>
+            <div>
+              <div style={{ fontSize: 12, color: "#666" }}>Graded</div>
+              <div style={{ fontWeight: 900 }}>{totalGradedQty}</div>
+            </div>
           </div>
 
-          {/* Split layout */}
           <div
             style={{
               display: "grid",
@@ -298,9 +340,8 @@ export default function CollectionSetClient({ productId }: { productId: string }
               alignItems: "start",
             }}
           >
-            {/* LEFT: Card preview */}
             <div style={{ border: "1px solid #ddd", padding: 12, minHeight: 520 }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10, gap: 10 }}>
                 <div style={{ fontWeight: 900 }}>
                   #{selected?.cardNumber ?? "—"} — {selected?.player ?? "—"}
                 </div>
@@ -328,13 +369,29 @@ export default function CollectionSetClient({ productId }: { productId: string }
                 )}
               </div>
 
-              <div style={{ marginTop: 12, display: "grid", gap: 6, fontSize: 14 }}>
+              <div style={{ marginTop: 12, display: "grid", gap: 8, fontSize: 14 }}>
                 <div>
-                  <b>Qty:</b> {selected?.quantity ?? 0}
+                  <b>Total Qty:</b> {selected?.quantity ?? 0}
                 </div>
                 <div>
                   <b>Book:</b> {fmtMoney(selected?.bookValue)}
                 </div>
+
+                <div>
+                  <div style={{ fontWeight: 900, marginBottom: 6 }}>Ownership Breakdown</div>
+                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                    {selectedBreakdown.map((g) => (
+                      <GradePill key={g.grade} grade={g.grade} quantity={g.quantity} />
+                    ))}
+                  </div>
+                </div>
+
+                {safeNum(selected?.gradedQuantity) > 0 ? (
+                  <div style={{ color: "#16477d", fontWeight: 800 }}>
+                    Highest VCS Grade: {selected?.highestGrade ?? "—"}
+                  </div>
+                ) : null}
+
                 <div style={{ color: "#444" }}>
                   {selected?.team ?? "—"}
                   {selected?.subset ? ` • ${selected.subset}` : ""}
@@ -344,7 +401,6 @@ export default function CollectionSetClient({ productId }: { productId: string }
               </div>
             </div>
 
-            {/* RIGHT: Scrollable list */}
             <div
               style={{
                 border: "1px solid #ddd",
@@ -362,7 +418,7 @@ export default function CollectionSetClient({ productId }: { productId: string }
                 <table style={{ width: "100%", borderCollapse: "collapse" }}>
                   <thead style={{ position: "sticky", top: 0, background: "#fff" }}>
                     <tr>
-                      {["#", "Player", "Qty", "Book"].map((h) => (
+                      {["#", "Player", "Qty", "Best", "Book"].map((h) => (
                         <th key={h} style={{ padding: 10, borderBottom: "1px solid #eee", fontSize: 12 }}>
                           {h}
                         </th>
@@ -372,6 +428,7 @@ export default function CollectionSetClient({ productId }: { productId: string }
                   <tbody>
                     {cards.map((c, idx) => {
                       const active = c.cardId === selected?.cardId;
+                      const hasGrade = safeNum(c.gradedQuantity) > 0;
                       return (
                         <tr
                           key={c.cardId}
@@ -392,6 +449,9 @@ export default function CollectionSetClient({ productId }: { productId: string }
                             </div>
                           </td>
                           <td style={{ padding: 10, fontWeight: 800 }}>{c.quantity}</td>
+                          <td style={{ padding: 10, fontWeight: 900, color: hasGrade ? "#16477d" : "#777" }}>
+                            {hasGrade ? `VCS ${c.highestGrade}` : "Raw"}
+                          </td>
                           <td style={{ padding: 10 }}>{fmtMoney(c.bookValue)}</td>
                         </tr>
                       );
@@ -399,7 +459,7 @@ export default function CollectionSetClient({ productId }: { productId: string }
 
                     {cards.length === 0 && (
                       <tr>
-                        <td colSpan={4} style={{ padding: 12 }}>
+                        <td colSpan={5} style={{ padding: 12 }}>
                           No cards owned in this product set yet.
                         </td>
                       </tr>
