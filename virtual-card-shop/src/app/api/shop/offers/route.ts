@@ -63,7 +63,7 @@ export async function GET() {
  * Rules:
  * - max 15 active offers per user
  * - no new offer for a card if an active offer for that card exists
- * - user must own at least 1 of the card
+ * - user must own at least 1 of the card across all grading buckets
  * - offer lasts 24 hours
  */
 export async function POST(req: Request) {
@@ -84,7 +84,11 @@ export async function POST(req: Request) {
         where: { userId: user.id, acceptedAt: null, expiresAt: { gt: now } },
       });
       if (activeCount >= 15) {
-        return { ok: false as const, status: 429 as const, error: "Offer limit reached (15 active offers). Accept or wait for some offers to expire." };
+        return {
+          ok: false as const,
+          status: 429 as const,
+          error: "Offer limit reached (15 active offers). Accept or wait for some offers to expire.",
+        };
       }
 
       // 2) ensure no active offer for this card
@@ -96,12 +100,20 @@ export async function POST(req: Request) {
         return { ok: true as const, status: 200 as const, offer: existing, reused: true };
       }
 
-      // 3) verify user owns at least 1
-      const ownership = await tx.cardOwnership.findUnique({
-        where: { userId_cardId: { userId: user.id, cardId } },
-        select: { quantity: true },
+      // 3) verify user owns at least 1 copy across all grades.
+      // CardOwnership is now bucketed by grade:
+      // grade 0 = raw, grades 6-10 = VCS graded.
+      const ownershipAgg = await tx.cardOwnership.aggregate({
+        where: {
+          userId: user.id,
+          cardId,
+          quantity: { gt: 0 },
+        },
+        _sum: { quantity: true },
       });
-      if (!ownership || (ownership.quantity ?? 0) <= 0) {
+
+      const totalOwned = Number(ownershipAgg._sum.quantity ?? 0);
+      if (totalOwned <= 0) {
         return { ok: false as const, status: 400 as const, error: "You do not own this card." };
       }
 
@@ -117,7 +129,11 @@ export async function POST(req: Request) {
       // Optional: disallow offers for $0 cards
       const perCardCents = bookValueToPerCardCents(card.bookValue);
       if (perCardCents <= 0) {
-        return { ok: false as const, status: 400 as const, error: "This card has no book value. Offers are only available for cards with a positive book value." };
+        return {
+          ok: false as const,
+          status: 400 as const,
+          error: "This card has no book value. Offers are only available for cards with a positive book value.",
+        };
       }
 
       // 5) create offer

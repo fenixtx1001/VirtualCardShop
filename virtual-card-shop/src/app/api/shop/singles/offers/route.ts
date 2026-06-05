@@ -60,8 +60,12 @@ export async function GET() {
  * Rules:
  * - max 15 active offers per user
  * - no new offer for a card if an active offer for that card exists
- * - user must own at least 1 of the card
+ * - user must own at least 1 copy across all grade buckets
  * - offer lasts 24 hours
+ *
+ * Note:
+ * This route still creates card-level offers. Selling will require the user
+ * to intentionally choose the exact grade bucket to sell.
  */
 export async function POST(req: Request) {
   try {
@@ -97,12 +101,18 @@ export async function POST(req: Request) {
         return { ok: true as const, status: 200 as const, offer: existing, reused: true };
       }
 
-      // Must own at least 1
-      const own = await tx.cardOwnership.findUnique({
-        where: { userId_cardId: { userId: user.id, cardId } },
-        select: { quantity: true },
+      // Must own at least 1 copy across raw + graded buckets.
+      const ownedAgg = await tx.cardOwnership.aggregate({
+        where: {
+          userId: user.id,
+          cardId,
+          quantity: { gt: 0 },
+        },
+        _sum: { quantity: true },
       });
-      if (!own || (own.quantity ?? 0) <= 0) {
+
+      const totalOwned = Number(ownedAgg._sum.quantity ?? 0);
+      if (totalOwned <= 0) {
         return { ok: false as const, status: 400 as const, error: "You do not own this card." };
       }
 

@@ -7,6 +7,8 @@ import { bookValueToPerCardCents, calcSellTotalCents } from "@/lib/shop-offers";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+const RAW_GRADE = 0;
+
 function shortErr(e: any) {
   const code = e?.code ?? e?.name ?? "UNKNOWN";
   let message = String(e?.message ?? "Unknown error");
@@ -14,17 +16,34 @@ function shortErr(e: any) {
   return { code, message };
 }
 
+function parseGrade(value: any) {
+  if (value == null || value === "") return RAW_GRADE;
+
+  const grade = Number(value);
+  if (!Number.isInteger(grade)) return null;
+  if (grade === RAW_GRADE) return RAW_GRADE;
+  if (grade >= 6 && grade <= 10) return grade;
+
+  return null;
+}
+
 /**
  * POST: sell to shop using an offer
- * Body: { offerId: number, quantity: number }
+ * Body: { offerId: number, quantity: number, grade?: number }
  *
  * Rules:
  * - offer must belong to user
  * - offer must be active (not expired, not accepted)
- * - quantity <= owned
- * - accepting any quantity ends the offer (acceptedAt set)
+ * - user intentionally chooses which grade bucket to sell
+ * - quantity <= owned in that exact grade bucket
+ * - accepting any quantity ends the offer
  * - shop inventory increments
  * - user balance increments
+ *
+ * Note:
+ * - grade 0 = raw/ungraded
+ * - grade 6-10 = VCS graded
+ * - current UI may omit grade; omitted grade defaults to raw for backward compatibility
  */
 export async function POST(req: Request) {
   try {
@@ -32,12 +51,19 @@ export async function POST(req: Request) {
     const body = await req.json().catch(() => ({}));
     const offerId = Number(body?.offerId);
     const quantity = Number(body?.quantity);
+    const selectedGrade = parseGrade(body?.grade);
 
     if (!Number.isFinite(offerId) || offerId <= 0) {
       return NextResponse.json({ ok: false, error: "Missing or invalid offerId." }, { status: 400 });
     }
     if (!Number.isFinite(quantity) || quantity <= 0) {
       return NextResponse.json({ ok: false, error: "Missing or invalid quantity." }, { status: 400 });
+    }
+    if (selectedGrade == null) {
+      return NextResponse.json(
+        { ok: false, error: "Missing or invalid grade. Use 0 for raw or 6-10 for VCS graded cards." },
+        { status: 400 }
+      );
     }
 
     const now = new Date();
@@ -70,25 +96,41 @@ export async function POST(req: Request) {
       if (perCardCents <= 0) return { ok: false as const, status: 400 as const, error: "Card has no book value." };
 
       const own = await tx.cardOwnership.findUnique({
-        where: { userId_cardId: { userId: user.id, cardId: offer.cardId } },
-        select: { id: true, quantity: true },
+        where: {
+          userId_cardId_grade: {
+            userId: user.id,
+            cardId: offer.cardId,
+            grade: selectedGrade,
+          },
+        },
+        select: { id: true, quantity: true, grade: true },
       });
 
       const ownedQty = own?.quantity ?? 0;
       const sellQty = Math.floor(quantity);
 
-      if (!own || ownedQty <= 0) return { ok: false as const, status: 400 as const, error: "You do not own this card." };
-      if (sellQty > ownedQty) return { ok: false as const, status: 400 as const, error: `You only own ${ownedQty} of this card.` };
+      const gradeLabel = selectedGrade === RAW_GRADE ? "raw" : `VCS ${selectedGrade}`;
 
+      if (!own || ownedQty <= 0) {
+        return { ok: false as const, status: 400 as const, error: `You do not own this ${gradeLabel} version of the card.` };
+      }
+      if (sellQty > ownedQty) {
+        return { ok: false as const, status: 400 as const, error: `You only own ${ownedQty} of this ${gradeLabel} version.` };
+      }
+
+      // For now, offers are still based on raw book value.
+      // Soon, this should become grade-aware so VCS 9/10 payouts are higher.
       const totalCents = calcSellTotalCents(perCardCents, sellQty, offer.offerBps);
 
-      // 1) decrement ownership
+      // 1) decrement ownership from the exact selected grade bucket
       await tx.cardOwnership.update({
         where: { id: own.id },
         data: { quantity: ownedQty - sellQty },
       });
 
       // 2) increment shop inventory
+      // Existing ShopInventory is not grade-aware yet, so it tracks total copies in shop.
+      // We will upgrade this later if the shop needs to resell graded versions distinctly.
       await tx.shopInventory.upsert({
         where: { cardId: offer.cardId },
         create: { cardId: offer.cardId, quantity: sellQty },
@@ -117,7 +159,7 @@ export async function POST(req: Request) {
         data: {
           userId: user.id,
           cardId: offer.cardId,
-          kind: "SELL_TO_SHOP",
+          kind: selectedGrade === RAW_GRADE ? "SELL_TO_SHOP" : `SELL_TO_SHOP_VCS_${selectedGrade}`,
           quantity: sellQty,
           perCardCents,
           totalCents,
@@ -133,6 +175,7 @@ export async function POST(req: Request) {
         perCardCents,
         quantity: sellQty,
         offerBps: offer.offerBps,
+        grade: selectedGrade,
       };
     });
 

@@ -6,6 +6,8 @@ import { syncPrestigeProgressForProductSets } from "@/lib/prestige";
 
 type Body = { productId?: string };
 
+const RAW_GRADE = 0;
+
 function pickUnique<T>(arr: T[], n: number) {
   if (n <= 0) return [];
   const copy = [...arr];
@@ -14,6 +16,10 @@ function pickUnique<T>(arr: T[], n: number) {
     [copy[i], copy[j]] = [copy[j], copy[i]];
   }
   return copy.slice(0, Math.min(n, copy.length));
+}
+
+function addToQtyMap(map: Map<number, number>, cardId: number, quantity: number) {
+  map.set(cardId, (map.get(cardId) ?? 0) + quantity);
 }
 
 type PulledCard = {
@@ -212,7 +218,11 @@ export async function POST(req: Request) {
         new Set(pulled.map((c) => String(c.productSetId ?? "").trim()).filter(Boolean))
       );
 
-      // Snapshot each touched set BEFORE ownership increments
+      // Snapshot each touched set BEFORE ownership increments.
+      // Important for grading support:
+      // ownership can now have multiple rows for the same card:
+      // grade 0/raw, grade 8, grade 9, grade 10, etc.
+      // Prestige must count total copies across all grades.
       const setSnapshots = new Map<string, SetPrestigeSnapshot>();
 
       for (const productSetId of productSetIdsTouched) {
@@ -225,6 +235,7 @@ export async function POST(req: Request) {
         const ownershipsInSet = await tx.cardOwnership.findMany({
           where: {
             userId: user.id,
+            quantity: { gt: 0 },
             card: { productSetId },
           },
           select: {
@@ -235,7 +246,7 @@ export async function POST(req: Request) {
 
         const beforeQtyByCardId = new Map<number, number>();
         for (const ownership of ownershipsInSet) {
-          beforeQtyByCardId.set(ownership.cardId, ownership.quantity);
+          addToQtyMap(beforeQtyByCardId, ownership.cardId, ownership.quantity);
         }
 
         let currentPrestigeLevel = Number.POSITIVE_INFINITY;
@@ -269,20 +280,43 @@ export async function POST(req: Request) {
       }
 
       const enriched: EnrichedCard[] = [];
+      const pulledCountByCardId = new Map<number, number>();
 
       for (const c of pulled) {
-        const beforeQty =
+        const previousPulledThisPack = pulledCountByCardId.get(c.id) ?? 0;
+
+        const beforeQtyFromSnapshot =
           c.productSetId && setSnapshots.has(c.productSetId)
             ? (setSnapshots.get(c.productSetId)!.beforeQtyByCardId.get(c.id) ?? 0)
             : 0;
 
+        const ownedBefore = beforeQtyFromSnapshot + previousPulledThisPack;
+
         const ownership = await tx.cardOwnership.upsert({
-          where: { userId_cardId: { userId: user.id, cardId: c.id } },
-          create: { userId: user.id, cardId: c.id, quantity: 1 },
-          update: { quantity: { increment: 1 } },
+          where: {
+            userId_cardId_grade: {
+              userId: user.id,
+              cardId: c.id,
+              grade: RAW_GRADE,
+            },
+          },
+          create: {
+            userId: user.id,
+            cardId: c.id,
+            grade: RAW_GRADE,
+            quantity: 1,
+            gradedAt: null,
+          },
+          update: {
+            quantity: { increment: 1 },
+          },
           select: { quantity: true },
         });
 
+        const totalPulledForCardThisPack = previousPulledThisPack + 1;
+        pulledCountByCardId.set(c.id, totalPulledForCardThisPack);
+
+        const ownedAfter = beforeQtyFromSnapshot + totalPulledForCardThisPack;
         const isInsert = !(c.productSet?.isBase ?? true);
 
         enriched.push({
@@ -299,12 +333,16 @@ export async function POST(req: Request) {
           backImageUrl: c.backImageUrl,
           isInsert,
           bookValue: c.bookValue,
-          ownedBefore: beforeQty,
-          ownedAfter: ownership.quantity,
+          ownedBefore,
+          ownedAfter,
           prestigeTargetLevel: null,
           isNeededForNextPrestige: false,
           hitNextPrestigeWithThisCard: false,
         });
+
+        // Keep TypeScript happy and intentionally read the raw-bucket quantity.
+        // ownedAfter above is the cross-grade total, which is what the UI/prestige needs.
+        void ownership.quantity;
       }
 
       // Apply the exact three-scenario prestige logic

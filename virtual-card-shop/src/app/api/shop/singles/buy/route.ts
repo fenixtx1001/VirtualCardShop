@@ -7,6 +7,8 @@ import { bookValueToPerCardCents } from "@/lib/shop-offers";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+const RAW_GRADE = 0;
+
 function shortErr(e: any) {
   const code = e?.code ?? e?.name ?? "UNKNOWN";
   let message = String(e?.message ?? "Unknown error");
@@ -17,6 +19,9 @@ function shortErr(e: any) {
 /**
  * POST: buy a single from shop inventory at 100% book value
  * Body: { cardId: number, quantity: number }
+ *
+ * Current shop inventory is not grade-aware yet, so all purchased singles
+ * are added to the buyer's raw/ungraded ownership bucket: grade = 0.
  */
 export async function POST(req: Request) {
   try {
@@ -35,13 +40,19 @@ export async function POST(req: Request) {
     const buyQty = Math.floor(quantity);
 
     const out = await prisma.$transaction(async (tx) => {
-      const card = await tx.card.findUnique({ where: { id: cardId }, select: { id: true, bookValue: true } });
+      const card = await tx.card.findUnique({
+        where: { id: cardId },
+        select: { id: true, bookValue: true },
+      });
       if (!card) return { ok: false as const, status: 404 as const, error: "Card not found." };
 
       const perCardCents = bookValueToPerCardCents(card.bookValue);
       if (perCardCents <= 0) return { ok: false as const, status: 400 as const, error: "Card has no book value." };
 
-      const inv = await tx.shopInventory.findUnique({ where: { cardId }, select: { id: true, quantity: true } });
+      const inv = await tx.shopInventory.findUnique({
+        where: { cardId },
+        select: { id: true, quantity: true },
+      });
       const available = inv?.quantity ?? 0;
 
       if (!inv || available <= 0) return { ok: false as const, status: 400 as const, error: "Shop has no inventory for this card." };
@@ -49,15 +60,33 @@ export async function POST(req: Request) {
 
       const totalCents = perCardCents * buyQty;
 
-      const me = await tx.user.findUnique({ where: { id: user.id }, select: { balanceCents: true } });
+      const me = await tx.user.findUnique({
+        where: { id: user.id },
+        select: { balanceCents: true },
+      });
       const bal = me?.balanceCents ?? 0;
       if (totalCents > bal) return { ok: false as const, status: 400 as const, error: "Insufficient funds." };
 
-      await tx.shopInventory.update({ where: { id: inv.id }, data: { quantity: available - buyQty } });
+      await tx.shopInventory.update({
+        where: { id: inv.id },
+        data: { quantity: available - buyQty },
+      });
 
       await tx.cardOwnership.upsert({
-        where: { userId_cardId: { userId: user.id, cardId } },
-        create: { userId: user.id, cardId, quantity: buyQty },
+        where: {
+          userId_cardId_grade: {
+            userId: user.id,
+            cardId,
+            grade: RAW_GRADE,
+          },
+        },
+        create: {
+          userId: user.id,
+          cardId,
+          grade: RAW_GRADE,
+          quantity: buyQty,
+          gradedAt: null,
+        },
         update: { quantity: { increment: buyQty } },
       });
 
@@ -68,10 +97,24 @@ export async function POST(req: Request) {
       });
 
       await tx.shopTransaction.create({
-        data: { userId: user.id, cardId, kind: "BUY_FROM_SHOP", quantity: buyQty, perCardCents, totalCents },
+        data: {
+          userId: user.id,
+          cardId,
+          kind: "BUY_FROM_SHOP",
+          quantity: buyQty,
+          perCardCents,
+          totalCents,
+        },
       });
 
-      return { ok: true as const, status: 200 as const, balanceCents: updatedUser.balanceCents, totalCents, perCardCents, quantity: buyQty };
+      return {
+        ok: true as const,
+        status: 200 as const,
+        balanceCents: updatedUser.balanceCents,
+        totalCents,
+        perCardCents,
+        quantity: buyQty,
+      };
     });
 
     if (!out.ok) return NextResponse.json({ ok: false, error: out.error }, { status: out.status });
