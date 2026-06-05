@@ -1,7 +1,9 @@
+// src/app/collection/[productId]/collection-set-client.tsx
 "use client";
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import SubmitForGradingButton from "@/components/grading/SubmitForGradingButton";
 
 type ProductSetOption = {
   id: string;
@@ -26,6 +28,7 @@ type CardRow = {
   quantity: number;
   rawQuantity?: number;
   gradedQuantity?: number;
+  pendingGradingQuantity?: number;
   highestGrade?: number | null;
   gradeBreakdown?: GradeBreakdownRow[];
   bookValue: number | null;
@@ -45,6 +48,7 @@ type ApiResponse = {
   totalQty: number;
   totalRawQty?: number;
   totalGradedQty?: number;
+  totalPendingGradingQty?: number;
   cards: CardRow[];
 };
 
@@ -105,6 +109,24 @@ function normalizeBreakdown(card: CardRow | null | undefined): GradeBreakdownRow
   return [{ grade: 0, label: "Raw", quantity: safeNum(card.quantity) }];
 }
 
+function getRawQuantity(card: CardRow | null | undefined) {
+  if (!card) return 0;
+
+  if (typeof card.rawQuantity === "number" && Number.isFinite(card.rawQuantity)) {
+    return Math.max(0, Math.floor(card.rawQuantity));
+  }
+
+  const rawBreakdown = normalizeBreakdown(card).find((row) => row.grade === 0);
+  if (rawBreakdown) return Math.max(0, Math.floor(safeNum(rawBreakdown.quantity)));
+
+  return Math.max(0, Math.floor(safeNum(card.quantity)));
+}
+
+function getPendingQuantity(card: CardRow | null | undefined) {
+  if (!card) return 0;
+  return Math.max(0, Math.floor(safeNum(card.pendingGradingQuantity)));
+}
+
 function GradePill({ grade, quantity }: { grade: number; quantity: number }) {
   const isRaw = grade === 0;
 
@@ -126,6 +148,31 @@ function GradePill({ grade, quantity }: { grade: number; quantity: number }) {
       title={`${gradeLabel(grade)} quantity`}
     >
       {gradeLabel(grade)} <span style={{ color: "#555" }}>×{quantity}</span>
+    </span>
+  );
+}
+
+function PendingPill({ quantity }: { quantity: number }) {
+  if (quantity <= 0) return null;
+
+  return (
+    <span
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 6,
+        padding: "5px 8px",
+        borderRadius: 999,
+        border: "1px solid #f0d28a",
+        background: "#fff8e8",
+        color: "#7a5200",
+        fontSize: 12,
+        fontWeight: 900,
+        whiteSpace: "nowrap",
+      }}
+      title="Submitted to VCS grading but not revealed yet"
+    >
+      Pending VCS <span style={{ color: "#7a5200" }}>×{quantity}</span>
     </span>
   );
 }
@@ -223,6 +270,9 @@ export default function CollectionSetClient({ productId }: { productId: string }
 
   const selectedBreakdown = useMemo(() => normalizeBreakdown(selected), [selected]);
 
+  const selectedRawQuantity = useMemo(() => getRawQuantity(selected), [selected]);
+  const selectedPendingQuantity = useMemo(() => getPendingQuantity(selected), [selected]);
+
   const imageUrl = useMemo(() => {
     if (!selected) return null;
     if (showBack) return selected.backImageUrl ?? selected.frontImageUrl ?? null;
@@ -237,6 +287,10 @@ export default function CollectionSetClient({ productId }: { productId: string }
   const pct = safeNum(data?.percentComplete, 0);
   const totalRawQty = safeNum(data?.totalRawQty, cards.reduce((sum, c) => sum + safeNum(c.rawQuantity), 0));
   const totalGradedQty = safeNum(data?.totalGradedQty, cards.reduce((sum, c) => sum + safeNum(c.gradedQuantity), 0));
+  const totalPendingGradingQty = safeNum(
+    data?.totalPendingGradingQty,
+    cards.reduce((sum, c) => sum + safeNum(c.pendingGradingQuantity), 0)
+  );
 
   return (
     <div style={{ fontFamily: "system-ui", padding: 16 }}>
@@ -257,6 +311,10 @@ export default function CollectionSetClient({ productId }: { productId: string }
           style={{ textDecoration: "underline", fontWeight: 800 }}
         >
           Checklist →
+        </Link>
+
+        <Link href="/grading" style={{ textDecoration: "underline", fontWeight: 800 }}>
+          Grading Orders →
         </Link>
       </div>
 
@@ -327,6 +385,10 @@ export default function CollectionSetClient({ productId }: { productId: string }
               <div style={{ fontWeight: 900 }}>{totalRawQty}</div>
             </div>
             <div>
+              <div style={{ fontSize: 12, color: "#666" }}>Pending VCS</div>
+              <div style={{ fontWeight: 900 }}>{totalPendingGradingQty}</div>
+            </div>
+            <div>
               <div style={{ fontSize: 12, color: "#666" }}>Graded</div>
               <div style={{ fontWeight: 900 }}>{totalGradedQty}</div>
             </div>
@@ -374,6 +436,11 @@ export default function CollectionSetClient({ productId }: { productId: string }
                   <b>Total Qty:</b> {selected?.quantity ?? 0}
                 </div>
                 <div>
+                  <b>Raw:</b> {selectedRawQuantity}{" "}
+                  <b style={{ marginLeft: 10 }}>Pending VCS:</b> {selectedPendingQuantity}{" "}
+                  <b style={{ marginLeft: 10 }}>Graded:</b> {safeNum(selected?.gradedQuantity)}
+                </div>
+                <div>
                   <b>Book:</b> {fmtMoney(selected?.bookValue)}
                 </div>
 
@@ -383,8 +450,20 @@ export default function CollectionSetClient({ productId }: { productId: string }
                     {selectedBreakdown.map((g) => (
                       <GradePill key={g.grade} grade={g.grade} quantity={g.quantity} />
                     ))}
+                    <PendingPill quantity={selectedPendingQuantity} />
                   </div>
                 </div>
+
+                {selected ? (
+                  <SubmitForGradingButton
+                    cardId={selected.cardId}
+                    rawQuantity={selectedRawQuantity}
+                    bookValue={selected.bookValue}
+                    player={selected.player}
+                    cardNumber={selected.cardNumber}
+                    onSubmitted={() => load()}
+                  />
+                ) : null}
 
                 {safeNum(selected?.gradedQuantity) > 0 ? (
                   <div style={{ color: "#16477d", fontWeight: 800 }}>
@@ -418,7 +497,7 @@ export default function CollectionSetClient({ productId }: { productId: string }
                 <table style={{ width: "100%", borderCollapse: "collapse" }}>
                   <thead style={{ position: "sticky", top: 0, background: "#fff" }}>
                     <tr>
-                      {["#", "Player", "Qty", "Best", "Book"].map((h) => (
+                      {["#", "Player", "Qty", "Raw", "Pending", "Best", "Book"].map((h) => (
                         <th key={h} style={{ padding: 10, borderBottom: "1px solid #eee", fontSize: 12 }}>
                           {h}
                         </th>
@@ -449,6 +528,10 @@ export default function CollectionSetClient({ productId }: { productId: string }
                             </div>
                           </td>
                           <td style={{ padding: 10, fontWeight: 800 }}>{c.quantity}</td>
+                          <td style={{ padding: 10, fontWeight: 800 }}>{getRawQuantity(c)}</td>
+                          <td style={{ padding: 10, fontWeight: 800, color: getPendingQuantity(c) > 0 ? "#7a5200" : "#777" }}>
+                            {getPendingQuantity(c)}
+                          </td>
                           <td style={{ padding: 10, fontWeight: 900, color: hasGrade ? "#16477d" : "#777" }}>
                             {hasGrade ? `VCS ${c.highestGrade}` : "Raw"}
                           </td>
@@ -459,7 +542,7 @@ export default function CollectionSetClient({ productId }: { productId: string }
 
                     {cards.length === 0 && (
                       <tr>
-                        <td colSpan={5} style={{ padding: 12 }}>
+                        <td colSpan={7} style={{ padding: 12 }}>
                           No cards owned in this product set yet.
                         </td>
                       </tr>

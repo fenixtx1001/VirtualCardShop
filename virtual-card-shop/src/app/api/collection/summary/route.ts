@@ -13,7 +13,6 @@ function toNumber(v: any) {
     const n = Number(v);
     return Number.isFinite(n) ? n : 0;
   }
-  // Decimal.js-like (Prisma Decimal)
   if (typeof v === "object" && typeof v.toNumber === "function") {
     try {
       const n = v.toNumber();
@@ -25,11 +24,16 @@ function toNumber(v: any) {
   return 0;
 }
 
+function safeQty(value: unknown) {
+  const n = typeof value === "number" && Number.isFinite(value) ? value : Number(value ?? 0);
+  if (!Number.isFinite(n) || n <= 0) return 0;
+  return Math.floor(n);
+}
+
 export async function GET() {
   try {
     const user = await requireUser();
 
-    // Pull ALL ownerships for the user (qty > 0), including card -> productSet -> productId.
     const owned = await prisma.cardOwnership.findMany({
       where: { userId: user.id, quantity: { gt: 0 } },
       select: {
@@ -50,36 +54,52 @@ export async function GET() {
       },
     });
 
-    // Aggregate per productId:
-    // - totalQty (all owned cards within product)
-    // - totalValueCents (all owned cards within product)
-    // - uniqueOwned (BASE only, for completion)
-    // - baseSetIds (to compute totalCards in base)
+    const pending = await prisma.gradingOrder.findMany({
+      where: {
+        userId: user.id,
+        quantity: { gt: 0 },
+        status: { in: ["PENDING", "READY"] },
+      },
+      select: {
+        quantity: true,
+        card: {
+          select: {
+            id: true,
+            bookValue: true,
+            productSet: {
+              select: {
+                id: true,
+                productId: true,
+                isBase: true,
+              },
+            },
+          },
+        },
+      },
+    });
+
     const byProduct = new Map<
       string,
       {
         productId: string;
         totalQty: number;
+        totalRawAndGradedQty: number;
+        totalPendingGradingQty: number;
         totalValueCents: number;
         uniqueOwnedBaseSet: Set<number>;
         baseSetIds: Set<string>;
       }
     >();
 
-    for (const r of owned) {
-      const qty = typeof r.quantity === "number" ? r.quantity : 0;
-      const ps = (r as any).card?.productSet;
-      const productId = String(ps?.productId ?? "").trim();
-      if (!productId) continue;
-
-      const bookValueDollars = toNumber((r as any).card?.bookValue); // stored in dollars
-      const valueCents = Math.round(bookValueDollars * 100) * qty;
-
+    function getProductAgg(productId: string) {
       let agg = byProduct.get(productId);
+
       if (!agg) {
         agg = {
           productId,
           totalQty: 0,
+          totalRawAndGradedQty: 0,
+          totalPendingGradingQty: 0,
           totalValueCents: 0,
           uniqueOwnedBaseSet: new Set<number>(),
           baseSetIds: new Set<string>(),
@@ -87,10 +107,48 @@ export async function GET() {
         byProduct.set(productId, agg);
       }
 
+      return agg;
+    }
+
+    for (const r of owned) {
+      const qty = safeQty(r.quantity);
+      const ps = (r as any).card?.productSet;
+      const productId = String(ps?.productId ?? "").trim();
+      if (!productId || qty <= 0) continue;
+
+      const bookValueDollars = toNumber((r as any).card?.bookValue);
+      const valueCents = Math.round(bookValueDollars * 100) * qty;
+
+      const agg = getProductAgg(productId);
+
       agg.totalQty += qty;
+      agg.totalRawAndGradedQty += qty;
       agg.totalValueCents += valueCents;
 
-      // For completion stats, we only count BASE set cards
+      if (ps?.isBase) {
+        agg.uniqueOwnedBaseSet.add((r as any).card?.id);
+        if (ps?.id) agg.baseSetIds.add(String(ps.id));
+      }
+    }
+
+    for (const r of pending) {
+      const qty = safeQty(r.quantity);
+      const ps = (r as any).card?.productSet;
+      const productId = String(ps?.productId ?? "").trim();
+      if (!productId || qty <= 0) continue;
+
+      const bookValueDollars = toNumber((r as any).card?.bookValue);
+      const valueCents = Math.round(bookValueDollars * 100) * qty;
+
+      const agg = getProductAgg(productId);
+
+      // Pending grades count toward total quantity and value so cards do not
+      // disappear while out for grading. They stay valued as raw to avoid
+      // leaking hidden grades.
+      agg.totalQty += qty;
+      agg.totalPendingGradingQty += qty;
+      agg.totalValueCents += valueCents;
+
       if (ps?.isBase) {
         agg.uniqueOwnedBaseSet.add((r as any).card?.id);
         if (ps?.id) agg.baseSetIds.add(String(ps.id));
@@ -100,7 +158,6 @@ export async function GET() {
     const productIds = Array.from(byProduct.keys());
     if (productIds.length === 0) return NextResponse.json([]);
 
-    // Load product metadata for images
     const products = await prisma.product.findMany({
       where: { id: { in: productIds } },
       select: {
@@ -112,8 +169,6 @@ export async function GET() {
     const packImageByProduct = new Map<string, string | null>();
     for (const p of products) packImageByProduct.set(p.id, p.packImageUrl ?? null);
 
-    // Compute totalCards for BASE sets per product:
-    // 1) find base productSets for these products
     const baseSets = await prisma.productSet.findMany({
       where: { productId: { in: productIds }, isBase: true },
       select: { id: true, productId: true },
@@ -123,7 +178,6 @@ export async function GET() {
     const baseSetIdToProductId = new Map<string, string>();
     for (const s of baseSets) baseSetIdToProductId.set(s.id, s.productId);
 
-    // 2) count cards grouped by base productSetId
     const counts = baseSetIds.length
       ? await prisma.card.groupBy({
           by: ["productSetId"],
@@ -140,7 +194,6 @@ export async function GET() {
       totalCardsByProduct.set(pid, (totalCardsByProduct.get(pid) ?? 0) + (c._count?._all ?? 0));
     }
 
-    // Build response (array)
     const out = productIds.map((pid) => {
       const agg = byProduct.get(pid)!;
 
@@ -151,12 +204,18 @@ export async function GET() {
       return {
         productId: pid,
         uniqueOwned,
+
+        // Total includes raw + revealed graded + pending grading.
         totalQty: agg.totalQty,
+
+        totalRawAndGradedQty: agg.totalRawAndGradedQty,
+        totalPendingGradingQty: agg.totalPendingGradingQty,
+
         totalCards,
         percentComplete,
         packImageUrl: packImageByProduct.get(pid) ?? null,
 
-        // ✅ NEW
+        // Pending grades are valued as raw until revealed.
         totalValueCents: agg.totalValueCents,
       };
     });

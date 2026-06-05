@@ -4,6 +4,9 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import ImageUploader from "@/components/ImageUploader";
 
+type Gradeability = "COMMON" | "GREAT" | "ICONIC";
+type GradeabilityOverride = Gradeability | null;
+
 type CardRow = {
   id: number;
   cardNumber: string;
@@ -11,12 +14,13 @@ type CardRow = {
   team: string | null;
   position: string | null;
   subset: string | null;
-  insert: string | null; // kept in DB but hidden
+  insert: string | null;
   variant: string | null;
   quantityOwned: number;
   bookValue: number;
   frontImageUrl: string | null;
   backImageUrl: string | null;
+  gradeabilityOverride: GradeabilityOverride;
 };
 
 type ProductSetResponse = {
@@ -25,6 +29,7 @@ type ProductSetResponse = {
   isBase: boolean;
   oddsPerPack: number | null;
   productId: string;
+  defaultGradeability: Gradeability;
   product?: {
     id: string;
     year: number | null;
@@ -84,6 +89,12 @@ type PricingActionResponse = {
 
 type AutoSaveState = "pending" | "saving" | "saved" | "error";
 
+const GRADEABILITY_OPTIONS: Array<{ value: Gradeability; label: string; hint: string }> = [
+  { value: "COMMON", label: "Common", hint: "Normal cards / most base cards" },
+  { value: "GREAT", label: "Great", hint: "Key stars, notable rookies, chase cards" },
+  { value: "ICONIC", label: "Iconic", hint: "Legendary rookies / set-defining cards" },
+];
+
 function moneyToDisplay(v: number) {
   if (typeof v !== "number" || !Number.isFinite(v)) return "0.00";
   return v.toFixed(2);
@@ -99,9 +110,74 @@ function normalizeOpt(v: string | null | undefined) {
   return s.length ? s : "—";
 }
 
+function normalizeGradeability(v: unknown): Gradeability {
+  const s = String(v ?? "").trim().toUpperCase();
+  if (s === "GREAT") return "GREAT";
+  if (s === "ICONIC") return "ICONIC";
+  return "COMMON";
+}
+
+function normalizeGradeabilityOverride(v: unknown): GradeabilityOverride {
+  if (v === null || v === undefined || v === "") return null;
+  const s = String(v).trim().toUpperCase();
+  if (s === "COMMON") return "COMMON";
+  if (s === "GREAT") return "GREAT";
+  if (s === "ICONIC") return "ICONIC";
+  return null;
+}
+
+function gradeabilityLabel(v: Gradeability | GradeabilityOverride) {
+  if (v === "GREAT") return "Great";
+  if (v === "ICONIC") return "Iconic";
+  return "Common";
+}
+
+function gradeabilityBadgeStyle(v: Gradeability): React.CSSProperties {
+  if (v === "ICONIC") {
+    return {
+      display: "inline-flex",
+      alignItems: "center",
+      borderRadius: 999,
+      padding: "3px 8px",
+      background: "#fff7ed",
+      border: "1px solid #fdba74",
+      color: "#9a3412",
+      fontSize: 12,
+      fontWeight: 900,
+    };
+  }
+
+  if (v === "GREAT") {
+    return {
+      display: "inline-flex",
+      alignItems: "center",
+      borderRadius: 999,
+      padding: "3px 8px",
+      background: "#eff6ff",
+      border: "1px solid #93c5fd",
+      color: "#1d4ed8",
+      fontSize: 12,
+      fontWeight: 900,
+    };
+  }
+
+  return {
+    display: "inline-flex",
+    alignItems: "center",
+    borderRadius: 999,
+    padding: "3px 8px",
+    background: "#f8fafc",
+    border: "1px solid #cbd5e1",
+    color: "#334155",
+    fontSize: 12,
+    fontWeight: 900,
+  };
+}
+
 function hasFrontImage(c: CardRow) {
   return Boolean((c.frontImageUrl ?? "").trim());
 }
+
 function hasBackImage(c: CardRow) {
   return Boolean((c.backImageUrl ?? "").trim());
 }
@@ -111,17 +187,9 @@ function needsSetup(c: CardRow) {
   return book <= 0 || !hasFrontImage(c) || !hasBackImage(c);
 }
 
-/**
- * ✅ Robust card number sort key:
- * - sorts numerically for "1,2,10"
- * - handles "12A" suffix
- * - handles "1-2" style numbers
- * - falls back safely
- */
 function parseCardNumberSortKey(cardNumber: string) {
   const s = (cardNumber ?? "").trim();
 
-  // Handle "12-3A" style
   if (s.includes("-")) {
     const m = s.match(/^(\d+)-(\d+)([A-Za-z]?)$/);
     const a = m ? Number(m[1]) : Number.POSITIVE_INFINITY;
@@ -130,14 +198,12 @@ function parseCardNumberSortKey(cardNumber: string) {
     return { bucket: 1, a, b, suf, raw: s };
   }
 
-  // Handle "12A" style
   const m = s.match(/^(\d+)([A-Za-z]?)$/);
   const n = m ? Number(m[1]) : Number.POSITIVE_INFINITY;
   const suf = m?.[2] ?? "";
   return { bucket: 0, a: n, b: 0, suf, raw: s };
 }
 
-// Throttled promise pool for Save Page
 async function runWithConcurrency<T>(
   items: T[],
   limit: number,
@@ -169,6 +235,8 @@ type SortMode =
   | "TEAM_ASC"
   | "SUBSET_ASC"
   | "VARIANT_ASC"
+  | "GRADEABILITY_ASC"
+  | "GRADEABILITY_DESC"
   | "NEEDS_SETUP_FIRST";
 
 function pricingHintColor(info: DefaultingInfo | undefined) {
@@ -177,11 +245,9 @@ function pricingHintColor(info: DefaultingInfo | undefined) {
     case "ok":
       return "#0f6b32";
     case "unassigned-tier":
-      return "#8a5a00";
     case "no-tier-profile":
       return "#8a5a00";
     case "no-price-for-tier":
-      return "#8a1f1f";
     case "error":
       return "#8a1f1f";
     default:
@@ -213,6 +279,12 @@ function pricingHintText(info: DefaultingInfo | undefined) {
   }
 }
 
+function gradeabilityRank(v: Gradeability) {
+  if (v === "ICONIC") return 3;
+  if (v === "GREAT") return 2;
+  return 1;
+}
+
 export default function ProductSetDetailClient({ productSetId }: { productSetId: string }) {
   const [data, setData] = useState<ProductSetResponse | null>(null);
   const [loading, setLoading] = useState(true);
@@ -223,45 +295,38 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
   const [saveError, setSaveError] = useState<string | null>(null);
   const [saveOk, setSaveOk] = useState<string | null>(null);
 
-  // Per-card autosave status for row-level feedback
+  const [savingProductSet, setSavingProductSet] = useState(false);
+
   const [autoSaveById, setAutoSaveById] = useState<Record<number, AutoSaveState | undefined>>({});
 
-  // Search + filters
   const [query, setQuery] = useState("");
   const [subsetFilter, setSubsetFilter] = useState("ALL");
   const [variantFilter, setVariantFilter] = useState("ALL");
+  const [gradeabilityFilter, setGradeabilityFilter] = useState<"ALL" | "COMMON" | "GREAT" | "ICONIC" | "OVERRIDE">("ALL");
 
-  // Needs setup toggle
   const [needsSetupOnly, setNeedsSetupOnly] = useState(false);
-
-  // Sorting
   const [sortMode, setSortMode] = useState<SortMode>("CARDNO_ASC");
 
-  // Pagination state
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(100);
 
-  // Draft strings for Book input
   const [bookDraft, setBookDraft] = useState<Record<number, string>>({});
-
-  // Track defaulting metadata by card
   const [defaultingById, setDefaultingById] = useState<Record<number, DefaultingInfo>>({});
   const [pricingBusy, setPricingBusy] = useState(false);
 
-  // Track baseline
   const baselineRef = useRef<Map<number, string>>(new Map());
 
-  // Autosave refs: keep latest data/drafts available inside timers
   const dataRef = useRef<ProductSetResponse | null>(null);
   const bookDraftRef = useRef<Record<number, string>>({});
   const autoSaveTimersRef = useRef<Record<number, ReturnType<typeof setTimeout>>>({});
   const autoSaveInFlightRef = useRef<Record<number, boolean>>({});
 
-  // Save page progress
   const [bulkSaving, setBulkSaving] = useState(false);
   const [bulkProgress, setBulkProgress] = useState<{ done: number; total: number } | null>(null);
   const [bulkErrors, setBulkErrors] = useState<string[]>([]);
   const [saveNeedsOnly, setSaveNeedsOnly] = useState(true);
+
+  const defaultGradeability = normalizeGradeability(data?.defaultGradeability);
 
   useEffect(() => {
     dataRef.current = data;
@@ -279,6 +344,10 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
       autoSaveTimersRef.current = {};
     };
   }, []);
+
+  function getEffectiveGradeability(card: CardRow) {
+    return normalizeGradeability(card.gradeabilityOverride ?? defaultGradeability);
+  }
 
   async function load(p = page, ps = pageSize) {
     setLoading(true);
@@ -302,7 +371,17 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
       if (!res.ok) throw new Error(j?.error ?? `Failed to load (${res.status})`);
 
-      const payload = j as ProductSetResponse;
+      const payload = {
+        ...j,
+        defaultGradeability: normalizeGradeability(j?.defaultGradeability),
+        cards: Array.isArray(j?.cards)
+          ? j.cards.map((c: any) => ({
+              ...c,
+              gradeabilityOverride: normalizeGradeabilityOverride(c?.gradeabilityOverride),
+            }))
+          : [],
+      } as ProductSetResponse;
+
       setData(payload);
       dataRef.current = payload;
 
@@ -325,6 +404,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
             bookValue: typeof c.bookValue === "number" ? c.bookValue : 0,
             frontImageUrl: c.frontImageUrl ?? null,
             backImageUrl: c.backImageUrl ?? null,
+            gradeabilityOverride: c.gradeabilityOverride ?? null,
           })
         );
       }
@@ -343,11 +423,6 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productSetId, page, pageSize]);
 
-  // Efficiency note:
-  // This key changes when the loaded page changes, but NOT every time an editable
-  // field changes. The prior effect depended on `data?.cards`, and `patchCard()`
-  // creates a new cards array on every keystroke/autosave. That caused the
-  // default-prices endpoint to be called again and again while editing rows.
   const defaultingPageKey = useMemo(() => {
     const cards = data?.cards ?? [];
     return cards.map((c) => c.id).join(",");
@@ -376,21 +451,18 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
       setDefaultingById(initial);
 
       try {
-        const res = await fetch(
-          `/api/product-sets/${encodeURIComponent(productSetId)}/default-prices`,
-          { cache: "no-store", signal: controller.signal }
-        );
+        const res = await fetch(`/api/product-sets/${encodeURIComponent(productSetId)}/default-prices`, {
+          cache: "no-store",
+          signal: controller.signal,
+        });
 
         const raw = await res.text();
         let j: any = {};
-
         try {
           j = raw ? JSON.parse(raw) : {};
         } catch {}
 
-        if (!res.ok || !j?.ok) {
-          throw new Error(j?.error ?? "Failed to load default prices");
-        }
+        if (!res.ok || !j?.ok) throw new Error(j?.error ?? "Failed to load default prices");
 
         const results = j.results ?? {};
         const mapped: Record<number, DefaultingInfo> = {};
@@ -408,14 +480,11 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
           };
         }
 
-        if (!cancelled) {
-          setDefaultingById(mapped);
-        }
+        if (!cancelled) setDefaultingById(mapped);
       } catch (e: any) {
         if (e?.name === "AbortError") return;
 
         const fallback: Record<number, DefaultingInfo> = {};
-
         for (const c of cards) {
           fallback[c.id] = {
             reason: "error",
@@ -426,9 +495,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
           };
         }
 
-        if (!cancelled) {
-          setDefaultingById(fallback);
-        }
+        if (!cancelled) setDefaultingById(fallback);
       }
     }
 
@@ -463,6 +530,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
       bookValue: getEffectiveBookValue(card),
       frontImageUrl: card.frontImageUrl ?? null,
       backImageUrl: card.backImageUrl ?? null,
+      gradeabilityOverride: card.gradeabilityOverride ?? null,
     });
   }
 
@@ -477,6 +545,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
       bookValue: getEffectiveBookValueFromRefs(card),
       frontImageUrl: card.frontImageUrl ?? null,
       backImageUrl: card.backImageUrl ?? null,
+      gradeabilityOverride: card.gradeabilityOverride ?? null,
     });
   }
 
@@ -499,7 +568,55 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
       bookValue,
       frontImageUrl: card.frontImageUrl ?? null,
       backImageUrl: card.backImageUrl ?? null,
+      gradeabilityOverride: card.gradeabilityOverride ?? null,
     };
+  }
+
+  async function saveProductSetDefaultGradeability(next: Gradeability) {
+    if (!data) return;
+
+    const previous = defaultGradeability;
+
+    setSavingProductSet(true);
+    setSaveError(null);
+    setSaveOk(null);
+
+    setData((prev) => {
+      if (!prev) return prev;
+      const nextData = { ...prev, defaultGradeability: next };
+      dataRef.current = nextData;
+      return nextData;
+    });
+
+    try {
+      const res = await fetch(`/api/product-sets/${encodeURIComponent(productSetId)}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ defaultGradeability: next }),
+      });
+
+      const raw = await res.text();
+      let j: any = {};
+      try {
+        j = raw ? JSON.parse(raw) : {};
+      } catch {
+        throw new Error(`Product set save returned non-JSON (${res.status}): ${raw.slice(0, 140)}`);
+      }
+
+      if (!res.ok || !j?.ok) throw new Error(j?.error ?? `Save failed (${res.status})`);
+
+      setSaveOk(`Saved product-set grading default: ${gradeabilityLabel(next)}`);
+    } catch (e: any) {
+      setData((prev) => {
+        if (!prev) return prev;
+        const nextData = { ...prev, defaultGradeability: previous };
+        dataRef.current = nextData;
+        return nextData;
+      });
+      setSaveError(e?.message ?? "Failed to save product-set gradeability");
+    } finally {
+      setSavingProductSet(false);
+    }
   }
 
   async function saveCardNow(cardId: number, patch: Partial<CardRow> = {}, source: "auto" | "manual" = "auto") {
@@ -513,7 +630,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
     autoSaveInFlightRef.current[cardId] = true;
     setSavingCardId(cardId);
-    setAutoSaveById((prev) => ({ ...prev, [cardId]: source === "auto" ? "saving" : "saving" }));
+    setAutoSaveById((prev) => ({ ...prev, [cardId]: "saving" }));
 
     if (source === "manual") {
       setSaveError(null);
@@ -538,8 +655,15 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
       if (!res.ok) throw new Error(j?.error ?? `Save failed (${res.status})`);
 
       const savedBook = getEffectiveBookValueFromRefs(card);
-      baselineRef.current.set(cardId, buildBaselineComparableFromRefs({ ...card, bookValue: savedBook }));
-      patchCard(cardId, { bookValue: savedBook }, { autosave: false });
+      const savedOverride = normalizeGradeabilityOverride(j?.card?.gradeabilityOverride ?? card.gradeabilityOverride);
+
+      baselineRef.current.set(
+        cardId,
+        buildBaselineComparableFromRefs({ ...card, bookValue: savedBook, gradeabilityOverride: savedOverride })
+      );
+
+      patchCard(cardId, { bookValue: savedBook, gradeabilityOverride: savedOverride }, { autosave: false });
+
       setBookDraft((prev) => {
         const next = { ...prev, [cardId]: moneyToDisplay(savedBook) };
         bookDraftRef.current = next;
@@ -596,17 +720,14 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
       return next;
     });
 
-    if (shouldAutosave) {
-      scheduleAutoSave(cardId, patch, options.autosaveDelayMs ?? 800);
-    }
+    if (shouldAutosave) scheduleAutoSave(cardId, patch, options.autosaveDelayMs ?? 800);
   }
 
   function isDirty(card: CardRow) {
     const base = baselineRef.current.get(card.id);
     if (!base) return true;
     return base !== buildBaselineComparable(card);
-  }
-
+  }  
   const sortedCards = useMemo(() => {
     const cards = data?.cards ?? [];
     const arr = [...cards];
@@ -658,6 +779,18 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
           if (v !== 0) return v;
           return cmpCardNo(x, y);
         }
+        case "GRADEABILITY_ASC": {
+          const gx = gradeabilityRank(getEffectiveGradeability(x));
+          const gy = gradeabilityRank(getEffectiveGradeability(y));
+          if (gx !== gy) return gx - gy;
+          return cmpCardNo(x, y);
+        }
+        case "GRADEABILITY_DESC": {
+          const gx = gradeabilityRank(getEffectiveGradeability(x));
+          const gy = gradeabilityRank(getEffectiveGradeability(y));
+          if (gx !== gy) return gy - gx;
+          return cmpCardNo(x, y);
+        }
         case "NEEDS_SETUP_FIRST": {
           const nx = needsSetup({ ...x, bookValue: getEffectiveBookValue(x) }) ? 1 : 0;
           const ny = needsSetup({ ...y, bookValue: getEffectiveBookValue(y) }) ? 1 : 0;
@@ -674,7 +807,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
     });
 
     return arr;
-  }, [data, sortMode, bookDraft]);
+  }, [data, sortMode, bookDraft, defaultGradeability]);
 
   const filterOptions = useMemo(() => {
     const cards = data?.cards ?? [];
@@ -705,6 +838,16 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
       if (subsetFilter !== "ALL" && normalizeOpt(c.subset) !== subsetFilter) return false;
       if (variantFilter !== "ALL" && normalizeOpt(c.variant) !== variantFilter) return false;
 
+      const effectiveGradeability = getEffectiveGradeability(c);
+      if (gradeabilityFilter === "OVERRIDE" && !c.gradeabilityOverride) return false;
+      if (
+        gradeabilityFilter !== "ALL" &&
+        gradeabilityFilter !== "OVERRIDE" &&
+        effectiveGradeability !== gradeabilityFilter
+      ) {
+        return false;
+      }
+
       if (needsSetupOnly) {
         const effective = { ...c, bookValue: getEffectiveBookValue(c) };
         if (!needsSetup(effective)) return false;
@@ -714,7 +857,16 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
       const hay = `${c.cardNumber} ${c.player} ${c.team ?? ""}`.toLowerCase();
       return hay.includes(q);
     });
-  }, [sortedCards, query, subsetFilter, variantFilter, needsSetupOnly, bookDraft]);
+  }, [
+    sortedCards,
+    query,
+    subsetFilter,
+    variantFilter,
+    gradeabilityFilter,
+    needsSetupOnly,
+    bookDraft,
+    defaultGradeability,
+  ]);
 
   async function saveCard(card: CardRow) {
     const existing = autoSaveTimersRef.current[card.id];
@@ -769,6 +921,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                 bookValue,
                 frontImageUrl: card.frontImageUrl ?? null,
                 backImageUrl: card.backImageUrl ?? null,
+                gradeabilityOverride: card.gradeabilityOverride ?? null,
               }),
             });
 
@@ -879,7 +1032,9 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
       if (!res.ok || !j?.ok) throw new Error(j?.error ?? `Repository refresh failed (${res.status})`);
 
       setSaveOk(
-        `Repository refreshed. Scanned ${j?.summary?.scannedCards ?? 0} cards • inserted ${j?.summary?.insertedProfiles ?? 0} player profile(s) • unassigned in sport: ${j?.summary?.unassignedCount ?? 0}.`
+        `Repository refreshed. Scanned ${j?.summary?.scannedCards ?? 0} cards • inserted ${
+          j?.summary?.insertedProfiles ?? 0
+        } player profile(s) • unassigned in sport: ${j?.summary?.unassignedCount ?? 0}.`
       );
 
       await load(page, pageSize);
@@ -916,7 +1071,11 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
       const actionLabel = action === "fillBlankPrices" ? "Fill Blank Prices" : "Overwrite All Prices";
 
       setSaveOk(
-        `${actionLabel} complete. Updated ${s.updatedCards ?? 0} card(s) • skipped no tier: ${s.skippedNoTier ?? 0} • skipped no price: ${s.skippedNoPrice ?? 0}${action === "fillBlankPrices" ? ` • already priced: ${s.skippedAlreadyPriced ?? 0}` : ""}.`
+        `${actionLabel} complete. Updated ${s.updatedCards ?? 0} card(s) • skipped no tier: ${
+          s.skippedNoTier ?? 0
+        } • skipped no price: ${s.skippedNoPrice ?? 0}${
+          action === "fillBlankPrices" ? ` • already priced: ${s.skippedAlreadyPriced ?? 0}` : ""
+        }.`
       );
 
       await load(page, pageSize);
@@ -965,8 +1124,8 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
         typeof j?.card?.bookValue === "number"
           ? j.card.bookValue
           : typeof j?.defaulting?.defaultPrice === "number"
-          ? j.defaulting.defaultPrice
-          : card.bookValue;
+            ? j.defaulting.defaultPrice
+            : card.bookValue;
 
       patchCard(card.id, { bookValue: nextBook }, { autosave: true, autosaveDelayMs: 100 });
       setBookDraft((prev) => {
@@ -1019,7 +1178,11 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
         }}
       >
         <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-          <button onClick={() => setPage(1)} disabled={page <= 1 || bulkSaving || pricingBusy} style={{ padding: "6px 10px" }}>
+          <button
+            onClick={() => setPage(1)}
+            disabled={page <= 1 || bulkSaving || pricingBusy}
+            style={{ padding: "6px 10px" }}
+          >
             « First
           </button>
           <button
@@ -1106,7 +1269,11 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
           </div>
         </div>
 
-        <button onClick={() => load(page, pageSize)} style={{ padding: "8px 12px" }} disabled={bulkSaving || pricingBusy}>
+        <button
+          onClick={() => load(page, pageSize)}
+          style={{ padding: "8px 12px" }}
+          disabled={bulkSaving || pricingBusy || savingProductSet}
+        >
           Refresh
         </button>
       </div>
@@ -1173,6 +1340,47 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
             style={{
               display: "flex",
               flexWrap: "wrap",
+              gap: 12,
+              alignItems: "center",
+              border: "1px solid #ddd",
+              background: "#f8fafc",
+              padding: 12,
+              marginBottom: 12,
+            }}
+          >
+            <div style={{ fontWeight: 900 }}>VCS Grading Defaults</div>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+              <div style={{ fontSize: 12, fontWeight: 800 }}>Product-set default</div>
+              <select
+                value={defaultGradeability}
+                onChange={(e) => saveProductSetDefaultGradeability(normalizeGradeability(e.target.value))}
+                disabled={savingProductSet || bulkSaving || pricingBusy}
+                style={{ padding: "8px 10px", borderRadius: 10, border: "1px solid #ccc", minWidth: 160 }}
+              >
+                {GRADEABILITY_OPTIONS.map((o) => (
+                  <option key={o.value} value={o.value}>
+                    {o.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <span style={gradeabilityBadgeStyle(defaultGradeability)}>
+              Default: {gradeabilityLabel(defaultGradeability)}
+            </span>
+
+            <div style={{ fontSize: 12, color: "#555", lineHeight: 1.35, maxWidth: 700 }}>
+              This controls grading multipliers and odds for cards without an override. Use card-level overrides for key rookies,
+              stars, and chase cards. Existing already-graded cards keep their grade number, but their displayed value uses the
+              current gradeability setting.
+            </div>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
               gap: 10,
               alignItems: "center",
               border: "1px solid #ddd",
@@ -1185,7 +1393,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
             <button
               onClick={refreshPlayerRepository}
-              disabled={pricingBusy || bulkSaving || loading}
+              disabled={pricingBusy || bulkSaving || loading || savingProductSet}
               style={{ padding: "8px 12px", fontWeight: 800 }}
             >
               {pricingBusy ? "Working…" : "Refresh Player Repository"}
@@ -1193,7 +1401,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
             <button
               onClick={fillBlankPrices}
-              disabled={pricingBusy || bulkSaving || loading}
+              disabled={pricingBusy || bulkSaving || loading || savingProductSet}
               style={{ padding: "8px 12px", fontWeight: 800 }}
             >
               Fill Blank Prices
@@ -1201,7 +1409,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
             <button
               onClick={overwriteAllPrices}
-              disabled={pricingBusy || bulkSaving || loading}
+              disabled={pricingBusy || bulkSaving || loading || savingProductSet}
               style={{ padding: "8px 12px", fontWeight: 800, background: "#fff4e5" }}
             >
               Overwrite All Prices
@@ -1238,7 +1446,11 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
             <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
               <div style={{ fontWeight: 700 }}>Subset</div>
-              <select value={subsetFilter} onChange={(e) => setSubsetFilter(e.target.value)} style={{ padding: 8, width: 220 }}>
+              <select
+                value={subsetFilter}
+                onChange={(e) => setSubsetFilter(e.target.value)}
+                style={{ padding: 8, width: 220 }}
+              >
                 <option value="ALL">All</option>
                 {filterOptions.subsets.map((v) => (
                   <option key={v} value={v}>
@@ -1250,13 +1462,32 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
             <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
               <div style={{ fontWeight: 700 }}>Variant</div>
-              <select value={variantFilter} onChange={(e) => setVariantFilter(e.target.value)} style={{ padding: 8, width: 220 }}>
+              <select
+                value={variantFilter}
+                onChange={(e) => setVariantFilter(e.target.value)}
+                style={{ padding: 8, width: 220 }}
+              >
                 <option value="ALL">All</option>
                 {filterOptions.variants.map((v) => (
                   <option key={v} value={v}>
                     {v}
                   </option>
                 ))}
+              </select>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+              <div style={{ fontWeight: 700 }}>VCS Tier</div>
+              <select
+                value={gradeabilityFilter}
+                onChange={(e) => setGradeabilityFilter(e.target.value as any)}
+                style={{ padding: 8, width: 180 }}
+              >
+                <option value="ALL">All</option>
+                <option value="COMMON">Common</option>
+                <option value="GREAT">Great</option>
+                <option value="ICONIC">Iconic</option>
+                <option value="OVERRIDE">Overrides only</option>
               </select>
             </div>
 
@@ -1268,10 +1499,16 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
             <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
               <div style={{ fontWeight: 700 }}>Sort</div>
-              <select value={sortMode} onChange={(e) => setSortMode(e.target.value as SortMode)} style={{ padding: 8, width: 220 }}>
+              <select
+                value={sortMode}
+                onChange={(e) => setSortMode(e.target.value as SortMode)}
+                style={{ padding: 8, width: 220 }}
+              >
                 <option value="CARDNO_ASC">Card # (default)</option>
                 <option value="BOOK_DESC">Book (high → low)</option>
                 <option value="BOOK_ASC">Book (low → high)</option>
+                <option value="GRADEABILITY_DESC">VCS Tier (Iconic → Common)</option>
+                <option value="GRADEABILITY_ASC">VCS Tier (Common → Iconic)</option>
                 <option value="NEEDS_SETUP_FIRST">Needs setup first</option>
                 <option value="PLAYER_ASC">Player (A → Z)</option>
                 <option value="TEAM_ASC">Team (A → Z)</option>
@@ -1292,6 +1529,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                 setQuery("");
                 setSubsetFilter("ALL");
                 setVariantFilter("ALL");
+                setGradeabilityFilter("ALL");
                 setNeedsSetupOnly(false);
                 setSortMode("CARDNO_ASC");
               }}
@@ -1305,7 +1543,19 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead style={{ background: "#f7f7f7" }}>
                 <tr>
-                  {["Row", "Card #", "Player", "Team", "Subset", "Variant", "Front Image", "Back Image", "Book", "Actions"].map((h) => (
+                  {[
+                    "Row",
+                    "Card #",
+                    "Player",
+                    "Team",
+                    "Subset",
+                    "Variant",
+                    "VCS Tier",
+                    "Front Image",
+                    "Back Image",
+                    "Book",
+                    "Actions",
+                  ].map((h) => (
                     <th
                       key={h}
                       style={{ textAlign: "left", padding: 8, borderBottom: "1px solid #ddd", whiteSpace: "nowrap" }}
@@ -1322,6 +1572,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                   const saving = savingCardId === c.id;
                   const defaulting = defaultingCardId === c.id;
                   const info = defaultingById[c.id];
+                  const effectiveGradeability = getEffectiveGradeability(c);
 
                   return (
                     <tr key={c.id} style={{ background: zebra }}>
@@ -1376,6 +1627,34 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                           onChange={(e) => patchCard(c.id, { variant: e.target.value || null })}
                           style={{ width: "100%", padding: 6 }}
                         />
+                      </td>
+
+                      <td style={{ ...bodyCell, minWidth: 210 }}>
+                        <select
+                          value={c.gradeabilityOverride ?? ""}
+                          onChange={(e) => {
+                            const next = normalizeGradeabilityOverride(e.target.value);
+                            patchCard(c.id, { gradeabilityOverride: next }, { autosaveDelayMs: 250 });
+                          }}
+                          disabled={saving || bulkSaving || pricingBusy || savingProductSet}
+                          style={{ width: "100%", padding: 7, borderRadius: 8, border: "1px solid #ccc" }}
+                        >
+                          <option value="">Use set default ({gradeabilityLabel(defaultGradeability)})</option>
+                          <option value="COMMON">Common</option>
+                          <option value="GREAT">Great</option>
+                          <option value="ICONIC">Iconic</option>
+                        </select>
+
+                        <div style={{ marginTop: 6, display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
+                          <span style={gradeabilityBadgeStyle(effectiveGradeability)}>
+                            {gradeabilityLabel(effectiveGradeability)}
+                          </span>
+                          {c.gradeabilityOverride ? (
+                            <span style={{ fontSize: 11, color: "#555", fontWeight: 800 }}>override</span>
+                          ) : (
+                            <span style={{ fontSize: 11, color: "#777" }}>set default</span>
+                          )}
+                        </div>
                       </td>
 
                       <td style={{ ...bodyCell, minWidth: 420 }}>
@@ -1453,13 +1732,20 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                           style={{ width: "100%", padding: 6 }}
                         />
 
-                        <div style={{ minHeight: 18, marginTop: 4, fontSize: 12, color: autoSaveById[c.id] === "error" ? "#8a1f1f" : "#666" }}>
+                        <div
+                          style={{
+                            minHeight: 18,
+                            marginTop: 4,
+                            fontSize: 12,
+                            color: autoSaveById[c.id] === "error" ? "#8a1f1f" : "#666",
+                          }}
+                        >
                           {autoSaveText(c.id)}
                         </div>
 
                         <button
                           onClick={() => useDefaultForCard(c)}
-                          disabled={saving || defaulting || bulkSaving || pricingBusy}
+                          disabled={saving || defaulting || bulkSaving || pricingBusy || savingProductSet}
                           style={{ marginTop: 8, width: "100%", padding: "6px 8px", fontWeight: 800 }}
                           title="Apply the configured tier default for this player on this product set"
                         >
@@ -1470,14 +1756,14 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                       <td style={{ ...bodyCell, whiteSpace: "nowrap" }}>
                         <button
                           onClick={() => saveCard(c)}
-                          disabled={saving || bulkSaving || pricingBusy}
+                          disabled={saving || bulkSaving || pricingBusy || savingProductSet}
                           style={{ padding: "6px 10px", marginRight: 8 }}
                         >
                           {saving ? "Saving..." : "Save"}
                         </button>
                         <button
                           onClick={() => deleteCard(c)}
-                          disabled={saving || bulkSaving || pricingBusy}
+                          disabled={saving || bulkSaving || pricingBusy || savingProductSet}
                           style={{ padding: "6px 10px" }}
                         >
                           Delete
@@ -1489,7 +1775,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
                 {filteredCards.length === 0 && (
                   <tr>
-                    <td colSpan={10} style={{ padding: 12 }}>
+                    <td colSpan={11} style={{ padding: 12 }}>
                       No cards match your search/filters on this page.
                     </td>
                   </tr>

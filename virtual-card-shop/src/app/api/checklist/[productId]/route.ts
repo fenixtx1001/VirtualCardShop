@@ -28,7 +28,6 @@ function clampInt(n: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n));
 }
 
-// --- Card number-aware sorting (ignores any prefix)
 function parseCardNo(raw: string | null | undefined) {
   const s = (raw ?? "").trim();
   const lower = s.toLowerCase();
@@ -62,7 +61,6 @@ function cardNoCompare(aNo: string, bNo: string) {
   return a.raw.localeCompare(b.raw);
 }
 
-// Prisma may return Decimal for bookValue; normalize safely to number.
 function toNumber(v: any) {
   if (v == null) return 0;
   if (typeof v === "number") return Number.isFinite(v) ? v : 0;
@@ -79,6 +77,12 @@ function toNumber(v: any) {
     }
   }
   return 0;
+}
+
+function safeQty(value: unknown) {
+  const n = typeof value === "number" && Number.isFinite(value) ? value : Number(value ?? 0);
+  if (!Number.isFinite(n) || n <= 0) return 0;
+  return Math.floor(n);
 }
 
 type SortKey =
@@ -132,19 +136,15 @@ export async function GET(req: Request, ctx: Ctx) {
 
     const url = new URL(req.url);
 
-    // Pagination
     const page = clampInt(parseInt(url.searchParams.get("page") ?? "1", 10) || 1, 1, 999999);
     const pageSizeRaw = parseInt(url.searchParams.get("pageSize") ?? "100", 10) || 100;
     const pageSize = clampInt(pageSizeRaw, 25, 200);
 
-    // Optional productSetId query param
     const rawProductSetId = url.searchParams.get("productSetId");
     const requestedSetId = rawProductSetId ? decodeURIComponent(rawProductSetId).trim() : "";
 
-    // ✅ NEW: sort params
     const { sortKey, sortDir } = parseSort(url);
 
-    // Load product + its productSets so we can default to Base, and allow toggling sets.
     const product = await prisma.product.findUnique({
       where: { id: productId },
       include: { productSets: true },
@@ -177,7 +177,6 @@ export async function GET(req: Request, ctx: Ctx) {
       );
     }
 
-    // Total cards in this productSet (for paging + completion stats)
     const totalCards = await prisma.card.count({
       where: { productSetId: selectedSet.id },
     });
@@ -186,7 +185,6 @@ export async function GET(req: Request, ctx: Ctx) {
     const safePage = clampInt(page, 1, totalPages);
     const skip = (safePage - 1) * pageSize;
 
-    // ✅ Pull all cards' sort fields (cheap enough for set sizes like 770, 600, etc.)
     const allCards = await prisma.card.findMany({
       where: { productSetId: selectedSet.id },
       select: {
@@ -201,7 +199,6 @@ export async function GET(req: Request, ctx: Ctx) {
       },
     });
 
-    // ✅ Pull ownership for the whole set for sorting (selected user + me in compare mode)
     const userIdsToFetch = isCompareMode
       ? [selectedUserId, currentUser.id]
       : [selectedUserId];
@@ -215,20 +212,52 @@ export async function GET(req: Request, ctx: Ctx) {
       select: { userId: true, cardId: true, quantity: true },
     });
 
+    const pendingAll = await prisma.gradingOrder.findMany({
+      where: {
+        userId: { in: userIdsToFetch },
+        quantity: { gt: 0 },
+        status: { in: ["PENDING", "READY"] },
+        card: { productSetId: selectedSet.id },
+      },
+      select: { userId: true, cardId: true, quantity: true },
+    });
+
     const selectedOwnedMap = new Map<number, number>();
+    const selectedPendingMap = new Map<number, number>();
     const myOwnedMap = new Map<number, number>();
+    const myPendingMap = new Map<number, number>();
 
     for (const o of ownershipAll) {
-      if (o.userId === selectedUserId) selectedOwnedMap.set(o.cardId, o.quantity);
-      if (o.userId === currentUser.id) myOwnedMap.set(o.cardId, o.quantity);
+      const qty = safeQty(o.quantity);
+      if (qty <= 0) continue;
+
+      if (o.userId === selectedUserId) {
+        selectedOwnedMap.set(o.cardId, (selectedOwnedMap.get(o.cardId) ?? 0) + qty);
+      }
+
+      if (o.userId === currentUser.id) {
+        myOwnedMap.set(o.cardId, (myOwnedMap.get(o.cardId) ?? 0) + qty);
+      }
     }
 
-    // ✅ Sort across the WHOLE set, then paginate
+    for (const p of pendingAll) {
+      const qty = safeQty(p.quantity);
+      if (qty <= 0) continue;
+
+      if (p.userId === selectedUserId) {
+        selectedPendingMap.set(p.cardId, (selectedPendingMap.get(p.cardId) ?? 0) + qty);
+      }
+
+      if (p.userId === currentUser.id) {
+        myPendingMap.set(p.cardId, (myPendingMap.get(p.cardId) ?? 0) + qty);
+      }
+    }
+
     const dir = sortDir === "desc" ? -1 : 1;
 
     allCards.sort((a, b) => {
-      const aOwnedQty = selectedOwnedMap.get(a.id) ?? 0;
-      const bOwnedQty = selectedOwnedMap.get(b.id) ?? 0;
+      const aOwnedQty = (selectedOwnedMap.get(a.id) ?? 0) + (selectedPendingMap.get(a.id) ?? 0);
+      const bOwnedQty = (selectedOwnedMap.get(b.id) ?? 0) + (selectedPendingMap.get(b.id) ?? 0);
 
       const aOwned = aOwnedQty > 0 ? 1 : 0;
       const bOwned = bOwnedQty > 0 ? 1 : 0;
@@ -244,16 +273,11 @@ export async function GET(req: Request, ctx: Ctx) {
           break;
 
         case "owned":
-          // owned first (desc) is the natural view; but respect sortDir
-          primary = (aOwned - bOwned) * dir;
-          // If descending, we want owned(1) first => reverse
-          if (sortDir === "desc") primary = (bOwned - aOwned);
+          primary = sortDir === "desc" ? bOwned - aOwned : aOwned - bOwned;
           break;
 
         case "qty":
-          primary = (aOwnedQty - bOwnedQty) * dir;
-          // natural: bigger qty first when desc
-          if (sortDir === "desc") primary = (bOwnedQty - aOwnedQty);
+          primary = sortDir === "desc" ? bOwnedQty - aOwnedQty : aOwnedQty - bOwnedQty;
           break;
 
         case "player":
@@ -273,8 +297,7 @@ export async function GET(req: Request, ctx: Ctx) {
           break;
 
         case "bookValue":
-          primary = (aBV - bBV) * dir;
-          if (sortDir === "desc") primary = (bBV - aBV);
+          primary = sortDir === "desc" ? bBV - aBV : aBV - bBV;
           break;
 
         default:
@@ -283,81 +306,47 @@ export async function GET(req: Request, ctx: Ctx) {
 
       if (primary !== 0) return primary;
 
-      // Stable tie-breakers (so paging doesn’t “shuffle” on refresh)
-      // 1) card number
       const cn = cardNoCompare(a.cardNumber, b.cardNumber);
       if (cn !== 0) return cn;
 
-      // 2) id
       return a.id - b.id;
     });
 
     const pageCards = allCards.slice(skip, skip + pageSize);
-    const pageCardIds = pageCards.map((c) => c.id);
 
-    // Completion stats (selected user) across the WHOLE set
-    const uniqueOwnedRows = await prisma.cardOwnership.findMany({
-      where: {
-        userId: selectedUserId,
-        quantity: { gt: 0 },
-        card: { productSetId: selectedSet.id },
-      },
-      select: { cardId: true },
-      distinct: ["cardId"],
-    });
+    const uniqueOwnedCardIds = new Set<number>();
 
-    const uniqueOwned = uniqueOwnedRows.length;
+    for (const [cardId, qty] of selectedOwnedMap.entries()) {
+      if (qty > 0) uniqueOwnedCardIds.add(cardId);
+    }
+
+    for (const [cardId, qty] of selectedPendingMap.entries()) {
+      if (qty > 0) uniqueOwnedCardIds.add(cardId);
+    }
+
+    const uniqueOwned = uniqueOwnedCardIds.size;
     const percentComplete = totalCards ? (uniqueOwned / totalCards) * 100 : 0;
 
-    // ✅ NEW: Set value totals for the SELECTED productSet (whole set, not paged)
     const agg = await prisma.card.aggregate({
       where: { productSetId: selectedSet.id },
       _sum: { bookValue: true },
     });
     const setTotalBookValue = toNumber((agg as any)?._sum?.bookValue);
 
-    // Selected user's owned book value across entire set
-    const ownedAllRows = await prisma.cardOwnership.findMany({
-      where: {
-        userId: selectedUserId,
-        quantity: { gt: 0 },
-        card: { productSetId: selectedSet.id },
-      },
-      select: {
-        quantity: true,
-        card: { select: { bookValue: true } },
-      },
-    });
-
     let setOwnedBookValue = 0;
-    for (const r of ownedAllRows) {
-      const qty = typeof r.quantity === "number" ? r.quantity : 0;
-      const bv = toNumber((r as any).card?.bookValue);
-      setOwnedBookValue += qty * bv;
-    }
-
-    // My owned book value (compare mode only)
     let mySetOwnedBookValue: number | null = null;
-    if (isCompareMode) {
-      const myRows = await prisma.cardOwnership.findMany({
-        where: {
-          userId: currentUser.id,
-          quantity: { gt: 0 },
-          card: { productSetId: selectedSet.id },
-        },
-        select: {
-          quantity: true,
-          card: { select: { bookValue: true } },
-        },
-      });
 
-      let sum = 0;
-      for (const r of myRows) {
-        const qty = typeof r.quantity === "number" ? r.quantity : 0;
-        const bv = toNumber((r as any).card?.bookValue);
-        sum += qty * bv;
+    for (const c of allCards) {
+      const bv = toNumber((c as any).bookValue);
+
+      const selectedQty =
+        (selectedOwnedMap.get(c.id) ?? 0) + (selectedPendingMap.get(c.id) ?? 0);
+      setOwnedBookValue += selectedQty * bv;
+
+      if (isCompareMode) {
+        const myQty = (myOwnedMap.get(c.id) ?? 0) + (myPendingMap.get(c.id) ?? 0);
+        mySetOwnedBookValue = (mySetOwnedBookValue ?? 0) + myQty * bv;
       }
-      mySetOwnedBookValue = sum;
     }
 
     const setMissingBookValue = Math.max(0, setTotalBookValue - setOwnedBookValue);
@@ -365,7 +354,9 @@ export async function GET(req: Request, ctx: Ctx) {
       setTotalBookValue > 0 ? (setOwnedBookValue / setTotalBookValue) * 100 : 0;
 
     const rows = pageCards.map((c) => {
-      const ownedQty = selectedOwnedMap.get(c.id) ?? 0;
+      const revealedOwnedQty = selectedOwnedMap.get(c.id) ?? 0;
+      const pendingGradingQty = selectedPendingMap.get(c.id) ?? 0;
+      const ownedQty = revealedOwnedQty + pendingGradingQty;
 
       const baseRow: any = {
         cardId: c.id,
@@ -377,10 +368,19 @@ export async function GET(req: Request, ctx: Ctx) {
         isInsert: !selectedSet.isBase,
         bookValue: toNumber((c as any).bookValue),
         ownedQty,
+
+        // New fields for grading-aware UI.
+        revealedOwnedQty,
+        pendingGradingQty,
       };
 
       if (isCompareMode) {
-        baseRow.myOwnedQty = myOwnedMap.get(c.id) ?? 0;
+        const myRevealedOwnedQty = myOwnedMap.get(c.id) ?? 0;
+        const myPendingGradingQty = myPendingMap.get(c.id) ?? 0;
+
+        baseRow.myOwnedQty = myRevealedOwnedQty + myPendingGradingQty;
+        baseRow.myRevealedOwnedQty = myRevealedOwnedQty;
+        baseRow.myPendingGradingQty = myPendingGradingQty;
       }
 
       return baseRow;
@@ -389,29 +389,24 @@ export async function GET(req: Request, ctx: Ctx) {
     return NextResponse.json({
       ok: true,
 
-      // identity + mode
       currentUserId: currentUser.id,
       selectedUserId,
       isCompareMode,
 
-      // product + set info
       productId,
       productSetId: selectedSet.id,
       productSetIsBase: selectedSet.isBase,
 
-      // stats for selected user (whole set)
       totalCards,
       uniqueOwned,
       percentComplete,
 
-      // value totals for the selected ProductSet
       setTotalBookValue,
       setOwnedBookValue,
       setMissingBookValue,
       setOwnedValuePercent,
       ...(isCompareMode ? { mySetOwnedBookValue } : {}),
 
-      // ✅ NEW: sort info
       sortKey,
       sortDir,
       allowedSortKeys: [
@@ -425,12 +420,10 @@ export async function GET(req: Request, ctx: Ctx) {
         "bookValue",
       ],
 
-      // pagination
       page: safePage,
       pageSize,
       totalPages,
 
-      // allow UI toggle
       productSets: product.productSets.map((ps) => ({
         id: ps.id,
         isBase: ps.isBase,

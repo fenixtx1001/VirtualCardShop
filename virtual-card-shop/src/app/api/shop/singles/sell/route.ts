@@ -2,12 +2,16 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
-import { bookValueToPerCardCents, calcSellTotalCents } from "@/lib/shop-offers";
+import {
+  bookValueToPerCardCents,
+  calcShopSellQuote,
+  getShopGradeability,
+  labelShopGrade,
+} from "@/lib/shop-offers";
+import { RAW_GRADE } from "@/lib/grading";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-
-const RAW_GRADE = 0;
 
 function shortErr(e: any) {
   const code = e?.code ?? e?.name ?? "UNKNOWN";
@@ -31,16 +35,17 @@ function parseGrade(value: any) {
  * POST: sell to shop using an offer
  * Body: { offerId: number, quantity: number, grade?: number }
  *
- * The user must intentionally choose which grade bucket to sell.
- * grade 0 = raw/ungraded.
- * grade 6-10 = VCS graded.
+ * grade 0 = raw/ungraded
+ * grade 6-10 = VCS graded
  *
- * Current UI may omit grade, so omitted grade defaults to raw for backward compatibility.
+ * Raw cards pay from raw book value.
+ * VCS graded cards pay from graded value + 10% offer-bps bonus.
  */
 export async function POST(req: Request) {
   try {
     const user = await requireUser();
     const body = await req.json().catch(() => ({}));
+
     const offerId = Number(body?.offerId);
     const quantity = Number(body?.quantity);
     const selectedGrade = parseGrade(body?.grade);
@@ -48,9 +53,11 @@ export async function POST(req: Request) {
     if (!Number.isFinite(offerId) || offerId <= 0) {
       return NextResponse.json({ ok: false, error: "Missing or invalid offerId." }, { status: 400 });
     }
+
     if (!Number.isFinite(quantity) || quantity <= 0) {
       return NextResponse.json({ ok: false, error: "Missing or invalid quantity." }, { status: 400 });
     }
+
     if (selectedGrade == null) {
       return NextResponse.json(
         { ok: false, error: "Missing or invalid grade. Use 0 for raw or 6-10 for VCS graded cards." },
@@ -63,22 +70,54 @@ export async function POST(req: Request) {
     const out = await prisma.$transaction(async (tx) => {
       const offer = await tx.shopOffer.findUnique({
         where: { id: offerId },
-        select: { id: true, userId: true, cardId: true, offerBps: true, expiresAt: true, acceptedAt: true },
+        select: {
+          id: true,
+          userId: true,
+          cardId: true,
+          offerBps: true,
+          expiresAt: true,
+          acceptedAt: true,
+        },
       });
 
-      if (!offer) return { ok: false as const, status: 404 as const, error: "Offer not found." };
-      if (offer.userId !== user.id) return { ok: false as const, status: 403 as const, error: "Not allowed." };
-      if (offer.acceptedAt) return { ok: false as const, status: 400 as const, error: "Offer already accepted." };
-      if (offer.expiresAt.getTime() <= now.getTime()) return { ok: false as const, status: 400 as const, error: "Offer expired." };
+      if (!offer) {
+        return { ok: false as const, status: 404 as const, error: "Offer not found." };
+      }
+
+      if (offer.userId !== user.id) {
+        return { ok: false as const, status: 403 as const, error: "Not allowed." };
+      }
+
+      if (offer.acceptedAt) {
+        return { ok: false as const, status: 400 as const, error: "Offer already accepted." };
+      }
+
+      if (offer.expiresAt.getTime() <= now.getTime()) {
+        return { ok: false as const, status: 400 as const, error: "Offer expired." };
+      }
 
       const card = await tx.card.findUnique({
         where: { id: offer.cardId },
-        select: { id: true, bookValue: true },
+        select: {
+          id: true,
+          bookValue: true,
+          gradeabilityOverride: true,
+          productSet: {
+            select: {
+              defaultGradeability: true,
+            },
+          },
+        },
       });
-      if (!card) return { ok: false as const, status: 404 as const, error: "Card not found." };
 
-      const perCardCents = bookValueToPerCardCents(card.bookValue);
-      if (perCardCents <= 0) return { ok: false as const, status: 400 as const, error: "Card has no book value." };
+      if (!card) {
+        return { ok: false as const, status: 404 as const, error: "Card not found." };
+      }
+
+      const rawBookValueCents = bookValueToPerCardCents(card.bookValue);
+      if (rawBookValueCents <= 0) {
+        return { ok: false as const, status: 400 as const, error: "Card has no book value." };
+      }
 
       const own = await tx.cardOwnership.findUnique({
         where: {
@@ -93,26 +132,53 @@ export async function POST(req: Request) {
 
       const ownedQty = own?.quantity ?? 0;
       const sellQty = Math.floor(quantity);
-      const gradeLabel = selectedGrade === RAW_GRADE ? "raw" : `VCS ${selectedGrade}`;
+      const gradeLabel = labelShopGrade(selectedGrade);
 
       if (!own || ownedQty <= 0) {
-        return { ok: false as const, status: 400 as const, error: `You do not own this ${gradeLabel} version of the card.` };
-      }
-      if (sellQty > ownedQty) {
-        return { ok: false as const, status: 400 as const, error: `You only own ${ownedQty} of this ${gradeLabel} version.` };
+        return {
+          ok: false as const,
+          status: 400 as const,
+          error: `You do not own this ${gradeLabel} version of the card.`,
+        };
       }
 
-      // For now, offers are still based on raw book value.
-      // Soon, this should become grade-aware so VCS 9/10 payouts are higher.
-      const totalCents = calcSellTotalCents(perCardCents, sellQty, offer.offerBps);
+      if (sellQty > ownedQty) {
+        return {
+          ok: false as const,
+          status: 400 as const,
+          error: `You only own ${ownedQty} of this ${gradeLabel} version.`,
+        };
+      }
+
+      const gradeability = getShopGradeability({
+        cardOverride: card.gradeabilityOverride,
+        productSetDefault: card.productSet?.defaultGradeability,
+      });
+
+      const quote = calcShopSellQuote({
+        rawBookValueCents,
+        quantity: sellQty,
+        baseOfferBps: offer.offerBps,
+        grade: selectedGrade,
+        gradeability,
+      });
+
+      if (quote.totalCents <= 0) {
+        return {
+          ok: false as const,
+          status: 400 as const,
+          error: "This sale would pay $0.00.",
+        };
+      }
 
       await tx.cardOwnership.update({
         where: { id: own.id },
         data: { quantity: ownedQty - sellQty },
       });
 
-      // Existing ShopInventory is not grade-aware yet, so it tracks total shop copies.
-      // We will upgrade this later if the shop needs to resell graded versions distinctly.
+      // Shop inventory is still card-level, not grade-level. This means the shop can
+      // resell the card generically for now. We can upgrade inventory to track slabs
+      // later if you want a true graded singles marketplace.
       await tx.shopInventory.upsert({
         where: { cardId: offer.cardId },
         create: { cardId: offer.cardId, quantity: sellQty },
@@ -121,14 +187,17 @@ export async function POST(req: Request) {
 
       const updatedUser = await tx.user.update({
         where: { id: user.id },
-        data: { balanceCents: { increment: totalCents } },
+        data: { balanceCents: { increment: quote.totalCents } },
         select: { balanceCents: true },
       });
 
-      // Offer becomes inactive immediately when selling any qty
       await tx.shopOffer.update({
         where: { id: offer.id },
-        data: { acceptedAt: now, acceptedQty: sellQty, acceptedTotalCents: totalCents },
+        data: {
+          acceptedAt: now,
+          acceptedQty: sellQty,
+          acceptedTotalCents: quote.totalCents,
+        },
       });
 
       await tx.shopTransaction.create({
@@ -137,9 +206,13 @@ export async function POST(req: Request) {
           cardId: offer.cardId,
           kind: selectedGrade === RAW_GRADE ? "SELL_TO_SHOP" : `SELL_TO_SHOP_VCS_${selectedGrade}`,
           quantity: sellQty,
-          perCardCents,
-          totalCents,
-          offerBps: offer.offerBps,
+
+          // Raw: raw book value. Graded: calculated graded value.
+          perCardCents: quote.perCardValueCents,
+          totalCents: quote.totalCents,
+
+          // Raw: original offer. Graded: original offer + graded bonus.
+          offerBps: quote.effectiveOfferBps,
         },
       });
 
@@ -147,17 +220,32 @@ export async function POST(req: Request) {
         ok: true as const,
         status: 200 as const,
         balanceCents: updatedUser.balanceCents,
-        totalCents,
-        perCardCents,
+
         quantity: sellQty,
-        offerBps: offer.offerBps,
         grade: selectedGrade,
+        gradeLabel,
+
+        rawBookValueCents,
+        perCardCents: quote.perCardValueCents,
+        totalCents: quote.totalCents,
+
+        baseOfferBps: quote.baseOfferBps,
+        offerBps: quote.effectiveOfferBps,
+        effectiveOfferBps: quote.effectiveOfferBps,
+        gradedOfferBonusBps: quote.effectiveOfferBps - quote.baseOfferBps,
+        gradeability,
       };
     });
 
-    if (!out.ok) return NextResponse.json({ ok: false, error: out.error }, { status: out.status });
+    if (!out.ok) {
+      return NextResponse.json({ ok: false, error: out.error }, { status: out.status });
+    }
+
     return NextResponse.json(out, { status: 200 });
   } catch (e: any) {
-    return NextResponse.json({ ok: false, error: "Failed to sell to shop.", extra: shortErr(e) }, { status: 500 });
+    return NextResponse.json(
+      { ok: false, error: "Failed to sell to shop.", extra: shortErr(e) },
+      { status: 500 }
+    );
   }
 }

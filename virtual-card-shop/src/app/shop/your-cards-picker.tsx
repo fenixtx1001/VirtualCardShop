@@ -8,6 +8,18 @@ type MyCardRow = {
   qtyOwned: number;
   bookValue: number;
 
+  grade?: number;
+  gradeLabel?: string;
+  isRaw?: boolean;
+  isGraded?: boolean;
+
+  rawBookValueCents?: number;
+  perCardValueCents?: number;
+  totalBucketValueCents?: number;
+  gradeability?: string;
+
+  ownershipKey?: string;
+
   cardNumber: string;
   player: string;
   team: string | null;
@@ -36,6 +48,25 @@ function safeImgSrc(url: string | null | undefined) {
 function money(n: unknown) {
   const v = typeof n === "number" && Number.isFinite(n) ? n : 0;
   return v.toLocaleString(undefined, { style: "currency", currency: "USD" });
+}
+
+function centsMoney(cents: unknown) {
+  const v = typeof cents === "number" && Number.isFinite(cents) ? cents : 0;
+  return money(v / 100);
+}
+
+function gradePillStyle(isGraded: boolean) {
+  return {
+    display: "inline-flex",
+    alignItems: "center",
+    borderRadius: 999,
+    padding: "3px 8px",
+    fontSize: 11,
+    fontWeight: 1000,
+    border: isGraded ? "1px solid #b8860b" : "1px solid #ccc",
+    background: isGraded ? "#fff7d6" : "#f7f7f7",
+    color: isGraded ? "#7a4f00" : "#333",
+  };
 }
 
 export function YourCardsPicker({
@@ -145,15 +176,19 @@ export function YourCardsPicker({
         <div style={{ marginTop: 10, display: "grid", gap: 10 }}>
           {rows.map((r) => {
             const img = safeImgSrc(r.frontImageUrl);
+            const grade = typeof r.grade === "number" ? r.grade : 0;
+            const gradeLabel = r.gradeLabel ?? (grade === 0 ? "Raw" : `VCS ${grade}`);
+            const isGraded = grade !== 0;
+            const key = r.ownershipKey ?? `${r.cardId}:${grade}`;
 
             return (
               <div
-                key={r.cardId}
+                key={key}
                 style={{
-                  border: "1px solid #eee",
+                  border: isGraded ? "1px solid #e0c15c" : "1px solid #eee",
                   borderRadius: 14,
                   padding: 12,
-                  background: "#fcfcfc",
+                  background: isGraded ? "#fffdf3" : "#fcfcfc",
                   display: "grid",
                   gridTemplateColumns: "56px 1fr",
                   gap: 12,
@@ -174,10 +209,18 @@ export function YourCardsPicker({
                   <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
                     <div style={{ fontWeight: 900 }}>
                       {r.player} {r.cardNumber ? `#${r.cardNumber}` : ""}{" "}
+                      <span style={gradePillStyle(isGraded)}>{gradeLabel}</span>{" "}
                       <span style={{ fontWeight: 700, color: "#666" }}>• Owned: {r.qtyOwned}</span>
                     </div>
+
                     <div style={{ fontSize: 12, color: "#555" }}>
-                      Book: <b>{money(r.bookValue)}</b> • Card ID: <b>{r.cardId}</b>
+                      Raw Book: <b>{money(r.bookValue)}</b>
+                      {isGraded ? (
+                        <>
+                          {" "}• Graded Value: <b>{centsMoney(r.perCardValueCents)}</b>
+                        </>
+                      ) : null}
+                      {" "}• Card ID: <b>{r.cardId}</b>
                     </div>
                   </div>
 

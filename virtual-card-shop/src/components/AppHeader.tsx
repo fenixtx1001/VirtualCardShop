@@ -237,12 +237,9 @@ export default function AppHeader() {
     };
   }, [compactRipMode, isMobile]);
 
-  const signedInEmail = status === "authenticated" ? (session?.user?.email ?? null) : null;
+  const signedInEmail = status === "authenticated" ? session?.user?.email ?? null : null;
 
-  const showCompactMobileRipHeader =
-    isMobile &&
-    pathname?.startsWith("/open-pack/") &&
-    compactRipMode;
+  const showCompactMobileRipHeader = isMobile && pathname?.startsWith("/open-pack/") && compactRipMode;
 
   if (showCompactMobileRipHeader) {
     return (
@@ -381,8 +378,8 @@ export default function AppHeader() {
                 eco?.canClaim
                   ? "Claim $10 reward"
                   : eco
-                  ? `Available in ${formatCountdown(eco.msUntilNextClaim)}`
-                  : "Loading…"
+                    ? `Available in ${formatCountdown(eco.msUntilNextClaim)}`
+                    : "Loading…"
               }
             >
               {loading ? "Claiming…" : "Claim $10"}
@@ -403,7 +400,8 @@ export default function AppHeader() {
                 {collectionValueText}
               </div>
               <div style={{ fontSize: 12, color: "var(--muted)" }}>
-                <span style={{ fontWeight: 900, color: "var(--text)" }}>Cards Owned:</span> {cardsOwnedText}
+                <span style={{ fontWeight: 900, color: "var(--text)" }}>Cards Owned:</span>{" "}
+                {cardsOwnedText}
               </div>
             </div>
 
@@ -415,7 +413,8 @@ export default function AppHeader() {
           <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap", justifyContent: "flex-end" }}>
             {signedInEmail ? (
               <div style={{ fontSize: 12, color: "var(--muted)" }}>
-                Signed in as <span style={{ fontWeight: 900, color: "var(--text)" }}>{signedInEmail}</span>
+                Signed in as{" "}
+                <span style={{ fontWeight: 900, color: "var(--text)" }}>{signedInEmail}</span>
               </div>
             ) : (
               <div style={{ fontSize: 12, color: "var(--muted)" }}>Not signed in</div>
@@ -437,8 +436,11 @@ export default function AppHeader() {
             <Link href="/collection" style={{ textDecoration: "underline" }}>
               Collection
             </Link>
+            <Link href="/collection/slabs" style={{ textDecoration: "underline" }}>
+              Slabs
+            </Link>
             <Link href="/analytics" style={{ textDecoration: "underline" }}>
-               Analytics
+              Analytics
             </Link>
             <Link href="/showcase" style={{ textDecoration: "underline" }}>
               Showcase

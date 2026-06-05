@@ -1,14 +1,40 @@
+// src/app/cards/[cardId]/card-detail-client.tsx
 "use client";
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import VcsSlab from "@/components/grading/VcsSlab";
+
+type GradeBreakdownRow = {
+  grade: number;
+  label: string;
+  quantity: number;
+  valueCents: number;
+};
+
+type SlabRow = {
+  grade: number;
+  label: string;
+  quantity: number;
+  valueCents: number;
+};
 
 type OwnerRow = {
   userId: string;
   name: string | null;
   email: string | null;
   image: string | null;
+
+  // Backward-compatible total quantity field.
   quantity: number;
+
+  rawQuantity?: number;
+  gradedQuantity?: number;
+  pendingGradingQuantity?: number;
+  totalQuantity?: number;
+  totalValueCents?: number;
+  gradeBreakdown?: GradeBreakdownRow[];
+  slabs?: SlabRow[];
 };
 
 type CardDetailResponse = {
@@ -22,6 +48,9 @@ type CardDetailResponse = {
     subset: string | null;
     variant: string | null;
     bookValue: number;
+
+    gradeability?: "COMMON" | "GREAT" | "ICONIC";
+    gradeabilityLabel?: string;
 
     productId: string | null;
     productYear: number | null;
@@ -39,16 +68,113 @@ type CardDetailResponse = {
   population: {
     uniqueOwners: number;
     totalOwned: number;
+    totalOwnedIncludingPending?: number;
+    raw?: number;
+    graded?: number;
+    pendingGrading?: number;
+    totalValueCents?: number;
   };
 
   owners: OwnerRow[];
 };
 
 type ImageSide = "front" | "back";
+type ViewMode = "card" | "slab";
 
 function safeUrl(u: string | null | undefined) {
   const s = (u ?? "").trim();
   return s.length ? s : null;
+}
+
+function safeNum(value: unknown, fallback = 0) {
+  return typeof value === "number" && Number.isFinite(value) ? value : fallback;
+}
+
+function formatDollarsFromCents(cents: number) {
+  const safe = Number.isFinite(cents) ? cents : 0;
+
+  return (safe / 100).toLocaleString(undefined, {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+  });
+}
+
+function formatBookValue(v: number | null | undefined) {
+  const n = typeof v === "number" && Number.isFinite(v) ? v : 0;
+  return `$${n.toFixed(2)}`;
+}
+
+function getGradeSortValue(grade: number) {
+  return grade === 0 ? -1 : grade;
+}
+
+function normalizeBreakdown(owner: OwnerRow | null | undefined): GradeBreakdownRow[] {
+  if (!owner) return [];
+
+  const rows = Array.isArray(owner.gradeBreakdown) ? owner.gradeBreakdown : [];
+
+  return [...rows].sort((a, b) => getGradeSortValue(a.grade) - getGradeSortValue(b.grade));
+}
+
+function normalizeSlabs(owner: OwnerRow | null | undefined): SlabRow[] {
+  if (!owner) return [];
+
+  const rows = Array.isArray(owner.slabs) ? owner.slabs : [];
+
+  return [...rows].sort((a, b) => b.grade - a.grade);
+}
+
+function GradePill({ row }: { row: GradeBreakdownRow }) {
+  const isRaw = row.grade === 0;
+
+  return (
+    <span
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 6,
+        padding: "5px 8px",
+        borderRadius: 999,
+        border: "1px solid #ddd",
+        background: isRaw ? "#f7f7f7" : "#eef6ff",
+        color: isRaw ? "#333" : "#16477d",
+        fontSize: 12,
+        fontWeight: 900,
+        whiteSpace: "nowrap",
+      }}
+      title={`${row.label} quantity`}
+    >
+      {row.label}
+      <span style={{ color: "#555" }}>×{row.quantity}</span>
+      <span style={{ color: "#555" }}>{formatDollarsFromCents(row.valueCents)}</span>
+    </span>
+  );
+}
+
+function PendingPill({ quantity }: { quantity: number }) {
+  if (quantity <= 0) return null;
+
+  return (
+    <span
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 6,
+        padding: "5px 8px",
+        borderRadius: 999,
+        border: "1px solid #f0d28a",
+        background: "#fff8e8",
+        color: "#7a5200",
+        fontSize: 12,
+        fontWeight: 900,
+        whiteSpace: "nowrap",
+      }}
+      title="Submitted to VCS grading but not revealed yet"
+    >
+      Pending VCS ×{quantity}
+    </span>
+  );
 }
 
 export default function CardDetailClient({ cardId }: { cardId: number }) {
@@ -57,6 +183,9 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
   const [err, setErr] = useState<string | null>(null);
 
   const [side, setSide] = useState<ImageSide>("front");
+  const [viewMode, setViewMode] = useState<ViewMode>("card");
+  const [selectedSlabIndex, setSelectedSlabIndex] = useState(0);
+
   const [imgErrorFront, setImgErrorFront] = useState(false);
   const [imgErrorBack, setImgErrorBack] = useState(false);
 
@@ -65,10 +194,9 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
     setErr(null);
 
     try {
-      const res = await fetch(
-        `/api/cards/${encodeURIComponent(String(cardId))}/population`,
-        { cache: "no-store" }
-      );
+      const res = await fetch(`/api/cards/${encodeURIComponent(String(cardId))}/population`, {
+        cache: "no-store",
+      });
 
       const raw = await res.text();
 
@@ -76,16 +204,13 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
       try {
         j = raw ? JSON.parse(raw) : null;
       } catch {
-        throw new Error(
-          `Card detail returned non-JSON (${res.status}): ${raw.slice(0, 140)}`
-        );
+        throw new Error(`Card detail returned non-JSON (${res.status}): ${raw.slice(0, 140)}`);
       }
 
       if (!res.ok) throw new Error(j?.error ?? `Failed (${res.status})`);
 
       setData(j as CardDetailResponse);
 
-      // Reset image errors whenever we reload new data
       setImgErrorFront(false);
       setImgErrorBack(false);
     } catch (e: any) {
@@ -107,29 +232,48 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
     ? c.productSetName?.trim()
       ? c.productSetName.trim()
       : c.productSetIsBase == null
-      ? "—"
-      : c.productSetIsBase
-      ? "Base"
-      : "Insert"
+        ? "—"
+        : c.productSetIsBase
+          ? "Base"
+          : "Insert"
     : "";
 
   const setTypePrefix =
     c?.productSetIsBase == null ? "" : c.productSetIsBase ? "Base — " : "Insert — ";
 
+  const slabSetName = c
+    ? [c.productYear, c.productBrand, setLabel].filter(Boolean).join(" ")
+    : "";
+
   const frontUrl = useMemo(() => safeUrl(c?.frontImageUrl), [c?.frontImageUrl]);
   const backUrl = useMemo(() => safeUrl(c?.backImageUrl), [c?.backImageUrl]);
 
-  // If the user selects Back but there is no back image, snap back to Front.
+  const firstOwner = data?.owners?.[0] ?? null;
+  const firstOwnerBreakdown = useMemo(() => normalizeBreakdown(firstOwner), [firstOwner]);
+  const firstOwnerSlabs = useMemo(() => normalizeSlabs(firstOwner), [firstOwner]);
+
   useEffect(() => {
     if (side === "back" && !backUrl) setSide("front");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [backUrl]);
+
+  useEffect(() => {
+    setSelectedSlabIndex((prev) => {
+      if (firstOwnerSlabs.length === 0) return 0;
+      return Math.max(0, Math.min(prev, firstOwnerSlabs.length - 1));
+    });
+
+    if (firstOwnerSlabs.length === 0 && viewMode === "slab") {
+      setViewMode("card");
+    }
+  }, [firstOwnerSlabs.length, viewMode]);
 
   const showFront = side === "front";
   const activeUrl = showFront ? frontUrl : backUrl;
   const activeErrored = showFront ? imgErrorFront : imgErrorBack;
 
   const hasAnyImage = Boolean(frontUrl || backUrl);
+  const selectedSlab = firstOwnerSlabs[selectedSlabIndex] ?? firstOwnerSlabs[0] ?? null;
 
   return (
     <div style={{ fontFamily: "system-ui", padding: 16 }}>
@@ -159,9 +303,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
         <div>No data.</div>
       ) : (
         <>
-          {/* Top row: Card info + Image + Population */}
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-            {/* Left: Card identity */}
             <div style={{ flex: "1 1 340px", minWidth: 320 }}>
               <div style={{ fontSize: 22, fontWeight: 1000 }}>{c.player}</div>
               <div style={{ marginTop: 6, fontWeight: 800 }}>
@@ -182,54 +324,182 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                   {c.variant ?? "—"}
                 </div>
                 <div>
-                  <span style={{ fontWeight: 900 }}>Book value:</span> $
-                  {Number(c.bookValue ?? 0).toFixed(2)}
+                  <span style={{ fontWeight: 900 }}>Book value:</span> {formatBookValue(c.bookValue)}
+                </div>
+                <div>
+                  <span style={{ fontWeight: 900 }}>Gradeability:</span>{" "}
+                  {c.gradeabilityLabel ?? c.gradeability ?? "Common"}
                 </div>
               </div>
+
+              {firstOwner ? (
+                <div
+                  style={{
+                    marginTop: 14,
+                    border: "1px solid #ddd",
+                    borderRadius: 14,
+                    padding: 12,
+                    background: "#fff",
+                  }}
+                >
+                  <div style={{ fontWeight: 1000, marginBottom: 8 }}>Your Ownership</div>
+
+                  <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 10 }}>
+                    <div>
+                      <div style={{ fontSize: 12, color: "#666", fontWeight: 800 }}>Raw</div>
+                      <div style={{ fontSize: 20, fontWeight: 1000 }}>
+                        {safeNum(firstOwner.rawQuantity)}
+                      </div>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: 12, color: "#666", fontWeight: 800 }}>Pending VCS</div>
+                      <div style={{ fontSize: 20, fontWeight: 1000 }}>
+                        {safeNum(firstOwner.pendingGradingQuantity)}
+                      </div>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: 12, color: "#666", fontWeight: 800 }}>Graded</div>
+                      <div style={{ fontSize: 20, fontWeight: 1000 }}>
+                        {safeNum(firstOwner.gradedQuantity)}
+                      </div>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: 12, color: "#666", fontWeight: 800 }}>Total</div>
+                      <div style={{ fontSize: 20, fontWeight: 1000 }}>
+                        {safeNum(firstOwner.totalQuantity, firstOwner.quantity)}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                    {firstOwnerBreakdown.map((row) => (
+                      <GradePill key={row.grade} row={row} />
+                    ))}
+                    <PendingPill quantity={safeNum(firstOwner.pendingGradingQuantity)} />
+                  </div>
+
+                  <div style={{ marginTop: 8, color: "#16477d", fontWeight: 950, fontSize: 13 }}>
+                    Total value including pending:{" "}
+                    {formatDollarsFromCents(safeNum(firstOwner.totalValueCents))}
+                  </div>
+                </div>
+              ) : null}
             </div>
 
-            {/* Middle: Images */}
-            <div style={{ flex: "1 1 360px", minWidth: 320 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-                <div style={{ fontSize: 18, fontWeight: 1000 }}>Card images</div>
+            <div style={{ flex: "1 1 390px", minWidth: 320 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10, flexWrap: "wrap" }}>
+                <div style={{ fontSize: 18, fontWeight: 1000 }}>
+                  {viewMode === "slab" ? "VCS slab" : "Card images"}
+                </div>
 
-                {hasAnyImage ? (
-                  <div style={{ display: "flex", gap: 6, marginLeft: "auto" }}>
-                    <button
-                      onClick={() => setSide("front")}
-                      disabled={!frontUrl}
-                      style={{
-                        padding: "6px 10px",
-                        borderRadius: 10,
-                        border: "1px solid #ddd",
-                        fontWeight: 900,
-                        opacity: !frontUrl ? 0.5 : 1,
-                        background: side === "front" ? "#eef6ff" : "#fff",
-                      }}
-                      title={!frontUrl ? "No front image available" : "Front"}
-                    >
-                      Front
-                    </button>
-                    <button
-                      onClick={() => setSide("back")}
-                      disabled={!backUrl}
-                      style={{
-                        padding: "6px 10px",
-                        borderRadius: 10,
-                        border: "1px solid #ddd",
-                        fontWeight: 900,
-                        opacity: !backUrl ? 0.5 : 1,
-                        background: side === "back" ? "#eef6ff" : "#fff",
-                      }}
-                      title={!backUrl ? "No back image available" : "Back"}
-                    >
-                      Back
-                    </button>
-                  </div>
-                ) : null}
+                <div style={{ display: "flex", gap: 6, marginLeft: "auto", flexWrap: "wrap" }}>
+                  <button
+                    onClick={() => setViewMode("card")}
+                    style={{
+                      padding: "6px 10px",
+                      borderRadius: 10,
+                      border: "1px solid #ddd",
+                      fontWeight: 900,
+                      background: viewMode === "card" ? "#eef6ff" : "#fff",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Card
+                  </button>
+
+                  <button
+                    onClick={() => setViewMode("slab")}
+                    disabled={firstOwnerSlabs.length === 0}
+                    style={{
+                      padding: "6px 10px",
+                      borderRadius: 10,
+                      border: "1px solid #ddd",
+                      fontWeight: 900,
+                      opacity: firstOwnerSlabs.length === 0 ? 0.5 : 1,
+                      background: viewMode === "slab" ? "#eef6ff" : "#fff",
+                      cursor: firstOwnerSlabs.length === 0 ? "not-allowed" : "pointer",
+                    }}
+                    title={firstOwnerSlabs.length === 0 ? "No revealed graded copies yet" : "View VCS slab"}
+                  >
+                    Slab
+                  </button>
+
+                  {viewMode === "card" && hasAnyImage ? (
+                    <>
+                      <button
+                        onClick={() => setSide("front")}
+                        disabled={!frontUrl}
+                        style={{
+                          padding: "6px 10px",
+                          borderRadius: 10,
+                          border: "1px solid #ddd",
+                          fontWeight: 900,
+                          opacity: !frontUrl ? 0.5 : 1,
+                          background: side === "front" ? "#eef6ff" : "#fff",
+                          cursor: !frontUrl ? "not-allowed" : "pointer",
+                        }}
+                        title={!frontUrl ? "No front image available" : "Front"}
+                      >
+                        Front
+                      </button>
+                      <button
+                        onClick={() => setSide("back")}
+                        disabled={!backUrl}
+                        style={{
+                          padding: "6px 10px",
+                          borderRadius: 10,
+                          border: "1px solid #ddd",
+                          fontWeight: 900,
+                          opacity: !backUrl ? 0.5 : 1,
+                          background: side === "back" ? "#eef6ff" : "#fff",
+                          cursor: !backUrl ? "not-allowed" : "pointer",
+                        }}
+                        title={!backUrl ? "No back image available" : "Back"}
+                      >
+                        Back
+                      </button>
+                    </>
+                  ) : null}
+                </div>
               </div>
 
-              {!hasAnyImage ? (
+              {viewMode === "slab" && selectedSlab ? (
+                <div style={{ display: "grid", gap: 10, justifyItems: "center" }}>
+                  {firstOwnerSlabs.length > 1 ? (
+                    <select
+                      value={selectedSlabIndex}
+                      onChange={(e) => setSelectedSlabIndex(Number(e.target.value))}
+                      style={{
+                        width: "100%",
+                        maxWidth: 390,
+                        padding: "8px 10px",
+                        border: "1px solid #ddd",
+                        borderRadius: 10,
+                        fontWeight: 900,
+                      }}
+                    >
+                      {firstOwnerSlabs.map((slab, idx) => (
+                        <option key={`${slab.grade}-${idx}`} value={idx}>
+                          {slab.label} ×{slab.quantity}
+                        </option>
+                      ))}
+                    </select>
+                  ) : null}
+
+                  <VcsSlab
+                    player={c.player}
+                    cardNumber={c.cardNumber}
+                    setName={slabSetName}
+                    team={c.team}
+                    grade={selectedSlab.grade}
+                    gradeability={c.gradeability}
+                    gradeabilityLabel={c.gradeabilityLabel}
+                    valueCents={selectedSlab.valueCents}
+                    quantity={selectedSlab.quantity}
+                    imageUrl={frontUrl}
+                  />
+                </div>
+              ) : !hasAnyImage ? (
                 <div
                   style={{
                     border: "1px dashed #ccc",
@@ -297,21 +567,37 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
               )}
             </div>
 
-            {/* Right: Population */}
             <div style={{ flex: "1 1 340px", minWidth: 320 }}>
               <div style={{ fontSize: 18, fontWeight: 1000, marginBottom: 10 }}>
                 Population report
               </div>
 
               <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-                <div style={{ padding: 12, border: "1px solid #ddd", borderRadius: 12, minWidth: 160 }}>
+                <div style={{ padding: 12, border: "1px solid #ddd", borderRadius: 12, minWidth: 150 }}>
                   <div style={{ color: "#666", fontWeight: 800 }}>Unique owners</div>
                   <div style={{ fontSize: 22, fontWeight: 1000 }}>{data.population.uniqueOwners}</div>
                 </div>
 
-                <div style={{ padding: 12, border: "1px solid #ddd", borderRadius: 12, minWidth: 160 }}>
+                <div style={{ padding: 12, border: "1px solid #ddd", borderRadius: 12, minWidth: 150 }}>
                   <div style={{ color: "#666", fontWeight: 800 }}>Total owned</div>
                   <div style={{ fontSize: 22, fontWeight: 1000 }}>{data.population.totalOwned}</div>
+                </div>
+
+                <div style={{ padding: 12, border: "1px solid #ddd", borderRadius: 12, minWidth: 150 }}>
+                  <div style={{ color: "#666", fontWeight: 800 }}>Incl. pending</div>
+                  <div style={{ fontSize: 22, fontWeight: 1000 }}>
+                    {safeNum(data.population.totalOwnedIncludingPending, data.population.totalOwned)}
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ marginTop: 12, display: "grid", gap: 5, color: "#444", fontWeight: 800 }}>
+                <div>Raw: {safeNum(data.population.raw)}</div>
+                <div>Pending VCS: {safeNum(data.population.pendingGrading)}</div>
+                <div>Graded: {safeNum(data.population.graded)}</div>
+                <div>
+                  Total value incl. pending:{" "}
+                  {formatDollarsFromCents(safeNum(data.population.totalValueCents))}
                 </div>
               </div>
             </div>
@@ -325,10 +611,10 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
             <div style={{ color: "#666" }}>No one owns this yet.</div>
           ) : (
             <div style={{ overflowX: "auto", border: "1px solid #ddd" }}>
-              <table style={{ width: "100%", borderCollapse: "collapse" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 920 }}>
                 <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
                   <tr>
-                    {["User", "Email", "Qty"].map((h) => (
+                    {["User", "Email", "Raw", "Pending", "Graded", "Total", "Breakdown", "Value"].map((h) => (
                       <th
                         key={h}
                         style={{
@@ -354,7 +640,27 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                       </td>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{o.email ?? "—"}</td>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                        {o.quantity}
+                        {safeNum(o.rawQuantity)}
+                      </td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                        {safeNum(o.pendingGradingQuantity)}
+                      </td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                        {safeNum(o.gradedQuantity)}
+                      </td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                        {safeNum(o.totalQuantity, o.quantity)}
+                      </td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
+                        <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                          {normalizeBreakdown(o).map((row) => (
+                            <GradePill key={row.grade} row={row} />
+                          ))}
+                          <PendingPill quantity={safeNum(o.pendingGradingQuantity)} />
+                        </div>
+                      </td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                        {formatDollarsFromCents(safeNum(o.totalValueCents))}
                       </td>
                     </tr>
                   ))}

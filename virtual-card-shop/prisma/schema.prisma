@@ -17,20 +17,18 @@ enum PlayerTier {
   STAR_3
 }
 
-enum GradingProfile {
-  COMMON_BASE
-  STAR_BASE
-  KEY_ROOKIE
-  ICONIC_ROOKIE
-  MODERN_INSERT
-  RARE_MODERN_PARALLEL
-  VINTAGE_STAR
+enum Gradeability {
+  COMMON
+  GREAT
+  ICONIC
 }
 
 enum GradingOrderStatus {
   PENDING
-  COMPLETED
+  READY
+  REVEALED
   CANCELLED
+  COMPLETED
 }
 
 model Set {
@@ -85,6 +83,7 @@ model ProductSet {
   star1Price              Float?
   star2Price              Float?
   star3Price              Float?
+  defaultGradeability     Gradeability         @default(COMMON)
   createdAt               DateTime             @default(now())
   updatedAt               DateTime             @updatedAt
   cards                   Card[]
@@ -92,28 +91,24 @@ model ProductSet {
   prestiges               ProductSetPrestige[]
 
   @@index([productId])
+  @@index([defaultGradeability])
 }
 
 model Card {
-  id               Int               @id @default(autoincrement())
-  setId            String
-  productSetId     String?
-  cardNumber       String
-  player           String
-  team             String?
-  position         String?
-  subset           String?
-  variant          String?
-  bookValue        Float             @default(0)
-  quantityOwned    Int               @default(0)
-  frontImageUrl    String?
-  backImageUrl     String?
-
-  // VCS grading configuration.
-  // gradingProfile controls how valuable grades are for this card type.
-  // gradingPotential is a future tuning knob from 0-100. It can stay 0 for now.
-  gradingProfile   GradingProfile    @default(COMMON_BASE)
-  gradingPotential Int               @default(0)
+  id                   Int               @id @default(autoincrement())
+  setId                String
+  productSetId         String?
+  cardNumber           String
+  player               String
+  team                 String?
+  position             String?
+  subset               String?
+  variant              String?
+  bookValue            Float             @default(0)
+  quantityOwned        Int               @default(0)
+  frontImageUrl        String?
+  backImageUrl         String?
+  gradeabilityOverride Gradeability?
 
   productSet       ProductSet?       @relation(fields: [productSetId], references: [id])
   set              Set               @relation(fields: [setId], references: [id])
@@ -129,8 +124,7 @@ model Card {
   @@index([setId])
   @@index([player])
   @@index([productSetId])
-  @@index([gradingProfile])
-  @@index([gradingPotential])
+  @@index([gradeabilityOverride])
 }
 
 model PlayerTierProfile {
@@ -208,7 +202,6 @@ model CardOwnership {
   // VCS grading buckets:
   // grade = 0 means raw/ungraded.
   // grade = 6-10 means VCS graded.
-  // Example: user/card/grade 0 qty 8 + user/card/grade 9 qty 1 + user/card/grade 10 qty 1.
   grade    Int    @default(0)
   gradedAt DateTime?
 
@@ -227,8 +220,11 @@ model GradingOrder {
   cardId       Int
   quantity     Int
   feePaidCents Int
+  resultGrade  Int?
   status       GradingOrderStatus @default(PENDING)
   createdAt    DateTime           @default(now())
+  readyAt      DateTime?
+  revealedAt   DateTime?
   completedAt  DateTime?
 
   user    User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -236,6 +232,7 @@ model GradingOrder {
   results GradingOrderResult[]
 
   @@index([userId, status])
+  @@index([userId, readyAt])
   @@index([cardId])
   @@index([createdAt])
 }

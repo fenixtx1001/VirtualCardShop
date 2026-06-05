@@ -21,11 +21,17 @@ type CardApiRow = {
   subset: string | null;
   variant: string | null;
   isInsert: boolean;
+
+  // Total includes raw + revealed graded + pending grading.
   quantity: number;
+
   rawQuantity: number;
   gradedQuantity: number;
+  pendingGradingQuantity: number;
+
   highestGrade: number | null;
   gradeBreakdown: GradeBreakdownRow[];
+
   bookValue: number | null;
   frontImageUrl: string | null;
   backImageUrl: string | null;
@@ -46,6 +52,12 @@ function gradeLabel(grade: number) {
 function gradeSortValue(grade: number) {
   if (grade === 0) return -1;
   return grade;
+}
+
+function safeQty(value: unknown) {
+  const n = typeof value === "number" && Number.isFinite(value) ? value : Number(value ?? 0);
+  if (!Number.isFinite(n) || n <= 0) return 0;
+  return Math.floor(n);
 }
 
 export const runtime = "nodejs";
@@ -117,59 +129,116 @@ export async function GET(req: Request, ctx: Ctx) {
       },
     });
 
+    const pendingOrders = await prisma.gradingOrder.findMany({
+      where: {
+        userId: user.id,
+        quantity: { gt: 0 },
+        status: {
+          in: ["PENDING", "READY"],
+        },
+        card: {
+          productSetId: selected.id,
+        },
+      },
+      select: {
+        quantity: true,
+        card: {
+          select: {
+            id: true,
+            cardNumber: true,
+            player: true,
+            team: true,
+            subset: true,
+            variant: true,
+            bookValue: true,
+            productSetId: true,
+            frontImageUrl: true,
+            backImageUrl: true,
+          },
+        },
+      },
+    });
+
     const byCardId = new Map<number, CardApiRow>();
 
+    function getOrCreateCardRow(input: {
+      card: {
+        id: number;
+        cardNumber: string;
+        player: string;
+        team: string | null;
+        subset: string | null;
+        variant: string | null;
+        bookValue: number | null;
+        frontImageUrl: string | null;
+        backImageUrl: string | null;
+      };
+    }) {
+      const existing = byCardId.get(input.card.id);
+      if (existing) return existing;
+
+      const created: CardApiRow = {
+        cardId: input.card.id,
+        cardNumber: input.card.cardNumber,
+        player: input.card.player,
+        team: input.card.team,
+        subset: input.card.subset,
+        variant: input.card.variant,
+        isInsert: !selected.isBase,
+
+        quantity: 0,
+        rawQuantity: 0,
+        gradedQuantity: 0,
+        pendingGradingQuantity: 0,
+
+        highestGrade: null,
+        gradeBreakdown: [],
+
+        bookValue: input.card.bookValue ?? null,
+        frontImageUrl: input.card.frontImageUrl ?? null,
+        backImageUrl: input.card.backImageUrl ?? null,
+      };
+
+      byCardId.set(input.card.id, created);
+      return created;
+    }
+
     for (const o of owned) {
-      const qty = typeof o.quantity === "number" && Number.isFinite(o.quantity) ? o.quantity : 0;
+      const qty = safeQty(o.quantity);
       const grade = typeof o.grade === "number" && Number.isFinite(o.grade) ? o.grade : 0;
       if (qty <= 0) continue;
 
-      const existing = byCardId.get(o.card.id);
+      const row = getOrCreateCardRow({ card: o.card });
 
-      if (!existing) {
-        byCardId.set(o.card.id, {
-          cardId: o.card.id,
-          cardNumber: o.card.cardNumber,
-          player: o.card.player,
-          team: o.card.team,
-          subset: o.card.subset,
-          variant: o.card.variant,
-          isInsert: !selected.isBase,
-          quantity: qty,
-          rawQuantity: grade === 0 ? qty : 0,
-          gradedQuantity: grade > 0 ? qty : 0,
-          highestGrade: grade > 0 ? grade : null,
-          gradeBreakdown: [
-            {
-              grade,
-              label: gradeLabel(grade),
-              quantity: qty,
-            },
-          ],
-          bookValue: o.card.bookValue ?? null,
-          frontImageUrl: o.card.frontImageUrl ?? null,
-          backImageUrl: o.card.backImageUrl ?? null,
-        });
-        continue;
-      }
+      row.quantity += qty;
 
-      existing.quantity += qty;
-      if (grade === 0) existing.rawQuantity += qty;
+      if (grade === 0) row.rawQuantity += qty;
+
       if (grade > 0) {
-        existing.gradedQuantity += qty;
-        existing.highestGrade = Math.max(existing.highestGrade ?? grade, grade);
+        row.gradedQuantity += qty;
+        row.highestGrade = Math.max(row.highestGrade ?? grade, grade);
       }
 
-      const existingGrade = existing.gradeBreakdown.find((g) => g.grade === grade);
+      const existingGrade = row.gradeBreakdown.find((g) => g.grade === grade);
       if (existingGrade) {
         existingGrade.quantity += qty;
       } else {
-        existing.gradeBreakdown.push({
+        row.gradeBreakdown.push({
           grade,
           label: gradeLabel(grade),
           quantity: qty,
         });
       }
+    }
+
+    for (const order of pendingOrders) {
+      const qty = safeQty(order.quantity);
+      if (qty <= 0) continue;
+
+      const row = getOrCreateCardRow({ card: order.card });
+
+      row.quantity += qty;
+      row.pendingGradingQuantity += qty;
     }
 
     const cards = Array.from(byCardId.values()).map((c) => ({
@@ -181,6 +250,7 @@ export async function GET(req: Request, ctx: Ctx) {
     const totalQty = cards.reduce((sum, c) => sum + (c.quantity ?? 0), 0);
     const totalRawQty = cards.reduce((sum, c) => sum + (c.rawQuantity ?? 0), 0);
     const totalGradedQty = cards.reduce((sum, c) => sum + (c.gradedQuantity ?? 0), 0);
+    const totalPendingGradingQty = cards.reduce((sum, c) => sum + (c.pendingGradingQuantity ?? 0), 0);
     const percentComplete = totalCards > 0 ? (uniqueOwned / totalCards) * 100 : 0;
 
     return NextResponse.json({
@@ -192,9 +262,13 @@ export async function GET(req: Request, ctx: Ctx) {
       uniqueOwned,
       totalCards,
       percentComplete,
+
+      // Total includes pending grading so cards do not temporarily disappear.
       totalQty,
+
       totalRawQty,
       totalGradedQty,
+      totalPendingGradingQty,
       cards,
     });
   } catch (e: any) {

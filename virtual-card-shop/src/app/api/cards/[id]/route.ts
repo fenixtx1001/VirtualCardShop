@@ -1,4 +1,5 @@
 // src/app/api/cards/[id]/route.ts
+import { Gradeability } from "@prisma/client";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { ensurePlayerTierProfile } from "@/lib/player-tiers";
@@ -25,6 +26,18 @@ function strOrNull(v: any) {
   if (v === null || v === undefined) return null;
   const s = String(v).trim();
   return s.length ? s : null;
+}
+
+function gradeabilityOrNull(v: any): Gradeability | null | undefined {
+  if (v === undefined) return undefined;
+  if (v === null || v === "") return null;
+
+  const s = String(v).trim().toUpperCase();
+  if (s === "COMMON") return Gradeability.COMMON;
+  if (s === "GREAT") return Gradeability.GREAT;
+  if (s === "ICONIC") return Gradeability.ICONIC;
+
+  return undefined;
 }
 
 async function saveCard(req: Request, ctx: Ctx) {
@@ -66,11 +79,13 @@ async function saveCard(req: Request, ctx: Ctx) {
       typeof body.frontImageUrl === "string"
         ? body.frontImageUrl
         : typeof body.imageUrl === "string"
-        ? body.imageUrl
-        : null;
+          ? body.imageUrl
+          : null;
 
     const backImageUrl =
       typeof body.backImageUrl === "string" ? body.backImageUrl : null;
+
+    const gradeabilityOverride = gradeabilityOrNull(body.gradeabilityOverride);
 
     const updated = await prisma.card.update({
       where: { id },
@@ -85,6 +100,7 @@ async function saveCard(req: Request, ctx: Ctx) {
         bookValue: numOrNull(body.bookValue) ?? undefined,
         frontImageUrl,
         backImageUrl,
+        gradeabilityOverride,
       },
       select: {
         id: true,
@@ -100,6 +116,7 @@ async function saveCard(req: Request, ctx: Ctx) {
         quantityOwned: true,
         frontImageUrl: true,
         backImageUrl: true,
+        gradeabilityOverride: true,
       },
     });
 

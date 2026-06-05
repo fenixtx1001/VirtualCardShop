@@ -2,6 +2,14 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import {
+  RAW_GRADE,
+  bookValueToCents,
+  calculateGradedValueCents,
+  getEffectiveGradeability,
+  labelGradeability,
+  labelVcsGrade,
+} from "@/lib/grading";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -9,6 +17,29 @@ export const dynamic = "force-dynamic";
 type Ctx =
   | { params: { id?: string } }
   | { params: Promise<{ id?: string }> };
+
+type OwnershipBucket = {
+  grade: number;
+  label: string;
+  quantity: number;
+  valueCents: number;
+};
+
+type OwnerAccumulator = {
+  userId: string;
+  rawQuantity: number;
+  gradedQuantity: number;
+  pendingGradingQuantity: number;
+  totalQuantity: number;
+  totalValueCents: number;
+  gradeBreakdown: OwnershipBucket[];
+  slabs: {
+    grade: number;
+    label: string;
+    quantity: number;
+    valueCents: number;
+  }[];
+};
 
 async function getCardId(ctx: Ctx) {
   const p: any = (ctx as any).params;
@@ -22,9 +53,35 @@ async function getCardId(ctx: Ctx) {
   return n;
 }
 
+function makeBucket(input: {
+  grade: number;
+  quantity: number;
+  rawBookValueCents: number;
+  gradeability: ReturnType<typeof getEffectiveGradeability>;
+}): OwnershipBucket {
+  const valueCents =
+    input.grade === RAW_GRADE
+      ? input.rawBookValueCents
+      : calculateGradedValueCents({
+          rawBookValueCents: input.rawBookValueCents,
+          gradeability: input.gradeability,
+          grade: input.grade,
+        });
+
+  return {
+    grade: input.grade,
+    label: labelVcsGrade(input.grade),
+    quantity: input.quantity,
+    valueCents,
+  };
+}
+
+function getGradeSortValue(grade: number) {
+  return grade === RAW_GRADE ? -1 : grade;
+}
+
 export async function GET(req: Request, ctx: Ctx) {
   try {
-    // ✅ require login (consistent with rest of app)
     await requireUser();
 
     const cardId = await getCardId(ctx);
@@ -44,6 +101,7 @@ export async function GET(req: Request, ctx: Ctx) {
         bookValue: true,
         frontImageUrl: true,
         backImageUrl: true,
+        gradeabilityOverride: true,
         set: {
           select: {
             id: true,
@@ -57,6 +115,7 @@ export async function GET(req: Request, ctx: Ctx) {
             id: true,
             name: true,
             isBase: true,
+            defaultGradeability: true,
             product: {
               select: {
                 id: true,
@@ -74,18 +133,109 @@ export async function GET(req: Request, ctx: Ctx) {
       return NextResponse.json({ ok: false, error: `Card not found: ${cardId}` }, { status: 404 });
     }
 
-    // ✅ Use groupBy to avoid Prisma "distinct" count issues
-    const groups = await prisma.cardOwnership.groupBy({
-      by: ["userId"],
+    const gradeability = getEffectiveGradeability({
+      cardOverride: card.gradeabilityOverride,
+      productSetDefault: card.productSet?.defaultGradeability,
+    });
+
+    const rawBookValueCents = bookValueToCents(card.bookValue);
+
+    const ownershipRows = await prisma.cardOwnership.findMany({
       where: {
         cardId,
         quantity: { gt: 0 },
       },
-      _sum: { quantity: true },
-      orderBy: { _sum: { quantity: "desc" } },
+      orderBy: [{ userId: "asc" }, { grade: "asc" }],
+      select: {
+        userId: true,
+        grade: true,
+        quantity: true,
+      },
     });
 
-    const ownerUserIds = groups.map((g) => g.userId);
+    const pendingOrders = await prisma.gradingOrder.findMany({
+      where: {
+        cardId,
+        quantity: { gt: 0 },
+        status: {
+          in: ["PENDING", "READY"],
+        },
+      },
+      select: {
+        userId: true,
+        quantity: true,
+        status: true,
+        readyAt: true,
+      },
+    });
+
+    const byUser = new Map<string, OwnerAccumulator>();
+
+    function getOwner(userId: string): OwnerAccumulator {
+      const existing = byUser.get(userId);
+      if (existing) return existing;
+
+      const created: OwnerAccumulator = {
+        userId,
+        rawQuantity: 0,
+        gradedQuantity: 0,
+        pendingGradingQuantity: 0,
+        totalQuantity: 0,
+        totalValueCents: 0,
+        gradeBreakdown: [],
+        slabs: [],
+      };
+
+      byUser.set(userId, created);
+      return created;
+    }
+
+    for (const row of ownershipRows) {
+      const owner = getOwner(row.userId);
+      const grade = row.grade ?? RAW_GRADE;
+      const quantity = row.quantity ?? 0;
+
+      if (quantity <= 0) continue;
+
+      const bucket = makeBucket({
+        grade,
+        quantity,
+        rawBookValueCents,
+        gradeability,
+      });
+
+      owner.gradeBreakdown.push(bucket);
+      owner.totalQuantity += quantity;
+      owner.totalValueCents += bucket.valueCents * quantity;
+
+      if (grade === RAW_GRADE) {
+        owner.rawQuantity += quantity;
+      } else {
+        owner.gradedQuantity += quantity;
+        owner.slabs.push({
+          grade,
+          label: bucket.label,
+          quantity,
+          valueCents: bucket.valueCents,
+        });
+      }
+    }
+
+    for (const order of pendingOrders) {
+      const owner = getOwner(order.userId);
+      const quantity = order.quantity ?? 0;
+
+      if (quantity <= 0) continue;
+
+      owner.pendingGradingQuantity += quantity;
+      owner.totalQuantity += quantity;
+
+      // Pending grades stay valued as raw so hidden grades are not leaked
+      // and collection value does not drop while cards are out for grading.
+      owner.totalValueCents += rawBookValueCents * quantity;
+    }
+
+    const ownerUserIds = Array.from(byUser.keys());
 
     const users = ownerUserIds.length
       ? await prisma.user.findMany({
@@ -97,19 +247,46 @@ export async function GET(req: Request, ctx: Ctx) {
     const userById = new Map<string, (typeof users)[number]>();
     for (const u of users) userById.set(u.id, u);
 
-    const owners = groups.map((g) => {
-      const u = userById.get(g.userId);
-      return {
-        userId: g.userId,
-        name: u?.name ?? null,
-        email: u?.email ?? null,
-        image: u?.image ?? null,
-        quantity: Number(g._sum.quantity ?? 0),
-      };
-    });
+    const owners = Array.from(byUser.values())
+      .map((owner) => {
+        const u = userById.get(owner.userId);
+
+        const sortedBreakdown = [...owner.gradeBreakdown].sort((a, b) => {
+          return getGradeSortValue(a.grade) - getGradeSortValue(b.grade);
+        });
+
+        const sortedSlabs = [...owner.slabs].sort((a, b) => b.grade - a.grade);
+
+        return {
+          userId: owner.userId,
+          name: u?.name ?? null,
+          email: u?.email ?? null,
+          image: u?.image ?? null,
+
+          // Backward-compatible total qty field.
+          quantity: owner.totalQuantity,
+
+          rawQuantity: owner.rawQuantity,
+          gradedQuantity: owner.gradedQuantity,
+          pendingGradingQuantity: owner.pendingGradingQuantity,
+          totalQuantity: owner.totalQuantity,
+          totalValueCents: owner.totalValueCents,
+          gradeBreakdown: sortedBreakdown,
+          slabs: sortedSlabs,
+        };
+      })
+      .sort((a, b) => {
+        if (b.totalQuantity !== a.totalQuantity) return b.totalQuantity - a.totalQuantity;
+        return (a.name ?? a.email ?? a.userId).localeCompare(b.name ?? b.email ?? b.userId);
+      });
 
     const uniqueOwners = owners.length;
-    const totalOwned = owners.reduce((sum, o) => sum + (o.quantity ?? 0), 0);
+    const totalOwnedIncludingPending = owners.reduce((sum, o) => sum + o.totalQuantity, 0);
+    const totalOwned = owners.reduce((sum, o) => sum + o.rawQuantity + o.gradedQuantity, 0);
+    const totalRaw = owners.reduce((sum, o) => sum + o.rawQuantity, 0);
+    const totalGraded = owners.reduce((sum, o) => sum + o.gradedQuantity, 0);
+    const totalPendingGrading = owners.reduce((sum, o) => sum + o.pendingGradingQuantity, 0);
+    const totalValueCents = owners.reduce((sum, o) => sum + o.totalValueCents, 0);
 
     return NextResponse.json({
       ok: true,
@@ -121,6 +298,9 @@ export async function GET(req: Request, ctx: Ctx) {
         subset: card.subset ?? null,
         variant: card.variant ?? null,
         bookValue: Number(card.bookValue ?? 0),
+
+        gradeability,
+        gradeabilityLabel: labelGradeability(gradeability),
 
         productId: card.productSet?.product?.id ?? null,
         productYear: card.productSet?.product?.year ?? card.set.year ?? null,
@@ -136,7 +316,17 @@ export async function GET(req: Request, ctx: Ctx) {
       },
       population: {
         uniqueOwners,
+
+        // Existing meaning: currently held raw + revealed graded.
         totalOwned,
+
+        // New complete meaning: raw + revealed graded + pending grading.
+        totalOwnedIncludingPending,
+
+        raw: totalRaw,
+        graded: totalGraded,
+        pendingGrading: totalPendingGrading,
+        totalValueCents,
       },
       owners,
     });

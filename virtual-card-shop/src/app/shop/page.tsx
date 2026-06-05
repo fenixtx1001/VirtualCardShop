@@ -1,17 +1,6 @@
 // src/app/shop/page.tsx
 "use client";
 
-function formatProductName(productId: string) {
-  const s = String(productId || "").trim();
-  if (!s) return "—";
-  return s
-    .replace(/_/g, " ")
-    .replace(/\bBase\b/gi, "")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-
 import type { CSSProperties } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { YourCardsPicker } from "./your-cards-picker";
@@ -100,6 +89,15 @@ type ShopInventoryRow = {
   updatedAt?: string;
   youOwnQty: number;
   card: ShopInventoryCard;
+};
+
+type OfferSellBucket = {
+  grade: number;
+  gradeLabel: string;
+  qtyOwned: number;
+  perCardValueCents: number;
+  rawBookValueCents: number;
+  totalBucketValueCents: number;
 };
 
 function centsToDollars(cents: number | null | undefined) {
@@ -856,6 +854,9 @@ function SinglesShopTab() {
   const [requesting, setRequesting] = useState(false);
 
   const [sellQty, setSellQty] = useState<Record<number, number>>({});
+  const [sellGrade, setSellGrade] = useState<Record<number, number>>({});
+  const [sellBuckets, setSellBuckets] = useState<Record<number, OfferSellBucket[]>>({});
+  const [bucketLoading, setBucketLoading] = useState<Record<number, boolean>>({});
   const [sellingOfferId, setSellingOfferId] = useState<number | null>(null);
 
   const [invRows, setInvRows] = useState<ShopInventoryRow[]>([]);
@@ -925,6 +926,15 @@ function SinglesShopTab() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    for (const offer of offers) {
+      if (!sellBuckets[offer.id] && !bucketLoading[offer.id]) {
+        loadSellBucketsForOffer(offer);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [offers]);
+
   async function requestOffer() {
     const cardId = Number(requestCardId);
     if (!Number.isFinite(cardId) || cardId <= 0) {
@@ -963,8 +973,49 @@ function SinglesShopTab() {
     }
   }
 
+  async function loadSellBucketsForOffer(o: ShopOfferRow) {
+    setBucketLoading((prev) => ({ ...prev, [o.id]: true }));
+
+    try {
+      const res = await fetch(`/api/shop/my-cards/${o.cardId}`, { cache: "no-store" });
+      const j = await res.json().catch(() => null);
+      if (!res.ok || j?.ok !== true) throw new Error(j?.error ?? "Failed to load sell buckets.");
+
+      const rows = Array.isArray(j.rows) ? j.rows : [];
+      const buckets: OfferSellBucket[] = rows
+        .map((r: any) => ({
+          grade: typeof r.grade === "number" ? r.grade : 0,
+          gradeLabel: String(r.gradeLabel ?? (Number(r.grade) === 0 ? "Raw" : `VCS ${r.grade}`)),
+          qtyOwned: Math.max(0, Math.floor(Number(r.qtyOwned ?? 0))),
+          perCardValueCents: Math.max(0, Math.floor(Number(r.perCardValueCents ?? 0))),
+          rawBookValueCents: Math.max(0, Math.floor(Number(r.rawBookValueCents ?? 0))),
+          totalBucketValueCents: Math.max(0, Math.floor(Number(r.totalBucketValueCents ?? 0))),
+        }))
+        .filter((b: OfferSellBucket) => b.qtyOwned > 0)
+        .sort((a: OfferSellBucket, b: OfferSellBucket) => a.grade - b.grade);
+
+      setSellBuckets((prev) => ({ ...prev, [o.id]: buckets }));
+
+      setSellGrade((prev) => {
+        const current = prev[o.id];
+        if (typeof current === "number" && buckets.some((b) => b.grade === current)) return prev;
+        const raw = buckets.find((b) => b.grade === 0);
+        const first = raw ?? buckets[0];
+        if (!first) return prev;
+        return { ...prev, [o.id]: first.grade };
+      });
+    } catch (e: any) {
+      setOffersErr(e?.message ?? "Failed to load sell buckets.");
+      setSellBuckets((prev) => ({ ...prev, [o.id]: [] }));
+    } finally {
+      setBucketLoading((prev) => ({ ...prev, [o.id]: false }));
+    }
+  }
+
   async function sellOffer(offerId: number) {
     const q = Math.max(1, Math.floor(sellQty[offerId] ?? 1));
+    const grade = typeof sellGrade[offerId] === "number" ? sellGrade[offerId] : 0;
+
     setSellingOfferId(offerId);
     setOffersErr(null);
     setOffersMsg(null);
@@ -973,7 +1024,7 @@ function SinglesShopTab() {
       const res = await fetch("/api/shop/singles/sell", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ offerId, quantity: q }),
+        body: JSON.stringify({ offerId, quantity: q, grade }),
       });
 
       const raw = await res.text();
@@ -986,8 +1037,20 @@ function SinglesShopTab() {
 
       if (!res.ok) throw new Error(j?.error ?? `Sell failed (${res.status})`);
 
-      setOffersMsg(`Sold x${j.quantity} for $${centsToDollars(j.totalCents)} @ ${pctBpsToText(j.offerBps)}.`);
+      setOffersMsg(
+        `Sold ${j.gradeLabel ?? (grade === 0 ? "Raw" : `VCS ${grade}`)} x${j.quantity} for $${centsToDollars(
+          j.totalCents
+        )} @ ${pctBpsToText(j.offerBps)}.`
+      );
+
       window.dispatchEvent(new CustomEvent(ECONOMY_CHANGED_EVENT));
+
+      setSellBuckets((prev) => {
+        const next = { ...prev };
+        delete next[offerId];
+        return next;
+      });
+
       await loadOffers();
       await loadInventory(invPage, invQ, invSort, onlyNeed);
     } catch (e: any) {
@@ -1136,6 +1199,18 @@ function SinglesShopTab() {
                 const minsLeft = Math.max(0, Math.floor((exp.getTime() - now.getTime()) / 60000));
                 const hoursLeft = Math.floor(minsLeft / 60);
                 const remMins = minsLeft % 60;
+                const buckets = sellBuckets[o.id] ?? [];
+                const selectedGrade =
+                  typeof sellGrade[o.id] === "number"
+                    ? sellGrade[o.id]
+                    : buckets.find((b) => b.grade === 0)?.grade ?? buckets[0]?.grade ?? 0;
+                const selectedBucket = buckets.find((b) => b.grade === selectedGrade) ?? buckets[0] ?? null;
+                const selectedQty = Math.max(1, Math.floor(sellQty[o.id] ?? 1));
+                const effectiveBps = selectedGrade === 0 ? o.offerBps : o.offerBps + 1000;
+                const estimatedTotal =
+                  selectedBucket && selectedBucket.perCardValueCents > 0
+                    ? Math.round((selectedBucket.perCardValueCents * selectedQty * effectiveBps) / 10000)
+                    : null;
 
                 return (
                   <div
@@ -1144,7 +1219,7 @@ function SinglesShopTab() {
                       border: "1px solid #eee",
                       borderRadius: 14,
                       padding: 12,
-                      background: "#fcfcfc",
+                      background: selectedGrade === 0 ? "#fcfcfc" : "#fffdf3",
                       display: "grid",
                       gridTemplateColumns: "64px 1fr",
                       gap: 12,
@@ -1175,9 +1250,10 @@ function SinglesShopTab() {
                         <div style={{ fontWeight: 900 }}>{fmtOfferLine(o)}</div>
                         <div style={{ fontSize: 12, color: "#555" }}>
                           Offer: <b>{pctBpsToText(o.offerBps)}</b>
+                          {selectedGrade !== 0 ? <span style={{ fontWeight: 900, color: "#8a5a00" }}> • VCS bonus: +10%</span> : null}
                           {o.card ? (
                             <>
-                              {" "}• Book: <b>${Number(o.card.bookValue ?? 0).toFixed(2)}</b>
+                              {" "}• Raw Book: <b>${Number(o.card.bookValue ?? 0).toFixed(2)}</b>
                             </>
                           ) : null}
                         </div>
@@ -1188,21 +1264,55 @@ function SinglesShopTab() {
                       </div>
 
                       <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+                        <select
+                          value={String(selectedGrade)}
+                          onChange={(e) => {
+                            const grade = Number(e.target.value);
+                            setSellGrade((prev) => ({ ...prev, [o.id]: grade }));
+                          }}
+                          disabled={bucketLoading[o.id] || buckets.length === 0 || sellingOfferId === o.id}
+                          style={{ padding: 8, borderRadius: 10, border: "1px solid #ccc", minWidth: 150 }}
+                          title="Choose which version to sell"
+                        >
+                          {bucketLoading[o.id] ? (
+                            <option value="0">Loading grades…</option>
+                          ) : buckets.length === 0 ? (
+                            <option value="0">No owned copies</option>
+                          ) : (
+                            buckets.map((b) => (
+                              <option key={`${o.id}:${b.grade}`} value={String(b.grade)}>
+                                {b.gradeLabel} • Own {b.qtyOwned} • ${centsToDollars(b.perCardValueCents)}
+                              </option>
+                            ))
+                          )}
+                        </select>
+
                         <input
                           value={String(sellQty[o.id] ?? 1)}
                           onChange={(e) => setSellQty((prev) => ({ ...prev, [o.id]: Number(e.target.value) }))}
                           style={{ width: 80, padding: 8, borderRadius: 10, border: "1px solid #ccc" }}
                         />
+
+                        {selectedBucket ? (
+                          <div style={{ fontSize: 12, color: "#555", fontWeight: 800 }}>
+                            Value: ${centsToDollars(selectedBucket.perCardValueCents)}
+                            {selectedGrade !== 0 ? " • Offer +10%" : ""}
+                            {estimatedTotal !== null ? ` • Est. $${centsToDollars(estimatedTotal)}` : ""}
+                          </div>
+                        ) : null}
+
                         <button
                           onClick={() => sellOffer(o.id)}
-                          disabled={sellingOfferId === o.id}
+                          disabled={sellingOfferId === o.id || bucketLoading[o.id] || buckets.length === 0}
                           style={{
                             padding: "9px 10px",
                             borderRadius: 10,
                             border: "1px solid #ccc",
-                            background: sellingOfferId === o.id ? "#f2f2f2" : "white",
+                            background:
+                              sellingOfferId === o.id || bucketLoading[o.id] || buckets.length === 0 ? "#f2f2f2" : "white",
                             fontWeight: 900,
-                            cursor: sellingOfferId === o.id ? "not-allowed" : "pointer",
+                            cursor:
+                              sellingOfferId === o.id || bucketLoading[o.id] || buckets.length === 0 ? "not-allowed" : "pointer",
                           }}
                         >
                           {sellingOfferId === o.id ? "Selling…" : "Sell to Shop"}

@@ -1,4 +1,6 @@
 export const revalidate = 60;
+
+import { Gradeability } from "@prisma/client";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
@@ -26,6 +28,17 @@ function numberOrNull(v: unknown): number | null {
   if (typeof v === "string" && v.trim() === "") return null;
   const n = Number(v);
   return Number.isFinite(n) ? n : null;
+}
+
+function gradeabilityOrUndefined(v: unknown): Gradeability | undefined {
+  if (v === undefined || v === null || v === "") return undefined;
+
+  const s = String(v).trim().toUpperCase();
+  if (s === "COMMON") return Gradeability.COMMON;
+  if (s === "GREAT") return Gradeability.GREAT;
+  if (s === "ICONIC") return Gradeability.ICONIC;
+
+  return undefined;
 }
 
 function clampInt(n: number, min: number, max: number) {
@@ -64,6 +77,7 @@ export async function GET(req: Request, ctx: Ctx) {
         star1Price: true,
         star2Price: true,
         star3Price: true,
+        defaultGradeability: true,
         product: true,
         _count: { select: { cards: true } },
       },
@@ -93,6 +107,7 @@ export async function GET(req: Request, ctx: Ctx) {
         frontImageUrl: true,
         backImageUrl: true,
         productSetId: true,
+        gradeabilityOverride: true,
       },
       orderBy: [{ id: "asc" }],
       skip,
@@ -138,6 +153,7 @@ export async function PUT(req: Request, ctx: Ctx) {
 
     const isBase = typeof body.isBase === "boolean" ? body.isBase : undefined;
     const isInsert = typeof body.isInsert === "boolean" ? body.isInsert : undefined;
+    const defaultGradeability = gradeabilityOrUndefined(body.defaultGradeability);
 
     if (isBase === true && isInsert === true) {
       return NextResponse.json({ error: "A Product Set cannot be both Base and Insert." }, { status: 400 });
@@ -156,6 +172,7 @@ export async function PUT(req: Request, ctx: Ctx) {
         star1Price: numberOrNull(body.star1Price),
         star2Price: numberOrNull(body.star2Price),
         star3Price: numberOrNull(body.star3Price),
+        defaultGradeability,
       },
     });
 
