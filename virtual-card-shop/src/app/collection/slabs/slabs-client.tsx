@@ -102,16 +102,20 @@ function formatDollarsFromCents(cents: number) {
 }
 
 function getSetName(row: SlabRow) {
-  const setLabel =
-    row.productSetName?.trim()
-      ? row.productSetName.trim()
-      : row.productSetIsBase == null
-        ? ""
-        : row.productSetIsBase
-          ? "Base"
-          : "Insert";
+  const productSetName = row.productSetName?.trim();
 
-  return [row.productYear, row.productBrand, setLabel].filter(Boolean).join(" ") || row.productId;
+  if (productSetName) return productSetName;
+
+  const fallbackSetLabel =
+    row.productSetIsBase == null
+      ? ""
+      : row.productSetIsBase
+        ? "Base"
+        : "Insert";
+
+  return [row.productYear, row.productBrand, fallbackSetLabel]
+    .filter(Boolean)
+    .join(" ") || row.productId;
 }
 
 function getSubline(row: SlabRow) {
@@ -193,6 +197,9 @@ export default function SlabsClient() {
   const [tier, setTier] = useState<"ALL" | Gradeability>("ALL");
   const [sort, setSort] = useState<SortMode>("grade_desc");
   const [page, setPage] = useState(1);
+  const [activeSlabIndex, setActiveSlabIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
@@ -239,6 +246,21 @@ export default function SlabsClient() {
   useEffect(() => {
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q, grade, tier, sort, page]);
+
+  useEffect(() => {
+    function updateIsMobile() {
+      setIsMobile(window.innerWidth < 768);
+    }
+
+    updateIsMobile();
+    window.addEventListener("resize", updateIsMobile);
+
+    return () => window.removeEventListener("resize", updateIsMobile);
+  }, []);
+
+  useEffect(() => {
+    setActiveSlabIndex(0);
   }, [q, grade, tier, sort, page]);
 
   const rows = data?.rows ?? [];
@@ -582,94 +604,280 @@ export default function SlabsClient() {
           </div>
         ) : (
           <>
-            <div
-              style={{
-                marginTop: 16,
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(310px, 1fr))",
-                gap: 18,
-                alignItems: "start",
-              }}
-            >
-              {rows.map((row) => (
-                <div
-                  key={row.key}
-                  style={{
-                    display: "grid",
-                    justifyItems: "center",
-                    gap: 10,
-                  }}
-                >
-                  <VcsSlab
-                    player={row.player}
-                    cardNumber={row.cardNumber}
-                    setName={getSetName(row)}
-                    team={row.team}
-                    grade={row.grade}
-                    gradeability={row.gradeability}
-                    gradeabilityLabel={row.gradeabilityLabel}
-                    valueCents={row.valueCents}
-                    quantity={row.quantity}
-                    imageUrl={row.frontImageUrl}
-                  />
+            {isMobile ? (
+              <div style={{ marginTop: 14 }}>
+                {(() => {
+                  const row = rows[Math.min(activeSlabIndex, rows.length - 1)];
 
-                  <div
-                    style={{
-                      width: "100%",
-                      maxWidth: 390,
-                      background: colors.card,
-                      border: `1px solid ${colors.border}`,
-                      borderRadius: 14,
-                      padding: 10,
-                      boxShadow: "0 8px 24px rgba(0,0,0,0.04)",
-                    }}
-                  >
-                    <div style={{ fontSize: 15, fontWeight: 1000 }}>
-                      #{row.cardNumber} — {row.player}
-                    </div>
+                  function goPrev() {
+                    setActiveSlabIndex((i) => Math.max(0, i - 1));
+                  }
 
+                  function goNext() {
+                    setActiveSlabIndex((i) => Math.min(rows.length - 1, i + 1));
+                  }
+
+                  return (
                     <div
-                      style={{
-                        marginTop: 3,
-                        color: colors.mutedText,
-                        fontSize: 12,
-                        fontWeight: 800,
-                        lineHeight: 1.35,
+                      onTouchStart={(e) => setTouchStartX(e.touches[0]?.clientX ?? null)}
+                      onTouchEnd={(e) => {
+                        if (touchStartX == null) return;
+
+                        const endX = e.changedTouches[0]?.clientX ?? touchStartX;
+                        const delta = endX - touchStartX;
+
+                        if (Math.abs(delta) > 45) {
+                          if (delta > 0) goPrev();
+                          else goNext();
+                        }
+
+                        setTouchStartX(null);
                       }}
-                    >
-                      {getSetName(row)}
-                      {getSubline(row) ? ` • ${getSubline(row)}` : ""}
-                    </div>
-
-                    <div
                       style={{
-                        marginTop: 8,
-                        display: "flex",
-                        justifyContent: "space-between",
+                        minHeight: "calc(100vh - 190px)",
+                        display: "grid",
+                        gridTemplateRows: "auto 1fr auto",
                         gap: 10,
-                        flexWrap: "wrap",
                         alignItems: "center",
                       }}
                     >
-                      <div style={{ color: colors.green, fontWeight: 1000, fontSize: 13 }}>
-                        Total: {formatDollarsFromCents(row.totalValueCents)}
-                      </div>
-
-                      <Link
-                        href={`/cards/${row.cardId}`}
+                      <div
                         style={{
-                          color: colors.blue,
-                          fontWeight: 950,
+                          background: colors.card,
+                          border: `1px solid ${colors.border}`,
+                          borderRadius: 999,
+                          padding: "7px 12px",
+                          textAlign: "center",
+                          fontWeight: 1000,
+                          color: colors.subtext,
                           fontSize: 13,
+                          width: "fit-content",
+                          margin: "0 auto",
                         }}
                       >
-                        Card details
-                      </Link>
+                        Slab {activeSlabIndex + 1} of {rows.length}
+                      </div>
+
+                      <div
+                        style={{
+                          display: "grid",
+                          justifyItems: "center",
+                          alignItems: "center",
+                          width: "100%",
+                          overflow: "visible",
+                        }}
+                      >
+                        <div
+                          style={{
+                            width: "min(96vw, 390px)",
+                            display: "grid",
+                            justifyItems: "center",
+                          }}
+                        >
+                          <VcsSlab
+                            player={row.player}
+                            cardNumber={row.cardNumber}
+                            setName={getSetName(row)}
+                            team={row.team}
+                            grade={row.grade}
+                            gradeability={row.gradeability}
+                            gradeabilityLabel={row.gradeabilityLabel}
+                            valueCents={row.valueCents}
+                            quantity={row.quantity}
+                            imageUrl={row.frontImageUrl}
+                          />
+                        </div>
+                      </div>
+
+                      <div
+                        style={{
+                          background: colors.card,
+                          border: `1px solid ${colors.border}`,
+                          borderRadius: 16,
+                          padding: 12,
+                          boxShadow: "0 8px 24px rgba(0,0,0,0.04)",
+                        }}
+                      >
+                        <div style={{ fontSize: 17, fontWeight: 1000 }}>
+                          #{row.cardNumber} — {row.player}
+                        </div>
+
+                        <div
+                          style={{
+                            marginTop: 4,
+                            color: colors.mutedText,
+                            fontSize: 13,
+                            fontWeight: 800,
+                            lineHeight: 1.35,
+                          }}
+                        >
+                          {getSetName(row)}
+                          {getSubline(row) ? ` • ${getSubline(row)}` : ""}
+                        </div>
+
+                        <div
+                          style={{
+                            marginTop: 10,
+                            display: "flex",
+                            justifyContent: "space-between",
+                            gap: 10,
+                            alignItems: "center",
+                          }}
+                        >
+                          <button
+                            onClick={goPrev}
+                            disabled={activeSlabIndex <= 0}
+                            style={{
+                              border: `1px solid ${colors.border}`,
+                              background: "#fff",
+                              borderRadius: 12,
+                              padding: "9px 12px",
+                              fontWeight: 1000,
+                              opacity: activeSlabIndex <= 0 ? 0.45 : 1,
+                              cursor: activeSlabIndex <= 0 ? "not-allowed" : "pointer",
+                            }}
+                          >
+                            ← Prev
+                          </button>
+
+                          <Link
+                            href={`/cards/${row.cardId}`}
+                            style={{
+                              color: colors.blue,
+                              fontWeight: 950,
+                              fontSize: 13,
+                            }}
+                          >
+                            Card details
+                          </Link>
+
+                          <button
+                            onClick={goNext}
+                            disabled={activeSlabIndex >= rows.length - 1}
+                            style={{
+                              border: `1px solid ${colors.border}`,
+                              background: "#fff",
+                              borderRadius: 12,
+                              padding: "9px 12px",
+                              fontWeight: 1000,
+                              opacity: activeSlabIndex >= rows.length - 1 ? 0.45 : 1,
+                              cursor: activeSlabIndex >= rows.length - 1 ? "not-allowed" : "pointer",
+                            }}
+                          >
+                            Next →
+                          </button>
+                        </div>
+
+                        <div style={{ marginTop: 8, color: colors.green, fontWeight: 1000, fontSize: 13 }}>
+                          Total: {formatDollarsFromCents(row.totalValueCents)}
+                        </div>
+
+                        <div
+                          style={{
+                            marginTop: 8,
+                            color: colors.mutedText,
+                            fontSize: 12,
+                            fontWeight: 800,
+                            textAlign: "center",
+                          }}
+                        >
+                          Swipe left or right to browse slabs.
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })()}
+              </div>
+            ) : (
+              <div
+                style={{
+                  marginTop: 16,
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(310px, 1fr))",
+                  gap: 18,
+                  alignItems: "start",
+                }}
+              >
+                {rows.map((row) => (
+                  <div
+                    key={row.key}
+                    style={{
+                      display: "grid",
+                      justifyItems: "center",
+                      gap: 10,
+                    }}
+                  >
+                    <VcsSlab
+                      player={row.player}
+                      cardNumber={row.cardNumber}
+                      setName={getSetName(row)}
+                      team={row.team}
+                      grade={row.grade}
+                      gradeability={row.gradeability}
+                      gradeabilityLabel={row.gradeabilityLabel}
+                      valueCents={row.valueCents}
+                      quantity={row.quantity}
+                      imageUrl={row.frontImageUrl}
+                    />
+
+                    <div
+                      style={{
+                        width: "100%",
+                        maxWidth: 390,
+                        background: colors.card,
+                        border: `1px solid ${colors.border}`,
+                        borderRadius: 14,
+                        padding: 10,
+                        boxShadow: "0 8px 24px rgba(0,0,0,0.04)",
+                      }}
+                    >
+                      <div style={{ fontSize: 15, fontWeight: 1000 }}>
+                        #{row.cardNumber} — {row.player}
+                      </div>
+
+                      <div
+                        style={{
+                          marginTop: 3,
+                          color: colors.mutedText,
+                          fontSize: 12,
+                          fontWeight: 800,
+                          lineHeight: 1.35,
+                        }}
+                      >
+                        {getSetName(row)}
+                        {getSubline(row) ? ` • ${getSubline(row)}` : ""}
+                      </div>
+
+                      <div
+                        style={{
+                          marginTop: 8,
+                          display: "flex",
+                          justifyContent: "space-between",
+                          gap: 10,
+                          flexWrap: "wrap",
+                          alignItems: "center",
+                        }}
+                      >
+                        <div style={{ color: colors.green, fontWeight: 1000, fontSize: 13 }}>
+                          Total: {formatDollarsFromCents(row.totalValueCents)}
+                        </div>
+
+                        <Link
+                          href={`/cards/${row.cardId}`}
+                          style={{
+                            color: colors.blue,
+                            fontWeight: 950,
+                            fontSize: 13,
+                          }}
+                        >
+                          Card details
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
 
             <div
               style={{
