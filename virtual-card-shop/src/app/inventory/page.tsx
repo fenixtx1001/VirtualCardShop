@@ -19,17 +19,26 @@ type InventoryResponse = {
   error?: string;
 };
 
+type SportFilter = "ALL" | "BASEBALL" | "BASKETBALL" | "FOOTBALL" | "HOCKEY" | "OTHER";
+type SortMode = "recent" | "packs_desc" | "name_asc" | "price_desc";
+
 const HIDE_ZERO_PACKS_STORAGE_KEY = "vcs.inventory.hideZeroPacks";
 
-// Cozy palette (match Home)
 const colors = {
   bg: "#fbfaf7",
   card: "#ffffff",
   border: "#e7e3dc",
-  text: "#1f1f1f",
-  subtext: "#5a5a5a",
-  accent: "#2f6fed",
+  borderStrong: "#d8cfc2",
+  text: "#171717",
+  subtext: "#5f5a52",
   muted: "#f2efe9",
+  gold: "#b8923b",
+  goldSoft: "#fff8e7",
+  blue: "#244f9e",
+  blueSoft: "#eef4ff",
+  green: "#176239",
+  greenSoft: "#eefbf3",
+  shadow: "0 18px 50px rgba(48, 38, 23, 0.08)",
 };
 
 function formatDollars(cents: number) {
@@ -49,17 +58,72 @@ function formatFriendlyProductName(productId: string) {
 function formatDateTime(iso: string) {
   const d = new Date(iso);
   if (Number.isNaN(d.getTime())) return iso;
-  return d.toLocaleString();
+
+  return d.toLocaleDateString(undefined, {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
 }
 
 function readHideZeroPacksPreference() {
   if (typeof window === "undefined") return true;
   const saved = window.localStorage.getItem(HIDE_ZERO_PACKS_STORAGE_KEY);
 
-  // Default to hiding 0-pack products. Only show them if the user explicitly turns the filter off.
   if (saved === null) return true;
 
   return saved === "1";
+}
+
+function inferSport(row: InventoryRow): SportFilter {
+  const name = formatFriendlyProductName(row.productId).toLowerCase();
+
+  if (name.includes("baseball")) return "BASEBALL";
+  if (name.includes("basketball")) return "BASKETBALL";
+  if (name.includes("football")) return "FOOTBALL";
+  if (name.includes("hockey")) return "HOCKEY";
+
+  return "OTHER";
+}
+
+function sportLabel(sport: SportFilter) {
+  if (sport === "BASEBALL") return "Baseball";
+  if (sport === "BASKETBALL") return "Basketball";
+  if (sport === "FOOTBALL") return "Football";
+  if (sport === "HOCKEY") return "Hockey";
+  if (sport === "OTHER") return "Other";
+  return "All";
+}
+
+function sportEmoji(sport: SportFilter) {
+  if (sport === "BASEBALL") return "⚾";
+  if (sport === "BASKETBALL") return "🏀";
+  if (sport === "FOOTBALL") return "🏈";
+  if (sport === "HOCKEY") return "🏒";
+  if (sport === "OTHER") return "✨";
+  return "Vault";
+}
+
+function ProductImage({ row, name }: { row: InventoryRow; name: string }) {
+  return (
+    <div className="inventory-product-art">
+      {row.packImageUrl ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={row.packImageUrl}
+          alt={name}
+          loading="lazy"
+          decoding="async"
+          className="inventory-product-img"
+        />
+      ) : (
+        <div className="inventory-product-placeholder">
+          <div className="inventory-placeholder-mark">VCS</div>
+          <div>No pack image</div>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default function InventoryPage() {
@@ -67,10 +131,14 @@ export default function InventoryPage() {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
   const [hideZeroPacks, setHideZeroPacks] = useState(() => readHideZeroPacksPreference());
+  const [query, setQuery] = useState("");
+  const [sportFilter, setSportFilter] = useState<SportFilter>("ALL");
+  const [sortMode, setSortMode] = useState<SortMode>("recent");
 
   async function load() {
     setLoading(true);
     setErr(null);
+
     try {
       const res = await fetch("/api/inventory", { cache: "no-store" });
       const raw = await res.text();
@@ -103,287 +171,876 @@ export default function InventoryPage() {
     window.localStorage.setItem(HIDE_ZERO_PACKS_STORAGE_KEY, hideZeroPacks ? "1" : "0");
   }, [hideZeroPacks]);
 
-  const sorted = useMemo(() => {
+  const baseRows = useMemo(() => {
     const copy = [...rows];
-    // keep your current “recently updated” feel
-    copy.sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
+
+    copy.sort((a, b) => {
+      if (sortMode === "packs_desc") {
+        return (b.packsOwned ?? 0) - (a.packsOwned ?? 0);
+      }
+
+      if (sortMode === "name_asc") {
+        return formatFriendlyProductName(a.productId).localeCompare(formatFriendlyProductName(b.productId));
+      }
+
+      if (sortMode === "price_desc") {
+        return (b.packPriceCents ?? 0) - (a.packPriceCents ?? 0);
+      }
+
+      return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+    });
+
     return copy;
-  }, [rows]);
+  }, [rows, sortMode]);
 
   const visibleRows = useMemo(() => {
-    if (!hideZeroPacks) return sorted;
-    return sorted.filter((r) => (r.packsOwned ?? 0) > 0);
-  }, [hideZeroPacks, sorted]);
+    const q = query.trim().toLowerCase();
+
+    return baseRows.filter((row) => {
+      if (hideZeroPacks && (row.packsOwned ?? 0) <= 0) return false;
+
+      if (sportFilter !== "ALL" && inferSport(row) !== sportFilter) return false;
+
+      if (q) {
+        const name = formatFriendlyProductName(row.productId).toLowerCase();
+        if (!name.includes(q)) return false;
+      }
+
+      return true;
+    });
+  }, [baseRows, hideZeroPacks, query, sportFilter]);
+
+  const unopenedRows = useMemo(() => rows.filter((r) => (r.packsOwned ?? 0) > 0), [rows]);
 
   const zeroPackCount = useMemo(() => {
-    return sorted.filter((r) => (r.packsOwned ?? 0) <= 0).length;
-  }, [sorted]);
+    return rows.filter((r) => (r.packsOwned ?? 0) <= 0).length;
+  }, [rows]);
+
+  const totalPacks = useMemo(() => {
+    return unopenedRows.reduce((sum, r) => sum + Math.max(0, r.packsOwned ?? 0), 0);
+  }, [unopenedRows]);
+
+  const totalSealedValueCents = useMemo(() => {
+    return unopenedRows.reduce((sum, r) => {
+      return sum + Math.max(0, r.packsOwned ?? 0) * Math.max(0, r.packPriceCents ?? 0);
+    }, 0);
+  }, [unopenedRows]);
+
+  const averagePackPriceCents = useMemo(() => {
+    if (totalPacks <= 0) return 0;
+    return Math.round(totalSealedValueCents / totalPacks);
+  }, [totalPacks, totalSealedValueCents]);
+
+  const mostOwned = useMemo(() => {
+    const sorted = [...unopenedRows].sort((a, b) => (b.packsOwned ?? 0) - (a.packsOwned ?? 0));
+    return sorted[0] ?? null;
+  }, [unopenedRows]);
+
+  const sportCounts = useMemo(() => {
+    const counts: Record<SportFilter, number> = {
+      ALL: unopenedRows.length,
+      BASEBALL: 0,
+      BASKETBALL: 0,
+      FOOTBALL: 0,
+      HOCKEY: 0,
+      OTHER: 0,
+    };
+
+    for (const row of unopenedRows) {
+      counts[inferSport(row)] += 1;
+    }
+
+    return counts;
+  }, [unopenedRows]);
+
+  function openRandomPack() {
+    const candidates = visibleRows.filter((row) => (row.packsOwned ?? 0) > 0);
+    if (candidates.length === 0) return;
+
+    const next = candidates[Math.floor(Math.random() * candidates.length)];
+    window.location.href = `/open-pack/${encodeURIComponent(next.productId)}`;
+  }
 
   return (
-    <main
-      style={{
-        background: colors.bg,
-        minHeight: "calc(100vh - 80px)",
-        padding: 20,
-        color: colors.text,
-        fontFamily: "system-ui",
-      }}
-    >
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        {/* Header */}
-        <div
-          style={{
-            background: colors.card,
-            border: `1px solid ${colors.border}`,
-            borderRadius: 16,
-            padding: 16,
-            boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
-            marginBottom: 14,
-          }}
-        >
-          <div style={{ display: "flex", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
+    <main className="inventory-page">
+      <style>{`
+        .inventory-page {
+          background:
+            radial-gradient(circle at 8% 0%, rgba(199, 168, 90, 0.15), transparent 34%),
+            radial-gradient(circle at 92% 12%, rgba(36, 79, 158, 0.10), transparent 30%),
+            ${colors.bg};
+          min-height: calc(100vh - 80px);
+          padding: 22px;
+          color: ${colors.text};
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .inventory-shell {
+          max-width: 1180px;
+          margin: 0 auto;
+        }
+
+        .inventory-hero {
+          border: 1px solid ${colors.border};
+          border-radius: 26px;
+          background:
+            linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,250,239,0.94)),
+            ${colors.card};
+          box-shadow: ${colors.shadow};
+          overflow: hidden;
+          position: relative;
+        }
+
+        .inventory-hero::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background:
+            linear-gradient(90deg, rgba(184,146,59,0.18), transparent 34%, rgba(36,79,158,0.08));
+          pointer-events: none;
+        }
+
+        .inventory-hero-inner {
+          position: relative;
+          z-index: 1;
+          padding: 22px;
+          display: grid;
+          grid-template-columns: 1.45fr 0.9fr;
+          gap: 18px;
+          align-items: stretch;
+        }
+
+        .inventory-kicker {
+          display: inline-flex;
+          width: fit-content;
+          align-items: center;
+          gap: 7px;
+          border: 1px solid rgba(184,146,59,0.38);
+          background: ${colors.goldSoft};
+          color: #6c4b09;
+          border-radius: 999px;
+          padding: 6px 10px;
+          font-size: 11px;
+          font-weight: 900;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+
+        .inventory-title {
+          margin: 12px 0 0;
+          font-size: clamp(32px, 5vw, 54px);
+          line-height: 0.95;
+          letter-spacing: -0.055em;
+          font-weight: 950;
+        }
+
+        .inventory-subtitle {
+          margin-top: 12px;
+          max-width: 650px;
+          color: ${colors.subtext};
+          font-size: 15px;
+          line-height: 1.55;
+          font-weight: 650;
+        }
+
+        .inventory-hero-actions {
+          margin-top: 18px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+
+        .inventory-primary-btn,
+        .inventory-secondary-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          min-height: 42px;
+          border-radius: 14px;
+          padding: 10px 14px;
+          font-weight: 900;
+          text-decoration: none;
+          border: 1px solid transparent;
+          cursor: pointer;
+          transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+        }
+
+        .inventory-primary-btn {
+          color: #fff;
+          background: linear-gradient(135deg, #1f4f9b, #2f6fed);
+          box-shadow: 0 14px 26px rgba(47,111,237,0.22);
+        }
+
+        .inventory-secondary-btn {
+          color: ${colors.text};
+          background: rgba(255,255,255,0.78);
+          border-color: ${colors.borderStrong};
+        }
+
+        .inventory-primary-btn:hover,
+        .inventory-secondary-btn:hover {
+          transform: translateY(-1px);
+        }
+
+        .inventory-hero-panel {
+          border: 1px solid rgba(184,146,59,0.26);
+          border-radius: 22px;
+          background:
+            linear-gradient(160deg, rgba(255,255,255,0.94), rgba(255,248,231,0.90));
+          padding: 16px;
+          display: grid;
+          align-content: center;
+          gap: 12px;
+        }
+
+        .inventory-big-stat {
+          display: grid;
+          gap: 2px;
+        }
+
+        .inventory-big-stat-label {
+          color: ${colors.subtext};
+          font-size: 12px;
+          font-weight: 850;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+        }
+
+        .inventory-big-stat-value {
+          font-size: 34px;
+          line-height: 1;
+          font-weight: 950;
+          letter-spacing: -0.04em;
+        }
+
+        .inventory-stats-grid {
+          margin-top: 14px;
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 10px;
+        }
+
+        .inventory-stat-card {
+          border: 1px solid ${colors.border};
+          border-radius: 18px;
+          background: rgba(255,255,255,0.82);
+          box-shadow: 0 10px 30px rgba(48,38,23,0.045);
+          padding: 13px;
+          min-width: 0;
+        }
+
+        .inventory-stat-label {
+          color: ${colors.subtext};
+          font-size: 11px;
+          font-weight: 900;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+          white-space: nowrap;
+        }
+
+        .inventory-stat-value {
+          margin-top: 5px;
+          font-size: 22px;
+          font-weight: 950;
+          letter-spacing: -0.04em;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .inventory-toolbar {
+          margin-top: 14px;
+          border: 1px solid ${colors.border};
+          border-radius: 22px;
+          background: rgba(255,255,255,0.88);
+          box-shadow: 0 10px 30px rgba(48,38,23,0.045);
+          padding: 14px;
+          display: grid;
+          gap: 12px;
+        }
+
+        .inventory-search-row {
+          display: grid;
+          grid-template-columns: 1fr auto auto;
+          gap: 10px;
+          align-items: center;
+        }
+
+        .inventory-search {
+          width: 100%;
+          min-width: 0;
+          border: 1px solid ${colors.borderStrong};
+          border-radius: 14px;
+          background: #fff;
+          padding: 12px 13px;
+          color: ${colors.text};
+          font-weight: 800;
+          font-size: 14px;
+          outline: none;
+        }
+
+        .inventory-select {
+          border: 1px solid ${colors.borderStrong};
+          border-radius: 14px;
+          background: #fff;
+          padding: 11px 12px;
+          color: ${colors.text};
+          font-weight: 850;
+          min-width: 162px;
+        }
+
+        .inventory-filter-row {
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .inventory-pills {
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+          align-items: center;
+        }
+
+        .inventory-pill {
+          border: 1px solid ${colors.borderStrong};
+          background: #fff;
+          color: ${colors.text};
+          border-radius: 999px;
+          padding: 8px 11px;
+          font-size: 12px;
+          font-weight: 900;
+          cursor: pointer;
+        }
+
+        .inventory-pill-active {
+          border-color: rgba(184,146,59,0.58);
+          background: ${colors.goldSoft};
+          color: #6c4b09;
+        }
+
+        .inventory-toggle {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          color: ${colors.subtext};
+          font-size: 12px;
+          font-weight: 850;
+          cursor: pointer;
+          user-select: none;
+        }
+
+        .inventory-results-summary {
+          color: ${colors.subtext};
+          font-size: 12px;
+          font-weight: 850;
+        }
+
+        .inventory-grid {
+          margin-top: 16px;
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+          gap: 14px;
+        }
+
+        .inventory-card {
+          border: 1px solid ${colors.border};
+          border-radius: 24px;
+          background:
+            linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,247,241,0.95));
+          box-shadow: 0 12px 36px rgba(48,38,23,0.06);
+          overflow: hidden;
+          min-width: 0;
+          display: grid;
+        }
+
+        .inventory-card-art-wrap {
+          padding: 16px 16px 0;
+        }
+
+        .inventory-product-art {
+          height: 190px;
+          border-radius: 18px;
+          border: 1px solid ${colors.borderStrong};
+          background:
+            radial-gradient(circle at 50% 0%, rgba(255,255,255,0.92), transparent 48%),
+            linear-gradient(135deg, #f7efe1, #ede3d1);
+          display: grid;
+          place-items: center;
+          overflow: hidden;
+          position: relative;
+        }
+
+        .inventory-product-art::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(120deg, rgba(255,255,255,0.26), transparent 42%, rgba(255,255,255,0.18));
+          pointer-events: none;
+        }
+
+        .inventory-product-img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          padding: 8px;
+          filter: drop-shadow(0 12px 16px rgba(25,18,9,0.18));
+        }
+
+        .inventory-product-placeholder {
+          display: grid;
+          gap: 8px;
+          place-items: center;
+          color: ${colors.subtext};
+          font-weight: 850;
+          font-size: 12px;
+          text-align: center;
+        }
+
+        .inventory-placeholder-mark {
+          width: 46px;
+          height: 46px;
+          border-radius: 14px;
+          display: grid;
+          place-items: center;
+          border: 1px solid rgba(184,146,59,0.38);
+          background: ${colors.goldSoft};
+          color: #6c4b09;
+          font-weight: 950;
+          letter-spacing: -0.06em;
+        }
+
+        .inventory-card-body {
+          padding: 14px 16px 16px;
+          display: grid;
+          gap: 12px;
+        }
+
+        .inventory-card-title {
+          min-height: 44px;
+          font-size: 16px;
+          line-height: 1.18;
+          font-weight: 950;
+          letter-spacing: -0.03em;
+        }
+
+        .inventory-card-meta {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 8px;
+        }
+
+        .inventory-mini-stat {
+          border: 1px solid ${colors.border};
+          border-radius: 14px;
+          background: rgba(255,255,255,0.74);
+          padding: 9px;
+          min-width: 0;
+        }
+
+        .inventory-mini-label {
+          color: ${colors.subtext};
+          font-size: 10px;
+          font-weight: 900;
+          text-transform: uppercase;
+          letter-spacing: 0.055em;
+        }
+
+        .inventory-mini-value {
+          margin-top: 3px;
+          font-size: 15px;
+          font-weight: 950;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .inventory-open-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          min-height: 44px;
+          border-radius: 15px;
+          background: linear-gradient(135deg, #1f4f9b, #2f6fed);
+          color: #fff;
+          text-decoration: none;
+          font-weight: 950;
+          box-shadow: 0 14px 26px rgba(47,111,237,0.20);
+        }
+
+        .inventory-open-btn-disabled {
+          background: ${colors.muted};
+          color: ${colors.subtext};
+          box-shadow: none;
+          pointer-events: none;
+        }
+
+        .inventory-card-footer {
+          color: ${colors.subtext};
+          font-size: 11px;
+          font-weight: 750;
+          text-align: center;
+        }
+
+        .inventory-empty {
+          margin-top: 16px;
+          border: 1px dashed ${colors.borderStrong};
+          border-radius: 22px;
+          background: rgba(255,255,255,0.74);
+          padding: 22px;
+          color: ${colors.subtext};
+          font-weight: 800;
+          line-height: 1.5;
+          text-align: center;
+        }
+
+        .inventory-error {
+          margin-top: 14px;
+          padding: 12px;
+          background: #fff1f1;
+          border: 1px solid #f3b7b7;
+          border-radius: 16px;
+          font-weight: 850;
+          color: #7a1f1f;
+        }
+
+        .inventory-loading {
+          margin-top: 16px;
+          border: 1px solid ${colors.border};
+          border-radius: 22px;
+          background: rgba(255,255,255,0.74);
+          padding: 22px;
+          color: ${colors.subtext};
+          font-weight: 850;
+        }
+
+        @media (max-width: 780px) {
+          .inventory-page {
+            padding: 12px;
+          }
+
+          .inventory-hero-inner {
+            grid-template-columns: 1fr;
+            padding: 16px;
+            gap: 14px;
+          }
+
+          .inventory-title {
+            font-size: 38px;
+          }
+
+          .inventory-subtitle {
+            font-size: 14px;
+          }
+
+          .inventory-hero-actions {
+            display: grid;
+            grid-template-columns: 1fr;
+          }
+
+          .inventory-primary-btn,
+          .inventory-secondary-btn {
+            width: 100%;
+          }
+
+          .inventory-hero-panel {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+          .inventory-big-stat-value {
+            font-size: 28px;
+          }
+
+          .inventory-stats-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+          .inventory-search-row {
+            grid-template-columns: 1fr;
+          }
+
+          .inventory-select {
+            width: 100%;
+          }
+
+          .inventory-filter-row {
+            align-items: stretch;
+          }
+
+          .inventory-pills {
+            width: 100%;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            padding-bottom: 2px;
+          }
+
+          .inventory-pill {
+            white-space: nowrap;
+          }
+
+          .inventory-toggle {
+            width: 100%;
+            justify-content: space-between;
+            border: 1px solid ${colors.border};
+            background: #fff;
+            border-radius: 14px;
+            padding: 10px 12px;
+          }
+
+          .inventory-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+          }
+
+          .inventory-card {
+            border-radius: 22px;
+          }
+
+          .inventory-card-art-wrap {
+            padding: 14px 14px 0;
+          }
+
+          .inventory-product-art {
+            height: 215px;
+          }
+
+          .inventory-card-title {
+            min-height: 0;
+            font-size: 18px;
+          }
+
+          .inventory-open-btn {
+            min-height: 48px;
+            font-size: 15px;
+          }
+        }
+
+        @media (min-width: 781px) {
+          .inventory-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 44px rgba(48,38,23,0.10);
+          }
+
+          .inventory-card {
+            transition: transform 150ms ease, box-shadow 150ms ease;
+          }
+        }
+      `}</style>
+
+      <div className="inventory-shell">
+        <section className="inventory-hero">
+          <div className="inventory-hero-inner">
             <div>
-              <div style={{ fontSize: 26, fontWeight: 900, letterSpacing: -0.4 }}>Inventory</div>
-              <div style={{ marginTop: 6, color: colors.subtext, fontSize: 13, lineHeight: 1.5 }}>
-                Unopened packs you own. (Boxes are stored as packs.) Open one when you’re ready to rip.
+              <div className="inventory-kicker">Collector&apos;s Vault</div>
+
+              <h1 className="inventory-title">My Sealed Collection</h1>
+
+              <div className="inventory-subtitle">
+                Your unopened wax, boxes, and packs are ready to rip. Browse the vault, pick a product, and open a pack
+                when you&apos;re ready to chase something special.
               </div>
 
-              <div style={{ marginTop: 10, display: "flex", gap: 12, flexWrap: "wrap" }}>
-                <Link href="/shop" style={{ color: colors.subtext, textDecoration: "underline", fontWeight: 800 }}>
-                  Go to Shop
+              <div className="inventory-hero-actions">
+                <button
+                  type="button"
+                  onClick={openRandomPack}
+                  disabled={visibleRows.filter((row) => (row.packsOwned ?? 0) > 0).length === 0}
+                  className="inventory-primary-btn"
+                  style={{
+                    opacity: visibleRows.filter((row) => (row.packsOwned ?? 0) > 0).length === 0 ? 0.55 : 1,
+                    cursor: visibleRows.filter((row) => (row.packsOwned ?? 0) > 0).length === 0 ? "not-allowed" : "pointer",
+                  }}
+                >
+                  Rip a Random Pack →
+                </button>
+
+                <Link href="/shop" className="inventory-secondary-btn">
+                  Visit Shop
                 </Link>
-                <Link href="/" style={{ color: colors.subtext, textDecoration: "underline", fontWeight: 800 }}>
-                  Home
-                </Link>
+
+                <button type="button" onClick={load} disabled={loading} className="inventory-secondary-btn">
+                  {loading ? "Refreshing…" : "Refresh"}
+                </button>
               </div>
             </div>
 
-            <button
-              onClick={load}
-              disabled={loading}
-              style={{
-                border: `1px solid ${colors.border}`,
-                background: colors.muted,
-                borderRadius: 10,
-                padding: "8px 12px",
-                fontWeight: 900,
-                cursor: loading ? "not-allowed" : "pointer",
-                opacity: loading ? 0.7 : 1,
-                height: 38,
-              }}
-              title="Refresh inventory"
-            >
-              {loading ? "Refreshing..." : "Refresh"}
-            </button>
+            <div className="inventory-hero-panel">
+              <div className="inventory-big-stat">
+                <div className="inventory-big-stat-label">Packs Ready</div>
+                <div className="inventory-big-stat-value">{totalPacks.toLocaleString()}</div>
+              </div>
+
+              <div className="inventory-big-stat">
+                <div className="inventory-big-stat-label">Products</div>
+                <div className="inventory-big-stat-value">{unopenedRows.length.toLocaleString()}</div>
+              </div>
+
+              <div className="inventory-big-stat">
+                <div className="inventory-big-stat-label">Sealed Value</div>
+                <div className="inventory-big-stat-value">{formatDollars(totalSealedValueCents)}</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="inventory-stats-grid">
+          <div className="inventory-stat-card">
+            <div className="inventory-stat-label">Total Packs</div>
+            <div className="inventory-stat-value">{totalPacks.toLocaleString()}</div>
           </div>
 
-          {err ? (
-            <div
-              style={{
-                marginTop: 12,
-                padding: 10,
-                background: "#fff1f1",
-                border: "1px solid #f3b7b7",
-                borderRadius: 12,
-                fontWeight: 800,
-              }}
-            >
-              {err}
-            </div>
-          ) : null}
-        </div>
+          <div className="inventory-stat-card">
+            <div className="inventory-stat-label">Products Owned</div>
+            <div className="inventory-stat-value">{unopenedRows.length.toLocaleString()}</div>
+          </div>
 
-        {/* Table card */}
-        <div
-          style={{
-            background: colors.card,
-            border: `1px solid ${colors.border}`,
-            borderRadius: 16,
-            overflow: "hidden",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
-          }}
-        >
-          <div
-            style={{
-              padding: "10px 12px",
-              borderBottom: `1px solid ${colors.border}`,
-              display: "flex",
-              justifyContent: "space-between",
-              gap: 12,
-              alignItems: "center",
-              flexWrap: "wrap",
-              background: "#fff",
-            }}
-          >
-            <label
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                fontSize: 13,
-                fontWeight: 900,
-                color: colors.text,
-                cursor: "pointer",
-                userSelect: "none",
-              }}
+          <div className="inventory-stat-card">
+            <div className="inventory-stat-label">Avg Pack Price</div>
+            <div className="inventory-stat-value">{formatDollars(averagePackPriceCents)}</div>
+          </div>
+
+          <div className="inventory-stat-card">
+            <div className="inventory-stat-label">Most Owned</div>
+            <div className="inventory-stat-value">
+              {mostOwned ? `${mostOwned.packsOwned} × ${formatFriendlyProductName(mostOwned.productId)}` : "—"}
+            </div>
+          </div>
+        </section>
+
+        <section className="inventory-toolbar">
+          <div className="inventory-search-row">
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search sealed products…"
+              className="inventory-search"
+            />
+
+            <select
+              value={sortMode}
+              onChange={(e) => setSortMode(e.target.value as SortMode)}
+              className="inventory-select"
             >
+              <option value="recent">Recently updated</option>
+              <option value="packs_desc">Most packs</option>
+              <option value="name_asc">Product A-Z</option>
+              <option value="price_desc">Highest pack price</option>
+            </select>
+
+            <div className="inventory-results-summary">
+              Showing {visibleRows.length.toLocaleString()} of {rows.length.toLocaleString()}
+              {zeroPackCount > 0 ? ` • ${zeroPackCount.toLocaleString()} empty` : ""}
+            </div>
+          </div>
+
+          <div className="inventory-filter-row">
+            <div className="inventory-pills">
+              {(["ALL", "BASEBALL", "BASKETBALL", "FOOTBALL", "HOCKEY", "OTHER"] as SportFilter[]).map((sport) => {
+                const count = sport === "ALL" ? unopenedRows.length : sportCounts[sport];
+
+                if (sport !== "ALL" && count === 0) return null;
+
+                return (
+                  <button
+                    key={sport}
+                    type="button"
+                    onClick={() => setSportFilter(sport)}
+                    className={`inventory-pill ${sportFilter === sport ? "inventory-pill-active" : ""}`}
+                  >
+                    {sportEmoji(sport)} {sportLabel(sport)} ({count})
+                  </button>
+                );
+              })}
+            </div>
+
+            <label className="inventory-toggle">
+              <span>Hide 0-pack products</span>
               <input
                 type="checkbox"
                 checked={hideZeroPacks}
                 onChange={(e) => setHideZeroPacks(e.target.checked)}
                 style={{ width: 16, height: 16 }}
               />
-              Hide 0-pack products
             </label>
-
-            <div style={{ fontSize: 12, color: colors.subtext, fontWeight: 800 }}>
-              Showing {visibleRows.length.toLocaleString()} of {sorted.length.toLocaleString()} products
-              {zeroPackCount > 0 ? ` • ${zeroPackCount.toLocaleString()} with 0 packs` : ""}
-            </div>
           </div>
+        </section>
 
-          <div style={{ overflowX: "auto" }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 860 }}>
-              <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
-                <tr>
-                  {["", "Product", "Packs Owned", "Pack Price", "Cards/Pack", "Updated", "Action"].map((h) => (
-                    <th
-                      key={h}
-                      style={{
-                        textAlign: "left",
-                        padding: 12,
-                        borderBottom: `1px solid ${colors.border}`,
-                        whiteSpace: "nowrap",
-                        fontWeight: 900,
-                        fontSize: 12,
-                        color: "#333",
-                      }}
-                    >
-                      {h}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
+        {err ? <div className="inventory-error">{err}</div> : null}
 
-              <tbody>
-                {!loading && visibleRows.length === 0 ? (
-                  <tr>
-                    <td
-                      colSpan={7}
-                      style={{
-                        padding: 16,
-                        color: colors.subtext,
-                      }}
-                    >
-                      {hideZeroPacks
-                        ? "No unopened packs right now. Turn off the 0-pack filter to see all products you’ve purchased before."
-                        : "No unopened packs yet. Head to the shop and grab some wax."}
-                    </td>
-                  </tr>
-                ) : null}
-
-                {visibleRows.map((r, idx) => {
-                  const friendlyName = formatFriendlyProductName(r.productId);
-
-                  return (
-                    <tr
-                      key={`${r.productId}-${idx}`}
-                      style={{
-                        borderBottom: `1px solid ${colors.border}`,
-                        background: idx % 2 === 0 ? "#fff" : "#fcfcfc",
-                      }}
-                    >
-                      {/* pack image */}
-                      <td style={{ padding: 10, verticalAlign: "middle", width: 64 }}>
-                        <div
-                          style={{
-                            width: 36,
-                            height: 52,
-                            borderRadius: 8,
-                            overflow: "hidden",
-                            border: `1px solid ${colors.border}`,
-                            background: "#fff",
-                            display: "grid",
-                            placeItems: "center",
-                          }}
-                        >
-                          {r.packImageUrl ? (
-                            <img
-                              src={r.packImageUrl}
-                              alt={friendlyName}
-                              loading="lazy"
-                              decoding="async"
-                              style={{
-                                width: "100%",
-                                height: "100%",
-                                objectFit: "cover",
-                              }}
-                            />
-                          ) : (
-                            <div style={{ fontSize: 10, color: colors.subtext }}>No image</div>
-                          )}
-                        </div>
-                      </td>
-
-                      {/* product */}
-                      <td style={{ padding: 12, verticalAlign: "middle" }}>
-                        <div style={{ fontWeight: 900, fontSize: 15, lineHeight: 1.2 }}>{friendlyName}</div>
-                      </td>
-
-                      {/* packs owned */}
-                      <td style={{ padding: 12, verticalAlign: "middle", fontWeight: 900 }}>{r.packsOwned}</td>
-
-                      {/* pack price */}
-                      <td style={{ padding: 12, verticalAlign: "middle", fontWeight: 900 }}>
-                        {formatDollars(r.packPriceCents)}
-                      </td>
-
-                      {/* cards per pack */}
-                      <td style={{ padding: 12, verticalAlign: "middle", fontWeight: 900 }}>
-                        {r.cardsPerPack ?? "—"}
-                      </td>
-
-                      {/* updated */}
-                      <td style={{ padding: 12, verticalAlign: "middle", fontWeight: 900 }}>
-                        {formatDateTime(r.updatedAt)}
-                      </td>
-
-                      {/* action */}
-                      <td style={{ padding: 12, verticalAlign: "middle" }}>
-                        <Link
-                          href={`/open-pack/${encodeURIComponent(r.productId)}`}
-                          style={{
-                            display: "inline-flex",
-                            alignItems: "center",
-                            gap: 8,
-                            background: colors.accent,
-                            color: "#fff",
-                            textDecoration: "none",
-                            fontWeight: 900,
-                            padding: "8px 12px",
-                            borderRadius: 10,
-                            whiteSpace: "nowrap",
-                            boxShadow: "0 8px 18px rgba(47,111,237,0.18)",
-                          }}
-                        >
-                          Open Pack <span>→</span>
-                        </Link>
-                      </td>
-                    </tr>
-                  );
-                })}
-
-                {loading ? (
-                  <tr>
-                    <td colSpan={7} style={{ padding: 16 }}>
-                      Loading inventory…
-                    </td>
-                  </tr>
-                ) : null}
-              </tbody>
-            </table>
+        {loading ? (
+          <div className="inventory-loading">Loading sealed inventory…</div>
+        ) : visibleRows.length === 0 ? (
+          <div className="inventory-empty">
+            {hideZeroPacks
+              ? "No unopened packs match these filters. Try clearing search, switching sports, or showing 0-pack products."
+              : "No products found. Head to the shop and start building your sealed collection."}
           </div>
-        </div>
+        ) : (
+          <section className="inventory-grid">
+            {visibleRows.map((row) => {
+              const friendlyName = formatFriendlyProductName(row.productId);
+              const canOpen = (row.packsOwned ?? 0) > 0;
+
+              return (
+                <article key={row.productId} className="inventory-card">
+                  <div className="inventory-card-art-wrap">
+                    <ProductImage row={row} name={friendlyName} />
+                  </div>
+
+                  <div className="inventory-card-body">
+                    <div>
+                      <div className="inventory-kicker" style={{ padding: "5px 8px", fontSize: 10 }}>
+                        {sportEmoji(inferSport(row))} {sportLabel(inferSport(row))}
+                      </div>
+
+                      <div className="inventory-card-title" style={{ marginTop: 9 }}>
+                        {friendlyName}
+                      </div>
+                    </div>
+
+                    <div className="inventory-card-meta">
+                      <div className="inventory-mini-stat">
+                        <div className="inventory-mini-label">Packs Owned</div>
+                        <div className="inventory-mini-value">{row.packsOwned.toLocaleString()}</div>
+                      </div>
+
+                      <div className="inventory-mini-stat">
+                        <div className="inventory-mini-label">Pack Price</div>
+                        <div className="inventory-mini-value">{formatDollars(row.packPriceCents)}</div>
+                      </div>
+
+                      <div className="inventory-mini-stat">
+                        <div className="inventory-mini-label">Cards / Pack</div>
+                        <div className="inventory-mini-value">{row.cardsPerPack ?? "—"}</div>
+                      </div>
+
+                      <div className="inventory-mini-stat">
+                        <div className="inventory-mini-label">Updated</div>
+                        <div className="inventory-mini-value">{formatDateTime(row.updatedAt)}</div>
+                      </div>
+                    </div>
+
+                    <Link
+                      href={`/open-pack/${encodeURIComponent(row.productId)}`}
+                      className={`inventory-open-btn ${canOpen ? "" : "inventory-open-btn-disabled"}`}
+                      aria-disabled={!canOpen}
+                    >
+                      {canOpen ? "Open Pack →" : "No Packs"}
+                    </Link>
+
+                    <div className="inventory-card-footer">
+                      Stored as sealed packs in your collection vault.
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </section>
+        )}
       </div>
     </main>
   );

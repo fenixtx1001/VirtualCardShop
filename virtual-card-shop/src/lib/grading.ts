@@ -21,22 +21,22 @@ export const GRADE_ODDS: Record<Gradeability, Record<VcsGrade, number>> = {
     6: 7,
     7: 18,
     8: 45,
-    9: 27,
-    10: 3,
+    9: 28,
+    10: 2,
   },
   GREAT: {
     6: 6,
     7: 17,
     8: 44,
-    9: 29,
-    10: 4,
+    9: 30,
+    10: 3,
   },
   ICONIC: {
     6: 5,
     7: 15,
     8: 42,
-    9: 33,
-    10: 5,
+    9: 34,
+    10: 4,
   },
 };
 
@@ -46,21 +46,21 @@ export const GRADE_VALUE_MULTIPLIERS: Record<Gradeability, Record<VcsGrade, numb
     7: 0.9,
     8: 1.1,
     9: 1.4,
-    10: 4.0,
+    10: 6.0,
   },
   GREAT: {
     6: 0.7,
     7: 0.95,
     8: 1.25,
     9: 1.9,
-    10: 6.0,
+    10: 8.0,
   },
   ICONIC: {
     6: 0.8,
     7: 1.05,
     8: 1.45,
     9: 2.6,
-    10: 10.0,
+    10: 14.0,
   },
 };
 

@@ -425,253 +425,757 @@ function SealedShopTab() {
   );
 
   return (
-    <div style={{ fontFamily: "system-ui" }}>
-      <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 12 }}>
-        <div>
-          <h1 style={{ fontSize: 34, fontWeight: 900, marginTop: 0, marginBottom: 6 }}>Shop</h1>
-          <div style={{ color: "#444" }}>
-            Buy packs or discounted boxes. Boxes are priced at packPrice × packsPerBox × 0.75. One daily deal gets an extra 10% off packs and boxes until midnight.
+    <div className="shop-vault">
+      <style>{`
+        .shop-vault {
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+          color: #171717;
+        }
+
+        .shop-hero {
+          border: 1px solid #e7e3dc;
+          border-radius: 24px;
+          padding: 18px;
+          background:
+            radial-gradient(circle at 10% 0%, rgba(199,168,90,0.16), transparent 36%),
+            linear-gradient(135deg, rgba(255,255,255,0.98), rgba(255,250,239,0.94));
+          box-shadow: 0 18px 50px rgba(48,38,23,0.08);
+        }
+
+        .shop-hero-top {
+          display: flex;
+          justify-content: space-between;
+          gap: 14px;
+          align-items: flex-start;
+          flex-wrap: wrap;
+        }
+
+        .shop-kicker {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          border: 1px solid rgba(184,146,59,0.38);
+          background: #fff8e7;
+          color: #6c4b09;
+          border-radius: 999px;
+          padding: 6px 10px;
+          font-size: 11px;
+          font-weight: 950;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          width: fit-content;
+        }
+
+        .shop-title {
+          margin: 10px 0 0;
+          font-size: clamp(34px, 5vw, 52px);
+          line-height: 0.95;
+          letter-spacing: -0.055em;
+          font-weight: 950;
+        }
+
+        .shop-subtitle {
+          margin-top: 10px;
+          max-width: 720px;
+          color: #5f5a52;
+          font-size: 14px;
+          line-height: 1.5;
+          font-weight: 650;
+        }
+
+        .shop-refresh {
+          border: 1px solid #d8cfc2;
+          background: rgba(255,255,255,0.8);
+          border-radius: 14px;
+          padding: 10px 13px;
+          font-weight: 900;
+          cursor: pointer;
+          box-shadow: 0 8px 22px rgba(48,38,23,0.05);
+        }
+
+        .shop-toolbar {
+          margin-top: 14px;
+          border: 1px solid #e7e3dc;
+          border-radius: 20px;
+          background: rgba(255,255,255,0.88);
+          padding: 12px;
+          display: grid;
+          gap: 10px;
+          box-shadow: 0 10px 30px rgba(48,38,23,0.045);
+          position: sticky;
+          top: 86px;
+          z-index: 20;
+          backdrop-filter: blur(12px);
+        }
+
+        .shop-toolbar-row {
+          display: grid;
+          grid-template-columns: minmax(220px, 1fr) auto auto auto;
+          gap: 9px;
+          align-items: center;
+        }
+
+        .shop-input,
+        .shop-select {
+          border: 1px solid #d8cfc2;
+          border-radius: 14px;
+          background: #fff;
+          padding: 11px 12px;
+          color: #171717;
+          font-weight: 820;
+          min-width: 0;
+          outline: none;
+        }
+
+        .shop-select {
+          min-width: 145px;
+        }
+
+        .shop-count {
+          color: #5f5a52;
+          font-size: 12px;
+          font-weight: 850;
+          white-space: nowrap;
+        }
+
+        .daily-deal-card {
+          margin-top: 16px;
+          border: 1px solid rgba(184,146,59,0.55);
+          border-radius: 24px;
+          overflow: hidden;
+          background:
+            radial-gradient(circle at 16% 0%, rgba(240,180,41,0.24), transparent 42%),
+            linear-gradient(135deg, #fff8dc 0%, #fffdf4 45%, #ffffff 100%);
+          box-shadow: 0 18px 42px rgba(184,146,59,0.18);
+        }
+
+        .daily-deal-inner {
+          display: grid;
+          grid-template-columns: 240px 1fr;
+          gap: 18px;
+          align-items: center;
+          padding: 18px;
+        }
+
+        .daily-image-wrap {
+          position: relative;
+          min-height: 220px;
+          border-radius: 20px;
+          border: 1px solid rgba(184,146,59,0.30);
+          background:
+            radial-gradient(circle at 50% 0%, rgba(255,255,255,0.90), transparent 46%),
+            linear-gradient(135deg, #f5ecd7, #fffaf0);
+          display: grid;
+          place-items: center;
+          overflow: hidden;
+        }
+
+        .daily-img,
+        .shop-product-img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          display: block;
+          filter: drop-shadow(0 14px 18px rgba(25,18,9,0.20));
+        }
+
+        .daily-img {
+          max-width: 220px;
+          max-height: 220px;
+          padding: 12px;
+        }
+
+        .daily-copy {
+          min-width: 0;
+        }
+
+        .daily-title-row {
+          display: flex;
+          justify-content: space-between;
+          gap: 10px;
+          flex-wrap: wrap;
+          align-items: flex-start;
+        }
+
+        .daily-title {
+          font-size: clamp(24px, 3.5vw, 36px);
+          line-height: 1.0;
+          letter-spacing: -0.04em;
+          font-weight: 950;
+        }
+
+        .daily-meta {
+          margin-top: 8px;
+          color: #5f5a52;
+          font-size: 13px;
+          font-weight: 750;
+        }
+
+        .deal-badge {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 999px;
+          padding: 7px 11px;
+          background: #111;
+          color: white;
+          font-size: 11px;
+          font-weight: 950;
+          white-space: nowrap;
+        }
+
+        .daily-price-grid {
+          margin-top: 16px;
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
+        }
+
+        .price-tile {
+          border: 1px solid rgba(184,146,59,0.26);
+          border-radius: 18px;
+          background: rgba(255,255,255,0.78);
+          padding: 12px;
+          min-width: 0;
+        }
+
+        .price-label {
+          color: #5f5a52;
+          font-size: 11px;
+          font-weight: 900;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+        }
+
+        .price-main {
+          margin-top: 5px;
+          font-size: 22px;
+          font-weight: 950;
+          letter-spacing: -0.04em;
+        }
+
+        .price-sub {
+          margin-top: 3px;
+          color: #7a5200;
+          font-size: 12px;
+          font-weight: 850;
+        }
+
+        .daily-actions {
+          margin-top: 12px;
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
+        }
+
+        .shop-buy-btn {
+          border: 1px solid #d8cfc2;
+          background: #fff;
+          color: #171717;
+          border-radius: 14px;
+          min-height: 40px;
+          padding: 9px 10px;
+          font-weight: 950;
+          cursor: pointer;
+          box-shadow: 0 8px 20px rgba(48,38,23,0.045);
+        }
+
+        .shop-buy-btn-primary {
+          border-color: #1f4f9b;
+          background: linear-gradient(135deg, #1f4f9b, #2f6fed);
+          color: #fff;
+          box-shadow: 0 12px 24px rgba(47,111,237,0.20);
+        }
+
+        .shop-status {
+          margin-top: 14px;
+          padding: 12px;
+          border-radius: 16px;
+          font-weight: 850;
+        }
+
+        .shop-status-error {
+          background: #fff1f1;
+          border: 1px solid #f3b7b7;
+          color: #7a1f1f;
+        }
+
+        .shop-status-success {
+          background: #eefbf3;
+          border: 1px solid #a7e7bd;
+          color: #176239;
+        }
+
+        .shop-loading,
+        .shop-empty {
+          margin-top: 16px;
+          border: 1px solid #e7e3dc;
+          border-radius: 20px;
+          background: rgba(255,255,255,0.78);
+          padding: 18px;
+          color: #5f5a52;
+          font-weight: 850;
+        }
+
+        .shop-products-grid {
+          margin-top: 16px;
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+          gap: 12px;
+        }
+
+        .shop-product-card {
+          border: 1px solid #e7e3dc;
+          border-radius: 20px;
+          background:
+            linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,247,241,0.95));
+          box-shadow: 0 12px 34px rgba(48,38,23,0.055);
+          overflow: hidden;
+          min-width: 0;
+          transition: transform 150ms ease, box-shadow 150ms ease;
+        }
+
+        .shop-product-card:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 18px 42px rgba(48,38,23,0.10);
+        }
+
+        .shop-product-card-deal {
+          border-color: rgba(184,146,59,0.58);
+          background:
+            radial-gradient(circle at 20% 0%, rgba(240,180,41,0.14), transparent 38%),
+            linear-gradient(180deg, #fffdf2, #ffffff 46%);
+        }
+
+        .shop-product-art {
+          height: 150px;
+          margin: 12px 12px 0;
+          border: 1px solid #d8cfc2;
+          border-radius: 16px;
+          background:
+            radial-gradient(circle at 50% 0%, rgba(255,255,255,0.92), transparent 48%),
+            linear-gradient(135deg, #f5efe4, #eee4d2);
+          display: grid;
+          place-items: center;
+          overflow: hidden;
+          position: relative;
+        }
+
+        .shop-product-img {
+          padding: 8px;
+          max-height: 150px;
+        }
+
+        .shop-no-image {
+          color: #5f5a52;
+          font-size: 12px;
+          font-weight: 850;
+          text-align: center;
+          display: grid;
+          gap: 6px;
+          place-items: center;
+        }
+
+        .shop-product-body {
+          padding: 12px;
+          display: grid;
+          gap: 10px;
+        }
+
+        .shop-product-title {
+          min-height: 40px;
+          font-size: 14px;
+          line-height: 1.18;
+          font-weight: 950;
+          letter-spacing: -0.025em;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+
+        .shop-product-meta {
+          color: #5f5a52;
+          font-size: 11px;
+          font-weight: 800;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .shop-product-badges {
+          display: flex;
+          gap: 6px;
+          flex-wrap: wrap;
+          min-height: 22px;
+        }
+
+        .shop-small-badge {
+          border-radius: 999px;
+          padding: 4px 7px;
+          font-size: 10px;
+          font-weight: 950;
+          background: #f2efe9;
+          color: #5f5a52;
+        }
+
+        .shop-small-badge-deal {
+          background: #111;
+          color: #fff;
+        }
+
+        .shop-small-badge-new {
+          background: #fff8e7;
+          color: #6c4b09;
+          border: 1px solid rgba(184,146,59,0.26);
+        }
+
+        .shop-product-prices {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 7px;
+        }
+
+        .shop-compact-price {
+          border: 1px solid #e7e3dc;
+          border-radius: 13px;
+          background: rgba(255,255,255,0.72);
+          padding: 8px;
+          min-width: 0;
+        }
+
+        .shop-compact-label {
+          color: #5f5a52;
+          font-size: 10px;
+          font-weight: 900;
+          text-transform: uppercase;
+          letter-spacing: 0.055em;
+        }
+
+        .shop-compact-value {
+          margin-top: 3px;
+          font-size: 14px;
+          font-weight: 950;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .shop-compact-standard {
+          margin-top: 2px;
+          color: #8a5a00;
+          font-size: 10px;
+          font-weight: 850;
+          text-decoration: line-through;
+        }
+
+        .shop-product-actions {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 7px;
+        }
+
+        .shop-action-block {
+          display: grid;
+          gap: 6px;
+          min-width: 0;
+        }
+
+        .shop-qty {
+          width: 100%;
+          min-width: 0;
+          border: 1px solid #d8cfc2;
+          border-radius: 12px;
+          padding: 8px;
+          font-weight: 850;
+          text-align: center;
+          background: #fff;
+        }
+
+        .shop-compact-buy {
+          border: 1px solid #d8cfc2;
+          border-radius: 12px;
+          background: #fff;
+          min-height: 36px;
+          padding: 8px 6px;
+          font-size: 12px;
+          font-weight: 950;
+          cursor: pointer;
+        }
+
+        .shop-compact-buy-pack {
+          background: linear-gradient(135deg, #1f4f9b, #2f6fed);
+          color: #fff;
+          border-color: #1f4f9b;
+        }
+
+        @media (max-width: 820px) {
+          .shop-hero {
+            border-radius: 22px;
+            padding: 15px;
+          }
+
+          .shop-title {
+            font-size: 38px;
+          }
+
+          .shop-toolbar {
+            top: 76px;
+            border-radius: 18px;
+            padding: 10px;
+          }
+
+          .shop-toolbar-row {
+            grid-template-columns: 1fr 1fr;
+          }
+
+          .shop-toolbar-row .shop-input {
+            grid-column: 1 / -1;
+          }
+
+          .shop-select {
+            min-width: 0;
+            width: 100%;
+          }
+
+          .shop-count {
+            grid-column: 1 / -1;
+          }
+
+          .daily-deal-inner {
+            grid-template-columns: 1fr;
+            padding: 14px;
+          }
+
+          .daily-image-wrap {
+            min-height: 180px;
+          }
+
+          .daily-img {
+            max-height: 178px;
+          }
+
+          .daily-price-grid,
+          .daily-actions {
+            grid-template-columns: 1fr 1fr;
+          }
+
+          .shop-products-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 9px;
+          }
+
+          .shop-product-card {
+            border-radius: 17px;
+          }
+
+          .shop-product-art {
+            height: 122px;
+            margin: 9px 9px 0;
+            border-radius: 14px;
+          }
+
+          .shop-product-img {
+            max-height: 122px;
+            padding: 6px;
+          }
+
+          .shop-product-body {
+            padding: 9px;
+            gap: 8px;
+          }
+
+          .shop-product-title {
+            min-height: 38px;
+            font-size: 13px;
+          }
+
+          .shop-product-meta {
+            font-size: 10px;
+          }
+
+          .shop-product-prices {
+            gap: 6px;
+          }
+
+          .shop-compact-price {
+            padding: 7px;
+          }
+
+          .shop-compact-value {
+            font-size: 13px;
+          }
+
+          .shop-product-actions {
+            gap: 6px;
+          }
+
+          .shop-compact-buy {
+            min-height: 34px;
+            font-size: 11px;
+          }
+        }
+
+        @media (max-width: 390px) {
+          .shop-products-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .shop-product-art {
+            height: 170px;
+          }
+
+          .shop-product-img {
+            max-height: 170px;
+          }
+        }
+      `}</style>
+
+      <section className="shop-hero">
+        <div className="shop-hero-top">
+          <div>
+            <div className="shop-kicker">Marketplace</div>
+            <h1 className="shop-title">Shop</h1>
+            <div className="shop-subtitle">
+              Buy packs or discounted boxes. Boxes are priced at pack price × packs per box × 0.75, and one daily deal
+              gets an extra 10% off packs and boxes until midnight.
+            </div>
+          </div>
+
+          <button onClick={load} className="shop-refresh">
+            Refresh
+          </button>
+        </div>
+      </section>
+
+      <section className="shop-toolbar">
+        <div className="shop-toolbar-row">
+          <input
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="Search products, brands, sports, years…"
+            className="shop-input"
+          />
+
+          <select value={sport} onChange={(e) => setSport(e.target.value)} className="shop-select">
+            {sportOptions.map((s) => (
+              <option key={s} value={s}>
+                {s === "all" ? "All sports" : s}
+              </option>
+            ))}
+          </select>
+
+          <select value={year} onChange={(e) => setYear(e.target.value)} className="shop-select">
+            {yearOptions.map((y) => (
+              <option key={y} value={y}>
+                {y === "all" ? "All years" : y}
+              </option>
+            ))}
+          </select>
+
+          <select value={sort} onChange={(e) => setSort(e.target.value as SortKey)} className="shop-select">
+            <option value="name">Name</option>
+            <option value="year_desc">Year: new to old</option>
+            <option value="price_asc">Pack price: low</option>
+            <option value="price_desc">Pack price: high</option>
+          </select>
+
+          <div className="shop-count">
+            Showing <span style={{ fontWeight: 950 }}>{filteredSorted.length}</span> / {rows.length}
           </div>
         </div>
-
-        <button
-          onClick={load}
-          style={{
-            padding: "10px 14px",
-            borderRadius: 10,
-            border: "1px solid #ccc",
-            background: "white",
-            fontWeight: 800,
-          }}
-        >
-          Refresh
-        </button>
-      </div>
-
-      <div
-        style={{
-          marginTop: 14,
-          padding: 12,
-          border: "1px solid #ddd",
-          borderRadius: 14,
-          background: "#fafafa",
-          display: "flex",
-          gap: 10,
-          flexWrap: "wrap",
-          alignItems: "center",
-        }}
-      >
-        <input
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          placeholder="Search (name, brand, sport, year)…"
-          style={{
-            padding: "10px 12px",
-            borderRadius: 12,
-            border: "1px solid #ccc",
-            minWidth: 240,
-          }}
-        />
-
-        <select
-          value={sport}
-          onChange={(e) => setSport(e.target.value)}
-          style={{ padding: "10px 12px", borderRadius: 12, border: "1px solid #ccc" }}
-        >
-          {sportOptions.map((s) => (
-            <option key={s} value={s}>
-              {s === "all" ? "All sports" : s}
-            </option>
-          ))}
-        </select>
-
-        <select
-          value={year}
-          onChange={(e) => setYear(e.target.value)}
-          style={{ padding: "10px 12px", borderRadius: 12, border: "1px solid #ccc" }}
-        >
-          {yearOptions.map((y) => (
-            <option key={y} value={y}>
-              {y === "all" ? "All years" : y}
-            </option>
-          ))}
-        </select>
-
-        <select
-          value={sort}
-          onChange={(e) => setSort(e.target.value as SortKey)}
-          style={{ padding: "10px 12px", borderRadius: 12, border: "1px solid #ccc" }}
-        >
-          <option value="name">Sort: Name</option>
-          <option value="year_desc">Sort: Year (new → old)</option>
-          <option value="price_asc">Sort: Pack Price (low → high)</option>
-          <option value="price_desc">Sort: Pack Price (high → low)</option>
-        </select>
-
-        <div style={{ marginLeft: "auto", fontSize: 12, color: "#444" }}>
-          Showing <span style={{ fontWeight: 900 }}>{filteredSorted.length}</span> / {rows.length}
-        </div>
-      </div>
+      </section>
 
       {dailyDeal ? (
-        <div
-          style={{
-            marginTop: 16,
-            border: "2px solid #f0b429",
-            borderRadius: 18,
-            overflow: "hidden",
-            background: "linear-gradient(135deg, #fff7cc 0%, #fffdf2 48%, #ffffff 100%)",
-            boxShadow: "0 0 22px rgba(240, 180, 41, 0.38)",
-          }}
-        >
-          <div
-            style={{
-              padding: "12px 16px",
-              background: "rgba(240, 180, 41, 0.18)",
-              borderBottom: "1px solid rgba(240, 180, 41, 0.4)",
-              display: "flex",
-              justifyContent: "space-between",
-              gap: 12,
-              alignItems: "center",
-              flexWrap: "wrap",
-            }}
-          >
-            <div>
-              <div style={{ fontSize: 13, fontWeight: 1000, letterSpacing: 1.2, color: "#8a5a00" }}>
-                🔥 DAILY DEAL
-              </div>
-              <div style={{ fontSize: 24, fontWeight: 1000 }}>
-                {formatFriendlyProductName(dailyDeal.id)}
-              </div>
-              <div style={{ fontSize: 12, color: "#555", marginTop: 4 }}>
-                {dailyDeal.year ?? "—"} • {dailyDeal.brand ?? "—"} • {dailyDeal.sport ?? "—"} • Changes at midnight
-              </div>
-            </div>
+        <section className="daily-deal-card">
+          {(() => {
+            const derivedBox =
+              dailyDeal.packsPerBox && dailyDeal.packsPerBox > 0
+                ? computeBoxPriceCents(dailyDeal.packPriceCents, dailyDeal.packsPerBox)
+                : null;
 
-            <div
-              style={{
-                borderRadius: 999,
-                padding: "8px 12px",
-                background: "#111",
-                color: "white",
-                fontSize: 12,
-                fontWeight: 1000,
-              }}
-            >
-              {dailyDealLabel(dailyDeal)}
-            </div>
-          </div>
+            const packKey = `${dailyDeal.id}:pack`;
+            const boxKey = `${dailyDeal.id}:box`;
+            const dailyDealSrc = safeImgSrc(dailyDeal.displayBoxImageUrl ?? dailyDeal.boxImageUrl ?? dailyDeal.packImageUrl);
 
-          <div
-            style={{
-              padding: 16,
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-              gap: 18,
-              alignItems: "center",
-            }}
-          >
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <div style={{ position: "relative", display: "inline-block" }}>
-                {dailyDeal.isNewProduct ? <NewProductBadge /> : null}
-                <Thumb
-                  src={safeImgSrc(dailyDeal.displayBoxImageUrl ?? dailyDeal.boxImageUrl ?? dailyDeal.packImageUrl)}
-                  label="Daily Deal Box"
-                  size={200}
-                />
-              </div>
-            </div>
+            return (
+              <div className="daily-deal-inner">
+                <div className="daily-image-wrap">
+                  {dailyDeal.isNewProduct ? <NewProductBadge /> : null}
+                  {dailyDealSrc ? (
+                    <img src={dailyDealSrc} alt="Daily deal product" className="daily-img" />
+                  ) : (
+                    <div className="shop-no-image">No image</div>
+                  )}
+                </div>
 
-            <div style={{ display: "grid", gap: 12 }}>
-              {(() => {
-                const derivedBox =
-                  dailyDeal.packsPerBox && dailyDeal.packsPerBox > 0
-                    ? computeBoxPriceCents(dailyDeal.packPriceCents, dailyDeal.packsPerBox)
-                    : null;
-
-                const packKey = `${dailyDeal.id}:pack`;
-                const boxKey = `${dailyDeal.id}:box`;
-
-                return (
-                  <>
-                    <PriceLine
-                      label="Pack deal"
-                      standardCents={standardPackPrice(dailyDeal)}
-                      effectiveCents={effectivePackPrice(dailyDeal)}
-                      isDeal={dailyDeal.isDailyDeal === true}
-                    />
-
-                    <PriceLine
-                      label="Box deal"
-                      standardCents={standardBoxPrice(dailyDeal, derivedBox)}
-                      effectiveCents={effectiveBoxPrice(dailyDeal, derivedBox)}
-                      isDeal={dailyDeal.isDailyDeal === true}
-                      suffix={dailyDeal.packsPerBox ? `• ${dailyDeal.packsPerBox} packs/box` : ""}
-                    />
-
-                    <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 4 }}>
-                      <button
-                        onClick={() => buy(dailyDeal.id, "pack")}
-                        disabled={buyingKey === packKey}
-                        style={{
-                          padding: "10px 14px",
-                          borderRadius: 12,
-                          border: "1px solid #111",
-                          background: buyingKey === packKey ? "#f2f2f2" : "#111",
-                          color: buyingKey === packKey ? "#555" : "white",
-                          fontWeight: 1000,
-                          cursor: buyingKey === packKey ? "not-allowed" : "pointer",
-                        }}
-                      >
-                        {buyingKey === packKey ? "Buying…" : "Buy Daily Deal Pack"}
-                      </button>
-
-                      <button
-                        onClick={() => buy(dailyDeal.id, "box")}
-                        disabled={buyingKey === boxKey}
-                        style={{
-                          padding: "10px 14px",
-                          borderRadius: 12,
-                          border: "1px solid #111",
-                          background: buyingKey === boxKey ? "#f2f2f2" : "white",
-                          color: "#111",
-                          fontWeight: 1000,
-                          cursor: buyingKey === boxKey ? "not-allowed" : "pointer",
-                        }}
-                      >
-                        {buyingKey === boxKey ? "Buying…" : "Buy Daily Deal Box"}
-                      </button>
+                <div className="daily-copy">
+                  <div className="daily-title-row">
+                    <div>
+                      <div className="shop-kicker">🔥 Daily Deal</div>
+                      <div className="daily-title" style={{ marginTop: 9 }}>
+                        {formatFriendlyProductName(dailyDeal.id)}
+                      </div>
+                      <div className="daily-meta">
+                        {dailyDeal.year ?? "—"} • {dailyDeal.brand ?? "—"} • {dailyDeal.sport ?? "—"} • Changes at midnight
+                      </div>
                     </div>
-                  </>
-                );
-              })()}
-            </div>
-          </div>
-        </div>
+
+                    <div className="deal-badge">{dailyDealLabel(dailyDeal)}</div>
+                  </div>
+
+                  <div className="daily-price-grid">
+                    <div className="price-tile">
+                      <div className="price-label">Pack Deal</div>
+                      <div className="price-main">${centsToDollars(effectivePackPrice(dailyDeal))}</div>
+                      {standardPackPrice(dailyDeal) !== effectivePackPrice(dailyDeal) ? (
+                        <div className="price-sub">was ${centsToDollars(standardPackPrice(dailyDeal))}</div>
+                      ) : null}
+                    </div>
+
+                    <div className="price-tile">
+                      <div className="price-label">Box Deal</div>
+                      <div className="price-main">${centsToDollars(effectiveBoxPrice(dailyDeal, derivedBox))}</div>
+                      <div className="price-sub">
+                        {dailyDeal.packsPerBox ? `${dailyDeal.packsPerBox} packs/box` : "box pricing"}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="daily-actions">
+                    <button
+                      onClick={() => buy(dailyDeal.id, "pack")}
+                      disabled={buyingKey === packKey}
+                      className="shop-buy-btn shop-buy-btn-primary"
+                    >
+                      {buyingKey === packKey ? "Buying…" : "Buy Deal Pack"}
+                    </button>
+
+                    <button
+                      onClick={() => buy(dailyDeal.id, "box")}
+                      disabled={buyingKey === boxKey}
+                      className="shop-buy-btn"
+                    >
+                      {buyingKey === boxKey ? "Buying…" : "Buy Deal Box"}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
+        </section>
       ) : null}
 
-      <hr style={{ margin: "16px 0" }} />
+      {err ? <div className="shop-status shop-status-error">{err}</div> : null}
 
-      {err ? (
-        <div style={{ marginBottom: 12, padding: 12, background: "#fee", border: "1px solid #f99", borderRadius: 12 }}>
-          {err}
-        </div>
-      ) : null}
-
-      {msg ? (
-        <div style={{ marginBottom: 12, padding: 12, background: "#efe", border: "1px solid #9f9", borderRadius: 12 }}>
-          {msg}
-        </div>
-      ) : null}
+      {msg ? <div className="shop-status shop-status-success">{msg}</div> : null}
 
       {loading ? (
-        <div>Loading…</div>
+        <div className="shop-loading">Loading shop products…</div>
       ) : filteredSorted.length === 0 ? (
-        <div style={{ padding: 12, border: "1px solid #ddd", borderRadius: 12 }}>
-          No matching products. Try clearing filters.
-        </div>
+        <div className="shop-empty">No matching products. Try clearing filters.</div>
       ) : (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 14 }}>
+        <section className="shop-products-grid">
           {filteredSorted.map((p) => {
             const packKey = `${p.id}:pack`;
             const boxKey = `${p.id}:box`;
@@ -679,7 +1183,7 @@ function SealedShopTab() {
             const boxBuying = buyingKey === boxKey;
 
             const displayName = formatFriendlyProductName(p.id);
-            const boxOnlySrc = safeImgSrc(p.displayBoxImageUrl ?? p.boxImageUrl ?? p.packImageUrl);
+            const productSrc = safeImgSrc(p.displayBoxImageUrl ?? p.boxImageUrl ?? p.packImageUrl);
 
             const derivedBox =
               p.packsPerBox && p.packsPerBox > 0 ? computeBoxPriceCents(p.packPriceCents, p.packsPerBox) : null;
@@ -691,151 +1195,95 @@ function SealedShopTab() {
             const isDeal = p.isDailyDeal === true;
 
             return (
-              <div
+              <article
                 key={p.id}
-                style={{
-                  border: isDeal ? "2px solid #f0b429" : "1px solid #ddd",
-                  borderRadius: 16,
-                  background: isDeal ? "linear-gradient(180deg, #fffdf2 0%, #ffffff 45%)" : "white",
-                  overflow: "hidden",
-                  boxShadow: isDeal ? "0 0 16px rgba(240, 180, 41, 0.32)" : "0 1px 0 rgba(0,0,0,0.03)",
-                }}
+                className={`shop-product-card ${isDeal ? "shop-product-card-deal" : ""}`}
               >
-                <div style={{ padding: 14, borderBottom: "1px solid #eee", background: "#fafafa" }}>
-                  <div style={{ fontSize: 16, fontWeight: 900 }}>{displayName}</div>
-                  {isDeal ? (
-                    <div
-                      style={{
-                        display: "inline-block",
-                        marginTop: 6,
-                        borderRadius: 999,
-                        padding: "4px 8px",
-                        background: "#111",
-                        color: "white",
-                        fontSize: 11,
-                        fontWeight: 1000,
-                      }}
-                    >
-                      🔥 DAILY DEAL • {dailyDealLabel(p)}
-                    </div>
-                  ) : null}
-                  <div style={{ fontSize: 12, color: "#555", marginTop: 4 }}>
-                    {(p.year ?? "—")} • {(p.brand ?? "—")} • {(p.sport ?? "—")} • Product Sets: {p.productSetsCount}
-                  </div>
-                </div>
-
-                <div style={{ padding: 14, display: "flex", justifyContent: "center" }}>
-                  <div style={{ position: "relative", display: "inline-block" }}>
-                    {p.isNewProduct ? <NewProductBadge /> : null}
-                    <Thumb src={boxOnlySrc} label="Box" size={190} />
-                  </div>
-                </div>
-
-                <div style={{ padding: "0 14px 10px", fontSize: 11, color: "#666" }}>
-                  {boxOnlySrc ? (
-                    <>
-                      Image source:{" "}
-                      <span style={{ fontWeight: 800 }}>{p.debug?.displayBoxFrom ?? "displayBoxImageUrl/box/pack"}</span> •{" "}
-                      <a href={boxOnlySrc} target="_blank" rel="noreferrer">
-                        Open image
-                      </a>
-                    </>
+                <div className="shop-product-art">
+                  {p.isNewProduct ? <NewProductBadge /> : null}
+                  {productSrc ? (
+                    <img src={productSrc} alt={displayName} className="shop-product-img" />
                   ) : (
-                    <>
-                      No image URL found (boxImageUrl and packImageUrl are empty).{" "}
-                      <span style={{ fontWeight: 800 }}>
-                        (hasBox={String(!!p.boxImageUrl)}, hasPack={String(!!p.packImageUrl)})
-                      </span>
-                    </>
+                    <div className="shop-no-image">
+                      <span style={{ fontWeight: 950 }}>VCS</span>
+                      <span>No image</span>
+                    </div>
                   )}
                 </div>
 
-                <div style={{ padding: 14, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                    <div style={{ fontSize: 12, fontWeight: 900, color: "#333" }}>Pack</div>
+                <div className="shop-product-body">
+                  <div>
+                    <div className="shop-product-badges">
+                      {isDeal ? <span className="shop-small-badge shop-small-badge-deal">🔥 Deal</span> : null}
+                      {p.isNewProduct ? <span className="shop-small-badge shop-small-badge-new">New</span> : null}
+                      <span className="shop-small-badge">{p.sport ?? "Product"}</span>
+                    </div>
 
-                    <PriceLine
-                      label="Price"
-                      standardCents={originalPackPriceCents}
-                      effectiveCents={packPriceCents}
-                      isDeal={isDeal}
-                    />
+                    <div className="shop-product-title" title={displayName}>
+                      {displayName}
+                    </div>
 
-                    <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+                    <div className="shop-product-meta">
+                      {(p.year ?? "—")} • {(p.brand ?? "—")} • Sets: {p.productSetsCount}
+                    </div>
+                  </div>
+
+                  <div className="shop-product-prices">
+                    <div className="shop-compact-price">
+                      <div className="shop-compact-label">Pack</div>
+                      <div className="shop-compact-value">${centsToDollars(packPriceCents)}</div>
+                      {isDeal && originalPackPriceCents !== packPriceCents ? (
+                        <div className="shop-compact-standard">${centsToDollars(originalPackPriceCents)}</div>
+                      ) : null}
+                    </div>
+
+                    <div className="shop-compact-price">
+                      <div className="shop-compact-label">Box</div>
+                      <div className="shop-compact-value">${centsToDollars(boxPriceCents)}</div>
+                      {isDeal && originalBoxPriceCents !== boxPriceCents ? (
+                        <div className="shop-compact-standard">${centsToDollars(originalBoxPriceCents)}</div>
+                      ) : null}
+                    </div>
+                  </div>
+
+                  <div className="shop-product-actions">
+                    <div className="shop-action-block">
                       <input
                         value={String(qty[packKey] ?? 1)}
                         onChange={(e) => setQty((prev) => ({ ...prev, [packKey]: Number(e.target.value) }))}
-                        style={{ width: 70, padding: 8, borderRadius: 10, border: "1px solid #ccc" }}
+                        className="shop-qty"
+                        inputMode="numeric"
                       />
                       <button
                         onClick={() => buy(p.id, "pack")}
                         disabled={packBuying}
-                        style={{
-                          flex: 1,
-                          padding: "9px 10px",
-                          borderRadius: 10,
-                          border: "1px solid #ccc",
-                          background: packBuying ? "#f2f2f2" : "white",
-                          fontWeight: 900,
-                          cursor: packBuying ? "not-allowed" : "pointer",
-                        }}
+                        className="shop-compact-buy shop-compact-buy-pack"
                       >
-                        {packBuying ? "Buying…" : "Buy Pack(s)"}
+                        {packBuying ? "Buying…" : "Pack"}
                       </button>
                     </div>
-                  </div>
 
-                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                    <div style={{ fontSize: 12, fontWeight: 900, color: "#333" }}>Box</div>
-
-                    <PriceLine
-                      label="Price"
-                      standardCents={originalBoxPriceCents}
-                      effectiveCents={boxPriceCents}
-                      isDeal={isDeal}
-                      suffix={p.packsPerBox ? `• ${p.packsPerBox} packs/box` : ""}
-                    />
-
-                    <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+                    <div className="shop-action-block">
                       <input
                         value={String(qty[boxKey] ?? 1)}
                         onChange={(e) => setQty((prev) => ({ ...prev, [boxKey]: Number(e.target.value) }))}
-                        style={{ width: 70, padding: 8, borderRadius: 10, border: "1px solid #ccc" }}
+                        className="shop-qty"
+                        inputMode="numeric"
                       />
                       <button
                         onClick={() => buy(p.id, "box")}
                         disabled={boxBuying}
-                        style={{
-                          flex: 1,
-                          padding: "9px 10px",
-                          borderRadius: 10,
-                          border: "1px solid #ccc",
-                          background: boxBuying ? "#f2f2f2" : "white",
-                          fontWeight: 900,
-                          cursor: boxBuying ? "not-allowed" : "pointer",
-                        }}
+                        className="shop-compact-buy"
                       >
-                        {boxBuying ? "Buying…" : "Buy Box(es)"}
+                        {boxBuying ? "Buying…" : "Box"}
                       </button>
                     </div>
                   </div>
                 </div>
-
-                <div
-                  style={{
-                    padding: 14,
-                    borderTop: "1px solid #eee",
-                    background: "#fcfcfc",
-                    fontSize: 12,
-                    color: "#555",
-                  }}
-                >
-                  Images: use your own uploads (recommended). External sites may block hotlinking.
-                </div>
-              </div>
+              </article>
             );
           })}
-        </div>
+        </section>
       )}
     </div>
   );
