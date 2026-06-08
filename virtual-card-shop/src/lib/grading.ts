@@ -10,58 +10,42 @@ export const GRADING_FEE_BPS = 1500; // 15%
 export const MIN_GRADING_FEE_CENTS = 200; // $2.00
 export const GRADED_SHOP_OFFER_BONUS_BPS = 1000; // +10%
 
+const UNIVERSAL_GRADE_REVEAL_WAIT_MS = 24 * 60 * 60 * 1000;
+
+const UNIVERSAL_GRADE_ODDS: Record<VcsGrade, number> = {
+  6: 5,
+  7: 15,
+  8: 44,
+  9: 32,
+  10: 4,
+};
+
+const UNIVERSAL_GRADE_VALUE_MULTIPLIERS: Record<VcsGrade, number> = {
+  6: 0.8,
+  7: 1.05,
+  8: 1.45,
+  9: 2.6,
+  10: 15.0,
+};
+
+// Keep these exports shaped the same so existing code keeps compiling.
+// Gradeability no longer changes grading odds, values, or wait times.
 export const GRADE_REVEAL_WAIT_MS: Record<Gradeability, number> = {
-  COMMON: 2 * 60 * 60 * 1000,
-  GREAT: 12 * 60 * 60 * 1000,
-  ICONIC: 24 * 60 * 60 * 1000,
+  COMMON: UNIVERSAL_GRADE_REVEAL_WAIT_MS,
+  GREAT: UNIVERSAL_GRADE_REVEAL_WAIT_MS,
+  ICONIC: UNIVERSAL_GRADE_REVEAL_WAIT_MS,
 };
 
 export const GRADE_ODDS: Record<Gradeability, Record<VcsGrade, number>> = {
-  COMMON: {
-    6: 7,
-    7: 18,
-    8: 45,
-    9: 28,
-    10: 2,
-  },
-  GREAT: {
-    6: 6,
-    7: 17,
-    8: 44,
-    9: 30,
-    10: 3,
-  },
-  ICONIC: {
-    6: 5,
-    7: 15,
-    8: 42,
-    9: 34,
-    10: 4,
-  },
+  COMMON: UNIVERSAL_GRADE_ODDS,
+  GREAT: UNIVERSAL_GRADE_ODDS,
+  ICONIC: UNIVERSAL_GRADE_ODDS,
 };
 
 export const GRADE_VALUE_MULTIPLIERS: Record<Gradeability, Record<VcsGrade, number>> = {
-  COMMON: {
-    6: 0.75,
-    7: 0.9,
-    8: 1.1,
-    9: 1.4,
-    10: 6.0,
-  },
-  GREAT: {
-    6: 0.7,
-    7: 0.95,
-    8: 1.25,
-    9: 1.9,
-    10: 8.0,
-  },
-  ICONIC: {
-    6: 0.8,
-    7: 1.05,
-    8: 1.45,
-    9: 2.6,
-    10: 14.0,
-  },
+  COMMON: UNIVERSAL_GRADE_VALUE_MULTIPLIERS,
+  GREAT: UNIVERSAL_GRADE_VALUE_MULTIPLIERS,
+  ICONIC: UNIVERSAL_GRADE_VALUE_MULTIPLIERS,
 };
 
 export function normalizeGradeability(value: unknown): Gradeability {
@@ -72,7 +56,9 @@ export function getEffectiveGradeability(input: {
   cardOverride?: Gradeability | null;
   productSetDefault?: Gradeability | null;
 }): Gradeability {
-  return normalizeGradeability(input.cardOverride ?? input.productSetDefault ?? "COMMON");
+  // Gradeability is now legacy metadata only. It no longer affects grading.
+  // Return COMMON as the stable universal grading profile.
+  return "COMMON";
 }
 
 export function bookValueToCents(bookValue: unknown): number {
@@ -86,9 +72,9 @@ export function calculateGradingFeeCents(rawBookValueCents: number): number {
   return Math.max(MIN_GRADING_FEE_CENTS, Math.round((rawBookValueCents * GRADING_FEE_BPS) / 10000));
 }
 
-export function getGradeMultiplier(gradeability: Gradeability, grade: number): number {
+export function getGradeMultiplier(_gradeability: Gradeability, grade: number): number {
   if (!VCS_GRADES.includes(grade as VcsGrade)) return 1;
-  return GRADE_VALUE_MULTIPLIERS[gradeability][grade as VcsGrade] ?? 1;
+  return UNIVERSAL_GRADE_VALUE_MULTIPLIERS[grade as VcsGrade] ?? 1;
 }
 
 export function calculateGradedValueCents(input: {
@@ -105,35 +91,29 @@ export function calculateReadyAt(input: {
   gradeability: Gradeability;
 }): Date {
   const now = input.now ?? new Date();
-  return new Date(now.getTime() + GRADE_REVEAL_WAIT_MS[input.gradeability]);
+  return new Date(now.getTime() + UNIVERSAL_GRADE_REVEAL_WAIT_MS);
 }
 
-export function rollVcsGrade(gradeability: Gradeability, randomValue = Math.random()): VcsGrade {
-  const odds = GRADE_ODDS[gradeability];
+export function rollVcsGrade(_gradeability: Gradeability, randomValue = Math.random()): VcsGrade {
   const roll = Math.max(0, Math.min(0.999999999, randomValue)) * 100;
 
   let cumulative = 0;
   for (const grade of VCS_GRADES) {
-    cumulative += odds[grade];
+    cumulative += UNIVERSAL_GRADE_ODDS[grade];
     if (roll < cumulative) return grade;
   }
 
   return 8;
 }
 
-export function expectedGradeMultiplier(gradeability: Gradeability): number {
-  const odds = GRADE_ODDS[gradeability];
-  const multipliers = GRADE_VALUE_MULTIPLIERS[gradeability];
-
+export function expectedGradeMultiplier(_gradeability: Gradeability): number {
   return VCS_GRADES.reduce((sum, grade) => {
-    return sum + (odds[grade] / 100) * multipliers[grade];
+    return sum + (UNIVERSAL_GRADE_ODDS[grade] / 100) * UNIVERSAL_GRADE_VALUE_MULTIPLIERS[grade];
   }, 0);
 }
 
-export function labelGradeability(gradeability: Gradeability): string {
-  if (gradeability === "ICONIC") return "Iconic";
-  if (gradeability === "GREAT") return "Great";
-  return "Common";
+export function labelGradeability(_gradeability: Gradeability): string {
+  return "Standard";
 }
 
 export function labelVcsGrade(grade: number): string {
