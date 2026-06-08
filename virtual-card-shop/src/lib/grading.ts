@@ -11,7 +11,7 @@ export const MIN_GRADING_FEE_CENTS = 200; // $2.00
 export const GRADED_SHOP_OFFER_BONUS_BPS = 1000; // +10%
 
 export const GRADE_REVEAL_WAIT_MS: Record<Gradeability, number> = {
-  COMMON: 30 * 1000,
+  COMMON: 2 * 60 * 60 * 1000,
   GREAT: 12 * 60 * 60 * 1000,
   ICONIC: 24 * 60 * 60 * 1000,
 };

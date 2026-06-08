@@ -3,6 +3,10 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 
+type Gradeability = "COMMON" | "GREAT" | "ICONIC";
+type GradeabilityFilter = "ALL" | Gradeability;
+type OwnershipFilter = "ALL" | "RAW" | "GRADED" | "PENDING";
+
 type Row = {
   cardId: number;
   player: string;
@@ -11,15 +15,23 @@ type Row = {
   variant: string | null;
 
   qty: number;
+  rawQty: number;
+  gradedQty: number;
+  pendingGradingQty: number;
   bookValue: number;
 
-  // Display context
-  productId: string; // productSet.productId if present, else card.setId fallback
-  year: number | null; // product.year or set.year fallback
+  productId: string;
+  productName: string;
+  year: number | null;
+  brand: string | null;
+  sport: string | null;
   productSetName: string | null;
   productSetIsBase: boolean | null;
 
-  // ✅ images (added)
+  productSetDefaultGradeability: Gradeability;
+  gradeabilityOverride: Gradeability | null;
+  effectiveGradeability: Gradeability;
+
   frontImageUrl: string | null;
   backImageUrl: string | null;
 };
@@ -34,6 +46,57 @@ type SearchResponse = {
   rows: Row[];
 };
 
+function gradeabilityLabel(value: Gradeability) {
+  if (value === "ICONIC") return "Iconic";
+  if (value === "GREAT") return "Great";
+  return "Common";
+}
+
+function gradeabilityBadgeStyle(value: Gradeability): React.CSSProperties {
+  if (value === "ICONIC") {
+    return {
+      background: "#fff7ed",
+      border: "1px solid #fed7aa",
+      color: "#9a3412",
+    };
+  }
+
+  if (value === "GREAT") {
+    return {
+      background: "#eff6ff",
+      border: "1px solid #bfdbfe",
+      color: "#1d4ed8",
+    };
+  }
+
+  return {
+    background: "#f8fafc",
+    border: "1px solid #cbd5e1",
+    color: "#334155",
+  };
+}
+
+function ownershipMatches(row: Row, filter: OwnershipFilter) {
+  if (filter === "RAW") return (row.rawQty ?? 0) > 0;
+  if (filter === "GRADED") return (row.gradedQty ?? 0) > 0;
+  if (filter === "PENDING") return (row.pendingGradingQty ?? 0) > 0;
+  return true;
+}
+
+function safeProductName(row: Row) {
+  const s = row.productName?.trim();
+  if (s) return s;
+
+  const parts = [row.year, row.brand?.trim()].filter(Boolean);
+  if (parts.length > 0) return parts.join(" ");
+
+  return row.productId?.replaceAll("_", " ") || "—";
+}
+
+function pickThumbnail(row: Row) {
+  return row.frontImageUrl || row.backImageUrl || null;
+}
+
 export default function SearchClient() {
   const [q, setQ] = useState("");
   const [data, setData] = useState<SearchResponse | null>(null);
@@ -43,13 +106,12 @@ export default function SearchClient() {
   const [page, setPage] = useState(1);
   const pageSize = 50;
 
-  // ✅ View toggle: table vs cards
   const [view, setView] = useState<"table" | "cards">("table");
+  const [gradeabilityFilter, setGradeabilityFilter] = useState<GradeabilityFilter>("ALL");
+  const [ownershipFilter, setOwnershipFilter] = useState<OwnershipFilter>("ALL");
 
-  // For card tiles: track which side is shown per cardId
   const [sideByCardId, setSideByCardId] = useState<Record<number, "front" | "back">>({});
 
-  // debounce + cancel stale responses
   const timerRef = useRef<any>(null);
   const requestIdRef = useRef(0);
 
@@ -57,7 +119,6 @@ export default function SearchClient() {
     const qq = (opts?.q ?? q).trim();
     const nextPage = opts?.page ?? page;
 
-    // No query -> clear results
     if (!qq) {
       setErr(null);
       setData(null);
@@ -79,7 +140,7 @@ export default function SearchClient() {
       const res = await fetch(`/api/collection/search?${params.toString()}`, { cache: "no-store" });
       const raw = await res.text();
 
-      if (rid !== requestIdRef.current) return; // stale response
+      if (rid !== requestIdRef.current) return;
 
       let j: any = null;
       try {
@@ -94,7 +155,6 @@ export default function SearchClient() {
       setData(next);
       setPage(next.page);
 
-      // Reset per-card side state for new page of results
       const nextSides: Record<number, "front" | "back"> = {};
       for (const r of next.rows ?? []) nextSides[r.cardId] = "front";
       setSideByCardId(nextSides);
@@ -107,7 +167,6 @@ export default function SearchClient() {
     }
   }
 
-  // Debounce search on input changes
   useEffect(() => {
     if (timerRef.current) clearTimeout(timerRef.current);
 
@@ -126,7 +185,17 @@ export default function SearchClient() {
   const canPrev = (data?.page ?? 1) > 1;
   const canNext = (data?.page ?? 1) < totalPages;
 
-  const rows = useMemo(() => data?.rows ?? [], [data]);
+  const rows = useMemo(() => {
+    const baseRows = data?.rows ?? [];
+
+    return baseRows.filter((row) => {
+      const gradeabilityOk =
+        gradeabilityFilter === "ALL" || row.effectiveGradeability === gradeabilityFilter;
+      const ownershipOk = ownershipMatches(row, ownershipFilter);
+
+      return gradeabilityOk && ownershipOk;
+    });
+  }, [data, gradeabilityFilter, ownershipFilter]);
 
   function setLabel(r: Row) {
     const baseLabel = r.productSetName?.trim()
@@ -158,6 +227,76 @@ export default function SearchClient() {
     return r.frontImageUrl || r.backImageUrl || null;
   }
 
+  function gradeabilityBadge(value: Gradeability) {
+    return (
+      <span
+        style={{
+          display: "inline-block",
+          padding: "4px 9px",
+          borderRadius: 999,
+          fontWeight: 1000,
+          fontSize: 12,
+          whiteSpace: "nowrap",
+          ...gradeabilityBadgeStyle(value),
+        }}
+      >
+        {gradeabilityLabel(value)}
+      </span>
+    );
+  }
+
+  function thumbnail(row: Row) {
+    const img = pickThumbnail(row);
+
+    return (
+      <Link
+        href={`/cards/${encodeURIComponent(String(row.cardId))}`}
+        style={{
+          display: "block",
+          width: 44,
+          height: 62,
+          borderRadius: 8,
+          border: "1px solid #ddd",
+          overflow: "hidden",
+          background: "#f3f4f6",
+          textDecoration: "none",
+        }}
+        title={`Open ${row.player}`}
+      >
+        {img ? (
+          <img
+            src={img}
+            alt={`${row.player} #${row.cardNumber}`}
+            loading="lazy"
+            style={{
+              width: "100%",
+              height: "100%",
+              display: "block",
+              objectFit: "cover",
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "#777",
+              fontSize: 10,
+              fontWeight: 900,
+              textAlign: "center",
+              padding: 4,
+            }}
+          >
+            No image
+          </div>
+        )}
+      </Link>
+    );
+  }
+
   return (
     <div style={{ fontFamily: "system-ui", padding: 16 }}>
       <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
@@ -166,7 +305,6 @@ export default function SearchClient() {
         </Link>
         <div style={{ fontWeight: 900, fontSize: 26 }}>Search Collection</div>
 
-        {/* ✅ View toggle */}
         <div style={{ marginLeft: "auto", display: "flex", gap: 8, alignItems: "center" }}>
           <div style={{ fontWeight: 900, color: "#666" }}>View:</div>
           <button
@@ -197,7 +335,7 @@ export default function SearchClient() {
       </div>
 
       <p style={{ marginTop: 10, color: "#444", fontWeight: 600 }}>
-        Search across everything you own (qty &gt; 0). Example: <span style={{ fontWeight: 900 }}>Ken Griffey</span>
+        Search across everything you own. Use VCS tier and ownership filters to find grading candidates.
       </p>
 
       <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap", marginTop: 10 }}>
@@ -215,6 +353,42 @@ export default function SearchClient() {
           }}
         />
 
+        <select
+          value={gradeabilityFilter}
+          onChange={(e) => setGradeabilityFilter(e.target.value as GradeabilityFilter)}
+          style={{
+            padding: "10px 12px",
+            border: "1px solid #ddd",
+            borderRadius: 12,
+            fontWeight: 900,
+            background: "#fff",
+          }}
+          title="Filter by VCS tier"
+        >
+          <option value="ALL">All VCS tiers</option>
+          <option value="COMMON">Common</option>
+          <option value="GREAT">Great</option>
+          <option value="ICONIC">Iconic</option>
+        </select>
+
+        <select
+          value={ownershipFilter}
+          onChange={(e) => setOwnershipFilter(e.target.value as OwnershipFilter)}
+          style={{
+            padding: "10px 12px",
+            border: "1px solid #ddd",
+            borderRadius: 12,
+            fontWeight: 900,
+            background: "#fff",
+          }}
+          title="Filter by grading status"
+        >
+          <option value="ALL">All owned</option>
+          <option value="RAW">Raw only</option>
+          <option value="GRADED">Graded only</option>
+          <option value="PENDING">Pending grading</option>
+        </select>
+
         <button
           onClick={() => {
             setPage(1);
@@ -224,6 +398,16 @@ export default function SearchClient() {
           style={{ padding: "10px 12px", opacity: loading ? 0.7 : 1 }}
         >
           Search
+        </button>
+
+        <button
+          onClick={() => {
+            setGradeabilityFilter("ALL");
+            setOwnershipFilter("ALL");
+          }}
+          style={{ padding: "10px 12px" }}
+        >
+          Clear Filters
         </button>
 
         <div style={{ marginLeft: "auto", display: "flex", gap: 8, alignItems: "center" }}>
@@ -265,13 +449,14 @@ export default function SearchClient() {
         <div>No data.</div>
       ) : data.total === 0 ? (
         <div style={{ color: "#666" }}>No matches found in your collection.</div>
+      ) : rows.length === 0 ? (
+        <div style={{ color: "#666" }}>No matches after filters. Try clearing filters.</div>
       ) : (
         <>
           <div style={{ fontWeight: 900, marginBottom: 10 }}>
-            Results: {data.total} (showing {rows.length} on this page)
+            Results: {data.total} total, {rows.length} after filters
           </div>
 
-          {/* ✅ CARDS VIEW */}
           {view === "cards" ? (
             <div
               style={{
@@ -296,8 +481,24 @@ export default function SearchClient() {
                       background: "#fff",
                     }}
                   >
-                    <div style={{ padding: 10, borderBottom: "1px solid #eee", display: "flex", gap: 8, alignItems: "center" }}>
-                      <div style={{ fontWeight: 1000, flex: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                    <div
+                      style={{
+                        padding: 10,
+                        borderBottom: "1px solid #eee",
+                        display: "flex",
+                        gap: 8,
+                        alignItems: "center",
+                      }}
+                    >
+                      <div
+                        style={{
+                          fontWeight: 1000,
+                          flex: 1,
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
                         {r.player}
                       </div>
                       <Link
@@ -340,9 +541,18 @@ export default function SearchClient() {
                         <div style={{ marginLeft: "auto", fontWeight: 1000 }}>Qty: {r.qty}</div>
                       </div>
 
+                      <div style={{ display: "flex", gap: 8, marginTop: 8, flexWrap: "wrap" }}>
+                        {gradeabilityBadge(r.effectiveGradeability)}
+                        {r.rawQty > 0 ? <span style={{ fontWeight: 900 }}>Raw: {r.rawQty}</span> : null}
+                        {r.gradedQty > 0 ? <span style={{ fontWeight: 900 }}>Graded: {r.gradedQty}</span> : null}
+                        {r.pendingGradingQty > 0 ? (
+                          <span style={{ fontWeight: 900 }}>Pending: {r.pendingGradingQty}</span>
+                        ) : null}
+                      </div>
+
                       <div style={{ marginTop: 6, color: "#444", fontWeight: 700 }}>
                         <div style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                          <span style={{ fontWeight: 900 }}>Product:</span> {r.productId}
+                          <span style={{ fontWeight: 900 }}>Product:</span> {safeProductName(r)}
                         </div>
                         <div style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                           <span style={{ fontWeight: 900 }}>Set:</span> {setLabel(r)}
@@ -388,7 +598,6 @@ export default function SearchClient() {
                           Back
                         </button>
 
-                        {/* Quick flip button (optional convenience) */}
                         <button
                           onClick={() => toggleSide(r.cardId)}
                           disabled={!hasBack}
@@ -410,26 +619,40 @@ export default function SearchClient() {
               })}
             </div>
           ) : (
-            /* ✅ TABLE VIEW (your original table, plus Detail link) */
             <div style={{ overflowX: "auto", border: "1px solid #ddd" }}>
               <table style={{ width: "100%", borderCollapse: "collapse" }}>
                 <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
                   <tr>
-                    {["Player", "Year", "Product", "Set", "#", "Subset", "Variant", "Qty", "Book", "Total", "Detail"].map(
-                      (h) => (
-                        <th
-                          key={h}
-                          style={{
-                            textAlign: "left",
-                            padding: 8,
-                            borderBottom: "1px solid #ddd",
-                            whiteSpace: "nowrap",
-                          }}
-                        >
-                          {h}
-                        </th>
-                      )
-                    )}
+                    {[
+                      "",
+                      "Player",
+                      "VCS Tier",
+                      "Year",
+                      "Product",
+                      "Set",
+                      "#",
+                      "Subset",
+                      "Variant",
+                      "Qty",
+                      "Raw",
+                      "Graded",
+                      "Pending",
+                      "Book",
+                      "Total",
+                      "Detail",
+                    ].map((h) => (
+                      <th
+                        key={h || "thumb"}
+                        style={{
+                          textAlign: "left",
+                          padding: 8,
+                          borderBottom: "1px solid #ddd",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {h}
+                      </th>
+                    ))}
                   </tr>
                 </thead>
 
@@ -440,12 +663,18 @@ export default function SearchClient() {
 
                     return (
                       <tr key={`${r.cardId}-${idx}`} style={{ background: zebra }}>
+                        <td style={{ padding: 8, borderBottom: "1px solid #eee", width: 60 }}>
+                          {thumbnail(r)}
+                        </td>
                         <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
                           {r.player}
                         </td>
+                        <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
+                          {gradeabilityBadge(r.effectiveGradeability)}
+                        </td>
                         <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.year ?? "—"}</td>
                         <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 800 }}>
-                          {r.productId}
+                          {safeProductName(r)}
                         </td>
                         <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{setLabel(r)}</td>
                         <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 800 }}>
@@ -455,6 +684,15 @@ export default function SearchClient() {
                         <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.variant ?? "—"}</td>
                         <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
                           {r.qty}
+                        </td>
+                        <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                          {r.rawQty}
+                        </td>
+                        <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                          {r.gradedQty}
+                        </td>
+                        <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                          {r.pendingGradingQty}
                         </td>
                         <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
                           ${Number(r.bookValue ?? 0).toFixed(2)}

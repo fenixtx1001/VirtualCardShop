@@ -1,7 +1,9 @@
 // src/app/api/collection/search/route.ts
+import { Gradeability } from "@prisma/client";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { getEffectiveGradeability } from "@/lib/grading";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -19,9 +21,15 @@ type SearchRow = {
   bookValue: number;
   totalValue: number;
   productId: string;
+  productName: string;
   year: number | null;
+  brand: string | null;
+  sport: string | null;
   productSetName: string | null;
   productSetIsBase: boolean | null;
+  productSetDefaultGradeability: Gradeability;
+  gradeabilityOverride: Gradeability | null;
+  effectiveGradeability: Gradeability;
   frontImageUrl: string | null;
   backImageUrl: string | null;
 };
@@ -42,6 +50,17 @@ function sortCardNumber(a: SearchRow, b: SearchRow) {
 
   if (Number.isFinite(an) && Number.isFinite(bn) && an !== bn) return an - bn;
   return String(a.cardNumber ?? "").localeCompare(String(b.cardNumber ?? ""));
+}
+
+function makeProductName(input: {
+  year: number | null;
+  brand: string | null;
+  fallbackId: string;
+}) {
+  const parts = [input.year, input.brand?.trim()].filter(Boolean);
+  if (parts.length > 0) return parts.join(" ");
+
+  return input.fallbackId.replaceAll("_", " ");
 }
 
 export async function GET(req: Request) {
@@ -82,6 +101,7 @@ export async function GET(req: Request) {
             bookValue: true,
             frontImageUrl: true,
             backImageUrl: true,
+            gradeabilityOverride: true,
             set: {
               select: {
                 id: true,
@@ -95,6 +115,7 @@ export async function GET(req: Request) {
                 id: true,
                 name: true,
                 isBase: true,
+                defaultGradeability: true,
                 product: {
                   select: {
                     id: true,
@@ -132,6 +153,7 @@ export async function GET(req: Request) {
             bookValue: true,
             frontImageUrl: true,
             backImageUrl: true,
+            gradeabilityOverride: true,
             set: {
               select: {
                 id: true,
@@ -145,6 +167,7 @@ export async function GET(req: Request) {
                 id: true,
                 name: true,
                 isBase: true,
+                defaultGradeability: true,
                 product: {
                   select: {
                     id: true,
@@ -169,7 +192,14 @@ export async function GET(req: Request) {
 
       const productId = card.productSet?.product?.id ?? card.set.id;
       const year = card.productSet?.product?.year ?? card.set.year ?? null;
+      const brand = card.productSet?.product?.brand ?? card.set.brand ?? null;
+      const sport = card.productSet?.product?.sport ?? card.set.sport ?? null;
       const bookValue = Number(card.bookValue ?? 0);
+      const productSetDefaultGradeability = card.productSet?.defaultGradeability ?? Gradeability.COMMON;
+      const effectiveGradeability = getEffectiveGradeability({
+        cardOverride: card.gradeabilityOverride ?? null,
+        productSetDefault: productSetDefaultGradeability,
+      });
 
       const created: SearchRow = {
         cardId: card.id,
@@ -184,9 +214,19 @@ export async function GET(req: Request) {
         bookValue,
         totalValue: 0,
         productId,
+        productName: makeProductName({
+          year,
+          brand,
+          fallbackId: productId,
+        }),
         year,
+        brand,
+        sport,
         productSetName: card.productSet?.name ?? null,
         productSetIsBase: typeof card.productSet?.isBase === "boolean" ? card.productSet.isBase : null,
+        productSetDefaultGradeability,
+        gradeabilityOverride: card.gradeabilityOverride ?? null,
+        effectiveGradeability,
         frontImageUrl: card.frontImageUrl ?? null,
         backImageUrl: card.backImageUrl ?? null,
       };
@@ -217,9 +257,6 @@ export async function GET(req: Request) {
 
       row.qty += qty;
       row.pendingGradingQty += qty;
-
-      // Pending grades stay valued as raw so hidden grades are not leaked
-      // and collection search value does not drop while cards are out for grading.
       row.totalValue += row.bookValue * qty;
     }
 

@@ -16,6 +16,10 @@ async function getId(ctx: Ctx) {
   return Number.isFinite(id) ? id : null;
 }
 
+function hasOwn(obj: any, key: string) {
+  return Object.prototype.hasOwnProperty.call(obj, key);
+}
+
 function numOrNull(v: any) {
   if (v === null || v === undefined || v === "") return null;
   const n = Number(v);
@@ -75,33 +79,37 @@ async function saveCard(req: Request, ctx: Ctx) {
       return NextResponse.json({ error: "Card not found" }, { status: 404 });
     }
 
-    const frontImageUrl =
-      typeof body.frontImageUrl === "string"
-        ? body.frontImageUrl
-        : typeof body.imageUrl === "string"
-          ? body.imageUrl
-          : null;
+    const data: any = {};
 
-    const backImageUrl =
-      typeof body.backImageUrl === "string" ? body.backImageUrl : null;
+    if (hasOwn(body, "cardNumber")) data.cardNumber = strOrNull(body.cardNumber) ?? undefined;
+    if (hasOwn(body, "player")) data.player = strOrNull(body.player) ?? undefined;
+    if (hasOwn(body, "team")) data.team = strOrNull(body.team);
+    if (hasOwn(body, "position")) data.position = strOrNull(body.position);
+    if (hasOwn(body, "subset")) data.subset = strOrNull(body.subset);
+    if (hasOwn(body, "variant")) data.variant = strOrNull(body.variant);
+    if (hasOwn(body, "quantityOwned")) data.quantityOwned = numOrNull(body.quantityOwned) ?? undefined;
+    if (hasOwn(body, "bookValue")) data.bookValue = numOrNull(body.bookValue) ?? undefined;
 
-    const gradeabilityOverride = gradeabilityOrNull(body.gradeabilityOverride);
+    // Critical fix:
+    // Only update images when image fields are explicitly included in the request.
+    // Bulk gradeability updates should not accidentally wipe existing image URLs.
+    if (hasOwn(body, "frontImageUrl")) {
+      data.frontImageUrl = strOrNull(body.frontImageUrl);
+    } else if (hasOwn(body, "imageUrl")) {
+      data.frontImageUrl = strOrNull(body.imageUrl);
+    }
+
+    if (hasOwn(body, "backImageUrl")) {
+      data.backImageUrl = strOrNull(body.backImageUrl);
+    }
+
+    if (hasOwn(body, "gradeabilityOverride")) {
+      data.gradeabilityOverride = gradeabilityOrNull(body.gradeabilityOverride);
+    }
 
     const updated = await prisma.card.update({
       where: { id },
-      data: {
-        cardNumber: strOrNull(body.cardNumber) ?? undefined,
-        player: strOrNull(body.player) ?? undefined,
-        team: strOrNull(body.team),
-        position: strOrNull(body.position),
-        subset: strOrNull(body.subset),
-        variant: strOrNull(body.variant),
-        quantityOwned: numOrNull(body.quantityOwned) ?? undefined,
-        bookValue: numOrNull(body.bookValue) ?? undefined,
-        frontImageUrl,
-        backImageUrl,
-        gradeabilityOverride,
-      },
+      data,
       select: {
         id: true,
         setId: true,

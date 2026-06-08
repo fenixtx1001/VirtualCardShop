@@ -17,6 +17,9 @@ export default function AdminHomePage() {
           <a href="/admin/product-sets">Admin: Product Sets</a>
         </li>
         <li>
+          <a href="/admin/cards">Admin: Cards / Bulk VCS Tiers</a>
+        </li>
+        <li>
           <a href="/admin/player-tiers">Admin: Player Repository / Tiers</a>
         </li>
         <li>
@@ -37,6 +40,11 @@ export default function AdminHomePage() {
       <p style={{ maxWidth: 820, marginTop: 14 }}>
         For pricing automation, use <b>Player Repository / Tiers</b> to assign player tiers, then go to a Product Set
         and use the pricing tools to fill blank prices, overwrite all prices, or pull a default on a single row.
+      </p>
+
+      <p style={{ maxWidth: 820, marginTop: 14 }}>
+        For retroactive VCS grading setup, use <b>Cards / Bulk VCS Tiers</b> to search across all cards and quickly
+        update individual or bulk gradeability overrides.
       </p>
     </main>
   );

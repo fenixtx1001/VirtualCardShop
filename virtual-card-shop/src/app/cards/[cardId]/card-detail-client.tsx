@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import SubmitForGradingButton from "@/components/grading/SubmitForGradingButton";
 import VcsSlab from "@/components/grading/VcsSlab";
 
 type GradeBreakdownRow = {
@@ -25,7 +26,6 @@ type OwnerRow = {
   email: string | null;
   image: string | null;
 
-  // Backward-compatible total quantity field.
   quantity: number;
 
   rawQuantity?: number;
@@ -103,6 +103,16 @@ function formatDollarsFromCents(cents: number) {
 function formatBookValue(v: number | null | undefined) {
   const n = typeof v === "number" && Number.isFinite(v) ? v : 0;
   return `$${n.toFixed(2)}`;
+}
+
+function formatProductName(card: CardDetailResponse["card"]) {
+  const year = card.productYear;
+  const brand = card.productBrand?.trim();
+
+  if (year && brand) return `${year} ${brand}`;
+  if (brand) return brand;
+  if (card.productId) return card.productId.replaceAll("_", " ");
+  return "—";
 }
 
 function getGradeSortValue(grade: number) {
@@ -313,7 +323,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
               <div style={{ marginTop: 10, color: "#444" }}>
                 <div>
                   <span style={{ fontWeight: 900 }}>Product:</span>{" "}
-                  {c.productId ?? "—"} {c.productYear != null ? `(${c.productYear})` : ""}
+                  {formatProductName(c)} {c.productYear != null ? `(${c.productYear})` : ""}
                 </div>
                 <div>
                   <span style={{ fontWeight: 900 }}>Set:</span> {setTypePrefix}
@@ -381,6 +391,17 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                   <div style={{ marginTop: 8, color: "#16477d", fontWeight: 950, fontSize: 13 }}>
                     Total value including pending:{" "}
                     {formatDollarsFromCents(safeNum(firstOwner.totalValueCents))}
+                  </div>
+
+                  <div style={{ marginTop: 12 }}>
+                    <SubmitForGradingButton
+                      cardId={c.id}
+                      rawQuantity={safeNum(firstOwner.rawQuantity)}
+                      bookValue={c.bookValue}
+                      player={c.player}
+                      cardNumber={c.cardNumber}
+                      onSubmitted={load}
+                    />
                   </div>
                 </div>
               ) : null}
