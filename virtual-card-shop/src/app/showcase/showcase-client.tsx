@@ -33,6 +33,8 @@ type TopCardRow = {
   productSetId: string | null;
   productSetName: string | null;
 
+  grade: number;
+  gradeLabel: string;
   bookValue: number;
   qty: number;
   ownedValue: number;
@@ -289,6 +291,198 @@ function prestigeToneForLevel(level: number) {
     ring: "rgba(47, 111, 237, 0.12)",
     dot: "#2f6fed",
   };
+}
+
+function GradeBadge({ grade, label }: { grade: number; label?: string | null }) {
+  if (!grade || grade <= 0) {
+    return (
+      <span
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          border: `1px solid ${colors.border}`,
+          borderRadius: 999,
+          padding: "5px 9px",
+          background: colors.muted,
+          color: colors.subtext,
+          fontWeight: 950,
+          whiteSpace: "nowrap",
+        }}
+      >
+        Raw
+      </span>
+    );
+  }
+
+  return (
+    <span
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 6,
+        border: "1px solid rgba(47,111,237,0.28)",
+        borderRadius: 999,
+        padding: "5px 9px",
+        background: "linear-gradient(135deg, #eef4ff 0%, #ffffff 100%)",
+        color: colors.accent,
+        fontWeight: 950,
+        whiteSpace: "nowrap",
+        boxShadow: "0 8px 18px rgba(47,111,237,0.10)",
+      }}
+    >
+      <span aria-hidden>◆</span>
+      {label || `VCS ${grade}`}
+    </span>
+  );
+}
+
+function ShowcaseMiniSlab({ card }: { card: TopCardRow }) {
+  return (
+    <div
+      style={{
+        width: "100%",
+        maxWidth: 330,
+        margin: "0 auto",
+        borderRadius: 22,
+        border: "1px solid rgba(32,40,54,0.22)",
+        background:
+          "linear-gradient(145deg, #f7f8fb 0%, #ffffff 42%, #e8edf5 100%)",
+        boxShadow:
+          "inset 0 1px 0 rgba(255,255,255,0.9), 0 18px 38px rgba(19,31,52,0.16)",
+        padding: 10,
+        overflow: "hidden",
+      }}
+    >
+      <div
+        style={{
+          borderRadius: 16,
+          border: "1px solid rgba(35,45,65,0.16)",
+          background: "linear-gradient(180deg, #ffffff 0%, #f1f4f8 100%)",
+          padding: 9,
+          marginBottom: 10,
+        }}
+      >
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8 }}>
+          <div style={{ minWidth: 0 }}>
+            <div
+              style={{
+                fontSize: 10,
+                fontWeight: 1000,
+                color: colors.subtext,
+                letterSpacing: 0.55,
+                textTransform: "uppercase",
+              }}
+            >
+              Virtual Card Shop
+            </div>
+            <div
+              style={{
+                marginTop: 2,
+                fontSize: 13,
+                lineHeight: 1.1,
+                fontWeight: 1000,
+                color: colors.text,
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {card.player}
+            </div>
+            <div
+              style={{
+                marginTop: 2,
+                fontSize: 10,
+                color: colors.subtext,
+                fontWeight: 850,
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+              }}
+            >
+              #{card.cardNumber} {card.team ? `• ${card.team}` : ""}
+            </div>
+          </div>
+
+          <div
+            style={{
+              flex: "0 0 auto",
+              minWidth: 58,
+              borderRadius: 13,
+              border: "1px solid rgba(47,111,237,0.30)",
+              background: "linear-gradient(180deg, #eef4ff 0%, #ffffff 100%)",
+              padding: "7px 8px",
+              textAlign: "center",
+              boxShadow: "0 10px 20px rgba(47,111,237,0.10)",
+            }}
+          >
+            <div style={{ fontSize: 9, fontWeight: 1000, color: colors.accent, letterSpacing: 0.4 }}>VCS</div>
+            <div style={{ fontSize: 22, fontWeight: 1000, color: colors.text, lineHeight: 1 }}>{card.grade}</div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style={{
+          width: "100%",
+          aspectRatio: "2.5 / 3.5",
+          borderRadius: 15,
+          border: "1px solid rgba(20,28,42,0.18)",
+          background: "#ffffff",
+          overflow: "hidden",
+          display: "grid",
+          placeItems: "center",
+          color: "#777",
+          fontWeight: 900,
+        }}
+      >
+        {card.frontImageUrl ? (
+          <img
+            src={card.frontImageUrl}
+            alt=""
+            style={{ width: "100%", height: "100%", objectFit: "contain", background: "white" }}
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
+          />
+        ) : (
+          "No image"
+        )}
+      </div>
+    </div>
+  );
+}
+
+function RawCardImage({ imageUrl }: { imageUrl: string | null }) {
+  return (
+    <div
+      style={{
+        width: "100%",
+        aspectRatio: "3 / 4",
+        borderRadius: 14,
+        border: `1px solid ${colors.border}`,
+        background: colors.muted,
+        overflow: "hidden",
+        display: "grid",
+        placeItems: "center",
+        color: "#777",
+        fontWeight: 900,
+      }}
+    >
+      {imageUrl ? (
+        <img
+          src={imageUrl}
+          alt=""
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          onError={(e) => {
+            e.currentTarget.style.display = "none";
+          }}
+        />
+      ) : (
+        "No image"
+      )}
+    </div>
+  );
 }
 
 export default function ShowcaseClient() {
@@ -552,6 +746,18 @@ export default function ShowcaseClient() {
   }, [selectedUserId]);
 
   useEffect(() => {
+    function onCollectionChanged() {
+      loadLeaderboard();
+      loadTopCards(selectedUserId, topPage);
+      loadPrestige();
+    }
+
+    window.addEventListener("vcs:collection-changed", onCollectionChanged);
+    return () => window.removeEventListener("vcs:collection-changed", onCollectionChanged);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedUserId, topPage]);
+
+  useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       if (!isViewingMe) return;
       if (favCards.length === 0) return;
@@ -605,7 +811,6 @@ export default function ShowcaseClient() {
   }
 
   const favCurrent = favCards[favIdx] ?? null;
-
   const selectedBucketMeta = PRESTIGE_BUCKET_ORDER.find((x) => x.key === selectedPrestigeBucket) ?? null;
   const selectedBucketRows =
     selectedPrestigeBucket && prestige ? prestige.summary.bucketSets[selectedPrestigeBucket] ?? [] : [];
@@ -696,6 +901,9 @@ export default function ShowcaseClient() {
           background: #f8f6f1;
         }
         @media (max-width: 560px) {
+          main {
+            padding: 12px !important;
+          }
           .vcs-btn {
             padding: 10px 12px;
             border-radius: 14px;
@@ -1310,12 +1518,12 @@ export default function ShowcaseClient() {
             <div>
               <div style={{ fontSize: 16, fontWeight: 900 }}>Top Cards by Value</div>
               <div style={{ marginTop: 4, fontSize: 13, color: colors.subtext }}>
-                Top 100 for <span style={{ fontWeight: 900 }}>{selectedLabel}</span> (ranked by <b>single-card</b> book value).
+                Top 100 for <span style={{ fontWeight: 900 }}>{selectedLabel}</span> ranked by <b>single-card</b> current value.
               </div>
             </div>
 
             <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-              <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+              <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
                 <button onClick={goTopPrev} disabled={!canPrevTop || topLoading} className="vcs-btn">
                   ← Prev
                 </button>
@@ -1391,10 +1599,10 @@ export default function ShowcaseClient() {
             <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>No owned cards yet (or no book values set).</div>
           ) : viewMode === "table" ? (
             <div style={{ marginTop: 12, overflowX: "auto" }}>
-              <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 920 }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 980 }}>
                 <thead style={{ background: "#f7f7f7" }}>
                   <tr>
-                    {["Card", "Player", "Team", "Book Value", "Qty", "Card Value", "Details", "★"].map((h) => (
+                    {["Card", "Player", "Team", "Grade", "Book Value", "Qty", "Card Value", "Details", "★"].map((h) => (
                       <th
                         key={h}
                         style={{
@@ -1418,12 +1626,15 @@ export default function ShowcaseClient() {
                     const isFav = isViewingMe && favoriteIds.has(c.cardId);
 
                     return (
-                      <tr key={c.cardId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
+                      <tr key={`${c.cardId}-${c.grade}`} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
                         <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
                           #{c.cardNumber} {ps ? <span style={{ color: colors.subtext, fontWeight: 800 }}>{ps}</span> : null}
                         </td>
                         <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>{c.player}</td>
                         <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>{c.team ?? "—"}</td>
+                        <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                          <GradeBadge grade={c.grade} label={c.gradeLabel} />
+                        </td>
                         <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>{money(c.bookValue)}</td>
                         <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>{safeInt(c.qty)}</td>
                         <td style={{ padding: 12, borderBottom: "1px solid #eee", fontWeight: 900 }}>{money(c.ownedValue)}</td>
@@ -1436,7 +1647,7 @@ export default function ShowcaseClient() {
                           </Link>
                         </td>
                         <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
-                          {isFav ? (
+                          {isViewingMe ? (
                             <button
                               onClick={() => toggleFavorite(c.cardId)}
                               title={isFav ? "Unfavorite" : "Favorite"}
@@ -1474,16 +1685,19 @@ export default function ShowcaseClient() {
               {topCards.map((c) => {
                 const ps = productSetParen(c);
                 const isFav = isViewingMe && favoriteIds.has(c.cardId);
+                const isGraded = c.grade > 0;
 
                 return (
                   <div
-                    key={c.cardId}
+                    key={`${c.cardId}-${c.grade}`}
                     style={{
                       border: `1px solid ${colors.border}`,
                       borderRadius: 16,
                       background: "#fff",
                       overflow: "hidden",
-                      boxShadow: "0 6px 18px rgba(0,0,0,0.05)",
+                      boxShadow: isGraded
+                        ? "0 14px 28px rgba(47,111,237,0.10)"
+                        : "0 6px 18px rgba(0,0,0,0.05)",
                     }}
                   >
                     <div style={{ padding: 12, borderBottom: `1px solid ${colors.border}` }}>
@@ -1523,33 +1737,7 @@ export default function ShowcaseClient() {
                     </div>
 
                     <div style={{ padding: 12 }}>
-                      <div
-                        style={{
-                          width: "100%",
-                          aspectRatio: "3 / 4",
-                          borderRadius: 14,
-                          border: `1px solid ${colors.border}`,
-                          background: colors.muted,
-                          overflow: "hidden",
-                          display: "grid",
-                          placeItems: "center",
-                          color: "#777",
-                          fontWeight: 900,
-                        }}
-                      >
-                        {c.frontImageUrl ? (
-                          <img
-                            src={c.frontImageUrl}
-                            alt=""
-                            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                            onError={(e) => {
-                              e.currentTarget.style.display = "none";
-                            }}
-                          />
-                        ) : (
-                          "No image"
-                        )}
-                      </div>
+                      {isGraded ? <ShowcaseMiniSlab card={c} /> : <RawCardImage imageUrl={c.frontImageUrl} />}
 
                       <div style={{ marginTop: 10, display: "flex", justifyContent: "space-between", gap: 10 }}>
                         <div style={{ fontSize: 12, color: colors.subtext, fontWeight: 800 }}>
@@ -1560,7 +1748,10 @@ export default function ShowcaseClient() {
                         </div>
                       </div>
 
-                      <div style={{ marginTop: 6, fontSize: 13, fontWeight: 900 }}>Card Value: {money(c.ownedValue)}</div>
+                      <div style={{ marginTop: 8, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8 }}>
+                        <div style={{ fontSize: 13, fontWeight: 900 }}>Card Value: {money(c.ownedValue)}</div>
+                        {isGraded ? <GradeBadge grade={c.grade} label={c.gradeLabel} /> : null}
+                      </div>
 
                       <div style={{ marginTop: 10 }}>
                         <Link

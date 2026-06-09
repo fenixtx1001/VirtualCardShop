@@ -49,16 +49,6 @@ function normalizeTier(value: VcsSlabProps["gradeability"]): Gradeability {
   return "COMMON";
 }
 
-function formatDollarsFromCents(cents: number | null | undefined) {
-  const safe = typeof cents === "number" && Number.isFinite(cents) ? cents : 0;
-
-  return (safe / 100).toLocaleString(undefined, {
-    style: "currency",
-    currency: "USD",
-    minimumFractionDigits: 2,
-  });
-}
-
 function getGradeTone(grade: number) {
   if (grade >= 10) {
     return {
@@ -170,9 +160,6 @@ export default function VcsSlab({
   team,
   grade,
   gradeability,
-  gradeabilityLabel,
-  valueCents,
-  quantity,
   imageUrl,
 }: VcsSlabProps) {
   const tierKey = normalizeTier(gradeability);
@@ -385,6 +372,7 @@ export default function VcsSlab({
               }}
             >
               {cleanImageUrl ? (
+                // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={cleanImageUrl}
                   alt={`${player} VCS graded card`}
@@ -419,79 +407,6 @@ export default function VcsSlab({
               )}
             </div>
           </div>
-        </div>
-
-        <div
-          style={{
-            borderTop: "1px solid rgba(148, 163, 184, 0.55)",
-            padding: "10px 12px",
-            background: "#ffffff",
-            display: "grid",
-            gridTemplateColumns: "1fr auto",
-            gap: 10,
-            alignItems: "center",
-          }}
-        >
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              minWidth: 0,
-            }}
-          >
-            <span
-              style={{
-                width: 10,
-                height: 10,
-                borderRadius: 999,
-                background: tier.foil,
-                border: "1px solid rgba(17,24,39,0.22)",
-                flex: "0 0 auto",
-              }}
-            />
-            <span
-              style={{
-                color: tier.accent,
-                fontSize: 12,
-                fontWeight: 1000,
-                textTransform: "uppercase",
-                letterSpacing: 1.2,
-                whiteSpace: "nowrap",
-              }}
-            >
-              {gradeabilityLabel?.trim() || tier.label}
-            </span>
-            {quantity && quantity > 1 ? (
-              <span
-                style={{
-                  color: "#6b7280",
-                  fontSize: 12,
-                  fontWeight: 900,
-                  whiteSpace: "nowrap",
-                }}
-              >
-                ×{quantity}
-              </span>
-            ) : null}
-          </div>
-
-          {valueCents != null ? (
-            <div
-              style={{
-                borderRadius: 999,
-                border: `1px solid ${tier.accent}`,
-                background: tier.accentSoft,
-                color: tier.accent,
-                padding: "5px 8px",
-                fontSize: 12,
-                fontWeight: 1000,
-                whiteSpace: "nowrap",
-              }}
-            >
-              {formatDollarsFromCents(valueCents)}
-            </div>
-          ) : null}
         </div>
       </div>
     </div>

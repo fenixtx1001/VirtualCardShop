@@ -1,4 +1,3 @@
-// src/app/api/showcase/top-cards/route.ts
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
@@ -10,19 +9,6 @@ function clampInt(n: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n));
 }
 
-/**
- * Top cards by SINGLE-card value (bookValue), not multiplied by quantity.
- * Still returns qty owned for display.
- *
- * Query:
- * - userId (optional) defaults to current user
- * - page (optional) default 1
- * - pageSize (optional) default 20 (max 50)
- * - maxTotal is capped at 100 cards
- *
- * Insert label:
- * - If insert, API returns productSetName (ps.name fallback ps.id)
- */
 export async function GET(req: Request) {
   try {
     const me = await requireUser();
@@ -34,15 +20,45 @@ export async function GET(req: Request) {
     const pageSize = clampInt(parseInt(url.searchParams.get("pageSize") ?? "20", 10) || 20, 5, 50);
 
     const maxTotal = 100;
-    const offset = (page - 1) * pageSize;
 
     const totalRow = await prisma.$queryRaw<Array<{ total: number }>>`
+      WITH card_buckets AS (
+        SELECT
+          co."cardId",
+          co.grade,
+          SUM(co.quantity)::int AS qty
+        FROM "CardOwnership" co
+        JOIN "Card" c ON c.id = co."cardId"
+        WHERE co."userId" = ${userId}
+          AND co.quantity > 0
+          AND c."bookValue" IS NOT NULL
+        GROUP BY co."cardId", co.grade
+
+        UNION ALL
+
+        SELECT
+          go."cardId",
+          0 AS grade,
+          SUM(go.quantity)::int AS qty
+        FROM "GradingOrder" go
+        JOIN "Card" c ON c.id = go."cardId"
+        WHERE go."userId" = ${userId}
+          AND go.status IN ('PENDING', 'READY')
+          AND go.quantity > 0
+          AND c."bookValue" IS NOT NULL
+        GROUP BY go."cardId"
+      ),
+      merged_buckets AS (
+        SELECT
+          "cardId",
+          grade,
+          SUM(qty)::int AS qty
+        FROM card_buckets
+        GROUP BY "cardId", grade
+      )
       SELECT COUNT(*)::int AS total
-      FROM "CardOwnership" co
-      JOIN "Card" c ON c.id = co."cardId"
-      WHERE co."userId" = ${userId}
-        AND co.quantity > 0
-        AND c."bookValue" IS NOT NULL
+      FROM merged_buckets
+      WHERE qty > 0
     `;
 
     const totalAll = totalRow?.[0]?.total ?? 0;
@@ -65,13 +81,49 @@ export async function GET(req: Request) {
         productSetId: string | null;
         productSetName: string | null;
 
+        grade: number;
+        gradeLabel: string;
         bookValue: number;
         qty: number;
-        ownedValue: number; // single-card value (same as bookValue)
+        ownedValue: number;
 
         frontImageUrl: string | null;
       }>
     >`
+      WITH card_buckets AS (
+        SELECT
+          co."cardId",
+          co.grade,
+          SUM(co.quantity)::int AS qty
+        FROM "CardOwnership" co
+        JOIN "Card" c ON c.id = co."cardId"
+        WHERE co."userId" = ${userId}
+          AND co.quantity > 0
+          AND c."bookValue" IS NOT NULL
+        GROUP BY co."cardId", co.grade
+
+        UNION ALL
+
+        SELECT
+          go."cardId",
+          0 AS grade,
+          SUM(go.quantity)::int AS qty
+        FROM "GradingOrder" go
+        JOIN "Card" c ON c.id = go."cardId"
+        WHERE go."userId" = ${userId}
+          AND go.status IN ('PENDING', 'READY')
+          AND go.quantity > 0
+          AND c."bookValue" IS NOT NULL
+        GROUP BY go."cardId"
+      ),
+      merged_buckets AS (
+        SELECT
+          "cardId",
+          grade,
+          SUM(qty)::int AS qty
+        FROM card_buckets
+        GROUP BY "cardId", grade
+      )
       SELECT
         c.id AS "cardId",
         c."cardNumber" AS "cardNumber",
@@ -80,22 +132,37 @@ export async function GET(req: Request) {
         c.subset AS "subset",
         c.variant AS "variant",
 
-        ps."isInsert" AS "isInsert",
+        COALESCE(ps."isInsert", false) AS "isInsert",
         c."productSetId" AS "productSetId",
         COALESCE(NULLIF(TRIM(ps.name), ''), ps.id) AS "productSetName",
 
+        mb.grade::int AS "grade",
+        CASE
+          WHEN mb.grade = 0 THEN 'Raw'
+          ELSE CONCAT('VCS ', mb.grade)
+        END AS "gradeLabel",
+
         c."bookValue"::float AS "bookValue",
-        co.quantity::int AS "qty",
-        c."bookValue"::float AS "ownedValue",
+        mb.qty::int AS "qty",
+
+        (
+          c."bookValue" *
+          CASE mb.grade
+            WHEN 6 THEN 0.8
+            WHEN 7 THEN 1.05
+            WHEN 8 THEN 1.45
+            WHEN 9 THEN 2.6
+            WHEN 10 THEN 15.0
+            ELSE 1.0
+          END
+        )::float AS "ownedValue",
 
         c."frontImageUrl" AS "frontImageUrl"
-      FROM "CardOwnership" co
-      JOIN "Card" c ON c.id = co."cardId"
+      FROM merged_buckets mb
+      JOIN "Card" c ON c.id = mb."cardId"
       LEFT JOIN "ProductSet" ps ON ps.id = c."productSetId"
-      WHERE co."userId" = ${userId}
-        AND co.quantity > 0
-        AND c."bookValue" IS NOT NULL
-      ORDER BY c."bookValue" DESC, co.quantity DESC, c.id DESC
+      WHERE mb.qty > 0
+      ORDER BY "ownedValue" DESC, mb.qty DESC, c.id DESC
       LIMIT ${Math.min(pageSize, maxTotal)}
       OFFSET ${Math.min(safeOffset, maxTotal)}
     `;

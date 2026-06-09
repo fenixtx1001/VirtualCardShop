@@ -1,4 +1,3 @@
-// src/app/api/showcase/leaderboard/route.ts
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
@@ -6,12 +5,6 @@ import { requireUser } from "@/lib/current-user";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-/**
- * Leaderboard across users:
- * - totalCards = SUM(CardOwnership.quantity)
- * - totalValue = SUM(CardOwnership.quantity * Card.bookValue)
- * - completedBaseSets = count of base ProductSets where user owns all unique cards in that base set
- */
 export async function GET() {
   try {
     await requireUser();
@@ -27,21 +20,60 @@ export async function GET() {
         completedBaseSets: number;
       }>
     >`
-      WITH totals AS (
+      WITH ownership_totals AS (
+        SELECT
+          co."userId",
+          COALESCE(SUM(co.quantity), 0)::int AS "totalCards",
+          COALESCE(
+            SUM(
+              co.quantity *
+              (
+                COALESCE(c."bookValue", 0) *
+                CASE co.grade
+                  WHEN 6 THEN 0.8
+                  WHEN 7 THEN 1.05
+                  WHEN 8 THEN 1.45
+                  WHEN 9 THEN 2.6
+                  WHEN 10 THEN 15.0
+                  ELSE 1.0
+                END
+              )
+            ),
+            0
+          )::float AS "totalValue"
+        FROM "CardOwnership" co
+        JOIN "Card" c ON c.id = co."cardId"
+        WHERE co.quantity > 0
+        GROUP BY co."userId"
+      ),
+      pending_totals AS (
+        SELECT
+          go."userId",
+          COALESCE(SUM(go.quantity), 0)::int AS "totalCards",
+          COALESCE(SUM(go.quantity * COALESCE(c."bookValue", 0)), 0)::float AS "totalValue"
+        FROM "GradingOrder" go
+        JOIN "Card" c ON c.id = go."cardId"
+        WHERE go.status IN ('PENDING', 'READY')
+          AND go.quantity > 0
+        GROUP BY go."userId"
+      ),
+      totals AS (
         SELECT
           u.id AS "userId",
           u.name,
           u.email,
           u.image,
-          COALESCE(SUM(co.quantity), 0)::int AS "totalCards",
-          COALESCE(SUM(co.quantity * c."bookValue"), 0)::float AS "totalValue"
+          (
+            COALESCE(ot."totalCards", 0) +
+            COALESCE(pt."totalCards", 0)
+          )::int AS "totalCards",
+          (
+            COALESCE(ot."totalValue", 0) +
+            COALESCE(pt."totalValue", 0)
+          )::float AS "totalValue"
         FROM "User" u
-        LEFT JOIN "CardOwnership" co
-          ON co."userId" = u.id
-          AND co.quantity > 0
-        LEFT JOIN "Card" c
-          ON c.id = co."cardId"
-        GROUP BY u.id
+        LEFT JOIN ownership_totals ot ON ot."userId" = u.id
+        LEFT JOIN pending_totals pt ON pt."userId" = u.id
       ),
       base_sets AS (
         SELECT
@@ -52,17 +84,36 @@ export async function GET() {
         WHERE ps."isBase" = true
         GROUP BY ps.id
       ),
+      ownership_card_presence AS (
+        SELECT DISTINCT
+          co."userId",
+          co."cardId"
+        FROM "CardOwnership" co
+        WHERE co.quantity > 0
+      ),
+      pending_card_presence AS (
+        SELECT DISTINCT
+          go."userId",
+          go."cardId"
+        FROM "GradingOrder" go
+        WHERE go.status IN ('PENDING', 'READY')
+          AND go.quantity > 0
+      ),
+      all_card_presence AS (
+        SELECT * FROM ownership_card_presence
+        UNION
+        SELECT * FROM pending_card_presence
+      ),
       user_base_completion AS (
         SELECT
-          co."userId" AS "userId",
+          acp."userId" AS "userId",
           c."productSetId" AS "productSetId",
-          COUNT(DISTINCT co."cardId")::int AS "uniqueOwned"
-        FROM "CardOwnership" co
-        JOIN "Card" c ON c.id = co."cardId"
+          COUNT(DISTINCT acp."cardId")::int AS "uniqueOwned"
+        FROM all_card_presence acp
+        JOIN "Card" c ON c.id = acp."cardId"
         JOIN "ProductSet" ps ON ps.id = c."productSetId"
-        WHERE co.quantity > 0
-          AND ps."isBase" = true
-        GROUP BY co."userId", c."productSetId"
+        WHERE ps."isBase" = true
+        GROUP BY acp."userId", c."productSetId"
       ),
       completed AS (
         SELECT

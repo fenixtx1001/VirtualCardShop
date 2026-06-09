@@ -2,13 +2,19 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
-import { calculateGradedValueCents, getEffectiveGradeability } from "@/lib/grading";
+import {
+  bookValueToCents,
+  calculateGradedValueCents,
+  getEffectiveGradeability,
+  labelGradeability,
+} from "@/lib/grading";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 type Gradeability = "COMMON" | "GREAT" | "ICONIC";
-type SortMode = "grade_desc" | "value_desc" | "player_asc" | "year_desc" | "newest";
+type SortMode = "grade_desc" | "value_desc" | "player_asc" | "year_desc" | "newest" | "random";
+type TierFilter = "ALL" | Gradeability;
 
 type SlabRow = {
   key: string;
@@ -48,27 +54,17 @@ function clampInt(n: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n));
 }
 
-function safeQty(value: unknown) {
-  const n = typeof value === "number" && Number.isFinite(value) ? value : Number(value ?? 0);
-  if (!Number.isFinite(n) || n <= 0) return 0;
-  return Math.floor(n);
+function normalizeGrade(value: string | null) {
+  if (value === "6" || value === "7" || value === "8" || value === "9" || value === "10") {
+    return Number(value);
+  }
+
+  return null;
 }
 
-function dollarsToCents(value: unknown) {
-  const n = typeof value === "number" && Number.isFinite(value) ? value : Number(value ?? 0);
-  if (!Number.isFinite(n) || n <= 0) return 0;
-  return Math.round(n * 100);
-}
-
-function normalizeGradeability(value: unknown): Gradeability {
-  if (value === "GREAT" || value === "ICONIC" || value === "COMMON") return value;
-  return "COMMON";
-}
-
-function gradeabilityLabel(value: Gradeability) {
-  if (value === "ICONIC") return "Iconic";
-  if (value === "GREAT") return "Great";
-  return "Common";
+function normalizeTier(value: string | null): TierFilter {
+  if (value === "COMMON" || value === "GREAT" || value === "ICONIC") return value;
+  return "ALL";
 }
 
 function normalizeSort(value: string | null): SortMode {
@@ -77,7 +73,8 @@ function normalizeSort(value: string | null): SortMode {
     value === "value_desc" ||
     value === "player_asc" ||
     value === "year_desc" ||
-    value === "newest"
+    value === "newest" ||
+    value === "random"
   ) {
     return value;
   }
@@ -85,19 +82,106 @@ function normalizeSort(value: string | null): SortMode {
   return "grade_desc";
 }
 
-function sortCardNumber(a: SlabRow, b: SlabRow) {
-  const an = Number(String(a.cardNumber ?? "").match(/\d+/)?.[0] ?? Number.POSITIVE_INFINITY);
-  const bn = Number(String(b.cardNumber ?? "").match(/\d+/)?.[0] ?? Number.POSITIVE_INFINITY);
-
-  if (Number.isFinite(an) && Number.isFinite(bn) && an !== bn) return an - bn;
-  return String(a.cardNumber ?? "").localeCompare(String(b.cardNumber ?? ""));
+function normalizeSearch(value: string | null) {
+  return (value ?? "").trim().toLowerCase();
 }
 
-function dateTimeMs(value: string | null) {
-  if (!value) return 0;
-  const d = new Date(value);
-  const ms = d.getTime();
-  return Number.isFinite(ms) ? ms : 0;
+function includesSearch(row: SlabRow, q: string) {
+  if (!q) return true;
+
+  const haystack = [
+    row.player,
+    row.cardNumber,
+    row.team,
+    row.subset,
+    row.variant,
+    row.productId,
+    row.productYear == null ? "" : String(row.productYear),
+    row.productBrand,
+    row.productSport,
+    row.productSetId,
+    row.productSetName,
+    row.gradeLabel,
+    row.gradeabilityLabel,
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
+  return haystack.includes(q);
+}
+
+function sortCardNumber(a: SlabRow, b: SlabRow) {
+  const an = Number(a.cardNumber);
+  const bn = Number(b.cardNumber);
+
+  if (Number.isFinite(an) && Number.isFinite(bn) && an !== bn) return an - bn;
+
+  return a.cardNumber.localeCompare(b.cardNumber, undefined, {
+    numeric: true,
+    sensitivity: "base",
+  });
+}
+
+function hashString(value: string) {
+  let hash = 2166136261;
+
+  for (let i = 0; i < value.length; i += 1) {
+    hash ^= value.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+
+  return hash >>> 0;
+}
+
+function randomRank(row: SlabRow, seed: string) {
+  return hashString(`${seed}:${row.key}:${row.cardId}:${row.grade}`);
+}
+
+function compareRows(a: SlabRow, b: SlabRow, sort: SortMode, seed: string) {
+  if (sort === "random") {
+    const ar = randomRank(a, seed);
+    const br = randomRank(b, seed);
+    if (ar !== br) return ar - br;
+    return a.key.localeCompare(b.key);
+  }
+
+  if (sort === "value_desc") {
+    if (b.valueCents !== a.valueCents) return b.valueCents - a.valueCents;
+    if (b.totalValueCents !== a.totalValueCents) return b.totalValueCents - a.totalValueCents;
+    if (b.grade !== a.grade) return b.grade - a.grade;
+    return sortCardNumber(a, b);
+  }
+
+  if (sort === "player_asc") {
+    const player = a.player.localeCompare(b.player, undefined, {
+      numeric: true,
+      sensitivity: "base",
+    });
+    if (player !== 0) return player;
+    if (b.grade !== a.grade) return b.grade - a.grade;
+    return sortCardNumber(a, b);
+  }
+
+  if (sort === "year_desc") {
+    const ay = a.productYear ?? 0;
+    const by = b.productYear ?? 0;
+    if (by !== ay) return by - ay;
+    if (b.grade !== a.grade) return b.grade - a.grade;
+    return sortCardNumber(a, b);
+  }
+
+  if (sort === "newest") {
+    const at = a.gradedAt ? new Date(a.gradedAt).getTime() : 0;
+    const bt = b.gradedAt ? new Date(b.gradedAt).getTime() : 0;
+    if (bt !== at) return bt - at;
+    if (b.grade !== a.grade) return b.grade - a.grade;
+    return sortCardNumber(a, b);
+  }
+
+  if (b.grade !== a.grade) return b.grade - a.grade;
+  if (b.valueCents !== a.valueCents) return b.valueCents - a.valueCents;
+  return sortCardNumber(a, b);
 }
 
 export async function GET(req: Request) {
@@ -105,60 +189,31 @@ export async function GET(req: Request) {
     const user = await requireUser();
     const url = new URL(req.url);
 
-    const q = (url.searchParams.get("q") ?? "").trim();
-    const gradeParam = (url.searchParams.get("grade") ?? "ALL").trim().toUpperCase();
-    const tierParam = (url.searchParams.get("tier") ?? "ALL").trim().toUpperCase();
+    const q = normalizeSearch(url.searchParams.get("q"));
+    const gradeFilter = normalizeGrade(url.searchParams.get("grade"));
+    const tier = normalizeTier(url.searchParams.get("tier"));
     const sort = normalizeSort(url.searchParams.get("sort"));
+    const seed = (url.searchParams.get("seed") ?? "").trim() || "default";
 
-    const page = clampInt(parseInt(url.searchParams.get("page") ?? "1", 10) || 1, 1, 999999);
-    const pageSizeRaw = parseInt(url.searchParams.get("pageSize") ?? "48", 10) || 48;
-    const pageSize = clampInt(pageSizeRaw, 12, 96);
+    const page = clampInt(parseInt(url.searchParams.get("page") ?? "1", 10) || 1, 1, 9999);
+    const pageSize = clampInt(parseInt(url.searchParams.get("pageSize") ?? "24", 10) || 24, 6, 60);
 
-    const gradeFilter =
-      gradeParam === "6" ||
-      gradeParam === "7" ||
-      gradeParam === "8" ||
-      gradeParam === "9" ||
-      gradeParam === "10"
-        ? Number(gradeParam)
-        : null;
-
-    const tierFilter =
-      tierParam === "COMMON" || tierParam === "GREAT" || tierParam === "ICONIC"
-        ? (tierParam as Gradeability)
-        : null;
-
-    const ownershipRows = await prisma.cardOwnership.findMany({
+    const ownerships = await prisma.cardOwnership.findMany({
       where: {
         userId: user.id,
         quantity: { gt: 0 },
-        grade: gradeFilter != null ? gradeFilter : { not: 0 },
-        ...(q
-          ? {
-              OR: [
-                { card: { player: { contains: q, mode: "insensitive" } } },
-                { card: { team: { contains: q, mode: "insensitive" } } },
-                { card: { cardNumber: { contains: q, mode: "insensitive" } } },
-                { card: { subset: { contains: q, mode: "insensitive" } } },
-                { card: { variant: { contains: q, mode: "insensitive" } } },
-                { card: { productSet: { name: { contains: q, mode: "insensitive" } } } },
-                { card: { productSet: { product: { brand: { contains: q, mode: "insensitive" } } } } },
-                { card: { productSet: { product: { sport: { contains: q, mode: "insensitive" } } } } },
-                { card: { set: { brand: { contains: q, mode: "insensitive" } } } },
-                { card: { set: { sport: { contains: q, mode: "insensitive" } } } },
-              ],
-            }
-          : {}),
+        grade: gradeFilter == null ? { in: [6, 7, 8, 9, 10] } : gradeFilter,
       },
       select: {
+        cardId: true,
         quantity: true,
         grade: true,
         gradedAt: true,
         card: {
           select: {
             id: true,
-            player: true,
             cardNumber: true,
+            player: true,
             team: true,
             subset: true,
             variant: true,
@@ -166,14 +221,7 @@ export async function GET(req: Request) {
             frontImageUrl: true,
             backImageUrl: true,
             gradeabilityOverride: true,
-            set: {
-              select: {
-                id: true,
-                year: true,
-                brand: true,
-                sport: true,
-              },
-            },
+            productSetId: true,
             productSet: {
               select: {
                 id: true,
@@ -190,127 +238,76 @@ export async function GET(req: Request) {
                 },
               },
             },
+            set: {
+              select: {
+                id: true,
+                year: true,
+                brand: true,
+                sport: true,
+              },
+            },
           },
         },
       },
     });
 
-    const rows: SlabRow[] = [];
-
-    for (const ownership of ownershipRows) {
-      const qty = safeQty(ownership.quantity);
-      const grade = typeof ownership.grade === "number" && Number.isFinite(ownership.grade) ? ownership.grade : 0;
-
-      if (qty <= 0 || grade <= 0) continue;
-
+    const allRows: SlabRow[] = ownerships.map((ownership) => {
       const card = ownership.card;
-      const product = card.productSet?.product ?? null;
+      const product = card.productSet?.product;
 
-      const effectiveGradeability = normalizeGradeability(
-        getEffectiveGradeability({
-          cardOverride: card.gradeabilityOverride,
-          productSetDefault: card.productSet?.defaultGradeability,
-        })
-      );
+      const gradeability = getEffectiveGradeability({
+        cardOverride: card.gradeabilityOverride,
+        productSetDefault: card.productSet?.defaultGradeability,
+      }) as Gradeability;
 
-      if (tierFilter != null && effectiveGradeability !== tierFilter) continue;
-
-      const rawBookValueCents = dollarsToCents(card.bookValue);
+      const rawBookValueCents = bookValueToCents(card.bookValue);
       const valueCents = calculateGradedValueCents({
         rawBookValueCents,
-        grade,
-        gradeability: effectiveGradeability,
+        gradeability,
+        grade: ownership.grade,
       });
 
-      const productId = product?.id ?? card.set.id;
-      const productYear = product?.year ?? card.set.year ?? null;
-      const productBrand = product?.brand ?? card.set.brand ?? null;
-      const productSport = product?.sport ?? card.set.sport ?? null;
+      const productYear = product?.year ?? card.set?.year ?? null;
+      const productBrand = product?.brand ?? card.set?.brand ?? null;
+      const productSport = product?.sport ?? card.set?.sport ?? null;
+      const productId = product?.id ?? card.set?.id ?? card.productSetId ?? "unknown";
 
-      rows.push({
-        key: `${card.id}-${grade}`,
+      return {
+        key: `${card.id}-${ownership.grade}`,
         cardId: card.id,
         player: card.player,
         cardNumber: card.cardNumber,
-        team: card.team ?? null,
-        subset: card.subset ?? null,
-        variant: card.variant ?? null,
+        team: card.team,
+        subset: card.subset,
+        variant: card.variant,
 
         productId,
         productYear,
         productBrand,
         productSport,
 
-        productSetId: card.productSet?.id ?? null,
+        productSetId: card.productSetId,
         productSetName: card.productSet?.name ?? null,
-        productSetIsBase:
-          typeof card.productSet?.isBase === "boolean" ? card.productSet.isBase : null,
+        productSetIsBase: card.productSet?.isBase ?? null,
 
-        frontImageUrl: card.frontImageUrl ?? null,
-        backImageUrl: card.backImageUrl ?? null,
+        frontImageUrl: card.frontImageUrl,
+        backImageUrl: card.backImageUrl,
 
-        grade,
-        gradeLabel: `VCS ${grade}`,
-        quantity: qty,
+        grade: ownership.grade,
+        gradeLabel: `VCS ${ownership.grade}`,
+        quantity: ownership.quantity,
         rawBookValueCents,
         valueCents,
-        totalValueCents: valueCents * qty,
+        totalValueCents: valueCents * ownership.quantity,
 
-        gradeability: effectiveGradeability,
-        gradeabilityLabel: gradeabilityLabel(effectiveGradeability),
+        gradeability,
+        gradeabilityLabel: labelGradeability(gradeability),
 
         gradedAt: ownership.gradedAt ? ownership.gradedAt.toISOString() : null,
-      });
-    }
-
-    rows.sort((a, b) => {
-      if (sort === "value_desc") {
-        const valueCompare = b.totalValueCents - a.totalValueCents;
-        if (valueCompare !== 0) return valueCompare;
-
-        const gradeCompare = b.grade - a.grade;
-        if (gradeCompare !== 0) return gradeCompare;
-      }
-
-      if (sort === "player_asc") {
-        const playerCompare = a.player.localeCompare(b.player);
-        if (playerCompare !== 0) return playerCompare;
-
-        const yearCompare = (a.productYear ?? 0) - (b.productYear ?? 0);
-        if (yearCompare !== 0) return yearCompare;
-
-        return sortCardNumber(a, b);
-      }
-
-      if (sort === "year_desc") {
-        const yearCompare = (b.productYear ?? 0) - (a.productYear ?? 0);
-        if (yearCompare !== 0) return yearCompare;
-
-        const playerCompare = a.player.localeCompare(b.player);
-        if (playerCompare !== 0) return playerCompare;
-
-        return sortCardNumber(a, b);
-      }
-
-      if (sort === "newest") {
-        const dateCompare = dateTimeMs(b.gradedAt) - dateTimeMs(a.gradedAt);
-        if (dateCompare !== 0) return dateCompare;
-
-        const gradeCompare = b.grade - a.grade;
-        if (gradeCompare !== 0) return gradeCompare;
-      }
-
-      const gradeCompare = b.grade - a.grade;
-      if (gradeCompare !== 0) return gradeCompare;
-
-      const valueCompare = b.totalValueCents - a.totalValueCents;
-      if (valueCompare !== 0) return valueCompare;
-
-      const playerCompare = a.player.localeCompare(b.player);
-      if (playerCompare !== 0) return playerCompare;
-
-      return sortCardNumber(a, b);
+      };
     });
+
+    const searchedRows = allRows.filter((row) => includesSearch(row, q));
 
     const countsByGrade = {
       "6": 0,
@@ -326,46 +323,56 @@ export async function GET(req: Request) {
       ICONIC: 0,
     };
 
-    let totalQuantity = 0;
-    let totalValueCents = 0;
-
-    for (const row of rows) {
-      totalQuantity += row.quantity;
-      totalValueCents += row.totalValueCents;
-
-      if (row.grade >= 6 && row.grade <= 10) {
-        countsByGrade[String(row.grade) as "6" | "7" | "8" | "9" | "10"] += row.quantity;
-      }
+    for (const row of searchedRows) {
+      if (row.grade === 6) countsByGrade["6"] += row.quantity;
+      if (row.grade === 7) countsByGrade["7"] += row.quantity;
+      if (row.grade === 8) countsByGrade["8"] += row.quantity;
+      if (row.grade === 9) countsByGrade["9"] += row.quantity;
+      if (row.grade === 10) countsByGrade["10"] += row.quantity;
 
       countsByTier[row.gradeability] += row.quantity;
     }
 
-    const total = rows.length;
+    const filteredRows = searchedRows.filter((row) => {
+      if (tier !== "ALL" && row.gradeability !== tier) return false;
+      return true;
+    });
+
+    filteredRows.sort((a, b) => compareRows(a, b, sort, seed));
+
+    const total = filteredRows.length;
+    const totalQuantity = filteredRows.reduce((sum, row) => sum + row.quantity, 0);
+    const totalValueCents = filteredRows.reduce((sum, row) => sum + row.totalValueCents, 0);
+
     const totalPages = Math.max(1, Math.ceil(total / pageSize));
     const safePage = clampInt(page, 1, totalPages);
-    const skip = (safePage - 1) * pageSize;
-    const pagedRows = rows.slice(skip, skip + pageSize);
+    const start = (safePage - 1) * pageSize;
+    const rows = filteredRows.slice(start, start + pageSize);
 
-    return NextResponse.json({
-      ok: true,
-      q,
-      grade: gradeFilter == null ? "ALL" : String(gradeFilter),
-      tier: tierFilter ?? "ALL",
-      sort,
-      page: safePage,
-      pageSize,
-      total,
-      totalPages,
-      totalQuantity,
-      totalValueCents,
-      countsByGrade,
-      countsByTier,
-      rows: pagedRows,
-    });
+    return NextResponse.json(
+      {
+        ok: true,
+        q,
+        grade: gradeFilter == null ? "ALL" : String(gradeFilter),
+        tier,
+        sort,
+        page: safePage,
+        pageSize,
+        total,
+        totalPages,
+        totalQuantity,
+        totalValueCents,
+        countsByGrade,
+        countsByTier,
+        rows,
+      },
+      { status: 200 }
+    );
   } catch (e: any) {
     const status = e?.status ?? 500;
+
     return NextResponse.json(
-      { ok: false, error: e?.message ?? "Failed to load slabs" },
+      { ok: false, error: e?.message ?? "Failed to load slab gallery" },
       { status }
     );
   }

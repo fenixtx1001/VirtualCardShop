@@ -6,7 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import VcsSlab from "@/components/grading/VcsSlab";
 
 type Gradeability = "COMMON" | "GREAT" | "ICONIC";
-type SortMode = "grade_desc" | "value_desc" | "player_asc" | "year_desc" | "newest";
+type SortMode = "grade_desc" | "value_desc" | "player_asc" | "year_desc" | "newest" | "random";
 
 type SlabRow = {
   key: string;
@@ -196,6 +196,7 @@ export default function SlabsClient() {
   const [grade, setGrade] = useState("ALL");
   const [tier, setTier] = useState<"ALL" | Gradeability>("ALL");
   const [sort, setSort] = useState<SortMode>("grade_desc");
+  const [randomSeed, setRandomSeed] = useState(() => String(Date.now()));
   const [page, setPage] = useState(1);
   const [activeSlabIndex, setActiveSlabIndex] = useState(0);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
@@ -214,6 +215,7 @@ export default function SlabsClient() {
       if (grade !== "ALL") qs.set("grade", grade);
       if (tier !== "ALL") qs.set("tier", tier);
       qs.set("sort", sort);
+      if (sort === "random") qs.set("seed", randomSeed);
       qs.set("page", String(page));
       qs.set("pageSize", "24");
 
@@ -246,7 +248,7 @@ export default function SlabsClient() {
   useEffect(() => {
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [q, grade, tier, sort, page]);
+  }, [q, grade, tier, sort, randomSeed, page]);
 
   useEffect(() => {
     function updateIsMobile() {
@@ -261,7 +263,7 @@ export default function SlabsClient() {
 
   useEffect(() => {
     setActiveSlabIndex(0);
-  }, [q, grade, tier, sort, page]);
+  }, [q, grade, tier, sort, randomSeed, page]);
 
   const rows = data?.rows ?? [];
 
@@ -280,6 +282,7 @@ export default function SlabsClient() {
   function submitSearch(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setPage(1);
+    if (sort === "random") setRandomSeed(String(Date.now()));
     setQ(queryInput.trim());
   }
 
@@ -483,6 +486,7 @@ export default function SlabsClient() {
               active={grade === "ALL"}
               onClick={() => {
                 setGrade("ALL");
+                if (sort === "random") setRandomSeed(String(Date.now()));
                 setPage(1);
               }}
             />
@@ -494,6 +498,7 @@ export default function SlabsClient() {
                 active={grade === g}
                 onClick={() => {
                   setGrade(g);
+                  if (sort === "random") setRandomSeed(String(Date.now()));
                   setPage(1);
                 }}
               />
@@ -511,6 +516,7 @@ export default function SlabsClient() {
               active={tier === "ALL"}
               onClick={() => {
                 setTier("ALL");
+                if (sort === "random") setRandomSeed(String(Date.now()));
                 setPage(1);
               }}
             />
@@ -520,6 +526,7 @@ export default function SlabsClient() {
               active={tier === "ICONIC"}
               onClick={() => {
                 setTier("ICONIC");
+                if (sort === "random") setRandomSeed(String(Date.now()));
                 setPage(1);
               }}
             />
@@ -529,6 +536,7 @@ export default function SlabsClient() {
               active={tier === "GREAT"}
               onClick={() => {
                 setTier("GREAT");
+                if (sort === "random") setRandomSeed(String(Date.now()));
                 setPage(1);
               }}
             />
@@ -538,6 +546,7 @@ export default function SlabsClient() {
               active={tier === "COMMON"}
               onClick={() => {
                 setTier("COMMON");
+                if (sort === "random") setRandomSeed(String(Date.now()));
                 setPage(1);
               }}
             />
@@ -545,7 +554,9 @@ export default function SlabsClient() {
             <select
               value={sort}
               onChange={(e) => {
-                setSort(e.target.value as SortMode);
+                const nextSort = e.target.value as SortMode;
+                setSort(nextSort);
+                if (nextSort === "random") setRandomSeed(String(Date.now()));
                 setPage(1);
               }}
               style={{
@@ -563,6 +574,7 @@ export default function SlabsClient() {
               <option value="newest">Newest graded</option>
               <option value="player_asc">Player A–Z</option>
               <option value="year_desc">Newest year</option>
+              <option value="random">Random</option>
             </select>
           </div>
         </div>
