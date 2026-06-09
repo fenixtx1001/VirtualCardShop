@@ -349,7 +349,6 @@ export default function SlabsClient() {
             setTier={setTier}
             sort={sort}
             setSort={setSort}
-            randomSeed={randomSeed}
             setRandomSeed={setRandomSeed}
             gradeCounts={gradeCounts}
             tierCounts={tierCounts}
