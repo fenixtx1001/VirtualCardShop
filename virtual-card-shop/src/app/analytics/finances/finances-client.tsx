@@ -4,7 +4,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
-type RangeKey = "7D" | "30D" | "90D" | "ALL";
+type RangeKey = "TODAY" | "7D" | "30D" | "90D" | "ALL";
 
 type FinanceResponse = {
   ok: boolean;
@@ -89,8 +89,12 @@ function shortDate(dateKey: string) {
   return `${month}/${day}`;
 }
 
+function rangeLabel(range: RangeKey) {
+  return range === "TODAY" ? "Today" : range;
+}
+
 export default function FinancesClient() {
-  const [range, setRange] = useState<RangeKey>("30D");
+  const [range, setRange] = useState<RangeKey>("TODAY");
   const [data, setData] = useState<FinanceResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
@@ -182,7 +186,7 @@ export default function FinancesClient() {
               boxShadow: "0 10px 30px rgba(0,0,0,0.06)",
             }}
           >
-            {(["7D", "30D", "90D", "ALL"] as const).map((r) => (
+            {(["TODAY", "7D", "30D", "90D", "ALL"] as const).map((r) => (
               <button
                 key={r}
                 onClick={() => setRange(r)}
@@ -196,7 +200,7 @@ export default function FinancesClient() {
                   cursor: "pointer",
                 }}
               >
-                {r}
+                {rangeLabel(r)}
               </button>
             ))}
           </div>
@@ -249,7 +253,7 @@ export default function FinancesClient() {
                 subtitle="Raw + grading + slabs"
               />
               <HeroCard
-                title={`${range} Net Cashflow`}
+                title={`${rangeLabel(range)} Net Cashflow`}
                 value={signedDollars(data.summary.netCashflowCents)}
                 subtitle={`Income ${dollars(data.summary.totalIncomeCents)} • Expenses ${dollars(
                   data.summary.totalExpenseCents

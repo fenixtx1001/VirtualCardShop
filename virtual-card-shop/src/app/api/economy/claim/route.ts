@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { createFinancialTransaction } from "@/lib/financial-transactions";
 
 const REWARD_CENTS = 1000; // $10
 const COOLDOWN_MS = 30 * 60 * 1000; // 30 minutes
@@ -44,14 +45,13 @@ export async function POST() {
       throw new Error(`User not found (${userId}).`);
     }
 
-    const canClaim =
-      user.nextRewardAt === null || now.getTime() >= user.nextRewardAt.getTime();
+    const canClaim = user.nextRewardAt === null || now.getTime() >= user.nextRewardAt.getTime();
 
     if (!canClaim) return user;
 
     const nextRewardAt = new Date(now.getTime() + COOLDOWN_MS);
 
-    return tx.user.update({
+    const updatedUser = await tx.user.update({
       where: { id: userId },
       data: {
         balanceCents: { increment: REWARD_CENTS },
@@ -59,6 +59,22 @@ export async function POST() {
       },
       select: { balanceCents: true, nextRewardAt: true },
     });
+
+    await createFinancialTransaction({
+      tx,
+      userId,
+      category: "REWARD_BONUS",
+      amountCents: REWARD_CENTS,
+      description: "Claimed 30-minute reward bonus",
+      balanceAfterCents: updatedUser.balanceCents,
+      metadata: {
+        rewardCents: REWARD_CENTS,
+        cooldownMs: COOLDOWN_MS,
+        nextRewardAt: nextRewardAt.toISOString(),
+      },
+    });
+
+    return updatedUser;
   });
 
   return NextResponse.json(buildEconomyResponse(result));

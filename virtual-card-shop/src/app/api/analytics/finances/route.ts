@@ -14,7 +14,7 @@ export const dynamic = "force-dynamic";
 
 const CHICAGO_TIME_ZONE = "America/Chicago";
 
-type RangeKey = "7D" | "30D" | "90D" | "ALL";
+type RangeKey = "TODAY" | "7D" | "30D" | "90D" | "ALL";
 
 function getDateKey(date: Date) {
   const parts = new Intl.DateTimeFormat("en-CA", {
@@ -38,6 +38,7 @@ function addDays(date: Date, days: number) {
 }
 
 function getRangeDays(range: RangeKey) {
+  if (range === "TODAY") return 1;
   if (range === "7D") return 7;
   if (range === "30D") return 30;
   if (range === "90D") return 90;
@@ -132,11 +133,15 @@ export async function GET(req: Request) {
     const user = await requireUser();
 
     const url = new URL(req.url);
-    const rangeParam = String(url.searchParams.get("range") ?? "30D").toUpperCase();
+    const rangeParam = String(url.searchParams.get("range") ?? "TODAY").toUpperCase();
     const range: RangeKey =
-      rangeParam === "7D" || rangeParam === "30D" || rangeParam === "90D" || rangeParam === "ALL"
+      rangeParam === "TODAY" ||
+      rangeParam === "7D" ||
+      rangeParam === "30D" ||
+      rangeParam === "90D" ||
+      rangeParam === "ALL"
         ? rangeParam
-        : "30D";
+        : "TODAY";
 
     const me = await prisma.user.findUnique({
       where: { id: user.id },
@@ -175,12 +180,19 @@ export async function GET(req: Request) {
 
     const days = getRangeDays(range);
     const dateKeys = makeDateKeys(days);
+    const dateKeySet = new Set(dateKeys);
     const firstDateKey = dateKeys[0] ?? todayKey;
 
     const transactions = await prisma.financialTransaction.findMany({
       where: {
         userId: user.id,
-        createdAt: range === "ALL" ? undefined : { gte: addDays(new Date(), -days) },
+        ...(range === "ALL"
+          ? {}
+          : {
+              createdAt: {
+                gte: addDays(new Date(), -(days + 2)),
+              },
+            }),
       },
       orderBy: { createdAt: "desc" },
       take: range === "ALL" ? 500 : 300,
@@ -195,10 +207,21 @@ export async function GET(req: Request) {
       },
     });
 
+    const filteredTransactions =
+      range === "ALL"
+        ? transactions
+        : transactions.filter((txn) => dateKeySet.has(getDateKey(txn.createdAt)));
+
     const snapshots = await prisma.financialDailySnapshot.findMany({
       where: {
         userId: user.id,
-        dateKey: range === "ALL" ? undefined : { gte: firstDateKey },
+        ...(range === "ALL"
+          ? {}
+          : {
+              dateKey: {
+                gte: firstDateKey,
+              },
+            }),
       },
       orderBy: { dateKey: "asc" },
       select: {
@@ -234,8 +257,9 @@ export async function GET(req: Request) {
       }
     >();
 
-    for (const txn of transactions) {
+    for (const txn of filteredTransactions) {
       const dateKey = getDateKey(txn.createdAt);
+
       const existing =
         dailyMap.get(dateKey) ?? {
           dateKey,
@@ -301,7 +325,7 @@ export async function GET(req: Request) {
       snapshots,
       incomeCategories,
       expenseCategories,
-      recentTransactions: transactions.slice(0, 30),
+      recentTransactions: filteredTransactions.slice(0, 30),
     });
   } catch (e: any) {
     return NextResponse.json(
