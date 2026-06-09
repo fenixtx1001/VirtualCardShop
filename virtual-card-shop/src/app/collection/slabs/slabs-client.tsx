@@ -321,7 +321,7 @@ export default function SlabsClient() {
         background: mobileCarouselActive
           ? `radial-gradient(circle at 50% 10%, rgba(30,64,175,0.34), transparent 32%), radial-gradient(circle at 50% 60%, rgba(120,53,15,0.22), transparent 35%), ${colors.carouselBg}`
           : colors.bg,
-        minHeight: "calc(100vh - 80px)",
+        minHeight: mobileCarouselActive ? 0 : "calc(100vh - 80px)",
         padding: mobileCarouselActive ? 0 : 16,
         color: mobileCarouselActive ? colors.carouselText : colors.text,
         fontFamily: "system-ui",
@@ -604,11 +604,15 @@ function MobileSlabCarousel({
         setTouchStartX(null);
       }}
       style={{
-        minHeight: "calc(100vh - 80px)",
-        display: "grid",
-        gridTemplateRows: "auto 1fr auto",
-        overflow: "hidden",
-        position: "relative",
+        position: "fixed",
+          inset: 0,
+          zIndex: 9999,
+          height: "100dvh",
+          width: "100vw",
+          display: "grid",
+          gridTemplateRows: "auto minmax(0, 1fr) auto",
+          overflow: "hidden",
+          background: `radial-gradient(circle at 50% 10%, rgba(30,64,175,0.34), transparent 32%), radial-gradient(circle at 50% 60%, rgba(120,53,15,0.22), transparent 35%), ${colors.carouselBg}`,
       }}
     >
       <div
@@ -953,9 +957,14 @@ function MobileSlabCarousel({
 
         <div
           style={{
-            width: "min(96vw, 390px)",
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            width: 390,
             display: "grid",
             justifyItems: "center",
+            transform: "translate(-50%, -50%) scale(0.72)",
+            transformOrigin: "center",
             filter: "drop-shadow(0 30px 55px rgba(0,0,0,0.55))",
           }}
         >
