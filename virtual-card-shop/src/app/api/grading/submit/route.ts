@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { createFinancialTransaction } from "@/lib/financial-transactions";
 import {
   RAW_GRADE,
   bookValueToCents,
@@ -49,17 +50,11 @@ export async function POST(req: Request) {
     const rawQuantity = Number(body?.quantity ?? 1);
 
     if (!Number.isInteger(rawCardId) || rawCardId <= 0) {
-      return NextResponse.json(
-        { ok: false, error: "Invalid cardId" },
-        { status: 400 }
-      );
+      return NextResponse.json({ ok: false, error: "Invalid cardId" }, { status: 400 });
     }
 
     if (!Number.isFinite(rawQuantity) || rawQuantity <= 0) {
-      return NextResponse.json(
-        { ok: false, error: "Invalid quantity" },
-        { status: 400 }
-      );
+      return NextResponse.json({ ok: false, error: "Invalid quantity" }, { status: 400 });
     }
 
     const cardId = rawCardId;
@@ -199,6 +194,22 @@ export async function POST(req: Request) {
         select: { balanceCents: true },
       });
 
+      await createFinancialTransaction({
+        tx,
+        userId: user.id,
+        category: "GRADING_FEE",
+        amountCents: -totalFeeCents,
+        description: `Submitted ${quantity}x ${card.player} #${card.cardNumber} for grading`,
+        balanceAfterCents: updatedUser.balanceCents ?? 0,
+        metadata: {
+          cardId,
+          quantity,
+          feePerCardCents,
+          totalFeeCents,
+          gradingOrderId: order.id,
+        },
+      });
+
       return {
         order,
         card,
@@ -253,9 +264,6 @@ export async function POST(req: Request) {
   } catch (e: unknown) {
     const status = getErrorStatus(e);
 
-    return NextResponse.json(
-      { ok: false, error: getErrorMessage(e) },
-      { status }
-    );
+    return NextResponse.json({ ok: false, error: getErrorMessage(e) }, { status });
   }
 }

@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { createFinancialTransaction } from "@/lib/financial-transactions";
 import {
   bookValueToPerCardCents,
   calcShopSellQuote,
@@ -31,19 +32,6 @@ function parseGrade(value: any) {
   return null;
 }
 
-/**
- * POST: sell to shop using an offer
- * Body: { offerId: number, quantity: number, grade?: number }
- *
- * Rules:
- * - offer must belong to user
- * - offer must be active
- * - user intentionally chooses which grade bucket to sell
- * - quantity <= owned in that exact grade bucket
- * - raw cards pay from raw book value
- * - VCS graded cards pay from graded value + 10% offer-bps bonus
- * - accepting any quantity ends the offer
- */
 export async function POST(req: Request) {
   try {
     const user = await requireUser();
@@ -103,6 +91,8 @@ export async function POST(req: Request) {
         where: { id: offer.cardId },
         select: {
           id: true,
+          cardNumber: true,
+          player: true,
           bookValue: true,
           gradeabilityOverride: true,
           productSet: {
@@ -206,12 +196,25 @@ export async function POST(req: Request) {
           cardId: offer.cardId,
           kind: selectedGrade === RAW_GRADE ? "SELL_TO_SHOP" : `SELL_TO_SHOP_VCS_${selectedGrade}`,
           quantity: sellQty,
-
-          // For graded cards this is the graded value per card, not raw book value.
           perCardCents: quote.perCardValueCents,
           totalCents: quote.totalCents,
+          offerBps: quote.effectiveOfferBps,
+        },
+      });
 
-          // Store effective bps so transaction history reflects the +10% graded bonus.
+      await createFinancialTransaction({
+        tx,
+        userId: user.id,
+        category: "CARD_SALE",
+        amountCents: quote.totalCents,
+        description: `Sold ${sellQty}x ${card.player} #${card.cardNumber} to shop`,
+        balanceAfterCents: updatedUser.balanceCents ?? 0,
+        metadata: {
+          cardId: offer.cardId,
+          quantity: sellQty,
+          grade: selectedGrade,
+          perCardCents: quote.perCardValueCents,
+          totalCents: quote.totalCents,
           offerBps: quote.effectiveOfferBps,
         },
       });

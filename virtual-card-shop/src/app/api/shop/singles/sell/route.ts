@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { createFinancialTransaction } from "@/lib/financial-transactions";
 import {
   bookValueToPerCardCents,
   calcShopSellQuote,
@@ -100,6 +101,8 @@ export async function POST(req: Request) {
         where: { id: offer.cardId },
         select: {
           id: true,
+          cardNumber: true,
+          player: true,
           bookValue: true,
           gradeabilityOverride: true,
           productSet: {
@@ -176,9 +179,6 @@ export async function POST(req: Request) {
         data: { quantity: ownedQty - sellQty },
       });
 
-      // Shop inventory is still card-level, not grade-level. This means the shop can
-      // resell the card generically for now. We can upgrade inventory to track slabs
-      // later if you want a true graded singles marketplace.
       await tx.shopInventory.upsert({
         where: { cardId: offer.cardId },
         create: { cardId: offer.cardId, quantity: sellQty },
@@ -206,12 +206,25 @@ export async function POST(req: Request) {
           cardId: offer.cardId,
           kind: selectedGrade === RAW_GRADE ? "SELL_TO_SHOP" : `SELL_TO_SHOP_VCS_${selectedGrade}`,
           quantity: sellQty,
-
-          // Raw: raw book value. Graded: calculated graded value.
           perCardCents: quote.perCardValueCents,
           totalCents: quote.totalCents,
+          offerBps: quote.effectiveOfferBps,
+        },
+      });
 
-          // Raw: original offer. Graded: original offer + graded bonus.
+      await createFinancialTransaction({
+        tx,
+        userId: user.id,
+        category: "CARD_SALE",
+        amountCents: quote.totalCents,
+        description: `Sold ${sellQty}x ${card.player} #${card.cardNumber} to shop`,
+        balanceAfterCents: updatedUser.balanceCents ?? 0,
+        metadata: {
+          cardId: offer.cardId,
+          quantity: sellQty,
+          grade: selectedGrade,
+          perCardCents: quote.perCardValueCents,
+          totalCents: quote.totalCents,
           offerBps: quote.effectiveOfferBps,
         },
       });

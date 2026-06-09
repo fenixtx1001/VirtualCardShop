@@ -210,7 +210,6 @@ export default function SlabsClient() {
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [mobileControlsOpen, setMobileControlsOpen] = useState(false);
-  const [carouselOpen, setCarouselOpen] = useState(false);
 
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
@@ -314,7 +313,7 @@ export default function SlabsClient() {
     setActiveSlabIndex(0);
   }
 
-  const mobileCarouselActive = carouselOpen && rows.length > 0 && !loading && !err;
+  const mobileCarouselActive = isMobile && rows.length > 0 && !loading && !err;
 
   return (
     <main
@@ -333,7 +332,6 @@ export default function SlabsClient() {
         {mobileCarouselActive ? (
           <MobileSlabCarousel
             rows={rows}
-            onClose={() => setCarouselOpen(false)}
             activeSlabIndex={activeSlabIndex}
             setActiveSlabIndex={setActiveSlabIndex}
             touchStartX={touchStartX}
@@ -394,26 +392,6 @@ export default function SlabsClient() {
               </div>
 
               <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                <button
-                  onClick={() => {
-                    setActiveSlabIndex(0);
-                    setCarouselOpen(true);
-                  }}
-                  disabled={loading || rows.length === 0 || !!err}
-                  style={{
-                    border: `1px solid ${colors.blue}`,
-                    background: colors.blue,
-                    borderRadius: 10,
-                    padding: "9px 12px",
-                    fontWeight: 950,
-                    color: "#fff",
-                    cursor: loading || rows.length === 0 || !!err ? "not-allowed" : "pointer",
-                    opacity: loading || rows.length === 0 || !!err ? 0.55 : 1,
-                  }}
-                >
-                  Open Carousel
-                </button>
-
                 <Link
                   href="/grading"
                   style={{
@@ -542,7 +520,6 @@ export default function SlabsClient() {
 
 function MobileSlabCarousel({
   rows,
-  onClose,
   activeSlabIndex,
   setActiveSlabIndex,
   touchStartX,
@@ -571,7 +548,6 @@ function MobileSlabCarousel({
   reshuffleRandom,
 }: {
   rows: SlabRow[];
-  onClose: () => void;
   activeSlabIndex: number;
   setActiveSlabIndex: React.Dispatch<React.SetStateAction<number>>;
   touchStartX: number | null;
@@ -666,8 +642,8 @@ function MobileSlabCarousel({
             gap: 10,
           }}
         >
-          <button
-            onClick={onClose}
+          <Link
+            href="/collection"
             style={{
               color: colors.carouselText,
               textDecoration: "none",
@@ -677,11 +653,10 @@ function MobileSlabCarousel({
               background: "rgba(255,255,255,0.07)",
               borderRadius: 999,
               padding: "7px 10px",
-              cursor: "pointer",
             }}
           >
-            Close
-          </button>
+            ← Collection
+          </Link>
 
           <div style={{ textAlign: "center", minWidth: 0 }}>
             <div
@@ -1131,6 +1106,31 @@ function MobileSlabCarousel({
             >
               →
             </button>
+          </div>
+
+          <div
+            style={{
+              marginTop: 10,
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr 1fr",
+              gap: 8,
+            }}
+          >
+            <MetricPill label="Types" value={String(totalUniqueSlabs)} />
+            <MetricPill label="Slabs" value={String(totalQuantity)} />
+            <MetricPill label="Value" value={formatDollarsFromCents(totalValueCents)} />
+          </div>
+
+          <div
+            style={{
+              marginTop: 10,
+              color: colors.carouselMuted,
+              fontSize: 11,
+              fontWeight: 850,
+              textAlign: "center",
+            }}
+          >
+            Swipe left or right to browse. Page {page} of {totalPages}.
           </div>
         </div>
 
