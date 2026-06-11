@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { createFinancialTransaction } from "@/lib/financial-transactions";
 import { redeemPrestigeForProductSet } from "@/lib/prestige";
 
 export const runtime = "nodejs";
@@ -25,20 +26,45 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: "Missing productSetId." }, { status: 400 });
     }
 
-    // NOTE: Self-only enforcement:
-    // We do not accept userId from the client and always use the authenticated user.
-    const result = await prisma.$transaction(async (tx) => {
-      return redeemPrestigeForProductSet({ tx, userId: user.id, productSetId });
-    });
+    const txResult = await prisma.$transaction(async (tx) => {
+      const result = await redeemPrestigeForProductSet({ tx, userId: user.id, productSetId });
 
-    // Also return latest balance
-    const me = await prisma.user.findUnique({ where: { id: user.id }, select: { balanceCents: true } });
+      const me = await tx.user.findUnique({
+        where: { id: user.id },
+        select: { balanceCents: true },
+      });
+
+      if (result.awardedCents > 0) {
+        await createFinancialTransaction({
+          tx,
+          userId: user.id,
+          category: "PRESTIGE_REWARD",
+          amountCents: result.awardedCents,
+          description: `Claimed prestige reward for product set ${productSetId}`,
+          balanceAfterCents: me?.balanceCents ?? null,
+          metadata: {
+            productSetId,
+            awardedCents: result.awardedCents,
+            setValue: result.setValue,
+            fromLevel: result.fromLevel,
+            toLevel: result.toLevel,
+            currentLevel: result.currentLevel,
+            claimable: result.claimable,
+          },
+        });
+      }
+
+      return {
+        result,
+        balanceCents: me?.balanceCents ?? 0,
+      };
+    });
 
     return NextResponse.json(
       {
         ok: true,
-        result,
-        balanceCents: me?.balanceCents ?? 0,
+        result: txResult.result,
+        balanceCents: txResult.balanceCents,
       },
       { status: 200 }
     );

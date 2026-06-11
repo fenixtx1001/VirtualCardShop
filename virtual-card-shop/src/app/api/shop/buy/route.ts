@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { createFinancialTransaction } from "@/lib/financial-transactions";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -68,8 +69,6 @@ async function getOrCreateDailyDealProductId(productIds: string[], dateKey: stri
 
     return created.productId;
   } catch (e: unknown) {
-    // If two requests hit at the same time, one may create the row first.
-    // In that case, read the saved row and use it.
     if (
       typeof e === "object" &&
       e !== null &&
@@ -89,13 +88,10 @@ async function getOrCreateDailyDealProductId(productIds: string[], dateKey: stri
 }
 
 function applyDailyDealDiscount(cents: number) {
-  // DAILY_DEAL_DISCOUNT_BPS = 1000 means 10% off, so the user pays 90%.
   return Math.round((cents * (10000 - DAILY_DEAL_DISCOUNT_BPS)) / 10000);
 }
 
 function getNormalBoxPriceCents(packPriceCents: number, packsPerBox: number) {
-  // Normal box discount happens first:
-  // pack price x packs per box x .75
   return Math.round(packPriceCents * packsPerBox * BOX_DISCOUNT_MULTIPLIER);
 }
 
@@ -113,6 +109,14 @@ function getUnitCostCents(args: {
       : getNormalBoxPriceCents(packPriceCents, packsPerBox);
 
   return isDailyDeal ? applyDailyDealDiscount(normalUnitCost) : normalUnitCost;
+}
+
+function getProductDisplayName(product: {
+  year: number | null;
+  brand: string | null;
+  sport: string | null;
+}) {
+  return [product.year, product.brand, product.sport].filter(Boolean).join(" ") || "Product";
 }
 
 function getErrorStatus(e: unknown) {
@@ -172,6 +176,9 @@ export async function POST(req: Request) {
       where: { id: productId },
       select: {
         id: true,
+        year: true,
+        brand: true,
+        sport: true,
         released: true,
         packPriceCents: true,
         packsPerBox: true,
@@ -190,19 +197,14 @@ export async function POST(req: Request) {
     const packsPerBox = product.packsPerBox ?? 0;
 
     if (packPriceCents <= 0) {
-      return NextResponse.json(
-        { ok: false, error: "Invalid pack price" },
-        { status: 400 }
-      );
+      return NextResponse.json({ ok: false, error: "Invalid pack price" }, { status: 400 });
     }
 
     if (kind === "box" && packsPerBox <= 0) {
-      return NextResponse.json(
-        { ok: false, error: "Invalid packsPerBox" },
-        { status: 400 }
-      );
+      return NextResponse.json({ ok: false, error: "Invalid packsPerBox" }, { status: 400 });
     }
 
+    const productDisplayName = getProductDisplayName(product);
     const isDailyDeal = product.id === dailyProductId;
 
     const normalPackPriceCents = packPriceCents;
@@ -221,15 +223,10 @@ export async function POST(req: Request) {
     });
 
     const costCents = unitCost * quantity;
-
-    const packsToAdd =
-      kind === "pack" ? quantity : packsPerBox * quantity;
+    const packsToAdd = kind === "pack" ? quantity : packsPerBox * quantity;
 
     if (packsToAdd <= 0) {
-      return NextResponse.json(
-        { ok: false, error: "Invalid packsPerBox" },
-        { status: 400 }
-      );
+      return NextResponse.json({ ok: false, error: "Invalid packsPerBox" }, { status: 400 });
     }
 
     const result = await prisma.$transaction(async (tx) => {
@@ -270,6 +267,35 @@ export async function POST(req: Request) {
         select: { packsOwned: true },
       });
 
+      await createFinancialTransaction({
+        tx,
+        userId: user.id,
+        category: kind === "pack" ? "PACK_PURCHASE" : "BOX_PURCHASE",
+        amountCents: -costCents,
+        description:
+          kind === "pack"
+            ? `Purchased ${quantity} pack${quantity === 1 ? "" : "s"} of ${productDisplayName}`
+            : `Purchased ${quantity} box${quantity === 1 ? "" : "es"} of ${productDisplayName}`,
+        balanceAfterCents: updatedUser.balanceCents ?? 0,
+        metadata: {
+          productId,
+          productName: productDisplayName,
+          year: product.year,
+          brand: product.brand,
+          sport: product.sport,
+          kind,
+          quantity,
+          unitCostCents: unitCost,
+          costCents,
+          packsAdded: packsToAdd,
+          packsPerBox,
+          isDailyDeal,
+          dailyDealDateKey,
+          dailyDealProductId: dailyProductId,
+          dailyDealDiscountBps: DAILY_DEAL_DISCOUNT_BPS,
+        },
+      });
+
       return {
         balanceCents: updatedUser.balanceCents ?? 0,
         packsOwned: inv.packsOwned ?? 0,
@@ -286,9 +312,6 @@ export async function POST(req: Request) {
       packsAdded: packsToAdd,
       balanceCents: result.balanceCents,
       packsOwned: result.packsOwned,
-
-      // Debug/verification fields.
-      // These make it easy to confirm the API charged the same amount shown in the shop UI.
       isDailyDeal,
       dailyDealDateKey,
       dailyDealProductId: dailyProductId,
@@ -301,9 +324,6 @@ export async function POST(req: Request) {
   } catch (e: unknown) {
     const status = getErrorStatus(e);
 
-    return NextResponse.json(
-      { ok: false, error: getErrorMessage(e) },
-      { status }
-    );
+    return NextResponse.json({ ok: false, error: getErrorMessage(e) }, { status });
   }
 }
