@@ -59,6 +59,11 @@ function formatCategory(category: string) {
     .join(" ");
 }
 
+function getPctChange(startCents: number, endCents: number) {
+  if (startCents === 0) return null;
+  return Math.round(((endCents - startCents) / startCents) * 1000) / 10;
+}
+
 async function getCollectionValueCents(userId: string) {
   const ownerships = await prisma.cardOwnership.findMany({
     where: { userId, quantity: { gt: 0 } },
@@ -232,6 +237,26 @@ export async function GET(req: Request) {
       },
     });
 
+    const visibleSnapshots =
+      snapshots.length > 0
+        ? snapshots
+        : [
+            {
+              dateKey: todayKey,
+              balanceCents,
+              collectionValueCents,
+              netWorthCents,
+            },
+          ];
+
+    const firstSnapshot = visibleSnapshots[0];
+    const lastSnapshot = visibleSnapshots[visibleSnapshots.length - 1];
+
+    const startingNetWorthCents = firstSnapshot?.netWorthCents ?? netWorthCents;
+    const endingNetWorthCents = lastSnapshot?.netWorthCents ?? netWorthCents;
+    const netWorthChangeCents = endingNetWorthCents - startingNetWorthCents;
+    const netWorthChangePct = getPctChange(startingNetWorthCents, endingNetWorthCents);
+
     const dailyMap = new Map<
       string,
       {
@@ -320,9 +345,13 @@ export async function GET(req: Request) {
           totalExpenseCents > 0
             ? Math.round((netCashflowCents / totalExpenseCents) * 1000) / 10
             : null,
+        startingNetWorthCents,
+        endingNetWorthCents,
+        netWorthChangeCents,
+        netWorthChangePct,
       },
       dailyCashflow,
-      snapshots,
+      snapshots: visibleSnapshots,
       incomeCategories,
       expenseCategories,
       recentTransactions: filteredTransactions.slice(0, 30),
