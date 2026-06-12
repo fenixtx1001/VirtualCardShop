@@ -41,7 +41,7 @@ function getImageGap(value: string | null): ImageGap {
 function getLimit(value: string | null) {
   const n = Number(value);
   if (!Number.isFinite(n)) return 250;
-  return Math.min(Math.max(Math.trunc(n), 25), 500);
+  return Math.min(Math.max(Math.trunc(n), 10), 500);
 }
 
 function getMissingImageSql(imageGap: ImageGap) {

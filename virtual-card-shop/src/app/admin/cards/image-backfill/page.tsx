@@ -186,7 +186,7 @@ function DropImageBox({
 export default function ImageBackfillQueuePage() {
   const [search, setSearch] = useState("");
   const [imageGap, setImageGap] = useState<ImageGap>("front");
-  const [limit, setLimit] = useState("250");
+  const [limit, setLimit] = useState("50");
   const [cards, setCards] = useState<AdminCard[]>([]);
   const [drafts, setDrafts] = useState<Record<number, DraftCard>>({});
   const [loading, setLoading] = useState(false);
@@ -481,6 +481,7 @@ export default function ImageBackfillQueuePage() {
               onChange={(e) => setLimit(e.target.value)}
               style={{ padding: "9px 10px", border: "1px solid #ccc", borderRadius: 8 }}
             >
+              <option value="50">50</option>
               <option value="100">100</option>
               <option value="250">250</option>
               <option value="500">500</option>
