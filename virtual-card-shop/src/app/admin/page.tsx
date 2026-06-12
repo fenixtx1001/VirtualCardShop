@@ -20,6 +20,9 @@ export default function AdminHomePage() {
           <a href="/admin/cards">Admin: Cards / Bulk VCS Tiers</a>
         </li>
         <li>
+          <a href="/admin/cards/image-backfill">Admin: Image Backfill Queue</a>
+        </li>
+        <li>
           <a href="/admin/player-tiers">Admin: Player Repository / Tiers</a>
         </li>
         <li>
@@ -45,6 +48,11 @@ export default function AdminHomePage() {
       <p style={{ maxWidth: 820, marginTop: 14 }}>
         For retroactive VCS grading setup, use <b>Cards / Bulk VCS Tiers</b> to search across all cards and quickly
         update individual or bulk gradeability overrides.
+      </p>
+
+      <p style={{ maxWidth: 820, marginTop: 14 }}>
+        Use <b>Image Backfill Queue</b> to find valuable owned cards that are missing front or back images, then
+        drag/drop images and update card attributes from one focused report.
       </p>
     </main>
   );
