@@ -12,22 +12,9 @@ export const dynamic = "force-dynamic";
  * Query:
  *   /api/prestige/levels?ids=ps1,ps2,ps3
  *
- * Response:
- * {
- *   ok: true,
- *   levels: {
- *     [productSetId]: {
- *       productSetId,
- *       totalCards,
- *       level,              // min qty across all cards (0 if any missing)
- *       nextLevel,          // level + 1
- *       nextPct,            // 0..100 (how many cards have qty >= nextLevel)
- *       cardsAtNextLevel,   // count of cards already at nextLevel
- *       cardsNeededForNext, // cards still needed to reach nextLevel
- *       completedOnce,      // level >= 1
- *     }
- *   }
- * }
+ * Prestige counts all owned copies across all grade buckets.
+ * A graded card still counts toward set completion; it only stops counting
+ * if it is sold/removed from ownership.
  */
 export async function GET(req: Request) {
   try {
@@ -35,45 +22,55 @@ export async function GET(req: Request) {
     const url = new URL(req.url);
 
     const rawIds = (url.searchParams.get("ids") ?? "").trim();
-    const ids = rawIds
-      .split(",")
-      .map((s) => s.trim())
-      .filter(Boolean);
+    const ids = Array.from(
+      new Set(
+        rawIds
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean)
+      )
+    );
 
     if (!ids.length) {
       return NextResponse.json({ ok: true, levels: {} }, { status: 200 });
     }
 
-    // Load all cards in these product sets (only id + productSetId)
     const cards = await prisma.card.findMany({
       where: { productSetId: { in: ids } },
       select: { id: true, productSetId: true },
     });
 
-    // Group cardIds by productSetId
     const bySet = new Map<string, number[]>();
     for (const c of cards) {
       const psid = c.productSetId;
       if (!psid) continue;
-      if (!bySet.has(psid)) bySet.set(psid, []);
-      bySet.get(psid)!.push(c.id);
+
+      const arr = bySet.get(psid) ?? [];
+      arr.push(c.id);
+      bySet.set(psid, arr);
     }
 
-    // Pull ownership rows for this user for all cards in these sets
     const allCardIds = cards.map((c) => c.id);
+
     const owns = allCardIds.length
-      ? await prisma.cardOwnership.findMany({
-          where: { userId: user.id, cardId: { in: allCardIds } },
-          select: { cardId: true, quantity: true },
+      ? await prisma.cardOwnership.groupBy({
+          by: ["cardId"],
+          where: {
+            userId: user.id,
+            cardId: { in: allCardIds },
+            quantity: { gt: 0 },
+          },
+          _sum: {
+            quantity: true,
+          },
         })
       : [];
 
     const qtyByCardId = new Map<number, number>();
-    for (const o of owns) qtyByCardId.set(o.cardId, o.quantity ?? 0);
+    for (const o of owns) {
+      qtyByCardId.set(o.cardId, o._sum.quantity ?? 0);
+    }
 
-    // Compute per-set:
-    // level = min qty across all cards (missing => 0)
-    // nextPct = fraction of cards with qty >= level+1
     const levels: Record<
       string,
       {
@@ -107,11 +104,13 @@ export async function GET(req: Request) {
       }
 
       let minQty = Number.POSITIVE_INFINITY;
+
       for (const cardId of cardIds) {
         const q = qtyByCardId.get(cardId) ?? 0;
         if (q < minQty) minQty = q;
         if (minQty === 0) break;
       }
+
       if (!Number.isFinite(minQty)) minQty = 0;
 
       const level = Math.max(0, Math.floor(minQty));

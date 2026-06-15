@@ -35,8 +35,19 @@ export function isPrestigeRewardMilestone(level: number) {
 }
 
 /**
- * level = min quantity owned across all cards in that ProductSet
+ * level = min effective quantity across all cards in that ProductSet
  * setValue = sum(bookValue) across all cards in that ProductSet (dollars)
+ *
+ * Effective prestige ownership counts cards the user still controls:
+ * - raw ownership
+ * - revealed graded ownership
+ * - unrevealed grading orders, because those cards are still owned
+ *
+ * Revealed grading orders do NOT count separately because their results have
+ * already been transferred into CardOwnership.
+ *
+ * Sold cards do not count because they are no longer in CardOwnership and
+ * should not be in unrevealed grading orders.
  */
 export async function computeProductSetLevel(
   tx: Prisma.TransactionClient,
@@ -52,13 +63,40 @@ export async function computeProductSetLevel(
 
   const ids = cards.map((c) => c.id);
 
-  const owns = await tx.cardOwnership.findMany({
-    where: { userId, cardId: { in: ids } },
-    select: { cardId: true, quantity: true },
+  const owns = await tx.cardOwnership.groupBy({
+    by: ["cardId"],
+    where: {
+      userId,
+      cardId: { in: ids },
+      quantity: { gt: 0 },
+    },
+    _sum: {
+      quantity: true,
+    },
+  });
+
+  const unrevealedGradingOrders = await tx.gradingOrder.groupBy({
+    by: ["cardId"],
+    where: {
+      userId,
+      cardId: { in: ids },
+      quantity: { gt: 0 },
+      revealedAt: null,
+    },
+    _sum: {
+      quantity: true,
+    },
   });
 
   const qtyById = new Map<number, number>();
-  for (const o of owns) qtyById.set(o.cardId, o.quantity);
+
+  for (const o of owns) {
+    qtyById.set(o.cardId, (qtyById.get(o.cardId) ?? 0) + (o._sum.quantity ?? 0));
+  }
+
+  for (const o of unrevealedGradingOrders) {
+    qtyById.set(o.cardId, (qtyById.get(o.cardId) ?? 0) + (o._sum.quantity ?? 0));
+  }
 
   let minQty = Number.POSITIVE_INFINITY;
   let setValue = 0;
@@ -73,13 +111,16 @@ export async function computeProductSetLevel(
 
   if (!Number.isFinite(minQty)) minQty = 0;
 
-  return { level: minQty, setValue };
+  return { level: Math.max(0, Math.floor(minQty)), setValue };
 }
 
 /**
  * Sync progress only (no money):
  * - ensure ProductSetPrestige row exists
  * - keep timesCompleted in sync with current computed level
+ *
+ * Important: never move timesCompleted backward. If a user previously reached
+ * a higher completion level, we preserve that historical progress.
  *
  * Call this after pack open for productSetIds involved (base + any inserts pulled).
  */
@@ -125,7 +166,7 @@ export async function syncPrestigeProgressForProductSets(opts: {
 
 /**
  * Redeem for ONE ProductSet:
- * - claimable completions = currentLevel - claimedCompletions
+ * - claimable completions = effectiveLevel - claimedCompletions
  * - awards only when crossing prestige milestones
  * - increments user.balanceCents + bonusAwardedCents, advances claimedCompletions
  *
@@ -140,7 +181,6 @@ export async function redeemPrestigeForProductSet(opts: {
 
   const { level: currentLevel, setValue } = await computeProductSetLevel(tx, userId, productSetId);
 
-  // Ensure row exists & keep timesCompleted forward-moving
   const prog = await tx.productSetPrestige.upsert({
     where: { userId_productSetId: { userId, productSetId } },
     create: {
@@ -150,20 +190,19 @@ export async function redeemPrestigeForProductSet(opts: {
       claimedCompletions: 0,
       bonusAwardedCents: 0,
     },
-    update: {
-      timesCompleted: Math.max(0, currentLevel),
-    },
+    update: {},
     select: { claimedCompletions: true, timesCompleted: true, bonusAwardedCents: true },
   });
 
   const alreadyClaimed = prog.claimedCompletions ?? 0;
-  const claimable = Math.max(0, currentLevel - alreadyClaimed);
+  const effectiveLevel = Math.max(prog.timesCompleted ?? 0, currentLevel);
+  const claimable = Math.max(0, effectiveLevel - alreadyClaimed);
 
   if (claimable <= 0 || setValue <= 0) {
     return {
       ok: true as const,
       productSetId,
-      currentLevel,
+      currentLevel: effectiveLevel,
       claimedCompletions: alreadyClaimed,
       claimable: 0,
       awardedCents: 0,
@@ -175,9 +214,9 @@ export async function redeemPrestigeForProductSet(opts: {
 
   let awardedCents = 0;
   const fromLevel = alreadyClaimed;
-  const toLevel = currentLevel;
+  const toLevel = effectiveLevel;
 
-  for (let lvl = alreadyClaimed + 1; lvl <= currentLevel; lvl++) {
+  for (let lvl = alreadyClaimed + 1; lvl <= effectiveLevel; lvl++) {
     const multiplier = getPrestigeRewardMultiplier(lvl);
     if (multiplier > 0) {
       const cents = Math.round(setValue * multiplier * 100);
@@ -195,8 +234,8 @@ export async function redeemPrestigeForProductSet(opts: {
   await tx.productSetPrestige.update({
     where: { userId_productSetId: { userId, productSetId } },
     data: {
-      timesCompleted: Math.max(prog.timesCompleted ?? 0, currentLevel),
-      claimedCompletions: currentLevel,
+      timesCompleted: Math.max(prog.timesCompleted ?? 0, effectiveLevel),
+      claimedCompletions: effectiveLevel,
       bonusAwardedCents: { increment: awardedCents },
     },
   });
@@ -204,8 +243,8 @@ export async function redeemPrestigeForProductSet(opts: {
   return {
     ok: true as const,
     productSetId,
-    currentLevel,
-    claimedCompletions: currentLevel,
+    currentLevel: effectiveLevel,
+    claimedCompletions: effectiveLevel,
     claimable,
     awardedCents,
     setValue,

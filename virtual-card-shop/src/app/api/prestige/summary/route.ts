@@ -33,6 +33,21 @@ type BucketSet = {
   sampleImageUrl: string | null;
 };
 
+type SyncedPrestigeRow = {
+  productSetId: string;
+  productSet: {
+    id: string;
+    name: string | null;
+    productId: string | null;
+    isBase: boolean;
+    isInsert: boolean;
+  } | null;
+  timesCompleted: number;
+  claimedCompletions: number;
+  bonusAwardedCents: number;
+  setValue: number;
+};
+
 function clampInt(n: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n));
 }
@@ -125,7 +140,7 @@ export async function GET(req: Request) {
     const requestedUserId = (url.searchParams.get("userId") ?? "").trim();
     const targetUserId = requestedUserId || viewer.id;
 
-    const rows = await prisma.productSetPrestige.findMany({
+    const rawRows = await prisma.productSetPrestige.findMany({
       where: { userId: targetUserId },
       include: {
         productSet: {
@@ -134,6 +149,49 @@ export async function GET(req: Request) {
       },
       orderBy: [{ timesCompleted: "desc" }, { updatedAt: "desc" }],
       take: 5000,
+    });
+
+    const rows: SyncedPrestigeRow[] = [];
+
+    for (const r of rawRows) {
+      const { level: currentLevel, setValue } = await computeProductSetLevel(
+        prisma,
+        targetUserId,
+        r.productSetId
+      );
+
+      const storedTimesCompleted = r.timesCompleted ?? 0;
+      const timesCompleted = Math.max(storedTimesCompleted, currentLevel);
+
+      if (timesCompleted > storedTimesCompleted) {
+        await prisma.productSetPrestige.update({
+          where: {
+            userId_productSetId: {
+              userId: targetUserId,
+              productSetId: r.productSetId,
+            },
+          },
+          data: {
+            timesCompleted,
+          },
+        });
+      }
+
+      rows.push({
+        productSetId: r.productSetId,
+        productSet: r.productSet,
+        timesCompleted,
+        claimedCompletions: r.claimedCompletions ?? 0,
+        bonusAwardedCents: r.bonusAwardedCents ?? 0,
+        setValue,
+      });
+    }
+
+    rows.sort((a, b) => {
+      if (b.timesCompleted !== a.timesCompleted) return b.timesCompleted - a.timesCompleted;
+      return (a.productSet?.name ?? a.productSetId).localeCompare(
+        b.productSet?.name ?? b.productSetId
+      );
     });
 
     const productSetIds = Array.from(new Set(rows.map((r) => r.productSetId).filter(Boolean)));
@@ -201,55 +259,6 @@ export async function GET(req: Request) {
     let totalClaimableCompletions = 0;
     let bonusAwardedCents = 0;
 
-    const claimableCandidates = rows.filter((r) => (r.timesCompleted ?? 0) > (r.claimedCompletions ?? 0));
-    const claimableTop = claimableCandidates.slice(0, limit);
-
-    const claimable = await prisma.$transaction(async (tx) => {
-      const out: Array<{
-        productSetId: string;
-        productId: string | null;
-        productSetName: string | null;
-        isBase: boolean;
-        isInsert: boolean;
-        timesCompleted: number;
-        claimedCompletions: number;
-        claimable: number;
-        setValue: number;
-        rewardReadyCents: number;
-        nextMilestoneLevel: number | null;
-        bonusAwardedCents: number;
-      }> = [];
-
-      for (const r of claimableTop) {
-        const productSetId = r.productSetId;
-        const { level: currentLevel, setValue } = await computeProductSetLevel(tx, targetUserId, productSetId);
-
-        const timesCompleted = Math.max(r.timesCompleted ?? 0, currentLevel);
-        const claimed = r.claimedCompletions ?? 0;
-        const canClaim = Math.max(0, timesCompleted - claimed);
-
-        const rewardReadyCents = rewardReadyCentsForRange(claimed, timesCompleted, setValue);
-        const nextMilestoneLevel = nextMilestoneAfter(claimed);
-
-        out.push({
-          productSetId,
-          productId: r.productSet?.productId ?? null,
-          productSetName: r.productSet?.name ?? null,
-          isBase: !!r.productSet?.isBase,
-          isInsert: !!r.productSet?.isInsert,
-          timesCompleted,
-          claimedCompletions: claimed,
-          claimable: canClaim,
-          setValue,
-          rewardReadyCents,
-          nextMilestoneLevel,
-          bonusAwardedCents: r.bonusAwardedCents ?? 0,
-        });
-      }
-
-      return out;
-    });
-
     for (const r of rows) {
       const t = r.timesCompleted ?? 0;
       const claimed = r.claimedCompletions ?? 0;
@@ -283,6 +292,34 @@ export async function GET(req: Request) {
         return (a.productSetName ?? a.productSetId).localeCompare(b.productSetName ?? b.productSetId);
       });
     }
+
+    const claimableCandidates = rows.filter(
+      (r) => (r.timesCompleted ?? 0) > (r.claimedCompletions ?? 0)
+    );
+    const claimableTop = claimableCandidates.slice(0, limit);
+
+    const claimable = claimableTop.map((r) => {
+      const claimed = r.claimedCompletions ?? 0;
+      const timesCompleted = r.timesCompleted ?? 0;
+      const canClaim = Math.max(0, timesCompleted - claimed);
+      const rewardReadyCents = rewardReadyCentsForRange(claimed, timesCompleted, r.setValue);
+      const nextMilestoneLevel = nextMilestoneAfter(claimed);
+
+      return {
+        productSetId: r.productSetId,
+        productId: r.productSet?.productId ?? null,
+        productSetName: r.productSet?.name ?? null,
+        isBase: !!r.productSet?.isBase,
+        isInsert: !!r.productSet?.isInsert,
+        timesCompleted,
+        claimedCompletions: claimed,
+        claimable: canClaim,
+        setValue: r.setValue,
+        rewardReadyCents,
+        nextMilestoneLevel,
+        bonusAwardedCents: r.bonusAwardedCents ?? 0,
+      };
+    });
 
     return NextResponse.json(
       {
