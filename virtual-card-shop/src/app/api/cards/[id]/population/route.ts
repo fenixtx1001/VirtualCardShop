@@ -80,9 +80,33 @@ function getGradeSortValue(grade: number) {
   return grade === RAW_GRADE ? -1 : grade;
 }
 
+function emptyOwner(userId: string) {
+  return {
+    userId,
+    name: null,
+    email: null,
+    image: null,
+
+    quantity: 0,
+
+    rawQuantity: 0,
+    gradedQuantity: 0,
+    pendingGradingQuantity: 0,
+    totalQuantity: 0,
+    totalValueCents: 0,
+    gradeBreakdown: [] as OwnershipBucket[],
+    slabs: [] as {
+      grade: number;
+      label: string;
+      quantity: number;
+      valueCents: number;
+    }[],
+  };
+}
+
 export async function GET(req: Request, ctx: Ctx) {
   try {
-    await requireUser();
+    const currentUser = await requireUser();
 
     const cardId = await getCardId(ctx);
     if (!cardId) {
@@ -230,8 +254,6 @@ export async function GET(req: Request, ctx: Ctx) {
       owner.pendingGradingQuantity += quantity;
       owner.totalQuantity += quantity;
 
-      // Pending grades stay valued as raw so hidden grades are not leaked
-      // and collection value does not drop while cards are out for grading.
       owner.totalValueCents += rawBookValueCents * quantity;
     }
 
@@ -263,7 +285,6 @@ export async function GET(req: Request, ctx: Ctx) {
           email: u?.email ?? null,
           image: u?.image ?? null,
 
-          // Backward-compatible total qty field.
           quantity: owner.totalQuantity,
 
           rawQuantity: owner.rawQuantity,
@@ -279,6 +300,9 @@ export async function GET(req: Request, ctx: Ctx) {
         if (b.totalQuantity !== a.totalQuantity) return b.totalQuantity - a.totalQuantity;
         return (a.name ?? a.email ?? a.userId).localeCompare(b.name ?? b.email ?? b.userId);
       });
+
+    const myOwnership =
+      owners.find((owner) => owner.userId === currentUser.id) ?? emptyOwner(currentUser.id);
 
     const uniqueOwners = owners.length;
     const totalOwnedIncludingPending = owners.reduce((sum, o) => sum + o.totalQuantity, 0);
@@ -316,18 +340,14 @@ export async function GET(req: Request, ctx: Ctx) {
       },
       population: {
         uniqueOwners,
-
-        // Existing meaning: currently held raw + revealed graded.
         totalOwned,
-
-        // New complete meaning: raw + revealed graded + pending grading.
         totalOwnedIncludingPending,
-
         raw: totalRaw,
         graded: totalGraded,
         pendingGrading: totalPendingGrading,
         totalValueCents,
       },
+      myOwnership,
       owners,
     });
   } catch (e: any) {

@@ -75,6 +75,7 @@ type CardDetailResponse = {
     totalValueCents?: number;
   };
 
+  myOwnership?: OwnerRow | null;
   owners: OwnerRow[];
 };
 
@@ -258,9 +259,9 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
   const frontUrl = useMemo(() => safeUrl(c?.frontImageUrl), [c?.frontImageUrl]);
   const backUrl = useMemo(() => safeUrl(c?.backImageUrl), [c?.backImageUrl]);
 
-  const firstOwner = data?.owners?.[0] ?? null;
-  const firstOwnerBreakdown = useMemo(() => normalizeBreakdown(firstOwner), [firstOwner]);
-  const firstOwnerSlabs = useMemo(() => normalizeSlabs(firstOwner), [firstOwner]);
+  const myOwnership = data?.myOwnership ?? null;
+  const myOwnershipBreakdown = useMemo(() => normalizeBreakdown(myOwnership), [myOwnership]);
+  const myOwnershipSlabs = useMemo(() => normalizeSlabs(myOwnership), [myOwnership]);
 
   useEffect(() => {
     if (side === "back" && !backUrl) setSide("front");
@@ -269,21 +270,21 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
 
   useEffect(() => {
     setSelectedSlabIndex((prev) => {
-      if (firstOwnerSlabs.length === 0) return 0;
-      return Math.max(0, Math.min(prev, firstOwnerSlabs.length - 1));
+      if (myOwnershipSlabs.length === 0) return 0;
+      return Math.max(0, Math.min(prev, myOwnershipSlabs.length - 1));
     });
 
-    if (firstOwnerSlabs.length === 0 && viewMode === "slab") {
+    if (myOwnershipSlabs.length === 0 && viewMode === "slab") {
       setViewMode("card");
     }
-  }, [firstOwnerSlabs.length, viewMode]);
+  }, [myOwnershipSlabs.length, viewMode]);
 
   const showFront = side === "front";
   const activeUrl = showFront ? frontUrl : backUrl;
   const activeErrored = showFront ? imgErrorFront : imgErrorBack;
 
   const hasAnyImage = Boolean(frontUrl || backUrl);
-  const selectedSlab = firstOwnerSlabs[selectedSlabIndex] ?? firstOwnerSlabs[0] ?? null;
+  const selectedSlab = myOwnershipSlabs[selectedSlabIndex] ?? myOwnershipSlabs[0] ?? null;
 
   return (
     <div style={{ fontFamily: "system-ui", padding: 16 }}>
@@ -342,7 +343,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                 </div>
               </div>
 
-              {firstOwner ? (
+              {myOwnership ? (
                 <div
                   style={{
                     marginTop: 14,
@@ -358,45 +359,45 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                     <div>
                       <div style={{ fontSize: 12, color: "#666", fontWeight: 800 }}>Raw</div>
                       <div style={{ fontSize: 20, fontWeight: 1000 }}>
-                        {safeNum(firstOwner.rawQuantity)}
+                        {safeNum(myOwnership.rawQuantity)}
                       </div>
                     </div>
                     <div>
                       <div style={{ fontSize: 12, color: "#666", fontWeight: 800 }}>Pending VCS</div>
                       <div style={{ fontSize: 20, fontWeight: 1000 }}>
-                        {safeNum(firstOwner.pendingGradingQuantity)}
+                        {safeNum(myOwnership.pendingGradingQuantity)}
                       </div>
                     </div>
                     <div>
                       <div style={{ fontSize: 12, color: "#666", fontWeight: 800 }}>Graded</div>
                       <div style={{ fontSize: 20, fontWeight: 1000 }}>
-                        {safeNum(firstOwner.gradedQuantity)}
+                        {safeNum(myOwnership.gradedQuantity)}
                       </div>
                     </div>
                     <div>
                       <div style={{ fontSize: 12, color: "#666", fontWeight: 800 }}>Total</div>
                       <div style={{ fontSize: 20, fontWeight: 1000 }}>
-                        {safeNum(firstOwner.totalQuantity, firstOwner.quantity)}
+                        {safeNum(myOwnership.totalQuantity, myOwnership.quantity)}
                       </div>
                     </div>
                   </div>
 
                   <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                    {firstOwnerBreakdown.map((row) => (
+                    {myOwnershipBreakdown.map((row) => (
                       <GradePill key={row.grade} row={row} />
                     ))}
-                    <PendingPill quantity={safeNum(firstOwner.pendingGradingQuantity)} />
+                    <PendingPill quantity={safeNum(myOwnership.pendingGradingQuantity)} />
                   </div>
 
                   <div style={{ marginTop: 8, color: "#16477d", fontWeight: 950, fontSize: 13 }}>
                     Total value including pending:{" "}
-                    {formatDollarsFromCents(safeNum(firstOwner.totalValueCents))}
+                    {formatDollarsFromCents(safeNum(myOwnership.totalValueCents))}
                   </div>
 
                   <div style={{ marginTop: 12 }}>
                     <SubmitForGradingButton
                       cardId={c.id}
-                      rawQuantity={safeNum(firstOwner.rawQuantity)}
+                      rawQuantity={safeNum(myOwnership.rawQuantity)}
                       bookValue={c.bookValue}
                       player={c.player}
                       cardNumber={c.cardNumber}
@@ -430,17 +431,17 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
 
                   <button
                     onClick={() => setViewMode("slab")}
-                    disabled={firstOwnerSlabs.length === 0}
+                    disabled={myOwnershipSlabs.length === 0}
                     style={{
                       padding: "6px 10px",
                       borderRadius: 10,
                       border: "1px solid #ddd",
                       fontWeight: 900,
-                      opacity: firstOwnerSlabs.length === 0 ? 0.5 : 1,
+                      opacity: myOwnershipSlabs.length === 0 ? 0.5 : 1,
                       background: viewMode === "slab" ? "#eef6ff" : "#fff",
-                      cursor: firstOwnerSlabs.length === 0 ? "not-allowed" : "pointer",
+                      cursor: myOwnershipSlabs.length === 0 ? "not-allowed" : "pointer",
                     }}
-                    title={firstOwnerSlabs.length === 0 ? "No revealed graded copies yet" : "View VCS slab"}
+                    title={myOwnershipSlabs.length === 0 ? "No revealed graded copies yet" : "View VCS slab"}
                   >
                     Slab
                   </button>
@@ -486,7 +487,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
 
               {viewMode === "slab" && selectedSlab ? (
                 <div style={{ display: "grid", gap: 10, justifyItems: "center" }}>
-                  {firstOwnerSlabs.length > 1 ? (
+                  {myOwnershipSlabs.length > 1 ? (
                     <select
                       value={selectedSlabIndex}
                       onChange={(e) => setSelectedSlabIndex(Number(e.target.value))}
@@ -499,7 +500,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                         fontWeight: 900,
                       }}
                     >
-                      {firstOwnerSlabs.map((slab, idx) => (
+                      {myOwnershipSlabs.map((slab, idx) => (
                         <option key={`${slab.grade}-${idx}`} value={idx}>
                           {slab.label} ×{slab.quantity}
                         </option>
