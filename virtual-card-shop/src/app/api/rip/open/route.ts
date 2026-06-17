@@ -57,8 +57,8 @@ type EnrichedCard = {
   bookValue: number;
   ownedBefore: number;
   ownedAfter: number;
+  ripBoxId: number | null;
 
-  // Prestige UI fields
   prestigeTargetLevel: number | null;
   isNeededForNextPrestige: boolean;
   hitNextPrestigeWithThisCard: boolean;
@@ -117,6 +117,30 @@ export async function POST(req: Request) {
       if (!inv || inv.packsOwned <= 0) {
         throw new Error("You do not own any packs of this product.");
       }
+
+      const openRipBoxes = await tx.ripBox.findMany({
+        where: {
+          userId: user.id,
+          productId,
+          isClosed: false,
+        },
+        select: {
+          id: true,
+          packsPurchased: true,
+          packsOpened: true,
+        },
+        orderBy: [{ createdAt: "asc" }, { id: "asc" }],
+      });
+
+      const trackedPacksRemaining = openRipBoxes.reduce((sum, box) => {
+        return sum + Math.max(0, box.packsPurchased - box.packsOpened);
+      }, 0);
+
+      const loosePacksBefore = Math.max(0, inv.packsOwned - trackedPacksRemaining);
+      const ripBoxForThisPack =
+        loosePacksBefore > 0
+          ? null
+          : openRipBoxes.find((box) => box.packsOpened < box.packsPurchased) ?? null;
 
       await tx.sealedInventory.update({
         where: { userId_productId: { userId: user.id, productId } },
@@ -218,11 +242,6 @@ export async function POST(req: Request) {
         new Set(pulled.map((c) => String(c.productSetId ?? "").trim()).filter(Boolean))
       );
 
-      // Snapshot each touched set BEFORE ownership increments.
-      // Important for grading support:
-      // ownership can now have multiple rows for the same card:
-      // grade 0/raw, grade 8, grade 9, grade 10, etc.
-      // Prestige must count total copies across all grades.
       const setSnapshots = new Map<string, SetPrestigeSnapshot>();
 
       for (const productSetId of productSetIdsTouched) {
@@ -335,20 +354,52 @@ export async function POST(req: Request) {
           bookValue: c.bookValue,
           ownedBefore,
           ownedAfter,
+          ripBoxId: ripBoxForThisPack?.id ?? null,
           prestigeTargetLevel: null,
           isNeededForNextPrestige: false,
           hitNextPrestigeWithThisCard: false,
         });
 
-        // Keep TypeScript happy and intentionally read the raw-bucket quantity.
-        // ownedAfter above is the cross-grade total, which is what the UI/prestige needs.
         void ownership.quantity;
       }
 
-      // Apply the exact three-scenario prestige logic
-      // Scenario 1: card does not matter for next prestige -> no UI flags
-      // Scenario 2: card is one of multiple needed -> isNeededForNextPrestige = true
-      // Scenario 3: card is the final one needed -> isNeededForNextPrestige = true AND hitNextPrestigeWithThisCard = true
+      if (ripBoxForThisPack) {
+        const quantityByCardId = new Map<number, number>();
+
+        for (const pulledCard of pulled) {
+          addToQtyMap(quantityByCardId, pulledCard.id, 1);
+        }
+
+        for (const [cardId, quantity] of quantityByCardId.entries()) {
+          await tx.ripBoxCard.upsert({
+            where: {
+              ripBoxId_cardId: {
+                ripBoxId: ripBoxForThisPack.id,
+                cardId,
+              },
+            },
+            create: {
+              ripBoxId: ripBoxForThisPack.id,
+              cardId,
+              quantity,
+            },
+            update: {
+              quantity: { increment: quantity },
+            },
+          });
+        }
+
+        const packsOpenedAfter = ripBoxForThisPack.packsOpened + 1;
+
+        await tx.ripBox.update({
+          where: { id: ripBoxForThisPack.id },
+          data: {
+            packsOpened: { increment: 1 },
+            isClosed: packsOpenedAfter >= ripBoxForThisPack.packsPurchased,
+          },
+        });
+      }
+
       for (const [productSetId, snapshot] of setSnapshots.entries()) {
         const indicesForSet = enriched
           .map((card, index) => ({ card, index }))
@@ -393,7 +444,11 @@ export async function POST(req: Request) {
         });
       }
 
-      return enriched;
+      return {
+        cards: enriched,
+        ripBoxId: ripBoxForThisPack?.id ?? null,
+        usedLoosePack: !ripBoxForThisPack,
+      };
     });
 
     return NextResponse.json({
@@ -402,7 +457,9 @@ export async function POST(req: Request) {
       packImageUrl: product.packImageUrl ?? null,
       packPriceCents,
       cardsPerPack,
-      cards: result,
+      ripBoxId: result.ripBoxId,
+      usedLoosePack: result.usedLoosePack,
+      cards: result.cards,
     });
   } catch (e: unknown) {
     const err = e as { status?: number; message?: string };

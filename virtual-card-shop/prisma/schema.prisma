@@ -58,6 +58,7 @@ model Product {
   productSets       ProductSet[]
   sealedInventories SealedInventory[]
   dailyDeals        DailyDeal[]
+  ripBoxes          RipBox[]
 }
 
 model DailyDeal {
@@ -118,6 +119,7 @@ model Card {
   shopOffers       ShopOffer[]
   shopInventory    ShopInventory?
   shopTransactions ShopTransaction[]
+  ripBoxCards      RipBoxCard[]
 
   @@unique([setId, cardNumber])
   @@unique([productSetId, cardNumber])
@@ -178,6 +180,7 @@ model User {
   shopTransactions         ShopTransaction[]
   financialTransactions    FinancialTransaction[]
   financialDailySnapshots  FinancialDailySnapshot[]
+  ripBoxes                 RipBox[]
   accounts                 Account[]
   sessions                 Session[]
 }
@@ -193,6 +196,45 @@ model SealedInventory {
   user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, productId])
+}
+
+model RipBox {
+  id                 Int       @id @default(autoincrement())
+  userId             String
+  productId          String
+  purchaseBatchId    String
+  purchasePriceCents Int
+  packsPurchased     Int
+  packsOpened        Int       @default(0)
+  isClosed           Boolean   @default(false)
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product     Product      @relation(fields: [productId], references: [id], onDelete: Cascade)
+  ripBoxCards RipBoxCard[]
+
+  @@index([userId, createdAt])
+  @@index([userId, productId])
+  @@index([productId])
+  @@index([purchaseBatchId])
+  @@index([isClosed])
+}
+
+model RipBoxCard {
+  id            Int      @id @default(autoincrement())
+  ripBoxId      Int
+  cardId        Int
+  quantity      Int      @default(0)
+  firstPulledAt DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  ripBox RipBox @relation(fields: [ripBoxId], references: [id], onDelete: Cascade)
+  card   Card   @relation(fields: [cardId], references: [id], onDelete: Cascade)
+
+  @@unique([ripBoxId, cardId])
+  @@index([cardId])
+  @@index([ripBoxId])
 }
 
 model CardOwnership {

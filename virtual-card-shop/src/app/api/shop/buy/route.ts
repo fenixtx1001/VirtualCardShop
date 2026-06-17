@@ -1,4 +1,5 @@
 // src/app/api/shop/buy/route.ts
+import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
@@ -267,6 +268,28 @@ export async function POST(req: Request) {
         select: { packsOwned: true },
       });
 
+      const purchaseBatchId = randomUUID();
+      const ripBoxIds: number[] = [];
+
+      if (kind === "box") {
+        for (let i = 0; i < quantity; i += 1) {
+          const ripBox = await tx.ripBox.create({
+            data: {
+              userId: user.id,
+              productId,
+              purchaseBatchId,
+              purchasePriceCents: unitCost,
+              packsPurchased: packsPerBox,
+              packsOpened: 0,
+              isClosed: false,
+            },
+            select: { id: true },
+          });
+
+          ripBoxIds.push(ripBox.id);
+        }
+      }
+
       await createFinancialTransaction({
         tx,
         userId: user.id,
@@ -293,12 +316,16 @@ export async function POST(req: Request) {
           dailyDealDateKey,
           dailyDealProductId: dailyProductId,
           dailyDealDiscountBps: DAILY_DEAL_DISCOUNT_BPS,
+          ripBoxIds,
+          purchaseBatchId: kind === "box" ? purchaseBatchId : null,
         },
       });
 
       return {
         balanceCents: updatedUser.balanceCents ?? 0,
         packsOwned: inv.packsOwned ?? 0,
+        ripBoxIds,
+        purchaseBatchId: kind === "box" ? purchaseBatchId : null,
       };
     });
 
@@ -320,6 +347,8 @@ export async function POST(req: Request) {
       normalBoxPriceCents,
       dailyDealPackPriceCents,
       dailyDealBoxPriceCents,
+      ripBoxIds: result.ripBoxIds,
+      purchaseBatchId: result.purchaseBatchId,
     });
   } catch (e: unknown) {
     const status = getErrorStatus(e);
