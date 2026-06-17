@@ -4,7 +4,26 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
-type SortKey = "value" | "book" | "qty" | "player" | "number" | "owned" | "set";
+type SortKey =
+  | "position"
+  | "value"
+  | "cash"
+  | "book"
+  | "qty"
+  | "sold"
+  | "graded"
+  | "player"
+  | "number"
+  | "owned"
+  | "set";
+
+type CardStatus =
+  | "HOLDING"
+  | "PARTIAL"
+  | "SOLD_OUT"
+  | "GRADED"
+  | "GRADED_PARTIAL"
+  | "GRADED_SOLD_OUT";
 
 type BoxCard = {
   id: number;
@@ -18,11 +37,22 @@ type BoxCard = {
   productSetName: string | null;
   isInsert: boolean;
   quantityPulled: number;
+  soldQuantity: number;
+  remainingPulledQuantity: number;
+  realizedCents: number;
   rawOwned: number;
   gradedOwned: number;
   totalOwned: number;
+  gradedFromBox: number;
+  gradingFeeCents: number;
+  bestGrade: number | null;
+  pendingGradingQuantity: number;
+  revealedGradingQuantity: number;
+  status: CardStatus;
   bookValueCents: number;
   totalValueCents: number;
+  remainingValueCents: number;
+  totalPositionCents: number;
   firstPulledAt: string;
 };
 
@@ -40,6 +70,10 @@ type ApiData = {
     totalPulledCards: number;
     totalUniqueCards: number;
     totalPullValueCents: number;
+    remainingInventoryValueCents: number;
+    realizedCents: number;
+    gradingFeeCents: number;
+    totalPositionCents: number;
     profitCents: number;
     roiPct: number | null;
   };
@@ -63,10 +97,23 @@ function subtitle(card: BoxCard) {
   return [card.team, card.subset, card.variant].filter(Boolean).join(" · ");
 }
 
+function setLabel(card: BoxCard) {
+  return card.productSetName || (card.isInsert ? "Insert" : "Base");
+}
+
+function statusMeta(status: CardStatus) {
+  if (status === "SOLD_OUT") return { label: "Sold Out", emoji: "✓", cls: "sold" };
+  if (status === "PARTIAL") return { label: "Partial Exit", emoji: "◐", cls: "partial" };
+  if (status === "GRADED") return { label: "Graded", emoji: "◆", cls: "graded" };
+  if (status === "GRADED_PARTIAL") return { label: "Graded + Partial", emoji: "◆◐", cls: "gradedPartial" };
+  if (status === "GRADED_SOLD_OUT") return { label: "Graded + Sold", emoji: "◆✓", cls: "gradedSold" };
+  return { label: "Holding", emoji: "●", cls: "holding" };
+}
+
 export default function BoxDetailClient({ boxId }: { boxId: string }) {
   const [data, setData] = useState<ApiData | null>(null);
   const [error, setError] = useState("");
-  const [sortKey, setSortKey] = useState<SortKey>("value");
+  const [sortKey, setSortKey] = useState<SortKey>("position");
   const [busy, setBusy] = useState<string>("");
 
   useEffect(() => {
@@ -97,17 +144,21 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
     const rows = [...(data?.cards ?? [])];
 
     rows.sort((a, b) => {
+      if (sortKey === "value") return b.totalValueCents - a.totalValueCents;
+      if (sortKey === "cash") return b.realizedCents - a.realizedCents;
       if (sortKey === "book") return b.bookValueCents - a.bookValueCents;
       if (sortKey === "qty") return b.quantityPulled - a.quantityPulled;
-      if (sortKey === "owned") return b.totalOwned - a.totalOwned;
+      if (sortKey === "sold") return b.soldQuantity - a.soldQuantity;
+      if (sortKey === "graded") return b.gradedFromBox - a.gradedFromBox;
+      if (sortKey === "owned") return b.remainingPulledQuantity - a.remainingPulledQuantity;
       if (sortKey === "player") return a.player.localeCompare(b.player);
       if (sortKey === "number") {
         return a.cardNumber.localeCompare(b.cardNumber, undefined, { numeric: true });
       }
       if (sortKey === "set") {
-        return String(a.productSetName ?? "").localeCompare(String(b.productSetName ?? ""));
+        return setLabel(a).localeCompare(setLabel(b));
       }
-      return b.totalValueCents - a.totalValueCents;
+      return b.totalPositionCents - a.totalPositionCents;
     });
 
     return rows;
@@ -301,7 +352,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
         }
         .pullValue { margin-top: 3px; color: #92400e; font-weight: 1000; font-size: 13px; }
         .tableWrap { overflow-x: auto; border-radius: 16px; }
-        table { width: 100%; border-collapse: separate; border-spacing: 0 8px; min-width: 980px; }
+        table { width: 100%; border-collapse: separate; border-spacing: 0 8px; min-width: 1080px; }
         th { text-align: left; color: #6b7280; font-size: 12px; text-transform: uppercase; padding: 0 10px; }
         td { background: rgba(255,255,255,.9); border-top: 1px solid #eadcc8; border-bottom: 1px solid #eadcc8; padding: 10px; vertical-align: middle; font-weight: 750; }
         td:first-child { border-left: 1px solid #eadcc8; border-radius: 14px 0 0 14px; }
@@ -325,6 +376,46 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
           font-weight: 1000;
         }
         .cardLink:hover { color: #92400e; text-decoration: underline; }
+        .statusStack {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 5px;
+          margin-top: 5px;
+        }
+        .statusPill {
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          border-radius: 999px;
+          padding: 3px 7px;
+          font-size: 10px;
+          font-weight: 1000;
+          border: 1px solid transparent;
+          white-space: nowrap;
+        }
+        .holding { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+        .partial { background: #fffbeb; color: #92400e; border-color: #fde68a; }
+        .sold { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+        .graded { background: #f5f3ff; color: #6d28d9; border-color: #ddd6fe; }
+        .gradedPartial { background: #fef3c7; color: #7c2d12; border-color: #fbbf24; }
+        .gradedSold { background: #d1fae5; color: #047857; border-color: #6ee7b7; }
+        .setBadge {
+          display: inline-flex;
+          align-items: center;
+          border-radius: 999px;
+          padding: 3px 7px;
+          background: #f8fafc;
+          border: 1px solid #e5e7eb;
+          color: #374151;
+          font-size: 11px;
+          font-weight: 1000;
+          max-width: 180px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .moneyGood { color: #166534; font-weight: 1000; }
+        .moneyNeutral { color: #111827; font-weight: 1000; }
 
         @media (max-width: 900px) {
           .stands {
@@ -409,7 +500,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
           }
           .mobileActions {
             display: grid;
-            grid-template-columns: .85fr .85fr .85fr;
+            grid-template-columns: .8fr .9fr .9fr;
             gap: 6px;
             margin-top: 8px;
           }
@@ -436,6 +527,19 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
           .standBase { width: 104px; height: 18px; }
           .pullName { font-size: 11px; }
           .pullValue { font-size: 12px; }
+          .statusStack {
+            gap: 4px;
+            margin-top: 6px;
+          }
+          .statusPill {
+            font-size: 9px;
+            padding: 3px 6px;
+          }
+          .setBadge {
+            max-width: 150px;
+            font-size: 10px;
+            padding: 2px 6px;
+          }
         }
 
         @media (max-width: 430px) {
@@ -448,9 +552,6 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
           }
           .miniValue {
             font-size: 12px;
-          }
-          .mobileActions {
-            grid-template-columns: .8fr .9fr .9fr;
           }
         }
       `}</style>
@@ -475,11 +576,11 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
 
             <section className="stats">
               <Stat label="Cost Basis" value={money(data.box.purchasePriceCents)} />
-              <Stat label="Pull Value" value={money(data.box.totalPullValueCents)} />
-              <Stat label="Paper Profit" value={money(data.box.profitCents)} tone={data.box.profitCents} />
-              <Stat label="Paper ROI" value={pct(data.box.roiPct)} tone={data.box.profitCents} />
-              <Stat label="Packs Opened" value={`${data.box.packsOpened}/${data.box.packsPurchased}`} />
-              <Stat label="Cards Pulled" value={`${data.box.totalPulledCards}`} />
+              <Stat label="Inventory" value={money(data.box.remainingInventoryValueCents)} />
+              <Stat label="Cash Realized" value={money(data.box.realizedCents)} tone={data.box.realizedCents} />
+              <Stat label="Position" value={money(data.box.totalPositionCents)} />
+              <Stat label="Net Profit" value={money(data.box.profitCents)} tone={data.box.profitCents} />
+              <Stat label="ROI" value={pct(data.box.roiPct)} tone={data.box.profitCents} />
             </section>
 
             <section className="showcase">
@@ -541,18 +642,22 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
                 <div>
                   <div style={{ fontSize: 18, fontWeight: 1000 }}>Pull Ledger</div>
                   <div style={{ color: "#6b7280", fontWeight: 700, fontSize: 13 }}>
-                    Sortable card table with direct shop and grading actions.
+                    Track pulled inventory, sales cash, grading activity, and current position.
                   </div>
                 </div>
 
                 <select value={sortKey} onChange={(e) => setSortKey(e.target.value as SortKey)}>
-                  <option value="value">Sort: Total Value</option>
+                  <option value="position">Sort: Total Position</option>
+                  <option value="value">Sort: Total Pull Value</option>
+                  <option value="cash">Sort: Cash Realized</option>
                   <option value="book">Sort: Card Value</option>
                   <option value="qty">Sort: Quantity Pulled</option>
-                  <option value="owned">Sort: Currently Owned</option>
+                  <option value="sold">Sort: Quantity Sold</option>
+                  <option value="graded">Sort: Quantity Graded</option>
+                  <option value="owned">Sort: Held From Box</option>
                   <option value="player">Sort: Player A-Z</option>
                   <option value="number">Sort: Card #</option>
-                  <option value="set">Sort: Set/Subtype</option>
+                  <option value="set">Sort: Product Set</option>
                 </select>
               </div>
 
@@ -562,84 +667,122 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
                     <tr>
                       <th>Card</th>
                       <th>Set</th>
-                      <th>Qty</th>
-                      <th>Owned</th>
-                      <th>Raw</th>
+                      <th>Pulled</th>
+                      <th>Held</th>
+                      <th>Sold</th>
                       <th>Graded</th>
-                      <th>Card Value</th>
+                      <th>Cash</th>
                       <th>Total Value</th>
+                      <th>Position</th>
                       <th style={{ textAlign: "right" }}>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {cards.map((card) => (
-                      <tr key={card.id}>
-                        <td>
-                          <Link href={`/cards/${card.id}`} className="cardLink">
-                            {card.player} #{card.cardNumber}
-                          </Link>
-                          <div style={{ color: "#6b7280", fontSize: 12 }}>
-                            {subtitle(card) || "—"}
-                          </div>
-                        </td>
-                        <td>{card.productSetName ?? "Base"}</td>
-                        <td>{card.quantityPulled}</td>
-                        <td>{card.totalOwned}</td>
-                        <td>{card.rawOwned}</td>
-                        <td>{card.gradedOwned}</td>
-                        <td>{money(card.bookValueCents)}</td>
-                        <td>{money(card.totalValueCents)}</td>
-                        <td>
-                          <div className="actions">
-                            <button disabled={card.totalOwned <= 0 || busy !== ""} onClick={() => getOffer(card.id)}>
-                              Offer
-                            </button>
-                            <button className="primary" disabled={card.rawOwned <= 0 || busy !== ""} onClick={() => submitToGrading(card.id)}>
-                              Grade
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
+                    {cards.map((card) => {
+                      const meta = statusMeta(card.status);
+
+                      return (
+                        <tr key={card.id}>
+                          <td>
+                            <Link href={`/cards/${card.id}`} className="cardLink">
+                              {card.player} #{card.cardNumber}
+                            </Link>
+                            <div style={{ color: "#6b7280", fontSize: 12 }}>
+                              {subtitle(card) || "—"}
+                            </div>
+                            <div className="statusStack">
+                              <span className={`statusPill ${meta.cls}`}>
+                                {meta.emoji} {meta.label}
+                              </span>
+                              {card.bestGrade ? (
+                                <span className="statusPill graded">◆ Best {card.bestGrade}</span>
+                              ) : null}
+                            </div>
+                          </td>
+                          <td>
+                            <span className="setBadge">{setLabel(card)}</span>
+                          </td>
+                          <td>{card.quantityPulled}</td>
+                          <td>{card.remainingPulledQuantity}</td>
+                          <td>{card.soldQuantity}</td>
+                          <td>{card.gradedFromBox}</td>
+                          <td className={card.realizedCents > 0 ? "moneyGood" : "moneyNeutral"}>
+                            {money(card.realizedCents)}
+                          </td>
+                          <td>{money(card.totalValueCents)}</td>
+                          <td className="moneyNeutral">{money(card.totalPositionCents)}</td>
+                          <td>
+                            <div className="actions">
+                              <button disabled={card.totalOwned <= 0 || busy !== ""} onClick={() => getOffer(card.id)}>
+                                Offer
+                              </button>
+                              <button className="primary" disabled={card.rawOwned <= 0 || busy !== ""} onClick={() => submitToGrading(card.id)}>
+                                Grade
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
 
               <div className="mobileCards">
-                {cards.map((card) => (
-                  <div className="cardRow" key={card.id}>
-                    <div className="mobileTopLine">
-                      <div style={{ minWidth: 0 }}>
-                        <Link href={`/cards/${card.id}`} className="cardLink mobileName">
-                          {card.player} #{card.cardNumber}
-                        </Link>
-                        <div className="mobileSub">
-                          {subtitle(card) || card.productSetName || "Base"}
+                {cards.map((card) => {
+                  const meta = statusMeta(card.status);
+
+                  return (
+                    <div className="cardRow" key={card.id}>
+                      <div className="mobileTopLine">
+                        <div style={{ minWidth: 0 }}>
+                          <Link href={`/cards/${card.id}`} className="cardLink mobileName">
+                            {card.player} #{card.cardNumber}
+                          </Link>
+                          <div className="mobileSub">
+                            {setLabel(card)}
+                            {subtitle(card) ? ` · ${subtitle(card)}` : ""}
+                          </div>
                         </div>
+                        <div className="mobileValue">{money(card.totalPositionCents)}</div>
                       </div>
-                      <div className="mobileValue">{money(card.totalValueCents)}</div>
-                    </div>
 
-                    <div className="mobileMeta">
-                      <Mini label="Pulled" value={String(card.quantityPulled)} />
-                      <Mini label="Owned" value={String(card.totalOwned)} />
-                      <Mini label="Raw" value={String(card.rawOwned)} />
-                      <Mini label="Each" value={money(card.bookValueCents)} />
-                    </div>
+                      <div className="statusStack">
+                        <span className={`statusPill ${meta.cls}`}>
+                          {meta.emoji} {meta.label}
+                        </span>
+                        {card.soldQuantity > 0 ? (
+                          <span className="statusPill sold">Cash {money(card.realizedCents)}</span>
+                        ) : null}
+                        {card.gradedFromBox > 0 ? (
+                          <span className="statusPill graded">
+                            ◆ Graded {card.gradedFromBox}
+                            {card.bestGrade ? ` · Best ${card.bestGrade}` : ""}
+                          </span>
+                        ) : null}
+                      </div>
 
-                    <div className="mobileActions">
-                      <Link href={`/cards/${card.id}`} className="pill">
-                        Details
-                      </Link>
-                      <button disabled={card.totalOwned <= 0 || busy !== ""} onClick={() => getOffer(card.id)}>
-                        Offer
-                      </button>
-                      <button className="primary" disabled={card.rawOwned <= 0 || busy !== ""} onClick={() => submitToGrading(card.id)}>
-                        Grade
-                      </button>
+                      <div className="mobileMeta">
+                        <Mini label="Pulled" value={String(card.quantityPulled)} />
+                        <Mini label="Held" value={String(card.remainingPulledQuantity)} />
+                        <Mini label="Sold" value={String(card.soldQuantity)} />
+                        <Mini label="Total" value={money(card.totalValueCents)} />
+                      </div>
+
+                      <div className="mobileActions">
+                        <Link href={`/cards/${card.id}`} className="pill">
+                          Details
+                        </Link>
+                        <button disabled={card.totalOwned <= 0 || busy !== ""} onClick={() => getOffer(card.id)}>
+                          Offer
+                        </button>
+                        <button className="primary" disabled={card.rawOwned <= 0 || busy !== ""} onClick={() => submitToGrading(card.id)}>
+                          Grade
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </section>
           </>

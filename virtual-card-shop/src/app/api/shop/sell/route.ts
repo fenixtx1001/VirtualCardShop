@@ -202,6 +202,66 @@ export async function POST(req: Request) {
         },
       });
 
+      const eligibleBoxCards = await tx.ripBoxCard.findMany({
+        where: {
+          cardId: offer.cardId,
+          ripBox: {
+            userId: user.id,
+          },
+        },
+        select: {
+          id: true,
+          quantity: true,
+          soldQuantity: true,
+          realizedCents: true,
+          ripBoxId: true,
+          firstPulledAt: true,
+          ripBox: {
+            select: {
+              createdAt: true,
+            },
+          },
+        },
+        orderBy: [{ firstPulledAt: "asc" }, { id: "asc" }],
+      });
+
+      let remainingToAttribute = sellQty;
+      let remainingCentsToAttribute = quote.totalCents;
+      const attribution: { ripBoxId: number; ripBoxCardId: number; quantity: number; cents: number }[] = [];
+
+      for (const boxCard of eligibleBoxCards) {
+        if (remainingToAttribute <= 0) break;
+
+        const alreadySold = boxCard.soldQuantity ?? 0;
+        const availableFromBox = Math.max(0, boxCard.quantity - alreadySold);
+        if (availableFromBox <= 0) continue;
+
+        const qtyForThisBox = Math.min(availableFromBox, remainingToAttribute);
+
+        const centsForThisBox =
+          remainingToAttribute === qtyForThisBox
+            ? remainingCentsToAttribute
+            : Math.round((quote.totalCents * qtyForThisBox) / sellQty);
+
+        await tx.ripBoxCard.update({
+          where: { id: boxCard.id },
+          data: {
+            soldQuantity: { increment: qtyForThisBox },
+            realizedCents: { increment: centsForThisBox },
+          },
+        });
+
+        attribution.push({
+          ripBoxId: boxCard.ripBoxId,
+          ripBoxCardId: boxCard.id,
+          quantity: qtyForThisBox,
+          cents: centsForThisBox,
+        });
+
+        remainingToAttribute -= qtyForThisBox;
+        remainingCentsToAttribute -= centsForThisBox;
+      }
+
       await createFinancialTransaction({
         tx,
         userId: user.id,
@@ -216,6 +276,9 @@ export async function POST(req: Request) {
           perCardCents: quote.perCardValueCents,
           totalCents: quote.totalCents,
           offerBps: quote.effectiveOfferBps,
+          ripBoxAttribution: attribution,
+          unattributedQuantity: remainingToAttribute,
+          unattributedCents: remainingCentsToAttribute,
         },
       });
 
@@ -237,6 +300,10 @@ export async function POST(req: Request) {
         effectiveOfferBps: quote.effectiveOfferBps,
         gradedOfferBonusBps: quote.effectiveOfferBps - quote.baseOfferBps,
         gradeability,
+
+        ripBoxAttribution: attribution,
+        unattributedQuantity: remainingToAttribute,
+        unattributedCents: remainingCentsToAttribute,
       };
     });
 

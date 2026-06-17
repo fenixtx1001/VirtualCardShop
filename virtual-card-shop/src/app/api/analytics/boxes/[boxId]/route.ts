@@ -22,6 +22,24 @@ function getProductDisplayName(product: {
   return [product.year, product.brand, product.sport].filter(Boolean).join(" ") || "Product";
 }
 
+function getStatus(args: {
+  soldQuantity: number;
+  quantityPulled: number;
+  gradedFromBox: number;
+}) {
+  const { soldQuantity, quantityPulled, gradedFromBox } = args;
+  const hasSold = soldQuantity > 0;
+  const hasGraded = gradedFromBox > 0;
+  const soldOut = quantityPulled > 0 && soldQuantity >= quantityPulled;
+
+  if (hasGraded && soldOut) return "GRADED_SOLD_OUT";
+  if (hasGraded && hasSold) return "GRADED_PARTIAL";
+  if (hasGraded) return "GRADED";
+  if (soldOut) return "SOLD_OUT";
+  if (hasSold) return "PARTIAL";
+  return "HOLDING";
+}
+
 export async function GET(_req: Request, ctx: Ctx) {
   try {
     const user = await requireUser();
@@ -71,6 +89,25 @@ export async function GET(_req: Request, ctx: Ctx) {
             },
           },
         },
+        gradingLinks: {
+          select: {
+            cardId: true,
+            quantity: true,
+            gradingOrder: {
+              select: {
+                id: true,
+                status: true,
+                feePaidCents: true,
+                results: {
+                  select: {
+                    grade: true,
+                    quantity: true,
+                  },
+                },
+              },
+            },
+          },
+        },
       },
     });
 
@@ -103,10 +140,64 @@ export async function GET(_req: Request, ctx: Ctx) {
       ownershipByCardId.set(ownership.cardId, current);
     }
 
+    const gradingByCardId = new Map<
+      number,
+      {
+        quantity: number;
+        feePaidCents: number;
+        bestGrade: number | null;
+        pendingQuantity: number;
+        revealedQuantity: number;
+      }
+    >();
+
+    for (const link of box.gradingLinks) {
+      const current =
+        gradingByCardId.get(link.cardId) ??
+        {
+          quantity: 0,
+          feePaidCents: 0,
+          bestGrade: null,
+          pendingQuantity: 0,
+          revealedQuantity: 0,
+        };
+
+      current.quantity += link.quantity;
+      current.feePaidCents += link.gradingOrder.feePaidCents ?? 0;
+
+      const results = link.gradingOrder.results ?? [];
+      const resultQty = results.reduce((sum, row) => sum + row.quantity, 0);
+
+      if (results.length > 0) {
+        current.revealedQuantity += resultQty;
+        for (const result of results) {
+          if (current.bestGrade === null || result.grade > current.bestGrade) {
+            current.bestGrade = result.grade;
+          }
+        }
+      } else {
+        current.pendingQuantity += link.quantity;
+      }
+
+      gradingByCardId.set(link.cardId, current);
+    }
+
     const cards = box.ripBoxCards.map((row) => {
       const bookValueCents = dollarsToCents(row.card.bookValue);
-      const totalValueCents = bookValueCents * row.quantity;
+      const pulledValueCents = bookValueCents * row.quantity;
+      const soldQuantity = row.soldQuantity ?? 0;
+      const realizedCents = row.realizedCents ?? 0;
+      const remainingPulledQuantity = Math.max(0, row.quantity - soldQuantity);
+      const remainingValueCents = bookValueCents * remainingPulledQuantity;
+      const totalPositionCents = remainingValueCents + realizedCents;
       const owned = ownershipByCardId.get(row.cardId) ?? { raw: 0, graded: 0, total: 0 };
+      const grading = gradingByCardId.get(row.cardId) ?? {
+        quantity: 0,
+        feePaidCents: 0,
+        bestGrade: null,
+        pendingQuantity: 0,
+        revealedQuantity: 0,
+      };
 
       return {
         id: row.card.id,
@@ -121,20 +212,43 @@ export async function GET(_req: Request, ctx: Ctx) {
         productSetName: row.card.productSet?.name ?? null,
         isInsert: Boolean(row.card.productSet?.isInsert || !row.card.productSet?.isBase),
         quantityPulled: row.quantity,
+        soldQuantity,
+        remainingPulledQuantity,
+        realizedCents,
         rawOwned: owned.raw,
         gradedOwned: owned.graded,
         totalOwned: owned.total,
+        gradedFromBox: grading.quantity,
+        gradingFeeCents: grading.feePaidCents,
+        bestGrade: grading.bestGrade,
+        pendingGradingQuantity: grading.pendingQuantity,
+        revealedGradingQuantity: grading.revealedQuantity,
+        status: getStatus({
+          soldQuantity,
+          quantityPulled: row.quantity,
+          gradedFromBox: grading.quantity,
+        }),
         bookValueCents,
-        totalValueCents,
+        totalValueCents: pulledValueCents,
+        remainingValueCents,
+        totalPositionCents,
         firstPulledAt: row.firstPulledAt,
       };
     });
 
-    cards.sort((a, b) => b.totalValueCents - a.totalValueCents);
+    cards.sort((a, b) => b.totalPositionCents - a.totalPositionCents);
 
     const totalPulledCards = cards.reduce((sum, card) => sum + card.quantityPulled, 0);
+    const totalUniqueCards = cards.length;
     const totalPullValueCents = cards.reduce((sum, card) => sum + card.totalValueCents, 0);
-    const profitCents = totalPullValueCents - box.purchasePriceCents;
+    const remainingInventoryValueCents = cards.reduce(
+      (sum, card) => sum + card.remainingValueCents,
+      0
+    );
+    const realizedCents = cards.reduce((sum, card) => sum + card.realizedCents, 0);
+    const gradingFeeCents = cards.reduce((sum, card) => sum + card.gradingFeeCents, 0);
+    const totalPositionCents = remainingInventoryValueCents + realizedCents;
+    const profitCents = totalPositionCents - box.purchasePriceCents - gradingFeeCents;
     const roiPct = box.purchasePriceCents > 0 ? (profitCents / box.purchasePriceCents) * 100 : null;
 
     return NextResponse.json({
@@ -150,8 +264,12 @@ export async function GET(_req: Request, ctx: Ctx) {
         isClosed: box.isClosed,
         createdAt: box.createdAt,
         totalPulledCards,
-        totalUniqueCards: cards.length,
+        totalUniqueCards,
         totalPullValueCents,
+        remainingInventoryValueCents,
+        realizedCents,
+        gradingFeeCents,
+        totalPositionCents,
         profitCents,
         roiPct,
       },

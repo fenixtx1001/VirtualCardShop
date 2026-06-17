@@ -111,15 +111,16 @@ model Card {
   backImageUrl         String?
   gradeabilityOverride Gradeability?
 
-  productSet       ProductSet?       @relation(fields: [productSetId], references: [id])
-  set              Set               @relation(fields: [setId], references: [id])
-  ownerships       CardOwnership[]
-  gradingOrders    GradingOrder[]
-  favoritedBy      CardFavorite[]
-  shopOffers       ShopOffer[]
-  shopInventory    ShopInventory?
-  shopTransactions ShopTransaction[]
-  ripBoxCards      RipBoxCard[]
+  productSet          ProductSet?          @relation(fields: [productSetId], references: [id])
+  set                 Set                  @relation(fields: [setId], references: [id])
+  ownerships          CardOwnership[]
+  gradingOrders       GradingOrder[]
+  favoritedBy         CardFavorite[]
+  shopOffers          ShopOffer[]
+  shopInventory       ShopInventory?
+  shopTransactions    ShopTransaction[]
+  ripBoxCards         RipBoxCard[]
+  ripBoxGradingOrders RipBoxGradingOrder[]
 
   @@unique([setId, cardNumber])
   @@unique([productSetId, cardNumber])
@@ -172,17 +173,17 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  cardOwnerships           CardOwnership[]
-  gradingOrders            GradingOrder[]
-  sealedInventory          SealedInventory[]
-  favorites                CardFavorite[]
-  shopOffers               ShopOffer[]
-  shopTransactions         ShopTransaction[]
-  financialTransactions    FinancialTransaction[]
-  financialDailySnapshots  FinancialDailySnapshot[]
-  ripBoxes                 RipBox[]
-  accounts                 Account[]
-  sessions                 Session[]
+  cardOwnerships          CardOwnership[]
+  gradingOrders           GradingOrder[]
+  sealedInventory         SealedInventory[]
+  favorites               CardFavorite[]
+  shopOffers              ShopOffer[]
+  shopTransactions        ShopTransaction[]
+  financialTransactions   FinancialTransaction[]
+  financialDailySnapshots FinancialDailySnapshot[]
+  ripBoxes                RipBox[]
+  accounts                Account[]
+  sessions                Session[]
 }
 
 model SealedInventory {
@@ -199,20 +200,21 @@ model SealedInventory {
 }
 
 model RipBox {
-  id                 Int       @id @default(autoincrement())
+  id                 Int      @id @default(autoincrement())
   userId             String
   productId          String
   purchaseBatchId    String
   purchasePriceCents Int
   packsPurchased     Int
-  packsOpened        Int       @default(0)
-  isClosed           Boolean   @default(false)
-  createdAt          DateTime  @default(now())
-  updatedAt          DateTime  @updatedAt
+  packsOpened        Int      @default(0)
+  isClosed           Boolean  @default(false)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 
-  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
-  product     Product      @relation(fields: [productId], references: [id], onDelete: Cascade)
-  ripBoxCards RipBoxCard[]
+  user         User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product      Product              @relation(fields: [productId], references: [id], onDelete: Cascade)
+  ripBoxCards  RipBoxCard[]
+  gradingLinks RipBoxGradingOrder[]
 
   @@index([userId, createdAt])
   @@index([userId, productId])
@@ -226,6 +228,8 @@ model RipBoxCard {
   ripBoxId      Int
   cardId        Int
   quantity      Int      @default(0)
+  soldQuantity  Int      @default(0)
+  realizedCents Int      @default(0)
   firstPulledAt DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
@@ -249,8 +253,8 @@ model CardOwnership {
   grade    Int    @default(0)
   gradedAt DateTime?
 
-  card     Card   @relation(fields: [cardId], references: [id], onDelete: Cascade)
-  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  card Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, cardId, grade])
   @@index([cardId])
@@ -271,9 +275,10 @@ model GradingOrder {
   revealedAt   DateTime?
   completedAt  DateTime?
 
-  user    User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
-  card    Card                 @relation(fields: [cardId], references: [id], onDelete: Cascade)
-  results GradingOrderResult[]
+  user        User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  card        Card                 @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  results     GradingOrderResult[]
+  ripBoxLinks RipBoxGradingOrder[]
 
   @@index([userId, status])
   @@index([userId, readyAt])
@@ -291,6 +296,22 @@ model GradingOrderResult {
 
   @@index([gradingOrderId])
   @@index([grade])
+}
+
+model RipBoxGradingOrder {
+  id             Int      @id @default(autoincrement())
+  ripBoxId       Int
+  gradingOrderId Int      @unique
+  cardId         Int
+  quantity       Int
+  createdAt      DateTime @default(now())
+
+  ripBox       RipBox       @relation(fields: [ripBoxId], references: [id], onDelete: Cascade)
+  gradingOrder GradingOrder @relation(fields: [gradingOrderId], references: [id], onDelete: Cascade)
+  card         Card         @relation(fields: [cardId], references: [id], onDelete: Cascade)
+
+  @@index([ripBoxId])
+  @@index([cardId])
 }
 
 model Account {
@@ -347,17 +368,17 @@ model CardFavorite {
 }
 
 model ProductSetPrestige {
-  id                 Int       @id @default(autoincrement())
+  id                 Int      @id @default(autoincrement())
   userId             String
   productSetId       String
-  timesCompleted     Int       @default(0)
-  claimedCompletions Int       @default(0)
-  bonusAwardedCents  Int       @default(0)
-  createdAt          DateTime  @default(now())
-  updatedAt          DateTime  @updatedAt
+  timesCompleted     Int      @default(0)
+  claimedCompletions Int      @default(0)
+  bonusAwardedCents  Int      @default(0)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 
-  user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
-  productSet  ProductSet @relation(fields: [productSetId], references: [id], onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productSet ProductSet @relation(fields: [productSetId], references: [id], onDelete: Cascade)
 
   @@unique([userId, productSetId])
   @@index([productSetId])

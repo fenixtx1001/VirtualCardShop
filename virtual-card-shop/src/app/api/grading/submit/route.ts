@@ -188,6 +188,57 @@ export async function POST(req: Request) {
         data: { quantity: { decrement: quantity } },
       });
 
+      const eligibleBoxCards = await tx.ripBoxCard.findMany({
+        where: {
+          cardId,
+          ripBox: {
+            userId: user.id,
+          },
+        },
+        select: {
+          id: true,
+          ripBoxId: true,
+          quantity: true,
+          soldQuantity: true,
+          firstPulledAt: true,
+        },
+        orderBy: [{ firstPulledAt: "asc" }, { id: "asc" }],
+      });
+
+      let remainingToAttribute = quantity;
+      let linkedQuantity = 0;
+      let linkedRipBoxId: number | null = null;
+
+      for (const boxCard of eligibleBoxCards) {
+        if (remainingToAttribute <= 0) break;
+
+        const alreadySold = boxCard.soldQuantity ?? 0;
+        const availableFromBox = Math.max(0, boxCard.quantity - alreadySold);
+        if (availableFromBox <= 0) continue;
+
+        const qtyForThisBox = Math.min(availableFromBox, remainingToAttribute);
+
+        if (linkedRipBoxId === null) {
+          linkedRipBoxId = boxCard.ripBoxId;
+          linkedQuantity = qtyForThisBox;
+        } else if (linkedRipBoxId === boxCard.ripBoxId) {
+          linkedQuantity += qtyForThisBox;
+        }
+
+        remainingToAttribute -= qtyForThisBox;
+      }
+
+      if (linkedRipBoxId !== null && linkedQuantity > 0) {
+        await tx.ripBoxGradingOrder.create({
+          data: {
+            ripBoxId: linkedRipBoxId,
+            gradingOrderId: order.id,
+            cardId,
+            quantity: linkedQuantity,
+          },
+        });
+      }
+
       const updatedUser = await tx.user.update({
         where: { id: user.id },
         data: { balanceCents: { decrement: totalFeeCents } },
@@ -207,6 +258,9 @@ export async function POST(req: Request) {
           feePerCardCents,
           totalFeeCents,
           gradingOrderId: order.id,
+          ripBoxId: linkedRipBoxId,
+          ripBoxLinkedQuantity: linkedQuantity,
+          ripBoxUnattributedQuantity: remainingToAttribute,
         },
       });
 
@@ -227,6 +281,9 @@ export async function POST(req: Request) {
         },
         balanceCents: updatedUser.balanceCents ?? 0,
         rawQuantityRemaining: rawOwnership.quantity - quantity,
+        ripBoxId: linkedRipBoxId,
+        ripBoxLinkedQuantity: linkedQuantity,
+        ripBoxUnattributedQuantity: remainingToAttribute,
       };
     });
 
@@ -260,6 +317,9 @@ export async function POST(req: Request) {
       estimatedValueByGradeCents: result.estimatedValueByGradeCents,
       balanceCents: result.balanceCents,
       rawQuantityRemaining: result.rawQuantityRemaining,
+      ripBoxId: result.ripBoxId,
+      ripBoxLinkedQuantity: result.ripBoxLinkedQuantity,
+      ripBoxUnattributedQuantity: result.ripBoxUnattributedQuantity,
     });
   } catch (e: unknown) {
     const status = getErrorStatus(e);
