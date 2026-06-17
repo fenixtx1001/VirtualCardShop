@@ -290,11 +290,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
           border-radius: 7px 7px 2px 2px;
           background: linear-gradient(180deg, #a16207, #5b3416);
         }
-        .pullMeta {
-          margin-top: 9px;
-          text-align: center;
-          width: 100%;
-        }
+        .pullMeta { margin-top: 9px; text-align: center; width: 100%; }
         .pullName {
           font-weight: 1000;
           font-size: 13px;
@@ -303,12 +299,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
           overflow: hidden;
           text-overflow: ellipsis;
         }
-        .pullValue {
-          margin-top: 3px;
-          color: #92400e;
-          font-weight: 1000;
-          font-size: 13px;
-        }
+        .pullValue { margin-top: 3px; color: #92400e; font-weight: 1000; font-size: 13px; }
         .tableWrap { overflow-x: auto; border-radius: 16px; }
         table { width: 100%; border-collapse: separate; border-spacing: 0 8px; min-width: 980px; }
         th { text-align: left; color: #6b7280; font-size: 12px; text-transform: uppercase; padding: 0 10px; }
@@ -328,6 +319,13 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
         .primary { background: #111827; color: white; border-color: #111827; }
         .actions { display: flex; gap: 7px; justify-content: flex-end; }
         .mobileCards { display: none; }
+        .cardLink {
+          color: #111827;
+          text-decoration: none;
+          font-weight: 1000;
+        }
+        .cardLink:hover { color: #92400e; text-decoration: underline; }
+
         @media (max-width: 900px) {
           .stands {
             grid-template-columns: repeat(5, minmax(112px, 1fr));
@@ -336,27 +334,124 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
           }
           .standSlot { min-width: 120px; }
         }
+
         @media (max-width: 760px) {
+          .wrap { padding: 12px 10px 36px; }
+          .stats {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+            margin-top: 12px;
+          }
+          .stat { padding: 10px; border-radius: 16px; }
+          .label { font-size: 10px; letter-spacing: .02em; }
+          .value { font-size: 18px; margin-top: 3px; }
+          h1 { font-size: 28px !important; }
+
           .desktopTable { display: none; }
-          .mobileCards { display: grid; gap: 10px; }
+          .mobileCards {
+            display: grid;
+            gap: 7px;
+          }
           .cardRow {
             border: 1px solid #eadcc8;
-            background: rgba(255,255,255,.9);
-            border-radius: 18px;
-            padding: 12px;
+            background: rgba(255,255,255,.92);
+            border-radius: 14px;
+            padding: 9px 10px;
           }
-          .actions { justify-content: stretch; }
-          .actions button { flex: 1; }
-          .showcase { padding: 14px 12px 18px; }
+          .mobileTopLine {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 8px;
+            align-items: start;
+          }
+          .mobileName {
+            font-size: 15px;
+            line-height: 1.1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          .mobileSub {
+            color: #6b7280;
+            font-weight: 750;
+            font-size: 11px;
+            margin-top: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          .mobileValue {
+            text-align: right;
+            font-size: 15px;
+            font-weight: 1000;
+            color: #111827;
+            white-space: nowrap;
+          }
+          .mobileMeta {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 6px;
+            margin-top: 8px;
+          }
+          .miniBox {
+            border: 1px solid #f0dfc8;
+            background: #fffaf2;
+            border-radius: 10px;
+            padding: 5px 6px;
+            min-width: 0;
+          }
+          .miniBox .label { font-size: 9px; }
+          .miniValue {
+            font-size: 13px;
+            font-weight: 1000;
+            margin-top: 1px;
+            white-space: nowrap;
+          }
+          .mobileActions {
+            display: grid;
+            grid-template-columns: .85fr .85fr .85fr;
+            gap: 6px;
+            margin-top: 8px;
+          }
+          .mobileActions a,
+          .mobileActions button {
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            padding: 7px 6px;
+            text-decoration: none;
+          }
+
+          .panel { padding: 10px; border-radius: 18px; }
+          .showcase { padding: 13px 10px 16px; border-radius: 20px; }
+          .showcaseHeader { margin-bottom: 10px; }
           .stands {
-            grid-template-columns: repeat(5, 118px);
+            grid-template-columns: repeat(5, 122px);
             gap: 12px;
-            margin-left: -2px;
-            margin-right: -2px;
-            padding-left: 2px;
-            padding-right: 2px;
+            overflow-x: auto;
+            padding: 2px 2px 6px;
           }
-          .pullName { font-size: 12px; }
+          .standSlot { min-width: 122px; }
+          .topLoader { width: 116px; padding: 7px; }
+          .standBase { width: 104px; height: 18px; }
+          .pullName { font-size: 11px; }
+          .pullValue { font-size: 12px; }
+        }
+
+        @media (max-width: 430px) {
+          .mobileMeta {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 5px;
+          }
+          .miniBox {
+            padding: 4px 5px;
+          }
+          .miniValue {
+            font-size: 12px;
+          }
+          .mobileActions {
+            grid-template-columns: .8fr .9fr .9fr;
+          }
         }
       `}</style>
 
@@ -408,18 +503,11 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
                 <div className="stands">
                   {topPulls.map((card, index) => (
                     <div className="standSlot" key={card.id}>
-                      <div
-                        style={{
-                          color: "#92400e",
-                          fontWeight: 1000,
-                          fontSize: 12,
-                          marginBottom: 6,
-                        }}
-                      >
+                      <div style={{ color: "#92400e", fontWeight: 1000, fontSize: 12, marginBottom: 6 }}>
                         #{index + 1}
                       </div>
 
-                      <div className="topLoader">
+                      <Link href={`/cards/${card.id}`} className="topLoader" style={{ display: "block" }}>
                         {card.frontImageUrl ? (
                           <img
                             className="cardImage"
@@ -432,14 +520,14 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
                             <br />#{card.cardNumber}
                           </div>
                         )}
-                      </div>
+                      </Link>
 
                       <div className="standBase" />
 
                       <div className="pullMeta">
-                        <div className="pullName" title={`${card.player} #${card.cardNumber}`}>
+                        <Link href={`/cards/${card.id}`} className="cardLink pullName" title={`${card.player} #${card.cardNumber}`}>
                           {card.player} #{card.cardNumber}
-                        </div>
+                        </Link>
                         <div className="pullValue">{money(card.bookValueCents)}</div>
                       </div>
                     </div>
@@ -487,9 +575,9 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
                     {cards.map((card) => (
                       <tr key={card.id}>
                         <td>
-                          <div style={{ fontWeight: 1000 }}>
+                          <Link href={`/cards/${card.id}`} className="cardLink">
                             {card.player} #{card.cardNumber}
-                          </div>
+                          </Link>
                           <div style={{ color: "#6b7280", fontSize: 12 }}>
                             {subtitle(card) || "—"}
                           </div>
@@ -520,19 +608,29 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
               <div className="mobileCards">
                 {cards.map((card) => (
                   <div className="cardRow" key={card.id}>
-                    <div style={{ fontWeight: 1000 }}>
-                      {card.player} #{card.cardNumber}
+                    <div className="mobileTopLine">
+                      <div style={{ minWidth: 0 }}>
+                        <Link href={`/cards/${card.id}`} className="cardLink mobileName">
+                          {card.player} #{card.cardNumber}
+                        </Link>
+                        <div className="mobileSub">
+                          {subtitle(card) || card.productSetName || "Base"}
+                        </div>
+                      </div>
+                      <div className="mobileValue">{money(card.totalValueCents)}</div>
                     </div>
-                    <div style={{ color: "#6b7280", fontWeight: 700, fontSize: 13 }}>
-                      {subtitle(card) || card.productSetName || "Base"}
-                    </div>
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 8, marginTop: 10 }}>
-                      <Mini label="Qty" value={String(card.quantityPulled)} />
+
+                    <div className="mobileMeta">
+                      <Mini label="Pulled" value={String(card.quantityPulled)} />
                       <Mini label="Owned" value={String(card.totalOwned)} />
-                      <Mini label="Card Value" value={money(card.bookValueCents)} />
-                      <Mini label="Total" value={money(card.totalValueCents)} />
+                      <Mini label="Raw" value={String(card.rawOwned)} />
+                      <Mini label="Each" value={money(card.bookValueCents)} />
                     </div>
-                    <div className="actions" style={{ marginTop: 10 }}>
+
+                    <div className="mobileActions">
+                      <Link href={`/cards/${card.id}`} className="pill">
+                        Details
+                      </Link>
                       <button disabled={card.totalOwned <= 0 || busy !== ""} onClick={() => getOffer(card.id)}>
                         Offer
                       </button>
@@ -565,9 +663,9 @@ function Stat({ label, value, tone }: { label: string; value: string; tone?: num
 
 function Mini({ label, value }: { label: string; value: string }) {
   return (
-    <div>
+    <div className="miniBox">
       <div className="label">{label}</div>
-      <div style={{ fontWeight: 1000 }}>{value}</div>
+      <div className="miniValue">{value}</div>
     </div>
   );
 }
