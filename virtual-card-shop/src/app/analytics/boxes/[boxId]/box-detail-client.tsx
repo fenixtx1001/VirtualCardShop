@@ -10,11 +10,12 @@ type SortKey =
   | "cash"
   | "book"
   | "qty"
+  | "held"
   | "sold"
   | "graded"
+  | "owned"
   | "player"
   | "number"
-  | "owned"
   | "set";
 
 type CardStatus =
@@ -148,9 +149,10 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
       if (sortKey === "cash") return b.realizedCents - a.realizedCents;
       if (sortKey === "book") return b.bookValueCents - a.bookValueCents;
       if (sortKey === "qty") return b.quantityPulled - a.quantityPulled;
+      if (sortKey === "held") return b.remainingPulledQuantity - a.remainingPulledQuantity;
       if (sortKey === "sold") return b.soldQuantity - a.soldQuantity;
       if (sortKey === "graded") return b.gradedFromBox - a.gradedFromBox;
-      if (sortKey === "owned") return b.remainingPulledQuantity - a.remainingPulledQuantity;
+      if (sortKey === "owned") return b.totalOwned - a.totalOwned;
       if (sortKey === "player") return a.player.localeCompare(b.player);
       if (sortKey === "number") {
         return a.cardNumber.localeCompare(b.cardNumber, undefined, { numeric: true });
@@ -352,7 +354,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
         }
         .pullValue { margin-top: 3px; color: #92400e; font-weight: 1000; font-size: 13px; }
         .tableWrap { overflow-x: auto; border-radius: 16px; }
-        table { width: 100%; border-collapse: separate; border-spacing: 0 8px; min-width: 1080px; }
+        table { width: 100%; border-collapse: separate; border-spacing: 0 8px; min-width: 1140px; }
         th { text-align: left; color: #6b7280; font-size: 12px; text-transform: uppercase; padding: 0 10px; }
         td { background: rgba(255,255,255,.9); border-top: 1px solid #eadcc8; border-bottom: 1px solid #eadcc8; padding: 10px; vertical-align: middle; font-weight: 750; }
         td:first-child { border-left: 1px solid #eadcc8; border-radius: 14px 0 0 14px; }
@@ -652,9 +654,10 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
                   <option value="cash">Sort: Cash Realized</option>
                   <option value="book">Sort: Card Value</option>
                   <option value="qty">Sort: Quantity Pulled</option>
+                  <option value="held">Sort: Held From Box</option>
+                  <option value="owned">Sort: Total Owned</option>
                   <option value="sold">Sort: Quantity Sold</option>
                   <option value="graded">Sort: Quantity Graded</option>
-                  <option value="owned">Sort: Held From Box</option>
                   <option value="player">Sort: Player A-Z</option>
                   <option value="number">Sort: Card #</option>
                   <option value="set">Sort: Product Set</option>
@@ -669,6 +672,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
                       <th>Set</th>
                       <th>Pulled</th>
                       <th>Held</th>
+                      <th>Owned</th>
                       <th>Sold</th>
                       <th>Graded</th>
                       <th>Cash</th>
@@ -704,6 +708,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
                           </td>
                           <td>{card.quantityPulled}</td>
                           <td>{card.remainingPulledQuantity}</td>
+                          <td>{card.totalOwned}</td>
                           <td>{card.soldQuantity}</td>
                           <td>{card.gradedFromBox}</td>
                           <td className={card.realizedCents > 0 ? "moneyGood" : "moneyNeutral"}>
@@ -765,8 +770,8 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
                       <div className="mobileMeta">
                         <Mini label="Pulled" value={String(card.quantityPulled)} />
                         <Mini label="Held" value={String(card.remainingPulledQuantity)} />
+                        <Mini label="Owned" value={String(card.totalOwned)} />
                         <Mini label="Sold" value={String(card.soldQuantity)} />
-                        <Mini label="Total" value={money(card.totalValueCents)} />
                       </div>
 
                       <div className="mobileActions">
