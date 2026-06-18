@@ -593,6 +593,12 @@ export default function HomePage() {
         href: "/shop",
         icon: "🛒",
       },
+      { 
+        title: "Auction House",
+        subtitle: "List cards, watch bids climb, and hunt for deals.",
+        href: "/auctions",
+        icon: "🏛️",
+      },
       {
         title: "View Collection",
         subtitle: "Search, filter, and browse every set.",

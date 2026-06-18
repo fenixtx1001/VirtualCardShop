@@ -35,6 +35,7 @@ const navItems: NavItem[] = [
   { href: "/inventory", label: "Inventory" },
   { href: "/collection", label: "Collection" },
   { href: "/collection/slabs", label: "Slabs" },
+  { href: "/auctions", label: "Auctions" },
   { href: "/analytics", label: "Analytics" },
   { href: "/showcase", label: "Showcase" },
   { href: "/admin", label: "Admin" },

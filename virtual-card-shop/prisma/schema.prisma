@@ -31,6 +31,29 @@ enum GradingOrderStatus {
   COMPLETED
 }
 
+enum AuctionStatus {
+  ACTIVE
+  ENDED
+  COLLECTED
+  CANCELLED
+}
+
+enum AuctionBidderType {
+  HUMAN
+  DUMMY
+}
+
+enum CardSaleType {
+  SHOP
+  AUCTION
+}
+
+enum CardSaleBuyerType {
+  SHOP
+  DUMMY
+  HUMAN
+}
+
 model Set {
   id             String   @id
   year           Int?
@@ -112,7 +135,7 @@ model Card {
   gradeabilityOverride Gradeability?
 
   productSet          ProductSet?          @relation(fields: [productSetId], references: [id])
-  set                 Set                  @relation(fields: [setId], references: [id])
+  set                 Set                 @relation(fields: [setId], references: [id])
   ownerships          CardOwnership[]
   gradingOrders       GradingOrder[]
   favoritedBy         CardFavorite[]
@@ -121,6 +144,8 @@ model Card {
   shopTransactions    ShopTransaction[]
   ripBoxCards         RipBoxCard[]
   ripBoxGradingOrders RipBoxGradingOrder[]
+  auctions            Auction[]
+  saleHistory         CardSaleHistory[]
 
   @@unique([setId, cardNumber])
   @@unique([productSetId, cardNumber])
@@ -182,6 +207,11 @@ model User {
   financialTransactions   FinancialTransaction[]
   financialDailySnapshots FinancialDailySnapshot[]
   ripBoxes                RipBox[]
+  auctionListings         Auction[]         @relation("AuctionSeller")
+  auctionWins             Auction[]         @relation("AuctionWinner")
+  auctionBids             AuctionBid[]
+  cardSalesSold           CardSaleHistory[] @relation("CardSaleSeller")
+  cardSalesBought         CardSaleHistory[] @relation("CardSaleBuyer")
   accounts                Account[]
   sessions                Session[]
 }
@@ -252,6 +282,10 @@ model CardOwnership {
   // grade = 6-10 means VCS graded.
   grade    Int    @default(0)
   gradedAt DateTime?
+
+  // Cards listed at auction stay visible in collection,
+  // but locked quantity cannot be sold, graded, or auctioned again.
+  auctionLockedQuantity Int @default(0)
 
   card Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -426,11 +460,109 @@ model ShopTransaction {
   offerBps     Int?
   createdAt    DateTime @default(now())
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  card Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  user        User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  card        Card              @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  saleHistory CardSaleHistory[]
 
   @@index([userId, createdAt])
   @@index([cardId, createdAt])
+}
+
+model Auction {
+  id           Int           @id @default(autoincrement())
+  sellerUserId String
+  winnerUserId String?
+  cardId       Int
+  grade        Int           @default(0)
+  quantity     Int           @default(1)
+
+  startingBidCents       Int
+  currentBidCents        Int      @default(0)
+  valueBasisCents        Int
+  hiddenDummyMaxBidCents Int
+  slabPremiumBps         Int      @default(0)
+
+  status      AuctionStatus @default(ACTIVE)
+  createdAt   DateTime      @default(now())
+  endsAt      DateTime
+  endedAt     DateTime?
+  collectedAt DateTime?
+
+  seller User  @relation("AuctionSeller", fields: [sellerUserId], references: [id], onDelete: Cascade)
+  winner User? @relation("AuctionWinner", fields: [winnerUserId], references: [id], onDelete: SetNull)
+  card   Card  @relation(fields: [cardId], references: [id], onDelete: Cascade)
+
+  bids        AuctionBid[]
+  saleHistory CardSaleHistory[]
+
+  @@index([sellerUserId, status])
+  @@index([winnerUserId])
+  @@index([cardId])
+  @@index([grade])
+  @@index([status, endsAt])
+  @@index([createdAt])
+}
+
+model AuctionBid {
+  id        Int               @id @default(autoincrement())
+  auctionId Int
+  userId    String?
+
+  bidderType      AuctionBidderType @default(HUMAN)
+  dummyBidderName String?
+
+  // amountCents is the visible bid placed into the auction history.
+  amountCents Int
+
+  // maxBidCents supports proxy bidding for humans and dummy bidders.
+  maxBidCents Int?
+
+  createdAt DateTime @default(now())
+
+  auction Auction @relation(fields: [auctionId], references: [id], onDelete: Cascade)
+  user    User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([auctionId, createdAt])
+  @@index([userId, createdAt])
+  @@index([bidderType])
+  @@index([amountCents])
+}
+
+model CardSaleHistory {
+  id Int @id @default(autoincrement())
+
+  cardId Int
+  grade  Int @default(0)
+
+  saleType  CardSaleType
+  buyerType CardSaleBuyerType
+
+  sellerUserId String?
+  buyerUserId  String?
+
+  salePriceCents     Int
+  valueBasisCents    Int
+  percentOfValueBps  Int
+
+  auctionId          Int?
+  shopTransactionId  Int?
+
+  createdAt DateTime @default(now())
+
+  card            Card             @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  seller          User?            @relation("CardSaleSeller", fields: [sellerUserId], references: [id], onDelete: SetNull)
+  buyer           User?            @relation("CardSaleBuyer", fields: [buyerUserId], references: [id], onDelete: SetNull)
+  auction         Auction?         @relation(fields: [auctionId], references: [id], onDelete: SetNull)
+  shopTransaction ShopTransaction? @relation(fields: [shopTransactionId], references: [id], onDelete: SetNull)
+
+  @@index([cardId, createdAt])
+  @@index([grade])
+  @@index([saleType])
+  @@index([buyerType])
+  @@index([sellerUserId, createdAt])
+  @@index([buyerUserId, createdAt])
+  @@index([auctionId])
+  @@index([shopTransactionId])
 }
 
 model FinancialTransaction {

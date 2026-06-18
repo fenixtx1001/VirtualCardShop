@@ -25,9 +25,7 @@ type OwnerRow = {
   name: string | null;
   email: string | null;
   image: string | null;
-
   quantity: number;
-
   rawQuantity?: number;
   gradedQuantity?: number;
   pendingGradingQuantity?: number;
@@ -39,7 +37,6 @@ type OwnerRow = {
 
 type CardDetailResponse = {
   ok: boolean;
-
   card: {
     id: number;
     player: string;
@@ -48,23 +45,18 @@ type CardDetailResponse = {
     subset: string | null;
     variant: string | null;
     bookValue: number;
-
     gradeability?: "COMMON" | "GREAT" | "ICONIC";
     gradeabilityLabel?: string;
-
     productId: string | null;
     productYear: number | null;
     productBrand: string | null;
     productSport: string | null;
-
     productSetId: string | null;
     productSetName: string | null;
     productSetIsBase: boolean | null;
-
     frontImageUrl: string | null;
     backImageUrl: string | null;
   };
-
   population: {
     uniqueOwners: number;
     totalOwned: number;
@@ -74,7 +66,6 @@ type CardDetailResponse = {
     pendingGrading?: number;
     totalValueCents?: number;
   };
-
   myOwnership?: OwnerRow | null;
   owners: OwnerRow[];
 };
@@ -93,7 +84,6 @@ function safeNum(value: unknown, fallback = 0) {
 
 function formatDollarsFromCents(cents: number) {
   const safe = Number.isFinite(cents) ? cents : 0;
-
   return (safe / 100).toLocaleString(undefined, {
     style: "currency",
     currency: "USD",
@@ -122,17 +112,13 @@ function getGradeSortValue(grade: number) {
 
 function normalizeBreakdown(owner: OwnerRow | null | undefined): GradeBreakdownRow[] {
   if (!owner) return [];
-
   const rows = Array.isArray(owner.gradeBreakdown) ? owner.gradeBreakdown : [];
-
   return [...rows].sort((a, b) => getGradeSortValue(a.grade) - getGradeSortValue(b.grade));
 }
 
 function normalizeSlabs(owner: OwnerRow | null | undefined): SlabRow[] {
   if (!owner) return [];
-
   const rows = Array.isArray(owner.slabs) ? owner.slabs : [];
-
   return [...rows].sort((a, b) => b.grade - a.grade);
 }
 
@@ -188,6 +174,77 @@ function PendingPill({ quantity }: { quantity: number }) {
   );
 }
 
+function CreateAuctionButton({
+  cardId,
+  grade,
+  label,
+  quantity,
+  onCreated,
+}: {
+  cardId: number;
+  grade: number;
+  label: string;
+  quantity: number;
+  onCreated: () => void;
+}) {
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+
+  async function createAuction() {
+    setBusy(true);
+    setErr(null);
+
+    try {
+      const res = await fetch("/api/auctions/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          cardId,
+          grade,
+        }),
+      });
+
+      const json = await res.json();
+
+      if (!res.ok) {
+        throw new Error(json?.error || "Unable to create auction.");
+      }
+
+      onCreated();
+      window.location.href = `/auctions/${json.auction.id}`;
+    } catch (e: any) {
+      setErr(e?.message ?? "Unable to create auction.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <div style={{ display: "grid", gap: 4 }}>
+      <button
+        onClick={createAuction}
+        disabled={busy || quantity <= 0}
+        style={{
+          padding: "8px 10px",
+          borderRadius: 12,
+          border: "1px solid #f0d28a",
+          background: "#fff8e8",
+          color: "#7a5200",
+          fontWeight: 1000,
+          cursor: busy || quantity <= 0 ? "not-allowed" : "pointer",
+          opacity: busy || quantity <= 0 ? 0.55 : 1,
+        }}
+        title="Start a 24-hour auction for one copy"
+      >
+        {busy ? "Creating..." : `Auction ${label}`}
+      </button>
+      {err ? <div style={{ color: "#b00020", fontSize: 12, fontWeight: 800 }}>{err}</div> : null}
+    </div>
+  );
+}
+
 export default function CardDetailClient({ cardId }: { cardId: number }) {
   const [data, setData] = useState<CardDetailResponse | null>(null);
   const [loading, setLoading] = useState(true);
@@ -221,7 +278,6 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
       if (!res.ok) throw new Error(j?.error ?? `Failed (${res.status})`);
 
       setData(j as CardDetailResponse);
-
       setImgErrorFront(false);
       setImgErrorBack(false);
     } catch (e: any) {
@@ -252,9 +308,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
   const setTypePrefix =
     c?.productSetIsBase == null ? "" : c.productSetIsBase ? "Base — " : "Insert — ";
 
-  const slabSetName = c
-    ? [c.productYear, c.productBrand, setLabel].filter(Boolean).join(" ")
-    : "";
+  const slabSetName = c ? [c.productYear, c.productBrand, setLabel].filter(Boolean).join(" ") : "";
 
   const frontUrl = useMemo(() => safeUrl(c?.frontImageUrl), [c?.frontImageUrl]);
   const backUrl = useMemo(() => safeUrl(c?.backImageUrl), [c?.backImageUrl]);
@@ -262,6 +316,10 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
   const myOwnership = data?.myOwnership ?? null;
   const myOwnershipBreakdown = useMemo(() => normalizeBreakdown(myOwnership), [myOwnership]);
   const myOwnershipSlabs = useMemo(() => normalizeSlabs(myOwnership), [myOwnership]);
+
+  const auctionableRows = useMemo(() => {
+    return myOwnershipBreakdown.filter((row) => row.quantity > 0 && [0, 6, 7, 8, 9, 10].includes(row.grade));
+  }, [myOwnershipBreakdown]);
 
   useEffect(() => {
     if (side === "back" && !backUrl) setSide("front");
@@ -323,8 +381,8 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
 
               <div style={{ marginTop: 10, color: "#444" }}>
                 <div>
-                  <span style={{ fontWeight: 900 }}>Product:</span>{" "}
-                  {formatProductName(c)} {c.productYear != null ? `(${c.productYear})` : ""}
+                  <span style={{ fontWeight: 900 }}>Product:</span> {formatProductName(c)}{" "}
+                  {c.productYear != null ? `(${c.productYear})` : ""}
                 </div>
                 <div>
                   <span style={{ fontWeight: 900 }}>Set:</span> {setTypePrefix}
@@ -358,9 +416,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                   <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 10 }}>
                     <div>
                       <div style={{ fontSize: 12, color: "#666", fontWeight: 800 }}>Raw</div>
-                      <div style={{ fontSize: 20, fontWeight: 1000 }}>
-                        {safeNum(myOwnership.rawQuantity)}
-                      </div>
+                      <div style={{ fontSize: 20, fontWeight: 1000 }}>{safeNum(myOwnership.rawQuantity)}</div>
                     </div>
                     <div>
                       <div style={{ fontSize: 12, color: "#666", fontWeight: 800 }}>Pending VCS</div>
@@ -370,9 +426,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                     </div>
                     <div>
                       <div style={{ fontSize: 12, color: "#666", fontWeight: 800 }}>Graded</div>
-                      <div style={{ fontSize: 20, fontWeight: 1000 }}>
-                        {safeNum(myOwnership.gradedQuantity)}
-                      </div>
+                      <div style={{ fontSize: 20, fontWeight: 1000 }}>{safeNum(myOwnership.gradedQuantity)}</div>
                     </div>
                     <div>
                       <div style={{ fontSize: 12, color: "#666", fontWeight: 800 }}>Total</div>
@@ -390,8 +444,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                   </div>
 
                   <div style={{ marginTop: 8, color: "#16477d", fontWeight: 950, fontSize: 13 }}>
-                    Total value including pending:{" "}
-                    {formatDollarsFromCents(safeNum(myOwnership.totalValueCents))}
+                    Total value including pending: {formatDollarsFromCents(safeNum(myOwnership.totalValueCents))}
                   </div>
 
                   <div style={{ marginTop: 12 }}>
@@ -404,15 +457,44 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                       onSubmitted={load}
                     />
                   </div>
+
+                  {auctionableRows.length > 0 ? (
+                    <div
+                      style={{
+                        marginTop: 12,
+                        padding: 12,
+                        borderRadius: 14,
+                        border: "1px solid #f0d28a",
+                        background: "#fffdf5",
+                      }}
+                    >
+                      <div style={{ fontWeight: 1000, color: "#7a5200", marginBottom: 6 }}>
+                        Auction House
+                      </div>
+                      <div style={{ color: "#7a5200", fontSize: 13, fontWeight: 800, marginBottom: 10 }}>
+                        Start a 24-hour auction for one owned copy. VCS will lock the card while bids come in.
+                      </div>
+                      <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                        {auctionableRows.map((row) => (
+                          <CreateAuctionButton
+                            key={row.grade}
+                            cardId={c.id}
+                            grade={row.grade}
+                            label={row.label}
+                            quantity={row.quantity}
+                            onCreated={load}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
               ) : null}
             </div>
 
             <div style={{ flex: "1 1 390px", minWidth: 320 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10, flexWrap: "wrap" }}>
-                <div style={{ fontSize: 18, fontWeight: 1000 }}>
-                  {viewMode === "slab" ? "VCS slab" : "Card images"}
-                </div>
+                <div style={{ fontSize: 18, fontWeight: 1000 }}>{viewMode === "slab" ? "VCS slab" : "Card images"}</div>
 
                 <div style={{ display: "flex", gap: 6, marginLeft: "auto", flexWrap: "wrap" }}>
                   <button
@@ -460,7 +542,6 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                           background: side === "front" ? "#eef6ff" : "#fff",
                           cursor: !frontUrl ? "not-allowed" : "pointer",
                         }}
-                        title={!frontUrl ? "No front image available" : "Front"}
                       >
                         Front
                       </button>
@@ -476,7 +557,6 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                           background: side === "back" ? "#eef6ff" : "#fff",
                           cursor: !backUrl ? "not-allowed" : "pointer",
                         }}
-                        title={!backUrl ? "No back image available" : "Back"}
                       >
                         Back
                       </button>
@@ -561,9 +641,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                   />
 
                   <div style={{ marginTop: 8, display: "flex", gap: 10, alignItems: "center" }}>
-                    <div style={{ color: "#666", fontWeight: 800 }}>
-                      Showing: {showFront ? "Front" : "Back"}
-                    </div>
+                    <div style={{ color: "#666", fontWeight: 800 }}>Showing: {showFront ? "Front" : "Back"}</div>
                     <a
                       href={activeUrl}
                       target="_blank"
@@ -590,9 +668,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
             </div>
 
             <div style={{ flex: "1 1 340px", minWidth: 320 }}>
-              <div style={{ fontSize: 18, fontWeight: 1000, marginBottom: 10 }}>
-                Population report
-              </div>
+              <div style={{ fontSize: 18, fontWeight: 1000, marginBottom: 10 }}>Population report</div>
 
               <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
                 <div style={{ padding: 12, border: "1px solid #ddd", borderRadius: 12, minWidth: 150 }}>
@@ -617,10 +693,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                 <div>Raw: {safeNum(data.population.raw)}</div>
                 <div>Pending VCS: {safeNum(data.population.pendingGrading)}</div>
                 <div>Graded: {safeNum(data.population.graded)}</div>
-                <div>
-                  Total value incl. pending:{" "}
-                  {formatDollarsFromCents(safeNum(data.population.totalValueCents))}
-                </div>
+                <div>Total value incl. pending: {formatDollarsFromCents(safeNum(data.population.totalValueCents))}</div>
               </div>
             </div>
           </div>
@@ -653,17 +726,12 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                 </thead>
                 <tbody>
                   {data.owners.map((o, idx) => (
-                    <tr
-                      key={`${o.userId}-${idx}`}
-                      style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}
-                    >
+                    <tr key={`${o.userId}-${idx}`} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
                         {o.name?.trim() ? o.name.trim() : o.email ?? o.userId}
                       </td>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{o.email ?? "—"}</td>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                        {safeNum(o.rawQuantity)}
-                      </td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>{safeNum(o.rawQuantity)}</td>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
                         {safeNum(o.pendingGradingQuantity)}
                       </td>
