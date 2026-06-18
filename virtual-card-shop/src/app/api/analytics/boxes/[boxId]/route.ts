@@ -166,10 +166,14 @@ export async function GET(_req: Request, ctx: Ctx) {
       current.feePaidCents += link.gradingOrder.feePaidCents ?? 0;
 
       const results = link.gradingOrder.results ?? [];
+      const canShowResults =
+        link.gradingOrder.status === "REVEALED" || link.gradingOrder.status === "COMPLETED";
+
       const resultQty = results.reduce((sum, row) => sum + row.quantity, 0);
 
-      if (results.length > 0) {
+      if (canShowResults && results.length > 0) {
         current.revealedQuantity += resultQty;
+
         for (const result of results) {
           if (current.bestGrade === null || result.grade > current.bestGrade) {
             current.bestGrade = result.grade;
