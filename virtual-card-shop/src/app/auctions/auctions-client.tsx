@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 
 type AuctionView = "mine" | "house";
 type AuctionDisplayMode = "cards" | "table";
+type AuctionSection = "live" | "completed";
 
 type AuctionSort =
   | "endingSoonest"
@@ -232,6 +233,7 @@ function setLine(card: AuctionRow["card"]) {
 }
 
 export default function AuctionsClient() {
+  const [section, setSection] = useState<AuctionSection>("live");
   const [view, setView] = useState<AuctionView>("mine");
   const [sort, setSort] = useState<AuctionSort>("endingSoonest");
   const [search, setSearch] = useState("");
@@ -249,11 +251,12 @@ export default function AuctionsClient() {
     params.set("view", view);
     params.set("sort", sort);
     params.set("limit", "72");
+    if (section === "completed") params.set("status", "COLLECTED");
     if (search.trim()) params.set("search", search.trim());
     if (sport.trim()) params.set("sport", sport.trim());
     if (grade !== "all") params.set("grade", grade);
     return params.toString();
-  }, [view, sort, search, sport, grade]);
+  }, [section, view, sort, search, sport, grade]);
 
   const loadAuctions = useCallback(async () => {
     setLoading(true);
@@ -330,8 +333,14 @@ export default function AuctionsClient() {
     winningCount: 0,
   };
 
+  const auctions = data?.auctions ?? [];
   const recentActivity = data?.recentActivity ?? [];
 
+  const completedTotalCents = auctions.reduce((sum, auction) => sum + auction.currentBidCents, 0);
+  const completedAverageCents = auctions.length ? Math.round(completedTotalCents / auctions.length) : 0;
+  const completedHighCents = auctions.length
+    ? Math.max(...auctions.map((auction) => auction.currentBidCents))
+    : 0;
   return (
     <main className="page">
       <section className="hero">
@@ -342,13 +351,31 @@ export default function AuctionsClient() {
           <div className="eyebrow">Marketplace</div>
           <h1>🏛️ Auction House</h1>
           <p>
-            List cards, watch bids climb, collect payouts, and hunt for deals across the VCS
-            marketplace.
+            {section === "completed"
+              ? "Review collected auction sales, compare final prices, and keep completed listings out of the live marketplace."
+              : "List cards, watch bids climb, collect payouts, and hunt for deals across the VCS marketplace."}
           </p>
         </div>
 
         <button className="refreshButton" onClick={loadAuctions} disabled={loading}>
           {loading ? "Refreshing..." : "Refresh"}
+        </button>
+      </section>
+
+      <section className="sectionTabs">
+        <button
+          className={section === "live" ? "sectionTab activeSectionTab" : "sectionTab"}
+          onClick={() => setSection("live")}
+        >
+          <span>Live Auctions</span>
+          <small>Active + ready to collect</small>
+        </button>
+        <button
+          className={section === "completed" ? "sectionTab activeSectionTab" : "sectionTab"}
+          onClick={() => setSection("completed")}
+        >
+          <span>Completed History</span>
+          <small>Collected auction sales</small>
         </button>
       </section>
 
@@ -358,33 +385,54 @@ export default function AuctionsClient() {
           onClick={() => setView("mine")}
         >
           <span>My Auctions</span>
-          <small>{summary.readyToCollect} collect</small>
+          <small>{section === "completed" ? `${summary.total} sold` : `${summary.readyToCollect} collect`}</small>
         </button>
         <button
           className={view === "house" ? "tab activeTab" : "tab"}
           onClick={() => setView("house")}
         >
           <span>Auction House</span>
-          <small>{summary.winningCount} winning</small>
+          <small>{section === "completed" ? `${summary.total} comps` : `${summary.winningCount} winning`}</small>
         </button>
       </section>
 
-      <section className="summaryGrid">
-        <div className="summaryCard">
-          <span className="summaryLabel">Active</span>
-          <strong>{summary.active}</strong>
-        </div>
-        <div className="summaryCard">
-          <span className="summaryLabel">
-            {view === "mine" ? "Ready to Collect" : "You're Winning"}
-          </span>
-          <strong>{view === "mine" ? summary.readyToCollect : summary.winningCount}</strong>
-        </div>
-        <div className="summaryCard">
-          <span className="summaryLabel">Current Bid Value</span>
-          <strong>{money(summary.currentBidTotalCents)}</strong>
-        </div>
-      </section>
+      {section === "completed" ? (
+        <section className="summaryGrid">
+          <div className="summaryCard">
+            <span className="summaryLabel">Completed</span>
+            <strong>{summary.total}</strong>
+          </div>
+          <div className="summaryCard">
+            <span className="summaryLabel">Final Sales</span>
+            <strong>{money(completedTotalCents)}</strong>
+          </div>
+          <div className="summaryCard">
+            <span className="summaryLabel">Average Sale</span>
+            <strong>{money(completedAverageCents)}</strong>
+          </div>
+          <div className="summaryCard">
+            <span className="summaryLabel">High Sale</span>
+            <strong>{money(completedHighCents)}</strong>
+          </div>
+        </section>
+      ) : (
+        <section className="summaryGrid">
+          <div className="summaryCard">
+            <span className="summaryLabel">Active</span>
+            <strong>{summary.active}</strong>
+          </div>
+          <div className="summaryCard">
+            <span className="summaryLabel">
+              {view === "mine" ? "Ready to Collect" : "You're Winning"}
+            </span>
+            <strong>{view === "mine" ? summary.readyToCollect : summary.winningCount}</strong>
+          </div>
+          <div className="summaryCard">
+            <span className="summaryLabel">Current Bid Value</span>
+            <strong>{money(summary.currentBidTotalCents)}</strong>
+          </div>
+        </section>
+      )}
 
       <section className={activityOpen ? "activityPanel openActivity" : "activityPanel"}>
         <button className="activityHeader" onClick={() => setActivityOpen((current) => !current)}>
@@ -392,8 +440,12 @@ export default function AuctionsClient() {
             <strong>Recent Activity</strong>
             <small>
               {recentActivity.length
-                ? `${recentActivity.length} latest bids across ${view === "mine" ? "your listings" : "the marketplace"}`
-                : "No recent bids yet"}
+                ? section === "completed"
+                  ? `${recentActivity.length} final bid records from collected auctions`
+                  : `${recentActivity.length} latest bids across ${view === "mine" ? "your listings" : "the marketplace"}`
+                : section === "completed"
+                  ? "No completed bid history yet"
+                  : "No recent bids yet"}
             </small>
           </span>
           <span className="chevron">{activityOpen ? "Collapse" : "Expand"}</span>
@@ -437,7 +489,15 @@ export default function AuctionsClient() {
       <section className="viewToolbar">
         <div>
           <strong>{displayMode === "cards" ? "Card View" : "Table View"}</strong>
-          <span>{displayMode === "cards" ? "Best for browsing and enjoying the cards." : "Best for quickly scanning larger auction batches."}</span>
+          <span>
+            {section === "completed"
+              ? displayMode === "cards"
+                ? "Browse collected sales and completed comps."
+                : "Scan completed auction prices quickly."
+              : displayMode === "cards"
+                ? "Best for browsing and enjoying the cards."
+                : "Best for quickly scanning larger auction batches."}
+          </span>
         </div>
         <div className="viewToggle">
           <button className={displayMode === "cards" ? "toggleButton activeToggle" : "toggleButton"} onClick={() => setDisplayMode("cards")}>
@@ -497,11 +557,11 @@ export default function AuctionsClient() {
                 <tr>
                   <th>Card</th>
                   <th>Grade</th>
-                  <th>Current Bid</th>
+                  <th>{section === "completed" ? "Final Price" : "Current Bid"}</th>
                   <th>Bid %</th>
                   <th>Tier</th>
-                  <th>High Bidder</th>
-                  <th>Time</th>
+                  <th>{section === "completed" ? "Winner" : "High Bidder"}</th>
+                  <th>{section === "completed" ? "Collected" : "Time"}</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -528,8 +588,8 @@ export default function AuctionsClient() {
                     <td className="moneyCell">{money(auction.currentBidCents)}</td>
                     <td>{percent(auction.percentOfValueBps)}</td>
                     <td><span className={tierClass(auction.tier)}>{auction.tierLabel}</span></td>
-                    <td>{auction.highBidder || "No bids yet"}</td>
-                    <td>{auction.timeLeftLabel}</td>
+                    <td>{section === "completed" ? auction.winnerName || auction.highBidder || "VCS buyer" : auction.highBidder || "No bids yet"}</td>
+                    <td>{section === "completed" ? timeAgo(auction.collectedAt ?? auction.endedAt ?? auction.endsAt) : auction.timeLeftLabel}</td>
                     <td>
                       <div className="tableActions">
                         <Link href={`/cards/${auction.cardId}`} className="miniButton secondaryMini">Card</Link>
@@ -575,7 +635,7 @@ export default function AuctionsClient() {
 
                   <div className="bidPanel">
                     <div>
-                      <span>Current Bid</span>
+                      <span>{section === "completed" ? "Final Price" : "Current Bid"}</span>
                       <strong>{money(auction.currentBidCents)}</strong>
                     </div>
                     <div>
@@ -590,12 +650,12 @@ export default function AuctionsClient() {
 
                   <div className="metaGrid">
                     <div>
-                      <span>Time</span>
-                      <strong>{auction.timeLeftLabel}</strong>
+                      <span>{section === "completed" ? "Collected" : "Time"}</span>
+                      <strong>{section === "completed" ? timeAgo(auction.collectedAt ?? auction.endedAt ?? auction.endsAt) : auction.timeLeftLabel}</strong>
                     </div>
                     <div>
-                      <span>High Bidder</span>
-                      <strong>{auction.highBidder || "No bids yet"}</strong>
+                      <span>{section === "completed" ? "Winner" : "High Bidder"}</span>
+                      <strong>{section === "completed" ? auction.winnerName || auction.highBidder || "VCS buyer" : auction.highBidder || "No bids yet"}</strong>
                     </div>
                   </div>
 
@@ -630,11 +690,23 @@ export default function AuctionsClient() {
       ) : (
         <section className="empty">
           <div className="emptyIcon">🏛️</div>
-          <h2>{view === "mine" ? "No auctions listed yet" : "No active auctions found"}</h2>
+          <h2>
+            {section === "completed"
+              ? view === "mine"
+                ? "No completed auctions yet"
+                : "No completed marketplace sales found"
+              : view === "mine"
+                ? "No auctions listed yet"
+                : "No active auctions found"}
+          </h2>
           <p>
-            {view === "mine"
-              ? "Once you list cards or slabs for auction, you’ll track bids and collect payouts here."
-              : "Try changing your search or filters, or check back after other collectors list cards."}
+            {section === "completed"
+              ? view === "mine"
+                ? "Collected auction sales will move here automatically after you collect the payout."
+                : "Completed marketplace sales will appear here as collected auctions create comps."
+              : view === "mine"
+                ? "Once you list cards or slabs for auction, you’ll track bids and collect payouts here."
+                : "Try changing your search or filters, or check back after other collectors list cards."}
           </p>
         </section>
       )}
@@ -712,6 +784,7 @@ export default function AuctionsClient() {
           cursor: pointer;
         }
 
+        .sectionTabs,
         .tabs,
         .summaryGrid,
         .controls,
@@ -724,6 +797,48 @@ export default function AuctionsClient() {
           max-width: 1180px;
           margin-left: auto;
           margin-right: auto;
+        }
+
+        .sectionTabs {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
+          margin-bottom: 10px;
+        }
+
+        .sectionTab {
+          border: 1px solid rgba(255, 255, 255, 0.16);
+          background: rgba(255, 255, 255, 0.08);
+          color: rgba(248, 250, 252, 0.74);
+          border-radius: 24px;
+          padding: 16px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 4px;
+          cursor: pointer;
+          font: inherit;
+          font-weight: 1000;
+          text-align: left;
+        }
+
+        .sectionTab small {
+          color: rgba(226, 232, 240, 0.72);
+          font-size: 12px;
+          font-weight: 850;
+        }
+
+        .activeSectionTab {
+          background:
+            linear-gradient(135deg, rgba(251, 191, 36, 0.22), rgba(249, 115, 22, 0.12)),
+            rgba(15, 23, 42, 0.78);
+          border-color: rgba(251, 191, 36, 0.46);
+          color: #ffffff;
+          box-shadow: 0 18px 42px rgba(245, 158, 11, 0.16);
+        }
+
+        .activeSectionTab small {
+          color: #fde68a;
         }
 
         .tabs {
@@ -764,7 +879,7 @@ export default function AuctionsClient() {
 
         .summaryGrid {
           display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
           gap: 10px;
           margin-bottom: 14px;
         }
@@ -1588,6 +1703,7 @@ export default function AuctionsClient() {
             width: 100%;
           }
 
+          .sectionTabs,
           .tabs,
           .summaryGrid,
           .controls,
