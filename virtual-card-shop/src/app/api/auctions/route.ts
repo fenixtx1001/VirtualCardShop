@@ -1,3 +1,4 @@
+import { AuctionStatus } from "@prisma/client";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
@@ -22,6 +23,8 @@ type AuctionSort =
   | "highestValue"
   | "bestDeal"
   | "hottest";
+
+type AuctionStatusFilter = "ACTIVE" | "ENDED" | "COLLECTED" | "CANCELLED";
 
 function getParam(req: Request, key: string): string | null {
   try {
@@ -50,6 +53,14 @@ function normalizeSort(value: string | null): AuctionSort {
   }
 
   return "endingSoonest";
+}
+
+function normalizeStatus(value: string | null): AuctionStatusFilter | null {
+  if (value === "ACTIVE" || value === "ENDED" || value === "COLLECTED" || value === "CANCELLED") {
+    return value;
+  }
+
+  return null;
 }
 
 function parseLimit(value: string | null): number {
@@ -107,7 +118,7 @@ export async function GET(req: Request) {
     const limit = parseLimit(getParam(req, "limit"));
     const search = (getParam(req, "search") ?? "").toLowerCase();
     const sport = (getParam(req, "sport") ?? "").toLowerCase();
-    const status = getParam(req, "status");
+    const requestedStatus = normalizeStatus(getParam(req, "status"));
     const gradeParam = getParam(req, "grade");
 
     const gradeFilter =
@@ -117,14 +128,17 @@ export async function GET(req: Request) {
           ? Number(gradeParam)
           : null;
 
+    const statusWhere = requestedStatus
+      ? requestedStatus
+      : {
+          in: [AuctionStatus.ACTIVE, AuctionStatus.ENDED],
+        };
+
     const now = new Date();
 
     const auctions = await prisma.auction.findMany({
       where: {
-        status:
-          status === "ENDED" || status === "COLLECTED" || status === "CANCELLED" || status === "ACTIVE"
-            ? status
-            : undefined,
+        status: statusWhere,
         sellerUserId: view === "mine" ? user.id : { not: user.id },
       },
       include: {
@@ -313,6 +327,7 @@ export async function GET(req: Request) {
       where: {
         auction: {
           sellerUserId: view === "mine" ? user.id : { not: user.id },
+          status: statusWhere,
         },
       },
       orderBy: {
