@@ -32,6 +32,11 @@ function parseGrade(value: any) {
   return null;
 }
 
+function getPercentOfValueBps(input: { amountCents: number; valueBasisCents: number }) {
+  if (input.valueBasisCents <= 0) return 0;
+  return Math.round((input.amountCents / input.valueBasisCents) * 10000);
+}
+
 export async function POST(req: Request) {
   try {
     const user = await requireUser();
@@ -190,7 +195,7 @@ export async function POST(req: Request) {
         },
       });
 
-      await tx.shopTransaction.create({
+      const shopTransaction = await tx.shopTransaction.create({
         data: {
           userId: user.id,
           cardId: offer.cardId,
@@ -199,6 +204,24 @@ export async function POST(req: Request) {
           perCardCents: quote.perCardValueCents,
           totalCents: quote.totalCents,
           offerBps: quote.effectiveOfferBps,
+        },
+      });
+
+      await tx.cardSaleHistory.create({
+        data: {
+          cardId: offer.cardId,
+          grade: selectedGrade,
+          saleType: "SHOP",
+          buyerType: "SHOP",
+          sellerUserId: user.id,
+          buyerUserId: null,
+          salePriceCents: quote.totalCents,
+          valueBasisCents: quote.perCardValueCents * sellQty,
+          percentOfValueBps: getPercentOfValueBps({
+            amountCents: quote.totalCents,
+            valueBasisCents: quote.perCardValueCents * sellQty,
+          }),
+          shopTransactionId: shopTransaction.id,
         },
       });
 
@@ -276,6 +299,7 @@ export async function POST(req: Request) {
           perCardCents: quote.perCardValueCents,
           totalCents: quote.totalCents,
           offerBps: quote.effectiveOfferBps,
+          shopTransactionId: shopTransaction.id,
           ripBoxAttribution: attribution,
           unattributedQuantity: remainingToAttribute,
           unattributedCents: remainingCentsToAttribute,
@@ -301,6 +325,7 @@ export async function POST(req: Request) {
         gradedOfferBonusBps: quote.effectiveOfferBps - quote.baseOfferBps,
         gradeability,
 
+        shopTransactionId: shopTransaction.id,
         ripBoxAttribution: attribution,
         unattributedQuantity: remainingToAttribute,
         unattributedCents: remainingCentsToAttribute,
