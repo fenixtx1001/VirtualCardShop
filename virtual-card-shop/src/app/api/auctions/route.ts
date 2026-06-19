@@ -85,6 +85,17 @@ function timeLeftLabel(endsAt: Date): string {
   return `${minutes}m left`;
 }
 
+function compactCardTitle(input: {
+  player: string;
+  team: string | null;
+  subset: string | null;
+  variant: string | null;
+  cardNumber: string;
+}) {
+  const extras = [input.team, input.subset, input.variant].filter(Boolean).join(" · ");
+  return extras ? `${input.player} · ${extras} · #${input.cardNumber}` : `${input.player} · #${input.cardNumber}`;
+}
+
 export async function GET(req: Request) {
   try {
     const user = await requireUser();
@@ -298,9 +309,97 @@ export async function GET(req: Request) {
       winningCount: rows.filter((auction) => auction.isWinning).length,
     };
 
+    const recentBids = await prisma.auctionBid.findMany({
+      where: {
+        auction: {
+          sellerUserId: view === "mine" ? user.id : { not: user.id },
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+      take: 12,
+      include: {
+        user: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+          },
+        },
+        auction: {
+          include: {
+            card: {
+              include: {
+                set: true,
+                productSet: {
+                  include: {
+                    product: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+
+    const recentActivity = recentBids.map((bid) => {
+      const auction = bid.auction;
+      const card = auction.card;
+      const amountPercentOfValueBps = getPercentOfValueBps({
+        amountCents: bid.amountCents,
+        valueBasisCents: auction.valueBasisCents,
+      });
+      const tier = getAuctionTierForPercent(amountPercentOfValueBps);
+      const product = card.productSet?.product ?? null;
+
+      return {
+        id: bid.id,
+        auctionId: auction.id,
+        cardId: card.id,
+        amountCents: bid.amountCents,
+        maxBidCents: bid.userId === user.id ? bid.maxBidCents : null,
+        percentOfValueBps: amountPercentOfValueBps,
+        tier,
+        tierLabel: formatAuctionTierLabel(tier),
+        bidderType: bid.bidderType,
+        bidderName:
+          bid.bidderType === "DUMMY"
+            ? bid.dummyBidderName || "Private Bidder"
+            : bid.user?.name || bid.user?.email || "Collector",
+        isMine: bid.userId === user.id,
+        createdAt: bid.createdAt.toISOString(),
+        auctionStatus: auction.status,
+        timeLeftLabel: timeLeftLabel(auction.endsAt),
+        grade: auction.grade,
+        gradeLabel: labelVcsGrade(auction.grade),
+        card: {
+          id: card.id,
+          title: compactCardTitle({
+            player: card.player,
+            team: card.team,
+            subset: card.subset,
+            variant: card.variant,
+            cardNumber: card.cardNumber,
+          }),
+          player: card.player,
+          cardNumber: card.cardNumber,
+          frontImageUrl: card.frontImageUrl,
+          set: {
+            year: product?.year ?? card.set.year,
+            brand: product?.brand ?? card.set.brand,
+            sport: product?.sport ?? card.set.sport,
+            name: card.productSet?.name ?? null,
+          },
+        },
+      };
+    });
+
     return NextResponse.json({
       summary,
       auctions: rows,
+      recentActivity,
     });
   } catch (error) {
     const status = (error as { status?: number })?.status ?? 500;

@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 type AuctionView = "mine" | "house";
+type AuctionDisplayMode = "cards" | "table";
+
 type AuctionSort =
   | "endingSoonest"
   | "newest"
@@ -78,9 +80,42 @@ type AuctionRow = {
   };
 };
 
+type RecentActivityRow = {
+  id: number;
+  auctionId: number;
+  cardId: number;
+  amountCents: number;
+  maxBidCents: number | null;
+  percentOfValueBps: number;
+  tier: AuctionRow["tier"];
+  tierLabel: string;
+  bidderType: "HUMAN" | "DUMMY";
+  bidderName: string;
+  isMine: boolean;
+  createdAt: string;
+  auctionStatus: "ACTIVE" | "ENDED" | "COLLECTED" | "CANCELLED";
+  timeLeftLabel: string;
+  grade: number;
+  gradeLabel: string;
+  card: {
+    id: number;
+    title: string;
+    player: string;
+    cardNumber: string;
+    frontImageUrl: string | null;
+    set: {
+      year: number | null;
+      brand: string | null;
+      sport: string | null;
+      name: string | null;
+    };
+  };
+};
+
 type AuctionsResponse = {
   summary: AuctionSummary;
   auctions: AuctionRow[];
+  recentActivity?: RecentActivityRow[];
 };
 
 const SORT_OPTIONS: { value: AuctionSort; label: string }[] = [
@@ -115,6 +150,22 @@ function percent(bps: number) {
   return `${(safe / 100).toFixed(safe % 100 === 0 ? 0 : 1)}%`;
 }
 
+function timeAgo(iso: string) {
+  const then = new Date(iso).getTime();
+  const now = Date.now();
+  const diffMs = Math.max(0, now - then);
+  const minutes = Math.floor(diffMs / 60000);
+
+  if (minutes < 1) return "just now";
+  if (minutes < 60) return `${minutes}m ago`;
+
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return `${hours}h ago`;
+
+  const days = Math.floor(hours / 24);
+  return `${days}d ago`;
+}
+
 function tierClass(tier: AuctionRow["tier"]) {
   switch (tier) {
     case "COLD":
@@ -132,7 +183,6 @@ function tierClass(tier: AuctionRow["tier"]) {
   }
 }
 
-
 function cardTierClass(tier: AuctionRow["tier"]) {
   switch (tier) {
     case "COLD":
@@ -147,6 +197,23 @@ function cardTierClass(tier: AuctionRow["tier"]) {
       return "auctionCard heatHot";
     case "BIDDING_WAR":
       return "auctionCard heatWar";
+  }
+}
+
+function activityTierClass(tier: AuctionRow["tier"]) {
+  switch (tier) {
+    case "COLD":
+      return "activityTier activityCold";
+    case "SOFT":
+      return "activityTier activitySoft";
+    case "NORMAL":
+      return "activityTier activityNormal";
+    case "STRONG":
+      return "activityTier activityStrong";
+    case "HOT":
+      return "activityTier activityHot";
+    case "BIDDING_WAR":
+      return "activityTier activityWar";
   }
 }
 
@@ -174,6 +241,8 @@ export default function AuctionsClient() {
   const [loading, setLoading] = useState(true);
   const [busyId, setBusyId] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [displayMode, setDisplayMode] = useState<AuctionDisplayMode>("cards");
+  const [activityOpen, setActivityOpen] = useState(false);
 
   const query = useMemo(() => {
     const params = new URLSearchParams();
@@ -212,6 +281,23 @@ export default function AuctionsClient() {
     loadAuctions();
   }, [loadAuctions]);
 
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem("vcs-auction-display-mode");
+      if (saved === "cards" || saved === "table") setDisplayMode(saved);
+    } catch {
+      // Ignore localStorage failures.
+    }
+  }, []);
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem("vcs-auction-display-mode", displayMode);
+    } catch {
+      // Ignore localStorage failures.
+    }
+  }, [displayMode]);
+
   async function collectAuction(auctionId: number) {
     setBusyId(auctionId);
     setError(null);
@@ -243,6 +329,8 @@ export default function AuctionsClient() {
     currentBidTotalCents: 0,
     winningCount: 0,
   };
+
+  const recentActivity = data?.recentActivity ?? [];
 
   return (
     <main className="page">
@@ -298,6 +386,69 @@ export default function AuctionsClient() {
         </div>
       </section>
 
+      <section className={activityOpen ? "activityPanel openActivity" : "activityPanel"}>
+        <button className="activityHeader" onClick={() => setActivityOpen((current) => !current)}>
+          <span>
+            <strong>Recent Activity</strong>
+            <small>
+              {recentActivity.length
+                ? `${recentActivity.length} latest bids across ${view === "mine" ? "your listings" : "the marketplace"}`
+                : "No recent bids yet"}
+            </small>
+          </span>
+          <span className="chevron">{activityOpen ? "Collapse" : "Expand"}</span>
+        </button>
+
+        {activityOpen ? (
+          recentActivity.length ? (
+            <div className="activityList">
+              {recentActivity.slice(0, 10).map((activity) => (
+                <Link key={activity.id} href={`/auctions/${activity.auctionId}`} className="activityItem">
+                  <div className="activityThumb">
+                    {activity.card.frontImageUrl ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={activity.card.frontImageUrl} alt={activity.card.player} />
+                    ) : (
+                      <span>🏛️</span>
+                    )}
+                  </div>
+                  <div className="activityCopy">
+                    <div className="activityLead">
+                      <strong>{activity.bidderName}</strong>
+                      <span>bid {money(activity.amountCents)}</span>
+                    </div>
+                    <div className="activityCardLine">{activity.card.title}</div>
+                    <div className="activityMetaLine">
+                      <span className={activityTierClass(activity.tier)}>{activity.tierLabel}</span>
+                      <span>{activity.gradeLabel}</span>
+                      <span>{percent(activity.percentOfValueBps)} of value</span>
+                      <span>{timeAgo(activity.createdAt)}</span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="activityEmpty">No bids have landed here yet. Check back after the next refresh.</div>
+          )
+        ) : null}
+      </section>
+
+      <section className="viewToolbar">
+        <div>
+          <strong>{displayMode === "cards" ? "Card View" : "Table View"}</strong>
+          <span>{displayMode === "cards" ? "Best for browsing and enjoying the cards." : "Best for quickly scanning larger auction batches."}</span>
+        </div>
+        <div className="viewToggle">
+          <button className={displayMode === "cards" ? "toggleButton activeToggle" : "toggleButton"} onClick={() => setDisplayMode("cards")}>
+            Cards
+          </button>
+          <button className={displayMode === "table" ? "toggleButton activeToggle" : "toggleButton"} onClick={() => setDisplayMode("table")}>
+            Table
+          </button>
+        </div>
+      </section>
+
       <section className="controls">
         <input
           value={search}
@@ -339,82 +490,143 @@ export default function AuctionsClient() {
           <p>Checking for fresh bids and recently ended auctions.</p>
         </section>
       ) : data && data.auctions.length > 0 ? (
-        <section className="grid">
-          {data.auctions.map((auction) => (
-            <article key={auction.id} className={cardTierClass(auction.tier)}>
-              <div className="imageWrap">
-                {auction.card.frontImageUrl ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={auction.card.frontImageUrl} alt={auction.card.player} />
-                ) : (
-                  <div className="imageFallback">No Image</div>
-                )}
-
-                <div className="badges">
-                  <span className={tierClass(auction.tier)}>{auction.tierLabel}</span>
-                  <span className="gradeBadge">{auction.gradeLabel}</span>
-                </div>
-              </div>
-
-              <div className="cardBody">
-                <div>
-                  <h2>{cardTitle(auction.card)}</h2>
-                  <p className="setLine">{setLine(auction.card)}</p>
-                </div>
-
-                <div className="bidPanel">
-                  <div>
-                    <span>Current Bid</span>
-                    <strong>{money(auction.currentBidCents)}</strong>
-                  </div>
-                  <div>
-                    <span>Value Basis</span>
-                    <strong>{money(auction.valueBasisCents)}</strong>
-                  </div>
-                  <div>
-                    <span>Bid %</span>
-                    <strong>{percent(auction.percentOfValueBps)}</strong>
-                  </div>
-                </div>
-
-                <div className="metaGrid">
-                  <div>
-                    <span>Time</span>
-                    <strong>{auction.timeLeftLabel}</strong>
-                  </div>
-                  <div>
-                    <span>High Bidder</span>
-                    <strong>{auction.highBidder || "No bids yet"}</strong>
-                  </div>
-                </div>
-
-                <div className="actions">
-                  <Link href={`/cards/${auction.cardId}`} className="secondaryButton">
-                    Card Details
-                  </Link>
-
-                  {view === "mine" && auction.canCollect ? (
-                    <button
-                      className="primaryButton"
-                      onClick={() => collectAuction(auction.id)}
-                      disabled={busyId === auction.id}
-                    >
-                      {busyId === auction.id ? "Collecting..." : "Collect Cash"}
-                    </button>
-                  ) : view === "house" && auction.status === "ACTIVE" ? (
-                    <Link href={`/auctions/${auction.id}`} className="primaryButton">
-                      Bid
-                    </Link>
+        displayMode === "table" ? (
+          <section className="tableShell">
+            <table className="auctionTable">
+              <thead>
+                <tr>
+                  <th>Card</th>
+                  <th>Grade</th>
+                  <th>Current Bid</th>
+                  <th>Bid %</th>
+                  <th>Tier</th>
+                  <th>High Bidder</th>
+                  <th>Time</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.auctions.map((auction) => (
+                  <tr key={auction.id} className={`tableRow ${auction.tier.toLowerCase()}`}>
+                    <td>
+                      <div className="tableCardCell">
+                        <div className="tableThumb">
+                          {auction.card.frontImageUrl ? (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img src={auction.card.frontImageUrl} alt={auction.card.player} />
+                          ) : (
+                            <span>🏛️</span>
+                          )}
+                        </div>
+                        <div>
+                          <strong>{cardTitle(auction.card)}</strong>
+                          <span>{setLine(auction.card)}</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>{auction.gradeLabel}</td>
+                    <td className="moneyCell">{money(auction.currentBidCents)}</td>
+                    <td>{percent(auction.percentOfValueBps)}</td>
+                    <td><span className={tierClass(auction.tier)}>{auction.tierLabel}</span></td>
+                    <td>{auction.highBidder || "No bids yet"}</td>
+                    <td>{auction.timeLeftLabel}</td>
+                    <td>
+                      <div className="tableActions">
+                        <Link href={`/cards/${auction.cardId}`} className="miniButton secondaryMini">Card</Link>
+                        {view === "mine" && auction.canCollect ? (
+                          <button className="miniButton primaryMini" onClick={() => collectAuction(auction.id)} disabled={busyId === auction.id}>
+                            {busyId === auction.id ? "..." : "Collect"}
+                          </button>
+                        ) : view === "house" && auction.status === "ACTIVE" ? (
+                          <Link href={`/auctions/${auction.id}`} className="miniButton primaryMini">Bid</Link>
+                        ) : (
+                          <Link href={`/auctions/${auction.id}`} className="miniButton primaryMini">View</Link>
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </section>
+        ) : (
+          <section className="grid">
+            {data.auctions.map((auction) => (
+              <article key={auction.id} className={cardTierClass(auction.tier)}>
+                <div className="imageWrap">
+                  {auction.card.frontImageUrl ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={auction.card.frontImageUrl} alt={auction.card.player} />
                   ) : (
-                    <Link href={`/auctions/${auction.id}`} className="primaryButton">
-                      View
-                    </Link>
+                    <div className="imageFallback">No Image</div>
                   )}
+
+                  <div className="badges">
+                    <span className={tierClass(auction.tier)}>{auction.tierLabel}</span>
+                    <span className="gradeBadge">{auction.gradeLabel}</span>
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
-        </section>
+
+                <div className="cardBody">
+                  <div>
+                    <h2>{cardTitle(auction.card)}</h2>
+                    <p className="setLine">{setLine(auction.card)}</p>
+                  </div>
+
+                  <div className="bidPanel">
+                    <div>
+                      <span>Current Bid</span>
+                      <strong>{money(auction.currentBidCents)}</strong>
+                    </div>
+                    <div>
+                      <span>Value Basis</span>
+                      <strong>{money(auction.valueBasisCents)}</strong>
+                    </div>
+                    <div>
+                      <span>Bid %</span>
+                      <strong>{percent(auction.percentOfValueBps)}</strong>
+                    </div>
+                  </div>
+
+                  <div className="metaGrid">
+                    <div>
+                      <span>Time</span>
+                      <strong>{auction.timeLeftLabel}</strong>
+                    </div>
+                    <div>
+                      <span>High Bidder</span>
+                      <strong>{auction.highBidder || "No bids yet"}</strong>
+                    </div>
+                  </div>
+
+                  <div className="actions">
+                    <Link href={`/cards/${auction.cardId}`} className="secondaryButton">
+                      Card Details
+                    </Link>
+
+                    {view === "mine" && auction.canCollect ? (
+                      <button
+                        className="primaryButton"
+                        onClick={() => collectAuction(auction.id)}
+                        disabled={busyId === auction.id}
+                      >
+                        {busyId === auction.id ? "Collecting..." : "Collect Cash"}
+                      </button>
+                    ) : view === "house" && auction.status === "ACTIVE" ? (
+                      <Link href={`/auctions/${auction.id}`} className="primaryButton">
+                        Bid
+                      </Link>
+                    ) : (
+                      <Link href={`/auctions/${auction.id}`} className="primaryButton">
+                        View
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </section>
+        )
       ) : (
         <section className="empty">
           <div className="emptyIcon">🏛️</div>
@@ -503,6 +715,9 @@ export default function AuctionsClient() {
         .tabs,
         .summaryGrid,
         .controls,
+        .viewToolbar,
+        .activityPanel,
+        .tableShell,
         .grid,
         .empty,
         .error {
@@ -575,6 +790,289 @@ export default function AuctionsClient() {
         .summaryCard strong {
           font-size: 24px;
           letter-spacing: -0.04em;
+        }
+
+        .activityPanel {
+          border: 1px solid rgba(255, 255, 255, 0.16);
+          background:
+            linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(30, 41, 59, 0.82)),
+            radial-gradient(circle at top left, rgba(251, 191, 36, 0.12), transparent 34%);
+          border-radius: 22px;
+          margin-bottom: 14px;
+          overflow: hidden;
+          box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
+        }
+
+        .activityHeader {
+          width: 100%;
+          border: 0;
+          background: transparent;
+          color: #ffffff;
+          padding: 15px 16px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 12px;
+          cursor: pointer;
+          text-align: left;
+          font: inherit;
+        }
+
+        .activityHeader strong,
+        .activityHeader small {
+          display: block;
+        }
+
+        .activityHeader strong {
+          font-size: 15px;
+          font-weight: 1000;
+          letter-spacing: -0.01em;
+        }
+
+        .activityHeader small {
+          margin-top: 4px;
+          color: #e2e8f0;
+          font-size: 12px;
+          font-weight: 850;
+        }
+
+        .chevron {
+          color: #fde68a;
+          font-size: 12px;
+          font-weight: 950;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          white-space: nowrap;
+        }
+
+        .activityList {
+          display: grid;
+          gap: 9px;
+          padding: 0 12px 12px;
+        }
+
+        .activityItem {
+          display: grid;
+          grid-template-columns: 48px minmax(0, 1fr);
+          align-items: center;
+          gap: 11px;
+          text-decoration: none;
+          color: #f8fafc;
+          background: rgba(15, 23, 42, 0.72);
+          border: 1px solid rgba(226, 232, 240, 0.2);
+          border-radius: 16px;
+          padding: 10px;
+          transition:
+            transform 0.16s ease,
+            border-color 0.16s ease,
+            background 0.16s ease;
+        }
+
+        .activityItem:hover {
+          transform: translateY(-1px);
+          background: rgba(15, 23, 42, 0.9);
+          border-color: rgba(251, 191, 36, 0.38);
+        }
+
+        .activityThumb {
+          width: 48px;
+          height: 60px;
+          border-radius: 11px;
+          display: grid;
+          place-items: center;
+          overflow: hidden;
+          background: #e2e8f0;
+          color: #334155;
+          font-weight: 1000;
+          box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
+        }
+
+        .activityThumb img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .activityCopy {
+          min-width: 0;
+          display: grid;
+          gap: 3px;
+        }
+
+        .activityLead {
+          display: flex;
+          align-items: baseline;
+          gap: 6px;
+          min-width: 0;
+        }
+
+        .activityLead strong,
+        .activityLead span,
+        .activityCardLine {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .activityLead strong {
+          color: #ffffff;
+          font-size: 13px;
+          font-weight: 1000;
+          flex: 0 1 auto;
+          min-width: 0;
+        }
+
+        .activityLead span {
+          color: #f8fafc;
+          font-size: 13px;
+          font-weight: 900;
+          flex: 0 0 auto;
+        }
+
+        .activityCardLine {
+          color: #e2e8f0;
+          font-size: 12px;
+          font-weight: 850;
+          line-height: 1.25;
+        }
+
+        .activityMetaLine {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          flex-wrap: wrap;
+          color: #cbd5e1;
+          font-size: 11px;
+          font-weight: 850;
+          line-height: 1.4;
+        }
+
+        .activityMetaLine > span:not(.activityTier) {
+          display: inline-flex;
+          align-items: center;
+        }
+
+        .activityMetaLine > span:not(.activityTier)::before {
+          content: "•";
+          color: rgba(203, 213, 225, 0.62);
+          margin-right: 6px;
+        }
+
+        .activityMetaLine > span:nth-child(2)::before {
+          content: "";
+          margin-right: 0;
+        }
+
+        .activityTier {
+          display: inline-flex;
+          align-items: center;
+          border-radius: 999px;
+          padding: 3px 7px;
+          font-size: 10px;
+          font-weight: 1000;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          border: 1px solid transparent;
+          line-height: 1.1;
+        }
+
+        .activityCold {
+          background: #e0f2fe;
+          color: #075985;
+          border-color: #7dd3fc;
+        }
+
+        .activitySoft {
+          background: #f1f5f9;
+          color: #334155;
+          border-color: #cbd5e1;
+        }
+
+        .activityNormal {
+          background: #dcfce7;
+          color: #166534;
+          border-color: #86efac;
+        }
+
+        .activityStrong {
+          background: #fef3c7;
+          color: #92400e;
+          border-color: #f59e0b;
+        }
+
+        .activityHot {
+          background: #ffedd5;
+          color: #7c2d12;
+          border-color: #fb923c;
+        }
+
+        .activityWar {
+          background: #fae8ff;
+          color: #86198f;
+          border-color: #d946ef;
+        }
+
+        .activityEmpty {
+          color: #e2e8f0;
+          padding: 0 16px 16px;
+          font-size: 13px;
+          font-weight: 850;
+        }
+
+        .viewToolbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 14px;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          background: rgba(255, 255, 255, 0.08);
+          border-radius: 20px;
+          padding: 12px;
+        }
+
+        .viewToolbar strong,
+        .viewToolbar span {
+          display: block;
+        }
+
+        .viewToolbar strong {
+          font-size: 14px;
+          font-weight: 1000;
+        }
+
+        .viewToolbar span {
+          margin-top: 3px;
+          color: rgba(248, 250, 252, 0.58);
+          font-size: 12px;
+          font-weight: 800;
+        }
+
+        .viewToggle {
+          display: inline-grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 6px;
+          padding: 5px;
+          border-radius: 999px;
+          background: rgba(15, 23, 42, 0.58);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .toggleButton {
+          border: 0;
+          border-radius: 999px;
+          background: transparent;
+          color: rgba(248, 250, 252, 0.72);
+          padding: 8px 12px;
+          font: inherit;
+          font-size: 12px;
+          font-weight: 1000;
+          cursor: pointer;
+        }
+
+        .activeToggle {
+          background: linear-gradient(135deg, #fbbf24, #f97316);
+          color: #111827;
         }
 
         .controls {
@@ -722,7 +1220,6 @@ export default function AuctionsClient() {
           display: flex;
           justify-content: space-between;
           gap: 8px;
-          z-index: 3;
         }
 
         .tier,
@@ -737,6 +1234,7 @@ export default function AuctionsClient() {
           box-shadow: 0 10px 22px rgba(15, 23, 42, 0.16);
           text-transform: uppercase;
           letter-spacing: 0.04em;
+          white-space: nowrap;
         }
 
         .gradeBadge {
@@ -876,6 +1374,121 @@ export default function AuctionsClient() {
           cursor: not-allowed;
         }
 
+        .tableShell {
+          overflow-x: auto;
+          border-radius: 24px;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          background: rgba(255, 255, 255, 0.96);
+          box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+        }
+
+        .auctionTable {
+          width: 100%;
+          min-width: 980px;
+          border-collapse: collapse;
+          color: #0f172a;
+        }
+
+        .auctionTable th {
+          text-align: left;
+          padding: 12px;
+          background: #f8fafc;
+          color: #64748b;
+          font-size: 11px;
+          font-weight: 1000;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+          border-bottom: 1px solid #e2e8f0;
+        }
+
+        .auctionTable td {
+          padding: 10px 12px;
+          border-bottom: 1px solid #e5e7eb;
+          font-size: 13px;
+          font-weight: 850;
+          vertical-align: middle;
+        }
+
+        .tableRow:last-child td {
+          border-bottom: 0;
+        }
+
+        .tableCardCell {
+          display: grid;
+          grid-template-columns: 42px minmax(0, 1fr);
+          gap: 10px;
+          align-items: center;
+          min-width: 260px;
+        }
+
+        .tableCardCell strong,
+        .tableCardCell span {
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .tableCardCell span {
+          margin-top: 2px;
+          color: #64748b;
+          font-size: 12px;
+          font-weight: 800;
+        }
+
+        .tableThumb {
+          width: 42px;
+          height: 54px;
+          border-radius: 9px;
+          overflow: hidden;
+          background: #f1f5f9;
+          display: grid;
+          place-items: center;
+          color: #64748b;
+        }
+
+        .tableThumb img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .moneyCell {
+          font-weight: 1000;
+        }
+
+        .tableActions {
+          display: flex;
+          gap: 6px;
+          align-items: center;
+          white-space: nowrap;
+        }
+
+        .miniButton {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 999px;
+          padding: 7px 10px;
+          font-size: 12px;
+          font-weight: 1000;
+          text-decoration: none;
+          border: 0;
+          cursor: pointer;
+          font: inherit;
+        }
+
+        .primaryMini {
+          background: #0f172a;
+          color: #fff;
+        }
+
+        .secondaryMini {
+          background: #f1f5f9;
+          color: #0f172a;
+          border: 1px solid #e2e8f0;
+        }
+
         .empty {
           border: 1px solid rgba(255, 255, 255, 0.12);
           border-radius: 28px;
@@ -941,6 +1554,31 @@ export default function AuctionsClient() {
             padding: 14px;
           }
 
+          .activityHeader {
+            align-items: flex-start;
+          }
+
+          .activityItem {
+            grid-template-columns: 42px minmax(0, 1fr);
+            gap: 9px;
+            padding: 9px;
+          }
+
+          .activityThumb {
+            width: 42px;
+            height: 54px;
+          }
+
+          .activityLead {
+            display: block;
+          }
+
+          .activityLead span {
+            display: block;
+            margin-top: 1px;
+          }
+
+
           .hero {
             display: block;
           }
@@ -953,6 +1591,7 @@ export default function AuctionsClient() {
           .tabs,
           .summaryGrid,
           .controls,
+          .viewToolbar,
           .grid {
             grid-template-columns: 1fr;
           }
@@ -967,6 +1606,15 @@ export default function AuctionsClient() {
 
           .bidPanel {
             grid-template-columns: 1fr;
+          }
+
+          .activityItem {
+            grid-template-columns: 40px minmax(0, 1fr);
+          }
+
+          .activityItem .tier {
+            grid-column: 1 / -1;
+            justify-content: center;
           }
         }
       `}</style>

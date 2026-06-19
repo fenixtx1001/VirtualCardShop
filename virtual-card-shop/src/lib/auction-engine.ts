@@ -11,7 +11,7 @@ type ProcessAuctionResult = {
   auctionsEnded: number;
 };
 
-const AUCTION_STAGE_PERCENTAGES = [8, 17, 29, 43, 58, 72, 86, 96];
+const AUCTION_STAGE_PERCENTAGES = [10, 25, 45, 65, 78, 88, 94, 98, 99];
 
 function seededNumber(seed: number): number {
   const x = Math.sin(seed) * 10000;
@@ -51,7 +51,7 @@ function getDummyTargetForStage(input: {
   const max = Math.max(start, input.hiddenDummyMaxBidCents);
   const progress = (input.stageIndex + 1) / input.totalStages;
 
-  const curvedProgress = Math.pow(progress, 1.18);
+  const curvedProgress = Math.pow(progress, 1.4);
   const target = start + Math.round((max - start) * curvedProgress);
 
   return Math.max(start, Math.min(max, target));
