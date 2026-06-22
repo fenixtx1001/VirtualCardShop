@@ -311,16 +311,22 @@ export async function GET(req: Request) {
       }
     });
 
-    const rows = mapped.slice(0, limit).map(({ searchableText, sportValue, ...auction }) => auction);
+    // Keep the visible card list capped for performance, but calculate the dashboard
+    // summary from the full filtered auction set. Otherwise the stat cards get
+    // capped at the UI limit, which makes "Active" look stuck at 72/100/etc.
+    const summarySource = mapped.map(({ searchableText, sportValue, ...auction }) => auction);
+    const rows = summarySource.slice(0, limit);
 
     const summary = {
       view,
-      total: rows.length,
-      active: rows.filter((auction) => auction.status === "ACTIVE").length,
-      ended: rows.filter((auction) => auction.status === "ENDED").length,
-      readyToCollect: rows.filter((auction) => auction.canCollect).length,
-      currentBidTotalCents: rows.reduce((sum, auction) => sum + auction.currentBidCents, 0),
-      winningCount: rows.filter((auction) => auction.isWinning).length,
+      total: summarySource.length,
+      active: summarySource.filter((auction) => auction.status === "ACTIVE").length,
+      ended: summarySource.filter((auction) => auction.status === "ENDED").length,
+      readyToCollect: summarySource.filter((auction) => auction.canCollect).length,
+      currentBidTotalCents: summarySource.reduce((sum, auction) => sum + auction.currentBidCents, 0),
+      winningCount: summarySource.filter((auction) => auction.isWinning).length,
+      visibleCount: rows.length,
+      visibleLimit: limit,
     };
 
     const recentBids = await prisma.auctionBid.findMany({
