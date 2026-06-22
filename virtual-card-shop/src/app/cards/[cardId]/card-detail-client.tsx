@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import SubmitForGradingButton from "@/components/grading/SubmitForGradingButton";
 import VcsSlab from "@/components/grading/VcsSlab";
+import { RequestShopOfferButton } from "@/app/checklist/request-shop-offer-button";
 
 type GradeBreakdownRow = {
   grade: number;
@@ -413,6 +414,7 @@ function MarketActivityCard({
   setSelectedGrade,
   range,
   setRange,
+  isMobile,
 }: {
   market: MarketResponse | null;
   loading: boolean;
@@ -421,6 +423,7 @@ function MarketActivityCard({
   setSelectedGrade: (grade: number) => void;
   range: MarketRange;
   setRange: (range: MarketRange) => void;
+  isMobile: boolean;
 }) {
   const selected =
     market?.grades.find((row) => row.grade === selectedGrade) ??
@@ -577,7 +580,7 @@ function MarketActivityCard({
               />
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.35fr) minmax(280px, 0.9fr)", gap: 14 }}>
+            <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "minmax(0, 1.35fr) minmax(280px, 0.9fr)", gap: 14 }}>
               <div>
                 <div style={{ fontWeight: 1000, marginBottom: 8 }}>Sales trend</div>
                 <SalesSparkline points={selected.graphData} />
@@ -739,6 +742,14 @@ function CreateAuctionButton({
 
 export default function CardDetailClient({ cardId }: { cardId: number }) {
   const [data, setData] = useState<CardDetailResponse | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth < 768);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
 
@@ -1168,6 +1179,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
               setSelectedGrade={setSelectedMarketGrade}
               range={marketRange}
               setRange={setMarketRange}
+              isMobile={isMobile}
             />
 
             {myOwnership ? (
@@ -1212,7 +1224,12 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                   />
                 </div>
 
-                {auctionableRows.length > 0 ? (
+                
+                <div style={{ marginTop: 14 }}>
+                  <RequestShopOfferButton cardId={c.id} />
+                </div>
+
+{auctionableRows.length > 0 ? (
                   <div
                     style={{
                       marginTop: 14,
@@ -1294,7 +1311,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                 <div style={{ color: "#666", fontWeight: 850 }}>No one owns this yet.</div>
               ) : (
                 <div style={{ overflowX: "auto", border: "1px solid #ddd", borderRadius: 16 }}>
-                  <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 920 }}>
+                  <table style={{ width: "100%", borderCollapse: "collapse", minWidth: isMobile ? 640 : 920 }}>
                     <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
                       <tr>
                         {["User", "Email", "Raw", "Pending", "Graded", "Total", "Breakdown", "Value"].map((h) => (
