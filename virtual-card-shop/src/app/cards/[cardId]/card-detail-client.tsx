@@ -262,7 +262,9 @@ function StatCard({
         borderRadius: 16,
         padding: 12,
         background: bg,
-        minWidth: 142,
+        minWidth: 0,
+        width: "100%",
+        boxSizing: "border-box",
         flex: "1 1 142px",
         boxShadow: "0 1px 0 rgba(0,0,0,0.03)",
       }}
@@ -446,7 +448,7 @@ function MarketActivityCard({
     >
       <div
         style={{
-          padding: 16,
+          padding: isMobile ? 12 : 16,
           borderBottom: "1px solid #e4edf8",
           display: "flex",
           alignItems: "flex-start",
@@ -488,7 +490,7 @@ function MarketActivityCard({
         </div>
       </div>
 
-      <div style={{ padding: 16 }}>
+      <div style={{ padding: isMobile ? 12 : 16 }}>
         {loading ? (
           <div style={{ color: "#666", fontWeight: 900 }}>Loading market history…</div>
         ) : error ? (
@@ -549,7 +551,13 @@ function MarketActivityCard({
               })}
             </div>
 
-            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: isMobile ? "repeat(2, minmax(0, 1fr))" : "repeat(5, minmax(0, 1fr))",
+                gap: 10,
+              }}
+            >
               <StatCard
                 label="Last sale"
                 value={selected.lastSaleCents > 0 ? formatDollarsFromCents(selected.lastSaleCents) : "—"}
@@ -896,13 +904,27 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
   };
 
   return (
-    <div style={{ fontFamily: "system-ui", padding: 16, background: "#f6f7fb", minHeight: "100vh" }}>
+    <div
+      style={{
+        fontFamily: "system-ui",
+        padding: isMobile ? 10 : 16,
+        background: "#f6f7fb",
+        minHeight: "100vh",
+        width: "100%",
+        maxWidth: "100vw",
+        overflowX: "hidden",
+        boxSizing: "border-box",
+      }}
+    >
       <div
         style={{
+          width: "100%",
           maxWidth: 1280,
+          minWidth: 0,
           margin: "0 auto",
           display: "grid",
-          gap: 16,
+          gap: isMobile ? 12 : 16,
+          boxSizing: "border-box",
         }}
       >
         <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
@@ -910,7 +932,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
             ← Collection
           </Link>
 
-          <div style={{ fontWeight: 1000, fontSize: 24 }}>Card Details</div>
+          <div style={{ fontWeight: 1000, fontSize: isMobile ? 20 : 24 }}>Card Details</div>
 
           <button
             onClick={refreshAll}
@@ -946,22 +968,39 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                 borderRadius: 22,
                 background: "#fff",
                 boxShadow: "0 12px 30px rgba(0,0,0,0.06)",
-                padding: 16,
+                padding: isMobile ? 12 : 16,
+                overflow: "hidden",
               }}
             >
-              <div style={{ display: "flex", gap: 18, flexWrap: "wrap", alignItems: "flex-start" }}>
-                <div style={{ flex: "1 1 360px", minWidth: 300 }}>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: isMobile ? "1fr" : "minmax(0, 1fr) minmax(360px, 0.95fr)",
+                  gap: isMobile ? 14 : 18,
+                  alignItems: "start",
+                  width: "100%",
+                  minWidth: 0,
+                }}
+              >
+                <div style={{ minWidth: 0 }}>
                   <div style={{ color: "#16477d", fontSize: 12, fontWeight: 1000, letterSpacing: 1, textTransform: "uppercase" }}>
                     {formatProductName(c)}
                   </div>
-                  <div style={{ marginTop: 4, fontSize: 30, lineHeight: 1.05, fontWeight: 1000, color: "#111" }}>
+                  <div style={{ marginTop: 4, fontSize: isMobile ? 28 : 30, lineHeight: 1.03, fontWeight: 1000, color: "#111" }}>
                     {c.player}
                   </div>
                   <div style={{ marginTop: 8, fontWeight: 900, color: "#3f4650" }}>
                     Card #{c.cardNumber} {c.team ? `• ${c.team}` : ""}
                   </div>
 
-                  <div style={{ marginTop: 14, display: "flex", gap: 10, flexWrap: "wrap" }}>
+                  <div
+                    style={{
+                      marginTop: 14,
+                      display: "grid",
+                      gridTemplateColumns: isMobile ? "repeat(2, minmax(0, 1fr))" : "repeat(3, minmax(0, 1fr))",
+                      gap: 10,
+                    }}
+                  >
                     <StatCard label="Book value" value={formatBookValue(c.bookValue)} sub="Static baseline" tone="blue" />
                     <StatCard
                       label="Population"
@@ -969,12 +1008,14 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                       sub={`${data.population.uniqueOwners} unique owners`}
                       tone="gold"
                     />
-                    <StatCard
-                      label="Your total"
-                      value={String(safeNum(myOwnership?.totalQuantity, myOwnership?.quantity ?? 0))}
-                      sub={`${safeNum(myOwnership?.rawQuantity)} raw • ${safeNum(myOwnership?.gradedQuantity)} graded`}
-                      tone="green"
-                    />
+                    <div style={{ gridColumn: isMobile ? "1 / -1" : "auto" }}>
+                      <StatCard
+                        label="Your total"
+                        value={String(safeNum(myOwnership?.totalQuantity, myOwnership?.quantity ?? 0))}
+                        sub={`${safeNum(myOwnership?.rawQuantity)} raw • ${safeNum(myOwnership?.gradedQuantity)} graded`}
+                        tone="green"
+                      />
+                    </div>
                   </div>
 
                   <div style={{ marginTop: 14, color: "#444", display: "grid", gap: 4, fontWeight: 750 }}>
@@ -991,11 +1032,11 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                   </div>
                 </div>
 
-                <div style={{ flex: "1 1 430px", minWidth: 300 }}>
+                <div style={{ minWidth: 0, width: "100%" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10, flexWrap: "wrap" }}>
                     <div style={{ fontSize: 18, fontWeight: 1000 }}>{viewMode === "slab" ? "VCS slab" : "Card images"}</div>
 
-                    <div style={{ display: "flex", gap: 6, marginLeft: "auto", flexWrap: "wrap" }}>
+                    <div style={{ display: "flex", gap: 6, marginLeft: isMobile ? 0 : "auto", flexWrap: "wrap" }}>
                       <button
                         onClick={() => setViewMode("card")}
                         style={{
@@ -1127,7 +1168,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                         alt={showFront ? "Front of card" : "Back of card"}
                         style={{
                           width: "100%",
-                          maxWidth: 520,
+                          maxWidth: isMobile ? "100%" : 520,
                           height: "auto",
                           display: "block",
                           borderRadius: 12,
@@ -1194,7 +1235,14 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
               >
                 <div style={{ fontSize: 20, fontWeight: 1000, marginBottom: 10 }}>Your Ownership</div>
 
-                <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 12 }}>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: isMobile ? "repeat(2, minmax(0, 1fr))" : "repeat(4, minmax(0, 1fr))",
+                    gap: 10,
+                    marginBottom: 12,
+                  }}
+                >
                   <StatCard label="Raw" value={String(safeNum(myOwnership.rawQuantity))} />
                   <StatCard label="Pending VCS" value={String(safeNum(myOwnership.pendingGradingQuantity))} tone="gold" />
                   <StatCard label="Graded" value={String(safeNum(myOwnership.gradedQuantity))} tone="blue" />
@@ -1224,12 +1272,12 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                   />
                 </div>
 
-                
+
                 <div style={{ marginTop: 14 }}>
                   <RequestShopOfferButton cardId={c.id} />
                 </div>
 
-{auctionableRows.length > 0 ? (
+                {auctionableRows.length > 0 ? (
                   <div
                     style={{
                       marginTop: 14,
@@ -1273,7 +1321,13 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
             >
               <div style={{ fontSize: 20, fontWeight: 1000, marginBottom: 10 }}>Population report</div>
 
-              <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: isMobile ? "repeat(2, minmax(0, 1fr))" : "repeat(4, minmax(0, 1fr))",
+                  gap: 10,
+                }}
+              >
                 <StatCard label="Unique owners" value={String(data.population.uniqueOwners)} />
                 <StatCard label="Total owned" value={String(data.population.totalOwned)} tone="blue" />
                 <StatCard
@@ -1309,9 +1363,69 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
 
               {data.owners.length === 0 ? (
                 <div style={{ color: "#666", fontWeight: 850 }}>No one owns this yet.</div>
+              ) : isMobile ? (
+                <div style={{ display: "grid", gap: 10 }}>
+                  {data.owners.map((o, idx) => (
+                    <div
+                      key={`${o.userId}-${idx}`}
+                      style={{
+                        border: "1px solid #e2e2e2",
+                        borderRadius: 16,
+                        background: idx % 2 === 0 ? "#fff" : "#fcfcfc",
+                        padding: 12,
+                        display: "grid",
+                        gap: 10,
+                      }}
+                    >
+                      <div style={{ minWidth: 0 }}>
+                        <div style={{ fontWeight: 1000, color: "#111", overflowWrap: "anywhere" }}>
+                          {o.name?.trim() ? o.name.trim() : o.email ?? o.userId}
+                        </div>
+                        <div style={{ marginTop: 2, color: "#666", fontSize: 12, fontWeight: 750, overflowWrap: "anywhere" }}>
+                          {o.email ?? "—"}
+                        </div>
+                      </div>
+
+                      <div
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+                          gap: 8,
+                        }}
+                      >
+                        <StatCard label="Raw" value={String(safeNum(o.rawQuantity))} />
+                        <StatCard label="Pending" value={String(safeNum(o.pendingGradingQuantity))} tone="gold" />
+                        <StatCard label="Graded" value={String(safeNum(o.gradedQuantity))} tone="blue" />
+                        <StatCard label="Total" value={String(safeNum(o.totalQuantity, o.quantity))} tone="green" />
+                      </div>
+
+                      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                        {normalizeBreakdown(o).map((row) => (
+                          <GradePill key={row.grade} row={row} />
+                        ))}
+                        <PendingPill quantity={safeNum(o.pendingGradingQuantity)} />
+                      </div>
+
+                      <div
+                        style={{
+                          borderTop: "1px solid #eeeeee",
+                          paddingTop: 8,
+                          display: "flex",
+                          justifyContent: "space-between",
+                          gap: 10,
+                          color: "#444",
+                          fontWeight: 900,
+                        }}
+                      >
+                        <span>Total value</span>
+                        <span>{formatDollarsFromCents(safeNum(o.totalValueCents))}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               ) : (
                 <div style={{ overflowX: "auto", border: "1px solid #ddd", borderRadius: 16 }}>
-                  <table style={{ width: "100%", borderCollapse: "collapse", minWidth: isMobile ? 640 : 920 }}>
+                  <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 920 }}>
                     <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
                       <tr>
                         {["User", "Email", "Raw", "Pending", "Graded", "Total", "Breakdown", "Value"].map((h) => (
