@@ -7,6 +7,7 @@ import {
   calculateAuctionValueBasisCents,
   calculateHiddenDummyMaxBidCents,
   calculateStartingBidCents,
+  generateAuctionBidIntents,
 } from "@/lib/auctions";
 
 export const runtime = "nodejs";
@@ -116,6 +117,27 @@ export async function POST(req: Request) {
           },
         },
       });
+
+      const bidIntents = generateAuctionBidIntents({
+        auctionIdSeed: auction.id,
+        createdAt: auction.createdAt,
+        endsAt: auction.endsAt,
+        valueBasisCents,
+        startingBidCents,
+        hiddenDummyMaxBidCents: dummyMax.hiddenDummyMaxBidCents,
+        outcomeTierKey: dummyMax.outcomeTier.key,
+      });
+
+      if (bidIntents.length > 0) {
+        await tx.auctionBidIntent.createMany({
+          data: bidIntents.map((intent) => ({
+            auctionId: auction.id,
+            dummyBidderName: intent.dummyBidderName,
+            maxBidCents: intent.maxBidCents,
+            dueAt: intent.dueAt,
+          })),
+        });
+      }
 
       await tx.cardOwnership.update({
         where: {

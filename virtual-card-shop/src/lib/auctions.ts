@@ -14,6 +14,12 @@ export type AuctionOutcomeTier = {
   maxBps: number;
 };
 
+export type AuctionBidIntentInput = {
+  dummyBidderName: string;
+  maxBidCents: number;
+  dueAt: Date;
+};
+
 export const AUCTION_OUTCOME_TABLE: AuctionOutcomeTier[] = [
   { key: "COLD", label: "Cold", odds: 5, minBps: 6000, maxBps: 7000 },
   { key: "SOFT", label: "Soft", odds: 20, minBps: 7000, maxBps: 8000 },
@@ -37,6 +43,15 @@ export const DUMMY_BIDDER_NAMES = [
   "FoilFanFrank",
   "RookieRadarRob",
 ];
+
+function seededNumber(seed: number): number {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
+function clamp(n: number, min: number, max: number) {
+  return Math.max(min, Math.min(max, n));
+}
 
 export function formatAuctionTierLabel(tier: AuctionHeatTier): string {
   switch (tier) {
@@ -207,6 +222,133 @@ export function pickDummyBidderName(seed?: number): string {
   }
 
   return DUMMY_BIDDER_NAMES[Math.floor(Math.random() * DUMMY_BIDDER_NAMES.length)];
+}
+
+function getIntentCount(input: {
+  valueBasisCents: number;
+  startingBidCents: number;
+  hiddenDummyMaxBidCents: number;
+  tierKey?: AuctionHeatTier;
+}) {
+  const gap = Math.max(0, input.hiddenDummyMaxBidCents - input.startingBidCents);
+  const percentTarget = getPercentOfValueBps({
+    amountCents: input.hiddenDummyMaxBidCents,
+    valueBasisCents: input.valueBasisCents,
+  });
+
+  if (gap <= 0) return 1;
+  if (input.valueBasisCents <= 100) return percentTarget >= 10000 ? 3 : 2;
+  if (input.valueBasisCents <= 500) return percentTarget >= 10000 ? 5 : 3;
+  if (input.valueBasisCents <= 2500) return percentTarget >= 10000 ? 8 : 5;
+  if (input.valueBasisCents <= 10000) return percentTarget >= 10000 ? 12 : 7;
+
+  switch (input.tierKey) {
+    case "BIDDING_WAR":
+      return 28;
+    case "HOT":
+      return 20;
+    case "STRONG":
+      return 15;
+    case "NORMAL":
+      return 11;
+    case "SOFT":
+      return 8;
+    case "COLD":
+    default:
+      return 6;
+  }
+}
+
+function getIntentTimePct(input: {
+  index: number;
+  count: number;
+  auctionIdSeed: number;
+}) {
+  const progress = input.count <= 1 ? 0.94 : input.index / (input.count - 1);
+  const backloaded = Math.pow(progress, 1.65);
+  const basePct = 8 + backloaded * 90;
+
+  const jitter = (seededNumber(input.auctionIdSeed * 73 + input.index * 19) - 0.5) * 10;
+  return clamp(basePct + jitter, 3, 98.8);
+}
+
+function getIntentMaxCents(input: {
+  index: number;
+  count: number;
+  startingBidCents: number;
+  hiddenDummyMaxBidCents: number;
+  auctionIdSeed: number;
+}) {
+  const start = Math.max(1, input.startingBidCents);
+  const max = Math.max(start, input.hiddenDummyMaxBidCents);
+
+  if (input.count <= 1 || input.index === input.count - 1) return max;
+
+  const progress = input.index / (input.count - 1);
+  const curved = Math.pow(progress, 1.25);
+  const jitter = (seededNumber(input.auctionIdSeed * 101 + input.index * 31) - 0.5) * 0.08;
+  const adjusted = clamp(curved + jitter, 0.02, 0.98);
+
+  return Math.max(start, Math.min(max - 1, start + Math.round((max - start) * adjusted)));
+}
+
+export function generateAuctionBidIntents(input: {
+  auctionIdSeed: number;
+  createdAt: Date;
+  endsAt: Date;
+  valueBasisCents: number;
+  startingBidCents: number;
+  hiddenDummyMaxBidCents: number;
+  outcomeTierKey?: AuctionHeatTier;
+}): AuctionBidIntentInput[] {
+  const count = getIntentCount({
+    valueBasisCents: input.valueBasisCents,
+    startingBidCents: input.startingBidCents,
+    hiddenDummyMaxBidCents: input.hiddenDummyMaxBidCents,
+    tierKey: input.outcomeTierKey,
+  });
+
+  const durationMs = Math.max(1, input.endsAt.getTime() - input.createdAt.getTime());
+
+  const intents = Array.from({ length: count }, (_, index) => {
+    const timePct = getIntentTimePct({
+      index,
+      count,
+      auctionIdSeed: input.auctionIdSeed,
+    });
+
+    const dueAt = new Date(input.createdAt.getTime() + Math.round(durationMs * (timePct / 100)));
+
+    return {
+      dummyBidderName: pickDummyBidderName(input.auctionIdSeed + index),
+      maxBidCents: getIntentMaxCents({
+        index,
+        count,
+        startingBidCents: input.startingBidCents,
+        hiddenDummyMaxBidCents: input.hiddenDummyMaxBidCents,
+        auctionIdSeed: input.auctionIdSeed,
+      }),
+      dueAt,
+    };
+  });
+
+  const deduped = intents
+    .sort((a, b) => a.dueAt.getTime() - b.dueAt.getTime() || a.maxBidCents - b.maxBidCents)
+    .map((intent, index, rows) => {
+      const previous = rows[index - 1];
+      if (!previous) return intent;
+
+      if (intent.dueAt.getTime() <= previous.dueAt.getTime()) {
+        return {
+          ...intent,
+          dueAt: new Date(previous.dueAt.getTime() + 60_000),
+        };
+      }
+
+      return intent;
+    });
+
+  return deduped;
 }
 
 export function formatMoneyCents(cents: number): string {

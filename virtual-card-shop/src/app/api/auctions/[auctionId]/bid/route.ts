@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
-import { calculateMinimumNextBidCents } from "@/lib/auctions";
+import { processAuctionLifecycle } from "@/lib/auction-engine";
+import { calculateBidIncrementCents, calculateMinimumNextBidCents } from "@/lib/auctions";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -58,43 +59,50 @@ async function getActiveHumanReservedBidTotalCents(userId: string, excludeAuctio
   }, 0);
 }
 
-function getNextVisibleBid(input: {
+function getProxyBidResult(input: {
   challengerMaxBidCents: number;
-  currentWinnerMaxBidCents: number | null;
+  currentWinnerMaxBidCents: number;
   currentBidCents: number;
   startingBidCents: number;
 }): {
   winner: "challenger" | "current";
   visibleBidCents: number;
 } {
+  const currentBidCents = Math.max(0, input.currentBidCents);
+  const currentWinnerMaxBidCents = Math.max(0, input.currentWinnerMaxBidCents || 0);
+  const challengerMaxBidCents = Math.max(0, input.challengerMaxBidCents);
+
   const minimumNextBidCents = calculateMinimumNextBidCents(
-    input.currentBidCents,
+    currentBidCents,
     input.startingBidCents
   );
 
-  const currentWinnerMax = input.currentWinnerMaxBidCents ?? 0;
-  const challengerMax = input.challengerMaxBidCents;
-
-  if (challengerMax > currentWinnerMax) {
+  if (challengerMaxBidCents > currentWinnerMaxBidCents) {
     const visibleBidCents =
-      currentWinnerMax > 0
-        ? Math.min(challengerMax, currentWinnerMax + calculateMinimumNextBidCents(currentWinnerMax, input.startingBidCents) - currentWinnerMax)
+      currentWinnerMaxBidCents > 0
+        ? Math.min(
+            challengerMaxBidCents,
+            currentWinnerMaxBidCents + calculateBidIncrementCents(currentWinnerMaxBidCents)
+          )
         : Math.max(minimumNextBidCents, input.startingBidCents);
 
     return {
       winner: "challenger",
-      visibleBidCents: Math.min(challengerMax, Math.max(visibleBidCents, minimumNextBidCents)),
+      visibleBidCents: Math.min(
+        challengerMaxBidCents,
+        Math.max(visibleBidCents, minimumNextBidCents)
+      ),
     };
   }
 
   const visibleBidCents = Math.min(
-    currentWinnerMax,
-    challengerMax + calculateMinimumNextBidCents(challengerMax, input.startingBidCents) - challengerMax
+    currentWinnerMaxBidCents,
+    challengerMaxBidCents + calculateBidIncrementCents(challengerMaxBidCents)
   );
 
   return {
     winner: "current",
-    visibleBidCents: Math.max(input.currentBidCents, visibleBidCents),
+    visibleBidCents: Math.max(currentBidCents, visibleBidCents),
   };
 }
 
@@ -114,6 +122,8 @@ export async function POST(req: Request, ctx: Ctx) {
       return NextResponse.json({ error: "Enter a valid bid amount." }, { status: 400 });
     }
 
+    await processAuctionLifecycle({ auctionId, limit: 1 });
+
     const result = await prisma.$transaction(async (tx) => {
       const auction = await tx.auction.findUnique({
         where: {
@@ -127,6 +137,9 @@ export async function POST(req: Request, ctx: Ctx) {
               },
               {
                 createdAt: "asc",
+              },
+              {
+                id: "asc",
               },
             ],
             include: {
@@ -162,7 +175,7 @@ export async function POST(req: Request, ctx: Ctx) {
       const currentWinnerUserId =
         currentWinningBid?.bidderType === "HUMAN" ? currentWinningBid.userId : null;
       const currentWinnerMaxBidCents =
-        currentWinningBid?.bidderType === "HUMAN" ? currentWinningBid.maxBidCents : null;
+        currentWinningBid?.maxBidCents ?? currentWinningBid?.amountCents ?? 0;
 
       const minimumNextBidCents = calculateMinimumNextBidCents(
         auction.currentBidCents,
@@ -180,11 +193,15 @@ export async function POST(req: Request, ctx: Ctx) {
         throw new Error("You do not have enough available cash for that max bid.");
       }
 
-      if (currentWinnerUserId === user.id && currentWinnerMaxBidCents && maxBidCents <= currentWinnerMaxBidCents) {
+      if (
+        currentWinnerUserId === user.id &&
+        currentWinnerMaxBidCents &&
+        maxBidCents <= currentWinnerMaxBidCents
+      ) {
         throw new Error("Your new max bid must be higher than your existing max bid.");
       }
 
-      const proxyResult = getNextVisibleBid({
+      const proxyResult = getProxyBidResult({
         challengerMaxBidCents: maxBidCents,
         currentWinnerMaxBidCents,
         currentBidCents: auction.currentBidCents,
@@ -192,28 +209,40 @@ export async function POST(req: Request, ctx: Ctx) {
       });
 
       const visibleBidCents = proxyResult.visibleBidCents;
-      const winnerUserId = proxyResult.winner === "challenger" ? user.id : currentWinnerUserId;
+      const challengerWins = proxyResult.winner === "challenger";
 
       await tx.auctionBid.create({
         data: {
           auctionId: auction.id,
           userId: user.id,
           bidderType: "HUMAN",
-          amountCents: proxyResult.winner === "challenger" ? visibleBidCents : maxBidCents,
+          amountCents: challengerWins ? visibleBidCents : maxBidCents,
           maxBidCents,
         },
       });
 
-      if (proxyResult.winner === "current" && currentWinnerUserId) {
-        await tx.auctionBid.create({
-          data: {
-            auctionId: auction.id,
-            userId: currentWinnerUserId,
-            bidderType: "HUMAN",
-            amountCents: visibleBidCents,
-            maxBidCents: currentWinnerMaxBidCents,
-          },
-        });
+      if (!challengerWins && currentWinningBid) {
+        if (currentWinningBid.bidderType === "HUMAN" && currentWinningBid.userId) {
+          await tx.auctionBid.create({
+            data: {
+              auctionId: auction.id,
+              userId: currentWinningBid.userId,
+              bidderType: "HUMAN",
+              amountCents: visibleBidCents,
+              maxBidCents: currentWinnerMaxBidCents,
+            },
+          });
+        } else {
+          await tx.auctionBid.create({
+            data: {
+              auctionId: auction.id,
+              bidderType: "DUMMY",
+              dummyBidderName: currentWinningBid.dummyBidderName || "Private Bidder",
+              amountCents: visibleBidCents,
+              maxBidCents: currentWinnerMaxBidCents,
+            },
+          });
+        }
       }
 
       const updatedAuction = await tx.auction.update({
@@ -222,7 +251,7 @@ export async function POST(req: Request, ctx: Ctx) {
         },
         data: {
           currentBidCents: Math.max(auction.currentBidCents, visibleBidCents),
-          winnerUserId,
+          winnerUserId: challengerWins ? user.id : currentWinnerUserId,
         },
       });
 

@@ -493,6 +493,7 @@ model Auction {
   card   Card  @relation(fields: [cardId], references: [id], onDelete: Cascade)
 
   bids        AuctionBid[]
+  bidIntents  AuctionBidIntent[]
   saleHistory CardSaleHistory[]
 
   @@index([sellerUserId, status])
@@ -526,6 +527,24 @@ model AuctionBid {
   @@index([userId, createdAt])
   @@index([bidderType])
   @@index([amountCents])
+}
+
+model AuctionBidIntent {
+  id        Int @id @default(autoincrement())
+  auctionId Int
+
+  dummyBidderName String
+  maxBidCents     Int
+  dueAt           DateTime
+  activatedAt     DateTime?
+
+  createdAt DateTime @default(now())
+
+  auction Auction @relation(fields: [auctionId], references: [id], onDelete: Cascade)
+
+  @@index([auctionId, dueAt])
+  @@index([auctionId, activatedAt])
+  @@index([dueAt])
 }
 
 model CardSaleHistory {

@@ -2,7 +2,7 @@ import { prisma } from "@/lib/prisma";
 import {
   calculateBidIncrementCents,
   calculateMinimumNextBidCents,
-  pickDummyBidderName,
+  generateAuctionBidIntents,
 } from "@/lib/auctions";
 
 type ProcessAuctionResult = {
@@ -10,55 +10,6 @@ type ProcessAuctionResult = {
   dummyBidsCreated: number;
   auctionsEnded: number;
 };
-
-const AUCTION_STAGE_PERCENTAGES = [10, 25, 45, 62, 78, 88, 94, 98, 99];
-
-const MAX_DUMMY_BIDS_PER_STAGE = 8;
-const MAX_DUMMY_BIDS_PER_LIFECYCLE = 60;
-
-function seededNumber(seed: number): number {
-  const x = Math.sin(seed) * 10000;
-  return x - Math.floor(x);
-}
-
-function getDueStageIndexes(input: {
-  auctionId: number;
-  createdAt: Date;
-  endsAt: Date;
-  now: Date;
-}): number[] {
-  const durationMs = input.endsAt.getTime() - input.createdAt.getTime();
-  if (durationMs <= 0) return AUCTION_STAGE_PERCENTAGES.map((_, index) => index);
-
-  const elapsedMs = input.now.getTime() - input.createdAt.getTime();
-  const elapsedPct = Math.max(0, Math.min(100, (elapsedMs / durationMs) * 100));
-
-  return AUCTION_STAGE_PERCENTAGES.map((basePct, index) => {
-    const jitter = Math.round((seededNumber(input.auctionId * 100 + index) - 0.5) * 8);
-    return {
-      index,
-      duePct: Math.max(1, Math.min(99, basePct + jitter)),
-    };
-  })
-    .filter((stage) => elapsedPct >= stage.duePct)
-    .map((stage) => stage.index);
-}
-
-function getDummyTargetForStage(input: {
-  startingBidCents: number;
-  hiddenDummyMaxBidCents: number;
-  stageIndex: number;
-  totalStages: number;
-}): number {
-  const start = Math.max(1, input.startingBidCents);
-  const max = Math.max(start, input.hiddenDummyMaxBidCents);
-  const progress = (input.stageIndex + 1) / input.totalStages;
-
-  const curvedProgress = Math.pow(progress, 1.35);
-  const target = start + Math.round((max - start) * curvedProgress);
-
-  return Math.max(start, Math.min(max, target));
-}
 
 function getNextVisibleBidAgainstHuman(input: {
   currentBidCents: number;
@@ -100,112 +51,151 @@ function getNextVisibleBidAgainstHuman(input: {
   };
 }
 
-function getNaturalDummyStep(input: {
-  auctionId: number;
-  stageIndex: number;
-  bidIndexWithinStage: number;
-  currentBidCents: number;
-  targetMaxBidCents: number;
-  startingBidCents: number;
-}): number {
-  const current = Math.max(0, input.currentBidCents);
-  const target = Math.max(current, input.targetMaxBidCents);
-  const minNext = calculateMinimumNextBidCents(current, input.startingBidCents);
-
-  if (minNext >= target) return target;
-
-  const remaining = target - current;
-  const minIncrement = Math.max(1, minNext - current);
-
-  const seed =
-    input.auctionId * 100000 +
-    input.stageIndex * 1000 +
-    input.bidIndexWithinStage * 17;
-
-  const randomness = seededNumber(seed);
-
-  const chunkyStep = Math.round(remaining * (0.18 + randomness * 0.22));
-  const step = Math.max(minIncrement, chunkyStep);
-
-  return Math.max(minNext, Math.min(target, current + step));
-}
-
-async function processDueDummyBids(input: {
+async function ensureBidIntentsForAuction(input: {
   auctionId: number;
   createdAt: Date;
   endsAt: Date;
-  now: Date;
-  existingDummyBidCount: number;
+  valueBasisCents: number;
   startingBidCents: number;
   hiddenDummyMaxBidCents: number;
-}): Promise<number> {
-  const dueStageIndexes = getDueStageIndexes({
-    auctionId: input.auctionId,
-    createdAt: input.createdAt,
-    endsAt: input.endsAt,
-    now: input.now,
+}) {
+  const existingIntentCount = await prisma.auctionBidIntent.count({
+    where: {
+      auctionId: input.auctionId,
+    },
   });
 
-  let dummyBidsCreated = 0;
+  if (existingIntentCount > 0) return;
 
-  for (const stageIndex of dueStageIndexes) {
-    if (dummyBidsCreated >= MAX_DUMMY_BIDS_PER_LIFECYCLE) break;
-    if (stageIndex < input.existingDummyBidCount) continue;
+  const bidIntents = generateAuctionBidIntents({
+    auctionIdSeed: input.auctionId,
+    createdAt: input.createdAt,
+    endsAt: input.endsAt,
+    valueBasisCents: input.valueBasisCents,
+    startingBidCents: input.startingBidCents,
+    hiddenDummyMaxBidCents: input.hiddenDummyMaxBidCents,
+  });
 
-    const targetMaxBidCents = getDummyTargetForStage({
-      startingBidCents: input.startingBidCents,
-      hiddenDummyMaxBidCents: input.hiddenDummyMaxBidCents,
-      stageIndex,
-      totalStages: AUCTION_STAGE_PERCENTAGES.length,
+  if (bidIntents.length <= 0) return;
+
+  await prisma.auctionBidIntent.createMany({
+    data: bidIntents.map((intent) => ({
+      auctionId: input.auctionId,
+      dummyBidderName: intent.dummyBidderName,
+      maxBidCents: intent.maxBidCents,
+      dueAt: intent.dueAt,
+    })),
+  });
+}
+
+async function activateDueBidIntents(input: {
+  auctionId: number;
+  now: Date;
+}): Promise<number> {
+  const dueIntents = await prisma.auctionBidIntent.findMany({
+    where: {
+      auctionId: input.auctionId,
+      activatedAt: null,
+      dueAt: {
+        lte: input.now,
+      },
+    },
+    orderBy: [
+      {
+        dueAt: "asc",
+      },
+      {
+        maxBidCents: "asc",
+      },
+      {
+        id: "asc",
+      },
+    ],
+  });
+
+  let bidsCreated = 0;
+
+  for (const intent of dueIntents) {
+    const freshAuction = await prisma.auction.findUnique({
+      where: {
+        id: input.auctionId,
+      },
+      include: {
+        bids: {
+          orderBy: [
+            {
+              amountCents: "desc",
+            },
+            {
+              createdAt: "asc",
+            },
+            {
+              id: "asc",
+            },
+          ],
+        },
+      },
     });
 
-    let bidsForThisStage = 0;
+    if (!freshAuction || freshAuction.status !== "ACTIVE") break;
 
-    while (
-      bidsForThisStage < MAX_DUMMY_BIDS_PER_STAGE &&
-      dummyBidsCreated < MAX_DUMMY_BIDS_PER_LIFECYCLE
-    ) {
-      const freshAuction = await prisma.auction.findUnique({
-        where: {
-          id: input.auctionId,
-        },
-        include: {
-          bids: {
-            orderBy: [
-              {
-                amountCents: "desc",
-              },
-              {
-                createdAt: "asc",
-              },
-            ],
+    const currentHighBid = freshAuction.bids[0] ?? null;
+    const currentBidCents = Math.max(0, freshAuction.currentBidCents || 0);
+
+    if (!currentHighBid) {
+      const visibleBidCents = Math.min(
+        Math.max(freshAuction.startingBidCents, 1),
+        Math.max(intent.maxBidCents, freshAuction.startingBidCents)
+      );
+
+      if (visibleBidCents > currentBidCents) {
+        await prisma.auctionBid.create({
+          data: {
+            auctionId: freshAuction.id,
+            bidderType: "DUMMY",
+            dummyBidderName: intent.dummyBidderName,
+            amountCents: visibleBidCents,
+            maxBidCents: intent.maxBidCents,
+            createdAt: intent.dueAt,
           },
+        });
+
+        await prisma.auction.update({
+          where: {
+            id: freshAuction.id,
+          },
+          data: {
+            currentBidCents: visibleBidCents,
+            winnerUserId: null,
+          },
+        });
+
+        bidsCreated += 1;
+      }
+
+      await prisma.auctionBidIntent.update({
+        where: {
+          id: intent.id,
+        },
+        data: {
+          activatedAt: input.now,
         },
       });
 
-      if (!freshAuction || freshAuction.status !== "ACTIVE") break;
+      continue;
+    }
 
-      const currentHighBid = freshAuction.bids[0] ?? null;
-      const currentBidCents = freshAuction.currentBidCents;
-      const minimumNextBidCents = calculateMinimumNextBidCents(
+    if (currentHighBid.bidderType === "HUMAN" && currentHighBid.userId) {
+      const humanMaxBidCents = currentHighBid.maxBidCents ?? currentHighBid.amountCents;
+
+      const proxyResult = getNextVisibleBidAgainstHuman({
         currentBidCents,
-        freshAuction.startingBidCents
-      );
+        startingBidCents: freshAuction.startingBidCents,
+        challengerMaxBidCents: intent.maxBidCents,
+        humanMaxBidCents,
+      });
 
-      if (targetMaxBidCents < minimumNextBidCents) break;
-
-      if (currentHighBid?.bidderType === "HUMAN" && currentHighBid.userId) {
-        const humanMaxBidCents = currentHighBid.maxBidCents ?? currentHighBid.amountCents;
-
-        const proxyResult = getNextVisibleBidAgainstHuman({
-          currentBidCents,
-          startingBidCents: freshAuction.startingBidCents,
-          challengerMaxBidCents: targetMaxBidCents,
-          humanMaxBidCents,
-        });
-
-        if (proxyResult.visibleBidCents <= currentBidCents) break;
-
+      if (proxyResult.visibleBidCents > currentBidCents) {
         if (proxyResult.winner === "human") {
           await prisma.auctionBid.create({
             data: {
@@ -214,6 +204,7 @@ async function processDueDummyBids(input: {
               bidderType: "HUMAN",
               amountCents: proxyResult.visibleBidCents,
               maxBidCents: humanMaxBidCents,
+              createdAt: intent.dueAt,
             },
           });
 
@@ -231,11 +222,10 @@ async function processDueDummyBids(input: {
             data: {
               auctionId: freshAuction.id,
               bidderType: "DUMMY",
-              dummyBidderName: pickDummyBidderName(
-                freshAuction.id + stageIndex + bidsForThisStage
-              ),
+              dummyBidderName: intent.dummyBidderName,
               amountCents: proxyResult.visibleBidCents,
-              maxBidCents: targetMaxBidCents,
+              maxBidCents: intent.maxBidCents,
+              createdAt: intent.dueAt,
             },
           });
 
@@ -250,52 +240,108 @@ async function processDueDummyBids(input: {
           });
         }
 
-        dummyBidsCreated += 1;
-        bidsForThisStage += 1;
-        break;
+        bidsCreated += 1;
       }
 
-      const visibleBidCents = getNaturalDummyStep({
-        auctionId: freshAuction.id,
-        stageIndex,
-        bidIndexWithinStage: bidsForThisStage,
-        currentBidCents,
-        targetMaxBidCents,
-        startingBidCents: freshAuction.startingBidCents,
-      });
-
-      if (visibleBidCents <= currentBidCents) break;
-
-      await prisma.auctionBid.create({
-        data: {
-          auctionId: freshAuction.id,
-          bidderType: "DUMMY",
-          dummyBidderName: pickDummyBidderName(
-            freshAuction.id + stageIndex + bidsForThisStage
-          ),
-          amountCents: visibleBidCents,
-          maxBidCents: targetMaxBidCents,
-        },
-      });
-
-      await prisma.auction.update({
+      await prisma.auctionBidIntent.update({
         where: {
-          id: freshAuction.id,
+          id: intent.id,
         },
         data: {
-          currentBidCents: visibleBidCents,
-          winnerUserId: null,
+          activatedAt: input.now,
         },
       });
 
-      dummyBidsCreated += 1;
-      bidsForThisStage += 1;
-
-      if (visibleBidCents >= targetMaxBidCents) break;
+      continue;
     }
+
+    const incumbentMaxBidCents = currentHighBid.maxBidCents ?? currentHighBid.amountCents;
+    const minimumNextBidCents = calculateMinimumNextBidCents(
+      currentBidCents,
+      freshAuction.startingBidCents
+    );
+
+    if (intent.maxBidCents > incumbentMaxBidCents) {
+      const visibleBidCents = Math.max(
+        minimumNextBidCents,
+        Math.min(
+          intent.maxBidCents,
+          incumbentMaxBidCents + calculateBidIncrementCents(incumbentMaxBidCents)
+        )
+      );
+
+      if (visibleBidCents > currentBidCents) {
+        await prisma.auctionBid.create({
+          data: {
+            auctionId: freshAuction.id,
+            bidderType: "DUMMY",
+            dummyBidderName: intent.dummyBidderName,
+            amountCents: visibleBidCents,
+            maxBidCents: intent.maxBidCents,
+            createdAt: intent.dueAt,
+          },
+        });
+
+        await prisma.auction.update({
+          where: {
+            id: freshAuction.id,
+          },
+          data: {
+            currentBidCents: visibleBidCents,
+            winnerUserId: null,
+          },
+        });
+
+        bidsCreated += 1;
+      }
+    } else {
+      const incumbentName = currentHighBid.dummyBidderName || "Private Bidder";
+
+      const visibleBidCents = Math.max(
+        currentBidCents,
+        Math.min(
+          incumbentMaxBidCents,
+          intent.maxBidCents + calculateBidIncrementCents(intent.maxBidCents)
+        )
+      );
+
+      if (visibleBidCents > currentBidCents) {
+        await prisma.auctionBid.create({
+          data: {
+            auctionId: freshAuction.id,
+            bidderType: "DUMMY",
+            dummyBidderName: incumbentName,
+            amountCents: visibleBidCents,
+            maxBidCents: incumbentMaxBidCents,
+            createdAt: intent.dueAt,
+          },
+        });
+
+        await prisma.auction.update({
+          where: {
+            id: freshAuction.id,
+          },
+          data: {
+            currentBidCents: visibleBidCents,
+            winnerUserId: null,
+          },
+        });
+
+        bidsCreated += 1;
+      }
+    }
+
+    await prisma.auctionBidIntent.update({
+      where: {
+        id: intent.id,
+      },
+      data: {
+        activatedAt: input.now,
+      },
+    });
   }
 
-  return dummyBidsCreated;
+  return bidsCreated;
 }
 
 async function endAuctionIfExpired(input: {
@@ -314,6 +360,9 @@ async function endAuctionIfExpired(input: {
           },
           {
             createdAt: "asc",
+          },
+          {
+            id: "asc",
           },
         ],
         take: 1,
@@ -356,18 +405,6 @@ export async function processAuctionLifecycle(input?: {
       status: "ACTIVE",
       ...(input?.auctionId ? { id: input.auctionId } : {}),
     },
-    include: {
-      bids: {
-        orderBy: [
-          {
-            amountCents: "desc",
-          },
-          {
-            createdAt: "asc",
-          },
-        ],
-      },
-    },
     orderBy: {
       endsAt: "asc",
     },
@@ -381,14 +418,18 @@ export async function processAuctionLifecycle(input?: {
   for (const auction of auctions) {
     processedAuctionIds.push(auction.id);
 
-    dummyBidsCreated += await processDueDummyBids({
+    await ensureBidIntentsForAuction({
       auctionId: auction.id,
       createdAt: auction.createdAt,
       endsAt: auction.endsAt,
-      now,
-      existingDummyBidCount: auction.bids.filter((bid) => bid.bidderType === "DUMMY").length,
+      valueBasisCents: auction.valueBasisCents,
       startingBidCents: auction.startingBidCents,
       hiddenDummyMaxBidCents: auction.hiddenDummyMaxBidCents,
+    });
+
+    dummyBidsCreated += await activateDueBidIntents({
+      auctionId: auction.id,
+      now,
     });
 
     const didEnd = await endAuctionIfExpired({
