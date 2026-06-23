@@ -52,13 +52,157 @@ const offerSelect = {
   card: { select: offerCardSelect },
 } as const;
 
+async function getOfferStatusForCard(tx: typeof prisma, userId: string, cardId: number, now: Date) {
+  const lockoutWindowStart = new Date(now.getTime() - LOCKOUT_HOURS * 60 * 60 * 1000);
+
+  const activeOffer = await tx.shopOffer.findFirst({
+    where: {
+      userId,
+      cardId,
+      acceptedAt: null,
+      rejectedAt: null,
+      expiresAt: { gt: now },
+    },
+    orderBy: [{ expiresAt: "asc" }],
+    select: {
+      id: true,
+      offerBps: true,
+      createdAt: true,
+      expiresAt: true,
+    },
+  });
+
+  if (activeOffer) {
+    return {
+      available: false,
+      reason: "ACTIVE_OFFER" as const,
+      message: "You already have an active shop offer for this card.",
+      activeOffer,
+      lockedUntil: null,
+    };
+  }
+
+  const recentRejected = await tx.shopOffer.findFirst({
+    where: {
+      userId,
+      cardId,
+      acceptedAt: null,
+      rejectedAt: { gt: lockoutWindowStart },
+    },
+    orderBy: [{ rejectedAt: "desc" }],
+    select: { rejectedAt: true },
+  });
+
+  if (recentRejected?.rejectedAt) {
+    const lockedUntil = addHours(recentRejected.rejectedAt, LOCKOUT_HOURS);
+    return {
+      available: false,
+      reason: "LOCKED" as const,
+      message: lockoutMessage(lockedUntil, now),
+      activeOffer: null,
+      lockedUntil,
+    };
+  }
+
+  const recentExpired = await tx.shopOffer.findFirst({
+    where: {
+      userId,
+      cardId,
+      acceptedAt: null,
+      rejectedAt: null,
+      expiresAt: { lte: now, gt: lockoutWindowStart },
+    },
+    orderBy: [{ expiresAt: "desc" }],
+    select: { expiresAt: true },
+  });
+
+  if (recentExpired?.expiresAt) {
+    const lockedUntil = addHours(recentExpired.expiresAt, LOCKOUT_HOURS);
+    return {
+      available: false,
+      reason: "LOCKED" as const,
+      message: lockoutMessage(lockedUntil, now),
+      activeOffer: null,
+      lockedUntil,
+    };
+  }
+
+  const ownedAgg = await tx.cardOwnership.aggregate({
+    where: {
+      userId,
+      cardId,
+      quantity: { gt: 0 },
+    },
+    _sum: { quantity: true },
+  });
+
+  const totalOwned = Number(ownedAgg._sum.quantity ?? 0);
+  if (totalOwned <= 0) {
+    return {
+      available: false,
+      reason: "NO_OWNERSHIP" as const,
+      message: "You do not own this card.",
+      activeOffer: null,
+      lockedUntil: null,
+    };
+  }
+
+  const card = await tx.card.findUnique({
+    where: { id: cardId },
+    select: { id: true, bookValue: true },
+  });
+
+  if (!card) {
+    return {
+      available: false,
+      reason: "CARD_NOT_FOUND" as const,
+      message: "Card not found.",
+      activeOffer: null,
+      lockedUntil: null,
+    };
+  }
+
+  const perCardCents = bookValueToPerCardCents(card.bookValue);
+  if (perCardCents <= 0) {
+    return {
+      available: false,
+      reason: "NO_BOOK_VALUE" as const,
+      message: "Card has no book value.",
+      activeOffer: null,
+      lockedUntil: null,
+    };
+  }
+
+  return {
+    available: true,
+    reason: "AVAILABLE" as const,
+    message: "Shop offer available.",
+    activeOffer: null,
+    lockedUntil: null,
+  };
+}
+
 /**
- * GET: list active offers for the current user
+ * GET:
+ * - without cardId: list active offers for the current user
+ * - with cardId: return request/status availability for that card
  */
-export async function GET() {
+export async function GET(req: Request) {
   try {
     const user = await requireUser();
     const now = new Date();
+    const url = new URL(req.url);
+    const cardIdParam = url.searchParams.get("cardId");
+
+    if (cardIdParam != null && cardIdParam !== "") {
+      const cardId = Number(cardIdParam);
+      if (!Number.isFinite(cardId) || cardId <= 0) {
+        return NextResponse.json({ ok: false, error: "Missing or invalid cardId." }, { status: 400 });
+      }
+
+      const status = await getOfferStatusForCard(prisma, user.id, cardId, now);
+      return NextResponse.json({ ok: true, cardId, ...status }, { status: 200 });
+    }
 
     const offers = await prisma.shopOffer.findMany({
       where: {
@@ -167,93 +311,22 @@ export async function POST(req: Request) {
     }
 
     const now = new Date();
-    const lockoutWindowStart = new Date(now.getTime() - LOCKOUT_HOURS * 60 * 60 * 1000);
 
     const result = await prisma.$transaction(async (tx) => {
-      // Reuse existing active offer for this card.
-      const existing = await tx.shopOffer.findFirst({
-        where: {
-          userId: user.id,
-          cardId,
-          acceptedAt: null,
-          rejectedAt: null,
-          expiresAt: { gt: now },
-        },
-        select: offerSelect,
-      });
-      if (existing) {
-        return { ok: true as const, status: 200 as const, offer: existing, reused: true };
-      }
+      const status = await getOfferStatusForCard(tx as any, user.id, cardId, now);
 
-      // Rejected offers create a 24-hour card-level lockout.
-      const recentRejected = await tx.shopOffer.findFirst({
-        where: {
-          userId: user.id,
-          cardId,
-          acceptedAt: null,
-          rejectedAt: { gt: lockoutWindowStart },
-        },
-        orderBy: [{ rejectedAt: "desc" }],
-        select: { rejectedAt: true },
-      });
+      if (!status.available) {
+        if (status.reason === "ACTIVE_OFFER" && status.activeOffer) {
+          const offer = await tx.shopOffer.findUnique({ where: { id: status.activeOffer.id }, select: offerSelect });
+          if (offer) return { ok: true as const, status: 200 as const, offer, reused: true };
+        }
 
-      if (recentRejected?.rejectedAt) {
-        const lockedUntil = addHours(recentRejected.rejectedAt, LOCKOUT_HOURS);
         return {
           ok: false as const,
-          status: 429 as const,
-          error: lockoutMessage(lockedUntil, now),
-          lockedUntil,
+          status: status.reason === "LOCKED" ? (429 as const) : (400 as const),
+          error: status.message,
+          lockedUntil: status.lockedUntil,
         };
-      }
-
-      // Expired, unaccepted, unrejected offers also create a 24-hour card-level lockout.
-      const recentExpired = await tx.shopOffer.findFirst({
-        where: {
-          userId: user.id,
-          cardId,
-          acceptedAt: null,
-          rejectedAt: null,
-          expiresAt: { lte: now, gt: lockoutWindowStart },
-        },
-        orderBy: [{ expiresAt: "desc" }],
-        select: { expiresAt: true },
-      });
-
-      if (recentExpired?.expiresAt) {
-        const lockedUntil = addHours(recentExpired.expiresAt, LOCKOUT_HOURS);
-        return {
-          ok: false as const,
-          status: 429 as const,
-          error: lockoutMessage(lockedUntil, now),
-          lockedUntil,
-        };
-      }
-
-      // Must own at least 1 copy across raw + graded buckets.
-      const ownedAgg = await tx.cardOwnership.aggregate({
-        where: {
-          userId: user.id,
-          cardId,
-          quantity: { gt: 0 },
-        },
-        _sum: { quantity: true },
-      });
-
-      const totalOwned = Number(ownedAgg._sum.quantity ?? 0);
-      if (totalOwned <= 0) {
-        return { ok: false as const, status: 400 as const, error: "You do not own this card." };
-      }
-
-      const card = await tx.card.findUnique({
-        where: { id: cardId },
-        select: { id: true, bookValue: true },
-      });
-      if (!card) return { ok: false as const, status: 404 as const, error: "Card not found." };
-
-      const perCardCents = bookValueToPerCardCents(card.bookValue);
-      if (perCardCents <= 0) {
-        return { ok: false as const, status: 400 as const, error: "Card has no book value." };
       }
 
       const offerBps = generateOfferBps();

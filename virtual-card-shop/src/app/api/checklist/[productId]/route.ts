@@ -6,6 +6,17 @@ import { requireUserWithSelection } from "@/lib/current-user";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+const LOCKOUT_HOURS = 24;
+
+type ChecklistOfferStatus =
+  | { state: "AVAILABLE" }
+  | { state: "ACTIVE"; offerId: number; expiresAt: string }
+  | { state: "LOCKED"; lockedUntil: string };
+
+function addHours(date: Date, hours: number) {
+  return new Date(date.getTime() + hours * 60 * 60 * 1000);
+}
+
 type Ctx =
   | { params: { productId?: string } }
   | { params: Promise<{ productId?: string }> };
@@ -314,6 +325,69 @@ export async function GET(req: Request, ctx: Ctx) {
 
     const pageCards = allCards.slice(skip, skip + pageSize);
 
+    const now = new Date();
+    const lockoutWindowStart = new Date(now.getTime() - LOCKOUT_HOURS * 60 * 60 * 1000);
+    const visibleCardIds = pageCards.map((c) => c.id);
+
+    const visibleOfferRows = visibleCardIds.length
+      ? await prisma.shopOffer.findMany({
+          where: {
+            userId: currentUser.id,
+            cardId: { in: visibleCardIds },
+            acceptedAt: null,
+            OR: [
+              // Active offer.
+              { rejectedAt: null, expiresAt: { gt: now } },
+              // Recently rejected offer.
+              { rejectedAt: { gt: lockoutWindowStart } },
+              // Recently expired offer.
+              { rejectedAt: null, expiresAt: { lte: now, gt: lockoutWindowStart } },
+            ],
+          },
+          select: {
+            id: true,
+            cardId: true,
+            expiresAt: true,
+            rejectedAt: true,
+          },
+          orderBy: [{ createdAt: "desc" }, { id: "desc" }],
+        })
+      : [];
+
+    const offerStatusByCard = new Map<number, ChecklistOfferStatus>();
+
+    for (const offer of visibleOfferRows) {
+      const current = offerStatusByCard.get(offer.cardId);
+
+      // Active offers take priority over lockouts.
+      if (!offer.rejectedAt && offer.expiresAt.getTime() > now.getTime()) {
+        offerStatusByCard.set(offer.cardId, {
+          state: "ACTIVE",
+          offerId: offer.id,
+          expiresAt: offer.expiresAt.toISOString(),
+        });
+        continue;
+      }
+
+      if (current?.state === "ACTIVE") continue;
+
+      const lockedUntil = offer.rejectedAt
+        ? addHours(offer.rejectedAt, LOCKOUT_HOURS)
+        : addHours(offer.expiresAt, LOCKOUT_HOURS);
+
+      if (lockedUntil.getTime() <= now.getTime()) continue;
+
+      if (current?.state === "LOCKED") {
+        const currentUntil = new Date(current.lockedUntil);
+        if (currentUntil.getTime() >= lockedUntil.getTime()) continue;
+      }
+
+      offerStatusByCard.set(offer.cardId, {
+        state: "LOCKED",
+        lockedUntil: lockedUntil.toISOString(),
+      });
+    }
+
     const uniqueOwnedCardIds = new Set<number>();
 
     for (const [cardId, qty] of selectedOwnedMap.entries()) {
@@ -368,6 +442,7 @@ export async function GET(req: Request, ctx: Ctx) {
         isInsert: !selectedSet.isBase,
         bookValue: toNumber((c as any).bookValue),
         ownedQty,
+        offerStatus: offerStatusByCard.get(c.id) ?? { state: "AVAILABLE" },
 
         // New fields for grading-aware UI.
         revealedOwnedQty,

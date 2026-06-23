@@ -12,9 +12,14 @@ type ProductSetOption = {
 type UserOption = {
   id: string;
   name: string | null;
-  email: string;
+  email: string | null;
   image: string | null;
 };
+
+type OfferStatus =
+  | { state: "AVAILABLE" }
+  | { state: "ACTIVE"; offerId: number; expiresAt: string }
+  | { state: "LOCKED"; lockedUntil: string };
 
 type ChecklistRow = {
   cardId: number;
@@ -28,9 +33,10 @@ type ChecklistRow = {
 
   ownedQty: number;
   myOwnedQty?: number;
+  offerStatus?: OfferStatus;
 };
 
-type SortKey = "cardNumber" | "owned" | "qty" | "player" | "team" | "subset" | "variant";
+type SortKey = "cardNumber" | "owned" | "qty" | "player" | "team" | "subset" | "variant" | "bookValue";
 type SortDir = "asc" | "desc";
 
 type ChecklistResponse = {
@@ -74,7 +80,7 @@ function formatSetLabel(ps: ProductSetOption) {
 function formatUserLabel(u: UserOption) {
   const name = (u.name ?? "").trim();
   if (name) return name;
-  return u.email;
+  return u.email ?? "Unknown user";
 }
 
 function clampInt(n: number, min: number, max: number) {
@@ -91,6 +97,35 @@ function sortIcon(active: boolean, dir: SortDir) {
   if (!active) return "";
   return dir === "asc" ? " ▲" : " ▼";
 }
+function friendlyTitle(raw: string | null | undefined) {
+  const decoded = decodeURIComponent(String(raw ?? "").trim());
+  return decoded
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b\w/g, (m) => m.toUpperCase());
+}
+
+function smallMeta(parts: Array<string | null | undefined>) {
+  const clean = parts.map((p) => String(p ?? "").trim()).filter(Boolean);
+  return clean.length ? clean.join(" • ") : "—";
+}
+
+function compactTimeUntil(iso: string | null | undefined) {
+  if (!iso) return "soon";
+  const ms = new Date(iso).getTime() - Date.now();
+  if (!Number.isFinite(ms) || ms <= 0) return "soon";
+
+  const totalMinutes = Math.ceil(ms / 60000);
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+
+  if (hours >= 24) return `${Math.ceil(hours / 24)}d`;
+  if (hours > 0) return minutes > 0 ? `${hours}h ${minutes}m` : `${hours}h`;
+  return `${minutes}m`;
+}
+
+const ECONOMY_CHANGED_EVENT = "vcs:economy-changed";
 
 export default function ChecklistClient({ productId }: { productId: string }) {
   const [data, setData] = useState<ChecklistResponse | null>(null);
@@ -116,9 +151,9 @@ export default function ChecklistClient({ productId }: { productId: string }) {
   const [users, setUsers] = useState<UserOption[]>([]);
   const [usersLoading, setUsersLoading] = useState<boolean>(false);
 
-  // ✅ NEW: per-row offer request UI state
-  const [offerMsg, setOfferMsg] = useState<string | null>(null);
-  const [offerErr, setOfferErr] = useState<string | null>(null);
+  const [actionMsg, setActionMsg] = useState<string | null>(null);
+  const [actionErr, setActionErr] = useState<string | null>(null);
+  const [auctioningCardId, setAuctioningCardId] = useState<number | null>(null);
   const [offeringCardId, setOfferingCardId] = useState<number | null>(null);
 
   async function loadUsers() {
@@ -221,8 +256,8 @@ export default function ChecklistClient({ productId }: { productId: string }) {
     setJumpTo("");
     setSortKey("cardNumber");
     setSortDir("asc");
-    setOfferErr(null);
-    setOfferMsg(null);
+    setActionErr(null);
+    setActionMsg(null);
     load({ page: 1, sortKey: "cardNumber", sortDir: "asc" });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
@@ -231,8 +266,8 @@ export default function ChecklistClient({ productId }: { productId: string }) {
     setSelectedProductSetId(nextId);
     setPage(1);
     setJumpTo("");
-    setOfferErr(null);
-    setOfferMsg(null);
+    setActionErr(null);
+    setActionMsg(null);
     load({ productSetId: nextId, page: 1 });
   }
 
@@ -240,8 +275,8 @@ export default function ChecklistClient({ productId }: { productId: string }) {
     setSelectedUserId(nextId);
     setPage(1);
     setJumpTo("");
-    setOfferErr(null);
-    setOfferMsg(null);
+    setActionErr(null);
+    setActionMsg(null);
     load({ selectedUserId: nextId, page: 1 });
   }
 
@@ -297,17 +332,22 @@ export default function ChecklistClient({ productId }: { productId: string }) {
     load({ sortKey: nextKey, sortDir: nextDir, page: 1 });
   }
 
-  // ✅ NEW: request offer directly from checklist row
   async function requestOfferForCard(cardId: number) {
     if (compareMode) {
-      setOfferErr("Switch Viewing to Me to request shop offers.");
-      setOfferMsg(null);
+      setActionErr("Switch Viewing to Me to request shop offers.");
+      setActionMsg(null);
+      return;
+    }
+
+    if (!Number.isFinite(cardId) || cardId <= 0) {
+      setActionErr("Invalid cardId.");
+      setActionMsg(null);
       return;
     }
 
     setOfferingCardId(cardId);
-    setOfferErr(null);
-    setOfferMsg(null);
+    setActionErr(null);
+    setActionMsg(null);
 
     try {
       const res = await fetch("/api/shop/singles/offers", {
@@ -321,17 +361,61 @@ export default function ChecklistClient({ productId }: { productId: string }) {
       try {
         j = raw ? JSON.parse(raw) : {};
       } catch {
-        throw new Error(`Non-JSON from offer (${res.status}): ${raw.slice(0, 140)}`);
+        throw new Error(`Non-JSON from shop offer (${res.status}): ${raw.slice(0, 140)}`);
       }
 
       if (!res.ok) throw new Error(j?.error ?? `Offer request failed (${res.status})`);
 
-      const reused = Boolean(j?.reused);
-      setOfferMsg(reused ? "Offer already active for that card (reused)." : "Offer created (24h).");
+      setActionMsg(j?.reused ? "Shop offer already active." : "Shop offer created. Open the Shop Singles tab to accept or reject it.");
+      window.dispatchEvent(new CustomEvent(ECONOMY_CHANGED_EVENT));
+      load();
     } catch (e: any) {
-      setOfferErr(e?.message ?? "Offer request failed");
+      setActionErr(e?.message ?? "Offer request failed");
     } finally {
       setOfferingCardId(null);
+    }
+  }
+
+  async function createAuctionForCard(cardId: number) {
+    if (compareMode) {
+      setActionErr("Switch Viewing to Me to create auctions.");
+      setActionMsg(null);
+      return;
+    }
+
+    if (!Number.isFinite(cardId) || cardId <= 0) {
+      setActionErr("Invalid cardId.");
+      setActionMsg(null);
+      return;
+    }
+
+    setAuctioningCardId(cardId);
+    setActionErr(null);
+    setActionMsg(null);
+
+    try {
+      const res = await fetch("/api/auctions/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cardId, grade: 0 }),
+      });
+
+      const raw = await res.text();
+      let j: any = {};
+      try {
+        j = raw ? JSON.parse(raw) : {};
+      } catch {
+        throw new Error(`Non-JSON from auction create (${res.status}): ${raw.slice(0, 140)}`);
+      }
+
+      if (!res.ok) throw new Error(j?.error ?? `Auction create failed (${res.status})`);
+
+      setActionMsg("Auction created. One raw copy is now locked until the auction is collected or ends.");
+      load();
+    } catch (e: any) {
+      setActionErr(e?.message ?? "Auction create failed");
+    } finally {
+      setAuctioningCardId(null);
     }
   }
 
@@ -354,23 +438,52 @@ export default function ChecklistClient({ productId }: { productId: string }) {
   };
 
   const actionBtnStyle: React.CSSProperties = {
-    padding: "6px 10px",
-    borderRadius: 10,
-    border: "1px solid #ccc",
+    padding: "5px 8px",
+    borderRadius: 8,
+    border: "1px solid #cfd7e3",
     background: "white",
     fontWeight: 900,
     cursor: "pointer",
     whiteSpace: "nowrap",
+    fontSize: 12,
+    lineHeight: 1.15,
+  };
+
+  const actionLinkStyle: React.CSSProperties = {
+    ...actionBtnStyle,
+    display: "inline-block",
+    color: "#111827",
+    textDecoration: "none",
   };
 
   return (
-    <div style={{ fontFamily: "system-ui", padding: 16 }}>
+    <div style={{ fontFamily: "system-ui", padding: 16, maxWidth: 1280, margin: "0 auto" }}>
+      <style jsx>{`
+        .checklistActions {
+          display: flex;
+          gap: 6px;
+          align-items: center;
+          flex-wrap: nowrap;
+          white-space: nowrap;
+        }
+
+        @media (max-width: 760px) {
+          .checklistDesktopOptional {
+            display: none;
+          }
+
+          .checklistActions {
+            gap: 4px;
+          }
+        }
+      `}</style>
+
       <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
         <Link href={`/collection/${encodeURIComponent(productId)}`} style={{ textDecoration: "underline", fontWeight: 800 }}>
           ← Back to Set
         </Link>
 
-        <div style={{ fontWeight: 900, fontSize: 22 }}>Checklist: {productId}</div>
+        <div style={{ fontWeight: 950, fontSize: 22 }}>{friendlyTitle(productId)}</div>
 
         <button onClick={() => load()} style={{ padding: "6px 10px" }}>
           Refresh
@@ -505,15 +618,15 @@ export default function ChecklistClient({ productId }: { productId: string }) {
         </div>
       ) : null}
 
-      {offerErr ? (
+      {actionErr ? (
         <div style={{ marginBottom: 12, padding: 10, background: "#fee", border: "1px solid #f99", borderRadius: 12 }}>
-          {offerErr}
+          {actionErr}
         </div>
       ) : null}
 
-      {offerMsg ? (
+      {actionMsg ? (
         <div style={{ marginBottom: 12, padding: 10, background: "#efe", border: "1px solid #9f9", borderRadius: 12 }}>
-          {offerMsg}{" "}
+          {actionMsg}{" "}
           <Link href="/shop" style={{ textDecoration: "underline", fontWeight: 900 }}>
             Open Shop →
           </Link>
@@ -528,25 +641,30 @@ export default function ChecklistClient({ productId }: { productId: string }) {
         <div>No data.</div>
       ) : (
         <>
-          <div style={{ fontWeight: 900, marginBottom: 8 }}>
-            Complete: {data.percentComplete.toFixed(1)}% ({data.uniqueOwned}/{data.totalCards} unique)
-          </div>
-
-          {/* Value summary */}
           <div
             style={{
-              marginBottom: 12,
-              padding: 10,
-              border: "1px solid #eee",
-              background: "#fafafa",
-              borderRadius: 12,
-              display: "flex",
-              gap: 14,
-              flexWrap: "wrap",
-              alignItems: "center",
-              fontWeight: 800,
+              marginBottom: 14,
+              padding: 14,
+              border: "1px solid #e5e7eb",
+              background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
+              borderRadius: 16,
+              boxShadow: "0 8px 24px rgba(15, 23, 42, 0.05)",
             }}
           >
+            <div style={{ fontSize: 12, fontWeight: 950, color: "#64748b", textTransform: "uppercase", letterSpacing: 0.6, marginBottom: 6 }}>
+              Checklist progress
+            </div>
+            <div style={{ fontWeight: 950, fontSize: 24, marginBottom: 10 }}>
+              {data.percentComplete.toFixed(1)}% Complete <span style={{ color: "#64748b", fontSize: 16 }}>({data.uniqueOwned}/{data.totalCards} unique)</span>
+            </div>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+                gap: 10,
+                fontWeight: 800,
+              }}
+            >
             <div>
               Set Value: <span style={{ fontWeight: 900 }}>{money(data.setTotalBookValue)}</span>
             </div>
@@ -565,6 +683,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
                 My Owned Value: <span style={{ fontWeight: 900 }}>{money(data.mySetOwnedBookValue)}</span>
               </div>
             ) : null}
+            </div>
           </div>
 
           {rows.length === 0 && (
@@ -573,9 +692,9 @@ export default function ChecklistClient({ productId }: { productId: string }) {
             </div>
           )}
 
-          <div style={{ overflowX: "auto", border: "1px solid #ddd" }}>
+          <div style={{ overflowX: "auto", border: "1px solid #e5e7eb", borderRadius: 16, boxShadow: "0 8px 24px rgba(15, 23, 42, 0.04)", background: "white" }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
-              <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
+              <thead style={{ position: "sticky", top: 0, background: "#f8fafc", zIndex: 1 }}>
                 <tr>
                   <th style={thClickable} onClick={() => onSort("owned")} title="Sort by Owned (whole set, then paged)">
                     Owned{sortIcon(sortKey === "owned", sortDir)}
@@ -608,6 +727,10 @@ export default function ChecklistClient({ productId }: { productId: string }) {
                   </th>
 
                   <th style={thPlain}>Type</th>
+
+                  <th style={thClickable} onClick={() => onSort("bookValue")} title="Sort by Value">
+                    Value{sortIcon(sortKey === "bookValue", sortDir)}
+                  </th>
 
                   <th style={thClickable} onClick={() => onSort("qty")} title="Sort by Qty (whole set, then paged)">
                     Qty{sortIcon(sortKey === "qty", sortDir)}
@@ -651,26 +774,67 @@ export default function ChecklistClient({ productId }: { productId: string }) {
                       <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.subset ?? "—"}</td>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.variant ?? "—"}</td>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.isInsert ? "Insert" : "Base"}</td>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 800 }}>{r.ownedQty ?? 0}</td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900, whiteSpace: "nowrap" }}>{money(r.bookValue)}</td>
+                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>{r.ownedQty ?? 0}</td>
 
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
-                        <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-                          <Link href={`/cards/${encodeURIComponent(String(r.cardId))}`} style={{ textDecoration: "underline", fontWeight: 900 }}>
+                      <td style={{ padding: 6, borderBottom: "1px solid #eee" }}>
+                        <div className="checklistActions">
+                          <Link href={`/cards/${encodeURIComponent(String(r.cardId))}`} style={actionLinkStyle}>
                             Details
                           </Link>
 
-                          <button
-                            onClick={() => requestOfferForCard(r.cardId)}
-                            disabled={compareMode || offeringCardId === r.cardId}
-                            title={compareMode ? "Switch Viewing to Me to request offers." : "Request a 24h shop offer for this card."}
-                            style={{
-                              ...actionBtnStyle,
-                              opacity: compareMode || offeringCardId === r.cardId ? 0.55 : 1,
-                              cursor: compareMode || offeringCardId === r.cardId ? "not-allowed" : "pointer",
-                            }}
-                          >
-                            {offeringCardId === r.cardId ? "Requesting…" : "Get Offer (24h)"}
-                          </button>
+                          {!compareMode && owned ? (() => {
+                            const status = r.offerStatus ?? { state: "AVAILABLE" as const };
+                            const isActive = status.state === "ACTIVE";
+                            const isLocked = status.state === "LOCKED";
+                            const disabledOffer = offeringCardId === r.cardId || isActive || isLocked;
+                            const label =
+                              offeringCardId === r.cardId
+                                ? "Offering…"
+                                : isActive
+                                  ? "Offer Active"
+                                  : isLocked
+                                    ? `Offer ${compactTimeUntil(status.lockedUntil)}`
+                                    : "Offer";
+
+                            return (
+                              <button
+                                onClick={() => requestOfferForCard(r.cardId)}
+                                disabled={disabledOffer}
+                                title={
+                                  isActive
+                                    ? "An active shop offer already exists for this card."
+                                    : isLocked
+                                      ? `Shop offer available in ${compactTimeUntil(status.lockedUntil)}.`
+                                      : "Request a 24-hour shop offer for this card."
+                                }
+                                style={{
+                                  ...actionBtnStyle,
+                                  minWidth: 62,
+                                  opacity: disabledOffer ? 0.58 : 1,
+                                  background: disabledOffer ? "#f3f4f6" : "white",
+                                  cursor: disabledOffer ? "not-allowed" : "pointer",
+                                }}
+                              >
+                                {label}
+                              </button>
+                            );
+                          })() : null}
+
+                          {!compareMode && owned ? (
+                            <button
+                              onClick={() => createAuctionForCard(r.cardId)}
+                              disabled={auctioningCardId === r.cardId}
+                              title="Create a 24-hour auction for one raw copy of this card."
+                              style={{
+                                ...actionBtnStyle,
+                                opacity: auctioningCardId === r.cardId ? 0.55 : 1,
+                                cursor: auctioningCardId === r.cardId ? "not-allowed" : "pointer",
+                              }}
+                            >
+                              {auctioningCardId === r.cardId ? "Creating…" : "Auction"}
+                            </button>
+                          ) : null}
                         </div>
                       </td>
                     </tr>
