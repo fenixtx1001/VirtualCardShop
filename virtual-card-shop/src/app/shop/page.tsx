@@ -64,6 +64,7 @@ type ShopOfferRow = {
   createdAt: string;
   expiresAt: string;
   acceptedAt: string | null;
+  rejectedAt?: string | null;
   acceptedQty?: number | null;
   acceptedTotalCents?: number | null;
   card?: OfferCard;
@@ -1306,6 +1307,7 @@ function SinglesShopTab() {
   const [sellBuckets, setSellBuckets] = useState<Record<number, OfferSellBucket[]>>({});
   const [bucketLoading, setBucketLoading] = useState<Record<number, boolean>>({});
   const [sellingOfferId, setSellingOfferId] = useState<number | null>(null);
+  const [rejectingOfferId, setRejectingOfferId] = useState<number | null>(null);
 
   const [invRows, setInvRows] = useState<ShopInventoryRow[]>([]);
   const [invLoading, setInvLoading] = useState(false);
@@ -1411,7 +1413,7 @@ function SinglesShopTab() {
 
       if (!res.ok) throw new Error(j?.error ?? `Offer request failed (${res.status})`);
 
-      setOffersMsg(j?.reused ? "Offer already active for that card (reused)." : "Offer created.");
+      setOffersMsg(j?.reused ? "Offer already active for that card (reused)." : "Offer created. Accept it, reject it, or let it expire; the card will be locked from new shop offers for 24 hours after a pass/expiry.");
       setRequestCardId("");
       await loadOffers();
     } catch (e: any) {
@@ -1457,6 +1459,48 @@ function SinglesShopTab() {
       setSellBuckets((prev) => ({ ...prev, [o.id]: [] }));
     } finally {
       setBucketLoading((prev) => ({ ...prev, [o.id]: false }));
+    }
+  }
+
+
+  async function rejectOffer(offerId: number) {
+    const ok = window.confirm("Reject this shop offer? You will not be able to request another offer for this card for 24 hours.");
+    if (!ok) return;
+
+    setRejectingOfferId(offerId);
+    setOffersErr(null);
+    setOffersMsg(null);
+
+    try {
+      const res = await fetch("/api/shop/singles/offers", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ offerId, action: "reject" }),
+      });
+
+      const raw = await res.text();
+      let j: any = {};
+      try {
+        j = raw ? JSON.parse(raw) : {};
+      } catch {
+        throw new Error(`Non-JSON from reject (${res.status}): ${raw.slice(0, 120)}`);
+      }
+
+      if (!res.ok) throw new Error(j?.error ?? `Reject failed (${res.status})`);
+
+      setOffersMsg("Offer rejected. This card is locked from new shop offers for 24 hours.");
+
+      setSellBuckets((prev) => {
+        const next = { ...prev };
+        delete next[offerId];
+        return next;
+      });
+
+      await loadOffers();
+    } catch (e: any) {
+      setOffersErr(e?.message ?? "Reject failed");
+    } finally {
+      setRejectingOfferId(null);
     }
   }
 
@@ -1547,7 +1591,8 @@ function SinglesShopTab() {
     <div style={{ fontFamily: "system-ui" }}>
       <h2 style={{ fontSize: 22, fontWeight: 900, margin: "0 0 6px" }}>Singles</h2>
       <div style={{ color: "#444", marginBottom: 12 }}>
-        Sell cards to the shop via 24h offers (max <b>15 active offers</b>). Buy singles from shop inventory at{" "}
+        Sell cards to the shop via 24h offers. Accept for immediate cash, reject to pass, or let an offer expire.
+        Passing or expiring locks that specific card from new shop offers for <b>24 hours</b>. Buy singles from shop inventory at{" "}
         <b>100% book</b>.
       </div>
 
@@ -1567,7 +1612,7 @@ function SinglesShopTab() {
         <div style={{ border: "1px solid #ddd", borderRadius: 14, padding: 12, background: "#fafafa" }}>
           <div style={{ fontWeight: 900, marginBottom: 8 }}>Request an offer</div>
           <div style={{ fontSize: 12, color: "#555", marginBottom: 10 }}>
-            Current active offers: <b>{activeCount}</b> / 15
+            Active offers: <b>{activeCount}</b> • No global offer cap
           </div>
 
           <YourCardsPicker
@@ -1628,7 +1673,7 @@ function SinglesShopTab() {
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 12 }}>
             <div style={{ fontWeight: 900 }}>Active Offers</div>
             <div style={{ fontSize: 12, color: "#666" }}>
-              Offers expire automatically. Accepting any quantity closes the offer immediately.
+              Accept for instant cash, or reject to clear the offer and start the 24-hour card lockout.
             </div>
           </div>
 
@@ -1667,17 +1712,18 @@ function SinglesShopTab() {
                       border: "1px solid #eee",
                       borderRadius: 14,
                       padding: 12,
-                      background: selectedGrade === 0 ? "#fcfcfc" : "#fffdf3",
+                      background: selectedGrade === 0 ? "linear-gradient(135deg, #ffffff, #fafafa)" : "linear-gradient(135deg, #fffdf3, #fff8dd)",
+                      boxShadow: "0 10px 26px rgba(15, 23, 42, 0.05)",
                       display: "grid",
-                      gridTemplateColumns: "64px 1fr",
+                      gridTemplateColumns: "72px 1fr",
                       gap: 12,
                       alignItems: "center",
                     }}
                   >
                     <div
                       style={{
-                        width: 64,
-                        height: 64,
+                        width: 72,
+                        height: 72,
                         borderRadius: 12,
                         overflow: "hidden",
                         border: "1px solid #ddd",
@@ -1751,19 +1797,41 @@ function SinglesShopTab() {
 
                         <button
                           onClick={() => sellOffer(o.id)}
-                          disabled={sellingOfferId === o.id || bucketLoading[o.id] || buckets.length === 0}
+                          disabled={sellingOfferId === o.id || bucketLoading[o.id] || buckets.length === 0 || rejectingOfferId === o.id}
                           style={{
-                            padding: "9px 10px",
+                            padding: "9px 12px",
                             borderRadius: 10,
-                            border: "1px solid #ccc",
+                            border: "1px solid #14532d",
                             background:
-                              sellingOfferId === o.id || bucketLoading[o.id] || buckets.length === 0 ? "#f2f2f2" : "white",
-                            fontWeight: 900,
+                              sellingOfferId === o.id || bucketLoading[o.id] || buckets.length === 0 || rejectingOfferId === o.id
+                                ? "#f2f2f2"
+                                : "#dcfce7",
+                            color: "#14532d",
+                            fontWeight: 1000,
                             cursor:
-                              sellingOfferId === o.id || bucketLoading[o.id] || buckets.length === 0 ? "not-allowed" : "pointer",
+                              sellingOfferId === o.id || bucketLoading[o.id] || buckets.length === 0 || rejectingOfferId === o.id
+                                ? "not-allowed"
+                                : "pointer",
                           }}
                         >
-                          {sellingOfferId === o.id ? "Selling…" : "Sell to Shop"}
+                          {sellingOfferId === o.id ? "Selling…" : "Accept / Sell"}
+                        </button>
+
+                        <button
+                          onClick={() => rejectOffer(o.id)}
+                          disabled={rejectingOfferId === o.id || sellingOfferId === o.id}
+                          style={{
+                            padding: "9px 12px",
+                            borderRadius: 10,
+                            border: "1px solid #fecaca",
+                            background: rejectingOfferId === o.id || sellingOfferId === o.id ? "#f2f2f2" : "#fff7f7",
+                            color: "#991b1b",
+                            fontWeight: 950,
+                            cursor: rejectingOfferId === o.id || sellingOfferId === o.id ? "not-allowed" : "pointer",
+                          }}
+                          title="Reject this offer and lock this card from new shop offers for 24 hours"
+                        >
+                          {rejectingOfferId === o.id ? "Rejecting…" : "Reject"}
                         </button>
                       </div>
                     </div>

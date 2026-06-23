@@ -68,6 +68,7 @@ export async function POST(req: Request) {
           offerBps: true,
           expiresAt: true,
           acceptedAt: true,
+          rejectedAt: true,
         },
       });
 
@@ -81,6 +82,10 @@ export async function POST(req: Request) {
 
       if (offer.acceptedAt) {
         return { ok: false as const, status: 400 as const, error: "Offer already accepted." };
+      }
+
+      if (offer.rejectedAt) {
+        return { ok: false as const, status: 400 as const, error: "Offer already rejected." };
       }
 
       if (offer.expiresAt.getTime() <= now.getTime()) {

@@ -426,6 +426,7 @@ model ShopOffer {
   createdAt          DateTime @default(now())
   expiresAt          DateTime
   acceptedAt         DateTime?
+  rejectedAt         DateTime?
   acceptedQty        Int      @default(0)
   acceptedTotalCents Int      @default(0)
 
@@ -433,6 +434,7 @@ model ShopOffer {
   card Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
 
   @@index([userId, expiresAt])
+  @@index([userId, rejectedAt])
   @@index([userId, cardId])
   @@index([cardId])
 }

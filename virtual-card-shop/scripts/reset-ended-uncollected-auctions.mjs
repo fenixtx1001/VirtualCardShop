@@ -15,29 +15,26 @@ async function main() {
     },
     select: {
       id: true,
-      currentBidCents: true,
-      sellerUserId: true,
-      cardId: true,
     },
     orderBy: {
       endedAt: "desc",
     },
   });
 
-  console.log(`Found ${auctions.length} ended, uncollected auctions to reset.`);
+  console.log(`Found ${auctions.length} ended, uncollected auctions to restart.`);
 
   for (const auction of auctions) {
     await prisma.$transaction(async (tx) => {
       await tx.auctionBid.deleteMany({
-        where: {
-          auctionId: auction.id,
-        },
+        where: { auctionId: auction.id },
+      });
+
+      await tx.auctionBidIntent.deleteMany({
+        where: { auctionId: auction.id },
       });
 
       await tx.auction.update({
-        where: {
-          id: auction.id,
-        },
+        where: { id: auction.id },
         data: {
           status: "ACTIVE",
           currentBidCents: 0,
@@ -50,7 +47,7 @@ async function main() {
       });
     });
 
-    console.log(`Reset auction ${auction.id}`);
+    console.log(`Restarted auction ${auction.id}`);
   }
 
   console.log("Done.");
