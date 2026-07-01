@@ -284,10 +284,15 @@ function getIntentMaxCents(input: {
 
   if (input.count <= 1 || input.index === input.count - 1) return max;
 
+  if (input.index === input.count - 2) {
+    const supportBid = max - calculateBidIncrementCents(max);
+    return Math.max(start, Math.min(max - 1, supportBid));
+  }
+
   const progress = input.index / (input.count - 1);
-  const curved = Math.pow(progress, 1.25);
-  const jitter = (seededNumber(input.auctionIdSeed * 101 + input.index * 31) - 0.5) * 0.08;
-  const adjusted = clamp(curved + jitter, 0.02, 0.98);
+  const curved = Math.pow(progress, 1.15);
+  const jitter = (seededNumber(input.auctionIdSeed * 101 + input.index * 31) - 0.5) * 0.06;
+  const adjusted = clamp(curved + jitter, 0.04, 0.92);
 
   return Math.max(start, Math.min(max - 1, start + Math.round((max - start) * adjusted)));
 }
