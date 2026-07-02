@@ -398,7 +398,7 @@ export async function processAuctionLifecycle(input?: {
   limit?: number;
 }): Promise<ProcessAuctionResult> {
   const now = new Date();
-  const limit = input?.limit ?? 50;
+  const limit = input?.limit ?? 250;
 
   const auctions = await prisma.auction.findMany({
     where: {
