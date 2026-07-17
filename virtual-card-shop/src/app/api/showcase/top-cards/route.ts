@@ -1,12 +1,51 @@
+import { Prisma } from "@prisma/client";
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+
 import { requireUser } from "@/lib/current-user";
+import { prisma } from "@/lib/prisma";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+type GradeFilter = "overall" | "raw" | "10" | "9" | "8" | "7" | "6";
+
+const VALID_GRADE_FILTERS = new Set<GradeFilter>([
+  "overall",
+  "raw",
+  "10",
+  "9",
+  "8",
+  "7",
+  "6",
+]);
+
 function clampInt(n: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n));
+}
+
+function normalizeGradeFilter(value: string | null): GradeFilter {
+  const normalized = (value ?? "overall").trim().toLowerCase();
+
+  if (VALID_GRADE_FILTERS.has(normalized as GradeFilter)) {
+    return normalized as GradeFilter;
+  }
+
+  return "overall";
+}
+
+function gradeNumberForFilter(filter: GradeFilter): number | null {
+  if (filter === "overall") return null;
+  if (filter === "raw") return 0;
+
+  return Number(filter);
+}
+
+function buildGradeFilterSql(grade: number | null) {
+  if (grade === null) {
+    return Prisma.empty;
+  }
+
+  return Prisma.sql`AND mb.grade = ${grade}`;
 }
 
 export async function GET(req: Request) {
@@ -16,50 +55,69 @@ export async function GET(req: Request) {
 
     const userId = (url.searchParams.get("userId") ?? "").trim() || me.id;
 
-    const page = clampInt(parseInt(url.searchParams.get("page") ?? "1", 10) || 1, 1, 9999);
-    const pageSize = clampInt(parseInt(url.searchParams.get("pageSize") ?? "20", 10) || 20, 5, 50);
+    const page = clampInt(
+      parseInt(url.searchParams.get("page") ?? "1", 10) || 1,
+      1,
+      9999
+    );
+
+    const pageSize = clampInt(
+      parseInt(url.searchParams.get("pageSize") ?? "20", 10) || 20,
+      5,
+      50
+    );
+
+    const gradeFilter = normalizeGradeFilter(
+      url.searchParams.get("grade")
+    );
+
+    const selectedGrade = gradeNumberForFilter(gradeFilter);
+    const gradeFilterSql = buildGradeFilterSql(selectedGrade);
 
     const maxTotal = 100;
 
-    const totalRow = await prisma.$queryRaw<Array<{ total: number }>>`
-      WITH card_buckets AS (
-        SELECT
-          co."cardId",
-          co.grade,
-          SUM(co.quantity)::int AS qty
-        FROM "CardOwnership" co
-        JOIN "Card" c ON c.id = co."cardId"
-        WHERE co."userId" = ${userId}
-          AND co.quantity > 0
-          AND c."bookValue" IS NOT NULL
-        GROUP BY co."cardId", co.grade
+    const totalRow = await prisma.$queryRaw<Array<{ total: number }>>(
+      Prisma.sql`
+        WITH card_buckets AS (
+          SELECT
+            co."cardId",
+            co.grade,
+            SUM(co.quantity)::int AS qty
+          FROM "CardOwnership" co
+          JOIN "Card" c ON c.id = co."cardId"
+          WHERE co."userId" = ${userId}
+            AND co.quantity > 0
+            AND c."bookValue" IS NOT NULL
+          GROUP BY co."cardId", co.grade
 
-        UNION ALL
+          UNION ALL
 
-        SELECT
-          go."cardId",
-          0 AS grade,
-          SUM(go.quantity)::int AS qty
-        FROM "GradingOrder" go
-        JOIN "Card" c ON c.id = go."cardId"
-        WHERE go."userId" = ${userId}
-          AND go.status IN ('PENDING', 'READY')
-          AND go.quantity > 0
-          AND c."bookValue" IS NOT NULL
-        GROUP BY go."cardId"
-      ),
-      merged_buckets AS (
-        SELECT
-          "cardId",
-          grade,
-          SUM(qty)::int AS qty
-        FROM card_buckets
-        GROUP BY "cardId", grade
-      )
-      SELECT COUNT(*)::int AS total
-      FROM merged_buckets
-      WHERE qty > 0
-    `;
+          SELECT
+            go."cardId",
+            0 AS grade,
+            SUM(go.quantity)::int AS qty
+          FROM "GradingOrder" go
+          JOIN "Card" c ON c.id = go."cardId"
+          WHERE go."userId" = ${userId}
+            AND go.status IN ('PENDING', 'READY')
+            AND go.quantity > 0
+            AND c."bookValue" IS NOT NULL
+          GROUP BY go."cardId"
+        ),
+        merged_buckets AS (
+          SELECT
+            "cardId",
+            grade,
+            SUM(qty)::int AS qty
+          FROM card_buckets
+          GROUP BY "cardId", grade
+        )
+        SELECT COUNT(*)::int AS total
+        FROM merged_buckets mb
+        WHERE mb.qty > 0
+        ${gradeFilterSql}
+      `
+    );
 
     const totalAll = totalRow?.[0]?.total ?? 0;
     const total = Math.min(totalAll, maxTotal);
@@ -89,83 +147,94 @@ export async function GET(req: Request) {
 
         frontImageUrl: string | null;
       }>
-    >`
-      WITH card_buckets AS (
+    >(
+      Prisma.sql`
+        WITH card_buckets AS (
+          SELECT
+            co."cardId",
+            co.grade,
+            SUM(co.quantity)::int AS qty
+          FROM "CardOwnership" co
+          JOIN "Card" c ON c.id = co."cardId"
+          WHERE co."userId" = ${userId}
+            AND co.quantity > 0
+            AND c."bookValue" IS NOT NULL
+          GROUP BY co."cardId", co.grade
+
+          UNION ALL
+
+          SELECT
+            go."cardId",
+            0 AS grade,
+            SUM(go.quantity)::int AS qty
+          FROM "GradingOrder" go
+          JOIN "Card" c ON c.id = go."cardId"
+          WHERE go."userId" = ${userId}
+            AND go.status IN ('PENDING', 'READY')
+            AND go.quantity > 0
+            AND c."bookValue" IS NOT NULL
+          GROUP BY go."cardId"
+        ),
+        merged_buckets AS (
+          SELECT
+            "cardId",
+            grade,
+            SUM(qty)::int AS qty
+          FROM card_buckets
+          GROUP BY "cardId", grade
+        )
         SELECT
-          co."cardId",
-          co.grade,
-          SUM(co.quantity)::int AS qty
-        FROM "CardOwnership" co
-        JOIN "Card" c ON c.id = co."cardId"
-        WHERE co."userId" = ${userId}
-          AND co.quantity > 0
-          AND c."bookValue" IS NOT NULL
-        GROUP BY co."cardId", co.grade
+          c.id AS "cardId",
+          c."cardNumber" AS "cardNumber",
+          c.player AS "player",
+          c.team AS "team",
+          c.subset AS "subset",
+          c.variant AS "variant",
 
-        UNION ALL
+          COALESCE(ps."isInsert", false) AS "isInsert",
+          c."productSetId" AS "productSetId",
+          COALESCE(NULLIF(TRIM(ps.name), ''), ps.id) AS "productSetName",
 
-        SELECT
-          go."cardId",
-          0 AS grade,
-          SUM(go.quantity)::int AS qty
-        FROM "GradingOrder" go
-        JOIN "Card" c ON c.id = go."cardId"
-        WHERE go."userId" = ${userId}
-          AND go.status IN ('PENDING', 'READY')
-          AND go.quantity > 0
-          AND c."bookValue" IS NOT NULL
-        GROUP BY go."cardId"
-      ),
-      merged_buckets AS (
-        SELECT
-          "cardId",
-          grade,
-          SUM(qty)::int AS qty
-        FROM card_buckets
-        GROUP BY "cardId", grade
-      )
-      SELECT
-        c.id AS "cardId",
-        c."cardNumber" AS "cardNumber",
-        c.player AS "player",
-        c.team AS "team",
-        c.subset AS "subset",
-        c.variant AS "variant",
+          mb.grade::int AS "grade",
 
-        COALESCE(ps."isInsert", false) AS "isInsert",
-        c."productSetId" AS "productSetId",
-        COALESCE(NULLIF(TRIM(ps.name), ''), ps.id) AS "productSetName",
+          CASE
+            WHEN mb.grade = 0 THEN 'Raw'
+            ELSE CONCAT('VCS ', mb.grade)
+          END AS "gradeLabel",
 
-        mb.grade::int AS "grade",
-        CASE
-          WHEN mb.grade = 0 THEN 'Raw'
-          ELSE CONCAT('VCS ', mb.grade)
-        END AS "gradeLabel",
+          c."bookValue"::float AS "bookValue",
+          mb.qty::int AS "qty",
 
-        c."bookValue"::float AS "bookValue",
-        mb.qty::int AS "qty",
+          (
+            c."bookValue" *
+            CASE mb.grade
+              WHEN 6 THEN 0.8
+              WHEN 7 THEN 1.05
+              WHEN 8 THEN 1.45
+              WHEN 9 THEN 2.6
+              WHEN 10 THEN 15.0
+              ELSE 1.0
+            END
+          )::float AS "ownedValue",
 
-        (
-          c."bookValue" *
-          CASE mb.grade
-            WHEN 6 THEN 0.8
-            WHEN 7 THEN 1.05
-            WHEN 8 THEN 1.45
-            WHEN 9 THEN 2.6
-            WHEN 10 THEN 15.0
-            ELSE 1.0
-          END
-        )::float AS "ownedValue",
+          c."frontImageUrl" AS "frontImageUrl"
 
-        c."frontImageUrl" AS "frontImageUrl"
-      FROM merged_buckets mb
-      JOIN "Card" c ON c.id = mb."cardId"
-      LEFT JOIN "ProductSet" ps ON ps.id = c."productSetId"
-      WHERE mb.qty > 0
-      ORDER BY "ownedValue" DESC, mb.qty DESC, c.id DESC
-      LIMIT ${Math.min(pageSize, maxTotal)}
-      OFFSET ${Math.min(safeOffset, maxTotal)}
-    `;
+        FROM merged_buckets mb
+        JOIN "Card" c ON c.id = mb."cardId"
+        LEFT JOIN "ProductSet" ps ON ps.id = c."productSetId"
+
+        WHERE mb.qty > 0
+        ${gradeFilterSql}
+
+        ORDER BY
+          "ownedValue" DESC,
+          mb.qty DESC,
+          c.id DESC
+
+        LIMIT ${Math.min(pageSize, maxTotal)}
+        OFFSET ${Math.min(safeOffset, maxTotal)}
+      `
+    );
 
     return NextResponse.json(
       {
@@ -174,13 +243,20 @@ export async function GET(req: Request) {
         pageSize,
         total,
         totalPages,
+        gradeFilter,
         rows,
       },
       { status: 200 }
     );
-  } catch (e: any) {
+  } catch (e: unknown) {
+    const message =
+      e instanceof Error ? e.message : "Failed to load top cards";
+
     return NextResponse.json(
-      { ok: false, error: e?.message ?? "Failed to load top cards" },
+      {
+        ok: false,
+        error: message,
+      },
       { status: 500 }
     );
   }

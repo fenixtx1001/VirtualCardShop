@@ -51,6 +51,18 @@ type TopCardsResponse = {
   error?: string;
 };
 
+type GradeFilter = "overall" | "raw" | "10" | "9" | "8" | "7" | "6";
+
+const TOP_CARD_GRADE_FILTERS: Array<{ value: GradeFilter; label: string }> = [
+  { value: "overall", label: "Overall" },
+  { value: "raw", label: "Raw" },
+  { value: "10", label: "VCS 10" },
+  { value: "9", label: "VCS 9" },
+  { value: "8", label: "VCS 8" },
+  { value: "7", label: "VCS 7" },
+  { value: "6", label: "VCS 6" },
+];
+
 type FavoriteCard = {
   id: number;
   productSetId: string | null;
@@ -507,6 +519,7 @@ export default function ShowcaseClient() {
   const [jumpTo, setJumpTo] = useState<string>("");
 
   const [viewMode, setViewMode] = useState<"cards" | "table">("cards");
+  const [topGradeFilter, setTopGradeFilter] = useState<GradeFilter>("overall");
 
   const [favCards, setFavCards] = useState<FavoriteCard[]>([]);
   const [favLoading, setFavLoading] = useState(false);
@@ -555,7 +568,7 @@ export default function ShowcaseClient() {
     }
   }
 
-  async function loadTopCards(userId: string, page: number) {
+  async function loadTopCards(userId: string, page: number, gradeFilter: GradeFilter) {
     setTopLoading(true);
     setTopErr(null);
     try {
@@ -563,6 +576,7 @@ export default function ShowcaseClient() {
       if (userId) qs.set("userId", userId);
       qs.set("page", String(page));
       qs.set("pageSize", String(topPageSize));
+      qs.set("grade", gradeFilter);
 
       const res = await fetch(`/api/showcase/top-cards?${qs.toString()}`, { cache: "no-store" });
       const raw = await res.text();
@@ -739,23 +753,23 @@ export default function ShowcaseClient() {
     setTopPage(1);
     setJumpTo("");
     setSelectedPrestigeBucket(null);
-    loadTopCards(selectedUserId, 1);
+    loadTopCards(selectedUserId, 1, topGradeFilter);
     loadFavoritesRandom();
     loadPrestige();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedUserId]);
+  }, [selectedUserId, topGradeFilter]);
 
   useEffect(() => {
     function onCollectionChanged() {
       loadLeaderboard();
-      loadTopCards(selectedUserId, topPage);
+      loadTopCards(selectedUserId, topPage, topGradeFilter);
       loadPrestige();
     }
 
     window.addEventListener("vcs:collection-changed", onCollectionChanged);
     return () => window.removeEventListener("vcs:collection-changed", onCollectionChanged);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedUserId, topPage]);
+  }, [selectedUserId, topPage, topGradeFilter]);
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -787,6 +801,9 @@ export default function ShowcaseClient() {
     return u ? formatUserLabel(u) : "User";
   }, [selectedUserId, users]);
 
+  const selectedTopGradeLabel =
+    TOP_CARD_GRADE_FILTERS.find((option) => option.value === topGradeFilter)?.label ?? "Overall";
+
   const canPrevTop = topPage > 1;
   const canNextTop = topPage < topTotalPages;
 
@@ -794,20 +811,20 @@ export default function ShowcaseClient() {
     if (!canPrevTop || topLoading) return;
     const next = topPage - 1;
     setTopPage(next);
-    loadTopCards(selectedUserId, next);
+    loadTopCards(selectedUserId, next, topGradeFilter);
   }
 
   function goTopNext() {
     if (!canNextTop || topLoading) return;
     const next = topPage + 1;
     setTopPage(next);
-    loadTopCards(selectedUserId, next);
+    loadTopCards(selectedUserId, next, topGradeFilter);
   }
 
   function doTopJump() {
     const n = clampInt(parseInt(jumpTo || "1", 10) || 1, 1, topTotalPages);
     setTopPage(n);
-    loadTopCards(selectedUserId, n);
+    loadTopCards(selectedUserId, n, topGradeFilter);
   }
 
   const favCurrent = favCards[favIdx] ?? null;
@@ -837,6 +854,31 @@ export default function ShowcaseClient() {
         }
         .vcs-btn:disabled {
           opacity: 0.6;
+          cursor: not-allowed;
+        }
+        .vcs-grade-filter-row {
+          display: flex;
+          gap: 8px;
+          overflow-x: auto;
+          padding: 2px 0 6px;
+          scrollbar-width: thin;
+          -webkit-overflow-scrolling: touch;
+        }
+        .vcs-grade-filter-btn {
+          flex: 0 0 auto;
+          min-width: 82px;
+          border: 1px solid ${colors.border};
+          border-radius: 999px;
+          padding: 9px 13px;
+          font-weight: 950;
+          cursor: pointer;
+          white-space: nowrap;
+          transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+        }
+        .vcs-grade-filter-btn:hover:not(:disabled) {
+          transform: translateY(-1px);
+        }
+        .vcs-grade-filter-btn:disabled {
           cursor: not-allowed;
         }
         .vcs-flip-wrap {
@@ -958,7 +1000,7 @@ export default function ShowcaseClient() {
               <button
                 onClick={() => {
                   loadLeaderboard();
-                  loadTopCards(selectedUserId, topPage);
+                  loadTopCards(selectedUserId, topPage, topGradeFilter);
                   loadFavoritesRandom();
                   loadPrestige();
                 }}
@@ -1518,7 +1560,8 @@ export default function ShowcaseClient() {
             <div>
               <div style={{ fontSize: 16, fontWeight: 900 }}>Top Cards by Value</div>
               <div style={{ marginTop: 4, fontSize: 13, color: colors.subtext }}>
-                Top 100 for <span style={{ fontWeight: 900 }}>{selectedLabel}</span> ranked by <b>single-card</b> current value.
+                Top 100 for <span style={{ fontWeight: 900 }}>{selectedLabel}</span> ranked by <b>single-card</b> current value
+                {topGradeFilter === "overall" ? "." : ` • ${selectedTopGradeLabel} only.`}
               </div>
             </div>
 
@@ -1579,6 +1622,57 @@ export default function ShowcaseClient() {
             </div>
           </div>
 
+          <div style={{ marginTop: 12 }}>
+            <div style={{ marginBottom: 7, fontSize: 12, color: colors.subtext, fontWeight: 900 }}>
+              Filter by condition
+            </div>
+
+            <div className="vcs-grade-filter-row" role="group" aria-label="Filter top cards by grade">
+              {TOP_CARD_GRADE_FILTERS.map((option) => {
+                const active = topGradeFilter === option.value;
+
+                return (
+                  <button
+                    key={option.value}
+                    type="button"
+                    className="vcs-grade-filter-btn"
+                    onClick={() => setTopGradeFilter(option.value)}
+                    disabled={topLoading && active}
+                    aria-pressed={active}
+                    style={{
+                      background: active
+                        ? option.value === "overall"
+                          ? "#1f1f1f"
+                          : option.value === "raw"
+                            ? "#f2efe9"
+                            : "linear-gradient(135deg, #2f6fed 0%, #5d8df2 100%)"
+                        : "#ffffff",
+                      color: active
+                        ? option.value === "raw"
+                          ? colors.text
+                          : "#ffffff"
+                        : colors.text,
+                      borderColor: active
+                        ? option.value === "overall"
+                          ? "#1f1f1f"
+                          : option.value === "raw"
+                            ? "#cfc8bc"
+                            : colors.accent
+                        : colors.border,
+                      boxShadow: active
+                        ? option.value === "raw"
+                          ? "0 8px 18px rgba(31,31,31,0.08)"
+                          : "0 8px 20px rgba(47,111,237,0.20)"
+                        : "none",
+                    }}
+                  >
+                    {option.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
           {topErr ? (
             <div
               style={{
@@ -1596,7 +1690,9 @@ export default function ShowcaseClient() {
           {topLoading ? (
             <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>Loading…</div>
           ) : topCards.length === 0 ? (
-            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>No owned cards yet (or no book values set).</div>
+            <div style={{ marginTop: 12, color: colors.subtext, fontWeight: 800 }}>
+              No {topGradeFilter === "overall" ? "" : `${selectedTopGradeLabel} `}owned cards found with a book value.
+            </div>
           ) : viewMode === "table" ? (
             <div style={{ marginTop: 12, overflowX: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 980 }}>
