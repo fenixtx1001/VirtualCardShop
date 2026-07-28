@@ -25,6 +25,13 @@ type OwnershipBucket = {
   valueCents: number;
 };
 
+type PopulationBucket = {
+  grade: number;
+  label: string;
+  quantity: number;
+  percentage: number;
+};
+
 type OwnerAccumulator = {
   userId: string;
   rawQuantity: number;
@@ -312,6 +319,28 @@ export async function GET(req: Request, ctx: Ctx) {
     const totalPendingGrading = owners.reduce((sum, o) => sum + o.pendingGradingQuantity, 0);
     const totalValueCents = owners.reduce((sum, o) => sum + o.totalValueCents, 0);
 
+    const populationByGrade = new Map<number, number>();
+
+    for (const row of ownershipRows) {
+      const grade = row.grade ?? RAW_GRADE;
+      const quantity = row.quantity ?? 0;
+
+      if (quantity <= 0) continue;
+
+      populationByGrade.set(grade, (populationByGrade.get(grade) ?? 0) + quantity);
+    }
+
+    const gradeBreakdown: PopulationBucket[] = [RAW_GRADE, 10, 9, 8, 7, 6].map((grade) => {
+      const quantity = populationByGrade.get(grade) ?? 0;
+
+      return {
+        grade,
+        label: grade === RAW_GRADE ? "Raw" : `VCS ${grade}`,
+        quantity,
+        percentage: totalOwned > 0 ? (quantity / totalOwned) * 100 : 0,
+      };
+    });
+
     return NextResponse.json({
       ok: true,
       card: {
@@ -346,6 +375,7 @@ export async function GET(req: Request, ctx: Ctx) {
         graded: totalGraded,
         pendingGrading: totalPendingGrading,
         totalValueCents,
+        gradeBreakdown,
       },
       myOwnership,
       owners,

@@ -14,6 +14,13 @@ type GradeBreakdownRow = {
   valueCents: number;
 };
 
+type PopulationBreakdownRow = {
+  grade: number;
+  label: string;
+  quantity: number;
+  percentage: number;
+};
+
 type SlabRow = {
   grade: number;
   label: string;
@@ -66,6 +73,7 @@ type CardDetailResponse = {
     graded?: number;
     pendingGrading?: number;
     totalValueCents?: number;
+    gradeBreakdown: PopulationBreakdownRow[];
   };
   myOwnership?: OwnerRow | null;
   owners: OwnerRow[];
@@ -145,6 +153,12 @@ function safeUrl(u: string | null | undefined) {
 
 function safeNum(value: unknown, fallback = 0) {
   return typeof value === "number" && Number.isFinite(value) ? value : fallback;
+}
+
+function formatPopulationPercentage(value: number) {
+  if (!Number.isFinite(value) || value <= 0) return "0.0%";
+  if (value < 0.1) return "<0.1%";
+  return `${value.toFixed(1)}%`;
 }
 
 function formatDollarsFromCents(cents: number) {
@@ -1343,10 +1357,89 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                 />
               </div>
 
-              <div style={{ marginTop: 12, display: "grid", gap: 5, color: "#444", fontWeight: 800 }}>
-                <div>Raw: {safeNum(data.population.raw)}</div>
-                <div>Pending VCS: {safeNum(data.population.pendingGrading)}</div>
-                <div>Graded: {safeNum(data.population.graded)}</div>
+              <div
+                style={{
+                  marginTop: 14,
+                  border: "1px solid #dfe5ec",
+                  borderRadius: 16,
+                  overflow: "hidden",
+                  background: "#fff",
+                }}
+              >
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "minmax(100px, 1.2fr) minmax(80px, 0.8fr) minmax(80px, 0.8fr)",
+                    gap: 10,
+                    padding: "10px 12px",
+                    background: "#f7f9fc",
+                    borderBottom: "1px solid #dfe5ec",
+                    color: "#59616c",
+                    fontSize: 12,
+                    fontWeight: 1000,
+                    textTransform: "uppercase",
+                    letterSpacing: 0.45,
+                  }}
+                >
+                  <div>Grade</div>
+                  <div style={{ textAlign: "right" }}>Population</div>
+                  <div style={{ textAlign: "right" }}>Share</div>
+                </div>
+
+                {data.population.gradeBreakdown.map((row, index) => (
+                  <div
+                    key={row.grade}
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "minmax(100px, 1.2fr) minmax(80px, 0.8fr) minmax(80px, 0.8fr)",
+                      gap: 10,
+                      alignItems: "center",
+                      padding: "11px 12px",
+                      borderBottom:
+                        index === data.population.gradeBreakdown.length - 1
+                          ? "none"
+                          : "1px solid #edf0f4",
+                      background: index % 2 === 0 ? "#fff" : "#fcfdff",
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontWeight: 1000,
+                        color: row.grade === 10 ? "#7a5200" : row.grade === 0 ? "#333" : "#16477d",
+                      }}
+                    >
+                      {row.label}
+                    </div>
+                    <div style={{ textAlign: "right", fontWeight: 1000, color: "#222" }}>
+                      {safeNum(row.quantity)}
+                    </div>
+                    <div style={{ textAlign: "right", fontWeight: 900, color: "#4f5965" }}>
+                      {formatPopulationPercentage(safeNum(row.percentage))}
+                    </div>
+                  </div>
+                ))}
+
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "minmax(100px, 1.2fr) minmax(80px, 0.8fr) minmax(80px, 0.8fr)",
+                    gap: 10,
+                    padding: "11px 12px",
+                    borderTop: "1px solid #dfe5ec",
+                    background: "#f7f9fc",
+                    fontWeight: 1000,
+                  }}
+                >
+                  <div>Total</div>
+                  <div style={{ textAlign: "right" }}>{data.population.totalOwned}</div>
+                  <div style={{ textAlign: "right" }}>
+                    {data.population.totalOwned > 0 ? "100.0%" : "0.0%"}
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ marginTop: 10, color: "#69717d", fontSize: 12, fontWeight: 750 }}>
+                Pending VCS cards are excluded from grade percentages until their grades are revealed.
               </div>
             </section>
 
