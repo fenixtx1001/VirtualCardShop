@@ -16,8 +16,15 @@ const CHICAGO_TIME_ZONE = "America/Chicago";
 
 type RangeKey = "TODAY" | "7D" | "30D" | "90D" | "ALL";
 
+type SnapshotPoint = {
+  dateKey: string;
+  balanceCents: number;
+  collectionValueCents: number;
+  netWorthCents: number;
+};
+
 function getDateKey(date: Date) {
-  const parts = new Intl.DateTimeFormat("en-CA", {
+  const parts = new Intl.DateTimeFormat("en-US", {
     timeZone: CHICAGO_TIME_ZONE,
     year: "numeric",
     month: "2-digit",
@@ -29,6 +36,11 @@ function getDateKey(date: Date) {
   const day = parts.find((p) => p.type === "day")?.value ?? "00";
 
   return `${year}-${month}-${day}`;
+}
+
+function dateFromKey(dateKey: string) {
+  const [year, month, day] = dateKey.split("-").map(Number);
+  return new Date(Date.UTC(year, month - 1, day, 12, 0, 0));
 }
 
 function addDays(date: Date, days: number) {
@@ -49,7 +61,25 @@ function makeDateKeys(days: number) {
   const today = new Date();
   const start = addDays(today, -(days - 1));
 
-  return Array.from({ length: days }, (_, i) => getDateKey(addDays(start, i)));
+  return Array.from({ length: days }, (_, i) =>
+    getDateKey(addDays(start, i))
+  );
+}
+
+function makeDateKeysBetween(firstDateKey: string, lastDateKey: string) {
+  const first = dateFromKey(firstDateKey);
+  const last = dateFromKey(lastDateKey);
+  const keys: string[] = [];
+
+  for (
+    let cursor = first;
+    cursor.getTime() <= last.getTime();
+    cursor = addDays(cursor, 1)
+  ) {
+    keys.push(getDateKey(cursor));
+  }
+
+  return keys;
 }
 
 function formatCategory(category: string) {
@@ -62,6 +92,45 @@ function formatCategory(category: string) {
 function getPctChange(startCents: number, endCents: number) {
   if (startCents === 0) return null;
   return Math.round(((endCents - startCents) / startCents) * 1000) / 10;
+}
+
+function buildContinuousSnapshots(
+  rawSnapshots: SnapshotPoint[],
+  requestedDateKeys: string[],
+  fallback: SnapshotPoint
+) {
+  const sortedSnapshots = [...rawSnapshots].sort((a, b) =>
+    a.dateKey.localeCompare(b.dateKey)
+  );
+
+  if (requestedDateKeys.length === 0) {
+    return sortedSnapshots.length > 0 ? sortedSnapshots : [fallback];
+  }
+
+  const byDate = new Map(sortedSnapshots.map((snapshot) => [snapshot.dateKey, snapshot]));
+
+  const firstKnown =
+    sortedSnapshots.find((snapshot) => snapshot.dateKey >= requestedDateKeys[0]) ??
+    sortedSnapshots[0] ??
+    fallback;
+
+  let carried = firstKnown;
+
+  return requestedDateKeys.map((dateKey) => {
+    const exact = byDate.get(dateKey);
+
+    if (exact) {
+      carried = exact;
+      return exact;
+    }
+
+    return {
+      dateKey,
+      balanceCents: carried.balanceCents,
+      collectionValueCents: carried.collectionValueCents,
+      netWorthCents: carried.netWorthCents,
+    };
+  });
 }
 
 async function getCollectionValueCents(userId: string) {
@@ -138,7 +207,10 @@ export async function GET(req: Request) {
     const user = await requireUser();
 
     const url = new URL(req.url);
-    const rangeParam = String(url.searchParams.get("range") ?? "TODAY").toUpperCase();
+    const rangeParam = String(
+      url.searchParams.get("range") ?? "TODAY"
+    ).toUpperCase();
+
     const range: RangeKey =
       rangeParam === "TODAY" ||
       rangeParam === "7D" ||
@@ -154,7 +226,10 @@ export async function GET(req: Request) {
     });
 
     if (!me) {
-      return NextResponse.json({ ok: false, error: "User not found" }, { status: 404 });
+      return NextResponse.json(
+        { ok: false, error: "User not found" },
+        { status: 404 }
+      );
     }
 
     const balanceCents = me.balanceCents ?? 0;
@@ -215,9 +290,11 @@ export async function GET(req: Request) {
     const filteredTransactions =
       range === "ALL"
         ? transactions
-        : transactions.filter((txn) => dateKeySet.has(getDateKey(txn.createdAt)));
+        : transactions.filter((txn) =>
+            dateKeySet.has(getDateKey(txn.createdAt))
+          );
 
-    const snapshots = await prisma.financialDailySnapshot.findMany({
+    const rawSnapshots = await prisma.financialDailySnapshot.findMany({
       where: {
         userId: user.id,
         ...(range === "ALL"
@@ -237,25 +314,37 @@ export async function GET(req: Request) {
       },
     });
 
-    const visibleSnapshots =
-      snapshots.length > 0
-        ? snapshots
-        : [
-            {
-              dateKey: todayKey,
-              balanceCents,
-              collectionValueCents,
-              netWorthCents,
-            },
-          ];
+    const fallbackSnapshot: SnapshotPoint = {
+      dateKey: todayKey,
+      balanceCents,
+      collectionValueCents,
+      netWorthCents,
+    };
+
+    const snapshotDateKeys =
+      range === "ALL" && rawSnapshots.length > 0
+        ? makeDateKeysBetween(rawSnapshots[0].dateKey, todayKey)
+        : dateKeys;
+
+    const visibleSnapshots = buildContinuousSnapshots(
+      rawSnapshots,
+      snapshotDateKeys,
+      fallbackSnapshot
+    );
 
     const firstSnapshot = visibleSnapshots[0];
     const lastSnapshot = visibleSnapshots[visibleSnapshots.length - 1];
 
-    const startingNetWorthCents = firstSnapshot?.netWorthCents ?? netWorthCents;
-    const endingNetWorthCents = lastSnapshot?.netWorthCents ?? netWorthCents;
-    const netWorthChangeCents = endingNetWorthCents - startingNetWorthCents;
-    const netWorthChangePct = getPctChange(startingNetWorthCents, endingNetWorthCents);
+    const startingNetWorthCents =
+      firstSnapshot?.netWorthCents ?? netWorthCents;
+    const endingNetWorthCents =
+      lastSnapshot?.netWorthCents ?? netWorthCents;
+    const netWorthChangeCents =
+      endingNetWorthCents - startingNetWorthCents;
+    const netWorthChangePct = getPctChange(
+      startingNetWorthCents,
+      endingNetWorthCents
+    );
 
     const dailyMap = new Map<
       string,
@@ -268,7 +357,12 @@ export async function GET(req: Request) {
     >();
 
     for (const key of dateKeys) {
-      dailyMap.set(key, { dateKey: key, incomeCents: 0, expenseCents: 0, netCents: 0 });
+      dailyMap.set(key, {
+        dateKey: key,
+        incomeCents: 0,
+        expenseCents: 0,
+        netCents: 0,
+      });
     }
 
     const categoryMap = new Map<
@@ -293,8 +387,11 @@ export async function GET(req: Request) {
           netCents: 0,
         };
 
-      if (txn.amountCents >= 0) existing.incomeCents += txn.amountCents;
-      else existing.expenseCents += Math.abs(txn.amountCents);
+      if (txn.amountCents >= 0) {
+        existing.incomeCents += txn.amountCents;
+      } else {
+        existing.expenseCents += Math.abs(txn.amountCents);
+      }
 
       existing.netCents += txn.amountCents;
       dailyMap.set(dateKey, existing);
@@ -308,8 +405,11 @@ export async function GET(req: Request) {
           netCents: 0,
         };
 
-      if (txn.amountCents >= 0) cat.incomeCents += txn.amountCents;
-      else cat.expenseCents += Math.abs(txn.amountCents);
+      if (txn.amountCents >= 0) {
+        cat.incomeCents += txn.amountCents;
+      } else {
+        cat.expenseCents += Math.abs(txn.amountCents);
+      }
 
       cat.netCents += txn.amountCents;
       categoryMap.set(txn.category, cat);
@@ -319,8 +419,16 @@ export async function GET(req: Request) {
       a.dateKey.localeCompare(b.dateKey)
     );
 
-    const totalIncomeCents = dailyCashflow.reduce((sum, day) => sum + day.incomeCents, 0);
-    const totalExpenseCents = dailyCashflow.reduce((sum, day) => sum + day.expenseCents, 0);
+    const totalIncomeCents = dailyCashflow.reduce(
+      (sum, day) => sum + day.incomeCents,
+      0
+    );
+
+    const totalExpenseCents = dailyCashflow.reduce(
+      (sum, day) => sum + day.expenseCents,
+      0
+    );
+
     const netCashflowCents = totalIncomeCents - totalExpenseCents;
 
     const incomeCategories = Array.from(categoryMap.values())
@@ -343,7 +451,9 @@ export async function GET(req: Request) {
         netCashflowCents,
         roiPct:
           totalExpenseCents > 0
-            ? Math.round((netCashflowCents / totalExpenseCents) * 1000) / 10
+            ? Math.round(
+                (netCashflowCents / totalExpenseCents) * 1000
+              ) / 10
             : null,
         startingNetWorthCents,
         endingNetWorthCents,
@@ -356,10 +466,23 @@ export async function GET(req: Request) {
       expenseCategories,
       recentTransactions: filteredTransactions.slice(0, 30),
     });
-  } catch (e: any) {
+  } catch (e: unknown) {
+    const status =
+      typeof e === "object" &&
+      e !== null &&
+      "status" in e &&
+      typeof (e as { status?: unknown }).status === "number"
+        ? (e as { status: number }).status
+        : 500;
+
+    const message =
+      e instanceof Error
+        ? e.message
+        : "Failed to load finance analytics";
+
     return NextResponse.json(
-      { ok: false, error: e?.message ?? "Failed to load finance analytics" },
-      { status: e?.status ?? 500 }
+      { ok: false, error: message },
+      { status }
     );
   }
 }

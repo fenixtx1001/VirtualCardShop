@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 type Gradeability = "COMMON" | "GREAT" | "ICONIC";
 
 export type VcsSlabProps = {
@@ -149,6 +151,54 @@ function VcsLogo({ accent }: { accent: string }) {
           Grading
         </div>
       </div>
+    </div>
+  );
+}
+
+function SlabCardImage({ src, alt }: { src: string; alt: string }) {
+  const [isLandscape, setIsLandscape] = useState(false);
+
+  useEffect(() => {
+    setIsLandscape(false);
+  }, [src]);
+
+  return (
+    <div
+      style={{
+        width: "100%",
+        aspectRatio: "2.5 / 3.5",
+        position: "relative",
+        overflow: "hidden",
+        borderRadius: 10,
+        border: "1px solid rgba(229,231,235,0.95)",
+        background: "#f8fafc",
+      }}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        onLoad={(event) => {
+          const image = event.currentTarget;
+          setIsLandscape(image.naturalWidth > image.naturalHeight);
+        }}
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          width: isLandscape ? "140%" : "100%",
+          height: isLandscape ? "71.4286%" : "100%",
+          objectFit: "contain",
+          display: "block",
+          background: "#f8fafc",
+          transform: isLandscape
+            ? "translate(-50%, -50%) rotate(90deg)"
+            : "translate(-50%, -50%)",
+          transformOrigin: "center",
+        }}
+      />
     </div>
   );
 }
@@ -372,21 +422,9 @@ export default function VcsSlab({
               }}
             >
               {cleanImageUrl ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
+                <SlabCardImage
                   src={cleanImageUrl}
                   alt={`${player} VCS graded card`}
-                  loading="lazy"
-                  decoding="async"
-                  style={{
-                    width: "100%",
-                    aspectRatio: "2.5 / 3.5",
-                    objectFit: "cover",
-                    display: "block",
-                    borderRadius: 10,
-                    border: "1px solid rgba(229,231,235,0.95)",
-                    background: "#f8fafc",
-                  }}
                 />
               ) : (
                 <div
