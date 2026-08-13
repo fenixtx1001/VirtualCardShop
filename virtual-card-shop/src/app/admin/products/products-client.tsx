@@ -10,6 +10,7 @@ type ProductRow = {
   brand: string | null;
   sport: string | null;
   packPriceCents: number | null;
+  autoPackPricing: boolean;
   packsPerBox: number | null;
   packImageUrl: string | null;
   boxImageUrl: string | null;
@@ -171,6 +172,21 @@ export default function ProductsClient() {
       const map: Record<string, EvItem> = {};
       for (const it of items) map[it.productId] = it;
       setEvByProductId(map);
+
+      setRows((prev) =>
+        prev.map((row) => {
+          const item = map[row.id];
+          if (!item || !row.autoPackPricing) return row;
+          return { ...row, packPriceCents: Math.round(item.packPriceDollars * 100) };
+        })
+      );
+      setPackPriceDisplay((prev) => {
+        const next = { ...prev };
+        for (const item of items) {
+          next[item.productId] = item.packPriceDollars.toFixed(2);
+        }
+        return next;
+      });
     } catch (e: any) {
       setEvError(e?.message ?? "Failed to load EV");
     } finally {
@@ -192,6 +208,17 @@ export default function ProductsClient() {
       const it = items.find((x) => x.productId === productId);
       if (it) {
         setEvByProductId((prev) => ({ ...prev, [productId]: it }));
+        setRows((prev) =>
+          prev.map((row) =>
+            row.id === productId && row.autoPackPricing
+              ? { ...row, packPriceCents: Math.round(it.packPriceDollars * 100) }
+              : row
+          )
+        );
+        setPackPriceDisplay((prev) => ({
+          ...prev,
+          [productId]: it.packPriceDollars.toFixed(2),
+        }));
       }
     } catch (e: any) {
       setEvError(e?.message ?? "Failed to refresh EV");
@@ -232,6 +259,7 @@ export default function ProductsClient() {
           brand: latest.brand,
           sport: latest.sport,
           packPriceCents: latest.packPriceCents ?? 0,
+          autoPackPricing: latest.autoPackPricing,
           packsPerBox: latest.packsPerBox,
           packImageUrl: latest.packImageUrl,
           boxImageUrl: latest.boxImageUrl,
@@ -514,6 +542,7 @@ export default function ProductsClient() {
                   "Sport",
                   "Released",
                   "Pack Price ($)",
+                  "Auto Price",
                   "Packs/Box",
                   "Product Sets",
                   "Avg Return/Pack ($)",
@@ -603,7 +632,36 @@ export default function ProductsClient() {
                         value={getPackDisplay(r)}
                         onChange={(e) => setPackDisplay(r.id, e.target.value)}
                         onBlur={() => commitPackDisplayToCents(r.id)}
-                        style={{ width: 110, padding: 6 }}
+                        disabled={r.autoPackPricing}
+                        title={
+                          r.autoPackPricing
+                            ? "Automatic pricing targets an EV-to-price ratio of 2.00."
+                            : "Manual pack price"
+                        }
+                        style={{
+                          width: 110,
+                          padding: 6,
+                          background: r.autoPackPricing ? "#f3f3f3" : "#fff",
+                          color: r.autoPackPricing ? "#666" : "#000",
+                        }}
+                      />
+                    </td>
+
+                    <td
+                      style={{
+                        padding: 8,
+                        borderBottom: "1px solid #eee",
+                        textAlign: "center",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={r.autoPackPricing}
+                        onChange={(e) =>
+                          updateRow(r.id, { autoPackPricing: e.target.checked })
+                        }
+                        title="Automatically target an EV-to-price ratio of 2.00"
                       />
                     </td>
 

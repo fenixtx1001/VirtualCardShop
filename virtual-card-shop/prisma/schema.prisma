@@ -71,6 +71,7 @@ model Product {
   brand             String?
   sport             String?
   packPriceCents    Int?              @default(0)
+  autoPackPricing   Boolean           @default(true)
   packsPerBox       Int?
   packImageUrl      String?
   boxImageUrl       String?

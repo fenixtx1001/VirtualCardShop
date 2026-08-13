@@ -17,6 +17,7 @@ type ProductResponse = {
   brand: string | null;
   sport: string | null;
   packPriceCents: number | null;
+  autoPackPricing: boolean;
   packsPerBox: number | null;
   packImageUrl: string | null;
   boxImageUrl: string | null;
@@ -102,6 +103,7 @@ export default function ProductDetailClient({ productId }: { productId: string }
           brand: data.brand,
           sport: data.sport,
           packPriceCents: data.packPriceCents ?? 0,
+          autoPackPricing: data.autoPackPricing,
           packsPerBox: data.packsPerBox,
           packImageUrl: data.packImageUrl,
           boxImageUrl: data.boxImageUrl,
@@ -221,11 +223,34 @@ export default function ProductDetailClient({ productId }: { productId: string }
             <div>Sport</div>
             <input value={data.sport ?? ""} onChange={(e) => patch({ sport: e.target.value || null })} style={{ padding: 6 }} />
 
+            <div>Automatic Pack Pricing</div>
+            <label style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <input
+                type="checkbox"
+                checked={data.autoPackPricing}
+                onChange={(e) => patch({ autoPackPricing: e.target.checked })}
+              />
+              {data.autoPackPricing ? "On" : "Off"}
+              <span style={{ color: "#666", fontSize: 13 }}>
+                Targets an EV-to-price ratio of 2.00 and rounds to the nearest $0.05.
+              </span>
+            </label>
+
             <div>Pack Price ($)</div>
             <input
               value={centsToDollars(data.packPriceCents)}
               onChange={(e) => patch({ packPriceCents: dollarsToCents(e.target.value) })}
-              style={{ padding: 6 }}
+              disabled={data.autoPackPricing}
+              title={
+                data.autoPackPricing
+                  ? "Disable Automatic Pack Pricing to enter a manual price."
+                  : "Manual pack price"
+              }
+              style={{
+                padding: 6,
+                background: data.autoPackPricing ? "#f3f3f3" : "#fff",
+                color: data.autoPackPricing ? "#666" : "#000",
+              }}
             />
 
             <div>Packs per Box</div>
@@ -362,3 +387,4 @@ export default function ProductDetailClient({ productId }: { productId: string }
     </div>
   );
 }
+
