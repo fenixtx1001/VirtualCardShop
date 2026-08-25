@@ -354,46 +354,50 @@ export default function CollectionPage() {
       `}</style>
 
       <div className="vcs-page">
-        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 12 }}>
-          <div>
-            <h1 className="pageTitle" style={{ fontSize: 34, fontWeight: 900, marginTop: 0, marginBottom: 6 }}>
+        <header className="vcs-page-header">
+          <div className="vcs-page-header-copy">
+            <div className="vcs-eyebrow">My Collection</div>
+
+            <h1 className="vcs-page-title">
               Collection
             </h1>
-            <div className="subText" style={{ color: colors.subtext, fontSize: 14, lineHeight: 1.45 }}>
-              Click a set to view your owned cards + completion. Checklist shows every card with an owned checkbox.
-            </div>
 
-            <div style={{ marginTop: 10, display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
-              <button
-                onClick={load}
-                style={{
-                  border: `1px solid ${colors.border}`,
-                  background: colors.muted,
-                  borderRadius: 10,
-                  padding: "8px 10px",
-                  fontWeight: 900,
-                  cursor: "pointer",
-                }}
-              >
-                Refresh
-              </button>
-
-              <Link href="/collection/search" style={{ textDecoration: "underline", fontWeight: 900, color: colors.text }}>
-                Search Collection
-              </Link>
-
-              <Link href="/inventory" style={{ textDecoration: "underline", fontWeight: 900, color: colors.text }}>
-                Inventory
-              </Link>
-
-              <Link href="/shop" style={{ textDecoration: "underline", fontWeight: 900, color: colors.text }}>
-                Shop
-              </Link>
+            <div className="vcs-page-subtitle">
+              Track completion, prestige, quantity, and value across every set you own.
+              Open a set to manage its cards or jump directly to its checklist.
             </div>
           </div>
-        </div>
 
-        <hr style={{ margin: "16px 0", borderColor: colors.border }} />
+          <div className="vcs-page-actions">
+            <Link
+              href="/collection/search"
+              className="vcs-button vcs-button-primary"
+            >
+              Search Collection
+            </Link>
+
+            <button
+              onClick={load}
+              className="vcs-button vcs-button-soft"
+            >
+              Refresh
+            </button>
+
+            <Link
+              href="/inventory"
+              className="vcs-button vcs-button-secondary"
+            >
+              Inventory
+            </Link>
+
+            <Link
+              href="/shop"
+              className="vcs-button vcs-button-secondary"
+            >
+              Shop
+            </Link>
+          </div>
+        </header>
 
         {err ? (
           <div style={{ marginBottom: 12, padding: 12, background: "#fff1f1", border: "1px solid #f3b7b7", borderRadius: 12 }}>
