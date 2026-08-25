@@ -209,14 +209,9 @@ function getSetNameFromCard(card: GradingOrderRow["card"]) {
 }
 
 function getSlabSetName(card: GradingOrderRow["card"]) {
-  const product = card.productSet?.product;
-  const set = card.set;
+  const setName = card.productSet?.name?.trim();
 
-  const year = product?.year ?? set.year;
-  const brand = product?.brand ?? set.brand;
-  const setName = card.productSet?.name?.trim() || null;
-
-  return [year, brand, setName].filter(Boolean).join(" ") || getSetNameFromCard(card);
+  return setName || getSetNameFromCard(card);
 }
 
 function ImgThumb({ src, alt }: { src: string | null; alt: string }) {
