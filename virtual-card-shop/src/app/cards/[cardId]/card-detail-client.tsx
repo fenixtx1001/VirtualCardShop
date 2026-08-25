@@ -876,7 +876,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
   const setTypePrefix =
     c?.productSetIsBase == null ? "" : c.productSetIsBase ? "Base — " : "Insert — ";
 
-  const slabSetName = c ? [c.productYear, c.productBrand, setLabel].filter(Boolean).join(" ") : "";
+  const slabSetName = c ? setLabel : "";
 
   const frontUrl = useMemo(() => safeUrl(c?.frontImageUrl), [c?.frontImageUrl]);
   const backUrl = useMemo(() => safeUrl(c?.backImageUrl), [c?.backImageUrl]);
