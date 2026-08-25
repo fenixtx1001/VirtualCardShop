@@ -1,40 +1,71 @@
 /* src/app/globals.css */
 
-/* --- Theme tokens (cozy + clean) --- */
 :root {
-  /* Warm paper background + ink */
+  /* Core surfaces */
   --bg: #fbfaf7;
   --bg-2: #f4f1ea;
   --card: #ffffff;
+  --card-soft: rgba(255, 255, 255, 0.78);
+
+  /* Typography */
   --text: #1f2328;
-  --muted: #5b636e;
+  --text-strong: #17130c;
+  --muted: #66635d;
+  --muted-2: #817a70;
 
-  /* Borders + shadows */
-  --border: rgba(31, 35, 40, 0.12);
-  --border-2: rgba(31, 35, 40, 0.08);
+  /* Borders */
+  --border: rgba(89, 75, 49, 0.16);
+  --border-2: rgba(89, 75, 49, 0.10);
+  --border-strong: rgba(89, 75, 49, 0.24);
+
+  /* Shadows */
   --shadow-sm: 0 1px 0 rgba(0, 0, 0, 0.03);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 30px rgba(42, 31, 13, 0.06);
+  --shadow-lg: 0 18px 50px rgba(42, 31, 13, 0.09);
 
-  /* Accent (nostalgic blue) */
+  /* VCS blue */
   --accent: #2b6cb0;
   --accent-2: #1f5a98;
   --accent-soft: rgba(43, 108, 176, 0.10);
 
-  /* Success / warning */
-  --success: #2f855a;
-  --danger: #b00020;
+  /* VCS gold */
+  --gold: #b9933d;
+  --gold-deep: #7a5619;
+  --gold-soft: rgba(185, 147, 61, 0.12);
 
-  /* Radii */
+  /* Status */
+  --success: #2f855a;
+  --success-soft: #f0fff4;
+  --danger: #a52a2a;
+  --danger-soft: #fff1f1;
+
+  /* Radius */
   --r-sm: 10px;
   --r-md: 14px;
   --r-lg: 18px;
+  --r-xl: 22px;
 
-  /* Spacing */
+  /* Layout */
   --pad: 16px;
 
   /* Fonts */
-  --font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji",
-    "Segoe UI Emoji";
+  --font-sans:
+    var(--font-geist-sans),
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  --font-mono:
+    var(--font-geist-mono),
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
 }
 
 * {
@@ -47,19 +78,36 @@ body {
   margin: 0;
 }
 
+html {
+  background: var(--bg-2);
+}
+
 body {
   font-family: var(--font-sans);
   color: var(--text);
+  line-height: 1.45;
 
-  /* Cozy paper + subtle depth */
   background:
-    radial-gradient(1200px 500px at 50% -20%, rgba(43, 108, 176, 0.10), transparent 60%),
-    radial-gradient(900px 400px at 10% 0%, rgba(47, 133, 90, 0.08), transparent 55%),
-    radial-gradient(900px 400px at 90% 20%, rgba(255, 170, 85, 0.10), transparent 55%),
+    radial-gradient(
+      1200px 500px at 50% -20%,
+      rgba(43, 108, 176, 0.09),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 400px at 10% 0%,
+      rgba(47, 133, 90, 0.055),
+      transparent 55%
+    ),
+    radial-gradient(
+      900px 400px at 90% 20%,
+      rgba(185, 147, 61, 0.07),
+      transparent 55%
+    ),
     linear-gradient(180deg, var(--bg), var(--bg-2));
+
+  min-height: 100vh;
 }
 
-/* Better default text rendering */
 body,
 button,
 input,
@@ -69,17 +117,61 @@ textarea {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Links */
-a {
-  color: inherit;
-  text-decoration-color: rgba(31, 35, 40, 0.35);
-  text-underline-offset: 3px;
-}
-a:hover {
-  text-decoration-color: rgba(31, 35, 40, 0.6);
+button,
+input,
+select,
+textarea {
+  font: inherit;
 }
 
-/* --- Buttons / Inputs (global polish) --- */
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-mono);
+}
+
+/* ---------- Typography ---------- */
+
+h1,
+h2,
+h3 {
+  color: var(--text-strong);
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+h1 {
+  line-height: 1.06;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* ---------- Links ---------- */
+
+a {
+  color: inherit;
+  text-decoration-color: rgba(31, 35, 40, 0.34);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-color: rgba(31, 35, 40, 0.65);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+/* ---------- Default buttons ---------- */
+
 button {
   border-radius: var(--r-sm);
   border: 1px solid var(--border);
@@ -88,21 +180,33 @@ button {
   font-weight: 800;
   cursor: pointer;
   box-shadow: var(--shadow-sm);
-  transition: transform 0.02s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+
+  transition:
+    transform 0.05s ease,
+    background 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
+
 button:hover {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(31, 35, 40, 0.18);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03), 0 8px 18px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.94);
+  border-color: var(--border-strong);
+  box-shadow:
+    var(--shadow-sm),
+    0 8px 18px rgba(42, 31, 13, 0.05);
 }
+
 button:active {
   transform: translateY(1px);
 }
+
 button:disabled {
   opacity: 0.55;
   cursor: not-allowed;
   box-shadow: none;
 }
+
+/* ---------- Inputs ---------- */
 
 input,
 select,
@@ -112,8 +216,18 @@ textarea {
   background: #fff;
   padding: 8px 10px;
   outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--border-strong);
+}
+
 input:focus,
 select:focus,
 textarea:focus {
@@ -121,50 +235,238 @@ textarea:focus {
   box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
-/* --- Layout helpers you can use anywhere --- */
-.vcs-page {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 24px var(--pad);
+/* =========================================================
+   VCS DESIGN SYSTEM
+   Reusable visual rules for user-facing screens.
+   ========================================================= */
+
+.vcs-page-shell {
+  min-height: calc(100vh - 80px);
+  color: var(--text);
 }
 
-.vcs-card {
-  background: var(--card);
-  border: 1px solid var(--border-2);
-  border-radius: var(--r-lg);
+.vcs-page {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px var(--pad) 36px;
+}
+
+/* ---------- Page headers ---------- */
+
+.vcs-page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.vcs-page-header-copy {
+  min-width: 0;
+  max-width: 720px;
+}
+
+.vcs-eyebrow {
+  color: var(--gold-deep);
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.vcs-page-title {
+  margin: 6px 0 0;
+  color: var(--text-strong);
+  font-size: 34px;
+  line-height: 1.05;
+  font-weight: 950;
+  letter-spacing: -0.035em;
+}
+
+.vcs-page-subtitle {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 650;
+  max-width: 680px;
+}
+
+.vcs-page-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Intentional VCS buttons / links ---------- */
+
+.vcs-button {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  border-radius: 12px;
+  padding: 9px 12px;
+
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 900;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.08s ease,
+    background 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.vcs-button:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.vcs-button:active {
+  transform: translateY(0);
+}
+
+.vcs-button-primary {
+  border: 1px solid var(--accent-2);
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(43, 108, 176, 0.17);
+}
+
+.vcs-button-primary:hover {
+  border-color: #174d85;
+  background: linear-gradient(135deg, #194f89, #2869ad);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(43, 108, 176, 0.22);
+}
+
+.vcs-button-secondary {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--text-strong);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.92),
+    var(--shadow-sm);
+}
+
+.vcs-button-secondary:hover {
+  border-color: var(--border-strong);
+  background: #fff;
+}
+
+.vcs-button-soft {
+  border: 1px solid var(--border);
+  background: rgba(244, 241, 234, 0.8);
+  color: var(--text);
   box-shadow: var(--shadow-sm);
 }
 
-.vcs-card-pad {
+.vcs-button-soft:hover {
+  background: #f5f1e8;
+}
+
+/* ---------- Panels ---------- */
+
+.vcs-card,
+.vcs-panel {
+  background: var(--card);
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-lg);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    var(--shadow-md);
+}
+
+.vcs-panel-soft {
+  background: var(--card-soft);
+}
+
+.vcs-card-pad,
+.vcs-panel-pad {
   padding: 16px;
 }
 
-.vcs-muted {
-  color: var(--muted);
+.vcs-field-label {
+  margin-bottom: 5px;
+  color: var(--muted-2);
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
+
+.vcs-meta-line {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+/* ---------- Pills ---------- */
 
 .vcs-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
+  gap: 7px;
+
+  min-height: 28px;
+  padding: 5px 9px;
+
   border-radius: 999px;
   border: 1px solid var(--border-2);
+
   background: rgba(255, 255, 255, 0.85);
-  font-weight: 800;
+  color: var(--text);
+
+  font-weight: 850;
   font-size: 12px;
+
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
-/* --- Tables (keep admin readable but a bit nicer) --- */
+/* ---------- Notices / empty states ---------- */
+
+.vcs-notice {
+  padding: 13px 14px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--text);
+  font-weight: 750;
+}
+
+.vcs-notice-danger {
+  border-color: #efb8b8;
+  background: var(--danger-soft);
+  color: #7d2222;
+}
+
+/* ---------- Tables ---------- */
+
 table {
   border-color: var(--border-2);
 }
+
 thead th {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(250, 248, 243, 0.92);
   backdrop-filter: blur(6px);
 }
 
-/* --- Progress bars (if you're using <progress> or div bars) --- */
+/* ---------- Progress bars ---------- */
+
 progress {
   width: 100%;
   height: 10px;
@@ -173,23 +475,90 @@ progress {
   border: 1px solid var(--border-2);
   background: rgba(255, 255, 255, 0.7);
 }
+
 progress::-webkit-progress-bar {
   background: rgba(255, 255, 255, 0.7);
 }
+
 progress::-webkit-progress-value {
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
 }
+
 progress::-moz-progress-bar {
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
 }
 
-/* Horizontal rules feel softer */
 hr {
   border: none;
   border-top: 1px solid var(--border-2);
 }
 
-/* Small nice selection */
 ::selection {
   background: rgba(43, 108, 176, 0.18);
+}
+
+/* =========================================================
+   MOBILE
+   Gameplay should feel native to the phone, not squeezed in.
+   ========================================================= */
+
+@media (max-width: 780px) {
+  .vcs-page {
+    padding: 16px 12px 30px;
+  }
+
+  .vcs-page-header {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .vcs-page-title {
+    font-size: 30px;
+  }
+
+  .vcs-page-subtitle {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .vcs-page-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .vcs-page-actions > * {
+    width: 100%;
+  }
+
+  .vcs-button {
+    min-height: 44px;
+    padding: 10px 12px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  input,
+  select {
+    min-height: 44px;
+  }
+
+  .vcs-card,
+  .vcs-panel {
+    border-radius: 16px;
+  }
+
+  .vcs-card-pad,
+  .vcs-panel-pad {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 350px) {
+  .vcs-page-actions {
+    grid-template-columns: 1fr;
+  }
 }

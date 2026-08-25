@@ -324,15 +324,7 @@ export default function CollectionPage() {
   }
 
   return (
-    <main
-      style={{
-        background: colors.bg,
-        minHeight: "calc(100vh - 80px)",
-        padding: 20,
-        color: colors.text,
-        fontFamily: "system-ui",
-      }}
-    >
+    <main className="vcs-page-shell">
       <style jsx>{`
         .desktopOnly {
           display: block;
@@ -361,7 +353,7 @@ export default function CollectionPage() {
         }
       `}</style>
 
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+      <div className="vcs-page">
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 12 }}>
           <div>
             <h1 className="pageTitle" style={{ fontSize: 34, fontWeight: 900, marginTop: 0, marginBottom: 6 }}>
@@ -426,14 +418,8 @@ export default function CollectionPage() {
         ) : (
           <>
             <div
-              style={{
-                background: colors.card,
-                border: `1px solid ${colors.border}`,
-                borderRadius: 16,
-                padding: 12,
-                marginBottom: 14,
-                boxShadow: "0 10px 30px rgba(0,0,0,0.03)",
-              }}
+              className="vcs-panel vcs-panel-pad"
+              style={{ marginBottom: 14 }}
             >
               <div
                 className="filterGrid"
@@ -649,12 +635,8 @@ export default function CollectionPage() {
                     return (
                       <div
                         key={r.productId}
-                        style={{
-                          background: colors.card,
-                          border: `1px solid ${colors.border}`,
-                          borderRadius: 16,
-                          padding: 14,
-                        }}
+                        className="vcs-panel"
+                        style={{ padding: 14 }}
                       >
                         <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
                           <ImgThumb src={r.packImageUrl} alt={`${friendly} pack`} />
