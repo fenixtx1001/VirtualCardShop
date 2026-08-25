@@ -451,12 +451,11 @@ function MarketActivityCard({
 
   return (
     <section
+      className="vcs-panel"
       style={{
         marginTop: 18,
-        border: "1px solid #dbe7f5",
-        borderRadius: 22,
+        borderColor: "#dbe7f5",
         background: "linear-gradient(180deg, #f8fbff 0%, #ffffff 52%, #ffffff 100%)",
-        boxShadow: "0 12px 30px rgba(22, 71, 125, 0.08)",
         overflow: "hidden",
       }}
     >
@@ -919,26 +918,19 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
 
   return (
     <div
+      className="vcs-page-shell"
       style={{
-        fontFamily: "system-ui",
-        padding: isMobile ? 10 : 16,
-        background: "#f6f7fb",
-        minHeight: "100vh",
         width: "100%",
         maxWidth: "100vw",
         overflowX: "hidden",
-        boxSizing: "border-box",
       }}
     >
       <div
+        className="vcs-page vcs-page-wide"
         style={{
-          width: "100%",
-          maxWidth: 1280,
           minWidth: 0,
-          margin: "0 auto",
           display: "grid",
           gap: isMobile ? 12 : 16,
-          boxSizing: "border-box",
         }}
       >
         <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
@@ -977,11 +969,8 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
         ) : (
           <>
             <section
+              className="vcs-panel"
               style={{
-                border: "1px solid #e2e2e2",
-                borderRadius: 22,
-                background: "#fff",
-                boxShadow: "0 12px 30px rgba(0,0,0,0.06)",
                 padding: isMobile ? 12 : 16,
                 overflow: "hidden",
               }}
@@ -1239,13 +1228,8 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
 
             {myOwnership ? (
               <section
-                style={{
-                  border: "1px solid #e2e2e2",
-                  borderRadius: 22,
-                  padding: 16,
-                  background: "#fff",
-                  boxShadow: "0 8px 24px rgba(0,0,0,0.045)",
-                }}
+                className="vcs-panel"
+                style={{ padding: isMobile ? 12 : 16 }}
               >
                 <div style={{ fontSize: 20, fontWeight: 1000, marginBottom: 10 }}>Your Ownership</div>
 
@@ -1325,13 +1309,8 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
             ) : null}
 
             <section
-              style={{
-                border: "1px solid #e2e2e2",
-                borderRadius: 22,
-                padding: 16,
-                background: "#fff",
-                boxShadow: "0 8px 24px rgba(0,0,0,0.045)",
-              }}
+              className="vcs-panel"
+              style={{ padding: isMobile ? 12 : 16 }}
             >
               <div style={{ fontSize: 20, fontWeight: 1000, marginBottom: 10 }}>Population report</div>
 
@@ -1444,13 +1423,8 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
             </section>
 
             <section
-              style={{
-                border: "1px solid #e2e2e2",
-                borderRadius: 22,
-                padding: 16,
-                background: "#fff",
-                boxShadow: "0 8px 24px rgba(0,0,0,0.045)",
-              }}
+              className="vcs-panel"
+              style={{ padding: isMobile ? 12 : 16 }}
             >
               <div style={{ fontSize: 20, fontWeight: 1000, marginBottom: 10 }}>Owners</div>
 

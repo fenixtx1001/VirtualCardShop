@@ -252,6 +252,10 @@ textarea:focus {
   padding: 24px var(--pad) 36px;
 }
 
+.vcs-page-wide {
+  max-width: 1280px;
+}
+
 /* ---------- Page headers ---------- */
 
 .vcs-page-header {
