@@ -334,6 +334,50 @@ textarea:focus {
     box-shadow 0.15s ease;
 }
 
+.vcs-button-compact {
+  min-height: 34px;
+  padding: 7px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.vcs-back-link {
+  min-height: 36px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  padding: 7px 10px;
+
+  border: 1px solid var(--border);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.76);
+  color: var(--text);
+
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 900;
+
+  text-decoration: none;
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform 0.08s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.vcs-back-link:hover {
+  background: #fff;
+  border-color: var(--border-strong);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
 .vcs-button:hover {
   text-decoration: none;
   transform: translateY(-1px);
@@ -657,6 +701,10 @@ hr {
     padding: 10px 12px;
     white-space: normal;
     text-align: center;
+  }
+
+  .vcs-back-link {
+    min-height: 40px;
   }
 
   input,

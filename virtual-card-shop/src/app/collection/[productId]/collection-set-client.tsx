@@ -180,7 +180,7 @@ function PendingPill({ quantity }: { quantity: number }) {
 export default function CollectionSetClient({ productId }: { productId: string }) {
   if (!productId) {
     return (
-      <div style={{ padding: 16, fontFamily: "system-ui" }}>
+      <div style={{ padding: 16 }}>
         <div style={{ padding: 12, background: "#fee", border: "1px solid #f99" }}>
           Missing productId
         </div>
@@ -293,28 +293,34 @@ export default function CollectionSetClient({ productId }: { productId: string }
   );
 
   return (
-    <div style={{ fontFamily: "system-ui", padding: 16 }}>
-      <div style={{ display: "flex", gap: 12, alignItems: "baseline", flexWrap: "wrap" }}>
-        <Link href="/collection" style={{ textDecoration: "underline", fontWeight: 700 }}>
-          ← Back to Collection
+    <div style={{ padding: 16 }}>
+      <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+        <Link href="/collection" className="vcs-back-link">
+          ← Collection
         </Link>
         <h1 style={{ fontSize: 26, fontWeight: 900, margin: 0 }}>{productId}</h1>
       </div>
 
       <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 10, flexWrap: "wrap" }}>
-        <button onClick={() => load()} style={{ padding: "8px 12px" }}>
+        <button
+          onClick={() => load()}
+          className="vcs-button vcs-button-soft vcs-button-compact"
+        >
           Refresh
         </button>
 
         <Link
           href={`/checklist/${encodeURIComponent(productId)}`}
-          style={{ textDecoration: "underline", fontWeight: 800 }}
+          className="vcs-button vcs-button-primary vcs-button-compact"
         >
           Checklist →
         </Link>
 
-        <Link href="/grading" style={{ textDecoration: "underline", fontWeight: 800 }}>
-          Grading Orders →
+        <Link
+          href="/grading"
+          className="vcs-button vcs-button-secondary vcs-button-compact"
+        >
+          Grading Orders
         </Link>
       </div>
 

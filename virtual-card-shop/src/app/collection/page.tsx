@@ -637,18 +637,21 @@ export default function CollectionPage() {
                               </td>
 
                               <td style={{ padding: 10, borderBottom: "1px solid #eee", whiteSpace: "nowrap" }}>
-                                <Link
-                                  href={`/collection/${encodeURIComponent(r.productId)}`}
-                                  style={{ textDecoration: "underline", fontWeight: 900, color: colors.text, marginRight: 12 }}
-                                >
-                                  View cards
-                                </Link>
-                                <Link
-                                  href={`/checklist/${encodeURIComponent(r.productId)}`}
-                                  style={{ textDecoration: "underline", fontWeight: 900, color: colors.text }}
-                                >
-                                  Checklist
-                                </Link>
+                                <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                                  <Link
+                                    href={`/collection/${encodeURIComponent(r.productId)}`}
+                                    className="vcs-button vcs-button-soft vcs-button-compact"
+                                  >
+                                    View cards
+                                  </Link>
+
+                                  <Link
+                                    href={`/checklist/${encodeURIComponent(r.productId)}`}
+                                    className="vcs-button vcs-button-secondary vcs-button-compact"
+                                  >
+                                    Checklist
+                                  </Link>
+                                </div>
                               </td>
                             </tr>
                           );
@@ -724,16 +727,26 @@ export default function CollectionPage() {
                           </div>
                         </div>
 
-                        <div style={{ marginTop: 12, display: "flex", gap: 14, flexWrap: "wrap" }}>
+                        <div
+                          style={{
+                            marginTop: 12,
+                            display: "grid",
+                            gridTemplateColumns: "1fr 1fr",
+                            gap: 8,
+                          }}
+                        >
                           <Link
                             href={`/collection/${encodeURIComponent(r.productId)}`}
-                            style={{ textDecoration: "underline", fontWeight: 900, color: colors.accent }}
+                            className="vcs-button vcs-button-primary"
+                            style={{ width: "100%" }}
                           >
-                            View cards
+                            View cards →
                           </Link>
+
                           <Link
                             href={`/checklist/${encodeURIComponent(r.productId)}`}
-                            style={{ textDecoration: "underline", fontWeight: 900, color: colors.text }}
+                            className="vcs-button vcs-button-secondary"
+                            style={{ width: "100%" }}
                           >
                             Checklist
                           </Link>

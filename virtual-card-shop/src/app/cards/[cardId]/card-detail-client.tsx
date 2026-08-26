@@ -953,7 +953,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
         }}
       >
         <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
-          <Link href="/collection" style={{ textDecoration: "underline", fontWeight: 900, color: "#16477d" }}>
+          <Link href="/collection" className="vcs-back-link">
             ← Collection
           </Link>
 
@@ -962,14 +962,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
           <button
             onClick={refreshAll}
             disabled={loading || marketLoading}
-            style={{
-              padding: "7px 11px",
-              borderRadius: 12,
-              border: "1px solid #d8d8d8",
-              background: "#fff",
-              fontWeight: 900,
-              cursor: loading || marketLoading ? "not-allowed" : "pointer",
-            }}
+            className="vcs-button vcs-button-soft vcs-button-compact"
           >
             Refresh
           </button>
