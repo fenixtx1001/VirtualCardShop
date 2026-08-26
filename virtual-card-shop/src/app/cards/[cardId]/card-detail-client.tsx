@@ -505,32 +505,51 @@ function MarketActivityCard({
 
       <div style={{ padding: isMobile ? 12 : 16 }}>
         {loading ? (
-          <div style={{ color: "#666", fontWeight: 900 }}>Loading market history…</div>
-        ) : error ? (
           <div
-            style={{
-              border: "1px solid #f3b5b5",
-              background: "#fff5f5",
-              color: "#9b1c1c",
-              borderRadius: 14,
-              padding: 12,
-              fontWeight: 850,
-            }}
+            className="vcs-state vcs-state-loading"
+            role="status"
+            aria-live="polite"
           >
-            {error}
+            <div className="vcs-state-mark" aria-hidden="true" />
+
+            <div className="vcs-state-body">
+              <div className="vcs-state-title">
+                Loading market activity
+              </div>
+              <div className="vcs-state-copy">
+                Checking recent VCS sales and auction comps…
+              </div>
+            </div>
+          </div>
+        ) : error ? (
+          <div className="vcs-state vcs-state-error" role="alert">
+            <div className="vcs-state-mark" aria-hidden="true">
+              !
+            </div>
+
+            <div className="vcs-state-body">
+              <div className="vcs-state-title">
+                Market activity couldn’t load
+              </div>
+              <div className="vcs-state-copy">
+                {error}
+              </div>
+            </div>
           </div>
         ) : !market || !selected ? (
-          <div
-            style={{
-              border: "1px dashed #d6d6d6",
-              background: "#fafafa",
-              color: "#666",
-              borderRadius: 16,
-              padding: 14,
-              fontWeight: 850,
-            }}
-          >
-            No market history yet. Future shop sales and collected auctions will appear here.
+          <div className="vcs-state vcs-state-empty">
+            <div className="vcs-state-mark" aria-hidden="true">
+              —
+            </div>
+
+            <div className="vcs-state-body">
+              <div className="vcs-state-title">
+                No market history yet
+              </div>
+              <div className="vcs-state-copy">
+                Future shop sales and completed auctions will appear here.
+              </div>
+            </div>
           </div>
         ) : (
           <div style={{ display: "grid", gap: 14 }}>
@@ -956,16 +975,53 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
           </button>
         </div>
 
-        {err && (
-          <div style={{ padding: 12, background: "#fee", border: "1px solid #f99", borderRadius: 14, fontWeight: 850 }}>
-            {err}
-          </div>
-        )}
+        {err ? (
+          <div className="vcs-state vcs-state-error" role="alert">
+            <div className="vcs-state-mark" aria-hidden="true">
+              !
+            </div>
 
-        {loading ? (
-          <div>Loading…</div>
+            <div className="vcs-state-body">
+              <div className="vcs-state-title">
+                Card details couldn’t load
+              </div>
+              <div className="vcs-state-copy">
+                {err}
+              </div>
+            </div>
+          </div>
+        ) : loading ? (
+          <div
+            className="vcs-state vcs-state-loading"
+            role="status"
+            aria-live="polite"
+          >
+            <div className="vcs-state-mark" aria-hidden="true" />
+
+            <div className="vcs-state-body">
+              <div className="vcs-state-title">
+                Loading card details
+              </div>
+              <div className="vcs-state-copy">
+                Fetching card information, ownership, population, and market data…
+              </div>
+            </div>
+          </div>
         ) : !data || !c ? (
-          <div>No data.</div>
+          <div className="vcs-state vcs-state-empty">
+            <div className="vcs-state-mark" aria-hidden="true">
+              —
+            </div>
+
+            <div className="vcs-state-body">
+              <div className="vcs-state-title">
+                Card unavailable
+              </div>
+              <div className="vcs-state-copy">
+                VCS couldn’t find information for this card.
+              </div>
+            </div>
+          </div>
         ) : (
           <>
             <section

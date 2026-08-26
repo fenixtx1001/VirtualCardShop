@@ -400,24 +400,51 @@ export default function CollectionPage() {
         </header>
 
         {err ? (
-          <div style={{ marginBottom: 12, padding: 12, background: "#fff1f1", border: "1px solid #f3b7b7", borderRadius: 12 }}>
-            {err}
-          </div>
-        ) : null}
+          <div className="vcs-state vcs-state-error" role="alert">
+            <div className="vcs-state-mark" aria-hidden="true">
+              !
+            </div>
 
-        {loading ? (
-          <div style={{ color: colors.subtext, fontWeight: 800 }}>Loading…</div>
-        ) : rows.length === 0 ? (
+            <div className="vcs-state-body">
+              <div className="vcs-state-title">
+                Collection couldn’t load
+              </div>
+              <div className="vcs-state-copy">
+                {err}
+              </div>
+            </div>
+          </div>
+        ) : loading ? (
           <div
-            style={{
-              background: colors.card,
-              border: `1px solid ${colors.border}`,
-              borderRadius: 16,
-              padding: 16,
-              color: colors.subtext,
-            }}
+            className="vcs-state vcs-state-loading"
+            role="status"
+            aria-live="polite"
           >
-            No sets yet. Buy packs in the Shop and your collection will start showing up here.
+            <div className="vcs-state-mark" aria-hidden="true" />
+
+            <div className="vcs-state-body">
+              <div className="vcs-state-title">
+                Loading collection
+              </div>
+              <div className="vcs-state-copy">
+                Checking your sets, values, and prestige progress…
+              </div>
+            </div>
+          </div>
+        ) : rows.length === 0 ? (
+          <div className="vcs-state vcs-state-empty">
+            <div className="vcs-state-mark" aria-hidden="true">
+              —
+            </div>
+
+            <div className="vcs-state-body">
+              <div className="vcs-state-title">
+                Your collection is empty
+              </div>
+              <div className="vcs-state-copy">
+                Buy packs in the Shop and your collection will begin appearing here.
+              </div>
+            </div>
           </div>
         ) : (
           <>
@@ -527,17 +554,19 @@ export default function CollectionPage() {
             </div>
 
             {filteredAndSorted.length === 0 ? (
-              <div
-                style={{
-                  background: colors.card,
-                  border: `1px solid ${colors.border}`,
-                  borderRadius: 16,
-                  padding: 16,
-                  color: colors.subtext,
-                  fontWeight: 800,
-                }}
-              >
-                No sets match those filters.
+              <div className="vcs-state vcs-state-empty">
+                <div className="vcs-state-mark" aria-hidden="true">
+                  —
+                </div>
+
+                <div className="vcs-state-body">
+                  <div className="vcs-state-title">
+                    No matching sets
+                  </div>
+                  <div className="vcs-state-copy">
+                    Try a different search or clear one of your filters.
+                  </div>
+                </div>
               </div>
             ) : (
               <>
