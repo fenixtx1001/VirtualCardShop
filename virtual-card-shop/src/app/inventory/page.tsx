@@ -720,7 +720,16 @@ export default function InventoryPage() {
 
         @media (max-width: 780px) {
           .inventory-page {
+            width: 100%;
+            max-width: 100vw;
+            min-width: 0;
             padding: 12px;
+            overflow-x: hidden;
+          }
+
+          .inventory-shell {
+            width: 100%;
+            min-width: 0;
           }
 
           .inventory-hero-inner {
@@ -768,17 +777,28 @@ export default function InventoryPage() {
           }
 
           .inventory-filter-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 10px;
+            width: 100%;
+            min-width: 0;
             align-items: stretch;
           }
 
           .inventory-pills {
+            display: flex;
             width: 100%;
+            max-width: 100%;
+            min-width: 0;
             overflow-x: auto;
+            overflow-y: hidden;
             flex-wrap: nowrap;
-            padding-bottom: 2px;
+            padding-bottom: 4px;
+            -webkit-overflow-scrolling: touch;
           }
 
           .inventory-pill {
+            flex: 0 0 auto;
             white-space: nowrap;
           }
 
