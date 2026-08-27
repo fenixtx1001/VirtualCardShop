@@ -438,8 +438,12 @@ export default function ChecklistClient({ productId }: { productId: string }) {
   };
 
   return (
-    <div style={{ padding: 16, maxWidth: 1280, margin: "0 auto" }}>
+    <div className="checklistPage" style={{ maxWidth: 1280, margin: "0 auto" }}>
       <style jsx>{`
+        .checklistPage {
+          padding: 16px;
+        }
+
         .checklistActions {
           display: flex;
           gap: 6px;
@@ -449,12 +453,130 @@ export default function ChecklistClient({ productId }: { productId: string }) {
         }
 
         @media (max-width: 760px) {
+          .checklistPage {
+            padding: 10px 8px 18px;
+          }
+
           .checklistDesktopOptional {
             display: none;
           }
 
+          .checklistControls {
+            display: grid !important;
+            gap: 10px !important;
+            margin-bottom: 10px !important;
+          }
+
+          .checklistField {
+            display: grid !important;
+            grid-template-columns: 64px minmax(0, 1fr);
+            gap: 8px !important;
+            align-items: center !important;
+            width: 100%;
+            min-width: 0;
+          }
+
+          .checklistFieldLabel {
+            font-size: 14px;
+          }
+
+          .checklistSelect {
+            width: 100%;
+            min-width: 0 !important;
+            max-width: 100%;
+            padding: 9px 10px !important;
+          }
+
+          .checklistSetCompletion {
+            display: none;
+          }
+
+          .checklistPagination {
+            width: 100%;
+            margin-left: 0 !important;
+            display: grid !important;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 6px !important;
+          }
+
+          .checklistPageInfo {
+            grid-column: 1 / -1;
+            grid-row: 1;
+            text-align: center;
+            font-size: 14px;
+          }
+
+          .checklistPrev {
+            grid-column: 1;
+            grid-row: 2;
+          }
+
+          .checklistNext {
+            grid-column: 3;
+            grid-row: 2;
+          }
+
+          .checklistPrev,
+          .checklistNext {
+            width: 100%;
+            min-height: 40px;
+          }
+
+          .checklistJump {
+            grid-column: 1 / -1;
+            grid-row: 3;
+            display: grid !important;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 6px !important;
+            width: 100%;
+          }
+
+          .checklistJumpInput {
+            width: 100% !important;
+            min-width: 0;
+            min-height: 40px;
+          }
+
+          .checklistProgress {
+            margin-bottom: 10px !important;
+            padding: 12px !important;
+            border-radius: 14px !important;
+          }
+
+          .checklistProgressMain {
+            font-size: 22px !important;
+            line-height: 1.12;
+            margin-bottom: 8px !important;
+          }
+
+          .checklistProgressCount {
+            display: block;
+            margin-top: 4px;
+            font-size: 13px !important;
+            line-height: 1.3;
+          }
+
+          .checklistProgressGrid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 8px 12px !important;
+            font-size: 13px;
+            line-height: 1.3;
+          }
+
+          .checklistTableWrap {
+            border-radius: 12px !important;
+          }
+
+          .checklistTable th,
+          .checklistTable td {
+            padding: 6px !important;
+          }
+
           .checklistActions {
             gap: 4px;
+            flex-wrap: wrap;
+            white-space: normal;
+            width: 132px;
           }
         }
       `}</style>
@@ -479,6 +601,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
 
       {/* Controls row */}
       <div
+        className="checklistControls"
         style={{
           display: "flex",
           gap: 12,
@@ -488,11 +611,12 @@ export default function ChecklistClient({ productId }: { productId: string }) {
         }}
       >
         {/* User dropdown */}
-        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-          <div style={{ fontWeight: 900 }}>Viewing:</div>
+        <div className="checklistField" style={{ display: "flex", gap: 8, alignItems: "center" }}>
+          <div className="checklistFieldLabel" style={{ fontWeight: 900 }}>Viewing:</div>
           <select
             value={selectedUserId}
             onChange={(e) => onChangeSelectedUser(e.target.value)}
+            className="checklistSelect"
             style={{
               padding: "8px 10px",
               border: "1px solid #ddd",
@@ -516,11 +640,12 @@ export default function ChecklistClient({ productId }: { productId: string }) {
 
         {/* ProductSet dropdown */}
         {data?.productSets?.length ? (
-          <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-            <div style={{ fontWeight: 900 }}>Set:</div>
+          <div className="checklistField" style={{ display: "flex", gap: 8, alignItems: "center" }}>
+            <div className="checklistFieldLabel" style={{ fontWeight: 900 }}>Set:</div>
             <select
               value={selectedProductSetId}
               onChange={(e) => onChangeProductSet(e.target.value)}
+              className="checklistSelect"
               style={{
                 padding: "8px 10px",
                 border: "1px solid #ddd",
@@ -536,25 +661,25 @@ export default function ChecklistClient({ productId }: { productId: string }) {
               ))}
             </select>
 
-            <div style={{ color: "#666", fontWeight: 700 }}>{data.productSetIsBase ? "Base set completion" : "Insert set completion"}</div>
+            <div className="checklistSetCompletion" style={{ color: "#666", fontWeight: 700 }}>{data.productSetIsBase ? "Base set completion" : "Insert set completion"}</div>
           </div>
         ) : null}
 
         {/* Pagination controls */}
-        <div style={{ display: "flex", gap: 8, alignItems: "center", marginLeft: "auto" }}>
-          <button onClick={goPrev} disabled={!canPrev || loading} style={{ padding: "6px 10px", opacity: !canPrev || loading ? 0.5 : 1 }}>
+        <div className="checklistPagination" style={{ display: "flex", gap: 8, alignItems: "center", marginLeft: "auto" }}>
+          <button className="checklistPrev" onClick={goPrev} disabled={!canPrev || loading} style={{ padding: "6px 10px", opacity: !canPrev || loading ? 0.5 : 1 }}>
             ← Prev
           </button>
 
-          <div style={{ fontWeight: 900, whiteSpace: "nowrap" }}>
+          <div className="checklistPageInfo" style={{ fontWeight: 900, whiteSpace: "nowrap" }}>
             Page {data?.page ?? 1} of {totalPages}
           </div>
 
-          <button onClick={goNext} disabled={!canNext || loading} style={{ padding: "6px 10px", opacity: !canNext || loading ? 0.5 : 1 }}>
+          <button className="checklistNext" onClick={goNext} disabled={!canNext || loading} style={{ padding: "6px 10px", opacity: !canNext || loading ? 0.5 : 1 }}>
             Next →
           </button>
 
-          <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+          <div className="checklistJump" style={{ display: "flex", gap: 6, alignItems: "center" }}>
             <input
               value={jumpTo}
               onChange={(e) => setJumpTo(e.target.value)}
@@ -563,6 +688,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
               }}
               placeholder="Jump"
               inputMode="numeric"
+              className="checklistJumpInput"
               style={{
                 width: 80,
                 padding: "6px 8px",
@@ -623,6 +749,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
       ) : (
         <>
           <div
+            className="checklistProgress"
             style={{
               marginBottom: 14,
               padding: 14,
@@ -635,10 +762,11 @@ export default function ChecklistClient({ productId }: { productId: string }) {
             <div style={{ fontSize: 12, fontWeight: 950, color: "#64748b", textTransform: "uppercase", letterSpacing: 0.6, marginBottom: 6 }}>
               Checklist progress
             </div>
-            <div style={{ fontWeight: 950, fontSize: 24, marginBottom: 10 }}>
-              {data.percentComplete.toFixed(1)}% Complete <span style={{ color: "#64748b", fontSize: 16 }}>({data.uniqueOwned}/{data.totalCards} unique)</span>
+            <div className="checklistProgressMain" style={{ fontWeight: 950, fontSize: 24, marginBottom: 10 }}>
+              {data.percentComplete.toFixed(1)}% Complete <span className="checklistProgressCount" style={{ color: "#64748b", fontSize: 16 }}>({data.uniqueOwned}/{data.totalCards} unique)</span>
             </div>
             <div
+              className="checklistProgressGrid"
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
@@ -673,8 +801,8 @@ export default function ChecklistClient({ productId }: { productId: string }) {
             </div>
           )}
 
-          <div style={{ overflowX: "auto", border: "1px solid #e5e7eb", borderRadius: 16, boxShadow: "0 8px 24px rgba(15, 23, 42, 0.04)", background: "white" }}>
-            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <div className="checklistTableWrap" style={{ overflowX: "auto", border: "1px solid #e5e7eb", borderRadius: 16, boxShadow: "0 8px 24px rgba(15, 23, 42, 0.04)", background: "white" }}>
+            <table className="checklistTable" style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead style={{ position: "sticky", top: 0, background: "#f8fafc", zIndex: 1 }}>
                 <tr>
                   <th style={thClickable} onClick={() => onSort("owned")} title="Sort by Owned (whole set, then paged)">
@@ -699,15 +827,15 @@ export default function ChecklistClient({ productId }: { productId: string }) {
                     Team{sortIcon(sortKey === "team", sortDir)}
                   </th>
 
-                  <th style={thClickable} onClick={() => onSort("subset")} title="Sort by Subset">
+                  <th className="checklistDesktopOptional" style={thClickable} onClick={() => onSort("subset")} title="Sort by Subset">
                     Subset{sortIcon(sortKey === "subset", sortDir)}
                   </th>
 
-                  <th style={thClickable} onClick={() => onSort("variant")} title="Sort by Variant">
+                  <th className="checklistDesktopOptional" style={thClickable} onClick={() => onSort("variant")} title="Sort by Variant">
                     Variant{sortIcon(sortKey === "variant", sortDir)}
                   </th>
 
-                  <th style={thPlain}>Type</th>
+                  <th className="checklistDesktopOptional" style={thPlain}>Type</th>
 
                   <th style={thClickable} onClick={() => onSort("bookValue")} title="Sort by Value">
                     Value{sortIcon(sortKey === "bookValue", sortDir)}
@@ -752,9 +880,9 @@ export default function ChecklistClient({ productId }: { productId: string }) {
                       <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>{r.cardNumber}</td>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.player}</td>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.team ?? "—"}</td>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.subset ?? "—"}</td>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.variant ?? "—"}</td>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.isInsert ? "Insert" : "Base"}</td>
+                      <td className="checklistDesktopOptional" style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.subset ?? "—"}</td>
+                      <td className="checklistDesktopOptional" style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.variant ?? "—"}</td>
+                      <td className="checklistDesktopOptional" style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.isInsert ? "Insert" : "Base"}</td>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900, whiteSpace: "nowrap" }}>{money(r.bookValue)}</td>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>{r.ownedQty ?? 0}</td>
 
