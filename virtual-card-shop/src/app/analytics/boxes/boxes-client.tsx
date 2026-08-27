@@ -47,6 +47,17 @@ type ApiData = {
 
 type SortKey = "date" | "roi" | "profit" | "value" | "cost" | "progress";
 
+const colors = {
+  text: "#171717",
+  muted: "#6b7280",
+  border: "#e5ded3",
+  borderStrong: "#d7cbb9",
+  gold: "#8a6200",
+  goldSoft: "#fff8e8",
+  green: "#166534",
+  red: "#991b1b",
+};
+
 function money(cents: number) {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -126,67 +137,306 @@ export default function BoxesClient() {
   }, [data?.boxes, sortKey]);
 
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        background:
-          "radial-gradient(circle at top left, rgba(245,158,11,0.20), transparent 34%), linear-gradient(180deg, #f8f1e7 0%, #efe2cf 100%)",
-        fontFamily: "system-ui",
-        color: "#1f2937",
-      }}
-    >
-      <div style={{ maxWidth: 1240, margin: "0 auto", padding: "18px 16px 42px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
+    <main className="boxesPage">
+      <style>{`
+        .boxesPage {
+          min-height: 100vh;
+          color: ${colors.text};
+          background:
+            radial-gradient(circle at top left, rgba(245,158,11,.12), transparent 30%),
+            linear-gradient(180deg, #f8f3ea 0%, #f2eadf 100%);
+          padding: 12px 10px 30px;
+        }
+
+        .boxesShell {
+          max-width: 1240px;
+          margin: 0 auto;
+        }
+
+        .boxesHeader {
+          display: flex;
+          justify-content: space-between;
+          gap: 12px;
+          align-items: flex-end;
+          flex-wrap: wrap;
+        }
+
+        .boxesTitle {
+          margin: 7px 0 3px;
+          font-size: clamp(30px, 7vw, 42px);
+          letter-spacing: -.045em;
+          line-height: 1;
+          font-weight: 1000;
+        }
+
+        .boxesSubtitle {
+          color: ${colors.muted};
+          font-size: 12.5px;
+          font-weight: 750;
+        }
+
+        .boxesSummary {
+          margin-top: 12px;
+          display: grid;
+          grid-template-columns: repeat(6, minmax(0, 1fr));
+          border: 1px solid ${colors.borderStrong};
+          border-radius: 16px;
+          overflow: hidden;
+          background: rgba(255,255,255,.9);
+        }
+
+        .boxesSummaryCell {
+          min-width: 0;
+          padding: 10px 11px;
+          border-left: 1px solid ${colors.border};
+        }
+
+        .boxesSummaryCell:first-child {
+          border-left: 0;
+        }
+
+        .boxesLabel {
+          color: ${colors.muted};
+          font-size: 9px;
+          font-weight: 950;
+          text-transform: uppercase;
+          letter-spacing: .04em;
+          white-space: nowrap;
+        }
+
+        .boxesValue {
+          margin-top: 3px;
+          font-size: 17px;
+          line-height: 1.05;
+          font-weight: 1000;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .boxesListPanel {
+          margin-top: 12px;
+          border: 1px solid ${colors.borderStrong};
+          background: rgba(255,255,255,.82);
+          border-radius: 17px;
+          padding: 10px;
+          box-shadow: 0 10px 28px rgba(80,49,20,.05);
+        }
+
+        .boxesListHeader {
+          display: flex;
+          justify-content: space-between;
+          gap: 10px;
+          align-items: center;
+          flex-wrap: wrap;
+          margin-bottom: 8px;
+        }
+
+        .boxesSort {
+          border: 1px solid ${colors.borderStrong};
+          background: #fff;
+          border-radius: 11px;
+          padding: 8px 10px;
+          font-weight: 900;
+          font-size: 12px;
+          color: ${colors.text};
+        }
+
+        .boxesList {
+          display: grid;
+          gap: 8px;
+        }
+
+        .boxCard {
+          display: grid;
+          grid-template-columns: minmax(0, 1.55fr) repeat(5, minmax(84px,.7fr)) 80px;
+          gap: 8px;
+          align-items: center;
+          border: 1px solid ${colors.border};
+          background: #fff;
+          border-radius: 14px;
+          padding: 10px;
+          text-decoration: none;
+          color: inherit;
+        }
+
+        .boxTitle {
+          font-weight: 1000;
+          font-size: 13px;
+          line-height: 1.15;
+        }
+
+        .boxSub {
+          margin-top: 2px;
+          color: ${colors.muted};
+          font-weight: 750;
+          font-size: 10.5px;
+        }
+
+        .boxTopPull {
+          margin-top: 4px;
+          color: #92400e;
+          font-weight: 850;
+          font-size: 10.5px;
+          line-height: 1.25;
+        }
+
+        .boxMetricsMobile {
+          display: none;
+        }
+
+        @media (max-width: 760px) {
+          .boxesPage {
+            padding: 10px 8px 24px;
+          }
+
+          .boxesHeader {
+            align-items: start;
+          }
+
+          .boxesTitle {
+            font-size: 30px;
+          }
+
+          .boxesSubtitle {
+            font-size: 11.5px;
+          }
+
+          .boxesSummary {
+            grid-template-columns: repeat(3, minmax(0,1fr));
+          }
+
+          .boxesSummaryCell {
+            padding: 8px 7px;
+          }
+
+          .boxesSummaryCell:nth-child(4) {
+            border-left: 0;
+            border-top: 1px solid ${colors.border};
+          }
+
+          .boxesSummaryCell:nth-child(5),
+          .boxesSummaryCell:nth-child(6) {
+            border-top: 1px solid ${colors.border};
+          }
+
+          .boxesValue {
+            font-size: 13px;
+          }
+
+          .boxesListPanel {
+            padding: 8px;
+            border-radius: 14px;
+          }
+
+          .boxesListHeader {
+            align-items: stretch;
+          }
+
+          .boxesSort {
+            width: 100%;
+          }
+
+          .boxCard {
+            display: block;
+            border-radius: 14px;
+            padding: 9px;
+          }
+
+          .boxTitle {
+            font-size: 14px;
+          }
+
+          .boxSub,
+          .boxTopPull {
+            font-size: 10px;
+          }
+
+          .boxMetricsDesktop {
+            display: none !important;
+          }
+
+          .boxMetricsMobile {
+            margin-top: 8px;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0,1fr));
+            border: 1px solid ${colors.border};
+            border-radius: 11px;
+            overflow: hidden;
+          }
+
+          .boxMetricMobile {
+            min-width: 0;
+            padding: 7px 6px;
+            border-left: 1px solid ${colors.border};
+          }
+
+          .boxMetricMobile:first-child {
+            border-left: 0;
+          }
+
+          .boxMetricMobile .boxesValue {
+            font-size: 11.5px;
+          }
+
+          .boxFooterMobile {
+            margin-top: 7px;
+            display: grid;
+            grid-template-columns: minmax(0,1fr) auto;
+            gap: 8px;
+            align-items: center;
+          }
+
+          .boxProgressTrack {
+            height: 7px;
+            border-radius: 999px;
+            background: #eee7dc;
+            overflow: hidden;
+          }
+
+          .boxProgressFill {
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg,#c98d18,#e8bf57);
+          }
+
+          .boxStatusMobile {
+            font-size: 10px;
+            font-weight: 950;
+            color: ${colors.gold};
+            white-space: nowrap;
+          }
+        }
+      `}</style>
+
+      <div className="boxesShell">
+        <header className="boxesHeader">
           <div>
-            <Link
-              href="/analytics"
-              style={{
-                color: "#7c2d12",
-                fontWeight: 900,
-                textDecoration: "none",
-                fontSize: 13,
-              }}
-            >
+            <Link href="/analytics" className="vcs-back-link">
               ← Analytics
             </Link>
-
-            <h1 style={{ margin: "10px 0 4px", fontSize: 34, letterSpacing: -1.2 }}>
-              Box Portfolio
-            </h1>
-
-            <p style={{ margin: 0, color: "#6b7280", fontWeight: 650 }}>
-              Track every box purchase like a business investment.
-            </p>
+            <h1 className="boxesTitle">Box Portfolio</h1>
+            <div className="boxesSubtitle">
+              Track each box as an investment: cost, pull value, profit, ROI, and progress.
+            </div>
           </div>
 
-          <Link
-            href="/shop"
-            style={{
-              alignSelf: "flex-start",
-              border: "1px solid #111827",
-              background: "#111827",
-              color: "#fff",
-              borderRadius: 999,
-              padding: "10px 14px",
-              fontWeight: 950,
-              textDecoration: "none",
-              boxShadow: "0 12px 30px rgba(17,24,39,0.20)",
-            }}
-          >
+          <Link href="/shop" className="vcs-button vcs-button-primary vcs-button-compact">
             Buy Boxes →
           </Link>
-        </div>
+        </header>
 
         {error ? (
           <div
             style={{
-              marginTop: 18,
+              marginTop: 10,
               border: "1px solid #fecaca",
               background: "#fff1f2",
-              color: "#991b1b",
-              borderRadius: 18,
-              padding: 14,
-              fontWeight: 800,
+              color: colors.red,
+              borderRadius: 12,
+              padding: 10,
+              fontWeight: 850,
+              fontSize: 12,
             }}
           >
             {error}
@@ -196,11 +446,11 @@ export default function BoxesClient() {
         {!data ? (
           <div
             style={{
-              marginTop: 18,
-              border: "1px solid #d8cab7",
-              background: "rgba(255,255,255,0.70)",
-              borderRadius: 22,
-              padding: 18,
+              marginTop: 12,
+              border: `1px solid ${colors.border}`,
+              background: "rgba(255,255,255,.75)",
+              borderRadius: 14,
+              padding: 12,
               fontWeight: 850,
             }}
           >
@@ -208,87 +458,64 @@ export default function BoxesClient() {
           </div>
         ) : (
           <>
-            <section
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
-                gap: 12,
-                marginTop: 18,
-              }}
-            >
-              <Stat label="Boxes Tracked" value={String(data.totals.boxes)} />
-              <Stat label="Cost Basis" value={money(data.totals.costCents)} />
-              <Stat label="Pull Value" value={money(data.totals.pullValueCents)} />
-              <Stat label="Paper Profit" value={money(data.totals.profitCents)} tone={data.totals.profitCents} />
-              <Stat label="Paper ROI" value={pct(data.totals.roiPct)} tone={data.totals.profitCents} />
-              <Stat
-                label="Packs Opened"
+            <section className="boxesSummary">
+              <SummaryCell label="Boxes" value={String(data.totals.boxes)} />
+              <SummaryCell label="Cost" value={money(data.totals.costCents)} />
+              <SummaryCell label="Pull Value" value={money(data.totals.pullValueCents)} />
+              <SummaryCell
+                label="Profit"
+                value={money(data.totals.profitCents)}
+                tone={data.totals.profitCents}
+              />
+              <SummaryCell
+                label="ROI"
+                value={pct(data.totals.roiPct)}
+                tone={data.totals.profitCents}
+              />
+              <SummaryCell
+                label="Packs"
                 value={`${data.totals.packsOpened}/${data.totals.packsPurchased}`}
               />
             </section>
 
-            <div
-              style={{
-                marginTop: 16,
-                border: "1px solid #d8cab7",
-                background: "rgba(255,255,255,0.68)",
-                borderRadius: 22,
-                padding: 12,
-                boxShadow: "0 18px 45px rgba(80,49,20,0.10)",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  gap: 10,
-                  flexWrap: "wrap",
-                  marginBottom: 10,
-                }}
-              >
+            <section className="boxesListPanel">
+              <div className="boxesListHeader">
                 <div>
-                  <div style={{ fontWeight: 1000, fontSize: 18 }}>Tracked Boxes</div>
-                  <div style={{ color: "#6b7280", fontWeight: 650, fontSize: 13 }}>
-                    Paper ROI currently uses raw book value of cards pulled. Sales and grading ROI come next.
+                  <div style={{ fontWeight: 1000, fontSize: 16 }}>Tracked Boxes</div>
+                  <div style={{ color: colors.muted, fontWeight: 700, fontSize: 10.5 }}>
+                    Paper ROI uses raw book value of cards pulled.
                   </div>
                 </div>
 
                 <select
+                  className="boxesSort"
                   value={sortKey}
                   onChange={(e) => setSortKey(e.target.value as SortKey)}
-                  style={{
-                    border: "1px solid #d8cab7",
-                    background: "#fff",
-                    borderRadius: 999,
-                    padding: "9px 12px",
-                    fontWeight: 900,
-                    color: "#111827",
-                  }}
                 >
-                  <option value="date">Sort: Newest</option>
-                  <option value="roi">Sort: Best ROI</option>
-                  <option value="profit">Sort: Best Profit</option>
-                  <option value="value">Sort: Pull Value</option>
-                  <option value="cost">Sort: Cost</option>
-                  <option value="progress">Sort: Most Opened</option>
+                  <option value="date">Newest</option>
+                  <option value="roi">Best ROI</option>
+                  <option value="profit">Best Profit</option>
+                  <option value="value">Pull Value</option>
+                  <option value="cost">Cost</option>
+                  <option value="progress">Most Opened</option>
                 </select>
               </div>
 
               {sortedBoxes.length === 0 ? (
                 <div
                   style={{
-                    border: "1px dashed #d8cab7",
-                    borderRadius: 18,
-                    padding: 18,
-                    color: "#6b7280",
+                    border: `1px dashed ${colors.borderStrong}`,
+                    borderRadius: 12,
+                    padding: 12,
+                    color: colors.muted,
                     fontWeight: 750,
+                    fontSize: 12,
                   }}
                 >
                   No boxes tracked yet. Buy a box from the shop to start building your portfolio.
                 </div>
               ) : (
-                <div style={{ display: "grid", gap: 10 }}>
+                <div className="boxesList">
                   {sortedBoxes.map((box) => {
                     const progress =
                       box.packsPurchased > 0
@@ -299,51 +526,59 @@ export default function BoxesClient() {
                       <Link
                         key={box.id}
                         href={`/analytics/boxes/${box.id}`}
-                        style={{
-                          display: "grid",
-                          gridTemplateColumns: "minmax(0, 1.6fr) repeat(5, minmax(94px, 0.72fr)) 86px",
-                          gap: 10,
-                          alignItems: "center",
-                          border: "1px solid #eadcc8",
-                          background: "rgba(255,255,255,0.86)",
-                          borderRadius: 18,
-                          padding: 12,
-                          textDecoration: "none",
-                          color: "inherit",
-                        }}
+                        className="boxCard"
                       >
                         <div style={{ minWidth: 0 }}>
-                          <div style={{ fontWeight: 1000, color: "#111827" }}>
+                          <div className="boxTitle">
                             Box #{box.id} · {box.productName}
                           </div>
-                          <div style={{ color: "#6b7280", fontWeight: 700, fontSize: 13 }}>
-                            Purchased {dateLabel(box.createdAt)}
+                          <div className="boxSub">
+                            Purchased {dateLabel(box.createdAt)} · {box.packsOpened}/{box.packsPurchased} packs opened
                           </div>
+
                           {box.topCard ? (
-                            <div style={{ color: "#92400e", fontWeight: 850, fontSize: 13, marginTop: 3 }}>
+                            <div className="boxTopPull">
                               Top pull: {box.topCard.player} #{box.topCard.cardNumber}
                               {cardSubtitle(box.topCard) ? ` · ${cardSubtitle(box.topCard)}` : ""}
                             </div>
                           ) : (
-                            <div style={{ color: "#9ca3af", fontWeight: 750, fontSize: 13, marginTop: 3 }}>
+                            <div className="boxSub" style={{ marginTop: 4 }}>
                               No tracked packs opened yet
                             </div>
                           )}
+
+                          <div className="boxMetricsMobile">
+                            <MobileMetric label="Cost" value={money(box.purchasePriceCents)} />
+                            <MobileMetric label="Value" value={money(box.totalPullValueCents)} />
+                            <MobileMetric label="Profit" value={money(box.profitCents)} tone={box.profitCents} />
+                            <MobileMetric label="ROI" value={pct(box.roiPct)} tone={box.profitCents} />
+                          </div>
+
+                          <div className="boxFooterMobile">
+                            <div className="boxProgressTrack">
+                              <div className="boxProgressFill" style={{ width: `${Math.min(100, progress)}%` }} />
+                            </div>
+                            <div className="boxStatusMobile">
+                              {box.isClosed ? "Closed" : `${progress}% open`}
+                            </div>
+                          </div>
                         </div>
 
-                        <Cell label="Cost" value={money(box.purchasePriceCents)} />
-                        <Cell label="Pull Value" value={money(box.totalPullValueCents)} />
-                        <Cell label="Profit" value={money(box.profitCents)} tone={box.profitCents} />
-                        <Cell label="ROI" value={pct(box.roiPct)} tone={box.profitCents} />
-                        <Cell label="Packs" value={`${box.packsOpened}/${box.packsPurchased}`} />
+                        <div className="boxMetricsDesktop"><Cell label="Cost" value={money(box.purchasePriceCents)} /></div>
+                        <div className="boxMetricsDesktop"><Cell label="Pull Value" value={money(box.totalPullValueCents)} /></div>
+                        <div className="boxMetricsDesktop"><Cell label="Profit" value={money(box.profitCents)} tone={box.profitCents} /></div>
+                        <div className="boxMetricsDesktop"><Cell label="ROI" value={pct(box.roiPct)} tone={box.profitCents} /></div>
+                        <div className="boxMetricsDesktop"><Cell label="Packs" value={`${box.packsOpened}/${box.packsPurchased}`} /></div>
+
                         <div
+                          className="boxMetricsDesktop"
                           style={{
                             borderRadius: 999,
                             padding: "7px 9px",
-                            background: box.isClosed ? "#dcfce7" : "#fffbeb",
-                            color: box.isClosed ? "#166534" : "#92400e",
+                            background: box.isClosed ? "#dcfce7" : colors.goldSoft,
+                            color: box.isClosed ? colors.green : colors.gold,
                             fontWeight: 950,
-                            fontSize: 12,
+                            fontSize: 11,
                             textAlign: "center",
                           }}
                         >
@@ -354,7 +589,7 @@ export default function BoxesClient() {
                   })}
                 </div>
               )}
-            </div>
+            </section>
           </>
         )}
       </div>
@@ -362,7 +597,7 @@ export default function BoxesClient() {
   );
 }
 
-function Stat({
+function SummaryCell({
   label,
   value,
   tone,
@@ -371,22 +606,31 @@ function Stat({
   value: string;
   tone?: number;
 }) {
-  const color = tone === undefined ? "#111827" : tone >= 0 ? "#166534" : "#991b1b";
+  const color = tone === undefined ? colors.text : tone >= 0 ? colors.green : colors.red;
 
   return (
-    <div
-      style={{
-        border: "1px solid #d8cab7",
-        background: "rgba(255,255,255,0.78)",
-        borderRadius: 20,
-        padding: 14,
-        boxShadow: "0 14px 36px rgba(80,49,20,0.08)",
-      }}
-    >
-      <div style={{ color: "#6b7280", fontWeight: 850, fontSize: 12, textTransform: "uppercase" }}>
-        {label}
-      </div>
-      <div style={{ marginTop: 5, fontWeight: 1000, fontSize: 24, color }}>{value}</div>
+    <div className="boxesSummaryCell">
+      <div className="boxesLabel">{label}</div>
+      <div className="boxesValue" style={{ color }}>{value}</div>
+    </div>
+  );
+}
+
+function MobileMetric({
+  label,
+  value,
+  tone,
+}: {
+  label: string;
+  value: string;
+  tone?: number;
+}) {
+  const color = tone === undefined ? colors.text : tone >= 0 ? colors.green : colors.red;
+
+  return (
+    <div className="boxMetricMobile">
+      <div className="boxesLabel">{label}</div>
+      <div className="boxesValue" style={{ color }}>{value}</div>
     </div>
   );
 }
@@ -400,14 +644,12 @@ function Cell({
   value: string;
   tone?: number;
 }) {
-  const color = tone === undefined ? "#111827" : tone >= 0 ? "#166534" : "#991b1b";
+  const color = tone === undefined ? colors.text : tone >= 0 ? colors.green : colors.red;
 
   return (
     <div style={{ minWidth: 0 }}>
-      <div style={{ color: "#9ca3af", fontWeight: 850, fontSize: 11, textTransform: "uppercase" }}>
-        {label}
-      </div>
-      <div style={{ color, fontWeight: 1000, fontSize: 14 }}>{value}</div>
+      <div className="boxesLabel">{label}</div>
+      <div style={{ color, fontWeight: 1000, fontSize: 13 }}>{value}</div>
     </div>
   );
 }

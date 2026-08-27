@@ -81,6 +81,21 @@ type ApiData = {
   cards: BoxCard[];
 };
 
+const colors = {
+  text: "#171717",
+  muted: "#6b7280",
+  border: "#e5ded3",
+  borderStrong: "#d7cbb9",
+  gold: "#8a6200",
+  goldSoft: "#fff8e8",
+  green: "#166534",
+  greenSoft: "#ecfdf3",
+  red: "#991b1b",
+  blue: "#16477d",
+  blueSoft: "#eef5fb",
+  purple: "#6d28d9",
+};
+
 function money(cents: number) {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -103,12 +118,12 @@ function setLabel(card: BoxCard) {
 }
 
 function statusMeta(status: CardStatus) {
-  if (status === "SOLD_OUT") return { label: "Sold Out", emoji: "✓", cls: "sold" };
-  if (status === "PARTIAL") return { label: "Partial Exit", emoji: "◐", cls: "partial" };
-  if (status === "GRADED") return { label: "Graded", emoji: "◆", cls: "graded" };
-  if (status === "GRADED_PARTIAL") return { label: "Graded + Partial", emoji: "◆◐", cls: "gradedPartial" };
-  if (status === "GRADED_SOLD_OUT") return { label: "Graded + Sold", emoji: "◆✓", cls: "gradedSold" };
-  return { label: "Holding", emoji: "●", cls: "holding" };
+  if (status === "SOLD_OUT") return { label: "Sold", cls: "sold" };
+  if (status === "PARTIAL") return { label: "Partial", cls: "partial" };
+  if (status === "GRADED") return { label: "Graded", cls: "graded" };
+  if (status === "GRADED_PARTIAL") return { label: "Graded + Partial", cls: "gradedPartial" };
+  if (status === "GRADED_SOLD_OUT") return { label: "Graded + Sold", cls: "gradedSold" };
+  return { label: "Holding", cls: "holding" };
 }
 
 export default function BoxDetailClient({ boxId }: { boxId: string }) {
@@ -160,6 +175,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
       if (sortKey === "set") {
         return setLabel(a).localeCompare(setLabel(b));
       }
+
       return b.totalPositionCents - a.totalPositionCents;
     });
 
@@ -178,6 +194,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
 
   async function getOffer(cardId: number) {
     setBusy(`offer-${cardId}`);
+
     try {
       const res = await fetch("/api/shop/offers", {
         method: "POST",
@@ -186,7 +203,11 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
       });
 
       const json = await res.json().catch(() => null);
-      if (!res.ok || !json?.ok) throw new Error(json?.error ?? "Offer failed.");
+
+      if (!res.ok || !json?.ok) {
+        throw new Error(json?.error ?? "Offer failed.");
+      }
+
       alert(json.reused ? "Existing active offer found." : "Shop offer created.");
     } catch (e) {
       alert(e instanceof Error ? e.message : "Offer failed.");
@@ -197,6 +218,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
 
   async function submitToGrading(cardId: number) {
     setBusy(`grade-${cardId}`);
+
     try {
       const res = await fetch("/api/grading/submit", {
         method: "POST",
@@ -205,7 +227,11 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
       });
 
       const json = await res.json().catch(() => null);
-      if (!res.ok || !json?.ok) throw new Error(json?.error ?? "Grading submission failed.");
+
+      if (!res.ok || !json?.ok) {
+        throw new Error(json?.error ?? "Grading submission failed.");
+      }
+
       alert("Submitted 1 raw copy for grading.");
     } catch (e) {
       alert(e instanceof Error ? e.message : "Grading submission failed.");
@@ -215,579 +241,692 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
   }
 
   return (
-    <main className="page">
+    <main className="boxDetailPage">
       <style>{`
-        .page {
+        .boxDetailPage {
           min-height: 100vh;
-          background: radial-gradient(circle at top left, rgba(245,158,11,.2), transparent 34%), linear-gradient(180deg,#f8f1e7,#efe2cf);
-          font-family: system-ui;
-          color: #111827;
-        }
-        .wrap { max-width: 1280px; margin: 0 auto; padding: 18px 16px 44px; }
-        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 12px; margin-top: 18px; }
-        .stat, .panel { border: 1px solid #d8cab7; background: rgba(255,255,255,.78); border-radius: 20px; box-shadow: 0 18px 45px rgba(80,49,20,.10); }
-        .stat { padding: 14px; }
-        .label { color: #6b7280; font-weight: 900; font-size: 12px; text-transform: uppercase; }
-        .value { margin-top: 5px; font-weight: 1000; font-size: 23px; }
-        .panel { margin-top: 16px; padding: 12px; }
-        .showcase {
-          margin-top: 18px;
-          border: 1px solid #d8cab7;
-          border-radius: 24px;
-          padding: 16px 16px 20px;
+          color: ${colors.text};
           background:
-            radial-gradient(circle at 20% 0%, rgba(245,158,11,.20), transparent 28%),
-            linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,251,235,.72));
-          box-shadow: 0 22px 54px rgba(80,49,20,.13);
+            radial-gradient(circle at top left, rgba(245,158,11,.12), transparent 30%),
+            linear-gradient(180deg,#f8f3ea,#f2eadf);
+        }
+
+        .boxDetailWrap {
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 12px 10px 32px;
+        }
+
+        .boxDetailTitle {
+          margin: 7px 0 3px;
+          font-size: clamp(30px,7vw,40px);
+          line-height: 1;
+          letter-spacing: -.045em;
+          font-weight: 1000;
+        }
+
+        .boxDetailProduct {
+          color: ${colors.muted};
+          font-size: 12.5px;
+          font-weight: 800;
+        }
+
+        .boxSummary {
+          margin-top: 11px;
+          display: grid;
+          grid-template-columns: repeat(6,minmax(0,1fr));
+          border: 1px solid ${colors.borderStrong};
+          border-radius: 15px;
+          overflow: hidden;
+          background: rgba(255,255,255,.9);
+        }
+
+        .boxSummaryCell {
+          min-width: 0;
+          padding: 9px 10px;
+          border-left: 1px solid ${colors.border};
+        }
+
+        .boxSummaryCell:first-child {
+          border-left: 0;
+        }
+
+        .boxLabel {
+          color: ${colors.muted};
+          font-size: 9px;
+          font-weight: 950;
+          text-transform: uppercase;
+          letter-spacing: .04em;
+          white-space: nowrap;
+        }
+
+        .boxSummaryValue {
+          margin-top: 3px;
+          font-size: 16px;
+          line-height: 1.05;
+          font-weight: 1000;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .boxSection {
+          margin-top: 11px;
+          border: 1px solid ${colors.borderStrong};
+          background: rgba(255,255,255,.86);
+          border-radius: 16px;
           overflow: hidden;
         }
-        .showcaseHeader {
+
+        .boxSectionHeader {
           display: flex;
           justify-content: space-between;
-          align-items: flex-end;
-          gap: 12px;
-          flex-wrap: wrap;
-          margin-bottom: 14px;
-        }
-        .stands {
-          display: grid;
-          grid-template-columns: repeat(5, minmax(120px, 1fr));
-          gap: 14px;
-          align-items: end;
-        }
-        .standSlot {
-          min-width: 0;
-          display: flex;
-          flex-direction: column;
+          gap: 10px;
           align-items: center;
-          justify-content: flex-end;
-          position: relative;
-          padding-top: 4px;
+          padding: 10px 11px;
+          border-bottom: 1px solid ${colors.border};
+          background: linear-gradient(90deg,${colors.goldSoft},rgba(255,255,255,.94));
         }
-        .topLoader {
-          width: min(100%, 160px);
+
+        .boxSectionTitle {
+          font-size: 16px;
+          line-height: 1.1;
+          font-weight: 1000;
+        }
+
+        .boxSectionSub {
+          margin-top: 2px;
+          color: ${colors.muted};
+          font-size: 10.5px;
+          font-weight: 750;
+        }
+
+        .boxSectionBody {
+          padding: 9px 10px 10px;
+        }
+
+        .topPullGrid {
+          display: grid;
+          grid-template-columns: repeat(5,minmax(0,1fr));
+          gap: 8px;
+        }
+
+        .topPullCard {
+          min-width: 0;
+          display: grid;
+          gap: 5px;
+          text-decoration: none;
+          color: inherit;
+        }
+
+        .topPullImage {
+          width: 100%;
           aspect-ratio: 2.5 / 3.5;
-          border-radius: 13px;
-          padding: 8px;
-          position: relative;
-          background:
-            linear-gradient(135deg, rgba(255,255,255,.72), rgba(219,234,254,.30)),
-            rgba(255,255,255,.34);
-          border: 1px solid rgba(148,163,184,.65);
-          box-shadow:
-            inset 0 0 0 2px rgba(255,255,255,.45),
-            0 18px 32px rgba(15,23,42,.18);
-          backdrop-filter: blur(5px);
-          transform: translateY(2px);
-        }
-        .topLoader::before {
-          content: "";
-          position: absolute;
-          inset: 5px 7px auto;
-          height: 28%;
-          border-radius: 10px;
-          background: linear-gradient(135deg, rgba(255,255,255,.45), rgba(255,255,255,0));
-          pointer-events: none;
-          z-index: 2;
-        }
-        .topLoader::after {
-          content: "";
-          position: absolute;
-          top: 6px;
-          right: 9px;
-          width: 26px;
-          height: 72%;
-          border-radius: 999px;
-          background: linear-gradient(90deg, rgba(255,255,255,.26), rgba(255,255,255,0));
-          pointer-events: none;
-          z-index: 2;
-        }
-        .cardImage {
-          width: 100%;
-          height: 100%;
           object-fit: cover;
-          border-radius: 8px;
+          border-radius: 9px;
+          border: 1px solid ${colors.border};
           background: #f3f4f6;
-          display: block;
-          box-shadow: 0 1px 4px rgba(15,23,42,.16);
         }
-        .missingCard {
+
+        .topPullMissing {
           width: 100%;
-          height: 100%;
-          border-radius: 8px;
-          background: linear-gradient(135deg, #f8fafc, #e5e7eb);
+          aspect-ratio: 2.5 / 3.5;
+          border-radius: 9px;
+          border: 1px solid ${colors.border};
+          background: #f4f4f5;
           display: grid;
           place-items: center;
           text-align: center;
-          color: #6b7280;
-          font-weight: 950;
-          font-size: 12px;
-          padding: 8px;
+          padding: 6px;
+          color: ${colors.muted};
+          font-size: 9px;
+          font-weight: 900;
         }
-        .standBase {
-          width: min(86%, 142px);
-          height: 21px;
-          margin-top: -2px;
-          border-radius: 7px 7px 14px 14px;
-          background: linear-gradient(180deg, #7c4a1f, #3f2412);
-          box-shadow: 0 13px 22px rgba(63,36,18,.24);
-          position: relative;
-        }
-        .standBase::before {
-          content: "";
-          position: absolute;
-          left: 12%;
-          right: 12%;
-          top: -8px;
-          height: 12px;
-          border-radius: 7px 7px 2px 2px;
-          background: linear-gradient(180deg, #a16207, #5b3416);
-        }
-        .pullMeta { margin-top: 9px; text-align: center; width: 100%; }
-        .pullName {
-          font-weight: 1000;
-          font-size: 13px;
+
+        .topPullName {
+          font-size: 11px;
           line-height: 1.15;
-          white-space: nowrap;
+          font-weight: 1000;
           overflow: hidden;
           text-overflow: ellipsis;
+          white-space: nowrap;
         }
-        .pullValue { margin-top: 3px; color: #92400e; font-weight: 1000; font-size: 13px; }
-        .tableWrap { overflow-x: auto; border-radius: 16px; }
-        table { width: 100%; border-collapse: separate; border-spacing: 0 8px; min-width: 1140px; }
-        th { text-align: left; color: #6b7280; font-size: 12px; text-transform: uppercase; padding: 0 10px; }
-        td { background: rgba(255,255,255,.9); border-top: 1px solid #eadcc8; border-bottom: 1px solid #eadcc8; padding: 10px; vertical-align: middle; font-weight: 750; }
-        td:first-child { border-left: 1px solid #eadcc8; border-radius: 14px 0 0 14px; }
-        td:last-child { border-right: 1px solid #eadcc8; border-radius: 0 14px 14px 0; }
-        button, select, .pill {
-          border-radius: 999px;
-          border: 1px solid #d8cab7;
-          padding: 8px 10px;
-          font-weight: 950;
+
+        .topPullValue {
+          color: ${colors.gold};
+          font-size: 10.5px;
+          font-weight: 1000;
+        }
+
+        .boxSort {
+          border: 1px solid ${colors.borderStrong};
+          border-radius: 10px;
           background: #fff;
-          color: #111827;
+          padding: 7px 9px;
+          color: ${colors.text};
+          font-size: 11px;
+          font-weight: 900;
         }
-        button { cursor: pointer; }
-        button:disabled { opacity: .45; cursor: not-allowed; }
-        .primary { background: #111827; color: white; border-color: #111827; }
-        .actions { display: flex; gap: 7px; justify-content: flex-end; }
-        .mobileCards { display: none; }
+
+        .desktopLedger {
+          overflow-x: auto;
+        }
+
+        .desktopLedger table {
+          width: 100%;
+          border-collapse: collapse;
+          min-width: 1080px;
+        }
+
+        .desktopLedger th {
+          text-align: left;
+          color: ${colors.muted};
+          font-size: 10px;
+          text-transform: uppercase;
+          letter-spacing: .03em;
+          padding: 7px 8px;
+          border-bottom: 1px solid ${colors.border};
+        }
+
+        .desktopLedger td {
+          padding: 8px;
+          border-bottom: 1px solid #eee;
+          font-size: 12px;
+          font-weight: 750;
+        }
+
         .cardLink {
-          color: #111827;
+          color: ${colors.text};
           text-decoration: none;
           font-weight: 1000;
         }
-        .cardLink:hover { color: #92400e; text-decoration: underline; }
-        .statusStack {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 5px;
-          margin-top: 5px;
+
+        .cardLink:hover {
+          color: ${colors.gold};
         }
+
         .statusPill {
           display: inline-flex;
           align-items: center;
-          gap: 4px;
           border-radius: 999px;
-          padding: 3px 7px;
-          font-size: 10px;
-          font-weight: 1000;
-          border: 1px solid transparent;
+          padding: 3px 6px;
+          font-size: 9px;
+          font-weight: 950;
           white-space: nowrap;
         }
-        .holding { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
-        .partial { background: #fffbeb; color: #92400e; border-color: #fde68a; }
-        .sold { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
-        .graded { background: #f5f3ff; color: #6d28d9; border-color: #ddd6fe; }
-        .gradedPartial { background: #fef3c7; color: #7c2d12; border-color: #fbbf24; }
-        .gradedSold { background: #d1fae5; color: #047857; border-color: #6ee7b7; }
-        .setBadge {
-          display: inline-flex;
-          align-items: center;
-          border-radius: 999px;
-          padding: 3px 7px;
-          background: #f8fafc;
-          border: 1px solid #e5e7eb;
-          color: #374151;
-          font-size: 11px;
-          font-weight: 1000;
-          max-width: 180px;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-        .moneyGood { color: #166534; font-weight: 1000; }
-        .moneyNeutral { color: #111827; font-weight: 1000; }
 
-        @media (max-width: 900px) {
-          .stands {
-            grid-template-columns: repeat(5, minmax(112px, 1fr));
-            overflow-x: auto;
-            padding-bottom: 4px;
-          }
-          .standSlot { min-width: 120px; }
+        .holding { background: ${colors.blueSoft}; color: ${colors.blue}; }
+        .partial { background: ${colors.goldSoft}; color: ${colors.gold}; }
+        .sold { background: ${colors.greenSoft}; color: ${colors.green}; }
+        .graded { background: #f5f3ff; color: ${colors.purple}; }
+        .gradedPartial { background: #fef3c7; color: #7c2d12; }
+        .gradedSold { background: #d1fae5; color: #047857; }
+
+        .ledgerActions {
+          display: flex;
+          gap: 5px;
+          justify-content: flex-end;
+        }
+
+        .ledgerButton {
+          border: 1px solid ${colors.borderStrong};
+          border-radius: 9px;
+          padding: 6px 8px;
+          background: #fff;
+          color: ${colors.text};
+          font-size: 10.5px;
+          font-weight: 950;
+          cursor: pointer;
+        }
+
+        .ledgerButton.primary {
+          background: ${colors.text};
+          color: #fff;
+          border-color: ${colors.text};
+        }
+
+        .ledgerButton:disabled {
+          opacity: .45;
+          cursor: not-allowed;
+        }
+
+        .mobileLedger {
+          display: none;
         }
 
         @media (max-width: 760px) {
-          .wrap { padding: 12px 10px 36px; }
-          .stats {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 8px;
-            margin-top: 12px;
+          .boxDetailWrap {
+            padding: 10px 8px 24px;
           }
-          .stat { padding: 10px; border-radius: 16px; }
-          .label { font-size: 10px; letter-spacing: .02em; }
-          .value { font-size: 18px; margin-top: 3px; }
-          h1 { font-size: 28px !important; }
 
-          .desktopTable { display: none; }
-          .mobileCards {
-            display: grid;
-            gap: 7px;
+          .boxDetailTitle {
+            font-size: 29px;
           }
-          .cardRow {
-            border: 1px solid #eadcc8;
-            background: rgba(255,255,255,.92);
+
+          .boxDetailProduct {
+            font-size: 11.5px;
+          }
+
+          .boxSummary {
+            grid-template-columns: repeat(3,minmax(0,1fr));
+          }
+
+          .boxSummaryCell {
+            padding: 7px 6px;
+          }
+
+          .boxSummaryCell:nth-child(4) {
+            border-left: 0;
+            border-top: 1px solid ${colors.border};
+          }
+
+          .boxSummaryCell:nth-child(5),
+          .boxSummaryCell:nth-child(6) {
+            border-top: 1px solid ${colors.border};
+          }
+
+          .boxSummaryValue {
+            font-size: 12.5px;
+          }
+
+          .boxSection {
+            margin-top: 9px;
             border-radius: 14px;
-            padding: 9px 10px;
           }
-          .mobileTopLine {
+
+          .boxSectionHeader {
+            padding: 8px 9px;
+            align-items: stretch;
+            flex-direction: column;
+          }
+
+          .boxSectionTitle {
+            font-size: 14px;
+          }
+
+          .boxSectionSub {
+            font-size: 9.5px;
+          }
+
+          .boxSort {
+            width: 100%;
+          }
+
+          .boxSectionBody {
+            padding: 8px;
+          }
+
+          .topPullGrid {
+            grid-template-columns: repeat(5,92px);
+            overflow-x: auto;
+            gap: 7px;
+            padding-bottom: 3px;
+          }
+
+          .topPullName {
+            font-size: 10px;
+          }
+
+          .topPullValue {
+            font-size: 10px;
+          }
+
+          .desktopLedger {
+            display: none;
+          }
+
+          .mobileLedger {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 6px;
+          }
+
+          .mobilePullRow {
+            border: 1px solid ${colors.border};
+            border-radius: 12px;
+            background: #fff;
+            padding: 8px;
+          }
+
+          .mobilePullTop {
+            display: grid;
+            grid-template-columns: minmax(0,1fr) auto;
             gap: 8px;
             align-items: start;
           }
-          .mobileName {
-            font-size: 15px;
+
+          .mobilePullName {
+            font-size: 13.5px;
             line-height: 1.1;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
-          .mobileSub {
-            color: #6b7280;
-            font-weight: 750;
-            font-size: 11px;
-            margin-top: 2px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
-          .mobileValue {
-            text-align: right;
-            font-size: 15px;
             font-weight: 1000;
-            color: #111827;
+            overflow: hidden;
+            text-overflow: ellipsis;
             white-space: nowrap;
           }
-          .mobileMeta {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 6px;
-            margin-top: 8px;
+
+          .mobilePullSub {
+            margin-top: 2px;
+            color: ${colors.muted};
+            font-size: 9.5px;
+            line-height: 1.2;
+            font-weight: 750;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
           }
-          .miniBox {
-            border: 1px solid #f0dfc8;
-            background: #fffaf2;
-            border-radius: 10px;
-            padding: 5px 6px;
-            min-width: 0;
-          }
-          .miniBox .label { font-size: 9px; }
-          .miniValue {
+
+          .mobilePosition {
+            text-align: right;
             font-size: 13px;
             font-weight: 1000;
-            margin-top: 1px;
             white-space: nowrap;
           }
-          .mobileActions {
-            display: grid;
-            grid-template-columns: .8fr .9fr .9fr;
-            gap: 6px;
-            margin-top: 8px;
-          }
-          .mobileActions a,
-          .mobileActions button {
-            width: 100%;
-            text-align: center;
-            font-size: 12px;
-            padding: 7px 6px;
-            text-decoration: none;
-          }
 
-          .panel { padding: 10px; border-radius: 18px; }
-          .showcase { padding: 13px 10px 16px; border-radius: 20px; }
-          .showcaseHeader { margin-bottom: 10px; }
-          .stands {
-            grid-template-columns: repeat(5, 122px);
-            gap: 12px;
-            overflow-x: auto;
-            padding: 2px 2px 6px;
-          }
-          .standSlot { min-width: 122px; }
-          .topLoader { width: 116px; padding: 7px; }
-          .standBase { width: 104px; height: 18px; }
-          .pullName { font-size: 11px; }
-          .pullValue { font-size: 12px; }
-          .statusStack {
-            gap: 4px;
+          .mobilePullInfo {
             margin-top: 6px;
+            display: grid;
+            grid-template-columns: repeat(4,minmax(0,1fr));
+            border: 1px solid ${colors.border};
+            border-radius: 9px;
+            overflow: hidden;
           }
-          .statusPill {
-            font-size: 9px;
-            padding: 3px 6px;
-          }
-          .setBadge {
-            max-width: 150px;
-            font-size: 10px;
-            padding: 2px 6px;
-          }
-        }
 
-        @media (max-width: 430px) {
-          .mobileMeta {
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+          .mobilePullMetric {
+            min-width: 0;
+            padding: 5px 5px;
+            border-left: 1px solid ${colors.border};
+          }
+
+          .mobilePullMetric:first-child {
+            border-left: 0;
+          }
+
+          .mobilePullMetricValue {
+            margin-top: 1px;
+            font-size: 10.5px;
+            line-height: 1.05;
+            font-weight: 1000;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .mobilePullFooter {
+            margin-top: 6px;
+            display: grid;
+            grid-template-columns: minmax(0,1fr) auto auto auto;
             gap: 5px;
+            align-items: center;
           }
-          .miniBox {
-            padding: 4px 5px;
+
+          .mobileStatusLine {
+            min-width: 0;
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            overflow: hidden;
           }
-          .miniValue {
-            font-size: 12px;
+
+          .mobileStatusLine .statusPill {
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .mobilePullFooter .ledgerButton,
+          .mobilePullFooter a.ledgerButton {
+            min-width: 0;
+            padding: 5px 7px;
+            font-size: 9.5px;
+            text-decoration: none;
+            text-align: center;
           }
         }
       `}</style>
 
-      <div className="wrap">
-        <Link href="/analytics/boxes" style={{ color: "#7c2d12", fontWeight: 950, textDecoration: "none" }}>
+      <div className="boxDetailWrap">
+        <Link href="/analytics/boxes" className="vcs-back-link">
           ← Box Portfolio
         </Link>
 
         {error ? (
-          <div className="panel" style={{ color: "#991b1b", fontWeight: 900 }}>
+          <div className="boxSection" style={{ padding: 10, color: colors.red, fontWeight: 900 }}>
             {error}
           </div>
         ) : !data ? (
-          <div className="panel" style={{ fontWeight: 900 }}>Loading box…</div>
+          <div className="boxSection" style={{ padding: 10, fontWeight: 900 }}>
+            Loading box…
+          </div>
         ) : (
           <>
-            <h1 style={{ margin: "10px 0 4px", fontSize: 34, letterSpacing: -1.2 }}>
-              Box #{data.box.id}
-            </h1>
-            <div style={{ color: "#6b7280", fontWeight: 750 }}>{data.box.productName}</div>
+            <h1 className="boxDetailTitle">Box #{data.box.id}</h1>
+            <div className="boxDetailProduct">
+              {data.box.productName} · {data.box.packsOpened}/{data.box.packsPurchased} packs opened
+            </div>
 
-            <section className="stats">
-              <Stat label="Cost Basis" value={money(data.box.purchasePriceCents)} />
-              <Stat label="Inventory" value={money(data.box.remainingInventoryValueCents)} />
-              <Stat label="Cash Realized" value={money(data.box.realizedCents)} tone={data.box.realizedCents} />
-              <Stat label="Position" value={money(data.box.totalPositionCents)} />
-              <Stat label="Net Profit" value={money(data.box.profitCents)} tone={data.box.profitCents} />
-              <Stat label="ROI" value={pct(data.box.roiPct)} tone={data.box.profitCents} />
+            <section className="boxSummary">
+              <SummaryCell label="Cost" value={money(data.box.purchasePriceCents)} />
+              <SummaryCell label="Inventory" value={money(data.box.remainingInventoryValueCents)} />
+              <SummaryCell label="Cash" value={money(data.box.realizedCents)} tone={data.box.realizedCents} />
+              <SummaryCell label="Position" value={money(data.box.totalPositionCents)} />
+              <SummaryCell label="Profit" value={money(data.box.profitCents)} tone={data.box.profitCents} />
+              <SummaryCell label="ROI" value={pct(data.box.roiPct)} tone={data.box.profitCents} />
             </section>
 
-            <section className="showcase">
-              <div className="showcaseHeader">
+            <section className="boxSection">
+              <div className="boxSectionHeader">
                 <div>
-                  <div style={{ fontSize: 20, fontWeight: 1000 }}>Top Pull Showcase</div>
-                  <div style={{ color: "#6b7280", fontWeight: 750, fontSize: 13 }}>
-                    Best five cards by raw book value so far.
-                  </div>
-                </div>
-                <div className="pill" style={{ background: "#fffbeb", color: "#92400e" }}>
-                  Breaker Stand View
+                  <div className="boxSectionTitle">Top Pulls</div>
+                  <div className="boxSectionSub">Best five cards by raw book value.</div>
                 </div>
               </div>
 
-              {topPulls.length === 0 ? (
-                <div style={{ color: "#6b7280", fontWeight: 850 }}>
-                  Open tracked packs from this box to fill the stand.
-                </div>
-              ) : (
-                <div className="stands">
-                  {topPulls.map((card, index) => (
-                    <div className="standSlot" key={card.id}>
-                      <div style={{ color: "#92400e", fontWeight: 1000, fontSize: 12, marginBottom: 6 }}>
-                        #{index + 1}
-                      </div>
-
-                      <Link href={`/cards/${card.id}`} className="topLoader" style={{ display: "block" }}>
+              <div className="boxSectionBody">
+                {topPulls.length === 0 ? (
+                  <div style={{ color: colors.muted, fontWeight: 850, fontSize: 11.5 }}>
+                    Open tracked packs from this box to populate the showcase.
+                  </div>
+                ) : (
+                  <div className="topPullGrid">
+                    {topPulls.map((card) => (
+                      <Link href={`/cards/${card.id}`} className="topPullCard" key={card.id}>
                         {card.frontImageUrl ? (
                           <img
-                            className="cardImage"
+                            className="topPullImage"
                             src={card.frontImageUrl}
                             alt={`${card.player} #${card.cardNumber}`}
+                            loading="lazy"
+                            decoding="async"
                           />
                         ) : (
-                          <div className="missingCard">
+                          <div className="topPullMissing">
                             {card.player}
                             <br />#{card.cardNumber}
                           </div>
                         )}
-                      </Link>
 
-                      <div className="standBase" />
-
-                      <div className="pullMeta">
-                        <Link href={`/cards/${card.id}`} className="cardLink pullName" title={`${card.player} #${card.cardNumber}`}>
+                        <div className="topPullName">
                           {card.player} #{card.cardNumber}
-                        </Link>
-                        <div className="pullValue">{money(card.bookValueCents)}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
+                        </div>
+                        <div className="topPullValue">{money(card.bookValueCents)}</div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             </section>
 
-            <section className="panel">
-              <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap", marginBottom: 10 }}>
+            <section className="boxSection">
+              <div className="boxSectionHeader">
                 <div>
-                  <div style={{ fontSize: 18, fontWeight: 1000 }}>Pull Ledger</div>
-                  <div style={{ color: "#6b7280", fontWeight: 700, fontSize: 13 }}>
-                    Track pulled inventory, sales cash, grading activity, and current position.
+                  <div className="boxSectionTitle">Pull Ledger</div>
+                  <div className="boxSectionSub">
+                    Inventory, sales, grading, and current value by card.
                   </div>
                 </div>
 
-                <select value={sortKey} onChange={(e) => setSortKey(e.target.value as SortKey)}>
-                  <option value="position">Sort: Total Position</option>
-                  <option value="value">Sort: Total Pull Value</option>
-                  <option value="cash">Sort: Cash Realized</option>
-                  <option value="book">Sort: Card Value</option>
-                  <option value="qty">Sort: Quantity Pulled</option>
-                  <option value="held">Sort: Held From Box</option>
-                  <option value="owned">Sort: Total Owned</option>
-                  <option value="sold">Sort: Quantity Sold</option>
-                  <option value="graded">Sort: Quantity Graded</option>
-                  <option value="player">Sort: Player A-Z</option>
-                  <option value="number">Sort: Card #</option>
-                  <option value="set">Sort: Product Set</option>
+                <select
+                  className="boxSort"
+                  value={sortKey}
+                  onChange={(e) => setSortKey(e.target.value as SortKey)}
+                >
+                  <option value="position">Total Position</option>
+                  <option value="value">Total Pull Value</option>
+                  <option value="cash">Cash Realized</option>
+                  <option value="book">Card Value</option>
+                  <option value="qty">Quantity Pulled</option>
+                  <option value="held">Held From Box</option>
+                  <option value="owned">Total Owned</option>
+                  <option value="sold">Quantity Sold</option>
+                  <option value="graded">Quantity Graded</option>
+                  <option value="player">Player A-Z</option>
+                  <option value="number">Card #</option>
+                  <option value="set">Product Set</option>
                 </select>
               </div>
 
-              <div className="desktopTable tableWrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Card</th>
-                      <th>Set</th>
-                      <th>Pulled</th>
-                      <th>Held</th>
-                      <th>Owned</th>
-                      <th>Sold</th>
-                      <th>Graded</th>
-                      <th>Cash</th>
-                      <th>Total Value</th>
-                      <th>Position</th>
-                      <th style={{ textAlign: "right" }}>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {cards.map((card) => {
-                      const meta = statusMeta(card.status);
+              <div className="boxSectionBody">
+                <div className="desktopLedger">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Card</th>
+                        <th>Set</th>
+                        <th>Pulled</th>
+                        <th>Held</th>
+                        <th>Owned</th>
+                        <th>Sold</th>
+                        <th>Graded</th>
+                        <th>Cash</th>
+                        <th>Total Value</th>
+                        <th>Position</th>
+                        <th style={{ textAlign: "right" }}>Actions</th>
+                      </tr>
+                    </thead>
 
-                      return (
-                        <tr key={card.id}>
-                          <td>
-                            <Link href={`/cards/${card.id}`} className="cardLink">
+                    <tbody>
+                      {cards.map((card) => {
+                        const meta = statusMeta(card.status);
+
+                        return (
+                          <tr key={card.id}>
+                            <td>
+                              <Link href={`/cards/${card.id}`} className="cardLink">
+                                {card.player} #{card.cardNumber}
+                              </Link>
+                              <div style={{ color: colors.muted, fontSize: 10.5 }}>
+                                {subtitle(card) || "—"}
+                              </div>
+                              <div style={{ marginTop: 3 }}>
+                                <span className={`statusPill ${meta.cls}`}>{meta.label}</span>
+                                {card.bestGrade ? (
+                                  <span className="statusPill graded" style={{ marginLeft: 4 }}>
+                                    Best {card.bestGrade}
+                                  </span>
+                                ) : null}
+                              </div>
+                            </td>
+                            <td>{setLabel(card)}</td>
+                            <td>{card.quantityPulled}</td>
+                            <td>{card.remainingPulledQuantity}</td>
+                            <td>{card.totalOwned}</td>
+                            <td>{card.soldQuantity}</td>
+                            <td>{card.gradedFromBox}</td>
+                            <td style={{ color: card.realizedCents > 0 ? colors.green : colors.text }}>
+                              {money(card.realizedCents)}
+                            </td>
+                            <td>{money(card.totalValueCents)}</td>
+                            <td style={{ fontWeight: 1000 }}>{money(card.totalPositionCents)}</td>
+                            <td>
+                              <div className="ledgerActions">
+                                <button
+                                  className="ledgerButton"
+                                  disabled={card.totalOwned <= 0 || busy !== ""}
+                                  onClick={() => getOffer(card.id)}
+                                >
+                                  Offer
+                                </button>
+                                <button
+                                  className="ledgerButton primary"
+                                  disabled={card.rawOwned <= 0 || busy !== ""}
+                                  onClick={() => submitToGrading(card.id)}
+                                >
+                                  Grade
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="mobileLedger">
+                  {cards.map((card) => {
+                    const meta = statusMeta(card.status);
+
+                    return (
+                      <div className="mobilePullRow" key={card.id}>
+                        <div className="mobilePullTop">
+                          <div style={{ minWidth: 0 }}>
+                            <Link href={`/cards/${card.id}`} className="cardLink mobilePullName">
                               {card.player} #{card.cardNumber}
                             </Link>
-                            <div style={{ color: "#6b7280", fontSize: 12 }}>
-                              {subtitle(card) || "—"}
+                            <div className="mobilePullSub">
+                              {setLabel(card)}
+                              {subtitle(card) ? ` · ${subtitle(card)}` : ""}
                             </div>
-                            <div className="statusStack">
-                              <span className={`statusPill ${meta.cls}`}>
-                                {meta.emoji} {meta.label}
-                              </span>
-                              {card.bestGrade ? (
-                                <span className="statusPill graded">◆ Best {card.bestGrade}</span>
-                              ) : null}
-                            </div>
-                          </td>
-                          <td>
-                            <span className="setBadge">{setLabel(card)}</span>
-                          </td>
-                          <td>{card.quantityPulled}</td>
-                          <td>{card.remainingPulledQuantity}</td>
-                          <td>{card.totalOwned}</td>
-                          <td>{card.soldQuantity}</td>
-                          <td>{card.gradedFromBox}</td>
-                          <td className={card.realizedCents > 0 ? "moneyGood" : "moneyNeutral"}>
-                            {money(card.realizedCents)}
-                          </td>
-                          <td>{money(card.totalValueCents)}</td>
-                          <td className="moneyNeutral">{money(card.totalPositionCents)}</td>
-                          <td>
-                            <div className="actions">
-                              <button disabled={card.totalOwned <= 0 || busy !== ""} onClick={() => getOffer(card.id)}>
-                                Offer
-                              </button>
-                              <button className="primary" disabled={card.rawOwned <= 0 || busy !== ""} onClick={() => submitToGrading(card.id)}>
-                                Grade
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="mobileCards">
-                {cards.map((card) => {
-                  const meta = statusMeta(card.status);
-
-                  return (
-                    <div className="cardRow" key={card.id}>
-                      <div className="mobileTopLine">
-                        <div style={{ minWidth: 0 }}>
-                          <Link href={`/cards/${card.id}`} className="cardLink mobileName">
-                            {card.player} #{card.cardNumber}
-                          </Link>
-                          <div className="mobileSub">
-                            {setLabel(card)}
-                            {subtitle(card) ? ` · ${subtitle(card)}` : ""}
                           </div>
+
+                          <div className="mobilePosition">{money(card.totalPositionCents)}</div>
                         </div>
-                        <div className="mobileValue">{money(card.totalPositionCents)}</div>
-                      </div>
 
-                      <div className="statusStack">
-                        <span className={`statusPill ${meta.cls}`}>
-                          {meta.emoji} {meta.label}
-                        </span>
-                        {card.soldQuantity > 0 ? (
-                          <span className="statusPill sold">Cash {money(card.realizedCents)}</span>
-                        ) : null}
-                        {card.gradedFromBox > 0 ? (
-                          <span className="statusPill graded">
-                            ◆ Graded {card.gradedFromBox}
-                            {card.bestGrade ? ` · Best ${card.bestGrade}` : ""}
-                          </span>
-                        ) : null}
-                      </div>
+                        <div className="mobilePullInfo">
+                          <MobileMetric label="Pulled" value={String(card.quantityPulled)} />
+                          <MobileMetric label="Held" value={String(card.remainingPulledQuantity)} />
+                          <MobileMetric label="Owned" value={String(card.totalOwned)} />
+                          <MobileMetric
+                            label="Cash"
+                            value={money(card.realizedCents)}
+                            tone={card.realizedCents > 0 ? "green" : undefined}
+                          />
+                        </div>
 
-                      <div className="mobileMeta">
-                        <Mini label="Pulled" value={String(card.quantityPulled)} />
-                        <Mini label="Held" value={String(card.remainingPulledQuantity)} />
-                        <Mini label="Owned" value={String(card.totalOwned)} />
-                        <Mini label="Sold" value={String(card.soldQuantity)} />
-                      </div>
+                        <div className="mobilePullFooter">
+                          <div className="mobileStatusLine">
+                            <span className={`statusPill ${meta.cls}`}>{meta.label}</span>
+                            {card.gradedFromBox > 0 ? (
+                              <span className="statusPill graded">
+                                Graded {card.gradedFromBox}
+                                {card.bestGrade ? ` · Best ${card.bestGrade}` : ""}
+                              </span>
+                            ) : null}
+                          </div>
 
-                      <div className="mobileActions">
-                        <Link href={`/cards/${card.id}`} className="pill">
-                          Details
-                        </Link>
-                        <button disabled={card.totalOwned <= 0 || busy !== ""} onClick={() => getOffer(card.id)}>
-                          Offer
-                        </button>
-                        <button className="primary" disabled={card.rawOwned <= 0 || busy !== ""} onClick={() => submitToGrading(card.id)}>
-                          Grade
-                        </button>
+                          <Link href={`/cards/${card.id}`} className="ledgerButton">
+                            Details
+                          </Link>
+
+                          <button
+                            className="ledgerButton"
+                            disabled={card.totalOwned <= 0 || busy !== ""}
+                            onClick={() => getOffer(card.id)}
+                          >
+                            Offer
+                          </button>
+
+                          <button
+                            className="ledgerButton primary"
+                            disabled={card.rawOwned <= 0 || busy !== ""}
+                            onClick={() => submitToGrading(card.id)}
+                          >
+                            Grade
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
             </section>
           </>
@@ -797,23 +936,45 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
   );
 }
 
-function Stat({ label, value, tone }: { label: string; value: string; tone?: number }) {
-  const color = tone === undefined ? "#111827" : tone >= 0 ? "#166534" : "#991b1b";
+function SummaryCell({
+  label,
+  value,
+  tone,
+}: {
+  label: string;
+  value: string;
+  tone?: number;
+}) {
+  const color = tone === undefined ? colors.text : tone >= 0 ? colors.green : colors.red;
+
   return (
-    <div className="stat">
-      <div className="label">{label}</div>
-      <div className="value" style={{ color }}>
+    <div className="boxSummaryCell">
+      <div className="boxLabel">{label}</div>
+      <div className="boxSummaryValue" style={{ color }}>
         {value}
       </div>
     </div>
   );
 }
 
-function Mini({ label, value }: { label: string; value: string }) {
+function MobileMetric({
+  label,
+  value,
+  tone,
+}: {
+  label: string;
+  value: string;
+  tone?: "green";
+}) {
   return (
-    <div className="miniBox">
-      <div className="label">{label}</div>
-      <div className="miniValue">{value}</div>
+    <div className="mobilePullMetric">
+      <div className="boxLabel">{label}</div>
+      <div
+        className="mobilePullMetricValue"
+        style={{ color: tone === "green" ? colors.green : colors.text }}
+      >
+        {value}
+      </div>
     </div>
   );
 }

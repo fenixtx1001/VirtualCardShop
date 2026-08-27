@@ -60,18 +60,18 @@ type FinanceResponse = {
 };
 
 const colors = {
-  page: "#f6f1e8",
   text: "#111827",
   muted: "#6b7280",
   border: "#e7ddcf",
   dark: "#08111f",
   green: "#15803d",
-  greenSoft: "#dcfce7",
+  greenSoft: "#ecfdf3",
   red: "#b91c1c",
-  redSoft: "#fee2e2",
+  redSoft: "#fff1f2",
   blue: "#16477d",
-  gold: "#b7791f",
-  goldSoft: "#fef3c7",
+  blueSoft: "#eef5fb",
+  gold: "#9a6700",
+  goldSoft: "#fff8e8",
 };
 
 function dollars(cents: number) {
@@ -95,11 +95,6 @@ function compactDollars(cents: number) {
 function signedDollars(cents: number) {
   const prefix = cents > 0 ? "+" : "";
   return `${prefix}${dollars(cents)}`;
-}
-
-function signedCompactDollars(cents: number) {
-  const prefix = cents > 0 ? "+" : "";
-  return `${prefix}${compactDollars(cents)}`;
 }
 
 function shortDate(dateKey: string) {
@@ -141,8 +136,8 @@ export default function FinancesClient() {
       }
 
       setData(json);
-    } catch (e: any) {
-      setErr(e?.message ?? "Failed to load finances");
+    } catch (e: unknown) {
+      setErr(e instanceof Error ? e.message : "Failed to load finances");
       setData(null);
     } finally {
       setLoading(false);
@@ -164,67 +159,383 @@ export default function FinancesClient() {
     const values = snapshots.map((s) => s.netWorthCents);
 
     if (values.length === 0) {
-      return {
-        min: 0,
-        max: 1,
-        paddedMin: 0,
-        paddedMax: 1,
-      };
+      return { min: 0, max: 1, paddedMin: 0, paddedMax: 1 };
     }
 
     const min = Math.min(...values);
     const max = Math.max(...values);
     const rawRange = Math.max(1, max - min);
-    const minimumVisualRange = Math.max(5000, Math.round((data?.summary.netWorthCents ?? max) * 0.015));
+    const minimumVisualRange = Math.max(
+      5000,
+      Math.round((data?.summary.netWorthCents ?? max) * 0.015)
+    );
     const visualRange = Math.max(rawRange, minimumVisualRange);
     const center = (min + max) / 2;
     const paddedMin = Math.max(0, Math.round(center - visualRange / 2));
     const paddedMax = Math.round(center + visualRange / 2);
 
-    return {
-      min,
-      max,
-      paddedMin,
-      paddedMax,
-    };
+    return { min, max, paddedMin, paddedMax };
   }, [data]);
 
   return (
-    <main
-      style={{
-        minHeight: "calc(100vh - 80px)",
-        background:
-          "radial-gradient(circle at top left, rgba(22,71,125,0.16), transparent 32%), radial-gradient(circle at 80% 20%, rgba(183,121,31,0.16), transparent 28%), #f6f1e8",
-        color: colors.text,
-        fontFamily: "system-ui",
-        padding: "14px clamp(12px, 3vw, 22px)",
-      }}
-    >
-      <div style={{ maxWidth: 1240, margin: "0 auto" }}>
-        <header
-          style={{
-            display: "grid",
-            gridTemplateColumns: "minmax(0, 1fr)",
-            gap: 14,
-            alignItems: "start",
-          }}
-        >
+    <main className="financePage">
+      <style>{`
+        .financePage {
+          min-height: calc(100vh - 80px);
+          padding: 12px clamp(10px, 3vw, 22px) 28px;
+          color: ${colors.text};
+          background:
+            radial-gradient(circle at top left, rgba(22,71,125,0.11), transparent 28%),
+            radial-gradient(circle at 82% 18%, rgba(183,121,31,0.10), transparent 24%),
+            #f6f1e8;
+        }
+
+        .financeShell {
+          max-width: 1240px;
+          margin: 0 auto;
+        }
+
+        .financeHeader {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+
+        .financeTitle {
+          margin: 7px 0 3px;
+          font-size: clamp(30px, 7vw, 42px);
+          line-height: 1;
+          letter-spacing: -0.045em;
+          font-weight: 1000;
+        }
+
+        .financeSubtitle {
+          color: ${colors.muted};
+          font-size: 12.5px;
+          line-height: 1.4;
+          font-weight: 750;
+          max-width: 720px;
+        }
+
+        .financeRange {
+          display: grid;
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+          border: 1px solid ${colors.border};
+          border-radius: 13px;
+          overflow: hidden;
+          background: rgba(255,255,255,.82);
+        }
+
+        .financeRange button {
+          min-height: 36px;
+          border: 0;
+          border-left: 1px solid ${colors.border};
+          background: transparent;
+          color: ${colors.text};
+          padding: 7px 10px;
+          font-size: 11.5px;
+          font-weight: 950;
+          cursor: pointer;
+        }
+
+        .financeRange button:first-child {
+          border-left: 0;
+        }
+
+        .financeRange button[data-active="true"] {
+          background: ${colors.dark};
+          color: #fff;
+        }
+
+        .financeSummary {
+          margin-top: 12px;
+          display: grid;
+          grid-template-columns: 1.45fr 1fr 1fr 1fr;
+          border: 1px solid ${colors.border};
+          border-radius: 16px;
+          overflow: hidden;
+          background: rgba(255,255,255,.91);
+          box-shadow: 0 8px 24px rgba(0,0,0,.035);
+        }
+
+        .financeSummaryCell {
+          min-width: 0;
+          padding: 11px 12px;
+          border-left: 1px solid ${colors.border};
+        }
+
+        .financeSummaryCell:first-child {
+          border-left: 0;
+        }
+
+        .financeEyebrow {
+          color: ${colors.muted};
+          font-size: 9.5px;
+          font-weight: 950;
+          letter-spacing: .04em;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+
+        .financeSummaryValue {
+          margin-top: 3px;
+          font-size: 20px;
+          line-height: 1.05;
+          font-weight: 1000;
+          letter-spacing: -.035em;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .financeSummarySub {
+          margin-top: 3px;
+          color: ${colors.muted};
+          font-size: 10px;
+          line-height: 1.2;
+          font-weight: 800;
+        }
+
+        .financeSection {
+          margin-top: 12px;
+          border: 1px solid ${colors.border};
+          border-radius: 17px;
+          background: rgba(255,255,255,.92);
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0,0,0,.04);
+        }
+
+        .financeSectionHeader {
+          padding: 11px 13px 9px;
+          border-bottom: 1px solid ${colors.border};
+        }
+
+        .financeSectionHeader.blue {
+          background: linear-gradient(90deg, ${colors.blueSoft}, rgba(255,255,255,.94));
+          border-bottom-color: #d7e4f1;
+        }
+
+        .financeSectionHeader.green {
+          background: linear-gradient(90deg, ${colors.greenSoft}, rgba(255,255,255,.94));
+          border-bottom-color: #d4edda;
+        }
+
+        .financeSectionHeader.gold {
+          background: linear-gradient(90deg, ${colors.goldSoft}, rgba(255,255,255,.94));
+          border-bottom-color: #eedca6;
+        }
+
+        .financeSectionTitle {
+          margin: 0;
+          font-size: 17px;
+          line-height: 1.1;
+          font-weight: 1000;
+        }
+
+        .financeSectionSub {
+          margin-top: 3px;
+          color: ${colors.muted};
+          font-size: 10.5px;
+          line-height: 1.3;
+          font-weight: 750;
+        }
+
+        .financeSectionBody {
+          padding: 11px 12px 12px;
+        }
+
+        .financeTrendMetrics {
+          margin-top: 8px;
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          border: 1px solid ${colors.border};
+          border-radius: 12px;
+          overflow: hidden;
+        }
+
+        .financeTrendMetric {
+          min-width: 0;
+          padding: 7px 8px;
+          border-left: 1px solid ${colors.border};
+        }
+
+        .financeTrendMetric:first-child {
+          border-left: 0;
+        }
+
+        .financeTrendMetricValue {
+          margin-top: 2px;
+          font-size: 12px;
+          line-height: 1.1;
+          font-weight: 1000;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .financeScore {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          border: 1px solid ${colors.border};
+          border-radius: 12px;
+          overflow: hidden;
+        }
+
+        .financeScoreCell {
+          min-width: 0;
+          padding: 8px 9px;
+          border-left: 1px solid ${colors.border};
+          background: #fff;
+        }
+
+        .financeScoreCell:first-child {
+          border-left: 0;
+        }
+
+        .financeScoreValue {
+          margin-top: 2px;
+          font-size: 13px;
+          font-weight: 1000;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .financeTwoCol {
+          margin-top: 12px;
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 12px;
+          align-items: start;
+        }
+
+        .financeTransactions {
+          display: grid;
+          gap: 6px;
+        }
+
+        @media (max-width: 760px) {
+          .financePage {
+            padding: 10px 8px 22px;
+          }
+
+          .financeHeader {
+            display: grid;
+            gap: 8px;
+          }
+
+          .financeTitle {
+            font-size: 30px;
+          }
+
+          .financeSubtitle {
+            font-size: 11.5px;
+          }
+
+          .financeRange {
+            width: 100%;
+          }
+
+          .financeRange button {
+            padding: 6px 4px;
+            min-height: 34px;
+            font-size: 10.5px;
+          }
+
+          .financeSummary {
+            grid-template-columns: 1.35fr .9fr .95fr 1fr;
+            margin-top: 9px;
+          }
+
+          .financeSummaryCell {
+            padding: 8px 7px;
+          }
+
+          .financeSummaryValue {
+            font-size: 13px;
+          }
+
+          .financeSummaryCell:first-child .financeSummaryValue {
+            font-size: 15px;
+          }
+
+          .financeSummarySub {
+            display: none;
+          }
+
+          .financeEyebrow {
+            font-size: 8px;
+          }
+
+          .financeSection {
+            margin-top: 9px;
+            border-radius: 14px;
+          }
+
+          .financeSectionHeader {
+            padding: 9px 10px 8px;
+          }
+
+          .financeSectionTitle {
+            font-size: 15px;
+          }
+
+          .financeSectionSub {
+            font-size: 9.5px;
+          }
+
+          .financeSectionBody {
+            padding: 9px 9px 10px;
+          }
+
+          .financeTrendMetrics {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+          }
+
+          .financeTrendMetric {
+            padding: 6px 5px;
+          }
+
+          .financeTrendMetricValue {
+            font-size: 10.5px;
+          }
+
+          .financeScore {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+          .financeScoreCell:nth-child(3) {
+            border-left: 0;
+            border-top: 1px solid ${colors.border};
+          }
+
+          .financeScoreCell:nth-child(4) {
+            border-top: 1px solid ${colors.border};
+          }
+
+          .financeScoreValue {
+            font-size: 12px;
+          }
+
+          .financeTwoCol {
+            grid-template-columns: 1fr;
+            gap: 9px;
+            margin-top: 9px;
+          }
+        }
+      `}</style>
+
+      <div className="financeShell">
+        <header className="financeHeader">
           <div>
-            <Link href="/analytics" style={{ color: colors.blue, fontWeight: 900, fontSize: 13 }}>
+            <Link href="/analytics" className="vcs-back-link">
               ← Analytics
             </Link>
-            <h1
-              style={{
-                margin: "8px 0 4px",
-                fontSize: "clamp(30px, 7vw, 44px)",
-                letterSpacing: "-0.05em",
-                fontWeight: 1000,
-              }}
-            >
-              My Finances
-            </h1>
-            <div style={{ color: colors.muted, fontWeight: 750, lineHeight: 1.45, maxWidth: 760 }}>
-              Track your card business like a portfolio: net worth, cashflow, spending, rewards, and recent financial activity.
+            <h1 className="financeTitle">My Finances</h1>
+            <div className="financeSubtitle">
+              Net worth, cash flow, spending, and activity in one portfolio view.
             </div>
           </div>
 
@@ -234,13 +545,14 @@ export default function FinancesClient() {
         {err ? (
           <div
             style={{
-              marginTop: 16,
+              marginTop: 10,
               background: colors.redSoft,
               color: colors.red,
               border: "1px solid #fecaca",
-              borderRadius: 14,
-              padding: 12,
+              borderRadius: 12,
+              padding: 10,
               fontWeight: 900,
+              fontSize: 12,
             }}
           >
             {err}
@@ -248,156 +560,145 @@ export default function FinancesClient() {
         ) : null}
 
         {loading ? (
-          <div style={{ marginTop: 18, fontWeight: 900, color: colors.muted }}>
+          <div style={{ marginTop: 14, fontWeight: 900, color: colors.muted }}>
             Loading financial dashboard…
           </div>
         ) : data ? (
           <>
-            <section
-              style={{
-                marginTop: 18,
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))",
-                gap: 12,
-              }}
-            >
-              <HeroCard
-                title="Net Worth"
+            <section className="financeSummary">
+              <SummaryCell
+                label="Net Worth"
                 value={dollars(data.summary.netWorthCents)}
-                subtitle="Bank + collection value"
-                dark
+                sub="Bank + collection"
               />
-              <HeroCard
-                title={`${rangeLabel(range)} Net Worth Change`}
-                value={signedDollars(data.summary.netWorthChangeCents)}
-                subtitle={`${pctLabel(data.summary.netWorthChangePct)} • ${dollars(
-                  data.summary.startingNetWorthCents
-                )} → ${dollars(data.summary.endingNetWorthCents)}`}
-                positive={data.summary.netWorthChangeCents >= 0}
-                accent
-              />
-              <HeroCard
-                title="Bank Balance"
+              <SummaryCell
+                label="Bank"
                 value={dollars(data.summary.balanceCents)}
-                subtitle="Cash available"
+                sub="Available cash"
               />
-              <HeroCard
-                title="Collection Value"
+              <SummaryCell
+                label="Collection"
                 value={dollars(data.summary.collectionValueCents)}
-                subtitle="Raw + grading + slabs"
+                sub="Raw + slabs"
               />
-              <HeroCard
-                title={`${rangeLabel(range)} Net Cashflow`}
-                value={signedDollars(data.summary.netCashflowCents)}
-                subtitle={`Income ${dollars(data.summary.totalIncomeCents)} • Expenses ${dollars(
-                  data.summary.totalExpenseCents
-                )}`}
-                positive={data.summary.netCashflowCents >= 0}
+              <SummaryCell
+                label={`${rangeLabel(range)} Change`}
+                value={signedDollars(data.summary.netWorthChangeCents)}
+                sub={pctLabel(data.summary.netWorthChangePct)}
+                tone={data.summary.netWorthChangeCents >= 0 ? "green" : "red"}
               />
             </section>
 
-            <section
-              style={{
-                marginTop: 14,
-                display: "grid",
-                gridTemplateColumns: "minmax(0, 1.35fr) minmax(min(100%, 320px), 0.65fr)",
-                gap: 14,
-                alignItems: "stretch",
-              }}
+            <FinanceSection
+              tone="blue"
+              title="Net Worth Trend"
+              subtitle="Portfolio value across the selected range."
             >
-              <Panel
-                title="Net Worth Trend"
-                subtitle="Scaled to the selected range so small changes are visible."
-              >
-                <NetWorthChart
-                  points={data.snapshots.map((s) => ({
-                    label: shortDate(s.dateKey),
-                    dateKey: s.dateKey,
-                    value: s.netWorthCents,
-                  }))}
-                  min={netWorthTrend.paddedMin}
-                  max={netWorthTrend.paddedMax}
+              <NetWorthChart
+                points={data.snapshots.map((s) => ({
+                  label: shortDate(s.dateKey),
+                  dateKey: s.dateKey,
+                  value: s.netWorthCents,
+                }))}
+                min={netWorthTrend.paddedMin}
+                max={netWorthTrend.paddedMax}
+              />
+
+              <div className="financeTrendMetrics">
+                <TrendMetric label="Start" value={dollars(data.summary.startingNetWorthCents)} />
+                <TrendMetric label="End" value={dollars(data.summary.endingNetWorthCents)} />
+                <TrendMetric
+                  label="Change"
+                  value={signedDollars(data.summary.netWorthChangeCents)}
+                  tone={data.summary.netWorthChangeCents >= 0 ? "green" : "red"}
                 />
+                <TrendMetric
+                  label="Move"
+                  value={pctLabel(data.summary.netWorthChangePct)}
+                  tone={data.summary.netWorthChangeCents >= 0 ? "green" : "red"}
+                />
+              </div>
+            </FinanceSection>
 
-                <div
-                  style={{
-                    marginTop: 12,
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(135px, 1fr))",
-                    gap: 8,
-                  }}
-                >
-                  <MiniMetric label="Start" value={dollars(data.summary.startingNetWorthCents)} />
-                  <MiniMetric label="End" value={dollars(data.summary.endingNetWorthCents)} />
-                  <MiniMetric
-                    label="Change"
-                    value={signedDollars(data.summary.netWorthChangeCents)}
-                    tone={data.summary.netWorthChangeCents >= 0 ? "green" : "red"}
-                  />
-                  <MiniMetric
-                    label="Move"
-                    value={pctLabel(data.summary.netWorthChangePct)}
-                    tone={data.summary.netWorthChangeCents >= 0 ? "green" : "red"}
-                  />
-                </div>
-              </Panel>
-
-              <Panel title="Business Scorecard" subtitle="Cash profitability for selected range.">
-                <div style={{ display: "grid", gap: 10 }}>
-                  <ScoreRow label="Income" value={dollars(data.summary.totalIncomeCents)} tone="green" />
-                  <ScoreRow label="Expenses" value={dollars(data.summary.totalExpenseCents)} tone="red" />
-                  <ScoreRow
-                    label="Net Cashflow"
-                    value={signedDollars(data.summary.netCashflowCents)}
-                    tone={data.summary.netCashflowCents >= 0 ? "green" : "red"}
-                  />
-                  <ScoreRow
-                    label="Cash ROI"
-                    value={data.summary.roiPct == null ? "—" : `${data.summary.roiPct}%`}
-                    tone={(data.summary.roiPct ?? 0) >= 0 ? "green" : "red"}
-                  />
-                </div>
-              </Panel>
-            </section>
-
-            <section
-              style={{
-                marginTop: 14,
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))",
-                gap: 14,
-              }}
+            <FinanceSection
+              tone="green"
+              title={`${rangeLabel(range)} Cash Flow`}
+              subtitle="Cash profitability for the selected range."
             >
-              <Panel title="Daily Cashflow" subtitle="Green days build the bankroll. Red days are investment days.">
+              <div className="financeScore">
+                <ScoreCell
+                  label="Income"
+                  value={dollars(data.summary.totalIncomeCents)}
+                  tone="green"
+                />
+                <ScoreCell
+                  label="Expenses"
+                  value={dollars(data.summary.totalExpenseCents)}
+                  tone="red"
+                />
+                <ScoreCell
+                  label="Net"
+                  value={signedDollars(data.summary.netCashflowCents)}
+                  tone={data.summary.netCashflowCents >= 0 ? "green" : "red"}
+                />
+                <ScoreCell
+                  label="Cash ROI"
+                  value={data.summary.roiPct == null ? "—" : `${data.summary.roiPct}%`}
+                  tone={(data.summary.roiPct ?? 0) >= 0 ? "green" : "red"}
+                />
+              </div>
+            </FinanceSection>
+
+            <div className="financeTwoCol">
+              <FinanceSection
+                tone="gold"
+                title="Daily Cash Flow"
+                subtitle="Green days add cash; red days deploy it."
+                flush
+              >
                 <CashflowBars days={data.dailyCashflow} max={maxCashflow} />
-              </Panel>
+              </FinanceSection>
 
-              <Panel title="Income vs. Spending" subtitle="Where your money is coming from and going.">
-                <div style={{ display: "grid", gap: 14 }}>
-                  <CategoryList title="Income Sources" items={data.incomeCategories} mode="income" />
-                  <CategoryList title="Spending Sources" items={data.expenseCategories} mode="expense" />
+              <FinanceSection
+                tone="gold"
+                title="Income & Spending"
+                subtitle="Where money is coming from and going."
+                flush
+              >
+                <div style={{ display: "grid", gap: 13 }}>
+                  <CategoryList
+                    title="Income Sources"
+                    items={data.incomeCategories}
+                    mode="income"
+                  />
+                  <CategoryList
+                    title="Spending Sources"
+                    items={data.expenseCategories}
+                    mode="expense"
+                  />
                 </div>
-              </Panel>
-            </section>
+              </FinanceSection>
+            </div>
 
-            <Panel
+            <FinanceSection
+              tone="blue"
               title="Recent Financial Activity"
-              subtitle="Every logged money movement from this feature launch forward."
-              style={{ marginTop: 14 }}
+              subtitle="Logged money movement from this feature launch forward."
             >
-              <div style={{ display: "grid", gap: 8 }}>
+              <div className="financeTransactions">
                 {data.recentTransactions.length === 0 ? (
                   <div
                     style={{
                       color: colors.muted,
                       fontWeight: 850,
-                      padding: 12,
+                      padding: 10,
                       background: "#faf7f0",
                       border: `1px solid ${colors.border}`,
-                      borderRadius: 14,
+                      borderRadius: 11,
+                      fontSize: 12,
                     }}
                   >
-                    No financial activity logged yet. Buy packs, grade cards, sell cards, or claim rewards to start building your finance history.
+                    No financial activity logged yet.
                   </div>
                 ) : (
                   data.recentTransactions.map((txn) => (
@@ -405,7 +706,7 @@ export default function FinancesClient() {
                   ))
                 )}
               </div>
-            </Panel>
+            </FinanceSection>
           </>
         ) : null}
       </div>
@@ -421,153 +722,73 @@ function RangePicker({
   setRange: (range: RangeKey) => void;
 }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        gap: 7,
-        background: "rgba(255,255,255,0.74)",
-        border: `1px solid ${colors.border}`,
-        borderRadius: 999,
-        padding: 5,
-        boxShadow: "0 10px 30px rgba(0,0,0,0.06)",
-        overflowX: "auto",
-        maxWidth: "100%",
-        width: "fit-content",
-      }}
-    >
-      {(["TODAY", "7D", "30D", "90D", "ALL"] as const).map((r) => (
+    <div className="financeRange">
+      {(["TODAY", "7D", "30D", "90D", "ALL"] as const).map((option) => (
         <button
-          key={r}
-          onClick={() => setRange(r)}
-          style={{
-            border: "none",
-            borderRadius: 999,
-            padding: "9px 12px",
-            background: range === r ? colors.dark : "transparent",
-            color: range === r ? "#fff" : colors.text,
-            fontWeight: 950,
-            cursor: "pointer",
-            whiteSpace: "nowrap",
-          }}
+          key={option}
+          type="button"
+          onClick={() => setRange(option)}
+          data-active={range === option}
         >
-          {rangeLabel(r)}
+          {rangeLabel(option)}
         </button>
       ))}
     </div>
   );
 }
 
-function HeroCard({
-  title,
+function SummaryCell({
+  label,
   value,
-  subtitle,
-  dark = false,
-  positive,
-  accent = false,
+  sub,
+  tone,
 }: {
-  title: string;
+  label: string;
   value: string;
-  subtitle: string;
-  dark?: boolean;
-  positive?: boolean;
-  accent?: boolean;
+  sub: string;
+  tone?: "green" | "red";
 }) {
-  const valueColor =
-    positive == null ? undefined : positive ? colors.green : colors.red;
-
   return (
-    <div
-      style={{
-        background: dark
-          ? "linear-gradient(135deg, #08111f, #172033)"
-          : accent
-            ? "linear-gradient(135deg, rgba(255,255,255,0.93), #fff7df)"
-            : "rgba(255,255,255,0.88)",
-        color: dark ? "#fff" : colors.text,
-        border: dark ? "1px solid rgba(255,255,255,0.14)" : `1px solid ${colors.border}`,
-        borderRadius: 22,
-        padding: 18,
-        boxShadow: dark ? "0 24px 70px rgba(8,17,31,0.28)" : "0 16px 45px rgba(0,0,0,0.07)",
-        minWidth: 0,
-      }}
-    >
+    <div className="financeSummaryCell">
+      <div className="financeEyebrow">{label}</div>
       <div
+        className="financeSummaryValue"
         style={{
-          color: dark ? "rgba(255,255,255,0.68)" : colors.muted,
-          fontSize: 12,
-          fontWeight: 950,
-          textTransform: "uppercase",
-          letterSpacing: "0.06em",
-        }}
-      >
-        {title}
-      </div>
-      <div
-        style={{
-          marginTop: 8,
-          fontSize: "clamp(24px, 6vw, 32px)",
-          letterSpacing: "-0.04em",
-          fontWeight: 1000,
-          color: valueColor,
-          overflowWrap: "anywhere",
+          color: tone === "green" ? colors.green : tone === "red" ? colors.red : colors.text,
         }}
       >
         {value}
       </div>
-      <div
-        style={{
-          marginTop: 6,
-          color: dark ? "rgba(255,255,255,0.68)" : colors.muted,
-          fontSize: 12,
-          lineHeight: 1.35,
-          fontWeight: 800,
-        }}
-      >
-        {subtitle}
-      </div>
+      <div className="financeSummarySub">{sub}</div>
     </div>
   );
 }
 
-function Panel({
+function FinanceSection({
   title,
   subtitle,
+  tone,
   children,
-  style,
+  flush = false,
 }: {
   title: string;
   subtitle?: string;
+  tone: "blue" | "green" | "gold";
   children: React.ReactNode;
-  style?: React.CSSProperties;
+  flush?: boolean;
 }) {
   return (
-    <section
-      style={{
-        background: "rgba(255,255,255,0.89)",
-        border: `1px solid ${colors.border}`,
-        borderRadius: 22,
-        padding: "clamp(13px, 3vw, 17px)",
-        boxShadow: "0 16px 45px rgba(0,0,0,0.06)",
-        minWidth: 0,
-        ...style,
-      }}
-    >
-      <div style={{ display: "flex", justifyContent: "space-between", gap: 12 }}>
-        <div>
-          <h2 style={{ margin: 0, fontSize: 18, fontWeight: 1000 }}>{title}</h2>
-          {subtitle ? (
-            <div style={{ marginTop: 4, color: colors.muted, fontSize: 12, fontWeight: 750, lineHeight: 1.4 }}>
-              {subtitle}
-            </div>
-          ) : null}
-        </div>
+    <section className="financeSection" style={flush ? { marginTop: 0 } : undefined}>
+      <div className={`financeSectionHeader ${tone}`}>
+        <h2 className="financeSectionTitle">{title}</h2>
+        {subtitle ? <div className="financeSectionSub">{subtitle}</div> : null}
       </div>
-      <div style={{ marginTop: 14 }}>{children}</div>
+      <div className="financeSectionBody">{children}</div>
     </section>
   );
 }
 
-function MiniMetric({
+function TrendMetric({
   label,
   value,
   tone,
@@ -577,25 +798,12 @@ function MiniMetric({
   tone?: "green" | "red";
 }) {
   return (
-    <div
-      style={{
-        border: `1px solid ${colors.border}`,
-        background: "#fffdf8",
-        borderRadius: 16,
-        padding: 11,
-        minWidth: 0,
-      }}
-    >
-      <div style={{ color: colors.muted, fontSize: 11, fontWeight: 950, textTransform: "uppercase" }}>
-        {label}
-      </div>
+    <div className="financeTrendMetric">
+      <div className="financeEyebrow">{label}</div>
       <div
+        className="financeTrendMetricValue"
         style={{
-          marginTop: 5,
-          fontSize: 15,
-          fontWeight: 1000,
           color: tone === "green" ? colors.green : tone === "red" ? colors.red : colors.text,
-          overflowWrap: "anywhere",
         }}
       >
         {value}
@@ -604,22 +812,32 @@ function MiniMetric({
   );
 }
 
-function ScoreRow({ label, value, tone }: { label: string; value: string; tone: "green" | "red" }) {
+function ScoreCell({
+  label,
+  value,
+  tone,
+}: {
+  label: string;
+  value: string;
+  tone: "green" | "red";
+}) {
   return (
     <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        gap: 12,
-        padding: 12,
-        borderRadius: 16,
-        background: tone === "green" ? colors.greenSoft : colors.redSoft,
-        color: tone === "green" ? colors.green : colors.red,
-        fontWeight: 950,
-      }}
+      className="financeScoreCell"
+      style={{ background: tone === "green" ? colors.greenSoft : colors.redSoft }}
     >
-      <span>{label}</span>
-      <span style={{ textAlign: "right" }}>{value}</span>
+      <div
+        className="financeEyebrow"
+        style={{ color: tone === "green" ? colors.green : colors.red }}
+      >
+        {label}
+      </div>
+      <div
+        className="financeScoreValue"
+        style={{ color: tone === "green" ? colors.green : colors.red }}
+      >
+        {value}
+      </div>
     </div>
   );
 }
@@ -634,32 +852,32 @@ function NetWorthChart({
   max: number;
 }) {
   const width = 760;
-  const height = 285;
-  const leftPad = 78;
-  const rightPad = 18;
-  const topPad = 22;
-  const bottomPad = 38;
+  const height = 250;
+  const leftPad = 70;
+  const rightPad = 16;
+  const topPad = 18;
+  const bottomPad = 34;
   const range = Math.max(1, max - min);
   const zeroY = height - bottomPad;
 
-  const coords = points.map((p, i) => {
+  const coords = points.map((point, index) => {
     const x =
       points.length <= 1
         ? leftPad + (width - leftPad - rightPad) / 2
-        : leftPad + (i / (points.length - 1)) * (width - leftPad - rightPad);
+        : leftPad + (index / (points.length - 1)) * (width - leftPad - rightPad);
 
     const y =
       height -
       bottomPad -
-      ((p.value - min) / range) * (height - topPad - bottomPad);
+      ((point.value - min) / range) * (height - topPad - bottomPad);
 
-    return { ...p, x, y: clamp(y, topPad, height - bottomPad) };
+    return { ...point, x, y: clamp(y, topPad, height - bottomPad) };
   });
 
   const path =
     coords.length === 0
       ? ""
-      : coords.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`).join(" ");
+      : coords.map((point, index) => `${index === 0 ? "M" : "L"} ${point.x} ${point.y}`).join(" ");
 
   const areaPath =
     coords.length === 0
@@ -669,10 +887,11 @@ function NetWorthChart({
   const ticks = [max, Math.round((max + min) / 2), min];
 
   return (
-    <div style={{ overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+    <div style={{ width: "100%", overflow: "hidden" }}>
       <svg
         viewBox={`0 0 ${width} ${height}`}
-        style={{ width: "100%", minWidth: 560, height: 300, display: "block" }}
+        preserveAspectRatio="xMidYMid meet"
+        style={{ width: "100%", height: "auto", display: "block" }}
       >
         <defs>
           <linearGradient id="netWorthLine" x1="0" x2="1">
@@ -680,34 +899,34 @@ function NetWorthChart({
             <stop offset="100%" stopColor="#b7791f" />
           </linearGradient>
           <linearGradient id="netWorthArea" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stopColor="#16477d" stopOpacity="0.16" />
+            <stop offset="0%" stopColor="#16477d" stopOpacity="0.14" />
             <stop offset="100%" stopColor="#16477d" stopOpacity="0" />
           </linearGradient>
         </defs>
 
-        <rect x="0" y="0" width={width} height={height} rx="20" fill="#fbf7ef" />
+        <rect x="0" y="0" width={width} height={height} rx="16" fill="#fbf9f5" />
 
-        {ticks.map((tick, i) => {
+        {ticks.map((tick, index) => {
           const y =
             height -
             bottomPad -
             ((tick - min) / range) * (height - topPad - bottomPad);
 
           return (
-            <g key={`${tick}-${i}`}>
+            <g key={`${tick}-${index}`}>
               <line
                 x1={leftPad}
                 x2={width - rightPad}
                 y1={y}
                 y2={y}
                 stroke="#eadfce"
-                strokeDasharray={i === 1 ? "4 5" : "none"}
+                strokeDasharray={index === 1 ? "4 5" : "none"}
               />
               <text
-                x={leftPad - 10}
+                x={leftPad - 9}
                 y={y + 4}
                 textAnchor="end"
-                fontSize="11"
+                fontSize="10"
                 fontWeight="900"
                 fill="#6b7280"
               >
@@ -730,24 +949,26 @@ function NetWorthChart({
           />
         ) : null}
 
-        {coords.map((p, i) => {
+        {coords.map((point, index) => {
           const showLabel =
-            i === 0 || i === coords.length - 1 || i % Math.max(1, Math.ceil(coords.length / 5)) === 0;
+            index === 0 ||
+            index === coords.length - 1 ||
+            index % Math.max(1, Math.ceil(coords.length / 5)) === 0;
 
           return (
-            <g key={`${p.dateKey}-${i}`}>
-              <circle cx={p.x} cy={p.y} r="5" fill="#08111f" />
-              <circle cx={p.x} cy={p.y} r="10" fill="#08111f" opacity="0.08" />
+            <g key={`${point.dateKey}-${index}`}>
+              <circle cx={point.x} cy={point.y} r="4.5" fill="#08111f" />
+              <circle cx={point.x} cy={point.y} r="9" fill="#08111f" opacity="0.07" />
               {showLabel ? (
                 <text
-                  x={p.x}
-                  y={height - 12}
+                  x={point.x}
+                  y={height - 10}
                   textAnchor="middle"
-                  fontSize="11"
+                  fontSize="10"
                   fontWeight="850"
                   fill="#6b7280"
                 >
-                  {p.label}
+                  {point.label}
                 </text>
               ) : null}
             </g>
@@ -757,13 +978,13 @@ function NetWorthChart({
         {coords.length === 1 ? (
           <text
             x={width / 2}
-            y={height / 2 + 44}
+            y={height / 2 + 40}
             textAnchor="middle"
-            fontSize="12"
+            fontSize="11"
             fontWeight="850"
             fill="#6b7280"
           >
-            More daily snapshots will build the trend over time.
+            More snapshots will build the trend over time.
           </text>
         ) : null}
       </svg>
@@ -783,31 +1004,40 @@ function CashflowBars({
       style={{
         display: "flex",
         alignItems: "end",
-        gap: 7,
-        minHeight: 220,
+        gap: 6,
+        minHeight: 170,
         overflowX: "auto",
         WebkitOverflowScrolling: "touch",
-        paddingBottom: 8,
+        paddingBottom: 6,
       }}
     >
       {days.map((day) => {
         const isPositive = day.netCents >= 0;
-        const height = Math.max(7, Math.round((Math.abs(day.netCents) / max) * 170));
+        const height = Math.max(6, Math.round((Math.abs(day.netCents) / max) * 125));
 
         return (
-          <div key={day.dateKey} style={{ minWidth: 30, display: "grid", justifyItems: "center", gap: 6 }}>
+          <div
+            key={day.dateKey}
+            style={{ minWidth: 27, display: "grid", justifyItems: "center", gap: 5 }}
+          >
             <div
               title={`${day.dateKey}: ${signedDollars(day.netCents)}`}
               style={{
-                width: 19,
+                width: 16,
                 height,
                 borderRadius: 999,
                 background: isPositive ? colors.green : colors.red,
-                opacity: day.netCents === 0 ? 0.25 : 0.92,
-                boxShadow: day.netCents === 0 ? "none" : "0 8px 18px rgba(0,0,0,0.12)",
+                opacity: day.netCents === 0 ? 0.22 : 0.9,
               }}
             />
-            <div style={{ color: colors.muted, fontSize: 10, fontWeight: 850, transform: "rotate(-35deg)" }}>
+            <div
+              style={{
+                color: colors.muted,
+                fontSize: 9,
+                fontWeight: 850,
+                transform: "rotate(-35deg)",
+              }}
+            >
               {shortDate(day.dateKey)}
             </div>
           </div>
@@ -833,11 +1063,14 @@ function CategoryList({
 
   return (
     <div>
-      <div style={{ fontWeight: 1000, marginBottom: 8 }}>{title}</div>
+      <div style={{ fontWeight: 1000, marginBottom: 7, fontSize: 13 }}>{title}</div>
+
       {items.length === 0 ? (
-        <div style={{ color: colors.muted, fontWeight: 800, fontSize: 13 }}>No activity yet.</div>
+        <div style={{ color: colors.muted, fontWeight: 800, fontSize: 11.5 }}>
+          No activity yet.
+        </div>
       ) : (
-        <div style={{ display: "grid", gap: 9 }}>
+        <div style={{ display: "grid", gap: 7 }}>
           {items.map((item) => {
             const value = mode === "income" ? item.incomeCents : item.expenseCents;
             const pct = Math.max(4, Math.round((value / max) * 100));
@@ -849,7 +1082,7 @@ function CategoryList({
                     display: "flex",
                     justifyContent: "space-between",
                     gap: 8,
-                    fontSize: 13,
+                    fontSize: 11.5,
                     fontWeight: 900,
                   }}
                 >
@@ -858,10 +1091,11 @@ function CategoryList({
                     {dollars(value)}
                   </span>
                 </div>
+
                 <div
                   style={{
-                    marginTop: 5,
-                    height: 10,
+                    marginTop: 4,
+                    height: 7,
                     borderRadius: 999,
                     background: "#efe7db",
                     overflow: "hidden",
@@ -895,36 +1129,46 @@ function TransactionRow({
       style={{
         display: "grid",
         gridTemplateColumns: "minmax(0, 1fr) auto",
-        gap: 10,
+        gap: 8,
         alignItems: "center",
-        padding: 12,
+        padding: "8px 9px",
         border: `1px solid ${colors.border}`,
-        borderRadius: 14,
-        background: "#fffdf8",
+        borderRadius: 11,
+        background: "#fffdf9",
       }}
     >
       <div style={{ minWidth: 0 }}>
-        <div style={{ fontWeight: 950, overflowWrap: "anywhere" }}>
-          {txn.description ?? txn.category}
-        </div>
         <div
           style={{
-            marginTop: 3,
-            color: colors.muted,
+            fontWeight: 950,
             fontSize: 12,
-            fontWeight: 800,
-            lineHeight: 1.35,
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
           }}
         >
-          {new Date(txn.createdAt).toLocaleString()} • {txn.category.replaceAll("_", " ")}
+          {txn.description ?? txn.category}
+        </div>
+
+        <div
+          style={{
+            marginTop: 2,
+            color: colors.muted,
+            fontSize: 9.5,
+            fontWeight: 800,
+            lineHeight: 1.25,
+          }}
+        >
+          {new Date(txn.createdAt).toLocaleString()} · {txn.category.replaceAll("_", " ")}
         </div>
       </div>
+
       <div
         style={{
           fontWeight: 1000,
           color: txn.amountCents >= 0 ? colors.green : colors.red,
           whiteSpace: "nowrap",
-          fontSize: 14,
+          fontSize: 12,
         }}
       >
         {signedDollars(txn.amountCents)}

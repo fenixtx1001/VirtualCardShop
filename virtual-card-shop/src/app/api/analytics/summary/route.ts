@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import {
+  cleanCanonicalPlayerName,
+  normalizePlayerName,
+} from "@/lib/player-tiers";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -19,38 +23,6 @@ function norm(s: string | number | null | undefined) {
   return String(s ?? "").trim().toLowerCase();
 }
 
-function normalizePlayerGroupName(player: string | null | undefined) {
-  let s = String(player ?? "").trim();
-  if (!s) return "—";
-
-  const suffixPatterns = [
-    /\s+\(rc\)$/i,
-    /\s+\(roo\)$/i,
-    /\s+\(as\)$/i,
-    /\s+\(all-?star\)$/i,
-    /\s+\(rookie\)$/i,
-    /\s+rc$/i,
-    /\s+roo$/i,
-    /\s+as$/i,
-    /\s+all-?star$/i,
-    /\s+rookie$/i,
-  ];
-
-  let changed = true;
-  while (changed) {
-    changed = false;
-    for (const pattern of suffixPatterns) {
-      const next = s.replace(pattern, "").trim();
-      if (next !== s) {
-        s = next;
-        changed = true;
-      }
-    }
-  }
-
-  return s || "—";
-}
-
 type ScopeMode = "me" | "all_users" | "single_user";
 type UniverseMode = "owned" | "all";
 type GroupByMode =
@@ -61,7 +33,6 @@ type GroupByMode =
   | "brand"
   | "year"
   | "sport";
-
 type SortMode =
   | "owned_value_desc"
   | "owned_qty_desc"
@@ -279,6 +250,34 @@ export async function GET(req: Request) {
       },
     });
 
+    const playerGroups = new Map<string, { key: string; label: string }>();
+
+    if (groupBy === "player") {
+      const uniquePlayers = Array.from(
+        new Set(cards.map((card) => String(card.player ?? "").trim()))
+      );
+
+      const resolvedPlayers = await Promise.all(
+        uniquePlayers.map(async (rawPlayer) => {
+          const canonicalName = await cleanCanonicalPlayerName(rawPlayer);
+          const normalizedName = await normalizePlayerName(canonicalName);
+
+          return {
+            rawPlayer,
+            key: normalizedName || "—",
+            label: canonicalName || "—",
+          };
+        })
+      );
+
+      for (const resolved of resolvedPlayers) {
+        playerGroups.set(resolved.rawPlayer, {
+          key: resolved.key,
+          label: resolved.label,
+        });
+      }
+    }
+
     const buckets = new Map<string, SummaryBucket>();
 
     for (const c of cards) {
@@ -302,9 +301,14 @@ export async function GET(req: Request) {
       let label = "";
 
       if (groupBy === "player") {
-        const normalizedPlayer = normalizePlayerGroupName(c.player);
-        key = normalizedPlayer;
-        label = normalizedPlayer;
+        const rawPlayer = String(c.player ?? "").trim();
+        const playerGroup = playerGroups.get(rawPlayer) ?? {
+          key: rawPlayer ? norm(rawPlayer) : "—",
+          label: rawPlayer || "—",
+        };
+
+        key = playerGroup.key;
+        label = playerGroup.label;
       } else if (groupBy === "team") {
         key = c.team || "—";
         label = c.team || "—";
