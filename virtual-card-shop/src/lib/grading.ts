@@ -7,7 +7,7 @@ export const RAW_GRADE = 0;
 export const VCS_GRADES: VcsGrade[] = [6, 7, 8, 9, 10];
 
 export const GRADING_FEE_BPS = 1500; // 15%
-export const MIN_GRADING_FEE_CENTS = 200; // $2.00
+export const MIN_GRADING_FEE_CENTS = 100; // $1.00
 export const GRADED_SHOP_OFFER_BONUS_BPS = 1000; // +10%
 
 const UNIVERSAL_GRADE_REVEAL_WAIT_MS = 24 * 60 * 60 * 1000;
