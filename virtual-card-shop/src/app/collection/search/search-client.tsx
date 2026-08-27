@@ -298,10 +298,10 @@ export default function SearchClient() {
   }
 
   return (
-    <div style={{ fontFamily: "system-ui", padding: 16 }}>
+    <div style={{ padding: 16 }}>
       <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
-        <Link href="/collection" style={{ textDecoration: "underline", fontWeight: 800 }}>
-          ← Back to Collection
+        <Link href="/collection" className="vcs-back-link">
+          ← Collection
         </Link>
         <div style={{ fontWeight: 900, fontSize: 26 }}>Search Collection</div>
 
@@ -503,9 +503,10 @@ export default function SearchClient() {
                       </div>
                       <Link
                         href={`/cards/${encodeURIComponent(String(r.cardId))}`}
-                        style={{ textDecoration: "underline", fontWeight: 900, whiteSpace: "nowrap" }}
+                        className="vcs-button vcs-button-soft vcs-button-compact"
+                        style={{ whiteSpace: "nowrap" }}
                       >
-                        Detail
+                        Details
                       </Link>
                     </div>
 
@@ -703,9 +704,9 @@ export default function SearchClient() {
                         <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
                           <Link
                             href={`/cards/${encodeURIComponent(String(r.cardId))}`}
-                            style={{ textDecoration: "underline", fontWeight: 900 }}
+                            className="vcs-button vcs-button-soft vcs-button-compact"
                           >
-                            Detail
+                            Details
                           </Link>
                         </td>
                       </tr>

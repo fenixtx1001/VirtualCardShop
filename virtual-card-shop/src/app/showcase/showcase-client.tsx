@@ -839,7 +839,6 @@ export default function ShowcaseClient() {
         minHeight: "calc(100vh - 80px)",
         padding: 20,
         color: colors.text,
-        fontFamily: "system-ui",
       }}
     >
       <style jsx global>{`
@@ -1428,7 +1427,7 @@ export default function ShowcaseClient() {
                                 <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
                                   <Link
                                     href={`/checklist/${encodeURIComponent(r.productSetId)}`}
-                                    style={{ textDecoration: "underline", fontWeight: 900, color: colors.accent }}
+                                    className="vcs-button vcs-button-secondary vcs-button-compact"
                                   >
                                     Checklist
                                   </Link>
@@ -1737,7 +1736,7 @@ export default function ShowcaseClient() {
                         <td style={{ padding: 12, borderBottom: "1px solid #eee" }}>
                           <Link
                             href={`/cards/${encodeURIComponent(String(c.cardId))}`}
-                            style={{ textDecoration: "underline", fontWeight: 900, color: colors.accent }}
+                            className="vcs-button vcs-button-soft vcs-button-compact"
                           >
                             Details
                           </Link>
@@ -1852,14 +1851,7 @@ export default function ShowcaseClient() {
                       <div style={{ marginTop: 10 }}>
                         <Link
                           href={`/cards/${encodeURIComponent(String(c.cardId))}`}
-                          style={{
-                            display: "inline-flex",
-                            alignItems: "center",
-                            gap: 8,
-                            textDecoration: "none",
-                            fontWeight: 900,
-                            color: colors.accent,
-                          }}
+                          className="vcs-button vcs-button-soft vcs-button-compact"
                         >
                           Details <span aria-hidden>→</span>
                         </Link>
@@ -2033,7 +2025,7 @@ export default function ShowcaseClient() {
                   {favCurrent ? (
                     <Link
                       href={`/cards/${encodeURIComponent(String(favCurrent.id))}`}
-                      style={{ textDecoration: "none", fontWeight: 900, color: colors.accent }}
+                      className="vcs-button vcs-button-soft vcs-button-compact"
                     >
                       Open details →
                     </Link>

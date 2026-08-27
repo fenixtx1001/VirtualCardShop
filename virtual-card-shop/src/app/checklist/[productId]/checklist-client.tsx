@@ -437,27 +437,8 @@ export default function ChecklistClient({ productId }: { productId: string }) {
     whiteSpace: "nowrap",
   };
 
-  const actionBtnStyle: React.CSSProperties = {
-    padding: "5px 8px",
-    borderRadius: 8,
-    border: "1px solid #cfd7e3",
-    background: "white",
-    fontWeight: 900,
-    cursor: "pointer",
-    whiteSpace: "nowrap",
-    fontSize: 12,
-    lineHeight: 1.15,
-  };
-
-  const actionLinkStyle: React.CSSProperties = {
-    ...actionBtnStyle,
-    display: "inline-block",
-    color: "#111827",
-    textDecoration: "none",
-  };
-
   return (
-    <div style={{ fontFamily: "system-ui", padding: 16, maxWidth: 1280, margin: "0 auto" }}>
+    <div style={{ padding: 16, maxWidth: 1280, margin: "0 auto" }}>
       <style jsx>{`
         .checklistActions {
           display: flex;
@@ -479,17 +460,17 @@ export default function ChecklistClient({ productId }: { productId: string }) {
       `}</style>
 
       <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
-        <Link href={`/collection/${encodeURIComponent(productId)}`} style={{ textDecoration: "underline", fontWeight: 800 }}>
+        <Link href={`/collection/${encodeURIComponent(productId)}`} className="vcs-back-link">
           ← Back to Set
         </Link>
 
         <div style={{ fontWeight: 950, fontSize: 22 }}>{friendlyTitle(productId)}</div>
 
-        <button onClick={() => load()} style={{ padding: "6px 10px" }}>
+        <button onClick={() => load()} className="vcs-button vcs-button-soft vcs-button-compact">
           Refresh
         </button>
 
-        <Link href="/collection" style={{ textDecoration: "underline", fontWeight: 800 }}>
+        <Link href="/collection" className="vcs-button vcs-button-secondary vcs-button-compact">
           Collection →
         </Link>
       </div>
@@ -779,7 +760,10 @@ export default function ChecklistClient({ productId }: { productId: string }) {
 
                       <td style={{ padding: 6, borderBottom: "1px solid #eee" }}>
                         <div className="checklistActions">
-                          <Link href={`/cards/${encodeURIComponent(String(r.cardId))}`} style={actionLinkStyle}>
+                          <Link
+                            href={`/cards/${encodeURIComponent(String(r.cardId))}`}
+                            className="vcs-button vcs-button-soft vcs-button-compact"
+                          >
                             Details
                           </Link>
 
@@ -808,11 +792,11 @@ export default function ChecklistClient({ productId }: { productId: string }) {
                                       ? `Shop offer available in ${compactTimeUntil(status.lockedUntil)}.`
                                       : "Request a 24-hour shop offer for this card."
                                 }
+                                className="vcs-button vcs-button-secondary vcs-button-compact"
                                 style={{
-                                  ...actionBtnStyle,
                                   minWidth: 62,
                                   opacity: disabledOffer ? 0.58 : 1,
-                                  background: disabledOffer ? "#f3f4f6" : "white",
+                                  background: disabledOffer ? "#f3f4f6" : undefined,
                                   cursor: disabledOffer ? "not-allowed" : "pointer",
                                 }}
                               >
@@ -826,8 +810,8 @@ export default function ChecklistClient({ productId }: { productId: string }) {
                               onClick={() => createAuctionForCard(r.cardId)}
                               disabled={auctioningCardId === r.cardId}
                               title="Create a 24-hour auction for one raw copy of this card."
+                              className="vcs-button vcs-button-secondary vcs-button-compact"
                               style={{
-                                ...actionBtnStyle,
                                 opacity: auctioningCardId === r.cardId ? 0.55 : 1,
                                 cursor: auctioningCardId === r.cardId ? "not-allowed" : "pointer",
                               }}
