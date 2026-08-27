@@ -475,19 +475,22 @@ function SectionHeading({
 
 function SummaryStrip({
   items,
+  columns,
 }: {
   items: Array<{
     label: string;
     value: string;
     sub?: string;
     tone?: "neutral" | "blue" | "gold" | "green";
+    compactValue?: boolean;
   }>;
+  columns?: string;
 }) {
   return (
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: `repeat(${items.length}, minmax(0, 1fr))`,
+        gridTemplateColumns: columns ?? `repeat(${items.length}, minmax(0, 1fr))`,
         border: "1px solid #e2e5e9",
         borderRadius: 13,
         overflow: "hidden",
@@ -532,7 +535,7 @@ function SummaryStrip({
               style={{
                 marginTop: 3,
                 color,
-                fontSize: 16,
+                fontSize: item.compactValue ? 13.5 : 16,
                 lineHeight: 1,
                 fontWeight: 1000,
                 whiteSpace: "nowrap",
@@ -1700,8 +1703,10 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                       label: "Value",
                       value: formatDollarsFromCents(safeNum(data.population.totalValueCents)),
                       tone: "green",
+                      compactValue: true,
                     },
                   ]}
+                  columns="0.75fr 0.8fr 1fr 1.55fr"
                 />
 
                 <div
