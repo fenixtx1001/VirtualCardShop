@@ -272,7 +272,6 @@ export default function InventoryPage() {
           min-height: calc(100vh - 80px);
           padding: 22px;
           color: ${colors.text};
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
 
         .inventory-shell {
