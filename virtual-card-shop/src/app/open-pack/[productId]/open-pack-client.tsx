@@ -2,7 +2,13 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  PointerEvent as ReactPointerEvent,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
 type Card = {
   id: number;
@@ -41,12 +47,25 @@ type PackMeta = {
   packImageUrl: string | null;
 };
 
+type CardMotion = "next" | "prev" | null;
+
+type PointerGesture = {
+  pointerId: number | null;
+  startX: number;
+  startY: number;
+  dx: number;
+  dy: number;
+  axis: "horizontal" | "vertical" | null;
+  moved: boolean;
+};
+
 const RIP_MODE_EVENT = "vcs:rip-mode";
 
 const colors = {
   bg: "#fbfaf7",
   card: "#ffffff",
   border: "#e7e3dc",
+  borderStrong: "#d8d0c4",
   text: "#1f1f1f",
   subtext: "#5a5a5a",
   accent: "#2f6fed",
@@ -72,12 +91,17 @@ function money(v: number | null | undefined) {
 }
 
 function centsToDollars(cents: number | null | undefined) {
-  const n = typeof cents === "number" && Number.isFinite(cents) ? cents : 0;
+  const n =
+    typeof cents === "number" && Number.isFinite(cents) ? cents : 0;
   return n / 100;
 }
 
 function cx(...parts: Array<string | false | null | undefined>) {
   return parts.filter(Boolean).join(" ");
+}
+
+function clamp(value: number, min: number, max: number) {
+  return Math.max(min, Math.min(max, value));
 }
 
 function getInsertLabel(card: Card | null) {
@@ -87,22 +111,34 @@ function getInsertLabel(card: Card | null) {
 
 function getInsertOddsLabel(card: Card | null) {
   if (!card?.isInsert) return null;
+
   const odds = card.productSetOddsPerPack;
   if (!odds || odds <= 0) return null;
+
   return `1:${odds} packs`;
 }
 
 function getPrestigeProgressLabel(card: Card | null) {
-  if (!card?.isNeededForNextPrestige || !card.prestigeTargetLevel) return null;
+  if (!card?.isNeededForNextPrestige || !card.prestigeTargetLevel) {
+    return null;
+  }
+
   return `Needed for Prestige x${card.prestigeTargetLevel}`;
 }
 
 function getPrestigeBannerLabel(card: Card | null) {
-  if (!card?.hitNextPrestigeWithThisCard || !card.prestigeTargetLevel) return null;
+  if (!card?.hitNextPrestigeWithThisCard || !card.prestigeTargetLevel) {
+    return null;
+  }
+
   return `Prestige x${card.prestigeTargetLevel} reached!`;
 }
 
-export default function OpenPackClient({ productId }: { productId: string }) {
+export default function OpenPackClient({
+  productId,
+}: {
+  productId: string;
+}) {
   const [loading, setLoading] = useState(false);
   const [metaLoading, setMetaLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -114,14 +150,32 @@ export default function OpenPackClient({ productId }: { productId: string }) {
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
 
+  const [dragX, setDragX] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [cardMotion, setCardMotion] = useState<CardMotion>(null);
+
   const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const gestureRef = useRef<PointerGesture>({
+    pointerId: null,
+    startX: 0,
+    startY: 0,
+    dx: 0,
+    dy: 0,
+    axis: null,
+    moved: false,
+  });
+
+  const motionTimerRef = useRef<number | null>(null);
 
   const cards = data?.cards ?? [];
   const current = cards[idx] ?? null;
   const prevCard = idx > 0 ? cards[idx - 1] : null;
+
   const currentInsertLabel = getInsertLabel(current);
   const currentInsertOddsLabel = getInsertOddsLabel(current);
-  const currentPrestigeProgressLabel = getPrestigeProgressLabel(current);
+  const currentPrestigeProgressLabel =
+    getPrestigeProgressLabel(current);
   const currentPrestigeBannerLabel = getPrestigeBannerLabel(current);
 
   const canNext = opened && idx < cards.length - 1;
@@ -132,43 +186,75 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
     async function loadMeta() {
       if (!productId) return;
+
       setMetaLoading(true);
+
       try {
-        const res = await fetch(`/api/open-pack/meta/${encodeURIComponent(productId)}`, {
-          cache: "no-store",
-        });
+        const res = await fetch(
+          `/api/open-pack/meta/${encodeURIComponent(productId)}`,
+          {
+            cache: "no-store",
+          }
+        );
 
         const raw = await res.text();
         let j: unknown = {};
+
         try {
           j = raw ? JSON.parse(raw) : {};
         } catch {
-          throw new Error(`Meta returned non-JSON (${res.status}): ${raw.slice(0, 140)}`);
+          throw new Error(
+            `Meta returned non-JSON (${res.status}): ${raw.slice(0, 140)}`
+          );
         }
 
         const parsed = j as { error?: string };
-        if (!res.ok) throw new Error(parsed?.error ?? `Failed to load pack meta (${res.status})`);
-        if (!cancelled) setMeta(j as PackMeta);
+
+        if (!res.ok) {
+          throw new Error(
+            parsed?.error ?? `Failed to load pack meta (${res.status})`
+          );
+        }
+
+        if (!cancelled) {
+          setMeta(j as PackMeta);
+        }
       } catch {
-        if (!cancelled) setMeta(null);
+        if (!cancelled) {
+          setMeta(null);
+        }
       } finally {
-        if (!cancelled) setMetaLoading(false);
+        if (!cancelled) {
+          setMetaLoading(false);
+        }
       }
     }
 
     loadMeta();
+
     return () => {
       cancelled = true;
     };
   }, [productId]);
 
+  useEffect(() => {
+    return () => {
+      if (motionTimerRef.current) {
+        window.clearTimeout(motionTimerRef.current);
+      }
+    };
+  }, []);
+
   const titleText = meta?.displayName ?? productId;
-  const packImageUrl = meta?.packImageUrl ?? data?.packImageUrl ?? null;
+  const packImageUrl =
+    meta?.packImageUrl ?? data?.packImageUrl ?? null;
   const packPrice = centsToDollars(data?.packPriceCents);
 
   const progressText = useMemo(() => {
     if (!opened || !cards.length) return "";
+
     const expected = data?.cardsPerPack ?? cards.length;
+
     return `${idx + 1} / ${cards.length} (expected ${expected})`;
   }, [opened, cards.length, idx, data?.cardsPerPack]);
 
@@ -184,6 +270,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
   const stack = useMemo(() => {
     if (!opened) return [];
+
     const openedCards = cards.slice(0, idx);
     return openedCards.slice(-4);
   }, [opened, cards, idx]);
@@ -194,7 +281,10 @@ export default function OpenPackClient({ productId }: { productId: string }) {
   }, [opened, cards, idx]);
 
   const revealedValue = useMemo(() => {
-    return revealedCards.reduce((sum, card) => sum + (card.bookValue ?? 0), 0);
+    return revealedCards.reduce(
+      (sum, card) => sum + (card.bookValue ?? 0),
+      0
+    );
   }, [revealedCards]);
 
   const packDelta = useMemo(() => {
@@ -215,30 +305,51 @@ export default function OpenPackClient({ productId }: { productId: string }) {
     setOpened(false);
     setIdx(0);
     setFlipped(false);
+    setDragX(0);
+    setIsDragging(false);
+    setCardMotion(null);
 
     try {
       const res = await fetch("/api/rip/open", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({ productId }),
       });
 
       const raw = await res.text();
       let j: unknown = {};
+
       try {
         j = raw ? JSON.parse(raw) : {};
       } catch {
-        throw new Error(`Open returned non-JSON (${res.status}): ${raw.slice(0, 140)}`);
+        throw new Error(
+          `Open returned non-JSON (${res.status}): ${raw.slice(0, 140)}`
+        );
       }
 
       const parsed = j as { error?: string };
-      if (!res.ok) throw new Error(parsed?.error ?? `Open failed (${res.status})`);
+
+      if (!res.ok) {
+        throw new Error(
+          parsed?.error ?? `Open failed (${res.status})`
+        );
+      }
 
       const result = j as OpenResult;
+
       setData(result);
       setOpened(true);
+      setCardMotion("next");
 
-      setTimeout(() => containerRef.current?.focus(), 0);
+      setTimeout(() => {
+        containerRef.current?.focus();
+      }, 0);
+
+      motionTimerRef.current = window.setTimeout(() => {
+        setCardMotion(null);
+      }, 320);
     } catch (e: unknown) {
       const err = e as { message?: string };
       setError(err?.message ?? "Open pack failed");
@@ -247,16 +358,179 @@ export default function OpenPackClient({ productId }: { productId: string }) {
     }
   }
 
+  function triggerMotion(direction: Exclude<CardMotion, null>) {
+    if (motionTimerRef.current) {
+      window.clearTimeout(motionTimerRef.current);
+    }
+
+    setCardMotion(direction);
+
+    motionTimerRef.current = window.setTimeout(() => {
+      setCardMotion(null);
+    }, 320);
+  }
+
   function next() {
     if (!canNext) return;
+
     setFlipped(false);
+    setDragX(0);
+    setIsDragging(false);
+    triggerMotion("next");
+
     setIdx((v) => Math.min(v + 1, cards.length - 1));
   }
 
   function prev() {
     if (!canPrev) return;
+
     setFlipped(false);
+    setDragX(0);
+    setIsDragging(false);
+    triggerMotion("prev");
+
     setIdx((v) => Math.max(v - 1, 0));
+  }
+
+  function resetGesture() {
+    gestureRef.current = {
+      pointerId: null,
+      startX: 0,
+      startY: 0,
+      dx: 0,
+      dy: 0,
+      axis: null,
+      moved: false,
+    };
+
+    setDragX(0);
+    setIsDragging(false);
+  }
+
+  function handleCardPointerDown(
+    e: ReactPointerEvent<HTMLDivElement>
+  ) {
+    if (!opened || !current) return;
+
+    gestureRef.current = {
+      pointerId: e.pointerId,
+      startX: e.clientX,
+      startY: e.clientY,
+      dx: 0,
+      dy: 0,
+      axis: null,
+      moved: false,
+    };
+
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch {
+      // Pointer capture is a convenience, not a requirement.
+    }
+  }
+
+  function handleCardPointerMove(
+    e: ReactPointerEvent<HTMLDivElement>
+  ) {
+    const gesture = gestureRef.current;
+
+    if (gesture.pointerId !== e.pointerId) return;
+
+    const dx = e.clientX - gesture.startX;
+    const dy = e.clientY - gesture.startY;
+
+    gesture.dx = dx;
+    gesture.dy = dy;
+
+    const absX = Math.abs(dx);
+    const absY = Math.abs(dy);
+
+    if (!gesture.axis && (absX > 8 || absY > 8)) {
+      if (absX > absY * 1.15) {
+        gesture.axis = "horizontal";
+        gesture.moved = true;
+        setIsDragging(true);
+      } else if (absY > absX) {
+        gesture.axis = "vertical";
+      }
+    }
+
+    if (gesture.axis !== "horizontal") return;
+
+    e.preventDefault();
+
+    let visualDx = dx;
+
+    if (dx > 0 && !canPrev) {
+      visualDx *= 0.22;
+    }
+
+    if (dx < 0 && !canNext) {
+      visualDx *= 0.22;
+    }
+
+    setDragX(clamp(visualDx, -105, 105));
+  }
+
+  function finishCardGesture(
+    e: ReactPointerEvent<HTMLDivElement>,
+    cancelled = false
+  ) {
+    const gesture = gestureRef.current;
+
+    if (gesture.pointerId !== e.pointerId) return;
+
+    try {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    } catch {
+      // Ignore if capture was already released.
+    }
+
+    const absX = Math.abs(gesture.dx);
+    const absY = Math.abs(gesture.dy);
+
+    if (
+      !cancelled &&
+      gesture.axis === "horizontal" &&
+      absX >= 52 &&
+      absX > absY
+    ) {
+      if (gesture.dx < 0 && canNext) {
+        next();
+        resetGesture();
+        return;
+      }
+
+      if (gesture.dx > 0 && canPrev) {
+        prev();
+        resetGesture();
+        return;
+      }
+    }
+
+    const shouldFlip =
+      !cancelled &&
+      gesture.axis !== "vertical" &&
+      absX < 10 &&
+      absY < 10;
+
+    resetGesture();
+
+    if (shouldFlip) {
+      setFlipped((x) => !x);
+    }
+  }
+
+  function handleCardPointerUp(
+    e: ReactPointerEvent<HTMLDivElement>
+  ) {
+    finishCardGesture(e, false);
+  }
+
+  function handleCardPointerCancel(
+    e: ReactPointerEvent<HTMLDivElement>
+  ) {
+    finishCardGesture(e, true);
   }
 
   useEffect(() => {
@@ -276,7 +550,10 @@ export default function OpenPackClient({ productId }: { productId: string }) {
     }
 
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+    };
   }, [opened, cards.length, idx, canNext, canPrev]);
 
   const cardFront = current?.frontImageUrl ?? null;
@@ -289,12 +566,16 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
   const subline = useMemo(() => {
     if (!current) return "—";
+
     const parts = [
       current.team ?? "—",
-      current.isInsert && current.productSetName ? `• ${current.productSetName}` : "",
+      current.isInsert && current.productSetName
+        ? `• ${current.productSetName}`
+        : "",
       current.subset ? `• ${current.subset}` : "",
       current.variant ? `• ${current.variant}` : "",
     ].filter(Boolean);
+
     return parts.join(" ").replace(/\s+/g, " ").trim();
   }, [current]);
 
@@ -317,18 +598,43 @@ export default function OpenPackClient({ productId }: { productId: string }) {
       );
     };
   }, [opened, isDone]);
-  const currentHasPrestigeProgress = Boolean(current?.isNeededForNextPrestige);
-  const currentHitPrestige = Boolean(current?.hitNextPrestigeWithThisCard);
+
+  const currentHasPrestigeProgress = Boolean(
+    current?.isNeededForNextPrestige
+  );
+
+  const currentHitPrestige = Boolean(
+    current?.hitNextPrestigeWithThisCard
+  );
+
+  const currentIsSpecial = Boolean(
+    current?.isInsert ||
+      current?.isNeededForNextPrestige ||
+      current?.hitNextPrestigeWithThisCard
+  );
+
+  const dragRotation = dragX * 0.018;
 
   return (
     <main className="vcs-pack-root">
       <style jsx global>{`
         .vcs-pack-root {
-          background: ${colors.bg};
+          background:
+            radial-gradient(
+              circle at 50% 12%,
+              rgba(184, 146, 59, 0.055),
+              transparent 34%
+            ),
+            ${colors.bg};
           min-height: calc(100vh - 80px);
           padding: 18px;
           color: ${colors.text};
-          font-family: system-ui;
+          font-family:
+            system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
         }
 
         .vcs-pack-root *,
@@ -343,11 +649,11 @@ export default function OpenPackClient({ productId }: { productId: string }) {
         }
 
         .vcs-pack-hero {
-          background: ${colors.card};
+          background: rgba(255, 255, 255, 0.94);
           border: 1px solid ${colors.border};
           border-radius: 18px;
           padding: 14px 16px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.035);
           display: flex;
           gap: 12px;
           align-items: center;
@@ -391,13 +697,18 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           padding: 9px 12px;
           font-weight: 900;
           cursor: pointer;
-          transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+          transition:
+            transform 120ms ease,
+            box-shadow 120ms ease,
+            opacity 120ms ease,
+            background 120ms ease;
           box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
           text-decoration: none;
           display: inline-flex;
           align-items: center;
           gap: 8px;
           user-select: none;
+          -webkit-tap-highlight-color: transparent;
         }
 
         .btn:hover {
@@ -406,7 +717,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
         }
 
         .btn:active {
-          transform: translateY(0px);
+          transform: translateY(0);
           box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
         }
 
@@ -426,7 +737,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
         }
 
         .btn:disabled {
-          opacity: 0.55;
+          opacity: 0.42;
           cursor: not-allowed;
           transform: none;
           box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
@@ -468,11 +779,11 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
         .vcs-pack-stage {
           margin-top: 14px;
-          background: ${colors.card};
+          background: rgba(255, 255, 255, 0.86);
           border: 1px solid ${colors.border};
-          border-radius: 18px;
+          border-radius: 20px;
           padding: 14px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.035);
         }
 
         .alert {
@@ -583,12 +894,57 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           display: none;
         }
 
+        .mobile-swipe-hint {
+          display: none;
+        }
+
+        .card-presentation {
+          position: relative;
+          isolation: isolate;
+        }
+
+        .card-presentation::before {
+          content: "";
+          position: absolute;
+          z-index: -2;
+          left: 8%;
+          right: 8%;
+          bottom: -14px;
+          height: 46px;
+          border-radius: 50%;
+          background: rgba(36, 31, 24, 0.17);
+          filter: blur(20px);
+          opacity: 0.55;
+          transform: scaleX(0.92);
+          pointer-events: none;
+        }
+
+        .card-presentation::after {
+          content: "";
+          position: absolute;
+          z-index: -3;
+          inset: 5% 7% 0;
+          border-radius: 40%;
+          background:
+            radial-gradient(
+              circle at 50% 42%,
+              rgba(255, 255, 255, 0.95),
+              rgba(255, 255, 255, 0.42) 46%,
+              transparent 74%
+            );
+          pointer-events: none;
+        }
+
         .flip-wrap {
           width: 100%;
           max-width: 420px;
           margin: 0 auto;
           cursor: pointer;
           user-select: none;
+          -webkit-user-select: none;
+          touch-action: pan-y;
+          -webkit-tap-highlight-color: transparent;
+          position: relative;
         }
 
         .flip-scene {
@@ -597,10 +953,37 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           aspect-ratio: 2.5 / 3.5;
         }
 
+        .card-drag-shell {
+          position: absolute;
+          inset: 0;
+          will-change: transform;
+          transform-origin: 50% 82%;
+        }
+
+        .card-drag-shell.dragging {
+          transition: none;
+        }
+
+        .card-drag-shell:not(.dragging) {
+          transition:
+            transform 220ms cubic-bezier(0.22, 0.8, 0.28, 1),
+            opacity 180ms ease;
+        }
+
+        .card-drag-shell.motion-next {
+          animation: cardArriveNext 280ms
+            cubic-bezier(0.19, 0.75, 0.24, 1);
+        }
+
+        .card-drag-shell.motion-prev {
+          animation: cardArrivePrev 280ms
+            cubic-bezier(0.19, 0.75, 0.24, 1);
+        }
+
         .flip-celebration {
           position: absolute;
-          inset: -10px;
-          border-radius: 24px;
+          inset: -14px;
+          border-radius: 26px;
           pointer-events: none;
           opacity: 0;
           transition: opacity 180ms ease;
@@ -609,10 +992,47 @@ export default function OpenPackClient({ productId }: { productId: string }) {
         .flip-celebration.active {
           opacity: 1;
           background:
-            radial-gradient(circle at 50% 50%, rgba(255, 219, 77, 0.28) 0%, rgba(255, 219, 77, 0.14) 35%, rgba(255, 219, 77, 0.05) 58%, rgba(255, 219, 77, 0) 74%),
-            radial-gradient(circle at 50% 50%, rgba(255, 170, 0, 0.18) 0%, rgba(255, 170, 0, 0.06) 42%, rgba(255, 170, 0, 0) 70%);
+            radial-gradient(
+              circle at 50% 50%,
+              rgba(255, 219, 77, 0.28) 0%,
+              rgba(255, 219, 77, 0.14) 35%,
+              rgba(255, 219, 77, 0.05) 58%,
+              rgba(255, 219, 77, 0) 74%
+            ),
+            radial-gradient(
+              circle at 50% 50%,
+              rgba(255, 170, 0, 0.18) 0%,
+              rgba(255, 170, 0, 0.06) 42%,
+              rgba(255, 170, 0, 0) 70%
+            );
           filter: blur(6px);
           animation: prestigePulse 1.8s ease-in-out infinite;
+        }
+
+        .insert-aura {
+          position: absolute;
+          inset: -9px;
+          border-radius: 24px;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 180ms ease;
+          z-index: -1;
+        }
+
+        .insert-aura.active {
+          opacity: 1;
+          background:
+            radial-gradient(
+              circle at 28% 18%,
+              rgba(71, 119, 210, 0.12),
+              transparent 45%
+            ),
+            radial-gradient(
+              circle at 75% 82%,
+              rgba(184, 146, 59, 0.12),
+              transparent 48%
+            );
+          filter: blur(8px);
         }
 
         .flip-banner {
@@ -620,8 +1040,13 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           top: -12px;
           left: 50%;
           transform: translateX(-50%);
-          z-index: 3;
-          background: linear-gradient(135deg, #ffe082 0%, #ffca28 45%, #f59e0b 100%);
+          z-index: 5;
+          background: linear-gradient(
+            135deg,
+            #ffe082 0%,
+            #ffca28 45%,
+            #f59e0b 100%
+          );
           color: #3b2a00;
           border: 1px solid rgba(120, 81, 0, 0.2);
           border-radius: 999px;
@@ -636,18 +1061,31 @@ export default function OpenPackClient({ productId }: { productId: string }) {
         .flip-card {
           position: absolute;
           inset: 0;
-          border-radius: 16px;
-          border: 1px solid ${colors.border};
+          border-radius: 17px;
           background: ${colors.muted};
-          box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+          box-shadow:
+            0 28px 52px rgba(38, 31, 22, 0.17),
+            0 8px 16px rgba(38, 31, 22, 0.12),
+            0 2px 4px rgba(38, 31, 22, 0.08);
           overflow: hidden;
+          transform: translateZ(0);
+        }
+
+        .flip-card::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          box-shadow: inset 0 0 0 1px rgba(39, 33, 24, 0.12);
+          pointer-events: none;
+          z-index: 4;
         }
 
         .flip-card.prestige-hit {
-          border-color: rgba(245, 158, 11, 0.55);
           box-shadow:
-            0 0 0 2px rgba(255, 209, 102, 0.45),
-            0 18px 40px rgba(245, 158, 11, 0.22);
+            0 0 0 2px rgba(255, 209, 102, 0.52),
+            0 30px 58px rgba(116, 77, 11, 0.22),
+            0 10px 20px rgba(245, 158, 11, 0.17);
         }
 
         .face {
@@ -657,7 +1095,9 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           place-items: center;
           background: white;
           opacity: 0;
-          transition: opacity 180ms ease, transform 180ms ease;
+          transition:
+            opacity 185ms ease,
+            transform 185ms ease;
           transform: scale(0.995);
         }
 
@@ -668,7 +1108,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
         .flip-card.is-flipped .face.front {
           opacity: 0;
-          transform: scale(0.995);
+          transform: scale(0.992);
         }
 
         .flip-card.is-flipped .face.back {
@@ -681,6 +1121,9 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           height: 100%;
           object-fit: contain;
           background: white;
+          pointer-events: none;
+          user-select: none;
+          -webkit-user-drag: none;
         }
 
         .img-missing {
@@ -756,7 +1199,11 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
         .prestige-progress-box.hit {
           border-color: #f3c15f;
-          background: linear-gradient(180deg, #fff8df 0%, #fff2c7 100%);
+          background: linear-gradient(
+            180deg,
+            #fff8df 0%,
+            #fff2c7 100%
+          );
           box-shadow: 0 10px 24px rgba(245, 158, 11, 0.14);
         }
 
@@ -850,48 +1297,220 @@ export default function OpenPackClient({ productId }: { productId: string }) {
         }
 
         .summary {
-          margin-top: 12px;
-          border-radius: 16px;
-          border: 1px solid ${colors.okBorder};
-          background: ${colors.okBg};
-          padding: 14px;
+          margin-top: 16px;
+          border-radius: 20px;
+          border: 1px solid #d9e8dc;
+          background:
+            linear-gradient(
+              180deg,
+              rgba(249, 255, 250, 0.98),
+              rgba(242, 250, 244, 0.98)
+            );
+          padding: 18px;
+          box-shadow: 0 14px 34px rgba(40, 72, 49, 0.065);
+        }
+
+        .summary-heading-row {
+          display: flex;
+          align-items: start;
+          justify-content: space-between;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+
+        .summary-eyebrow {
+          font-size: 10px;
+          line-height: 1;
+          font-weight: 950;
+          color: #39714a;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
         }
 
         .summary h3 {
-          margin: 0 0 8px 0;
-          font-size: 16px;
-          font-weight: 950;
+          margin: 5px 0 0;
+          font-size: 22px;
+          line-height: 1.05;
+          font-weight: 1000;
+          letter-spacing: -0.025em;
         }
 
-        .summary ol {
-          margin: 10px 0 0 0;
-          padding-left: 18px;
-        }
-
-        .summary li {
-          margin-bottom: 8px;
-        }
-
-        .summary .line1 {
-          font-weight: 900;
-        }
-
-        .summary .line2 {
+        .summary-count {
+          margin-top: 5px;
+          color: ${colors.subtext};
           font-size: 12px;
+          line-height: 1.35;
+          font-weight: 800;
+        }
+
+        .summary-totals {
+          display: flex;
+          gap: 12px;
+          align-items: center;
+          flex-wrap: wrap;
+          padding: 8px 11px;
+          border-radius: 999px;
+          background: rgba(255, 255, 255, 0.72);
+          border: 1px solid rgba(190, 213, 196, 0.8);
+          font-size: 12px;
+          font-weight: 850;
+        }
+
+        .summary-total-item {
+          display: flex;
+          gap: 4px;
+          align-items: baseline;
+          white-space: nowrap;
+        }
+
+        .summary-total-label {
+          color: ${colors.subtext};
+          font-size: 10px;
+          font-weight: 850;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+        }
+
+        .summary-total-value {
+          font-weight: 1000;
           color: ${colors.text};
-          font-weight: 750;
-          opacity: 0.9;
         }
 
-        .summary .line3 {
-          margin-top: 3px;
-          font-size: 12px;
-          font-weight: 900;
+        .summary-total-value.positive {
           color: #1e7a35;
         }
 
-        .summary .line3.hit {
-          color: #a16207;
+        .summary-total-value.negative {
+          color: #a73b2f;
+        }
+
+        .summary-list {
+          list-style: none;
+          padding: 0;
+          margin: 14px 0 0;
+          display: grid;
+          gap: 8px;
+        }
+
+        .summary-card-link {
+          text-decoration: none;
+          color: inherit;
+          display: block;
+          border-radius: 15px;
+          outline: none;
+        }
+
+        .summary-card-row {
+          display: grid;
+          grid-template-columns: 58px minmax(0, 1fr) auto;
+          gap: 11px;
+          align-items: center;
+          padding: 9px 10px;
+          border-radius: 15px;
+          background: rgba(255, 255, 255, 0.78);
+          border: 1px solid rgba(201, 219, 205, 0.85);
+          box-shadow: 0 3px 10px rgba(37, 66, 45, 0.025);
+          transition:
+            transform 140ms ease,
+            box-shadow 140ms ease,
+            border-color 140ms ease,
+            background 140ms ease;
+        }
+
+        .summary-card-link:hover .summary-card-row {
+          transform: translateY(-1px);
+          box-shadow: 0 9px 24px rgba(37, 66, 45, 0.075);
+          border-color: rgba(153, 191, 164, 0.95);
+          background: rgba(255, 255, 255, 0.96);
+        }
+
+        .summary-card-thumb {
+          width: 58px;
+          height: 80px;
+          border-radius: 9px;
+          overflow: hidden;
+          border: 1px solid ${colors.border};
+          background: white;
+          box-shadow: 0 5px 13px rgba(31, 29, 25, 0.07);
+          flex-shrink: 0;
+        }
+
+        .summary-card-thumb img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          display: block;
+          background: white;
+        }
+
+        .summary-card-main {
+          min-width: 0;
+        }
+
+        .summary-card-title {
+          font-size: 14px;
+          line-height: 1.18;
+          font-weight: 950;
+          letter-spacing: -0.01em;
+          color: ${colors.text};
+        }
+
+        .summary-card-sub {
+          margin-top: 3px;
+          min-width: 0;
+          font-size: 11px;
+          line-height: 1.3;
+          font-weight: 750;
+          color: ${colors.subtext};
+        }
+
+        .summary-card-note {
+          margin-top: 4px;
+          font-size: 11px;
+          line-height: 1.25;
+          font-weight: 900;
+          color: #24713d;
+        }
+
+        .summary-card-note.hit {
+          color: #986707;
+        }
+
+        .summary-card-value {
+          display: grid;
+          justify-items: end;
+          align-content: center;
+          gap: 2px;
+          padding-left: 8px;
+        }
+
+        .summary-card-value-main {
+          font-size: 15px;
+          line-height: 1;
+          font-weight: 1000;
+          letter-spacing: -0.02em;
+        }
+
+        .summary-card-value-sub {
+          font-size: 10px;
+          line-height: 1.15;
+          font-weight: 800;
+          color: ${colors.subtext};
+          white-space: nowrap;
+        }
+
+        .summary-card-chevron {
+          margin-top: 3px;
+          font-size: 11px;
+          font-weight: 950;
+          color: #597463;
+        }
+
+        .summary-actions {
+          margin-top: 14px;
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
         }
 
         .footer-tip {
@@ -916,13 +1535,52 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           }
         }
 
+        @keyframes cardArriveNext {
+          0% {
+            opacity: 0.35;
+            transform: translateX(24px) rotate(0.7deg) scale(0.988);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0) rotate(0) scale(1);
+          }
+        }
+
+        @keyframes cardArrivePrev {
+          0% {
+            opacity: 0.35;
+            transform: translateX(-24px) rotate(-0.7deg) scale(0.988);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0) rotate(0) scale(1);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .card-drag-shell.motion-next,
+          .card-drag-shell.motion-prev,
+          .flip-celebration.active {
+            animation: none;
+          }
+
+          .btn,
+          .summary-card-row,
+          .face,
+          .card-drag-shell {
+            transition: none;
+          }
+        }
+
         @media (max-width: 980px) {
           .open-grid {
             grid-template-columns: 1fr;
           }
+
           .flip-wrap {
             max-width: 520px;
           }
+
           .pack-img {
             width: 200px;
           }
@@ -930,8 +1588,20 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
         @media (max-width: 560px) {
           .vcs-pack-root {
-            padding: 10px;
+            padding: 7px 8px 16px;
             overflow-x: hidden;
+            background:
+              radial-gradient(
+                circle at 50% 18%,
+                rgba(255, 255, 255, 0.96),
+                transparent 31%
+              ),
+              radial-gradient(
+                circle at 50% 27%,
+                rgba(184, 146, 59, 0.055),
+                transparent 48%
+              ),
+              ${colors.bg};
           }
 
           .vcs-pack-wrap {
@@ -942,23 +1612,43 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           }
 
           .vcs-pack-hero {
-            padding: 10px;
-            border-radius: 16px;
-            gap: 8px;
+            padding: 7px 8px;
+            border-radius: 14px;
+            gap: 5px;
+            box-shadow: none;
+            background: rgba(255, 255, 255, 0.68);
           }
 
           .vcs-pack-title {
             min-width: 0;
             width: 100%;
+            gap: 2px;
           }
 
           .vcs-pack-title > div:first-child {
             justify-content: space-between;
+            gap: 6px !important;
+          }
+
+          .vcs-pack-title > div:first-child .btn {
+            padding: 6px 8px;
+            min-height: 32px;
+            font-size: 11px;
+            border-radius: 10px;
+          }
+
+          .vcs-pack-title > div:first-child .pill {
+            padding: 5px 8px;
+            font-size: 10px;
           }
 
           .vcs-pack-title h1 {
-            font-size: 15px;
-            line-height: 1.2;
+            font-size: 13px;
+            line-height: 1.15;
+            margin-top: 1px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
 
           .vcs-pack-title .sub {
@@ -966,65 +1656,66 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           }
 
           .vcs-pack-actions {
-            width: 100%;
-            gap: 8px;
-          }
-
-          .vcs-pack-actions > .pill {
             display: none;
-          }
-
-          .vcs-pack-actions .btn {
-            flex: 1 1 auto;
-            justify-content: center;
           }
 
           .vcs-pack-stage {
             width: 100%;
             max-width: 100%;
             min-width: 0;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 16px;
+            padding: 5px 4px 10px;
+            margin-top: 6px;
+            border-radius: 18px;
             overflow-x: hidden;
+            background: transparent;
+            border-color: transparent;
+            box-shadow: none;
           }
 
           .mobile-rip-hud {
-            position: sticky;
-            top: 0;
+            position: relative;
             z-index: 20;
-            display: grid;
-            grid-template-columns: 1fr 1fr 68px;
-            gap: 8px;
+            display: flex;
             align-items: center;
-            margin: -2px -2px 10px;
-            padding: 8px;
-            border: 1px solid ${colors.border};
-            border-radius: 14px;
-            background: rgba(255, 255, 255, 0.96);
+            justify-content: center;
+            gap: 0;
+            width: fit-content;
+            max-width: 100%;
+            margin: 0 auto 7px;
+            min-height: 31px;
+            padding: 3px 5px;
+            border: 1px solid rgba(218, 211, 201, 0.92);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.84);
             backdrop-filter: blur(10px);
-            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 15px rgba(40, 33, 24, 0.045);
           }
 
           .mobile-hud-item {
-            display: grid;
-            gap: 2px;
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
             min-width: 0;
+            padding: 0 8px;
+          }
+
+          .mobile-hud-item + .mobile-hud-item {
+            border-left: 1px solid rgba(219, 212, 202, 0.82);
           }
 
           .mobile-hud-label {
-            font-size: 10px;
+            font-size: 8px;
             line-height: 1;
             font-weight: 900;
-            color: ${colors.subtext};
+            color: #827b70;
             text-transform: uppercase;
-            letter-spacing: 0.25px;
+            letter-spacing: 0.045em;
           }
 
           .mobile-hud-value {
-            font-size: 14px;
-            line-height: 1.1;
-            font-weight: 950;
+            font-size: 12px;
+            line-height: 1;
+            font-weight: 1000;
             color: ${colors.text};
           }
 
@@ -1037,12 +1728,14 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           }
 
           .mobile-hud-card {
+            margin-left: 4px;
             border-radius: 999px;
-            padding: 7px 9px;
-            background: ${colors.muted};
+            padding: 5px 8px;
+            background: #efede8;
             text-align: center;
-            font-weight: 950;
-            font-size: 13px;
+            font-weight: 1000;
+            font-size: 11px;
+            line-height: 1;
             color: ${colors.text};
             white-space: nowrap;
           }
@@ -1061,7 +1754,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
             min-width: 0;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 5px;
             overflow-x: hidden;
           }
 
@@ -1070,19 +1763,25 @@ export default function OpenPackClient({ productId }: { productId: string }) {
             max-width: 100%;
             min-width: 0;
             border-radius: 16px;
-            padding: 10px;
+            padding: 8px;
             overflow-wrap: anywhere;
           }
 
           .card-panel {
             order: 1;
-            padding: 8px;
-            overflow: hidden;
+            padding: 4px 3px 5px;
+            overflow: visible;
+            background: transparent;
+            border: 0;
+            border-radius: 0;
           }
 
           .details-panel {
             order: 2;
             overflow: hidden;
+            padding: 0;
+            border: 0;
+            background: transparent;
           }
 
           .stack-panel {
@@ -1091,7 +1790,7 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           }
 
           .stack-panel.done {
-            display: block;
+            display: none;
           }
 
           .panel-title {
@@ -1101,6 +1800,24 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
           .card-panel .panel-title {
             display: none;
+          }
+
+          .card-presentation {
+            width: 100%;
+            padding: 2px 7px 7px;
+          }
+
+          .card-presentation::before {
+            left: 12%;
+            right: 12%;
+            bottom: -6px;
+            height: 38px;
+            filter: blur(17px);
+            opacity: 0.62;
+          }
+
+          .card-presentation::after {
+            inset: 3% 3% -2%;
           }
 
           .flip-wrap {
@@ -1119,91 +1836,168 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           }
 
           .flip-card {
-            border-radius: 18px;
+            border-radius: 17px;
+            box-shadow:
+              0 31px 48px rgba(40, 32, 21, 0.18),
+              0 10px 20px rgba(40, 32, 21, 0.11),
+              0 2px 5px rgba(40, 32, 21, 0.075);
           }
 
           .flip-banner {
-            font-size: 11px;
-            padding: 7px 12px;
+            top: -8px;
+            font-size: 10px;
+            padding: 6px 10px;
+          }
+
+          .insert-aura {
+            inset: -7px;
+          }
+
+          .mobile-swipe-hint {
+            display: block;
+            margin: 7px auto 0;
+            text-align: center;
+            color: #91897d;
+            font-size: 9px;
+            line-height: 1;
+            font-weight: 850;
+            letter-spacing: 0.02em;
           }
 
           .mobile-current-meta {
-            display: block;
-            width: 100%;
-            max-width: 100%;
+            display: grid;
+            width: calc(100% - 14px);
+            max-width: 440px;
             min-width: 0;
-            margin-top: 10px;
-            padding: 10px;
-            border-radius: 14px;
-            background: linear-gradient(180deg, #fff, #fbfaf7);
-            border: 1px solid ${colors.border};
-            min-height: 128px;
+            margin: 7px auto 0;
+            padding: 7px 8px 6px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(225, 220, 212, 0.82);
+            box-shadow: 0 3px 10px rgba(40, 32, 21, 0.025);
             overflow: hidden;
           }
 
           .mobile-current-title {
             min-width: 0;
-            font-size: 18px;
-            font-weight: 950;
-            line-height: 1.15;
-            letter-spacing: -0.2px;
+            font-size: 16px;
+            font-weight: 1000;
+            line-height: 1.12;
+            letter-spacing: -0.025em;
             overflow-wrap: anywhere;
-            word-break: normal;
             display: -webkit-box;
-            -webkit-line-clamp: 2;
+            -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
             overflow: hidden;
           }
 
           .mobile-current-sub {
             min-width: 0;
-            margin-top: 4px;
+            margin-top: 2px;
             color: ${colors.subtext};
-            font-size: 13px;
-            font-weight: 800;
-            line-height: 1.35;
-            overflow-wrap: anywhere;
-            word-break: normal;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
+            font-size: 11px;
+            font-weight: 780;
+            line-height: 1.2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .mobile-current-bottom {
+            min-width: 0;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+          }
+
+          .mobile-current-tags {
+            min-width: 0;
+            display: flex;
+            gap: 5px;
+            align-items: center;
             overflow: hidden;
           }
 
-          .mobile-current-stats {
+          .mobile-current-type {
+            display: inline-flex;
+            align-items: center;
             min-width: 0;
-            margin-top: 7px;
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            color: ${colors.text};
-            font-size: 13px;
+            max-width: 160px;
+            padding: 3px 6px;
+            border-radius: 999px;
+            background: #f2f0eb;
+            color: #605a52;
+            font-size: 9px;
+            line-height: 1;
             font-weight: 900;
-            overflow-wrap: anywhere;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
 
-          .mobile-current-stats span {
-            min-width: 0;
-            max-width: 100%;
-            overflow-wrap: anywhere;
+          .mobile-current-type.special {
+            background: #f3f6fc;
+            color: #365a93;
           }
 
-          .card-panel .nav-buttons,
-          .card-panel > div:last-child {
-            width: 100%;
+          .mobile-current-stats {
+            display: flex;
+            gap: 7px;
+            align-items: baseline;
+            flex-shrink: 0;
+            color: ${colors.text};
+            font-size: 10px;
+            line-height: 1;
+            font-weight: 820;
+          }
+
+          .mobile-current-stats b {
+            font-size: 12px;
+            font-weight: 1000;
+          }
+
+          .mobile-prestige-note {
+            margin-top: 5px;
+            padding-top: 5px;
+            border-top: 1px solid rgba(226, 219, 207, 0.8);
+            color: #6d531c;
+            font-size: 9px;
+            line-height: 1.2;
+            font-weight: 900;
+          }
+
+          .mobile-card-controls {
+            width: calc(100% - 14px);
+            max-width: 440px;
+            margin: 6px auto 0;
             display: grid !important;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 8px !important;
+            gap: 5px !important;
           }
 
-          .card-panel > div:last-child .btn {
+          .mobile-card-controls .btn {
+            min-height: 38px;
             justify-content: center;
-            padding: 10px 8px;
+            padding: 6px 7px;
+            border-radius: 11px;
+            background: rgba(255, 255, 255, 0.7);
+            border-color: rgba(218, 212, 203, 0.92);
+            box-shadow: none;
+            font-size: 12px;
+          }
+
+          .mobile-card-controls .btn.flip-control {
+            background: #f1eee8;
           }
 
           .details-panel .stat-title,
           .details-panel .stat-sub,
-          .details-panel .kv {
+          .details-panel .kv,
+          .details-panel .prestige-progress-box,
+          .details-panel .pack-art,
+          .details-panel > .panel-title {
             display: none;
           }
 
@@ -1216,57 +2010,112 @@ export default function OpenPackClient({ productId }: { productId: string }) {
           }
 
           .btn {
-            padding: 10px 12px;
-            border-radius: 14px;
+            padding: 9px 11px;
+            border-radius: 13px;
           }
 
           .summary {
-            margin-top: 10px;
-            padding: 14px;
+            margin: 10px 2px 0;
+            padding: 13px 10px 11px;
             border-radius: 18px;
           }
 
-          .summary h3 {
-            font-size: 22px;
-            margin-bottom: 6px;
-          }
-
-          .summary ol {
-            list-style: none;
-            padding: 0;
-            margin-top: 12px;
+          .summary-heading-row {
             display: grid;
+            gap: 9px;
+          }
+
+          .summary h3 {
+            font-size: 20px;
+            margin-top: 4px;
+          }
+
+          .summary-count {
+            margin-top: 4px;
+          }
+
+          .summary-totals {
+            width: 100%;
+            justify-content: space-between;
+            gap: 5px;
+            padding: 7px 9px;
+          }
+
+          .summary-total-item {
+            gap: 3px;
+          }
+
+          .summary-total-label {
+            font-size: 8px;
+          }
+
+          .summary-total-value {
+            font-size: 11px;
+          }
+
+          .summary-list {
+            margin-top: 10px;
+            gap: 6px;
+          }
+
+          .summary-card-row {
+            grid-template-columns: 48px minmax(0, 1fr) auto;
             gap: 8px;
+            padding: 7px 8px;
+            border-radius: 13px;
           }
 
-          .summary li {
-            margin: 0;
-            padding: 10px;
-            border-radius: 14px;
-            background: rgba(255, 255, 255, 0.68);
-            border: 1px solid rgba(167, 231, 182, 0.75);
+          .summary-card-thumb {
+            width: 48px;
+            height: 67px;
+            border-radius: 8px;
           }
 
-          .summary .line1 {
-            font-size: 15px;
+          .summary-card-title {
+            font-size: 12px;
+            line-height: 1.15;
+          }
+
+          .summary-card-sub {
+            margin-top: 2px;
+            font-size: 9px;
             line-height: 1.2;
           }
 
-          .summary .line2 {
-            margin-top: 4px;
-            font-size: 12px;
+          .summary-card-note {
+            margin-top: 3px;
+            font-size: 9px;
+          }
+
+          .summary-card-value {
+            padding-left: 3px;
+          }
+
+          .summary-card-value-main {
+            font-size: 13px;
+          }
+
+          .summary-card-value-sub {
+            font-size: 8px;
+          }
+
+          .summary-card-chevron {
+            font-size: 9px;
+          }
+
+          .summary-actions {
+            margin-top: 10px;
+          }
+
+          .summary-actions .btn {
+            flex: 1 1 auto;
+            justify-content: center;
+            min-height: 40px;
+            font-size: 11px;
           }
 
           .mobile-summary-actions {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 12px;
-          }
-
-          .mobile-summary-actions .btn {
-            flex: 1 1 auto;
-            justify-content: center;
+            display: contents;
           }
 
           .footer-tip {
@@ -1278,29 +2127,59 @@ export default function OpenPackClient({ productId }: { productId: string }) {
       <div className="vcs-pack-wrap">
         <div className="vcs-pack-hero">
           <div className="vcs-pack-title">
-            <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
-              <Link href="/inventory" className="btn ghost" style={{ fontWeight: 950 }}>
+            <div
+              style={{
+                display: "flex",
+                gap: 10,
+                alignItems: "center",
+                flexWrap: "wrap",
+              }}
+            >
+              <Link
+                href="/inventory"
+                className="btn ghost"
+                style={{ fontWeight: 950 }}
+              >
                 ← Inventory
               </Link>
+
               <span className="pill">Open Pack</span>
             </div>
 
             <h1>{titleText}</h1>
-            <div className="sub">Flip, scroll through, and enjoy the rip — clean and calm.</div>
+
+            <div className="sub">
+              Take your time. Flip through the pack and enjoy the rip.
+            </div>
           </div>
 
           <div className="vcs-pack-actions">
             {opened ? (
               <>
                 <span className="pill">{progressText}</span>
-                <button className="btn" onClick={() => setFlipped((x) => !x)} disabled={!current}>
+
+                <button
+                  className="btn"
+                  onClick={() => setFlipped((x) => !x)}
+                  disabled={!current}
+                >
                   {flipped ? "Show Front" : "Flip (F)"}
                 </button>
+
                 <div className="nav-buttons">
-                  <button className="btn" onClick={prev} disabled={!canPrev}>
+                  <button
+                    className="btn"
+                    onClick={prev}
+                    disabled={!canPrev}
+                  >
                     ← Prev
                   </button>
-                  <button className="btn" onClick={next} disabled={!canNext}>
+
+                  <button
+                    className="btn"
+                    onClick={next}
+                    disabled={!canNext}
+                  >
                     Next →
                   </button>
                 </div>
@@ -1314,7 +2193,10 @@ export default function OpenPackClient({ productId }: { productId: string }) {
         </div>
 
         {error && (
-          <div className={cx("alert", "err")} style={{ marginTop: 12 }}>
+          <div
+            className={cx("alert", "err")}
+            style={{ marginTop: 12 }}
+          >
             {error}
           </div>
         )}
@@ -1322,40 +2204,101 @@ export default function OpenPackClient({ productId }: { productId: string }) {
         <div className="vcs-pack-stage">
           {!opened ? (
             <div style={{ display: "grid", gap: 12 }}>
-              <div style={{ color: colors.subtext, fontSize: 13, fontWeight: 750, lineHeight: 1.45 }}>
-                This will open <b>1 pack</b> from your sealed inventory and add the cards to your collection.
+              <div
+                style={{
+                  color: colors.subtext,
+                  fontSize: 13,
+                  fontWeight: 750,
+                  lineHeight: 1.45,
+                }}
+              >
+                This will open <b>1 pack</b> from your sealed inventory
+                and add the cards to your collection.
               </div>
 
-              <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
+              <div
+                style={{
+                  display: "flex",
+                  gap: 14,
+                  alignItems: "center",
+                  flexWrap: "wrap",
+                }}
+              >
                 {metaLoading ? (
                   <div className="panel" style={{ width: 280 }}>
                     <div className="panel-title">Pack art</div>
-                    <div style={{ color: colors.subtext, fontWeight: 850 }}>(Loading…)</div>
+                    <div
+                      style={{
+                        color: colors.subtext,
+                        fontWeight: 850,
+                      }}
+                    >
+                      (Loading…)
+                    </div>
                   </div>
                 ) : packImageUrl ? (
                   <div className="panel" style={{ width: 300 }}>
                     <div className="panel-title">Pack art</div>
-                    <img className="pack-img" src={packImageUrl} alt="Pack" />
+                    <img
+                      className="pack-img"
+                      src={packImageUrl}
+                      alt="Pack"
+                    />
                   </div>
                 ) : (
                   <div className="panel" style={{ width: 280 }}>
                     <div className="panel-title">Pack art</div>
-                    <div style={{ color: colors.subtext, fontWeight: 850 }}>(No pack image set)</div>
+                    <div
+                      style={{
+                        color: colors.subtext,
+                        fontWeight: 850,
+                      }}
+                    >
+                      (No pack image set)
+                    </div>
                   </div>
                 )}
 
-                <div className="panel" style={{ flex: "1 1 260px" }}>
+                <div
+                  className="panel"
+                  style={{ flex: "1 1 260px" }}
+                >
                   <div className="panel-title">Ready?</div>
-                  <div style={{ color: colors.text, fontWeight: 900, fontSize: 14, lineHeight: 1.4 }}>
+
+                  <div
+                    style={{
+                      color: colors.text,
+                      fontWeight: 900,
+                      fontSize: 14,
+                      lineHeight: 1.4,
+                    }}
+                  >
                     Tap <b>Open 1 Pack</b> to rip.
                   </div>
-                  <div style={{ marginTop: 10, display: "flex", gap: 10, flexWrap: "wrap" }}>
-                    <button className="btn primary" onClick={openPack} disabled={loading || !productId}>
+
+                  <div
+                    style={{
+                      marginTop: 10,
+                      display: "flex",
+                      gap: 10,
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    <button
+                      className="btn primary"
+                      onClick={openPack}
+                      disabled={loading || !productId}
+                    >
                       {loading ? "Opening…" : "Open 1 Pack"}
                     </button>
-                    <div className="hint" style={{ alignItems: "center" }}>
+
+                    <div
+                      className="hint"
+                      style={{ alignItems: "center" }}
+                    >
                       <span>
-                        Tip: later you can use <kbd>Space</kbd>, <kbd>←</kbd>/<kbd>→</kbd>, <kbd>F</kbd>
+                        Tip: <kbd>Space</kbd>, <kbd>←</kbd>/
+                        <kbd>→</kbd>, <kbd>F</kbd>
                       </span>
                     </div>
                   </div>
@@ -1363,12 +2306,19 @@ export default function OpenPackClient({ productId }: { productId: string }) {
               </div>
             </div>
           ) : (
-            <div ref={containerRef} tabIndex={-1} style={{ outline: "none" }}>
+            <div
+              ref={containerRef}
+              tabIndex={-1}
+              style={{ outline: "none" }}
+            >
               <div className="mobile-rip-hud">
                 <div className="mobile-hud-item">
                   <div className="mobile-hud-label">Value</div>
-                  <div className="mobile-hud-value">{money(revealedValue)}</div>
+                  <div className="mobile-hud-value">
+                    {money(revealedValue)}
+                  </div>
                 </div>
+
                 <div className="mobile-hud-item">
                   <div className="mobile-hud-label">Net</div>
                   <div
@@ -1382,7 +2332,10 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                     {money(packDelta)}
                   </div>
                 </div>
-                <div className="mobile-hud-card">{mobileProgressText}</div>
+
+                <div className="mobile-hud-card">
+                  {mobileProgressText}
+                </div>
               </div>
 
               <div className="controls-row">
@@ -1391,22 +2344,42 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                     <span>
                       <kbd>Space</kbd> advance
                     </span>
+
                     <span>
                       <kbd>←</kbd>/<kbd>→</kbd> navigate
                     </span>
+
                     <span>
                       <kbd>F</kbd> flip
                     </span>
-                    <span style={{ opacity: 0.85 }}>• click the card to flip</span>
+
+                    <span style={{ opacity: 0.85 }}>
+                      • click the card to flip
+                    </span>
                   </div>
                 </div>
+
                 <span className="pill">{progressText}</span>
               </div>
 
-              <div className={cx("value-box", "desktop-value", valueTone === "positive" && "positive", valueTone === "negative" && "negative", valueTone === "neutral" && "neutral")}>
+              <div
+                className={cx(
+                  "value-box",
+                  "desktop-value",
+                  valueTone === "positive" && "positive",
+                  valueTone === "negative" && "negative",
+                  valueTone === "neutral" && "neutral"
+                )}
+              >
                 <div className="value-grid">
-                  <div className="value-head">Running pack value</div>
-                  <div className="value-main">{money(revealedValue)}</div>
+                  <div className="value-head">
+                    Running pack value
+                  </div>
+
+                  <div className="value-main">
+                    {money(revealedValue)}
+                  </div>
+
                   <div className="value-sub">
                     Pack price: <b>{money(packPrice)}</b>
                     {" • "}
@@ -1416,8 +2389,8 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                         valueTone === "positive"
                           ? "value-positive"
                           : valueTone === "negative"
-                          ? "value-negative"
-                          : "value-neutral"
+                            ? "value-negative"
+                            : "value-neutral"
                       }
                     >
                       {packDelta > 0 ? "+" : ""}
@@ -1428,8 +2401,12 @@ export default function OpenPackClient({ productId }: { productId: string }) {
               </div>
 
               {mismatch && (
-                <div className={cx("alert", "warn")} style={{ marginBottom: 12 }}>
-                  Heads up: server returned <b>{data?.cards.length}</b> cards but product says{" "}
+                <div
+                  className={cx("alert", "warn")}
+                  style={{ marginBottom: 12 }}
+                >
+                  Heads up: server returned{" "}
+                  <b>{data?.cards.length}</b> cards but product says{" "}
                   <b>{data?.cardsPerPack}</b>.
                 </div>
               )}
@@ -1438,85 +2415,219 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                 <div className="panel card-panel">
                   <div className="panel-title">Current card</div>
 
-                  <div className="flip-wrap" onClick={() => setFlipped((x) => !x)} title="Click to flip (or press F)">
-                    <div className="flip-scene">
-                      {currentHitPrestige && currentPrestigeBannerLabel ? (
-                        <div className="flip-banner">{currentPrestigeBannerLabel}</div>
-                      ) : null}
+                  <div className="card-presentation">
+                    <div
+                      className="flip-wrap"
+                      onPointerDown={handleCardPointerDown}
+                      onPointerMove={handleCardPointerMove}
+                      onPointerUp={handleCardPointerUp}
+                      onPointerCancel={handleCardPointerCancel}
+                      title="Tap to flip. Swipe left/right to move through the pack."
+                    >
+                      <div className="flip-scene">
+                        {currentHitPrestige &&
+                        currentPrestigeBannerLabel ? (
+                          <div className="flip-banner">
+                            {currentPrestigeBannerLabel}
+                          </div>
+                        ) : null}
 
-                      <div className={cx("flip-celebration", currentHitPrestige && "active")} />
-
-                      <div className={cx("flip-card", flipped && "is-flipped", currentHitPrestige && "prestige-hit")}>
-                        <div className="face front">
-                          {cardFront ? (
-                            <img src={cardFront} alt="Card front" />
-                          ) : (
-                            <div className="img-missing">(No front image)</div>
+                        <div
+                          className={cx(
+                            "flip-celebration",
+                            currentHitPrestige && "active"
                           )}
-                        </div>
+                        />
 
-                        <div className="face back">
-                          {cardBack ? (
-                            <img src={cardBack} alt="Card back" />
-                          ) : (
-                            <div className="img-missing">(No back image)</div>
+                        <div
+                          className={cx(
+                            "insert-aura",
+                            currentIsSpecial &&
+                              !currentHitPrestige &&
+                              "active"
                           )}
+                        />
+
+                        <div
+                          key={`${current?.id ?? "none"}-${idx}`}
+                          className={cx(
+                            "card-drag-shell",
+                            isDragging && "dragging",
+                            cardMotion === "next" && "motion-next",
+                            cardMotion === "prev" && "motion-prev"
+                          )}
+                          style={{
+                            transform: `translate3d(${dragX}px, 0, 0) rotate(${dragRotation}deg)`,
+                          }}
+                        >
+                          <div
+                            className={cx(
+                              "flip-card",
+                              flipped && "is-flipped",
+                              currentHitPrestige && "prestige-hit"
+                            )}
+                          >
+                            <div className="face front">
+                              {cardFront ? (
+                                <img
+                                  src={cardFront}
+                                  alt="Card front"
+                                  draggable={false}
+                                />
+                              ) : (
+                                <div className="img-missing">
+                                  (No front image)
+                                </div>
+                              )}
+                            </div>
+
+                            <div className="face back">
+                              {cardBack ? (
+                                <img
+                                  src={cardBack}
+                                  alt="Card back"
+                                  draggable={false}
+                                />
+                              ) : (
+                                <div className="img-missing">
+                                  (No back image)
+                                </div>
+                              )}
+                            </div>
+                          </div>
                         </div>
                       </div>
+                    </div>
+
+                    <div className="mobile-swipe-hint">
+                      Swipe to browse • tap to flip
                     </div>
                   </div>
 
                   <div className="mobile-current-meta">
-                    <div className="mobile-current-title">{cardTitle}</div>
-                    <div className="mobile-current-sub">{subline}</div>
-                    <div className="mobile-current-stats">
-                      <span>{current?.isInsert ? `Insert${currentInsertLabel ? ` • ${currentInsertLabel}` : ""}` : "Base"}</span>
-                      <span>Value: {money(current?.bookValue)}</span>
-                      <span>You own: {current?.ownedAfter ?? "—"}</span>
+                    <div className="mobile-current-title">
+                      {cardTitle}
                     </div>
-                    {current?.isInsert && currentInsertOddsLabel ? (
-                      <div style={{ marginTop: 5, color: colors.subtext, fontSize: 12, fontWeight: 800 }}>
-                        Odds: {currentInsertOddsLabel}
+
+                    <div className="mobile-current-sub">
+                      {subline}
+                    </div>
+
+                    <div className="mobile-current-bottom">
+                      <div className="mobile-current-tags">
+                        <span
+                          className={cx(
+                            "mobile-current-type",
+                            current?.isInsert && "special"
+                          )}
+                        >
+                          {current?.isInsert
+                            ? currentInsertLabel || "Insert"
+                            : "Base"}
+                        </span>
+
+                        {current?.isInsert &&
+                        currentInsertOddsLabel ? (
+                          <span className="mobile-current-type special">
+                            {currentInsertOddsLabel}
+                          </span>
+                        ) : null}
+                      </div>
+
+                      <div className="mobile-current-stats">
+                        <span>
+                          <b>{money(current?.bookValue)}</b>
+                        </span>
+
+                        <span>
+                          Own <b>{current?.ownedAfter ?? "—"}</b>
+                        </span>
+                      </div>
+                    </div>
+
+                    {currentHasPrestigeProgress &&
+                    currentPrestigeProgressLabel ? (
+                      <div className="mobile-prestige-note">
+                        {currentHitPrestige
+                          ? `★ ${currentPrestigeProgressLabel} — this card completed it.`
+                          : `★ ${currentPrestigeProgressLabel}`}
                       </div>
                     ) : null}
                   </div>
 
-                  <div style={{ marginTop: 12, display: "flex", gap: 10, flexWrap: "wrap" }}>
-                    <button className="btn" onClick={prev} disabled={!canPrev}>
+                  <div className="mobile-card-controls">
+                    <button
+                      className="btn"
+                      onClick={prev}
+                      disabled={!canPrev}
+                    >
                       ← Prev
                     </button>
-                    <button className="btn" onClick={next} disabled={!canNext}>
-                      Next →
+
+                    <button
+                      className="btn flip-control"
+                      onClick={() => setFlipped((x) => !x)}
+                      disabled={!current}
+                    >
+                      {flipped ? "Front" : "Flip"}
                     </button>
-                    <button className="btn" onClick={() => setFlipped((x) => !x)} disabled={!current}>
-                      {flipped ? "Show Front" : "Flip"}
+
+                    <button
+                      className="btn"
+                      onClick={next}
+                      disabled={!canNext}
+                    >
+                      Next →
                     </button>
                   </div>
                 </div>
 
-                <div className={cx("panel", "stack-panel", isDone && "done")}>
-                  <div className="panel-title">Opened stack (top card back)</div>
+                <div
+                  className={cx(
+                    "panel",
+                    "stack-panel",
+                    isDone && "done"
+                  )}
+                >
+                  <div className="panel-title">
+                    Opened stack (top card back)
+                  </div>
 
                   <div className="stack-mini">
                     <div className="stack-top">
                       {prevCard?.backImageUrl ? (
-                        <img src={prevCard.backImageUrl} alt="Top of stack (back)" />
+                        <img
+                          src={prevCard.backImageUrl}
+                          alt="Top of stack (back)"
+                        />
                       ) : prevCard ? (
-                        <div className="stack-placeholder">(No back image)</div>
+                        <div className="stack-placeholder">
+                          (No back image)
+                        </div>
                       ) : (
-                        <div className="stack-placeholder">(No cards in stack yet)</div>
+                        <div className="stack-placeholder">
+                          (No cards in stack yet)
+                        </div>
                       )}
                     </div>
 
                     {stack.length > 1 && (
-                      <div className="stack-fan" aria-hidden="true">
+                      <div
+                        className="stack-fan"
+                        aria-hidden="true"
+                      >
                         {stack.slice(0, -1).map((c, i) => {
-                          const offset = (stack.length - 2 - i) * 10;
+                          const offset =
+                            (stack.length - 2 - i) * 10;
+
                           return (
                             <div
                               key={c.id}
                               className="stack-chip"
-                              style={{ left: offset, top: offset }}
+                              style={{
+                                left: offset,
+                                top: offset,
+                              }}
                               title={`#${c.cardNumber} — ${c.player}`}
                             >
                               Back
@@ -1532,34 +2643,54 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                   <div className="panel-title">Details</div>
 
                   <div className="stat-title">{cardTitle}</div>
+
                   <div className="stat-sub">{subline}</div>
 
                   <div className="kv">
                     <div>
                       <b>Type:</b>{" "}
                       {current?.isInsert
-                        ? `Insert${currentInsertLabel ? ` • ${currentInsertLabel}` : ""}`
+                        ? `Insert${
+                            currentInsertLabel
+                              ? ` • ${currentInsertLabel}`
+                              : ""
+                          }`
                         : "Base"}
                     </div>
 
-                    {current?.isInsert && currentInsertOddsLabel ? (
+                    {current?.isInsert &&
+                    currentInsertOddsLabel ? (
                       <div>
                         <b>Odds:</b> {currentInsertOddsLabel}
                       </div>
                     ) : null}
 
                     <div>
-                      <b>Value:</b> {money(current?.bookValue)} &nbsp;•&nbsp; <b>You own:</b>{" "}
+                      <b>Value:</b> {money(current?.bookValue)}
+                      &nbsp;•&nbsp;
+                      <b>You own:</b>{" "}
                       {current?.ownedAfter ?? "—"}
                     </div>
                   </div>
 
-                  {currentHasPrestigeProgress && currentPrestigeProgressLabel ? (
-                    <div className={cx("prestige-progress-box", currentHitPrestige && "hit")}>
+                  {currentHasPrestigeProgress &&
+                  currentPrestigeProgressLabel ? (
+                    <div
+                      className={cx(
+                        "prestige-progress-box",
+                        currentHitPrestige && "hit"
+                      )}
+                    >
                       <div className="prestige-progress-title">
-                        {currentHitPrestige ? "Prestige reached" : "Prestige progress"}
+                        {currentHitPrestige
+                          ? "Prestige reached"
+                          : "Prestige progress"}
                       </div>
-                      <div className="prestige-progress-main">{currentPrestigeProgressLabel}</div>
+
+                      <div className="prestige-progress-main">
+                        {currentPrestigeProgressLabel}
+                      </div>
+
                       <div className="prestige-progress-sub">
                         {currentHitPrestige
                           ? `This was the final card needed to reach Prestige x${current?.prestigeTargetLevel}.`
@@ -1571,7 +2702,12 @@ export default function OpenPackClient({ productId }: { productId: string }) {
                   {packImageUrl ? (
                     <div className="pack-art">
                       <div className="panel-title">Pack art</div>
-                      <img className="pack-img" src={packImageUrl} alt="Pack" />
+
+                      <img
+                        className="pack-img"
+                        src={packImageUrl}
+                        alt="Pack"
+                      />
                     </div>
                   ) : null}
                 </div>
@@ -1579,110 +2715,176 @@ export default function OpenPackClient({ productId }: { productId: string }) {
 
               {isDone && (
                 <div className="summary">
-                  <h3>Pack complete.</h3>
-                  <div style={{ fontSize: 13, fontWeight: 800, color: colors.text }}>
-                    You received <b>{cards.length}</b> cards (expected <b>{data?.cardsPerPack ?? cards.length}</b>).
+                  <div className="summary-heading-row">
+                    <div>
+                      <div className="summary-eyebrow">
+                        Rip complete
+                      </div>
+
+                      <h3>Pack complete</h3>
+
+                      <div className="summary-count">
+                        {cards.length}{" "}
+                        {cards.length === 1 ? "card" : "cards"} added
+                        to your collection.
+                      </div>
+                    </div>
+
+                    <div className="summary-totals">
+                      <div className="summary-total-item">
+                        <span className="summary-total-label">
+                          Value
+                        </span>
+
+                        <span className="summary-total-value">
+                          {money(revealedValue)}
+                        </span>
+                      </div>
+
+                      <div className="summary-total-item">
+                        <span className="summary-total-label">
+                          Cost
+                        </span>
+
+                        <span className="summary-total-value">
+                          {money(packPrice)}
+                        </span>
+                      </div>
+
+                      <div className="summary-total-item">
+                        <span className="summary-total-label">
+                          Net
+                        </span>
+
+                        <span
+                          className={cx(
+                            "summary-total-value",
+                            packDelta > 0 && "positive",
+                            packDelta < 0 && "negative"
+                          )}
+                        >
+                          {packDelta > 0 ? "+" : ""}
+                          {money(packDelta)}
+                        </span>
+                      </div>
+                    </div>
                   </div>
 
-                  <div style={{ marginTop: 8, fontSize: 13, fontWeight: 800 }}>
-                    Final total: <b>{money(revealedValue)}</b>
-                    {" • "}
-                    Pack price: <b>{money(packPrice)}</b>
-                    {" • "}
-                    Net:{" "}
-                    <b>
-                      {packDelta > 0 ? "+" : ""}
-                      {money(packDelta)}
-                    </b>
-                  </div>
-
-                  <ol>
+                  <ol className="summary-list">
                     {cards.map((c) => {
                       const insertLabel = getInsertLabel(c);
-                      const insertOddsLabel = getInsertOddsLabel(c);
-                      const prestigeProgressLabel = getPrestigeProgressLabel(c);
+                      const insertOddsLabel =
+                        getInsertOddsLabel(c);
+                      const prestigeProgressLabel =
+                        getPrestigeProgressLabel(c);
+
+                      const contextParts = [
+                        c.team,
+                        insertLabel,
+                        insertOddsLabel
+                          ? `Odds ${insertOddsLabel}`
+                          : null,
+                      ].filter(Boolean);
 
                       return (
-                        <li
-                          key={c.id}
-                          style={{
-                            display: "grid",
-                            gridTemplateColumns: "56px 1fr",
-                            gap: 10,
-                            alignItems: "start",
-                          }}
-                        >
-                          <div
-                            style={{
-                              width: 56,
-                              height: 78,
-                              borderRadius: 10,
-                              overflow: "hidden",
-                              border: `1px solid ${colors.border}`,
-                              background: "white",
-                              flexShrink: 0,
-                            }}
+                        <li key={c.id}>
+                          <Link
+                            href={`/cards/${c.id}`}
+                            className="summary-card-link"
                           >
-                            {c.frontImageUrl ? (
-                              <img
-                                src={c.frontImageUrl}
-                                alt={c.player}
-                                style={{
-                                  width: "100%",
-                                  height: "100%",
-                                  objectFit: "cover",
-                                  display: "block",
-                                }}
-                              />
-                            ) : (
-                              <div
-                                style={{
-                                  width: "100%",
-                                  height: "100%",
-                                  display: "grid",
-                                  placeItems: "center",
-                                  fontSize: 10,
-                                  fontWeight: 900,
-                                  color: colors.subtext,
-                                  background: colors.soft,
-                                  textAlign: "center",
-                                  padding: 4,
-                                }}
-                              >
-                                No Image
+                            <div className="summary-card-row">
+                              <div className="summary-card-thumb">
+                                {c.frontImageUrl ? (
+                                  <img
+                                    src={c.frontImageUrl}
+                                    alt={c.player}
+                                  />
+                                ) : (
+                                  <div
+                                    style={{
+                                      width: "100%",
+                                      height: "100%",
+                                      display: "grid",
+                                      placeItems: "center",
+                                      fontSize: 9,
+                                      fontWeight: 900,
+                                      color: colors.subtext,
+                                      background: colors.soft,
+                                      textAlign: "center",
+                                      padding: 4,
+                                    }}
+                                  >
+                                    No Image
+                                  </div>
+                                )}
                               </div>
-                            )}
-                          </div>
 
-                          <div>
-                            <div className="line1">
-                              #{c.cardNumber} — {c.player} {insertLabel ? `(${insertLabel})` : ""}
-                            </div>
-                            <div className="line2">
-                              Value: <b>{money(c.bookValue)}</b> • You own: <b>{c.ownedAfter}</b>
-                              {insertOddsLabel ? ` • Odds: ${insertOddsLabel}` : ""}
-                            </div>
-                            {c.isNeededForNextPrestige && prestigeProgressLabel ? (
-                              <div className={cx("line3", c.hitNextPrestigeWithThisCard && "hit")}>
-                                {c.hitNextPrestigeWithThisCard
-                                  ? `${prestigeProgressLabel} • This card hit it.`
-                                  : prestigeProgressLabel}
+                              <div className="summary-card-main">
+                                <div className="summary-card-title">
+                                  #{c.cardNumber} — {c.player}
+                                </div>
+
+                                {contextParts.length > 0 ? (
+                                  <div className="summary-card-sub">
+                                    {contextParts.join(" • ")}
+                                  </div>
+                                ) : null}
+
+                                {c.isNeededForNextPrestige &&
+                                prestigeProgressLabel ? (
+                                  <div
+                                    className={cx(
+                                      "summary-card-note",
+                                      c.hitNextPrestigeWithThisCard &&
+                                        "hit"
+                                    )}
+                                  >
+                                    {c.hitNextPrestigeWithThisCard
+                                      ? `${prestigeProgressLabel} • Reached`
+                                      : prestigeProgressLabel}
+                                  </div>
+                                ) : null}
                               </div>
-                            ) : null}
-                          </div>
+
+                              <div className="summary-card-value">
+                                <div className="summary-card-value-main">
+                                  {money(c.bookValue)}
+                                </div>
+
+                                <div className="summary-card-value-sub">
+                                  Own {c.ownedAfter}
+                                </div>
+
+                                <div className="summary-card-chevron">
+                                  Details →
+                                </div>
+                              </div>
+                            </div>
+                          </Link>
                         </li>
                       );
                     })}
                   </ol>
 
-                  <div className="mobile-summary-actions">
-                    <button className="btn primary" onClick={openPack} disabled={loading || !productId}>
+                  <div className="summary-actions">
+                    <button
+                      className="btn primary"
+                      onClick={openPack}
+                      disabled={loading || !productId}
+                    >
                       {loading ? "Opening…" : "Open Another"}
                     </button>
+
                     <Link href="/inventory" className="btn">
                       Inventory
                     </Link>
-                    <Link href={`/checklist/${encodeURIComponent(productId)}`} className="btn">
+
+                    <Link
+                      href={`/checklist/${encodeURIComponent(
+                        productId
+                      )}`}
+                      className="btn"
+                    >
                       Checklist
                     </Link>
                   </div>
@@ -1690,7 +2892,8 @@ export default function OpenPackClient({ productId }: { productId: string }) {
               )}
 
               <div className="footer-tip">
-                Tip: If cards ever “skip,” something is firing twice. Space should advance exactly one card.
+                Tip: tap the card to flip. Swipe or use the arrow
+                controls to move through the pack.
               </div>
             </div>
           )}
