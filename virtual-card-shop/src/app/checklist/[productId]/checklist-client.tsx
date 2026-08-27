@@ -32,11 +32,13 @@ type ChecklistRow = {
   bookValue: number | null;
 
   ownedQty: number;
+  rawQty: number;
   myOwnedQty?: number;
+  myRawQty?: number;
   offerStatus?: OfferStatus;
 };
 
-type SortKey = "cardNumber" | "owned" | "qty" | "player" | "team" | "subset" | "variant" | "bookValue";
+type SortKey = "cardNumber" | "owned" | "qty" | "rawQty" | "player" | "team" | "subset" | "variant" | "bookValue";
 type SortDir = "asc" | "desc";
 
 type ChecklistResponse = {
@@ -320,7 +322,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
       nextDir = sortDir === "asc" ? "desc" : "asc";
     } else {
       // sensible defaults
-      if (nextKey === "owned" || nextKey === "qty" || nextKey === "bookValue") nextDir = "desc";
+      if (nextKey === "owned" || nextKey === "qty" || nextKey === "rawQty" || nextKey === "bookValue") nextDir = "desc";
       else nextDir = "asc";
     }
 
@@ -593,6 +595,32 @@ export default function ChecklistClient({ productId }: { productId: string }) {
             line-height: 1;
           }
 
+          .checklistOwnedColumn {
+            width: 38px;
+            max-width: 38px;
+          }
+
+          .checklistQtyColumn,
+          .checklistRawColumn {
+            width: 32px;
+            max-width: 32px;
+            text-align: center !important;
+          }
+
+          .checklistRawPositive {
+            color: #16477d;
+            font-weight: 1000;
+          }
+
+          .checklistRawZero {
+            color: #9aa1aa;
+            font-weight: 800;
+          }
+
+          .checklistDetailsColumn {
+            width: 58px;
+          }
+
           .checklistActions {
             gap: 3px;
             flex-wrap: nowrap;
@@ -602,7 +630,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
 
           .checklistActions :global(.vcs-button) {
             min-height: 28px;
-            padding: 4px 6px;
+            padding: 4px 5px;
             border-radius: 8px;
             font-size: 10.5px;
             line-height: 1;
@@ -834,7 +862,12 @@ export default function ChecklistClient({ productId }: { productId: string }) {
             <table className="checklistTable" style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead style={{ position: "sticky", top: 0, background: "#f8fafc", zIndex: 1 }}>
                 <tr>
-                  <th style={thClickable} onClick={() => onSort("owned")} title="Sort by Owned (whole set, then paged)">
+                  <th
+                    className="checklistOwnedColumn"
+                    style={thClickable}
+                    onClick={() => onSort("owned")}
+                    title="Sort by Owned (whole set, then paged)"
+                  >
                     Owned{sortIcon(sortKey === "owned", sortDir)}
                   </th>
 
@@ -870,11 +903,25 @@ export default function ChecklistClient({ productId }: { productId: string }) {
                     Value{sortIcon(sortKey === "bookValue", sortDir)}
                   </th>
 
-                  <th style={thClickable} onClick={() => onSort("qty")} title="Sort by Qty (whole set, then paged)">
+                  <th
+                    className="checklistQtyColumn"
+                    style={thClickable}
+                    onClick={() => onSort("qty")}
+                    title="Sort by total quantity owned (whole set, then paged)"
+                  >
                     Qty{sortIcon(sortKey === "qty", sortDir)}
                   </th>
 
-                  <th style={thPlain}>Details</th>
+                  <th
+                    className="checklistRawColumn"
+                    style={thClickable}
+                    onClick={() => onSort("rawQty")}
+                    title="Sort by raw copies available to grade"
+                  >
+                    Raw{sortIcon(sortKey === "rawQty", sortDir)}
+                  </th>
+
+                  <th className="checklistDetailsColumn" style={thPlain}>Details</th>
                 </tr>
               </thead>
 
@@ -885,7 +932,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
 
                   return (
                     <tr key={r.cardId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
-                      <td className="checklistOwnedCell" style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>{owned ? "✅" : "⬜"}</td>
+                      <td className="checklistOwnedCell checklistOwnedColumn" style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>{owned ? "✅" : "⬜"}</td>
 
                       {compareMode ? (
                         <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
@@ -913,9 +960,23 @@ export default function ChecklistClient({ productId }: { productId: string }) {
                       <td className="checklistDesktopOptional" style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.variant ?? "—"}</td>
                       <td className="checklistDesktopOptional" style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.isInsert ? "Insert" : "Base"}</td>
                       <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900, whiteSpace: "nowrap" }}>{money(r.bookValue)}</td>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>{r.ownedQty ?? 0}</td>
+                      <td
+                        className="checklistQtyColumn"
+                        style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}
+                        title="Total quantity owned"
+                      >
+                        {r.ownedQty ?? 0}
+                      </td>
 
-                      <td style={{ padding: 6, borderBottom: "1px solid #eee" }}>
+                      <td
+                        className={`checklistRawColumn ${(r.rawQty ?? 0) > 0 ? "checklistRawPositive" : "checklistRawZero"}`}
+                        style={{ padding: 8, borderBottom: "1px solid #eee" }}
+                        title={`${r.rawQty ?? 0} raw cop${(r.rawQty ?? 0) === 1 ? "y" : "ies"} available to grade`}
+                      >
+                        {(r.rawQty ?? 0) > 0 ? r.rawQty : "—"}
+                      </td>
+
+                      <td className="checklistDetailsColumn" style={{ padding: 6, borderBottom: "1px solid #eee" }}>
                         <div className="checklistActions">
                           <Link
                             href={`/cards/${encodeURIComponent(String(r.cardId))}`}

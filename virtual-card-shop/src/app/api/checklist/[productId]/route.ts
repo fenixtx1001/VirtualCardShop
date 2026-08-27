@@ -100,6 +100,7 @@ type SortKey =
   | "cardNumber"
   | "owned"
   | "qty"
+  | "rawQty"
   | "player"
   | "team"
   | "subset"
@@ -116,6 +117,7 @@ function parseSort(url: URL): { sortKey: SortKey; sortDir: SortDir } {
     "cardNumber",
     "owned",
     "qty",
+    "rawQty",
     "player",
     "team",
     "subset",
@@ -223,6 +225,7 @@ export async function GET(req: Request, ctx: Ctx) {
       select: {
         userId: true,
         cardId: true,
+        grade: true,
         quantity: true,
         auctionLockedQuantity: true,
       },
@@ -239,9 +242,11 @@ export async function GET(req: Request, ctx: Ctx) {
     });
 
     const selectedOwnedMap = new Map<number, number>();
+    const selectedRawMap = new Map<number, number>();
     const selectedAuctionLockedMap = new Map<number, number>();
     const selectedPendingMap = new Map<number, number>();
     const myOwnedMap = new Map<number, number>();
+    const myRawMap = new Map<number, number>();
     const myAuctionLockedMap = new Map<number, number>();
     const myPendingMap = new Map<number, number>();
 
@@ -254,6 +259,9 @@ export async function GET(req: Request, ctx: Ctx) {
       if (o.userId === selectedUserId) {
         if (availableQty > 0) {
           selectedOwnedMap.set(o.cardId, (selectedOwnedMap.get(o.cardId) ?? 0) + availableQty);
+          if (o.grade === 0) {
+            selectedRawMap.set(o.cardId, (selectedRawMap.get(o.cardId) ?? 0) + availableQty);
+          }
         }
         if (auctionLockedQty > 0) {
           selectedAuctionLockedMap.set(
@@ -266,6 +274,9 @@ export async function GET(req: Request, ctx: Ctx) {
       if (o.userId === currentUser.id) {
         if (availableQty > 0) {
           myOwnedMap.set(o.cardId, (myOwnedMap.get(o.cardId) ?? 0) + availableQty);
+          if (o.grade === 0) {
+            myRawMap.set(o.cardId, (myRawMap.get(o.cardId) ?? 0) + availableQty);
+          }
         }
         if (auctionLockedQty > 0) {
           myAuctionLockedMap.set(
@@ -297,6 +308,8 @@ export async function GET(req: Request, ctx: Ctx) {
 
       const aOwned = aOwnedQty > 0 ? 1 : 0;
       const bOwned = bOwnedQty > 0 ? 1 : 0;
+      const aRawQty = selectedRawMap.get(a.id) ?? 0;
+      const bRawQty = selectedRawMap.get(b.id) ?? 0;
 
       const aBV = toNumber((a as any).bookValue);
       const bBV = toNumber((b as any).bookValue);
@@ -314,6 +327,10 @@ export async function GET(req: Request, ctx: Ctx) {
 
         case "qty":
           primary = sortDir === "desc" ? bOwnedQty - aOwnedQty : aOwnedQty - bOwnedQty;
+          break;
+
+        case "rawQty":
+          primary = sortDir === "desc" ? bRawQty - aRawQty : aRawQty - bRawQty;
           break;
 
         case "player":
@@ -454,6 +471,7 @@ export async function GET(req: Request, ctx: Ctx) {
 
     const rows = pageCards.map((c) => {
       const revealedOwnedQty = selectedOwnedMap.get(c.id) ?? 0;
+      const rawQty = selectedRawMap.get(c.id) ?? 0;
       const auctionLockedQty = selectedAuctionLockedMap.get(c.id) ?? 0;
       const pendingGradingQty = selectedPendingMap.get(c.id) ?? 0;
       const ownedQty = revealedOwnedQty + pendingGradingQty;
@@ -468,6 +486,7 @@ export async function GET(req: Request, ctx: Ctx) {
         isInsert: !selectedSet.isBase,
         bookValue: toNumber((c as any).bookValue),
         ownedQty,
+        rawQty,
         offerStatus: offerStatusByCard.get(c.id) ?? { state: "AVAILABLE" },
 
         // Grading-aware ownership fields. Auction-locked copies are excluded
@@ -479,10 +498,12 @@ export async function GET(req: Request, ctx: Ctx) {
 
       if (isCompareMode) {
         const myRevealedOwnedQty = myOwnedMap.get(c.id) ?? 0;
+        const myRawQty = myRawMap.get(c.id) ?? 0;
         const myAuctionLockedQty = myAuctionLockedMap.get(c.id) ?? 0;
         const myPendingGradingQty = myPendingMap.get(c.id) ?? 0;
 
         baseRow.myOwnedQty = myRevealedOwnedQty + myPendingGradingQty;
+        baseRow.myRawQty = myRawQty;
         baseRow.myRevealedOwnedQty = myRevealedOwnedQty;
         baseRow.myAuctionLockedQty = myAuctionLockedQty;
         baseRow.myPendingGradingQty = myPendingGradingQty;
@@ -518,6 +539,7 @@ export async function GET(req: Request, ctx: Ctx) {
         "cardNumber",
         "owned",
         "qty",
+        "rawQty",
         "player",
         "team",
         "subset",
