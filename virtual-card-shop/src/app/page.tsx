@@ -668,8 +668,6 @@ export default function HomePage() {
       style={{
         minHeight: "calc(100vh - 80px)",
         padding: 20,
-        fontFamily:
-          'ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"',
         color: colors.text,
         background: `
           radial-gradient(1200px 700px at 15% 10%, rgba(47,111,237,0.08), transparent 60%),
