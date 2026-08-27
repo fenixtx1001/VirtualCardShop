@@ -231,11 +231,6 @@ export default function InventoryPage() {
     return Math.round(totalSealedValueCents / totalPacks);
   }, [totalPacks, totalSealedValueCents]);
 
-  const mostOwned = useMemo(() => {
-    const sorted = [...unopenedRows].sort((a, b) => (b.packsOwned ?? 0) - (a.packsOwned ?? 0));
-    return sorted[0] ?? null;
-  }, [unopenedRows]);
-
   const sportCounts = useMemo(() => {
     const counts: Record<SportFilter, number> = {
       ALL: unopenedRows.length,
@@ -302,11 +297,11 @@ export default function InventoryPage() {
         .inventory-hero-inner {
           position: relative;
           z-index: 1;
-          padding: 22px;
+          padding: 18px;
           display: grid;
-          grid-template-columns: 1.45fr 0.9fr;
-          gap: 18px;
-          align-items: stretch;
+          grid-template-columns: 1.35fr 1fr;
+          gap: 16px;
+          align-items: center;
         }
 
         .inventory-kicker {
@@ -326,27 +321,27 @@ export default function InventoryPage() {
         }
 
         .inventory-title {
-          margin: 12px 0 0;
-          font-size: clamp(32px, 5vw, 54px);
-          line-height: 0.95;
-          letter-spacing: -0.055em;
+          margin: 9px 0 0;
+          font-size: clamp(30px, 5vw, 50px);
+          line-height: 0.97;
+          letter-spacing: -0.05em;
           font-weight: 950;
         }
 
         .inventory-subtitle {
-          margin-top: 12px;
+          margin-top: 9px;
           max-width: 650px;
           color: ${colors.subtext};
-          font-size: 15px;
-          line-height: 1.55;
+          font-size: 14px;
+          line-height: 1.45;
           font-weight: 650;
         }
 
         .inventory-hero-actions {
-          margin-top: 18px;
+          margin-top: 13px;
           display: flex;
           flex-wrap: wrap;
-          gap: 10px;
+          gap: 8px;
         }
 
         .inventory-primary-btn,
@@ -384,13 +379,22 @@ export default function InventoryPage() {
 
         .inventory-hero-panel {
           border: 1px solid rgba(184,146,59,0.26);
-          border-radius: 22px;
+          border-radius: 18px;
           background:
             linear-gradient(160deg, rgba(255,255,255,0.94), rgba(255,248,231,0.90));
-          padding: 16px;
           display: grid;
-          align-content: center;
-          gap: 12px;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          overflow: hidden;
+        }
+
+        .inventory-summary-cell {
+          min-width: 0;
+          padding: 11px 10px;
+          border-left: 1px solid rgba(184,146,59,0.18);
+        }
+
+        .inventory-summary-cell:first-child {
+          border-left: 0;
         }
 
         .inventory-big-stat {
@@ -407,10 +411,14 @@ export default function InventoryPage() {
         }
 
         .inventory-big-stat-value {
-          font-size: 34px;
+          margin-top: 3px;
+          font-size: 21px;
           line-height: 1;
           font-weight: 950;
-          letter-spacing: -0.04em;
+          letter-spacing: -0.035em;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .inventory-stats-grid {
@@ -449,20 +457,20 @@ export default function InventoryPage() {
         }
 
         .inventory-toolbar {
-          margin-top: 14px;
+          margin-top: 12px;
           border: 1px solid ${colors.border};
-          border-radius: 22px;
+          border-radius: 18px;
           background: rgba(255,255,255,0.88);
-          box-shadow: 0 10px 30px rgba(48,38,23,0.045);
-          padding: 14px;
+          box-shadow: 0 8px 24px rgba(48,38,23,0.04);
+          padding: 11px;
           display: grid;
-          gap: 12px;
+          gap: 9px;
         }
 
         .inventory-search-row {
           display: grid;
-          grid-template-columns: 1fr auto auto;
-          gap: 10px;
+          grid-template-columns: minmax(0, 1fr) auto;
+          gap: 8px;
           align-items: center;
         }
 
@@ -470,23 +478,24 @@ export default function InventoryPage() {
           width: 100%;
           min-width: 0;
           border: 1px solid ${colors.borderStrong};
-          border-radius: 14px;
+          border-radius: 12px;
           background: #fff;
-          padding: 12px 13px;
+          padding: 9px 10px;
           color: ${colors.text};
           font-weight: 800;
-          font-size: 14px;
+          font-size: 13px;
           outline: none;
         }
 
         .inventory-select {
           border: 1px solid ${colors.borderStrong};
-          border-radius: 14px;
+          border-radius: 12px;
           background: #fff;
-          padding: 11px 12px;
+          padding: 9px 10px;
           color: ${colors.text};
           font-weight: 850;
-          min-width: 162px;
+          font-size: 13px;
+          min-width: 158px;
         }
 
         .inventory-filter-row {
@@ -498,21 +507,26 @@ export default function InventoryPage() {
         }
 
         .inventory-pills {
-          display: flex;
-          gap: 8px;
-          flex-wrap: wrap;
-          align-items: center;
+          display: grid;
+          grid-template-columns: repeat(6, minmax(0, 1fr));
+          gap: 5px;
+          align-items: stretch;
+          width: 100%;
         }
 
         .inventory-pill {
+          min-width: 0;
           border: 1px solid ${colors.borderStrong};
           background: #fff;
           color: ${colors.text};
-          border-radius: 999px;
-          padding: 8px 11px;
-          font-size: 12px;
+          border-radius: 11px;
+          padding: 6px 7px;
+          font-size: 11px;
           font-weight: 900;
           cursor: pointer;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .inventory-pill-active {
@@ -524,9 +538,9 @@ export default function InventoryPage() {
         .inventory-toggle {
           display: inline-flex;
           align-items: center;
-          gap: 8px;
+          gap: 7px;
           color: ${colors.subtext};
-          font-size: 12px;
+          font-size: 11.5px;
           font-weight: 850;
           cursor: pointer;
           user-select: none;
@@ -539,7 +553,7 @@ export default function InventoryPage() {
         }
 
         .inventory-grid {
-          margin-top: 16px;
+          margin-top: 12px;
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
           gap: 14px;
@@ -547,7 +561,7 @@ export default function InventoryPage() {
 
         .inventory-card {
           border: 1px solid ${colors.border};
-          border-radius: 24px;
+          border-radius: 20px;
           background:
             linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,247,241,0.95));
           box-shadow: 0 12px 36px rgba(48,38,23,0.06);
@@ -557,11 +571,11 @@ export default function InventoryPage() {
         }
 
         .inventory-card-art-wrap {
-          padding: 16px 16px 0;
+          padding: 12px 12px 0;
         }
 
         .inventory-product-art {
-          height: 190px;
+          height: 168px;
           border-radius: 18px;
           border: 1px solid ${colors.borderStrong};
           background:
@@ -613,13 +627,13 @@ export default function InventoryPage() {
         }
 
         .inventory-card-body {
-          padding: 14px 16px 16px;
+          padding: 11px 12px 13px;
           display: grid;
-          gap: 12px;
+          gap: 9px;
         }
 
         .inventory-card-title {
-          min-height: 44px;
+          min-height: 0;
           font-size: 16px;
           line-height: 1.18;
           font-weight: 950;
@@ -628,8 +642,33 @@ export default function InventoryPage() {
 
         .inventory-card-meta {
           display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 8px;
+          grid-template-columns: 0.7fr 0.9fr 0.9fr 1.4fr;
+          border: 1px solid ${colors.border};
+          border-radius: 12px;
+          overflow: hidden;
+          background: rgba(255,255,255,0.78);
+        }
+
+        .inventory-meta-item {
+          min-width: 0;
+          padding: 7px 8px;
+          border-left: 1px solid ${colors.border};
+          display: grid;
+          gap: 2px;
+        }
+
+        .inventory-meta-item:first-child {
+          border-left: 0;
+        }
+
+        .inventory-meta-item strong {
+          min-width: 0;
+          font-size: 12px;
+          line-height: 1.1;
+          font-weight: 950;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .inventory-mini-stat {
@@ -662,8 +701,8 @@ export default function InventoryPage() {
           align-items: center;
           justify-content: center;
           gap: 8px;
-          min-height: 44px;
-          border-radius: 15px;
+          min-height: 40px;
+          border-radius: 13px;
           background: linear-gradient(135deg, #1f4f9b, #2f6fed);
           color: #fff;
           text-decoration: none;
@@ -733,34 +772,48 @@ export default function InventoryPage() {
 
           .inventory-hero-inner {
             grid-template-columns: 1fr;
-            padding: 16px;
-            gap: 14px;
+            padding: 13px;
+            gap: 11px;
           }
 
           .inventory-title {
-            font-size: 38px;
+            font-size: 32px;
           }
 
           .inventory-subtitle {
-            font-size: 14px;
+            font-size: 12.5px;
+            line-height: 1.4;
           }
 
           .inventory-hero-actions {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr) auto;
+            gap: 6px;
           }
 
           .inventory-primary-btn,
           .inventory-secondary-btn {
             width: 100%;
+            min-height: 38px;
+            padding: 8px 9px;
+            border-radius: 11px;
+            font-size: 12px;
           }
 
           .inventory-hero-panel {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: 0.75fr 0.8fr 0.9fr 1.45fr;
+          }
+
+          .inventory-summary-cell {
+            padding: 8px 7px;
           }
 
           .inventory-big-stat-value {
-            font-size: 28px;
+            font-size: 15px;
+          }
+
+          .inventory-summary-value .inventory-big-stat-value {
+            font-size: 13px;
           }
 
           .inventory-stats-grid {
@@ -768,7 +821,8 @@ export default function InventoryPage() {
           }
 
           .inventory-search-row {
-            grid-template-columns: 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(132px, 0.75fr);
+            gap: 6px;
           }
 
           .inventory-select {
@@ -778,36 +832,37 @@ export default function InventoryPage() {
           .inventory-filter-row {
             display: grid;
             grid-template-columns: minmax(0, 1fr);
-            gap: 10px;
+            gap: 7px;
             width: 100%;
             min-width: 0;
             align-items: stretch;
           }
 
           .inventory-pills {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             width: 100%;
             max-width: 100%;
             min-width: 0;
-            overflow-x: auto;
-            overflow-y: hidden;
-            flex-wrap: nowrap;
-            padding-bottom: 4px;
-            -webkit-overflow-scrolling: touch;
+            overflow: visible;
+            gap: 5px;
+            padding-bottom: 0;
           }
 
           .inventory-pill {
-            flex: 0 0 auto;
+            min-width: 0;
             white-space: nowrap;
+            font-size: 10.5px;
+            padding: 6px 5px;
           }
 
           .inventory-toggle {
             width: 100%;
             justify-content: space-between;
-            border: 1px solid ${colors.border};
-            background: #fff;
-            border-radius: 14px;
-            padding: 10px 12px;
+            border-top: 1px solid ${colors.border};
+            background: transparent;
+            border-radius: 0;
+            padding: 7px 2px 0;
           }
 
           .inventory-grid {
@@ -816,25 +871,41 @@ export default function InventoryPage() {
           }
 
           .inventory-card {
-            border-radius: 22px;
+            border-radius: 18px;
           }
 
           .inventory-card-art-wrap {
-            padding: 14px 14px 0;
+            padding: 10px 10px 0;
           }
 
           .inventory-product-art {
-            height: 215px;
+            height: 165px;
           }
 
           .inventory-card-title {
             min-height: 0;
-            font-size: 18px;
+            font-size: 16px;
+          }
+
+          .inventory-card-meta {
+            grid-template-columns: 0.7fr 0.85fr 0.85fr 1.45fr;
+          }
+
+          .inventory-meta-item {
+            padding: 6px 6px;
+          }
+
+          .inventory-meta-item strong {
+            font-size: 11px;
+          }
+
+          .inventory-mini-label {
+            font-size: 8.5px;
           }
 
           .inventory-open-btn {
-            min-height: 48px;
-            font-size: 15px;
+            min-height: 40px;
+            font-size: 13px;
           }
         }
 
@@ -859,8 +930,7 @@ export default function InventoryPage() {
               <h1 className="inventory-title">My Sealed Collection</h1>
 
               <div className="inventory-subtitle">
-                Your unopened wax, boxes, and packs are ready to rip. Browse the vault, pick a product, and open a pack
-                when you&apos;re ready to chase something special.
+                Browse your sealed collection, pick a product, and rip when you&apos;re ready.
               </div>
 
               <div className="inventory-hero-actions">
@@ -888,44 +958,25 @@ export default function InventoryPage() {
             </div>
 
             <div className="inventory-hero-panel">
-              <div className="inventory-big-stat">
-                <div className="inventory-big-stat-label">Packs Ready</div>
+              <div className="inventory-summary-cell">
+                <div className="inventory-big-stat-label">Packs</div>
                 <div className="inventory-big-stat-value">{totalPacks.toLocaleString()}</div>
               </div>
 
-              <div className="inventory-big-stat">
+              <div className="inventory-summary-cell">
                 <div className="inventory-big-stat-label">Products</div>
                 <div className="inventory-big-stat-value">{unopenedRows.length.toLocaleString()}</div>
               </div>
 
-              <div className="inventory-big-stat">
-                <div className="inventory-big-stat-label">Sealed Value</div>
+              <div className="inventory-summary-cell">
+                <div className="inventory-big-stat-label">Avg pack</div>
+                <div className="inventory-big-stat-value">{formatDollars(averagePackPriceCents)}</div>
+              </div>
+
+              <div className="inventory-summary-cell inventory-summary-value">
+                <div className="inventory-big-stat-label">Sealed value</div>
                 <div className="inventory-big-stat-value">{formatDollars(totalSealedValueCents)}</div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="inventory-stats-grid">
-          <div className="inventory-stat-card">
-            <div className="inventory-stat-label">Total Packs</div>
-            <div className="inventory-stat-value">{totalPacks.toLocaleString()}</div>
-          </div>
-
-          <div className="inventory-stat-card">
-            <div className="inventory-stat-label">Products Owned</div>
-            <div className="inventory-stat-value">{unopenedRows.length.toLocaleString()}</div>
-          </div>
-
-          <div className="inventory-stat-card">
-            <div className="inventory-stat-label">Avg Pack Price</div>
-            <div className="inventory-stat-value">{formatDollars(averagePackPriceCents)}</div>
-          </div>
-
-          <div className="inventory-stat-card">
-            <div className="inventory-stat-label">Most Owned</div>
-            <div className="inventory-stat-value">
-              {mostOwned ? `${mostOwned.packsOwned} × ${formatFriendlyProductName(mostOwned.productId)}` : "—"}
             </div>
           </div>
         </section>
@@ -950,10 +1001,11 @@ export default function InventoryPage() {
               <option value="price_desc">Highest pack price</option>
             </select>
 
-            <div className="inventory-results-summary">
-              Showing {visibleRows.length.toLocaleString()} of {rows.length.toLocaleString()}
-              {zeroPackCount > 0 ? ` • ${zeroPackCount.toLocaleString()} empty` : ""}
-            </div>
+          </div>
+
+          <div className="inventory-results-summary">
+            Showing {visibleRows.length.toLocaleString()} of {rows.length.toLocaleString()}
+            {zeroPackCount > 0 ? ` • ${zeroPackCount.toLocaleString()} empty` : ""}
           </div>
 
           <div className="inventory-filter-row">
@@ -1022,24 +1074,24 @@ export default function InventoryPage() {
                     </div>
 
                     <div className="inventory-card-meta">
-                      <div className="inventory-mini-stat">
-                        <div className="inventory-mini-label">Packs Owned</div>
-                        <div className="inventory-mini-value">{row.packsOwned.toLocaleString()}</div>
+                      <div className="inventory-meta-item">
+                        <span className="inventory-mini-label">Packs</span>
+                        <strong>{row.packsOwned.toLocaleString()}</strong>
                       </div>
 
-                      <div className="inventory-mini-stat">
-                        <div className="inventory-mini-label">Pack Price</div>
-                        <div className="inventory-mini-value">{formatDollars(row.packPriceCents)}</div>
+                      <div className="inventory-meta-item">
+                        <span className="inventory-mini-label">Price</span>
+                        <strong>{formatDollars(row.packPriceCents)}</strong>
                       </div>
 
-                      <div className="inventory-mini-stat">
-                        <div className="inventory-mini-label">Cards / Pack</div>
-                        <div className="inventory-mini-value">{row.cardsPerPack ?? "—"}</div>
+                      <div className="inventory-meta-item">
+                        <span className="inventory-mini-label">Cards</span>
+                        <strong>{row.cardsPerPack ?? "—"}/pack</strong>
                       </div>
 
-                      <div className="inventory-mini-stat">
-                        <div className="inventory-mini-label">Updated</div>
-                        <div className="inventory-mini-value">{formatDateTime(row.updatedAt)}</div>
+                      <div className="inventory-meta-item inventory-meta-updated">
+                        <span className="inventory-mini-label">Updated</span>
+                        <strong>{formatDateTime(row.updatedAt)}</strong>
                       </div>
                     </div>
 
@@ -1051,9 +1103,6 @@ export default function InventoryPage() {
                       {canOpen ? "Open Pack →" : "No Packs"}
                     </Link>
 
-                    <div className="inventory-card-footer">
-                      Stored as sealed packs in your collection vault.
-                    </div>
                   </div>
                 </article>
               );
