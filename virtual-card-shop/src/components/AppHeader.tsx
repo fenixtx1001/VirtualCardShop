@@ -181,6 +181,121 @@ function StatPill({
   );
 }
 
+function MobileStatsBar({
+  collectionValue,
+  cardsOwned,
+  eco,
+  loading,
+  onClaim,
+}: {
+  collectionValue: string;
+  cardsOwned: string;
+  eco: EconomyState | null;
+  loading: boolean;
+  onClaim: () => void;
+}) {
+  const canClaim = Boolean(eco?.canClaim && !loading);
+  const rewardValue = loading
+    ? "Claiming…"
+    : eco?.canClaim
+      ? "Claim $10"
+      : eco
+        ? formatCountdown(eco.msUntilNextClaim)
+        : "—";
+
+  const cellBase: CSSProperties = {
+    minWidth: 0,
+    minHeight: 36,
+    padding: "6px 8px",
+    display: "grid",
+    placeItems: "center",
+    alignContent: "center",
+    gap: 1,
+    background: "transparent",
+  };
+
+  const labelStyle: CSSProperties = {
+    color: palette.muted,
+    fontSize: 9,
+    fontWeight: 900,
+    letterSpacing: 0.45,
+    lineHeight: 1,
+    textTransform: "uppercase",
+    whiteSpace: "nowrap",
+  };
+
+  const valueStyle: CSSProperties = {
+    maxWidth: "100%",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    color: palette.text,
+    fontSize: 12,
+    fontWeight: 950,
+    letterSpacing: -0.15,
+    lineHeight: 1.15,
+    whiteSpace: "nowrap",
+  };
+
+  return (
+    <div
+      style={{
+        marginTop: 10,
+        display: "grid",
+        gridTemplateColumns: "minmax(0, 1.35fr) minmax(0, 0.9fr) minmax(0, 0.9fr)",
+        border: `1px solid ${palette.border}`,
+        borderRadius: 15,
+        overflow: "hidden",
+        background: "rgba(255,255,255,0.62)",
+        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.86)",
+      }}
+    >
+      <div style={cellBase}>
+        <span style={labelStyle}>Collection</span>
+        <span style={{ ...valueStyle, color: palette.goldDeep }}>{collectionValue}</span>
+      </div>
+
+      <div
+        style={{
+          ...cellBase,
+          borderLeft: `1px solid ${palette.border}`,
+          borderRight: `1px solid ${palette.border}`,
+        }}
+      >
+        <span style={labelStyle}>Cards</span>
+        <span style={valueStyle}>{cardsOwned}</span>
+      </div>
+
+      <button
+        type="button"
+        onClick={onClaim}
+        disabled={!canClaim}
+        title={
+          eco?.canClaim
+            ? "Claim $10 reward"
+            : eco
+              ? `Available in ${formatCountdown(eco.msUntilNextClaim)}`
+              : "Loading reward"
+        }
+        style={{
+          ...cellBase,
+          border: 0,
+          color: "inherit",
+          cursor: canClaim ? "pointer" : "default",
+          fontFamily: "inherit",
+          background: canClaim
+            ? "linear-gradient(135deg, rgba(239,255,243,0.94), rgba(255,255,255,0.82))"
+            : "transparent",
+        }}
+      >
+        <span style={{ ...labelStyle, color: canClaim ? "#347047" : palette.muted }}>
+          {canClaim ? "Reward Ready" : "Next"}
+        </span>
+        <span style={{ ...valueStyle, color: canClaim ? "#176328" : palette.text }}>{rewardValue}</span>
+      </button>
+    </div>
+  );
+}
+
 function navLinkStyle(active: boolean): CSSProperties {
   return {
     position: "relative",
@@ -545,7 +660,7 @@ export default function AppHeader() {
 
         {isMobile ? (
           <div style={{ padding: "10px 12px 11px" }}>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
               <Link
                 href="/"
                 style={{
@@ -633,23 +748,13 @@ export default function AppHeader() {
               </div>
             </div>
 
-            <div
-              style={{
-                marginTop: 10,
-                display: "flex",
-                gap: 7,
-                overflowX: "auto",
-                paddingBottom: 1,
-              }}
-            >
-              <StatPill label="Collection" value={collectionValueText} tone="gold" />
-              <StatPill label="Cards" value={cardsOwnedText} />
-              <StatPill
-                label={eco?.canClaim ? "Reward" : "Next"}
-                value={eco?.canClaim ? "Ready" : eco ? formatCountdown(eco.msUntilNextClaim) : "—"}
-                tone={eco?.canClaim ? "green" : "neutral"}
-              />
-            </div>
+            <MobileStatsBar
+              collectionValue={collectionValueText}
+              cardsOwned={cardsOwnedText}
+              eco={eco}
+              loading={loading}
+              onClaim={claimReward}
+            />
 
             {errorMsg ? (
               <div style={{ marginTop: 8, color: palette.danger, fontSize: 12, fontWeight: 850 }}>
