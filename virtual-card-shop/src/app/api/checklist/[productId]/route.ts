@@ -220,7 +220,12 @@ export async function GET(req: Request, ctx: Ctx) {
         quantity: { gt: 0 },
         card: { productSetId: selectedSet.id },
       },
-      select: { userId: true, cardId: true, quantity: true },
+      select: {
+        userId: true,
+        cardId: true,
+        quantity: true,
+        auctionLockedQuantity: true,
+      },
     });
 
     const pendingAll = await prisma.gradingOrder.findMany({
@@ -234,20 +239,40 @@ export async function GET(req: Request, ctx: Ctx) {
     });
 
     const selectedOwnedMap = new Map<number, number>();
+    const selectedAuctionLockedMap = new Map<number, number>();
     const selectedPendingMap = new Map<number, number>();
     const myOwnedMap = new Map<number, number>();
+    const myAuctionLockedMap = new Map<number, number>();
     const myPendingMap = new Map<number, number>();
 
     for (const o of ownershipAll) {
       const qty = safeQty(o.quantity);
+      const auctionLockedQty = Math.min(qty, safeQty(o.auctionLockedQuantity));
+      const availableQty = Math.max(0, qty - auctionLockedQty);
       if (qty <= 0) continue;
 
       if (o.userId === selectedUserId) {
-        selectedOwnedMap.set(o.cardId, (selectedOwnedMap.get(o.cardId) ?? 0) + qty);
+        if (availableQty > 0) {
+          selectedOwnedMap.set(o.cardId, (selectedOwnedMap.get(o.cardId) ?? 0) + availableQty);
+        }
+        if (auctionLockedQty > 0) {
+          selectedAuctionLockedMap.set(
+            o.cardId,
+            (selectedAuctionLockedMap.get(o.cardId) ?? 0) + auctionLockedQty
+          );
+        }
       }
 
       if (o.userId === currentUser.id) {
-        myOwnedMap.set(o.cardId, (myOwnedMap.get(o.cardId) ?? 0) + qty);
+        if (availableQty > 0) {
+          myOwnedMap.set(o.cardId, (myOwnedMap.get(o.cardId) ?? 0) + availableQty);
+        }
+        if (auctionLockedQty > 0) {
+          myAuctionLockedMap.set(
+            o.cardId,
+            (myAuctionLockedMap.get(o.cardId) ?? 0) + auctionLockedQty
+          );
+        }
       }
     }
 
@@ -429,6 +454,7 @@ export async function GET(req: Request, ctx: Ctx) {
 
     const rows = pageCards.map((c) => {
       const revealedOwnedQty = selectedOwnedMap.get(c.id) ?? 0;
+      const auctionLockedQty = selectedAuctionLockedMap.get(c.id) ?? 0;
       const pendingGradingQty = selectedPendingMap.get(c.id) ?? 0;
       const ownedQty = revealedOwnedQty + pendingGradingQty;
 
@@ -444,17 +470,21 @@ export async function GET(req: Request, ctx: Ctx) {
         ownedQty,
         offerStatus: offerStatusByCard.get(c.id) ?? { state: "AVAILABLE" },
 
-        // New fields for grading-aware UI.
+        // Grading-aware ownership fields. Auction-locked copies are excluded
+        // from revealedOwnedQty/ownedQty but returned separately for future visibility.
         revealedOwnedQty,
+        auctionLockedQty,
         pendingGradingQty,
       };
 
       if (isCompareMode) {
         const myRevealedOwnedQty = myOwnedMap.get(c.id) ?? 0;
+        const myAuctionLockedQty = myAuctionLockedMap.get(c.id) ?? 0;
         const myPendingGradingQty = myPendingMap.get(c.id) ?? 0;
 
         baseRow.myOwnedQty = myRevealedOwnedQty + myPendingGradingQty;
         baseRow.myRevealedOwnedQty = myRevealedOwnedQty;
+        baseRow.myAuctionLockedQty = myAuctionLockedQty;
         baseRow.myPendingGradingQty = myPendingGradingQty;
       }
 
