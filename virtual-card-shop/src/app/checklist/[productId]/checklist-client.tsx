@@ -567,16 +567,45 @@ export default function ChecklistClient({ productId }: { productId: string }) {
             border-radius: 12px !important;
           }
 
-          .checklistTable th,
+          .checklistTable {
+            font-size: 12px;
+            line-height: 1.18;
+          }
+
+          .checklistTable th {
+            padding: 5px 5px !important;
+            font-size: 10.5px;
+            line-height: 1.1;
+            letter-spacing: 0.12px;
+          }
+
           .checklistTable td {
-            padding: 6px !important;
+            padding: 4px 5px !important;
+            vertical-align: middle;
+          }
+
+          .checklistTable tbody tr {
+            height: 34px;
+          }
+
+          .checklistOwnedCell {
+            font-size: 12px;
+            line-height: 1;
           }
 
           .checklistActions {
-            gap: 4px;
-            flex-wrap: wrap;
-            white-space: normal;
-            width: 132px;
+            gap: 3px;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+            width: auto;
+          }
+
+          .checklistActions :global(.vcs-button) {
+            min-height: 28px;
+            padding: 4px 6px;
+            border-radius: 8px;
+            font-size: 10.5px;
+            line-height: 1;
           }
         }
       `}</style>
@@ -856,7 +885,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
 
                   return (
                     <tr key={r.cardId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>{owned ? "✅" : "⬜"}</td>
+                      <td className="checklistOwnedCell" style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>{owned ? "✅" : "⬜"}</td>
 
                       {compareMode ? (
                         <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
