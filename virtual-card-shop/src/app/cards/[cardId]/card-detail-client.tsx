@@ -246,20 +246,20 @@ function StatCard({
 }) {
   const bg =
     tone === "blue"
-      ? "#f3f8ff"
+      ? "#f5f9ff"
       : tone === "gold"
-        ? "#fff8e8"
+        ? "#fffaf0"
         : tone === "green"
-          ? "#f1fbf5"
+          ? "#f4fbf6"
           : "#fff";
   const border =
     tone === "blue"
-      ? "#cfe4ff"
+      ? "#d7e7fb"
       : tone === "gold"
-        ? "#f0d28a"
+        ? "#edd79c"
         : tone === "green"
-          ? "#bfe9ce"
-          : "#e5e5e5";
+          ? "#cbe8d5"
+          : "#e6e6e6";
   const color =
     tone === "blue"
       ? "#16477d"
@@ -273,24 +273,23 @@ function StatCard({
     <div
       style={{
         border: `1px solid ${border}`,
-        borderRadius: 16,
-        padding: 12,
+        borderRadius: 13,
+        padding: "9px 10px",
         background: bg,
         minWidth: 0,
         width: "100%",
         boxSizing: "border-box",
-        flex: "1 1 142px",
-        boxShadow: "0 1px 0 rgba(0,0,0,0.03)",
+        boxShadow: "0 1px 0 rgba(0,0,0,0.02)",
       }}
     >
-      <div style={{ color: "#666", fontSize: 12, fontWeight: 900, letterSpacing: 0.2 }}>
+      <div style={{ color: "#6a6a6a", fontSize: 10.5, fontWeight: 950, letterSpacing: 0.15 }}>
         {label}
       </div>
-      <div style={{ marginTop: 4, fontSize: 22, lineHeight: 1.05, fontWeight: 1000, color }}>
+      <div style={{ marginTop: 2, fontSize: 18, lineHeight: 1.05, fontWeight: 1000, color }}>
         {value}
       </div>
       {sub ? (
-        <div style={{ marginTop: 5, color: "#666", fontSize: 12, fontWeight: 800 }}>
+        <div style={{ marginTop: 3, color: "#707070", fontSize: 10.5, fontWeight: 800, lineHeight: 1.25 }}>
           {sub}
         </div>
       ) : null}
@@ -422,6 +421,213 @@ function PendingPill({ quantity }: { quantity: number }) {
   );
 }
 
+function SectionHeading({
+  eyebrow,
+  title,
+  copy,
+  accent,
+}: {
+  eyebrow: string;
+  title: string;
+  copy?: string;
+  accent: "blue" | "green" | "gold" | "slate";
+}) {
+  const palette =
+    accent === "blue"
+      ? { color: "#16477d", line: "#cfe4ff", bg: "#f7fbff" }
+      : accent === "green"
+        ? { color: "#126b3a", line: "#cbe8d5", bg: "#f7fcf8" }
+        : accent === "gold"
+          ? { color: "#7a5200", line: "#edd79c", bg: "#fffaf0" }
+          : { color: "#45505d", line: "#dfe4ea", bg: "#f8fafc" };
+
+  return (
+    <div
+      style={{
+        margin: "-1px -1px 0",
+        padding: "10px 12px",
+        borderBottom: `1px solid ${palette.line}`,
+        background: palette.bg,
+      }}
+    >
+      <div
+        style={{
+          color: palette.color,
+          fontSize: 10.5,
+          fontWeight: 1000,
+          letterSpacing: 0.8,
+          textTransform: "uppercase",
+        }}
+      >
+        {eyebrow}
+      </div>
+      <div style={{ marginTop: 2, color: "#111", fontSize: 18, lineHeight: 1.08, fontWeight: 1000 }}>
+        {title}
+      </div>
+      {copy ? (
+        <div style={{ marginTop: 3, color: "#68717c", fontSize: 11.5, lineHeight: 1.35, fontWeight: 750 }}>
+          {copy}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+function SummaryStrip({
+  items,
+}: {
+  items: Array<{
+    label: string;
+    value: string;
+    sub?: string;
+    tone?: "neutral" | "blue" | "gold" | "green";
+  }>;
+}) {
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: `repeat(${items.length}, minmax(0, 1fr))`,
+        border: "1px solid #e2e5e9",
+        borderRadius: 13,
+        overflow: "hidden",
+        background: "#fff",
+      }}
+    >
+      {items.map((item, index) => {
+        const color =
+          item.tone === "blue"
+            ? "#16477d"
+            : item.tone === "gold"
+              ? "#7a5200"
+              : item.tone === "green"
+                ? "#126b3a"
+                : "#222";
+
+        return (
+          <div
+            key={`${item.label}-${index}`}
+            style={{
+              minWidth: 0,
+              padding: "8px 7px",
+              borderLeft: index === 0 ? "none" : "1px solid #e7e9ec",
+            }}
+          >
+            <div
+              style={{
+                color: "#727982",
+                fontSize: 9.5,
+                lineHeight: 1,
+                fontWeight: 950,
+                textTransform: "uppercase",
+                letterSpacing: 0.35,
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              {item.label}
+            </div>
+            <div
+              style={{
+                marginTop: 3,
+                color,
+                fontSize: 16,
+                lineHeight: 1,
+                fontWeight: 1000,
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              {item.value}
+            </div>
+            {item.sub ? (
+              <div
+                style={{
+                  marginTop: 3,
+                  color: "#747b84",
+                  fontSize: 9.5,
+                  lineHeight: 1.15,
+                  fontWeight: 800,
+                }}
+              >
+                {item.sub}
+              </div>
+            ) : null}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function GradeBreakdownTable({
+  rows,
+  pendingQuantity = 0,
+}: {
+  rows: GradeBreakdownRow[];
+  pendingQuantity?: number;
+}) {
+  const visible = rows.filter((row) => row.quantity > 0);
+
+  return (
+    <div
+      style={{
+        border: "1px solid #e2e5e9",
+        borderRadius: 13,
+        overflow: "hidden",
+        background: "#fff",
+      }}
+    >
+      {visible.map((row, index) => (
+        <div
+          key={row.grade}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "minmax(76px, 1fr) auto auto",
+            gap: 8,
+            alignItems: "center",
+            padding: "7px 9px",
+            borderBottom:
+              index === visible.length - 1 && pendingQuantity <= 0 ? "none" : "1px solid #edf0f2",
+          }}
+        >
+          <div
+            style={{
+              color: row.grade === 10 ? "#7a5200" : row.grade === 0 ? "#333" : "#16477d",
+              fontSize: 12,
+              fontWeight: 1000,
+            }}
+          >
+            {row.label}
+          </div>
+          <div style={{ color: "#555", fontSize: 11.5, fontWeight: 900 }}>×{row.quantity}</div>
+          <div style={{ color: "#333", fontSize: 11.5, fontWeight: 950, textAlign: "right" }}>
+            {formatDollarsFromCents(row.valueCents)}
+          </div>
+        </div>
+      ))}
+
+      {pendingQuantity > 0 ? (
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr auto",
+            gap: 8,
+            alignItems: "center",
+            padding: "7px 9px",
+            background: "#fffaf0",
+          }}
+        >
+          <div style={{ color: "#7a5200", fontSize: 12, fontWeight: 1000 }}>Pending VCS</div>
+          <div style={{ color: "#7a5200", fontSize: 11.5, fontWeight: 950 }}>×{pendingQuantity}</div>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 function MarketActivityCard({
   market,
   loading,
@@ -447,52 +653,47 @@ function MarketActivityCard({
     null;
 
   const recentSales = selected?.recentSales ?? [];
-  const ranges: MarketRange[] = market?.availableRanges?.length ? market.availableRanges : ["7D", "30D", "90D", "ALL"];
+  const ranges: MarketRange[] = market?.availableRanges?.length
+    ? market.availableRanges
+    : ["7D", "30D", "90D", "ALL"];
 
   return (
     <section
       className="vcs-panel"
       style={{
-        marginTop: 18,
-        borderColor: "#dbe7f5",
-        background: "linear-gradient(180deg, #f8fbff 0%, #ffffff 52%, #ffffff 100%)",
+        marginTop: 0,
+        borderColor: "#cfe4ff",
+        background: "#fff",
         overflow: "hidden",
       }}
     >
-      <div
-        style={{
-          padding: isMobile ? 12 : 16,
-          borderBottom: "1px solid #e4edf8",
-          display: "flex",
-          alignItems: "flex-start",
-          justifyContent: "space-between",
-          gap: 12,
-          flexWrap: "wrap",
-        }}
-      >
-        <div>
-          <div style={{ fontSize: 12, color: "#16477d", fontWeight: 1000, letterSpacing: 1, textTransform: "uppercase" }}>
-            Market Activity
-          </div>
-          <div style={{ marginTop: 3, fontSize: 20, fontWeight: 1000, color: "#111" }}>
-            Sales history and comps
-          </div>
-          <div style={{ marginTop: 4, color: "#5b6470", fontSize: 13, fontWeight: 750, maxWidth: 720 }}>
-            Static book value stays unchanged. These are observed VCS sales from shop offers and completed auctions.
-          </div>
-        </div>
+      <SectionHeading
+        eyebrow="Market Activity"
+        title="Sales history & comps"
+        copy="Observed VCS shop sales and completed auctions. Book value remains static."
+        accent="blue"
+      />
 
-        <div style={{ display: "flex", gap: 6, flexWrap: "wrap", justifyContent: "flex-end" }}>
+      <div style={{ padding: isMobile ? 10 : 14, display: "grid", gap: 9 }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "repeat(4, minmax(0, 1fr))" : "repeat(4, auto)",
+            gap: 5,
+          }}
+        >
           {ranges.map((r) => (
             <button
               key={r}
               onClick={() => setRange(r)}
               style={{
-                padding: "7px 10px",
-                borderRadius: 999,
-                border: r === range ? "1px solid #16477d" : "1px solid #d8d8d8",
+                minWidth: 0,
+                padding: "6px 7px",
+                borderRadius: 10,
+                border: r === range ? "1px solid #16477d" : "1px solid #dfe4e9",
                 background: r === range ? "#16477d" : "#fff",
-                color: r === range ? "#fff" : "#333",
+                color: r === range ? "#fff" : "#3f4650",
+                fontSize: 11.5,
                 fontWeight: 950,
                 cursor: "pointer",
               }}
@@ -501,59 +702,40 @@ function MarketActivityCard({
             </button>
           ))}
         </div>
-      </div>
 
-      <div style={{ padding: isMobile ? 12 : 16 }}>
         {loading ? (
-          <div
-            className="vcs-state vcs-state-loading"
-            role="status"
-            aria-live="polite"
-          >
+          <div className="vcs-state vcs-state-loading" role="status" aria-live="polite">
             <div className="vcs-state-mark" aria-hidden="true" />
-
             <div className="vcs-state-body">
-              <div className="vcs-state-title">
-                Loading market activity
-              </div>
-              <div className="vcs-state-copy">
-                Checking recent VCS sales and auction comps…
-              </div>
+              <div className="vcs-state-title">Loading market activity</div>
+              <div className="vcs-state-copy">Checking recent VCS sales and auction comps…</div>
             </div>
           </div>
         ) : error ? (
           <div className="vcs-state vcs-state-error" role="alert">
-            <div className="vcs-state-mark" aria-hidden="true">
-              !
-            </div>
-
+            <div className="vcs-state-mark" aria-hidden="true">!</div>
             <div className="vcs-state-body">
-              <div className="vcs-state-title">
-                Market activity couldn’t load
-              </div>
-              <div className="vcs-state-copy">
-                {error}
-              </div>
+              <div className="vcs-state-title">Market activity couldn’t load</div>
+              <div className="vcs-state-copy">{error}</div>
             </div>
           </div>
         ) : !market || !selected ? (
           <div className="vcs-state vcs-state-empty">
-            <div className="vcs-state-mark" aria-hidden="true">
-              —
-            </div>
-
+            <div className="vcs-state-mark" aria-hidden="true">—</div>
             <div className="vcs-state-body">
-              <div className="vcs-state-title">
-                No market history yet
-              </div>
-              <div className="vcs-state-copy">
-                Future shop sales and completed auctions will appear here.
-              </div>
+              <div className="vcs-state-title">No market history yet</div>
+              <div className="vcs-state-copy">Future shop sales and completed auctions will appear here.</div>
             </div>
           </div>
         ) : (
-          <div style={{ display: "grid", gap: 14 }}>
-            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          <>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: isMobile ? "repeat(3, minmax(0, 1fr))" : "repeat(6, minmax(0, 1fr))",
+                gap: 5,
+              }}
+            >
               {MARKET_GRADES.map((grade) => {
                 const row = market.grades.find((g) => g.grade === grade);
                 const isSelected = selectedGrade === grade;
@@ -564,145 +746,151 @@ function MarketActivityCard({
                     key={grade}
                     onClick={() => setSelectedGrade(grade)}
                     style={{
-                      padding: "8px 11px",
-                      borderRadius: 999,
-                      border: isSelected ? "1px solid #16477d" : "1px solid #d8d8d8",
+                      minWidth: 0,
+                      padding: "6px 4px",
+                      borderRadius: 10,
+                      border: isSelected ? "1px solid #16477d" : "1px solid #dfe4e9",
                       background: isSelected ? "#eef6ff" : "#fff",
                       color: isSelected ? "#16477d" : "#333",
+                      fontSize: 11,
+                      lineHeight: 1.05,
                       fontWeight: 1000,
                       cursor: "pointer",
-                      boxShadow: isSelected ? "0 2px 8px rgba(22,71,125,0.12)" : "none",
                     }}
                   >
-                    {marketGradeLabel(grade)}
-                    <span style={{ marginLeft: 6, color: isSelected ? "#16477d" : "#777", fontWeight: 900 }}>
+                    <div>{marketGradeLabel(grade)}</div>
+                    <div style={{ marginTop: 2, color: isSelected ? "#16477d" : "#777", fontSize: 10 }}>
                       {count}
-                    </span>
+                    </div>
                   </button>
                 );
               })}
             </div>
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: isMobile ? "repeat(2, minmax(0, 1fr))" : "repeat(5, minmax(0, 1fr))",
-                gap: 10,
-              }}
-            >
-              <StatCard
-                label="Last sale"
-                value={selected.lastSaleCents > 0 ? formatDollarsFromCents(selected.lastSaleCents) : "—"}
-                sub={selected.lastSaleAt ? formatDateShort(selected.lastSaleAt) : "No recorded sale"}
-                tone="blue"
-              />
-              <StatCard
-                label="Average sale"
-                value={selected.averageSaleCents > 0 ? formatDollarsFromCents(selected.averageSaleCents) : "—"}
-                sub={`${selected.salesCount} recorded ${selected.salesCount === 1 ? "sale" : "sales"}`}
-                tone="green"
-              />
-              <StatCard
-                label="High sale"
-                value={selected.highestSaleCents > 0 ? formatDollarsFromCents(selected.highestSaleCents) : "—"}
-                sub={selected.salesCount > 0 ? "Best comp" : "No comp yet"}
-                tone="gold"
-              />
-              <StatCard
-                label="Low sale"
-                value={selected.lowestSaleCents > 0 ? formatDollarsFromCents(selected.lowestSaleCents) : "—"}
-                sub={selected.salesCount > 0 ? "Floor comp" : "No comp yet"}
-              />
-              <StatCard
-                label="Trend"
-                value={formatTrend(selected.trendBps)}
-                sub="Recent vs older sales"
-              />
-            </div>
-
-            <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "minmax(0, 1.35fr) minmax(280px, 0.9fr)", gap: 14 }}>
-              <div>
-                <div style={{ fontWeight: 1000, marginBottom: 8 }}>Sales trend</div>
-                <SalesSparkline points={selected.graphData} />
+            {selected.salesCount <= 0 ? (
+              <div
+                style={{
+                  border: "1px dashed #cbd8e7",
+                  borderRadius: 12,
+                  background: "#f8fbff",
+                  padding: "11px 12px",
+                  color: "#5d6875",
+                  fontSize: 12,
+                  lineHeight: 1.35,
+                  fontWeight: 850,
+                }}
+              >
+                No {selected.label.toLowerCase()} sales in this range.
               </div>
+            ) : (
+              <>
+                <SummaryStrip
+                  items={[
+                    {
+                      label: "Last",
+                      value: formatDollarsFromCents(selected.lastSaleCents),
+                      sub: selected.lastSaleAt ? formatDateShort(selected.lastSaleAt) : undefined,
+                      tone: "blue",
+                    },
+                    {
+                      label: "Average",
+                      value: formatDollarsFromCents(selected.averageSaleCents),
+                      sub: `${selected.salesCount} sales`,
+                      tone: "green",
+                    },
+                    {
+                      label: "High",
+                      value: formatDollarsFromCents(selected.highestSaleCents),
+                      tone: "gold",
+                    },
+                    {
+                      label: "Low",
+                      value: formatDollarsFromCents(selected.lowestSaleCents),
+                    },
+                    {
+                      label: "Trend",
+                      value: formatTrend(selected.trendBps),
+                    },
+                  ]}
+                />
 
-              <div>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8, marginBottom: 8 }}>
-                  <div style={{ fontWeight: 1000 }}>Recent sales</div>
-                  <div style={{ color: trendColor(selected.trendBps), fontSize: 12, fontWeight: 1000 }}>
-                    {selected.salesCount} total
-                  </div>
-                </div>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: isMobile ? "1fr" : "minmax(0, 1.3fr) minmax(260px, 0.8fr)",
+                    gap: 10,
+                  }}
+                >
+                  {selected.graphData.length >= 2 ? (
+                    <div>
+                      <div style={{ marginBottom: 5, color: "#303841", fontSize: 12, fontWeight: 1000 }}>
+                        Sales trend
+                      </div>
+                      <SalesSparkline points={selected.graphData} />
+                    </div>
+                  ) : null}
 
-                {recentSales.length === 0 ? (
-                  <div
-                    style={{
-                      border: "1px dashed #d6d6d6",
-                      background: "#fafafa",
-                      color: "#666",
-                      borderRadius: 16,
-                      padding: 14,
-                      fontWeight: 850,
-                    }}
-                  >
-                    No {selected.label.toLowerCase()} sales in this range.
-                  </div>
-                ) : (
-                  <div style={{ display: "grid", gap: 8 }}>
-                    {recentSales.slice(0, 5).map((sale) => (
-                      <div
-                        key={sale.id}
-                        style={{
-                          border: "1px solid #e8e8e8",
-                          borderRadius: 14,
-                          background: "#fff",
-                          padding: "10px 11px",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          gap: 10,
-                        }}
-                      >
-                        <div>
-                          <div style={{ fontWeight: 1000 }}>{formatDollarsFromCents(sale.salePriceCents)}</div>
-                          <div style={{ color: "#666", fontSize: 12, fontWeight: 850 }}>
-                            {formatDateShort(sale.createdAt)} • {saleTypeLabel(sale)}
-                          </div>
-                        </div>
+                  <div>
+                    <div
+                      style={{
+                        marginBottom: 5,
+                        display: "flex",
+                        justifyContent: "space-between",
+                        gap: 8,
+                        alignItems: "center",
+                      }}
+                    >
+                      <div style={{ color: "#303841", fontSize: 12, fontWeight: 1000 }}>Recent sales</div>
+                      <div style={{ color: trendColor(selected.trendBps), fontSize: 10.5, fontWeight: 950 }}>
+                        {selected.salesCount} total
+                      </div>
+                    </div>
+
+                    <div style={{ display: "grid", gap: 5 }}>
+                      {recentSales.slice(0, 5).map((sale) => (
                         <div
+                          key={sale.id}
                           style={{
-                            borderRadius: 999,
-                            border: "1px solid #d8d8d8",
-                            padding: "5px 8px",
-                            color: sale.grade === 0 ? "#333" : "#16477d",
-                            background: sale.grade === 0 ? "#f7f7f7" : "#eef6ff",
-                            fontSize: 12,
-                            fontWeight: 1000,
-                            whiteSpace: "nowrap",
+                            border: "1px solid #e5e9ed",
+                            borderRadius: 10,
+                            background: "#fff",
+                            padding: "7px 8px",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            gap: 8,
                           }}
                         >
-                          {sale.label}
+                          <div>
+                            <div style={{ fontSize: 12, fontWeight: 1000 }}>
+                              {formatDollarsFromCents(sale.salePriceCents)}
+                            </div>
+                            <div style={{ color: "#6b737c", fontSize: 10.5, fontWeight: 800 }}>
+                              {formatDateShort(sale.createdAt)} • {saleTypeLabel(sale)}
+                            </div>
+                          </div>
+                          <div
+                            style={{
+                              borderRadius: 8,
+                              border: "1px solid #dde2e8",
+                              padding: "4px 6px",
+                              color: sale.grade === 0 ? "#333" : "#16477d",
+                              background: sale.grade === 0 ? "#f7f7f7" : "#eef6ff",
+                              fontSize: 10.5,
+                              fontWeight: 1000,
+                              whiteSpace: "nowrap",
+                            }}
+                          >
+                            {sale.label}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                )}
-              </div>
-            </div>
-
-            <div
-              style={{
-                borderTop: "1px solid #edf2f7",
-                paddingTop: 10,
-                color: "#69717d",
-                fontSize: 12,
-                fontWeight: 750,
-                lineHeight: 1.45,
-              }}
-            >
-              This is market history only. It does not automatically change book value or grading values.
-            </div>
-          </div>
+                </div>
+              </>
+            )}
+          </>
         )}
       </div>
     </section>
@@ -757,25 +945,27 @@ function CreateAuctionButton({
   }
 
   return (
-    <div style={{ display: "grid", gap: 4 }}>
+    <div style={{ display: "grid", gap: 3 }}>
       <button
         onClick={createAuction}
         disabled={busy || quantity <= 0}
         style={{
-          padding: "8px 10px",
-          borderRadius: 12,
-          border: "1px solid #f0d28a",
-          background: "#fff8e8",
+          minHeight: 34,
+          padding: "6px 8px",
+          borderRadius: 10,
+          border: "1px solid #e6c96e",
+          background: "#fffaf0",
           color: "#7a5200",
+          fontSize: 11.5,
           fontWeight: 1000,
           cursor: busy || quantity <= 0 ? "not-allowed" : "pointer",
           opacity: busy || quantity <= 0 ? 0.55 : 1,
         }}
         title="Start a 24-hour auction for one copy"
       >
-        {busy ? "Creating..." : `Auction ${label}`}
+        {busy ? "Creating…" : label}
       </button>
-      {err ? <div style={{ color: "#b00020", fontSize: 12, fontWeight: 800 }}>{err}</div> : null}
+      {err ? <div style={{ color: "#b00020", fontSize: 10.5, fontWeight: 800 }}>{err}</div> : null}
     </div>
   );
 }
@@ -1020,145 +1210,200 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
             <section
               className="vcs-panel"
               style={{
-                padding: isMobile ? 12 : 16,
+                padding: isMobile ? 10 : 16,
                 overflow: "hidden",
+                borderColor: "#dfe4ea",
+                background: "#fff",
               }}
             >
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: isMobile ? "1fr" : "minmax(0, 1fr) minmax(360px, 0.95fr)",
-                  gap: isMobile ? 14 : 18,
+                  gridTemplateColumns: isMobile ? "1fr" : "minmax(0, 0.9fr) minmax(360px, 1.05fr)",
+                  gap: isMobile ? 12 : 18,
                   alignItems: "start",
-                  width: "100%",
                   minWidth: 0,
                 }}
               >
                 <div style={{ minWidth: 0 }}>
-                  <div style={{ color: "#16477d", fontSize: 12, fontWeight: 1000, letterSpacing: 1, textTransform: "uppercase" }}>
+                  <div
+                    style={{
+                      color: "#16477d",
+                      fontSize: 10.5,
+                      fontWeight: 1000,
+                      letterSpacing: 0.9,
+                      textTransform: "uppercase",
+                    }}
+                  >
                     {formatProductName(c)}
                   </div>
-                  <div style={{ marginTop: 4, fontSize: isMobile ? 28 : 30, lineHeight: 1.03, fontWeight: 1000, color: "#111" }}>
+                  <div
+                    style={{
+                      marginTop: 3,
+                      fontSize: isMobile ? 25 : 30,
+                      lineHeight: 1.02,
+                      fontWeight: 1000,
+                      color: "#111",
+                    }}
+                  >
                     {c.player}
                   </div>
-                  <div style={{ marginTop: 8, fontWeight: 900, color: "#3f4650" }}>
-                    Card #{c.cardNumber} {c.team ? `• ${c.team}` : ""}
+                  <div style={{ marginTop: 5, color: "#4a525d", fontSize: 13, fontWeight: 900 }}>
+                    #{c.cardNumber}
+                    {c.team ? ` • ${c.team}` : ""}
+                    {c.variant ? ` • ${c.variant}` : ""}
+                  </div>
+
+                  <div style={{ marginTop: 10 }}>
+                    <SummaryStrip
+                      items={[
+                        {
+                          label: "Book value",
+                          value: formatBookValue(c.bookValue),
+                          sub: "Static",
+                          tone: "blue",
+                        },
+                        {
+                          label: "Population",
+                          value: String(
+                            safeNum(
+                              data.population.totalOwnedIncludingPending,
+                              data.population.totalOwned
+                            )
+                          ),
+                          sub: `${data.population.uniqueOwners} owners`,
+                          tone: "gold",
+                        },
+                        {
+                          label: "You own",
+                          value: String(
+                            safeNum(myOwnership?.totalQuantity, myOwnership?.quantity ?? 0)
+                          ),
+                          sub: `${safeNum(myOwnership?.rawQuantity)} raw • ${safeNum(
+                            myOwnership?.gradedQuantity
+                          )} graded`,
+                          tone: "green",
+                        },
+                      ]}
+                    />
                   </div>
 
                   <div
                     style={{
-                      marginTop: 14,
-                      display: "grid",
-                      gridTemplateColumns: isMobile ? "repeat(2, minmax(0, 1fr))" : "repeat(3, minmax(0, 1fr))",
-                      gap: 10,
+                      marginTop: 9,
+                      borderTop: "1px solid #edf0f2",
+                      paddingTop: 8,
+                      color: "#59616b",
+                      fontSize: 11.5,
+                      fontWeight: 800,
+                      lineHeight: 1.35,
                     }}
                   >
-                    <StatCard label="Book value" value={formatBookValue(c.bookValue)} sub="Static baseline" tone="blue" />
-                    <StatCard
-                      label="Population"
-                      value={String(safeNum(data.population.totalOwnedIncludingPending, data.population.totalOwned))}
-                      sub={`${data.population.uniqueOwners} unique owners`}
-                      tone="gold"
-                    />
-                    <div style={{ gridColumn: isMobile ? "1 / -1" : "auto" }}>
-                      <StatCard
-                        label="Your total"
-                        value={String(safeNum(myOwnership?.totalQuantity, myOwnership?.quantity ?? 0))}
-                        sub={`${safeNum(myOwnership?.rawQuantity)} raw • ${safeNum(myOwnership?.gradedQuantity)} graded`}
-                        tone="green"
-                      />
-                    </div>
-                  </div>
-
-                  <div style={{ marginTop: 14, color: "#444", display: "grid", gap: 4, fontWeight: 750 }}>
                     <div>
-                      <span style={{ fontWeight: 1000 }}>Set:</span> {setTypePrefix}
+                      <span style={{ color: "#333", fontWeight: 1000 }}>Set:</span>{" "}
+                      {setTypePrefix}
                       {setLabel}
                     </div>
-                    <div>
-                      <span style={{ fontWeight: 1000 }}>Subset/Variant:</span> {c.subset ?? "—"} / {c.variant ?? "—"}
-                    </div>
-                    <div>
-                      <span style={{ fontWeight: 1000 }}>Gradeability:</span> {c.gradeabilityLabel ?? c.gradeability ?? "Common"}
-                    </div>
+                    {c.subset || c.variant ? (
+                      <div style={{ marginTop: 2 }}>
+                        <span style={{ color: "#333", fontWeight: 1000 }}>Subset / Variant:</span>{" "}
+                        {c.subset ?? "—"} / {c.variant ?? "—"}
+                      </div>
+                    ) : null}
                   </div>
                 </div>
 
                 <div style={{ minWidth: 0, width: "100%" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10, flexWrap: "wrap" }}>
-                    <div style={{ fontSize: 18, fontWeight: 1000 }}>{viewMode === "slab" ? "VCS slab" : "Card images"}</div>
-
-                    <div style={{ display: "flex", gap: 6, marginLeft: isMobile ? 0 : "auto", flexWrap: "wrap" }}>
-                      <button
-                        onClick={() => setViewMode("card")}
-                        style={{
-                          padding: "6px 10px",
-                          borderRadius: 10,
-                          border: "1px solid #ddd",
-                          fontWeight: 900,
-                          background: viewMode === "card" ? "#eef6ff" : "#fff",
-                          cursor: "pointer",
-                        }}
-                      >
-                        Card
-                      </button>
-
-                      <button
-                        onClick={() => setViewMode("slab")}
-                        disabled={myOwnershipSlabs.length === 0}
-                        style={{
-                          padding: "6px 10px",
-                          borderRadius: 10,
-                          border: "1px solid #ddd",
-                          fontWeight: 900,
-                          opacity: myOwnershipSlabs.length === 0 ? 0.5 : 1,
-                          background: viewMode === "slab" ? "#eef6ff" : "#fff",
-                          cursor: myOwnershipSlabs.length === 0 ? "not-allowed" : "pointer",
-                        }}
-                        title={myOwnershipSlabs.length === 0 ? "No revealed graded copies yet" : "View VCS slab"}
-                      >
-                        Slab
-                      </button>
-
-                      {viewMode === "card" && hasAnyImage ? (
-                        <>
-                          <button
-                            onClick={() => setSide("front")}
-                            disabled={!frontUrl}
-                            style={{
-                              padding: "6px 10px",
-                              borderRadius: 10,
-                              border: "1px solid #ddd",
-                              fontWeight: 900,
-                              opacity: !frontUrl ? 0.5 : 1,
-                              background: side === "front" ? "#eef6ff" : "#fff",
-                              cursor: !frontUrl ? "not-allowed" : "pointer",
-                            }}
-                          >
-                            Front
-                          </button>
-                          <button
-                            onClick={() => setSide("back")}
-                            disabled={!backUrl}
-                            style={{
-                              padding: "6px 10px",
-                              borderRadius: 10,
-                              border: "1px solid #ddd",
-                              fontWeight: 900,
-                              opacity: !backUrl ? 0.5 : 1,
-                              background: side === "back" ? "#eef6ff" : "#fff",
-                              cursor: !backUrl ? "not-allowed" : "pointer",
-                            }}
-                          >
-                            Back
-                          </button>
-                        </>
-                      ) : null}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 6,
+                      marginBottom: 8,
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    <div style={{ color: "#4c5560", fontSize: 11, fontWeight: 1000, marginRight: 2 }}>
+                      View
                     </div>
+
+                    <button
+                      onClick={() => setViewMode("card")}
+                      style={{
+                        padding: "5px 8px",
+                        borderRadius: 9,
+                        border: "1px solid #dfe3e7",
+                        color: viewMode === "card" ? "#16477d" : "#444",
+                        fontSize: 11.5,
+                        fontWeight: 950,
+                        background: viewMode === "card" ? "#eef6ff" : "#fff",
+                        cursor: "pointer",
+                      }}
+                    >
+                      Card
+                    </button>
+
+                    <button
+                      onClick={() => setViewMode("slab")}
+                      disabled={myOwnershipSlabs.length === 0}
+                      style={{
+                        padding: "5px 8px",
+                        borderRadius: 9,
+                        border: "1px solid #dfe3e7",
+                        color: viewMode === "slab" ? "#16477d" : "#444",
+                        fontSize: 11.5,
+                        fontWeight: 950,
+                        opacity: myOwnershipSlabs.length === 0 ? 0.45 : 1,
+                        background: viewMode === "slab" ? "#eef6ff" : "#fff",
+                        cursor: myOwnershipSlabs.length === 0 ? "not-allowed" : "pointer",
+                      }}
+                      title={myOwnershipSlabs.length === 0 ? "No revealed graded copies yet" : "View VCS slab"}
+                    >
+                      Slab
+                    </button>
+
+                    {viewMode === "card" && hasAnyImage ? (
+                      <div style={{ marginLeft: "auto", display: "flex", gap: 5 }}>
+                        <button
+                          onClick={() => setSide("front")}
+                          disabled={!frontUrl}
+                          style={{
+                            padding: "5px 7px",
+                            borderRadius: 9,
+                            border: "1px solid #dfe3e7",
+                            color: side === "front" ? "#16477d" : "#555",
+                            fontSize: 10.5,
+                            fontWeight: 950,
+                            opacity: !frontUrl ? 0.45 : 1,
+                            background: side === "front" ? "#eef6ff" : "#fff",
+                            cursor: !frontUrl ? "not-allowed" : "pointer",
+                          }}
+                        >
+                          Front
+                        </button>
+                        <button
+                          onClick={() => setSide("back")}
+                          disabled={!backUrl}
+                          style={{
+                            padding: "5px 7px",
+                            borderRadius: 9,
+                            border: "1px solid #dfe3e7",
+                            color: side === "back" ? "#16477d" : "#555",
+                            fontSize: 10.5,
+                            fontWeight: 950,
+                            opacity: !backUrl ? 0.45 : 1,
+                            background: side === "back" ? "#eef6ff" : "#fff",
+                            cursor: !backUrl ? "not-allowed" : "pointer",
+                          }}
+                        >
+                          Back
+                        </button>
+                      </div>
+                    ) : null}
                   </div>
 
                   {viewMode === "slab" && selectedSlab ? (
-                    <div style={{ display: "grid", gap: 10, justifyItems: "center" }}>
+                    <div style={{ display: "grid", gap: 8, justifyItems: "center" }}>
                       {myOwnershipSlabs.length > 1 ? (
                         <select
                           value={selectedSlabIndex}
@@ -1166,9 +1411,10 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                           style={{
                             width: "100%",
                             maxWidth: 390,
-                            padding: "8px 10px",
-                            border: "1px solid #ddd",
-                            borderRadius: 10,
+                            padding: "7px 9px",
+                            border: "1px solid #dfe3e7",
+                            borderRadius: 9,
+                            fontSize: 11.5,
                             fontWeight: 900,
                           }}
                         >
@@ -1196,11 +1442,12 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                   ) : !hasAnyImage ? (
                     <div
                       style={{
-                        border: "1px dashed #ccc",
-                        borderRadius: 16,
-                        padding: 16,
-                        color: "#666",
-                        background: "#fafafa",
+                        border: "1px dashed #d8dde2",
+                        borderRadius: 12,
+                        padding: 12,
+                        color: "#69717b",
+                        background: "#fafbfc",
+                        fontSize: 11.5,
                         fontWeight: 850,
                       }}
                     >
@@ -1209,9 +1456,9 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                   ) : activeUrl && !activeErrored ? (
                     <div
                       style={{
-                        border: "1px solid #ddd",
-                        borderRadius: 18,
-                        padding: 10,
+                        border: "1px solid #e0e3e6",
+                        borderRadius: 13,
+                        padding: 7,
                         background: "#fff",
                       }}
                     >
@@ -1223,7 +1470,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                           maxWidth: isMobile ? "100%" : 520,
                           height: "auto",
                           display: "block",
-                          borderRadius: 12,
+                          borderRadius: 9,
                           border: "1px solid #eee",
                           objectFit: "contain",
                           margin: "0 auto",
@@ -1233,14 +1480,28 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                           else setImgErrorBack(true);
                         }}
                       />
-
-                      <div style={{ marginTop: 8, display: "flex", gap: 10, alignItems: "center" }}>
-                        <div style={{ color: "#666", fontWeight: 800 }}>Showing: {showFront ? "Front" : "Back"}</div>
+                      <div
+                        style={{
+                          marginTop: 5,
+                          display: "flex",
+                          gap: 8,
+                          alignItems: "center",
+                          color: "#707780",
+                          fontSize: 10.5,
+                          fontWeight: 800,
+                        }}
+                      >
+                        <span>{showFront ? "Front" : "Back"}</span>
                         <a
                           href={activeUrl}
                           target="_blank"
                           rel="noreferrer"
-                          style={{ marginLeft: "auto", textDecoration: "underline", fontWeight: 900, color: "#16477d" }}
+                          style={{
+                            marginLeft: "auto",
+                            textDecoration: "underline",
+                            fontWeight: 900,
+                            color: "#16477d",
+                          }}
                         >
                           Open image
                         </a>
@@ -1249,11 +1510,12 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                   ) : (
                     <div
                       style={{
-                        border: "1px dashed #ccc",
-                        borderRadius: 16,
-                        padding: 16,
-                        color: "#666",
-                        background: "#fafafa",
+                        border: "1px dashed #d8dde2",
+                        borderRadius: 12,
+                        padding: 12,
+                        color: "#69717b",
+                        background: "#fafbfc",
+                        fontSize: 11.5,
                         fontWeight: 850,
                       }}
                     >
@@ -1278,37 +1540,50 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
             {myOwnership ? (
               <section
                 className="vcs-panel"
-                style={{ padding: isMobile ? 12 : 16 }}
+                style={{
+                  padding: 0,
+                  overflow: "hidden",
+                  borderColor: "#cbe8d5",
+                  background: "#fff",
+                }}
               >
-                <div style={{ fontSize: 20, fontWeight: 1000, marginBottom: 10 }}>Your Ownership</div>
+                <SectionHeading
+                  eyebrow="Your Collection"
+                  title="Your ownership"
+                  copy="Your copies, grading mix, selling tools, and auction options."
+                  accent="green"
+                />
 
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: isMobile ? "repeat(2, minmax(0, 1fr))" : "repeat(4, minmax(0, 1fr))",
-                    gap: 10,
-                    marginBottom: 12,
-                  }}
-                >
-                  <StatCard label="Raw" value={String(safeNum(myOwnership.rawQuantity))} />
-                  <StatCard label="Pending VCS" value={String(safeNum(myOwnership.pendingGradingQuantity))} tone="gold" />
-                  <StatCard label="Graded" value={String(safeNum(myOwnership.gradedQuantity))} tone="blue" />
-                  <StatCard
-                    label="Total value"
-                    value={formatDollarsFromCents(safeNum(myOwnership.totalValueCents))}
-                    sub="Including pending"
-                    tone="green"
+                <div style={{ padding: isMobile ? 10 : 14, display: "grid", gap: 9 }}>
+                  <SummaryStrip
+                    items={[
+                      {
+                        label: "Raw",
+                        value: String(safeNum(myOwnership.rawQuantity)),
+                      },
+                      {
+                        label: "Pending",
+                        value: String(safeNum(myOwnership.pendingGradingQuantity)),
+                        tone: "gold",
+                      },
+                      {
+                        label: "Graded",
+                        value: String(safeNum(myOwnership.gradedQuantity)),
+                        tone: "blue",
+                      },
+                      {
+                        label: "Value",
+                        value: formatDollarsFromCents(safeNum(myOwnership.totalValueCents)),
+                        tone: "green",
+                      },
+                    ]}
                   />
-                </div>
 
-                <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                  {myOwnershipBreakdown.map((row) => (
-                    <GradePill key={row.grade} row={row} />
-                  ))}
-                  <PendingPill quantity={safeNum(myOwnership.pendingGradingQuantity)} />
-                </div>
+                  <GradeBreakdownTable
+                    rows={myOwnershipBreakdown}
+                    pendingQuantity={safeNum(myOwnership.pendingGradingQuantity)}
+                  />
 
-                <div style={{ marginTop: 14 }}>
                   <SubmitForGradingButton
                     cardId={c.id}
                     rawQuantity={safeNum(myOwnership.rawQuantity)}
@@ -1317,282 +1592,381 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                     cardNumber={c.cardNumber}
                     onSubmitted={refreshAll}
                   />
-                </div>
 
-
-                <div style={{ marginTop: 14 }}>
-                  <RequestShopOfferButton cardId={c.id} />
-                </div>
-
-                {auctionableRows.length > 0 ? (
                   <div
                     style={{
-                      marginTop: 14,
-                      padding: 14,
-                      borderRadius: 18,
-                      border: "1px solid #f0d28a",
-                      background: "#fffdf5",
+                      borderTop: "1px solid #edf0f2",
+                      paddingTop: 9,
+                      display: "grid",
+                      gap: 8,
                     }}
                   >
-                    <div style={{ fontWeight: 1000, color: "#7a5200", marginBottom: 6 }}>
-                      Auction House
+                    <div style={{ color: "#126b3a", fontSize: 10.5, fontWeight: 1000, textTransform: "uppercase", letterSpacing: 0.6 }}>
+                      Sell or auction
                     </div>
-                    <div style={{ color: "#7a5200", fontSize: 13, fontWeight: 800, marginBottom: 10 }}>
-                      Start a 24-hour auction for one owned copy. VCS will lock the card while bids come in.
-                    </div>
-                    <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                      {auctionableRows.map((row) => (
-                        <CreateAuctionButton
-                          key={row.grade}
-                          cardId={c.id}
-                          grade={row.grade}
-                          label={row.label}
-                          quantity={row.quantity}
-                          onCreated={refreshAll}
-                        />
-                      ))}
-                    </div>
+
+                    <RequestShopOfferButton cardId={c.id} />
+
+                    {auctionableRows.length > 0 ? (
+                      <div
+                        style={{
+                          border: "1px solid #edd79c",
+                          borderRadius: 12,
+                          background: "#fffdf7",
+                          padding: 9,
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            gap: 8,
+                            alignItems: "baseline",
+                          }}
+                        >
+                          <div style={{ color: "#7a5200", fontSize: 12, fontWeight: 1000 }}>
+                            Auction House
+                          </div>
+                          <div style={{ color: "#8a733d", fontSize: 10, fontWeight: 800 }}>
+                            24-hour auction
+                          </div>
+                        </div>
+
+                        <div
+                          style={{
+                            marginTop: 7,
+                            display: "grid",
+                            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                            gap: 6,
+                          }}
+                        >
+                          {auctionableRows.map((row) => (
+                            <CreateAuctionButton
+                              key={row.grade}
+                              cardId={c.id}
+                              grade={row.grade}
+                              label={row.label}
+                              quantity={row.quantity}
+                              onCreated={refreshAll}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    ) : null}
                   </div>
-                ) : null}
+                </div>
               </section>
             ) : null}
 
             <section
               className="vcs-panel"
-              style={{ padding: isMobile ? 12 : 16 }}
+              style={{
+                padding: 0,
+                overflow: "hidden",
+                borderColor: "#edd79c",
+                background: "#fff",
+              }}
             >
-              <div style={{ fontSize: 20, fontWeight: 1000, marginBottom: 10 }}>Population report</div>
+              <SectionHeading
+                eyebrow="Population"
+                title="Population report"
+                copy="How many copies exist across VCS and how the revealed grades are distributed."
+                accent="gold"
+              />
 
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: isMobile ? "repeat(2, minmax(0, 1fr))" : "repeat(4, minmax(0, 1fr))",
-                  gap: 10,
-                }}
-              >
-                <StatCard label="Unique owners" value={String(data.population.uniqueOwners)} />
-                <StatCard label="Total owned" value={String(data.population.totalOwned)} tone="blue" />
-                <StatCard
-                  label="Incl. pending"
-                  value={String(safeNum(data.population.totalOwnedIncludingPending, data.population.totalOwned))}
-                  tone="gold"
+              <div style={{ padding: isMobile ? 10 : 14, display: "grid", gap: 9 }}>
+                <SummaryStrip
+                  items={[
+                    {
+                      label: "Owners",
+                      value: String(data.population.uniqueOwners),
+                    },
+                    {
+                      label: "Owned",
+                      value: String(data.population.totalOwned),
+                      tone: "blue",
+                    },
+                    {
+                      label: "Incl. pending",
+                      value: String(
+                        safeNum(
+                          data.population.totalOwnedIncludingPending,
+                          data.population.totalOwned
+                        )
+                      ),
+                      tone: "gold",
+                    },
+                    {
+                      label: "Value",
+                      value: formatDollarsFromCents(safeNum(data.population.totalValueCents)),
+                      tone: "green",
+                    },
+                  ]}
                 />
-                <StatCard
-                  label="Population value"
-                  value={formatDollarsFromCents(safeNum(data.population.totalValueCents))}
-                  sub="Including pending"
-                  tone="green"
-                />
-              </div>
 
-              <div
-                style={{
-                  marginTop: 14,
-                  border: "1px solid #dfe5ec",
-                  borderRadius: 16,
-                  overflow: "hidden",
-                  background: "#fff",
-                }}
-              >
                 <div
                   style={{
-                    display: "grid",
-                    gridTemplateColumns: "minmax(100px, 1.2fr) minmax(80px, 0.8fr) minmax(80px, 0.8fr)",
-                    gap: 10,
-                    padding: "10px 12px",
-                    background: "#f7f9fc",
-                    borderBottom: "1px solid #dfe5ec",
-                    color: "#59616c",
-                    fontSize: 12,
-                    fontWeight: 1000,
-                    textTransform: "uppercase",
-                    letterSpacing: 0.45,
+                    border: "1px solid #e0e4e8",
+                    borderRadius: 12,
+                    overflow: "hidden",
+                    background: "#fff",
                   }}
                 >
-                  <div>Grade</div>
-                  <div style={{ textAlign: "right" }}>Population</div>
-                  <div style={{ textAlign: "right" }}>Share</div>
-                </div>
-
-                {data.population.gradeBreakdown.map((row, index) => (
                   <div
-                    key={row.grade}
                     style={{
                       display: "grid",
-                      gridTemplateColumns: "minmax(100px, 1.2fr) minmax(80px, 0.8fr) minmax(80px, 0.8fr)",
-                      gap: 10,
-                      alignItems: "center",
-                      padding: "11px 12px",
-                      borderBottom:
-                        index === data.population.gradeBreakdown.length - 1
-                          ? "none"
-                          : "1px solid #edf0f4",
-                      background: index % 2 === 0 ? "#fff" : "#fcfdff",
+                      gridTemplateColumns: "minmax(85px, 1.2fr) minmax(68px, 0.8fr) minmax(68px, 0.8fr)",
+                      gap: 8,
+                      padding: "7px 9px",
+                      background: "#f7f9fc",
+                      borderBottom: "1px solid #dfe5ec",
+                      color: "#66707b",
+                      fontSize: 10,
+                      fontWeight: 1000,
+                      textTransform: "uppercase",
+                      letterSpacing: 0.4,
                     }}
                   >
+                    <div>Grade</div>
+                    <div style={{ textAlign: "right" }}>Population</div>
+                    <div style={{ textAlign: "right" }}>Share</div>
+                  </div>
+
+                  {data.population.gradeBreakdown.map((row, index) => (
                     <div
+                      key={row.grade}
                       style={{
-                        fontWeight: 1000,
-                        color: row.grade === 10 ? "#7a5200" : row.grade === 0 ? "#333" : "#16477d",
+                        display: "grid",
+                        gridTemplateColumns: "minmax(85px, 1.2fr) minmax(68px, 0.8fr) minmax(68px, 0.8fr)",
+                        gap: 8,
+                        alignItems: "center",
+                        padding: "7px 9px",
+                        borderBottom:
+                          index === data.population.gradeBreakdown.length - 1
+                            ? "none"
+                            : "1px solid #edf0f4",
+                        background: index % 2 === 0 ? "#fff" : "#fcfdff",
                       }}
                     >
-                      {row.label}
+                      <div
+                        style={{
+                          fontSize: 11.5,
+                          fontWeight: 1000,
+                          color:
+                            row.grade === 10
+                              ? "#7a5200"
+                              : row.grade === 0
+                                ? "#333"
+                                : "#16477d",
+                        }}
+                      >
+                        {row.label}
+                      </div>
+                      <div style={{ textAlign: "right", fontSize: 11.5, fontWeight: 1000 }}>
+                        {safeNum(row.quantity)}
+                      </div>
+                      <div style={{ textAlign: "right", color: "#5f6872", fontSize: 11.5, fontWeight: 900 }}>
+                        {formatPopulationPercentage(safeNum(row.percentage))}
+                      </div>
                     </div>
-                    <div style={{ textAlign: "right", fontWeight: 1000, color: "#222" }}>
-                      {safeNum(row.quantity)}
-                    </div>
-                    <div style={{ textAlign: "right", fontWeight: 900, color: "#4f5965" }}>
-                      {formatPopulationPercentage(safeNum(row.percentage))}
-                    </div>
-                  </div>
-                ))}
+                  ))}
 
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "minmax(100px, 1.2fr) minmax(80px, 0.8fr) minmax(80px, 0.8fr)",
-                    gap: 10,
-                    padding: "11px 12px",
-                    borderTop: "1px solid #dfe5ec",
-                    background: "#f7f9fc",
-                    fontWeight: 1000,
-                  }}
-                >
-                  <div>Total</div>
-                  <div style={{ textAlign: "right" }}>{data.population.totalOwned}</div>
-                  <div style={{ textAlign: "right" }}>
-                    {data.population.totalOwned > 0 ? "100.0%" : "0.0%"}
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "minmax(85px, 1.2fr) minmax(68px, 0.8fr) minmax(68px, 0.8fr)",
+                      gap: 8,
+                      padding: "7px 9px",
+                      borderTop: "1px solid #dfe5ec",
+                      background: "#f7f9fc",
+                      fontSize: 11.5,
+                      fontWeight: 1000,
+                    }}
+                  >
+                    <div>Total</div>
+                    <div style={{ textAlign: "right" }}>{data.population.totalOwned}</div>
+                    <div style={{ textAlign: "right" }}>
+                      {data.population.totalOwned > 0 ? "100.0%" : "0.0%"}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div style={{ marginTop: 10, color: "#69717d", fontSize: 12, fontWeight: 750 }}>
-                Pending VCS cards are excluded from grade percentages until their grades are revealed.
+                <div style={{ color: "#707780", fontSize: 10.5, fontWeight: 750 }}>
+                  Pending VCS cards are excluded from grade percentages until their grades are revealed.
+                </div>
               </div>
             </section>
 
             <section
               className="vcs-panel"
-              style={{ padding: isMobile ? 12 : 16 }}
+              style={{
+                padding: 0,
+                overflow: "hidden",
+                borderColor: "#dfe4ea",
+                background: "#fff",
+              }}
             >
-              <div style={{ fontSize: 20, fontWeight: 1000, marginBottom: 10 }}>Owners</div>
+              <SectionHeading
+                eyebrow="Collectors"
+                title="Owners"
+                copy="Who owns this card and how their copies are distributed."
+                accent="slate"
+              />
 
-              {data.owners.length === 0 ? (
-                <div style={{ color: "#666", fontWeight: 850 }}>No one owns this yet.</div>
-              ) : isMobile ? (
-                <div style={{ display: "grid", gap: 10 }}>
-                  {data.owners.map((o, idx) => (
-                    <div
-                      key={`${o.userId}-${idx}`}
-                      style={{
-                        border: "1px solid #e2e2e2",
-                        borderRadius: 16,
-                        background: idx % 2 === 0 ? "#fff" : "#fcfcfc",
-                        padding: 12,
-                        display: "grid",
-                        gap: 10,
-                      }}
-                    >
-                      <div style={{ minWidth: 0 }}>
-                        <div style={{ fontWeight: 1000, color: "#111", overflowWrap: "anywhere" }}>
-                          {o.name?.trim() ? o.name.trim() : o.email ?? o.userId}
-                        </div>
-                        <div style={{ marginTop: 2, color: "#666", fontSize: 12, fontWeight: 750, overflowWrap: "anywhere" }}>
-                          {o.email ?? "—"}
-                        </div>
-                      </div>
+              <div style={{ padding: isMobile ? 10 : 14 }}>
+                {data.owners.length === 0 ? (
+                  <div style={{ color: "#666", fontSize: 12, fontWeight: 850 }}>
+                    No one owns this yet.
+                  </div>
+                ) : isMobile ? (
+                  <div style={{ display: "grid", gap: 8 }}>
+                    {data.owners.map((o, idx) => {
+                      const ownerBreakdown = normalizeBreakdown(o);
+                      const totalQty = safeNum(o.totalQuantity, o.quantity);
 
-                      <div
-                        style={{
-                          display: "grid",
-                          gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
-                          gap: 8,
-                        }}
-                      >
-                        <StatCard label="Raw" value={String(safeNum(o.rawQuantity))} />
-                        <StatCard label="Pending" value={String(safeNum(o.pendingGradingQuantity))} tone="gold" />
-                        <StatCard label="Graded" value={String(safeNum(o.gradedQuantity))} tone="blue" />
-                        <StatCard label="Total" value={String(safeNum(o.totalQuantity, o.quantity))} tone="green" />
-                      </div>
-
-                      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                        {normalizeBreakdown(o).map((row) => (
-                          <GradePill key={row.grade} row={row} />
-                        ))}
-                        <PendingPill quantity={safeNum(o.pendingGradingQuantity)} />
-                      </div>
-
-                      <div
-                        style={{
-                          borderTop: "1px solid #eeeeee",
-                          paddingTop: 8,
-                          display: "flex",
-                          justifyContent: "space-between",
-                          gap: 10,
-                          color: "#444",
-                          fontWeight: 900,
-                        }}
-                      >
-                        <span>Total value</span>
-                        <span>{formatDollarsFromCents(safeNum(o.totalValueCents))}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div style={{ overflowX: "auto", border: "1px solid #ddd", borderRadius: 16 }}>
-                  <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 920 }}>
-                    <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
-                      <tr>
-                        {["User", "Email", "Raw", "Pending", "Graded", "Total", "Breakdown", "Value"].map((h) => (
-                          <th
-                            key={h}
+                      return (
+                        <div
+                          key={`${o.userId}-${idx}`}
+                          style={{
+                            border: "1px solid #e1e5e9",
+                            borderRadius: 13,
+                            background: idx % 2 === 0 ? "#fff" : "#fbfcfd",
+                            padding: 9,
+                            display: "grid",
+                            gap: 8,
+                          }}
+                        >
+                          <div
                             style={{
-                              textAlign: "left",
-                              padding: 10,
-                              borderBottom: "1px solid #ddd",
-                              whiteSpace: "nowrap",
+                              display: "flex",
+                              justifyContent: "space-between",
+                              gap: 10,
+                              alignItems: "flex-start",
                             }}
                           >
-                            {h}
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {data.owners.map((o, idx) => (
-                        <tr key={`${o.userId}-${idx}`} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
-                          <td style={{ padding: 10, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                            {o.name?.trim() ? o.name.trim() : o.email ?? o.userId}
-                          </td>
-                          <td style={{ padding: 10, borderBottom: "1px solid #eee" }}>{o.email ?? "—"}</td>
-                          <td style={{ padding: 10, borderBottom: "1px solid #eee", fontWeight: 900 }}>{safeNum(o.rawQuantity)}</td>
-                          <td style={{ padding: 10, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                            {safeNum(o.pendingGradingQuantity)}
-                          </td>
-                          <td style={{ padding: 10, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                            {safeNum(o.gradedQuantity)}
-                          </td>
-                          <td style={{ padding: 10, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                            {safeNum(o.totalQuantity, o.quantity)}
-                          </td>
-                          <td style={{ padding: 10, borderBottom: "1px solid #eee" }}>
-                            <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                              {normalizeBreakdown(o).map((row) => (
-                                <GradePill key={row.grade} row={row} />
-                              ))}
-                              <PendingPill quantity={safeNum(o.pendingGradingQuantity)} />
+                            <div style={{ minWidth: 0 }}>
+                              <div
+                                style={{
+                                  color: "#111",
+                                  fontSize: 13.5,
+                                  lineHeight: 1.1,
+                                  fontWeight: 1000,
+                                  overflowWrap: "anywhere",
+                                }}
+                              >
+                                {o.name?.trim() ? o.name.trim() : o.email ?? o.userId}
+                              </div>
+                              <div
+                                style={{
+                                  marginTop: 2,
+                                  color: "#707780",
+                                  fontSize: 10.5,
+                                  fontWeight: 750,
+                                  overflowWrap: "anywhere",
+                                }}
+                              >
+                                {o.email ?? "—"}
+                              </div>
                             </div>
-                          </td>
-                          <td style={{ padding: 10, borderBottom: "1px solid #eee", fontWeight: 900 }}>
-                            {formatDollarsFromCents(safeNum(o.totalValueCents))}
-                          </td>
+
+                            <div style={{ textAlign: "right", flex: "0 0 auto" }}>
+                              <div style={{ color: "#45505d", fontSize: 10, fontWeight: 900 }}>
+                                {totalQty} cards
+                              </div>
+                              <div style={{ marginTop: 2, color: "#126b3a", fontSize: 13, fontWeight: 1000 }}>
+                                {formatDollarsFromCents(safeNum(o.totalValueCents))}
+                              </div>
+                            </div>
+                          </div>
+
+                          <SummaryStrip
+                            items={[
+                              {
+                                label: "Raw",
+                                value: String(safeNum(o.rawQuantity)),
+                              },
+                              {
+                                label: "Pending",
+                                value: String(safeNum(o.pendingGradingQuantity)),
+                                tone: "gold",
+                              },
+                              {
+                                label: "Graded",
+                                value: String(safeNum(o.gradedQuantity)),
+                                tone: "blue",
+                              },
+                              {
+                                label: "Total",
+                                value: String(totalQty),
+                                tone: "green",
+                              },
+                            ]}
+                          />
+
+                          <GradeBreakdownTable
+                            rows={ownerBreakdown}
+                            pendingQuantity={safeNum(o.pendingGradingQuantity)}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div style={{ overflowX: "auto", border: "1px solid #ddd", borderRadius: 13 }}>
+                    <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 920 }}>
+                      <thead style={{ position: "sticky", top: 0, background: "#f7f7f7" }}>
+                        <tr>
+                          {["User", "Email", "Raw", "Pending", "Graded", "Total", "Breakdown", "Value"].map((h) => (
+                            <th
+                              key={h}
+                              style={{
+                                textAlign: "left",
+                                padding: 8,
+                                borderBottom: "1px solid #ddd",
+                                whiteSpace: "nowrap",
+                                fontSize: 11,
+                              }}
+                            >
+                              {h}
+                            </th>
+                          ))}
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              )}
+                      </thead>
+                      <tbody>
+                        {data.owners.map((o, idx) => (
+                          <tr key={`${o.userId}-${idx}`} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
+                            <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                              {o.name?.trim() ? o.name.trim() : o.email ?? o.userId}
+                            </td>
+                            <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{o.email ?? "—"}</td>
+                            <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>{safeNum(o.rawQuantity)}</td>
+                            <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                              {safeNum(o.pendingGradingQuantity)}
+                            </td>
+                            <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                              {safeNum(o.gradedQuantity)}
+                            </td>
+                            <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                              {safeNum(o.totalQuantity, o.quantity)}
+                            </td>
+                            <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
+                              <div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
+                                {normalizeBreakdown(o).map((row) => (
+                                  <GradePill key={row.grade} row={row} />
+                                ))}
+                                <PendingPill quantity={safeNum(o.pendingGradingQuantity)} />
+                              </div>
+                            </td>
+                            <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>
+                              {formatDollarsFromCents(safeNum(o.totalValueCents))}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </div>
             </section>
           </>
         )}
