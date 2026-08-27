@@ -325,10 +325,60 @@ export default function SlabsClient() {
         minHeight: mobileCarouselActive ? 0 : "calc(100vh - 80px)",
         padding: mobileCarouselActive ? 0 : 16,
         color: mobileCarouselActive ? colors.carouselText : colors.text,
-        fontFamily: "system-ui",
         transition: "background 240ms ease",
       }}
     >
+      <style>
+        {`
+          @media (max-width: 767px) {
+            .slabStatsBar {
+              margin-top: 10px !important;
+            }
+
+            .slabStatsBar > div {
+              padding: 8px 7px !important;
+            }
+
+            .slabStatsBar > div > div:first-child {
+              font-size: 8.5px !important;
+            }
+
+            .slabStatsBar > div > div:last-child {
+              font-size: 13px !important;
+            }
+
+            .slabSearchForm {
+              grid-template-columns: minmax(0, 1fr) auto auto !important;
+            }
+
+            .slabSearchForm input {
+              font-size: 12px !important;
+              padding: 8px 9px !important;
+            }
+
+            .slabSearchForm button {
+              font-size: 12px !important;
+              padding: 7px 9px !important;
+            }
+
+            .slabGradeGrid {
+              grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            }
+
+            .slabPagination {
+              grid-template-columns: auto auto auto 1fr auto auto !important;
+            }
+          }
+
+          @media (max-width: 430px) {
+            .slabPagination {
+              grid-template-columns: auto auto auto 1fr auto auto !important;
+              gap: 5px !important;
+            }
+          }
+        `}
+      </style>
+
       <div style={{ maxWidth: mobileCarouselActive ? "none" : 1260, margin: "0 auto" }}>
         {mobileCarouselActive ? (
           <MobileSlabCarousel
@@ -384,7 +434,7 @@ export default function SlabsClient() {
                   ← Back to Collection
                 </Link>
 
-                <h1 style={{ fontSize: 34, fontWeight: 1000, marginTop: 8, marginBottom: 6 }}>
+                <h1 style={{ fontSize: "clamp(28px, 8vw, 34px)", fontWeight: 1000, marginTop: 7, marginBottom: 4 }}>
                   VCS Slab Gallery
                 </h1>
 
@@ -459,14 +509,11 @@ export default function SlabsClient() {
               clearFilters={clearFilters}
               grade={grade}
               setGrade={setGrade}
-              tier={tier}
-              setTier={setTier}
               sort={sort}
               setSort={setSort}
               setRandomSeed={setRandomSeed}
               setPage={setPage}
               gradeCounts={gradeCounts}
-              tierCounts={tierCounts}
               totalQuantity={totalQuantity}
             />
 
@@ -494,11 +541,13 @@ export default function SlabsClient() {
               <EmptyState />
             ) : (
               <>
-                <DesktopSlabGrid rows={rows} />
+                {isMobile ? <MobileSlabBrowseList rows={rows} /> : <DesktopSlabGrid rows={rows} />}
 
                 <Pagination
                   page={data?.page ?? 1}
                   totalPages={data?.totalPages ?? 1}
+                  total={data?.total ?? 0}
+                  pageSize={data?.pageSize ?? 24}
                   setPage={setPage}
                 />
               </>
@@ -799,53 +848,6 @@ function MobileSlabCarousel({
                   }}
                 />
               ))}
-            </div>
-
-            <div style={{ marginTop: 8, display: "flex", gap: 8, overflowX: "auto", paddingBottom: 2 }}>
-              <TierFilterButton
-                label="All"
-                count={totalQuantity}
-                active={tier === "ALL"}
-                dark
-                onClick={() => {
-                  setTier("ALL");
-                  if (sort === "random") setRandomSeed(String(Date.now()));
-                  setPage(1);
-                }}
-              />
-              <TierFilterButton
-                label="Iconic"
-                count={tierCounts.ICONIC}
-                active={tier === "ICONIC"}
-                dark
-                onClick={() => {
-                  setTier("ICONIC");
-                  if (sort === "random") setRandomSeed(String(Date.now()));
-                  setPage(1);
-                }}
-              />
-              <TierFilterButton
-                label="Great"
-                count={tierCounts.GREAT}
-                active={tier === "GREAT"}
-                dark
-                onClick={() => {
-                  setTier("GREAT");
-                  if (sort === "random") setRandomSeed(String(Date.now()));
-                  setPage(1);
-                }}
-              />
-              <TierFilterButton
-                label="Common"
-                count={tierCounts.COMMON}
-                active={tier === "COMMON"}
-                dark
-                onClick={() => {
-                  setTier("COMMON");
-                  if (sort === "random") setRandomSeed(String(Date.now()));
-                  setPage(1);
-                }}
-              />
             </div>
 
             <div style={{ marginTop: 10, display: "grid", gridTemplateColumns: "1fr auto auto", gap: 8 }}>
@@ -1233,52 +1235,63 @@ function DesktopStats({
   totalQuantity: number;
   totalValueCents: number;
 }) {
+  const metrics = [
+    { label: "Slab types", value: totalUniqueSlabs.toLocaleString() },
+    { label: "Total slabs", value: totalQuantity.toLocaleString() },
+    { label: "Est. value", value: formatDollarsFromCents(totalValueCents) },
+  ];
+
   return (
     <div
+      className="slabStatsBar"
       style={{
-        marginTop: 16,
+        marginTop: 14,
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
-        gap: 10,
+        gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+        border: `1px solid ${colors.border}`,
+        borderRadius: 16,
+        overflow: "hidden",
+        background: "rgba(255,255,255,0.78)",
+        boxShadow: "0 8px 24px rgba(0,0,0,0.025)",
       }}
     >
-      <div
-        style={{
-          background: colors.card,
-          border: `1px solid ${colors.border}`,
-          borderRadius: 16,
-          padding: 12,
-        }}
-      >
-        <div style={{ color: colors.mutedText, fontSize: 12, fontWeight: 900 }}>Slab types</div>
-        <div style={{ marginTop: 4, fontSize: 24, fontWeight: 1000 }}>{totalUniqueSlabs}</div>
-      </div>
-
-      <div
-        style={{
-          background: colors.card,
-          border: `1px solid ${colors.border}`,
-          borderRadius: 16,
-          padding: 12,
-        }}
-      >
-        <div style={{ color: colors.mutedText, fontSize: 12, fontWeight: 900 }}>Total slabs</div>
-        <div style={{ marginTop: 4, fontSize: 24, fontWeight: 1000 }}>{totalQuantity}</div>
-      </div>
-
-      <div
-        style={{
-          background: colors.card,
-          border: `1px solid ${colors.border}`,
-          borderRadius: 16,
-          padding: 12,
-        }}
-      >
-        <div style={{ color: colors.mutedText, fontSize: 12, fontWeight: 900 }}>Estimated value</div>
-        <div style={{ marginTop: 4, fontSize: 24, fontWeight: 1000 }}>
-          {formatDollarsFromCents(totalValueCents)}
+      {metrics.map((metric, index) => (
+        <div
+          key={metric.label}
+          style={{
+            minWidth: 0,
+            padding: "10px 12px",
+            borderLeft: index === 0 ? "none" : `1px solid ${colors.border}`,
+          }}
+        >
+          <div
+            style={{
+              color: colors.mutedText,
+              fontSize: 10,
+              fontWeight: 950,
+              textTransform: "uppercase",
+              letterSpacing: "0.05em",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {metric.label}
+          </div>
+          <div
+            style={{
+              marginTop: 2,
+              color: colors.text,
+              fontSize: 18,
+              fontWeight: 1000,
+              lineHeight: 1.1,
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {metric.value}
+          </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 }
@@ -1290,14 +1303,11 @@ function DesktopControls({
   clearFilters,
   grade,
   setGrade,
-  tier,
-  setTier,
   sort,
   setSort,
   setRandomSeed,
   setPage,
   gradeCounts,
-  tierCounts,
   totalQuantity,
 }: {
   queryInput: string;
@@ -1306,16 +1316,22 @@ function DesktopControls({
   clearFilters: () => void;
   grade: string;
   setGrade: React.Dispatch<React.SetStateAction<string>>;
-  tier: "ALL" | Gradeability;
-  setTier: React.Dispatch<React.SetStateAction<"ALL" | Gradeability>>;
   sort: SortMode;
   setSort: React.Dispatch<React.SetStateAction<SortMode>>;
   setRandomSeed: React.Dispatch<React.SetStateAction<string>>;
   setPage: React.Dispatch<React.SetStateAction<number>>;
   gradeCounts: ApiResponse["countsByGrade"];
-  tierCounts: ApiResponse["countsByTier"];
   totalQuantity: number;
 }) {
+  const gradeOptions = [
+    { value: "ALL", label: "All", count: totalQuantity },
+    { value: "10", label: "VCS 10", count: gradeCounts["10"] },
+    { value: "9", label: "VCS 9", count: gradeCounts["9"] },
+    { value: "8", label: "VCS 8", count: gradeCounts["8"] },
+    { value: "7", label: "VCS 7", count: gradeCounts["7"] },
+    { value: "6", label: "VCS 6", count: gradeCounts["6"] },
+  ];
+
   return (
     <div
       style={{
@@ -1323,24 +1339,32 @@ function DesktopControls({
         background: colors.card,
         border: `1px solid ${colors.border}`,
         borderRadius: 16,
-        padding: 12,
+        padding: 10,
         display: "grid",
-        gap: 12,
+        gap: 10,
       }}
     >
-      <form onSubmit={submitSearch} style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+      <form
+        className="slabSearchForm"
+        onSubmit={submitSearch}
+        style={{
+          display: "grid",
+          gridTemplateColumns: "minmax(0, 1fr) auto auto",
+          gap: 7,
+        }}
+      >
         <input
           value={queryInput}
           onChange={(e) => setQueryInput(e.target.value)}
           placeholder="Search player, team, set, card number…"
           style={{
-            flex: "1 1 260px",
             minWidth: 0,
             border: `1px solid ${colors.border}`,
-            borderRadius: 12,
-            padding: "10px 12px",
-            fontWeight: 850,
-            fontSize: 14,
+            borderRadius: 11,
+            padding: "9px 10px",
+            fontWeight: 800,
+            fontSize: 13,
+            background: "#fff",
           }}
         />
 
@@ -1350,9 +1374,10 @@ function DesktopControls({
             border: `1px solid ${colors.blue}`,
             background: colors.blue,
             color: "#fff",
-            borderRadius: 12,
-            padding: "10px 12px",
+            borderRadius: 11,
+            padding: "8px 11px",
             fontWeight: 950,
+            fontSize: 13,
             cursor: "pointer",
           }}
         >
@@ -1366,9 +1391,10 @@ function DesktopControls({
             border: `1px solid ${colors.border}`,
             background: colors.muted,
             color: colors.text,
-            borderRadius: 12,
-            padding: "10px 12px",
+            borderRadius: 11,
+            padding: "8px 11px",
             fontWeight: 950,
+            fontSize: 13,
             cursor: "pointer",
           }}
         >
@@ -1376,82 +1402,64 @@ function DesktopControls({
         </button>
       </form>
 
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
-        <div style={{ color: colors.mutedText, fontSize: 13, fontWeight: 950, marginRight: 2 }}>
-          Grade
-        </div>
+      <div
+        className="slabGradeGrid"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(6, minmax(0, 1fr))",
+          gap: 6,
+        }}
+      >
+        {gradeOptions.map((option) => {
+          const active = grade === option.value;
 
-        <GradeFilterButton
-          label="All"
-          count={totalQuantity}
-          active={grade === "ALL"}
-          onClick={() => {
-            setGrade("ALL");
-            if (sort === "random") setRandomSeed(String(Date.now()));
-            setPage(1);
-          }}
-        />
-        {(["10", "9", "8", "7", "6"] as const).map((g) => (
-          <GradeFilterButton
-            key={g}
-            label={`VCS ${g}`}
-            count={gradeCounts[g]}
-            active={grade === g}
-            onClick={() => {
-              setGrade(g);
-              if (sort === "random") setRandomSeed(String(Date.now()));
-              setPage(1);
-            }}
-          />
-        ))}
+          return (
+            <button
+              key={option.value}
+              type="button"
+              onClick={() => {
+                setGrade(option.value);
+                if (sort === "random") setRandomSeed(String(Date.now()));
+                setPage(1);
+              }}
+              style={{
+                minWidth: 0,
+                border: `1px solid ${active ? colors.blue : colors.border}`,
+                background: active ? colors.blueSoft : "#fff",
+                color: active ? colors.blue : colors.text,
+                borderRadius: 12,
+                padding: "7px 5px",
+                cursor: "pointer",
+                textAlign: "center",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: 12,
+                  fontWeight: 1000,
+                  lineHeight: 1.05,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {option.label}
+              </div>
+              <div
+                style={{
+                  marginTop: 2,
+                  color: active ? colors.blue : colors.mutedText,
+                  fontSize: 11,
+                  fontWeight: 900,
+                  lineHeight: 1,
+                }}
+              >
+                {option.count.toLocaleString()}
+              </div>
+            </button>
+          );
+        })}
       </div>
 
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
-        <div style={{ color: colors.mutedText, fontSize: 13, fontWeight: 950, marginRight: 2 }}>
-          Tier
-        </div>
-
-        <TierFilterButton
-          label="All"
-          count={totalQuantity}
-          active={tier === "ALL"}
-          onClick={() => {
-            setTier("ALL");
-            if (sort === "random") setRandomSeed(String(Date.now()));
-            setPage(1);
-          }}
-        />
-        <TierFilterButton
-          label="Iconic"
-          count={tierCounts.ICONIC}
-          active={tier === "ICONIC"}
-          onClick={() => {
-            setTier("ICONIC");
-            if (sort === "random") setRandomSeed(String(Date.now()));
-            setPage(1);
-          }}
-        />
-        <TierFilterButton
-          label="Great"
-          count={tierCounts.GREAT}
-          active={tier === "GREAT"}
-          onClick={() => {
-            setTier("GREAT");
-            if (sort === "random") setRandomSeed(String(Date.now()));
-            setPage(1);
-          }}
-        />
-        <TierFilterButton
-          label="Common"
-          count={tierCounts.COMMON}
-          active={tier === "COMMON"}
-          onClick={() => {
-            setTier("COMMON");
-            if (sort === "random") setRandomSeed(String(Date.now()));
-            setPage(1);
-          }}
-        />
-
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
         <select
           value={sort}
           onChange={(e) => {
@@ -1461,12 +1469,12 @@ function DesktopControls({
             setPage(1);
           }}
           style={{
-            marginLeft: "auto",
-            minWidth: 180,
+            width: "min(100%, 230px)",
             border: `1px solid ${colors.border}`,
-            borderRadius: 12,
-            padding: "9px 10px",
+            borderRadius: 11,
+            padding: "8px 10px",
             fontWeight: 900,
+            fontSize: 13,
             background: "#fff",
           }}
         >
@@ -1478,6 +1486,153 @@ function DesktopControls({
           <option value="random">Random</option>
         </select>
       </div>
+    </div>
+  );
+}
+
+function MobileSlabBrowseList({ rows }: { rows: SlabRow[] }) {
+  return (
+    <div
+      style={{
+        marginTop: 12,
+        display: "grid",
+        gap: 8,
+      }}
+    >
+      {rows.map((row) => (
+        <div
+          key={row.key}
+          style={{
+            background: colors.card,
+            border: `1px solid ${colors.border}`,
+            borderRadius: 15,
+            padding: 9,
+            display: "grid",
+            gridTemplateColumns: "64px minmax(0, 1fr)",
+            gap: 10,
+            alignItems: "center",
+            boxShadow: "0 7px 20px rgba(0,0,0,0.025)",
+          }}
+        >
+          <div
+            style={{
+              width: 64,
+              height: 88,
+              borderRadius: 9,
+              border: `1px solid ${colors.border}`,
+              background: colors.muted,
+              overflow: "hidden",
+              display: "grid",
+              placeItems: "center",
+            }}
+          >
+            {row.frontImageUrl ? (
+              <img
+                src={row.frontImageUrl}
+                alt={`${row.player} #${row.cardNumber}`}
+                loading="lazy"
+                decoding="async"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  display: "block",
+                  objectFit: "cover",
+                }}
+              />
+            ) : (
+              <span style={{ color: colors.mutedText, fontWeight: 900, fontSize: 11 }}>No image</span>
+            )}
+          </div>
+
+          <div style={{ minWidth: 0 }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: 8,
+                alignItems: "flex-start",
+              }}
+            >
+              <div style={{ minWidth: 0 }}>
+                <div
+                  style={{
+                    fontSize: 15,
+                    lineHeight: 1.12,
+                    fontWeight: 1000,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  #{row.cardNumber} — {row.player}
+                </div>
+                <div
+                  style={{
+                    marginTop: 3,
+                    color: colors.mutedText,
+                    fontSize: 11.5,
+                    fontWeight: 800,
+                    lineHeight: 1.25,
+                  }}
+                >
+                  {getSetName(row)}
+                  {row.team ? ` • ${row.team}` : ""}
+                </div>
+              </div>
+
+              <div
+                style={{
+                  flex: "0 0 auto",
+                  border: `1px solid ${row.grade === 10 ? "#d6b85d" : colors.border}`,
+                  background: row.grade === 10 ? colors.goldSoft : colors.blueSoft,
+                  color: row.grade === 10 ? colors.gold : colors.blue,
+                  borderRadius: 10,
+                  padding: "5px 7px",
+                  textAlign: "center",
+                }}
+              >
+                <div style={{ fontSize: 10, fontWeight: 950, lineHeight: 1 }}>VCS</div>
+                <div style={{ marginTop: 1, fontSize: 17, fontWeight: 1000, lineHeight: 1 }}>{row.grade}</div>
+              </div>
+            </div>
+
+            <div
+              style={{
+                marginTop: 8,
+                display: "flex",
+                justifyContent: "space-between",
+                gap: 8,
+                alignItems: "center",
+              }}
+            >
+              <div style={{ minWidth: 0 }}>
+                <div style={{ color: colors.green, fontSize: 12, fontWeight: 1000 }}>
+                  {formatDollarsFromCents(row.valueCents)}
+                  {row.quantity > 1 ? (
+                    <span style={{ color: colors.mutedText, fontWeight: 850 }}> × {row.quantity}</span>
+                  ) : null}
+                </div>
+                {row.quantity > 1 ? (
+                  <div style={{ marginTop: 1, color: colors.mutedText, fontSize: 10.5, fontWeight: 800 }}>
+                    Total {formatDollarsFromCents(row.totalValueCents)}
+                  </div>
+                ) : null}
+              </div>
+
+              <Link
+                href={`/cards/${row.cardId}`}
+                style={{
+                  color: colors.blue,
+                  fontWeight: 950,
+                  fontSize: 12,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Card details
+              </Link>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
@@ -1597,58 +1752,129 @@ function EmptyState() {
 function Pagination({
   page,
   totalPages,
+  total,
+  pageSize,
   setPage,
 }: {
   page: number;
   totalPages: number;
+  total: number;
+  pageSize: number;
   setPage: React.Dispatch<React.SetStateAction<number>>;
 }) {
-  return (
-    <div
-      style={{
-        marginTop: 18,
-        display: "flex",
-        justifyContent: "center",
-        gap: 10,
-        alignItems: "center",
-        flexWrap: "wrap",
-      }}
-    >
-      <button
-        onClick={() => setPage((p) => Math.max(1, p - 1))}
-        disabled={page <= 1}
-        style={{
-          border: `1px solid ${colors.border}`,
-          background: "#fff",
-          borderRadius: 10,
-          padding: "9px 12px",
-          fontWeight: 950,
-          cursor: page <= 1 ? "not-allowed" : "pointer",
-          opacity: page <= 1 ? 0.5 : 1,
-        }}
-      >
-        Previous
-      </button>
+  const [jumpPage, setJumpPage] = useState(String(page));
 
-      <div style={{ color: colors.mutedText, fontWeight: 900, fontSize: 13 }}>
-        Page {page} of {totalPages}
+  useEffect(() => {
+    setJumpPage(String(page));
+  }, [page]);
+
+  const start = total === 0 ? 0 : (page - 1) * pageSize + 1;
+  const end = Math.min(total, page * pageSize);
+
+  function goToJumpPage() {
+    const parsed = Number.parseInt(jumpPage, 10);
+    if (!Number.isFinite(parsed)) {
+      setJumpPage(String(page));
+      return;
+    }
+
+    setPage(Math.max(1, Math.min(totalPages, parsed)));
+  }
+
+  return (
+    <div style={{ marginTop: 12, marginBottom: 8 }}>
+      <div style={{ color: colors.mutedText, fontWeight: 900, fontSize: 12 }}>
+        Showing {start.toLocaleString()}–{end.toLocaleString()} of {total.toLocaleString()}
       </div>
 
-      <button
-        onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-        disabled={page >= totalPages}
+      <div
+        className="slabPagination"
         style={{
-          border: `1px solid ${colors.border}`,
-          background: "#fff",
-          borderRadius: 10,
-          padding: "9px 12px",
-          fontWeight: 950,
-          cursor: page >= totalPages ? "not-allowed" : "pointer",
-          opacity: page >= totalPages ? 0.5 : 1,
+          marginTop: 7,
+          display: "grid",
+          gridTemplateColumns: "auto auto auto 1fr auto auto",
+          gap: 7,
+          alignItems: "center",
         }}
       >
-        Next
-      </button>
+        <button
+          onClick={() => setPage((p) => Math.max(1, p - 1))}
+          disabled={page <= 1}
+          style={{
+            border: `1px solid ${colors.border}`,
+            background: "#fff",
+            borderRadius: 10,
+            padding: "7px 9px",
+            fontWeight: 950,
+            fontSize: 12,
+            cursor: page <= 1 ? "not-allowed" : "pointer",
+            opacity: page <= 1 ? 0.45 : 1,
+          }}
+        >
+          ‹ Prev
+        </button>
+
+        <div style={{ color: colors.text, fontWeight: 1000, fontSize: 13, whiteSpace: "nowrap" }}>
+          {page} / {totalPages}
+        </div>
+
+        <button
+          onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+          disabled={page >= totalPages}
+          style={{
+            border: `1px solid ${colors.border}`,
+            background: "#fff",
+            borderRadius: 10,
+            padding: "7px 9px",
+            fontWeight: 950,
+            fontSize: 12,
+            cursor: page >= totalPages ? "not-allowed" : "pointer",
+            opacity: page >= totalPages ? 0.45 : 1,
+          }}
+        >
+          Next ›
+        </button>
+
+        <div />
+
+        <input
+          type="number"
+          min={1}
+          max={totalPages}
+          value={jumpPage}
+          onChange={(e) => setJumpPage(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") goToJumpPage();
+          }}
+          aria-label="Jump to page"
+          style={{
+            width: 58,
+            border: `1px solid ${colors.border}`,
+            borderRadius: 10,
+            padding: "7px 8px",
+            fontWeight: 900,
+            fontSize: 12,
+            background: "#fff",
+          }}
+        />
+
+        <button
+          type="button"
+          onClick={goToJumpPage}
+          style={{
+            border: `1px solid ${colors.border}`,
+            background: "#fff",
+            borderRadius: 10,
+            padding: "7px 9px",
+            fontWeight: 950,
+            fontSize: 12,
+            cursor: "pointer",
+          }}
+        >
+          Go
+        </button>
+      </div>
     </div>
   );
 }
+
