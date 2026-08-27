@@ -2,7 +2,12 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import {
+  PointerEvent as ReactPointerEvent,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import VcsSlab from "@/components/grading/VcsSlab";
 
 type GradingResultRow = {
@@ -104,6 +109,14 @@ type ApiResponse = {
 
 type StatusFilter = "ALL" | "PENDING" | "READY" | "REVEALED";
 
+type SlabInteraction = {
+  pointerId: number | null;
+  pointerType: string;
+  startX: number;
+  startY: number;
+  axis: "horizontal" | "vertical" | null;
+};
+
 const colors = {
   bg: "#fbfaf7",
   card: "#ffffff",
@@ -126,6 +139,10 @@ function safeNum(value: unknown, fallback = 0) {
   return typeof value === "number" && Number.isFinite(value) ? value : fallback;
 }
 
+function clamp(value: number, min: number, max: number) {
+  return Math.max(min, Math.min(max, value));
+}
+
 function formatDollarsFromCents(cents: number) {
   const safe = Number.isFinite(cents) ? cents : 0;
 
@@ -133,20 +150,6 @@ function formatDollarsFromCents(cents: number) {
     style: "currency",
     currency: "USD",
     minimumFractionDigits: 2,
-  });
-}
-
-function formatDateTime(value: string | null | undefined) {
-  if (!value) return "—";
-
-  const d = new Date(value);
-  if (Number.isNaN(d.getTime())) return "—";
-
-  return d.toLocaleString(undefined, {
-    month: "short",
-    day: "numeric",
-    hour: "numeric",
-    minute: "2-digit",
   });
 }
 
@@ -214,8 +217,59 @@ function getSetNameFromCard(card: GradingOrderRow["card"]) {
 
 function getSlabSetName(card: GradingOrderRow["card"]) {
   const setName = card.productSet?.name?.trim();
-
   return setName || getSetNameFromCard(card);
+}
+
+function getRevealTone(grade: number) {
+  if (grade >= 10) {
+    return {
+      key: "ten",
+      aura:
+        "radial-gradient(circle at 50% 45%, rgba(255,224,125,0.44), rgba(218,155,29,0.19) 38%, transparent 70%)",
+      sweep:
+        "linear-gradient(100deg, transparent 8%, rgba(255,250,226,0.15) 30%, rgba(255,225,126,0.88) 48%, rgba(255,255,255,0.92) 53%, rgba(255,215,91,0.45) 62%, transparent 82%)",
+      edge: "rgba(249, 211, 107, 0.55)",
+      glow: "rgba(225, 168, 39, 0.31)",
+      label: "Gem Mint",
+    };
+  }
+
+  if (grade >= 9) {
+    return {
+      key: "nine",
+      aura:
+        "radial-gradient(circle at 50% 45%, rgba(120,227,153,0.28), rgba(42,145,72,0.14) 40%, transparent 70%)",
+      sweep:
+        "linear-gradient(100deg, transparent 8%, rgba(233,255,240,0.12) 30%, rgba(143,236,171,0.64) 48%, rgba(255,255,255,0.82) 53%, rgba(91,199,126,0.34) 62%, transparent 82%)",
+      edge: "rgba(101, 206, 132, 0.42)",
+      glow: "rgba(42, 145, 72, 0.24)",
+      label: "Mint",
+    };
+  }
+
+  if (grade >= 8) {
+    return {
+      key: "eight",
+      aura:
+        "radial-gradient(circle at 50% 45%, rgba(150,205,255,0.24), rgba(46,108,178,0.12) 40%, transparent 70%)",
+      sweep:
+        "linear-gradient(100deg, transparent 8%, rgba(234,246,255,0.11) 30%, rgba(166,215,255,0.55) 48%, rgba(255,255,255,0.76) 53%, rgba(105,169,227,0.3) 62%, transparent 82%)",
+      edge: "rgba(118, 180, 234, 0.34)",
+      glow: "rgba(58, 121, 181, 0.2)",
+      label: "Near Mint",
+    };
+  }
+
+  return {
+    key: "standard",
+    aura:
+      "radial-gradient(circle at 50% 45%, rgba(255,255,255,0.13), rgba(255,255,255,0.04) 42%, transparent 70%)",
+    sweep:
+      "linear-gradient(100deg, transparent 8%, rgba(255,255,255,0.08) 30%, rgba(255,255,255,0.48) 50%, rgba(255,255,255,0.14) 62%, transparent 82%)",
+    edge: "rgba(255,255,255,0.2)",
+    glow: "rgba(255,255,255,0.11)",
+    label: "Certified",
+  };
 }
 
 function ImgThumb({ src, alt }: { src: string | null; alt: string }) {
@@ -309,7 +363,9 @@ function ResultPills({ results }: { results: GradingResultRow[] }) {
         >
           VCS {result.grade}
           <span style={{ color: "#445" }}>×{result.quantity}</span>
-          <span style={{ color: "#445" }}>{formatDollarsFromCents(result.valueCents)}</span>
+          <span style={{ color: "#445" }}>
+            {formatDollarsFromCents(result.valueCents)}
+          </span>
         </span>
       ))}
     </div>
@@ -364,7 +420,8 @@ function VcsMailer({
             stage === "opening"
               ? "conic-gradient(from 0deg, transparent, rgba(255,255,255,0.28), transparent, rgba(249,211,107,0.28), transparent)"
               : "radial-gradient(circle, rgba(255,255,255,0.09), transparent 56%)",
-          animation: stage === "opening" ? "vcsRevealSpin 1.4s linear infinite" : "none",
+          animation:
+            stage === "opening" ? "vcsRevealSpin 1.4s linear infinite" : "none",
           opacity: stage === "revealed" ? 0.32 : 1,
         }}
       />
@@ -400,7 +457,8 @@ function VcsMailer({
                 : stage === "revealed"
                   ? "translateY(0) scale(0.98)"
                   : "translateY(0)",
-            transition: "transform 550ms ease, background 550ms ease, box-shadow 550ms ease",
+            transition:
+              "transform 550ms ease, background 550ms ease, box-shadow 550ms ease",
             overflow: "hidden",
             position: "relative",
           }}
@@ -416,7 +474,10 @@ function VcsMailer({
                 stage === "opening"
                   ? "linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent)"
                   : "rgba(122,82,0,0.32)",
-              boxShadow: stage === "opening" ? "0 0 28px rgba(255,255,255,0.9)" : "none",
+              boxShadow:
+                stage === "opening"
+                  ? "0 0 28px rgba(255,255,255,0.9)"
+                  : "none",
             }}
           />
 
@@ -458,7 +519,10 @@ function VcsMailer({
               style={{
                 borderRadius: 999,
                 border: "1px solid rgba(255,255,255,0.4)",
-                background: stage === "revealed" ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.48)",
+                background:
+                  stage === "revealed"
+                    ? "rgba(255,255,255,0.12)"
+                    : "rgba(255,255,255,0.48)",
                 padding: "6px 9px",
                 color: stage === "revealed" ? "#fff" : "#2a1c08",
                 fontSize: 11,
@@ -488,7 +552,9 @@ function VcsMailer({
                 textAlign: "center",
               }}
             >
-              {stage === "revealed" ? "Slab certified" : "Your VCS return is sealed"}
+              {stage === "revealed"
+                ? "Slab certified"
+                : "Your VCS return is sealed"}
             </div>
 
             <div
@@ -533,6 +599,306 @@ function VcsMailer({
   );
 }
 
+function InteractiveRevealSlab({
+  payload,
+  result,
+}: {
+  payload: RevealPayload;
+  result: GradingResultRow;
+}) {
+  const tone = getRevealTone(result.grade);
+
+  const [tiltX, setTiltX] = useState(0);
+  const [tiltY, setTiltY] = useState(0);
+  const [shineX, setShineX] = useState(50);
+  const [shineY, setShineY] = useState(35);
+  const [isHolding, setIsHolding] = useState(false);
+
+  const gestureRef = useRef<SlabInteraction>({
+    pointerId: null,
+    pointerType: "",
+    startX: 0,
+    startY: 0,
+    axis: null,
+  });
+
+  function centerSlab() {
+    setTiltX(0);
+    setTiltY(0);
+    setShineX(50);
+    setShineY(35);
+    setIsHolding(false);
+
+    gestureRef.current = {
+      pointerId: null,
+      pointerType: "",
+      startX: 0,
+      startY: 0,
+      axis: null,
+    };
+  }
+
+  function applyPosition(
+    e: ReactPointerEvent<HTMLDivElement>,
+    allowTouch: boolean
+  ) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+
+    const px = clamp((e.clientX - rect.left) / rect.width, 0, 1);
+    const py = clamp((e.clientY - rect.top) / rect.height, 0, 1);
+
+    const horizontal = (px - 0.5) * 2;
+    const vertical = (py - 0.5) * 2;
+
+    if (e.pointerType === "touch" && !allowTouch) return;
+
+    setTiltY(horizontal * 3.2);
+    setTiltX(vertical * -2.7);
+    setShineX(px * 100);
+    setShineY(py * 100);
+  }
+
+  function onPointerDown(e: ReactPointerEvent<HTMLDivElement>) {
+    gestureRef.current = {
+      pointerId: e.pointerId,
+      pointerType: e.pointerType,
+      startX: e.clientX,
+      startY: e.clientY,
+      axis: null,
+    };
+
+    if (e.pointerType !== "mouse") {
+      setIsHolding(true);
+
+      try {
+        e.currentTarget.setPointerCapture(e.pointerId);
+      } catch {
+        // Pointer capture is helpful but not required.
+      }
+    } else {
+      applyPosition(e, true);
+    }
+  }
+
+  function onPointerMove(e: ReactPointerEvent<HTMLDivElement>) {
+    if (e.pointerType === "mouse") {
+      applyPosition(e, true);
+      return;
+    }
+
+    const gesture = gestureRef.current;
+    if (gesture.pointerId !== e.pointerId) return;
+
+    const dx = e.clientX - gesture.startX;
+    const dy = e.clientY - gesture.startY;
+    const absX = Math.abs(dx);
+    const absY = Math.abs(dy);
+
+    if (!gesture.axis && (absX > 8 || absY > 8)) {
+      gesture.axis = absX > absY * 1.15 ? "horizontal" : "vertical";
+    }
+
+    if (gesture.axis !== "horizontal") return;
+
+    e.preventDefault();
+    applyPosition(e, true);
+  }
+
+  function onPointerUp(e: ReactPointerEvent<HTMLDivElement>) {
+    if (e.pointerType !== "mouse") {
+      try {
+        e.currentTarget.releasePointerCapture(e.pointerId);
+      } catch {
+        // Ignore if capture has already been released.
+      }
+    }
+
+    centerSlab();
+  }
+
+  return (
+    <div
+      className={`vcsInteractiveSlab vcsInteractiveSlab-${tone.key}`}
+      style={{
+        width: "100%",
+        maxWidth: 430,
+        position: "relative",
+        perspective: 1100,
+        touchAction: "pan-y",
+        userSelect: "none",
+        WebkitUserSelect: "none",
+      }}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerCancel={centerSlab}
+      onPointerLeave={(e) => {
+        if (e.pointerType === "mouse") centerSlab();
+      }}
+      title="Move across the slab to catch the light"
+    >
+      <div
+        className="vcsRevealAura"
+        style={{
+          position: "absolute",
+          inset: "-8% -10% -10%",
+          background: tone.aura,
+          filter: "blur(13px)",
+          pointerEvents: "none",
+          borderRadius: 40,
+          opacity: result.grade >= 10 ? 1 : result.grade >= 9 ? 0.82 : 0.65,
+        }}
+      />
+
+      <div
+        className="vcsSlabShadow"
+        style={{
+          position: "absolute",
+          left: "11%",
+          right: "11%",
+          bottom: -18,
+          height: 45,
+          borderRadius: "50%",
+          background: "rgba(0,0,0,0.44)",
+          filter: "blur(18px)",
+          transform: `translate3d(${-tiltY * 2.2}px, ${3 + tiltX * 1.1}px, 0) scaleX(${
+            0.94 - Math.abs(tiltY) * 0.007
+          })`,
+          opacity: 0.72,
+          transition: isHolding
+            ? "none"
+            : "transform 280ms cubic-bezier(.2,.8,.2,1)",
+          pointerEvents: "none",
+        }}
+      />
+
+      <div
+        className="vcsSlabPhysical"
+        style={{
+          position: "relative",
+          zIndex: 2,
+          transform: `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(2px)`,
+          transformStyle: "preserve-3d",
+          transformOrigin: "50% 52%",
+          transition: isHolding
+            ? "none"
+            : "transform 280ms cubic-bezier(.2,.85,.2,1), filter 280ms ease",
+          filter:
+            Math.abs(tiltX) + Math.abs(tiltY) > 0.4
+              ? "brightness(1.02)"
+              : "brightness(1)",
+          cursor: "grab",
+        }}
+      >
+        <VcsSlab
+          player={payload.card.player}
+          cardNumber={payload.card.cardNumber}
+          setName={getSlabSetName(payload.card)}
+          team={payload.card.team}
+          grade={result.grade}
+          gradeability={payload.gradeability}
+          gradeabilityLabel={payload.gradeabilityLabel}
+          valueCents={result.valueCents}
+          quantity={result.quantity}
+          imageUrl={payload.card.frontImageUrl}
+        />
+
+        <div
+          style={{
+            position: "absolute",
+            inset: 1,
+            zIndex: 20,
+            borderRadius: 34,
+            pointerEvents: "none",
+            overflow: "hidden",
+            boxShadow: `inset 0 0 0 1px ${tone.edge}`,
+          }}
+        >
+          <div
+            className="vcsInteractiveReflection"
+            style={{
+              position: "absolute",
+              inset: "-26%",
+              background: `radial-gradient(circle at ${shineX}% ${shineY}%, rgba(255,255,255,0.34), rgba(255,255,255,0.09) 18%, transparent 38%)`,
+              transform: `translate3d(${tiltY * 2}px, ${-tiltX * 2}px, 0)`,
+              opacity:
+                Math.abs(tiltX) + Math.abs(tiltY) > 0.25 ? 0.9 : 0.52,
+              transition: isHolding ? "none" : "all 280ms ease",
+              mixBlendMode: "screen",
+            }}
+          />
+
+          <div
+            className="vcsPlasticSheen"
+            style={{
+              position: "absolute",
+              top: "-10%",
+              bottom: "-10%",
+              left: `${shineX - 26}%`,
+              width: "34%",
+              background:
+                "linear-gradient(90deg, transparent, rgba(255,255,255,0.05), rgba(255,255,255,0.24), rgba(255,255,255,0.04), transparent)",
+              transform: `skewX(-14deg) translateX(${tiltY * 1.5}px)`,
+              filter: "blur(1px)",
+              opacity: 0.72,
+              transition: isHolding ? "none" : "all 280ms ease",
+            }}
+          />
+        </div>
+      </div>
+
+      <div
+        className="vcsRevealGradeSweep"
+        style={{
+          position: "absolute",
+          zIndex: 5,
+          top: "-16%",
+          bottom: "-16%",
+          left: "-55%",
+          width: "48%",
+          background: tone.sweep,
+          filter: result.grade >= 10 ? "blur(0.2px)" : "blur(0.7px)",
+          transform: "skewX(-12deg)",
+          pointerEvents: "none",
+          mixBlendMode: "screen",
+          animation:
+            result.grade >= 10
+              ? "vcsGradeSweep 1.35s cubic-bezier(.15,.72,.3,1) 400ms both"
+              : result.grade >= 9
+                ? "vcsGradeSweep 1.15s cubic-bezier(.15,.72,.3,1) 470ms both"
+                : result.grade >= 8
+                  ? "vcsGradeSweep 1.05s cubic-bezier(.15,.72,.3,1) 500ms both"
+                  : "vcsGradeSweep 900ms ease 520ms both",
+        }}
+      />
+
+      {result.grade >= 10 ? (
+        <>
+          <div className="vcsGemSpark vcsGemSpark1" />
+          <div className="vcsGemSpark vcsGemSpark2" />
+          <div className="vcsGemSpark vcsGemSpark3" />
+        </>
+      ) : null}
+
+      <div
+        className="vcsSlabTouchHint"
+        style={{
+          marginTop: 12,
+          textAlign: "center",
+          color: "#94a3b8",
+          fontSize: 10.5,
+          lineHeight: 1.25,
+          fontWeight: 800,
+          letterSpacing: 0.1,
+        }}
+      >
+        Drag gently to catch the light
+      </div>
+    </div>
+  );
+}
+
 function RevealModal({
   payload,
   stage,
@@ -547,6 +913,7 @@ function RevealModal({
   onClose: () => void;
 }) {
   const primary = getPrimaryResult(payload?.results ?? []);
+  const revealTone = primary ? getRevealTone(primary.grade) : null;
 
   return (
     <div
@@ -557,10 +924,13 @@ function RevealModal({
         inset: 0,
         zIndex: 3000,
         background:
-          "radial-gradient(circle at 50% 16%, rgba(22,71,125,0.34), transparent 34%), rgba(5,7,12,0.84)",
+          stage === "revealed" && revealTone
+            ? `radial-gradient(circle at 72% 40%, ${revealTone.glow}, transparent 29%), radial-gradient(circle at 50% 16%, rgba(22,71,125,0.34), transparent 34%), rgba(5,7,12,0.84)`
+            : "radial-gradient(circle at 50% 16%, rgba(22,71,125,0.34), transparent 34%), rgba(5,7,12,0.84)",
         backdropFilter: "blur(12px)",
         overflowY: "auto",
         padding: 16,
+        transition: "background 650ms ease",
       }}
     >
       <style>
@@ -569,27 +939,154 @@ function RevealModal({
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
           }
+
           @keyframes vcsSlabRise {
-            0% { opacity: 0; transform: translateY(42px) scale(0.92) rotateX(12deg); filter: blur(10px); }
-            55% { opacity: 1; transform: translateY(-8px) scale(1.02) rotateX(0deg); filter: blur(0); }
-            100% { opacity: 1; transform: translateY(0) scale(1) rotateX(0deg); filter: blur(0); }
+            0% {
+              opacity: 0;
+              transform: translateY(42px) scale(0.92) rotateX(12deg);
+              filter: blur(10px);
+            }
+            55% {
+              opacity: 1;
+              transform: translateY(-8px) scale(1.02) rotateX(0deg);
+              filter: blur(0);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0) scale(1) rotateX(0deg);
+              filter: blur(0);
+            }
           }
-          @keyframes vcsShimmer {
-            0% { transform: translateX(-120%) rotate(18deg); }
-            100% { transform: translateX(160%) rotate(18deg); }
+
+          @keyframes vcsGradeSweep {
+            0% {
+              opacity: 0;
+              transform: translateX(0) skewX(-12deg);
+            }
+            14% {
+              opacity: 1;
+            }
+            100% {
+              opacity: 0;
+              transform: translateX(390%) skewX(-12deg);
+            }
           }
+
+          @keyframes vcsGradeAura {
+            0% { opacity: 0; transform: scale(0.87); }
+            45% { opacity: 1; transform: scale(1.04); }
+            100% { opacity: 0.68; transform: scale(1); }
+          }
+
+          @keyframes vcsGemSpark {
+            0%, 22% { opacity: 0; transform: scale(0.2) rotate(0deg); }
+            45% { opacity: 1; transform: scale(1.15) rotate(42deg); }
+            72%, 100% { opacity: 0; transform: scale(0.35) rotate(90deg); }
+          }
+
+          .vcsRevealAura {
+            animation: vcsGradeAura 1.45s cubic-bezier(.2,.8,.2,1) 220ms both;
+          }
+
+          .vcsGemSpark {
+            position: absolute;
+            z-index: 8;
+            width: 18px;
+            height: 18px;
+            pointer-events: none;
+            opacity: 0;
+          }
+
+          .vcsGemSpark::before,
+          .vcsGemSpark::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background: rgba(255, 243, 187, 0.96);
+            border-radius: 999px;
+            box-shadow: 0 0 12px rgba(255, 211, 86, 0.9);
+            transform: translate(-50%, -50%);
+          }
+
+          .vcsGemSpark::before {
+            width: 2px;
+            height: 18px;
+          }
+
+          .vcsGemSpark::after {
+            width: 18px;
+            height: 2px;
+          }
+
+          .vcsGemSpark1 {
+            top: 11%;
+            right: 7%;
+            animation: vcsGemSpark 1.2s ease 520ms both;
+          }
+
+          .vcsGemSpark2 {
+            top: 43%;
+            left: 2%;
+            animation: vcsGemSpark 1.15s ease 720ms both;
+          }
+
+          .vcsGemSpark3 {
+            bottom: 15%;
+            right: 10%;
+            animation: vcsGemSpark 1.1s ease 860ms both;
+          }
+
+          .vcsSlabPhysical:active {
+            cursor: grabbing !important;
+          }
+
+          @media (hover: hover) and (pointer: fine) {
+            .vcsInteractiveSlab:hover .vcsSlabTouchHint {
+              color: #d5dde8 !important;
+            }
+          }
+
           @media (max-width: 720px) {
             .vcsRevealGrid {
               grid-template-columns: 1fr !important;
             }
+
             .vcsRevealTitle {
               font-size: 28px !important;
+            }
+
+            .vcsInteractiveSlab {
+              max-width: 390px !important;
+            }
+          }
+
+          @media (prefers-reduced-motion: reduce) {
+            .vcsRevealAura,
+            .vcsRevealGradeSweep,
+            .vcsGemSpark {
+              animation: none !important;
+            }
+
+            .vcsSlabPhysical,
+            .vcsSlabShadow,
+            .vcsInteractiveReflection,
+            .vcsPlasticSheen {
+              transition: none !important;
             }
           }
         `}
       </style>
 
-      <div style={{ maxWidth: 1080, margin: "0 auto", minHeight: "100%", display: "grid", alignItems: "center" }}>
+      <div
+        style={{
+          maxWidth: 1080,
+          margin: "0 auto",
+          minHeight: "100%",
+          display: "grid",
+          alignItems: "center",
+        }}
+      >
         <div
           style={{
             borderRadius: 30,
@@ -614,7 +1111,14 @@ function RevealModal({
           />
 
           <div style={{ position: "relative", zIndex: 2 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", gap: 12, alignItems: "flex-start" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: 12,
+                alignItems: "flex-start",
+              }}
+            >
               <div>
                 <div
                   style={{
@@ -627,6 +1131,7 @@ function RevealModal({
                 >
                   VCS Grading Return
                 </div>
+
                 <div
                   className="vcsRevealTitle"
                   style={{
@@ -637,9 +1142,19 @@ function RevealModal({
                     letterSpacing: -1.2,
                   }}
                 >
-                  {stage === "revealed" ? "Your slab is back." : "Mail day is here."}
+                  {stage === "revealed"
+                    ? "Your slab is back."
+                    : "Mail day is here."}
                 </div>
-                <div style={{ marginTop: 7, color: "#cbd5e1", fontWeight: 800, fontSize: 14 }}>
+
+                <div
+                  style={{
+                    marginTop: 7,
+                    color: "#cbd5e1",
+                    fontWeight: 800,
+                    fontSize: 14,
+                  }}
+                >
                   {payload?.card
                     ? `#${payload.card.cardNumber} — ${payload.card.player}`
                     : "Open the sealed VCS mailer to reveal the graded card."}
@@ -669,13 +1184,21 @@ function RevealModal({
               style={{
                 marginTop: 18,
                 display: "grid",
-                gridTemplateColumns: stage === "revealed" && primary && payload ? "minmax(300px, 0.9fr) minmax(320px, 1.1fr)" : "1fr",
+                gridTemplateColumns:
+                  stage === "revealed" && primary && payload
+                    ? "minmax(300px, 0.9fr) minmax(320px, 1.1fr)"
+                    : "1fr",
                 gap: 18,
                 alignItems: "center",
                 justifyItems: "center",
               }}
             >
-              <VcsMailer stage={stage} payload={payload} onReveal={onOpenMailer} isOpening={isOpening} />
+              <VcsMailer
+                stage={stage}
+                payload={payload}
+                onReveal={onOpenMailer}
+                isOpening={isOpening}
+              />
 
               {stage === "revealed" && primary && payload ? (
                 <div
@@ -684,37 +1207,17 @@ function RevealModal({
                     display: "grid",
                     justifyItems: "center",
                     gap: 12,
-                    animation: "vcsSlabRise 900ms cubic-bezier(.2,.9,.2,1) both",
+                    animation:
+                      "vcsSlabRise 900ms cubic-bezier(.2,.9,.2,1) both",
                     position: "relative",
-                    overflow: "hidden",
+                    overflow: "visible",
                     borderRadius: 30,
                     padding: 8,
                   }}
                 >
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: -80,
-                      bottom: -80,
-                      width: 90,
-                      background:
-                        "linear-gradient(90deg, transparent, rgba(255,255,255,0.52), transparent)",
-                      animation: "vcsShimmer 1.35s ease 420ms both",
-                      pointerEvents: "none",
-                    }}
-                  />
-
-                  <VcsSlab
-                    player={payload.card.player}
-                    cardNumber={payload.card.cardNumber}
-                    setName={getSlabSetName(payload.card)}
-                    team={payload.card.team}
-                    grade={primary.grade}
-                    gradeability={payload.gradeability}
-                    gradeabilityLabel={payload.gradeabilityLabel}
-                    valueCents={primary.valueCents}
-                    quantity={primary.quantity}
-                    imageUrl={payload.card.frontImageUrl}
+                  <InteractiveRevealSlab
+                    payload={payload}
+                    result={primary}
                   />
 
                   <div
@@ -725,7 +1228,8 @@ function RevealModal({
                       border: "1px solid rgba(255,255,255,0.14)",
                       background: "rgba(255,255,255,0.08)",
                       padding: 12,
-                      boxShadow: "inset 0 1px 0 rgba(255,255,255,0.12)",
+                      boxShadow:
+                        "inset 0 1px 0 rgba(255,255,255,0.12)",
                     }}
                   >
                     <div
@@ -738,15 +1242,36 @@ function RevealModal({
                       }}
                     >
                       <div>
-                        <div style={{ color: "#f9d36b", fontWeight: 1000, fontSize: 13 }}>
+                        <div
+                          style={{
+                            color: "#f9d36b",
+                            fontWeight: 1000,
+                            fontSize: 13,
+                          }}
+                        >
                           Revealed value
                         </div>
-                        <div style={{ color: "#fff", fontWeight: 1000, fontSize: 22 }}>
-                          {formatDollarsFromCents(payload.totalRevealedValueCents)}
+                        <div
+                          style={{
+                            color: "#fff",
+                            fontWeight: 1000,
+                            fontSize: 22,
+                          }}
+                        >
+                          {formatDollarsFromCents(
+                            payload.totalRevealedValueCents
+                          )}
                         </div>
                       </div>
 
-                      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "flex-end" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          gap: 8,
+                          flexWrap: "wrap",
+                          justifyContent: "flex-end",
+                        }}
+                      >
                         <Link
                           href={`/cards/${payload.card.id}`}
                           onClick={onClose}
@@ -763,12 +1288,14 @@ function RevealModal({
                         >
                           Card Details
                         </Link>
+
                         <Link
                           href="/collection/slabs"
                           onClick={onClose}
                           style={{
                             border: "1px solid rgba(249,211,107,0.7)",
-                            background: "linear-gradient(135deg, #6f4700, #d89b1d)",
+                            background:
+                              "linear-gradient(135deg, #6f4700, #d89b1d)",
                             color: "#1b1202",
                             borderRadius: 999,
                             padding: "9px 11px",
@@ -826,8 +1353,10 @@ export default function GradingPage() {
   const [tick, setTick] = useState(0);
 
   const [revealOrderId, setRevealOrderId] = useState<number | null>(null);
-  const [revealPayload, setRevealPayload] = useState<RevealPayload | null>(null);
-  const [revealStage, setRevealStage] = useState<RevealStage>("closed");
+  const [revealPayload, setRevealPayload] =
+    useState<RevealPayload | null>(null);
+  const [revealStage, setRevealStage] =
+    useState<RevealStage>("closed");
 
   async function load(nextFilter = filter, nextPage = page) {
     setLoading(true);
@@ -849,11 +1378,18 @@ export default function GradingPage() {
       try {
         json = raw ? JSON.parse(raw) : null;
       } catch {
-        throw new Error(`Grading orders returned non-JSON (${res.status}): ${raw.slice(0, 180)}`);
+        throw new Error(
+          `Grading orders returned non-JSON (${res.status}): ${raw.slice(
+            0,
+            180
+          )}`
+        );
       }
 
       if (!res.ok || !json?.ok) {
-        throw new Error(json?.error ?? `Failed to load grading orders (${res.status})`);
+        throw new Error(
+          json?.error ?? `Failed to load grading orders (${res.status})`
+        );
       }
 
       const nextData = json as ApiResponse;
@@ -889,8 +1425,13 @@ export default function GradingPage() {
 
   function goToPage(nextPage: number) {
     const totalPages = data?.totalPages ?? 1;
-    const safePage = Math.max(1, Math.min(totalPages, Math.floor(nextPage)));
+    const safePage = Math.max(
+      1,
+      Math.min(totalPages, Math.floor(nextPage))
+    );
+
     if (safePage === page) return;
+
     setPage(safePage);
     setPageJump(String(safePage));
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -898,10 +1439,12 @@ export default function GradingPage() {
 
   function submitPageJump() {
     const parsed = Number.parseInt(pageJump, 10);
+
     if (!Number.isInteger(parsed)) {
       setPageJump(String(page));
       return;
     }
+
     goToPage(parsed);
   }
 
@@ -939,11 +1482,18 @@ export default function GradingPage() {
       try {
         json = raw ? JSON.parse(raw) : null;
       } catch {
-        throw new Error(`Reveal returned non-JSON (${res.status}): ${raw.slice(0, 180)}`);
+        throw new Error(
+          `Reveal returned non-JSON (${res.status}): ${raw.slice(
+            0,
+            180
+          )}`
+        );
       }
 
       if (!res.ok || !json?.ok) {
-        throw new Error(json?.error ?? `Failed to reveal order (${res.status})`);
+        throw new Error(
+          json?.error ?? `Failed to reveal order (${res.status})`
+        );
       }
 
       setRevealPayload(json as RevealPayload);
@@ -975,7 +1525,9 @@ export default function GradingPage() {
   const totalOrders = data?.totalOrders ?? 0;
   const totalPages = data?.totalPages ?? 1;
   const pageSize = data?.pageSize ?? 25;
-  const firstOrderNumber = totalOrders === 0 ? 0 : (page - 1) * pageSize + 1;
+
+  const firstOrderNumber =
+    totalOrders === 0 ? 0 : (page - 1) * pageSize + 1;
   const lastOrderNumber = Math.min(totalOrders, page * pageSize);
 
   return (
@@ -1185,7 +1737,9 @@ export default function GradingPage() {
         <RevealModal
           payload={revealPayload}
           stage={revealStage}
-          isOpening={revealingId === revealOrderId || revealStage === "opening"}
+          isOpening={
+            revealingId === revealOrderId || revealStage === "opening"
+          }
           onOpenMailer={() => reveal(revealOrderId)}
           onClose={closeRevealModal}
         />
@@ -1205,15 +1759,27 @@ export default function GradingPage() {
           <div>
             <h1
               className="gradingPageTitle"
-              style={{ fontSize: 34, fontWeight: 950, marginTop: 0, marginBottom: 6 }}
+              style={{
+                fontSize: 34,
+                fontWeight: 950,
+                marginTop: 0,
+                marginBottom: 6,
+              }}
             >
               VCS Grading
             </h1>
+
             <div
               className="gradingPageSubtitle"
-              style={{ color: colors.subtext, fontSize: 14, fontWeight: 750, lineHeight: 1.45 }}
+              style={{
+                color: colors.subtext,
+                fontSize: 14,
+                fontWeight: 750,
+                lineHeight: 1.45,
+              }}
             >
-              Open ready mailers, track pending cards, and review your revealed grades.
+              Open ready mailers, track pending cards, and review your
+              revealed grades.
             </div>
           </div>
 
@@ -1244,7 +1810,9 @@ export default function GradingPage() {
           </div>
         </div>
 
-        <hr style={{ margin: "13px 0", borderColor: colors.border }} />
+        <hr
+          style={{ margin: "13px 0", borderColor: colors.border }}
+        />
 
         <div
           className="gradingStatusPanel"
@@ -1257,10 +1825,15 @@ export default function GradingPage() {
           }}
         >
           <div className="gradingStatusFilters">
-            {(["ALL", "PENDING", "READY", "REVEALED"] as StatusFilter[]).map((status) => {
+            {(
+              ["ALL", "PENDING", "READY", "REVEALED"] as StatusFilter[]
+            ).map((status) => {
               const count = data?.counts?.[status] ?? 0;
               const active = filter === status;
-              const label = status === "ALL" ? "All" : status[0] + status.slice(1).toLowerCase();
+              const label =
+                status === "ALL"
+                  ? "All"
+                  : status[0] + status.slice(1).toLowerCase();
 
               return (
                 <button
@@ -1290,7 +1863,10 @@ export default function GradingPage() {
                   {label}
                   <span
                     className="gradingStatusButtonCount"
-                    style={{ color: active ? "inherit" : colors.mutedText, marginLeft: 4 }}
+                    style={{
+                      color: active ? "inherit" : colors.mutedText,
+                      marginLeft: 4,
+                    }}
                   >
                     {count}
                   </span>
@@ -1318,12 +1894,20 @@ export default function GradingPage() {
         ) : null}
 
         {!loading && totalOrders > 0 ? (
-          <div className="gradingPagination" style={{ marginBottom: 10 }}>
+          <div
+            className="gradingPagination"
+            style={{ marginBottom: 10 }}
+          >
             <div
               className="gradingPaginationSummary"
-              style={{ color: colors.mutedText, fontWeight: 800, fontSize: 12 }}
+              style={{
+                color: colors.mutedText,
+                fontWeight: 800,
+                fontSize: 12,
+              }}
             >
-              Showing {firstOrderNumber}–{lastOrderNumber} of {totalOrders}
+              Showing {firstOrderNumber}–{lastOrderNumber} of{" "}
+              {totalOrders}
             </div>
 
             <div className="gradingPaginationActions">
@@ -1335,9 +1919,17 @@ export default function GradingPage() {
               >
                 ‹ Prev
               </button>
-              <span style={{ fontSize: 11.5, fontWeight: 900, whiteSpace: "nowrap" }}>
+
+              <span
+                style={{
+                  fontSize: 11.5,
+                  fontWeight: 900,
+                  whiteSpace: "nowrap",
+                }}
+              >
                 {page} / {totalPages}
               </span>
+
               <button
                 type="button"
                 onClick={() => goToPage(page + 1)}
@@ -1349,7 +1941,14 @@ export default function GradingPage() {
             </div>
 
             {totalPages > 1 ? (
-              <div className="gradingJump" style={{ display: "flex", gap: 5, alignItems: "center" }}>
+              <div
+                className="gradingJump"
+                style={{
+                  display: "flex",
+                  gap: 5,
+                  alignItems: "center",
+                }}
+              >
                 <input
                   type="number"
                   min={1}
@@ -1370,6 +1969,7 @@ export default function GradingPage() {
                     fontSize: 11,
                   }}
                 />
+
                 <button
                   type="button"
                   onClick={submitPageJump}
@@ -1383,7 +1983,13 @@ export default function GradingPage() {
         ) : null}
 
         {loading ? (
-          <div style={{ color: colors.subtext, fontWeight: 900, fontSize: 13 }}>
+          <div
+            style={{
+              color: colors.subtext,
+              fontWeight: 900,
+              fontSize: 13,
+            }}
+          >
             Loading grading orders…
           </div>
         ) : orders.length === 0 ? (
@@ -1407,23 +2013,43 @@ export default function GradingPage() {
                   : "No grading orders yet. Go to a collection set, choose a raw card, and submit it for VCS grading."}
           </div>
         ) : (
-          <div className="gradingOrderList" style={{ display: "grid", gap: 10 }}>
+          <div
+            className="gradingOrderList"
+            style={{ display: "grid", gap: 10 }}
+          >
             {orders.map((order) => {
               const canReveal = order.status === "READY";
               const isRevealing = revealingId === order.id;
-              const isRevealed = order.status === "REVEALED" || order.status === "COMPLETED";
+              const isRevealed =
+                order.status === "REVEALED" ||
+                order.status === "COMPLETED";
+
               const remainingMs =
                 order.status === "PENDING" && order.readyAt
-                  ? Math.max(0, new Date(order.readyAt).getTime() - Date.now())
+                  ? Math.max(
+                      0,
+                      new Date(order.readyAt).getTime() - Date.now()
+                    )
                   : order.millisecondsRemaining;
 
               return (
                 <div key={order.id} className="gradingOrderCard">
-                  <ImgThumb src={order.card.frontImageUrl} alt={order.card.player} />
+                  <ImgThumb
+                    src={order.card.frontImageUrl}
+                    alt={order.card.player}
+                  />
 
                   <div style={{ minWidth: 0 }}>
-                    <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: 6,
+                        alignItems: "center",
+                        flexWrap: "wrap",
+                      }}
+                    >
                       <StatusPill status={order.status} />
+
                       {order.quantity > 1 ? (
                         <span
                           style={{
@@ -1439,7 +2065,12 @@ export default function GradingPage() {
 
                     <div
                       className="gradingCardTitle"
-                      style={{ marginTop: 6, fontWeight: 950, fontSize: 16.5, lineHeight: 1.2 }}
+                      style={{
+                        marginTop: 6,
+                        fontWeight: 950,
+                        fontSize: 16.5,
+                        lineHeight: 1.2,
+                      }}
                     >
                       #{order.card.cardNumber} — {order.card.player}
                     </div>
@@ -1455,9 +2086,15 @@ export default function GradingPage() {
                       }}
                     >
                       {getSetNameFromCard(order.card)}
-                      {order.card.team ? ` • ${order.card.team}` : ""}
-                      {order.card.subset ? ` • ${order.card.subset}` : ""}
-                      {order.card.variant ? ` • ${order.card.variant}` : ""}
+                      {order.card.team
+                        ? ` • ${order.card.team}`
+                        : ""}
+                      {order.card.subset
+                        ? ` • ${order.card.subset}`
+                        : ""}
+                      {order.card.variant
+                        ? ` • ${order.card.variant}`
+                        : ""}
                     </div>
 
                     <div
@@ -1471,14 +2108,25 @@ export default function GradingPage() {
                     >
                       {order.status === "PENDING" ? (
                         <>
-                          Raw {formatDollarsFromCents(order.rawBookValueCents)}
+                          Raw{" "}
+                          {formatDollarsFromCents(
+                            order.rawBookValueCents
+                          )}
                           <span style={{ color: colors.mutedText }}>
-                            {" "}• Ready in {formatRemaining(remainingMs + tick * 0)}
+                            {" "}
+                            • Ready in{" "}
+                            {formatRemaining(remainingMs + tick * 0)}
                           </span>
                         </>
                       ) : canReveal ? (
-                        <>Raw {formatDollarsFromCents(order.rawBookValueCents)}</>
-                      ) : isRevealed && order.results.length > 0 ? (
+                        <>
+                          Raw{" "}
+                          {formatDollarsFromCents(
+                            order.rawBookValueCents
+                          )}
+                        </>
+                      ) : isRevealed &&
+                        order.results.length > 0 ? (
                         <ResultPills results={order.results} />
                       ) : null}
                     </div>
@@ -1492,7 +2140,10 @@ export default function GradingPage() {
                           fontSize: 11.5,
                         }}
                       >
-                        Value {formatDollarsFromCents(order.totalRevealedValueCents)}
+                        Value{" "}
+                        {formatDollarsFromCents(
+                          order.totalRevealedValueCents
+                        )}
                       </div>
                     ) : null}
                   </div>
@@ -1507,8 +2158,11 @@ export default function GradingPage() {
                           background: isRevealing
                             ? "#f0d28a"
                             : "linear-gradient(135deg, #6f4700, #d89b1d 50%, #fff0a8)",
-                          cursor: isRevealing ? "not-allowed" : "pointer",
-                          boxShadow: "0 8px 20px rgba(122,82,0,0.14)",
+                          cursor: isRevealing
+                            ? "not-allowed"
+                            : "pointer",
+                          boxShadow:
+                            "0 8px 20px rgba(122,82,0,0.14)",
                         }}
                       >
                         {isRevealing ? "Opening…" : "Open Mailer"}
@@ -1552,9 +2206,17 @@ export default function GradingPage() {
             >
               ‹ Prev
             </button>
-            <span style={{ color: colors.mutedText, fontWeight: 850, fontSize: 11.5 }}>
+
+            <span
+              style={{
+                color: colors.mutedText,
+                fontWeight: 850,
+                fontSize: 11.5,
+              }}
+            >
               Page {page} of {totalPages}
             </span>
+
             <button
               type="button"
               onClick={() => goToPage(page + 1)}
