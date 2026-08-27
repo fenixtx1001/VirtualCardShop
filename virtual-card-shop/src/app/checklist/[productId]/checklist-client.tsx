@@ -320,7 +320,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
       nextDir = sortDir === "asc" ? "desc" : "asc";
     } else {
       // sensible defaults
-      if (nextKey === "owned" || nextKey === "qty") nextDir = "desc";
+      if (nextKey === "owned" || nextKey === "qty" || nextKey === "bookValue") nextDir = "desc";
       else nextDir = "asc";
     }
 
