@@ -1,6 +1,10 @@
 // src/app/api/grading/orders/route.ts
 import { NextResponse } from "next/server";
-import type { Gradeability, GradingOrderStatus } from "@prisma/client";
+import type {
+  Gradeability,
+  GradingOrderStatus,
+  Prisma,
+} from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
 import {
@@ -19,6 +23,11 @@ type ClientGradingOrderStatus =
   | "REVEALED"
   | "CANCELLED"
   | "COMPLETED";
+
+type StatusFilter = ClientGradingOrderStatus | "ALL";
+
+const DEFAULT_PAGE_SIZE = 25;
+const MAX_PAGE_SIZE = 100;
 
 function getErrorStatus(e: unknown) {
   if (
@@ -64,7 +73,7 @@ function getMillisecondsRemaining(input: {
   return Math.max(0, input.readyAt.getTime() - input.now.getTime());
 }
 
-function parseStatusFilter(value: string | null): ClientGradingOrderStatus | "ALL" {
+function parseStatusFilter(value: string | null): StatusFilter {
   if (
     value === "PENDING" ||
     value === "READY" ||
@@ -78,27 +87,153 @@ function parseStatusFilter(value: string | null): ClientGradingOrderStatus | "AL
   return "ALL";
 }
 
+function parsePositiveInt(value: string | null, fallback: number) {
+  const parsed = Number.parseInt(value ?? "", 10);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+function buildWhere(input: {
+  userId: string;
+  statusFilter: StatusFilter;
+  now: Date;
+}): Prisma.GradingOrderWhereInput {
+  const { userId, statusFilter, now } = input;
+
+  if (statusFilter === "PENDING") {
+    return {
+      userId,
+      status: {
+        notIn: ["CANCELLED", "REVEALED", "COMPLETED"],
+      },
+      OR: [{ readyAt: null }, { readyAt: { gt: now } }],
+    };
+  }
+
+  if (statusFilter === "READY") {
+    return {
+      userId,
+      status: {
+        notIn: ["CANCELLED", "REVEALED", "COMPLETED"],
+      },
+      readyAt: {
+        lte: now,
+      },
+    };
+  }
+
+  if (statusFilter === "REVEALED") {
+    return {
+      userId,
+      status: {
+        in: ["REVEALED", "COMPLETED"],
+      },
+    };
+  }
+
+  if (statusFilter === "COMPLETED") {
+    return {
+      userId,
+      status: "COMPLETED",
+    };
+  }
+
+  if (statusFilter === "CANCELLED") {
+    return {
+      userId,
+      status: "CANCELLED",
+    };
+  }
+
+  return {
+    userId,
+    status: {
+      not: "CANCELLED",
+    },
+  };
+}
+
+function getOrderBy(
+  statusFilter: StatusFilter
+): Prisma.GradingOrderOrderByWithRelationInput[] {
+  if (statusFilter === "REVEALED" || statusFilter === "COMPLETED") {
+    return [
+      { revealedAt: "desc" },
+      { createdAt: "desc" },
+      { id: "desc" },
+    ];
+  }
+
+  return [
+    { readyAt: "asc" },
+    { createdAt: "desc" },
+    { id: "desc" },
+  ];
+}
+
 export async function GET(req: Request) {
   try {
     const user = await requireUser();
 
     const url = new URL(req.url);
     const statusFilter = parseStatusFilter(url.searchParams.get("status"));
+    const requestedPage = parsePositiveInt(url.searchParams.get("page"), 1);
+    const pageSize = Math.min(
+      parsePositiveInt(url.searchParams.get("pageSize"), DEFAULT_PAGE_SIZE),
+      MAX_PAGE_SIZE
+    );
 
     const now = new Date();
 
+    const [
+      allCount,
+      pendingCount,
+      readyCount,
+      revealedCount,
+      completedCount,
+      cancelledCount,
+    ] = await prisma.$transaction([
+      prisma.gradingOrder.count({
+        where: buildWhere({ userId: user.id, statusFilter: "ALL", now }),
+      }),
+      prisma.gradingOrder.count({
+        where: buildWhere({ userId: user.id, statusFilter: "PENDING", now }),
+      }),
+      prisma.gradingOrder.count({
+        where: buildWhere({ userId: user.id, statusFilter: "READY", now }),
+      }),
+      prisma.gradingOrder.count({
+        where: buildWhere({ userId: user.id, statusFilter: "REVEALED", now }),
+      }),
+      prisma.gradingOrder.count({
+        where: buildWhere({ userId: user.id, statusFilter: "COMPLETED", now }),
+      }),
+      prisma.gradingOrder.count({
+        where: buildWhere({ userId: user.id, statusFilter: "CANCELLED", now }),
+      }),
+    ]);
+
+    const counts = {
+      ALL: allCount,
+      PENDING: pendingCount,
+      READY: readyCount,
+      REVEALED: revealedCount,
+      CANCELLED: cancelledCount,
+      COMPLETED: completedCount,
+    } satisfies Record<StatusFilter, number>;
+
+    const totalOrders = counts[statusFilter];
+    const totalPages = Math.max(1, Math.ceil(totalOrders / pageSize));
+    const page = Math.min(requestedPage, totalPages);
+
     const orders = await prisma.gradingOrder.findMany({
-      where: {
+      where: buildWhere({
         userId: user.id,
-        status: {
-          not: "CANCELLED",
-        },
-      },
-      orderBy: [
-        { readyAt: "asc" },
-        { createdAt: "desc" },
-        { id: "desc" },
-      ],
+        statusFilter,
+        now,
+      }),
+      orderBy: getOrderBy(statusFilter),
+      skip: (page - 1) * pageSize,
+      take: pageSize,
       select: {
         id: true,
         quantity: true,
@@ -229,33 +364,16 @@ export async function GET(req: Request) {
       };
     });
 
-    const filteredOrders =
-      statusFilter === "ALL"
-        ? mappedOrders
-        : mappedOrders.filter((order) => order.status === statusFilter);
-
-    const counts = mappedOrders.reduce(
-      (acc, order) => {
-        acc.ALL += 1;
-        acc[order.status] += 1;
-        return acc;
-      },
-      {
-        ALL: 0,
-        PENDING: 0,
-        READY: 0,
-        REVEALED: 0,
-        CANCELLED: 0,
-        COMPLETED: 0,
-      } satisfies Record<ClientGradingOrderStatus | "ALL", number>
-    );
-
     return NextResponse.json({
       ok: true,
       now,
       statusFilter,
       counts,
-      orders: filteredOrders,
+      page,
+      pageSize,
+      totalPages,
+      totalOrders,
+      orders: mappedOrders,
     });
   } catch (e: unknown) {
     const status = getErrorStatus(e);

@@ -2,7 +2,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import VcsSlab from "@/components/grading/VcsSlab";
 
 type GradingResultRow = {
@@ -95,10 +95,14 @@ type ApiResponse = {
     CANCELLED: number;
     COMPLETED: number;
   };
+  page: number;
+  pageSize: number;
+  totalPages: number;
+  totalOrders: number;
   orders: GradingOrderRow[];
 };
 
-type StatusFilter = "ALL" | "PENDING" | "READY" | "REVEALED" | "COMPLETED";
+type StatusFilter = "ALL" | "PENDING" | "READY" | "REVEALED";
 
 const colors = {
   bg: "#fbfaf7",
@@ -176,7 +180,7 @@ function getStatusStyle(status: GradingOrderRow["status"]) {
       background: colors.greenSoft,
       color: colors.green,
       border: "#b8d8bd",
-      label: status === "COMPLETED" ? "Completed" : "Revealed",
+      label: "Revealed",
     };
   }
 
@@ -222,8 +226,8 @@ function ImgThumb({ src, alt }: { src: string | null; alt: string }) {
     return (
       <div
         style={{
-          width: 54,
-          height: 74,
+          width: 72,
+          height: 98,
           borderRadius: 8,
           border: `1px dashed ${colors.border}`,
           background: colors.muted,
@@ -247,8 +251,8 @@ function ImgThumb({ src, alt }: { src: string | null; alt: string }) {
       decoding="async"
       onError={() => setBroken(true)}
       style={{
-        width: 54,
-        height: 74,
+        width: 72,
+        height: 98,
         objectFit: "cover",
         borderRadius: 8,
         border: `1px solid ${colors.border}`,
@@ -271,8 +275,8 @@ function StatusPill({ status }: { status: GradingOrderRow["status"] }) {
         background: s.background,
         color: s.color,
         borderRadius: 999,
-        padding: "5px 8px",
-        fontSize: 12,
+        padding: "4px 7px",
+        fontSize: 11,
         fontWeight: 950,
         whiteSpace: "nowrap",
       }}
@@ -298,8 +302,8 @@ function ResultPills({ results }: { results: GradingResultRow[] }) {
             background: colors.blueSoft,
             color: colors.blue,
             borderRadius: 999,
-            padding: "5px 8px",
-            fontSize: 12,
+            padding: "4px 7px",
+            fontSize: 11,
             fontWeight: 950,
           }}
         >
@@ -813,26 +817,29 @@ function RevealModal({
 
 export default function GradingPage() {
   const [data, setData] = useState<ApiResponse | null>(null);
-  const [filter, setFilter] = useState<StatusFilter>("ALL");
+  const [filter, setFilter] = useState<StatusFilter>("READY");
+  const [page, setPage] = useState(1);
+  const [pageJump, setPageJump] = useState("1");
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
   const [revealingId, setRevealingId] = useState<number | null>(null);
-  const [notice, setNotice] = useState<string | null>(null);
   const [tick, setTick] = useState(0);
 
   const [revealOrderId, setRevealOrderId] = useState<number | null>(null);
   const [revealPayload, setRevealPayload] = useState<RevealPayload | null>(null);
   const [revealStage, setRevealStage] = useState<RevealStage>("closed");
 
-  async function load(nextFilter = filter) {
+  async function load(nextFilter = filter, nextPage = page) {
     setLoading(true);
     setErr(null);
 
     try {
       const qs = new URLSearchParams();
       if (nextFilter !== "ALL") qs.set("status", nextFilter);
+      qs.set("page", String(nextPage));
+      qs.set("pageSize", "25");
 
-      const res = await fetch(`/api/grading/orders${qs.toString() ? `?${qs.toString()}` : ""}`, {
+      const res = await fetch(`/api/grading/orders?${qs.toString()}`, {
         cache: "no-store",
       });
 
@@ -849,7 +856,22 @@ export default function GradingPage() {
         throw new Error(json?.error ?? `Failed to load grading orders (${res.status})`);
       }
 
-      setData(json as ApiResponse);
+      const nextData = json as ApiResponse;
+      setData(nextData);
+
+      if (nextData.page !== nextPage) {
+        setPage(nextData.page);
+      }
+      setPageJump(String(nextData.page));
+
+      if (
+        nextFilter === "READY" &&
+        nextData.counts.READY === 0 &&
+        nextData.counts.PENDING > 0
+      ) {
+        setFilter("PENDING");
+        setPage(1);
+      }
     } catch (e: any) {
       setErr(e?.message ?? "Failed to load grading orders");
       setData(null);
@@ -858,11 +880,35 @@ export default function GradingPage() {
     }
   }
 
+  function chooseFilter(nextFilter: StatusFilter) {
+    if (nextFilter === filter) return;
+    setFilter(nextFilter);
+    setPage(1);
+    setPageJump("1");
+  }
+
+  function goToPage(nextPage: number) {
+    const totalPages = data?.totalPages ?? 1;
+    const safePage = Math.max(1, Math.min(totalPages, Math.floor(nextPage)));
+    if (safePage === page) return;
+    setPage(safePage);
+    setPageJump(String(safePage));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function submitPageJump() {
+    const parsed = Number.parseInt(pageJump, 10);
+    if (!Number.isInteger(parsed)) {
+      setPageJump(String(page));
+      return;
+    }
+    goToPage(parsed);
+  }
+
   function openRevealModal(orderId: number) {
     setRevealOrderId(orderId);
     setRevealPayload(null);
     setRevealStage("closed");
-    setNotice(null);
     setErr(null);
   }
 
@@ -875,7 +921,6 @@ export default function GradingPage() {
   async function reveal(orderId: number) {
     setRevealingId(orderId);
     setRevealStage("opening");
-    setNotice(null);
     setErr(null);
 
     try {
@@ -907,7 +952,7 @@ export default function GradingPage() {
         setRevealStage("revealed");
       }, 850);
 
-      await load(filter);
+      await load(filter, page);
     } catch (e: any) {
       setRevealStage("closed");
       setErr(e?.message ?? "Failed to reveal order");
@@ -917,9 +962,9 @@ export default function GradingPage() {
   }
 
   useEffect(() => {
-    load(filter);
+    load(filter, page);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filter]);
+  }, [filter, page]);
 
   useEffect(() => {
     const id = window.setInterval(() => setTick((x) => x + 1), 1000);
@@ -927,21 +972,215 @@ export default function GradingPage() {
   }, []);
 
   const orders = data?.orders ?? [];
-
-  const pendingAndReadyCount = useMemo(() => {
-    return orders.filter((order) => order.status === "PENDING" || order.status === "READY").length;
-  }, [orders]);
+  const totalOrders = data?.totalOrders ?? 0;
+  const totalPages = data?.totalPages ?? 1;
+  const pageSize = data?.pageSize ?? 25;
+  const firstOrderNumber = totalOrders === 0 ? 0 : (page - 1) * pageSize + 1;
+  const lastOrderNumber = Math.min(totalOrders, page * pageSize);
 
   return (
     <main
+      className="gradingPage"
       style={{
         background: colors.bg,
         minHeight: "calc(100vh - 80px)",
         padding: 20,
         color: colors.text,
-        fontFamily: "system-ui",
       }}
     >
+      <style>
+        {`
+          .gradingHeaderActions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+          }
+
+          .gradingStatusFilters {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 6px;
+          }
+
+          .gradingStatusButton {
+            min-width: 0;
+            border-radius: 11px;
+            padding: 8px 8px;
+            font-size: 12px;
+            line-height: 1.1;
+            font-weight: 950;
+            cursor: pointer;
+            white-space: nowrap;
+          }
+
+          .gradingPagination {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+          }
+
+          .gradingPaginationActions {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+          }
+
+          .gradingOrderCard {
+            background: ${colors.card};
+            border: 1px solid ${colors.border};
+            border-radius: 15px;
+            padding: 11px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.025);
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            gap: 12px;
+            align-items: center;
+          }
+
+          .gradingOrderActions {
+            display: grid;
+            gap: 7px;
+            justify-items: end;
+            align-self: stretch;
+            align-content: center;
+          }
+
+          .gradingOpenMailer {
+            border: 1px solid #7a5200;
+            color: #1b1202;
+            border-radius: 999px;
+            padding: 9px 12px;
+            font-weight: 1000;
+            white-space: nowrap;
+          }
+
+          @media (max-width: 720px) {
+            .gradingPage {
+              padding: 12px 10px 18px !important;
+            }
+
+            .gradingPageHeader {
+              gap: 10px !important;
+            }
+
+            .gradingPageTitle {
+              font-size: 27px !important;
+              margin-bottom: 3px !important;
+            }
+
+            .gradingPageSubtitle {
+              font-size: 12.5px !important;
+              line-height: 1.35 !important;
+            }
+
+            .gradingHeaderActions {
+              width: 100%;
+              gap: 6px;
+            }
+
+            .gradingHeaderActions > * {
+              flex: 1 1 0;
+              text-align: center;
+              justify-content: center;
+              min-height: 36px;
+              padding: 8px 8px !important;
+              font-size: 12px;
+            }
+
+            .gradingStatusPanel {
+              padding: 8px !important;
+              border-radius: 13px !important;
+              margin-bottom: 10px !important;
+            }
+
+            .gradingStatusButton {
+              padding: 7px 4px;
+              font-size: 11px;
+            }
+
+            .gradingStatusButtonCount {
+              display: block;
+              margin-top: 2px;
+              font-size: 10px;
+              font-weight: 850;
+            }
+
+            .gradingPagination {
+              gap: 7px;
+              margin-bottom: 9px !important;
+            }
+
+            .gradingPaginationSummary {
+              width: 100%;
+              font-size: 11px !important;
+            }
+
+            .gradingPaginationActions {
+              flex: 1;
+            }
+
+            .gradingPaginationActions button {
+              min-height: 32px;
+              padding: 6px 9px !important;
+              font-size: 11px;
+            }
+
+            .gradingJump {
+              margin-left: auto;
+            }
+
+            .gradingOrderList {
+              gap: 8px !important;
+            }
+
+            .gradingOrderCard {
+              grid-template-columns: 72px minmax(0, 1fr);
+              gap: 10px;
+              padding: 9px;
+              align-items: start;
+            }
+
+            .gradingOrderActions {
+              grid-column: 2;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 8px;
+              align-self: auto;
+              margin-top: 2px;
+            }
+
+            .gradingOpenMailer {
+              padding: 8px 10px !important;
+              font-size: 11px;
+            }
+
+            .gradingCardTitle {
+              font-size: 15px !important;
+              line-height: 1.18 !important;
+              margin-top: 5px !important;
+            }
+
+            .gradingCardMeta {
+              margin-top: 2px !important;
+              font-size: 11.5px !important;
+              line-height: 1.3 !important;
+            }
+
+            .gradingCardValueLine {
+              margin-top: 6px !important;
+              font-size: 11.5px !important;
+            }
+
+            .gradingCardDetails {
+              font-size: 11.5px !important;
+            }
+          }
+        `}
+      </style>
+
       {revealOrderId != null ? (
         <RevealModal
           payload={revealPayload}
@@ -953,266 +1192,323 @@ export default function GradingPage() {
       ) : null}
 
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 14, flexWrap: "wrap" }}>
+        <div
+          className="gradingPageHeader"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            gap: 14,
+            flexWrap: "wrap",
+          }}
+        >
           <div>
-            <h1 style={{ fontSize: 34, fontWeight: 950, marginTop: 0, marginBottom: 6 }}>
+            <h1
+              className="gradingPageTitle"
+              style={{ fontSize: 34, fontWeight: 950, marginTop: 0, marginBottom: 6 }}
+            >
               VCS Grading
             </h1>
-            <div style={{ color: colors.subtext, fontSize: 14, fontWeight: 750, lineHeight: 1.45 }}>
-              Track pending grading submissions, open ready mailers, and review revealed VCS grades.
+            <div
+              className="gradingPageSubtitle"
+              style={{ color: colors.subtext, fontSize: 14, fontWeight: 750, lineHeight: 1.45 }}
+            >
+              Open ready mailers, track pending cards, and review your revealed grades.
             </div>
           </div>
 
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+          <div className="gradingHeaderActions">
             <button
-              onClick={() => load(filter)}
+              onClick={() => load(filter, page)}
               disabled={loading}
-              style={{
-                border: `1px solid ${colors.border}`,
-                background: colors.muted,
-                borderRadius: 10,
-                padding: "9px 12px",
-                fontWeight: 950,
-                cursor: loading ? "not-allowed" : "pointer",
-              }}
+              className="vcs-button vcs-button-secondary vcs-button-compact"
             >
               {loading ? "Refreshing…" : "Refresh"}
             </button>
 
             <Link
               href="/collection/slabs"
-              style={{
-                border: `1px solid ${colors.border}`,
-                background: colors.card,
-                borderRadius: 10,
-                padding: "9px 12px",
-                fontWeight: 950,
-                color: colors.text,
-                textDecoration: "none",
-              }}
+              className="vcs-button vcs-button-secondary vcs-button-compact"
+              style={{ textDecoration: "none" }}
             >
               Slab Gallery
             </Link>
 
             <Link
               href="/collection"
-              style={{
-                border: `1px solid ${colors.border}`,
-                background: colors.card,
-                borderRadius: 10,
-                padding: "9px 12px",
-                fontWeight: 950,
-                color: colors.text,
-                textDecoration: "none",
-              }}
+              className="vcs-button vcs-button-secondary vcs-button-compact"
+              style={{ textDecoration: "none" }}
             >
               Collection
             </Link>
           </div>
         </div>
 
-        <hr style={{ margin: "16px 0", borderColor: colors.border }} />
+        <hr style={{ margin: "13px 0", borderColor: colors.border }} />
 
         <div
+          className="gradingStatusPanel"
           style={{
             background: colors.card,
             border: `1px solid ${colors.border}`,
-            borderRadius: 16,
-            padding: 12,
-            marginBottom: 14,
-            display: "flex",
-            gap: 8,
-            flexWrap: "wrap",
-            alignItems: "center",
+            borderRadius: 15,
+            padding: 10,
+            marginBottom: 11,
           }}
         >
-          {(["ALL", "PENDING", "READY", "REVEALED", "COMPLETED"] as StatusFilter[]).map((status) => {
-            const count = data?.counts?.[status] ?? 0;
-            const active = filter === status;
+          <div className="gradingStatusFilters">
+            {(["ALL", "PENDING", "READY", "REVEALED"] as StatusFilter[]).map((status) => {
+              const count = data?.counts?.[status] ?? 0;
+              const active = filter === status;
+              const label = status === "ALL" ? "All" : status[0] + status.slice(1).toLowerCase();
 
-            return (
-              <button
-                key={status}
-                onClick={() => setFilter(status)}
-                style={{
-                  border: `1px solid ${active ? colors.blue : colors.border}`,
-                  background: active ? colors.blueSoft : "#fff",
-                  color: active ? colors.blue : colors.text,
-                  borderRadius: 999,
-                  padding: "7px 10px",
-                  fontWeight: 950,
-                  cursor: "pointer",
-                }}
-              >
-                {status === "ALL" ? "All" : status[0] + status.slice(1).toLowerCase()}{" "}
-                <span style={{ color: colors.mutedText }}>({count})</span>
-              </button>
-            );
-          })}
-
-          <div style={{ marginLeft: "auto", color: colors.mutedText, fontWeight: 850, fontSize: 13 }}>
-            Active mailers: {pendingAndReadyCount}
+              return (
+                <button
+                  key={status}
+                  className="gradingStatusButton"
+                  onClick={() => chooseFilter(status)}
+                  style={{
+                    border: `1px solid ${
+                      active
+                        ? status === "READY"
+                          ? "#d7ad49"
+                          : colors.blue
+                        : colors.border
+                    }`,
+                    background: active
+                      ? status === "READY"
+                        ? colors.goldSoft
+                        : colors.blueSoft
+                      : "#fff",
+                    color: active
+                      ? status === "READY"
+                        ? colors.gold
+                        : colors.blue
+                      : colors.text,
+                  }}
+                >
+                  {label}
+                  <span
+                    className="gradingStatusButtonCount"
+                    style={{ color: active ? "inherit" : colors.mutedText, marginLeft: 4 }}
+                  >
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
-
-        {notice ? (
-          <div
-            style={{
-              marginBottom: 12,
-              padding: 12,
-              background: colors.greenSoft,
-              border: "1px solid #b8d8bd",
-              borderRadius: 12,
-              color: colors.green,
-              fontWeight: 900,
-            }}
-          >
-            {notice}
-          </div>
-        ) : null}
 
         {err ? (
           <div
             style={{
-              marginBottom: 12,
-              padding: 12,
+              marginBottom: 10,
+              padding: 10,
               background: colors.redSoft,
               border: "1px solid #f3b7b7",
-              borderRadius: 12,
+              borderRadius: 11,
               color: colors.red,
               fontWeight: 900,
+              fontSize: 12,
             }}
           >
             {err}
           </div>
         ) : null}
 
+        {!loading && totalOrders > 0 ? (
+          <div className="gradingPagination" style={{ marginBottom: 10 }}>
+            <div
+              className="gradingPaginationSummary"
+              style={{ color: colors.mutedText, fontWeight: 800, fontSize: 12 }}
+            >
+              Showing {firstOrderNumber}–{lastOrderNumber} of {totalOrders}
+            </div>
+
+            <div className="gradingPaginationActions">
+              <button
+                type="button"
+                onClick={() => goToPage(page - 1)}
+                disabled={page <= 1 || loading}
+                className="vcs-button vcs-button-secondary vcs-button-compact"
+              >
+                ‹ Prev
+              </button>
+              <span style={{ fontSize: 11.5, fontWeight: 900, whiteSpace: "nowrap" }}>
+                {page} / {totalPages}
+              </span>
+              <button
+                type="button"
+                onClick={() => goToPage(page + 1)}
+                disabled={page >= totalPages || loading}
+                className="vcs-button vcs-button-secondary vcs-button-compact"
+              >
+                Next ›
+              </button>
+            </div>
+
+            {totalPages > 1 ? (
+              <div className="gradingJump" style={{ display: "flex", gap: 5, alignItems: "center" }}>
+                <input
+                  type="number"
+                  min={1}
+                  max={totalPages}
+                  value={pageJump}
+                  onChange={(e) => setPageJump(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") submitPageJump();
+                  }}
+                  aria-label="Jump to grading page"
+                  style={{
+                    width: 48,
+                    minHeight: 32,
+                    border: `1px solid ${colors.border}`,
+                    borderRadius: 9,
+                    padding: "5px 6px",
+                    fontWeight: 850,
+                    fontSize: 11,
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={submitPageJump}
+                  className="vcs-button vcs-button-secondary vcs-button-compact"
+                >
+                  Go
+                </button>
+              </div>
+            ) : null}
+          </div>
+        ) : null}
+
         {loading ? (
-          <div style={{ color: colors.subtext, fontWeight: 900 }}>Loading grading orders…</div>
+          <div style={{ color: colors.subtext, fontWeight: 900, fontSize: 13 }}>
+            Loading grading orders…
+          </div>
         ) : orders.length === 0 ? (
           <div
             style={{
               background: colors.card,
               border: `1px solid ${colors.border}`,
-              borderRadius: 16,
-              padding: 18,
+              borderRadius: 15,
+              padding: 16,
               color: colors.subtext,
-              fontWeight: 850,
+              fontWeight: 800,
+              fontSize: 13,
             }}
           >
-            No grading orders yet. Go to a collection set, choose a raw card, and submit it for VCS grading.
+            {filter === "READY"
+              ? "No mailers are ready to reveal."
+              : filter === "PENDING"
+                ? "No grading orders are currently pending."
+                : filter === "REVEALED"
+                  ? "No revealed grading orders yet."
+                  : "No grading orders yet. Go to a collection set, choose a raw card, and submit it for VCS grading."}
           </div>
         ) : (
-          <div style={{ display: "grid", gap: 12 }}>
+          <div className="gradingOrderList" style={{ display: "grid", gap: 10 }}>
             {orders.map((order) => {
               const canReveal = order.status === "READY";
               const isRevealing = revealingId === order.id;
-              const statusStyle = getStatusStyle(order.status);
+              const isRevealed = order.status === "REVEALED" || order.status === "COMPLETED";
+              const remainingMs =
+                order.status === "PENDING" && order.readyAt
+                  ? Math.max(0, new Date(order.readyAt).getTime() - Date.now())
+                  : order.millisecondsRemaining;
 
               return (
-                <div
-                  key={`${order.id}-${tick}`}
-                  style={{
-                    background: colors.card,
-                    border: `1px solid ${colors.border}`,
-                    borderRadius: 16,
-                    padding: 14,
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.03)",
-                    display: "grid",
-                    gridTemplateColumns: "auto 1fr auto",
-                    gap: 12,
-                    alignItems: "start",
-                  }}
-                >
+                <div key={order.id} className="gradingOrderCard">
                   <ImgThumb src={order.card.frontImageUrl} alt={order.card.player} />
 
                   <div style={{ minWidth: 0 }}>
-                    <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+                    <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
                       <StatusPill status={order.status} />
-                      <span
-                        style={{
-                          display: "inline-flex",
-                          border: "1px solid #ddd",
-                          background: "#f7f7f7",
-                          color: "#333",
-                          borderRadius: 999,
-                          padding: "5px 8px",
-                          fontSize: 12,
-                          fontWeight: 950,
-                        }}
-                      >
-                        {order.gradeabilityLabel}
-                      </span>
+                      {order.quantity > 1 ? (
+                        <span
+                          style={{
+                            color: colors.mutedText,
+                            fontSize: 10.5,
+                            fontWeight: 900,
+                          }}
+                        >
+                          Qty {order.quantity}
+                        </span>
+                      ) : null}
                     </div>
 
-                    <div style={{ marginTop: 8, fontWeight: 950, fontSize: 17 }}>
+                    <div
+                      className="gradingCardTitle"
+                      style={{ marginTop: 6, fontWeight: 950, fontSize: 16.5, lineHeight: 1.2 }}
+                    >
                       #{order.card.cardNumber} — {order.card.player}
                     </div>
 
-                    <div style={{ marginTop: 3, color: colors.mutedText, fontWeight: 750, fontSize: 13 }}>
+                    <div
+                      className="gradingCardMeta"
+                      style={{
+                        marginTop: 3,
+                        color: colors.mutedText,
+                        fontWeight: 750,
+                        fontSize: 12.5,
+                        lineHeight: 1.35,
+                      }}
+                    >
                       {getSetNameFromCard(order.card)}
                       {order.card.team ? ` • ${order.card.team}` : ""}
                       {order.card.subset ? ` • ${order.card.subset}` : ""}
                       {order.card.variant ? ` • ${order.card.variant}` : ""}
                     </div>
 
-                    <div style={{ marginTop: 8, display: "flex", gap: 14, flexWrap: "wrap", color: colors.subtext, fontSize: 13 }}>
-                      <span>
-                        <b>Qty:</b> {order.quantity}
-                      </span>
-                      <span>
-                        <b>Fee paid:</b> {formatDollarsFromCents(order.feePaidCents)}
-                      </span>
-                      <span>
-                        <b>Raw value:</b> {formatDollarsFromCents(order.rawBookValueCents)}
-                      </span>
-                      <span>
-                        <b>Submitted:</b> {formatDateTime(order.createdAt)}
-                      </span>
-                      <span>
-                        <b>Ready:</b> {formatDateTime(order.readyAt)}
-                      </span>
+                    <div
+                      className="gradingCardValueLine"
+                      style={{
+                        marginTop: 7,
+                        color: colors.subtext,
+                        fontWeight: 800,
+                        fontSize: 12.5,
+                      }}
+                    >
+                      {order.status === "PENDING" ? (
+                        <>
+                          Raw {formatDollarsFromCents(order.rawBookValueCents)}
+                          <span style={{ color: colors.mutedText }}>
+                            {" "}• Ready in {formatRemaining(remainingMs + tick * 0)}
+                          </span>
+                        </>
+                      ) : canReveal ? (
+                        <>Raw {formatDollarsFromCents(order.rawBookValueCents)}</>
+                      ) : isRevealed && order.results.length > 0 ? (
+                        <ResultPills results={order.results} />
+                      ) : null}
                     </div>
 
-                    {order.status === "PENDING" ? (
-                      <div style={{ marginTop: 8, color: colors.blue, fontWeight: 900, fontSize: 13 }}>
-                        Time remaining: {formatRemaining(order.millisecondsRemaining)}
-                      </div>
-                    ) : null}
-
-                    {order.status === "READY" ? (
-                      <div style={{ marginTop: 8, color: statusStyle.color, fontWeight: 950, fontSize: 13 }}>
-                        Your VCS return mailer is ready to open.
-                      </div>
-                    ) : null}
-
-                    {order.results.length > 0 ? (
-                      <div style={{ marginTop: 10, display: "grid", gap: 7 }}>
-                        <ResultPills results={order.results} />
-                        <div style={{ color: colors.green, fontWeight: 950, fontSize: 13 }}>
-                          Total revealed value: {formatDollarsFromCents(order.totalRevealedValueCents)}
-                        </div>
+                    {isRevealed && order.results.length > 0 ? (
+                      <div
+                        style={{
+                          marginTop: 5,
+                          color: colors.green,
+                          fontWeight: 900,
+                          fontSize: 11.5,
+                        }}
+                      >
+                        Value {formatDollarsFromCents(order.totalRevealedValueCents)}
                       </div>
                     ) : null}
                   </div>
 
-                  <div style={{ display: "grid", gap: 8, justifyItems: "end" }}>
+                  <div className="gradingOrderActions">
                     {canReveal ? (
                       <button
                         onClick={() => openRevealModal(order.id)}
                         disabled={isRevealing}
+                        className="gradingOpenMailer"
                         style={{
-                          border: "1px solid #7a5200",
                           background: isRevealing
                             ? "#f0d28a"
                             : "linear-gradient(135deg, #6f4700, #d89b1d 50%, #fff0a8)",
-                          color: "#1b1202",
-                          borderRadius: 999,
-                          padding: "10px 13px",
-                          fontWeight: 1000,
                           cursor: isRevealing ? "not-allowed" : "pointer",
-                          whiteSpace: "nowrap",
-                          boxShadow: canReveal ? "0 10px 24px rgba(122,82,0,0.18)" : "none",
+                          boxShadow: "0 8px 20px rgba(122,82,0,0.14)",
                         }}
                       >
                         {isRevealing ? "Opening…" : "Open Mailer"}
@@ -1221,10 +1517,11 @@ export default function GradingPage() {
 
                     <Link
                       href={`/cards/${order.card.id}`}
+                      className="gradingCardDetails"
                       style={{
                         color: colors.blue,
                         fontWeight: 900,
-                        fontSize: 13,
+                        fontSize: 12.5,
                         whiteSpace: "nowrap",
                       }}
                     >
@@ -1236,6 +1533,38 @@ export default function GradingPage() {
             })}
           </div>
         )}
+
+        {!loading && totalPages > 1 && orders.length > 0 ? (
+          <div
+            style={{
+              marginTop: 11,
+              display: "flex",
+              justifyContent: "center",
+              gap: 8,
+              alignItems: "center",
+            }}
+          >
+            <button
+              type="button"
+              onClick={() => goToPage(page - 1)}
+              disabled={page <= 1}
+              className="vcs-button vcs-button-secondary vcs-button-compact"
+            >
+              ‹ Prev
+            </button>
+            <span style={{ color: colors.mutedText, fontWeight: 850, fontSize: 11.5 }}>
+              Page {page} of {totalPages}
+            </span>
+            <button
+              type="button"
+              onClick={() => goToPage(page + 1)}
+              disabled={page >= totalPages}
+              className="vcs-button vcs-button-secondary vcs-button-compact"
+            >
+              Next ›
+            </button>
+          </div>
+        ) : null}
       </div>
     </main>
   );
