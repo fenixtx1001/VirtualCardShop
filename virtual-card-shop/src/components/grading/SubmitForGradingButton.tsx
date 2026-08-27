@@ -2,6 +2,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import {
+  GRADING_FEE_BPS,
+  MIN_GRADING_FEE_CENTS,
+  bookValueToCents,
+  calculateGradingFeeCents,
+} from "@/lib/grading";
 
 type SubmitForGradingButtonProps = {
   cardId: number;
@@ -27,9 +33,8 @@ function formatDollarsFromCents(cents: number) {
 }
 
 function calculateEstimatedFeeCents(bookValue: number | null | undefined, quantity: number) {
-  const rawBookValue = safeNum(bookValue, 0);
-  const rawBookValueCents = Math.max(0, Math.round(rawBookValue * 100));
-  const feePerCardCents = Math.max(200, Math.round(rawBookValueCents * 0.15));
+  const rawBookValueCents = bookValueToCents(bookValue);
+  const feePerCardCents = calculateGradingFeeCents(rawBookValueCents);
 
   return {
     rawBookValueCents,
@@ -200,7 +205,8 @@ export default function SubmitForGradingButton({
       </div>
 
       <div style={{ fontSize: 12, color: "#445", fontWeight: 750 }}>
-        Fee is 15% of raw value with a $2 minimum. Grade reveal timing depends on card gradeability.
+        Fee is {(GRADING_FEE_BPS / 100).toFixed(0)}% of raw value with a{" "}
+        {formatDollarsFromCents(MIN_GRADING_FEE_CENTS)} minimum. Grades reveal after 24 hours.
       </div>
 
       {message ? (
