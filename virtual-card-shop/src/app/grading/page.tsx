@@ -1182,23 +1182,22 @@ function RevealModal({
             <div
               className="vcsRevealGrid"
               style={{
-                marginTop: 18,
+                marginTop: stage === "revealed" ? 10 : 18,
                 display: "grid",
-                gridTemplateColumns:
-                  stage === "revealed" && primary && payload
-                    ? "minmax(300px, 0.9fr) minmax(320px, 1.1fr)"
-                    : "1fr",
+                gridTemplateColumns: "1fr",
                 gap: 18,
                 alignItems: "center",
                 justifyItems: "center",
               }}
             >
-              <VcsMailer
-                stage={stage}
-                payload={payload}
-                onReveal={onOpenMailer}
-                isOpening={isOpening}
-              />
+              {stage !== "revealed" ? (
+                <VcsMailer
+                  stage={stage}
+                  payload={payload}
+                  onReveal={onOpenMailer}
+                  isOpening={isOpening}
+                />
+              ) : null}
 
               {stage === "revealed" && primary && payload ? (
                 <div
