@@ -48,6 +48,7 @@ type PackMeta = {
 };
 
 type CardMotion = "next" | "prev" | null;
+type SwipeCommit = "next" | "prev" | null;
 
 type PointerGesture = {
   pointerId: number | null;
@@ -153,6 +154,7 @@ export default function OpenPackClient({
   const [dragX, setDragX] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [cardMotion, setCardMotion] = useState<CardMotion>(null);
+  const [swipeCommit, setSwipeCommit] = useState<SwipeCommit>(null);
 
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -167,10 +169,12 @@ export default function OpenPackClient({
   });
 
   const motionTimerRef = useRef<number | null>(null);
+  const swipeTimerRef = useRef<number | null>(null);
 
   const cards = data?.cards ?? [];
   const current = cards[idx] ?? null;
   const prevCard = idx > 0 ? cards[idx - 1] : null;
+  const nextCard = idx < cards.length - 1 ? cards[idx + 1] : null;
 
   const currentInsertLabel = getInsertLabel(current);
   const currentInsertOddsLabel = getInsertOddsLabel(current);
@@ -242,6 +246,33 @@ export default function OpenPackClient({
       if (motionTimerRef.current) {
         window.clearTimeout(motionTimerRef.current);
       }
+      if (swipeTimerRef.current) {
+        window.clearTimeout(swipeTimerRef.current);
+      }
+    };
+  }, []);
+
+  // The entire mobile open-pack route is an immersive rip experience,
+  // including the sealed-pack screen before the user taps Open.
+  useEffect(() => {
+    const activate = () => {
+      window.dispatchEvent(
+        new CustomEvent(RIP_MODE_EVENT, {
+          detail: true,
+        })
+      );
+    };
+
+    activate();
+    const t = window.setTimeout(activate, 0);
+
+    return () => {
+      window.clearTimeout(t);
+      window.dispatchEvent(
+        new CustomEvent(RIP_MODE_EVENT, {
+          detail: false,
+        })
+      );
     };
   }, []);
 
@@ -308,6 +339,7 @@ export default function OpenPackClient({
     setDragX(0);
     setIsDragging(false);
     setCardMotion(null);
+    setSwipeCommit(null);
 
     try {
       const res = await fetch("/api/rip/open", {
@@ -345,6 +377,7 @@ export default function OpenPackClient({
 
       setTimeout(() => {
         containerRef.current?.focus();
+        window.scrollTo({ top: 0, behavior: "auto" });
       }, 0);
 
       motionTimerRef.current = window.setTimeout(() => {
@@ -371,7 +404,7 @@ export default function OpenPackClient({
   }
 
   function next() {
-    if (!canNext) return;
+    if (!canNext || swipeCommit) return;
 
     setFlipped(false);
     setDragX(0);
@@ -382,7 +415,7 @@ export default function OpenPackClient({
   }
 
   function prev() {
-    if (!canPrev) return;
+    if (!canPrev || swipeCommit) return;
 
     setFlipped(false);
     setDragX(0);
@@ -403,14 +436,54 @@ export default function OpenPackClient({
       moved: false,
     };
 
-    setDragX(0);
+    if (!swipeCommit) {
+      setDragX(0);
+      setIsDragging(false);
+    }
+  }
+
+  function commitSwipe(direction: Exclude<SwipeCommit, null>) {
+    if (swipeCommit) return;
+    if (direction === "next" && !canNext) return;
+    if (direction === "prev" && !canPrev) return;
+
+    if (motionTimerRef.current) {
+      window.clearTimeout(motionTimerRef.current);
+    }
+    if (swipeTimerRef.current) {
+      window.clearTimeout(swipeTimerRef.current);
+    }
+
+    setFlipped(false);
+    setCardMotion(null);
     setIsDragging(false);
+    setSwipeCommit(direction);
+
+    const viewportWidth =
+      typeof window !== "undefined" ? window.innerWidth : 390;
+    const exitX =
+      direction === "next"
+        ? -Math.max(viewportWidth * 1.08, 430)
+        : Math.max(viewportWidth * 1.08, 430);
+
+    setDragX(exitX);
+
+    swipeTimerRef.current = window.setTimeout(() => {
+      setIdx((v) =>
+        direction === "next"
+          ? Math.min(v + 1, cards.length - 1)
+          : Math.max(v - 1, 0)
+      );
+      setDragX(0);
+      setSwipeCommit(null);
+      setIsDragging(false);
+    }, 185);
   }
 
   function handleCardPointerDown(
     e: ReactPointerEvent<HTMLDivElement>
   ) {
-    if (!opened || !current) return;
+    if (!opened || !current || swipeCommit) return;
 
     gestureRef.current = {
       pointerId: e.pointerId,
@@ -434,7 +507,7 @@ export default function OpenPackClient({
   ) {
     const gesture = gestureRef.current;
 
-    if (gesture.pointerId !== e.pointerId) return;
+    if (gesture.pointerId !== e.pointerId || swipeCommit) return;
 
     const dx = e.clientX - gesture.startX;
     const dy = e.clientY - gesture.startY;
@@ -462,14 +535,21 @@ export default function OpenPackClient({
     let visualDx = dx;
 
     if (dx > 0 && !canPrev) {
-      visualDx *= 0.22;
+      visualDx *= 0.2;
     }
 
     if (dx < 0 && !canNext) {
-      visualDx *= 0.22;
+      visualDx *= 0.2;
     }
 
-    setDragX(clamp(visualDx, -105, 105));
+    const viewportWidth =
+      typeof window !== "undefined" ? window.innerWidth : 390;
+    const isMobileViewport = viewportWidth <= 560;
+    const maxDrag = isMobileViewport
+      ? Math.max(viewportWidth * 0.92, 330)
+      : 105;
+
+    setDragX(clamp(visualDx, -maxDrag, maxDrag));
   }
 
   function finishCardGesture(
@@ -478,7 +558,7 @@ export default function OpenPackClient({
   ) {
     const gesture = gestureRef.current;
 
-    if (gesture.pointerId !== e.pointerId) return;
+    if (gesture.pointerId !== e.pointerId || swipeCommit) return;
 
     try {
       e.currentTarget.releasePointerCapture(e.pointerId);
@@ -495,15 +575,28 @@ export default function OpenPackClient({
       absX >= 52 &&
       absX > absY
     ) {
+      const isMobileViewport =
+        typeof window !== "undefined" && window.innerWidth <= 560;
+
       if (gesture.dx < 0 && canNext) {
-        next();
-        resetGesture();
+        if (isMobileViewport) {
+          commitSwipe("next");
+          gestureRef.current.pointerId = null;
+        } else {
+          next();
+          resetGesture();
+        }
         return;
       }
 
       if (gesture.dx > 0 && canPrev) {
-        prev();
-        resetGesture();
+        if (isMobileViewport) {
+          commitSwipe("prev");
+          gestureRef.current.pointerId = null;
+        } else {
+          prev();
+          resetGesture();
+        }
         return;
       }
     }
@@ -554,7 +647,7 @@ export default function OpenPackClient({
     return () => {
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [opened, cards.length, idx, canNext, canPrev]);
+  }, [opened, cards.length, idx, canNext, canPrev, swipeCommit]);
 
   const cardFront = current?.frontImageUrl ?? null;
   const cardBack = current?.backImageUrl ?? null;
@@ -581,24 +674,6 @@ export default function OpenPackClient({
 
   const isDone = opened && !canNext;
 
-  useEffect(() => {
-    const activeRip = opened && !isDone;
-
-    window.dispatchEvent(
-      new CustomEvent(RIP_MODE_EVENT, {
-        detail: activeRip,
-      })
-    );
-
-    return () => {
-      window.dispatchEvent(
-        new CustomEvent(RIP_MODE_EVENT, {
-          detail: false,
-        })
-      );
-    };
-  }, [opened, isDone]);
-
   const currentHasPrestigeProgress = Boolean(
     current?.isNeededForNextPrestige
   );
@@ -615,8 +690,34 @@ export default function OpenPackClient({
 
   const dragRotation = dragX * 0.018;
 
+  const underCard = useMemo(() => {
+    if (!opened) return null;
+
+    if (swipeCommit === "prev") return prevCard;
+    if (swipeCommit === "next") return nextCard;
+
+    if (dragX > 8 && prevCard) return prevCard;
+    if (dragX < -8 && nextCard) return nextCard;
+
+    return nextCard ?? prevCard;
+  }, [opened, swipeCommit, dragX, prevCard, nextCard]);
+
+  const underProgress = useMemo(() => {
+    if (swipeCommit) return 1;
+    return clamp(Math.abs(dragX) / 180, 0, 1);
+  }, [dragX, swipeCommit]);
+
+  const underScale = 0.985 + underProgress * 0.015;
+  const underTranslateY = 4 - underProgress * 4;
+
   return (
-    <main className="vcs-pack-root">
+    <main
+      className={cx(
+        "vcs-pack-root",
+        opened && "is-opened",
+        isDone && "is-done"
+      )}
+    >
       <style jsx global>{`
         .vcs-pack-root {
           background:
@@ -786,6 +887,33 @@ export default function OpenPackClient({
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.035);
         }
 
+        .preopen-shell {
+          display: grid;
+          gap: 12px;
+        }
+
+        .preopen-body {
+          display: flex;
+          gap: 14px;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+
+        .preopen-pack-panel {
+          width: 300px;
+        }
+
+        .preopen-ready-panel {
+          flex: 1 1 260px;
+        }
+
+        .preopen-copy {
+          color: ${colors.subtext};
+          font-size: 13px;
+          font-weight: 750;
+          line-height: 1.45;
+        }
+
         .alert {
           border-radius: 14px;
           padding: 12px;
@@ -953,9 +1081,51 @@ export default function OpenPackClient({
           aspect-ratio: 2.5 / 3.5;
         }
 
+        .under-card-shell {
+          display: none;
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+          pointer-events: none;
+          will-change: transform;
+          transform-origin: 50% 78%;
+          transition:
+            transform 130ms ease,
+            opacity 130ms ease;
+        }
+
+        .under-card {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          border-radius: 17px;
+          background: white;
+          box-shadow:
+            0 18px 34px rgba(38, 31, 22, 0.12),
+            0 4px 10px rgba(38, 31, 22, 0.08);
+        }
+
+        .under-card img {
+          width: 100%;
+          height: 100%;
+          display: block;
+          object-fit: contain;
+          background: white;
+        }
+
+        .under-card::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          box-shadow: inset 0 0 0 1px rgba(39, 33, 24, 0.12);
+          pointer-events: none;
+        }
+
         .card-drag-shell {
           position: absolute;
           inset: 0;
+          z-index: 2;
           will-change: transform;
           transform-origin: 50% 82%;
         }
@@ -964,7 +1134,14 @@ export default function OpenPackClient({
           transition: none;
         }
 
-        .card-drag-shell:not(.dragging) {
+        .card-drag-shell.committing {
+          transition:
+            transform 185ms cubic-bezier(0.35, 0.72, 0.22, 1),
+            opacity 185ms ease;
+          opacity: 0.94;
+        }
+
+        .card-drag-shell:not(.dragging):not(.committing) {
           transition:
             transform 220ms cubic-bezier(0.22, 0.8, 0.28, 1),
             opacity 180ms ease;
@@ -1567,7 +1744,8 @@ export default function OpenPackClient({
           .btn,
           .summary-card-row,
           .face,
-          .card-drag-shell {
+          .card-drag-shell,
+          .under-card-shell {
             transition: none;
           }
         }
@@ -1588,7 +1766,9 @@ export default function OpenPackClient({
 
         @media (max-width: 560px) {
           .vcs-pack-root {
-            padding: 7px 8px 16px;
+            padding: 0 8px 12px;
+            margin-top: -52px;
+            min-height: calc(100svh - 52px);
             overflow-x: hidden;
             background:
               radial-gradient(
@@ -1604,25 +1784,42 @@ export default function OpenPackClient({
               ${colors.bg};
           }
 
+          .vcs-pack-root.is-opened:not(.is-done) {
+            height: calc(100svh - 52px);
+            min-height: 0;
+            overflow: hidden;
+          }
+
           .vcs-pack-wrap {
             width: 100%;
             max-width: 100%;
             min-width: 0;
+            height: 100%;
             overflow-x: hidden;
           }
 
+          .vcs-pack-root.is-opened:not(.is-done) .vcs-pack-wrap {
+            display: grid;
+            grid-template-rows: 1fr;
+          }
+
           .vcs-pack-hero {
-            padding: 7px 8px;
-            border-radius: 14px;
-            gap: 5px;
+            padding: 6px 8px;
+            border-radius: 0 0 14px 14px;
+            gap: 4px;
             box-shadow: none;
-            background: rgba(255, 255, 255, 0.68);
+            background: rgba(255, 255, 255, 0.62);
+            border-top: 0;
+          }
+
+          .vcs-pack-root.is-opened .vcs-pack-hero {
+            display: none;
           }
 
           .vcs-pack-title {
             min-width: 0;
             width: 100%;
-            gap: 2px;
+            gap: 1px;
           }
 
           .vcs-pack-title > div:first-child {
@@ -1631,20 +1828,20 @@ export default function OpenPackClient({
           }
 
           .vcs-pack-title > div:first-child .btn {
-            padding: 6px 8px;
-            min-height: 32px;
-            font-size: 11px;
+            padding: 5px 8px;
+            min-height: 30px;
+            font-size: 10.5px;
             border-radius: 10px;
           }
 
           .vcs-pack-title > div:first-child .pill {
-            padding: 5px 8px;
-            font-size: 10px;
+            padding: 4px 8px;
+            font-size: 9px;
           }
 
           .vcs-pack-title h1 {
-            font-size: 13px;
-            line-height: 1.15;
+            font-size: 14px;
+            line-height: 1.1;
             margin-top: 1px;
             white-space: nowrap;
             overflow: hidden;
@@ -1663,13 +1860,99 @@ export default function OpenPackClient({
             width: 100%;
             max-width: 100%;
             min-width: 0;
-            padding: 5px 4px 10px;
-            margin-top: 6px;
+            padding: 4px 2px 8px;
+            margin-top: 4px;
             border-radius: 18px;
             overflow-x: hidden;
             background: transparent;
             border-color: transparent;
             box-shadow: none;
+          }
+
+          .vcs-pack-root.is-opened:not(.is-done) .vcs-pack-stage {
+            height: 100%;
+            min-height: 0;
+            margin-top: 0;
+            padding-top: 4px;
+            overflow: hidden;
+          }
+
+          .preopen-shell {
+            gap: 6px;
+            height: calc(100svh - 112px);
+            min-height: 0;
+          }
+
+          .preopen-copy {
+            display: none;
+          }
+
+          .preopen-body {
+            min-height: 0;
+            height: 100%;
+            display: grid;
+            grid-template-rows: minmax(0, 1fr) auto;
+            gap: 8px;
+            align-items: stretch;
+          }
+
+          .preopen-pack-panel {
+            width: 100% !important;
+            min-height: 0;
+            padding: 6px !important;
+            border: 0 !important;
+            background: transparent !important;
+            display: grid;
+            grid-template-rows: auto minmax(0, 1fr);
+            justify-items: center;
+          }
+
+          .preopen-pack-panel .panel-title {
+            width: 100%;
+            margin-bottom: 3px;
+            font-size: 10px;
+            opacity: 0.72;
+          }
+
+          .preopen-pack-panel .pack-img {
+            width: auto;
+            height: 100%;
+            max-height: min(61svh, 520px);
+            max-width: min(88vw, 440px);
+            object-fit: contain;
+            border: 0;
+            border-radius: 16px;
+            box-shadow: 0 18px 36px rgba(38, 31, 22, 0.12);
+          }
+
+          .preopen-ready-panel {
+            width: 100%;
+            flex: none;
+            padding: 7px !important;
+            border-radius: 14px !important;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+          }
+
+          .preopen-ready-panel > .panel-title,
+          .preopen-ready-copy,
+          .preopen-ready-panel .hint {
+            display: none;
+          }
+
+          .preopen-ready-panel > div:last-child {
+            margin-top: 0 !important;
+            width: 100%;
+          }
+
+          .preopen-ready-panel .btn.primary {
+            width: 100%;
+            min-height: 46px;
+            justify-content: center;
+            border-radius: 14px;
+            font-size: 15px;
           }
 
           .mobile-rip-hud {
@@ -1681,12 +1964,12 @@ export default function OpenPackClient({
             gap: 0;
             width: fit-content;
             max-width: 100%;
-            margin: 0 auto 7px;
-            min-height: 31px;
-            padding: 3px 5px;
+            margin: 0 auto 4px;
+            min-height: 29px;
+            padding: 2px 4px;
             border: 1px solid rgba(218, 211, 201, 0.92);
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.84);
+            background: rgba(255, 255, 255, 0.86);
             backdrop-filter: blur(10px);
             box-shadow: 0 5px 15px rgba(40, 33, 24, 0.045);
           }
@@ -1696,7 +1979,7 @@ export default function OpenPackClient({
             align-items: baseline;
             gap: 4px;
             min-width: 0;
-            padding: 0 8px;
+            padding: 0 7px;
           }
 
           .mobile-hud-item + .mobile-hud-item {
@@ -1704,7 +1987,7 @@ export default function OpenPackClient({
           }
 
           .mobile-hud-label {
-            font-size: 8px;
+            font-size: 7.5px;
             line-height: 1;
             font-weight: 900;
             color: #827b70;
@@ -1713,7 +1996,7 @@ export default function OpenPackClient({
           }
 
           .mobile-hud-value {
-            font-size: 12px;
+            font-size: 11.5px;
             line-height: 1;
             font-weight: 1000;
             color: ${colors.text};
@@ -1728,13 +2011,13 @@ export default function OpenPackClient({
           }
 
           .mobile-hud-card {
-            margin-left: 4px;
+            margin-left: 3px;
             border-radius: 999px;
             padding: 5px 8px;
             background: #efede8;
             text-align: center;
             font-weight: 1000;
-            font-size: 11px;
+            font-size: 10.5px;
             line-height: 1;
             color: ${colors.text};
             white-space: nowrap;
@@ -1754,8 +2037,14 @@ export default function OpenPackClient({
             min-width: 0;
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 3px;
             overflow-x: hidden;
+          }
+
+          .vcs-pack-root.is-opened:not(.is-done) .open-grid {
+            height: calc(100svh - 91px);
+            min-height: 0;
+            overflow: hidden;
           }
 
           .panel {
@@ -1769,11 +2058,19 @@ export default function OpenPackClient({
 
           .card-panel {
             order: 1;
-            padding: 4px 3px 5px;
+            padding: 0 2px 2px;
             overflow: visible;
             background: transparent;
             border: 0;
             border-radius: 0;
+          }
+
+          .vcs-pack-root.is-opened:not(.is-done) .card-panel {
+            height: 100%;
+            min-height: 0;
+            display: grid;
+            grid-template-rows: minmax(0, 1fr) auto auto;
+            align-content: stretch;
           }
 
           .details-panel {
@@ -1804,16 +2101,19 @@ export default function OpenPackClient({
 
           .card-presentation {
             width: 100%;
-            padding: 2px 7px 7px;
+            min-height: 0;
+            padding: 0 7px 3px;
+            display: grid;
+            align-items: center;
           }
 
           .card-presentation::before {
             left: 12%;
             right: 12%;
-            bottom: -6px;
-            height: 38px;
-            filter: blur(17px);
-            opacity: 0.62;
+            bottom: -3px;
+            height: 30px;
+            filter: blur(15px);
+            opacity: 0.58;
           }
 
           .card-presentation::after {
@@ -1821,8 +2121,12 @@ export default function OpenPackClient({
           }
 
           .flip-wrap {
-            width: 100%;
-            max-width: min(440px, 100%);
+            width: min(
+              calc((100svh - 220px) * 0.7142857),
+              calc(100vw - 28px),
+              440px
+            );
+            max-width: 100%;
             min-width: 0;
             margin-left: auto;
             margin-right: auto;
@@ -1835,33 +2139,54 @@ export default function OpenPackClient({
             aspect-ratio: 2.5 / 3.5;
           }
 
+          .flip-card,
+          .under-card {
+            border-radius: 16px;
+          }
+
           .flip-card {
-            border-radius: 17px;
             box-shadow:
-              0 31px 48px rgba(40, 32, 21, 0.18),
-              0 10px 20px rgba(40, 32, 21, 0.11),
-              0 2px 5px rgba(40, 32, 21, 0.075);
+              0 25px 42px rgba(40, 32, 21, 0.17),
+              0 8px 16px rgba(40, 32, 21, 0.1),
+              0 2px 5px rgba(40, 32, 21, 0.07);
+          }
+
+          .under-card-shell {
+            display: block;
+            opacity: 0.98;
           }
 
           .flip-banner {
-            top: -8px;
-            font-size: 10px;
-            padding: 6px 10px;
+            top: -7px;
+            font-size: 9px;
+            padding: 5px 9px;
           }
 
           .insert-aura {
-            inset: -7px;
+            inset: -6px;
           }
 
           .mobile-swipe-hint {
             display: block;
-            margin: 7px auto 0;
+            position: absolute;
+            left: 50%;
+            bottom: 7px;
+            transform: translateX(-50%);
+            z-index: 8;
+            margin: 0;
+            padding: 4px 8px;
+            border-radius: 999px;
             text-align: center;
-            color: #91897d;
-            font-size: 9px;
+            color: rgba(255, 255, 255, 0.92);
+            background: rgba(24, 21, 17, 0.42);
+            backdrop-filter: blur(5px);
+            font-size: 8px;
             line-height: 1;
             font-weight: 850;
             letter-spacing: 0.02em;
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 0.8;
           }
 
           .mobile-current-meta {
@@ -1869,10 +2194,10 @@ export default function OpenPackClient({
             width: calc(100% - 14px);
             max-width: 440px;
             min-width: 0;
-            margin: 7px auto 0;
-            padding: 7px 8px 6px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.7);
+            margin: 3px auto 0;
+            padding: 6px 8px 5px;
+            border-radius: 11px;
+            background: rgba(255, 255, 255, 0.72);
             border: 1px solid rgba(225, 220, 212, 0.82);
             box-shadow: 0 3px 10px rgba(40, 32, 21, 0.025);
             overflow: hidden;
@@ -1880,9 +2205,9 @@ export default function OpenPackClient({
 
           .mobile-current-title {
             min-width: 0;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 1000;
-            line-height: 1.12;
+            line-height: 1.08;
             letter-spacing: -0.025em;
             overflow-wrap: anywhere;
             display: -webkit-box;
@@ -1893,11 +2218,11 @@ export default function OpenPackClient({
 
           .mobile-current-sub {
             min-width: 0;
-            margin-top: 2px;
+            margin-top: 1px;
             color: ${colors.subtext};
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 780;
-            line-height: 1.2;
+            line-height: 1.15;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -1905,7 +2230,7 @@ export default function OpenPackClient({
 
           .mobile-current-bottom {
             min-width: 0;
-            margin-top: 5px;
+            margin-top: 4px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -1929,7 +2254,7 @@ export default function OpenPackClient({
             border-radius: 999px;
             background: #f2f0eb;
             color: #605a52;
-            font-size: 9px;
+            font-size: 8.5px;
             line-height: 1;
             font-weight: 900;
             white-space: nowrap;
@@ -1948,44 +2273,44 @@ export default function OpenPackClient({
             align-items: baseline;
             flex-shrink: 0;
             color: ${colors.text};
-            font-size: 10px;
+            font-size: 9.5px;
             line-height: 1;
             font-weight: 820;
           }
 
           .mobile-current-stats b {
-            font-size: 12px;
+            font-size: 11.5px;
             font-weight: 1000;
           }
 
           .mobile-prestige-note {
-            margin-top: 5px;
-            padding-top: 5px;
+            margin-top: 4px;
+            padding-top: 4px;
             border-top: 1px solid rgba(226, 219, 207, 0.8);
             color: #6d531c;
-            font-size: 9px;
-            line-height: 1.2;
+            font-size: 8.5px;
+            line-height: 1.15;
             font-weight: 900;
           }
 
           .mobile-card-controls {
             width: calc(100% - 14px);
             max-width: 440px;
-            margin: 6px auto 0;
+            margin: 4px auto 0;
             display: grid !important;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 5px !important;
           }
 
           .mobile-card-controls .btn {
-            min-height: 38px;
+            min-height: 36px;
             justify-content: center;
-            padding: 6px 7px;
-            border-radius: 11px;
-            background: rgba(255, 255, 255, 0.7);
+            padding: 5px 7px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.72);
             border-color: rgba(218, 212, 203, 0.92);
             box-shadow: none;
-            font-size: 12px;
+            font-size: 11px;
           }
 
           .mobile-card-controls .btn.flip-control {
@@ -2122,6 +2447,25 @@ export default function OpenPackClient({
             display: none;
           }
         }
+
+        @media (max-width: 560px) and (max-height: 720px) {
+          .flip-wrap {
+            width: min(
+              calc((100svh - 205px) * 0.7142857),
+              calc(100vw - 34px),
+              410px
+            );
+          }
+
+          .mobile-current-meta {
+            padding-top: 5px;
+            padding-bottom: 4px;
+          }
+
+          .mobile-card-controls .btn {
+            min-height: 34px;
+          }
+        }
       `}</style>
 
       <div className="vcs-pack-wrap">
@@ -2203,29 +2547,18 @@ export default function OpenPackClient({
 
         <div className="vcs-pack-stage">
           {!opened ? (
-            <div style={{ display: "grid", gap: 12 }}>
-              <div
-                style={{
-                  color: colors.subtext,
-                  fontSize: 13,
-                  fontWeight: 750,
-                  lineHeight: 1.45,
-                }}
-              >
+            <div className="preopen-shell">
+              <div className="preopen-copy">
                 This will open <b>1 pack</b> from your sealed inventory
                 and add the cards to your collection.
               </div>
 
-              <div
-                style={{
-                  display: "flex",
-                  gap: 14,
-                  alignItems: "center",
-                  flexWrap: "wrap",
-                }}
-              >
+              <div className="preopen-body">
                 {metaLoading ? (
-                  <div className="panel" style={{ width: 280 }}>
+                  <div
+                    className="panel preopen-pack-panel"
+                    style={{ width: 280 }}
+                  >
                     <div className="panel-title">Pack art</div>
                     <div
                       style={{
@@ -2237,7 +2570,7 @@ export default function OpenPackClient({
                     </div>
                   </div>
                 ) : packImageUrl ? (
-                  <div className="panel" style={{ width: 300 }}>
+                  <div className="panel preopen-pack-panel">
                     <div className="panel-title">Pack art</div>
                     <img
                       className="pack-img"
@@ -2246,7 +2579,10 @@ export default function OpenPackClient({
                     />
                   </div>
                 ) : (
-                  <div className="panel" style={{ width: 280 }}>
+                  <div
+                    className="panel preopen-pack-panel"
+                    style={{ width: 280 }}
+                  >
                     <div className="panel-title">Pack art</div>
                     <div
                       style={{
@@ -2259,13 +2595,11 @@ export default function OpenPackClient({
                   </div>
                 )}
 
-                <div
-                  className="panel"
-                  style={{ flex: "1 1 260px" }}
-                >
+                <div className="panel preopen-ready-panel">
                   <div className="panel-title">Ready?</div>
 
                   <div
+                    className="preopen-ready-copy"
                     style={{
                       color: colors.text,
                       fontWeight: 900,
@@ -2309,7 +2643,7 @@ export default function OpenPackClient({
             <div
               ref={containerRef}
               tabIndex={-1}
-              style={{ outline: "none" }}
+              style={{ outline: "none", height: "100%" }}
             >
               <div className="mobile-rip-hud">
                 <div className="mobile-hud-item">
@@ -2448,11 +2782,37 @@ export default function OpenPackClient({
                           )}
                         />
 
+                        {underCard ? (
+                          <div
+                            className="under-card-shell"
+                            style={{
+                              transform: `translate3d(0, ${underTranslateY}px, 0) scale(${underScale})`,
+                              opacity: 0.94 + underProgress * 0.06,
+                            }}
+                            aria-hidden="true"
+                          >
+                            <div className="under-card">
+                              {underCard.frontImageUrl ? (
+                                <img
+                                  src={underCard.frontImageUrl}
+                                  alt=""
+                                  draggable={false}
+                                />
+                              ) : (
+                                <div className="img-missing">
+                                  (No front image)
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        ) : null}
+
                         <div
                           key={`${current?.id ?? "none"}-${idx}`}
                           className={cx(
                             "card-drag-shell",
                             isDragging && "dragging",
+                            swipeCommit && "committing",
                             cardMotion === "next" && "motion-next",
                             cardMotion === "prev" && "motion-prev"
                           )}
@@ -2500,7 +2860,7 @@ export default function OpenPackClient({
                     </div>
 
                     <div className="mobile-swipe-hint">
-                      Swipe to browse • tap to flip
+                      Swipe • tap to flip
                     </div>
                   </div>
 
@@ -2559,7 +2919,7 @@ export default function OpenPackClient({
                     <button
                       className="btn"
                       onClick={prev}
-                      disabled={!canPrev}
+                      disabled={!canPrev || Boolean(swipeCommit)}
                     >
                       ← Prev
                     </button>
@@ -2567,7 +2927,7 @@ export default function OpenPackClient({
                     <button
                       className="btn flip-control"
                       onClick={() => setFlipped((x) => !x)}
-                      disabled={!current}
+                      disabled={!current || Boolean(swipeCommit)}
                     >
                       {flipped ? "Front" : "Flip"}
                     </button>
@@ -2575,7 +2935,7 @@ export default function OpenPackClient({
                     <button
                       className="btn"
                       onClick={next}
-                      disabled={!canNext}
+                      disabled={!canNext || Boolean(swipeCommit)}
                     >
                       Next →
                     </button>
