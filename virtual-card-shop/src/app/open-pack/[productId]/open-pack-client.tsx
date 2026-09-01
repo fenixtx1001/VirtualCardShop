@@ -135,6 +135,52 @@ function getPrestigeBannerLabel(card: Card | null) {
   return `Prestige x${card.prestigeTargetLevel} reached!`;
 }
 
+function OrientedCardImage({
+  src,
+  alt,
+  loading = "eager",
+}: {
+  src: string;
+  alt: string;
+  loading?: "eager" | "lazy";
+}) {
+  const [isLandscape, setIsLandscape] = useState(false);
+
+  useEffect(() => {
+    setIsLandscape(false);
+  }, [src]);
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      loading={loading}
+      decoding="async"
+      draggable={false}
+      onLoad={(event) => {
+        const image = event.currentTarget;
+        setIsLandscape(image.naturalWidth > image.naturalHeight);
+      }}
+      style={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        width: isLandscape ? "140%" : "100%",
+        height: isLandscape ? "71.4286%" : "100%",
+        objectFit: "contain",
+        display: "block",
+        background: "white",
+        transform: isLandscape
+          ? "translate(-50%, -50%) rotate(90deg)"
+          : "translate(-50%, -50%)",
+        transformOrigin: "center",
+        pointerEvents: "none",
+        userSelect: "none",
+      }}
+    />
+  );
+}
+
 export default function OpenPackClient({
   productId,
 }: {
@@ -1602,6 +1648,7 @@ export default function OpenPackClient({
         }
 
         .summary-card-thumb {
+          position: relative;
           width: 58px;
           height: 80px;
           border-radius: 9px;
@@ -2793,10 +2840,9 @@ export default function OpenPackClient({
                           >
                             <div className="under-card">
                               {underCard.frontImageUrl ? (
-                                <img
+                                <OrientedCardImage
                                   src={underCard.frontImageUrl}
                                   alt=""
-                                  draggable={false}
                                 />
                               ) : (
                                 <div className="img-missing">
@@ -2829,10 +2875,9 @@ export default function OpenPackClient({
                           >
                             <div className="face front">
                               {cardFront ? (
-                                <img
+                                <OrientedCardImage
                                   src={cardFront}
                                   alt="Card front"
-                                  draggable={false}
                                 />
                               ) : (
                                 <div className="img-missing">
@@ -2843,10 +2888,9 @@ export default function OpenPackClient({
 
                             <div className="face back">
                               {cardBack ? (
-                                <img
+                                <OrientedCardImage
                                   src={cardBack}
                                   alt="Card back"
-                                  draggable={false}
                                 />
                               ) : (
                                 <div className="img-missing">
@@ -3155,9 +3199,10 @@ export default function OpenPackClient({
                             <div className="summary-card-row">
                               <div className="summary-card-thumb">
                                 {c.frontImageUrl ? (
-                                  <img
+                                  <OrientedCardImage
                                     src={c.frontImageUrl}
                                     alt={c.player}
+                                    loading="lazy"
                                   />
                                 ) : (
                                   <div
