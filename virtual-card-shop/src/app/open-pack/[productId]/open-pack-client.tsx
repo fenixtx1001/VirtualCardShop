@@ -144,11 +144,16 @@ function OrientedCardImage({
   alt: string;
   loading?: "eager" | "lazy";
 }) {
-  const [isLandscape, setIsLandscape] = useState(false);
+  const [orientation, setOrientation] = useState<{
+    src: string;
+    isLandscape: boolean;
+  } | null>(null);
 
-  useEffect(() => {
-    setIsLandscape(false);
-  }, [src]);
+  // Keep orientation tied to the exact image URL instead of resetting it
+  // in an effect. With cached images, onLoad can fire before the effect,
+  // which caused the correct landscape rotation to be immediately undone.
+  const isLandscape =
+    orientation?.src === src && orientation.isLandscape;
 
   return (
     <img
@@ -159,7 +164,11 @@ function OrientedCardImage({
       draggable={false}
       onLoad={(event) => {
         const image = event.currentTarget;
-        setIsLandscape(image.naturalWidth > image.naturalHeight);
+
+        setOrientation({
+          src,
+          isLandscape: image.naturalWidth > image.naturalHeight,
+        });
       }}
       style={{
         position: "absolute",
