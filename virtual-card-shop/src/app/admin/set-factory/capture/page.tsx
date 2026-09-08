@@ -18,7 +18,124 @@ const ACTIVE_SET_STORAGE_KEY = "vcs.setFactory.activeProductSetId";
 
 function buildBookmarklet(vcsOrigin: string) {
   const origin = JSON.stringify(vcsOrigin);
-  return `javascript:(()=>{try{const O=${origin};const d=document;const s=d.createElement('script');s.src=O+'/api/admin/set-factory/capture-launcher?ts='+Date.now();s.async=true;(d.body||d.documentElement).appendChild(s);}catch(e){alert('VCS Capture: '+(e&&e.message?e.message:e));}})()`;
+
+  return `javascript:(async()=>{try{
+const O=${origin};
+if(!/(^|\\.)tcdb\\.com$/i.test(location.hostname))throw new Error("Open a TCDB card page first.");
+
+const I=[...document.images].map(i=>{
+  const r=i.getBoundingClientRect();
+  return{
+    src:i.currentSrc||i.src,
+    alt:i.alt||"",
+    title:i.title||"",
+    area:Math.max(r.width*r.height,(i.naturalWidth||0)*(i.naturalHeight||0)),
+    top:r.top,
+    left:r.left
+  };
+}).filter(x=>x.src);
+
+let F=I.find(x=>/RepFr\\.(?:jpe?g|png|webp|gif)(?:\\?|$)/i.test(x.src));
+let B=I.find(x=>/RepBk\\.(?:jpe?g|png|webp|gif)(?:\\?|$)/i.test(x.src));
+
+if(!F||!B){
+  const C=I
+    .filter(x=>/\\/Images\\/Cards\\//i.test(x.src)&&x.area>20000)
+    .sort((a,b)=>b.area-a.area)
+    .slice(0,4)
+    .sort((a,b)=>a.top-b.top||a.left-b.left);
+
+  if(!F)F=C.find(x=>!B||x.src!==B.src);
+  if(!B)B=C.find(x=>!F||x.src!==F.src);
+}
+
+if(!F||!B)throw new Error("Could not identify both card images.");
+
+const T=[
+  document.title,
+  ...I.flatMap(x=>[x.alt,x.title]),
+  document.body.innerText.slice(0,12000)
+].join("\\n");
+
+let M=T.match(/#\\s*([A-Za-z0-9.-]+)/);
+if(!M)M=T.match(/Card\\s*(?:No\\.?|Number)?\\s*[:#]?\\s*([A-Za-z0-9.-]+)/i);
+
+let C=M?M[1]:"";
+if(!C)C=prompt("VCS could not detect the card number. Enter it:")||"";
+if(!C)throw new Error("Card number is required.");
+
+const N=crypto.randomUUID?crypto.randomUUID():Date.now()+"-"+Math.random().toString(36).slice(2);
+
+let R=false,D=null,W=null,P="";
+
+const S=()=>{
+  if(R&&D&&W&&!W.closed){
+    W.postMessage({
+      type:"vcs-card-capture",
+      nonce:N,
+      productSetId:P,
+      cardNumber:C,
+      sourceUrl:location.href,
+      front:D.front,
+      back:D.back,
+      frontName:D.frontName,
+      backName:D.backName
+    },O);
+    removeEventListener("message",H);
+  }
+};
+
+const H=e=>{
+  if(e.origin===O&&e.data&&e.data.type==="vcs-capture-ready"&&e.data.nonce===N){
+    P=String(e.data.productSetId||"").trim();
+    if(!P){
+      removeEventListener("message",H);
+      alert("VCS Capture: No Active Product Set is configured in VCS.");
+      return;
+    }
+    R=true;
+    S();
+  }
+};
+
+addEventListener("message",H);
+
+W=open(
+  O+"/admin/set-factory/capture?receiver=1&nonce="+encodeURIComponent(N),
+  "vcsSetCapture",
+  "width=560,height=700"
+);
+
+if(!W)throw new Error("Popup blocked. Allow popups for TCDB and try again.");
+
+const Q=await Promise.all([
+  fetch(F.src,{credentials:"include",cache:"default"}),
+  fetch(B.src,{credentials:"include",cache:"default"})
+]);
+
+if(!Q[0].ok||!Q[1].ok){
+  throw new Error("TCDB image read failed: front "+Q[0].status+", back "+Q[1].status);
+}
+
+const Z=await Promise.all(Q.map(r=>r.blob()));
+
+const ext=s=>{
+  const m=s.match(/\\.([A-Za-z0-9]+)(?:\\?|$)/);
+  return m?"."+m[1]:".jpg";
+};
+
+D={
+  front:Z[0],
+  back:Z[1],
+  frontName:String(C)+"-front"+ext(F.src),
+  backName:String(C)+"-back"+ext(B.src)
+};
+
+S();
+
+}catch(e){
+  alert("VCS Capture: "+(e&&e.message?e.message:e));
+}})()`;
 }
 
 function receiverOriginAllowed(origin: string) {
