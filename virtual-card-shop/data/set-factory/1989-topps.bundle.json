@@ -47,7 +47,7 @@
     "pricing": "PENDING",
     "release": "BLOCKED"
   },
-  "cardsFile": "1989-topps.cards.csv",
+  "cardsFile": "1989-topps.cards.csv.gz",
   "productSets": [
     {
       "key": "base",
