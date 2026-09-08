@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "import:set": "tsx scripts/import-set-manifest.ts",
-    "import:set-bundle": "tsx scripts/import-set-bundle.ts",
+    "import:set-bundle": "tsx scripts/import-set-bundle-entry.ts",
     "import:set-images": "tsx scripts/import-set-images.ts"
   },
   "dependencies": {
