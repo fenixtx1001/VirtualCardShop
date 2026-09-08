@@ -23,6 +23,9 @@ export default function AdminHomePage() {
           <a href="/admin/cards/image-backfill">Admin: Image Backfill Queue</a>
         </li>
         <li>
+          <a href="/admin/set-factory/capture">Set Factory: Browser Capture</a>
+        </li>
+        <li>
           <a href="/admin/player-tiers">Admin: Player Repository / Tiers</a>
         </li>
         <li>
@@ -53,6 +56,10 @@ export default function AdminHomePage() {
       <p style={{ maxWidth: 820, marginTop: 14 }}>
         Use <b>Image Backfill Queue</b> to find valuable owned cards that are missing front or back images, then
         drag/drop images and update card attributes from one focused report.
+      </p>
+
+      <p style={{ maxWidth: 820, marginTop: 14 }}>
+        Use <b>Set Factory: Browser Capture</b> for the experimental browser-to-R2 card-image capture workflow.
       </p>
     </main>
   );
