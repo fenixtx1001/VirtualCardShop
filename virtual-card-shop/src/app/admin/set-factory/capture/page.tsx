@@ -193,7 +193,10 @@ export default function SetFactoryCapturePage() {
         <h2 style={{ marginTop: 0, fontSize: 20 }}>1. Add the bookmark</h2>
         <p>Drag this button to your browser bookmarks bar:</p>
         <a
-          href={bookmarklet}
+          href="#"
+          ref={(node) => {
+            if (node) node.setAttribute("href", bookmarklet);
+          }}
           onClick={(event) => event.preventDefault()}
           style={{
             display: "inline-block",
