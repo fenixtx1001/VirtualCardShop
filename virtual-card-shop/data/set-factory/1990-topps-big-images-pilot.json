@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "productSetId": "1990_Topps_Big_Baseball_Base",
+  "storagePrefix": "virtual-card-shop/cards",
+  "cards": [
+    {
+      "cardNumber": "1",
+      "frontSource": "./local-images/1990-topps-big/001-front.jpg",
+      "backSource": "./local-images/1990-topps-big/001-back.jpg"
+    }
+  ]
+}
