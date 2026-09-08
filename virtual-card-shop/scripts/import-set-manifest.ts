@@ -59,6 +59,13 @@ type SetManifest = {
   cards: ManifestCard[];
 };
 
+type TeamSidecar = {
+  schemaVersion: 1;
+  productSetId: string;
+  status: "PENDING" | "COMPLETE";
+  teams: Record<string, string | null>;
+};
+
 function requiredText(value: unknown, label: string) {
   if (typeof value !== "string" || !value.trim()) {
     throw new Error(`Missing required value: ${label}`);
@@ -68,6 +75,104 @@ function requiredText(value: unknown, label: string) {
 
 function isChecklistCard(card: ManifestCard) {
   return /checklist/i.test(card.player) || /checklist/i.test(card.subset ?? "");
+}
+
+function getTeamSidecarPath(manifestPath: string) {
+  const extension = path.extname(manifestPath) || ".json";
+  const base = extension
+    ? manifestPath.slice(0, -extension.length)
+    : manifestPath;
+  return `${base}.teams${extension}`;
+}
+
+async function loadTeamSidecar(
+  manifestPath: string,
+  input: unknown
+): Promise<{ manifest: SetManifest; teamSidecarPath: string | null }> {
+  const manifest = input as SetManifest;
+  const teamSidecarPath = getTeamSidecarPath(manifestPath);
+
+  let raw: string;
+  try {
+    raw = await readFile(teamSidecarPath, "utf8");
+  } catch (error: any) {
+    if (error?.code === "ENOENT") {
+      return { manifest, teamSidecarPath: null };
+    }
+    throw error;
+  }
+
+  const sidecar = JSON.parse(raw) as TeamSidecar;
+
+  if (sidecar?.schemaVersion !== 1) {
+    throw new Error(
+      `Unsupported team sidecar schemaVersion in ${path.basename(teamSidecarPath)}; expected 1.`
+    );
+  }
+  if (sidecar.status !== "PENDING" && sidecar.status !== "COMPLETE") {
+    throw new Error(
+      `Invalid team sidecar status in ${path.basename(teamSidecarPath)}; expected PENDING or COMPLETE.`
+    );
+  }
+  if (!sidecar.teams || typeof sidecar.teams !== "object" || Array.isArray(sidecar.teams)) {
+    throw new Error(
+      `Invalid team sidecar in ${path.basename(teamSidecarPath)}; teams must be an object.`
+    );
+  }
+  if (sidecar.productSetId !== manifest?.productSet?.id) {
+    throw new Error(
+      `Team sidecar productSetId ${sidecar.productSetId} does not match manifest productSetId ${manifest?.productSet?.id}.`
+    );
+  }
+
+  const cardsByNumber = new Map(
+    (manifest.cards ?? []).map((card) => [card.cardNumber.trim(), card])
+  );
+
+  for (const [cardNumber, value] of Object.entries(sidecar.teams)) {
+    if (!cardsByNumber.has(cardNumber)) {
+      throw new Error(
+        `Team sidecar contains unknown card number ${cardNumber}.`
+      );
+    }
+    if (value !== null && typeof value !== "string") {
+      throw new Error(
+        `Team sidecar card ${cardNumber} must contain a team string or null.`
+      );
+    }
+  }
+
+  if (sidecar.status === "COMPLETE") {
+    const missingMappings = (manifest.cards ?? []).filter(
+      (card) => !Object.prototype.hasOwnProperty.call(sidecar.teams, card.cardNumber.trim())
+    );
+    if (missingMappings.length > 0) {
+      const sample = missingMappings
+        .slice(0, 8)
+        .map((card) => `#${card.cardNumber} ${card.player}`)
+        .join(", ");
+      throw new Error(
+        `Team sidecar is marked COMPLETE but is missing ${missingMappings.length} card mappings. Example: ${sample}`
+      );
+    }
+  }
+
+  for (const card of manifest.cards ?? []) {
+    const cardNumber = card.cardNumber.trim();
+    if (!Object.prototype.hasOwnProperty.call(sidecar.teams, cardNumber)) {
+      continue;
+    }
+
+    const team = sidecar.teams[cardNumber];
+    card.team = typeof team === "string" ? team.trim() || null : null;
+  }
+
+  manifest.review = {
+    ...manifest.review,
+    teamData: sidecar.status,
+  };
+
+  return { manifest, teamSidecarPath };
 }
 
 function validateManifest(input: unknown, apply: boolean): SetManifest {
@@ -152,7 +257,8 @@ async function main() {
 
   const manifestPath = path.resolve(process.cwd(), manifestArg);
   const parsed = JSON.parse(await readFile(manifestPath, "utf8"));
-  const manifest = validateManifest(parsed, apply);
+  const enriched = await loadTeamSidecar(manifestPath, parsed);
+  const manifest = validateManifest(enriched.manifest, apply);
 
   const existingProduct = await prisma.product.findUnique({
     where: { id: manifest.product.id },
@@ -179,6 +285,9 @@ async function main() {
 
   console.log("[set-import] plan", {
     manifest: path.relative(process.cwd(), manifestPath),
+    teamSidecar: enriched.teamSidecarPath
+      ? path.relative(process.cwd(), enriched.teamSidecarPath)
+      : null,
     mode: apply ? "APPLY" : "DRY_RUN",
     productId: manifest.product.id,
     productSetId: manifest.productSet.id,
