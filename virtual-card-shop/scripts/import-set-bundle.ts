@@ -275,11 +275,12 @@ function resolveProductSetCards(
 async function main() {
   const args = process.argv.slice(2);
   const apply = args.includes("--apply");
+  const allowPendingTeams = args.includes("--allow-pending-teams");
   const bundleArg = args.find((arg) => !arg.startsWith("--"));
 
   if (!bundleArg) {
     throw new Error(
-      "Usage: npm run import:set-bundle -- <bundle.json> [--apply]"
+      "Usage: npm run import:set-bundle -- <bundle.json> [--apply] [--allow-pending-teams]"
     );
   }
 
@@ -310,11 +311,25 @@ async function main() {
       );
     }
 
-    if (apply && bundle.review?.teamData !== "COMPLETE") {
+    if (
+      apply &&
+      bundle.review?.teamData !== "COMPLETE" &&
+      !allowPendingTeams
+    ) {
       throw new Error(
         `Baseball bundle apply blocked: review.teamData must be COMPLETE. Current value: ${
           bundle.review?.teamData ?? "missing"
-        }.`
+        }. To intentionally stage an unreleased draft, rerun with --allow-pending-teams.`
+      );
+    }
+
+    if (
+      apply &&
+      bundle.review?.teamData !== "COMPLETE" &&
+      allowPendingTeams
+    ) {
+      console.warn(
+        `[set-bundle] WARNING: staging unreleased draft with pending team data (${missingTeams.length} missing team assignments).`
       );
     }
   }
