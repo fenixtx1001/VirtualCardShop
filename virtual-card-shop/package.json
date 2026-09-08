@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "import:set": "tsx scripts/import-set-manifest.ts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.1",
