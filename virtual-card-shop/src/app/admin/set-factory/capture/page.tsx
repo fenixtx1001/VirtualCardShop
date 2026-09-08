@@ -117,10 +117,10 @@ export default function SetFactoryCapturePage() {
       }
     }
 
-    window.addEventListener("message", onMessage as EventListener);
+    window.addEventListener("message", onMessage);
     window.opener?.postMessage({ type: "vcs-capture-ready", nonce }, "*");
 
-    return () => window.removeEventListener("message", onMessage as EventListener);
+    return () => window.removeEventListener("message", onMessage);
   }, [receiverMode, nonce]);
 
   const statusStyle = useMemo<React.CSSProperties>(
