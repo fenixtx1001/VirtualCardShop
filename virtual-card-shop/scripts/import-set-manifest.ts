@@ -49,6 +49,13 @@ type SetManifest = {
       star3Price?: number | null;
     };
   };
+  review?: {
+    teamData?: string | null;
+    packImage?: string | null;
+    cardImages?: string | null;
+    pricing?: string | null;
+    release?: string | null;
+  };
   cards: ManifestCard[];
 };
 
@@ -59,7 +66,11 @@ function requiredText(value: unknown, label: string) {
   return value.trim();
 }
 
-function validateManifest(input: unknown): SetManifest {
+function isChecklistCard(card: ManifestCard) {
+  return /checklist/i.test(card.player) || /checklist/i.test(card.subset ?? "");
+}
+
+function validateManifest(input: unknown, apply: boolean): SetManifest {
   const manifest = input as SetManifest;
 
   if (manifest?.schemaVersion !== 1) {
@@ -93,6 +104,30 @@ function validateManifest(input: unknown): SetManifest {
     throw new Error("A Product Set cannot be both Base and Insert.");
   }
 
+  const isBaseball = manifest.product.sport?.trim().toLowerCase() === "baseball";
+  if (isBaseball) {
+    const missingTeams = manifest.cards.filter(
+      (card) => !isChecklistCard(card) && !card.team?.trim()
+    );
+    const teamDataComplete = manifest.review?.teamData === "COMPLETE";
+
+    if (teamDataComplete && missingTeams.length > 0) {
+      const sample = missingTeams
+        .slice(0, 8)
+        .map((card) => `#${card.cardNumber} ${card.player}`)
+        .join(", ");
+      throw new Error(
+        `teamData is marked COMPLETE but ${missingTeams.length} non-checklist cards are missing teams. Example: ${sample}`
+      );
+    }
+
+    if (apply && !teamDataComplete) {
+      throw new Error(
+        `Baseball set apply blocked: review.teamData must be COMPLETE. Current value: ${manifest.review?.teamData ?? "missing"}.`
+      );
+    }
+  }
+
   return manifest;
 }
 
@@ -117,7 +152,7 @@ async function main() {
 
   const manifestPath = path.resolve(process.cwd(), manifestArg);
   const parsed = JSON.parse(await readFile(manifestPath, "utf8"));
-  const manifest = validateManifest(parsed);
+  const manifest = validateManifest(parsed, apply);
 
   const existingProduct = await prisma.product.findUnique({
     where: { id: manifest.product.id },
@@ -138,6 +173,10 @@ async function main() {
   ).length;
   const updatedCards = manifest.cards.length - insertedCards;
 
+  const missingTeamCount = manifest.cards.filter(
+    (card) => !isChecklistCard(card) && !card.team?.trim()
+  ).length;
+
   console.log("[set-import] plan", {
     manifest: path.relative(process.cwd(), manifestPath),
     mode: apply ? "APPLY" : "DRY_RUN",
@@ -148,6 +187,8 @@ async function main() {
     totalCards: manifest.cards.length,
     insertedCards,
     updatedCards,
+    teamData: manifest.review?.teamData ?? "missing",
+    missingTeamCount,
   });
 
   if (!apply) {
@@ -270,6 +311,7 @@ async function main() {
     productSetId: manifest.productSet.id,
     cards: manifest.cards.length,
     released: existingProduct?.released ?? false,
+    teamData: manifest.review?.teamData ?? "missing",
     pricingPreservedOnRerun: true,
     imagesPreservedOnRerun: true,
   });
