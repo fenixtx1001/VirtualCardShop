@@ -150,10 +150,11 @@ function receiverOriginAllowed(origin: string) {
 export default function SetFactoryCapturePage() {
   const [receiverMode, setReceiverMode] = useState(false);
   const [nonce, setNonce] = useState("");
-  const [productSetId, setProductSetId] = useState("1990_Topps_Big_Baseball_Base");
+  const [productSetId, setProductSetId] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [bookmarklet, setBookmarklet] = useState("#");
   const [status, setStatus] = useState("Ready.");
+  const [initialized, setInitialized] = useState(false);
   const [error, setError] = useState("");
   const [result, setResult] = useState<{
     message?: string;
@@ -172,11 +173,11 @@ export default function SetFactoryCapturePage() {
     const savedSet =
       window.localStorage.getItem(ACTIVE_SET_STORAGE_KEY)?.trim() || "";
 
-    const initialSet =
-      incomingSet || savedSet || "1990_Topps_Big_Baseball_Base";
+    const initialSet = incomingSet || savedSet || "";
 
     setReceiverMode(isReceiver);
     setProductSetId(initialSet);
+    setInitialized(true);
     if (incomingCard) setCardNumber(incomingCard);
     if (incomingNonce) setNonce(incomingNonce);
 
@@ -189,7 +190,7 @@ export default function SetFactoryCapturePage() {
   }, []);
 
   useEffect(() => {
-    if (receiverMode) return;
+    if (receiverMode || !initialized) return;
     if (typeof window === "undefined") return;
 
     const trimmed = productSetId.trim();
@@ -201,7 +202,7 @@ export default function SetFactoryCapturePage() {
     }
 
     setBookmarklet(buildBookmarklet(window.location.origin));
-  }, [productSetId, receiverMode]);
+  }, [productSetId, receiverMode, initialized]);
 
   useEffect(() => {
     if (!receiverMode || !nonce) return;
