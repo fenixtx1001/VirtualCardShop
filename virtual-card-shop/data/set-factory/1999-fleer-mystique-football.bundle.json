@@ -44,7 +44,7 @@
     "pricing": "PENDING",
     "release": "BLOCKED"
   },
-  "cardsFile": "1999-fleer-mystique-football.cards.csv.gz",
+  "cardsFile": "1999-fleer-mystique-football.cards.csv",
   "productSets": [
     {
       "key": "base",
