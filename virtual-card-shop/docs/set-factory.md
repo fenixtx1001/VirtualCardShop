@@ -15,6 +15,23 @@ reviewable VCS draft.
 - Image apply mode requires R2; it does not silently fall back to another provider.
 - Front/back pairs with identical image bytes are rejected.
 
+### Obsolete ProductSet cleanup
+
+When an already-applied unreleased draft is restructured, removing a Product Set from
+the bundle does not by itself delete the existing database rows. List intentionally
+superseded IDs in `obsoleteProductSetIds` and run the guarded cleanup before applying
+the revised bundle:
+
+```bash
+npx tsx scripts/cleanup-obsolete-product-sets.ts path/to/bundle.json
+npx tsx scripts/cleanup-obsolete-product-sets.ts path/to/bundle.json --apply
+```
+
+The cleanup refuses deletion when the Product is released or when the obsolete
+Product Set/cards contain pricing, prestige, ownership, images, values, overrides,
+shop activity, grading, rip-box activity, auctions, favorites, or sale history. This
+prevents a structural Set Factory correction from silently deleting user data.
+
 ## Card data conventions
 
 ### Collector checklist integrity
