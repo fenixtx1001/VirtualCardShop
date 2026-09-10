@@ -15,6 +15,23 @@ reviewable VCS draft.
 - Image apply mode requires R2; it does not silently fall back to another provider.
 - Front/back pairs with identical image bytes are rejected.
 
+## Card data conventions
+
+### True rookie-card naming
+
+When a specific card is a recognized true rookie card for a player, append ` RC` to
+that player's name in the `player` field (for example, `Bruce Sutter RC`). Do not
+infer rookie-card status from card design, subset name, the word `Rookie`, or an
+All-Star Rookie designation alone. Rookie status must be independently verified as
+a true RC for that player.
+
+For multi-player rookie cards, apply ` RC` player-by-player. A card may be a rookie
+card for only some of the players pictured because another player may already have
+an earlier recognized rookie card. Never append one card-level `RC` marker blindly
+to every name on a multi-player rookie card.
+
+This convention applies to all new Set Factory datasets moving forward.
+
 ## Pilot: 1990 Topps Big Baseball
 
 The pilot intentionally combines all three physical series into one VCS Product:
