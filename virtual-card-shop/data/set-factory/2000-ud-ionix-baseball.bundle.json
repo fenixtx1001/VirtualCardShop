@@ -5,18 +5,18 @@
     "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1424/2000-UD-Ionix",
     "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/1424/2000-UD-Ionix",
     "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1424/2000-UD-Ionix",
-    "note": "2000 UD Ionix Baseball hobby product. Base/checklist structure, insert families and published odds are sourced from TCDB and cross-checked against Beckett/BaseballCardPedia. The final 30 checklist cards are Futuristics inserted 1:4 packs but are not recognized true RCs."
+    "note": "2000 UD Ionix Baseball hobby product. The physical 90-card checklist has #61-90 Futuristics historically inserted 1:4 packs, but VCS intentionally keeps #1-90 together as one Base ProductSet with equal availability so collection-completion percentage reflects the full set."
   },
   "decisions": {
     "canonicalPackFormat": "Hobby",
-    "baseStructure": "Checklist #1-90. Cards #1-60 are normal base cards. Cards #61-90 are the Futuristics subset inserted 1:4 packs.",
-    "baseScarcityModeling": "To preserve published pack behavior, VCS models #1-60 as Base and #61-90 as a separate Futuristics ProductSet at 1:4 packs rather than flattening all 90 cards into one equal base pool.",
+    "baseStructure": "Checklist #1-90 is one VCS Base ProductSet. Cards #61-90 retain Futuristics subset metadata.",
+    "baseScarcityModeling": "VCS intentionally sacrifices the historical 1:4 scarcity of #61-90 and gives all #1-90 equal Base availability. This preserves a true 90-card set-completion percentage.",
     "trueRookieNaming": "No base cards receive an RC suffix. TCDB's rookie index and Beckett both report zero recognized true RCs for 2000 UD Ionix Baseball. Futuristics wording alone does not qualify as RC.",
     "cleanPlayerNames": "Player contains only the clean card subject name plus RC when independently verified. FUT, AU, MEM, EXCH, print-run, error/correction, and other notes are stored in subset/variant metadata instead of Player.",
-    "reciprocalModeling": "Reciprocal is split into two VCS ProductSets so published range-specific odds can be represented faithfully: R1-R60 at 1:4 packs and R61-R90 at 1:11 packs.",
+    "reciprocalModeling": "Reciprocal remains split into two VCS ProductSets so published range-specific odds can be represented faithfully: R1-R60 at 1:4 packs and R61-R90 at 1:11 packs.",
     "administrativeInsertHandling": "Upper Deck Collection Entry Forms and UD Authentics Redemption slips are excluded as administrative/sweepstakes/redemption instruments rather than collectible card outcomes. The 13-card UD Authentics autograph checklist is modeled directly; redemption-fulfilled subjects retain EXCH metadata where applicable.",
     "clementeModeling": "The three Roberto Clemente A Piece of History 3000 Hit Club cards distributed through UD Ionix are included as one insert ProductSet. Their PR350/SN5/SN4 and memorabilia/autograph attributes are preserved per card; no unsupported pack odds are inferred.",
-    "releaseSafety": "Product remains unreleased until pricing and images are reviewed. Known published odds are encoded; unsupported Clemente memorabilia odds remain null rather than guessed."
+    "releaseSafety": "Product remains unreleased until pricing and images are reviewed. The Base equal-odds simplification is intentional for VCS collection-completion behavior; unsupported Clemente memorabilia odds remain null rather than guessed."
   },
   "product": {
     "id": "2000_UD_Ionix_Baseball",
@@ -49,19 +49,8 @@
       "oddsPerPack": null,
       "defaultGradeability": "COMMON",
       "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1424/2000-UD-Ionix",
-      "expectedCards": 60,
-      "notes": "Checklist cards #1-60."
-    },
-    {
-      "key": "futuristics",
-      "id": "2000_UD_Ionix_Baseball_Futuristics",
-      "name": "Futuristics",
-      "kind": "INSERT",
-      "oddsPerPack": 4,
-      "defaultGradeability": "COMMON",
-      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1424/2000-UD-Ionix",
-      "expectedCards": 30,
-      "notes": "Checklist cards #61-90, inserted 1:4 packs. Prospect/future-themed subset; not recognized true RCs."
+      "expectedCards": 90,
+      "notes": "Complete flagship checklist #1-90. Cards #61-90 retain Futuristics subset metadata but have equal VCS Base availability with #1-60."
     },
     {
       "key": "reciprocal",
