@@ -1,0 +1,287 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Mo Vaughn,Anaheim Angels,,
+base,2,Troy Glaus,Anaheim Angels,,
+base,3,Jeff Bagwell,Houston Astros,,
+base,4,Craig Biggio,Houston Astros,,
+base,5,Jose Lima,Houston Astros,,
+base,6,Jason Giambi,Oakland Athletics,,
+base,7,Tim Hudson,Oakland Athletics,,
+base,8,Shawn Green,Los Angeles Dodgers,,
+base,9,Carlos Delgado,Toronto Blue Jays,,
+base,10,Chipper Jones,Atlanta Braves,,
+base,11,Andruw Jones,Atlanta Braves,,
+base,12,Greg Maddux,Atlanta Braves,,
+base,13,Jeromy Burnitz,Milwaukee Brewers,,
+base,14,Mark McGwire,St. Louis Cardinals,,
+base,15,J.D. Drew,St. Louis Cardinals,,
+base,16,Sammy Sosa,Chicago Cubs,,
+base,17,Jose Canseco,Tampa Bay Devil Rays,,
+base,18,Fred McGriff,Tampa Bay Devil Rays,,
+base,19,Randy Johnson,Arizona Diamondbacks,,
+base,20,Matt Williams,Arizona Diamondbacks,,
+base,21,Kevin Brown,Los Angeles Dodgers,,
+base,22,Gary Sheffield,Los Angeles Dodgers,,
+base,23,Vladimir Guerrero,Montreal Expos,,
+base,24,Barry Bonds,San Francisco Giants,,
+base,25,Jim Thome,Cleveland Indians,,
+base,26,Manny Ramirez,Cleveland Indians,,
+base,27,Roberto Alomar,Cleveland Indians,,
+base,28,Kenny Lofton,Cleveland Indians,,
+base,29,Ken Griffey Jr.,Seattle Mariners,,
+base,30,Alex Rodriguez,Seattle Mariners,,
+base,31,Alex Gonzalez,Florida Marlins,,
+base,32,Preston Wilson,Florida Marlins,,
+base,33,Mike Piazza,New York Mets,,
+base,34,Robin Ventura,New York Mets,,
+base,35,Cal Ripken Jr.,Baltimore Orioles,,
+base,36,Albert Belle,Baltimore Orioles,,
+base,37,Tony Gwynn,San Diego Padres,,
+base,38,Scott Rolen,Philadelphia Phillies,,
+base,39,Curt Schilling,Philadelphia Phillies,,
+base,40,Brian Giles,Pittsburgh Pirates,,
+base,41,Juan Gonzalez,Detroit Tigers,,
+base,42,Ivan Rodriguez,Texas Rangers,,
+base,43,Rafael Palmeiro,Texas Rangers,,
+base,44,Pedro Martinez,Boston Red Sox,,
+base,45,Nomar Garciaparra,Boston Red Sox,,
+base,46,Sean Casey,Cincinnati Reds,,
+base,47,Aaron Boone,Cincinnati Reds,,
+base,48,Barry Larkin,Cincinnati Reds,,
+base,49,Larry Walker,Colorado Rockies,,
+base,50,Vinny Castilla,Colorado Rockies,,
+base,51,Carlos Beltran,Kansas City Royals,,
+base,52,Gabe Kapler,Texas Rangers,,
+base,53,Dean Palmer,Detroit Tigers,,
+base,54,Eric Milton,Minnesota Twins,,
+base,55,Corey Koskie,Minnesota Twins,,
+base,56,Frank Thomas,Chicago White Sox,,
+base,57,Magglio Ordonez,Chicago White Sox,,
+base,58,Roger Clemens,New York Yankees,,
+base,59,Bernie Williams,New York Yankees,,
+base,60,Derek Jeter,New York Yankees,,
+base,61,Josh Beckett,Florida Marlins,Futuristics,FUT
+base,62,Eric Munson,Detroit Tigers,Futuristics,FUT
+base,63,Rick Ankiel,St. Louis Cardinals,Futuristics,FUT
+base,64,Matt Riley,Baltimore Orioles,Futuristics,FUT
+base,65,Rob Ramsay,Seattle Mariners,Futuristics,FUT
+base,66,Vernon Wells,Toronto Blue Jays,Futuristics,FUT
+base,67,Eric Gagne,Los Angeles Dodgers,Futuristics,FUT
+base,68,Robert Fick,Detroit Tigers,Futuristics,FUT
+base,69,Mark Quinn,Kansas City Royals,Futuristics,FUT
+base,70,Kip Wells,Chicago White Sox,Futuristics,FUT
+base,71,Peter Bergeron,Montreal Expos,Futuristics,FUT
+base,72,Ed Yarnall,New York Yankees,Futuristics,FUT
+base,73,Jorge Toca,New York Mets,Futuristics,FUT
+base,74,Alfonso Soriano,New York Yankees,Futuristics,FUT
+base,75,Calvin Murray,San Francisco Giants,Futuristics,FUT
+base,76,Ramon Ortiz,Anaheim Angels,Futuristics,FUT
+base,77,Chad Meyers,Chicago Cubs,Futuristics,FUT
+base,78,Jason LaRue,Cincinnati Reds,Futuristics,FUT
+base,79,Pat Burrell,Philadelphia Phillies,Futuristics,FUT
+base,80,Chad Hermansen,Pittsburgh Pirates,Futuristics,FUT
+base,81,Lance Berkman,Houston Astros,Futuristics,FUT
+base,82,Erubiel Durazo,Arizona Diamondbacks,Futuristics,FUT
+base,83,Juan Pena,Boston Red Sox,Futuristics,FUT
+base,84,Adam Kennedy,St. Louis Cardinals,Futuristics,FUT
+base,85,Ben Petrick,Colorado Rockies,Futuristics,FUT
+base,86,Kevin Barker,Milwaukee Brewers,Futuristics,FUT
+base,87,Bruce Chen,Atlanta Braves,Futuristics,FUT
+base,88,Jerry Hairston Jr.,Baltimore Orioles,Futuristics,FUT
+base,89,A.J. Burnett,Florida Marlins,Futuristics,FUT
+base,90,Gary Matthews Jr.,San Diego Padres,Futuristics,FUT
+reciprocal,R1,Mo Vaughn,Anaheim Angels,,Reciprocal
+reciprocal,R2,Troy Glaus,Anaheim Angels,,Reciprocal
+reciprocal,R3,Jeff Bagwell,Houston Astros,,Reciprocal
+reciprocal,R4,Craig Biggio,Houston Astros,,Reciprocal
+reciprocal,R5,Jose Lima,Houston Astros,,Reciprocal
+reciprocal,R6,Jason Giambi,Oakland Athletics,,Reciprocal
+reciprocal,R7,Tim Hudson,Oakland Athletics,,Reciprocal
+reciprocal,R8,Shawn Green,Los Angeles Dodgers,,Reciprocal
+reciprocal,R9,Carlos Delgado,Toronto Blue Jays,,Reciprocal
+reciprocal,R10,Chipper Jones,Atlanta Braves,,Reciprocal
+reciprocal,R11,Andruw Jones,Atlanta Braves,,Reciprocal
+reciprocal,R12,Greg Maddux,Atlanta Braves,,Reciprocal
+reciprocal,R13,Jeromy Burnitz,Milwaukee Brewers,,Reciprocal
+reciprocal,R14,Mark McGwire,St. Louis Cardinals,,Reciprocal
+reciprocal,R15,J.D. Drew,St. Louis Cardinals,,Reciprocal
+reciprocal,R16,Sammy Sosa,Chicago Cubs,,Reciprocal
+reciprocal,R17,Jose Canseco,Tampa Bay Devil Rays,,Reciprocal
+reciprocal,R18,Fred McGriff,Tampa Bay Devil Rays,,Reciprocal
+reciprocal,R19,Randy Johnson,Arizona Diamondbacks,,Reciprocal
+reciprocal,R20,Matt Williams,Arizona Diamondbacks,,Reciprocal
+reciprocal,R21,Kevin Brown,Los Angeles Dodgers,,Reciprocal
+reciprocal,R22,Gary Sheffield,Los Angeles Dodgers,,Reciprocal
+reciprocal,R23,Vladimir Guerrero,Montreal Expos,,Reciprocal
+reciprocal,R24,Barry Bonds,San Francisco Giants,,Reciprocal
+reciprocal,R25,Jim Thome,Cleveland Indians,,Reciprocal
+reciprocal,R26,Manny Ramirez,Cleveland Indians,,Reciprocal
+reciprocal,R27,Roberto Alomar,Cleveland Indians,,Reciprocal
+reciprocal,R28,Kenny Lofton,Cleveland Indians,,Reciprocal
+reciprocal,R29,Ken Griffey Jr.,Seattle Mariners,,Reciprocal
+reciprocal,R30,Alex Rodriguez,Seattle Mariners,,Reciprocal
+reciprocal,R31,Alex Gonzalez,Florida Marlins,,Reciprocal
+reciprocal,R32,Preston Wilson,Florida Marlins,,Reciprocal
+reciprocal,R33,Mike Piazza,New York Mets,,Reciprocal
+reciprocal,R34,Robin Ventura,New York Mets,,Reciprocal
+reciprocal,R35,Cal Ripken Jr.,Baltimore Orioles,,Reciprocal
+reciprocal,R36,Albert Belle,Baltimore Orioles,,Reciprocal
+reciprocal,R37,Tony Gwynn,San Diego Padres,,Reciprocal
+reciprocal,R38,Scott Rolen,Philadelphia Phillies,,Reciprocal
+reciprocal,R39,Curt Schilling,Philadelphia Phillies,,Reciprocal
+reciprocal,R40,Brian Giles,Pittsburgh Pirates,,Reciprocal
+reciprocal,R41,Juan Gonzalez,Detroit Tigers,,Reciprocal
+reciprocal,R42,Ivan Rodriguez,Texas Rangers,,Reciprocal
+reciprocal,R43,Rafael Palmeiro,Texas Rangers,,Reciprocal
+reciprocal,R44,Pedro Martinez,Boston Red Sox,,Reciprocal
+reciprocal,R45,Nomar Garciaparra,Boston Red Sox,,Reciprocal
+reciprocal,R46,Sean Casey,Cincinnati Reds,,Reciprocal
+reciprocal,R47,Aaron Boone,Cincinnati Reds,,Reciprocal
+reciprocal,R48,Barry Larkin,Cincinnati Reds,,Reciprocal
+reciprocal,R49,Larry Walker,Colorado Rockies,,Reciprocal
+reciprocal,R50,Vinny Castilla,Colorado Rockies,,Reciprocal
+reciprocal,R51,Carlos Beltran,Kansas City Royals,,Reciprocal
+reciprocal,R52,Gabe Kapler,Texas Rangers,,Reciprocal
+reciprocal,R53,Dean Palmer,Detroit Tigers,,Reciprocal
+reciprocal,R54,Eric Milton,Minnesota Twins,,Reciprocal
+reciprocal,R55,Corey Koskie,Minnesota Twins,,Reciprocal
+reciprocal,R56,Frank Thomas,Chicago White Sox,,Reciprocal
+reciprocal,R57,Magglio Ordonez,Chicago White Sox,,Reciprocal
+reciprocal,R58,Roger Clemens,New York Yankees,,Reciprocal
+reciprocal,R59,Bernie Williams,New York Yankees,,Reciprocal
+reciprocal,R60,Derek Jeter,New York Yankees,,Reciprocal
+reciprocal,R61,Josh Beckett,Florida Marlins,Futuristics,Reciprocal; FUT
+reciprocal,R62,Eric Munson,Detroit Tigers,Futuristics,Reciprocal; FUT
+reciprocal,R63,Rick Ankiel,St. Louis Cardinals,Futuristics,Reciprocal; FUT
+reciprocal,R64,Matt Riley,Baltimore Orioles,Futuristics,Reciprocal; FUT
+reciprocal,R65,Rob Ramsay,Seattle Mariners,Futuristics,Reciprocal; FUT
+reciprocal,R66,Vernon Wells,Toronto Blue Jays,Futuristics,Reciprocal; FUT
+reciprocal,R67,Eric Gagne,Los Angeles Dodgers,Futuristics,Reciprocal; FUT
+reciprocal,R68,Robert Fick,Detroit Tigers,Futuristics,Reciprocal; FUT
+reciprocal,R69,Mark Quinn,Kansas City Royals,Futuristics,Reciprocal; FUT
+reciprocal,R70,Kip Wells,Chicago White Sox,Futuristics,Reciprocal; FUT
+reciprocal,R71,Peter Bergeron,Montreal Expos,Futuristics,Reciprocal; FUT
+reciprocal,R72,Ed Yarnall,New York Yankees,Futuristics,Reciprocal; FUT
+reciprocal,R73,Jorge Toca,New York Mets,Futuristics,Reciprocal; FUT
+reciprocal,R74,Alfonso Soriano,New York Yankees,Futuristics,Reciprocal; FUT
+reciprocal,R75,Calvin Murray,San Francisco Giants,Futuristics,Reciprocal; FUT
+reciprocal,R76,Ramon Ortiz,Anaheim Angels,Futuristics,Reciprocal; FUT
+reciprocal,R77,Chad Meyers,Chicago Cubs,Futuristics,Reciprocal; FUT
+reciprocal,R78,Jason LaRue,Cincinnati Reds,Futuristics,Reciprocal; FUT
+reciprocal,R79,Pat Burrell,Philadelphia Phillies,Futuristics,Reciprocal; FUT
+reciprocal,R80,Chad Hermansen,Pittsburgh Pirates,Futuristics,Reciprocal; FUT
+reciprocal,R81,Lance Berkman,Houston Astros,Futuristics,Reciprocal; FUT
+reciprocal,R82,Erubiel Durazo,Arizona Diamondbacks,Futuristics,Reciprocal; FUT
+reciprocal,R83,Juan Pena,Boston Red Sox,Futuristics,Reciprocal; FUT
+reciprocal,R84,Adam Kennedy,St. Louis Cardinals,Futuristics,Reciprocal; FUT
+reciprocal,R85,Ben Petrick,Colorado Rockies,Futuristics,Reciprocal; FUT
+reciprocal,R86,Kevin Barker,Milwaukee Brewers,Futuristics,Reciprocal; FUT
+reciprocal,R87,Bruce Chen,Atlanta Braves,Futuristics,Reciprocal; FUT
+reciprocal,R88,Jerry Hairston Jr.,Baltimore Orioles,Futuristics,Reciprocal; FUT
+reciprocal,R89,A.J. Burnett,Florida Marlins,Futuristics,Reciprocal; FUT
+reciprocal,R90,Gary Matthews Jr.,San Diego Padres,Futuristics,Reciprocal; FUT
+atomic,A1,Pedro Martinez,Boston Red Sox,,
+atomic,A2,Mark McGwire,St. Louis Cardinals,,
+atomic,A3,Ken Griffey Jr.,Seattle Mariners,,
+atomic,A4,Jeff Bagwell,Houston Astros,,
+atomic,A5,Greg Maddux,Atlanta Braves,,
+atomic,A6,Derek Jeter,New York Yankees,,
+atomic,A7,Cal Ripken Jr.,Baltimore Orioles,,
+atomic,A8,Manny Ramirez,Cleveland Indians,,
+atomic,A9,Randy Johnson,Arizona Diamondbacks,,
+atomic,A10,Nomar Garciaparra,Boston Red Sox,,
+atomic,A11,Tony Gwynn,San Diego Padres,,
+atomic,A12,Bernie Williams,New York Yankees,,
+atomic,A13,Mike Piazza,New York Mets,,
+atomic,A14,Roger Clemens,New York Yankees,,
+atomic,A15,Alex Rodriguez,Seattle Mariners,,
+awesome-powers,AP1,Ken Griffey Jr.,Seattle Mariners,,
+awesome-powers,AP2,Mike Piazza,New York Mets,,
+awesome-powers,AP3,Carlos Delgado,Toronto Blue Jays,,
+awesome-powers,AP4,Mark McGwire,St. Louis Cardinals,,
+awesome-powers,AP5,Chipper Jones,Atlanta Braves,,
+awesome-powers,AP6,Scott Rolen,Philadelphia Phillies,,
+awesome-powers,AP7,Cal Ripken Jr.,Baltimore Orioles,,
+awesome-powers,AP8,Alex Rodriguez,Seattle Mariners,,
+awesome-powers,AP9,Larry Walker,Colorado Rockies,,
+awesome-powers,AP10,Sammy Sosa,Chicago Cubs,,
+awesome-powers,AP11,Barry Bonds,San Francisco Giants,,
+awesome-powers,AP12,Nomar Garciaparra,Boston Red Sox,,
+awesome-powers,AP13,Jose Canseco,Tampa Bay Devil Rays,,
+awesome-powers,AP14,Manny Ramirez,Cleveland Indians,,
+awesome-powers,AP15,Jeff Bagwell,Houston Astros,,
+biorhythm,B1,Randy Johnson,Arizona Diamondbacks,,
+biorhythm,B2,Derek Jeter,New York Yankees,,
+biorhythm,B3,Sammy Sosa,Chicago Cubs,,
+biorhythm,B4,Jose Lima,Houston Astros,,
+biorhythm,B5,Chipper Jones,Atlanta Braves,,
+biorhythm,B6,Barry Bonds,San Francisco Giants,,
+biorhythm,B7,Ken Griffey Jr.,Seattle Mariners,,
+biorhythm,B8,Nomar Garciaparra,Boston Red Sox,,
+biorhythm,B9,Frank Thomas,Chicago White Sox,,
+biorhythm,B10,Pedro Martinez,Boston Red Sox,,
+biorhythm,B11,Larry Walker,Colorado Rockies,,
+biorhythm,B12,Greg Maddux,Atlanta Braves,,
+biorhythm,B13,Alex Rodriguez,Seattle Mariners,,
+biorhythm,B14,Mark McGwire,St. Louis Cardinals,,
+biorhythm,B15,Cal Ripken Jr.,Baltimore Orioles,,
+pyrotechnics,P1,Roger Clemens,New York Yankees,,
+pyrotechnics,P2,Chipper Jones,Atlanta Braves,,
+pyrotechnics,P3,Alex Rodriguez,Seattle Mariners,,
+pyrotechnics,P4,Jeff Bagwell,Houston Astros,,
+pyrotechnics,P5,Mark McGwire,St. Louis Cardinals,,
+pyrotechnics,P6,Pedro Martinez,Boston Red Sox,,
+pyrotechnics,P7,Manny Ramirez,Cleveland Indians,,
+pyrotechnics,P8,Cal Ripken Jr.,Baltimore Orioles,,
+pyrotechnics,P9,Mike Piazza,New York Mets,,
+pyrotechnics,P10,Derek Jeter,New York Yankees,,
+pyrotechnics,P11,Ken Griffey Jr.,Seattle Mariners,,
+pyrotechnics,P12,Frank Thomas,Chicago White Sox,,
+pyrotechnics,P13,Sammy Sosa,Chicago Cubs,,
+pyrotechnics,P14,Nomar Garciaparra,Boston Red Sox,,
+pyrotechnics,P15,Greg Maddux,Atlanta Braves,,
+shockwave,S1,Mark McGwire,St. Louis Cardinals,,
+shockwave,S2,Sammy Sosa,Chicago Cubs,,
+shockwave,S3,Manny Ramirez,Cleveland Indians,,
+shockwave,S4,Ken Griffey Jr.,Seattle Mariners,,
+shockwave,S5,Vladimir Guerrero,Montreal Expos,,
+shockwave,S6,Barry Bonds,San Francisco Giants,,
+shockwave,S7,Albert Belle,Baltimore Orioles,,
+shockwave,S8,Ivan Rodriguez,Texas Rangers,,
+shockwave,S9,Chipper Jones,Atlanta Braves,,
+shockwave,S10,Mo Vaughn,Anaheim Angels,,
+shockwave,S11,Jose Canseco,Tampa Bay Devil Rays,,
+shockwave,S12,Jeff Bagwell,Houston Astros,,
+shockwave,S13,Matt Williams,Arizona Diamondbacks,,
+shockwave,S14,Alex Rodriguez,Seattle Mariners,,
+shockwave,S15,Carlos Delgado,Toronto Blue Jays,,
+ud-authentics,AB,Adrian Beltre,Los Angeles Dodgers,,AU
+ud-authentics,BD,Ben Davis,San Diego Padres,,AU; EXCH
+ud-authentics,CBE,Carlos Beltran,Kansas City Royals,,AU
+ud-authentics,DJ,Derek Jeter,New York Yankees,,AU; EXCH
+ud-authentics,JC,Jose Canseco,Tampa Bay Devil Rays,,AU
+ud-authentics,JR,Ken Griffey Jr.,Seattle Mariners,,AU
+ud-authentics,MR,Manny Ramirez,Cleveland Indians,,AU; EXCH
+ud-authentics,PB,Pat Burrell,Philadelphia Phillies,,AU
+ud-authentics,RM,Ruben Mateo,Texas Rangers,,AU
+ud-authentics,SC,Sean Casey,Cincinnati Reds,,AU
+ud-authentics,SG,Shawn Green,Toronto Blue Jays,,AU
+ud-authentics,SR,Scott Rolen,Philadelphia Phillies,,AU
+ud-authentics,VG,Vladimir Guerrero,Montreal Expos,,AU
+warp-zone,WZ1,Cal Ripken Jr.,Baltimore Orioles,,
+warp-zone,WZ2,Barry Bonds,San Francisco Giants,,
+warp-zone,WZ3,Ken Griffey Jr.,Seattle Mariners,,
+warp-zone,WZ4,Nomar Garciaparra,Boston Red Sox,,
+warp-zone,WZ5,Chipper Jones,Atlanta Braves,,
+warp-zone,WZ6,Ivan Rodriguez,Texas Rangers,,
+warp-zone,WZ7,Greg Maddux,Atlanta Braves,,
+warp-zone,WZ8,Derek Jeter,New York Yankees,,
+warp-zone,WZ9,Mike Piazza,New York Mets,,
+warp-zone,WZ10,Sammy Sosa,Chicago Cubs,,
+warp-zone,WZ11,Roger Clemens,New York Yankees,,
+warp-zone,WZ12,Alex Rodriguez,Seattle Mariners,,
+warp-zone,WZ13,Vladimir Guerrero,Montreal Expos,,
+warp-zone,WZ14,Pedro Martinez,Boston Red Sox,,
+warp-zone,WZ15,Mark McGwire,St. Louis Cardinals,,
+clemente-3000-hit-club,RC-B,Roberto Clemente,Pittsburgh Pirates,,MEM Bat; PR350; MEM
+clemente-3000-hit-club,RC-BC,Roberto Clemente,Pittsburgh Pirates,,MEM Bat; AU CUT; SN5; AU; CUT; MEM
+clemente-3000-hit-club,RC-C,Roberto Clemente,Pittsburgh Pirates,,AU CUT; SN4; AU; CUT
