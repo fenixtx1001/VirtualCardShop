@@ -17,6 +17,24 @@ reviewable VCS draft.
 
 ## Card data conventions
 
+### Clean player/subject names
+
+The `player` field is display-facing and must stay clean. Store only the canonical
+player/card-subject name, plus the verified ` RC` suffix described below when
+applicable.
+
+Do not include checklist annotations or error/variation details in `player`. Examples
+that must be removed from the display name include `UER: Photo actually ...`, `ERR`,
+`COR`, print/color variations, serial-number notes, autograph/memorabilia notes, and
+other collector metadata. Preserve useful information of that kind in `variant`,
+`subset`, or other metadata instead.
+
+For example, source text such as `Dave Collins UER: Photo actually Bobby Jones`
+must display as `Dave Collins` in `player`, with the UER/photo detail retained only
+as metadata when the dataset models it.
+
+This convention applies to all new Set Factory datasets moving forward.
+
 ### True rookie-card naming
 
 When a specific card is a recognized true rookie card for a player, append ` RC` to
