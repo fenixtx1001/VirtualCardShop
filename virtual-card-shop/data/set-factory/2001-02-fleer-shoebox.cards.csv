@@ -1,0 +1,329 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Tariq Abdul-Wahad,Denver Nuggets,,
+base,2,Glen Rice,Houston Rockets,,
+base,3,Derek Anderson,Portland Trail Blazers,,
+base,4,Desmond Mason,Seattle SuperSonics,,
+base,5,Al Harrington,Indiana Pacers,,
+base,6,Mitch Richmond,Los Angeles Lakers,,
+base,7,Felipe Lopez,Minnesota Timberwolves,,
+base,8,Andre Miller,Cleveland Cavaliers,,
+base,9,Jerry Stackhouse,Detroit Pistons,,
+base,10,Jalen Rose,Indiana Pacers,,
+base,11,Lindsey Hunter,Los Angeles Lakers,,
+base,12,Tim Thomas,Milwaukee Bucks,,
+base,13,Wally Szczerbiak,Minnesota Timberwolves,,
+base,14,Vince Carter,Toronto Raptors,,
+base,15,Nick Van Exel,Denver Nuggets,,
+base,16,Jon Barry,Detroit Pistons,,
+base,17,Aaron McKie,Philadelphia 76ers,,
+base,18,Iakovos Tsakalidis,Phoenix Suns,,
+base,19,Chris Webber,Sacramento Kings,,
+base,20,Karl Malone,Utah Jazz,,
+base,21,Shareef Abdur-Rahim,Atlanta Hawks,,
+base,22,Baron Davis,Charlotte Hornets,,
+base,23,Michael Doleac,Cleveland Cavaliers,,
+base,24,Jermaine O'Neal,Indiana Pacers,,
+base,25,Elton Brand,Los Angeles Clippers,,
+base,26,Glenn Robinson,Milwaukee Bucks,,
+base,27,Tracy McGrady,Orlando Magic,,
+base,28,Allen Iverson,Philadelphia 76ers,,
+base,29,Anfernee Hardaway,Phoenix Suns,,
+base,30,Scot Pollard,Sacramento Kings,,
+base,31,David Robinson,San Antonio Spurs,,
+base,32,John Stockton,Utah Jazz,,
+base,33,Jason Williams,Memphis Grizzlies,,
+base,34,Voshon Lenard,Denver Nuggets,,
+base,35,Shaquille O'Neal,Los Angeles Lakers,,
+base,36,Grant Hill,Orlando Magic,,
+base,37,Shawn Marion,Phoenix Suns,,
+base,38,Vin Baker,Seattle SuperSonics,,
+base,39,Raef LaFrentz,Denver Nuggets,,
+base,40,Steve Francis,Houston Rockets,,
+base,41,Michael Dickerson,Memphis Grizzlies,,
+base,42,Hidayet Turkoglu,Sacramento Kings,,
+base,43,Patrick Ewing,Orlando Magic,,
+base,44,Dirk Nowitzki,Dallas Mavericks,,
+base,45,Keyon Dooling,Los Angeles Clippers,,
+base,46,Marcus Camby,New York Knicks,,
+base,47,Bonzi Wells,Portland Trail Blazers,,
+base,48,Tim Duncan,San Antonio Spurs,,
+base,49,Jamaal Magloire,Charlotte Hornets,,
+base,50,Rick Fox,Los Angeles Lakers,,
+base,51,Kendall Gill,Miami Heat,,
+base,52,Michael Redd,Milwaukee Bucks,,
+base,53,Keith Van Horn,New Jersey Nets,,
+base,54,Eric Snow,Philadelphia 76ers,,
+base,55,Theo Ratliff,Atlanta Hawks,,
+base,56,Clifford Robinson,Detroit Pistons,,
+base,57,Moochie Norris,Houston Rockets,,
+base,58,Alonzo Mourning,Miami Heat,,
+base,59,Joe Smith,Minnesota Timberwolves,,
+base,60,Brent Barry,Seattle SuperSonics,,
+base,61,Alvin Williams,Toronto Raptors,,
+base,62,Antoine Walker,Boston Celtics,,
+base,63,Antonio McDyess,Denver Nuggets,,
+base,64,Derek Fisher,Los Angeles Lakers,,
+base,65,Ron Mercer,Chicago Bulls,,
+base,66,Hakeem Olajuwon,Toronto Raptors,,
+base,67,Jamal Crawford,Chicago Bulls,,
+base,68,Chris Mihm,Cleveland Cavaliers,,
+base,69,Ben Wallace,Detroit Pistons,,
+base,70,Brian Grant,Miami Heat,,
+base,71,Kevin Garnett,Minnesota Timberwolves,,
+base,72,Shandon Anderson,New York Knicks,,
+base,73,Shawn Bradley,Dallas Mavericks,,
+base,74,Danny Fortson,Golden State Warriors,,
+base,75,Jeff McInnis,Los Angeles Clippers,,
+base,76,LaPhonso Ellis,Miami Heat,,
+base,77,Sam Cassell,Milwaukee Bucks,,
+base,78,Rasheed Wallace,Portland Trail Blazers,,
+base,79,Malik Rose,San Antonio Spurs,,
+base,80,Jahidi White,Washington Wizards,,
+base,81,Milt Palacio,Boston Celtics,,
+base,82,Tim Hardaway,Dallas Mavericks,,
+base,83,Antonio Daniels,San Antonio Spurs,,
+base,84,Tyronn Lue,Washington Wizards,,
+base,85,Cuttino Mobley,Houston Rockets,,
+base,86,DerMarr Johnson,Atlanta Hawks,,
+base,87,Lamond Murray,Cleveland Cavaliers,,
+base,88,Larry Hughes,Golden State Warriors,,
+base,89,Reggie Miller,Indiana Pacers,,
+base,90,Lorenzen Wright,Memphis Grizzlies,,
+base,91,Eddie Jones,Miami Heat,,
+base,92,Anthony Mason,Milwaukee Bucks,,
+base,93,Todd MacCulloch,New Jersey Nets,,
+base,94,Speedy Claxton,Philadelphia 76ers,,
+base,95,Mateen Cleaves,Sacramento Kings,,
+base,96,Gary Payton,Seattle SuperSonics,,
+base,97,Morris Peterson,Toronto Raptors,,
+base,98,Mike Miller,Orlando Magic,,
+base,99,Hanno Mottola,Atlanta Hawks,,
+base,100,Steve Nash,Dallas Mavericks,,
+base,101,Stromile Swift,Memphis Grizzlies,,
+base,102,Ray Allen,Milwaukee Bucks,,
+base,103,Mark Jackson,New York Knicks,,
+base,104,Stephon Marbury,Phoenix Suns,,
+base,105,Mike Bibby,Sacramento Kings,,
+base,106,Rashard Lewis,Seattle SuperSonics,,
+base,107,Jason Kidd,New Jersey Nets,,
+base,108,P.J. Brown,Charlotte Hornets,,
+base,109,Kobe Bryant,Los Angeles Lakers,,
+base,110,Tom Gugliotta,Phoenix Suns,,
+base,111,Richard Hamilton,Washington Wizards,,
+base,112,Antawn Jamison,Golden State Warriors,,
+base,113,Lamar Odom,Los Angeles Clippers,,
+base,114,Kurt Thomas,New York Knicks,,
+base,115,Robert Horry,Los Angeles Lakers,,
+base,116,Dikembe Mutombo,Philadelphia 76ers,,
+base,117,Tony Delk,Phoenix Suns,,
+base,118,Predrag Stojakovic,Sacramento Kings,,
+base,119,Donyell Marshall,Utah Jazz,,
+base,120,Paul Pierce,Boston Celtics,,
+base,121,Michael Finley,Dallas Mavericks,,
+base,122,Quentin Richardson,Los Angeles Clippers,,
+base,123,Kenyon Martin,New Jersey Nets,,
+base,124,Allan Houston,New York Knicks,,
+base,125,Scottie Pippen,Portland Trail Blazers,,
+base,126,Steve Smith,San Antonio Spurs,,
+base,127,Bryon Russell,Utah Jazz,,
+base,128,James Posey,Denver Nuggets,,
+base,129,Terrell Brandon,Minnesota Timberwolves,,
+base,130,Toni Kukoc,Atlanta Hawks,,
+base,131,Stephen Jackson,San Antonio Spurs,,
+base,132,Marc Jackson,Golden State Warriors,,
+base,133,Kelvin Cato,Houston Rockets,,
+base,134,Travis Best,Indiana Pacers,,
+base,135,David Wesley,Charlotte Hornets,,
+base,136,Anthony Carter,Miami Heat,,
+base,137,Michael Jordan,Washington Wizards,,
+base,138,Darrell Armstrong,Orlando Magic,,
+base,139,Matt Harpring,Philadelphia 76ers,,
+base,140,Antonio Davis,Toronto Raptors,,
+base,141,Courtney Alexander,Washington Wizards,,
+base,142,Jamal Mashburn,Charlotte Hornets,,
+base,143,Jason Terry,Atlanta Hawks,,
+base,144,Marcus Fizer,Chicago Bulls,,
+base,145,Juwan Howard,Dallas Mavericks,,
+base,146,Darius Miles,Los Angeles Clippers,,
+base,147,Latrell Sprewell,New York Knicks,,
+base,148,Damon Stoudamire,Portland Trail Blazers,,
+base,149,John Starks,Utah Jazz,,
+base,150,Jumaine Jones,Cleveland Cavaliers,,
+base,151,Kedrick Brown RC,Boston Celtics,Rookie,RC; SN2500
+base,152,Trenton Hassell RC,Chicago Bulls,Rookie,RC; SN2500
+base,153,Kwame Brown RC,Washington Wizards,Rookie,RC; SN2500
+base,154,Terence Morris RC,Houston Rockets,Rookie,RC; SN2500
+base,155,Richard Jefferson RC,New Jersey Nets,Rookie,RC; SN2500
+base,156,Vladimir Radmanovic RC,Seattle SuperSonics,Rookie,RC; SN2500
+base,157,Brandon Armstrong RC,New Jersey Nets,Rookie,RC; SN2500
+base,158,Kirk Haston RC,Charlotte Hornets,Rookie,RC; SN2500
+base,159,Eddie Griffin RC,Houston Rockets,Rookie,RC; SN2500
+base,160,Steven Hunter RC,Orlando Magic,Rookie,RC; SN2500
+base,161,Troy Murphy RC,Golden State Warriors,Rookie,RC; SN2500
+base,162,Andrei Kirilenko RC,Utah Jazz,Rookie,RC; SN2500
+base,163,Jeryl Sasser RC,Orlando Magic,Rookie,RC; SN2500
+base,164,Michael Bradley RC,Toronto Raptors,Rookie,RC; SN2500
+base,165,Rodney White RC,Detroit Pistons,Rookie,RC; SN2500
+base,166,Loren Woods RC,Minnesota Timberwolves,Rookie,RC; SN2500
+base,167,Zach Randolph RC,Portland Trail Blazers,Rookie,RC; SN2500
+base,168,Joe Johnson RC,Boston Celtics,Rookie,RC; SN2500
+base,169,Eddy Curry RC,Chicago Bulls,Rookie,RC; SN2500
+base,170,Jason Richardson RC,Golden State Warriors,Rookie,RC; SN2500
+base,171,DeSagana Diop RC,Cleveland Cavaliers,Rookie,RC; SN2500
+base,172,Jamaal Tinsley RC,Indiana Pacers,Rookie,RC; SN2500
+base,173,Pau Gasol RC,Memphis Grizzlies,Rookie,RC; SN2500
+base,174,Jason Collins RC,New Jersey Nets,Rookie,RC; SN2500
+base,175,Zeljko Rebraca RC,Detroit Pistons,Rookie,RC; SN2500
+base,176,Shane Battier RC,Memphis Grizzlies,Rookie,RC; SN2500
+base,177,Gerald Wallace RC,Sacramento Kings,Rookie,RC; SN2500
+base,178,Joseph Forte RC,Boston Celtics,Rookie,RC; SN2500
+base,179,Tyson Chandler RC,Chicago Bulls,Rookie,RC; SN2500
+base,180,Tony Parker RC,San Antonio Spurs,Rookie,RC; SN2500
+checklists,NNO-01,Checklist: 1-134,,,NNO; CL
+checklists,NNO-02,Checklist: 135-180 and Inserts,,,NNO; CL
+nba-flight-school,1,Richard Hamilton,Washington Wizards,,
+nba-flight-school,2,Kobe Bryant,Los Angeles Lakers,,
+nba-flight-school,3,Michael Jordan,Washington Wizards,,
+nba-flight-school,4,Desmond Mason,Seattle SuperSonics,,
+nba-flight-school,5,Antoine Walker,Boston Celtics,,
+nba-flight-school,6,Baron Davis,Charlotte Hornets,,
+nba-flight-school,7,Steve Francis,Houston Rockets,,
+nba-flight-school,8,Elton Brand,Los Angeles Clippers,,
+nba-flight-school,9,Lamar Odom,Los Angeles Clippers,,
+nba-flight-school,10,Kevin Garnett,Minnesota Timberwolves,,
+nba-flight-school,11,Latrell Sprewell,New York Knicks,,
+nba-flight-school,12,Tracy McGrady,Orlando Magic,,
+nba-flight-school,13,Shawn Marion,Phoenix Suns,,
+nba-flight-school,14,Chris Webber,Sacramento Kings,,
+nba-flight-school,15,Vince Carter,Toronto Raptors,,
+nba-flight-school,16,Tim Duncan,San Antonio Spurs,,
+nba-flight-school,17,Morris Peterson,Toronto Raptors,,
+nba-flight-school,18,Karl Malone,Utah Jazz,,
+nba-flight-school,19,Jerry Stackhouse,Detroit Pistons,,
+nba-flight-school,20,Darius Miles,Los Angeles Clippers,,
+nba-flight-school-cadet,NNO-01,Elton Brand,Los Angeles Clippers,,NNO; MEM
+nba-flight-school-cadet,NNO-02,Vince Carter,Toronto Raptors,,NNO; MEM
+nba-flight-school-cadet,NNO-03,Baron Davis,Charlotte Hornets,,NNO; MEM
+nba-flight-school-cadet,NNO-04,Steve Francis,Houston Rockets,,NNO; MEM
+nba-flight-school-cadet,NNO-05,Richard Hamilton,Washington Wizards,,NNO; MEM
+nba-flight-school-cadet,NNO-06,Karl Malone,Utah Jazz,,NNO; MEM
+nba-flight-school-cadet,NNO-07,Shawn Marion,Phoenix Suns,,NNO; MEM
+nba-flight-school-cadet,NNO-08,Desmond Mason,Seattle SuperSonics,,NNO; MEM
+nba-flight-school-cadet,NNO-09,Tracy McGrady,Orlando Magic,,NNO; MEM
+nba-flight-school-cadet,NNO-10,Darius Miles,Los Angeles Clippers,,NNO; MEM
+nba-flight-school-cadet,NNO-11,Lamar Odom,Los Angeles Clippers,,NNO; MEM
+nba-flight-school-cadet,NNO-12,Morris Peterson,Toronto Raptors,,NNO; MEM
+nba-flight-school-cadet,NNO-13,Jerry Stackhouse,Detroit Pistons,,NNO; MEM
+nba-flight-school-cadet,NNO-14,Antoine Walker,Boston Celtics,,NNO; MEM
+nba-flight-school-cadet,NNO-15,Chris Webber,Sacramento Kings,,NNO; MEM
+nba-flight-school-captain,NNO-01,Elton Brand,Los Angeles Clippers,,NNO; MEM; SN75
+nba-flight-school-captain,NNO-02,Vince Carter,Toronto Raptors,,NNO; MEM; SN75
+nba-flight-school-captain,NNO-03,Baron Davis,Charlotte Hornets,,NNO; MEM; SN75
+nba-flight-school-captain,NNO-04,Steve Francis,Houston Rockets,,NNO; MEM; SN75
+nba-flight-school-captain,NNO-05,Richard Hamilton,Washington Wizards,,NNO; MEM; SN75
+nba-flight-school-captain,NNO-06,Karl Malone,Utah Jazz,,NNO; MEM; SN75
+nba-flight-school-captain,NNO-07,Shawn Marion,Phoenix Suns,,NNO; MEM; SN75
+nba-flight-school-captain,NNO-08,Desmond Mason,Seattle SuperSonics,,NNO; MEM; SN75
+nba-flight-school-captain,NNO-09,Tracy McGrady,Orlando Magic,,NNO; MEM; SN75
+nba-flight-school-captain,NNO-10,Darius Miles,Los Angeles Clippers,,NNO; MEM; SN75
+nba-flight-school-captain,NNO-11,Lamar Odom,Los Angeles Clippers,,NNO; MEM; SN75
+nba-flight-school-captain,NNO-12,Morris Peterson,Toronto Raptors,,NNO; MEM; SN75
+nba-flight-school-captain,NNO-13,Jerry Stackhouse,Detroit Pistons,,NNO; MEM; SN75
+nba-flight-school-captain,NNO-14,Antoine Walker,Boston Celtics,,NNO; MEM; SN75
+nba-flight-school-captain,NNO-15,Chris Webber,Sacramento Kings,,NNO; MEM; SN75
+sole-of-the-game,1,Karl Malone,Utah Jazz,,
+sole-of-the-game,2,Dirk Nowitzki,Dallas Mavericks,,
+sole-of-the-game,3,Ray Allen,Milwaukee Bucks,,
+sole-of-the-game,4,Shaquille O'Neal,Los Angeles Lakers,,
+sole-of-the-game,5,Antoine Walker,Boston Celtics,,
+sole-of-the-game,6,Grant Hill,Orlando Magic,,
+sole-of-the-game,7,Steve Francis,Houston Rockets,,
+sole-of-the-game,8,Kobe Bryant,Los Angeles Lakers,,
+sole-of-the-game,9,Michael Jordan,Chicago Bulls,,
+sole-of-the-game,10,Larry Bird,Boston Celtics,,
+sole-of-the-game,11,Darius Miles,Los Angeles Clippers,,
+sole-of-the-game,12,Chris Webber,Sacramento Kings,,
+sole-of-the-game,13,Allen Iverson,Philadelphia 76ers,,
+sole-of-the-game,14,Rasheed Wallace,Portland Trail Blazers,,
+sole-of-the-game,15,Vince Carter,Toronto Raptors,,
+sole-of-the-game-ball,NNO-01,Ray Allen,Milwaukee Bucks,,NNO; MEM; SN300
+sole-of-the-game-ball,NNO-02,Vince Carter,Toronto Raptors,,NNO; MEM; SN300
+sole-of-the-game-ball,NNO-03,Steve Francis,Houston Rockets,,NNO; MEM; SN300
+sole-of-the-game-ball,NNO-04,Grant Hill,Orlando Magic,,NNO; MEM; SN300
+sole-of-the-game-ball,NNO-05,Allen Iverson,Philadelphia 76ers,,NNO; MEM; SN300
+sole-of-the-game-ball,NNO-06,Karl Malone,Utah Jazz,,NNO; MEM; SN300
+sole-of-the-game-ball,NNO-07,Darius Miles,Los Angeles Clippers,,NNO; MEM; SN300
+sole-of-the-game-ball,NNO-08,Dirk Nowitzki,Dallas Mavericks,,NNO; MEM; SN300
+sole-of-the-game-ball,NNO-09,Antoine Walker,Boston Celtics,,NNO; MEM; SN300
+sole-of-the-game-ball,NNO-10,Rasheed Wallace,Portland Trail Blazers,,NNO; MEM; SN300
+sole-of-the-game-ball,NNO-11,Chris Webber,Sacramento Kings,,NNO; MEM; SN300
+sole-of-the-game-jersey,NNO-01,Ray Allen,Milwaukee Bucks,,NNO; MEM; SN200
+sole-of-the-game-jersey,NNO-02,Larry Bird,Boston Celtics,,NNO; MEM; SN200
+sole-of-the-game-jersey,NNO-03,Vince Carter,Toronto Raptors,,NNO; MEM; SN200
+sole-of-the-game-jersey,NNO-04,Steve Francis,Houston Rockets,,NNO; MEM; SN200
+sole-of-the-game-jersey,NNO-05,Grant Hill,Orlando Magic,,NNO; MEM; SN200
+sole-of-the-game-jersey,NNO-06,Allen Iverson,Philadelphia 76ers,,NNO; MEM; SN200
+sole-of-the-game-jersey,NNO-07,Karl Malone,Utah Jazz,,NNO; MEM; SN200
+sole-of-the-game-jersey,NNO-08,Darius Miles,Los Angeles Clippers,,NNO; MEM; SN200
+sole-of-the-game-jersey,NNO-09,Dirk Nowitzki,Dallas Mavericks,,NNO; MEM; SN200
+sole-of-the-game-jersey,NNO-10,Antoine Walker,Boston Celtics,,NNO; MEM; SN200
+sole-of-the-game-jersey,NNO-11,Rasheed Wallace,Portland Trail Blazers,,NNO; MEM; SN200
+sole-of-the-game-shoe,NNO-01,Ray Allen,Milwaukee Bucks,,NNO; MEM; SN100
+sole-of-the-game-shoe,NNO-02,Larry Bird,Boston Celtics,,NNO; MEM; SN100
+sole-of-the-game-shoe,NNO-03,Vince Carter,Toronto Raptors,,NNO; MEM; SN100
+sole-of-the-game-shoe,NNO-04,Grant Hill,Orlando Magic,,NNO; MEM; SN100
+sole-of-the-game-shoe,NNO-05,Allen Iverson,Philadelphia 76ers,,NNO; MEM; SN100
+sole-of-the-game-shoe,NNO-06,Karl Malone,Utah Jazz,,NNO; MEM; SN100
+sole-of-the-game-shoe,NNO-07,Darius Miles,Los Angeles Clippers,,NNO; MEM; SN100
+sole-of-the-game-shoe,NNO-08,Dirk Nowitzki,Dallas Mavericks,,NNO; MEM; SN100
+sole-of-the-game-shoe,NNO-09,Antoine Walker,Boston Celtics,,NNO; MEM; SN100
+sole-of-the-game-shoe,NNO-10,Rasheed Wallace,Portland Trail Blazers,,NNO; MEM; SN100
+sole-of-the-game-shoe,NNO-11,Chris Webber,Sacramento Kings,,NNO; MEM; SN100
+sole-of-the-game-triple,NNO-01,Ray Allen,Milwaukee Bucks,,NNO; MEM; SN50
+sole-of-the-game-triple,NNO-02,Vince Carter,Toronto Raptors,,NNO; MEM; SN50
+sole-of-the-game-triple,NNO-03,Steve Francis,Houston Rockets,,NNO; MEM; SN50
+sole-of-the-game-triple,NNO-04,Grant Hill,Orlando Magic,,NNO; MEM; SN50
+sole-of-the-game-triple,NNO-05,Allen Iverson,Philadelphia 76ers,,NNO; MEM; SN50
+sole-of-the-game-triple,NNO-06,Karl Malone,Utah Jazz,,NNO; MEM; SN50
+sole-of-the-game-triple,NNO-07,Darius Miles,Los Angeles Clippers,,NNO; MEM; SN50
+sole-of-the-game-triple,NNO-08,Dirk Nowitzki,Dallas Mavericks,,NNO; MEM; SN50
+sole-of-the-game-triple,NNO-09,Antoine Walker,Boston Celtics,,NNO; MEM; SN50
+tougher-than-leather,1,Alonzo Mourning,Miami Heat,,
+tougher-than-leather,2,Antonio McDyess,Denver Nuggets,,
+tougher-than-leather,3,Paul Pierce,Boston Celtics,,
+tougher-than-leather,4,Predrag Stojakovic,Sacramento Kings,,
+tougher-than-leather,5,Dirk Nowitzki,Dallas Mavericks,,
+tougher-than-leather,6,Allen Iverson,Philadelphia 76ers,,
+tougher-than-leather,7,Marcus Camby,New York Knicks,,
+tougher-than-leather,8,Tracy McGrady,Orlando Magic,,
+tougher-than-leather,9,Kenyon Martin,New Jersey Nets,,
+tougher-than-leather,10,Dikembe Mutombo,Philadelphia 76ers,,
+tougher-than-leather,11,Rasheed Wallace,Portland Trail Blazers,,
+tougher-than-leather,12,David Robinson,San Antonio Spurs,,
+tougher-than-leather,13,Shareef Abdur-Rahim,Atlanta Hawks,,
+tougher-than-leather,14,Glenn Robinson,Milwaukee Bucks,,
+tougher-than-leather,15,Vince Carter,Toronto Raptors,,
+tougher-than-leather,16,Antoine Walker,Boston Celtics,,
+tougher-than-leather,17,Trajan Langdon,Cleveland Cavaliers,,
+tougher-than-leather,18,Scottie Pippen,Portland Trail Blazers,,
+tougher-than-leather,19,Eddie Jones,Miami Heat,,
+tougher-than-leather,20,Lamar Odom,Los Angeles Clippers,,
+tougher-than-leather-shoes,NNO-01,Shareef Abdur-Rahim,Atlanta Hawks,,NNO; MEM; SN100
+tougher-than-leather-shoes,NNO-02,Marcus Camby,New York Knicks,,NNO; MEM; SN100
+tougher-than-leather-shoes,NNO-03,Vince Carter,Toronto Raptors,,NNO; MEM; SN100
+tougher-than-leather-shoes,NNO-04,Vince Carter,Toronto Raptors,,NNO; AU; MEM; SN100
+tougher-than-leather-shoes,NNO-05,Allen Iverson,Philadelphia 76ers,,NNO; MEM; SN100
+tougher-than-leather-shoes,NNO-06,Eddie Jones,Miami Heat,,NNO; MEM; SN100
+tougher-than-leather-shoes,NNO-07,Trajan Langdon,Cleveland Cavaliers,,NNO; MEM; SN100
+tougher-than-leather-shoes,NNO-08,Kenyon Martin,New Jersey Nets,,NNO; MEM; SN100
+tougher-than-leather-shoes,NNO-09,Antonio McDyess,Denver Nuggets,,NNO; MEM; SN100
+tougher-than-leather-shoes,NNO-10,Tracy McGrady,Orlando Magic,,NNO; MEM; SN100
+tougher-than-leather-shoes,NNO-11,Alonzo Mourning,Miami Heat,,NNO; MEM; SN100
+tougher-than-leather-shoes,NNO-12,Dikembe Mutombo,Atlanta Hawks,,NNO; MEM; SN100
+tougher-than-leather-shoes,NNO-13,Dirk Nowitzki,Dallas Mavericks,,NNO; MEM; SN100
+tougher-than-leather-shoes,NNO-14,Lamar Odom,Los Angeles Clippers,,NNO; MEM; SN100
+tougher-than-leather-shoes,NNO-15,David Robinson,San Antonio Spurs,,NNO; MEM; SN100
+tougher-than-leather-shoes,NNO-16,Glenn Robinson,Milwaukee Bucks,,NNO; MEM; SN100
+tougher-than-leather-shoes,NNO-17,Peja Stojakovic,Sacramento Kings,,NNO; MEM; SN100
+tougher-than-leather-shoes,NNO-18,Antoine Walker,Boston Celtics,,NNO; MEM; SN100
+tougher-than-leather-shoes,NNO-19,Rasheed Wallace,Portland Trail Blazers,,NNO; MEM; SN100
