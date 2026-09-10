@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/79/1977-Topps",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/79/1977-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/79/1977-Topps",
+    "note": "1977 Topps flagship baseball set. Checklist is 660 cards distributed in one series. True RC status is applied only to cards identified on TCDB's Rookie Cards index; the word Rookie or an All-Star Rookie designation alone does not trigger the RC suffix."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Wax",
+    "baseStructure": "#1-660, one series",
+    "baseAvailability": "All 660 flagship cards share the normal base pool; no base short prints are modeled.",
+    "trueRookieNaming": "Append RC to the player/name field only for recognized true rookie cards. Generic Rookie subset wording and All-Star Rookie designations do not qualify on their own.",
+    "relatedSetHandling": "Mail-in Team Checklists, proofs, cloth stickers, O-Pee-Chee and other related issues are not included in the 660-card flagship Product.",
+    "subsetHandling": "League Leaders, Record Breakers, LCS, World Series, Turn Back the Clock, Rookie Prospects, Big League Brothers, team cards, checklists and other base-set subsets remain part of the single Base ProductSet."
+  },
+  "product": {
+    "id": "1977_Topps_Baseball",
+    "year": 1977,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 10,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE_AFTER_GENERATION",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1977-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1977_Topps_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/79/1977-Topps",
+      "expectedCards": 660,
+      "notes": "Flagship base set #1-660, distributed in one series. True RC cards have RC appended to the player/name field."
+    }
+  ]
+}
