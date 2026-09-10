@@ -17,6 +17,21 @@ reviewable VCS draft.
 
 ## Card data conventions
 
+### Collector checklist integrity
+
+VCS Product Sets should follow the collector-facing checklist whenever practical so
+set-completion percentages remain intuitive and true to how collectors define a set.
+Do not split one numbered base checklist or one complete parallel checklist into
+multiple VCS Product Sets solely to reproduce range-specific pack odds.
+
+When physical odds differ across ranges inside one checklist, prefer keeping the
+checklist intact and flattening card availability within that Product Set. Preserve
+the historical scarcity information in `subset`, `variant`, bundle decisions, or
+notes. Split a checklist only when the user explicitly wants separate VCS sets or
+when the source issues are genuinely distinct collector checklists.
+
+This convention applies to all new Set Factory datasets moving forward.
+
 ### Clean player/subject names
 
 The `player` field is display-facing and must stay clean. Store only the canonical
