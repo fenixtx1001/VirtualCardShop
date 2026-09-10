@@ -69,8 +69,7 @@ INSERT_SOURCES = [
 ]
 
 EXPECTED_COUNTS = {
-    "base": 60,
-    "futuristics": 30,
+    "base": 90,
     "reciprocal": 60,
     "reciprocal-futuristics": 30,
     "atomic": 15,
@@ -217,24 +216,21 @@ def build_base_rows() -> list[list[str]]:
         if not team:
             raise SystemExit(f"Base checklist card #{number} {player} is missing team data")
 
-        if number <= 60:
-            rows.append([
-                "base",
-                str(number),
-                player,
-                team,
-                "",
-                variant_text(*source_tags),
-            ])
-        else:
-            rows.append([
-                "futuristics",
-                str(number),
-                player,
-                team,
-                "Futuristics",
-                variant_text("FUT", *source_tags),
-            ])
+        subset = "Futuristics" if number >= 61 else ""
+        variant = variant_text("FUT" if number >= 61 else "", *source_tags)
+
+        # VCS intentionally keeps all 90 checklist cards in one Base ProductSet
+        # with equal availability so collection-completion percentage reflects
+        # the full physical 90-card set. Historical #61-90 1:4 scarcity is
+        # retained only as reference metadata, not as VCS pull odds.
+        rows.append([
+            "base",
+            str(number),
+            player,
+            team,
+            subset,
+            variant,
+        ])
 
     return rows
 
@@ -346,8 +342,7 @@ def main() -> None:
     all_rows.extend(build_reciprocal_rows())
 
     actual_counts: dict[str, int] = {
-        "base": 60,
-        "futuristics": 30,
+        "base": 90,
         "reciprocal": 60,
         "reciprocal-futuristics": 30,
     }
@@ -378,7 +373,7 @@ def main() -> None:
     for key, expected in EXPECTED_COUNTS.items():
         print(f"  {key}: {expected}")
     print("Recognized true RC cards labeled in player row: 0")
-    print("Expected Product Sets: 12")
+    print("Expected Product Sets: 11")
     print(f"Total resolved cards expected: {EXPECTED_TOTAL}")
     print("Team data: COMPLETE")
 
