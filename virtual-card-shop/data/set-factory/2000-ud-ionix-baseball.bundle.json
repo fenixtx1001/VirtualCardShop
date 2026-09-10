@@ -14,6 +14,7 @@
     "trueRookieNaming": "No base cards receive an RC suffix. TCDB's rookie index and Beckett both report zero recognized true RCs for 2000 UD Ionix Baseball. Futuristics wording alone does not qualify as RC.",
     "cleanPlayerNames": "Player contains only the clean card subject name plus RC when independently verified. FUT, AU, MEM, EXCH, print-run, error/correction, and other notes are stored in subset/variant metadata instead of Player.",
     "reciprocalModeling": "Reciprocal R1-R90 is one VCS ProductSet with equal card availability. Historically R1-R60 were inserted 1:4 packs and R61-R90 at 1:11; VCS intentionally uses one set-wide 1:4 rate so the full 90-card Reciprocal checklist has one completion percentage. R61-R90 retain Futuristics subset metadata.",
+    "obsoleteSetCleanup": "An earlier applied draft used a separate Reciprocal Futuristics ProductSet. That obsolete ProductSet is explicitly listed for guarded cleanup before the consolidated draft is applied.",
     "administrativeInsertHandling": "Upper Deck Collection Entry Forms and UD Authentics Redemption slips are excluded as administrative/sweepstakes/redemption instruments rather than collectible card outcomes. The 13-card UD Authentics autograph checklist is modeled directly; redemption-fulfilled subjects retain EXCH metadata where applicable.",
     "clementeModeling": "The three Roberto Clemente A Piece of History 3000 Hit Club cards distributed through UD Ionix are included as one insert ProductSet. Their PR350/SN5/SN4 and memorabilia/autograph attributes are preserved per card; no unsupported pack odds are inferred.",
     "releaseSafety": "Product remains unreleased until pricing and images are reviewed. Equal-odds simplifications for Base and Reciprocal are intentional for VCS collection-completion behavior; unsupported Clemente memorabilia odds remain null rather than guessed."
@@ -40,6 +41,9 @@
     "release": "BLOCKED"
   },
   "cardsFile": "2000-ud-ionix-baseball.cards.csv",
+  "obsoleteProductSetIds": [
+    "2000_UD_Ionix_Baseball_Reciprocal_Futuristics"
+  ],
   "productSets": [
     {
       "key": "base",
