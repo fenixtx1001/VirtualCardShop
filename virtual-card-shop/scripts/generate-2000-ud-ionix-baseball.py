@@ -14,7 +14,7 @@ BASE_URL = "https://www.tcdb.com/Checklist.cfm/sid/1424/2000-UD-Ionix"
 RECIPROCAL_URL = "https://www.tcdb.com/Checklist.cfm/sid/12424/2000-UD-Ionix-Reciprocal"
 
 # TCDB's rookie index and Beckett both report zero recognized true rookie cards
-# in 2000 UD Ionix Baseball. Futuristics/prospect wording alone must never add RC.
+# in 2000 UD Ionix Baseball. Futuristics wording alone must never add RC.
 TRUE_RC_CARDS: set[int] = set()
 
 INSERT_SOURCES = [
@@ -70,8 +70,7 @@ INSERT_SOURCES = [
 
 EXPECTED_COUNTS = {
     "base": 90,
-    "reciprocal": 60,
-    "reciprocal-futuristics": 30,
+    "reciprocal": 90,
     "atomic": 15,
     "awesome-powers": 15,
     "biorhythm": 15,
@@ -219,18 +218,7 @@ def build_base_rows() -> list[list[str]]:
         subset = "Futuristics" if number >= 61 else ""
         variant = variant_text("FUT" if number >= 61 else "", *source_tags)
 
-        # VCS intentionally keeps all 90 checklist cards in one Base ProductSet
-        # with equal availability so collection-completion percentage reflects
-        # the full physical 90-card set. Historical #61-90 1:4 scarcity is
-        # retained only as reference metadata, not as VCS pull odds.
-        rows.append([
-            "base",
-            str(number),
-            player,
-            team,
-            subset,
-            variant,
-        ])
+        rows.append(["base", str(number), player, team, subset, variant])
 
     return rows
 
@@ -257,24 +245,16 @@ def build_reciprocal_rows() -> list[list[str]]:
         if not team:
             raise SystemExit(f"Reciprocal {card_number} {player} is missing team data")
 
-        if number <= 60:
-            rows.append([
-                "reciprocal",
-                card_number,
-                player,
-                team,
-                "",
-                variant_text("Reciprocal", *source_tags),
-            ])
-        else:
-            rows.append([
-                "reciprocal-futuristics",
-                card_number,
-                player,
-                team,
-                "Futuristics",
-                variant_text("Reciprocal", "FUT", *source_tags),
-            ])
+        subset = "Futuristics" if number >= 61 else ""
+        variant = variant_text(
+            "Reciprocal",
+            "FUT" if number >= 61 else "",
+            *source_tags,
+        )
+
+        # VCS intentionally keeps the complete R1-R90 parallel together so
+        # collection completion reflects the real 90-card Reciprocal checklist.
+        rows.append(["reciprocal", card_number, player, team, subset, variant])
 
     return rows
 
@@ -299,17 +279,13 @@ def build_insert_rows(source: dict[str, object]) -> list[list[str]]:
 
         player, source_tags = clean_player(raw_name)
 
-        # TCDB's Clemente page can omit team in some renderings; the subject is
-        # unambiguously a Pittsburgh Pirates card.
         if key == "clemente-3000-hit-club" and not team:
             team = "Pittsburgh Pirates"
 
         if not team:
             raise SystemExit(f"{key} #{card_number} {player} is missing team data")
 
-        subset = ""
         extra_variant = ""
-
         if key == "ud-authentics":
             extra_variant = "AU"
             if card_number in {"BD", "DJ", "MR"}:
@@ -327,7 +303,7 @@ def build_insert_rows(source: dict[str, object]) -> list[list[str]]:
             card_number,
             player,
             team,
-            subset,
+            "",
             variant_text(extra_variant, *source_tags),
         ])
 
@@ -343,8 +319,7 @@ def main() -> None:
 
     actual_counts: dict[str, int] = {
         "base": 90,
-        "reciprocal": 60,
-        "reciprocal-futuristics": 30,
+        "reciprocal": 90,
     }
 
     for source in INSERT_SOURCES:
@@ -373,7 +348,7 @@ def main() -> None:
     for key, expected in EXPECTED_COUNTS.items():
         print(f"  {key}: {expected}")
     print("Recognized true RC cards labeled in player row: 0")
-    print("Expected Product Sets: 11")
+    print("Expected Product Sets: 10")
     print(f"Total resolved cards expected: {EXPECTED_TOTAL}")
     print("Team data: COMPLETE")
 
