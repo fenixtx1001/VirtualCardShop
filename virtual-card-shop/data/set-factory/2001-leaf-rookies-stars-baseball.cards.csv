@@ -1,0 +1,992 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Alex Rodriguez,Texas Rangers,,
+base,2,Derek Jeter,New York Yankees,,
+base,3,Aramis Ramirez,Pittsburgh Pirates,,
+base,4,Cliff Floyd,Florida Marlins,,
+base,5,Nomar Garciaparra,Boston Red Sox,,
+base,6,Craig Biggio,Houston Astros,,
+base,7,Ivan Rodriguez,Texas Rangers,,
+base,8,Cal Ripken Jr.,Baltimore Orioles,,
+base,9,Fred McGriff,Chicago Cubs,,
+base,10,Chipper Jones,Atlanta Braves,,
+base,11,Roberto Alomar,Cleveland Indians,,
+base,12,Moises Alou,Houston Astros,,
+base,13,Freddy Garcia,Seattle Mariners,,
+base,14,Bobby Abreu,Philadelphia Phillies,,
+base,15,Shawn Green,Los Angeles Dodgers,,
+base,16,Jason Giambi,Oakland Athletics,,
+base,17,Todd Helton,Colorado Rockies,,
+base,18,Robert Fick,Detroit Tigers,,
+base,19,Tony Gwynn,San Diego Padres,,
+base,20,Luis Gonzalez,Arizona Diamondbacks,,
+base,21,Sean Casey,Cincinnati Reds,,
+base,22,Roger Clemens,New York Yankees,,
+base,23,Brian Giles,Pittsburgh Pirates,,
+base,24,Manny Ramirez,Boston Red Sox,,
+base,25,Barry Bonds,San Francisco Giants,,
+base,26,Richard Hidalgo,Houston Astros,,
+base,27,Vladimir Guerrero,Montreal Expos,,
+base,28,Kevin Brown,Los Angeles Dodgers,,
+base,29,Mike Sweeney,Kansas City Royals,,
+base,30,"Ken Griffey Jr. UERUER: Last name misspelled ""Griffy"" on the back",Cincinnati Reds,,
+base,31,Mike Piazza,New York Mets,,
+base,32,Richie Sexson,Milwaukee Brewers,,
+base,33,Matt Morris,St. Louis Cardinals,,
+base,34,Jorge Posada,New York Yankees,,
+base,35,Eric Chavez,Oakland Athletics,,
+base,36,Mark Buehrle,Chicago White Sox,,
+base,37,Jeff Bagwell,Houston Astros,,
+base,38,Curt Schilling,Arizona Diamondbacks,,
+base,39,Bartolo Colon,Cleveland Indians,,
+base,40,Mark Quinn,Kansas City Royals,,
+base,41,Tony Clark,Detroit Tigers,,
+base,42,Brad Radke,Minnesota Twins,,
+base,43,Gary Sheffield,Los Angeles Dodgers,,
+base,44,Doug Mientkiewicz,Minnesota Twins,,
+base,45,Pedro Martinez,Boston Red Sox,,
+base,46,Carlos Lee,Chicago White Sox,,
+base,47,Troy Glaus,Anaheim Angels,,
+base,48,Preston Wilson,Florida Marlins,,
+base,49,Phil Nevin,San Diego Padres,,
+base,50,Chan Ho Park,Los Angeles Dodgers,,
+base,51,Randy Johnson,Arizona Diamondbacks,,
+base,52,Jermaine Dye,Oakland Athletics,,
+base,53,Terrence Long,Oakland Athletics,,
+base,54,Joe Mays,Minnesota Twins,,
+base,55,Scott Rolen,Philadelphia Phillies,,
+base,56,Miguel Tejada,Oakland Athletics,,
+base,57,Jim Thome,Cleveland Indians,,
+base,58,Jose Vidro,Montreal Expos,,
+base,59,Gabe Kapler,Texas Rangers,,
+base,60,Darin Erstad,Anaheim Angels,,
+base,61,Jim Edmonds,St. Louis Cardinals,,
+base,62,Jarrod Washburn,Anaheim Angels,,
+base,63,Tom Glavine,Atlanta Braves,,
+base,64,Adrian Beltre,Los Angeles Dodgers,,
+base,65,Sammy Sosa,Chicago Cubs,,
+base,66,Juan Gonzalez,Cleveland Indians,,
+base,67,Rafael Furcal,Atlanta Braves,,
+base,68,Mike Mussina,New York Yankees,,
+base,69,Mark McGwire,St. Louis Cardinals,,
+base,70,Ryan Klesko,San Diego Padres,,
+base,71,Raul Mondesi,Toronto Blue Jays,,
+base,72,Trot Nixon,Boston Red Sox,,
+base,73,Barry Larkin,Cincinnati Reds,,
+base,74,Rafael Palmeiro,Texas Rangers,,
+base,75,Mark Mulder,Oakland Athletics,,
+base,76,Carlos Delgado,Toronto Blue Jays,,
+base,77,Mike Hampton,Colorado Rockies,,
+base,78,Carl Everett,Boston Red Sox,,
+base,79,Paul Konerko,Chicago White Sox,,
+base,80,Larry Walker,Colorado Rockies,,
+base,81,Kerry Wood,Chicago Cubs,,
+base,82,Frank Thomas,Chicago White Sox,,
+base,83,Andruw Jones,Atlanta Braves,,
+base,84,Eric Milton,Minnesota Twins,,
+base,85,Ben Grieve,Tampa Bay Devil Rays,,
+base,86,Carlos Beltran,Kansas City Royals,,
+base,87,Tim Hudson,Oakland Athletics,,
+base,88,Hideo Nomo,Boston Red Sox,,
+base,89,Greg Maddux,Atlanta Braves,,
+base,90,Edgar Martinez,Seattle Mariners,,
+base,91,Lance Berkman,Houston Astros,,
+base,92,Pat Burrell,Philadelphia Phillies,,
+base,93,Jeff Kent,San Francisco Giants,,
+base,94,Magglio Ordonez,Chicago White Sox,,
+base,95,Cristian Guzman,Minnesota Twins,,
+base,96,Jose Canseco,Chicago White Sox,,
+base,97,J.D. Drew,St. Louis Cardinals,,
+base,98,Bernie Williams,New York Yankees,,
+base,99,Kazuhiro Sasaki,Seattle Mariners,,
+base,100,Rickey Henderson,San Diego Padres,,
+base,101,Wilson Guzman RC,Pittsburgh Pirates,Tier 1,
+base,102,Nick Neugebauer,Milwaukee Brewers,Tier 1,
+base,103,Lance Davis RC,Cincinnati Reds,Tier 1,
+base,104,Felipe Lopez,Toronto Blue Jays,Tier 1,
+base,105,Toby Hall,Tampa Bay Devil Rays,Tier 1,
+base,106,Jack Cust,Arizona Diamondbacks,Tier 1,
+base,107,Jason Karnuth RC,St. Louis Cardinals,Tier 1,
+base,108,Bart Miadich RC,Anaheim Angels,Tier 1,
+base,109,Brian Roberts RC,Baltimore Orioles,Tier 1,
+base,110,Brandon Larson RC,Cincinnati Reds,Tier 1,
+base,111,Sean Douglass RC,Baltimore Orioles,Tier 1,
+base,112,Joe Crede,Chicago White Sox,Tier 1,
+base,113,Tim Redding,Houston Astros,Tier 1,
+base,114,Adam Johnson,Minnesota Twins,Tier 1,
+base,115,Marcus Giles,Atlanta Braves,Tier 1,
+base,116,Jose Ortiz,Colorado Rockies,Tier 1,
+base,117,Jose Mieses RC,Milwaukee Brewers,Tier 1,
+base,118,Nick Maness RC,New York Mets,Tier 1,
+base,119,Les Walrond RC,St. Louis Cardinals,Tier 1,
+base,120,Travis Phelps RC,Tampa Bay Devil Rays,Tier 1,
+base,121,Troy Mattes RC,Montreal Expos,Tier 1,
+base,122,Carlos Garcia RC,Los Angeles Dodgers,Tier 1,
+base,123,Bill Ortega RC,St. Louis Cardinals,Tier 1,
+base,124,Gene Altman RC,Milwaukee Brewers,Tier 1,
+base,125,Nate Frese RC,Chicago Cubs,Tier 1,
+base,126,Alfonso Soriano,New York Yankees,Tier 1,
+base,127,Jose Nunez RC,San Diego Padres,Tier 1,
+base,128,Bob File RC,Toronto Blue Jays,Tier 1,
+base,129,Dan Wright,Chicago White Sox,Tier 1,
+base,130,Nick Johnson,New York Yankees,Tier 1,
+base,131,Brent Abernathy,Tampa Bay Devil Rays,Tier 1,
+base,132,Steve Green RC,Anaheim Angels,Tier 1,
+base,133,Billy Sylvester RC,Atlanta Braves,Tier 1,
+base,134,Scott MacRae RC,Cincinnati Reds,Tier 1,
+base,135,Kris Keller RC,Detroit Tigers,Tier 1,
+base,136,Scott Stewart RC,Montreal Expos,Tier 1,
+base,137,Henry Mateo RC,Montreal Expos,Tier 1,
+base,138,Timo Perez,New York Mets,Tier 1,
+base,139,Nate Teut RC,Chicago Cubs,Tier 1,
+base,140,Jason Michaels RC,Philadelphia Phillies,Tier 1,
+base,141,Junior Spivey RC,Arizona Diamondbacks,Tier 1,
+base,142,Carlos Pena,Texas Rangers,Tier 1,
+base,143,Wilmy Caceres RC,Anaheim Angels,Tier 1,
+base,144,David Lundquist,San Diego Padres,Tier 1,
+base,145,Jack Wilson RC,Pittsburgh Pirates,Tier 1,
+base,146,Jeremy Fikac RC,San Diego Padres,Tier 1,
+base,147,Alex Escobar,New York Mets,Tier 1,
+base,148,Abraham Nunez,Florida Marlins,Tier 1,
+base,149,Xavier Nady,San Diego Padres,Tier 1,
+base,150,Michael Cuddyer,Minnesota Twins,Tier 1,
+base,151,Greg Miller RC,Houston Astros,Tier 1,
+base,152,Eric Munson,Detroit Tigers,Tier 1,
+base,153,Aubrey Huff,Tampa Bay Devil Rays,Tier 1,
+base,154,Tim Christman RC,Colorado Rockies,Tier 1,
+base,155,Erick Almonte RC,New York Yankees,Tier 1,
+base,156,Mike Penney RC,Milwaukee Brewers,Tier 1,
+base,157,Delvin James RC,Tampa Bay Devil Rays,Tier 1,
+base,158,Ben Sheets,Milwaukee Brewers,Tier 1,
+base,159,Jason Hart,Oakland Athletics,Tier 1,
+base,160,Jose Acevedo RC,Cincinnati Reds,Tier 1,
+base,161,Will Ohman RC,Chicago Cubs,Tier 1,
+base,162,Erik Hiljus RC,Oakland Athletics,Tier 1,
+base,163,Juan Moreno RC,Texas Rangers,Tier 1,
+base,164,Mike Koplove RC,Arizona Diamondbacks,Tier 1,
+base,165,Pedro Santana RC,Detroit Tigers,Tier 1,
+base,166,Jimmy Rollins,Philadelphia Phillies,Tier 1,
+base,167,Matt White RC,Tampa Bay Devil Rays,Tier 1,
+base,168,Cesar Crespo RC,San Diego Padres,Tier 1,
+base,169,Carlos Hernandez,Houston Astros,Tier 1,
+base,170,Chris George,Kansas City Royals,Tier 1,
+base,171,Brad Voyles RC,Kansas City Royals,Tier 1,
+base,172,Luis Pineda RC,Detroit Tigers,Tier 1,
+base,173,Carlos Zambrano,Chicago Cubs,Tier 1,
+base,174,Nate Cornejo,Detroit Tigers,Tier 1,
+base,175,Jason Smith RC,Tampa Bay Devil Rays,Tier 1,
+base,176,Craig Monroe RC,Texas Rangers,Tier 1,
+base,177,Cody Ransom RC,San Francisco Giants,Tier 1,
+base,178,John Grabow RC,Pittsburgh Pirates,Tier 1,
+base,179,Pedro Feliz,San Francisco Giants,Tier 1,
+base,180,Jeremy Owens RC,San Diego Padres,Tier 1,
+base,181,Kurt Ainsworth,San Francisco Giants,Tier 1,
+base,182,Luis Lopez,Toronto Blue Jays,Tier 1,
+base,183,Stubby Clapp RC,St. Louis Cardinals,Tier 1,
+base,184,Ryan Freel RC,Toronto Blue Jays,Tier 1,
+base,185,Duaner Sanchez RC,Arizona Diamondbacks,Tier 1,
+base,186,Jason Jennings,Colorado Rockies,Tier 1,
+base,187,Kyle Lohse RC,Minnesota Twins,Tier 1,
+base,188,Jerrod Riggan RC,New York Mets,Tier 1,
+base,189,Joe Beimel RC,Pittsburgh Pirates,Tier 1,
+base,190,Nick Punto RC,Philadelphia Phillies,Tier 1,
+base,191,Willie Harris RC,Baltimore Orioles,Tier 1,
+base,192,Ryan Jensen RC,San Francisco Giants,Tier 1,
+base,193,Adam Pettyjohn RC,Detroit Tigers,Tier 1,
+base,194,Donaldo Mendez RC,San Diego Padres,Tier 1,
+base,195,Bret Prinz RC,Arizona Diamondbacks,Tier 1,
+base,196,Paul Phillips RC,Kansas City Royals,Tier 1,
+base,197,Brian Lawrence RC,San Diego Padres,Tier 1,
+base,198,Cesar Izturis,Toronto Blue Jays,Tier 1,
+base,199,Blaine Neal RC,Florida Marlins,Tier 1,
+base,200,Josh Fogg RC,Chicago White Sox,Tier 1,
+base,201,Josh Towers RC,Baltimore Orioles,Tier 2,
+base,202,Tim Spooneybarger RC,Atlanta Braves,Tier 2,
+base,203,Michael Rivera RC,Detroit Tigers,Tier 2,
+base,204,Juan Cruz RC,Chicago Cubs,Tier 2,
+base,205,Albert Pujols RC,St. Louis Cardinals,Tier 2,
+base,206,Josh Beckett,Florida Marlins,Tier 2,
+base,207,Roy Oswalt,Houston Astros,Tier 2,
+base,208,Elpidio Guzman RC,Anaheim Angels,Tier 2,
+base,209,Horacio Ramirez RC,Atlanta Braves,Tier 2,
+base,210,Corey Patterson,Chicago Cubs,Tier 2,
+base,211,Geronimo Gil RC,Baltimore Orioles,Tier 2,
+base,212,Jay Gibbons RC,Baltimore Orioles,Tier 2,
+base,213,Orlando Woodards RC,Toronto Blue Jays,Tier 2,
+base,214,David Espinosa,Cincinnati Reds,Tier 2,
+base,215,Angel Berroa RC,Kansas City Royals,Tier 2,
+base,216,Brandon Duckworth RC,Philadelphia Phillies,Tier 2,
+base,217,Brian Reith RC,Cincinnati Reds,Tier 2,
+base,218,David Brous RC,San Francisco Giants,Tier 2,
+base,219,Bud Smith RC,St. Louis Cardinals,Tier 2,
+base,220,Ramon Vazquez RC,Seattle Mariners,Tier 2,
+base,221,Mark Teixeira RC,Texas Rangers,Tier 2,
+base,222,Justin Atchley RC,Cincinnati Reds,Tier 2,
+base,223,Tony Cogan RC,Kansas City Royals,Tier 2,
+base,224,Grant Balfour RC,Minnesota Twins,Tier 2,
+base,225,Ricardo Rodriguez RC,Los Angeles Dodgers,Tier 2,
+base,226,Brian Rogers RC,New York Yankees,Tier 2,
+base,227,Adam Dunn,Cincinnati Reds,Tier 2,
+base,228,Wilson Betemit RC,Atlanta Braves,Tier 2,
+base,229,Juan Diaz RC,Boston Red Sox,Tier 2,
+base,230,Jackson Melian RC,Cincinnati Reds,Tier 2,
+base,231,Claudio Vargas RC,Florida Marlins,Tier 2,
+base,232,Wilkin Ruan RC,Montreal Expos,Tier 2,
+base,233,Justin Duchscherer RC,Texas Rangers,Tier 2,
+base,234,Kevin Olsen RC,Florida Marlins,Tier 2,
+base,235,Tony Fiore RC,Minnesota Twins,Tier 2,
+base,236,Jeremy Affeldt RC,Kansas City Royals,Tier 2,
+base,237,Mike Maroth RC,Detroit Tigers,Tier 2,
+base,238,CC Sabathia,Cleveland Indians,Tier 2,
+base,239,Cory Aldridge RC,Atlanta Braves,Tier 2,
+base,240,Zach Day RC,Montreal Expos,Tier 2,
+base,241,Brett Jodie RC,San Diego Padres,Tier 2,
+base,242,Winston Abreu RC,San Diego Padres,Tier 2,
+base,243,Travis Hafner RC,Texas Rangers,Tier 2,
+base,244,Joe Kennedy RC,Tampa Bay Devil Rays,Tier 2,
+base,245,Rick Bauer RC,Baltimore Orioles,Tier 2,
+base,246,Mike Young,Texas Rangers,Tier 2,
+base,247,Ken Vining RC,Chicago White Sox,Tier 2,
+base,248,Doug Nickle RC,Philadelphia Phillies,Tier 2,
+base,249,Pablo Ozuna,Florida Marlins,Tier 2,
+base,250,Dustan Mohr RC,Minnesota Twins,Tier 2,
+base,251,Ichiro Suzuki RC,Seattle Mariners,Tier 2,
+base,252,Ryan Drese RC,Cleveland Indians,Tier 2,
+base,253,Morgan Ensberg RC,Houston Astros,Tier 2,
+base,254,George Perez RC,Toronto Blue Jays,Tier 2,
+base,255,Roy Smith RC,Cleveland Indians,Tier 2,
+base,256,Juan Uribe RC,Colorado Rockies,Tier 2,
+base,257,Dewon Brazelton RC,Tampa Bay Devil Rays,Tier 2,
+base,258,Endy Chavez RC,Kansas City Royals,Tier 2,
+base,259,Kris Foster RC,Baltimore Orioles,Tier 2,
+base,260,Eric Knott RC,Arizona Diamondbacks,Tier 2,
+base,261,Corky Miller RC,Cincinnati Reds,Tier 2,
+base,262,Larry Bigbie,Baltimore Orioles,Tier 2,
+base,263,Andres Torres RC,Detroit Tigers,Tier 2,
+base,264,Adrian Hernandez RC,New York Yankees,Tier 2,
+base,265,Johnny Estrada RC,Philadelphia Phillies,Tier 2,
+base,266,David Williams RC,Pittsburgh Pirates,Tier 2,
+base,267,Steve Lomasney,Boston Red Sox,Tier 2,
+base,268,Victor Zambrano RC,Tampa Bay Devil Rays,Tier 2,
+base,269,Keith Ginter,Houston Astros,Tier 2,
+base,270,Casey Fossum RC,Boston Red Sox,Tier 2,
+base,271,Josue Perez RC,Philadelphia Phillies,Tier 2,
+base,272,Josh Phelps,Toronto Blue Jays,Tier 2,
+base,273,Mark Prior RC,Chicago Cubs,Tier 2,
+base,274,Brandon Berger RC,Kansas City Royals,Tier 2,
+base,275,Scott Podsednik RC,Seattle Mariners,Tier 2,
+base,276,Jorge Julio RC,Baltimore Orioles,Tier 2,
+base,277,Esix Snead RC,St. Louis Cardinals,Tier 2,
+base,278,Brandon Knight RC,New York Yankees,Tier 2,
+base,279,Saul Rivera RC,Minnesota Twins,Tier 2,
+base,280,Benito Baez RC,Florida Marlins,Tier 2,
+base,281,Rob MacKowiak RC,Pittsburgh Pirates,Tier 2,
+base,282,Eric Hinske RC,Oakland Athletics,Tier 2,
+base,283,Juan Rivera,New York Yankees,Tier 2,
+base,284,Kevin Joseph RC,St. Louis Cardinals,Tier 2,
+base,285,Juan Pena RC,Oakland Athletics,Tier 2,
+base,286,Brandon Lyon RC,Toronto Blue Jays,Tier 2,
+base,287,Adam Everett,Houston Astros,Tier 2,
+base,288,Eric Valent,Philadelphia Phillies,Tier 2,
+base,289,Ken Harvey,Kansas City Royals,Tier 2,
+base,290,Bert Snow RC,Oakland Athletics,Tier 2,
+base,291,Wily Mo Pena,Cincinnati Reds,Tier 2,
+base,292,Rafael Soriano RC,Seattle Mariners,Tier 2,
+base,293,Carlos Valderrama RC,San Francisco Giants,Tier 2,
+base,294,Christian Parker RC,New York Yankees,Tier 2,
+base,295,Tsuyoshi Shinjo RC,New York Mets,Tier 2,
+base,296,Martin Vargas RC,Cleveland Indians,Tier 2,
+base,297,Luke Hudson RC,Colorado Rockies,Tier 2,
+base,298,Dee Brown,Kansas City Royals,Tier 2,
+base,299,Alexis Gomez RC,Kansas City Royals,Tier 2,
+base,300,Angel Santos RC,Boston Red Sox,Tier 2,
+longevity,1,Alex Rodriguez,Texas Rangers,,Longevity; SN50
+longevity,2,Derek Jeter,New York Yankees,,Longevity; SN50
+longevity,3,Aramis Ramirez,Pittsburgh Pirates,,Longevity; SN50
+longevity,4,Cliff Floyd,Florida Marlins,,Longevity; SN50
+longevity,5,Nomar Garciaparra,Boston Red Sox,,Longevity; SN50
+longevity,6,Craig Biggio,Houston Astros,,Longevity; SN50
+longevity,7,Ivan Rodriguez,Texas Rangers,,Longevity; SN50
+longevity,8,Cal Ripken Jr.,Baltimore Orioles,,Longevity; SN50
+longevity,9,Fred McGriff,Chicago Cubs,,Longevity; SN50
+longevity,10,Chipper Jones,Atlanta Braves,,Longevity; SN50
+longevity,11,Roberto Alomar,Cleveland Indians,,Longevity; SN50
+longevity,12,Moises Alou,Houston Astros,,Longevity; SN50
+longevity,13,Freddy Garcia,Seattle Mariners,,Longevity; SN50
+longevity,14,Bobby Abreu,Philadelphia Phillies,,Longevity; SN50
+longevity,15,Shawn Green,Los Angeles Dodgers,,Longevity; SN50
+longevity,16,Jason Giambi,Oakland Athletics,,Longevity; SN50
+longevity,17,Todd Helton,Colorado Rockies,,Longevity; SN50
+longevity,18,Robert Fick,Detroit Tigers,,Longevity; SN50
+longevity,19,Tony Gwynn,San Diego Padres,,Longevity; SN50
+longevity,20,Luis Gonzalez,Arizona Diamondbacks,,Longevity; SN50
+longevity,21,Sean Casey,Cincinnati Reds,,Longevity; SN50
+longevity,22,Roger Clemens,New York Yankees,,Longevity; SN50
+longevity,23,Brian Giles,Pittsburgh Pirates,,Longevity; SN50
+longevity,24,Manny Ramirez,Boston Red Sox,,Longevity; SN50
+longevity,25,Barry Bonds,San Francisco Giants,,Longevity; SN50
+longevity,26,Richard Hidalgo,Houston Astros,,Longevity; SN50
+longevity,27,Vladimir Guerrero,Montreal Expos,,Longevity; SN50
+longevity,28,Kevin Brown,Los Angeles Dodgers,,Longevity; SN50
+longevity,29,Mike Sweeney,Kansas City Royals,,Longevity; SN50
+longevity,30,Ken Griffey Jr.,Cincinnati Reds,,Longevity; SN50
+longevity,31,Mike Piazza,New York Mets,,Longevity; SN50
+longevity,32,Richie Sexson,Milwaukee Brewers,,Longevity; SN50
+longevity,33,Matt Morris,St. Louis Cardinals,,Longevity; SN50
+longevity,34,Jorge Posada,New York Yankees,,Longevity; SN50
+longevity,35,Eric Chavez,Oakland Athletics,,Longevity; SN50
+longevity,36,Mark Buehrle,Chicago White Sox,,Longevity; SN50
+longevity,37,Jeff Bagwell,Houston Astros,,Longevity; SN50
+longevity,38,Curt Schilling,Arizona Diamondbacks,,Longevity; SN50
+longevity,39,Bartolo Colon,Cleveland Indians,,Longevity; SN50
+longevity,40,Mark Quinn,Kansas City Royals,,Longevity; SN50
+longevity,41,Tony Clark,Detroit Tigers,,Longevity; SN50
+longevity,42,Brad Radke,Minnesota Twins,,Longevity; SN50
+longevity,43,Gary Sheffield,Los Angeles Dodgers,,Longevity; SN50
+longevity,44,Doug Mientkiewicz,Minnesota Twins,,Longevity; SN50
+longevity,45,Pedro Martinez,Boston Red Sox,,Longevity; SN50
+longevity,46,Carlos Lee,Chicago White Sox,,Longevity; SN50
+longevity,47,Troy Glaus,Anaheim Angels,,Longevity; SN50
+longevity,48,Preston Wilson,Florida Marlins,,Longevity; SN50
+longevity,49,Phil Nevin,San Diego Padres,,Longevity; SN50
+longevity,50,Chan Ho Park,Los Angeles Dodgers,,Longevity; SN50
+longevity,51,Randy Johnson,Arizona Diamondbacks,,Longevity; SN50
+longevity,52,Jermaine Dye,Oakland Athletics,,Longevity; SN50
+longevity,53,Terrence Long,Oakland Athletics,,Longevity; SN50
+longevity,54,Joe Mays,Minnesota Twins,,Longevity; SN50
+longevity,55,Scott Rolen,Philadelphia Phillies,,Longevity; SN50
+longevity,56,Miguel Tejada,Oakland Athletics,,Longevity; SN50
+longevity,57,Jim Thome,Cleveland Indians,,Longevity; SN50
+longevity,58,Jose Vidro,Montreal Expos,,Longevity; SN50
+longevity,59,Gabe Kapler,Texas Rangers,,Longevity; SN50
+longevity,60,Darin Erstad,Anaheim Angels,,Longevity; SN50
+longevity,61,Jim Edmonds,St. Louis Cardinals,,Longevity; SN50
+longevity,62,Jarrod Washburn,Anaheim Angels,,Longevity; SN50
+longevity,63,Tom Glavine,Atlanta Braves,,Longevity; SN50
+longevity,64,Adrian Beltre,Los Angeles Dodgers,,Longevity; SN50
+longevity,65,Sammy Sosa,Chicago Cubs,,Longevity; SN50
+longevity,66,Juan Gonzalez,Cleveland Indians,,Longevity; SN50
+longevity,67,Rafael Furcal,Atlanta Braves,,Longevity; SN50
+longevity,68,Mike Mussina,New York Yankees,,Longevity; SN50
+longevity,69,Mark McGwire,St. Louis Cardinals,,Longevity; SN50
+longevity,70,Ryan Klesko,San Diego Padres,,Longevity; SN50
+longevity,71,Raul Mondesi,Toronto Blue Jays,,Longevity; SN50
+longevity,72,Trot Nixon,Boston Red Sox,,Longevity; SN50
+longevity,73,Barry Larkin,Cincinnati Reds,,Longevity; SN50
+longevity,74,Rafael Palmeiro,Texas Rangers,,Longevity; SN50
+longevity,75,Mark Mulder,Oakland Athletics,,Longevity; SN50
+longevity,76,Carlos Delgado,Toronto Blue Jays,,Longevity; SN50
+longevity,77,Mike Hampton,Colorado Rockies,,Longevity; SN50
+longevity,78,Carl Everett,Boston Red Sox,,Longevity; SN50
+longevity,79,Paul Konerko,Chicago White Sox,,Longevity; SN50
+longevity,80,Larry Walker,Colorado Rockies,,Longevity; SN50
+longevity,81,Kerry Wood,Chicago Cubs,,Longevity; SN50
+longevity,82,Frank Thomas,Chicago White Sox,,Longevity; SN50
+longevity,83,Andruw Jones,Atlanta Braves,,Longevity; SN50
+longevity,84,Eric Milton,Minnesota Twins,,Longevity; SN50
+longevity,85,Ben Grieve,Tampa Bay Devil Rays,,Longevity; SN50
+longevity,86,Carlos Beltran,Kansas City Royals,,Longevity; SN50
+longevity,87,Tim Hudson,Oakland Athletics,,Longevity; SN50
+longevity,88,Hideo Nomo,Boston Red Sox,,Longevity; SN50
+longevity,89,Greg Maddux,Atlanta Braves,,Longevity; SN50
+longevity,90,Edgar Martinez,Seattle Mariners,,Longevity; SN50
+longevity,91,Lance Berkman,Houston Astros,,Longevity; SN50
+longevity,92,Pat Burrell,Philadelphia Phillies,,Longevity; SN50
+longevity,93,Jeff Kent,San Francisco Giants,,Longevity; SN50
+longevity,94,Magglio Ordonez,Chicago White Sox,,Longevity; SN50
+longevity,95,Cristian Guzman,Minnesota Twins,,Longevity; SN50
+longevity,96,Jose Canseco,Chicago White Sox,,Longevity; SN50
+longevity,97,J.D. Drew,St. Louis Cardinals,,Longevity; SN50
+longevity,98,Bernie Williams,New York Yankees,,Longevity; SN50
+longevity,99,Kazuhiro Sasaki,Seattle Mariners,,Longevity; SN50
+longevity,100,Rickey Henderson,San Diego Padres,,Longevity; SN50
+longevity,101,Wilson Guzman,Pittsburgh Pirates,Tier 1,Longevity; SN25
+longevity,102,Nick Neugebauer,Milwaukee Brewers,Tier 1,Longevity; SN25
+longevity,103,Lance Davis,Cincinnati Reds,Tier 1,Longevity; SN25
+longevity,104,Felipe Lopez,Toronto Blue Jays,Tier 1,Longevity; SN25
+longevity,105,Toby Hall,Tampa Bay Devil Rays,Tier 1,Longevity; SN25
+longevity,106,Jack Cust,Arizona Diamondbacks,Tier 1,Longevity; SN25
+longevity,107,Jason Karnuth,St. Louis Cardinals,Tier 1,Longevity; SN25
+longevity,108,Bart Miadich,Anaheim Angels,Tier 1,Longevity; SN25
+longevity,109,Brian Roberts,Baltimore Orioles,Tier 1,Longevity; SN25
+longevity,110,Brandon Larson,Cincinnati Reds,Tier 1,Longevity; SN25
+longevity,111,Sean Douglass,Baltimore Orioles,Tier 1,Longevity; SN25
+longevity,112,Joe Crede,Chicago White Sox,Tier 1,Longevity; SN25
+longevity,113,Tim Redding,Houston Astros,Tier 1,Longevity; SN25
+longevity,114,Adam Johnson,Minnesota Twins,Tier 1,Longevity; SN25
+longevity,115,Marcus Giles,Atlanta Braves,Tier 1,Longevity; SN25
+longevity,116,Jose Ortiz,Colorado Rockies,Tier 1,Longevity; SN25
+longevity,117,Jose Mieses,Milwaukee Brewers,Tier 1,Longevity; SN25
+longevity,118,Nick Maness,New York Mets,Tier 1,Longevity; SN25
+longevity,119,Les Walrond,St. Louis Cardinals,Tier 1,Longevity; SN25
+longevity,120,Travis Phelps,Tampa Bay Devil Rays,Tier 1,Longevity; SN25
+longevity,121,Troy Mattes,Montreal Expos,Tier 1,Longevity; SN25
+longevity,122,Carlos Garcia,Los Angeles Dodgers,Tier 1,Longevity; SN25
+longevity,123,Bill Ortega,St. Louis Cardinals,Tier 1,Longevity; SN25
+longevity,124,Gene Altman,Milwaukee Brewers,Tier 1,Longevity; SN25
+longevity,125,Nate Frese,Chicago Cubs,Tier 1,Longevity; SN25
+longevity,126,Alfonso Soriano,New York Yankees,Tier 1,Longevity; SN25
+longevity,127,Jose Nunez,San Diego Padres,Tier 1,Longevity; SN25
+longevity,128,Bob File,Toronto Blue Jays,Tier 1,Longevity; SN25
+longevity,129,Dan Wright,Chicago White Sox,Tier 1,Longevity; SN25
+longevity,130,Nick Johnson,New York Yankees,Tier 1,Longevity; SN25
+longevity,131,Brent Abernathy,Tampa Bay Devil Rays,Tier 1,Longevity; SN25
+longevity,132,Steve Green,Anaheim Angels,Tier 1,Longevity; SN25
+longevity,133,Billy Sylvester,Atlanta Braves,Tier 1,Longevity; SN25
+longevity,134,Scott MacRae,Cincinnati Reds,Tier 1,Longevity; SN25
+longevity,135,Kris Keller,Detroit Tigers,Tier 1,Longevity; SN25
+longevity,136,Scott Stewart,Montreal Expos,Tier 1,Longevity; SN25
+longevity,137,Henry Mateo,Montreal Expos,Tier 1,Longevity; SN25
+longevity,138,Timo Perez,New York Mets,Tier 1,Longevity; SN25
+longevity,139,Nate Teut,Chicago Cubs,Tier 1,Longevity; SN25
+longevity,140,Jason Michaels,Philadelphia Phillies,Tier 1,Longevity; SN25
+longevity,141,Junior Spivey,Arizona Diamondbacks,Tier 1,Longevity; SN25
+longevity,142,Carlos Pena,Texas Rangers,Tier 1,Longevity; SN25
+longevity,143,Wilmy Caceres,Anaheim Angels,Tier 1,Longevity; SN25
+longevity,144,David Lundquist,San Diego Padres,Tier 1,Longevity; SN25
+longevity,145,Jack Wilson,Pittsburgh Pirates,Tier 1,Longevity; SN25
+longevity,146,Jeremy Fikac,San Diego Padres,Tier 1,Longevity; SN25
+longevity,147,Alex Escobar,New York Mets,Tier 1,Longevity; SN25
+longevity,148,Abraham Nunez,Florida Marlins,Tier 1,Longevity; SN25
+longevity,149,Xavier Nady,San Diego Padres,Tier 1,Longevity; SN25
+longevity,150,Michael Cuddyer,Minnesota Twins,Tier 1,Longevity; SN25
+longevity,151,Greg Miller,Houston Astros,Tier 1,Longevity; SN25
+longevity,152,Eric Munson,Detroit Tigers,Tier 1,Longevity; SN25
+longevity,153,Aubrey Huff,Tampa Bay Devil Rays,Tier 1,Longevity; SN25
+longevity,154,Tim Christman,Colorado Rockies,Tier 1,Longevity; SN25
+longevity,155,Erick Almonte,New York Yankees,Tier 1,Longevity; SN25
+longevity,156,Mike Penney,Milwaukee Brewers,Tier 1,Longevity; SN25
+longevity,157,Delvin James,Tampa Bay Devil Rays,Tier 1,Longevity; SN25
+longevity,158,Ben Sheets,Milwaukee Brewers,Tier 1,Longevity; SN25
+longevity,159,Jason Hart,Oakland Athletics,Tier 1,Longevity; SN25
+longevity,160,Jose Acevedo,Cincinnati Reds,Tier 1,Longevity; SN25
+longevity,161,Will Ohman,Chicago Cubs,Tier 1,Longevity; SN25
+longevity,162,Erik Hiljus,Oakland Athletics,Tier 1,Longevity; SN25
+longevity,163,Juan Moreno,Texas Rangers,Tier 1,Longevity; SN25
+longevity,164,Mike Koplove,Arizona Diamondbacks,Tier 1,Longevity; SN25
+longevity,165,Pedro Santana,Detroit Tigers,Tier 1,Longevity; SN25
+longevity,166,Jimmy Rollins,Philadelphia Phillies,Tier 1,Longevity; SN25
+longevity,167,Matt White,Tampa Bay Devil Rays,Tier 1,Longevity; SN25
+longevity,168,Cesar Crespo,San Diego Padres,Tier 1,Longevity; SN25
+longevity,169,Carlos Hernandez,Houston Astros,Tier 1,Longevity; SN25
+longevity,170,Chris George,Kansas City Royals,Tier 1,Longevity; SN25
+longevity,171,Brad Voyles,Kansas City Royals,Tier 1,Longevity; SN25
+longevity,172,Luis Pineda,Detroit Tigers,Tier 1,Longevity; SN25
+longevity,173,Carlos Zambrano,Chicago Cubs,Tier 1,Longevity; SN25
+longevity,174,Nate Cornejo,Detroit Tigers,Tier 1,Longevity; SN25
+longevity,175,Jason Smith,Tampa Bay Devil Rays,Tier 1,Longevity; SN25
+longevity,176,Craig Monroe,Texas Rangers,Tier 1,Longevity; SN25
+longevity,177,Cody Ransom,San Francisco Giants,Tier 1,Longevity; SN25
+longevity,178,John Grabow,Pittsburgh Pirates,Tier 1,Longevity; SN25
+longevity,179,Pedro Feliz,San Francisco Giants,Tier 1,Longevity; SN25
+longevity,180,Jeremy Owens,San Diego Padres,Tier 1,Longevity; SN25
+longevity,181,Kurt Ainsworth,San Francisco Giants,Tier 1,Longevity; SN25
+longevity,182,Luis Lopez,Toronto Blue Jays,Tier 1,Longevity; SN25
+longevity,183,Stubby Clapp,St. Louis Cardinals,Tier 1,Longevity; SN25
+longevity,184,Ryan Freel,Toronto Blue Jays,Tier 1,Longevity; SN25
+longevity,185,Duaner Sanchez,Arizona Diamondbacks,Tier 1,Longevity; SN25
+longevity,186,Jason Jennings,Colorado Rockies,Tier 1,Longevity; SN25
+longevity,187,Kyle Lohse,Minnesota Twins,Tier 1,Longevity; SN25
+longevity,188,Jerrod Riggan,New York Mets,Tier 1,Longevity; SN25
+longevity,189,Joe Beimel,Pittsburgh Pirates,Tier 1,Longevity; SN25
+longevity,190,Nick Punto,Philadelphia Phillies,Tier 1,Longevity; SN25
+longevity,191,Willie Harris,Baltimore Orioles,Tier 1,Longevity; SN25
+longevity,192,Ryan Jensen,San Francisco Giants,Tier 1,Longevity; SN25
+longevity,193,Adam Pettyjohn,Detroit Tigers,Tier 1,Longevity; SN25
+longevity,194,Donaldo Mendez,San Diego Padres,Tier 1,Longevity; SN25
+longevity,195,Bret Prinz,Arizona Diamondbacks,Tier 1,Longevity; SN25
+longevity,196,Paul Phillips,Kansas City Royals,Tier 1,Longevity; SN25
+longevity,197,Brian Lawrence,San Diego Padres,Tier 1,Longevity; SN25
+longevity,198,Cesar Izturis,Toronto Blue Jays,Tier 1,Longevity; SN25
+longevity,199,Blaine Neal,Florida Marlins,Tier 1,Longevity; SN25
+longevity,200,Josh Fogg,Chicago White Sox,Tier 1,Longevity; SN25
+longevity,201,Josh Towers,Baltimore Orioles,Tier 2,Longevity; SN25
+longevity,202,Tim Spooneybarger,Atlanta Braves,Tier 2,Longevity; SN25
+longevity,203,Michael Rivera,Detroit Tigers,Tier 2,Longevity; SN25
+longevity,204,Juan Cruz,Chicago Cubs,Tier 2,Longevity; SN25
+longevity,205,Albert Pujols,St. Louis Cardinals,Tier 2,Longevity; SN25
+longevity,206,Josh Beckett,Florida Marlins,Tier 2,Longevity; SN25
+longevity,207,Roy Oswalt,Houston Astros,Tier 2,Longevity; SN25
+longevity,208,Elpidio Guzman,Anaheim Angels,Tier 2,Longevity; SN25
+longevity,209,Horacio Ramirez,Atlanta Braves,Tier 2,Longevity; SN25
+longevity,210,Corey Patterson,Chicago Cubs,Tier 2,Longevity; SN25
+longevity,211,Geronimo Gil,Baltimore Orioles,Tier 2,Longevity; SN25
+longevity,212,Jay Gibbons,Baltimore Orioles,Tier 2,Longevity; SN25
+longevity,213,Orlando Woodards,Toronto Blue Jays,Tier 2,Longevity; SN25
+longevity,214,David Espinosa,Cincinnati Reds,Tier 2,Longevity; SN25
+longevity,215,Angel Berroa,Kansas City Royals,Tier 2,Longevity; SN25
+longevity,216,Brandon Duckworth,Philadelphia Phillies,Tier 2,Longevity; SN25
+longevity,217,Brian Reith,Cincinnati Reds,Tier 2,Longevity; SN25
+longevity,218,David Brous,San Francisco Giants,Tier 2,Longevity; SN25
+longevity,219,Bud Smith,St. Louis Cardinals,Tier 2,Longevity; SN25
+longevity,220,Ramon Vazquez,Seattle Mariners,Tier 2,Longevity; SN25
+longevity,221,Mark Teixeira,Texas Rangers,Tier 2,Longevity; SN25
+longevity,222,Justin Atchley,Cincinnati Reds,Tier 2,Longevity; SN25
+longevity,223,Tony Cogan,Kansas City Royals,Tier 2,Longevity; SN25
+longevity,224,Grant Balfour,Minnesota Twins,Tier 2,Longevity; SN25
+longevity,225,Ricardo Rodriguez,Los Angeles Dodgers,Tier 2,Longevity; SN25
+longevity,226,Brian Rogers,New York Yankees,Tier 2,Longevity; SN25
+longevity,227,Adam Dunn,Cincinnati Reds,Tier 2,Longevity; SN25
+longevity,228,Wilson Betemit,Atlanta Braves,Tier 2,Longevity; SN25
+longevity,229,Juan Diaz,Boston Red Sox,Tier 2,Longevity; SN25
+longevity,230,Jackson Melian,Cincinnati Reds,Tier 2,Longevity; SN25
+longevity,231,Claudio Vargas,Florida Marlins,Tier 2,Longevity; SN25
+longevity,232,Wilkin Ruan,Montreal Expos,Tier 2,Longevity; SN25
+longevity,233,Justin Duchscherer,Texas Rangers,Tier 2,Longevity; SN25
+longevity,234,Kevin Olsen,Florida Marlins,Tier 2,Longevity; SN25
+longevity,235,Tony Fiore,Minnesota Twins,Tier 2,Longevity; SN25
+longevity,236,Jeremy Affeldt,Kansas City Royals,Tier 2,Longevity; SN25
+longevity,237,Mike Maroth,Detroit Tigers,Tier 2,Longevity; SN25
+longevity,238,CC Sabathia,Cleveland Indians,Tier 2,Longevity; SN25
+longevity,239,Cory Aldridge,Atlanta Braves,Tier 2,Longevity; SN25
+longevity,240,Zach Day,Montreal Expos,Tier 2,Longevity; SN25
+longevity,241,Brett Jodie,San Diego Padres,Tier 2,Longevity; SN25
+longevity,242,Winston Abreu,San Diego Padres,Tier 2,Longevity; SN25
+longevity,243,Travis Hafner,Texas Rangers,Tier 2,Longevity; SN25
+longevity,244,Joe Kennedy,Tampa Bay Devil Rays,Tier 2,Longevity; SN25
+longevity,245,Rick Bauer,Baltimore Orioles,Tier 2,Longevity; SN25
+longevity,246,Mike Young,Texas Rangers,Tier 2,Longevity; SN25
+longevity,247,Ken Vining,Chicago White Sox,Tier 2,Longevity; SN25
+longevity,248,Doug Nickle,Philadelphia Phillies,Tier 2,Longevity; SN25
+longevity,249,Pablo Ozuna,Florida Marlins,Tier 2,Longevity; SN25
+longevity,250,Dustan Mohr,Minnesota Twins,Tier 2,Longevity; SN25
+longevity,251,Ichiro Suzuki,Seattle Mariners,Tier 2,Longevity; SN25
+longevity,252,Ryan Drese,Cleveland Indians,Tier 2,Longevity; SN25
+longevity,253,Morgan Ensberg,Houston Astros,Tier 2,Longevity; SN25
+longevity,254,George Perez,Toronto Blue Jays,Tier 2,Longevity; SN25
+longevity,255,Roy Smith,Cleveland Indians,Tier 2,Longevity; SN25
+longevity,256,Juan Uribe,Colorado Rockies,Tier 2,Longevity; SN25
+longevity,257,Dewon Brazelton,Tampa Bay Devil Rays,Tier 2,Longevity; SN25
+longevity,258,Endy Chavez,Kansas City Royals,Tier 2,Longevity; SN25
+longevity,259,Kris Foster,Baltimore Orioles,Tier 2,Longevity; SN25
+longevity,260,Eric Knott,Arizona Diamondbacks,Tier 2,Longevity; SN25
+longevity,261,Corky Miller,Cincinnati Reds,Tier 2,Longevity; SN25
+longevity,262,Larry Bigbie,Baltimore Orioles,Tier 2,Longevity; SN25
+longevity,263,Andres Torres,Detroit Tigers,Tier 2,Longevity; SN25
+longevity,264,Adrian Hernandez,New York Yankees,Tier 2,Longevity; SN25
+longevity,265,Johnny Estrada,Philadelphia Phillies,Tier 2,Longevity; SN25
+longevity,266,David Williams,Pittsburgh Pirates,Tier 2,Longevity; SN25
+longevity,267,Steve Lomasney,Boston Red Sox,Tier 2,Longevity; SN25
+longevity,268,Victor Zambrano,Tampa Bay Devil Rays,Tier 2,Longevity; SN25
+longevity,269,Keith Ginter,Houston Astros,Tier 2,Longevity; SN25
+longevity,270,Casey Fossum,Boston Red Sox,Tier 2,Longevity; SN25
+longevity,271,Josue Perez,Philadelphia Phillies,Tier 2,Longevity; SN25
+longevity,272,Josh Phelps,Toronto Blue Jays,Tier 2,Longevity; SN25
+longevity,273,Mark Prior,Chicago Cubs,Tier 2,Longevity; SN25
+longevity,274,Brandon Berger,Kansas City Royals,Tier 2,Longevity; SN25
+longevity,275,Scott Podsednik,Seattle Mariners,Tier 2,Longevity; SN25
+longevity,276,Jorge Julio,Baltimore Orioles,Tier 2,Longevity; SN25
+longevity,277,Esix Snead,St. Louis Cardinals,Tier 2,Longevity; SN25
+longevity,278,Brandon Knight,New York Yankees,Tier 2,Longevity; SN25
+longevity,279,Saul Rivera,Minnesota Twins,Tier 2,Longevity; SN25
+longevity,280,Benito Baez,Florida Marlins,Tier 2,Longevity; SN25
+longevity,281,Rob MacKowiak,Pittsburgh Pirates,Tier 2,Longevity; SN25
+longevity,282,Eric Hinske,Oakland Athletics,Tier 2,Longevity; SN25
+longevity,283,Juan Rivera,New York Yankees,Tier 2,Longevity; SN25
+longevity,284,Kevin Joseph,St. Louis Cardinals,Tier 2,Longevity; SN25
+longevity,285,Juan Pena,Oakland Athletics,Tier 2,Longevity; SN25
+longevity,286,Brandon Lyon,Toronto Blue Jays,Tier 2,Longevity; SN25
+longevity,287,Adam Everett,Houston Astros,Tier 2,Longevity; SN25
+longevity,288,Eric Valent,Philadelphia Phillies,Tier 2,Longevity; SN25
+longevity,289,Ken Harvey,Kansas City Royals,Tier 2,Longevity; SN25
+longevity,290,Bert Snow,Oakland Athletics,Tier 2,Longevity; SN25
+longevity,291,Wily Mo Pena,Cincinnati Reds,Tier 2,Longevity; SN25
+longevity,292,Rafael Soriano,Seattle Mariners,Tier 2,Longevity; SN25
+longevity,293,Carlos Valderrama,San Francisco Giants,Tier 2,Longevity; SN25
+longevity,294,Christian Parker,New York Yankees,Tier 2,Longevity; SN25
+longevity,295,Tsuyoshi Shinjo,New York Mets,Tier 2,Longevity; SN25
+longevity,296,Martin Vargas,Cleveland Indians,Tier 2,Longevity; SN25
+longevity,297,Luke Hudson,Colorado Rockies,Tier 2,Longevity; SN25
+longevity,298,Dee Brown,Kansas City Royals,Tier 2,Longevity; SN25
+longevity,299,Alexis Gomez,Kansas City Royals,Tier 2,Longevity; SN25
+longevity,300,Angel Santos,Boston Red Sox,Tier 2,Longevity; SN25
+autographs,107,Jason Karnuth,St. Louis Cardinals,,"AU; AU, PR250"
+autographs,110,Brandon Larson,Cincinnati Reds,,"AU; AU, PR100"
+autographs,117,Jose Mieses,Milwaukee Brewers,,"AU; AU, PR250"
+autographs,118,Nick Maness,New York Mets,,"AU; AU, PR250"
+autographs,119,Les Walrond,St. Louis Cardinals,,"AU; AU, PR250"
+autographs,122,Carlos Garcia,Los Angeles Dodgers,,"AU; AU, PR250"
+autographs,123,Bill Ortega,St. Louis Cardinals,,"AU; AU, PR250"
+autographs,124,Gene Altman,Milwaukee Brewers,,"AU; AU, PR250"
+autographs,125,Nate Frese,Chicago Cubs,,"AU; AU, PR250"
+autographs,130,Nick Johnson,New York Yankees,,"AU; AU, PR100"
+autographs,133,Billy Sylvester,Atlanta Braves,,"AU; AU, PR250"
+autographs,135,Kris Keller,Detroit Tigers,,"AU; AU, PR250"
+autographs,139,Nate Teut,Chicago Cubs,,"AU; AU, PR250"
+autographs,140,Jason Michaels,Philadelphia Phillies,,"AU; AU, PR250"
+autographs,143,Wilmy Caceres,Anaheim Angels,,"AU; AU, PR250"
+autographs,145,Jack Wilson,Pittsburgh Pirates,,"AU; AU, PR100"
+autographs,151,Greg Miller,Houston Astros,,"AU; AU, PR250"
+autographs,155,Erick Almonte,New York Yankees,,"AU; AU, PR250"
+autographs,156,Mike Penney,Milwaukee Brewers,,"AU; AU, PR250"
+autographs,157,Delvin James,Tampa Bay Devil Rays,,"AU; AU, PR250"
+autographs,161,Will Ohman,Chicago Cubs,,"AU; AU, PR250"
+autographs,167,Matt White,Tampa Bay Devil Rays,,"AU; AU, PR250"
+autographs,180,Jeremy Owens,San Diego Padres,,"AU; AU, PR250"
+autographs,184,Ryan Freel,Toronto Blue Jays,,"AU; AU, PR250"
+autographs,185,Duaner Sanchez,Arizona Diamondbacks,,"AU; AU, PR250"
+autographs,193,Adam Pettyjohn,Detroit Tigers,,"AU; AU, PR100"
+autographs,194,Donaldo Mendez,San Diego Padres,,"AU; AU, PR100"
+autographs,196,Paul Phillips,Kansas City Royals,,"AU; AU, PR250"
+autographs,197,Brian Lawrence,San Diego Padres,,"AU; AU, PR100"
+autographs,199,Blaine Neal,Florida Marlins,,"AU; AU, PR250"
+autographs,201,Josh Towers,Baltimore Orioles,,"AU; AU, PR100"
+autographs,203,Michael Rivera,Detroit Tigers,,"AU; AU, PR250"
+autographs,204,Juan Cruz,Chicago Cubs,,"AU; AU, PR100"
+autographs,205,Albert Pujols,St. Louis Cardinals,,"AU; AU, PR50"
+autographs,207,Roy Oswalt,Houston Astros,,"AU; AU, PR50"
+autographs,208,Elpidio Guzman,Anaheim Angels,,"AU; AU, PR100"
+autographs,209,Horacio Ramirez,Atlanta Braves,,"AU; AU, PR250"
+autographs,210,Corey Patterson,Chicago Cubs,,"AU; AU, PR50"
+autographs,211,Geronimo Gil,Baltimore Orioles,,"AU; AU, PR250"
+autographs,212,Jay Gibbons,Baltimore Orioles,,"AU; AU, PR100"
+autographs,213,Orlando Woodards,Toronto Blue Jays,,"AU; AU, PR250"
+autographs,215,Angel Berroa,Kansas City Royals,,"AU; AU, PR100"
+autographs,216,Brandon Duckworth,Philadelphia Phillies,,"AU; AU, PR100"
+autographs,218,David Brous,San Francisco Giants,,"AU; AU, PR250"
+autographs,219,Bud Smith,St. Louis Cardinals,,"AU; AU, PR50"
+autographs,221,Mark Teixeira,Texas Rangers,,"AU; AU, PR100"
+autographs,223,Tony Cogan,Kansas City Royals,,"AU; AU, PR250"
+autographs,225,Ricardo Rodriguez,Los Angeles Dodgers,,"AU; AU, PR250"
+autographs,226,Brian Rogers,New York Yankees,,"AU; AU, PR250"
+autographs,227,Adam Dunn,Cincinnati Reds,,"AU; AU, PR50"
+autographs,228,Wilson Betemit,Atlanta Braves,,"AU; AU, PR100"
+autographs,231,Claudio Vargas,Florida Marlins,,"AU; AU, PR250"
+autographs,232,Wilkin Ruan,Montreal Expos,,"AU; AU, PR250"
+autographs,234,Kevin Olsen,Florida Marlins,,"AU; AU, PR250"
+autographs,236,Jeremy Affeldt,Kansas City Royals,,"AU; AU, PR250"
+autographs,237,Mike Maroth,Detroit Tigers,,"AU; AU, PR250"
+autographs,238,CC Sabathia,Cleveland Indians,,"AU; AU, PR50"
+autographs,239,Cory Aldridge,Atlanta Braves,,"AU; AU, PR250"
+autographs,240,Zach Day,Montreal Expos,,"AU; AU, PR250"
+autographs,243,Travis Hafner,Texas Rangers,,"AU; AU, PR250"
+autographs,244,Joe Kennedy,Tampa Bay Devil Rays,,"AU; AU, PR100"
+autographs,254,George Perez,Toronto Blue Jays,,"AU; AU, PR250"
+autographs,256,Juan Uribe,Colorado Rockies,,"AU; AU, PR250"
+autographs,257,Dewon Brazelton,Tampa Bay Devil Rays,,"AU; AU, PR100"
+autographs,261,Corky Miller,Cincinnati Reds,,"AU; AU, PR100"
+autographs,263,Andres Torres,Detroit Tigers,,"AU; AU, PR100"
+autographs,265,Johnny Estrada,Philadelphia Phillies,,"AU; AU, PR100"
+autographs,266,David Williams,Pittsburgh Pirates,,"AU; AU, PR250"
+autographs,270,Casey Fossum,Boston Red Sox,,"AU; AU, PR250"
+autographs,273,Mark Prior,Chicago Cubs,,"AU; AU, PR100"
+autographs,274,Brandon Berger,Kansas City Royals,,"AU; AU, PR250"
+autographs,277,Esix Snead,St. Louis Cardinals,,"AU; AU, PR250"
+autographs,282,Eric Hinske,Oakland Athletics,,"AU; AU, PR250"
+autographs,292,Rafael Soriano,Seattle Mariners,,"AU; AU, PR250"
+autographs,293,Carlos Valderrama,San Francisco Giants,,"AU; AU, PR250"
+autographs,299,Alexis Gomez,Kansas City Royals,,"AU; AU, PR250"
+dress-for-success,DFS1,Cal Ripken Jr.,Baltimore Orioles,,MEM
+dress-for-success,DFS2,Mike Piazza,New York Mets,,MEM
+dress-for-success,DFS3,Barry Bonds,San Francisco Giants,,MEM
+dress-for-success,DFS4,Frank Thomas,Chicago White Sox,,MEM
+dress-for-success,DFS5,Nomar Garciaparra,Boston Red Sox,,MEM
+dress-for-success,DFS6,Richie Sexson,Milwaukee Brewers,,MEM
+dress-for-success,DFS7,Brian Giles,Pittsburgh Pirates,,MEM
+dress-for-success,DFS8,Todd Helton,Colorado Rockies,,MEM
+dress-for-success,DFS9,Ivan Rodriguez,Texas Rangers,,MEM
+dress-for-success,DFS10,Andruw Jones,Atlanta Braves,,MEM
+dress-for-success,DFS11,Juan Gonzalez,Cleveland Indians,,MEM
+dress-for-success,DFS12,Vladimir Guerrero,Montreal Expos,,MEM
+dress-for-success,DFS13,Greg Maddux,Atlanta Braves,,MEM
+dress-for-success,DFS14,Tony Gwynn,San Diego Padres,,MEM
+dress-for-success,DFS15,Randy Johnson,Arizona Diamondbacks,,MEM
+dress-for-success,DFS16,Jeff Bagwell,Houston Astros,,MEM
+dress-for-success,DFS17,Kerry Wood,Chicago Cubs,,"MEM; MEM, SPMEM: Game-Used Bat / Game-Used Jersey"
+dress-for-success,DFS18,Roberto Alomar,Cleveland Indians,,MEM
+dress-for-success,DFS19,Chipper Jones,Atlanta Braves,,MEM
+dress-for-success,DFS20,Pedro Martinez,Boston Red Sox,,MEM
+dress-for-success,DFS21,Shawn Green,Los Angeles Dodgers,,MEM
+dress-for-success,DFS22,Magglio Ordonez,Chicago White Sox,,MEM
+dress-for-success,DFS23,Darin Erstad,Anaheim Angels,,"MEM; MEM, SP"
+dress-for-success,DFS24,Rafael Palmeiro,Texas Rangers,,"MEM; MEM, SP"
+dress-for-success,DFS25,Edgar Martinez,Seattle Mariners,,MEM
+dress-for-success-autographs,DFS6,Richie Sexson,Milwaukee Brewers,,"MEM; AU; AU, MEM"
+dress-for-success-autographs,DFS7,Brian Giles,Pittsburgh Pirates,,"MEM; AU; AU, MEM"
+dress-for-success-autographs,DFS8,Todd Helton,Colorado Rockies,,"MEM; AU; AU, MEM"
+dress-for-success-autographs,DFS12,Vladimir Guerrero,Montreal Expos,,"MEM; AU; AU, MEM"
+dress-for-success-autographs,DFS13,Greg Maddux,Atlanta Braves,,"MEM; AU; AU, MEM"
+dress-for-success-autographs,DFS16,Jeff Bagwell,Houston Astros,,"MEM; AU; AU, MEM"
+dress-for-success-autographs,DFS17,Kerry Wood,Chicago Cubs,,"MEM; AU; AU, MEM"
+dress-for-success-autographs,DFS19,Chipper Jones,Atlanta Braves,,"MEM; AU; AU, MEM"
+dress-for-success-autographs,DFS21,Shawn Green,Los Angeles Dodgers,,"MEM; AU; AU, MEM"
+dress-for-success-autographs,DFS25,Edgar Martinez,Seattle Mariners,,"MEM; AU; AU, MEM"
+dress-for-success-prime-cuts,DFS1,Cal Ripken Jr.,Baltimore Orioles,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS2,Mike Piazza,New York Mets,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS3,Barry Bonds,San Francisco Giants,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS4,Frank Thomas,Chicago White Sox,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS5,Nomar Garciaparra,Boston Red Sox,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS6,Richie Sexson,Milwaukee Brewers,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS7,Brian Giles,Pittsburgh Pirates,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS8,Todd Helton,Colorado Rockies,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS9,Ivan Rodriguez,Texas Rangers,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS10,Andruw Jones,Atlanta Braves,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS11,Juan Gonzalez,Cleveland Indians,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS12,Vladimir Guerrero,Montreal Expos,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS13,Greg Maddux,Atlanta Braves,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS14,Tony Gwynn,San Diego Padres,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS15,Randy Johnson,Arizona Diamondbacks,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS16,Jeff Bagwell,Houston Astros,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS17,Kerry Wood,Chicago Cubs,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS18,Roberto Alomar,Cleveland Indians,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS19,Chipper Jones,Atlanta Braves,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS20,Pedro Martinez,Boston Red Sox,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS21,Shawn Green,Los Angeles Dodgers,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS22,Magglio Ordonez,Chicago White Sox,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS23,Darin Erstad,Anaheim Angels,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS24,Rafael Palmeiro,Texas Rangers,,"MEM; SN50; MEM, SN50"
+dress-for-success-prime-cuts,DFS25,Edgar Martinez,Seattle Mariners,,"MEM; SN50; MEM, SN50"
+freshman-orientation,FO1,Adam Dunn,Cincinnati Reds,,"MEM; MEM, SP"
+freshman-orientation,FO2,Josh Towers,Baltimore Orioles,,MEM
+freshman-orientation,FO3,Vernon Wells,Toronto Blue Jays,,MEM
+freshman-orientation,FO4,Corey Patterson,Chicago Cubs,,MEM
+freshman-orientation,FO5,Albert Pujols,St. Louis Cardinals,,"MEM; MEM, SP"
+freshman-orientation,FO6,Ben Sheets,Milwaukee Brewers,,MEM
+freshman-orientation,FO7,Pedro Feliz,San Francisco Giants,,MEM
+freshman-orientation,FO8,Keith Ginter,Houston Astros,,MEM
+freshman-orientation,FO9,Luis Rivas,Minnesota Twins,,MEM
+freshman-orientation,FO10,Andres Torres,Detroit Tigers,,MEM
+freshman-orientation,FO11,Carlos Valderrama,San Francisco Giants,,MEM
+freshman-orientation,FO12,Brandon Inge,Detroit Tigers,,MEM
+freshman-orientation,FO13,Jay Gibbons,Baltimore Orioles,,"MEM; MEM, SP"
+freshman-orientation,FO14,Cesar Izturis,Toronto Blue Jays,,MEM
+freshman-orientation,FO15,Marcus Giles,Atlanta Braves,,MEM
+freshman-orientation,FO16,Tsuyoshi Shinjo,New York Mets,,MEM
+freshman-orientation,FO17,Eric Valent,Philadelphia Phillies,,MEM
+freshman-orientation,FO18,David Espinosa,Cincinnati Reds,,MEM
+freshman-orientation,FO19,Aubrey Huff,Tampa Bay Devil Rays,,MEM
+freshman-orientation,FO20,Wilmy Caceres,Anaheim Angels,,MEM
+freshman-orientation,FO21,Bud Smith,St. Louis Cardinals,,MEM
+freshman-orientation,FO22,Ricardo Rodriguez,Los Angeles Dodgers,,MEM
+freshman-orientation,FO23,Wes Helms,Atlanta Braves,,MEM
+freshman-orientation,FO24,Jason Hart,Oakland Athletics,,MEM
+freshman-orientation,FO25,Dee Brown,Kansas City Royals,,MEM
+freshman-orientation-autographs,FO1,Adam Dunn,Cincinnati Reds,,"MEM; AU; AU, MEM, SP"
+freshman-orientation-autographs,FO2,Josh Towers,Baltimore Orioles,,"MEM; AU; AU, MEM, SP"
+freshman-orientation-autographs,FO4,Corey Patterson,Chicago Cubs,,"MEM; AU; AU, MEM, SP"
+freshman-orientation-autographs,FO5,Albert Pujols,St. Louis Cardinals,,"MEM; AU; AU, MEM, SP"
+freshman-orientation-autographs,FO6,Ben Sheets,Milwaukee Brewers,,"MEM; AU; AU, MEM, SP"
+freshman-orientation-autographs,FO7,Pedro Feliz,San Francisco Giants,,"MEM; AU; AU, MEM"
+freshman-orientation-autographs,FO8,Keith Ginter,Houston Astros,,"MEM; AU; AU, MEM"
+freshman-orientation-autographs,FO9,Luis Rivas,Minnesota Twins,,"MEM; AU; AU, MEM"
+freshman-orientation-autographs,FO10,Andres Torres,Detroit Tigers,,"MEM; AU; AU, MEM"
+freshman-orientation-autographs,FO11,Carlos Valderrama,San Francisco Giants,,"MEM; AU; AU, MEM"
+freshman-orientation-autographs,FO13,Jay Gibbons,Baltimore Orioles,,"MEM; AU; AU, MEM"
+freshman-orientation-autographs,FO14,Cesar Izturis,Toronto Blue Jays,,"MEM; AU; AU, MEM"
+freshman-orientation-autographs,FO15,Marcus Giles,Atlanta Braves,,"MEM; AU; AU, MEM"
+freshman-orientation-autographs,FO17,Eric Valent,Philadelphia Phillies,,"MEM; AU; AU, MEM"
+freshman-orientation-autographs,FO18,David Espinosa,Cincinnati Reds,,"MEM; AU; AU, MEM"
+freshman-orientation-autographs,FO19,Aubrey Huff,Tampa Bay Devil Rays,,"MEM; AU; AU, MEM"
+freshman-orientation-autographs,FO20,Wilmy Caceres,Anaheim Angels,,"MEM; AU; AU, MEM"
+freshman-orientation-autographs,FO21,Bud Smith,St. Louis Cardinals,,"MEM; AU; AU, MEM, SP"
+freshman-orientation-autographs,FO22,Ricardo Rodriguez,Los Angeles Dodgers,,"MEM; AU; AU, MEM"
+freshman-orientation-autographs,FO24,Jason Hart,Oakland Athletics,,"MEM; AU; AU, MEM"
+freshman-orientation-autographs,FO25,Dee Brown,Kansas City Royals,,"MEM; AU; AU, MEM"
+freshman-orientation-class-officers,FO1,Adam Dunn,Cincinnati Reds,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO2,Josh Towers,Baltimore Orioles,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO3,Vernon Wells,Toronto Blue Jays,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO4,Corey Patterson,Chicago Cubs,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO5,Albert Pujols,St. Louis Cardinals,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO6,Ben Sheets,Milwaukee Brewers,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO7,Pedro Feliz,San Francisco Giants,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO8,Keith Ginter,Houston Astros,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO9,Luis Rivas,Minnesota Twins,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO10,Andres Torres,Detroit Tigers,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO11,Carlos Valderrama,San Francisco Giants,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO12,Brandon Inge,Detroit Tigers,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO13,Jay Gibbons,Baltimore Orioles,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO14,Cesar Izturis,Toronto Blue Jays,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO15,Marcus Giles,Atlanta Braves,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO16,Tsuyoshi Shinjo,New York Mets,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO17,Eric Valent,Philadelphia Phillies,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO18,David Espinosa,Cincinnati Reds,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO19,Aubrey Huff,Tampa Bay Devil Rays,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO20,Wilmy Caceres,Anaheim Angels,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO21,Bud Smith,St. Louis Cardinals,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO22,Ricardo Rodriguez,Los Angeles Dodgers,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO23,Wes Helms,Atlanta Braves,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO24,Jason Hart,Oakland Athletics,,"MEM; SN50; MEM, SN50"
+freshman-orientation-class-officers,FO25,Dee Brown,Kansas City Royals,,"MEM; SN50; MEM, SN50"
+great-american-treasures,GT1,Barry Bonds,San Francisco Giants,,"MEM; MEM, PR50 MEM: 517 HR Jsy"
+great-american-treasures,GT2,Magglio Ordonez,Chicago White Sox,,"MEM; MEM, PR200 MEM: HR Bat"
+great-american-treasures,GT3,Derek Jeter,New York Yankees,,"MEM; MEM, PR25 MEM: 1st Game Ball"
+great-american-treasures,GT4,Nolan Ryan,Texas Rangers,,"MEM; MEM, PR25 MEM: 7th No-Hit Ball"
+great-american-treasures,GT5,Sammy Sosa,Chicago Cubs,,"MEM; MEM, PR25 MEM: June HR Ball"
+great-american-treasures,GT6,Tom Glavine,Atlanta Braves,,"MEM; MEM, PR100 MEM: 96 WS Jsy"
+great-american-treasures,GT7,Ivan Rodriguez,Texas Rangers,,"MEM; MEM, PR200 MEM: 99 MVP Bat"
+great-american-treasures,GT8,Pedro Martinez,Boston Red Sox,,"MEM; MEM, PR25 MEM: 300 K Ball"
+great-american-treasures,GT9,Mark McGwire,St. Louis Cardinals,,"MEM; MEM, PR25 MEM: 60 HR Ball"
+great-american-treasures,GT10,Ted Williams,Boston Red Sox,,"MEM; MEM, PR25 MEM: 517 HR Ball"
+great-american-treasures,GT11,Ryne Sandberg,Chicago Cubs,,"MEM; MEM, PR200 MEM: 91 AS Bat"
+great-american-treasures,GT12,Barry Bonds,San Francisco Giants,,"MEM; MEM, PR25 MEM: 500 HR Ball"
+great-american-treasures,GT13,Hideo Nomo,Los Angeles Dodgers,,"MEM; MEM, PR25 MEM: No-Hit Ball"
+great-american-treasures,GT14,Roger Maris,New York Yankees,,"MEM; MEM, PR25 MEM: 61 HR Ball"
+great-american-treasures,GT15,Ty Cobb,Detroit Tigers,,"MEM; MEM, PR25 MEM: 09 WS Ball"
+great-american-treasures,GT16,Harmon Killebrew,Minnesota Twins,,"MEM; MEM, PR50 MEM: 570th HR Bat"
+great-american-treasures,GT17,Magglio Ordonez,Chicago White Sox,,"MEM; MEM, PR100 MEM: 00 AS Cap"
+great-american-treasures,GT18,Wade Boggs,New York Yankees,,"MEM; MEM, PR200 MEM: WS Bat"
+great-american-treasures,GT19,Hank Aaron,Milwaukee Brewers,,"MEM; MEM, PR25 MEM: 755 HR Cap"
+great-american-treasures,GT20,David Cone,New York Yankees,,"MEM; MEM, PR25 MEM: Perfect Game Ball"
+great-american-treasures-autographs,GT6,Tom Glavine,Atlanta Braves,,"MEM; AU; AU, MEM"
+great-american-treasures-autographs,GT11,Ryne Sandberg,Chicago Cubs,,"MEM; AU; AU, MEM"
+great-american-treasures-autographs,GT16,Harmon Killebrew,Minnesota Twins,,"MEM; AU; AU, MEM570th HR Bat"
+great-american-treasures-autographs,GT18,Wade Boggs,New York Yankees,,"MEM; AU; AU, MEM"
+players-collection,PC1,Tony Gwynn,San Diego Padres,,"MEM; MEM, SN100"
+players-collection,PC2,Tony Gwynn,San Diego Padres,,"MEM; MEM, SN100"
+players-collection,PC3,Tony Gwynn,San Diego Padres,,"MEM; MEM, SN100"
+players-collection,PC4,Tony Gwynn,San Diego Padres,,"MEM; MEM, SN100"
+players-collection,PC5,Tony Gwynn,San Diego Padres,,"MEM; MEM, SN25Quad MEM"
+players-collection,PC6,Cal Ripken Jr.,Baltimore Orioles,,"MEM; MEM, SN100White Jersey"
+players-collection,PC7,Cal Ripken Jr.,Baltimore Orioles,,"MEM; MEM, SN100Bat"
+players-collection,PC8,Cal Ripken Jr.,Baltimore Orioles,,"MEM; MEM, SN100Black Jersey"
+players-collection,PC9,Cal Ripken Jr.,Baltimore Orioles,,"MEM; MEM, SN100Gray Jersey"
+players-collection,PC10,Cal Ripken Jr.,Baltimore Orioles,,"MEM; MEM, SN25Quad MEM: Jersey, Glove, Bat"
+players-collection,PC11,Barry Bonds,San Francisco Giants,,"MEM; MEM, SN100"
+players-collection,PC12,Barry Bonds,San Francisco Giants,,"MEM; MEM, SN100"
+players-collection,PC13,Barry Bonds,San Francisco Giants,,"MEM; MEM, SN100"
+players-collection,PC14,Barry Bonds,San Francisco Giants,,"MEM; MEM, SN100"
+players-collection,PC15,Barry Bonds,San Francisco Giants,,"MEM; MEM, SN25Quad MEM"
+players-collection-autographs,PC1,Tony Gwynn,San Diego Padres,,"MEM; AU; SN100; AU, MEM"
+players-collection-autographs,PC6,Cal Ripken Jr.,Baltimore Orioles,,"MEM; AU; SN100; AU, MEM"
+players-collection-autographs,PC7,Cal Ripken Jr.,Baltimore Orioles,,"MEM; AU; SN100; AU, MEM"
+slideshow,SS-1,Cal Ripken Jr.,Baltimore Orioles,,"MEM; SN100; MEM, SN100"
+slideshow,SS-2,Chipper Jones,Atlanta Braves,,"MEM; SN100; MEM, SN100"
+slideshow,SS-3,Jeff Bagwell,Houston Astros,,"MEM; SN100; MEM, SN100"
+slideshow,SS-4,Larry Walker,Colorado Rockies,,"MEM; SN100; MEM, SN100"
+slideshow,SS-5,Greg Maddux,Atlanta Braves,,"MEM; SN100; MEM, SN100"
+slideshow,SS-6,Ivan Rodriguez,Texas Rangers,,"MEM; SN100; MEM, SN100"
+slideshow,SS-7,Andruw Jones,Atlanta Braves,,"MEM; SN100; MEM, SN100"
+slideshow,SS-8,Lance Berkman,Houston Astros,,"MEM; SN100; MEM, SN100"
+slideshow,SS-9,Luis Gonzalez,Arizona Diamondbacks,,"MEM; SN100; MEM, SN100"
+slideshow,SS-10,Tony Gwynn,San Diego Padres,,"MEM; SN100; MEM, SN100"
+slideshow,SS-11,Troy Glaus,Anaheim Angels,,"MEM; SN100; MEM, SN100"
+slideshow,SS-12,Todd Helton,Colorado Rockies,,"MEM; SN100; MEM, SN100"
+slideshow,SS-13,Roberto Alomar,Cleveland Indians,,"MEM; SN100; MEM, SN100"
+slideshow,SS-14,Barry Bonds,San Francisco Giants,,"MEM; SN100; MEM, SN100"
+slideshow,SS-15,Vladimir Guerrero,Montreal Expos,,"MEM; SN100; MEM, SN100"
+slideshow,SS-16,Sean Casey,Cincinnati Reds,,"MEM; SN100; MEM, SN100"
+slideshow,SS-17,Curt Schilling,Arizona Diamondbacks,,"MEM; SN100; MEM, SN100"
+slideshow,SS-18,Frank Thomas,Chicago White Sox,,"MEM; SN100; MEM, SN100"
+slideshow,SS-19,Pedro Martinez,Boston Red Sox,,"MEM; SN100; MEM, SN100"
+slideshow,SS-20,Juan Gonzalez,Cleveland Indians,,"MEM; SN100; MEM, SN100"
+slideshow,SS-21,Randy Johnson,Arizona Diamondbacks,,"MEM; SN100; MEM, SN100"
+slideshow,SS-22,Kerry Wood,Chicago Cubs,,"MEM; SN100; MEM, SN100"
+slideshow,SS-23,Mike Sweeney,Kansas City Royals,,"MEM; SN100; MEM, SN100"
+slideshow,SS-24,Magglio Ordonez,Chicago White Sox,,"MEM; SN100; MEM, SN100"
+slideshow,SS-25,Kazuhiro Sasaki,Seattle Mariners,,"MEM; SN100; MEM, SN100"
+slideshow,SS-26,Manny Ramirez,Boston Red Sox,,"MEM; SN100; MEM, SN100"
+slideshow,SS-27,Roger Clemens,New York Yankees,,"MEM; SN100; MEM, SN100"
+slideshow,SS-28,Albert Pujols,St. Louis Cardinals,,"MEM; SN100; MEM, SN100"
+slideshow,SS-29,Hideo Nomo,Los Angeles Dodgers,,"MEM; SN100; MEM, SN100"
+slideshow,SS-30,Miguel Tejada,Oakland Athletics,,"MEM; SN100; MEM, SN100"
+slideshow-autographs,S2,Chipper Jones,Atlanta Braves,,"MEM; AU; SN100; AU, MEM"
+slideshow-autographs,S5,Greg Maddux,Atlanta Braves,,"MEM; AU; SN100; AU, MEM"
+slideshow-autographs,S7,Andruw Jones,Atlanta Braves,,"MEM; AU; SN100; AU, MEM"
+slideshow-autographs,S8,Lance Berkman,Houston Astros,,"MEM; AU; SN100; AU, MEM"
+slideshow-autographs,S9,Luis Gonzalez,Arizona Diamondbacks,,"MEM; AU; SN100; AU, MEM"
+slideshow-autographs,S11,Troy Glaus,Anaheim Angels,,"MEM; AU; SN100; AU, MEM"
+slideshow-autographs,S15,Vladimir Guerrero,Montreal Expos,,"MEM; AU; SN100; AU, MEM"
+slideshow-autographs,S16,Sean Casey,Cincinnati Reds,,"MEM; AU; SN100; AU, MEM"
+slideshow-autographs,S17,Curt Schilling,Arizona Diamondbacks,,"MEM; AU; SN100; AU, MEM"
+slideshow-autographs,S22,Kerry Wood,Chicago Cubs,,"MEM; AU; SN100; AU, MEM"
+slideshow-autographs,S28,Albert Pujols,St. Louis Cardinals,,"MEM; AU; SN100; AU, MEM"
+slideshow-autographs,S30,Miguel Tejada,Oakland Athletics,,"MEM; AU; SN100; AU, MEM"
+slideshow-view-master,S1,Cal Ripken Jr.,Baltimore Orioles,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S2,Chipper Jones,Atlanta Braves,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S3,Jeff Bagwell,Houston Astros,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S4,Larry Walker,Colorado Rockies,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S5,Greg Maddux,Atlanta Braves,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S6,Ivan Rodriguez,Texas Rangers,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S7,Andruw Jones,Atlanta Braves,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S8,Lance Berkman,Houston Astros,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S9,Luis Gonzalez,Arizona Diamondbacks,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S10,Tony Gwynn,San Diego Padres,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S11,Troy Glaus,Anaheim Angels,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S12,Todd Helton,Colorado Rockies,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S13,Roberto Alomar,Cleveland Indians,,"MEM; SN25; MEM, SN25Game-Used Jersey"
+slideshow-view-master,S14,Barry Bonds,San Francisco Giants,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S15,Vladimir Guerrero,Montreal Expos,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S16,Sean Casey,Cincinnati Reds,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S17,Curt Schilling,Arizona Diamondbacks,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S18,Frank Thomas,Chicago White Sox,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S19,Pedro Martinez,Boston Red Sox,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S20,Juan Gonzalez,Cleveland Indians,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S21,Randy Johnson,Arizona Diamondbacks,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S22,Kerry Wood,Chicago Cubs,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S23,Mike Sweeney,Kansas City Royals,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S24,Magglio Ordonez,Chicago White Sox,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S25,Kazuhiro Sasaki,Seattle Mariners,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S26,Manny Ramirez,Boston Red Sox,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S27,Roger Clemens,New York Yankees,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S28,Albert Pujols,St. Louis Cardinals,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S29,Hideo Nomo,Los Angeles Dodgers,,"MEM; SN25; MEM, SN25"
+slideshow-view-master,S30,Miguel Tejada,Oakland Athletics,,"MEM; SN25; MEM, SN25"
+statistical-standouts,SS-1,Ichiro Suzuki,Seattle Mariners,,MEM
+statistical-standouts,SS-2,Barry Bonds,San Francisco Giants,,"MEM; MEM, SP"
+statistical-standouts,SS-3,Ivan Rodriguez,Texas Rangers,,MEM
+statistical-standouts,SS-4,Jeff Bagwell,Houston Astros,,MEM
+statistical-standouts,SS-5,Vladimir Guerrero,Montreal Expos,,"MEM; MEM, SP"
+statistical-standouts,SS-6,Mike Sweeney,Kansas City Royals,,MEM
+statistical-standouts,SS-7,Miguel Tejada,Oakland Athletics,,MEM
+statistical-standouts,SS-8,Mike Piazza,New York Mets,,"MEM; MEM, SP"
+statistical-standouts,SS-9,Darin Erstad,Anaheim Angels,,MEM
+statistical-standouts,SS-10,Alex Rodriguez,Texas Rangers,,MEM
+statistical-standouts,SS-11,Jason Giambi,Oakland Athletics,,MEM
+statistical-standouts,SS-12,Cal Ripken Jr.,Baltimore Orioles,,MEM
+statistical-standouts,SS-13,Albert Pujols,St. Louis Cardinals,,MEM
+statistical-standouts,SS-14,Carlos Delgado,Toronto Blue Jays,,MEM
+statistical-standouts,SS-15,Rafael Palmeiro,Texas Rangers,,MEM
+statistical-standouts,SS-16,Lance Berkman,Houston Astros,,MEM
+statistical-standouts,SS-17,Luis Gonzalez,Arizona Diamondbacks,,"MEM; MEM, SP"
+statistical-standouts,SS-18,Sammy Sosa,Chicago Cubs,,"MEM; MEM, SP"
+statistical-standouts,SS-19,Andruw Jones,Atlanta Braves,,"MEM; MEM, SP"
+statistical-standouts,SS-20,Derek Jeter,New York Yankees,,MEM
+statistical-standouts,SS-21,Edgar Martinez,Seattle Mariners,,MEM
+statistical-standouts,SS-22,Troy Glaus,Anaheim Angels,,MEM
+statistical-standouts,SS-23,Magglio Ordonez,Chicago White Sox,,MEM
+statistical-standouts,SS-24,Mark McGwire,St. Louis Cardinals,,MEM
+statistical-standouts,SS-25,Manny Ramirez,Boston Red Sox,,MEM
+statistical-standouts-autographs,SS3,Ivan Rodriguez,Texas Rangers,,"MEM; AU; AU, MEM"
+statistical-standouts-autographs,SS4,Jeff Bagwell,Houston Astros,,"MEM; AU; AU, MEM"
+statistical-standouts-autographs,SS5,Vladimir Guerrero,Montreal Expos,,"MEM; AU; AU, MEM"
+statistical-standouts-autographs,SS7,Miguel Tejada,Oakland Athletics,,"MEM; AU; AU, MEM"
+statistical-standouts-autographs,SS11,Jason Giambi,Oakland Athletics,,"MEM; AU; AU, MEM"
+statistical-standouts-autographs,SS13,Albert Pujols,St. Louis Cardinals,,"MEM; AU; AU, MEM, PR50"
+statistical-standouts-autographs,SS16,Lance Berkman,Houston Astros,,"MEM; AU; AU, MEM"
+statistical-standouts-autographs,SS17,Luis Gonzalez,Arizona Diamondbacks,,"MEM; AU; AU, MEM"
+statistical-standouts-autographs,SS19,Andruw Jones,Atlanta Braves,,"MEM; AU; AU, MEM"
+statistical-standouts-autographs,SS22,Troy Glaus,Anaheim Angels,,"MEM; AU; AU, MEM"
+statistical-standouts-super,SS1,Ichiro Suzuki,Seattle Mariners,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS2,Barry Bonds,San Francisco Giants,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS3,Ivan Rodriguez,Texas Rangers,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS4,Jeff Bagwell,Houston Astros,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS5,Vladimir Guerrero,Montreal Expos,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS6,Mike Sweeney,Kansas City Royals,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS7,Miguel Tejada,Oakland Athletics,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS8,Mike Piazza,New York Mets,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS-9,Darin Erstad,Anaheim Angels,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS10,Alex Rodriguez,Texas Rangers,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS11,Jason Giambi,Oakland Athletics,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS12,Cal Ripken Jr.,Baltimore Orioles,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS13,Albert Pujols,St. Louis Cardinals,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS14,Carlos Delgado,Toronto Blue Jays,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS15,Rafael Palmeiro,Texas Rangers,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS16,Lance Berkman,Houston Astros,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS17,Luis Gonzalez,Arizona Diamondbacks,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS18,Sammy Sosa,Chicago Cubs,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS19,Andruw Jones,Atlanta Braves,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS20,Derek Jeter,New York Yankees,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS21,Edgar Martinez,Seattle Mariners,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS22,Troy Glaus,Anaheim Angels,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS23,Magglio Ordonez,Chicago White Sox,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS24,Mark McGwire,St. Louis Cardinals,,"MEM; SN50; MEM, SN50"
+statistical-standouts-super,SS25,Manny Ramirez,Boston Red Sox,,"MEM; SN50; MEM, SN50"
+triple-threads,TT-1,Pedro Martinez / Manny Ramirez / Nomar Garciaparra,Boston Red Sox,,"MEM; SN100; MEM, SN100"
+triple-threads,TT-2,Frank Robinson / Cal Ripken Jr. / Brooks Robinson,Baltimore Orioles,,"MEM; SN100; MEM, SN100"
+triple-threads,TT-3,Babe Ruth / Lou Gehrig / Yogi Berra,New York Yankees,,"MEM; SN100; MEM, SN100"
+triple-threads,TT-4,Andre Dawson / Ryne Sandberg / Ernie Banks,Chicago Cubs,,"MEM; SN100; MEM, SN100"
+triple-threads,TT-5,Warren Spahn / Hank Aaron / Eddie Mathews,Milwaukee Braves,,"MEM; SN100; MEM, SN100"
+triple-threads,TT-6,Greg Maddux / Chipper Jones / Andruw Jones,Atlanta Braves,,"MEM; SN100; MEM, SN100"
+triple-threads,TT-7,Nolan Ryan / Ivan Rodriguez / Juan Gonzalez,Texas Rangers,,"MEM; SN100; MEM, SN100"
+triple-threads,TT-8,Lance Berkman / Jeff Bagwell / Craig Biggio,Houston Astros,,"MEM; SN100; MEM, SN100"
+triple-threads,TT-9,Rod Carew / Harmon Killebrew / Kirby Puckett,Minnesota Twins,,"MEM; SN100; MEM, SN100"
+triple-threads,TT-10,Luis Gonzalez / Curt Schilling / Randy Johnson,Arizona Diamondbacks,,"MEM; SN100; MEM, SN100"

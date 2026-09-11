@@ -1,0 +1,576 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Natrone Means,San Diego Chargers,Series 1,
+base,2,David Meggett,New York Giants,Series 1,
+base,3,Tim Bowens,Miami Dolphins,Series 1,
+base,4,Jay Novacek,Dallas Cowboys,Series 1,
+base,5,Michael Jackson,Cleveland Browns,Series 1,
+base,6,Calvin Williams,Philadelphia Eagles,Series 1,
+base,7,Neil Smith,Kansas City Chiefs,Series 1,
+base,8,Chris Gardocki,Chicago Bears,Series 1,
+base,9,Jeff Burris,Buffalo Bills,Series 1,
+base,10,Warren Moon,Minnesota Vikings,Series 1,
+base,11,Gary Anderson,Pittsburgh Steelers,Series 1,
+base,12,Bert Emanuel,Atlanta Falcons,Series 1,
+base,13,Rick Tuten,Seattle Seahawks,Series 1,
+base,14,Steve Wallace,San Francisco 49ers,Series 1,
+base,15,Marion Butts,New England Patriots,Series 1,
+base,16,Johnnie Morton,Detroit Lions,Series 1,
+base,17,Rob Moore,New York Jets,Series 1,
+base,18,Wayne Gandy,St. Louis Rams,Series 1,
+base,19,Quentin Coryatt,Indianapolis Colts,Series 1,
+base,20,Richmond Webb,Miami Dolphins,Series 1,
+base,21,Errict Rhett,Tampa Bay Buccaneers,Series 1,
+base,22,Joe Johnson,New Orleans Saints,Series 1,
+base,23,Gary Brown,Houston Oilers,Series 1,
+base,24,Jeff Hostetler,Los Angeles Raiders,Series 1,
+base,25,Larry Centers,Arizona Cardinals,Series 1,
+base,26,Tom Carter,Washington Redskins,Series 1,
+base,27,Steve Atwater,Denver Broncos,Series 1,
+base,28,Doug Pelfrey,Cincinnati Bengals,Series 1,
+base,29,Bryce Paup,Green Bay Packers,Series 1,
+base,30,Erik Williams,Dallas Cowboys,Series 1,
+base,31,Henry Jones,Buffalo Bills,Series 1,
+base,32,Stanley Richard,San Diego Chargers,Series 1,
+base,33,Marcus Allen,Kansas City Chiefs,Series 1,
+base,34,Antonio Langham,Cleveland Browns,Series 1,
+base,35,Lewis Tillman,Chicago Bears,Series 1,
+base,36,Thomas Randolph,New York Giants,Series 1,
+base,37,Byron Morris,Pittsburgh Steelers,Series 1,
+base,38,David Palmer,Minnesota Vikings,Series 1,
+base,39,Ricky Watters,San Francisco 49ers,Series 1,
+base,40,Brett Perriman,Detroit Lions,Series 1,
+base,41,Will Wolford,Indianapolis Colts,Series 1,
+base,42,Burt Grossman,Philadelphia Eagles,Series 1,
+base,43,Vincent Brisby,New England Patriots,Series 1,
+base,44,Ronnie Lott,New York Jets,Series 1,
+base,45,Brian Blades,Seattle Seahawks,Series 1,
+base,46,Brent Jones,San Francisco 49ers,Series 1,
+base,47,Anthony Newman,St. Louis Rams,Series 1,
+base,48,Willie Roaf,New Orleans Saints,Series 1,
+base,49,Paul Gruber,Tampa Bay Buccaneers,Series 1,
+base,50,Jeff George,Atlanta Falcons,Series 1,
+base,51,Jamir Miller,Arizona Cardinals,Series 1,
+base,52,Anthony Miller,Denver Broncos,Series 1,
+base,53,Darrell Green,Washington Redskins,Series 1,
+base,54,Steve Wisniewski,Los Angeles Raiders,Series 1,
+base,55,Dan Wilkinson,Cincinnati Bengals,Series 1,
+base,56,Brett Favre,Green Bay Packers,Series 1,
+base,57,Leslie O'Neal,San Diego Chargers,Series 1,
+base,58,Keith Byars,Miami Dolphins,Series 1,
+base,59,James Washington,Dallas Cowboys,Series 1,
+base,60,Andre Reed,Buffalo Bills,Series 1,
+base,61,Ken Norton,San Francisco 49ers,Series 1,
+base,62,John Randle,Minnesota Vikings,Series 1,
+base,63,Lake Dawson,Kansas City Chiefs,Series 1,
+base,64,Greg Montgomery,Detroit Lions,Series 1,
+base,65,Erric Pegram,Atlanta Falcons,Series 1,
+base,66,Steve Everitt,Cleveland Browns,Series 1,
+base,67,Chris Brantley,St. Louis Rams,Series 1,
+base,68,Rod Woodson,Pittsburgh Steelers,Series 1,
+base,69,Eugene Robinson,Seattle Seahawks,Series 1,
+base,70,Dave Brown,New York Giants,Series 1,
+base,71,Ricky Reynolds,New England Patriots,Series 1,
+base,72,Rohn Stark,Indianapolis Colts,Series 1,
+base,73,Randal Hill,Arizona Cardinals,Series 1,
+base,74,Brian Washington,New York Jets,Series 1,
+base,75,Heath Shuler,Washington Redskins,Series 1,
+base,76,Darion Conner,New Orleans Saints,Series 1,
+base,77,Terry McDaniel,Los Angeles Raiders,Series 1,
+base,78,Al Del Greco,Houston Oilers,Series 1,
+base,79,Allen Aldridge,Denver Broncos,Series 1,
+base,80,Trace Armstrong,Chicago Bears,Series 1,
+base,81,Darnay Scott,Cincinnati Bengals,Series 1,
+base,82,Charlie Garner,Philadelphia Eagles,Series 1,
+base,83,Harold Bishop,Tampa Bay Buccaneers,Series 1,
+base,84,Reggie White,Green Bay Packers,Series 1,
+base,85,Shawn Jefferson,San Diego Chargers,Series 1,
+base,86,Irving Spikes,Miami Dolphins,Series 1,
+base,87,Mel Gray,Detroit Lions,Series 1,
+base,88,D.J. Johnson,Atlanta Falcons,Series 1,
+base,89,Daryl Johnston,Dallas Cowboys,Series 1,
+base,90,Joe Montana,Kansas City Chiefs,Series 1,
+base,91,Michael Strahan,New York Giants,Series 1,
+base,92,Robert Blackmon,Seattle Seahawks,Series 1,
+base,93,Ryan Yarborough,New York Jets,Series 1,
+base,94,Terry Allen,Minnesota Vikings,Series 1,
+base,95,Michael Haynes,New Orleans Saints,Series 1,
+base,96,Jim Harbaugh,Indianapolis Colts,Series 1,
+base,97,"Micheal Barrow UERUER: Name misspelled ""Michael"" on front and back",Houston Oilers,Series 1,
+base,98,John Thierry,Chicago Bears,Series 1,
+base,99,Seth Joyner,Arizona Cardinals,Series 1,
+base,100,Deion Sanders,San Francisco 49ers,Series 1,
+base,101,Eric Turner,Cleveland Browns,Series 1,
+base,102,LeShon Johnson,Green Bay Packers,Series 1,
+base,103,John Copeland,Cincinnati Bengals,Series 1,
+base,104,Cornelius Bennett,Buffalo Bills,Series 1,
+base,105,Sean Gilbert,St. Louis Rams,Series 1,
+base,106,Herschel Walker,Philadelphia Eagles,Series 1,
+base,107,Henry Ellard,Washington Redskins,Series 1,
+base,108,Neil O'Donnell,Pittsburgh Steelers,Series 1,
+base,109,Charles Wilson,Tampa Bay Buccaneers,Series 1,
+base,110,Willie McGinest,New England Patriots,Series 1,
+base,111,Tim Brown,Los Angeles Raiders,Series 1,
+base,112,Simon Fletcher,Denver Broncos,Series 1,
+base,113,Broderick Thomas,Detroit Lions,Series 1,
+base,114,Tom Waddle,Chicago Bears,Series 1,
+base,115,Jessie Tuggle,Atlanta Falcons,Series 1,
+base,116,Maurice Hurst,New England Patriots,Series 1,
+base,117,Aubrey Beavers,Miami Dolphins,Series 1,
+base,118,Donnell Bennett,Kansas City Chiefs,Series 1,
+base,119,Shante Carver,Dallas Cowboys,Series 1,
+base,120,Eric Metcalf,Cleveland Browns,Series 1,
+base,121,John Carney,San Diego Chargers,Series 1,
+base,122,Thomas Lewis,New York Giants,Series 1,
+base,123,Johnny Mitchell,New York Jets,Series 1,
+base,124,Trent Dilfer,Tampa Bay Buccaneers,Series 1,
+base,125,Marshall Faulk,Indianapolis Colts,Series 1,ROO
+base,126,Ernest Givins,Houston Oilers,Series 1,
+base,127,Aeneas Williams,Arizona Cardinals,Series 1,
+base,128,Bucky Brooks,Buffalo Bills,Series 1,
+base,129,Todd Steussie,Minnesota Vikings,Series 1,
+base,130,Randall Cunningham,Philadelphia Eagles,Series 1,
+base,131,Reggie Brooks,Washington Redskins,Series 1,
+base,132,Morten Andersen,New Orleans Saints,Series 1,
+base,133,James Jett,Los Angeles Raiders,Series 1,
+base,134,George Teague,Green Bay Packers,Series 1,
+base,135,John Taylor,San Francisco 49ers,Series 1,
+base,136,Charles Johnson,Pittsburgh Steelers,Series 1,
+base,137,Isaac Bruce,St. Louis Rams,Series 1,
+base,138,Jason Elam,Denver Broncos,Series 1,
+base,139,Carl Pickens,Cincinnati Bengals,Series 1,
+base,140,Chris Warren,Seattle Seahawks,Series 1,
+base,141,Bruce Armstrong,New England Patriots,Series 1,
+base,142,Mark Carrier,Chicago Bears,Series 1,
+base,143,Irving Fryar,Miami Dolphins,Series 1,
+base,144,Van Malone,Detroit Lions,Series 1,
+base,145,Charles Haley,Dallas Cowboys,Series 1,
+base,146,Chris Calloway,New York Giants,Series 1,
+base,147,J.J. Birden,Kansas City Chiefs,Series 1,
+base,148,Tony Bennett,Indianapolis Colts,Series 1,
+base,149,Lincoln Kennedy,Atlanta Falcons,Series 1,
+base,150,Stan Humphries,San Diego Chargers,Series 1,
+base,151,Hardy Nickerson,Tampa Bay Buccaneers,Series 1,
+base,152,Randall McDaniel,Minnesota Vikings,Series 1,
+base,153,Marcus Robertson,Houston Oilers,Series 1,
+base,154,Ronald Moore,Arizona Cardinals,Series 1,
+base,155,Thurman Thomas,Buffalo Bills,Series 1,
+base,156,Tommy Vardell,Cleveland Browns,Series 1,
+base,157,Ken Ruettgers,Green Bay Packers,Series 1,
+base,158,Rob Fredrickson,Los Angeles Raiders,Series 1,
+base,159,Johnny Bailey,St. Louis Rams,Series 1,
+base,160,Greg Lloyd,Pittsburgh Steelers,Series 1,
+base,161,David Alexander,Philadelphia Eagles,Series 1,
+base,162,Kevin Mawae,Seattle Seahawks,Series 1,
+base,163,Derek Brown,New Orleans Saints,Series 1,
+base,164,William Floyd,San Francisco 49ers,Series 1,
+base,165,Aaron Glenn,New York Jets,Series 1,
+base,166,Joey Galloway RC,Seattle Seahawks,Series 2,ROO
+base,167,Troy Drayton,St. Louis Rams,Series 2,
+base,168,Dermontti Dawson,Pittsburgh Steelers,Series 2,
+base,169,Ronald Moore,New York Jets,Series 2,
+base,170,Dan Marino,Miami Dolphins,Series 2,
+base,171,Dennis Gibson,San Diego Chargers,Series 2,
+base,172,Raymont Harris,Chicago Bears,Series 2,
+base,173,Shannon Sharpe,Denver Broncos,Series 2,
+base,174,Kevin Williams,Dallas Cowboys,Series 2,
+base,175,Jim Everett,New Orleans Saints,Series 2,
+base,176,Raghib Ismail,Oakland Raiders,Series 2,
+base,177,Mark Fields RC,New Orleans Saints,Series 2,ROO
+base,178,George Koonce,Green Bay Packers,Series 2,
+base,179,Chris Hudson,Jacksonville Jaguars,Series 2,
+base,180,Jerry Rice,San Francisco 49ers,Series 2,
+base,181,Dewayne Washington,Minnesota Vikings,Series 2,
+base,182,Dale Carter,Kansas City Chiefs,Series 2,
+base,183,Pete Stoyanovich,Miami Dolphins,Series 2,
+base,184,Blake Brockermeyer RC,Carolina Panthers,Series 2,ROO
+base,185,Troy Aikman,Dallas Cowboys,Series 2,
+base,186,Jeff Blake RC,Cincinnati Bengals,Series 2,
+base,187,Troy Vincent,Miami Dolphins,Series 2,
+base,188,Lamar Lathon,Carolina Panthers,Series 2,
+base,189,Tony Boselli RC,Jacksonville Jaguars,Series 2,
+base,190,Emmitt Smith,Dallas Cowboys,Series 2,
+base,191,Bobby Houston,New York Jets,Series 2,
+base,192,Edgar Bennett,Green Bay Packers,Series 2,
+base,193,Derrick Brooks RC,Tampa Bay Buccaneers,Series 2,ROO
+base,194,Ricky Proehl,Seattle Seahawks,Series 2,
+base,195,Rodney Hampton,New York Giants,Series 2,
+base,196,Dave Krieg,Arizona Cardinals,Series 2,
+base,197,Vinny Testaverde,Cleveland Browns,Series 2,
+base,198,Erik Kramer,Chicago Bears,Series 2,
+base,199,Ben Coates,New England Patriots,Series 2,
+base,200,Steve Young,San Francisco 49ers,Series 2,
+base,201,Glyn Milburn,Denver Broncos,Series 2,
+base,202,Bryan Cox,Miami Dolphins,Series 2,
+base,203,Luther Elliss,Detroit Lions,Series 2,
+base,204,Mark McMillian,Philadelphia Eagles,Series 2,
+base,205,Jerome Bettis,St. Louis Rams,Series 2,
+base,206,Craig Heyward,Atlanta Falcons,Series 2,
+base,207,Ray Buchanan,Indianapolis Colts,Series 2,
+base,208,Kimble Anders,Kansas City Chiefs,Series 2,
+base,209,Kevin Greene,Pittsburgh Steelers,Series 2,
+base,210,Eric Allen,New Orleans Saints,Series 2,
+base,211,Ricardo McDonald,Cincinnati Bengals,Series 2,
+base,212,Ruben Brown RC,Buffalo Bills,Series 2,ROO
+base,213,Harvey Williams,Oakland Raiders,Series 2,
+base,214,Broderick Thomas,Minnesota Vikings,Series 2,
+base,215,Frank Reich,Carolina Panthers,Series 2,
+base,216,Frank Sanders RC,Arizona Cardinals,Series 2,ROO
+base,217,Craig Newsome RC,Green Bay Packers,Series 2,ROO
+base,218,Merton Hanks,San Francisco 49ers,Series 2,
+base,219,Chris Miller,St. Louis Rams,Series 2,
+base,220,John Elway,Denver Broncos,Series 2,
+base,221,Ernest Givins,Jacksonville Jaguars,Series 2,
+base,222,Boomer Esiason,New York Jets,Series 2,
+base,223,Reggie Roby,Tampa Bay Buccaneers,Series 2,
+base,224,Qadry Ismail,Minnesota Vikings,Series 2,
+base,225,Ki-Jana Carter RC,Cincinnati Bengals,Series 2,ROO
+base,226,Leon Lett,Dallas Cowboys,Series 2,
+base,227,Eric Hill,Arizona Cardinals,Series 2,
+base,228,Scott Mitchell,Detroit Lions,Series 2,
+base,229,Craig Erickson,Indianapolis Colts,Series 2,
+base,230,Drew Bledsoe,New England Patriots,Series 2,
+base,231,Sean Landeta,St. Louis Rams,Series 2,
+base,232,Barrett Brooks,Philadelphia Eagles,Series 2,
+base,233,Brian Mitchell,Washington Redskins,Series 2,
+base,234,Tyrone Poole RC,Carolina Panthers,Series 2,ROO
+base,235,Desmond Howard,Jacksonville Jaguars,Series 2,
+base,236,Wayne Simmons,Green Bay Packers,Series 2,
+base,237,Michael Westbrook RC,Washington Redskins,Series 2,ROO
+base,238,Quinn Early,New Orleans Saints,Series 2,
+base,239,Willie Davis,Kansas City Chiefs,Series 2,
+base,240,Rashaan Salaam RC,Chicago Bears,Series 2,ROO
+base,241,Devin Bush RC,Atlanta Falcons,Series 2,ROO
+base,242,Dana Stubblefield,San Francisco 49ers,Series 2,
+base,243,Dexter Carter,New York Jets,Series 2,
+base,244,Shane Conlan,St. Louis Rams,Series 2,
+base,245,Keith Elias RC,New York Giants,Series 2,
+base,246,Robert Brooks,Green Bay Packers,Series 2,
+base,247,Garrison Hearst,Arizona Cardinals,Series 2,
+base,248,Eric Zeier RC,Cleveland Browns,Series 2,ROO
+base,249,Nate Newton,Dallas Cowboys,Series 2,
+base,250,Barry Sanders,Detroit Lions,Series 2,
+base,251,David Meggett,New England Patriots,Series 2,
+base,252,Courtney Hawkins,Tampa Bay Buccaneers,Series 2,
+base,253,Cortez Kennedy,Seattle Seahawks,Series 2,
+base,254,Mario Bates,New Orleans Saints,Series 2,
+base,255,Junior Seau,San Diego Chargers,Series 2,
+base,256,Brian Washington,Kansas City Chiefs,Series 2,
+base,257,Darius Holland,Green Bay Packers,Series 2,
+base,258,Jeff Graham,Chicago Bears,Series 2,
+base,259,Rob Moore,Arizona Cardinals,Series 2,
+base,260,Andre Rison,Cleveland Browns,Series 2,
+base,261,Kerry Collins RC,Carolina Panthers,Series 2,ROO
+base,262,Roosevelt Potts,Indianapolis Colts,Series 2,
+base,263,Cris Carter,Minnesota Vikings,Series 2,
+base,264,Curtis Martin RC,New England Patriots,Series 2,ROO
+base,265,Rick Mirer,Seattle Seahawks,Series 2,
+base,266,Mo Lewis,New York Jets,Series 2,
+base,267,Mike Sherrard,New York Giants,Series 2,
+base,268,Herman Moore,Detroit Lions,Series 2,
+base,269,Eric Metcalf,Atlanta Falcons,Series 2,
+base,270,Ray Childress,Houston Oilers,Series 2,
+base,271,Chris Slade,New England Patriots,Series 2,
+base,272,Michael Irvin,Dallas Cowboys,Series 2,
+base,273,Jim Kelly,Buffalo Bills,Series 2,
+base,274,Terance Mathis,Atlanta Falcons,Series 2,
+base,275,LeRoy Butler,Green Bay Packers,Series 2,
+refractors,1,Natrone Means,San Diego Chargers,Series 1,Refractor
+refractors,2,David Meggett,New York Giants,Series 1,Refractor
+refractors,3,Tim Bowens,Miami Dolphins,Series 1,Refractor
+refractors,4,Jay Novacek,Dallas Cowboys,Series 1,Refractor
+refractors,5,Michael Jackson,Cleveland Browns,Series 1,Refractor
+refractors,6,Calvin Williams,Philadelphia Eagles,Series 1,Refractor
+refractors,7,Neil Smith,Kansas City Chiefs,Series 1,Refractor
+refractors,8,Chris Gardocki,Chicago Bears,Series 1,Refractor
+refractors,9,Jeff Burris,Buffalo Bills,Series 1,Refractor
+refractors,10,Warren Moon,Minnesota Vikings,Series 1,Refractor
+refractors,11,Gary Anderson,Pittsburgh Steelers,Series 1,Refractor
+refractors,12,Bert Emanuel,Atlanta Falcons,Series 1,Refractor
+refractors,13,Rick Tuten,Seattle Seahawks,Series 1,Refractor
+refractors,14,Steve Wallace,San Francisco 49ers,Series 1,Refractor
+refractors,15,Marion Butts,New England Patriots,Series 1,Refractor
+refractors,16,Johnnie Morton,Detroit Lions,Series 1,Refractor
+refractors,17,Rob Moore,New York Jets,Series 1,Refractor
+refractors,18,Wayne Gandy,St. Louis Rams,Series 1,Refractor
+refractors,19,Quentin Coryatt,Indianapolis Colts,Series 1,Refractor
+refractors,20,Richmond Webb,Miami Dolphins,Series 1,Refractor
+refractors,21,Errict Rhett,Tampa Bay Buccaneers,Series 1,Refractor
+refractors,22,Joe Johnson,New Orleans Saints,Series 1,Refractor; ROO
+refractors,23,Gary Brown,Houston Oilers,Series 1,Refractor
+refractors,24,Jeff Hostetler,Oakland Raiders,Series 1,Refractor
+refractors,25,Larry Centers,Arizona Cardinals,Series 1,Refractor
+refractors,26,Tom Carter,Washington Redskins,Series 1,Refractor
+refractors,27,Steve Atwater,Denver Broncos,Series 1,Refractor
+refractors,28,Doug Pelfrey,Cincinnati Bengals,Series 1,Refractor
+refractors,29,Bryce Paup,Green Bay Packers,Series 1,Refractor
+refractors,30,Erik Williams,Dallas Cowboys,Series 1,Refractor
+refractors,31,Henry Jones,Buffalo Bills,Series 1,Refractor
+refractors,32,Stanley Richard,San Diego Chargers,Series 1,Refractor
+refractors,33,Marcus Allen,Kansas City Chiefs,Series 1,Refractor
+refractors,34,Antonio Langham,Cleveland Browns,Series 1,Refractor
+refractors,35,Lewis Tillman,Chicago Bears,Series 1,Refractor
+refractors,36,Thomas Randolph,New York Giants,Series 1,Refractor
+refractors,37,Bam Morris,Pittsburgh Steelers,Series 1,Refractor
+refractors,38,David Palmer,Minnesota Vikings,Series 1,Refractor; ROO
+refractors,39,Ricky Watters,San Francisco 49ers,Series 1,Refractor
+refractors,40,Brett Perriman,Detroit Lions,Series 1,Refractor
+refractors,41,Will Wolford,Indianapolis Colts,Series 1,Refractor
+refractors,42,Burt Grossman,Philadelphia Eagles,Series 1,Refractor
+refractors,43,Vincent Brisby,New England Patriots,Series 1,Refractor
+refractors,44,Ronnie Lott,New York Jets,Series 1,Refractor
+refractors,45,Brian Blades,Seattle Seahawks,Series 1,Refractor
+refractors,46,Brent Jones,San Francisco 49ers,Series 1,Refractor
+refractors,47,Anthony Newman,St. Louis Rams,Series 1,Refractor
+refractors,48,Willie Roaf,New Orleans Saints,Series 1,Refractor
+refractors,49,Paul Gruber,Tampa Bay Buccaneers,Series 1,Refractor
+refractors,50,Jeff George,Atlanta Falcons,Series 1,Refractor
+refractors,51,Jamir Miller,Arizona Cardinals,Series 1,Refractor
+refractors,52,Anthony Miller,Denver Broncos,Series 1,Refractor
+refractors,53,Darrell Green,Washington Redskins,Series 1,Refractor
+refractors,54,Steve Wisniewski,Los Angeles Raiders,Series 1,Refractor
+refractors,55,Dan Wilkinson,Cincinnati Bengals,Series 1,Refractor
+refractors,56,Brett Favre,Green Bay Packers,Series 1,Refractor
+refractors,57,Leslie O'Neal,San Diego Chargers,Series 1,Refractor
+refractors,58,Keith Byars,Miami Dolphins,Series 1,Refractor
+refractors,59,James Washington,Dallas Cowboys,Series 1,Refractor
+refractors,60,Andre Reed,Buffalo Bills,Series 1,Refractor
+refractors,61,Ken Norton,San Francisco 49ers,Series 1,Refractor
+refractors,62,John Randle,Minnesota Vikings,Series 1,Refractor
+refractors,63,Lake Dawson,Kansas City Chiefs,Series 1,Refractor
+refractors,64,Greg Montgomery,Detroit Lions,Series 1,Refractor
+refractors,65,Erric Pegram,Atlanta Falcons,Series 1,Refractor
+refractors,66,Steve Everitt,Cleveland Browns,Series 1,Refractor
+refractors,67,Chris Brantley,St. Louis Rams,Series 1,Refractor
+refractors,68,Rod Woodson,Pittsburgh Steelers,Series 1,Refractor
+refractors,69,Eugene Robinson,Seattle Seahawks,Series 1,Refractor
+refractors,70,Dave Brown,New York Giants,Series 1,Refractor
+refractors,71,Ricky Reynolds,New England Patriots,Series 1,Refractor
+refractors,72,Rohn Stark,Indianapolis Colts,Series 1,Refractor
+refractors,73,Randal Hill,Arizona Cardinals,Series 1,Refractor
+refractors,74,Brian Washington,New York Jets,Series 1,Refractor
+refractors,75,Heath Shuler,Washington Redskins,Series 1,Refractor
+refractors,76,Darion Conner,New Orleans Saints,Series 1,Refractor
+refractors,77,Terry McDaniel,Oakland Raiders,Series 1,Refractor
+refractors,78,Al Del Greco,Houston Oilers,Series 1,Refractor
+refractors,79,Allen Aldridge,Denver Broncos,Series 1,Refractor; ROO
+refractors,80,Trace Armstrong,Chicago Bears,Series 1,Refractor
+refractors,81,Darnay Scott,Cincinnati Bengals,Series 1,Refractor; ROO
+refractors,82,Charlie Garner,Philadelphia Eagles,Series 1,Refractor; ROO
+refractors,83,Harold Bishop,Tampa Bay Buccaneers,Series 1,Refractor
+refractors,84,Reggie White,Green Bay Packers,Series 1,Refractor
+refractors,85,Shawn Jefferson,San Diego Chargers,Series 1,Refractor
+refractors,86,Irving Spikes,Miami Dolphins,Series 1,Refractor
+refractors,87,Mel Gray,Detroit Lions,Series 1,Refractor
+refractors,88,D.J. Johnson,Atlanta Falcons,Series 1,Refractor
+refractors,89,Daryl Johnston,Dallas Cowboys,Series 1,Refractor
+refractors,90,Joe Montana,Kansas City Chiefs,Series 1,Refractor
+refractors,91,Michael Strahan,New York Giants,Series 1,Refractor
+refractors,92,Robert Blackmon,Seattle Seahawks,Series 1,Refractor
+refractors,93,Ryan Yarborough,New York Jets,Series 1,Refractor; ROO
+refractors,94,Terry Allen,Minnesota Vikings,Series 1,Refractor
+refractors,95,Michael Haynes,New Orleans Saints,Series 1,Refractor
+refractors,96,Jim Harbaugh,Indianapolis Colts,Series 1,Refractor
+refractors,97,"Micheal Barrow UERUER: Name misspelled ""Michael"" on front and back",Houston Oilers,Series 1,Refractor
+refractors,98,John Thierry,Chicago Bears,Series 1,Refractor; ROO
+refractors,99,Seth Joyner,Arizona Cardinals,Series 1,Refractor
+refractors,100,Deion Sanders,San Francisco 49ers,Series 1,Refractor
+refractors,101,Eric Turner,Cleveland Browns,Series 1,Refractor
+refractors,102,LeShon Johnson,Green Bay Packers,Series 1,Refractor; ROO
+refractors,103,John Copeland,Cincinnati Bengals,Series 1,Refractor
+refractors,104,Cornelius Bennett,Buffalo Bills,Series 1,Refractor
+refractors,105,Sean Gilbert,St. Louis Rams,Series 1,Refractor
+refractors,106,Herschel Walker,Philadelphia Eagles,Series 1,Refractor
+refractors,107,Henry Ellard,Washington Redskins,Series 1,Refractor
+refractors,108,Neil O'Donnell,Pittsburgh Steelers,Series 1,Refractor
+refractors,109,Charles Wilson,Tampa Bay Buccaneers,Series 1,Refractor
+refractors,110,Willie McGinest,New England Patriots,Series 1,Refractor
+refractors,111,Tim Brown,Oakland Raiders,Series 1,Refractor
+refractors,112,Simon Fletcher,Denver Broncos,Series 1,Refractor
+refractors,113,Broderick Thomas,Detroit Lions,Series 1,Refractor
+refractors,114,Tom Waddle,Chicago Bears,Series 1,Refractor
+refractors,115,Jessie Tuggle,Atlanta Falcons,Series 1,Refractor
+refractors,116,Maurice Hurst,New England Patriots,Series 1,Refractor
+refractors,117,Aubrey Beavers,Miami Dolphins,Series 1,Refractor
+refractors,118,Donnell Bennett,Kansas City Chiefs,Series 1,Refractor
+refractors,119,Shante Carver,Dallas Cowboys,Series 1,Refractor; ROO
+refractors,120,Eric Metcalf,Cleveland Browns,Series 1,Refractor
+refractors,121,John Carney,San Diego Chargers,Series 1,Refractor
+refractors,122,Thomas Lewis,New York Giants,Series 1,Refractor
+refractors,123,Johnny Mitchell,New York Jets,Series 1,Refractor
+refractors,124,Trent Dilfer,Tampa Bay Buccaneers,Series 1,Refractor
+refractors,125,Marshall Faulk,Indianapolis Colts,Series 1,Refractor
+refractors,126,Ernest Givins,Houston Oilers,Series 1,Refractor
+refractors,127,Aeneas Williams,Arizona Cardinals,Series 1,Refractor
+refractors,128,Bucky Brooks,Buffalo Bills,Series 1,Refractor
+refractors,129,Todd Steussie,Minnesota Vikings,Series 1,Refractor
+refractors,130,Randall Cunningham,Philadelphia Eagles,Series 1,Refractor
+refractors,131,Reggie Brooks,Washington Redskins,Series 1,Refractor
+refractors,132,Morten Andersen,New Orleans Saints,Series 1,Refractor
+refractors,133,James Jett,Oakland Raiders,Series 1,Refractor
+refractors,134,George Teague,Green Bay Packers,Series 1,Refractor
+refractors,135,John Taylor,San Francisco 49ers,Series 1,Refractor
+refractors,136,Charles Johnson,Pittsburgh Steelers,Series 1,Refractor
+refractors,137,Isaac Bruce,St. Louis Rams,Series 1,Refractor
+refractors,138,Jason Elam,Denver Broncos,Series 1,Refractor
+refractors,139,Carl Pickens,Cincinnati Bengals,Series 1,Refractor
+refractors,140,Chris Warren,Seattle Seahawks,Series 1,Refractor
+refractors,141,Bruce Armstrong,New England Patriots,Series 1,Refractor
+refractors,142,Mark Carrier,Chicago Bears,Series 1,Refractor
+refractors,143,Irving Fryar,Miami Dolphins,Series 1,Refractor
+refractors,144,Van Malone,Detroit Lions,Series 1,Refractor
+refractors,145,Charles Haley,Dallas Cowboys,Series 1,Refractor
+refractors,146,Chris Calloway,New York Giants,Series 1,Refractor
+refractors,147,J.J. Birden,Kansas City Chiefs,Series 1,Refractor
+refractors,148,Tony Bennett,Indianapolis Colts,Series 1,Refractor
+refractors,149,Lincoln Kennedy,Atlanta Falcons,Series 1,Refractor
+refractors,150,Stan Humphries,San Diego Chargers,Series 1,Refractor
+refractors,151,Hardy Nickerson,Tampa Bay Buccaneers,Series 1,Refractor
+refractors,152,Randall McDaniel,Minnesota Vikings,Series 1,Refractor
+refractors,153,Marcus Robertson,Houston Oilers,Series 1,Refractor
+refractors,154,Ronald Moore,Arizona Cardinals,Series 1,Refractor
+refractors,155,Thurman Thomas,Buffalo Bills,Series 1,Refractor
+refractors,156,Tommy Vardell,Cleveland Browns,Series 1,Refractor
+refractors,157,Ken Ruettgers,Green Bay Packers,Series 1,Refractor
+refractors,158,Rob Fredrickson,Oakland Raiders,Series 1,Refractor
+refractors,159,Johnny Bailey,St. Louis Rams,Series 1,Refractor
+refractors,160,Greg Lloyd,Pittsburgh Steelers,Series 1,Refractor
+refractors,161,David Alexander,Philadelphia Eagles,Series 1,Refractor
+refractors,162,Kevin Mawae,Seattle Seahawks,Series 1,Refractor
+refractors,163,Derek Brown,New Orleans Saints,Series 1,Refractor
+refractors,164,William Floyd,San Francisco 49ers,Series 1,Refractor
+refractors,165,Aaron Glenn,New York Jets,Series 1,Refractor; ROO
+refractors,166,Joey Galloway,Seattle Seahawks,Series 2,Refractor; ROO
+refractors,167,Troy Drayton,St. Louis Rams,Series 2,Refractor
+refractors,168,Dermontti Dawson,Pittsburgh Steelers,Series 2,Refractor
+refractors,169,Ronald Moore,New York Jets,Series 2,Refractor
+refractors,170,Dan Marino,Miami Dolphins,Series 2,Refractor
+refractors,171,Dennis Gibson,San Diego Chargers,Series 2,Refractor
+refractors,172,Raymont Harris,Chicago Bears,Series 2,Refractor
+refractors,173,Shannon Sharpe,Denver Broncos,Series 2,Refractor
+refractors,174,Kevin Williams,Dallas Cowboys,Series 2,Refractor
+refractors,175,Jim Everett,New Orleans Saints,Series 2,Refractor
+refractors,176,Raghib Ismail,Oakland Raiders,Series 2,Refractor
+refractors,177,Mark Fields,New Orleans Saints,Series 2,Refractor; ROO
+refractors,178,George Koonce,Green Bay Packers,Series 2,Refractor
+refractors,179,Chris Hudson,Jacksonville Jaguars,Series 2,Refractor; ROO
+refractors,180,Jerry Rice,San Francisco 49ers,Series 2,Refractor
+refractors,181,Dewayne Washington,Minnesota Vikings,Series 2,Refractor
+refractors,182,Dale Carter,Kansas City Chiefs,Series 2,Refractor
+refractors,183,Pete Stoyanovich,Miami Dolphins,Series 2,Refractor
+refractors,184,Blake Brockermeyer,Carolina Panthers,Series 2,Refractor; ROO
+refractors,185,Troy Aikman,Dallas Cowboys,Series 2,Refractor
+refractors,186,Jeff Blake,Cincinnati Bengals,Series 2,Refractor
+refractors,187,Troy Vincent,Miami Dolphins,Series 2,Refractor
+refractors,188,Lamar Lathon,Carolina Panthers,Series 2,Refractor
+refractors,189,Tony Boselli,Jacksonville Jaguars,Series 2,Refractor
+refractors,190,Emmitt Smith,Dallas Cowboys,Series 2,Refractor
+refractors,191,Bobby Houston,New York Jets,Series 2,Refractor
+refractors,192,Edgar Bennett,Green Bay Packers,Series 2,Refractor
+refractors,193,Derrick Brooks,Tampa Bay Buccaneers,Series 2,Refractor; ROO
+refractors,194,Ricky Proehl,Seattle Seahawks,Series 2,Refractor
+refractors,195,Rodney Hampton,New York Giants,Series 2,Refractor
+refractors,196,Dave Krieg,Arizona Cardinals,Series 2,Refractor
+refractors,197,Vinny Testaverde,Cleveland Browns,Series 2,Refractor
+refractors,198,Erik Kramer,Chicago Bears,Series 2,Refractor
+refractors,199,Ben Coates,New England Patriots,Series 2,Refractor
+refractors,200,Steve Young,San Francisco 49ers,Series 2,Refractor
+refractors,201,Glyn Milburn,Denver Broncos,Series 2,Refractor
+refractors,202,Bryan Cox,Miami Dolphins,Series 2,Refractor
+refractors,203,Luther Elliss,Detroit Lions,Series 2,Refractor
+refractors,204,Mark McMillian,Philadelphia Eagles,Series 2,Refractor
+refractors,205,Jerome Bettis,St. Louis Rams,Series 2,Refractor
+refractors,206,Craig Heyward,Atlanta Falcons,Series 2,Refractor
+refractors,207,Ray Buchanan,Indianapolis Colts,Series 2,Refractor
+refractors,208,Kimble Anders,Kansas City Chiefs,Series 2,Refractor
+refractors,209,Kevin Greene,Pittsburgh Steelers,Series 2,Refractor
+refractors,210,Eric Allen,New Orleans Saints,Series 2,Refractor
+refractors,211,Ricardo McDonald,Cincinnati Bengals,Series 2,Refractor
+refractors,212,Ruben Brown,Buffalo Bills,Series 2,Refractor; ROO
+refractors,213,Harvey Williams,Oakland Raiders,Series 2,Refractor
+refractors,214,Broderick Thomas,Minnesota Vikings,Series 2,Refractor
+refractors,215,Frank Reich,Carolina Panthers,Series 2,Refractor
+refractors,216,Frank Sanders,Arizona Cardinals,Series 2,Refractor; ROO
+refractors,217,Craig Newsome,Green Bay Packers,Series 2,Refractor; ROO
+refractors,218,Merton Hanks,San Francisco 49ers,Series 2,Refractor
+refractors,219,Chris Miller,St. Louis Rams,Series 2,Refractor
+refractors,220,John Elway,Denver Broncos,Series 2,Refractor
+refractors,221,Ernest Givins,Jacksonville Jaguars,Series 2,Refractor
+refractors,222,Boomer Esiason,New York Jets,Series 2,Refractor
+refractors,223,Reggie Roby,Tampa Bay Buccaneers,Series 2,Refractor
+refractors,224,Qadry Ismail,Minnesota Vikings,Series 2,Refractor
+refractors,225,Ki-Jana Carter,Cincinnati Bengals,Series 2,Refractor; ROO
+refractors,226,Leon Lett,Dallas Cowboys,Series 2,Refractor
+refractors,227,Eric Hill,Arizona Cardinals,Series 2,Refractor
+refractors,228,Scott Mitchell,Detroit Lions,Series 2,Refractor
+refractors,229,Craig Erickson,Indianapolis Colts,Series 2,Refractor
+refractors,230,Drew Bledsoe,New England Patriots,Series 2,Refractor
+refractors,231,Sean Landeta,St. Louis Rams,Series 2,Refractor
+refractors,232,Barrett Brooks,Philadelphia Eagles,Series 2,Refractor
+refractors,233,Brian Mitchell,Washington Redskins,Series 2,Refractor
+refractors,234,Tyrone Poole,Carolina Panthers,Series 2,Refractor; ROO
+refractors,235,Desmond Howard,Jacksonville Jaguars,Series 2,Refractor
+refractors,236,Wayne Simmons,Green Bay Packers,Series 2,Refractor
+refractors,237,Michael Westbrook,Washington Redskins,Series 2,Refractor; ROO
+refractors,238,Quinn Early,New Orleans Saints,Series 2,Refractor
+refractors,239,Willie Davis,Kansas City Chiefs,Series 2,Refractor
+refractors,240,Rashaan Salaam,Chicago Bears,Series 2,Refractor; ROO
+refractors,241,Devin Bush,Atlanta Falcons,Series 2,Refractor; ROO
+refractors,242,Dana Stubblefield,San Francisco 49ers,Series 2,Refractor
+refractors,243,Dexter Carter,New York Jets,Series 2,Refractor
+refractors,244,Shane Conlan,St. Louis Rams,Series 2,Refractor
+refractors,245,Keith Elias,New York Giants,Series 2,Refractor
+refractors,246,Robert Brooks,Green Bay Packers,Series 2,Refractor
+refractors,247,Garrison Hearst,Arizona Cardinals,Series 2,Refractor
+refractors,248,Eric Zeier,Cleveland Browns,Series 2,Refractor; ROO
+refractors,249,Nate Newton,Dallas Cowboys,Series 2,Refractor
+refractors,250,Barry Sanders,Detroit Lions,Series 2,Refractor
+refractors,251,David Meggett,New England Patriots,Series 2,Refractor
+refractors,252,Courtney Hawkins,Tampa Bay Buccaneers,Series 2,Refractor
+refractors,253,Cortez Kennedy,Seattle Seahawks,Series 2,Refractor
+refractors,254,Mario Bates,New Orleans Saints,Series 2,Refractor
+refractors,255,Junior Seau,San Diego Chargers,Series 2,Refractor
+refractors,256,Brian Washington,Kansas City Chiefs,Series 2,Refractor
+refractors,257,Darius Holland,Green Bay Packers,Series 2,Refractor; ROO
+refractors,258,Jeff Graham,Chicago Bears,Series 2,Refractor
+refractors,259,Rob Moore,Arizona Cardinals,Series 2,Refractor
+refractors,260,Andre Rison,Cleveland Browns,Series 2,Refractor
+refractors,261,Kerry Collins,Carolina Panthers,Series 2,Refractor; ROO
+refractors,262,Roosevelt Potts,Indianapolis Colts,Series 2,Refractor
+refractors,263,Cris Carter,Minnesota Vikings,Series 2,Refractor
+refractors,264,Curtis Martin,New England Patriots,Series 2,Refractor; ROO
+refractors,265,Rick Mirer,Seattle Seahawks,Series 2,Refractor
+refractors,266,Mo Lewis,New York Jets,Series 2,Refractor
+refractors,267,Mike Sherrard,New York Giants,Series 2,Refractor
+refractors,268,Herman Moore,Detroit Lions,Series 2,Refractor
+refractors,269,Eric Metcalf,Atlanta Falcons,Series 2,Refractor
+refractors,270,Ray Childress,Houston Oilers,Series 2,Refractor
+refractors,271,Chris Slade,New England Patriots,Series 2,Refractor
+refractors,272,Michael Irvin,Dallas Cowboys,Series 2,Refractor
+refractors,273,Jim Kelly,Buffalo Bills,Series 2,Refractor
+refractors,274,Terance Mathis,Atlanta Falcons,Series 2,Refractor
+refractors,275,LeRoy Butler,Green Bay Packers,Series 2,Refractor
+fan-favorites,FF1,Drew Bledsoe,New England Patriots,,
+fan-favorites,FF2,Jerome Bettis,St. Louis Rams,,
+fan-favorites,FF3,Rick Mirer,Seattle Seahawks,,
+fan-favorites,FF4,Andre Rison,Atlanta Falcons,,
+fan-favorites,FF5,Troy Aikman,Dallas Cowboys,,
+fan-favorites,FF6,Cortez Kennedy,Seattle Seahawks,,
+fan-favorites,FF7,Emmitt Smith,Dallas Cowboys,,
+fan-favorites,FF8,Sterling Sharpe,Green Bay Packers,,
+fan-favorites,FF9,Junior Seau,San Diego Chargers,,
+fan-favorites,FF10,Michael Irvin,Dallas Cowboys,,
+fan-favorites,FF11,Jim Kelly,Buffalo Bills,,
+fan-favorites,FF12,Steve Young,San Francisco 49ers,,
+fan-favorites,FF13,John Elway,Denver Broncos,,
+fan-favorites,FF14,Jerry Rice,San Francisco 49ers,,
+fan-favorites,FF15,Barry Sanders,Detroit Lions,,
+fan-favorites,FF16,Dan Marino,Miami Dolphins,,
+fan-favorites,FF17,Dan Wilkinson,Cincinnati Bengals,,
+fan-favorites,FF18,Reggie White,Green Bay Packers,,
+fan-favorites,FF19,Deion Sanders,San Francisco 49ers,,
+fan-favorites,FF20,Willie McGinest,New England Patriots,,
+fan-favorites,FF21,Stan Humphries,San Diego Chargers,,
+fan-favorites,FF22,Heath Shuler,Washington Redskins,,
+fan-favorites,FF23,Natrone Means,San Diego Chargers,,
+fan-favorites,FF24,Warren Moon,Minnesota Vikings,,
+fan-favorites,FF25,Marshall Faulk,Indianapolis Colts,,

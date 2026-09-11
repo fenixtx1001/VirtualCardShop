@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/4299/1999-Fleer-Mystique",
+    "note": "Set structure, checklist, card-level teams, serial-number notes, insert families, and parallel structure were cross-checked against TCDB and Beckett. Promo material is excluded from the VCS pack product."
+  },
+  "decisions": {
+    "combinePhysicalSeries": true,
+    "physicalSeriesRanges": [
+      "1-160"
+    ],
+    "canonicalPackFormat": "Hobby",
+    "coveredCardMechanic": "Original packs contained three regular cards plus one covered card. VCS currently stores the physical 160-card base checklist together; exact per-card covered-card scarcity is not yet modeled by the current ProductSet-level odds engine.",
+    "baseStructure": {
+      "veterans": "#1-100; 25 TCDB-marked SP cards retained as variant=SP",
+      "rookies": "#101-150; SN2999; subset=Rookie",
+      "stars": "#151-160; SN2500; subset=Star"
+    },
+    "excludeRelatedSets": [
+      "Doug Flutie #86 SAM promo"
+    ],
+    "nnoHandling": "Feel the Game and Fresh Ink physical cards are unnumbered. VCS uses deterministic checklist sequence numbers within those ProductSets and records Physical NNO in variant metadata so every card remains uniquely addressable.",
+    "oddsStatus": "PENDING_VERIFICATION",
+    "oddsNote": "Football-specific published pack ratios were not reliably located for the insert/parallel families. ProductSets are created with null odds rather than inventing rates. Set must remain unreleased until realistic pack odds / covered-card behavior are configured."
+  },
+  "product": {
+    "id": "1999_Fleer_Mystique_Football",
+    "year": 1999,
+    "brand": "Fleer Mystique",
+    "sport": "Football",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1999-fleer-mystique-football.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1999_Fleer_Mystique_Football_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4299/1999-Fleer-Mystique",
+      "expectedCards": 160,
+      "notes": "Physical base set #1-160. #1-100 veterans include 25 SPs; #101-150 are Rookie cards SN2999; #151-160 are Star cards SN2500."
+    },
+    {
+      "key": "checklist",
+      "id": "1999_Fleer_Mystique_Football_Checklist",
+      "name": "Checklist",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4299/1999-Fleer-Mystique",
+      "expectedCards": 1,
+      "notes": "Unnumbered loose checklist card listed by TCDB. Pack insertion rate not verified."
+    },
+    {
+      "key": "feel-the-game",
+      "id": "1999_Fleer_Mystique_Football_Feel_the_Game",
+      "name": "Feel the Game",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35161/1999-Fleer-Mystique---Feel-the-Game",
+      "expectedCards": 10,
+      "notes": "Game-used memorabilia; physical cards are NNO and hand numbered between 85 and 690. VCS checklist sequence 1-10 is deterministic only."
+    },
+    {
+      "key": "fresh-ink",
+      "id": "1999_Fleer_Mystique_Football_Fresh_Ink",
+      "name": "Fresh Ink",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35162/1999-Fleer-Mystique---Fresh-Ink",
+      "expectedCards": 30,
+      "notes": "Autographs; physical cards are NNO and hand numbered between 45 and 750. VCS checklist sequence 1-30 is deterministic only."
+    },
+    {
+      "key": "nfl-2000",
+      "id": "1999_Fleer_Mystique_Football_NFL_2000",
+      "name": "NFL 2000",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4299/1999-Fleer-Mystique",
+      "expectedCards": 10,
+      "notes": "Serial numbered to 999. Printed card-number suffix NT is retained in variant metadata; VCS cardNumber uses numeric portion for capture compatibility."
+    },
+    {
+      "key": "protential",
+      "id": "1999_Fleer_Mystique_Football_Protential",
+      "name": "Protential",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4299/1999-Fleer-Mystique",
+      "expectedCards": 10,
+      "notes": "Serial numbered to 1999. Printed card-number suffix PT is retained in variant metadata; VCS cardNumber uses numeric portion for capture compatibility."
+    },
+    {
+      "key": "star-power",
+      "id": "1999_Fleer_Mystique_Football_Star_Power",
+      "name": "Star Power",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4299/1999-Fleer-Mystique",
+      "expectedCards": 10,
+      "notes": "Serial numbered to 100. Printed card-number suffix SP is retained in variant metadata; VCS cardNumber uses numeric portion for capture compatibility."
+    },
+    {
+      "key": "gold",
+      "id": "1999_Fleer_Mystique_Football_Gold",
+      "name": "Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35163/1999-Fleer-Mystique---Gold",
+      "expectedCards": 100,
+      "notes": "Partial parallel of base cards #1-100 only. Explicit rows are used because the current bundle importer does not derive partial ranges."
+    },
+    {
+      "key": "masterpiece",
+      "id": "1999_Fleer_Mystique_Football_Masterpiece",
+      "name": "Masterpiece",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4299/1999-Fleer-Mystique",
+      "expectedCards": 160,
+      "notes": "Full one-of-one parallel. Physical card numbers use M suffix (#1M-160M); every card is SN1."
+    }
+  ]
+}

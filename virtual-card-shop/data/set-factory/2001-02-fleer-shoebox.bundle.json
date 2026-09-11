@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/9453/2001-02-Fleer-Shoebox",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/9453/2001-02-Fleer-Shoebox",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/9453/2001-02-Fleer-Shoebox",
+    "note": "2001-02 Fleer Shoebox basketball hobby product. TCDB lists a 180-card base set, 11 insert sets and two parallels. This VCS bundle models the hobby issue only: Footprints Retail and the single promo card are excluded. Pack/box configuration and published insertion rates were cross-checked against hobby box listings."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Hobby",
+    "baseStructure": "#1-180. Cards #1-150 are veterans; #151-180 are recognized true rookie cards serial numbered to 2500.",
+    "baseRookieModeling": "The current VCS engine has one BASE ProductSet and cannot enforce a separate scarcity rate for #151-180. All 180 cards remain in Base; RC and SN2500 are preserved per card. Product remains unreleased until pricing/odds are reviewed.",
+    "trueRookieNaming": "Append RC to the player/name field only for recognized true rookie cards. For this set TCDB identifies all 30 cards #151-180 as RCs. The RC designation is carried into the hobby Footprints parallel derived from Base.",
+    "hobbyOnly": "Footprints Retail and the Vince Carter promo are excluded because this Product represents the hobby box configuration.",
+    "nnoHandling": "TCDB memorabilia/checklist cards that are all numbered NNO receive deterministic synthetic VCS card numbers (NNO-01, NNO-02, etc.) so card numbers remain unique within each ProductSet. Printed NNO status is retained in variant metadata.",
+    "oddsModeling": "Only directly published insertion rates are encoded: NBA Flight School 1:12, NBA Flight School Cadet 1:63, Sole of the Game 1:144, Tougher Than Leather 1:36. Serial-only memorabilia tiers and Footprints retain serial metadata with oddsPerPack null rather than inferring odds from print runs.",
+    "releaseSafety": "Product remains unreleased because the base RC serial-number scarcity is not representable separately inside one BASE ProductSet, several memorabilia families have shared box-level rather than set-specific odds, and pricing/images remain pending."
+  },
+  "product": {
+    "id": "2001_02_Fleer_Shoebox_Basketball",
+    "year": 2001,
+    "brand": "Fleer Shoebox",
+    "sport": "Basketball",
+    "cardsPerPack": 8,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "2001-02-fleer-shoebox.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2001_02_Fleer_Shoebox_Basketball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9453/2001-02-Fleer-Shoebox",
+      "expectedCards": 180,
+      "notes": "Base #1-180. #151-180 are true RCs, SN2500."
+    },
+    {
+      "key": "footprints",
+      "id": "2001_02_Fleer_Shoebox_Basketball_Footprints",
+      "name": "Footprints",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27134/2001-02-Fleer-Shoebox-Footprints",
+      "expectedCards": 180,
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Footprints; SN150",
+      "notes": "Hobby Footprints parallel of all 180 base cards. TCDB records the set as SN150. Retail Footprints is excluded."
+    },
+    {
+      "key": "checklists",
+      "id": "2001_02_Fleer_Shoebox_Basketball_Checklists",
+      "name": "Checklists",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/ViewSet.cfm/sid/370972/2001-02-Fleer-Shoebox-Checklists",
+      "expectedCards": 2,
+      "notes": "Two unnumbered Shoebox checklist inserts."
+    },
+    {
+      "key": "nba-flight-school",
+      "id": "2001_02_Fleer_Shoebox_Basketball_NBA_Flight_School",
+      "name": "NBA Flight School",
+      "kind": "INSERT",
+      "oddsPerPack": 12,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27135/2001-02-Fleer-Shoebox-NBA-Flight-School",
+      "expectedCards": 20,
+      "notes": "20-card insert set, inserted 1:12 hobby packs."
+    },
+    {
+      "key": "nba-flight-school-cadet",
+      "id": "2001_02_Fleer_Shoebox_Basketball_NBA_Flight_School_Cadet",
+      "name": "NBA Flight School Cadet",
+      "kind": "INSERT",
+      "oddsPerPack": 63,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27136/2001-02-Fleer-Shoebox-NBA-Flight-School-Cadet",
+      "expectedCards": 15,
+      "notes": "15-card game-worn jersey memorabilia version, inserted 1:63 hobby packs. Printed NNO."
+    },
+    {
+      "key": "nba-flight-school-captain",
+      "id": "2001_02_Fleer_Shoebox_Basketball_NBA_Flight_School_Captain",
+      "name": "NBA Flight School Captain",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27137/2001-02-Fleer-Shoebox-NBA-Flight-School-Captain",
+      "expectedCards": 15,
+      "notes": "15-card memorabilia/patch tier, SN75. Printed NNO; no separate trustworthy pack rate encoded."
+    },
+    {
+      "key": "sole-of-the-game",
+      "id": "2001_02_Fleer_Shoebox_Basketball_Sole_of_the_Game",
+      "name": "Sole of the Game",
+      "kind": "INSERT",
+      "oddsPerPack": 144,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27138/2001-02-Fleer-Shoebox-Sole-of-the-Game",
+      "expectedCards": 15,
+      "notes": "15-card insert set, inserted 1:144 hobby packs."
+    },
+    {
+      "key": "sole-of-the-game-ball",
+      "id": "2001_02_Fleer_Shoebox_Basketball_Sole_of_the_Game_Ball",
+      "name": "Sole of the Game Ball",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27139/2001-02-Fleer-Shoebox-Sole-of-the-Game-Ball",
+      "expectedCards": 11,
+      "notes": "11 game-used basketball memorabilia cards, SN300. Printed NNO."
+    },
+    {
+      "key": "sole-of-the-game-jersey",
+      "id": "2001_02_Fleer_Shoebox_Basketball_Sole_of_the_Game_Jersey",
+      "name": "Sole of the Game Jersey",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27140/2001-02-Fleer-Shoebox-Sole-of-the-Game-Jersey",
+      "expectedCards": 11,
+      "notes": "11 game-worn jersey memorabilia cards, SN200. Printed NNO."
+    },
+    {
+      "key": "sole-of-the-game-shoe",
+      "id": "2001_02_Fleer_Shoebox_Basketball_Sole_of_the_Game_Shoe",
+      "name": "Sole of the Game Shoe",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27141/2001-02-Fleer-Shoebox-Sole-of-the-Game-Shoe",
+      "expectedCards": 11,
+      "notes": "11 game-worn shoe memorabilia cards, SN100. Printed NNO."
+    },
+    {
+      "key": "sole-of-the-game-triple",
+      "id": "2001_02_Fleer_Shoebox_Basketball_Sole_of_the_Game_Triple",
+      "name": "Sole of the Game Triple",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27142/2001-02-Fleer-Shoebox-Sole-of-the-Game-Triple",
+      "expectedCards": 9,
+      "notes": "Nine triple-memorabilia cards, SN50. Printed NNO."
+    },
+    {
+      "key": "tougher-than-leather",
+      "id": "2001_02_Fleer_Shoebox_Basketball_Tougher_Than_Leather",
+      "name": "Tougher Than Leather",
+      "kind": "INSERT",
+      "oddsPerPack": 36,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27143/2001-02-Fleer-Shoebox-Tougher-Than-Leather",
+      "expectedCards": 20,
+      "notes": "20-card insert set, inserted 1:36 hobby packs."
+    },
+    {
+      "key": "tougher-than-leather-shoes",
+      "id": "2001_02_Fleer_Shoebox_Basketball_Tougher_Than_Leather_Shoes",
+      "name": "Tougher Than Leather Shoes",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27144/2001-02-Fleer-Shoebox-Tougher-Than-Leather-Shoes",
+      "expectedCards": 19,
+      "notes": "19 memorabilia/autograph entries on TCDB, primarily game-worn shoe cards. Printed NNO; serial metadata preserved per card."
+    }
+  ]
+}

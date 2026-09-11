@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1424/2000-UD-Ionix",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/1424/2000-UD-Ionix",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1424/2000-UD-Ionix",
+    "note": "2000 UD Ionix Baseball hobby product. VCS intentionally keeps both the 90-card flagship checklist and the 90-card Reciprocal parallel intact as single ProductSets so collection-completion percentages reflect the full collector checklists. Historical range-specific scarcity is retained in notes/metadata rather than splitting either checklist."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Hobby",
+    "baseStructure": "Checklist #1-90 is one VCS Base ProductSet. Cards #61-90 retain Futuristics subset metadata.",
+    "baseScarcityModeling": "VCS intentionally sacrifices the historical 1:4 scarcity of #61-90 and gives all #1-90 equal Base availability. This preserves a true 90-card set-completion percentage.",
+    "trueRookieNaming": "No base cards receive an RC suffix. TCDB's rookie index and Beckett both report zero recognized true RCs for 2000 UD Ionix Baseball. Futuristics wording alone does not qualify as RC.",
+    "cleanPlayerNames": "Player contains only the clean card subject name plus RC when independently verified. FUT, AU, MEM, EXCH, print-run, error/correction, and other notes are stored in subset/variant metadata instead of Player.",
+    "reciprocalModeling": "Reciprocal R1-R90 is one VCS ProductSet with equal card availability. Historically R1-R60 were inserted 1:4 packs and R61-R90 at 1:11; VCS intentionally uses one set-wide 1:4 rate so the full 90-card Reciprocal checklist has one completion percentage. R61-R90 retain Futuristics subset metadata.",
+    "obsoleteSetCleanup": "An earlier applied draft used a separate Reciprocal Futuristics ProductSet. That obsolete ProductSet is explicitly listed for guarded cleanup before the consolidated draft is applied.",
+    "administrativeInsertHandling": "Upper Deck Collection Entry Forms and UD Authentics Redemption slips are excluded as administrative/sweepstakes/redemption instruments rather than collectible card outcomes. The 13-card UD Authentics autograph checklist is modeled directly; redemption-fulfilled subjects retain EXCH metadata where applicable.",
+    "clementeModeling": "The three Roberto Clemente A Piece of History 3000 Hit Club cards distributed through UD Ionix are included as one insert ProductSet. Their PR350/SN5/SN4 and memorabilia/autograph attributes are preserved per card; no unsupported pack odds are inferred.",
+    "releaseSafety": "Product remains unreleased until pricing and images are reviewed. Equal-odds simplifications for Base and Reciprocal are intentional for VCS collection-completion behavior; unsupported Clemente memorabilia odds remain null rather than guessed."
+  },
+  "product": {
+    "id": "2000_UD_Ionix_Baseball",
+    "year": 2000,
+    "brand": "UD Ionix",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "2000-ud-ionix-baseball.cards.csv",
+  "obsoleteProductSetIds": [
+    "2000_UD_Ionix_Baseball_Reciprocal_Futuristics"
+  ],
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2000_UD_Ionix_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1424/2000-UD-Ionix",
+      "expectedCards": 90,
+      "notes": "Complete flagship checklist #1-90. Cards #61-90 retain Futuristics subset metadata but have equal VCS Base availability with #1-60."
+    },
+    {
+      "key": "reciprocal",
+      "id": "2000_UD_Ionix_Baseball_Reciprocal",
+      "name": "Reciprocal",
+      "kind": "PARALLEL",
+      "oddsPerPack": 4,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12424/2000-UD-Ionix-Reciprocal",
+      "expectedCards": 90,
+      "notes": "Complete Reciprocal checklist R1-R90. VCS gives all 90 Reciprocal cards equal availability at one set-wide 1:4 rate; historical R61-R90 1:11 scarcity is intentionally flattened. R61-R90 retain Futuristics subset metadata."
+    },
+    {
+      "key": "atomic",
+      "id": "2000_UD_Ionix_Baseball_Atomic",
+      "name": "Atomic",
+      "kind": "INSERT",
+      "oddsPerPack": 8,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12420/2000-UD-Ionix-Atomic",
+      "expectedCards": 15,
+      "notes": "15-card insert set, 1:8 packs."
+    },
+    {
+      "key": "awesome-powers",
+      "id": "2000_UD_Ionix_Baseball_Awesome_Powers",
+      "name": "Awesome Powers",
+      "kind": "INSERT",
+      "oddsPerPack": 23,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12421/2000-UD-Ionix-Awesome-Powers",
+      "expectedCards": 15,
+      "notes": "15-card insert set, 1:23 packs."
+    },
+    {
+      "key": "biorhythm",
+      "id": "2000_UD_Ionix_Baseball_BIOrhythm",
+      "name": "BIOrhythm",
+      "kind": "INSERT",
+      "oddsPerPack": 11,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12422/2000-UD-Ionix-BIOrhythm",
+      "expectedCards": 15,
+      "notes": "15-card insert set, 1:11 packs."
+    },
+    {
+      "key": "pyrotechnics",
+      "id": "2000_UD_Ionix_Baseball_Pyrotechnics",
+      "name": "Pyrotechnics",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12423/2000-UD-Ionix-Pyrotechnics",
+      "expectedCards": 15,
+      "notes": "15-card insert set, 1:72 packs."
+    },
+    {
+      "key": "shockwave",
+      "id": "2000_UD_Ionix_Baseball_Shockwave",
+      "name": "Shockwave",
+      "kind": "INSERT",
+      "oddsPerPack": 4,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12425/2000-UD-Ionix-Shockwave",
+      "expectedCards": 15,
+      "notes": "15-card insert set, 1:4 packs."
+    },
+    {
+      "key": "ud-authentics",
+      "id": "2000_UD_Ionix_Baseball_UD_Authentics",
+      "name": "UD Authentics",
+      "kind": "INSERT",
+      "oddsPerPack": 144,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12426/2000-UD-Ionix-UD-Authentics",
+      "expectedCards": 13,
+      "notes": "13-card autograph set, inserted 1:144 packs. Ben Davis, Derek Jeter and Manny Ramirez were packed as redemptions; EXCH metadata is retained while redemption slips themselves are not modeled as separate collectible cards."
+    },
+    {
+      "key": "warp-zone",
+      "id": "2000_UD_Ionix_Baseball_Warp_Zone",
+      "name": "Warp Zone",
+      "kind": "INSERT",
+      "oddsPerPack": 288,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12427/2000-UD-Ionix-Warp-Zone",
+      "expectedCards": 15,
+      "notes": "15-card insert set, hobby odds 1:288."
+    },
+    {
+      "key": "clemente-3000-hit-club",
+      "id": "2000_UD_Ionix_Baseball_Clemente_3000_Hit_Club",
+      "name": "A Piece of History 3000 Hit Club: Roberto Clemente",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12419/2000-UD-Ionix-A-Piece-of-History-3000-Hit-Club-Roberto-Clemente",
+      "expectedCards": 3,
+      "notes": "Three Roberto Clemente memorabilia/autograph cards distributed through 2000 UD Ionix: RC-B PR350 bat, RC-BC SN5 bat/cut autograph, RC-C SN4 cut autograph. No trustworthy overall pack ratio encoded."
+    }
+  ]
+}

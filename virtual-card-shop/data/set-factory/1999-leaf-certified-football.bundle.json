@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/4302/1999-Leaf-Certified",
+    "note": "User requested 1998 Leaf Certified Football, but the supplied TCDB link is the 1999 Leaf Certified set. Set Factory follows the linked set. Checklist structure, teams, insert families, serial-number tiers, and published insertion rates were cross-checked against TCDB."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Hobby",
+    "baseTierModeling": "The physical base set has four scarcity tiers (#1-100 four per pack; #101-150 one per pack; #151-175 1:3 packs; #176-225 rookies 1:5 packs). The current VCS engine has one BASE ProductSet and therefore cannot enforce range-specific base-card odds. Historical tier information is preserved in card variant metadata; all 225 base cards remain in one VCS base pool.",
+    "mirrorRedModeling": "Mirror Red has range-specific historical odds (#1-100 1:17, #101-150 1:53, #151-175 1:125, #176-225 1:89). A single ProductSet cannot encode four rates, so oddsPerPack is intentionally null and the historical ratios are retained in notes.",
+    "mirrorGoldModeling": "Mirror Gold is a full 225-card parallel with serial-number tiers: #1-100 SN45, #101-150 SN35, #151-175 SN25, #176-225 rookies SN30. Explicit CSV rows preserve the correct tier per card.",
+    "fabricModeling": "Fabric of the Game uses three 25-card material groups. Serial-number tiers are stored on each card. TCDB's release-note prose contains overlapping range typos in two blocks, so card-level tier assignment follows the non-overlapping repeated 25-card pattern visible in the checklist: positions 1-3 SN100, 4-7 SN250, 8-12 SN500, 13-18 SN750, 19-25 SN1000 within each material block.",
+    "derivedSets": [
+      "Certified Gold Future Mirror Black derives from Certified Gold Future; SN25",
+      "Certified Gold Team Mirror Black derives from Certified Gold Team; SN25",
+      "Certified Skills Mirror Black derives from Certified Skills; SN25",
+      "Gridiron Gear NFL Shield derives from Gridiron Gear; MEM NFL Shield; SN1",
+      "Mirror Red derives from Base"
+    ],
+    "releaseSafety": "Product remains unreleased because VCS cannot faithfully represent base-tier and Mirror Red range-specific odds with the current ProductSet-level odds model, and several memorabilia/parallel pack rates are not reliably published."
+  },
+  "product": {
+    "id": "1999_Leaf_Certified_Football",
+    "year": 1999,
+    "brand": "Leaf Certified",
+    "sport": "Football",
+    "cardsPerPack": 5,
+    "packsPerBox": 18,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1999-leaf-certified-football.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1999_Leaf_Certified_Football_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4302/1999-Leaf-Certified",
+      "expectedCards": 225,
+      "notes": "Base #1-225. Physical scarcity tiers are preserved per card in CSV metadata but cannot be enforced within one VCS BASE ProductSet."
+    },
+    {
+      "key": "certified-gold-future",
+      "id": "1999_Leaf_Certified_Football_Certified_Gold_Future",
+      "name": "Certified Gold Future",
+      "kind": "INSERT",
+      "oddsPerPack": 17,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35175/1999-Leaf-Certified---Certified-Gold-Future",
+      "expectedCards": 30,
+      "notes": "30-card insert set, inserted 1:17 packs."
+    },
+    {
+      "key": "certified-gold-future-mirror-black",
+      "id": "1999_Leaf_Certified_Football_Certified_Gold_Future_Mirror_Black",
+      "name": "Certified Gold Future Mirror Black",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4302/1999-Leaf-Certified",
+      "expectedCards": 30,
+      "deriveCardsFrom": "certified-gold-future",
+      "derivedVariant": "Mirror Black; SN25",
+      "notes": "30-card Mirror Black parallel of Certified Gold Future, serial numbered to 25. Pack ratio not reliably verified."
+    },
+    {
+      "key": "certified-gold-team",
+      "id": "1999_Leaf_Certified_Football_Certified_Gold_Team",
+      "name": "Certified Gold Team",
+      "kind": "INSERT",
+      "oddsPerPack": 17,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35177/1999-Leaf-Certified---Certified-Gold-Team",
+      "expectedCards": 30,
+      "notes": "30-card insert set, inserted 1:17 packs."
+    },
+    {
+      "key": "certified-gold-team-mirror-black",
+      "id": "1999_Leaf_Certified_Football_Certified_Gold_Team_Mirror_Black",
+      "name": "Certified Gold Team Mirror Black",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4302/1999-Leaf-Certified",
+      "expectedCards": 30,
+      "deriveCardsFrom": "certified-gold-team",
+      "derivedVariant": "Mirror Black; SN25",
+      "notes": "30-card Mirror Black parallel of Certified Gold Team, serial numbered to 25. Pack ratio not reliably verified."
+    },
+    {
+      "key": "certified-skills",
+      "id": "1999_Leaf_Certified_Football_Certified_Skills",
+      "name": "Certified Skills",
+      "kind": "INSERT",
+      "oddsPerPack": 35,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4302/1999-Leaf-Certified",
+      "expectedCards": 20,
+      "notes": "20-card dual-player insert set, inserted 1:35 packs."
+    },
+    {
+      "key": "certified-skills-mirror-black",
+      "id": "1999_Leaf_Certified_Football_Certified_Skills_Mirror_Black",
+      "name": "Certified Skills Mirror Black",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35182/1999-Leaf-Certified---Certified-Skills-Mirror-Black",
+      "expectedCards": 20,
+      "deriveCardsFrom": "certified-skills",
+      "derivedVariant": "Mirror Black; SN25",
+      "notes": "20-card Mirror Black parallel of Certified Skills, serial numbered to 25."
+    },
+    {
+      "key": "fabric-of-the-game",
+      "id": "1999_Leaf_Certified_Football_Fabric_of_the_Game",
+      "name": "Fabric of the Game",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35174/1999-Leaf-Certified---Fabric-of-the-Game",
+      "expectedCards": 75,
+      "notes": "75 memorabilia cards across Nylon, Leather, and Plastic groups with card-specific SN100/SN250/SN500/SN750/SN1000 tiers. Overall pack ratio not reliably verified."
+    },
+    {
+      "key": "gridiron-gear",
+      "id": "1999_Leaf_Certified_Football_Gridiron_Gear",
+      "name": "Gridiron Gear",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35179/1999-Leaf-Certified---Gridiron-Gear",
+      "expectedCards": 72,
+      "notes": "72 game-used jersey memorabilia cards, serial numbered to 300. Overall pack ratio not reliably verified."
+    },
+    {
+      "key": "gridiron-gear-nfl-shield",
+      "id": "1999_Leaf_Certified_Football_Gridiron_Gear_NFL_Shield",
+      "name": "Gridiron Gear NFL Shield",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4302/1999-Leaf-Certified",
+      "expectedCards": 72,
+      "deriveCardsFrom": "gridiron-gear",
+      "derivedVariant": "NFL Shield; MEM Jersey; SN1",
+      "notes": "72-card NFL Shield 1/1 version of Gridiron Gear."
+    },
+    {
+      "key": "mirror-gold",
+      "id": "1999_Leaf_Certified_Football_Mirror_Gold",
+      "name": "Mirror Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4302/1999-Leaf-Certified",
+      "expectedCards": 225,
+      "notes": "Full 225-card parallel. Explicit rows preserve range-specific serial numbering: SN45/SN35/SN25/SN30."
+    },
+    {
+      "key": "mirror-red",
+      "id": "1999_Leaf_Certified_Football_Mirror_Red",
+      "name": "Mirror Red",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4302/1999-Leaf-Certified",
+      "expectedCards": 225,
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Mirror Red",
+      "notes": "Full 225-card parallel. Historical odds vary by base tier: #1-100 1:17; #101-150 1:53; #151-175 1:125; #176-225 1:89. Current VCS ProductSet-level odds cannot represent all four rates, so oddsPerPack is null."
+    }
+  ]
+}

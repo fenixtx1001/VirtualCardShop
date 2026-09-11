@@ -42,3 +42,6 @@ yarn-error.log*
 next-env.d.ts
 
 /src/generated/prisma
+
+# Set Factory local image bundles are intentionally not committed.
+/data/set-factory/local-images/

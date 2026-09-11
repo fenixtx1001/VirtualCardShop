@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/472/1995-Donruss",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/472/1995-Donruss",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/472/1995-Donruss",
+    "distributionReference": "https://www.baseballcardpedia.com/index.php/1995_Donruss",
+    "note": "Checklist, insert hierarchy, teams, and published insertion ratios were cross-checked from public reference pages. Promos are intentionally excluded from VCS packs."
+  },
+  "decisions": {
+    "combinePhysicalSeries": true,
+    "physicalSeriesRanges": [
+      "1-330",
+      "331-550"
+    ],
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "Hobby/Retail",
+    "packChannelAbstraction": "VCS uses one universal pack. Series-exclusive insert odds are weighted by the 330/220 base-card series split; channel-exclusive insert families remain available in the universal VCS pack.",
+    "excludePromoCards": true,
+    "parallelRepresentation": "Press Proofs are a distinct non-base Product Set derived from all 550 base cards. Current VCS schema has no explicit isParallel flag, so bundle metadata preserves kind=PARALLEL while database flags remain isBase=false/isInsert=false."
+  },
+  "product": {
+    "id": "1995_Donruss_Baseball",
+    "year": 1995,
+    "brand": "Donruss",
+    "sport": "Baseball",
+    "cardsPerPack": 12,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1995-donruss.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1995_Donruss_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/472/1995-Donruss",
+      "expectedCards": 550
+    },
+    {
+      "key": "all-stars",
+      "id": "1995_Donruss_Baseball_All_Stars",
+      "name": "All Stars",
+      "kind": "INSERT",
+      "oddsPerPack": 8,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/473/1995-Donruss-All-Stars",
+      "expectedCards": 18,
+      "notes": "AL cards are Series One and NL cards are Series Two. Published at 1:8 in their applicable pack format; combined VCS odds remain 1:8."
+    },
+    {
+      "key": "bomb-squad",
+      "id": "1995_Donruss_Baseball_Bomb_Squad",
+      "name": "Bomb Squad",
+      "kind": "INSERT",
+      "oddsPerPack": 40,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/474/1995-Donruss-Bomb-Squad",
+      "expectedCards": 6,
+      "notes": "Series One only, 1:24 in applicable Retail packs. Combined-series VCS odds: 0.6 x 1/24 = 1/40."
+    },
+    {
+      "key": "diamond-kings",
+      "id": "1995_Donruss_Baseball_Diamond_Kings",
+      "name": "Diamond Kings",
+      "kind": "INSERT",
+      "oddsPerPack": 10,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/475/1995-Donruss-Diamond-Kings",
+      "expectedCards": 29,
+      "notes": "14 cards in Series One and 15 in Series Two; 1:10 Hobby/Retail in both series."
+    },
+    {
+      "key": "dominators",
+      "id": "1995_Donruss_Baseball_Dominators",
+      "name": "Dominators",
+      "kind": "INSERT",
+      "oddsPerPack": 60,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/476/1995-Donruss-Dominators",
+      "expectedCards": 9,
+      "notes": "Series Two only, 1:24 Hobby. Combined-series VCS odds: 0.4 x 1/24 = 1/60."
+    },
+    {
+      "key": "elite-series",
+      "id": "1995_Donruss_Baseball_Elite_Series",
+      "name": "Elite Series",
+      "kind": "INSERT",
+      "oddsPerPack": 197,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/477/1995-Donruss-Elite-Series",
+      "expectedCards": 12,
+      "notes": "#49-54 Series One 1:210 Hobby/Retail; #55-60 Series Two 1:180 Hobby/Retail. Weighted combined-series rate rounds to 1:197. All cards SN10000."
+    },
+    {
+      "key": "long-ball-leaders",
+      "id": "1995_Donruss_Baseball_Long_Ball_Leaders",
+      "name": "Long Ball Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": 40,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/478/1995-Donruss-Long-Ball-Leaders",
+      "expectedCards": 8,
+      "notes": "Series One only, 1:24 Hobby. Combined-series VCS odds: 0.6 x 1/24 = 1/40."
+    },
+    {
+      "key": "mound-marvels",
+      "id": "1995_Donruss_Baseball_Mound_Marvels",
+      "name": "Mound Marvels",
+      "kind": "INSERT",
+      "oddsPerPack": 40,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/479/1995-Donruss-Mound-Marvels",
+      "expectedCards": 8,
+      "notes": "Series Two only, 1:16 Retail. Combined-series VCS odds: 0.4 x 1/16 = 1/40. Cards had removable protective film."
+    },
+    {
+      "key": "press-proofs",
+      "id": "1995_Donruss_Baseball_Press_Proofs",
+      "name": "Press Proofs",
+      "kind": "PARALLEL",
+      "oddsPerPack": 21,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10495/1995-Donruss-Press-Proofs",
+      "expectedCards": 550,
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Press Proof (PR2000)",
+      "notes": "Full 550-card base parallel, limited but not serial-numbered to 2000 copies. S1 1:20 and S2 1:24 Hobby/Retail; weighted rate is about 1:21.4, represented as 1:21 because VCS odds are integer denominators."
+    }
+  ]
+}
