@@ -49,6 +49,25 @@ when the source issues are genuinely distinct collector checklists.
 
 This convention applies to all new Set Factory datasets moving forward.
 
+### Pack odds belong to the Product Set
+
+Pack insertion odds are Product Set-level data in VCS. Store verified insert or
+parallel odds in the Product Set's `oddsPerPack` field and do not repeat those odds
+on individual cards.
+
+Do not put text such as `Inserted 1:17 packs`, `1:36 packs`, or other set-wide pack
+odds in a card's `variant` field. `variant` should contain card-specific collector
+metadata only, such as serial numbering, autograph/memorabilia attributes,
+error/correction status, print variations, or other details that actually vary by
+card.
+
+When odds genuinely differ card-by-card and cannot be represented by the Product Set
+model, preserve that historical information in bundle decisions or notes rather than
+cluttering every card's display metadata unless the user explicitly asks otherwise.
+
+This convention applies to all new Set Factory datasets moving forward. Existing
+sets are not retroactively rewritten unless explicitly requested.
+
 ### Clean player/subject names
 
 The `player` field is display-facing and must stay clean. Store only the canonical
