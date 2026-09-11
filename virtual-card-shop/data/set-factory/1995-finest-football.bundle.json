@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/3504/1995-Finest",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/3504/1995-Finest",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/3504/1995-Finest",
+    "note": "1995 Finest Football hobby product. The 275-card flagship checklist was physically distributed as Series One #1-165 and Series Two #166-275, but VCS keeps the complete collector checklist intact as one Base ProductSet with equal availability."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Hobby",
+    "collectorChecklistIntegrity": "Base #1-275 remains one VCS Base ProductSet despite the original two-series distribution. Refractors #1-275 likewise remain one complete parallel ProductSet. This preserves one completion percentage for each collector checklist.",
+    "seriesModeling": "Physical Series One/Series Two distinctions are retained only as subset metadata. VCS intentionally does not split either Base or Refractors into separate ProductSets.",
+    "trueRookieNaming": "TCDB's linked set rookie index identifies 18 recognized true RC cards. Only those Base cards receive RC appended to Player. Beckett reports 13 RCs; that discrepancy is documented and TCDB's card-level linked-set index controls this bundle. Refractor parallels do not receive RC because the recognized true RC designation is attached to the base issue.",
+    "cleanPlayerNames": "Player contains only the clean card subject name plus verified RC on recognized Base rookie cards. ROO, UER/ERR/COR, CL, SP and other collector annotations remain outside Player.",
+    "oddsPlacement": "Insertion odds are stored only on ProductSets. No card Variant receives text such as 'Inserted 1:12 packs'.",
+    "fanFavoritesModeling": "Fan Favorites is included as a 25-card hobby insert at its published 1:12 Series One pack rate. VCS uses one unified Finest product rather than separate series products.",
+    "excludedRelatedSets": "Finest Boosters and Finest Boosters Refractors are excluded because they were inserted in 1995 Topps Series Two packs rather than 1995 Finest packs. Landmark Series is excluded because it was distributed directly by Topps as a mail-order set rather than a pack issue.",
+    "releaseSafety": "Product remains unreleased until images and pricing are reviewed."
+  },
+  "product": {
+    "id": "1995_Finest_Football",
+    "year": 1995,
+    "brand": "Finest",
+    "sport": "Football",
+    "cardsPerPack": 7,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1995-finest-football.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1995_Finest_Football_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3504/1995-Finest",
+      "expectedCards": 275,
+      "notes": "Complete flagship checklist #1-275. Physical Series One was #1-165 and Series Two #166-275; all 275 have equal VCS Base availability."
+    },
+    {
+      "key": "refractors",
+      "id": "1995_Finest_Football_Refractors",
+      "name": "Refractors",
+      "kind": "PARALLEL",
+      "oddsPerPack": 12,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3506/1995-Finest---Refractors",
+      "expectedCards": 275,
+      "notes": "Full 275-card parallel, inserted 1:12 packs in both physical series. Series Two cards #166-275 have a large R on the lower-left back; kept as one collector checklist."
+    },
+    {
+      "key": "fan-favorites",
+      "id": "1995_Finest_Football_Fan_Favorites",
+      "name": "Fan Favorites",
+      "kind": "INSERT",
+      "oddsPerPack": 12,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3505/1995-Finest---Fan-Favorites",
+      "expectedCards": 25,
+      "notes": "25-card insert set, inserted 1:12 Series One packs."
+    }
+  ]
+}
