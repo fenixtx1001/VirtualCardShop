@@ -43,13 +43,11 @@ function writeActiveSetCookie(productSetId: string) {
     "Path=/; Max-Age=31536000; SameSite=Lax; Secure";
 }
 
-function buildBookmarklet(vcsOrigin: string, activeProductSetId: string) {
+function buildBookmarklet(vcsOrigin: string) {
   const origin = JSON.stringify(vcsOrigin);
-  const productSet = JSON.stringify(activeProductSetId.trim());
 
   return `javascript:(async()=>{try{
 const O=${origin};
-const BOOKMARK_SET=${productSet};
 if(!/(^|\\.)tcdb\\.com$/i.test(location.hostname))throw new Error("Open a TCDB card page first.");
 if(!/\\/ViewCard\\.cfm(?:\\/|$)/i.test(location.pathname))throw new Error("Open an individual TCDB card page first.");
 
@@ -159,8 +157,7 @@ const H=e=>{
 addEventListener("message",H);
 
 W=open(
-  O+"/admin/set-factory/capture?receiver=1&nonce="+encodeURIComponent(N)+
-  "&productSetId="+encodeURIComponent(BOOKMARK_SET),
+  O+"/admin/set-factory/capture?receiver=1&nonce="+encodeURIComponent(N),
   "vcsSetCapture",
   "width=520,height=420"
 );
@@ -246,7 +243,7 @@ export default function SetFactoryCapturePage() {
     if (incomingNonce) setNonce(incomingNonce);
 
     if (!isReceiver) {
-      setBookmarklet(buildBookmarklet(window.location.origin, initialSet));
+      setBookmarklet(buildBookmarklet(window.location.origin));
       setStatus(
         initialSet
           ? `Active capture set: ${initialSet}. Install the new VCS Harvest bookmark once, then reuse it.`
@@ -263,131 +260,218 @@ export default function SetFactoryCapturePage() {
     if (trimmed) {
       window.localStorage.setItem(ACTIVE_SET_STORAGE_KEY, trimmed);
       writeActiveSetCookie(trimmed);
+
+      void fetch("/api/admin/set-factory/active-product-set", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ productSetId: trimmed }),
+      }).catch((syncError) => {
+        console.error("[set-factory] active set sync failed", syncError);
+      });
+
       setStatus(
         `Active capture set saved in this browser: ${trimmed}. The same VCS Harvest bookmark works for future sets.`
       );
     }
 
-    setBookmarklet(buildBookmarklet(window.location.origin, trimmed));
+    setBookmarklet(buildBookmarklet(window.location.origin));
   }, [productSetId, receiverMode, initialized]);
 
   useEffect(() => {
     if (!receiverMode || !nonce) return;
     if (typeof window === "undefined") return;
 
-    let handled = false;
-    const activeSetId =
-      productSetId.trim() ||
-      window.localStorage.getItem(ACTIVE_SET_STORAGE_KEY)?.trim() ||
-      readActiveSetCookie() ||
-      "";
+    let cancelled = false;
+    let removeMessageListener = () => {};
 
-    if (!activeSetId) {
-      setError(
-        "No active Product Set ID is configured. Go back to the Set Factory Capture page and set one first."
-      );
-      setStatus("Capture blocked.");
-      return;
-    }
+    const startReceiver = async () => {
+      let activeSetId =
+        productSetId.trim() ||
+        window.localStorage.getItem(ACTIVE_SET_STORAGE_KEY)?.trim() ||
+        readActiveSetCookie() ||
+        "";
 
-    setStatus(`Waiting for TCDB card... Active Product Set: ${activeSetId}`);
+      try {
+        const response = await fetch(
+          "/api/admin/set-factory/active-product-set",
+          {
+            method: "GET",
+            cache: "no-store",
+          }
+        );
 
-    const onMessage = async (event: MessageEvent<CaptureMessage>) => {
-      if (handled) return;
-      if (!receiverOriginAllowed(event.origin)) return;
+        if (response.ok) {
+          const payload = await response.json();
+          const serverSet =
+            typeof payload?.productSetId === "string"
+              ? payload.productSetId.trim()
+              : "";
 
-      const data = event.data;
-      if (!data || data.type !== "vcs-card-capture" || data.nonce !== nonce) {
+          if (serverSet) {
+            activeSetId = serverSet;
+          }
+        }
+      } catch (lookupError) {
+        console.error(
+          "[set-factory] active Product Set lookup failed",
+          lookupError
+        );
+      }
+
+      if (cancelled) return;
+
+      if (!activeSetId) {
+        setError(
+          "No active Product Set ID is configured. Go back to the Set Factory Capture page and set one first."
+        );
+        setStatus("Capture blocked.");
         return;
       }
 
-      handled = true;
-      setError("");
-      setCardNumber(data.cardNumber);
+      setProductSetId(activeSetId);
+      setStatus(
+        `Waiting for TCDB card... Active Product Set: ${activeSetId}`
+      );
 
-      const hasFront = data.front instanceof Blob;
-      const hasBack = data.back instanceof Blob;
-      const sourceDescription =
-        hasFront && hasBack
-          ? "front + back found"
-          : hasFront
-            ? "front found; back unavailable"
-            : hasBack
-              ? "back found; front unavailable"
-              : "no source images found";
+      let handled = false;
 
-      setStatus(`Card #${data.cardNumber}: ${sourceDescription}. Accounting for card...`);
+      const onMessage = async (event: MessageEvent<CaptureMessage>) => {
+        if (handled) return;
+        if (!receiverOriginAllowed(event.origin)) return;
 
-      try {
-        const form = new FormData();
-        form.append("productSetId", activeSetId);
-        form.append("cardNumber", data.cardNumber);
+        const data = event.data;
 
-        if (hasFront && data.front) {
-          form.append(
-            "front",
-            data.front,
-            data.frontName || `${data.cardNumber}-front.jpg`
-          );
+        if (
+          !data ||
+          data.type !== "vcs-card-capture" ||
+          data.nonce !== nonce
+        ) {
+          return;
         }
 
-        if (hasBack && data.back) {
-          form.append(
-            "back",
-            data.back,
-            data.backName || `${data.cardNumber}-back.jpg`
-          );
-        }
+        handled = true;
+        setError("");
+        setCardNumber(data.cardNumber);
 
-        const response = await fetch("/api/admin/set-factory/capture-card", {
-          method: "POST",
-          body: form,
-        });
+        const hasFront = data.front instanceof Blob;
+        const hasBack = data.back instanceof Blob;
 
-        const payload = await response.json();
+        const sourceDescription =
+          hasFront && hasBack
+            ? "front + back found"
+            : hasFront
+              ? "front found; back unavailable"
+              : hasBack
+                ? "back found; front unavailable"
+                : "no source images found";
 
-        if (!response.ok) {
-          throw new Error(payload?.error ?? "VCS capture upload failed.");
-        }
-
-        const outcome = (payload?.outcome ?? "captured") as CaptureOutcome;
-        const message = payload?.message ?? `Card #${data.cardNumber} accounted for.`;
-
-        setStatus(message);
-        setResult({
-          message,
-          outcome,
-          frontImageUrl: payload?.card?.frontImageUrl ?? null,
-          backImageUrl: payload?.card?.backImageUrl ?? null,
-        });
-
-        window.opener?.postMessage(
-          {
-            type: "vcs-capture-complete",
-            nonce,
-            accountedFor: Boolean(payload?.accountedFor ?? payload?.ok),
-            outcome,
-            message,
-          },
-          event.origin
+        setStatus(
+          `Card #${data.cardNumber}: ${sourceDescription}. Accounting for card...`
         );
 
-        window.setTimeout(() => window.close(), 100);
-      } catch (captureError: any) {
-        const message = captureError?.message ?? "Capture failed.";
-        setError(message);
-        setStatus("Harvest stopped on this card. Nothing was auto-advanced.");
-      }
+        try {
+          const form = new FormData();
+          form.append("productSetId", activeSetId);
+          form.append("cardNumber", data.cardNumber);
+
+          if (hasFront && data.front) {
+            form.append(
+              "front",
+              data.front,
+              data.frontName || `${data.cardNumber}-front.jpg`
+            );
+          }
+
+          if (hasBack && data.back) {
+            form.append(
+              "back",
+              data.back,
+              data.backName || `${data.cardNumber}-back.jpg`
+            );
+          }
+
+          const response = await fetch(
+            "/api/admin/set-factory/capture-card",
+            {
+              method: "POST",
+              body: form,
+            }
+          );
+
+          const payload = await response.json();
+
+          if (!response.ok) {
+            throw new Error(
+              payload?.error ?? "VCS capture upload failed."
+            );
+          }
+
+          const outcome = (
+            payload?.outcome ?? "captured"
+          ) as CaptureOutcome;
+
+          const message =
+            payload?.message ??
+            `Card #${data.cardNumber} accounted for.`;
+
+          setStatus(message);
+
+          setResult({
+            message,
+            outcome,
+            frontImageUrl: payload?.card?.frontImageUrl ?? null,
+            backImageUrl: payload?.card?.backImageUrl ?? null,
+          });
+
+          window.opener?.postMessage(
+            {
+              type: "vcs-capture-complete",
+              nonce,
+              accountedFor: Boolean(
+                payload?.accountedFor ?? payload?.ok
+              ),
+              outcome,
+              message,
+            },
+            event.origin
+          );
+
+          window.setTimeout(() => window.close(), 100);
+        } catch (captureError: any) {
+          const message =
+            captureError?.message ?? "Capture failed.";
+
+          setError(message);
+          setStatus(
+            "Harvest stopped on this card. Nothing was auto-advanced."
+          );
+        }
+      };
+
+      window.addEventListener("message", onMessage);
+
+      removeMessageListener = () =>
+        window.removeEventListener("message", onMessage);
+
+      window.opener?.postMessage(
+        {
+          type: "vcs-capture-ready",
+          nonce,
+          productSetId: activeSetId,
+        },
+        "*"
+      );
     };
 
-    window.addEventListener("message", onMessage);
-    window.opener?.postMessage(
-      { type: "vcs-capture-ready", nonce, productSetId: activeSetId },
-      "*"
-    );
+    void startReceiver();
 
-    return () => window.removeEventListener("message", onMessage);
-  }, [receiverMode, nonce, productSetId]);
+    return () => {
+      cancelled = true;
+      removeMessageListener();
+    };
+  }, [receiverMode, nonce]);
 
   const statusStyle = useMemo<CSSProperties>(
     () => ({
