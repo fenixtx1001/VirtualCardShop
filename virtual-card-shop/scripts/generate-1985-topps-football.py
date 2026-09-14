@@ -242,7 +242,7 @@ def build_base_rows(true_rcs: set[int]) -> list[list[str]]:
         if number in true_rcs:
             player = f"{player} RC"
 
-        if not team:
+        if not team and "checklist" not in player.lower():
             raise SystemExit(f"Base #{number} {player} is missing team data")
 
         rows.append(
@@ -276,7 +276,7 @@ def build_source_rows(source: dict[str, object]) -> list[list[str]]:
 
         player, source_notes = clean_player_and_notes(raw_name)
 
-        if not team:
+        if not team and "checklist" not in player.lower():
             raise SystemExit(f"{key} #{card_number} {player} is missing team data")
 
         rows.append(
@@ -324,7 +324,11 @@ def main() -> None:
             f"example: {odds_leaks[0]}"
         )
 
-    missing_teams = [row for row in all_rows if not row[3].strip()]
+    missing_teams = [
+        row
+        for row in all_rows
+        if not row[3].strip() and "checklist" not in row[2].lower()
+    ]
     if missing_teams:
         raise SystemExit(
             f"Found {len(missing_teams)} cards missing team data; "
