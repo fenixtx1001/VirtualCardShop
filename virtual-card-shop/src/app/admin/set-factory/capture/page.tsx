@@ -21,6 +21,27 @@ type CaptureOutcome =
   | "already-complete";
 
 const ACTIVE_SET_STORAGE_KEY = "vcs.setFactory.activeProductSetId";
+const ACTIVE_SET_COOKIE_KEY = "vcs_set_factory_active_product_set_id";
+
+function readActiveSetCookie() {
+  if (typeof document === "undefined") return "";
+
+  const prefix = `${ACTIVE_SET_COOKIE_KEY}=`;
+  const value = document.cookie
+    .split(";")
+    .map((part) => part.trim())
+    .find((part) => part.startsWith(prefix));
+
+  return value ? decodeURIComponent(value.slice(prefix.length)).trim() : "";
+}
+
+function writeActiveSetCookie(productSetId: string) {
+  if (typeof document === "undefined") return;
+
+  document.cookie =
+    `${ACTIVE_SET_COOKIE_KEY}=${encodeURIComponent(productSetId)}; ` +
+    "Path=/; Max-Age=31536000; SameSite=Lax; Secure";
+}
 
 function buildBookmarklet(vcsOrigin: string) {
   const origin = JSON.stringify(vcsOrigin);
@@ -211,8 +232,9 @@ export default function SetFactoryCapturePage() {
     const incomingNonce = params.get("nonce")?.trim();
     const savedSet =
       window.localStorage.getItem(ACTIVE_SET_STORAGE_KEY)?.trim() || "";
+    const cookieSet = readActiveSetCookie();
 
-    const initialSet = incomingSet || savedSet || "";
+    const initialSet = incomingSet || savedSet || cookieSet || "";
 
     setReceiverMode(isReceiver);
     setProductSetId(initialSet);
@@ -237,6 +259,7 @@ export default function SetFactoryCapturePage() {
     const trimmed = productSetId.trim();
     if (trimmed) {
       window.localStorage.setItem(ACTIVE_SET_STORAGE_KEY, trimmed);
+      writeActiveSetCookie(trimmed);
       setStatus(
         `Active capture set saved in this browser: ${trimmed}. The same VCS Harvest bookmark works for future sets.`
       );
@@ -253,6 +276,7 @@ export default function SetFactoryCapturePage() {
     const activeSetId =
       productSetId.trim() ||
       window.localStorage.getItem(ACTIVE_SET_STORAGE_KEY)?.trim() ||
+      readActiveSetCookie() ||
       "";
 
     if (!activeSetId) {
