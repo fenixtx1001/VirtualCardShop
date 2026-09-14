@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/147/1990-Topps",
+    "checklistReference": "https://www.tcdb.com/Checklist.cfm/sid/147/1990-Topps",
+    "secondaryChecklistReference": "https://www.cardboardconnection.com/1990-topps-baseball-cards",
+    "note": "1990 Topps is one 792-card base series. VCS models the three direct-pack insert families linked to the release: 1989 All-Star Game Commemorative Set (Glossy All-Stars), 1989 Rookies Commemorative Set (Glossy Rookies), and Batting Leaders. Collector's Edition (Tiffany), Glossy Send-Ins, the Glossy Rookies foil test issue, Topps Company Store issues, and wax-box-bottom material are excluded from normal VCS packs. The scarce blackless printing-error family, including the Frank Thomas no-name-on-front card, is not assigned invented pack odds and is not modeled as a normal pack Product Set in this draft."
+  },
+  "decisions": {
+    "combinePhysicalSeries": true,
+    "physicalSeriesRanges": ["1-792"],
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "Wax",
+    "excludeMinorPrinterVariations": true,
+    "excludeNonPackIssuedRelatedSets": [
+      "Collector's Edition (Tiffany)",
+      "1990 All-Star Set Collector's Edition (Glossy Send-Ins)",
+      "1989 Rookies Commemorative Set (Glossy Rookies) Foil Test Issue",
+      "Topps Company Store",
+      "Wax Box Bottom Panels"
+    ],
+    "blacklessVariationHandling": "The 13-card blackless printing-error group is intentionally excluded from normal VCS pack modeling because no defensible insertion ratio is available. This includes the iconic Frank Thomas #414 no-name-on-front variation. It can be added later as a special non-pack chase family if desired.",
+    "packChannelAbstraction": "VCS uses one universal 16-card wax-style pack. Insert families that were originally exclusive to rack, jumbo, or K-Mart blister formats are normalized by card volume instead of pretending their original container-specific odds apply literally to a wax pack.",
+    "normalizedInsertOdds": {
+      "glossyAllStars": "1 per 46-card rack pack -> approximately 1 per 2.88 VCS 16-card packs -> stored as 1:3",
+      "glossyRookies": "1 per 43-card jumbo pack -> approximately 1 per 2.69 VCS 16-card packs -> stored as 1:3",
+      "battingLeaders": "1 per 101-card K-Mart blister pack -> approximately 1 per 6.31 VCS 16-card packs -> stored as 1:6"
+    }
+  },
+  "product": {
+    "id": "1990_Topps_Baseball",
+    "year": 1990,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 16,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1990-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1990_Topps_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/147/1990-Topps",
+      "expectedCards": 792,
+      "notes": "One canonical VCS card per printed number 1-792. True RC labels come only from the linked TCDB rookie index. Error/correction/variation detail is kept out of Player."
+    },
+    {
+      "key": "glossy-all-stars",
+      "id": "1990_Topps_Baseball_Glossy_All_Stars",
+      "name": "Glossy All-Stars",
+      "kind": "INSERT",
+      "oddsPerPack": 3,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/8740/1990-Topps-1989-All-Star-Game-Commemorative-Set-Glossy-All-Stars-",
+      "expectedCards": 22,
+      "notes": "Originally one per rack pack. VCS normalizes the rack-pack distribution to approximately 1:3 of its universal 16-card packs."
+    },
+    {
+      "key": "glossy-rookies",
+      "id": "1990_Topps_Baseball_Glossy_Rookies",
+      "name": "Glossy Rookies",
+      "kind": "INSERT",
+      "oddsPerPack": 3,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/8741/1990-Topps-1989-Rookies-Commemorative-Set-Glossy-Rookies-",
+      "expectedCards": 33,
+      "notes": "Originally one per jumbo pack. One-asterisk/two-asterisk copyright variations are collapsed to one canonical VCS card per numbered checklist entry."
+    },
+    {
+      "key": "batting-leaders",
+      "id": "1990_Topps_Baseball_Batting_Leaders",
+      "name": "Batting Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/33343/1990-Topps-Batting-Leaders",
+      "expectedCards": 22,
+      "notes": "Originally one per K-Mart blister pack. VCS normalizes the 101-card blister distribution to approximately 1:6 of its universal 16-card packs."
+    }
+  ]
+}
