@@ -28,7 +28,7 @@ function buildBookmarklet(vcsOrigin: string) {
   return `javascript:(async()=>{try{
 const O=${origin};
 if(!/(^|\\.)tcdb\\.com$/i.test(location.hostname))throw new Error("Open a TCDB card page first.");
-if(!/\\/ViewCard\\.cfm$/i.test(location.pathname))throw new Error("Open an individual TCDB card page first.");
+if(!/\\/ViewCard\\.cfm(?:\\/|$)/i.test(location.pathname))throw new Error("Open an individual TCDB card page first.");
 
 const I=[...document.images].map(i=>{
   const r=i.getBoundingClientRect();
@@ -81,7 +81,7 @@ const nextLink=links.find(a=>{
   if(text!=="next"&&aria!=="next"&&title!=="next")return false;
   try{
     const u=new URL(a.href,location.href);
-    return u.hostname===location.hostname&&/\\/ViewCard\\.cfm$/i.test(u.pathname);
+    return u.hostname===location.hostname&&/\\/ViewCard\\.cfm(?:\\/|$)/i.test(u.pathname);
   }catch{return false;}
 });
 const U=nextLink?nextLink.href:"";
