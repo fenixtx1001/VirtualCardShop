@@ -15,6 +15,12 @@ type PreparedImage = {
   hash: string;
 };
 
+type CaptureOutcome =
+  | "captured"
+  | "partial"
+  | "unavailable"
+  | "already-complete";
+
 function requiredText(value: FormDataEntryValue | null, label: string) {
   if (typeof value !== "string" || !value.trim()) {
     throw new Error(`Missing required value: ${label}`);
@@ -66,7 +72,9 @@ function detectImage(buffer: Buffer) {
     return { contentType: "image/gif", extension: ".gif" };
   }
 
-  throw new Error("Unsupported or invalid image bytes. Expected JPEG, PNG, WebP, or GIF.");
+  throw new Error(
+    "Unsupported or invalid image bytes. Expected JPEG, PNG, WebP, or GIF."
+  );
 }
 
 async function prepareFile(file: File, label: string): Promise<PreparedImage> {
@@ -101,13 +109,46 @@ function storageKey(params: {
   return `virtual-card-shop/cards/${set}/${card}/${params.side}-${hash}${params.image.extension}`;
 }
 
+function captureMessage(params: {
+  cardNumber: string;
+  player: string;
+  outcome: CaptureOutcome;
+  sourceFront: boolean;
+  sourceBack: boolean;
+}) {
+  const label = `#${params.cardNumber} ${params.player}`;
+
+  if (params.outcome === "already-complete") {
+    return `${label} already has front and back images.`;
+  }
+
+  if (params.outcome === "captured") {
+    return `Captured ${label}: front + back are available in VCS.`;
+  }
+
+  if (params.outcome === "partial") {
+    if (params.sourceFront && !params.sourceBack) {
+      return `Captured ${label}: front accounted for; back unavailable on the source.`;
+    }
+    if (!params.sourceFront && params.sourceBack) {
+      return `Captured ${label}: back accounted for; front unavailable on the source.`;
+    }
+    return `Captured ${label}: one image side is still unavailable.`;
+  }
+
+  return `${label}: no usable source images were found; accounted for as unavailable for this pass.`;
+}
+
 export async function POST(req: Request) {
   try {
     // This endpoint is meant to be called by the VCS receiver page, not directly
     // from a third-party site. Modern browsers send this header automatically.
     const fetchSite = req.headers.get("sec-fetch-site");
     if (fetchSite && fetchSite !== "same-origin") {
-      return NextResponse.json({ error: "Capture upload must originate from VCS." }, { status: 403 });
+      return NextResponse.json(
+        { error: "Capture upload must originate from VCS." },
+        { status: 403 }
+      );
     }
 
     if (!r2Configured()) {
@@ -120,13 +161,8 @@ export async function POST(req: Request) {
     const overwrite = form.get("overwrite") === "true";
     const frontEntry = form.get("front");
     const backEntry = form.get("back");
-
-    if (!(frontEntry instanceof File) || !(backEntry instanceof File)) {
-      return NextResponse.json(
-        { error: "Both front and back image blobs are required." },
-        { status: 400 }
-      );
-    }
+    const frontFile = frontEntry instanceof File ? frontEntry : null;
+    const backFile = backEntry instanceof File ? backEntry : null;
 
     const card = await prisma.card.findUnique({
       where: {
@@ -152,20 +188,35 @@ export async function POST(req: Request) {
     }
 
     if (!overwrite && card.frontImageUrl && card.backImageUrl) {
+      const outcome: CaptureOutcome = "already-complete";
       return NextResponse.json({
         ok: true,
+        accountedFor: true,
         skipped: true,
-        message: `#${card.cardNumber} ${card.player} already has front and back images.`,
+        outcome,
+        sourceAvailability: {
+          front: Boolean(frontFile),
+          back: Boolean(backFile),
+        },
+        message: captureMessage({
+          cardNumber: card.cardNumber,
+          player: card.player,
+          outcome,
+          sourceFront: Boolean(frontFile),
+          sourceBack: Boolean(backFile),
+        }),
         card,
       });
     }
 
+    // A missing side is a normal harvest outcome, not a failed request. Prepare
+    // and upload only the image blobs that the user-triggered TCDB page exposed.
     const [front, back] = await Promise.all([
-      prepareFile(frontEntry, "Front"),
-      prepareFile(backEntry, "Back"),
+      frontFile ? prepareFile(frontFile, "Front") : Promise.resolve(null),
+      backFile ? prepareFile(backFile, "Back") : Promise.resolve(null),
     ]);
 
-    if (front.hash === back.hash) {
+    if (front && back && front.hash === back.hash) {
       return NextResponse.json(
         { error: "Front and back image bytes are identical; capture rejected." },
         { status: 400 }
@@ -174,7 +225,7 @@ export async function POST(req: Request) {
 
     const updateData: { frontImageUrl?: string; backImageUrl?: string } = {};
 
-    if (overwrite || !card.frontImageUrl) {
+    if (front && (overwrite || !card.frontImageUrl)) {
       updateData.frontImageUrl = await uploadToR2({
         buffer: front.buffer,
         key: storageKey({ productSetId, cardNumber, side: "front", image: front }),
@@ -182,7 +233,7 @@ export async function POST(req: Request) {
       });
     }
 
-    if (overwrite || !card.backImageUrl) {
+    if (back && (overwrite || !card.backImageUrl)) {
       updateData.backImageUrl = await uploadToR2({
         buffer: back.buffer,
         key: storageKey({ productSetId, cardNumber, side: "back", image: back }),
@@ -205,10 +256,31 @@ export async function POST(req: Request) {
           })
         : card;
 
+    let outcome: CaptureOutcome;
+    if (updated.frontImageUrl && updated.backImageUrl) {
+      outcome = "captured";
+    } else if (updated.frontImageUrl || updated.backImageUrl) {
+      outcome = "partial";
+    } else {
+      outcome = "unavailable";
+    }
+
     return NextResponse.json({
       ok: true,
+      accountedFor: true,
       skipped: false,
-      message: `Captured #${updated.cardNumber} ${updated.player}: front + back saved.`,
+      outcome,
+      sourceAvailability: {
+        front: Boolean(frontFile),
+        back: Boolean(backFile),
+      },
+      message: captureMessage({
+        cardNumber: updated.cardNumber,
+        player: updated.player,
+        outcome,
+        sourceFront: Boolean(frontFile),
+        sourceBack: Boolean(backFile),
+      }),
       card: updated,
     });
   } catch (error: any) {
