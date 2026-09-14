@@ -1,0 +1,265 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1473/2001-Leaf-Rookies-Stars",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/1473/2001-Leaf-Rookies-%26-Stars",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1473/2001-Leaf-Rookies-%26-Stars",
+    "note": "2001 Leaf Rookies & Stars Baseball hobby product. The 300-card flagship checklist and full 300-card Longevity parallel are each kept intact as single VCS ProductSets for completion tracking. Chicago Sun-Times Collection and Beckett sample issues are excluded because they were not ordinary hobby-pack outcomes."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Hobby",
+    "collectorChecklistIntegrity": "Base #1-300 remains one VCS Base ProductSet. Historically #101-200 were inserted 1:4 packs and #201-300 at 1:24; VCS intentionally flattens those range-specific odds so completion percentage reflects the full 300-card set.",
+    "longevityModeling": "Longevity #1-300 remains one full parallel ProductSet. Cards #1-100 are SN50 and #101-300 are SN25; serial tiers are retained per card while the checklist is not split.",
+    "trueRookieNaming": "True RC status is taken from the set's recognized rookie-card index. Only those base cards get RC appended to Player. Rookie-themed or short-printed cards that are not recognized true RCs do not.",
+    "cleanPlayerNames": "Player contains only the clean card subject name plus verified RC when applicable. UER/ERR/COR, MEM, AU, SP, PR/SN and other collector annotations stay in metadata.",
+    "oddsPlacement": "Insertion odds are stored only on ProductSets. No per-card Variant field receives text such as 'Inserted 1:96 packs'.",
+    "hitModeling": "Known set-specific hobby odds are encoded where directly published. Other autograph, memorabilia and serial-only families remain oddsPerPack null rather than inventing rates from stated print runs or the broad one-GU/AU-per-box guarantee.",
+    "excludedRelatedSets": "Chicago Sun-Times Collection, Beckett Samples Gold and Beckett Samples Silver are excluded from this hobby Product because they are event/sample issues rather than ordinary pack pulls.",
+    "releaseSafety": "Product remains unreleased until images and pricing are reviewed."
+  },
+  "product": {
+    "id": "2001_Leaf_Rookies_Stars_Baseball",
+    "year": 2001,
+    "brand": "Leaf Rookies & Stars",
+    "sport": "Baseball",
+    "cardsPerPack": 5,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "2001-leaf-rookies-stars-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1473/2001-Leaf-Rookies-%26-Stars",
+      "expectedCards": 300,
+      "notes": "Complete flagship checklist #1-300. Historical Tier 1 (#101-200, 1:4) and Tier 2 (#201-300, 1:24) scarcity is retained only as subset metadata; all 300 have equal VCS Base availability."
+    },
+    {
+      "key": "longevity",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Longevity",
+      "name": "Longevity",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12918/2001-Leaf-Rookies-%26-Stars---Longevity",
+      "expectedCards": 300,
+      "notes": "Full 300-card parallel. #1-100 SN50; #101-300 SN25. One collector checklist in VCS."
+    },
+    {
+      "key": "autographs",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Autographs",
+      "name": "Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12909/2001-Leaf-Rookies-%26-Stars---Autographs",
+      "expectedCards": 76,
+      "notes": "76-card partial autograph parallel with card-specific stated print runs. No reliable standalone pack rate encoded."
+    },
+    {
+      "key": "dress-for-success",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Dress_for_Success",
+      "name": "Dress for Success",
+      "kind": "INSERT",
+      "oddsPerPack": 96,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12910/2001-Leaf-Rookies-%26-Stars---Dress-for-Success",
+      "expectedCards": 25,
+      "notes": "25-card memorabilia set, inserted 1:96 hobby packs."
+    },
+    {
+      "key": "dress-for-success-autographs",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Dress_for_Success_Autographs",
+      "name": "Dress for Success Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12911/2001-Leaf-Rookies-%26-Stars---Dress-for-Success-Autographs",
+      "expectedCards": 10,
+      "notes": "10-card autograph/memorabilia partial parallel. Pack rate not reliably published."
+    },
+    {
+      "key": "dress-for-success-prime-cuts",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Dress_for_Success_Prime_Cuts",
+      "name": "Dress for Success Prime Cuts",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12912/2001-Leaf-Rookies-%26-Stars---Dress-for-Success-Prime-Cuts",
+      "expectedCards": 25,
+      "notes": "25-card parallel, SN50."
+    },
+    {
+      "key": "freshman-orientation",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Freshman_Orientation",
+      "name": "Freshman Orientation",
+      "kind": "INSERT",
+      "oddsPerPack": 96,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12913/2001-Leaf-Rookies-%26-Stars---Freshman-Orientation",
+      "expectedCards": 25,
+      "notes": "25-card rookie/prospect memorabilia set, inserted 1:96 hobby packs."
+    },
+    {
+      "key": "freshman-orientation-autographs",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Freshman_Orientation_Autographs",
+      "name": "Freshman Orientation Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12914/2001-Leaf-Rookies-%26-Stars---Freshman-Orientation-Autographs",
+      "expectedCards": 21,
+      "notes": "21-card autograph/memorabilia partial parallel; stated print runs are 100 or fewer."
+    },
+    {
+      "key": "freshman-orientation-class-officers",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Freshman_Orientation_Class_Officers",
+      "name": "Freshman Orientation Class Officers",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12915/2001-Leaf-Rookies-%26-Stars---Freshman-Orientation-Class-Officers",
+      "expectedCards": 25,
+      "notes": "25-card memorabilia parallel, SN50."
+    },
+    {
+      "key": "great-american-treasures",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Great_American_Treasures",
+      "name": "Great American Treasures",
+      "kind": "INSERT",
+      "oddsPerPack": 1120,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12916/2001-Leaf-Rookies-%26-Stars---Great-American-Treasures",
+      "expectedCards": 20,
+      "notes": "20-card historic memorabilia set, inserted 1:1120 hobby packs; card-specific print runs vary."
+    },
+    {
+      "key": "great-american-treasures-autographs",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Great_American_Treasures_Autographs",
+      "name": "Great American Treasures Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12917/2001-Leaf-Rookies-%26-Stars---Great-American-Treasures-Autographs",
+      "expectedCards": 4,
+      "notes": "Four autograph/memorabilia cards. No unsupported pack rate encoded."
+    },
+    {
+      "key": "players-collection",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Players_Collection",
+      "name": "Players Collection",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12919/2001-Leaf-Rookies-%26-Stars---Players-Collection",
+      "expectedCards": 15,
+      "notes": "15-card memorabilia checklist: twelve SN100 single-material cards and three SN25 quad-material cards. Kept as one collector checklist."
+    },
+    {
+      "key": "players-collection-autographs",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Players_Collection_Autographs",
+      "name": "Players Collection Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12920/2001-Leaf-Rookies-%26-Stars---Players-Collection-Autographs",
+      "expectedCards": 3,
+      "notes": "Three autograph/memorabilia cards, SN100."
+    },
+    {
+      "key": "slideshow",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Slideshow",
+      "name": "Slideshow",
+      "kind": "INSERT",
+      "oddsPerPack": 96,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12921/2001-Leaf-Rookies-%26-Stars---Slideshow",
+      "expectedCards": 30,
+      "notes": "30-card memorabilia set, inserted 1:96 hobby packs; cards are SN100."
+    },
+    {
+      "key": "slideshow-autographs",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Slideshow_Autographs",
+      "name": "Slideshow Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12922/2001-Leaf-Rookies-%26-Stars---Slideshow-Autographs",
+      "expectedCards": 12,
+      "notes": "12-card autograph/memorabilia partial parallel."
+    },
+    {
+      "key": "slideshow-view-master",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Slideshow_View_Master",
+      "name": "Slideshow View Master",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12923/2001-Leaf-Rookies-%26-Stars---Slideshow-View-Master",
+      "expectedCards": 30,
+      "notes": "Full 30-card jumbo-swatch parallel of Slideshow, SN25."
+    },
+    {
+      "key": "statistical-standouts",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Statistical_Standouts",
+      "name": "Statistical Standouts",
+      "kind": "INSERT",
+      "oddsPerPack": 96,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12924/2001-Leaf-Rookies-%26-Stars---Statistical-Standouts",
+      "expectedCards": 25,
+      "notes": "25-card memorabilia set, inserted 1:96 hobby packs."
+    },
+    {
+      "key": "statistical-standouts-autographs",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Statistical_Standouts_Autographs",
+      "name": "Statistical Standouts Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12925/2001-Leaf-Rookies-%26-Stars---Statistical-Standouts-Autographs",
+      "expectedCards": 10,
+      "notes": "10-card autograph/memorabilia partial parallel."
+    },
+    {
+      "key": "statistical-standouts-super",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Statistical_Standouts_Super",
+      "name": "Statistical Standouts Super",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12926/2001-Leaf-Rookies-%26-Stars---Statistical-Standouts-Super",
+      "expectedCards": 25,
+      "notes": "Full 25-card memorabilia parallel, SN50."
+    },
+    {
+      "key": "triple-threads",
+      "id": "2001_Leaf_Rookies_Stars_Baseball_Triple_Threads",
+      "name": "Triple Threads",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12927/2001-Leaf-Rookies-%26-Stars---Triple-Threads",
+      "expectedCards": 10,
+      "notes": "10-card triple-memorabilia set, SN100."
+    }
+  ]
+}

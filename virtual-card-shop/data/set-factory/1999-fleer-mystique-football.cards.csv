@@ -1,0 +1,492 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Terrell Davis,Denver Broncos,,SP
+base,2,Jerome Bettis,Pittsburgh Steelers,,SP
+base,3,J.J. Stokes,San Francisco 49ers,,
+base,4,Frank Wycheck,Tennessee Titans,,
+base,5,O.J. McDuffie,Miami Dolphins,,
+base,6,Johnnie Morton,Detroit Lions,,
+base,7,Marshall Faulk,St. Louis Rams,,SP
+base,8,Ryan Leaf,San Diego Chargers,,
+base,9,Sean Dawkins,Seattle Seahawks,,
+base,10,Brett Favre,Green Bay Packers,,SP
+base,11,Steve Young,San Francisco 49ers,,SP
+base,12,Jimmy Smith,Jacksonville Jaguars,,
+base,13,Isaac Bruce,St. Louis Rams,,
+base,14,Trent Dilfer,Tampa Bay Buccaneers,,
+base,15,Brian Mitchell,Washington Redskins,,
+base,16,Kordell Stewart,Pittsburgh Steelers,,SP
+base,17,Herman Moore,Detroit Lions,,
+base,18,Troy Aikman,Dallas Cowboys,,SP
+base,19,Cris Carter,Minnesota Vikings,,
+base,20,Barry Sanders,Detroit Lions,,SP
+base,21,Tony Gonzalez,Kansas City Chiefs,,
+base,22,Skip Hicks,Washington Redskins,,
+base,23,Steve McNair,Tennessee Titans,,SP
+base,24,Brad Johnson,Washington Redskins,,
+base,25,Mark Chmura,Green Bay Packers,,
+base,26,Randall Cunningham,Minnesota Vikings,,SP
+base,27,Jerry Rice,San Francisco 49ers,,SP
+base,28,Jamie Asher,Philadelphia Eagles,,
+base,29,Brian Griese,Denver Broncos,,SP
+base,30,Peyton Manning,Indianapolis Colts,,SP
+base,31,Keith Poole,New Orleans Saints,,
+base,32,Wayne Chrebet,New York Jets,,
+base,33,Rich Gannon,Oakland Raiders,,
+base,34,Michael Irvin,Dallas Cowboys,,
+base,35,Yancey Thigpen,Tennessee Titans,,
+base,36,Corey Dillon,Cincinnati Bengals,,
+base,37,Steve Beuerlein,Carolina Panthers,,
+base,38,Terry Kirby,Cleveland Browns,,
+base,39,Jacquez Green,Tampa Bay Buccaneers,,
+base,40,Mark Brunell,Jacksonville Jaguars,,SP
+base,41,Rickey Dudley,Oakland Raiders,,
+base,42,Shannon Sharpe,Denver Broncos,,
+base,43,Andre Rison,Kansas City Chiefs,,
+base,44,Chris Chandler,Atlanta Falcons,,
+base,45,Fred Taylor,Jacksonville Jaguars,,SP
+base,46,Kerry Collins,New York Giants,,
+base,47,Antowain Smith,Buffalo Bills,,SP
+base,48,Wesley Walls,Carolina Panthers,,
+base,49,Rob Moore,Arizona Cardinals,,
+base,50,Dan Marino,Miami Dolphins,,SP
+base,51,Robert Smith,Minnesota Vikings,,
+base,52,Keenan McCardell,Jacksonville Jaguars,,
+base,53,Joey Galloway,Seattle Seahawks,,
+base,54,Fred Lane,Carolina Panthers,,
+base,55,Napoleon Kaufman,Oakland Raiders,,
+base,56,Curtis Martin,New York Jets,,
+base,57,Rod Smith,Denver Broncos,,
+base,58,Curtis Conway,Chicago Bears,,
+base,59,Kevin Dyson,Tennessee Titans,,
+base,60,Warrick Dunn,Tampa Bay Buccaneers,,SP
+base,61,Ahman Green,Seattle Seahawks,,
+base,62,Duce Staley,Philadelphia Eagles,,
+base,63,Emmitt Smith,Dallas Cowboys,,SP
+base,64,Adrian Murrell,Arizona Cardinals,,
+base,65,Dorsey Levens,Green Bay Packers,,
+base,66,Drew Bledsoe,New England Patriots,,SP
+base,67,Ed McCaffrey,Denver Broncos,,
+base,68,Natrone Means,San Diego Chargers,,
+base,69,Deion Sanders,Dallas Cowboys,,
+base,70,Keyshawn Johnson,New York Jets,,SP
+base,71,Antonio Freeman,Green Bay Packers,,
+base,72,James Stewart,Jacksonville Jaguars,,
+base,73,Ben Coates,New England Patriots,,
+base,74,Priest Holmes,Baltimore Ravens,,
+base,75,Jake Reed,Minnesota Vikings,,
+base,76,Mike Alstott,Tampa Bay Buccaneers,,
+base,77,Vinny Testaverde,New York Jets,,
+base,78,Ricky Watters,Seattle Seahawks,,
+base,79,Garrison Hearst,San Francisco 49ers,,
+base,80,Junior Seau,San Diego Chargers,,
+base,81,Tim Brown,Oakland Raiders,,
+base,82,Jamal Anderson,Atlanta Falcons,,
+base,83,Robert Brooks,Green Bay Packers,,
+base,84,Marc Edwards,Cleveland Browns,,
+base,85,Curtis Enis,Chicago Bears,,
+base,86,Doug Flutie,Buffalo Bills,,
+base,87,Terry Glenn,New England Patriots,,
+base,88,Charlie Batch,Detroit Lions,,SP
+base,89,Marvin Harrison,Indianapolis Colts,,
+base,90,Jake Plummer,Arizona Cardinals,,SP
+base,91,Terrell Owens,San Francisco 49ers,,
+base,92,Scott Mitchell,Baltimore Ravens,,
+base,93,Tim Dwight,Atlanta Falcons,,
+base,94,Eddie George,Tennessee Titans,,SP
+base,95,Ike Hilliard,New York Giants,,
+base,96,Robert Holcombe,St. Louis Rams,,
+base,97,Charles Johnson,Philadelphia Eagles,,
+base,98,Eric Moulds,Buffalo Bills,,
+base,99,Michael Westbrook,Washington Redskins,,
+base,100,Randy Moss,Minnesota Vikings,,SP
+base,101,Tim Couch,Cleveland Browns,Rookie,SN2999
+base,102,Donovan McNabb,Philadelphia Eagles,Rookie,SN2999
+base,103,Akili Smith,Cincinnati Bengals,Rookie,SN2999
+base,104,Cade McNown,Chicago Bears,Rookie,SN2999
+base,105,Daunte Culpepper,Minnesota Vikings,Rookie,SN2999
+base,106,Ricky Williams,New Orleans Saints,Rookie,SN2999
+base,107,Edgerrin James,Indianapolis Colts,Rookie,SN2999
+base,108,Kevin Faulk,New England Patriots,Rookie,SN2999
+base,109,Torry Holt,St. Louis Rams,Rookie,SN2999
+base,110,David Boston,Arizona Cardinals,Rookie,SN2999
+base,111,Chris Claiborne,Detroit Lions,Rookie,SN2999
+base,112,Michael Cloud,Kansas City Chiefs,Rookie,SN2999
+base,113,Joe Germaine,St. Louis Rams,Rookie,SN2999
+base,114,Cecil Collins,Miami Dolphins,Rookie,SN2999
+base,115,Tim Alexander,Washington Redskins,Rookie,SN2999
+base,116,Brandon Stokley,Baltimore Ravens,Rookie,SN2999
+base,117,Lamarr Glenn,Tampa Bay Buccaneers,Rookie,SN2999
+base,118,Shawn Bryson,Buffalo Bills,Rookie,SN2999
+base,119,Jeff Paulk,Atlanta Falcons,Rookie,SN2999
+base,120,Kevin Johnson,Cleveland Browns,Rookie,SN2999
+base,121,Charlie Rogers,Seattle Seahawks,Rookie,SN2999
+base,122,Joe Montgomery,New York Giants,Rookie,SN2999
+base,123,Travis McGriff,Denver Broncos,Rookie,SN2999
+base,124,Dee Miller,Green Bay Packers,Rookie,SN2999
+base,125,Rob Konrad,Miami Dolphins,Rookie,SN2999
+base,126,Peerless Price,Buffalo Bills,Rookie,SN2999
+base,127,D'Wayne Bates,Chicago Bears,Rookie,SN2999
+base,128,Craig Yeast,Cincinnati Bengals,Rookie,SN2999
+base,129,Malcolm Johnson,Pittsburgh Steelers,Rookie,SN2999
+base,130,Brock Huard,Seattle Seahawks,Rookie,SN2999
+base,131,Sedrick Irvin,Detroit Lions,Rookie,SN2999
+base,132,Troy Smith,Philadelphia Eagles,Rookie,SN2999
+base,133,Troy Edwards,Pittsburgh Steelers,Rookie,SN2999
+base,134,Al Wilson,Denver Broncos,Rookie,SN2999
+base,135,Terry Jackson,San Francisco 49ers,Rookie,SN2999
+base,136,Dameane Douglas,Philadelphia Eagles,Rookie,SN2999
+base,137,Amos Zereoue,Pittsburgh Steelers,Rookie,SN2999
+base,138,Shaun King,Tampa Bay Buccaneers,Rookie,SN2999
+base,139,James Johnson,Miami Dolphins,Rookie,SN2999
+base,140,Jermaine Fazande,San Diego Chargers,Rookie,SN2999
+base,141,Autry Denson,Miami Dolphins,Rookie,SN2999
+base,142,Darran Hall,Tennessee Titans,Rookie,SN2999
+base,143,Na Brown,Philadelphia Eagles,Rookie,SN2999
+base,144,Mike Lucky,Dallas Cowboys,Rookie,SN2999
+base,145,Karsten Bailey,Seattle Seahawks,Rookie,SN2999
+base,146,Kevin Daft,Tennessee Titans,Rookie,SN2999
+base,147,Sean Bennett,New York Giants,Rookie,SN2999
+base,148,Madre Hill,Cleveland Browns,Rookie,SN2999
+base,149,Michael Bishop,New England Patriots,Rookie,SN2999
+base,150,Scott Covington,Cincinnati Bengals,Rookie,SN2999
+base,151,Randy Moss,Minnesota Vikings,Star,SN2500
+base,152,Fred Taylor,Jacksonville Jaguars,Star,SN2500
+base,153,Brett Favre,Green Bay Packers,Star,SN2500
+base,154,Dan Marino,Miami Dolphins,Star,SN2500
+base,155,Terrell Davis,Denver Broncos,Star,SN2500
+base,156,Barry Sanders,Detroit Lions,Star,SN2500
+base,157,Emmitt Smith,Dallas Cowboys,Star,SN2500
+base,158,Jake Plummer,Arizona Cardinals,Star,SN2500
+base,159,Warrick Dunn,Tampa Bay Buccaneers,Star,SN2500
+base,160,Troy Aikman,Dallas Cowboys,Star,SN2500
+checklist,NNO,Checklist,,Checklist,Physical NNO
+feel-the-game,1,Terrell Davis,Denver Broncos,,MEM Jersey; SN545; Physical NNO
+feel-the-game,2,Charles Johnson,Philadelphia Eagles,,MEM Shoe; SN325; Physical NNO
+feel-the-game,3,Jon Kitna,Seattle Seahawks,,MEM Shorts (Training Camp); SN640; Physical NNO
+feel-the-game,4,Dorsey Levens,Green Bay Packers,,MEM Jersey; SN515; Physical NNO
+feel-the-game,5,Dan Marino,Miami Dolphins,,MEM Sock; SN220; Physical NNO
+feel-the-game,6,Curtis Martin,New York Jets,,MEM Jersey; SN690; Physical NNO
+feel-the-game,7,Johnnie Morton,Detroit Lions,,MEM Jersey; SN580; Physical NNO
+feel-the-game,8,Randy Moss,Minnesota Vikings,,MEM Jersey; SN510; Physical NNO
+feel-the-game,9,Brandon Stokley,Baltimore Ravens,,MEM Glove; SN85; Physical NNO
+feel-the-game,10,Steve Young,San Francisco 49ers,,MEM Jersey; SN580; Physical NNO
+fresh-ink,1,Charlie Batch,Detroit Lions,,AU; SN250; Physical NNO
+fresh-ink,2,Mark Brunell,Jacksonville Jaguars,,AU; SN45; Physical NNO
+fresh-ink,3,Shawn Bryson,Buffalo Bills,,AU; SN650; Physical NNO
+fresh-ink,4,Cecil Collins,Miami Dolphins,,AU; SN725; Physical NNO
+fresh-ink,5,Daunte Culpepper,Minnesota Vikings,,AU; SN300; Physical NNO
+fresh-ink,6,Randall Cunningham,Minnesota Vikings,,AU; SN200; Physical NNO
+fresh-ink,7,Terrell Davis,Denver Broncos,,AU; SN50; Physical NNO
+fresh-ink,8,Sean Dawkins,Seattle Seahawks,,AU; SN700; Physical NNO
+fresh-ink,9,Corey Dillon,Cincinnati Bengals,,AU; SN250; Physical NNO
+fresh-ink,10,Dameane Douglas,Oakland Raiders,,AU; SN750; Physical NNO
+fresh-ink,11,Tim Dwight,Atlanta Falcons,,AU; SN725; Physical NNO
+fresh-ink,12,Troy Edwards,Pittsburgh Steelers,,AU; SN200; Physical NNO
+fresh-ink,13,Doug Flutie,Buffalo Bills,,AU; SN250; Physical NNO
+fresh-ink,14,Eddie George,Tennessee Titans,,AU; SN250; Physical NNO
+fresh-ink,15,Joe Germaine,St. Louis Rams,,AU; SN575; Physical NNO
+fresh-ink,16,Trent Green,St. Louis Rams,,AU; SN350; Physical NNO
+fresh-ink,17,Torry Holt,St. Louis Rams,,AU; SN350; Physical NNO
+fresh-ink,18,Brock Huard,Seattle Seahawks,,AU; SN700; Physical NNO
+fresh-ink,19,Edgerrin James,Indianapolis Colts,,AU; SN150; Physical NNO
+fresh-ink,20,Brad Johnson,Washington Redskins,,AU; SN300; Physical NNO
+fresh-ink,21,Jon Kitna,Seattle Seahawks,,AU; SN350; Physical NNO
+fresh-ink,22,Peyton Manning,Indianapolis Colts,,AU; SN250; Physical NNO
+fresh-ink,23,Randy Moss,Minnesota Vikings,,AU; SN150; Physical NNO
+fresh-ink,24,Doug Pederson,Philadelphia Eagles,,AU; SN750; Physical NNO
+fresh-ink,25,Jake Plummer,Arizona Cardinals,,AU; SN300; Physical NNO
+fresh-ink,26,Peerless Price,Buffalo Bills,,AU; SN675; Physical NNO
+fresh-ink,27,Akili Smith,Cincinnati Bengals,,AU; SN100; Physical NNO
+fresh-ink,28,Antowain Smith,Buffalo Bills,,AU; SN150; Physical NNO
+fresh-ink,29,Emmitt Smith,Dallas Cowboys,,AU; SN125; Physical NNO
+fresh-ink,30,Ricky Williams,New Orleans Saints,,AU; SN150; Physical NNO
+nfl-2000,1,Peyton Manning,Indianapolis Colts,,SN999; Printed suffix NT
+nfl-2000,2,Ryan Leaf,San Diego Chargers,,SN999; Printed suffix NT
+nfl-2000,3,Charlie Batch,Detroit Lions,,SN999; Printed suffix NT
+nfl-2000,4,Fred Taylor,Jacksonville Jaguars,,SN999; Printed suffix NT
+nfl-2000,5,Keyshawn Johnson,New York Jets,,SN999; Printed suffix NT
+nfl-2000,6,J.J. Stokes,San Francisco 49ers,,SN999; Printed suffix NT
+nfl-2000,7,Jake Plummer,Arizona Cardinals,,SN999; Printed suffix NT
+nfl-2000,8,Brian Griese,Denver Broncos,,SN999; Printed suffix NT
+nfl-2000,9,Antowain Smith,Buffalo Bills,,SN999; Printed suffix NT
+nfl-2000,10,Jamal Anderson,Atlanta Falcons,,SN999; Printed suffix NT
+protential,1,Tim Couch,Cleveland Browns,,SN1999; Printed suffix PT
+protential,2,Donovan McNabb,Philadelphia Eagles,,SN1999; Printed suffix PT
+protential,3,Akili Smith,Cincinnati Bengals,,SN1999; Printed suffix PT
+protential,4,Cade McNown,Chicago Bears,,SN1999; Printed suffix PT
+protential,5,Daunte Culpepper,Minnesota Vikings,,SN1999; Printed suffix PT
+protential,6,Ricky Williams,New Orleans Saints,,SN1999; Printed suffix PT
+protential,7,Edgerrin James,Indianapolis Colts,,SN1999; Printed suffix PT
+protential,8,Kevin Faulk,New England Patriots,,SN1999; Printed suffix PT
+protential,9,Torry Holt,St. Louis Rams,,SN1999; Printed suffix PT
+protential,10,David Boston,Arizona Cardinals,,SN1999; Printed suffix PT
+star-power,1,Randy Moss,Minnesota Vikings,,SN100; Printed suffix SP
+star-power,2,Warrick Dunn,Tampa Bay Buccaneers,,SN100; Printed suffix SP
+star-power,3,Mark Brunell,Jacksonville Jaguars,,SN100; Printed suffix SP
+star-power,4,Emmitt Smith,Dallas Cowboys,,SN100; Printed suffix SP
+star-power,5,Eddie George,Tennessee Titans,,SN100; Printed suffix SP
+star-power,6,Barry Sanders,Detroit Lions,,SN100; Printed suffix SP
+star-power,7,Terrell Davis,Denver Broncos,,SN100; Printed suffix SP
+star-power,8,Dan Marino,Miami Dolphins,,SN100; Printed suffix SP
+star-power,9,Troy Aikman,Dallas Cowboys,,SN100; Printed suffix SP
+star-power,10,Brett Favre,Green Bay Packers,,SN100; Printed suffix SP
+gold,1,Terrell Davis,Denver Broncos,,Gold
+gold,2,Jerome Bettis,Pittsburgh Steelers,,Gold
+gold,3,J.J. Stokes,San Francisco 49ers,,Gold
+gold,4,Frank Wycheck,Tennessee Titans,,Gold
+gold,5,O.J. McDuffie,Miami Dolphins,,Gold
+gold,6,Johnnie Morton,Detroit Lions,,Gold
+gold,7,Marshall Faulk,St. Louis Rams,,Gold
+gold,8,Ryan Leaf,San Diego Chargers,,Gold
+gold,9,Sean Dawkins,Seattle Seahawks,,Gold
+gold,10,Brett Favre,Green Bay Packers,,Gold
+gold,11,Steve Young,San Francisco 49ers,,Gold
+gold,12,Jimmy Smith,Jacksonville Jaguars,,Gold
+gold,13,Isaac Bruce,St. Louis Rams,,Gold
+gold,14,Trent Dilfer,Tampa Bay Buccaneers,,Gold
+gold,15,Brian Mitchell,Washington Redskins,,Gold
+gold,16,Kordell Stewart,Pittsburgh Steelers,,Gold
+gold,17,Herman Moore,Detroit Lions,,Gold
+gold,18,Troy Aikman,Dallas Cowboys,,Gold
+gold,19,Cris Carter,Minnesota Vikings,,Gold
+gold,20,Barry Sanders,Detroit Lions,,Gold
+gold,21,Tony Gonzalez,Kansas City Chiefs,,Gold
+gold,22,Skip Hicks,Washington Redskins,,Gold
+gold,23,Steve McNair,Tennessee Titans,,Gold
+gold,24,Brad Johnson,Washington Redskins,,Gold
+gold,25,Mark Chmura,Green Bay Packers,,Gold
+gold,26,Randall Cunningham,Minnesota Vikings,,Gold
+gold,27,Jerry Rice,San Francisco 49ers,,Gold
+gold,28,Jamie Asher,Philadelphia Eagles,,Gold
+gold,29,Brian Griese,Denver Broncos,,Gold
+gold,30,Peyton Manning,Indianapolis Colts,,Gold
+gold,31,Keith Poole,New Orleans Saints,,Gold
+gold,32,Wayne Chrebet,New York Jets,,Gold
+gold,33,Rich Gannon,Oakland Raiders,,Gold
+gold,34,Michael Irvin,Dallas Cowboys,,Gold
+gold,35,Yancey Thigpen,Tennessee Titans,,Gold
+gold,36,Corey Dillon,Cincinnati Bengals,,Gold
+gold,37,Steve Beuerlein,Carolina Panthers,,Gold
+gold,38,Terry Kirby,Cleveland Browns,,Gold
+gold,39,Jacquez Green,Tampa Bay Buccaneers,,Gold
+gold,40,Mark Brunell,Jacksonville Jaguars,,Gold
+gold,41,Rickey Dudley,Oakland Raiders,,Gold
+gold,42,Shannon Sharpe,Denver Broncos,,Gold
+gold,43,Andre Rison,Kansas City Chiefs,,Gold
+gold,44,Chris Chandler,Atlanta Falcons,,Gold
+gold,45,Fred Taylor,Jacksonville Jaguars,,Gold
+gold,46,Kerry Collins,New York Giants,,Gold
+gold,47,Antowain Smith,Buffalo Bills,,Gold
+gold,48,Wesley Walls,Carolina Panthers,,Gold
+gold,49,Rob Moore,Arizona Cardinals,,Gold
+gold,50,Dan Marino,Miami Dolphins,,Gold
+gold,51,Robert Smith,Minnesota Vikings,,Gold
+gold,52,Keenan McCardell,Jacksonville Jaguars,,Gold
+gold,53,Joey Galloway,Seattle Seahawks,,Gold
+gold,54,Fred Lane,Carolina Panthers,,Gold
+gold,55,Napoleon Kaufman,Oakland Raiders,,Gold
+gold,56,Curtis Martin,New York Jets,,Gold
+gold,57,Rod Smith,Denver Broncos,,Gold
+gold,58,Curtis Conway,Chicago Bears,,Gold
+gold,59,Kevin Dyson,Tennessee Titans,,Gold
+gold,60,Warrick Dunn,Tampa Bay Buccaneers,,Gold
+gold,61,Ahman Green,Seattle Seahawks,,Gold
+gold,62,Duce Staley,Philadelphia Eagles,,Gold
+gold,63,Emmitt Smith,Dallas Cowboys,,Gold
+gold,64,Adrian Murrell,Arizona Cardinals,,Gold
+gold,65,Dorsey Levens,Green Bay Packers,,Gold
+gold,66,Drew Bledsoe,New England Patriots,,Gold
+gold,67,Ed McCaffrey,Denver Broncos,,Gold
+gold,68,Natrone Means,San Diego Chargers,,Gold
+gold,69,Deion Sanders,Dallas Cowboys,,Gold
+gold,70,Keyshawn Johnson,New York Jets,,Gold
+gold,71,Antonio Freeman,Green Bay Packers,,Gold
+gold,72,James Stewart,Jacksonville Jaguars,,Gold
+gold,73,Ben Coates,New England Patriots,,Gold
+gold,74,Priest Holmes,Baltimore Ravens,,Gold
+gold,75,Jake Reed,Minnesota Vikings,,Gold
+gold,76,Mike Alstott,Tampa Bay Buccaneers,,Gold
+gold,77,Vinny Testaverde,New York Jets,,Gold
+gold,78,Ricky Watters,Seattle Seahawks,,Gold
+gold,79,Garrison Hearst,San Francisco 49ers,,Gold
+gold,80,Junior Seau,San Diego Chargers,,Gold
+gold,81,Tim Brown,Oakland Raiders,,Gold
+gold,82,Jamal Anderson,Atlanta Falcons,,Gold
+gold,83,Robert Brooks,Green Bay Packers,,Gold
+gold,84,Marc Edwards,Cleveland Browns,,Gold
+gold,85,Curtis Enis,Chicago Bears,,Gold
+gold,86,Doug Flutie,Buffalo Bills,,Gold
+gold,87,Terry Glenn,New England Patriots,,Gold
+gold,88,Charlie Batch,Detroit Lions,,Gold
+gold,89,Marvin Harrison,Indianapolis Colts,,Gold
+gold,90,Jake Plummer,Arizona Cardinals,,Gold
+gold,91,Terrell Owens,San Francisco 49ers,,Gold
+gold,92,Scott Mitchell,Baltimore Ravens,,Gold
+gold,93,Tim Dwight,Atlanta Falcons,,Gold
+gold,94,Eddie George,Tennessee Titans,,Gold
+gold,95,Ike Hilliard,New York Giants,,Gold
+gold,96,Robert Holcombe,St. Louis Rams,,Gold
+gold,97,Charles Johnson,Philadelphia Eagles,,Gold
+gold,98,Eric Moulds,Buffalo Bills,,Gold
+gold,99,Michael Westbrook,Washington Redskins,,Gold
+gold,100,Randy Moss,Minnesota Vikings,,Gold
+masterpiece,1M,Terrell Davis,Denver Broncos,,Masterpiece; SN1
+masterpiece,2M,Jerome Bettis,Pittsburgh Steelers,,Masterpiece; SN1
+masterpiece,3M,J.J. Stokes,San Francisco 49ers,,Masterpiece; SN1
+masterpiece,4M,Frank Wycheck,Tennessee Titans,,Masterpiece; SN1
+masterpiece,5M,O.J. McDuffie,Miami Dolphins,,Masterpiece; SN1
+masterpiece,6M,Johnnie Morton,Detroit Lions,,Masterpiece; SN1
+masterpiece,7M,Marshall Faulk,St. Louis Rams,,Masterpiece; SN1
+masterpiece,8M,Ryan Leaf,San Diego Chargers,,Masterpiece; SN1
+masterpiece,9M,Sean Dawkins,Seattle Seahawks,,Masterpiece; SN1
+masterpiece,10M,Brett Favre,Green Bay Packers,,Masterpiece; SN1
+masterpiece,11M,Steve Young,San Francisco 49ers,,Masterpiece; SN1
+masterpiece,12M,Jimmy Smith,Jacksonville Jaguars,,Masterpiece; SN1
+masterpiece,13M,Isaac Bruce,St. Louis Rams,,Masterpiece; SN1
+masterpiece,14M,Trent Dilfer,Tampa Bay Buccaneers,,Masterpiece; SN1
+masterpiece,15M,Brian Mitchell,Washington Redskins,,Masterpiece; SN1
+masterpiece,16M,Kordell Stewart,Pittsburgh Steelers,,Masterpiece; SN1
+masterpiece,17M,Herman Moore,Detroit Lions,,Masterpiece; SN1
+masterpiece,18M,Troy Aikman,Dallas Cowboys,,Masterpiece; SN1
+masterpiece,19M,Cris Carter,Minnesota Vikings,,Masterpiece; SN1
+masterpiece,20M,Barry Sanders,Detroit Lions,,Masterpiece; SN1
+masterpiece,21M,Tony Gonzalez,Kansas City Chiefs,,Masterpiece; SN1
+masterpiece,22M,Skip Hicks,Washington Redskins,,Masterpiece; SN1
+masterpiece,23M,Steve McNair,Tennessee Titans,,Masterpiece; SN1
+masterpiece,24M,Brad Johnson,Washington Redskins,,Masterpiece; SN1
+masterpiece,25M,Mark Chmura,Green Bay Packers,,Masterpiece; SN1
+masterpiece,26M,Randall Cunningham,Minnesota Vikings,,Masterpiece; SN1
+masterpiece,27M,Jerry Rice,San Francisco 49ers,,Masterpiece; SN1
+masterpiece,28M,Jamie Asher,Philadelphia Eagles,,Masterpiece; SN1
+masterpiece,29M,Brian Griese,Denver Broncos,,Masterpiece; SN1
+masterpiece,30M,Peyton Manning,Indianapolis Colts,,Masterpiece; SN1
+masterpiece,31M,Keith Poole,New Orleans Saints,,Masterpiece; SN1
+masterpiece,32M,Wayne Chrebet,New York Jets,,Masterpiece; SN1
+masterpiece,33M,Rich Gannon,Oakland Raiders,,Masterpiece; SN1
+masterpiece,34M,Michael Irvin,Dallas Cowboys,,Masterpiece; SN1
+masterpiece,35M,Yancey Thigpen,Tennessee Titans,,Masterpiece; SN1
+masterpiece,36M,Corey Dillon,Cincinnati Bengals,,Masterpiece; SN1
+masterpiece,37M,Steve Beuerlein,Carolina Panthers,,Masterpiece; SN1
+masterpiece,38M,Terry Kirby,Cleveland Browns,,Masterpiece; SN1
+masterpiece,39M,Jacquez Green,Tampa Bay Buccaneers,,Masterpiece; SN1
+masterpiece,40M,Mark Brunell,Jacksonville Jaguars,,Masterpiece; SN1
+masterpiece,41M,Rickey Dudley,Oakland Raiders,,Masterpiece; SN1
+masterpiece,42M,Shannon Sharpe,Denver Broncos,,Masterpiece; SN1
+masterpiece,43M,Andre Rison,Kansas City Chiefs,,Masterpiece; SN1
+masterpiece,44M,Chris Chandler,Atlanta Falcons,,Masterpiece; SN1
+masterpiece,45M,Fred Taylor,Jacksonville Jaguars,,Masterpiece; SN1
+masterpiece,46M,Kerry Collins,New York Giants,,Masterpiece; SN1
+masterpiece,47M,Antowain Smith,Buffalo Bills,,Masterpiece; SN1
+masterpiece,48M,Wesley Walls,Carolina Panthers,,Masterpiece; SN1
+masterpiece,49M,Rob Moore,Arizona Cardinals,,Masterpiece; SN1
+masterpiece,50M,Dan Marino,Miami Dolphins,,Masterpiece; SN1
+masterpiece,51M,Robert Smith,Minnesota Vikings,,Masterpiece; SN1
+masterpiece,52M,Keenan McCardell,Jacksonville Jaguars,,Masterpiece; SN1
+masterpiece,53M,Joey Galloway,Seattle Seahawks,,Masterpiece; SN1
+masterpiece,54M,Fred Lane,Carolina Panthers,,Masterpiece; SN1
+masterpiece,55M,Napoleon Kaufman,Oakland Raiders,,Masterpiece; SN1
+masterpiece,56M,Curtis Martin,New York Jets,,Masterpiece; SN1
+masterpiece,57M,Rod Smith,Denver Broncos,,Masterpiece; SN1
+masterpiece,58M,Curtis Conway,Chicago Bears,,Masterpiece; SN1
+masterpiece,59M,Kevin Dyson,Tennessee Titans,,Masterpiece; SN1
+masterpiece,60M,Warrick Dunn,Tampa Bay Buccaneers,,Masterpiece; SN1
+masterpiece,61M,Ahman Green,Seattle Seahawks,,Masterpiece; SN1
+masterpiece,62M,Duce Staley,Philadelphia Eagles,,Masterpiece; SN1
+masterpiece,63M,Emmitt Smith,Dallas Cowboys,,Masterpiece; SN1
+masterpiece,64M,Adrian Murrell,Arizona Cardinals,,Masterpiece; SN1
+masterpiece,65M,Dorsey Levens,Green Bay Packers,,Masterpiece; SN1
+masterpiece,66M,Drew Bledsoe,New England Patriots,,Masterpiece; SN1
+masterpiece,67M,Ed McCaffrey,Denver Broncos,,Masterpiece; SN1
+masterpiece,68M,Natrone Means,San Diego Chargers,,Masterpiece; SN1
+masterpiece,69M,Deion Sanders,Dallas Cowboys,,Masterpiece; SN1
+masterpiece,70M,Keyshawn Johnson,New York Jets,,Masterpiece; SN1
+masterpiece,71M,Antonio Freeman,Green Bay Packers,,Masterpiece; SN1
+masterpiece,72M,James Stewart,Jacksonville Jaguars,,Masterpiece; SN1
+masterpiece,73M,Ben Coates,New England Patriots,,Masterpiece; SN1
+masterpiece,74M,Priest Holmes,Baltimore Ravens,,Masterpiece; SN1
+masterpiece,75M,Jake Reed,Minnesota Vikings,,Masterpiece; SN1
+masterpiece,76M,Mike Alstott,Tampa Bay Buccaneers,,Masterpiece; SN1
+masterpiece,77M,Vinny Testaverde,New York Jets,,Masterpiece; SN1
+masterpiece,78M,Ricky Watters,Seattle Seahawks,,Masterpiece; SN1
+masterpiece,79M,Garrison Hearst,San Francisco 49ers,,Masterpiece; SN1
+masterpiece,80M,Junior Seau,San Diego Chargers,,Masterpiece; SN1
+masterpiece,81M,Tim Brown,Oakland Raiders,,Masterpiece; SN1
+masterpiece,82M,Jamal Anderson,Atlanta Falcons,,Masterpiece; SN1
+masterpiece,83M,Robert Brooks,Green Bay Packers,,Masterpiece; SN1
+masterpiece,84M,Marc Edwards,Cleveland Browns,,Masterpiece; SN1
+masterpiece,85M,Curtis Enis,Chicago Bears,,Masterpiece; SN1
+masterpiece,86M,Doug Flutie,Buffalo Bills,,Masterpiece; SN1
+masterpiece,87M,Terry Glenn,New England Patriots,,Masterpiece; SN1
+masterpiece,88M,Charlie Batch,Detroit Lions,,Masterpiece; SN1
+masterpiece,89M,Marvin Harrison,Indianapolis Colts,,Masterpiece; SN1
+masterpiece,90M,Jake Plummer,Arizona Cardinals,,Masterpiece; SN1
+masterpiece,91M,Terrell Owens,San Francisco 49ers,,Masterpiece; SN1
+masterpiece,92M,Scott Mitchell,Baltimore Ravens,,Masterpiece; SN1
+masterpiece,93M,Tim Dwight,Atlanta Falcons,,Masterpiece; SN1
+masterpiece,94M,Eddie George,Tennessee Titans,,Masterpiece; SN1
+masterpiece,95M,Ike Hilliard,New York Giants,,Masterpiece; SN1
+masterpiece,96M,Robert Holcombe,St. Louis Rams,,Masterpiece; SN1
+masterpiece,97M,Charles Johnson,Philadelphia Eagles,,Masterpiece; SN1
+masterpiece,98M,Eric Moulds,Buffalo Bills,,Masterpiece; SN1
+masterpiece,99M,Michael Westbrook,Washington Redskins,,Masterpiece; SN1
+masterpiece,100M,Randy Moss,Minnesota Vikings,,Masterpiece; SN1
+masterpiece,101M,Tim Couch,Cleveland Browns,Rookie,Masterpiece; SN1
+masterpiece,102M,Donovan McNabb,Philadelphia Eagles,Rookie,Masterpiece; SN1
+masterpiece,103M,Akili Smith,Cincinnati Bengals,Rookie,Masterpiece; SN1
+masterpiece,104M,Cade McNown,Chicago Bears,Rookie,Masterpiece; SN1
+masterpiece,105M,Daunte Culpepper,Minnesota Vikings,Rookie,Masterpiece; SN1
+masterpiece,106M,Ricky Williams,New Orleans Saints,Rookie,Masterpiece; SN1
+masterpiece,107M,Edgerrin James,Indianapolis Colts,Rookie,Masterpiece; SN1
+masterpiece,108M,Kevin Faulk,New England Patriots,Rookie,Masterpiece; SN1
+masterpiece,109M,Torry Holt,St. Louis Rams,Rookie,Masterpiece; SN1
+masterpiece,110M,David Boston,Arizona Cardinals,Rookie,Masterpiece; SN1
+masterpiece,111M,Chris Claiborne,Detroit Lions,Rookie,Masterpiece; SN1
+masterpiece,112M,Michael Cloud,Kansas City Chiefs,Rookie,Masterpiece; SN1
+masterpiece,113M,Joe Germaine,St. Louis Rams,Rookie,Masterpiece; SN1
+masterpiece,114M,Cecil Collins,Miami Dolphins,Rookie,Masterpiece; SN1
+masterpiece,115M,Tim Alexander,Washington Redskins,Rookie,Masterpiece; SN1
+masterpiece,116M,Brandon Stokley,Baltimore Ravens,Rookie,Masterpiece; SN1
+masterpiece,117M,Lamarr Glenn,Tampa Bay Buccaneers,Rookie,Masterpiece; SN1
+masterpiece,118M,Shawn Bryson,Buffalo Bills,Rookie,Masterpiece; SN1
+masterpiece,119M,Jeff Paulk,Atlanta Falcons,Rookie,Masterpiece; SN1
+masterpiece,120M,Kevin Johnson,Cleveland Browns,Rookie,Masterpiece; SN1
+masterpiece,121M,Charlie Rogers,Seattle Seahawks,Rookie,Masterpiece; SN1
+masterpiece,122M,Joe Montgomery,New York Giants,Rookie,Masterpiece; SN1
+masterpiece,123M,Travis McGriff,Denver Broncos,Rookie,Masterpiece; SN1
+masterpiece,124M,Dee Miller,Green Bay Packers,Rookie,Masterpiece; SN1
+masterpiece,125M,Rob Konrad,Miami Dolphins,Rookie,Masterpiece; SN1
+masterpiece,126M,Peerless Price,Buffalo Bills,Rookie,Masterpiece; SN1
+masterpiece,127M,D'Wayne Bates,Chicago Bears,Rookie,Masterpiece; SN1
+masterpiece,128M,Craig Yeast,Cincinnati Bengals,Rookie,Masterpiece; SN1
+masterpiece,129M,Malcolm Johnson,Pittsburgh Steelers,Rookie,Masterpiece; SN1
+masterpiece,130M,Brock Huard,Seattle Seahawks,Rookie,Masterpiece; SN1
+masterpiece,131M,Sedrick Irvin,Detroit Lions,Rookie,Masterpiece; SN1
+masterpiece,132M,Troy Smith,Philadelphia Eagles,Rookie,Masterpiece; SN1
+masterpiece,133M,Troy Edwards,Pittsburgh Steelers,Rookie,Masterpiece; SN1
+masterpiece,134M,Al Wilson,Denver Broncos,Rookie,Masterpiece; SN1
+masterpiece,135M,Terry Jackson,San Francisco 49ers,Rookie,Masterpiece; SN1
+masterpiece,136M,Dameane Douglas,Philadelphia Eagles,Rookie,Masterpiece; SN1
+masterpiece,137M,Amos Zereoue,Pittsburgh Steelers,Rookie,Masterpiece; SN1
+masterpiece,138M,Shaun King,Tampa Bay Buccaneers,Rookie,Masterpiece; SN1
+masterpiece,139M,James Johnson,Miami Dolphins,Rookie,Masterpiece; SN1
+masterpiece,140M,Jermaine Fazande,San Diego Chargers,Rookie,Masterpiece; SN1
+masterpiece,141M,Autry Denson,Miami Dolphins,Rookie,Masterpiece; SN1
+masterpiece,142M,Darran Hall,Tennessee Titans,Rookie,Masterpiece; SN1
+masterpiece,143M,Na Brown,Philadelphia Eagles,Rookie,Masterpiece; SN1
+masterpiece,144M,Mike Lucky,Dallas Cowboys,Rookie,Masterpiece; SN1
+masterpiece,145M,Karsten Bailey,Seattle Seahawks,Rookie,Masterpiece; SN1
+masterpiece,146M,Kevin Daft,Tennessee Titans,Rookie,Masterpiece; SN1
+masterpiece,147M,Sean Bennett,New York Giants,Rookie,Masterpiece; SN1
+masterpiece,148M,Madre Hill,Cleveland Browns,Rookie,Masterpiece; SN1
+masterpiece,149M,Michael Bishop,New England Patriots,Rookie,Masterpiece; SN1
+masterpiece,150M,Scott Covington,Cincinnati Bengals,Rookie,Masterpiece; SN1
+masterpiece,151M,Randy Moss,Minnesota Vikings,Star,Masterpiece; SN1
+masterpiece,152M,Fred Taylor,Jacksonville Jaguars,Star,Masterpiece; SN1
+masterpiece,153M,Brett Favre,Green Bay Packers,Star,Masterpiece; SN1
+masterpiece,154M,Dan Marino,Miami Dolphins,Star,Masterpiece; SN1
+masterpiece,155M,Terrell Davis,Denver Broncos,Star,Masterpiece; SN1
+masterpiece,156M,Barry Sanders,Detroit Lions,Star,Masterpiece; SN1
+masterpiece,157M,Emmitt Smith,Dallas Cowboys,Star,Masterpiece; SN1
+masterpiece,158M,Jake Plummer,Arizona Cardinals,Star,Masterpiece; SN1
+masterpiece,159M,Warrick Dunn,Tampa Bay Buccaneers,Star,Masterpiece; SN1
+masterpiece,160M,Troy Aikman,Dallas Cowboys,Star,Masterpiece; SN1

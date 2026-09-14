@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/134/1989-Topps",
+    "checklistReference": "https://www.cardboardconnection.com/1989-topps-baseball-cards",
+    "secondaryChecklistReference": "https://www.baseball-almanac.com/baseball_cards/baseball_cards_oneset.php?s=1989top00",
+    "note": "Set structure and direct-pack insert families were cross-checked against public reference pages. Base printer/copyright variations are intentionally collapsed to one canonical VCS card per printed card number. Factory-only, mail-in, promotional, and box-bottom material are excluded from normal VCS packs."
+  },
+  "decisions": {
+    "combinePhysicalSeries": true,
+    "physicalSeriesRanges": ["1-792"],
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "Wax",
+    "excludeMinorPrinterVariations": true,
+    "excludeNonPackIssuedRelatedSets": [
+      "Collector's Edition (Tiffany)",
+      "1989 All-Star Set Collector's Edition (Glossy Send-Ins)",
+      "Topps Company Store",
+      "Wax Box Bottom Panels",
+      "Wax Box Bottom Panels Singles"
+    ],
+    "packChannelAbstraction": "VCS uses one universal 15-card pack. Three direct-pack insert families were originally exclusive to different physical pack formats, so their VCS odds are normalized by card volume rather than treated as literal wax-pack odds.",
+    "normalizedInsertOdds": {
+      "glossyAllStars": "1 per 43-card rack pack -> approximately 1 per 2.87 VCS 15-card packs -> stored as 1:3",
+      "glossyRookies": "1 per 100-card jumbo pack -> approximately 1 per 6.67 VCS 15-card packs -> stored as 1:7",
+      "battingLeaders": "1 per 100-card K-Mart blister -> approximately 1 per 6.67 VCS 15-card packs -> stored as 1:7"
+    }
+  },
+  "product": {
+    "id": "1989_Topps_Baseball",
+    "year": 1989,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 15,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1989-topps.cards.csv.gz",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1989_Topps_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.cardboardconnection.com/1989-topps-baseball-cards",
+      "expectedCards": 792,
+      "notes": "One canonical VCS card per printed number 1-792. Minor copyright/printer variants are not modeled as separate cards."
+    },
+    {
+      "key": "glossy-all-stars",
+      "id": "1989_Topps_Baseball_Glossy_All_Stars",
+      "name": "Glossy All-Stars",
+      "kind": "INSERT",
+      "oddsPerPack": 3,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.cardboardconnection.com/1989-topps-baseball-cards",
+      "expectedCards": 22,
+      "notes": "Originally one per 43-card rack pack. VCS universal-pack odds are normalized to a 15-card pack by card volume, approximately 1:3."
+    },
+    {
+      "key": "glossy-rookies",
+      "id": "1989_Topps_Baseball_Glossy_Rookies",
+      "name": "Glossy Rookies",
+      "kind": "INSERT",
+      "oddsPerPack": 7,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.cardboardconnection.com/1989-topps-baseball-cards",
+      "expectedCards": 22,
+      "notes": "Originally one per 100-card supermarket jumbo pack. VCS universal-pack odds are normalized to a 15-card pack by card volume, approximately 1:7."
+    },
+    {
+      "key": "batting-leaders",
+      "id": "1989_Topps_Baseball_Batting_Leaders",
+      "name": "Batting Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": 7,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.cardboardconnection.com/1989-topps-baseball-cards",
+      "expectedCards": 22,
+      "notes": "Originally one per 100-card K-Mart blister. VCS universal-pack odds are normalized to a 15-card pack by card volume, approximately 1:7."
+    }
+  ]
+}

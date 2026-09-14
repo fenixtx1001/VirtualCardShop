@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/875/1997-Circa",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/875/1997-Circa",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/875/1997-Circa",
+    "note": "1997 Circa Baseball hobby product. The 400-card flagship checklist and complete 400-card Rave parallel are kept intact as collector-facing VCS ProductSets. Retail-only Limited Access, dealer Promotional Sample, and administrative Emerald redemption pieces are excluded from the hobby product."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Hobby",
+    "collectorChecklistIntegrity": "Base #1-400 is one VCS Base ProductSet. Rave #1-400 is one full parallel ProductSet so each collector checklist has one completion percentage.",
+    "trueRookieNaming": "Use TCDB's set-indexed rookie page as the card-level source of truth. It identifies four true RC cards: #55 Felix Heredia, #124 Tony Womack, #173 Brian Giles, and #335 Mike Holtz. Beckett reports three RCs, so the source discrepancy is documented and TCDB's linked-set records control this bundle.",
+    "cleanPlayerNames": "Player contains only the clean card subject name plus verified RC when applicable. CL, UER/ERR/COR, SN/PR, AU, EXCH and other collector annotations stay in metadata.",
+    "oddsPlacement": "Insertion odds are stored only on ProductSets. No per-card Variant field receives text such as 'Inserted 1:36 packs'.",
+    "hobbyOnly": "Limited Access is retail-only and excluded. The Alex Rodriguez Promotional Sample/dealer display issue is excluded because it was not an ordinary hobby-pack outcome.",
+    "emeraldAutographs": "The ten Emerald Autographs Redemption pieces are administrative redemption instruments and are excluded. The six finished Emerald Autographs Exchange cards are included as the collector-facing autograph set. Their oddsPerPack remains null because the published 1:1000 rate applies to redemption pieces, not directly to one of the six finished autograph cards.",
+    "releaseSafety": "Product remains unreleased until images, pricing, and any null insert odds are reviewed."
+  },
+  "product": {
+    "id": "1997_Circa_Baseball",
+    "year": 1997,
+    "brand": "Circa",
+    "sport": "Baseball",
+    "cardsPerPack": 8,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1997-circa-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1997_Circa_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/875/1997-Circa",
+      "expectedCards": 400,
+      "notes": "Complete flagship checklist #1-400, issued in one series."
+    },
+    {
+      "key": "rave",
+      "id": "1997_Circa_Baseball_Rave",
+      "name": "Rave",
+      "kind": "PARALLEL",
+      "oddsPerPack": 30,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/882/1997-Circa---Rave",
+      "expectedCards": 400,
+      "notes": "Full 400-card hobby parallel, inserted 1:30 hobby packs and SN150."
+    },
+    {
+      "key": "boss",
+      "id": "1997_Circa_Baseball_Boss",
+      "name": "Boss",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/876/1997-Circa---Boss",
+      "expectedCards": 20,
+      "notes": "20-card insert set, inserted 1:6 packs."
+    },
+    {
+      "key": "super-boss",
+      "id": "1997_Circa_Baseball_Super_Boss",
+      "name": "Super Boss",
+      "kind": "INSERT",
+      "oddsPerPack": 36,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10872/1997-Circa---Super-Boss",
+      "expectedCards": 20,
+      "notes": "20-card insert set, inserted 1:36 packs."
+    },
+    {
+      "key": "fast-track",
+      "id": "1997_Circa_Baseball_Fast_Track",
+      "name": "Fast Track",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/879/1997-Circa---Fast-Track",
+      "expectedCards": 10,
+      "notes": "10-card insert set, inserted 1:24 packs."
+    },
+    {
+      "key": "icon",
+      "id": "1997_Circa_Baseball_Icon",
+      "name": "Icon",
+      "kind": "INSERT",
+      "oddsPerPack": 36,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/880/1997-Circa---Icon",
+      "expectedCards": 12,
+      "notes": "TCDB-linked checklist contains 12 cards, inserted 1:36 packs. BaseballCardPedia lists 10; TCDB's linked checklist controls the card count for this bundle."
+    },
+    {
+      "key": "rave-reviews",
+      "id": "1997_Circa_Baseball_Rave_Reviews",
+      "name": "Rave Reviews",
+      "kind": "INSERT",
+      "oddsPerPack": 288,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/883/1997-Circa---Rave-Reviews",
+      "expectedCards": 12,
+      "notes": "12-card holofoil insert set, inserted 1:288 packs."
+    },
+    {
+      "key": "emerald-autographs-exchange",
+      "id": "1997_Circa_Baseball_Emerald_Autographs_Exchange",
+      "name": "Emerald Autographs Exchange",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/878/1997-Circa-Emerald-Autographs-Exchange",
+      "expectedCards": 6,
+      "notes": "Six finished autograph cards received in exchange for the complete ten-card redemption set. AU/EXCH metadata is retained. The 1:1000 hobby rate applies to redemption pieces and is not assigned directly to these finished cards."
+    }
+  ]
+}

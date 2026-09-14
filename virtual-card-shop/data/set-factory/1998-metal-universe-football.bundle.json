@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/4219/1998-Metal-Universe",
+    "checklistReference": "https://www.beckett.com/news/1998-metal-universe-football/",
+    "note": "Set structure, card-level teams, insert families, published insert odds, and parallel serial-number structure were cross-checked against TCDB and Beckett. Promotional samples are excluded from normal VCS packs."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Hobby",
+    "baseStructure": {
+      "veterans": "#1-172",
+      "rookies": "#173-197; subset=Rookie; variant=RC",
+      "checklists": "#198-200; subset=Checklist; variant=CL"
+    },
+    "historicalTeamNaming": "1998 Tennessee cards are stored as Tennessee Oilers, matching the historical team identity used on TCDB-era checklist references.",
+    "nnoHandling": "Autographics are physically unnumbered. VCS uses deterministic checklist sequence numbers 1-73 within the Autographics ProductSet and records Physical NNO in variant metadata.",
+    "decidedEdgeHandling": "TCDB documents an enclosed card and outer envelope presentation. VCS models the 10 collectible inner cards only; the NNO envelope is treated as packaging rather than a separate collectible card.",
+    "parallelOddsStatus": "PENDING_VERIFICATION",
+    "parallelOddsNote": "Precious Metal Gems (SN50) and Precious Metal Gems Masters (SN1) are included as full 200-card derived parallels, but no trustworthy pack insertion ratios were located. Their odds remain null and release stays blocked until configured.",
+    "excludeRelatedSets": [
+      "Promos (Jake Plummer SAMPLE; Shannon Sharpe SAMPLE)",
+      "SkyBox Premium Autographics Blue Ink parallel, which is not listed by TCDB as a Metal Universe pack issue"
+    ]
+  },
+  "product": {
+    "id": "1998_Metal_Universe_Football",
+    "year": 1998,
+    "brand": "Metal Universe",
+    "sport": "Football",
+    "cardsPerPack": 8,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1998-metal-universe-football.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1998_Metal_Universe_Football_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4219/1998-Metal-Universe",
+      "expectedCards": 200,
+      "notes": "Base set #1-200. #173-197 are rookies; #198-200 are checklist cards."
+    },
+    {
+      "key": "autographics",
+      "id": "1998_Metal_Universe_Football_Autographics",
+      "name": "Autographics",
+      "kind": "INSERT",
+      "oddsPerPack": 68,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4219/1998-Metal-Universe",
+      "expectedCards": 73,
+      "notes": "Shared 73-card Autographics checklist, inserted 1:68 packs. Physical cards are NNO with black-ink autographs; VCS uses deterministic sequence numbers 1-73."
+    },
+    {
+      "key": "autographics-checklist",
+      "id": "1998_Metal_Universe_Football_Autographics_Checklist",
+      "name": "Autographics Checklist",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4219/1998-Metal-Universe",
+      "expectedCards": 1,
+      "notes": "Physical NNO checklist card randomly issued in packs; no reliable pack ratio located."
+    },
+    {
+      "key": "decided-edge",
+      "id": "1998_Metal_Universe_Football_Decided_Edge",
+      "name": "Decided Edge",
+      "kind": "INSERT",
+      "oddsPerPack": 288,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4219/1998-Metal-Universe",
+      "expectedCards": 10,
+      "notes": "1:288 packs. VCS models the 10 enclosed collectible cards; outer NNO envelopes are not separate cards."
+    },
+    {
+      "key": "ex2001-previews",
+      "id": "1998_Metal_Universe_Football_EX2001_Previews",
+      "name": "E-X2001 Previews",
+      "kind": "INSERT",
+      "oddsPerPack": 144,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4219/1998-Metal-Universe",
+      "expectedCards": 15,
+      "notes": "15-card insert set, 1:144 packs."
+    },
+    {
+      "key": "planet-football",
+      "id": "1998_Metal_Universe_Football_Planet_Football",
+      "name": "Planet Football",
+      "kind": "INSERT",
+      "oddsPerPack": 8,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4219/1998-Metal-Universe",
+      "expectedCards": 15,
+      "notes": "15-card insert set, 1:8 packs."
+    },
+    {
+      "key": "quasars",
+      "id": "1998_Metal_Universe_Football_Quasars",
+      "name": "Quasars",
+      "kind": "INSERT",
+      "oddsPerPack": 20,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4219/1998-Metal-Universe",
+      "expectedCards": 15,
+      "notes": "15-card insert set, 1:20 packs."
+    },
+    {
+      "key": "titanium",
+      "id": "1998_Metal_Universe_Football_Titanium",
+      "name": "Titanium",
+      "kind": "INSERT",
+      "oddsPerPack": 96,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4219/1998-Metal-Universe",
+      "expectedCards": 10,
+      "notes": "10-card insert set, 1:96 packs."
+    },
+    {
+      "key": "precious-metal-gems",
+      "id": "1998_Metal_Universe_Football_Precious_Metal_Gems",
+      "name": "Precious Metal Gems",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4219/1998-Metal-Universe",
+      "expectedCards": 200,
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Precious Metal Gems; SN50",
+      "notes": "Full 200-card parallel serial numbered to 50. Pack ratio not reliably verified; odds intentionally null."
+    },
+    {
+      "key": "precious-metal-gems-masters",
+      "id": "1998_Metal_Universe_Football_Precious_Metal_Gems_Masters",
+      "name": "Precious Metal Gems Masters",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/34699/1998-Metal-Universe---Precious-Metal-Gems-Masters",
+      "expectedCards": 200,
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Precious Metal Gems Masters; SN1",
+      "notes": "Full 200-card one-of-one parallel. Pack ratio not reliably verified; odds intentionally null."
+    }
+  ]
+}

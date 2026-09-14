@@ -1,0 +1,340 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Jerry Rice,San Francisco 49ers,,
+base,2,Muhsin Muhammad,Carolina Panthers,,
+base,3,Ed McCaffrey,Denver Broncos,,
+base,4,Brett Favre,Green Bay Packers,,
+base,5,Troy Brown,New England Patriots,,
+base,6,Brad Johnson,Minnesota Vikings,,
+base,7,John Elway,Denver Broncos,,
+base,8,Herman Moore,Detroit Lions,,
+base,9,O.J. McDuffie,Miami Dolphins,,
+base,10,Tim Brown,Oakland Raiders,,
+base,11,Byron Hanspard,Atlanta Falcons,,
+base,12,Rae Carruth,Carolina Panthers,,
+base,13,Rod Smith,Denver Broncos,,
+base,14,John Randle,Minnesota Vikings,,
+base,15,Karim Abdul-Jabbar,Miami Dolphins,,
+base,16,Bobby Hoying,Philadelphia Eagles,,
+base,17,Steve Young,San Francisco 49ers,,
+base,18,Andre Hastings,New Orleans Saints,,
+base,19,Chidi Ahanotu,Tampa Bay Buccaneers,,
+base,20,Barry Sanders,Detroit Lions,,
+base,21,Bruce Smith,Buffalo Bills,,
+base,22,Kimble Anders,Kansas City Chiefs,,
+base,23,Troy Davis,New Orleans Saints,,
+base,24,Jamal Anderson,Atlanta Falcons,,
+base,25,Curtis Conway,Chicago Bears,,
+base,26,Mark Chmura,Green Bay Packers,,
+base,27,Reggie White,Green Bay Packers,,
+base,28,Jake Reed,Minnesota Vikings,,
+base,29,Willie McGinest,New England Patriots,,
+base,30,Terrell Davis,Denver Broncos,,
+base,31,Joey Galloway,Seattle Seahawks,,
+base,32,Leslie Shepherd,Washington Redskins,,
+base,33,Peter Boulware,Baltimore Ravens,,
+base,34,Chad Lewis,Philadelphia Eagles,,
+base,35,Marcus Allen,Kansas City Chiefs,,
+base,36,Randal Hill,New Orleans Saints,,
+base,37,Jerome Bettis,Pittsburgh Steelers,,
+base,38,William Floyd,Carolina Panthers,,
+base,39,Warren Moon,Seattle Seahawks,,
+base,40,Mike Alstott,Tampa Bay Buccaneers,,
+base,41,Jay Graham,Baltimore Ravens,,
+base,42,Emmitt Smith,Dallas Cowboys,,
+base,43,James O. Stewart,Jacksonville Jaguars,,
+base,44,Charlie Garner,Philadelphia Eagles,,
+base,45,Merton Hanks,San Francisco 49ers,,
+base,46,Shawn Springs,Seattle Seahawks,,
+base,47,Chris Calloway,New York Giants,,
+base,48,Larry Centers,Arizona Cardinals,,
+base,49,Michael Jackson,Baltimore Ravens,,
+base,50,Deion Sanders,Dallas Cowboys,,
+base,51,Jimmy Smith,Jacksonville Jaguars,,
+base,52,Jason Sehorn,New York Giants,,
+base,53,Charles Johnson,Pittsburgh Steelers,,
+base,54,Garrison Hearst,San Francisco 49ers,,
+base,55,Chris Warren,Dallas Cowboys,,
+base,56,Warren Sapp,Tampa Bay Buccaneers,,
+base,57,Corey Dillon,Cincinnati Bengals,,
+base,58,Marvin Harrison,Indianapolis Colts,,
+base,59,Chris Sanders,Tennessee Oilers,,
+base,60,Jamie Asher,Washington Redskins,,
+base,61,Yancey Thigpen,Tennessee Oilers,,
+base,62,Freddie Jones,San Diego Chargers,,
+base,63,Rob Moore,Arizona Cardinals,,
+base,64,Jermaine Lewis,Baltimore Ravens,,
+base,65,Michael Irvin,Dallas Cowboys,,
+base,66,Natrone Means,San Diego Chargers,,
+base,67,Charles Way,New York Giants,,
+base,68,Terry Kirby,San Francisco 49ers,,
+base,69,Tony Banks,St. Louis Rams,,
+base,70,Steve McNair,Tennessee Oilers,,
+base,71,Vinny Testaverde,New York Jets,,
+base,72,Dexter Coakley,Dallas Cowboys,,
+base,73,Keenan McCardell,Jacksonville Jaguars,,
+base,74,Glenn Foley,New York Jets,,
+base,75,Isaac Bruce,St. Louis Rams,,
+base,76,Terry Allen,Washington Redskins,,
+base,77,Todd Collins,Buffalo Bills,,
+base,78,Troy Aikman,Dallas Cowboys,,
+base,79,Damon Jones,Jacksonville Jaguars,,
+base,80,Leon Johnson,New York Jets,,
+base,81,James Jett,Oakland Raiders,,
+base,82,Frank Wycheck,Tennessee Oilers,,
+base,83,Andre Reed,Buffalo Bills,,
+base,84,Derrick Alexander,Kansas City Chiefs,,
+base,85,Jason Taylor,Miami Dolphins,,
+base,86,Wayne Chrebet,New York Jets,,
+base,87,Napoleon Kaufman,Oakland Raiders,,
+base,88,Eddie George,Tennessee Oilers,,
+base,89,Ernie Conwell,St. Louis Rams,,
+base,90,Antowain Smith,Buffalo Bills,,
+base,91,Johnnie Morton,Detroit Lions,,
+base,92,Jerris McPhail,Miami Dolphins,,
+base,93,Cris Carter,Minnesota Vikings,,
+base,94,Danny Kanell,New York Giants,,
+base,95,Stan Humphries,San Diego Chargers,,
+base,96,Terrell Owens,San Francisco 49ers,,
+base,97,Willie Davis,Tennessee Oilers,,
+base,98,David Dunn,Cincinnati Bengals,,
+base,99,Tony Brackens,Jacksonville Jaguars,,
+base,100,Kordell Stewart,Pittsburgh Steelers,,
+base,101,Rodney Thomas,Tennessee Oilers,,
+base,102,Keyshawn Johnson,New York Jets,,
+base,103,Carl Pickens,Cincinnati Bengals,,
+base,104,Mark Brunell,Jacksonville Jaguars,,
+base,105,Jeff George,Oakland Raiders,,
+base,106,Bert Emanuel,Tampa Bay Buccaneers,,
+base,107,Wesley Walls,Carolina Panthers,,
+base,108,Bryant Westbrook,Detroit Lions,,
+base,109,Dorsey Levens,Green Bay Packers,,
+base,110,Drew Bledsoe,New England Patriots,,
+base,111,Adrian Murrell,Arizona Cardinals,,
+base,112,Aeneas Williams,Arizona Cardinals,,
+base,113,Raymont Harris,Green Bay Packers,,
+base,114,Tony Gonzalez,Kansas City Chiefs,,
+base,115,Sean Dawkins,Miami Dolphins,,
+base,116,Billy Joe Hobert,New Orleans Saints,,
+base,117,James McKnight,Seattle Seahawks,,
+base,118,Reidel Anthony,Tampa Bay Buccaneers,,
+base,119,Terance Mathis,Atlanta Falcons,,
+base,120,Darrien Gordon,Denver Broncos,,
+base,121,Dale Carter,Kansas City Chiefs,,
+base,122,Duce Staley,Philadelphia Eagles,,
+base,123,Jerald Moore,St. Louis Rams,,
+base,124,Eric Swann,Arizona Cardinals,,
+base,125,Antonio Freeman,Green Bay Packers,,
+base,126,Chris Penn,Chicago Bears,,
+base,127,Ken Dilger,Indianapolis Colts,,
+base,128,Robert Smith,Minnesota Vikings,,
+base,129,Tiki Barber,New York Giants,,
+base,130,Mark Bruener,Pittsburgh Steelers,,
+base,131,Junior Seau,San Diego Chargers,,
+base,132,Trent Dilfer,Tampa Bay Buccaneers,,
+base,133,Gus Frerotte,Washington Redskins,,
+base,134,Jake Plummer,Arizona Cardinals,,
+base,135,Jeff Blake,Cincinnati Bengals,,
+base,136,Jim Harbaugh,Baltimore Ravens,,
+base,137,Michael Strahan,New York Giants,,
+base,138,Gary Brown,San Diego Chargers,,
+base,139,Tony Martin,San Diego Chargers,,
+base,140,Stephen Davis,Washington Redskins,,
+base,141,Thurman Thomas,Buffalo Bills,,
+base,142,Scott Mitchell,Detroit Lions,,
+base,143,Dan Marino,Miami Dolphins,,
+base,144,David Palmer,Minnesota Vikings,,
+base,145,J.J. Stokes,San Francisco 49ers,,
+base,146,Chris Chandler,Atlanta Falcons,,
+base,147,Darnell Autry,Chicago Bears,,
+base,148,Robert Brooks,Green Bay Packers,,
+base,149,Derrick Mayes,Green Bay Packers,,
+base,150,Curtis Martin,New York Jets,,
+base,151,Steve Broussard,Seattle Seahawks,,
+base,152,Eddie Kennison,St. Louis Rams,,
+base,153,Kerry Collins,Carolina Panthers,,
+base,154,Shannon Sharpe,Denver Broncos,,
+base,155,Andre Rison,Kansas City Chiefs,,
+base,156,Dwayne Rudd,Minnesota Vikings,,
+base,157,Orlando Pace,St. Louis Rams,,
+base,158,Terry Glenn,New England Patriots,,
+base,159,Frank Sanders,Arizona Cardinals,,
+base,160,Ricky Proehl,St. Louis Rams,,
+base,161,Marshall Faulk,Indianapolis Colts,,
+base,162,Irving Fryar,Philadelphia Eagles,,
+base,163,Courtney Hawkins,Pittsburgh Steelers,,
+base,164,Eric Metcalf,Arizona Cardinals,,
+base,165,Warrick Dunn,Tampa Bay Buccaneers,,
+base,166,Cris Dishman,Washington Redskins,,
+base,167,Fred Lane,Carolina Panthers,,
+base,168,John Mobley,Denver Broncos,,
+base,169,Elvis Grbac,Kansas City Chiefs,,
+base,170,Ben Coates,New England Patriots,,
+base,171,Rickey Dudley,Oakland Raiders,,
+base,172,Ricky Watters,Seattle Seahawks,,
+base,173,Alonzo Mayes,Chicago Bears,Rookie,RC
+base,174,Andre Wadsworth,Arizona Cardinals,Rookie,RC
+base,175,Brian Simmons,Cincinnati Bengals,Rookie,RC
+base,176,Charles Woodson,Oakland Raiders,Rookie,RC
+base,177,Curtis Enis,Chicago Bears,Rookie,RC
+base,178,Fred Taylor,Jacksonville Jaguars,Rookie,RC
+base,179,Germane Crowell,Detroit Lions,Rookie,RC
+base,180,Greg Ellis,Dallas Cowboys,Rookie,RC
+base,181,Jacquez Green,Tampa Bay Buccaneers,Rookie,RC
+base,182,Jason Peter,Carolina Panthers,Rookie,RC
+base,183,John Dutton,Miami Dolphins,Rookie,RC
+base,184,Kevin Dyson,Tennessee Oilers,Rookie,RC
+base,185,Kivuusama Mays,Minnesota Vikings,Rookie,RC
+base,186,Marcus Nash,Denver Broncos,Rookie,RC
+base,187,Michael Myers,Dallas Cowboys,Rookie,RC
+base,188,Ahman Green,Seattle Seahawks,Rookie,RC
+base,189,Peyton Manning,Indianapolis Colts,Rookie,RC
+base,190,Randy Moss,Minnesota Vikings,Rookie,RC
+base,191,Robert Edwards,New England Patriots,Rookie,RC
+base,192,Robert Holcombe,St. Louis Rams,Rookie,RC
+base,193,Ryan Leaf,San Diego Chargers,Rookie,RC
+base,194,Takeo Spikes,Cincinnati Bengals,Rookie,RC
+base,195,Tavian Banks,Jacksonville Jaguars,Rookie,RC
+base,196,Tim Dwight,Atlanta Falcons,Rookie,RC
+base,197,Vonnie Holliday,Green Bay Packers,Rookie,RC
+base,198,Dorsey Levens,Green Bay Packers,Checklist,CL
+base,199,Jerry Rice,San Francisco 49ers,Checklist,CL
+base,200,Dan Marino,Miami Dolphins,Checklist,CL
+autographics,1,Kevin Abrams,Detroit Lions,Autographics,Physical NNO; AU
+autographics,2,Mike Alstott,Tampa Bay Buccaneers,Autographics,Physical NNO; AU
+autographics,3,Jamie Asher,Washington Redskins,Autographics,Physical NNO; AU
+autographics,4,John Avery,Miami Dolphins,Autographics,Physical NNO; AU
+autographics,5,Tavian Banks,Jacksonville Jaguars,Autographics,Physical NNO; AU
+autographics,6,Pat Barnes,Kansas City Chiefs,Autographics,Physical NNO; AU
+autographics,7,Jerome Bettis,Pittsburgh Steelers,Autographics,Physical NNO; AU
+autographics,8,Eric Bjornson,Dallas Cowboys,Autographics,Physical NNO; AU
+autographics,9,Peter Boulware,Baltimore Ravens,Autographics,Physical NNO; AU
+autographics,10,Troy Brown,New England Patriots,Autographics,Physical NNO; AU
+autographics,11,Mark Bruener,Pittsburgh Steelers,Autographics,Physical NNO; AU
+autographics,12,Mark Brunell,Jacksonville Jaguars,Autographics,Physical NNO; AU
+autographics,13,Rae Carruth,Carolina Panthers,Autographics,Physical NNO; AU
+autographics,14,Ray Crockett,Denver Broncos,Autographics,Physical NNO; AU
+autographics,15,Germane Crowell,Detroit Lions,Autographics,Physical NNO; AU
+autographics,16,Stephen Davis,Washington Redskins,Autographics,Physical NNO; AU
+autographics,17,Troy Davis,New Orleans Saints,Autographics,Physical NNO; AU
+autographics,18,Sean Dawkins,Miami Dolphins,Autographics,Physical NNO; AU
+autographics,19,Trent Dilfer,Tampa Bay Buccaneers,Autographics,Physical NNO; AU
+autographics,20,Corey Dillon,Cincinnati Bengals,Autographics,Physical NNO; AU
+autographics,21,Jim Druckenmiller,San Francisco 49ers,Autographics,Physical NNO; AU
+autographics,22,Kevin Dyson,Tennessee Oilers,Autographics,Physical NNO; AU
+autographics,23,Marc Edwards,San Francisco 49ers,Autographics,Physical NNO; AU
+autographics,24,Robert Edwards,New England Patriots,Autographics,Physical NNO; AU
+autographics,25,Bobby Engram,Chicago Bears,Autographics,Physical NNO; AU
+autographics,26,Curtis Enis,Chicago Bears,Autographics,Physical NNO; AU
+autographics,27,William Floyd,Carolina Panthers,Autographics,Physical NNO; AU
+autographics,28,Glenn Foley,New York Jets,Autographics,Physical NNO; AU
+autographics,29,Chris Fuamatu-Ma'afala,Pittsburgh Steelers,Autographics,Physical NNO; AU
+autographics,30,Joey Galloway,Seattle Seahawks,Autographics,Physical NNO; AU
+autographics,31,Jeff George,Oakland Raiders,Autographics,Physical NNO; AU
+autographics,32,Ahman Green,Seattle Seahawks,Autographics,Physical NNO; AU
+autographics,33,Jacquez Green,Tampa Bay Buccaneers,Autographics,Physical NNO; AU
+autographics,34,Yatil Green,Miami Dolphins,Autographics,Physical NNO; AU
+autographics,35,Byron Hanspard,Atlanta Falcons,Autographics,Physical NNO; AU
+autographics,36,Marvin Harrison,Indianapolis Colts,Autographics,Physical NNO; AU
+autographics,37,Skip Hicks,Washington Redskins,Autographics,Physical NNO; AU
+autographics,38,Robert Holcombe,St. Louis Rams,Autographics,Physical NNO; AU
+autographics,39,Bobby Hoying,Philadelphia Eagles,Autographics,Physical NNO; AU
+autographics,40,Travis Jervey,Green Bay Packers,Autographics,Physical NNO; AU
+autographics,41,Rob Johnson,Buffalo Bills,Autographics,Physical NNO; AU
+autographics,42,Freddie Jones,San Diego Chargers,Autographics,Physical NNO; AU
+autographics,43,Eddie Kennison,St. Louis Rams,Autographics,Physical NNO; AU
+autographics,44,Fred Lane,Carolina Panthers,Autographics,Physical NNO; AU
+autographics,45,Ryan Leaf,San Diego Chargers,Autographics,Physical NNO; AU
+autographics,46,Dorsey Levens,Green Bay Packers,Autographics,Physical NNO; AU
+autographics,47,Jeff Lewis,Denver Broncos,Autographics,Physical NNO; AU
+autographics,48,Jermaine Lewis,Baltimore Ravens,Autographics,Physical NNO; AU
+autographics,49,Dan Marino,Miami Dolphins,Autographics,Physical NNO; AU
+autographics,50,Curtis Martin,New York Jets,Autographics,Physical NNO; AU
+autographics,51,Steve Matthews,Jacksonville Jaguars,Autographics,Physical NNO; AU
+autographics,52,Alonzo Mayes,Chicago Bears,Autographics,Physical NNO; AU
+autographics,53,Keenan McCardell,Jacksonville Jaguars,Autographics,Physical NNO; AU
+autographics,54,Willie McGinest,New England Patriots,Autographics,Physical NNO; AU
+autographics,55,James McKnight,Seattle Seahawks,Autographics,Physical NNO; AU
+autographics,56,Glyn Milburn,Green Bay Packers,Autographics,Physical NNO; AU
+autographics,57,Randy Moss,Minnesota Vikings,Autographics,Physical NNO; AU
+autographics,58,Marcus Nash,Denver Broncos,Autographics,Physical NNO; AU
+autographics,59,Terrell Owens,San Francisco 49ers,Autographics,Physical NNO; AU
+autographics,60,Jason Peter,Carolina Panthers,Autographics,Physical NNO; AU
+autographics,61,Jake Plummer,Arizona Cardinals,Autographics,Physical NNO; AU
+autographics,62,John Randle,Minnesota Vikings,Autographics,Physical NNO; AU
+autographics,63,Shannon Sharpe,Denver Broncos,Autographics,Physical NNO; AU
+autographics,64,Jimmy Smith,Jacksonville Jaguars,Autographics,Physical NNO; AU
+autographics,65,Robert Smith,Minnesota Vikings,Autographics,Physical NNO; AU
+autographics,66,Duce Staley,Philadelphia Eagles,Autographics,Physical NNO; AU
+autographics,67,Kordell Stewart,Pittsburgh Steelers,Autographics,Physical NNO; AU
+autographics,68,Fred Taylor,Jacksonville Jaguars,Autographics,Physical NNO; AU
+autographics,69,Rodney Thomas,Tennessee Oilers,Autographics,Physical NNO; AU
+autographics,70,Kevin Turner,Philadelphia Eagles,Autographics,Physical NNO; AU
+autographics,71,Hines Ward,Pittsburgh Steelers,Autographics,Physical NNO; AU
+autographics,72,Charles Way,New York Giants,Autographics,Physical NNO; AU
+autographics,73,Frank Wycheck,Tennessee Oilers,Autographics,Physical NNO; AU
+autographics-checklist,1,Autographics Checklist,,Autographics Checklist,Physical NNO; Checklist
+decided-edge,1,Terrell Davis,Denver Broncos,Decided Edge,ENC; outer envelope NNO not modeled
+decided-edge,2,Brett Favre,Green Bay Packers,Decided Edge,ENC; outer envelope NNO not modeled
+decided-edge,3,John Elway,Denver Broncos,Decided Edge,ENC; outer envelope NNO not modeled
+decided-edge,4,Barry Sanders,Detroit Lions,Decided Edge,ENC; outer envelope NNO not modeled
+decided-edge,5,Eddie George,Tennessee Oilers,Decided Edge,ENC; outer envelope NNO not modeled
+decided-edge,6,Jerry Rice,San Francisco 49ers,Decided Edge,ENC; outer envelope NNO not modeled
+decided-edge,7,Emmitt Smith,Dallas Cowboys,Decided Edge,ENC; outer envelope NNO not modeled
+decided-edge,8,Dan Marino,Miami Dolphins,Decided Edge,ENC; outer envelope NNO not modeled
+decided-edge,9,Troy Aikman,Dallas Cowboys,Decided Edge,ENC; outer envelope NNO not modeled
+decided-edge,10,Marcus Allen,Kansas City Chiefs,Decided Edge,ENC; outer envelope NNO not modeled
+ex2001-previews,1,Barry Sanders,Detroit Lions,E-X2001 Previews,
+ex2001-previews,2,Brett Favre,Green Bay Packers,E-X2001 Previews,
+ex2001-previews,3,Corey Dillon,Cincinnati Bengals,E-X2001 Previews,
+ex2001-previews,4,John Elway,Denver Broncos,E-X2001 Previews,
+ex2001-previews,5,Drew Bledsoe,New England Patriots,E-X2001 Previews,
+ex2001-previews,6,Eddie George,Tennessee Oilers,E-X2001 Previews,
+ex2001-previews,7,Emmitt Smith,Dallas Cowboys,E-X2001 Previews,
+ex2001-previews,8,Joey Galloway,Seattle Seahawks,E-X2001 Previews,
+ex2001-previews,9,Karim Abdul-Jabbar,Miami Dolphins,E-X2001 Previews,
+ex2001-previews,10,Kordell Stewart,Pittsburgh Steelers,E-X2001 Previews,
+ex2001-previews,11,Mark Brunell,Jacksonville Jaguars,E-X2001 Previews,
+ex2001-previews,12,Mike Alstott,Tampa Bay Buccaneers,E-X2001 Previews,
+ex2001-previews,13,Warrick Dunn,Tampa Bay Buccaneers,E-X2001 Previews,
+ex2001-previews,14,Antonio Freeman,Green Bay Packers,E-X2001 Previews,
+ex2001-previews,15,Terrell Davis,Denver Broncos,E-X2001 Previews,
+planet-football,1,Barry Sanders,Detroit Lions,Planet Football,
+planet-football,2,Corey Dillon,Cincinnati Bengals,Planet Football,
+planet-football,3,Warrick Dunn,Tampa Bay Buccaneers,Planet Football,
+planet-football,4,Jake Plummer,Arizona Cardinals,Planet Football,
+planet-football,5,John Elway,Denver Broncos,Planet Football,
+planet-football,6,Kordell Stewart,Pittsburgh Steelers,Planet Football,
+planet-football,7,Curtis Martin,New York Jets,Planet Football,
+planet-football,8,Mark Brunell,Jacksonville Jaguars,Planet Football,
+planet-football,9,Dorsey Levens,Green Bay Packers,Planet Football,
+planet-football,10,Troy Aikman,Dallas Cowboys,Planet Football,
+planet-football,11,Terry Glenn,New England Patriots,Planet Football,
+planet-football,12,Eddie George,Tennessee Oilers,Planet Football,
+planet-football,13,Keyshawn Johnson,New York Jets,Planet Football,
+planet-football,14,Steve McNair,Tennessee Oilers,Planet Football,
+planet-football,15,Jerry Rice,San Francisco 49ers,Planet Football,
+quasars,1,Peyton Manning,Indianapolis Colts,Quasars,
+quasars,2,Ryan Leaf,San Diego Chargers,Quasars,
+quasars,3,Charles Woodson,Oakland Raiders,Quasars,
+quasars,4,Randy Moss,Minnesota Vikings,Quasars,
+quasars,5,Curtis Enis,Chicago Bears,Quasars,
+quasars,6,Tavian Banks,Jacksonville Jaguars,Quasars,
+quasars,7,Germane Crowell,Detroit Lions,Quasars,
+quasars,8,Kevin Dyson,Tennessee Oilers,Quasars,
+quasars,9,Robert Edwards,New England Patriots,Quasars,
+quasars,10,Jacquez Green,Tampa Bay Buccaneers,Quasars,
+quasars,11,Alonzo Mayes,Chicago Bears,Quasars,
+quasars,12,Brian Simmons,Cincinnati Bengals,Quasars,
+quasars,13,Takeo Spikes,Cincinnati Bengals,Quasars,
+quasars,14,Andre Wadsworth,Arizona Cardinals,Quasars,
+quasars,15,Ahman Green,Seattle Seahawks,Quasars,
+titanium,1,Corey Dillon,Cincinnati Bengals,Titanium,
+titanium,2,Emmitt Smith,Dallas Cowboys,Titanium,
+titanium,3,Terrell Davis,Denver Broncos,Titanium,
+titanium,4,Brett Favre,Green Bay Packers,Titanium,
+titanium,5,Mark Brunell,Jacksonville Jaguars,Titanium,
+titanium,6,Dan Marino,Miami Dolphins,Titanium,
+titanium,7,Curtis Martin,New York Jets,Titanium,
+titanium,8,Kordell Stewart,Pittsburgh Steelers,Titanium,
+titanium,9,Warrick Dunn,Tampa Bay Buccaneers,Titanium,
+titanium,10,Steve McNair,Tennessee Oilers,Titanium,
