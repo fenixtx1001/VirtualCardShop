@@ -33,6 +33,36 @@ if not team and not is_checklist_card(player, subset):
 
 This convention is intentionally aligned with `scripts/import-set-bundle.ts`, whose `isChecklistCard` logic exempts checklist cards from the `teamData: COMPLETE` missing-team check.
 
+## Player / subject field cleanliness
+
+The `player` field is display-facing. It should contain the player or card subject name plus only short, conventional collector abbreviations that are useful inline.
+
+Allowed examples after the name include small markers such as:
+
+- `RC` for a verified true rookie card
+- `MGR` for manager
+- `RB` for Record Breaker
+- other similarly short, established card-designation abbreviations when they genuinely belong with the displayed subject
+
+Do **not** append descriptive source text, achievements, statistical captions, checklist ranges, award descriptions, or other long annotations to the player name.
+
+For example:
+
+- `Eric Dickerson RB` is acceptable.
+- `Eric Dickerson RBMost Rushing Yards` is not acceptable.
+- `Charlie Joiner RB` is acceptable.
+- `Charlie Joiner RBMost Receptions` is not acceptable.
+
+Descriptive text such as `Most Rushing Yards`, `Most Receptions`, award/career-stat wording, error descriptions, variation descriptions, serial-number information, and similar collector metadata belongs in `subset` or `variant` as appropriate.
+
+Generators should parse the source label into three concepts rather than copying the raw source string into `player`:
+
+1. **Player/subject** — clean display name plus permitted short abbreviation(s).
+2. **Subset** — a named card grouping or thematic subset when applicable.
+3. **Variant** — card-specific notes such as an achievement caption, error/correction, print variation, serial numbering, autograph/memorabilia attribute, or other collector detail.
+
+When uncertain, prefer a cleaner `player` value and preserve the extra source text in `subset` or `variant` rather than displaying it inline with the player's name.
+
 ## Standing rule
 
-This is a forward-looking Set Factory rule. All new generators should include the checklist-card exception from the start rather than discovering it set-by-set.
+These are forward-looking Set Factory rules. All new generators should include the checklist-card exception and player-field cleanup from the start rather than discovering them set-by-set.
