@@ -8,11 +8,17 @@ type CaptureMessage = {
   productSetId: string;
   cardNumber: string;
   sourceUrl?: string;
-  front: Blob;
-  back: Blob;
+  front?: Blob | null;
+  back?: Blob | null;
   frontName?: string;
   backName?: string;
 };
+
+type CaptureOutcome =
+  | "captured"
+  | "partial"
+  | "unavailable"
+  | "already-complete";
 
 const ACTIVE_SET_STORAGE_KEY = "vcs.setFactory.activeProductSetId";
 
@@ -22,6 +28,7 @@ function buildBookmarklet(vcsOrigin: string) {
   return `javascript:(async()=>{try{
 const O=${origin};
 if(!/(^|\\.)tcdb\\.com$/i.test(location.hostname))throw new Error("Open a TCDB card page first.");
+if(!/\\/ViewCard\\.cfm$/i.test(location.pathname))throw new Error("Open an individual TCDB card page first.");
 
 const I=[...document.images].map(i=>{
   const r=i.getBoundingClientRect();
@@ -33,23 +40,25 @@ const I=[...document.images].map(i=>{
     top:r.top,
     left:r.left
   };
-}).filter(x=>x.src);
+}).filter(x=>x.src&&!/(?:no[-_ ]?image|no[-_ ]?photo|placeholder|missing[-_ ]?image)/i.test(x.src));
 
+const label=x=>((x&&x.alt)||"")+" "+((x&&x.title)||"")+" "+((x&&x.src)||"");
 let F=I.find(x=>/RepFr\\.(?:jpe?g|png|webp|gif)(?:\\?|$)/i.test(x.src));
 let B=I.find(x=>/RepBk\\.(?:jpe?g|png|webp|gif)(?:\\?|$)/i.test(x.src));
 
+if(!F)F=I.find(x=>/\\/Images\\/Cards\\//i.test(x.src)&&x.area>20000&&/\\bfront\\b/i.test(label(x)));
+if(!B)B=I.find(x=>/\\/Images\\/Cards\\//i.test(x.src)&&x.area>20000&&/\\bback\\b/i.test(label(x)));
+
 if(!F||!B){
-  const C=I
+  const K=I
     .filter(x=>/\\/Images\\/Cards\\//i.test(x.src)&&x.area>20000)
     .sort((a,b)=>b.area-a.area)
     .slice(0,4)
     .sort((a,b)=>a.top-b.top||a.left-b.left);
 
-  if(!F)F=C.find(x=>!B||x.src!==B.src);
-  if(!B)B=C.find(x=>!F||x.src!==F.src);
+  if(!F)F=K.find(x=>!B||x.src!==B.src);
+  if(!B)B=K.find(x=>!F||x.src!==F.src);
 }
-
-if(!F||!B)throw new Error("Could not identify both card images.");
 
 const T=[
   document.title,
@@ -64,12 +73,25 @@ let C=M?M[1]:"";
 if(!C)C=prompt("VCS could not detect the card number. Enter it:")||"";
 if(!C)throw new Error("Card number is required.");
 
-const N=crypto.randomUUID?crypto.randomUUID():Date.now()+"-"+Math.random().toString(36).slice(2);
+const links=[...document.querySelectorAll("a[href]")];
+const nextLink=links.find(a=>{
+  const text=(a.textContent||"").trim().toLowerCase();
+  const aria=(a.getAttribute("aria-label")||"").trim().toLowerCase();
+  const title=(a.getAttribute("title")||"").trim().toLowerCase();
+  if(text!=="next"&&aria!=="next"&&title!=="next")return false;
+  try{
+    const u=new URL(a.href,location.href);
+    return u.hostname===location.hostname&&/\\/ViewCard\\.cfm$/i.test(u.pathname);
+  }catch{return false;}
+});
+const U=nextLink?nextLink.href:"";
 
-let R=false,D=null,W=null,P="";
+const N=crypto.randomUUID?crypto.randomUUID():Date.now()+"-"+Math.random().toString(36).slice(2);
+let R=false,D=null,W=null,P="",sent=false;
 
 const S=()=>{
-  if(R&&D&&W&&!W.closed){
+  if(R&&D&&W&&!W.closed&&!sent){
+    sent=true;
     W.postMessage({
       type:"vcs-card-capture",
       nonce:N,
@@ -81,20 +103,33 @@ const S=()=>{
       frontName:D.frontName,
       backName:D.backName
     },O);
-    removeEventListener("message",H);
   }
 };
 
 const H=e=>{
-  if(e.origin===O&&e.data&&e.data.type==="vcs-capture-ready"&&e.data.nonce===N){
+  if(e.origin!==O||!e.data||e.data.nonce!==N)return;
+
+  if(e.data.type==="vcs-capture-ready"){
     P=String(e.data.productSetId||"").trim();
     if(!P){
       removeEventListener("message",H);
-      alert("VCS Capture: No Active Product Set is configured in VCS.");
+      alert("VCS Harvest: No Active Product Set is configured in VCS.");
       return;
     }
     R=true;
     S();
+    return;
+  }
+
+  if(e.data.type==="vcs-capture-complete"){
+    removeEventListener("message",H);
+    if(W&&!W.closed)W.close();
+    if(e.data.accountedFor){
+      if(U)location.assign(U);
+      else console.info("VCS Harvest: card accounted for; no Next card link was found.");
+    }else{
+      alert("VCS Harvest stopped: "+(e.data.message||"capture was not accounted for."));
+    }
   }
 };
 
@@ -103,38 +138,41 @@ addEventListener("message",H);
 W=open(
   O+"/admin/set-factory/capture?receiver=1&nonce="+encodeURIComponent(N),
   "vcsSetCapture",
-  "width=560,height=700"
+  "width=520,height=420"
 );
 
-if(!W)throw new Error("Popup blocked. Allow popups for TCDB and try again.");
-
-const Q=await Promise.all([
-  fetch(F.src,{credentials:"include",cache:"default"}),
-  fetch(B.src,{credentials:"include",cache:"default"})
-]);
-
-if(!Q[0].ok||!Q[1].ok){
-  throw new Error("TCDB image read failed: front "+Q[0].status+", back "+Q[1].status);
+if(!W){
+  removeEventListener("message",H);
+  throw new Error("Popup blocked. Allow popups for TCDB and try again.");
 }
 
-const Z=await Promise.all(Q.map(r=>r.blob()));
-
 const ext=s=>{
-  const m=s.match(/\\.([A-Za-z0-9]+)(?:\\?|$)/);
+  const m=String(s||"").match(/\\.([A-Za-z0-9]+)(?:\\?|$)/);
   return m?"."+m[1]:".jpg";
 };
 
+const getImage=async(x,side)=>{
+  if(!x)return null;
+  const r=await fetch(x.src,{credentials:"include",cache:"default"});
+  if(r.status===404||r.status===410)return null;
+  if(!r.ok)throw new Error("TCDB "+side+" image read failed: "+r.status);
+  const blob=await r.blob();
+  if(!blob.size)return null;
+  return{blob,name:String(C)+"-"+side+ext(x.src)};
+};
+
+const Q=await Promise.all([getImage(F,"front"),getImage(B,"back")]);
 D={
-  front:Z[0],
-  back:Z[1],
-  frontName:String(C)+"-front"+ext(F.src),
-  backName:String(C)+"-back"+ext(B.src)
+  front:Q[0]?Q[0].blob:null,
+  back:Q[1]?Q[1].blob:null,
+  frontName:Q[0]?Q[0].name:undefined,
+  backName:Q[1]?Q[1].name:undefined
 };
 
 S();
 
 }catch(e){
-  alert("VCS Capture: "+(e&&e.message?e.message:e));
+  alert("VCS Harvest: "+(e&&e.message?e.message:e));
 }})()`;
 }
 
@@ -158,6 +196,7 @@ export default function SetFactoryCapturePage() {
   const [error, setError] = useState("");
   const [result, setResult] = useState<{
     message?: string;
+    outcome?: CaptureOutcome;
     frontImageUrl?: string | null;
     backImageUrl?: string | null;
   } | null>(null);
@@ -184,7 +223,9 @@ export default function SetFactoryCapturePage() {
     if (!isReceiver) {
       setBookmarklet(buildBookmarklet(window.location.origin));
       setStatus(
-        `Active capture set: ${initialSet}. This bookmark can be installed once and reused.`
+        initialSet
+          ? `Active capture set: ${initialSet}. Install the new VCS Harvest bookmark once, then reuse it.`
+          : "Set an Active Product Set ID, then install the VCS Harvest bookmark."
       );
     }
   }, []);
@@ -197,7 +238,7 @@ export default function SetFactoryCapturePage() {
     if (trimmed) {
       window.localStorage.setItem(ACTIVE_SET_STORAGE_KEY, trimmed);
       setStatus(
-        `Active capture set saved in this browser: ${trimmed}. You do not need a new bookmark for a new set.`
+        `Active capture set saved in this browser: ${trimmed}. The same VCS Harvest bookmark works for future sets.`
       );
     }
 
@@ -222,9 +263,7 @@ export default function SetFactoryCapturePage() {
       return;
     }
 
-    setStatus(
-      `Waiting for TCDB page data... Active Product Set: ${activeSetId}`
-    );
+    setStatus(`Waiting for TCDB card... Active Product Set: ${activeSetId}`);
 
     const onMessage = async (event: MessageEvent<CaptureMessage>) => {
       if (handled) return;
@@ -238,28 +277,40 @@ export default function SetFactoryCapturePage() {
       handled = true;
       setError("");
       setCardNumber(data.cardNumber);
-      setStatus(
-        `Received card #${data.cardNumber}. Uploading front + back to VCS...`
-      );
+
+      const hasFront = data.front instanceof Blob;
+      const hasBack = data.back instanceof Blob;
+      const sourceDescription =
+        hasFront && hasBack
+          ? "front + back found"
+          : hasFront
+            ? "front found; back unavailable"
+            : hasBack
+              ? "back found; front unavailable"
+              : "no source images found";
+
+      setStatus(`Card #${data.cardNumber}: ${sourceDescription}. Accounting for card...`);
 
       try {
-        if (!(data.front instanceof Blob) || !(data.back instanceof Blob)) {
-          throw new Error("Capture did not contain valid image blobs.");
-        }
-
         const form = new FormData();
         form.append("productSetId", activeSetId);
         form.append("cardNumber", data.cardNumber);
-        form.append(
-          "front",
-          data.front,
-          data.frontName || `${data.cardNumber}-front.jpg`
-        );
-        form.append(
-          "back",
-          data.back,
-          data.backName || `${data.cardNumber}-back.jpg`
-        );
+
+        if (hasFront && data.front) {
+          form.append(
+            "front",
+            data.front,
+            data.frontName || `${data.cardNumber}-front.jpg`
+          );
+        }
+
+        if (hasBack && data.back) {
+          form.append(
+            "back",
+            data.back,
+            data.backName || `${data.cardNumber}-back.jpg`
+          );
+        }
 
         const response = await fetch("/api/admin/set-factory/capture-card", {
           method: "POST",
@@ -272,15 +323,33 @@ export default function SetFactoryCapturePage() {
           throw new Error(payload?.error ?? "VCS capture upload failed.");
         }
 
-        setStatus(payload?.message ?? `Card #${data.cardNumber} captured.`);
+        const outcome = (payload?.outcome ?? "captured") as CaptureOutcome;
+        const message = payload?.message ?? `Card #${data.cardNumber} accounted for.`;
+
+        setStatus(message);
         setResult({
-          message: payload?.message,
+          message,
+          outcome,
           frontImageUrl: payload?.card?.frontImageUrl ?? null,
           backImageUrl: payload?.card?.backImageUrl ?? null,
         });
+
+        window.opener?.postMessage(
+          {
+            type: "vcs-capture-complete",
+            nonce,
+            accountedFor: Boolean(payload?.accountedFor ?? payload?.ok),
+            outcome,
+            message,
+          },
+          event.origin
+        );
+
+        window.setTimeout(() => window.close(), 100);
       } catch (captureError: any) {
-        setError(captureError?.message ?? "Capture failed.");
-        setStatus("Capture failed.");
+        const message = captureError?.message ?? "Capture failed.";
+        setError(message);
+        setStatus("Harvest stopped on this card. Nothing was auto-advanced.");
       }
     };
 
@@ -309,15 +378,13 @@ export default function SetFactoryCapturePage() {
     return (
       <main
         style={{
-          padding: 24,
+          padding: 22,
           fontFamily: "system-ui, -apple-system, Segoe UI, Roboto",
-          maxWidth: 860,
+          maxWidth: 760,
         }}
       >
-        <h1 style={{ fontSize: 28, marginBottom: 8 }}>
-          VCS Set Factory Capture
-        </h1>
-        <p style={{ color: "#555" }}>
+        <h1 style={{ fontSize: 24, marginBottom: 8 }}>VCS Harvest</h1>
+        <p style={{ color: "#555", marginTop: 0 }}>
           Product Set: <b>{productSetId}</b>
           {cardNumber ? (
             <>
@@ -334,42 +401,12 @@ export default function SetFactoryCapturePage() {
           ) : null}
         </div>
 
-        {result?.frontImageUrl && result?.backImageUrl ? (
-          <div
-            style={{
-              display: "flex",
-              gap: 18,
-              marginTop: 20,
-              flexWrap: "wrap",
-            }}
-          >
-            <div>
-              <div style={{ fontWeight: 700, marginBottom: 6 }}>Front</div>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={result.frontImageUrl}
-                alt="Captured card front"
-                style={{
-                  width: 180,
-                  maxHeight: 260,
-                  objectFit: "contain",
-                }}
-              />
-            </div>
-            <div>
-              <div style={{ fontWeight: 700, marginBottom: 6 }}>Back</div>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={result.backImageUrl}
-                alt="Captured card back"
-                style={{
-                  width: 180,
-                  maxHeight: 260,
-                  objectFit: "contain",
-                }}
-              />
-            </div>
-          </div>
+        {result ? (
+          <p style={{ marginTop: 14, color: "#555" }}>
+            {result.outcome === "unavailable"
+              ? "No source scan was available. This is a normal harvest outcome."
+              : "Success. Closing and advancing automatically..."}
+          </p>
         ) : null}
       </main>
     );
@@ -388,12 +425,13 @@ export default function SetFactoryCapturePage() {
       </div>
 
       <h1 style={{ fontSize: 32, marginBottom: 8 }}>
-        Set Factory: Browser Capture
+        Set Factory: One-Click Harvest
       </h1>
       <p style={{ maxWidth: 800, lineHeight: 1.5 }}>
-        This page defines your <b>active capture set</b>. The bookmark below can
-        be installed once and reused across sets. When you want to capture into
-        a different set, change the Product Set ID here — not the bookmark.
+        Set the active Product Set once, then use the <b>VCS Harvest</b> bookmark
+        on individual TCDB card pages. Each click captures whatever images are
+        available, treats missing scans as a normal outcome, closes the receiver,
+        and advances to TCDB&apos;s next card.
       </p>
 
       <label style={{ display: "grid", gap: 6, marginTop: 22, maxWidth: 520 }}>
@@ -426,8 +464,12 @@ export default function SetFactoryCapturePage() {
           background: "#fafafa",
         }}
       >
-        <h2 style={{ marginTop: 0, fontSize: 20 }}>1. Install once</h2>
-        <p>Drag this button to your browser bookmarks bar:</p>
+        <h2 style={{ marginTop: 0, fontSize: 20 }}>1. Replace the old bookmark once</h2>
+        <p style={{ lineHeight: 1.5 }}>
+          Delete/replace your old VCS Capture favorite. Drag this new button to
+          the bookmarks bar. The saved bookmark contains the one-click behavior,
+          so the old favorite will not update itself.
+        </p>
         <a
           href="#"
           ref={(node) => {
@@ -446,7 +488,7 @@ export default function SetFactoryCapturePage() {
             cursor: "grab",
           }}
         >
-          VCS Capture
+          VCS Harvest
         </a>
       </section>
 
@@ -458,18 +500,44 @@ export default function SetFactoryCapturePage() {
           borderRadius: 12,
         }}
       >
-        <h2 style={{ marginTop: 0, fontSize: 20 }}>2. Capture cards</h2>
+        <h2 style={{ marginTop: 0, fontSize: 20 }}>2. Click, click, click</h2>
         <ol style={{ lineHeight: 1.7, paddingLeft: 22 }}>
-          <li>Set the Active Product Set ID on this page.</li>
-          <li>Open a TCDB card page with both front and back visible.</li>
-          <li>Click <b>VCS Capture</b> in your bookmarks bar.</li>
-          <li>A small VCS window should open and upload the card automatically.</li>
+          <li>Set the Active Product Set ID above.</li>
+          <li>Open the first individual TCDB card page you want to harvest.</li>
+          <li>Click <b>VCS Harvest</b>.</li>
+          <li>
+            VCS captures both sides, one available side, or records no source
+            scan as an acceptable pass outcome.
+          </li>
+          <li>
+            On success the small window closes and TCDB advances to the next
+            card automatically. Click <b>VCS Harvest</b> again.
+          </li>
         </ol>
       </section>
 
+      <section
+        style={{
+          marginTop: 16,
+          padding: 18,
+          border: "1px solid #ddd",
+          borderRadius: 12,
+          background: "#fffdf5",
+        }}
+      >
+        <h2 style={{ marginTop: 0, fontSize: 20 }}>Safety behavior</h2>
+        <p style={{ lineHeight: 1.6, marginBottom: 0 }}>
+          Missing TCDB scans do <b>not</b> stop harvesting. A real error does.
+          If VCS cannot identify the card, cannot validate an image, cannot find
+          the card in the active Product Set, or cannot save the request, the
+          receiver stays open and TCDB does not advance. That prevents a silent
+          skip from turning into hundreds of bad captures.
+        </p>
+      </section>
+
       <p style={{ marginTop: 18, color: "#666", lineHeight: 1.5 }}>
-        This remains deliberately user-triggered for the current TCDB card. It
-        does not crawl a whole set in the background.
+        This remains deliberately user-triggered one card at a time. It does not
+        crawl or harvest a set unattended.
       </p>
     </main>
   );
