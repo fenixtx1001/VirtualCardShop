@@ -43,11 +43,13 @@ function writeActiveSetCookie(productSetId: string) {
     "Path=/; Max-Age=31536000; SameSite=Lax; Secure";
 }
 
-function buildBookmarklet(vcsOrigin: string) {
+function buildBookmarklet(vcsOrigin: string, activeProductSetId: string) {
   const origin = JSON.stringify(vcsOrigin);
+  const productSet = JSON.stringify(activeProductSetId.trim());
 
   return `javascript:(async()=>{try{
 const O=${origin};
+const BOOKMARK_SET=${productSet};
 if(!/(^|\\.)tcdb\\.com$/i.test(location.hostname))throw new Error("Open a TCDB card page first.");
 if(!/\\/ViewCard\\.cfm(?:\\/|$)/i.test(location.pathname))throw new Error("Open an individual TCDB card page first.");
 
@@ -157,7 +159,8 @@ const H=e=>{
 addEventListener("message",H);
 
 W=open(
-  O+"/admin/set-factory/capture?receiver=1&nonce="+encodeURIComponent(N),
+  O+"/admin/set-factory/capture?receiver=1&nonce="+encodeURIComponent(N)+
+  "&productSetId="+encodeURIComponent(BOOKMARK_SET),
   "vcsSetCapture",
   "width=520,height=420"
 );
@@ -243,7 +246,7 @@ export default function SetFactoryCapturePage() {
     if (incomingNonce) setNonce(incomingNonce);
 
     if (!isReceiver) {
-      setBookmarklet(buildBookmarklet(window.location.origin));
+      setBookmarklet(buildBookmarklet(window.location.origin, initialSet));
       setStatus(
         initialSet
           ? `Active capture set: ${initialSet}. Install the new VCS Harvest bookmark once, then reuse it.`
@@ -265,7 +268,7 @@ export default function SetFactoryCapturePage() {
       );
     }
 
-    setBookmarklet(buildBookmarklet(window.location.origin));
+    setBookmarklet(buildBookmarklet(window.location.origin, trimmed));
   }, [productSetId, receiverMode, initialized]);
 
   useEffect(() => {
