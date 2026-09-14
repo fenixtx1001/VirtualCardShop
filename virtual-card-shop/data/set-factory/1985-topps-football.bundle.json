@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/3237/1985-Topps",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/3237/1985-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/3237/1985-Topps",
+    "checklistReference": "https://www.cardboardconnection.com/1985-topps-football-cards",
+    "note": "1985 Topps Football. TCDB lists one 396-card base series. VCS includes the two pack-issued related checklists: Yearbooks Coming Soon Stickers and Glossy NFL Stars. Wax box-bottom material is excluded from normal pack pulls."
+  },
+  "decisions": {
+    "combinePhysicalSeries": true,
+    "physicalSeriesRanges": ["1-396"],
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "Wax",
+    "collectorChecklistIntegrity": "The complete #1-396 flagship checklist is one Base ProductSet with equal VCS availability.",
+    "trueRookieNaming": "TCDB's linked rookie index is the card-level source of truth. Only recognized Base rookie cards receive RC appended to Player. Insert/sticker cards do not receive RC merely because the pictured player may have a rookie card elsewhere.",
+    "cleanPlayerNames": "Player contains only the clean card subject name plus verified RC on recognized Base rookie cards. RB/AP/TL/UER/ERR/COR and other collector annotations stay outside Player.",
+    "oddsPlacement": "Insertion odds are stored only on ProductSets. No card Variant receives insertion-odds text.",
+    "yearbookStickerModeling": "Yearbooks Coming Soon Stickers are a 30-card insert checklist distributed one per wax pack, so VCS stores oddsPerPack 1.",
+    "glossyModeling": "Glossy NFL Stars were one per 48-card regular rack pack. VCS uses one universal 15-card wax-style pack; card-volume normalization gives approximately one glossy per 3.2 VCS packs, stored as 1:3.",
+    "excludedRelatedSets": ["Wax Box Bottom Panels", "Wax Box Bottom Singles"],
+    "releaseSafety": "Product remains unreleased until images and pricing are reviewed."
+  },
+  "product": {
+    "id": "1985_Topps_Football",
+    "year": 1985,
+    "brand": "Topps",
+    "sport": "Football",
+    "cardsPerPack": 15,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1985-topps-football.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1985_Topps_Football_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3237/1985-Topps",
+      "expectedCards": 396,
+      "notes": "Complete flagship checklist #1-396, distributed in one series. All base cards have equal VCS availability."
+    },
+    {
+      "key": "yearbooks-coming-soon-stickers",
+      "id": "1985_Topps_Football_Yearbooks_Coming_Soon_Stickers",
+      "name": "Yearbooks Coming Soon Stickers",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/33402/1985-Topps-Yearbooks-Coming-Soon-Stickers",
+      "expectedCards": 30,
+      "notes": "30-card sticker insert checklist, one sticker per wax pack. These are the Coming Soon-back versions distributed with 1985 Topps Football."
+    },
+    {
+      "key": "glossy-nfl-stars",
+      "id": "1985_Topps_Football_Glossy_NFL_Stars",
+      "name": "Glossy NFL Stars",
+      "kind": "INSERT",
+      "oddsPerPack": 3,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/33403/1985-Topps-Glossy-NFL-Stars",
+      "expectedCards": 11,
+      "notes": "11-card red-bordered glossy insert checklist. Originally one per 48-card regular rack pack; normalized by card volume to approximately 1:3 VCS 15-card packs."
+    }
+  ]
+}
