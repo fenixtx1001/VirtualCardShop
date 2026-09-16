@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/Inserts.cfm/sid/81552/2000-01-Topps-Premier-Gold",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/81552/2000-01-Topps-Premier-Gold",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/81552/2000-01-Topps-Premier-Gold",
+    "note": "2000-01 Topps Premier Gold English Premier League soccer. TCDB lists a 124-card base set plus six foil insert/parallel checklists: Star Players in Silver/Gold/Blue and Superstars in Silver/Gold/Blue. VCS models each collector checklist separately."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Retail/display box configuration: 8 cards per pack, 36 packs per box.",
+    "baseStructure": "Complete 124-card base checklist is one VCS Base ProductSet.",
+    "insertStructure": "Star Players is modeled as three 20-card foil color ProductSets; Superstars is modeled as three 4-card foil color ProductSets, matching TCDB's six collector checklists.",
+    "foilOdds": "Contemporary sealed-product descriptions report one foil insert per pack and color mixes around Silver/Gold/Blue, while TCDB trivia gives a slightly different color split and labels it as a parallel mix rather than straightforward pack odds. Because VCS oddsPerPack is one integer per ProductSet and cannot represent a conditional color distribution cleanly, no color-specific pack odds are guessed; all six foil ProductSets remain null pending a trustworthy directly translatable pack-odds source.",
+    "trueRookieNaming": "Base RC suffixes are added only for card numbers returned by TCDB's linked rookie index. Insert names do not infer rookie status.",
+    "cleanPlayerNames": "Player contains the clean subject name plus verified RC and short conventional collector abbreviations only. Long source descriptions, errors, variations, odds, or other metadata are kept out of Player.",
+    "releaseSafety": "Product remains unreleased until pricing and images are reviewed."
+  },
+  "product": {
+    "id": "2000_01_Topps_Premier_Gold_Soccer",
+    "year": 2000,
+    "brand": "Topps Premier Gold",
+    "sport": "Soccer",
+    "cardsPerPack": 8,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "2000-01-topps-premier-gold-soccer.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2000_01_Topps_Premier_Gold_Soccer_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/81552/2000-01-Topps-Premier-Gold",
+      "expectedCards": 124,
+      "notes": "Complete 124-card flagship checklist."
+    },
+    {
+      "key": "star-players-silver-foil",
+      "id": "2000_01_Topps_Premier_Gold_Soccer_Star_Players_Silver_Foil",
+      "name": "Star Players Silver Foil",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/81556/2000-01-Topps-Premier-Gold---Star-Players-Silver-Foil",
+      "expectedCards": 20,
+      "notes": "T1-T20. Color-specific odds intentionally left null; see foilOdds decision."
+    },
+    {
+      "key": "star-players-gold-foil",
+      "id": "2000_01_Topps_Premier_Gold_Soccer_Star_Players_Gold_Foil",
+      "name": "Star Players Gold Foil",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/81557/2000-01-Topps-Premier-Gold---Star-Players-Gold-Foil",
+      "expectedCards": 20,
+      "notes": "T1-T20. Color-specific odds intentionally left null; see foilOdds decision."
+    },
+    {
+      "key": "star-players-blue-foil",
+      "id": "2000_01_Topps_Premier_Gold_Soccer_Star_Players_Blue_Foil",
+      "name": "Star Players Blue Foil",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/81558/2000-01-Topps-Premier-Gold---Star-Players-Blue-Foil",
+      "expectedCards": 20,
+      "notes": "T1-T20. Color-specific odds intentionally left null; see foilOdds decision."
+    },
+    {
+      "key": "superstars-silver-foil",
+      "id": "2000_01_Topps_Premier_Gold_Soccer_Superstars_Silver_Foil",
+      "name": "Superstars Silver Foil",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/81559/2000-01-Topps-Premier-Gold---Superstars-Silver-Foil",
+      "expectedCards": 4,
+      "notes": "S1-S4. POY/YPOY/TS/SS are retained as short conventional subject abbreviations. Color-specific odds intentionally left null."
+    },
+    {
+      "key": "superstars-gold-foil",
+      "id": "2000_01_Topps_Premier_Gold_Soccer_Superstars_Gold_Foil",
+      "name": "Superstars Gold Foil",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/81560/2000-01-Topps-Premier-Gold---Superstars-Gold-Foil",
+      "expectedCards": 4,
+      "notes": "S1-S4. POY/YPOY/TS/SS are retained as short conventional subject abbreviations. Color-specific odds intentionally left null."
+    },
+    {
+      "key": "superstars-blue-foil",
+      "id": "2000_01_Topps_Premier_Gold_Soccer_Superstars_Blue_Foil",
+      "name": "Superstars Blue Foil",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/81561/2000-01-Topps-Premier-Gold---Superstars-Blue-Foil",
+      "expectedCards": 4,
+      "notes": "S1-S4. POY/YPOY/TS/SS are retained as short conventional subject abbreviations. Color-specific odds intentionally left null."
+    }
+  ]
+}
