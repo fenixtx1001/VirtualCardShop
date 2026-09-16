@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/457/1995-Bowman",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/457/1995-Bowman",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/457/1995-Bowman",
+    "note": "1995 Bowman Baseball. TCDB lists a 439-card single-series base set and a 54-card Gold Foil insert/parallel covering #221-274. The physical set contains two cards printed #294 because Cliff Floyd was misnumbered and was intended to be #394; VCS preserves the collector checklist as 1-439 by storing Cliff Floyd as #394 with the print-number error retained in Variant."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Hobby",
+    "collectorChecklistIntegrity": "Base remains one 439-card ProductSet with one completion percentage. The silver-foil cards #221-274 are part of the base checklist rather than a separate VCS ProductSet.",
+    "misnumberedCardHandling": "The physical issue contains two cards printed #294. Chuck Carr remains #294. Cliff Floyd is stored as logical checklist #394 so ProductSet card numbers remain unique; Variant records that the card is printed #294 and was intended as #394.",
+    "trueRookieNaming": "Recognized true RC designations come from TCDB's linked rookie index. Only those cards receive RC in Player; prospect status alone does not imply RC.",
+    "cleanPlayerNames": "Player contains only the clean subject name plus concise collector abbreviations such as RC when appropriate. Long descriptions, error text, subset captions, and foil details belong in Subset or Variant.",
+    "subsetModeling": "Base #1-220 are tagged Rookies & Prospects, #221-274 Silver Foil, and #275-439 Veterans for collector context while remaining one Base ProductSet.",
+    "goldFoilModeling": "Gold Foil is a 54-card parallel/insert of #221-274. Hobby odds 1:6 are stored only on the ProductSet.",
+    "releaseSafety": "Product remains unreleased until images and pricing are reviewed."
+  },
+  "product": {
+    "id": "1995_Bowman_Baseball",
+    "year": 1995,
+    "brand": "Bowman",
+    "sport": "Baseball",
+    "cardsPerPack": 10,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1995-bowman-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1995_Bowman_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/457/1995-Bowman",
+      "expectedCards": 439,
+      "notes": "Complete 439-card collector checklist in one ProductSet. #221-274 are the silver-foil portion of the base set. Cliff Floyd is stored as logical #394 with the printed #294 error retained in Variant."
+    },
+    {
+      "key": "gold-foil",
+      "id": "1995_Bowman_Baseball_Gold_Foil",
+      "name": "Gold Foil",
+      "kind": "PARALLEL",
+      "oddsPerPack": 6,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/458/1995-Bowman---Gold-Foil",
+      "expectedCards": 54,
+      "notes": "Gold Foil versions of base #221-274. Inserted 1:6 Hobby packs; odds stored only at ProductSet level."
+    }
+  ]
+}
