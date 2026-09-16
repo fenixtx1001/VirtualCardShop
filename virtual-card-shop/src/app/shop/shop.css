@@ -161,3 +161,26 @@ body:has(.shop-shell) { background: #181a19; }
 }
 @media (max-width: 360px) { .shop-shell { padding-inline: 14px; } .shop-masthead h1 { font-size: 22px; } .shop-tabs > span { display: none; } .shop-daily { padding: 16px 12px; } .shop-daily h2 { font-size: 21px; } .shop-daily-prices { gap: 10px; } .shop-checkout { gap: 8px; } .shop-total strong { font-size: 17px; } }
 @media (prefers-reduced-motion: reduce) { .shop-shell *, .shop-sheet * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* Merchandise cards stay dark on hover.
+   Overrides generic/global button hover styling. */
+.shop-shell .shop-product:hover,
+.shop-shell .shop-product:active {
+  background: transparent !important;
+  color: #f2eee5 !important;
+  box-shadow: none !important;
+}
+
+.shop-shell .shop-product:hover .shop-card-title,
+.shop-shell .shop-product:hover .shop-card-meta,
+.shop-shell .shop-product:hover .shop-price strong {
+  color: inherit;
+}
+
+.shop-shell .shop-product:hover .shop-art {
+  border-color: #555a4e;
+}
+
+.shop-shell .shop-product:hover .shop-art img {
+  transform: translateY(-2px) scale(1.015);
+}

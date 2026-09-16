@@ -132,7 +132,7 @@ function getPrestigeBannerLabel(card: Card | null) {
     return null;
   }
 
-  return `Prestige x${card.prestigeTargetLevel} reached!`;
+  return `Prestige x${card.prestigeTargetLevel} complete`;
 }
 
 function OrientedCardImage({
@@ -205,6 +205,7 @@ export default function OpenPackClient({
   const [opened, setOpened] = useState(false);
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
+  const [showSummary, setShowSummary] = useState(false);
 
   const [dragX, setDragX] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -391,6 +392,7 @@ export default function OpenPackClient({
     setOpened(false);
     setIdx(0);
     setFlipped(false);
+    setShowSummary(false);
     setDragX(0);
     setIsDragging(false);
     setCardMotion(null);
@@ -461,6 +463,7 @@ export default function OpenPackClient({
   function next() {
     if (!canNext || swipeCommit) return;
 
+    setShowSummary(false);
     setFlipped(false);
     setDragX(0);
     setIsDragging(false);
@@ -472,6 +475,7 @@ export default function OpenPackClient({
   function prev() {
     if (!canPrev || swipeCommit) return;
 
+    setShowSummary(false);
     setFlipped(false);
     setDragX(0);
     setIsDragging(false);
@@ -501,6 +505,8 @@ export default function OpenPackClient({
     if (swipeCommit) return;
     if (direction === "next" && !canNext) return;
     if (direction === "prev" && !canPrev) return;
+
+    setShowSummary(false);
 
     if (motionTimerRef.current) {
       window.clearTimeout(motionTimerRef.current);
@@ -770,7 +776,11 @@ export default function OpenPackClient({
       className={cx(
         "vcs-pack-root",
         opened && "is-opened",
-        isDone && "is-done"
+        isDone && "is-done",
+        loading && "is-opening",
+        currentHasPrestigeProgress && "has-prestige-need",
+        currentHitPrestige && "has-prestige-hit",
+        showSummary && "is-summary-open"
       )}
     >
       <style jsx global>{`
@@ -2522,6 +2532,426 @@ export default function OpenPackClient({
             min-height: 34px;
           }
         }
+
+        /* =========================================================
+           VCS PREMIUM MOBILE RIP V2
+           Card-first, zero-scroll, collector-intelligence HUD
+           ========================================================= */
+
+        /* Inserts communicate through their card art, name, odds and
+           value. Reserve enhanced visual language for collection state. */
+        .insert-aura {
+          display: none !important;
+        }
+
+        /* Sealed pack gets a quick tactile cue without slowing the rip. */
+        .vcs-pack-root.is-opening .preopen-pack-panel .pack-img {
+          animation: vcsPackOpenCue 360ms cubic-bezier(.2,.75,.28,1) both;
+          transform-origin: 50% 78%;
+        }
+
+        @keyframes vcsPackOpenCue {
+          0% {
+            transform: translateY(0) rotate(0deg) scale(1);
+            filter: brightness(1);
+          }
+          48% {
+            transform: translateY(-5px) rotate(-.65deg) scale(.992);
+            filter: brightness(1.035);
+          }
+          100% {
+            transform: translateY(3px) rotate(.45deg) scale(.985);
+            filter: brightness(.98);
+          }
+        }
+
+        /* Prestige completion is a brief premium light event.
+           The banner remains after the light falls away. */
+        .flip-celebration.active {
+          opacity: 0;
+          background:
+            radial-gradient(
+              circle at 50% 48%,
+              rgba(224, 196, 126, .45) 0%,
+              rgba(205, 170, 91, .21) 34%,
+              rgba(184, 146, 59, .08) 54%,
+              transparent 72%
+            ) !important;
+          filter: blur(7px);
+          animation:
+            vcsPrestigeArrival 1120ms cubic-bezier(.18,.78,.22,1) 1 both !important;
+        }
+
+        @keyframes vcsPrestigeArrival {
+          0% {
+            opacity: 0;
+            transform: scale(.94);
+          }
+          18% {
+            opacity: .96;
+            transform: scale(1.025);
+          }
+          52% {
+            opacity: .58;
+            transform: scale(1.055);
+          }
+          100% {
+            opacity: 0;
+            transform: scale(1.085);
+          }
+        }
+
+        .flip-banner {
+          background: linear-gradient(
+            135deg,
+            #29271f 0%,
+            #393222 52%,
+            #26251f 100%
+          ) !important;
+          color: #f2e3b9 !important;
+          border: 1px solid #d7bb7e !important;
+          border-radius: 6px !important;
+          box-shadow:
+            0 12px 28px rgba(38, 31, 19, .24),
+            inset 0 1px 0 rgba(255,255,255,.08) !important;
+          text-transform: uppercase;
+          letter-spacing: .08em !important;
+        }
+
+        .vcs-pack-root.has-prestige-need:not(.has-prestige-hit) .flip-card {
+          box-shadow:
+            0 0 0 2px rgba(159, 133, 70, .48),
+            0 26px 46px rgba(40, 32, 21, .18),
+            0 8px 16px rgba(40, 32, 21, .1);
+        }
+
+        .vcs-pack-root.has-prestige-hit .flip-card {
+          box-shadow:
+            0 0 0 2px rgba(215, 187, 126, .78),
+            0 0 0 6px rgba(215, 187, 126, .09),
+            0 30px 58px rgba(70, 53, 21, .24) !important;
+        }
+
+        @media (max-width: 560px) {
+          /*
+           * The active rip remains a viewport, not a document.
+           * The ordinary summary is allowed to scroll only after
+           * the user explicitly taps Review pack.
+           */
+          .vcs-pack-root.is-opened.is-done:not(.is-summary-open) {
+            height: calc(100svh - 52px);
+            min-height: 0;
+            overflow: hidden;
+          }
+
+          .vcs-pack-root.is-opened.is-done:not(.is-summary-open)
+            .vcs-pack-wrap {
+            height: 100%;
+            display: grid;
+            grid-template-rows: 1fr;
+            min-height: 0;
+          }
+
+          .vcs-pack-root.is-opened.is-done:not(.is-summary-open)
+            .vcs-pack-stage {
+            height: 100%;
+            min-height: 0;
+            margin-top: 0;
+            padding-top: 4px;
+            overflow: hidden;
+          }
+
+          .vcs-pack-root.is-opened.is-done:not(.is-summary-open)
+            .open-grid {
+            height: calc(100svh - 91px);
+            min-height: 0;
+            overflow: hidden;
+          }
+
+          .vcs-pack-root.is-opened.is-done:not(.is-summary-open)
+            .card-panel {
+            height: 100%;
+            min-height: 0;
+            display: grid;
+            grid-template-rows: minmax(0, 1fr) auto auto;
+            align-content: stretch;
+          }
+
+          .vcs-pack-root.is-opened.is-done:not(.is-summary-open)
+            .summary {
+            display: none;
+          }
+
+          /* Collector HUD: tiny, dense, legible. */
+          .mobile-rip-hud {
+            min-height: 31px;
+            margin-bottom: 5px;
+            padding: 2px 4px;
+            border-color: rgba(78, 84, 72, .92);
+            background: rgba(29, 32, 28, .94);
+            box-shadow:
+              0 8px 24px rgba(24, 22, 16, .10),
+              inset 0 1px 0 rgba(255,255,255,.035);
+          }
+
+          .mobile-hud-item {
+            padding: 0 9px;
+          }
+
+          .mobile-hud-item + .mobile-hud-item {
+            border-left: 1px solid rgba(110, 115, 101, .28);
+          }
+
+          .mobile-hud-label {
+            color: #8f9488 !important;
+            font-size: 7px !important;
+            font-weight: 750 !important;
+            letter-spacing: .075em;
+            text-transform: uppercase;
+          }
+
+          .mobile-hud-value {
+            color: #f2eee5 !important;
+            font-weight: 750 !important;
+          }
+
+          .mobile-hud-value.positive {
+            color: #c5dcbf !important;
+          }
+
+          .mobile-hud-value.negative {
+            color: #e1b3a8 !important;
+          }
+
+          .mobile-hud-card {
+            color: #d7bb7e !important;
+            font-weight: 800 !important;
+          }
+
+          /* Let the card claim as much of the viewport as is safe. */
+          .flip-wrap {
+            width: min(
+              calc((100svh - 205px) * .7142857),
+              calc(100vw - 26px),
+              440px
+            );
+          }
+
+          .card-presentation::before {
+            background: rgba(29, 27, 22, .21);
+            filter: blur(17px);
+          }
+
+          /*
+           * Collector intelligence strip.
+           * Everything stays; hierarchy improves.
+           */
+          .mobile-current-meta {
+            margin-top: 4px;
+            padding: 7px 9px 6px;
+            border: 1px solid rgba(211, 204, 191, .88);
+            border-radius: 9px;
+            background: rgba(249, 247, 241, .94);
+            box-shadow:
+              0 4px 13px rgba(40, 32, 21, .035),
+              inset 0 1px 0 rgba(255,255,255,.75);
+          }
+
+          .mobile-current-title {
+            color: #201f1a;
+            font-size: 14px;
+            font-weight: 780;
+            letter-spacing: -.018em;
+          }
+
+          .mobile-current-sub {
+            margin-top: 2px;
+            color: #6b6a62;
+            font-size: 9.5px;
+            font-weight: 620;
+          }
+
+          .mobile-current-type {
+            padding: 3px 6px;
+            border: 1px solid rgba(91, 91, 80, .08);
+            background: #eeece5;
+            color: #626159;
+            font-size: 8px;
+            font-weight: 760;
+          }
+
+          .mobile-current-type.special {
+            background: #ecebe5;
+            color: #4f514b;
+          }
+
+          .mobile-current-stats {
+            color: #4f504a;
+            font-size: 9px;
+            font-weight: 650;
+          }
+
+          .mobile-current-stats b {
+            color: #20211d;
+            font-size: 11.5px;
+            font-weight: 800;
+          }
+
+          /*
+           * Prestige-needed cards are unmistakable without being loud.
+           */
+          .mobile-prestige-note {
+            margin: 6px -2px -1px;
+            padding: 6px 8px 6px 9px;
+            border-top: 0;
+            border-left: 3px solid #9f8546;
+            border-radius: 4px;
+            background: rgba(178, 151, 84, .10);
+            color: #5e4c25;
+            font-size: 9px;
+            line-height: 1.2;
+            font-weight: 800;
+            letter-spacing: .005em;
+          }
+
+          .mobile-prestige-note.hit {
+            border-left-color: #d7bb7e;
+            background:
+              linear-gradient(
+                90deg,
+                #2c2b23 0%,
+                #383326 100%
+              );
+            color: #f0e1b7;
+            box-shadow: 0 5px 14px rgba(43, 37, 23, .11);
+          }
+
+          /*
+           * Navigation is still available, but swipe/tap now feel primary.
+           */
+          .mobile-card-controls {
+            grid-template-columns: 42px minmax(0, 1fr) 42px !important;
+            gap: 6px !important;
+            margin-top: 5px;
+          }
+
+          .mobile-card-controls .btn {
+            min-height: 34px;
+            padding: 4px 6px;
+            border-radius: 8px;
+            border-color: rgba(205, 199, 189, .78);
+            background: rgba(247, 245, 239, .66);
+            color: #66645d;
+            box-shadow: none;
+          }
+
+          .mobile-card-controls .btn:first-child,
+          .mobile-card-controls .btn:last-child {
+            font-size: 0;
+          }
+
+          .mobile-card-controls .btn:first-child::before {
+            content: "‹";
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1;
+          }
+
+          .mobile-card-controls .btn:last-child::before {
+            content: "›";
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1;
+          }
+
+          .mobile-card-controls .btn.flip-control {
+            background: transparent;
+            color: #55554f;
+            font-size: 10px;
+            font-weight: 720;
+          }
+
+          /*
+           * On the last card the right-hand affordance becomes
+           * Review pack instead of immediately dropping into summary.
+           */
+          .mobile-card-controls .complete-control {
+            grid-column: 3;
+            width: auto;
+            min-width: 42px;
+            padding: 4px 7px;
+            border-color: #a88e52;
+            background: #302e25;
+            color: #eee0b8;
+            font-size: 0 !important;
+          }
+
+          .mobile-card-controls .complete-control::before {
+            content: "✓" !important;
+            font-size: 14px !important;
+            font-weight: 800;
+          }
+
+          .mobile-card-controls .complete-control::after {
+            content: "Review";
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+          }
+
+          .mobile-swipe-hint {
+            padding: 3px 7px;
+            background: rgba(23, 22, 18, .34);
+            font-size: 7.5px;
+            opacity: .62;
+          }
+
+          /* Summary is intentionally a document again. */
+          .vcs-pack-root.is-summary-open {
+            height: auto;
+            min-height: calc(100svh - 52px);
+            overflow: visible;
+          }
+
+          .vcs-pack-root.is-summary-open .summary {
+            animation: vcsSummaryIn 220ms ease-out both;
+          }
+
+          @keyframes vcsSummaryIn {
+            from {
+              opacity: 0;
+              transform: translateY(6px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        }
+
+        @media (max-width: 560px) and (max-height: 720px) {
+          .flip-wrap {
+            width: min(
+              calc((100svh - 198px) * .7142857),
+              calc(100vw - 32px),
+              410px
+            );
+          }
+
+          .mobile-current-meta {
+            padding-top: 5px;
+            padding-bottom: 4px;
+          }
+
+          .mobile-prestige-note {
+            margin-top: 4px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+          }
+        }
+
       `}</style>
 
       <div className="vcs-pack-wrap">
@@ -2960,7 +3390,12 @@ export default function OpenPackClient({
 
                     {currentHasPrestigeProgress &&
                     currentPrestigeProgressLabel ? (
-                      <div className="mobile-prestige-note">
+                      <div
+                        className={cx(
+                          "mobile-prestige-note",
+                          currentHitPrestige && "hit"
+                        )}
+                      >
                         {currentHitPrestige
                           ? `★ ${currentPrestigeProgressLabel} — this card completed it.`
                           : `★ ${currentPrestigeProgressLabel}`}
@@ -2985,13 +3420,23 @@ export default function OpenPackClient({
                       {flipped ? "Front" : "Flip"}
                     </button>
 
-                    <button
-                      className="btn"
-                      onClick={next}
-                      disabled={!canNext || Boolean(swipeCommit)}
-                    >
-                      Next →
-                    </button>
+                    {canNext ? (
+                      <button
+                        className="btn"
+                        onClick={next}
+                        disabled={Boolean(swipeCommit)}
+                      >
+                        Next →
+                      </button>
+                    ) : (
+                      <button
+                        className="btn complete-control"
+                        onClick={() => setShowSummary(true)}
+                        disabled={Boolean(swipeCommit)}
+                      >
+                        Review pack
+                      </button>
+                    )}
                   </div>
                 </div>
 

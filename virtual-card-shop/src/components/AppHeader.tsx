@@ -582,21 +582,247 @@ export default function AppHeader() {
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: isMobile ? "10px 18px" : "14px 32px", display: "flex", alignItems: "center", gap: 12 }}>
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 9, textDecoration: "none", color: "#eee9dc", minWidth: 0 }}>
           <span style={{ fontFamily: "Georgia, serif", fontSize: 24, color: "#d7bb7e", letterSpacing: -1 }}>VCS</span>
-          <span style={{ borderLeft: "1px solid #494e40", paddingLeft: 9, fontSize: isMobile ? 10 : 12, lineHeight: 1.3, letterSpacing: 1 }}>VIRTUAL<br />CARD SHOP</span>
+          <span style={{ borderLeft: "1px solid #494e40", paddingLeft: 9, display: isMobile ? "none" : "inline", fontSize: isMobile ? 10 : 12, lineHeight: 1.3, letterSpacing: 1 }}>VIRTUAL<br />CARD SHOP</span>
         </Link>
         {!isMobile && <nav aria-label="Main navigation" style={{ display: "flex", gap: 20, marginLeft: 28, fontSize: 13 }}>
           {navItems.slice(0, 4).map((item) => <Link key={item.href} href={item.href} aria-current={isActivePath(pathname, item.href) ? "page" : undefined} style={{ color: isActivePath(pathname, item.href) ? "#d7bb7e" : "#bbc0b2", textDecoration: "none" }}>{item.label}</Link>)}
         </nav>}
         <span style={{ marginLeft: "auto", color: "#e7dfc7", fontSize: 13, fontVariantNumeric: "tabular-nums" }} aria-label={`Balance ${balanceText}`}>{balanceText}</span>
+        <button
+          type="button"
+          className="shop-header-reward"
+          aria-label={
+            eco?.canClaim
+              ? "Claim $10 reward"
+              : eco
+                ? `Next reward in ${formatCountdown(eco.msUntilNextClaim)}`
+                : "Reward status"
+          }
+          title={
+            eco?.canClaim
+              ? "Claim $10 reward"
+              : eco
+                ? `Next reward in ${formatCountdown(eco.msUntilNextClaim)}`
+                : "Loading reward"
+          }
+          onClick={claimReward}
+          disabled={!eco?.canClaim || loading}
+          style={{
+            height: 36,
+            minWidth: isMobile ? 58 : 72,
+            padding: isMobile ? "0 7px" : "0 10px",
+            border: eco?.canClaim ? "1px solid #d7bb7e" : "1px solid #494e40",
+            borderRadius: 6,
+            background: eco?.canClaim ? "#d7bb7e" : "#252a22",
+            color: eco?.canClaim ? "#20221c" : "#c7cbbb",
+            fontSize: isMobile ? 10 : 11,
+            fontWeight: 750,
+            fontVariantNumeric: "tabular-nums",
+            whiteSpace: "nowrap",
+            cursor: eco?.canClaim ? "pointer" : "default",
+            boxShadow: eco?.canClaim ? "0 5px 16px #0004" : "none",
+          }}
+        >
+          {loading
+            ? "Claiming…"
+            : eco?.canClaim
+              ? "Claim $10"
+              : eco
+                ? formatCountdown(eco.msUntilNextClaim)
+                : "—"}
+        </button>
         <button type="button" aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"} aria-expanded={mobileMenuOpen} aria-controls="shop-navigation" onClick={() => setMobileMenuOpen((open) => !open)} style={{ background: "none", color: "#ddd5bf", border: "1px solid #494e40", borderRadius: 6, width: 44, height: 44, padding: 0, boxShadow: "none", fontSize: 20 }}>{mobileMenuOpen ? "×" : "☰"}</button>
       </div>
-      {mobileMenuOpen && <div id="shop-navigation" style={{ maxHeight: "75dvh", overflowY: "auto", maxWidth: 1280, margin: "0 auto", padding: "4px 18px 18px" }}>
-        <nav aria-label="All navigation" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 6 }}>
-          {navItems.map((item) => <Link key={item.href} href={item.href} aria-current={isActivePath(pathname, item.href) ? "page" : undefined} onClick={() => setMobileMenuOpen(false)} style={{ padding: "13px 9px", color: isActivePath(pathname, item.href) ? "#e4c88c" : "#d1d6c7", background: "#252a22", borderRadius: 5, textDecoration: "none", fontSize: 12 }}>{item.label}</Link>)}
-        </nav>
-        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12, marginTop: 16 }}><ClaimRewardButton eco={eco} loading={loading} onClick={claimReward} /><AuthButton /><span style={{ fontSize: 11, color: "#b2b4aa" }}>{cardsOwnedText} cards · {collectionValueText} collection</span></div>
-        {errorMsg && <p role="alert" style={{ color: "#ffcdaf", fontSize: 12 }}>{errorMsg}</p>}
-      </div>}
+      {mobileMenuOpen && (
+        <div
+          id="shop-navigation"
+          style={{
+            position: "absolute",
+            top: "calc(100% + 8px)",
+            right: isMobile ? 18 : 32,
+            width: "min(310px, calc(100vw - 36px))",
+            maxHeight: "75dvh",
+            overflowY: "auto",
+            border: "1px solid #454a3d",
+            borderRadius: 10,
+            background: "#20231ff7",
+            backdropFilter: "blur(18px)",
+            boxShadow: "0 22px 60px #0009",
+            padding: 8,
+          }}
+        >
+          <div
+            style={{
+              padding: "7px 10px 9px",
+              color: "#9fa398",
+              fontSize: 9,
+              fontWeight: 700,
+              letterSpacing: ".14em",
+            }}
+          >
+            NAVIGATE
+          </div>
+
+          <nav
+            aria-label="All navigation"
+            style={{
+              display: "grid",
+              gap: 2,
+            }}
+          >
+            {navItems.map((item) => {
+              const active = isActivePath(pathname, item.href);
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    minHeight: 44,
+                    padding: "10px 11px",
+                    color: active ? "#f2eee5" : "#c1c5b9",
+                    background: active ? "#30352b" : "transparent",
+                    borderRadius: 6,
+                    textDecoration: "none",
+                    fontSize: 13,
+                    fontWeight: active ? 700 : 550,
+                  }}
+                >
+                  <span>{item.label}</span>
+
+                  {active ? (
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        width: 6,
+                        height: 6,
+                        borderRadius: 999,
+                        background: "#d7bb7e",
+                        boxShadow: "0 0 0 3px #d7bb7e20",
+                      }}
+                    />
+                  ) : (
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        color: "#666c62",
+                        fontSize: 12,
+                      }}
+                    >
+                      ›
+                    </span>
+                  )}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <div
+            style={{
+              display: "grid",
+              gap: 10,
+              marginTop: 8,
+              padding: "12px 10px 6px",
+              borderTop: "1px solid #393e36",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 10,
+              }}
+            >
+              <div style={{ minWidth: 0 }}>
+                <div
+                  style={{
+                    color: "#8f9489",
+                    fontSize: 8,
+                    fontWeight: 700,
+                    letterSpacing: ".12em",
+                  }}
+                >
+                  ACCOUNT
+                </div>
+
+                <div
+                  style={{
+                    marginTop: 3,
+                    maxWidth: 165,
+                    overflow: "hidden",
+                    color: "#d8dacd",
+                    fontSize: 10,
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {signedInEmail ?? "Not signed in"}
+                </div>
+              </div>
+
+              <AuthButton />
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 12,
+                paddingTop: 2,
+              }}
+            >
+              <div>
+                <div
+                  style={{
+                    color: "#8f9489",
+                    fontSize: 8,
+                    fontWeight: 700,
+                    letterSpacing: ".12em",
+                  }}
+                >
+                  COLLECTION
+                </div>
+                <div
+                  style={{
+                    marginTop: 3,
+                    color: "#b7bbaf",
+                    fontSize: 10,
+                  }}
+                >
+                  {cardsOwnedText} cards · {collectionValueText}
+                </div>
+              </div>
+
+              <ClaimRewardButton
+                eco={eco}
+                loading={loading}
+                onClick={claimReward}
+                compact
+              />
+            </div>
+
+            {errorMsg && (
+              <p
+                role="alert"
+                style={{
+                  margin: 0,
+                  color: "#e1a895",
+                  fontSize: 10,
+                }}
+              >
+                {errorMsg}
+              </p>
+            )}
+          </div>
+        </div>
+      )}
     </header>;
   }
 

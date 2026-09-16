@@ -111,6 +111,7 @@ export default function SinglesShopTab() {
   const [offersLoading, setOffersLoading] = useState(false);
   const [offersErr, setOffersErr] = useState<string | null>(null);
   const [offersMsg, setOffersMsg] = useState<string | null>(null);
+  const [singlesMode, setSinglesMode] = useState<"buy" | "sell">("buy");
 
   const [requestCardId, setRequestCardId] = useState<string>("");
   const [requesting, setRequesting] = useState(false);
@@ -401,28 +402,41 @@ export default function SinglesShopTab() {
   const activeCount = offers.length;
 
   return (
-    <div style={{ fontFamily: "system-ui" }}>
+    <div className={`singles-market singles-${singlesMode}`}>
       <h2 style={{ fontSize: 22, fontWeight: 900, margin: "0 0 6px" }}>Singles</h2>
-      <div style={{ color: "#444", marginBottom: 12 }}>
-        Sell cards to the shop via 24h offers. Accept for immediate cash, reject to pass, or let an offer expire.
-        Passing or expiring locks that specific card from new shop offers for <b>24 hours</b>. Buy singles from shop inventory at{" "}
-        <b>100% book</b>.
+      <div className="singles-intro">
+        Buy cards at book value or sell from your collection through 24-hour shop offers.
       </div>
 
-      {offersErr ? (
-        <div style={{ marginBottom: 12, padding: 12, background: "#fee", border: "1px solid #f99", borderRadius: 12 }}>
+      <nav className="singles-mode-tabs" aria-label="Singles shop">
+        <button
+          aria-current={singlesMode === "buy" ? "page" : undefined}
+          onClick={() => setSinglesMode("buy")}
+        >
+          Buy singles
+        </button>
+        <button
+          aria-current={singlesMode === "sell" ? "page" : undefined}
+          onClick={() => setSinglesMode("sell")}
+        >
+          Sell cards
+        </button>
+      </nav>
+
+      {singlesMode === "sell" && offersErr ? (
+        <div className="singles-alert singles-alert-error" style={{ marginBottom: 12, padding: 12, background: "#fee", border: "1px solid #f99", borderRadius: 12 }}>
           {offersErr}
         </div>
       ) : null}
 
       {offersMsg ? (
-        <div style={{ marginBottom: 12, padding: 12, background: "#efe", border: "1px solid #9f9", borderRadius: 12 }}>
+        <div className="singles-alert singles-alert-success" style={{ marginBottom: 12, padding: 12, background: "#efe", border: "1px solid #9f9", borderRadius: 12 }}>
           {offersMsg}
         </div>
       ) : null}
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 12 }}>
-        <div style={{ border: "1px solid #ddd", borderRadius: 14, padding: 12, background: "#fafafa" }}>
+      <div className="singles-layout" style={{ display: "grid", gridTemplateColumns: "1fr", gap: 12 }}>
+        <div className="singles-panel singles-sell-request" style={{ border: "1px solid #ddd", borderRadius: 14, padding: 12, background: "#fafafa" }}>
           <div style={{ fontWeight: 900, marginBottom: 8 }}>Request an offer</div>
           <div style={{ fontSize: 12, color: "#555", marginBottom: 10 }}>
             Active offers: <b>{activeCount}</b> • No global offer cap
@@ -482,7 +496,7 @@ export default function SinglesShopTab() {
           </div>
         </div>
 
-        <div style={{ border: "1px solid #ddd", borderRadius: 14, padding: 12 }}>
+        <div className="singles-panel singles-active-offers" style={{ border: "1px solid #ddd", borderRadius: 14, padding: 12 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 12 }}>
             <div style={{ fontWeight: 900 }}>Active Offers</div>
             <div style={{ fontSize: 12, color: "#666" }}>
@@ -493,7 +507,7 @@ export default function SinglesShopTab() {
           {offersLoading ? (
             <div style={{ marginTop: 10 }}>Loading offers…</div>
           ) : offers.length === 0 ? (
-            <div style={{ marginTop: 10, padding: 12, background: "#fafafa", borderRadius: 12, border: "1px solid #eee" }}>
+            <div className="singles-empty" style={{ marginTop: 10, padding: 12, background: "#fafafa", borderRadius: 12, border: "1px solid #eee" }}>
               No active offers. Request one above.
             </div>
           ) : (
@@ -655,10 +669,19 @@ export default function SinglesShopTab() {
           )}
         </div>
 
-        <div style={{ border: "1px solid #ddd", borderRadius: 14, padding: 12 }}>
-          <div style={{ fontWeight: 900, marginBottom: 8 }}>Shop Inventory (Singles)</div>
+        <div className="singles-panel singles-buy-inventory" style={{ border: "1px solid #ddd", borderRadius: 14, padding: 12 }}>
+          <div className="singles-inventory-heading">
+            <div>
+              <span className="shop-eyebrow">IN THE DISPLAY CASE</span>
+              <h3>Singles in the shop</h3>
+            </div>
+            <span className="singles-inventory-count">
+              {invTotal.toLocaleString()} {invTotal === 1 ? "card" : "cards"} available
+            </span>
+          </div>
 
           <div
+            className="singles-inventory-tools"
             style={{
               display: "flex",
               gap: 8,
@@ -669,13 +692,20 @@ export default function SinglesShopTab() {
             <input
               value={invQ}
               onChange={(e) => setInvQ(e.target.value)}
-              placeholder="Search shop inventory (player, team, card #, subset, set)…"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") void loadInventory(1, invQ, invSort, onlyNeed);
+              }}
+              placeholder="Search players, teams, sets, card numbers…"
               style={{ padding: "10px 12px", borderRadius: 12, border: "1px solid #ccc", minWidth: 320 }}
             />
 
             <select
               value={invSort}
-              onChange={(e) => setInvSort(e.target.value as SinglesSortKey)}
+              onChange={(e) => {
+                const next = e.target.value as SinglesSortKey;
+                setInvSort(next);
+                void loadInventory(1, invQ, next, onlyNeed);
+              }}
               style={{ padding: "10px 12px", borderRadius: 12, border: "1px solid #ccc" }}
             >
               <option value="default">Sort: Stock / newest</option>
@@ -700,7 +730,11 @@ export default function SinglesShopTab() {
               <input
                 type="checkbox"
                 checked={onlyNeed}
-                onChange={(e) => setOnlyNeed(e.target.checked)}
+                onChange={(e) => {
+                  const next = e.target.checked;
+                  setOnlyNeed(next);
+                  void loadInventory(1, invQ, invSort, next);
+                }}
               />
               Only cards I need
             </label>
@@ -782,105 +816,115 @@ export default function SinglesShopTab() {
           </div>
 
           {invErr ? (
-            <div style={{ marginTop: 12, padding: 12, background: "#fee", border: "1px solid #f99", borderRadius: 12 }}>
+            <div className="singles-alert singles-alert-error" style={{ marginTop: 12, padding: 12, background: "#fee", border: "1px solid #f99", borderRadius: 12 }}>
               {invErr}
             </div>
           ) : null}
 
           {invLoading ? (
-            <div style={{ marginTop: 12 }}>Loading inventory…</div>
-          ) : invRows.length === 0 ? (
-            <div style={{ marginTop: 12, padding: 12, background: "#fafafa", borderRadius: 12, border: "1px solid #eee" }}>
-              No shop inventory found.
+            <div className="singles-merch-grid singles-merch-loading" aria-label="Loading singles">
+              {Array.from({ length: 10 }).map((_, index) => (
+                <div className="single-merch-skeleton" key={index}>
+                  <div />
+                  <span />
+                  <span />
+                </div>
+              ))}
+            </div>
+          ) : invErr ? null : invRows.length === 0 ? (
+            <div className="singles-empty singles-inventory-empty">
+              No cards found in the shop.
             </div>
           ) : (
-            <div style={{ marginTop: 12, display: "grid", gap: 10 }}>
+            <div className="singles-merch-grid">
               {invRows.map((r) => {
                 const img = safeImgSrc(r.card?.frontImageUrl ?? null);
                 const priceCents = Math.round((Number(r.card.bookValue ?? 0) || 0) * 100);
                 const detailsLine = compactMetaLine([r.card.team, r.card.subset, r.card.variant]);
                 const setLine = formatFriendlyProductSetLabel(r.card);
+                const requestedQty = buyQty[r.cardId] ?? 1;
+                const selectedQty = Number.isFinite(requestedQty)
+                  ? Math.max(1, Math.min(r.quantity, Math.floor(requestedQty)))
+                  : 1;
+                const totalCents = priceCents * selectedQty;
 
                 return (
-                  <div
-                    key={r.cardId}
-                    style={{
-                      border: "1px solid #eee",
-                      borderRadius: 14,
-                      padding: 12,
-                      background: "#fcfcfc",
-                      display: "grid",
-                      gridTemplateColumns: "64px 1fr",
-                      gap: 12,
-                      alignItems: "center",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: 64,
-                        height: 64,
-                        borderRadius: 12,
-                        overflow: "hidden",
-                        border: "1px solid #ddd",
-                        background: "white",
-                      }}
-                    >
+                  <article className="single-merch-card" key={r.cardId}>
+                    <div className="single-merch-art">
                       {img ? (
-                        <img src={img} alt="Card" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                        <img
+                          src={img}
+                          alt={`${r.card.player}${r.card.cardNumber ? ` #${r.card.cardNumber}` : ""}`}
+                          loading="lazy"
+                          decoding="async"
+                        />
                       ) : (
-                        <div style={{ width: "100%", height: "100%", display: "grid", placeItems: "center", fontSize: 11, color: "#777" }}>
-                          No image
+                        <div className="single-merch-placeholder">
+                          <span>VCS</span>
+                          <small>IMAGE UNAVAILABLE</small>
                         </div>
                       )}
+
+                      {r.youOwnQty > 0 ? (
+                        <span className="single-owned-badge">YOU OWN {r.youOwnQty}</span>
+                      ) : null}
+
+                      <span className={`single-stock-badge ${r.quantity === 1 ? "single-stock-last" : ""}`}>
+                        {r.quantity === 1 ? "LAST COPY" : `${r.quantity} AVAILABLE`}
+                      </span>
                     </div>
 
-                    <div style={{ display: "grid", gap: 6 }}>
-                      <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
-                        <div style={{ fontWeight: 900 }}>
-                          {r.card.player} {r.card.cardNumber ? `#${r.card.cardNumber}` : ""}
-                          <span style={{ fontWeight: 600, color: "#666" }}> ({r.quantity} in stock)</span>
-                        </div>
-
-                        <div style={{ fontSize: 12, color: "#555" }}>
-                          Price: <b>${centsToDollars(priceCents)}</b> • Card ID: {r.cardId}
-                        </div>
-                      </div>
-
-                      <div style={{ fontSize: 12, color: "#666" }}>
-                        {detailsLine || "—"}
-                      </div>
-
-                      <div style={{ fontSize: 12, color: "#444", fontWeight: 700 }}>
+                    <div className="single-merch-body">
+                      <div className="single-merch-set" title={setLine}>
                         {setLine}
                       </div>
 
-                      <div style={{ fontSize: 12, color: r.youOwnQty > 0 ? "#1f5133" : "#666", fontWeight: 800 }}>
-                        You own: {r.youOwnQty}
+                      <h3>
+                        {r.card.player}
+                        {r.card.cardNumber ? <small>#{r.card.cardNumber}</small> : null}
+                      </h3>
+
+                      {detailsLine ? <p>{detailsLine}</p> : <p className="single-merch-spacer">&nbsp;</p>}
+
+                      <div className="single-merch-purchase">
+                        <div className="single-merch-price">
+                          <small>Book price</small>
+                          <strong>${centsToDollars(priceCents)}</strong>
+                        </div>
+
+                        {r.quantity > 1 ? (
+                          <label className="single-merch-qty">
+                            <span>Qty</span>
+                            <input
+                              type="number"
+                              inputMode="numeric"
+                              min="1"
+                              max={r.quantity}
+                              value={String(buyQty[r.cardId] ?? 1)}
+                              onChange={(e) =>
+                                setBuyQty((prev) => ({
+                                  ...prev,
+                                  [r.cardId]: Number(e.target.value),
+                                }))
+                              }
+                              aria-label={`Quantity of ${r.card.player}`}
+                            />
+                          </label>
+                        ) : (
+                          <span className="single-merch-one-copy">1 copy</span>
+                        )}
                       </div>
 
-                      <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-                        <input
-                          value={String(buyQty[r.cardId] ?? 1)}
-                          onChange={(e) => setBuyQty((prev) => ({ ...prev, [r.cardId]: Number(e.target.value) }))}
-                          style={{ width: 80, padding: 8, borderRadius: 10, border: "1px solid #ccc" }}
-                        />
-                        <button
-                          onClick={() => buySingle(r.cardId)}
-                          disabled={buyingCardId === r.cardId}
-                          style={{
-                            padding: "9px 10px",
-                            borderRadius: 10,
-                            border: "1px solid #ccc",
-                            background: buyingCardId === r.cardId ? "#f2f2f2" : "white",
-                            fontWeight: 900,
-                            cursor: buyingCardId === r.cardId ? "not-allowed" : "pointer",
-                          }}
-                        >
-                          {buyingCardId === r.cardId ? "Buying…" : "Buy"}
-                        </button>
-                      </div>
+                      <button
+                        className="single-merch-buy"
+                        onClick={() => buySingle(r.cardId)}
+                        disabled={buyingCardId === r.cardId}
+                      >
+                        <span>{buyingCardId === r.cardId ? "Buying…" : "Buy now"}</span>
+                        <strong>${centsToDollars(totalCents)}</strong>
+                      </button>
                     </div>
-                  </div>
+                  </article>
                 );
               })}
             </div>

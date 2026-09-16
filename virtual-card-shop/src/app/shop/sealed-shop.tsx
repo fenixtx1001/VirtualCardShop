@@ -10,7 +10,7 @@ const messageOf = (error: unknown) => error instanceof Error ? error.message : "
 type Kind = "pack" | "box";
 type Sort = "name" | "year_desc" | "price_asc" | "price_desc";
 
-function PackArt({ product, box = false, eager = false }: { product: ShopProduct; box?: boolean; eager?: boolean }) {
+function PackArt({ product, box = true, eager = false }: { product: ShopProduct; box?: boolean; eager?: boolean }) {
   const src = (box ? product.boxImageUrl || product.packImageUrl : product.packImageUrl || product.boxImageUrl);
   const [failed, setFailed] = useState<string | null>(null);
   if (!src || failed === src) return <div className="shop-art-placeholder"><span>VCS</span><small>{product.year || "CARD SHOP"}</small></div>;
@@ -138,7 +138,6 @@ export function SealedShop({ view, onViewChange }: { view: "discover" | "all"; o
   const years = [...new Set(products.map((p) => p.year).filter((v): v is number => v !== null))].sort((a, b) => b - a);
 
   return <>
-    <nav className="shop-tabs" aria-label="Shop views"><button aria-current={view === "discover" ? "page" : undefined} onClick={() => chooseView("discover")}>Discover</button><button aria-current={view === "all" ? "page" : undefined} onClick={() => chooseView("all")}>All products</button><span>Packs & boxes</span></nav>
     {error && <div className="shop-notice" role="alert">{error} <button onClick={() => void loadProducts()}>Retry</button></div>}
     {notice && <div className="shop-notice shop-success" role="status">{notice}<Link href="/inventory">Open your packs ↗</Link><button aria-label="Dismiss purchase confirmation" onClick={() => setNotice(null)}>×</button></div>}
     {loading ? <div className="shop-loading" role="status"><div /><div /><div /><span>Opening the shop…</span></div> : <>
