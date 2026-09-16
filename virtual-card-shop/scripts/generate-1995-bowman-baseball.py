@@ -192,28 +192,24 @@ def is_checklist_card(player: str, subset: str = "") -> bool:
 
 
 def logical_base_number(raw_number: str, raw_name: str, seen_294: int) -> tuple[int, int, str]:
-    number = int(raw_number)
+    raw = raw_number.strip().upper()
     extra = ""
 
-    if number == 294:
+    if raw == "294":
         seen_294 += 1
-        if seen_294 == 1:
-            number = 294
-        elif seen_294 == 2:
-            number = 394
-            extra = "UER: printed #294; intended #394"
-        else:
-            raise SystemExit(
-                f"Unexpected third printed #294 record: {raw_name}"
-            )
+        return 294, seen_294, extra
 
-    return number, seen_294, extra
+    if raw == "294B":
+        seen_294 += 1
+        return 394, seen_294, "UER: printed #294; TCDB 294b; intended #394"
+
+    return int(raw), seen_294, extra
 
 
 def load_true_rc_numbers() -> set[int]:
     rows = fetch_set_rows(
         ROOKIES_URL,
-        r"\d{1,3}",
+        r"\d{1,3}[A-Za-z]?",
         None,
         "rookie-index",
         max_pages=6,
@@ -247,7 +243,7 @@ def base_subset(number: int) -> str:
 
 
 def build_base_rows(true_rcs: set[int]) -> list[list[str]]:
-    source_rows = fetch_set_rows(BASE_URL, r"\d{1,3}", 439, "base")
+    source_rows = fetch_set_rows(BASE_URL, r"\d{1,3}[A-Za-z]?", 439, "base")
     cards: dict[int, tuple[str, str, str]] = {}
     seen_294 = 0
 
