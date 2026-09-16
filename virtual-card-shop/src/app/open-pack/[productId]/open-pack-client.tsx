@@ -205,7 +205,6 @@ export default function OpenPackClient({
   const [opened, setOpened] = useState(false);
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
-  const [showSummary, setShowSummary] = useState(false);
 
   const [dragX, setDragX] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -392,7 +391,6 @@ export default function OpenPackClient({
     setOpened(false);
     setIdx(0);
     setFlipped(false);
-    setShowSummary(false);
     setDragX(0);
     setIsDragging(false);
     setCardMotion(null);
@@ -463,7 +461,6 @@ export default function OpenPackClient({
   function next() {
     if (!canNext || swipeCommit) return;
 
-    setShowSummary(false);
     setFlipped(false);
     setDragX(0);
     setIsDragging(false);
@@ -475,7 +472,6 @@ export default function OpenPackClient({
   function prev() {
     if (!canPrev || swipeCommit) return;
 
-    setShowSummary(false);
     setFlipped(false);
     setDragX(0);
     setIsDragging(false);
@@ -506,7 +502,6 @@ export default function OpenPackClient({
     if (direction === "next" && !canNext) return;
     if (direction === "prev" && !canPrev) return;
 
-    setShowSummary(false);
 
     if (motionTimerRef.current) {
       window.clearTimeout(motionTimerRef.current);
@@ -780,7 +775,7 @@ export default function OpenPackClient({
         loading && "is-opening",
         currentHasPrestigeProgress && "has-prestige-need",
         currentHitPrestige && "has-prestige-hit",
-        showSummary && "is-summary-open"
+        isDone && "is-summary-open"
       )}
     >
       <style jsx global>{`
@@ -3420,23 +3415,13 @@ export default function OpenPackClient({
                       {flipped ? "Front" : "Flip"}
                     </button>
 
-                    {canNext ? (
-                      <button
-                        className="btn"
-                        onClick={next}
-                        disabled={Boolean(swipeCommit)}
-                      >
-                        Next →
-                      </button>
-                    ) : (
-                      <button
-                        className="btn complete-control"
-                        onClick={() => setShowSummary(true)}
-                        disabled={Boolean(swipeCommit)}
-                      >
-                        Review pack
-                      </button>
-                    )}
+                    <button
+                      className="btn"
+                      onClick={next}
+                      disabled={!canNext || Boolean(swipeCommit)}
+                    >
+                      Next →
+                    </button>
                   </div>
                 </div>
 
