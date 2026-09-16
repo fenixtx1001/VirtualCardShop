@@ -2947,6 +2947,360 @@ export default function OpenPackClient({
           }
         }
 
+
+        /* =========================================================
+           VCS RIP SHOP VISUAL SYSTEM V4
+           Premium physical-card-shop presentation
+           ========================================================= */
+
+        .vcs-pack-root {
+          --vcs-rip-bg: #181a19;
+          --vcs-rip-panel: #20231f;
+          --vcs-rip-panel-2: #252823;
+          --vcs-rip-border: #3b4038;
+          --vcs-rip-border-hi: #51574a;
+          --vcs-rip-text: #f2eee5;
+          --vcs-rip-muted: #9ea398;
+          --vcs-rip-faint: #747a71;
+          --vcs-rip-gold: #d7bb7e;
+
+          color: var(--vcs-rip-text) !important;
+          background:
+            radial-gradient(
+              circle at 50% 18%,
+              rgba(215, 187, 126, .075),
+              transparent 31%
+            ),
+            linear-gradient(180deg, #1d201d 0%, #181a19 68%) !important;
+        }
+
+        .vcs-pack-stage {
+          border-color: var(--vcs-rip-border) !important;
+          background: #1c1f1c !important;
+          box-shadow:
+            0 22px 48px rgba(0,0,0,.24),
+            inset 0 1px 0 rgba(255,255,255,.02) !important;
+        }
+
+        .panel {
+          border-color: var(--vcs-rip-border) !important;
+          background: var(--vcs-rip-panel) !important;
+          color: var(--vcs-rip-text) !important;
+          box-shadow: none !important;
+        }
+
+        .btn {
+          border-color: #454a41 !important;
+          background: #242722 !important;
+          color: #c9cdc1 !important;
+          box-shadow: none !important;
+          font-weight: 650 !important;
+        }
+
+        .btn:hover:not(:disabled) {
+          border-color: #62685a !important;
+          background: #2d302a !important;
+        }
+
+        .btn.primary {
+          border-color: var(--vcs-rip-gold) !important;
+          background: var(--vcs-rip-gold) !important;
+          color: #23241f !important;
+        }
+
+        .pill {
+          border-color: #444940 !important;
+          background: #252823 !important;
+          color: #c4c8bd !important;
+        }
+
+        .panel-title,
+        .hint,
+        .stat-sub,
+        .footer-tip {
+          color: var(--vcs-rip-muted) !important;
+        }
+
+        .stat-title {
+          color: var(--vcs-rip-text) !important;
+          font-family: Georgia, "Times New Roman", serif;
+          font-weight: 500 !important;
+        }
+
+        .value-box,
+        .value-box.neutral {
+          border-color: var(--vcs-rip-border) !important;
+          background: #252823 !important;
+        }
+
+        .value-box.positive {
+          border-color: #51664c !important;
+          background: #253025 !important;
+        }
+
+        .value-box.negative {
+          border-color: #684b43 !important;
+          background: #302522 !important;
+        }
+
+        .value-head {
+          color: var(--vcs-rip-muted) !important;
+        }
+
+        .value-main,
+        .value-neutral {
+          color: var(--vcs-rip-text) !important;
+        }
+
+        .value-positive {
+          color: #bfd8b7 !important;
+        }
+
+        .value-negative {
+          color: #e0aca1 !important;
+        }
+
+        .summary {
+          border: 1px solid var(--vcs-rip-border) !important;
+          background:
+            linear-gradient(
+              180deg,
+              #21241f,
+              #1c1f1c
+            ) !important;
+          color: var(--vcs-rip-text) !important;
+          box-shadow: 0 18px 44px rgba(0,0,0,.25) !important;
+        }
+
+        .summary-eyebrow {
+          color: var(--vcs-rip-gold) !important;
+        }
+
+        .summary h3 {
+          color: var(--vcs-rip-text) !important;
+          font-family: Georgia, "Times New Roman", serif;
+          font-weight: 500 !important;
+        }
+
+        .summary-count {
+          color: var(--vcs-rip-muted) !important;
+        }
+
+        .summary-totals {
+          border-color: #41463e !important;
+          background: #282b26 !important;
+        }
+
+        .summary-total-label {
+          color: #8c9288 !important;
+        }
+
+        .summary-total-value {
+          color: #eee9de !important;
+        }
+
+        .summary-card-row {
+          border-color: #373c35 !important;
+          background: #232622 !important;
+          box-shadow: none !important;
+        }
+
+        .summary-card-link:hover .summary-card-row {
+          border-color: #555b4e !important;
+          background: #292d27 !important;
+        }
+
+        .summary-card-title {
+          color: #f0ece2 !important;
+        }
+
+        .summary-card-sub,
+        .summary-card-value-sub {
+          color: #969c91 !important;
+        }
+
+        .summary-card-value-main {
+          color: #eee9df !important;
+        }
+
+        .summary-card-chevron {
+          color: var(--vcs-rip-gold) !important;
+        }
+
+        @media (max-width: 560px) {
+          .vcs-pack-root {
+            background:
+              radial-gradient(
+                circle at 50% 30%,
+                rgba(215,187,126,.065),
+                transparent 43%
+              ),
+              #181a19 !important;
+          }
+
+          .vcs-pack-stage,
+          .vcs-pack-root.is-opened .vcs-pack-stage {
+            background: transparent !important;
+            border: 0 !important;
+            box-shadow: none !important;
+          }
+
+          .card-panel {
+            background: transparent !important;
+          }
+
+          /*
+           * Keep the actual card visually dominant. The surrounding
+           * interface should disappear into the dark shop environment.
+           */
+          .flip-card,
+          .under-card {
+            border-radius: 10px !important;
+            box-shadow:
+              0 30px 60px rgba(0,0,0,.42),
+              0 8px 20px rgba(0,0,0,.28) !important;
+          }
+
+          .card-presentation::after {
+            background:
+              radial-gradient(
+                circle at 50% 44%,
+                rgba(255,255,255,.065),
+                rgba(215,187,126,.025) 45%,
+                transparent 72%
+              ) !important;
+          }
+
+          /*
+           * Top HUD — same restrained brass / charcoal vocabulary
+           * as the Shop.
+           */
+          .mobile-rip-hud {
+            border: 1px solid #42473e !important;
+            background: rgba(29,32,28,.96) !important;
+            box-shadow:
+              0 8px 22px rgba(0,0,0,.18),
+              inset 0 1px 0 rgba(255,255,255,.025) !important;
+          }
+
+          .mobile-hud-label {
+            color: #858b81 !important;
+          }
+
+          .mobile-hud-value {
+            color: #f0ece2 !important;
+          }
+
+          .mobile-hud-card {
+            background: rgba(215,187,126,.12) !important;
+            color: #ddc78f !important;
+          }
+
+          /*
+           * Collector intelligence strip: no more big white form-card.
+           * It reads like a museum/collector placard beneath the card.
+           */
+          .mobile-current-meta {
+            border: 1px solid #3b4038 !important;
+            border-radius: 7px !important;
+            background:
+              linear-gradient(
+                180deg,
+                rgba(35,38,34,.98),
+                rgba(30,33,29,.98)
+              ) !important;
+            box-shadow:
+              0 8px 20px rgba(0,0,0,.16),
+              inset 0 1px 0 rgba(255,255,255,.02) !important;
+          }
+
+          .mobile-current-title {
+            color: #f2eee5 !important;
+            font-weight: 650 !important;
+            letter-spacing: -.018em !important;
+          }
+
+          .mobile-current-sub {
+            color: #9da298 !important;
+            font-weight: 500 !important;
+          }
+
+          .mobile-current-type,
+          .mobile-current-type.special {
+            border: 1px solid #444940 !important;
+            background: #292d27 !important;
+            color: #b6bbae !important;
+          }
+
+          .mobile-current-stats {
+            color: #979c92 !important;
+          }
+
+          .mobile-current-stats b {
+            color: #f0ece2 !important;
+          }
+
+          /*
+           * Prestige gets the brass treatment. Inserts do not.
+           */
+          .mobile-prestige-note {
+            border-left-color: #b79a59 !important;
+            background: rgba(215,187,126,.08) !important;
+            color: #dfca96 !important;
+          }
+
+          .mobile-prestige-note.hit {
+            border-left-color: var(--vcs-rip-gold) !important;
+            background:
+              linear-gradient(
+                90deg,
+                #332f24,
+                #272920
+              ) !important;
+            color: #f1dfac !important;
+          }
+
+          /*
+           * Controls should feel like hardware controls, not giant
+           * form buttons.
+           */
+          .mobile-card-controls {
+            margin-top: 6px !important;
+          }
+
+          .mobile-card-controls .btn {
+            min-height: 32px !important;
+            border: 1px solid #3d423a !important;
+            border-radius: 6px !important;
+            background: #20231f !important;
+            color: #9fa59a !important;
+          }
+
+          .mobile-card-controls .btn.flip-control {
+            background: #252823 !important;
+            color: #d4d7cf !important;
+          }
+
+          .mobile-card-controls .btn:disabled {
+            opacity: .25 !important;
+          }
+
+          .mobile-swipe-hint {
+            border: 1px solid rgba(255,255,255,.08);
+            background: rgba(17,19,17,.60) !important;
+            color: #d1d4cc !important;
+          }
+
+          .summary {
+            margin-top: 14px !important;
+            border-radius: 8px !important;
+          }
+
+          .summary-card-row {
+            border-radius: 6px !important;
+          }
+        }
+
       `}</style>
 
       <div className="vcs-pack-wrap">
