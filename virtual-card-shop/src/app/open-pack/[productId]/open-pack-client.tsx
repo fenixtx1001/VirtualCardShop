@@ -3642,6 +3642,140 @@ export default function OpenPackClient({
           }
         }
 
+
+        /* =========================================================
+           VCS MOBILE CARD DEPTH V6
+           Make the card feel physically elevated from the surface.
+           Prestige keeps its own brass significance treatment.
+           ========================================================= */
+
+        @media (max-width: 560px) {
+          /*
+           * Ambient pool behind the card.
+           * This is intentionally neutral rather than gold so it does
+           * not compete with Prestige states.
+           */
+          .card-presentation {
+            position: relative;
+            isolation: isolate;
+          }
+
+          .card-presentation::after {
+            content: "";
+            position: absolute;
+            z-index: -3;
+            top: 5%;
+            right: 3%;
+            bottom: 1%;
+            left: 3%;
+            border-radius: 28px;
+            background:
+              radial-gradient(
+                ellipse at 50% 48%,
+                rgba(255,255,255,.105) 0%,
+                rgba(255,255,255,.045) 38%,
+                rgba(255,255,255,.014) 58%,
+                transparent 74%
+              ) !important;
+            filter: blur(3px);
+            pointer-events: none;
+          }
+
+          /*
+           * Contact shadow directly underneath the card.
+           * A tight shadow makes it feel like a physical object rather
+           * than an image painted onto the background.
+           */
+          .card-presentation::before {
+            content: "";
+            position: absolute;
+            z-index: -2;
+            left: 10%;
+            right: 10%;
+            bottom: 0;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(0,0,0,.52) !important;
+            filter: blur(17px) !important;
+            opacity: .78 !important;
+            transform: translateY(7px) scaleX(.94);
+            pointer-events: none;
+          }
+
+          /*
+           * Standard cards get layered depth:
+           * - fine light edge
+           * - tight contact shadow
+           * - broad soft shadow
+           *
+           * Prestige cards are excluded because they already receive
+           * stronger milestone-specific framing.
+           */
+          .vcs-pack-root:not(.has-prestige-need):not(.has-prestige-hit)
+            .card-drag-shell .flip-card {
+            box-shadow:
+              0 0 0 1px rgba(255,255,255,.20),
+              0 2px 4px rgba(0,0,0,.38),
+              0 10px 18px rgba(0,0,0,.34),
+              0 28px 54px rgba(0,0,0,.40),
+              0 45px 80px rgba(0,0,0,.17) !important;
+          }
+
+          /*
+           * Crisp physical edge across every card. The scans themselves
+           * often have dark borders, so this edge keeps them separated
+           * from the charcoal environment.
+           */
+          .flip-card::after {
+            box-shadow:
+              inset 0 0 0 1px rgba(255,255,255,.18),
+              inset 0 0 0 2px rgba(0,0,0,.07) !important;
+          }
+
+          /*
+           * Make the card underneath read more clearly as an actual
+           * second card in a stack, without increasing clutter.
+           */
+          .under-card {
+            filter: brightness(.84) saturate(.90);
+            box-shadow:
+              0 0 0 1px rgba(255,255,255,.10),
+              0 12px 24px rgba(0,0,0,.34),
+              0 24px 46px rgba(0,0,0,.25) !important;
+          }
+
+          /*
+           * Slight lift on arrival. Very small—this should register as
+           * physical motion rather than an animation effect.
+           */
+          .card-drag-shell.motion-next .flip-card,
+          .card-drag-shell.motion-prev .flip-card {
+            animation: vcsPhysicalCardSettle 320ms
+              cubic-bezier(.16,.78,.24,1);
+          }
+
+          @keyframes vcsPhysicalCardSettle {
+            0% {
+              filter: brightness(.96);
+            }
+
+            55% {
+              filter: brightness(1.025);
+            }
+
+            100% {
+              filter: brightness(1);
+            }
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .card-drag-shell.motion-next .flip-card,
+          .card-drag-shell.motion-prev .flip-card {
+            animation: none !important;
+          }
+        }
+
       `}</style>
 
       <div className="vcs-pack-wrap">
