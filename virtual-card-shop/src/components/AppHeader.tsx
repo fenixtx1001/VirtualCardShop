@@ -42,17 +42,17 @@ const navItems: NavItem[] = [
 ];
 
 const palette = {
-  shell: "rgba(255, 252, 246, 0.88)",
-  shellStrong: "rgba(255, 252, 246, 0.96)",
-  text: "#17130c",
-  muted: "#776d5d",
-  faint: "#a79a85",
-  border: "rgba(89, 75, 49, 0.16)",
-  gold: "#b9933d",
-  goldDeep: "#7a5619",
-  goldSoft: "rgba(185, 147, 61, 0.13)",
-  cream: "#fbf7ef",
-  card: "rgba(255,255,255,0.78)",
+  shell: "rgba(24, 26, 25, 0.94)",
+  shellStrong: "rgba(24, 26, 25, 0.97)",
+  text: "#eee9dc",
+  muted: "#aeb3a7",
+  faint: "#777d73",
+  border: "rgba(121, 126, 109, 0.34)",
+  gold: "#d7bb7e",
+  goldDeep: "#e0c98e",
+  goldSoft: "rgba(215, 187, 126, 0.12)",
+  cream: "#20231f",
+  card: "rgba(36,39,34,0.86)",
   shadow: "0 18px 55px rgba(42, 31, 13, 0.12)",
   blueBlack: "#151922",
   danger: "#9f1d1d",
@@ -92,7 +92,7 @@ function VcsMark({ size = 42 }: { size?: number }) {
         position: "relative",
         flex: "0 0 auto",
         background:
-          "linear-gradient(145deg, rgba(255,255,255,0.98), rgba(237,226,202,0.9) 48%, rgba(255,255,255,0.96))",
+          "linear-gradient(145deg, #292d27, #1f221e)",
         border: `1px solid ${palette.border}`,
         boxShadow:
           "inset 0 1px 0 rgba(255,255,255,0.95), 0 10px 24px rgba(83,61,21,0.12)",
@@ -115,7 +115,7 @@ function VcsMark({ size = 42 }: { size?: number }) {
           fontSize: Math.round(size * 0.33),
           fontWeight: 1000,
           letterSpacing: -0.8,
-          color: palette.blueBlack,
+          color: "#d7bb7e",
           lineHeight: 1,
         }}
       >
@@ -345,19 +345,15 @@ function ClaimRewardButton({
       onClick={onClick}
       disabled={!canClaim}
       style={{
-        border: `1px solid ${canClaim ? "rgba(185,147,61,0.55)" : palette.border}`,
-        background: canClaim
-          ? "linear-gradient(135deg, #fff9df, #ffffff 48%, #f1dfaa)"
-          : "rgba(255,255,255,0.54)",
-        color: canClaim ? palette.goldDeep : palette.muted,
-        borderRadius: 999,
-        padding: compact ? "7px 10px" : "8px 12px",
-        fontSize: compact ? 12 : 13,
-        fontWeight: 950,
+        border: canClaim ? "1px solid #d7bb7e" : "1px solid #494e40",
+        background: canClaim ? "#d7bb7e" : "#252a22",
+        color: canClaim ? "#20221c" : "#c7cbbb",
+        borderRadius: 6,
+        padding: compact ? "7px 9px" : "8px 11px",
+        fontSize: compact ? 11 : 12,
+        fontWeight: 750,
         cursor: canClaim ? "pointer" : "not-allowed",
-        boxShadow: canClaim
-          ? "0 10px 22px rgba(185,147,61,0.18), inset 0 1px 0 rgba(255,255,255,0.9)"
-          : "inset 0 1px 0 rgba(255,255,255,0.72)",
+        boxShadow: canClaim ? "0 5px 16px rgba(0,0,0,.24)" : "none",
         whiteSpace: "nowrap",
       }}
       title={
@@ -575,9 +571,9 @@ export default function AppHeader() {
   }, [compactRipMode, isMobile, mobileMenuOpen, eco?.canClaim, eco?.msUntilNextClaim, stats?.cardsOwned, stats?.collectionValueCents]);
 
   const signedInEmail = status === "authenticated" ? session?.user?.email ?? null : null;
-  const showCompactMobileRipHeader = isMobile && pathname?.startsWith("/open-pack/") && compactRipMode;
+  const showCompactMobileRipHeader = isMobile && pathname?.startsWith("/open-pack/");
 
-  if (pathname === "/shop") {
+  if (!showCompactMobileRipHeader) {
     return <header ref={headerRef} style={{ position: "sticky", top: 0, zIndex: 1000, background: "#181a19f5", backdropFilter: "blur(16px)", borderBottom: "1px solid #393e33", color: "#eee9dc" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: isMobile ? "10px 18px" : "14px 32px", display: "flex", alignItems: "center", gap: 12 }}>
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 9, textDecoration: "none", color: "#eee9dc", minWidth: 0 }}>
@@ -838,20 +834,21 @@ export default function AppHeader() {
             top: 0,
             zIndex: 1000,
             padding: "9px 12px",
-            background: palette.shellStrong,
+            background: "#181a19f5",
+            color: "#eee9dc",
             backdropFilter: "blur(18px)",
-            borderBottom: `1px solid ${palette.border}`,
-            boxShadow: "0 10px 30px rgba(34, 27, 16, 0.09)",
+            borderBottom: "1px solid #393e33",
+            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.18)",
           }}
         >
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
               <VcsMark size={34} />
               <div style={{ minWidth: 0 }}>
-                <div style={{ fontSize: 14, fontWeight: 1000, color: palette.text, letterSpacing: -0.2 }}>
+                <div style={{ fontSize: 14, fontWeight: 750, color: "#eee9dc", letterSpacing: -0.2 }}>
                   VCS Rip
                 </div>
-                <div style={{ fontSize: 11, color: palette.muted, fontWeight: 820 }}>{balanceText}</div>
+                <div style={{ fontSize: 11, color: "#b7bbaf", fontWeight: 600 }}>{balanceText}</div>
               </div>
             </div>
 
@@ -860,14 +857,14 @@ export default function AppHeader() {
               <Link
                 href="/inventory"
                 style={{
-                  color: palette.text,
+                  color: "#ddd5bf",
                   textDecoration: "none",
                   fontSize: 12,
-                  fontWeight: 950,
+                  fontWeight: 700,
                   padding: "7px 9px",
-                  borderRadius: 999,
-                  border: `1px solid ${palette.border}`,
-                  background: "rgba(255,255,255,0.65)",
+                  borderRadius: 6,
+                  border: "1px solid #494e40",
+                  background: "#252a22",
                   whiteSpace: "nowrap",
                 }}
               >
@@ -892,11 +889,11 @@ export default function AppHeader() {
           position: "sticky",
           top: 0,
           zIndex: 1000,
-          background:
-            "linear-gradient(180deg, rgba(255,252,246,0.96), rgba(255,252,246,0.86))",
+          background: "#181a19f5",
+          color: "#eee9dc",
           backdropFilter: "blur(18px)",
-          borderBottom: `1px solid ${palette.border}`,
-          boxShadow: "0 12px 34px rgba(38, 29, 12, 0.08)",
+          borderBottom: "1px solid #393e33",
+          boxShadow: "0 12px 34px rgba(0, 0, 0, 0.18)",
         }}
       >
         <div

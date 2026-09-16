@@ -3301,6 +3301,347 @@ export default function OpenPackClient({
           }
         }
 
+
+        /* =========================================================
+           VCS PRESTIGE NEEDED V2
+           Collection significance belongs on the card itself.
+           ========================================================= */
+
+        .prestige-needed-plaque {
+          position: absolute;
+          z-index: 9;
+          top: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          align-items: center;
+          gap: 7px;
+          padding: 6px 9px;
+          border: 1px solid rgba(215, 187, 126, .72);
+          border-radius: 5px;
+          background: rgba(27, 29, 24, .94);
+          color: #e8d6a7;
+          box-shadow:
+            0 8px 22px rgba(0,0,0,.30),
+            inset 0 1px 0 rgba(255,255,255,.045);
+          backdrop-filter: blur(9px);
+          pointer-events: none;
+          white-space: nowrap;
+          animation: vcsPrestigeNeedPlaqueIn 520ms cubic-bezier(.18,.78,.22,1) both;
+        }
+
+        .prestige-needed-plaque span {
+          font-size: 8px;
+          line-height: 1;
+          font-weight: 650;
+          letter-spacing: .1em;
+        }
+
+        .prestige-needed-plaque strong {
+          padding-left: 7px;
+          border-left: 1px solid rgba(215,187,126,.34);
+          color: #f1e3bc;
+          font-size: 8px;
+          line-height: 1;
+          font-weight: 850;
+          letter-spacing: .12em;
+        }
+
+        .vcs-pack-root.has-prestige-need:not(.has-prestige-hit)
+          .card-drag-shell .flip-card {
+          box-shadow:
+            0 0 0 2px rgba(215,187,126,.82),
+            0 0 0 7px rgba(215,187,126,.085),
+            0 30px 62px rgba(0,0,0,.43),
+            0 8px 20px rgba(0,0,0,.27) !important;
+
+          animation:
+            vcsPrestigeNeedCardIn 680ms cubic-bezier(.16,.8,.24,1) both;
+        }
+
+        .vcs-pack-root.has-prestige-need:not(.has-prestige-hit)
+          .card-presentation::after {
+          background:
+            radial-gradient(
+              circle at 50% 46%,
+              rgba(215,187,126,.16),
+              rgba(215,187,126,.055) 44%,
+              transparent 70%
+            ) !important;
+        }
+
+        @keyframes vcsPrestigeNeedCardIn {
+          0% {
+            transform: scale(.985);
+            filter: brightness(.94);
+          }
+          40% {
+            transform: scale(1.008);
+            filter: brightness(1.045);
+          }
+          100% {
+            transform: scale(1);
+            filter: brightness(1);
+          }
+        }
+
+        @keyframes vcsPrestigeNeedPlaqueIn {
+          0% {
+            opacity: 0;
+            transform: translate(-50%, -6px);
+          }
+          100% {
+            opacity: 1;
+            transform: translate(-50%, 0);
+          }
+        }
+
+        @media (max-width: 560px) {
+          .prestige-needed-plaque {
+            top: 7px;
+            padding: 5px 8px;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .prestige-needed-plaque,
+          .vcs-pack-root.has-prestige-need:not(.has-prestige-hit)
+            .card-drag-shell .flip-card {
+            animation: none !important;
+          }
+        }
+
+
+        /* =========================================================
+           VCS PRESTIGE MILESTONES V5
+           Needed card != actual Prestige advancement
+           ========================================================= */
+
+        .prestige-needed-plaque {
+          position: absolute;
+          z-index: 9;
+          top: 9px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          align-items: center;
+          gap: 7px;
+          padding: 6px 9px;
+          border: 1px solid rgba(215, 187, 126, .70);
+          border-radius: 5px;
+          background: rgba(25, 28, 23, .94);
+          color: #dfca95;
+          backdrop-filter: blur(10px);
+          box-shadow:
+            0 8px 24px rgba(0,0,0,.30),
+            inset 0 1px 0 rgba(255,255,255,.04);
+          pointer-events: none;
+          white-space: nowrap;
+          animation:
+            vcsPrestigeNeededIn 500ms cubic-bezier(.18,.78,.22,1) both;
+        }
+
+        .prestige-needed-plaque span {
+          font-size: 8px;
+          line-height: 1;
+          font-weight: 650;
+          letter-spacing: .10em;
+        }
+
+        .prestige-needed-plaque strong {
+          padding-left: 7px;
+          border-left: 1px solid rgba(215,187,126,.32);
+          color: #f0e1b8;
+          font-size: 8px;
+          line-height: 1;
+          font-weight: 850;
+          letter-spacing: .12em;
+        }
+
+        .vcs-pack-root.has-prestige-need:not(.has-prestige-hit)
+          .card-drag-shell .flip-card {
+          box-shadow:
+            0 0 0 2px rgba(215,187,126,.78),
+            0 0 0 7px rgba(215,187,126,.07),
+            0 30px 62px rgba(0,0,0,.42),
+            0 8px 20px rgba(0,0,0,.26) !important;
+        }
+
+        .vcs-pack-root.has-prestige-need:not(.has-prestige-hit)
+          .card-presentation::after {
+          background:
+            radial-gradient(
+              circle at 50% 46%,
+              rgba(215,187,126,.15),
+              rgba(215,187,126,.05) 44%,
+              transparent 70%
+            ) !important;
+        }
+
+        /*
+         * ACTUAL LEVEL-UP:
+         * This is intentionally a separate visual language from
+         * merely receiving a needed card.
+         */
+        .vcs-pack-root.has-prestige-hit .card-drag-shell .flip-card {
+          box-shadow:
+            0 0 0 2px rgba(235,211,151,.96),
+            0 0 0 7px rgba(215,187,126,.18),
+            0 0 38px rgba(215,187,126,.22),
+            0 34px 68px rgba(0,0,0,.46) !important;
+        }
+
+        .vcs-pack-root.has-prestige-hit .card-presentation::after {
+          background:
+            radial-gradient(
+              circle at 50% 48%,
+              rgba(230,204,140,.25),
+              rgba(215,187,126,.09) 42%,
+              transparent 72%
+            ) !important;
+        }
+
+        .prestige-level-up-moment {
+          position: absolute;
+          z-index: 14;
+          top: 50%;
+          left: 50%;
+          width: min(78%, 280px);
+          transform: translate(-50%, -50%);
+          display: grid;
+          justify-items: center;
+          gap: 4px;
+          padding: 15px 18px 14px;
+          border: 1px solid rgba(230,204,140,.92);
+          border-radius: 7px;
+          background:
+            linear-gradient(
+              145deg,
+              rgba(29,30,24,.97),
+              rgba(54,48,34,.97)
+            );
+          color: #f1e2b9;
+          text-align: center;
+          pointer-events: none;
+          backdrop-filter: blur(12px);
+          box-shadow:
+            0 24px 55px rgba(0,0,0,.48),
+            0 0 40px rgba(215,187,126,.18),
+            inset 0 1px 0 rgba(255,255,255,.06);
+
+          animation:
+            vcsPrestigeLevelUp 1900ms cubic-bezier(.16,.78,.24,1) both;
+        }
+
+        .prestige-level-up-moment span {
+          font-size: 9px;
+          line-height: 1;
+          font-weight: 750;
+          letter-spacing: .18em;
+        }
+
+        .prestige-level-up-moment strong {
+          margin-top: 2px;
+          color: #f3dfaa;
+          font-family: Georgia, "Times New Roman", serif;
+          font-size: 42px;
+          line-height: .95;
+          font-weight: 500;
+          letter-spacing: -.04em;
+        }
+
+        .prestige-level-up-moment small {
+          margin-top: 3px;
+          color: #bdb7a8;
+          font-size: 8px;
+          line-height: 1.2;
+          font-weight: 600;
+          letter-spacing: .04em;
+        }
+
+        /*
+         * The top badge remains after the main milestone animation
+         * finishes, so the completed state doesn't disappear.
+         */
+        .vcs-pack-root.has-prestige-hit .flip-banner {
+          border-color: #e0c98e !important;
+          background:
+            linear-gradient(
+              135deg,
+              #312f27,
+              #443b27
+            ) !important;
+          color: #f2dfaa !important;
+          box-shadow:
+            0 12px 30px rgba(0,0,0,.32),
+            0 0 18px rgba(215,187,126,.12) !important;
+        }
+
+        @keyframes vcsPrestigeNeededIn {
+          0% {
+            opacity: 0;
+            transform: translate(-50%, -7px);
+          }
+
+          100% {
+            opacity: 1;
+            transform: translate(-50%, 0);
+          }
+        }
+
+        @keyframes vcsPrestigeLevelUp {
+          0% {
+            opacity: 0;
+            transform: translate(-50%, -44%) scale(.92);
+          }
+
+          14% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.025);
+          }
+
+          25% {
+            transform: translate(-50%, -50%) scale(1);
+          }
+
+          72% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+          }
+
+          100% {
+            opacity: 0;
+            transform: translate(-50%, -54%) scale(.985);
+          }
+        }
+
+        @media (max-width: 560px) {
+          .prestige-needed-plaque {
+            top: 7px;
+            padding: 5px 8px;
+          }
+
+          .prestige-level-up-moment {
+            width: min(74%, 250px);
+            padding: 13px 15px 12px;
+          }
+
+          .prestige-level-up-moment strong {
+            font-size: 38px;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .prestige-needed-plaque {
+            animation: none !important;
+          }
+
+          .prestige-level-up-moment {
+            animation: none !important;
+            opacity: 1;
+          }
+        }
+
       `}</style>
 
       <div className="vcs-pack-wrap">
@@ -3601,12 +3942,34 @@ export default function OpenPackClient({
                           </div>
                         ) : null}
 
+                        {currentHasPrestigeProgress &&
+                        !currentHitPrestige &&
+                        current?.prestigeTargetLevel ? (
+                          <div className="prestige-needed-plaque">
+                            <span>PRESTIGE ×{current.prestigeTargetLevel}</span>
+                            <strong>NEEDED</strong>
+                          </div>
+                        ) : null}
+
                         <div
                           className={cx(
                             "flip-celebration",
                             currentHitPrestige && "active"
                           )}
                         />
+
+                        {currentHitPrestige &&
+                        current?.prestigeTargetLevel ? (
+                          <div
+                            className="prestige-level-up-moment"
+                            role="status"
+                            aria-live="polite"
+                          >
+                            <span>PRESTIGE ADVANCED</span>
+                            <strong>×{current.prestigeTargetLevel}</strong>
+                            <small>Set completion level increased</small>
+                          </div>
+                        ) : null}
 
                         <div
                           className={cx(
