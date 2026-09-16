@@ -1,0 +1,197 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Tony Adams,Arsenal FC,,
+base,2,Patrick Vieira,Arsenal FC,,
+base,3,Robert Pires,Arsenal FC,,
+base,4,Lauren,Arsenal FC,,
+base,5,Sylvain Wiltord,Arsenal FC,,
+base,6,Nwankwo Kanu,Arsenal FC,,
+base,7,Dennis Bergkamp,Arsenal FC,,
+base,8,David James,Aston Villa,,
+base,9,Alpay Ozalan,Aston Villa,,
+base,10,Gareth Southgate,Aston Villa,,
+base,11,Gareth Barry,Aston Villa,,
+base,12,David Ginola,Aston Villa,,
+base,13,Paul Merson,Aston Villa,,
+base,14,Luc Nilis,Aston Villa,,
+base,15,Dean Windass,Bradford City,,
+base,16,David Wetherall,Bradford City,,
+base,17,Benito Carbone,Bradford City,,
+base,18,Gunnar Halle,Bradford City,,
+base,19,David Hopkin,Bradford City,,
+base,20,Stuart McCall,Bradford City,,
+base,21,Richard Rufus,Charlton Athletic,,
+base,22,Andy Hunt,Charlton Athletic,,
+base,23,Claus Jensen,Charlton Athletic,,
+base,24,Dean Kiely,Charlton Athletic,,
+base,25,Jonatan Johansson,Charlton Athletic,,
+base,26,Mario Stanic,Chelsea FC,,
+base,27,Eidur Gudjohnsen,Chelsea FC,,
+base,28,Marcel Desailly,Chelsea FC,,
+base,29,Jimmy Floyd Hasselbaink,Chelsea FC,,
+base,30,Dennis Wise,Chelsea FC,,
+base,31,Gustavo Poyet,Chelsea FC,,
+base,32,Gianfranco Zola,Chelsea FC,,
+base,33,Magnus Hedman,Coventry City,,
+base,34,David Thompson,Coventry City,,
+base,35,Carlton Palmer,Coventry City,,
+base,36,Cedric Roussel,Coventry City,,
+base,37,Craig Bellamy,Coventry City,,
+base,38,Youssef Chippo,Coventry City,,
+base,39,Mart Poom,Derby County,,
+base,40,Branko Strupar,Derby County,,
+base,41,Rory Delap,Derby County,,
+base,42,Seth Johnson,Derby County,,
+base,43,Malcolm Christie,Derby County,,
+base,44,Stefano Eranio,Derby County,,
+base,45,Paul Gascoigne,Everton,,
+base,46,David Unsworth,Everton,,
+base,47,Stephen Hughes,Everton,,
+base,48,Alex Nyarko,Everton,,
+base,49,Niclas Alexandersson,Everton,,
+base,50,Francis Jeffers,Everton,,
+base,51,Richard Wright,Ipswich Town,,
+base,52,Hermann Hreidarsson,Ipswich Town,,
+base,53,Matt Holland,Ipswich Town,,
+base,54,Marcus Stewart,Ipswich Town,,
+base,55,James Scowcroft,Ipswich Town,,
+base,56,Nigel Martyn,Leeds United,,
+base,57,Lucas Radebe,Leeds United,,
+base,58,Olivier Dacourt,Leeds United,,
+base,59,Ian Harte,Leeds United,,
+base,60,Mark Viduka,Leeds United,,
+base,61,Eirik Bakke,Leeds United,,
+base,62,Harry Kewell,Leeds United,,
+base,63,Gary Rowett,Leicester City,,
+base,64,Matt Elliott,Leicester City,,
+base,65,Muzzy Izzet,Leicester City,,
+base,66,Neil Lennon,Leicester City,,
+base,67,Ade Akinbiyi,Leicester City,,
+base,68,Tim Flowers,Leicester City,,
+base,69,Markus Babbel,Liverpool,,
+base,70,Sami Hyypia,Liverpool,,
+base,71,Steven Gerrard,Liverpool,,
+base,72,Nick Barmby,Liverpool,,
+base,73,Christian Ziege,Liverpool,,
+base,74,Emile Heskey,Liverpool,,
+base,75,Robbie Fowler,Liverpool,,
+base,76,Nick Weaver,Manchester City,,
+base,77,Paulo Wanchope,Manchester City,,
+base,78,Alfie Haaland,Manchester City,,
+base,79,Mark Kennedy,Manchester City,,
+base,80,Shaun Goater,Manchester City,,
+base,81,Fabien Barthez,Manchester United,,
+base,82,Roy Keane,Manchester United,,
+base,83,Paul Scholes,Manchester United,,
+base,84,Ryan Giggs,Manchester United,,
+base,85,David Beckham,Manchester United,,
+base,86,Ole Gunnar Solskjaer,Manchester United,,
+base,87,Andy Cole,Manchester United,,
+base,88,Paul Okon,Middlesbrough,,
+base,89,Joseph Desire-Job,Middlesbrough,,
+base,90,Alen Boksic,Middlesbrough,,
+base,91,Paul Ince,Middlesbrough,,
+base,92,Hamilton Ricard,Middlesbrough,,
+base,93,Noel Whelan,Middlesbrough,,
+base,94,Didier Domi,Newcastle United,,
+base,95,Carl Cort,Newcastle United,,
+base,96,Gary Speed,Newcastle United,,
+base,97,Kieron Dyer,Newcastle United,,
+base,98,Nobby Solano,Newcastle United,,
+base,99,Daniel Cordone,Newcastle United,,
+base,100,Paul Jones,Southampton,,
+base,101,Claus Lundekvam,Southampton,,
+base,102,Jo Tessem,Southampton,,
+base,103,Matthew Le Tissier,Southampton,,
+base,104,Hassan Kachloul,Southampton,,
+base,105,Kevin Davies,Southampton,,
+base,106,Thomas Sørensen,Sunderland,,
+base,107,Michael Gray,Sunderland,,
+base,108,Stanislav Varga,Sunderland,,
+base,109,Stefan Schwarz,Sunderland,,
+base,110,Don Hutchison,Sunderland,,
+base,111,Niall Quinn,Sunderland,,
+base,112,Sol Campbell,Tottenham Hotspur,,
+base,113,Stephen Carr,Tottenham Hotspur,,
+base,114,Tim Sherwood,Tottenham Hotspur,,
+base,115,Darren Anderton,Tottenham Hotspur,,
+base,116,Ben Thatcher,Tottenham Hotspur,,
+base,117,Steffen Iversen,Tottenham Hotspur,,
+base,118,Chris Armstrong,Tottenham Hotspur,,
+base,119,Rio Ferdinand,West Ham United,,
+base,120,Frank Lampard,West Ham United,,
+base,121,Joe Cole,West Ham United,,
+base,122,Trevor Sinclair,West Ham United,,
+base,123,Frederic Kanoute,West Ham United,,
+base,124,Davor Suker,West Ham United,,
+star-players-silver-foil,T1,Thierry Henry,Arsenal FC,Star Players,Silver Foil
+star-players-silver-foil,T2,Dion Dublin,Aston Villa,Star Players,Silver Foil
+star-players-silver-foil,T3,Dan Petrescu,Bradford City,Star Players,Silver Foil
+star-players-silver-foil,T4,Mark Kinsella,Charlton Athletic,Star Players,Silver Foil
+star-players-silver-foil,T5,Tore Andre Flo,Chelsea FC,Star Players,Silver Foil
+star-players-silver-foil,T6,Mustapha Hadji,Coventry City,Star Players,Silver Foil
+star-players-silver-foil,T7,Georgi Kinkladze,Derby County,Star Players,Silver Foil
+star-players-silver-foil,T8,Duncan Ferguson,Everton,Star Players,Silver Foil
+star-players-silver-foil,T9,David Johnson,Ipswich Town,Star Players,Silver Foil
+star-players-silver-foil,T10,Michael Bridges,Leeds United,Star Players,Silver Foil
+star-players-silver-foil,T11,Stan Collymore,Leicester City,Star Players,Silver Foil
+star-players-silver-foil,T12,Michael Owen,Liverpool,Star Players,Silver Foil
+star-players-silver-foil,T13,George Weah,Manchester City,Star Players,Silver Foil
+star-players-silver-foil,T14,Dwight Yorke,Manchester United,Star Players,Silver Foil
+star-players-silver-foil,T15,Christian Karembeu,Middlesbrough,Star Players,Silver Foil
+star-players-silver-foil,T16,Alan Shearer,Newcastle United,Star Players,Silver Foil
+star-players-silver-foil,T17,Marians Pahars,Southampton,Star Players,Silver Foil
+star-players-silver-foil,T18,Kevin Phillips,Sunderland,Star Players,Silver Foil
+star-players-silver-foil,T19,Sergei Rebrov,Tottenham Hotspur,Star Players,Silver Foil
+star-players-silver-foil,T20,Paolo Di Canio,West Ham United,Star Players,Silver Foil
+star-players-gold-foil,T1,Thierry Henry,Arsenal FC,Star Players,Gold Foil
+star-players-gold-foil,T2,Dion Dublin,Aston Villa,Star Players,Gold Foil
+star-players-gold-foil,T3,Dan Petrescu,Bradford City,Star Players,Gold Foil
+star-players-gold-foil,T4,Mark Kinsella,Charlton Athletic,Star Players,Gold Foil
+star-players-gold-foil,T5,Tore Andre Flo,Chelsea FC,Star Players,Gold Foil
+star-players-gold-foil,T6,Mustapha Hadji,Coventry City,Star Players,Gold Foil
+star-players-gold-foil,T7,Georgi Kinkladze,Derby County,Star Players,Gold Foil
+star-players-gold-foil,T8,Duncan Ferguson,Everton,Star Players,Gold Foil
+star-players-gold-foil,T9,David Johnson,Ipswich Town,Star Players,Gold Foil
+star-players-gold-foil,T10,Michael Bridges,Leeds United,Star Players,Gold Foil
+star-players-gold-foil,T11,Stan Collymore,Leicester City,Star Players,Gold Foil
+star-players-gold-foil,T12,Michael Owen,Liverpool,Star Players,Gold Foil
+star-players-gold-foil,T13,George Weah,Manchester City,Star Players,Gold Foil
+star-players-gold-foil,T14,Dwight Yorke,Manchester United,Star Players,Gold Foil
+star-players-gold-foil,T15,Christian Karembeu,Middlesbrough,Star Players,Gold Foil
+star-players-gold-foil,T16,Alan Shearer,Newcastle United,Star Players,Gold Foil
+star-players-gold-foil,T17,Marians Pahars,Southampton,Star Players,Gold Foil
+star-players-gold-foil,T18,Kevin Phillips,Sunderland,Star Players,Gold Foil
+star-players-gold-foil,T19,Sergei Rebrov,Tottenham Hotspur,Star Players,Gold Foil
+star-players-gold-foil,T20,Paolo Di Canio,West Ham United,Star Players,Gold Foil
+star-players-blue-foil,T1,Thierry Henry,Arsenal FC,Star Players,Blue Foil
+star-players-blue-foil,T2,Dion Dublin,Aston Villa,Star Players,Blue Foil
+star-players-blue-foil,T3,Dan Petrescu,Bradford City,Star Players,Blue Foil
+star-players-blue-foil,T4,Mark Kinsella,Charlton Athletic,Star Players,Blue Foil
+star-players-blue-foil,T5,Tore Andre Flo,Chelsea FC,Star Players,Blue Foil
+star-players-blue-foil,T6,Mustapha Hadji,Coventry City,Star Players,Blue Foil
+star-players-blue-foil,T7,Georgi Kinkladze,Derby County,Star Players,Blue Foil
+star-players-blue-foil,T8,Duncan Ferguson,Everton,Star Players,Blue Foil
+star-players-blue-foil,T9,David Johnson,Ipswich Town,Star Players,Blue Foil
+star-players-blue-foil,T10,Michael Bridges,Leeds United,Star Players,Blue Foil
+star-players-blue-foil,T11,Stan Collymore,Leicester City,Star Players,Blue Foil
+star-players-blue-foil,T12,Michael Owen,Liverpool,Star Players,Blue Foil
+star-players-blue-foil,T13,George Weah,Manchester City,Star Players,Blue Foil
+star-players-blue-foil,T14,Dwight Yorke,Manchester United,Star Players,Blue Foil
+star-players-blue-foil,T15,Christian Karembeu,Middlesbrough,Star Players,Blue Foil
+star-players-blue-foil,T16,Alan Shearer,Newcastle United,Star Players,Blue Foil
+star-players-blue-foil,T17,Marians Pahars,Southampton,Star Players,Blue Foil
+star-players-blue-foil,T18,Kevin Phillips,Sunderland,Star Players,Blue Foil
+star-players-blue-foil,T19,Sergei Rebrov,Tottenham Hotspur,Star Players,Blue Foil
+star-players-blue-foil,T20,Paolo Di Canio,West Ham United,Star Players,Blue Foil
+superstars-silver-foil,S1,Roy Keane POY,Manchester United,Superstars,Silver Foil
+superstars-silver-foil,S2,Harry Kewell YPOY,Leeds United,Superstars,Silver Foil
+superstars-silver-foil,S3,Kevin Phillips TS,Sunderland,Superstars,Silver Foil
+superstars-silver-foil,S4,David Beckham SS,Manchester United,Superstars,Silver Foil
+superstars-gold-foil,S1,Roy Keane POY,Manchester United,Superstars,Gold Foil
+superstars-gold-foil,S2,Harry Kewell YPOY,Leeds United,Superstars,Gold Foil
+superstars-gold-foil,S3,Kevin Phillips TS,Sunderland,Superstars,Gold Foil
+superstars-gold-foil,S4,David Beckham SS,Manchester United,Superstars,Gold Foil
+superstars-blue-foil,S1,Roy Keane POY,Manchester United,Superstars,Blue Foil
+superstars-blue-foil,S2,Harry Kewell YPOY,Leeds United,Superstars,Blue Foil
+superstars-blue-foil,S3,Kevin Phillips TS,Sunderland,Superstars,Blue Foil
+superstars-blue-foil,S4,David Beckham SS,Manchester United,Superstars,Blue Foil
