@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/2784/1998-99-SPx-Finite",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/2784/1998-99-SPx-Finite",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/2784/1998-99-SPx-Finite",
+    "note": "1998-99 SPx Finite Basketball hobby product. VCS keeps the complete 210-card flagship checklist and the complete 210-card Radiance and Spectrum parallel checklists intact. Extreme is the 90-card #1-90 1/1 partial parallel. The separately distributed Rookie Update #211-240 is excluded because it was packaged with 1998-99 Upper Deck Series Two rather than SPx Finite boxes."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Hobby; 3 cards per pack; 18 packs per box.",
+    "baseChecklistIntegrity": "Base #1-210 remains one VCS ProductSet despite five serial-number tiers: #1-90 regular, #91-150 Star Power, #151-180 SPx 2000, #181-200 Top Flight and #201-210 Finite Excellence. Range-specific print runs are retained in Variant while VCS preserves one collector-facing completion checklist.",
+    "parallelChecklistIntegrity": "Radiance #1-210 and Spectrum #1-210 each remain one complete ProductSet. Their range-specific serial numbering is retained per card in Variant rather than splitting either parallel into five VCS sets.",
+    "extremeModeling": "Extreme is a genuine 90-card partial parallel of #1-90 only, each serial numbered 1/1, and is therefore modeled as its own 90-card ProductSet.",
+    "mjGameJerseyModeling": "Michael Jordan Autographed Game Jersey #SPx-GJ is included as the product's one-card insert issue. AU, memorabilia and hand-numbered-to-23 details belong in Variant, not Player.",
+    "rookieUpdateExclusion": "Rookie Update #211-240 and its Radiance/Spectrum parallels are not part of SPx Finite pack ripping in VCS because those cards were distributed in 2-card packs included with 1998-99 Upper Deck Series Two boxes. They are intentionally excluded from this product.",
+    "trueRookieNaming": "No #1-210 SPx Finite cards receive RC. The recognized 1998-99 rookie cards are in the separately distributed Rookie Update, which is excluded from this product.",
+    "cleanPlayerNames": "Player contains only the clean player/card subject plus permitted short collector abbreviations when appropriate. STP, SPX, TF, FE, SN, AU, MEM and descriptive metadata are stored in Subset/Variant rather than copied into Player.",
+    "oddsPlacement": "No unsupported pack ratios are inferred from print runs. Pack odds remain null for Radiance, Spectrum, Extreme and the Michael Jordan Autographed Game Jersey unless a trustworthy pack-odds source is established. Serial-number scarcity is preserved in Variant and bundle notes.",
+    "releaseSafety": "Product remains unreleased until images, pricing and final odds review are complete."
+  },
+  "product": {
+    "id": "1998_99_SPx_Finite_Basketball",
+    "year": 1998,
+    "brand": "SPx Finite",
+    "sport": "Basketball",
+    "cardsPerPack": 3,
+    "packsPerBox": 18,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1998-99-spx-finite-basketball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1998_99_SPx_Finite_Basketball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2784/1998-99-SPx-Finite",
+      "expectedCards": 210,
+      "notes": "Complete #1-210 flagship checklist. Subsets and serial-number tiers are retained in card metadata; all 210 cards remain one VCS completion set."
+    },
+    {
+      "key": "radiance",
+      "id": "1998_99_SPx_Finite_Basketball_Radiance",
+      "name": "Radiance",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/25996/1998-99-SPx-Finite---Radiance",
+      "expectedCards": 210,
+      "notes": "Complete #1-210 Radiance parallel. Serial numbering varies by checklist range and is stored card-by-card in Variant."
+    },
+    {
+      "key": "spectrum",
+      "id": "1998_99_SPx_Finite_Basketball_Spectrum",
+      "name": "Spectrum",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/25997/1998-99-SPx-Finite---Spectrum",
+      "expectedCards": 210,
+      "notes": "Complete #1-210 Spectrum parallel. Serial numbering varies by checklist range and is stored card-by-card in Variant."
+    },
+    {
+      "key": "extreme",
+      "id": "1998_99_SPx_Finite_Basketball_Extreme",
+      "name": "Extreme",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/25995/1998-99-SPx-Finite---Extreme",
+      "expectedCards": 90,
+      "notes": "Partial parallel #1-90 only; every card serial numbered 1/1."
+    },
+    {
+      "key": "mj-autographed-game-jersey",
+      "id": "1998_99_SPx_Finite_Basketball_MJ_Autographed_Game_Jersey",
+      "name": "Michael Jordan Autographed Game Jersey",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/2784/1998-99-SPx-Finite",
+      "expectedCards": 1,
+      "notes": "#SPx-GJ Michael Jordan autograph/game-worn 1992-93 jersey card, hand numbered to 23. No unsupported pack ratio inferred."
+    }
+  ]
+}
