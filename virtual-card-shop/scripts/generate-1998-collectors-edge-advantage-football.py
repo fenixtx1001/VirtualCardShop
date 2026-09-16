@@ -14,7 +14,7 @@ BASE_URL = "https://www.tcdb.com/Checklist.cfm/sid/4198/1998-Collectors-Edge-Adv
 ROOKIES_URL = "https://www.tcdb.com/Rookies.cfm/sid/4198/1998-Collectors-Edge-Advantage"
 
 SOURCES = {
-    "base": (BASE_URL, r"\d{1,3}", 200, "Base"),
+    "base": (BASE_URL, r"\d{1,3}[A-Za-z]?", 200, "Base"),
     "50-point": ("https://www.tcdb.com/Checklist.cfm/sid/34583/1998-Collectors-Edge-Advantage-50-Point", r"\d{1,3}", 180, "50-Point"),
     "gold": ("https://www.tcdb.com/Checklist.cfm/sid/34584/1998-Collectors-Edge-Advantage-Gold", r"\d{1,3}", 180, "Gold"),
     "silver": ("https://www.tcdb.com/Checklist.cfm/sid/34590/1998-Collectors-Edge-Advantage-Silver", r"\d{1,3}", 200, "Silver"),
@@ -158,9 +158,16 @@ def variant_text(*parts: str) -> str:
     return "; ".join(out)
 
 
+def normalize_numeric_variant(number: str) -> str:
+    """Collapse TCDB lettered error/correction labels (e.g. 196a/196b) to #196."""
+    raw = number.strip().upper()
+    match = re.fullmatch(r"(\d{1,3})[A-Z]", raw)
+    return match.group(1) if match else raw
+
+
 def load_true_rc_numbers() -> set[str]:
-    rows = fetch_set_rows(ROOKIES_URL, r"\d{1,3}", "rookie-index", max_pages=6)
-    rc_numbers = {number for number, _name, _team in rows}
+    rows = fetch_set_rows(ROOKIES_URL, r"\d{1,3}[A-Za-z]?", "rookie-index", max_pages=6)
+    rc_numbers = {normalize_numeric_variant(number) for number, _name, _team in rows}
     print(f"Rookie index: {len(rows)} records; {len(rc_numbers)} unique recognized RC card numbers")
     return rc_numbers
 
@@ -172,9 +179,10 @@ def is_checklist_card(player: str, subset: str = "") -> bool:
 def build_set(key: str, url: str, pattern: str, expected: int, subset: str, true_rcs: set[str]) -> list[list[str]]:
     source_rows = fetch_set_rows(url, pattern, key)
 
-    grouped: dict[str, list[tuple[str, str]]] = {}
-    for number, raw_name, team in source_rows:
-        grouped.setdefault(number, []).append((raw_name, team))
+    grouped: dict[str, list[tuple[str, str, str]]] = {}
+    for source_number, raw_name, team in source_rows:
+        number = normalize_numeric_variant(source_number) if key == "base" else source_number
+        grouped.setdefault(number, []).append((source_number, raw_name, team))
 
     if len(grouped) != expected:
         raise SystemExit(f"{key}: expected {expected} unique card numbers, found {len(grouped)}")
@@ -199,25 +207,33 @@ def build_set(key: str, url: str, pattern: str, expected: int, subset: str, true
     rows: list[list[str]] = []
     for number in sorted(grouped, key=sort_key):
         versions = grouped[number]
-        raw_name, team = versions[0]
-        player, notes = clean_player_and_notes(raw_name)
 
-        version_notes: list[str] = [notes]
-        for other_name, other_team in versions[1:]:
-            other_player, other_notes = clean_player_and_notes(other_name)
-            if other_player != player:
-                raise SystemExit(f"{key} #{number}: variant rows have different subjects: {player!r} vs {other_player!r}")
-            if team and other_team and other_team != team:
-                raise SystemExit(f"{key} #{number}: variant rows have different teams: {team!r} vs {other_team!r}")
-            if not team:
-                team = other_team
-            version_notes.append(other_notes)
+        # TCDB lists Randy Moss as 196a (ERR) and 196b (COR). VCS intentionally
+        # keeps one logical #196 card only, using the corrected version and no
+        # ERR/COR clutter in Variant.
+        if key == "base" and number == "196":
+            corrected = [version for version in versions if version[0].upper() == "196B"]
+            if len(corrected) != 1:
+                raise SystemExit(f"base #196: expected exactly one corrected 196b row, found {len(corrected)}")
+            source_number, raw_name, team = corrected[0]
+            player, _notes = clean_player_and_notes(raw_name)
+            version_notes: list[str] = []
+        else:
+            source_number, raw_name, team = versions[0]
+            player, notes = clean_player_and_notes(raw_name)
+            version_notes = [notes]
+            for other_source_number, other_name, other_team in versions[1:]:
+                other_player, other_notes = clean_player_and_notes(other_name)
+                if other_player != player:
+                    raise SystemExit(f"{key} #{number}: variant rows have different subjects: {player!r} vs {other_player!r}")
+                if team and other_team and other_team != team:
+                    raise SystemExit(f"{key} #{number}: variant rows have different teams: {team!r} vs {other_team!r}")
+                if not team:
+                    team = other_team
+                version_notes.append(other_notes)
 
         if key == "base" and number in true_rcs:
             player = f"{player} RC"
-
-        if key == "base" and number == "196" and len(versions) > 1:
-            version_notes.append("ERR/COR versions exist")
 
         if not team and not is_checklist_card(player, subset):
             raise SystemExit(f"{key} #{number} {player} is missing team data")
@@ -256,6 +272,10 @@ def main() -> None:
     if missing_teams:
         raise SystemExit(f"Found {len(missing_teams)} non-checklist cards missing team data; example: {missing_teams[0]}")
 
+    moss_rows = [row for row in all_rows if row[0] == "base" and row[1] == "196"]
+    if len(moss_rows) != 1 or moss_rows[0][2] != "Randy Moss RC" or moss_rows[0][5]:
+        raise SystemExit(f"Randy Moss #196 normalization failed: {moss_rows}")
+
     with OUT.open("w", encoding="utf-8", newline="") as fh:
         writer = csv.writer(fh, lineterminator="\n")
         writer.writerow(["setKey", "cardNumber", "player", "team", "subset", "variant"])
@@ -267,7 +287,7 @@ def main() -> None:
     for key in SOURCES:
         print(f"  {key}: {counts[key]}")
     print(f"Recognized true RC cards labeled in Base player row: {len(true_rcs)}")
-    print("Randy Moss #196 ERR/COR: collapsed to one logical VCS card with Variant metadata")
+    print("Randy Moss #196: one VCS card, corrected 196b source retained, ERR/COR Variant omitted")
     print(f"Expected Product Sets: {len(SOURCES)}")
     print(f"Total resolved cards expected: {EXPECTED_TOTAL}")
     print("Card-level odds in Variant: 0")
