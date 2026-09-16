@@ -20,7 +20,7 @@ SOURCES = {
     "silver": ("https://www.tcdb.com/Checklist.cfm/sid/34590/1998-Collectors-Edge-Advantage-Silver", r"\d{1,3}", 200, "Silver"),
     "livin-large": ("https://www.tcdb.com/Checklist.cfm/sid/4199/1998-Collectors-Edge-Advantage-Livin-Large", r"\d{1,3}", 22, "Livin' Large"),
     "livin-large-holofoil": ("https://www.tcdb.com/Checklist.cfm/sid/34585/1998-Collectors-Edge-Advantage-Livin-Large-Holofoil", r"\d{1,3}", 22, "Livin' Large Holofoil"),
-    "memorable-moments": ("https://www.tcdb.com/Checklist.cfm/sid/34586/1998-Collectors-Edge-Advantage-Memorable-Moments", r"[A-Za-z]{1,3}-\d+", 13, "Memorable Moments"),
+    "memorable-moments": ("https://www.tcdb.com/Checklist.cfm/sid/34586/1998-Collectors-Edge-Advantage-Memorable-Moments", r"[A-Za-z]{1,3}-\d+", 12, "Memorable Moments"),
     "personal-victory": ("https://www.tcdb.com/Checklist.cfm/sid/34587/1998-Collectors-Edge-Advantage-Personal-Victory", r"[A-Za-z]{1,3}-\d+", 6, "Personal Victory"),
     "prime-connection": ("https://www.tcdb.com/Checklist.cfm/sid/4200/1998-Collectors-Edge-Advantage-Prime-Connection", r"\d{1,3}", 25, "Prime Connection"),
     "showtime": ("https://www.tcdb.com/Checklist.cfm/sid/4201/1998-Collectors-Edge-Advantage-Showtime", r"\d{1,3}", 23, "Showtime"),
