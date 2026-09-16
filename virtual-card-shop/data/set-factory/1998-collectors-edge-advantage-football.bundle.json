@@ -11,7 +11,7 @@
     "canonicalPackFormat": "Hobby: 6 cards per pack, 18 packs per box.",
     "baseStructure": "One 200-card Base ProductSet. Cards #181-200 remain part of the collector-facing base checklist even though they were distributed as late-retail box toppers.",
     "parallelStructure": "50-Point and Gold are partial parallels of #1-180 only. Silver is a 200-card parallel. Collector checklist boundaries are preserved rather than forced to match.",
-    "variationHandling": "TCDB lists Randy Moss #196 in ERR and COR versions. VCS keeps one logical card #196 and stores the existence of error/corrected versions in Variant so ProductSet card numbers remain unique.",
+    "variationHandling": "TCDB lists Randy Moss #196 as 196a ERR and 196b COR. VCS intentionally keeps one logical #196 card only, sourced from the corrected 196b entry. The discarded ERR/COR distinction is not surfaced in Player or Variant.",
     "insertStructure": "Pack-issued Livin' Large, Livin' Large Holofoil, Memorable Moments, Personal Victory, Prime Connection, Showtime, and Showtime Holofoil are modeled. Preview and Media Sample promotional issues are excluded.",
     "trueRookieNaming": "RC is appended only to Base subjects returned by TCDB's rookie index. Rookie status is not inferred from numbering or insert names.",
     "cleanPlayerNames": "Player contains only the clean subject name plus verified RC or other short display-safe abbreviations. ERR/COR/UER, MEM, SN/PR, print-run, variation, and other descriptive metadata belong in Variant.",
