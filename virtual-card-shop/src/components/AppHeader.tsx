@@ -577,6 +577,29 @@ export default function AppHeader() {
   const signedInEmail = status === "authenticated" ? session?.user?.email ?? null : null;
   const showCompactMobileRipHeader = isMobile && pathname?.startsWith("/open-pack/") && compactRipMode;
 
+  if (pathname === "/shop") {
+    return <header ref={headerRef} style={{ position: "sticky", top: 0, zIndex: 1000, background: "#181a19f5", backdropFilter: "blur(16px)", borderBottom: "1px solid #393e33", color: "#eee9dc" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: isMobile ? "10px 18px" : "14px 32px", display: "flex", alignItems: "center", gap: 12 }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 9, textDecoration: "none", color: "#eee9dc", minWidth: 0 }}>
+          <span style={{ fontFamily: "Georgia, serif", fontSize: 24, color: "#d7bb7e", letterSpacing: -1 }}>VCS</span>
+          <span style={{ borderLeft: "1px solid #494e40", paddingLeft: 9, fontSize: isMobile ? 10 : 12, lineHeight: 1.3, letterSpacing: 1 }}>VIRTUAL<br />CARD SHOP</span>
+        </Link>
+        {!isMobile && <nav aria-label="Main navigation" style={{ display: "flex", gap: 20, marginLeft: 28, fontSize: 13 }}>
+          {navItems.slice(0, 4).map((item) => <Link key={item.href} href={item.href} aria-current={isActivePath(pathname, item.href) ? "page" : undefined} style={{ color: isActivePath(pathname, item.href) ? "#d7bb7e" : "#bbc0b2", textDecoration: "none" }}>{item.label}</Link>)}
+        </nav>}
+        <span style={{ marginLeft: "auto", color: "#e7dfc7", fontSize: 13, fontVariantNumeric: "tabular-nums" }} aria-label={`Balance ${balanceText}`}>{balanceText}</span>
+        <button type="button" aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"} aria-expanded={mobileMenuOpen} aria-controls="shop-navigation" onClick={() => setMobileMenuOpen((open) => !open)} style={{ background: "none", color: "#ddd5bf", border: "1px solid #494e40", borderRadius: 6, width: 44, height: 44, padding: 0, boxShadow: "none", fontSize: 20 }}>{mobileMenuOpen ? "×" : "☰"}</button>
+      </div>
+      {mobileMenuOpen && <div id="shop-navigation" style={{ maxHeight: "75dvh", overflowY: "auto", maxWidth: 1280, margin: "0 auto", padding: "4px 18px 18px" }}>
+        <nav aria-label="All navigation" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 6 }}>
+          {navItems.map((item) => <Link key={item.href} href={item.href} aria-current={isActivePath(pathname, item.href) ? "page" : undefined} onClick={() => setMobileMenuOpen(false)} style={{ padding: "13px 9px", color: isActivePath(pathname, item.href) ? "#e4c88c" : "#d1d6c7", background: "#252a22", borderRadius: 5, textDecoration: "none", fontSize: 12 }}>{item.label}</Link>)}
+        </nav>
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12, marginTop: 16 }}><ClaimRewardButton eco={eco} loading={loading} onClick={claimReward} /><AuthButton /><span style={{ fontSize: 11, color: "#b2b4aa" }}>{cardsOwnedText} cards · {collectionValueText} collection</span></div>
+        {errorMsg && <p role="alert" style={{ color: "#ffcdaf", fontSize: 12 }}>{errorMsg}</p>}
+      </div>}
+    </header>;
+  }
+
   if (showCompactMobileRipHeader) {
     return (
       <>

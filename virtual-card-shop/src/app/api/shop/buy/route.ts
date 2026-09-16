@@ -8,109 +8,10 @@ import { createFinancialTransaction } from "@/lib/financial-transactions";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const DAILY_DEAL_DISCOUNT_BPS = 1000; // 10% additional discount
-const BOX_DISCOUNT_MULTIPLIER = 0.75; // normal box price = pack price x packs per box x .75
-const DAILY_DEAL_TIME_ZONE = "America/Chicago";
+import { getShopPromotions } from "@/lib/shop/promotions";
+import { DAILY_DEAL_DISCOUNT_BPS, productPrices } from "@/lib/shop/pricing";
 
 type BuyKind = "pack" | "box";
-
-function getDailyDealDateKey() {
-  const parts = new Intl.DateTimeFormat("en-CA", {
-    timeZone: DAILY_DEAL_TIME_ZONE,
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).formatToParts(new Date());
-
-  const year = parts.find((p) => p.type === "year")?.value ?? "0000";
-  const month = parts.find((p) => p.type === "month")?.value ?? "00";
-  const day = parts.find((p) => p.type === "day")?.value ?? "00";
-
-  return `${year}-${month}-${day}`;
-}
-
-function hashString(input: string) {
-  let hash = 2166136261;
-
-  for (let i = 0; i < input.length; i += 1) {
-    hash ^= input.charCodeAt(i);
-    hash = Math.imul(hash, 16777619);
-  }
-
-  return hash >>> 0;
-}
-
-function pickDailyDealProductId(productIds: string[], dateKey: string) {
-  if (productIds.length === 0) return null;
-
-  const sorted = [...productIds].sort((a, b) => a.localeCompare(b));
-  const idx = hashString(`${dateKey}:vcs-daily-deal`) % sorted.length;
-
-  return sorted[idx] ?? null;
-}
-
-async function getOrCreateDailyDealProductId(productIds: string[], dateKey: string) {
-  if (productIds.length === 0) return null;
-
-  const existing = await prisma.dailyDeal.findUnique({
-    where: { dateKey },
-    select: { productId: true },
-  });
-
-  if (existing?.productId) return existing.productId;
-
-  const productId = pickDailyDealProductId(productIds, dateKey);
-  if (!productId) return null;
-
-  try {
-    const created = await prisma.dailyDeal.create({
-      data: { dateKey, productId },
-      select: { productId: true },
-    });
-
-    return created.productId;
-  } catch (e: unknown) {
-    if (
-      typeof e === "object" &&
-      e !== null &&
-      "code" in e &&
-      (e as { code?: string }).code === "P2002"
-    ) {
-      const winner = await prisma.dailyDeal.findUnique({
-        where: { dateKey },
-        select: { productId: true },
-      });
-
-      return winner?.productId ?? productId;
-    }
-
-    throw e;
-  }
-}
-
-function applyDailyDealDiscount(cents: number) {
-  return Math.round((cents * (10000 - DAILY_DEAL_DISCOUNT_BPS)) / 10000);
-}
-
-function getNormalBoxPriceCents(packPriceCents: number, packsPerBox: number) {
-  return Math.round(packPriceCents * packsPerBox * BOX_DISCOUNT_MULTIPLIER);
-}
-
-function getUnitCostCents(args: {
-  kind: BuyKind;
-  packPriceCents: number;
-  packsPerBox: number;
-  isDailyDeal: boolean;
-}) {
-  const { kind, packPriceCents, packsPerBox, isDailyDeal } = args;
-
-  const normalUnitCost =
-    kind === "pack"
-      ? packPriceCents
-      : getNormalBoxPriceCents(packPriceCents, packsPerBox);
-
-  return isDailyDeal ? applyDailyDealDiscount(normalUnitCost) : normalUnitCost;
-}
 
 function getProductDisplayName(product: {
   year: number | null;
@@ -155,23 +56,15 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: "Invalid kind" }, { status: 400 });
     }
 
-    if (!Number.isFinite(rawQuantity) || rawQuantity <= 0) {
+    if (!Number.isSafeInteger(rawQuantity) || rawQuantity <= 0 || rawQuantity > 100) {
       return NextResponse.json({ ok: false, error: "Invalid quantity" }, { status: 400 });
     }
 
     const quantity = Math.floor(rawQuantity);
 
-    const products = await prisma.product.findMany({
-      where: { released: true },
-      orderBy: [{ year: "asc" }, { brand: "asc" }, { id: "asc" }],
-      select: { id: true },
-    });
-
-    const dailyDealDateKey = getDailyDealDateKey();
-    const dailyProductId = await getOrCreateDailyDealProductId(
-      products.map((p) => p.id),
-      dailyDealDateKey
-    );
+    const day = await getShopPromotions();
+    const dailyDealDateKey = day.dateKey;
+    const dailyProductId = day.productId;
 
     const product = await prisma.product.findUnique({
       where: { id: productId },
@@ -206,48 +99,39 @@ export async function POST(req: Request) {
     }
 
     const productDisplayName = getProductDisplayName(product);
-    const isDailyDeal = product.id === dailyProductId;
+    const prices = productPrices(product, day);
+    const { isDailyDeal, isSale, discountBps } = prices;
+    const normalPackPriceCents = prices.standardPackPriceCents;
+    const normalBoxPriceCents = prices.standardBoxPriceCents ?? 0;
+    const dailyDealPackPriceCents = prices.dealPackPriceCents;
+    const dailyDealBoxPriceCents = prices.dealBoxPriceCents ?? 0;
+    const unitCost = kind === "pack" ? prices.effectivePackPriceCents : prices.effectiveBoxPriceCents!;
 
-    const normalPackPriceCents = packPriceCents;
-    const normalBoxPriceCents =
-      packsPerBox > 0 ? getNormalBoxPriceCents(packPriceCents, packsPerBox) : 0;
-
-    const dailyDealPackPriceCents = applyDailyDealDiscount(normalPackPriceCents);
-    const dailyDealBoxPriceCents =
-      normalBoxPriceCents > 0 ? applyDailyDealDiscount(normalBoxPriceCents) : 0;
-
-    const unitCost = getUnitCostCents({
-      kind,
-      packPriceCents,
-      packsPerBox,
-      isDailyDeal,
-    });
+    // A stale tab must never silently charge a different price after midnight.
+    if (body.expectedUnitCostCents !== undefined && body.expectedUnitCostCents !== unitCost) {
+      return NextResponse.json({ error: "The price changed. Review the updated price and try again.", code: "PRICE_CHANGED" }, { status: 409 });
+    }
 
     const costCents = unitCost * quantity;
     const packsToAdd = kind === "pack" ? quantity : packsPerBox * quantity;
 
-    if (packsToAdd <= 0) {
+    if (!Number.isSafeInteger(costCents) || !Number.isSafeInteger(packsToAdd) || packsToAdd <= 0) {
       return NextResponse.json({ ok: false, error: "Invalid packsPerBox" }, { status: 400 });
     }
 
     const result = await prisma.$transaction(async (tx) => {
-      const u = await tx.user.findUnique({
-        where: { id: user.id },
-        select: { balanceCents: true },
-      });
-
-      if (!u) throw new Error("User not found");
-
-      if ((u.balanceCents ?? 0) < costCents) {
-        const err = new Error("Insufficient funds");
-        (err as Error & { status?: number }).status = 400;
-        throw err;
-      }
-
-      const updatedUser = await tx.user.update({
-        where: { id: user.id },
+      // Conditional debit prevents simultaneous purchases from overspending.
+      const debit = await tx.user.updateMany({
+        where: { id: user.id, balanceCents: { gte: costCents } },
         data: { balanceCents: { decrement: costCents } },
-        select: { balanceCents: true },
+      });
+      if (debit.count !== 1) {
+        const error = new Error("Insufficient funds") as Error & { status: number };
+        error.status = 400;
+        throw error;
+      }
+      const updatedUser = await tx.user.findUniqueOrThrow({
+        where: { id: user.id }, select: { balanceCents: true },
       });
 
       const inv = await tx.sealedInventory.upsert({
@@ -313,6 +197,8 @@ export async function POST(req: Request) {
           packsAdded: packsToAdd,
           packsPerBox,
           isDailyDeal,
+          isSale,
+          discountBps,
           dailyDealDateKey,
           dailyDealProductId: dailyProductId,
           dailyDealDiscountBps: DAILY_DEAL_DISCOUNT_BPS,
@@ -340,6 +226,8 @@ export async function POST(req: Request) {
       balanceCents: result.balanceCents,
       packsOwned: result.packsOwned,
       isDailyDeal,
+      isSale,
+      discountBps,
       dailyDealDateKey,
       dailyDealProductId: dailyProductId,
       dailyDealDiscountBps: DAILY_DEAL_DISCOUNT_BPS,
