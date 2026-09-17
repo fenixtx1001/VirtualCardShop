@@ -142,18 +142,20 @@ function CardImage({
   }
 
   return (
-    <img
-      src={clean}
-      alt={alt}
-      loading="lazy"
-      decoding="async"
-      onError={() => setFailed(true)}
-      onLoad={(event) => {
-        const img = event.currentTarget;
-        setLandscape(img.naturalWidth > img.naturalHeight);
-      }}
-      className={landscape ? styles.cardLandscape : styles.cardImage}
-    />
+    <div className={styles.cardViewport}>
+      <img
+        src={clean}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        onError={() => setFailed(true)}
+        onLoad={(event) => {
+          const img = event.currentTarget;
+          setLandscape(img.naturalWidth > img.naturalHeight);
+        }}
+        className={landscape ? styles.cardLandscape : styles.cardImage}
+      />
+    </div>
   );
 }
 

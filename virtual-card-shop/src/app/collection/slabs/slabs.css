@@ -1834,3 +1834,97 @@ body:has(.slabs-shell) {
     padding-inline: 10px;
   }
 }
+
+
+/* =========================================================
+   VCS MOBILE SLAB FLOW V4
+   Never allow Focus details to overlap the physical slab.
+   ========================================================= */
+
+@media (max-width: 760px) {
+  .slabs-focus {
+    overflow-y: auto !important;
+    overscroll-behavior-y: contain;
+  }
+
+  .slabs-focus-stage {
+    display: flex !important;
+    flex-direction: column !important;
+
+    gap: 18px !important;
+
+    min-height: auto !important;
+
+    overflow: visible !important;
+  }
+
+  /*
+   * Safari's 3D transform/compositing does not always make the
+   * transformed slab's visual bounds participate predictably in
+   * normal flow.
+   *
+   * Explicitly reserve a full slab display zone instead of
+   * relying on transformed-child measurement.
+   */
+  .slabs-focus-object-area {
+    position: relative;
+
+    width: 100%;
+
+    height: auto !important;
+    min-height: min(80dvh, 540px) !important;
+
+    flex: 0 0 auto;
+
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+
+    padding: 8px 0 4px !important;
+
+    overflow: visible !important;
+
+    z-index: 2;
+  }
+
+  .slabs-focus-object {
+    width: min(72vw, 286px) !important;
+
+    flex: none;
+
+    display: grid;
+    justify-items: center;
+    align-content: start;
+
+    gap: 9px;
+  }
+
+  /*
+   * Collector placard begins only AFTER the entire reserved
+   * slab zone. No negative positioning or overlay behavior.
+   */
+  .slabs-focus-info {
+    position: relative !important;
+
+    flex: none;
+
+    width: 100%;
+
+    margin:
+      0
+      0
+      calc(20px + env(safe-area-inset-bottom)) !important;
+
+    z-index: 1;
+  }
+}
+
+@media (max-width: 390px) {
+  .slabs-focus-object-area {
+    min-height: min(82dvh, 525px) !important;
+  }
+
+  .slabs-focus-object {
+    width: min(71vw, 276px) !important;
+  }
+}

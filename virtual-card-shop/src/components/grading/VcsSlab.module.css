@@ -622,3 +622,151 @@
     transition: none;
   }
 }
+
+
+/* =========================================================
+   VCS SLAB CARD FIT V4
+   Preserve the entire sports-card scan inside every slab.
+   ========================================================= */
+
+.shell {
+  /*
+   * Slightly taller, more realistic physical slab.
+   * Header height is reduced proportionally below, so this
+   * additional room goes almost entirely to the card.
+   */
+  aspect-ratio: 2.72 / 4.45;
+}
+
+.shell,
+.shell * {
+  box-sizing: border-box;
+}
+
+.case {
+  /*
+   * Keep the compact label we liked while handing the added
+   * vertical room to the actual collectible.
+   */
+  grid-template-rows:
+    20%
+    minmax(0, 1fr)
+    4.2%;
+}
+
+.cardBay {
+  min-width: 0;
+  min-height: 0;
+
+  padding:
+    2.7cqw
+    3.2cqw
+    2.5cqw;
+}
+
+.cardMount {
+  /*
+   * This is the plastic recess, not the card dimensions.
+   * Keep it within the bay and center a true card viewport
+   * inside it.
+   */
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+
+  padding: 1.6cqw;
+
+  box-sizing: border-box;
+
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+}
+
+/*
+ * Critical fix:
+ * The old slab correctly enforced a 2.5 x 3.5 sports-card
+ * viewport. Re-establish that here instead of stretching
+ * the image to whatever shape happens to remain in the slab.
+ */
+.cardViewport {
+  position: relative;
+
+  height: 100%;
+  width: auto;
+
+  max-width: 100%;
+  max-height: 100%;
+
+  aspect-ratio: 2.5 / 3.5;
+
+  justify-self: center;
+  align-self: center;
+
+  overflow: hidden;
+
+  border: .22cqw solid #d2d8de;
+  border-radius: 1.1cqw;
+
+  background: #fff;
+
+  box-shadow:
+    0 2cqw 4.3cqw rgba(15,23,42,.20);
+}
+
+/*
+ * Portrait scan:
+ * absolutely fill the CARD-SHAPED viewport and contain the
+ * source image. Nothing can be cropped.
+ */
+.cardViewport .cardImage {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: none;
+  max-height: none;
+
+  border: 0;
+  box-shadow: none;
+
+  object-fit: contain;
+  object-position: center;
+
+  background: #fff;
+}
+
+/*
+ * Landscape scans are rotated exactly as the original slab
+ * implementation handled them. The full scan remains visible.
+ */
+.cardViewport .cardLandscape {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 140%;
+  height: 71.4286%;
+
+  max-width: none;
+  max-height: none;
+
+  border: 0;
+  box-shadow: none;
+
+  object-fit: contain;
+  object-position: center;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(90deg);
+
+  transform-origin: center;
+
+  background: #fff;
+}
