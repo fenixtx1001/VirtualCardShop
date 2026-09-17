@@ -1928,3 +1928,115 @@ body:has(.slabs-shell) {
     width: min(71vw, 276px) !important;
   }
 }
+
+
+/* =========================================================
+   VCS FOCUS COMPOSITING FIX V6
+   Prevent iOS Safari from compositing gallery slabs through
+   the full-screen Focus viewer.
+   ========================================================= */
+
+/*
+ * Focus is rendered alongside the gallery in the same page tree.
+ * While Focus is open, do not merely cover the gallery — stop
+ * painting it entirely. This removes its GPU slab layers from
+ * Safari's compositor until Focus closes.
+ */
+.slabs-shell:has(> .slabs-focus) > :not(.slabs-focus) {
+  visibility: hidden !important;
+}
+
+.slabs-shell:has(> .slabs-focus) > .slabs-focus {
+  visibility: visible !important;
+}
+
+/*
+ * The mobile shell normally clips overflow. Focus is a fixed,
+ * scrolling presentation and must remain independent from that
+ * page clipping context.
+ */
+.slabs-shell:has(> .slabs-focus) {
+  overflow: visible !important;
+}
+
+/*
+ * Give Focus its own explicit opaque compositor layer.
+ */
+.slabs-focus {
+  z-index: 2147483000 !important;
+
+  isolation: isolate;
+
+  background: #101210 !important;
+
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.slabs-focus::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 36% 24%,
+      rgba(208,191,145,.075),
+      transparent 47%
+    ),
+    #101210;
+}
+
+/*
+ * On iOS Safari, backdrop-filter over several transformed/3D
+ * descendants can pull sibling compositor layers into the same
+ * render pass. The collector placard does not need transparency,
+ * so make it a real opaque surface on mobile.
+ */
+@media (max-width: 760px) {
+  .slabs-focus-info {
+    background:
+      linear-gradient(
+        180deg,
+        #20241f 0%,
+        #1b1f1b 100%
+      ) !important;
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    isolation: isolate;
+  }
+
+  .slabs-focus-header {
+    background: #111311 !important;
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /*
+   * Keep the focused slab above its display background, while all
+   * of its plastic/glare layers remain contained to this viewer.
+   */
+  .slabs-focus-object-area {
+    isolation: isolate;
+  }
+
+  .slabs-focus-object {
+    position: relative;
+    z-index: 2;
+  }
+
+  .slabs-focus-info {
+    position: relative !important;
+    z-index: 3 !important;
+  }
+}
