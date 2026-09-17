@@ -770,3 +770,267 @@
 
   background: #fff;
 }
+
+
+/* =========================================================
+   VCS SLAB SHEEN V5
+   Restore a richer, more realistic plastic/glare effect.
+   ========================================================= */
+
+.shell {
+  --slab-glare-main: .84;
+  --slab-glare-soft: .34;
+  --slab-edge-glow: .24;
+  --slab-rim-glow: .20;
+}
+
+/*
+ * Strengthen the slab shell itself very slightly so the plastic
+ * reads as a premium physical object rather than a flat UI card.
+ */
+.face {
+  box-shadow:
+    0 6.2cqw 12cqw rgba(0,0,0,.26),
+    0 2.3cqw 4.5cqw rgba(0,0,0,.18),
+    inset 0 .75cqw 2.3cqw rgba(255,255,255,.98),
+    inset 0 -1.9cqw 4.1cqw rgba(72,86,102,.15),
+    inset .55cqw 0 1.2cqw rgba(255,255,255,.22),
+    inset -.55cqw 0 1.1cqw rgba(113,127,142,.10);
+}
+
+/*
+ * A soft overall glass wash across the slab surface.
+ * This is subtle and broad — meant to restore "encased in plastic"
+ * realism without obscuring the card.
+ */
+.face::before {
+  content: "";
+
+  position: absolute;
+  inset: 1.1cqw;
+
+  border-radius: 7.2cqw;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 20% 10%,
+      rgba(255,255,255,.46),
+      rgba(255,255,255,.18) 20%,
+      rgba(255,255,255,0) 48%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.12) 0%,
+      rgba(255,255,255,.05) 18%,
+      rgba(255,255,255,0) 36%,
+      rgba(255,255,255,.04) 68%,
+      rgba(255,255,255,.08) 100%
+    );
+
+  opacity: .72;
+}
+
+/*
+ * Edge flare and side highlights help the outer shell feel like
+ * molded plastic rather than a flat illustrated border.
+ */
+.face::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.18) 0%,
+      rgba(255,255,255,.04) 8%,
+      rgba(255,255,255,0) 18%,
+      rgba(255,255,255,0) 82%,
+      rgba(255,255,255,.06) 92%,
+      rgba(255,255,255,.16) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.16) 0%,
+      rgba(255,255,255,0) 20%,
+      rgba(255,255,255,0) 76%,
+      rgba(255,255,255,.08) 100%
+    );
+
+  opacity: .82;
+}
+
+.case {
+  box-shadow:
+    inset 0 .35cqw .8cqw rgba(255,255,255,.72),
+    inset 0 -1.2cqw 2.3cqw rgba(69,82,96,.08);
+}
+
+/*
+ * Additional inner-shell rim highlight around the slab contents.
+ */
+.case::before {
+  content: "";
+
+  position: absolute;
+  inset: 1.2cqw;
+
+  border-radius: 5.8cqw;
+  pointer-events: none;
+
+  box-shadow:
+    inset 0 .25cqw .6cqw rgba(255,255,255,.55),
+    inset .25cqw 0 .55cqw rgba(255,255,255,.30),
+    inset -.25cqw 0 .55cqw rgba(111,122,134,.10);
+
+  opacity: .95;
+}
+
+/*
+ * This is the main visible reflection layer. Make it more believable:
+ * one bold diagonal streak, one soft bloom, and one faint surface wash.
+ * Still no blend modes, to avoid Safari reverse-side artifacts.
+ */
+.reflection {
+  inset: 1.35cqw;
+  border-radius: 7.1cqw;
+
+  background:
+    linear-gradient(
+      116deg,
+      rgba(255,255,255,.62) 0%,
+      rgba(255,255,255,.20) 13%,
+      rgba(255,255,255,.03) 26%,
+      rgba(255,255,255,.34) 31%,
+      rgba(255,255,255,.05) 43%,
+      rgba(255,255,255,.18) 55%,
+      rgba(255,255,255,.03) 63%,
+      transparent 74%
+    ),
+    radial-gradient(
+      ellipse at 18% 11%,
+      rgba(255,255,255,.45) 0%,
+      rgba(255,255,255,.16) 22%,
+      rgba(255,255,255,0) 48%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.09) 0%,
+      rgba(255,255,255,.02) 24%,
+      rgba(255,255,255,0) 46%,
+      rgba(255,255,255,.05) 82%,
+      rgba(255,255,255,.08) 100%
+    );
+
+  opacity: var(--slab-glare-main);
+  filter: saturate(1.02);
+
+  transition:
+    opacity 220ms ease,
+    transform 260ms ease;
+}
+
+/*
+ * Slight interaction bump so the light feels alive when the slab
+ * is tapped/hovered/focused, without requiring new JS.
+ */
+.interactive:hover .reflection,
+.interactive:focus-visible .reflection,
+.interactive:active .reflection {
+  opacity: .96;
+  transform: translate3d(.45cqw, -.35cqw, 0);
+}
+
+.cardBay::before {
+  content: "";
+
+  position: absolute;
+  inset: 1.5cqw 1.6cqw 1.2cqw 1.6cqw;
+
+  border-radius: 4.8cqw;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,.22) 0%,
+      rgba(255,255,255,.09) 18%,
+      rgba(255,255,255,0) 34%,
+      rgba(255,255,255,.11) 50%,
+      rgba(255,255,255,0) 67%
+    );
+
+  opacity: .78;
+}
+
+/*
+ * Restore a bit more realism around the card recess itself.
+ */
+.cardMount {
+  box-shadow:
+    inset 0 1cqw 2.3cqw rgba(0,0,0,.12),
+    inset 0 -.65cqw 1.7cqw rgba(255,255,255,.70),
+    0 .7cqw 1.3cqw rgba(255,255,255,.18);
+}
+
+.cardMount::before {
+  content: "";
+
+  position: absolute;
+  inset: 1.1cqw;
+
+  border-radius: 3.4cqw;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      116deg,
+      rgba(255,255,255,.18),
+      rgba(255,255,255,.04) 24%,
+      rgba(255,255,255,0) 34%,
+      rgba(255,255,255,.12) 46%,
+      rgba(255,255,255,0) 62%
+    );
+
+  opacity: .72;
+}
+
+.gradeBlock {
+  box-shadow:
+    0 1.1cqw 2.5cqw color-mix(in srgb, var(--grade-a), transparent 74%),
+    0 .4cqw 1.1cqw rgba(0,0,0,.10),
+    inset 0 0 0 .45cqw rgba(255,255,255,.18),
+    inset 0 .45cqw .7cqw rgba(255,255,255,.32),
+    inset 0 -.5cqw .8cqw rgba(0,0,0,.08);
+}
+
+/*
+ * A little extra foil-like movement on the grade plaque.
+ */
+.gradeBlock::after {
+  top: -14%;
+  left: -40%;
+
+  width: 46%;
+  height: 136%;
+
+  opacity: .72;
+}
+
+/*
+ * Keep the reverse glossy too, but slightly calmer than the front.
+ */
+.backFace .reflection {
+  opacity: .68;
+}
+
+.backFace.interactive:hover .reflection,
+.backFace.interactive:focus-visible .reflection,
+.backFace.interactive:active .reflection {
+  opacity: .80;
+}
