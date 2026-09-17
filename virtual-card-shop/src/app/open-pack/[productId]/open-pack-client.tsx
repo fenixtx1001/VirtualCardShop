@@ -3793,9 +3793,20 @@ export default function OpenPackClient({
           }
 
           .flip-wrap,
-          .flip-scene,
-          .card-drag-shell {
+          .flip-scene {
             position: relative;
+            z-index: 2;
+          }
+
+          /*
+           * The active card MUST remain an absolute layer over the
+           * under-card. Making this relative causes the under-card image
+           * to show through while metadata remains tied to the current card,
+           * and also breaks the physical swipe-away animation.
+           */
+          .card-drag-shell {
+            position: absolute;
+            inset: 0;
             z-index: 2;
           }
 
@@ -3859,9 +3870,20 @@ export default function OpenPackClient({
           }
 
           .flip-wrap,
-          .flip-scene,
-          .card-drag-shell {
+          .flip-scene {
             position: relative;
+            z-index: 2;
+          }
+
+          /*
+           * The active card MUST remain an absolute layer over the
+           * under-card. Making this relative causes the under-card image
+           * to show through while metadata remains tied to the current card,
+           * and also breaks the physical swipe-away animation.
+           */
+          .card-drag-shell {
+            position: absolute;
+            inset: 0;
             z-index: 2;
           }
 
