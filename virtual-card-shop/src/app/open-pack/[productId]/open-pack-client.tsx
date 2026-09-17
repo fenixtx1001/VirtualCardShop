@@ -3776,6 +3776,147 @@ export default function OpenPackClient({
           }
         }
 
+
+        /* =========================================================
+           VCS MOBILE META STACKING FIX V7
+           Keep card depth without allowing it to obscure metadata.
+           ========================================================= */
+
+        @media (max-width: 560px) {
+          /*
+           * Card remains visually elevated, but its presentation layer
+           * stays beneath the collector information that follows it.
+           */
+          .card-presentation {
+            position: relative;
+            z-index: 1;
+          }
+
+          .flip-wrap,
+          .flip-scene,
+          .card-drag-shell {
+            position: relative;
+            z-index: 2;
+          }
+
+          /*
+           * The metadata placard must always paint above the card,
+           * its stack, and its large drop shadows.
+           */
+          .mobile-current-meta {
+            position: relative;
+            z-index: 20;
+            isolation: isolate;
+          }
+
+          /*
+           * Give the metadata a tiny physical separation from the
+           * bottom edge of the card while keeping the screen compact.
+           */
+          .mobile-current-meta {
+            margin-top: 7px !important;
+          }
+
+          /*
+           * Prevent the decorative ambient/card-depth layers from
+           * extending their paint over the information panel.
+           */
+          .card-presentation::before,
+          .card-presentation::after {
+            z-index: -1 !important;
+          }
+
+          /*
+           * Preserve the strong card shadow, but pull its deepest
+           * vertical reach back slightly so it reads as depth rather
+           * than covering the text beneath it.
+           */
+          .vcs-pack-root:not(.has-prestige-need):not(.has-prestige-hit)
+            .card-drag-shell .flip-card {
+            box-shadow:
+              0 0 0 1px rgba(255,255,255,.20),
+              0 2px 4px rgba(0,0,0,.38),
+              0 9px 17px rgba(0,0,0,.34),
+              0 22px 42px rgba(0,0,0,.37),
+              0 34px 60px rgba(0,0,0,.14) !important;
+          }
+        }
+
+
+        /* =========================================================
+           VCS MOBILE CONTROLS + META V8
+           Restore metadata stacking fix + refine rip controls.
+           ========================================================= */
+
+        @media (max-width: 560px) {
+          /*
+           * Keep the physical card and its shadows underneath the
+           * collector information panel.
+           */
+          .card-presentation {
+            position: relative;
+            z-index: 1;
+          }
+
+          .flip-wrap,
+          .flip-scene,
+          .card-drag-shell {
+            position: relative;
+            z-index: 2;
+          }
+
+          .mobile-current-meta {
+            position: relative;
+            z-index: 20;
+            isolation: isolate;
+            margin-top: 7px !important;
+          }
+
+          .card-presentation::before,
+          .card-presentation::after {
+            z-index: -1 !important;
+          }
+
+          /*
+           * Slightly contain the deepest shadow so it still gives
+           * physical depth without painting over the player name.
+           */
+          .vcs-pack-root:not(.has-prestige-need):not(.has-prestige-hit)
+            .card-drag-shell .flip-card {
+            box-shadow:
+              0 0 0 1px rgba(255,255,255,.20),
+              0 2px 4px rgba(0,0,0,.38),
+              0 9px 17px rgba(0,0,0,.34),
+              0 22px 42px rgba(0,0,0,.37),
+              0 34px 60px rgba(0,0,0,.14) !important;
+          }
+
+          /*
+           * Controls:
+           * Bigger directional arrows, quieter/smaller Flip control.
+           */
+          .mobile-card-controls {
+            grid-template-columns: 44px minmax(0, 1fr) 44px !important;
+            align-items: center;
+          }
+
+          .mobile-card-controls .btn:first-child::before,
+          .mobile-card-controls .btn:last-child::before {
+            font-size: 24px !important;
+            font-weight: 600 !important;
+            line-height: .9 !important;
+          }
+
+          .mobile-card-controls .btn.flip-control {
+            justify-self: center;
+            width: min(76%, 180px);
+            min-height: 30px !important;
+            padding: 3px 16px !important;
+            font-size: 9px !important;
+            font-weight: 650 !important;
+          }
+        }
+
       `}</style>
 
       <div className="vcs-pack-wrap">
