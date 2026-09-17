@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/4869/1989-90-Topps",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/4869/1989-90-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/4869/1989-90-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/4869/1989-90-Topps",
+    "note": "1989-90 Topps Hockey. One 198-card base series plus a 33-card sticker insert set. Wax box-bottom panels/singles are collector items cut from boxes and are intentionally excluded from the VCS pack product."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Standard wax: 13 cards plus one sticker per pack, 36 packs per box.",
+    "baseStructure": "One complete #1-198 Base ProductSet with equal base-card availability.",
+    "stickerStructure": "One 33-card Stickers ProductSet inserted one per pack. TCDB's one-asterisk and two-asterisk copyright variations are collapsed to one logical sticker per number.",
+    "variationHandling": "TCDB lists Randy Cunneyworth #63 as 63a ERR and 63b COR. VCS keeps one logical #63 only, sourced from the corrected 63b entry; ERR/COR detail is omitted from Player and Variant.",
+    "trueRookieNaming": "RC is appended only to Base subjects returned by TCDB's rookie index. Existing source RC text is normalized away first so each true rookie receives exactly one RC label. Short collector abbreviations such as DP and AS remain display-safe.",
+    "cleanPlayerNames": "Player contains only the collector-facing subject plus verified RC or short display-safe abbreviations. ERR/COR/UER/VAR descriptive detail is excluded from Player; sticker copyright variations are intentionally discarded rather than surfaced as separate VCS cards.",
+    "excludedRelatedSets": "Wax Box Bottom Panels and Wax Box Bottom Panels Singles are excluded because they were cut from box bottoms rather than pulled from packs.",
+    "releaseSafety": "Product remains unreleased until pricing and images are reviewed."
+  },
+  "product": {
+    "id": "1989_90_Topps_Hockey",
+    "year": 1989,
+    "brand": "Topps",
+    "sport": "Hockey",
+    "cardsPerPack": 13,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1989-90-topps-hockey.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1989_90_Topps_Hockey_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4869/1989-90-Topps",
+      "expectedCards": 198,
+      "notes": "Complete one-series #1-198 base checklist."
+    },
+    {
+      "key": "stickers",
+      "id": "1989_90_Topps_Hockey_Stickers",
+      "name": "Stickers",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/8782/1989-90-Topps-Stickers",
+      "expectedCards": 33,
+      "notes": "33-card sticker insert set, one per pack. Copyright-line * / ** variations are collapsed to one logical sticker per number."
+    }
+  ]
+}
