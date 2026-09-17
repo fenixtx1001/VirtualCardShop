@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/4877/1990-91-Topps",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/4877/1990-91-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/4877/1990-91-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/4877/1990-91-Topps",
+    "note": "1990-91 Topps Hockey. One 396-card base series plus a 21-card Team Scoring Leaders glossy insert set. Base print-code variations are collapsed to one logical VCS card per printed card number. Box-bottom issues and Collector's Edition (Tiffany) issues are excluded from the ordinary wax-pack product."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Standard wax: 14 base cards plus one Team Scoring Leaders glossy card per pack, 36 packs per box.",
+    "baseStructure": "One complete #1-396 Base ProductSet with equal logical-card availability.",
+    "printCodeVariationHandling": "TCDB catalogs C*, D*, C*D* and related print-code versions as variations. VCS intentionally collapses all print-code versions sharing a printed card number into one logical card; print-code detail is not surfaced in Player or Variant.",
+    "teamScoringLeadersStructure": "The 21-card Team Scoring Leaders glossy set is pack-issued one per standard pack and is modeled as a separate INSERT ProductSet with oddsPerPack 1.",
+    "trueRookieNaming": "RC is appended only to Base subjects returned by TCDB's rookie index after normalizing duplicate variation rows to logical card numbers. Existing source RC text is removed first so every recognized rookie receives exactly one RC label.",
+    "cleanPlayerNames": "UER, ERR, COR, VAR and descriptive variation text are removed from Player. Short collector-facing abbreviations such as HL, TP, TL, AS and MGR may remain when present on the source checklist.",
+    "excludedRelatedSets": "Wax Box Bottom Panels and Box Bottoms are excluded because they are cut from packaging rather than pulled from packs. Collector's Edition (Tiffany) Base and Team Scoring Leaders were factory-set issues and are excluded from the standard wax product.",
+    "releaseSafety": "Product remains unreleased until pricing and images are reviewed."
+  },
+  "product": {
+    "id": "1990_91_Topps_Hockey",
+    "year": 1990,
+    "brand": "Topps",
+    "sport": "Hockey",
+    "cardsPerPack": 14,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1990-91-topps-hockey.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1990_91_Topps_Hockey_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4877/1990-91-Topps",
+      "expectedCards": 396,
+      "notes": "Complete one-series #1-396 base checklist. Print-code variations sharing a card number are collapsed to one logical VCS card."
+    },
+    {
+      "key": "team-scoring-leaders",
+      "id": "1990_91_Topps_Hockey_Team_Scoring_Leaders",
+      "name": "Team Scoring Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/8784/1990-91-Topps---Team-Scoring-Leaders",
+      "expectedCards": 21,
+      "notes": "21-card glossy insert set, one per standard wax pack."
+    }
+  ]
+}
