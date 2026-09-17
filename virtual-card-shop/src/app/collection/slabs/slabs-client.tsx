@@ -1,12 +1,27 @@
-// src/app/collection/slabs/slabs-client.tsx
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
-import VcsSlab from "@/components/grading/VcsSlab";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 
-type Gradeability = "COMMON" | "GREAT" | "ICONIC";
-type SortMode = "grade_desc" | "value_desc" | "player_asc" | "year_desc" | "newest" | "random";
+import VcsSlab, {
+  type SlabRegistry,
+} from "@/components/grading/VcsSlab";
+
+type SortMode =
+  | "grade_desc"
+  | "value_desc"
+  | "total_value_desc"
+  | "player_asc"
+  | "year_desc"
+  | "newest"
+  | "random";
 
 type SlabRow = {
   key: string;
@@ -31,29 +46,33 @@ type SlabRow = {
 
   grade: number;
   gradeLabel: string;
+
   quantity: number;
+
   rawBookValueCents: number;
   valueCents: number;
   totalValueCents: number;
-
-  gradeability: Gradeability;
-  gradeabilityLabel: string;
 
   gradedAt: string | null;
 };
 
 type ApiResponse = {
   ok: boolean;
+
   q: string;
   grade: string;
-  tier: "ALL" | Gradeability;
+  sport: string;
+  year: string;
   sort: SortMode;
+
   page: number;
   pageSize: number;
   total: number;
   totalPages: number;
+
   totalQuantity: number;
   totalValueCents: number;
+
   countsByGrade: {
     "6": number;
     "7": number;
@@ -61,1820 +80,1465 @@ type ApiResponse = {
     "9": number;
     "10": number;
   };
-  countsByTier: {
-    COMMON: number;
-    GREAT: number;
-    ICONIC: number;
-  };
+
+  sports: string[];
+  years: number[];
+
   rows: SlabRow[];
 };
 
-const colors = {
-  bg: "#fbfaf7",
-  card: "#ffffff",
-  border: "#e7e3dc",
-  text: "#121212",
-  subtext: "#333333",
-  mutedText: "#666666",
-  muted: "#f2efe9",
-  blue: "#16477d",
-  blueSoft: "#eef6ff",
-  green: "#185c24",
-  greenSoft: "#f0fff3",
-  gold: "#7a5200",
-  goldSoft: "#fff8e8",
-  red: "#7a1f1f",
-  redSoft: "#fff1f1",
-  carouselBg: "#030712",
-  carouselPanel: "rgba(255,255,255,0.08)",
-  carouselBorder: "rgba(255,255,255,0.14)",
-  carouselText: "#f8fafc",
-  carouselMuted: "rgba(248,250,252,0.68)",
+type PopulationBucket = {
+  grade: number;
+  label: string;
+  quantity: number;
+  percentage: number;
 };
 
-function safeNum(value: unknown, fallback = 0) {
-  return typeof value === "number" && Number.isFinite(value) ? value : fallback;
-}
+type PopulationResponse = {
+  ok: boolean;
+  population: {
+    uniqueOwners: number;
+    totalOwned: number;
+    totalOwnedIncludingPending: number;
+    raw: number;
+    graded: number;
+    pendingGrading: number;
+    totalValueCents: number;
+    gradeBreakdown: PopulationBucket[];
+  };
+};
 
-function formatDollarsFromCents(cents: number) {
-  const safe = Number.isFinite(cents) ? cents : 0;
+const STORAGE_KEY = "vcs:slabs:view:v3";
 
-  return (safe / 100).toLocaleString(undefined, {
+const SORT_LABELS: Record<SortMode, string> = {
+  grade_desc: "Highest grade",
+  value_desc: "Highest card value",
+  total_value_desc: "Largest position",
+  newest: "Newest graded",
+  player_asc: "Player A–Z",
+  year_desc: "Newest year",
+  random: "Shuffle",
+};
+
+function money(cents: number) {
+  return (cents / 100).toLocaleString("en-US", {
     style: "currency",
     currency: "USD",
-    minimumFractionDigits: 2,
   });
 }
 
-function getSetName(row: SlabRow) {
-  const productSetName = row.productSetName?.trim();
-
-  if (productSetName) return productSetName;
-
-  const fallbackSetLabel =
-    row.productSetIsBase == null
-      ? ""
-      : row.productSetIsBase
-        ? "Base"
-        : "Insert";
-
-  return [row.productYear, row.productBrand, fallbackSetLabel].filter(Boolean).join(" ") || row.productId;
+function number(value: number) {
+  return value.toLocaleString("en-US");
 }
 
-function getSubline(row: SlabRow) {
-  return [row.team, row.subset, row.variant, row.productSport]
-    .filter((part) => typeof part === "string" && part.trim().length > 0)
-    .join(" • ");
+function formatDate(value: string | null) {
+  if (!value) return "Date unavailable";
+
+  const date = new Date(value);
+
+  if (!Number.isFinite(date.getTime())) return "Date unavailable";
+
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
 }
 
-function GradeFilterButton({
-  label,
-  count,
-  active,
-  onClick,
-  dark = false,
+function setName(row: SlabRow) {
+  const set = row.productSetName?.trim();
+
+  const product = [row.productYear, row.productBrand]
+    .filter((value) => value != null && String(value).trim())
+    .join(" ");
+
+  if (!set) return product || row.productId;
+
+  const cleanSet = set.toLowerCase().replace(/\s+/g, " ").trim();
+
+  if (
+    cleanSet === "base" ||
+    cleanSet === "base set" ||
+    cleanSet === "base cards"
+  ) {
+    return product || set;
+  }
+
+  const productLower = product.toLowerCase();
+
+  if (
+    product &&
+    !cleanSet.includes(String(row.productYear ?? "").toLowerCase()) &&
+    row.productBrand &&
+    !cleanSet.includes(row.productBrand.toLowerCase()) &&
+    !productLower.includes(cleanSet)
+  ) {
+    return `${product} · ${set}`;
+  }
+
+  return set;
+}
+
+function Icon({
+  kind,
 }: {
-  label: string;
-  count: number;
-  active: boolean;
-  onClick: () => void;
-  dark?: boolean;
+  kind:
+    | "search"
+    | "filter"
+    | "close"
+    | "arrow"
+    | "shuffle"
+    | "refresh"
+    | "population";
 }) {
+  const path = {
+    search: (
+      <>
+        <circle cx="10.5" cy="10.5" r="6.5" />
+        <path d="m16 16 4 4" />
+      </>
+    ),
+    filter: (
+      <>
+        <path d="M4 7h16M4 17h16" />
+        <circle cx="9" cy="7" r="2" />
+        <circle cx="15" cy="17" r="2" />
+      </>
+    ),
+    close: <path d="m6 6 12 12M6 18 18 6" />,
+    arrow: <path d="M4 12h15m-6-6 6 6-6 6" />,
+    shuffle: (
+      <>
+        <path d="M3 6h3c4 0 8 12 12 12h3" />
+        <path d="m17 14 4 4-4 4" />
+        <path d="M3 18h3c1.5 0 2.8-1 4-2.5" />
+        <path d="M14 8c1.3-1.2 2.5-2 4-2h3" />
+        <path d="m17 2 4 4-4 4" />
+      </>
+    ),
+    refresh: (
+      <>
+        <path d="M20 5v5h-5M4 19v-5h5" />
+        <path d="M19 10a7 7 0 0 0-12-5M5 14a7 7 0 0 0 12 5" />
+      </>
+    ),
+    population: (
+      <>
+        <circle cx="8" cy="8" r="3" />
+        <circle cx="17" cy="9" r="2.5" />
+        <path d="M2.5 20c.8-4 3-6 5.5-6s4.7 2 5.5 6" />
+        <path d="M14 15c2.8-.8 5.6.8 7 4.5" />
+      </>
+    ),
+  }[kind];
+
   return (
-    <button
-      onClick={onClick}
-      style={{
-        border: `1px solid ${active ? (dark ? "rgba(125,211,252,0.8)" : colors.blue) : dark ? colors.carouselBorder : colors.border}`,
-        background: active ? (dark ? "rgba(14,165,233,0.18)" : colors.blueSoft) : dark ? "rgba(255,255,255,0.06)" : "#fff",
-        color: active ? (dark ? "#e0f2fe" : colors.blue) : dark ? colors.carouselText : colors.text,
-        borderRadius: 999,
-        padding: "7px 10px",
-        fontWeight: 950,
-        cursor: "pointer",
-        whiteSpace: "nowrap",
-      }}
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
     >
-      {label}{" "}
-      <span style={{ color: dark ? colors.carouselMuted : colors.mutedText }}>
-        ({count})
-      </span>
-    </button>
+      {path}
+    </svg>
   );
 }
 
-function TierFilterButton({
-  label,
-  count,
-  active,
-  onClick,
-  dark = false,
+function Sheet({
+  title,
+  children,
+  onClose,
 }: {
-  label: string;
-  count: number;
-  active: boolean;
-  onClick: () => void;
-  dark?: boolean;
+  title: string;
+  children: ReactNode;
+  onClose: () => void;
 }) {
+  const ref = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    const dialog = ref.current;
+    if (!dialog) return;
+
+    const oldOverflow = document.body.style.overflow;
+
+    dialog.showModal();
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      dialog.close();
+      document.body.style.overflow = oldOverflow;
+    };
+  }, []);
+
   return (
-    <button
-      onClick={onClick}
-      style={{
-        border: `1px solid ${active ? (dark ? "rgba(251,191,36,0.78)" : colors.gold) : dark ? colors.carouselBorder : colors.border}`,
-        background: active ? (dark ? "rgba(251,191,36,0.16)" : colors.goldSoft) : dark ? "rgba(255,255,255,0.06)" : "#fff",
-        color: active ? (dark ? "#fef3c7" : colors.gold) : dark ? colors.carouselText : colors.text,
-        borderRadius: 999,
-        padding: "7px 10px",
-        fontWeight: 950,
-        cursor: "pointer",
-        whiteSpace: "nowrap",
+    <dialog
+      ref={ref}
+      className="slabs-sheet"
+      aria-labelledby="slabs-sheet-title"
+      onCancel={(event) => {
+        event.preventDefault();
+        onClose();
+      }}
+      onClick={(event) => {
+        if (event.target === event.currentTarget) onClose();
       }}
     >
-      {label}{" "}
-      <span style={{ color: dark ? colors.carouselMuted : colors.mutedText }}>
-        ({count})
-      </span>
-    </button>
+      <div className="slabs-sheet-inner">
+        <header className="slabs-sheet-header">
+          <h2 id="slabs-sheet-title">{title}</h2>
+
+          <button
+            className="slabs-icon-button"
+            onClick={onClose}
+            aria-label="Close"
+          >
+            <Icon kind="close" />
+          </button>
+        </header>
+
+        {children}
+      </div>
+    </dialog>
+  );
+}
+
+function PopulationPanel({
+  population,
+  loading,
+  error,
+  grade,
+  onRetry,
+}: {
+  population: PopulationResponse | null;
+  loading: boolean;
+  error: string;
+  grade: number;
+  onRetry: () => void;
+}) {
+  if (loading) {
+    return (
+      <div className="slabs-pop-loading" role="status">
+        Loading population report…
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="slabs-notice" role="alert">
+        {error}
+        <button onClick={onRetry}>Retry</button>
+      </div>
+    );
+  }
+
+  if (!population) return null;
+
+  const atGrade =
+    population.population.gradeBreakdown.find(
+      (bucket) => bucket.grade === grade
+    )?.quantity ?? 0;
+
+  const gradedBuckets = population.population.gradeBreakdown.filter(
+    (bucket) => bucket.grade >= 6
+  );
+
+  return (
+    <div className="slabs-population">
+      <div className="slabs-pop-lead">
+        <div>
+          <span>POP AT VCS {grade}</span>
+          <strong>{number(atGrade)}</strong>
+        </div>
+
+        <div>
+          <span>TOTAL GRADED</span>
+          <strong>{number(population.population.graded)}</strong>
+        </div>
+
+        <div>
+          <span>OWNERS</span>
+          <strong>{number(population.population.uniqueOwners)}</strong>
+        </div>
+      </div>
+
+      <div className="slabs-pop-bars">
+        {gradedBuckets.map((bucket) => {
+          const max = Math.max(
+            1,
+            ...gradedBuckets.map((item) => item.quantity)
+          );
+
+          return (
+            <div key={bucket.grade}>
+              <span>VCS {bucket.grade}</span>
+
+              <i>
+                <b
+                  style={{
+                    width: `${(bucket.quantity / max) * 100}%`,
+                  }}
+                />
+              </i>
+
+              <strong>{number(bucket.quantity)}</strong>
+            </div>
+          );
+        })}
+      </div>
+
+      <p>
+        Population includes graded copies owned across the VCS universe.
+        Raw cards and pending grading are not included in the graded total.
+      </p>
+    </div>
+  );
+}
+
+function FocusViewer({
+  rows,
+  index,
+  setIndex,
+  page,
+  totalPages,
+  onClose,
+  persist,
+}: {
+  rows: SlabRow[];
+  index: number;
+  setIndex: (index: number) => void;
+  page: number;
+  totalPages: number;
+  onClose: () => void;
+  persist: () => void;
+}) {
+  const row = rows[index];
+  const [flipped, setFlipped] = useState(false);
+  const [populationOpen, setPopulationOpen] = useState(false);
+  const [population, setPopulation] =
+    useState<PopulationResponse | null>(null);
+  const [populationLoading, setPopulationLoading] = useState(false);
+  const [populationError, setPopulationError] = useState("");
+
+  const touchStart = useRef<number | null>(null);
+
+  const loadPopulation = useCallback(async () => {
+    if (!row) return;
+
+    setPopulationLoading(true);
+    setPopulationError("");
+
+    try {
+      const response = await fetch(
+        `/api/cards/${encodeURIComponent(String(row.cardId))}/population`,
+        { cache: "no-store" }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok || !data?.ok) {
+        throw new Error(
+          data?.error || "Population report is unavailable."
+        );
+      }
+
+      setPopulation(data as PopulationResponse);
+    } catch (error) {
+      setPopulationError(
+        error instanceof Error
+          ? error.message
+          : "Population report is unavailable."
+      );
+    } finally {
+      setPopulationLoading(false);
+    }
+  }, [row]);
+
+  useEffect(() => {
+    setFlipped(false);
+    setPopulationOpen(false);
+    setPopulation(null);
+    setPopulationError("");
+    void loadPopulation();
+  }, [row?.key, loadPopulation]);
+
+  useEffect(() => {
+    const oldOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    function keydown(event: KeyboardEvent) {
+      if (event.key === "Escape") onClose();
+
+      if (event.key === "ArrowLeft" && index > 0) {
+        setIndex(index - 1);
+      }
+
+      if (event.key === "ArrowRight" && index < rows.length - 1) {
+        setIndex(index + 1);
+      }
+
+      if (event.key.toLowerCase() === "f") {
+        setFlipped((value) => !value);
+      }
+    }
+
+    window.addEventListener("keydown", keydown);
+
+    return () => {
+      document.body.style.overflow = oldOverflow;
+      window.removeEventListener("keydown", keydown);
+    };
+  }, [index, onClose, rows.length, setIndex]);
+
+  if (!row) return null;
+
+  const atGrade =
+    population?.population.gradeBreakdown.find(
+      (bucket) => bucket.grade === row.grade
+    )?.quantity ?? null;
+
+  const registry: SlabRegistry = {
+    cardId: row.cardId,
+    gradedAt: row.gradedAt,
+    atGrade,
+    totalGraded: population?.population.graded ?? null,
+    totalOwned: population?.population.totalOwned ?? null,
+  };
+
+  function go(delta: number) {
+    const next = Math.max(
+      0,
+      Math.min(rows.length - 1, index + delta)
+    );
+
+    if (next !== index) setIndex(next);
+  }
+
+  return (
+    <div
+      className="slabs-focus"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${row.player} slab`}
+      onTouchStart={(event) => {
+        touchStart.current = event.touches[0]?.clientX ?? null;
+      }}
+      onTouchEnd={(event) => {
+        if (touchStart.current == null) return;
+
+        const end =
+          event.changedTouches[0]?.clientX ?? touchStart.current;
+
+        const delta = end - touchStart.current;
+
+        if (Math.abs(delta) > 55) {
+          if (delta > 0) go(-1);
+          else go(1);
+        }
+
+        touchStart.current = null;
+      }}
+    >
+      <div className="slabs-focus-ambient" />
+
+      <header className="slabs-focus-header">
+        <button
+          className="slabs-focus-close"
+          onClick={onClose}
+        >
+          <Icon kind="close" />
+          <span>Close</span>
+        </button>
+
+        <div>
+          <span>VCS SLAB GALLERY</span>
+          <strong>
+            {index + 1} / {rows.length}
+          </strong>
+        </div>
+
+        <span className="slabs-focus-page">
+          Page {page}
+          {totalPages > 1 ? ` / ${totalPages}` : ""}
+        </span>
+      </header>
+
+      <div className="slabs-focus-stage">
+        <div className="slabs-focus-object-area">
+          <button
+            className="slabs-focus-arrow slabs-focus-prev"
+            disabled={index <= 0}
+            onClick={() => go(-1)}
+            aria-label="Previous slab"
+          >
+            ‹
+          </button>
+
+          <div className="slabs-focus-object">
+            <VcsSlab
+              player={row.player}
+              cardNumber={row.cardNumber}
+              setName={setName(row)}
+              team={row.team}
+              grade={row.grade}
+              imageUrl={row.frontImageUrl}
+              backImageUrl={row.backImageUrl}
+              flipped={flipped}
+              onFlip={() => setFlipped((value) => !value)}
+              registry={registry}
+            />
+
+            <button
+              className="slabs-flip-hint"
+              onClick={() => setFlipped((value) => !value)}
+            >
+              <span>{flipped ? "Front" : "Back"}</span>
+              <small>
+                {flipped
+                  ? "Return to card front"
+                  : "Flip slab · card back + registry"}
+              </small>
+            </button>
+          </div>
+
+          <button
+            className="slabs-focus-arrow slabs-focus-next"
+            disabled={index >= rows.length - 1}
+            onClick={() => go(1)}
+            aria-label="Next slab"
+          >
+            ›
+          </button>
+        </div>
+
+        <aside className="slabs-focus-info">
+          <span className="slabs-eyebrow">
+            VCS {row.grade} ·{" "}
+            {row.productSport || "GRADED CARD"}
+          </span>
+
+          <h2>{row.player}</h2>
+
+          <p className="slabs-focus-set">
+            {setName(row)} · #{row.cardNumber}
+          </p>
+
+          {row.team && (
+            <p className="slabs-focus-team">{row.team}</p>
+          )}
+
+          <div className="slabs-focus-value">
+            <div>
+              <span>EST. VALUE</span>
+              <strong>{money(row.valueCents)}</strong>
+            </div>
+
+            {row.quantity > 1 && (
+              <div>
+                <span>YOU OWN</span>
+                <strong>×{number(row.quantity)}</strong>
+              </div>
+            )}
+          </div>
+
+          <div className="slabs-focus-facts">
+            <div>
+              <span>Graded</span>
+              <strong>{formatDate(row.gradedAt)}</strong>
+            </div>
+
+            <div>
+              <span>Population</span>
+              <strong>
+                {atGrade == null
+                  ? populationLoading
+                    ? "Loading…"
+                    : "View report"
+                  : `${number(atGrade)} at VCS ${row.grade}`}
+              </strong>
+            </div>
+          </div>
+
+          <div className="slabs-focus-actions">
+            <button
+              className={
+                populationOpen
+                  ? "slabs-secondary slabs-secondary-active"
+                  : "slabs-secondary"
+              }
+              onClick={() =>
+                setPopulationOpen((value) => !value)
+              }
+            >
+              <Icon kind="population" />
+              Population
+            </button>
+
+            <Link
+              href={`/cards/${row.cardId}`}
+              className="slabs-primary"
+              onClick={persist}
+            >
+              Card details
+              <Icon kind="arrow" />
+            </Link>
+          </div>
+
+          {populationOpen && (
+            <PopulationPanel
+              population={population}
+              loading={populationLoading}
+              error={populationError}
+              grade={row.grade}
+              onRetry={() => void loadPopulation()}
+            />
+          )}
+        </aside>
+      </div>
+    </div>
+  );
+}
+
+function FilterSheet({
+  sort,
+  setSort,
+  sport,
+  setSport,
+  year,
+  setYear,
+  sports,
+  years,
+  activeCount,
+  total,
+  onReset,
+  onClose,
+}: {
+  sort: SortMode;
+  setSort: (sort: SortMode) => void;
+  sport: string;
+  setSport: (sport: string) => void;
+  year: string;
+  setYear: (year: string) => void;
+  sports: string[];
+  years: number[];
+  activeCount: number;
+  total: number;
+  onReset: () => void;
+  onClose: () => void;
+}) {
+  return (
+    <Sheet title="Filter & sort" onClose={onClose}>
+      <div className="slabs-filter-fields">
+        <label>
+          Sort gallery
+          <select
+            value={sort}
+            onChange={(event) =>
+              setSort(event.target.value as SortMode)
+            }
+          >
+            {Object.entries(SORT_LABELS).map(
+              ([value, label]) => (
+                <option key={value} value={value}>
+                  {label}
+                </option>
+              )
+            )}
+          </select>
+        </label>
+
+        <label>
+          Sport
+          <select
+            value={sport}
+            onChange={(event) =>
+              setSport(event.target.value)
+            }
+          >
+            <option value="ALL">All sports</option>
+
+            {sports.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label>
+          Year
+          <select
+            value={year}
+            onChange={(event) =>
+              setYear(event.target.value)
+            }
+          >
+            <option value="ALL">All years</option>
+
+            {years.map((item) => (
+              <option key={item} value={String(item)}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
+
+      <footer className="slabs-sheet-actions">
+        <button
+          className="slabs-text-button"
+          onClick={onReset}
+          disabled={activeCount === 0 && sort === "grade_desc"}
+        >
+          Reset
+        </button>
+
+        <button
+          className="slabs-primary"
+          onClick={onClose}
+        >
+          Show {number(total)}{" "}
+          {total === 1 ? "slab type" : "slab types"}
+          <Icon kind="arrow" />
+        </button>
+      </footer>
+    </Sheet>
+  );
+}
+
+function GalleryTile({
+  row,
+  onOpen,
+}: {
+  row: SlabRow;
+  onOpen: () => void;
+}) {
+  return (
+    <article className="slabs-tile">
+      <button
+        className="slabs-display"
+        onClick={onOpen}
+        aria-label={`View ${row.player} VCS ${row.grade} slab`}
+      >
+        <span className="slabs-spotlight" />
+
+        <span className="slabs-object">
+          <VcsSlab
+            player={row.player}
+            cardNumber={row.cardNumber}
+            setName={setName(row)}
+            team={row.team}
+            grade={row.grade}
+            imageUrl={row.frontImageUrl}
+            backImageUrl={row.backImageUrl}
+            registry={{
+              cardId: row.cardId,
+              gradedAt: row.gradedAt,
+            }}
+          />
+        </span>
+      </button>
+
+      <div className="slabs-tile-copy">
+        <h3>{row.player}</h3>
+
+        <p>
+          {setName(row)} · #{row.cardNumber}
+        </p>
+
+        <div>
+          <strong>{money(row.valueCents)}</strong>
+
+          {row.quantity > 1 ? (
+            <span>
+              ×{number(row.quantity)} ·{" "}
+              {money(row.totalValueCents)} total
+            </span>
+          ) : (
+            <span>VCS {row.grade}</span>
+          )}
+        </div>
+      </div>
+    </article>
   );
 }
 
 export default function SlabsClient() {
   const [data, setData] = useState<ApiResponse | null>(null);
+
   const [queryInput, setQueryInput] = useState("");
   const [q, setQ] = useState("");
+
   const [grade, setGrade] = useState("ALL");
-  const [tier, setTier] = useState<"ALL" | Gradeability>("ALL");
-  const [sort, setSort] = useState<SortMode>("grade_desc");
-  const [randomSeed, setRandomSeed] = useState(() => String(Date.now()));
+  const [sport, setSport] = useState("ALL");
+  const [year, setYear] = useState("ALL");
+
+  const [sort, setSort] =
+    useState<SortMode>("grade_desc");
+
+  const [seed, setSeed] = useState(() =>
+    String(Date.now())
+  );
+
   const [page, setPage] = useState(1);
-  const [activeSlabIndex, setActiveSlabIndex] = useState(0);
-  const [touchStartX, setTouchStartX] = useState<number | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
-  const [mobileControlsOpen, setMobileControlsOpen] = useState(false);
-  const [carouselOpen, setCarouselOpen] = useState(false);
 
   const [loading, setLoading] = useState(true);
-  const [err, setErr] = useState<string | null>(null);
+  const [refreshing, setRefreshing] =
+    useState(false);
 
-  async function load() {
-    setLoading(true);
-    setErr(null);
+  const [error, setError] = useState("");
 
+  const [filtersOpen, setFiltersOpen] =
+    useState(false);
+
+  const [focusIndex, setFocusIndex] =
+    useState<number | null>(null);
+
+  const [hydrated, setHydrated] = useState(false);
+
+  const savedScroll = useRef<number | null>(null);
+  const request = useRef(0);
+  const abort = useRef<AbortController | null>(null);
+
+  useEffect(() => {
     try {
-      const qs = new URLSearchParams();
-      if (q.trim()) qs.set("q", q.trim());
-      if (grade !== "ALL") qs.set("grade", grade);
-      if (tier !== "ALL") qs.set("tier", tier);
-      qs.set("sort", sort);
-      if (sort === "random") qs.set("seed", randomSeed);
-      qs.set("page", String(page));
-      qs.set("pageSize", "24");
+      const raw = sessionStorage.getItem(STORAGE_KEY);
 
-      const res = await fetch(`/api/collection/slabs?${qs.toString()}`, {
-        cache: "no-store",
-      });
+      if (raw) {
+        const saved = JSON.parse(raw);
 
-      const raw = await res.text();
-
-      let json: any = null;
-      try {
-        json = raw ? JSON.parse(raw) : null;
-      } catch {
-        throw new Error(`Slabs API returned non-JSON (${res.status}): ${raw.slice(0, 180)}`);
-      }
-
-      if (!res.ok || !json?.ok) {
-        throw new Error(json?.error ?? `Failed to load slabs (${res.status})`);
-      }
-
-      setData(json as ApiResponse);
-    } catch (e: any) {
-      setErr(e?.message ?? "Failed to load slabs");
-      setData(null);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    load();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [q, grade, tier, sort, randomSeed, page]);
-
-  useEffect(() => {
-    function updateIsMobile() {
-      setIsMobile(window.innerWidth < 768);
-    }
-
-    updateIsMobile();
-    window.addEventListener("resize", updateIsMobile);
-
-    return () => window.removeEventListener("resize", updateIsMobile);
-  }, []);
-
-  useEffect(() => {
-    setActiveSlabIndex(0);
-  }, [q, grade, tier, sort, randomSeed, page]);
-
-  const rows = data?.rows ?? [];
-
-  const totalQuantity = safeNum(data?.totalQuantity);
-  const totalValueCents = safeNum(data?.totalValueCents);
-  const totalUniqueSlabs = safeNum(data?.total);
-
-  const gradeCounts = useMemo(() => {
-    return data?.countsByGrade ?? { "6": 0, "7": 0, "8": 0, "9": 0, "10": 0 };
-  }, [data]);
-
-  const tierCounts = useMemo(() => {
-    return data?.countsByTier ?? { COMMON: 0, GREAT: 0, ICONIC: 0 };
-  }, [data]);
-
-  function submitSearch(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setPage(1);
-    if (sort === "random") setRandomSeed(String(Date.now()));
-    setQ(queryInput.trim());
-    setMobileControlsOpen(false);
-  }
-
-  function clearFilters() {
-    setQueryInput("");
-    setQ("");
-    setGrade("ALL");
-    setTier("ALL");
-    setSort("grade_desc");
-    setPage(1);
-    setMobileControlsOpen(false);
-  }
-
-  function reshuffleRandom() {
-    setSort("random");
-    setRandomSeed(String(Date.now()));
-    setPage(1);
-    setActiveSlabIndex(0);
-  }
-
-  const mobileCarouselActive = carouselOpen && rows.length > 0 && !loading && !err;
-
-  return (
-    <main
-      style={{
-        background: mobileCarouselActive
-          ? `radial-gradient(circle at 50% 10%, rgba(30,64,175,0.34), transparent 32%), radial-gradient(circle at 50% 60%, rgba(120,53,15,0.22), transparent 35%), ${colors.carouselBg}`
-          : colors.bg,
-        minHeight: mobileCarouselActive ? 0 : "calc(100vh - 80px)",
-        padding: mobileCarouselActive ? 0 : 16,
-        color: mobileCarouselActive ? colors.carouselText : colors.text,
-        transition: "background 240ms ease",
-      }}
-    >
-      <style>
-        {`
-          @media (max-width: 767px) {
-            .slabStatsBar {
-              margin-top: 10px !important;
-            }
-
-            .slabStatsBar > div {
-              padding: 8px 7px !important;
-            }
-
-            .slabStatsBar > div > div:first-child {
-              font-size: 8.5px !important;
-            }
-
-            .slabStatsBar > div > div:last-child {
-              font-size: 13px !important;
-            }
-
-            .slabSearchForm {
-              grid-template-columns: minmax(0, 1fr) auto auto !important;
-            }
-
-            .slabSearchForm input {
-              font-size: 12px !important;
-              padding: 8px 9px !important;
-            }
-
-            .slabSearchForm button {
-              font-size: 12px !important;
-              padding: 7px 9px !important;
-            }
-
-            .slabGradeGrid {
-              grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-            }
-
-            .slabPagination {
-              grid-template-columns: auto auto auto 1fr auto auto !important;
-            }
-          }
-
-          @media (max-width: 430px) {
-            .slabPagination {
-              grid-template-columns: auto auto auto 1fr auto auto !important;
-              gap: 5px !important;
-            }
-          }
-        `}
-      </style>
-
-      <div style={{ maxWidth: mobileCarouselActive ? "none" : 1260, margin: "0 auto" }}>
-        {mobileCarouselActive ? (
-          <MobileSlabCarousel
-            rows={rows}
-            onClose={() => setCarouselOpen(false)}
-            activeSlabIndex={activeSlabIndex}
-            setActiveSlabIndex={setActiveSlabIndex}
-            touchStartX={touchStartX}
-            setTouchStartX={setTouchStartX}
-            page={data?.page ?? 1}
-            totalPages={data?.totalPages ?? 1}
-            setPage={setPage}
-            queryInput={queryInput}
-            setQueryInput={setQueryInput}
-            submitSearch={submitSearch}
-            clearFilters={clearFilters}
-            grade={grade}
-            setGrade={setGrade}
-            tier={tier}
-            setTier={setTier}
-            sort={sort}
-            setSort={setSort}
-            setRandomSeed={setRandomSeed}
-            gradeCounts={gradeCounts}
-            tierCounts={tierCounts}
-            totalQuantity={totalQuantity}
-            totalValueCents={totalValueCents}
-            totalUniqueSlabs={totalUniqueSlabs}
-            mobileControlsOpen={mobileControlsOpen}
-            setMobileControlsOpen={setMobileControlsOpen}
-            reshuffleRandom={reshuffleRandom}
-          />
-        ) : (
-          <>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "flex-start",
-                gap: 14,
-                flexWrap: "wrap",
-              }}
-            >
-              <div>
-                <Link
-                  href="/collection"
-                  style={{
-                    color: colors.blue,
-                    fontWeight: 900,
-                    fontSize: 13,
-                  }}
-                >
-                  ← Back to Collection
-                </Link>
-
-                <h1 style={{ fontSize: "clamp(28px, 8vw, 34px)", fontWeight: 1000, marginTop: 7, marginBottom: 4 }}>
-                  VCS Slab Gallery
-                </h1>
-
-                <div style={{ color: colors.subtext, fontSize: 14, fontWeight: 750, lineHeight: 1.45 }}>
-                  Browse your graded cards as a premium slabbed collection.
-                </div>
-              </div>
-
-              <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                <button
-                  onClick={() => {
-                    setActiveSlabIndex(0);
-                    setCarouselOpen(true);
-                  }}
-                  disabled={loading || rows.length === 0 || !!err}
-                  style={{
-                    border: `1px solid ${colors.blue}`,
-                    background: colors.blue,
-                    borderRadius: 10,
-                    padding: "9px 12px",
-                    fontWeight: 950,
-                    color: "#fff",
-                    cursor: loading || rows.length === 0 || !!err ? "not-allowed" : "pointer",
-                    opacity: loading || rows.length === 0 || !!err ? 0.55 : 1,
-                  }}
-                >
-                  Open Carousel
-                </button>
-
-                <Link
-                  href="/grading"
-                  style={{
-                    border: `1px solid ${colors.border}`,
-                    background: colors.card,
-                    borderRadius: 10,
-                    padding: "9px 12px",
-                    fontWeight: 950,
-                    color: colors.text,
-                    textDecoration: "none",
-                  }}
-                >
-                  Grading
-                </Link>
-
-                <button
-                  onClick={load}
-                  disabled={loading}
-                  style={{
-                    border: `1px solid ${colors.border}`,
-                    background: colors.muted,
-                    borderRadius: 10,
-                    padding: "9px 12px",
-                    fontWeight: 950,
-                    cursor: loading ? "not-allowed" : "pointer",
-                  }}
-                >
-                  {loading ? "Refreshing…" : "Refresh"}
-                </button>
-              </div>
-            </div>
-
-            <DesktopStats
-              totalUniqueSlabs={totalUniqueSlabs}
-              totalQuantity={totalQuantity}
-              totalValueCents={totalValueCents}
-            />
-
-            <DesktopControls
-              queryInput={queryInput}
-              setQueryInput={setQueryInput}
-              submitSearch={submitSearch}
-              clearFilters={clearFilters}
-              grade={grade}
-              setGrade={setGrade}
-              sort={sort}
-              setSort={setSort}
-              setRandomSeed={setRandomSeed}
-              setPage={setPage}
-              gradeCounts={gradeCounts}
-              totalQuantity={totalQuantity}
-            />
-
-            {err ? (
-              <div
-                style={{
-                  marginTop: 12,
-                  padding: 12,
-                  background: colors.redSoft,
-                  border: "1px solid #f3b7b7",
-                  borderRadius: 12,
-                  color: colors.red,
-                  fontWeight: 900,
-                }}
-              >
-                {err}
-              </div>
-            ) : null}
-
-            {loading ? (
-              <div style={{ marginTop: 18, color: colors.subtext, fontWeight: 900 }}>
-                Loading slab gallery…
-              </div>
-            ) : rows.length === 0 ? (
-              <EmptyState />
-            ) : (
-              <>
-                {isMobile ? <MobileSlabBrowseList rows={rows} /> : <DesktopSlabGrid rows={rows} />}
-
-                <Pagination
-                  page={data?.page ?? 1}
-                  totalPages={data?.totalPages ?? 1}
-                  total={data?.total ?? 0}
-                  pageSize={data?.pageSize ?? 24}
-                  setPage={setPage}
-                />
-              </>
-            )}
-          </>
-        )}
-
-        {isMobile && !mobileCarouselActive ? (
-          <>
-            {err ? (
-              <div
-                style={{
-                  margin: 16,
-                  padding: 12,
-                  background: colors.redSoft,
-                  border: "1px solid #f3b7b7",
-                  borderRadius: 12,
-                  color: colors.red,
-                  fontWeight: 900,
-                }}
-              >
-                {err}
-              </div>
-            ) : null}
-
-            {loading ? (
-              <div style={{ padding: 16, color: colors.subtext, fontWeight: 900 }}>
-                Loading slab carousel…
-              </div>
-            ) : rows.length === 0 ? (
-              <div style={{ padding: 16 }}>
-                <EmptyState />
-              </div>
-            ) : null}
-          </>
-        ) : null}
-      </div>
-    </main>
-  );
-}
-
-function MobileSlabCarousel({
-  rows,
-  onClose,
-  activeSlabIndex,
-  setActiveSlabIndex,
-  touchStartX,
-  setTouchStartX,
-  page,
-  totalPages,
-  setPage,
-  queryInput,
-  setQueryInput,
-  submitSearch,
-  clearFilters,
-  grade,
-  setGrade,
-  tier,
-  setTier,
-  sort,
-  setSort,
-  setRandomSeed,
-  gradeCounts,
-  tierCounts,
-  totalQuantity,
-  totalValueCents,
-  totalUniqueSlabs,
-  mobileControlsOpen,
-  setMobileControlsOpen,
-  reshuffleRandom,
-}: {
-  rows: SlabRow[];
-  onClose: () => void;
-  activeSlabIndex: number;
-  setActiveSlabIndex: React.Dispatch<React.SetStateAction<number>>;
-  touchStartX: number | null;
-  setTouchStartX: React.Dispatch<React.SetStateAction<number | null>>;
-  page: number;
-  totalPages: number;
-  setPage: React.Dispatch<React.SetStateAction<number>>;
-  queryInput: string;
-  setQueryInput: React.Dispatch<React.SetStateAction<string>>;
-  submitSearch: (e: React.FormEvent<HTMLFormElement>) => void;
-  clearFilters: () => void;
-  grade: string;
-  setGrade: React.Dispatch<React.SetStateAction<string>>;
-  tier: "ALL" | Gradeability;
-  setTier: React.Dispatch<React.SetStateAction<"ALL" | Gradeability>>;
-  sort: SortMode;
-  setSort: React.Dispatch<React.SetStateAction<SortMode>>;
-  setRandomSeed: React.Dispatch<React.SetStateAction<string>>;
-  gradeCounts: ApiResponse["countsByGrade"];
-  tierCounts: ApiResponse["countsByTier"];
-  totalQuantity: number;
-  totalValueCents: number;
-  totalUniqueSlabs: number;
-  mobileControlsOpen: boolean;
-  setMobileControlsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  reshuffleRandom: () => void;
-}) {
-  const row = rows[Math.min(activeSlabIndex, rows.length - 1)];
-  const previousRow = activeSlabIndex > 0 ? rows[activeSlabIndex - 1] : null;
-  const nextRow = activeSlabIndex < rows.length - 1 ? rows[activeSlabIndex + 1] : null;
-
-  function goPrev() {
-    setActiveSlabIndex((i) => Math.max(0, i - 1));
-  }
-
-  function goNext() {
-    setActiveSlabIndex((i) => Math.min(rows.length - 1, i + 1));
-  }
-
-  return (
-    <div
-      onTouchStart={(e) => setTouchStartX(e.touches[0]?.clientX ?? null)}
-      onTouchEnd={(e) => {
-        if (touchStartX == null) return;
-
-        const endX = e.changedTouches[0]?.clientX ?? touchStartX;
-        const delta = endX - touchStartX;
-
-        if (Math.abs(delta) > 45) {
-          if (delta > 0) goPrev();
-          else goNext();
+        if (typeof saved.queryInput === "string") {
+          setQueryInput(saved.queryInput);
         }
 
-        setTouchStartX(null);
-      }}
-      style={{
-        position: "fixed",
-          inset: 0,
-          zIndex: 9999,
-          height: "100dvh",
-          width: "100vw",
-          display: "grid",
-          gridTemplateRows: "auto minmax(0, 1fr) auto",
-          overflow: "hidden",
-          background: `radial-gradient(circle at 50% 10%, rgba(30,64,175,0.34), transparent 32%), radial-gradient(circle at 50% 60%, rgba(120,53,15,0.22), transparent 35%), ${colors.carouselBg}`,
-      }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "linear-gradient(180deg, rgba(255,255,255,0.08), transparent 24%, rgba(0,0,0,0.34) 100%)",
-          pointerEvents: "none",
-        }}
-      />
+        if (typeof saved.q === "string") {
+          setQ(saved.q);
+        }
 
-      <div
-        style={{
-          position: "relative",
-          zIndex: 2,
-          padding: "10px 12px 8px",
-          background: "linear-gradient(180deg, rgba(3,7,18,0.94), rgba(3,7,18,0.62), transparent)",
-          backdropFilter: "blur(14px)",
-        }}
-      >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "auto 1fr auto",
-            alignItems: "center",
-            gap: 10,
-          }}
-        >
-          <button
-            onClick={onClose}
-            style={{
-              color: colors.carouselText,
-              textDecoration: "none",
-              fontWeight: 950,
-              fontSize: 12,
-              border: `1px solid ${colors.carouselBorder}`,
-              background: "rgba(255,255,255,0.07)",
-              borderRadius: 999,
-              padding: "7px 10px",
-              cursor: "pointer",
-            }}
-          >
-            Close
-          </button>
+        if (
+          saved.grade === "ALL" ||
+          ["6", "7", "8", "9", "10"].includes(
+            saved.grade
+          )
+        ) {
+          setGrade(saved.grade);
+        }
 
-          <div style={{ textAlign: "center", minWidth: 0 }}>
-            <div
-              style={{
-                fontSize: 11,
-                fontWeight: 1000,
-                letterSpacing: "0.16em",
-                textTransform: "uppercase",
-                color: colors.carouselMuted,
-              }}
-            >
-              Slab Carousel
-            </div>
-            <div
-              style={{
-                marginTop: 1,
-                fontSize: 13,
-                fontWeight: 1000,
-                color: colors.carouselText,
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {activeSlabIndex + 1} / {rows.length}
-            </div>
-          </div>
+        if (typeof saved.sport === "string") {
+          setSport(saved.sport);
+        }
 
-          <button
-            onClick={() => setMobileControlsOpen((v) => !v)}
-            style={{
-              border: `1px solid ${colors.carouselBorder}`,
-              background: mobileControlsOpen ? "rgba(255,255,255,0.14)" : "rgba(255,255,255,0.07)",
-              color: colors.carouselText,
-              borderRadius: 999,
-              padding: "7px 10px",
-              fontWeight: 950,
-              fontSize: 12,
-              cursor: "pointer",
-            }}
-          >
-            Tune
-          </button>
-        </div>
+        if (typeof saved.year === "string") {
+          setYear(saved.year);
+        }
 
-        {mobileControlsOpen ? (
-          <div
-            style={{
-              marginTop: 10,
-              border: `1px solid ${colors.carouselBorder}`,
-              background: "rgba(2,6,23,0.72)",
-              borderRadius: 18,
-              padding: 10,
-              boxShadow: "0 20px 60px rgba(0,0,0,0.35)",
-            }}
-          >
-            <form onSubmit={submitSearch} style={{ display: "flex", gap: 8 }}>
-              <input
-                value={queryInput}
-                onChange={(e) => setQueryInput(e.target.value)}
-                placeholder="Search slabs…"
-                style={{
-                  flex: 1,
-                  minWidth: 0,
-                  border: `1px solid ${colors.carouselBorder}`,
-                  borderRadius: 12,
-                  padding: "10px 11px",
-                  fontWeight: 850,
-                  fontSize: 14,
-                  color: colors.carouselText,
-                  background: "rgba(255,255,255,0.08)",
-                  outline: "none",
-                }}
-              />
+        if (saved.sort in SORT_LABELS) {
+          setSort(saved.sort);
+        }
 
-              <button
-                type="submit"
-                style={{
-                  border: "1px solid rgba(125,211,252,0.75)",
-                  background: "rgba(14,165,233,0.22)",
-                  color: "#e0f2fe",
-                  borderRadius: 12,
-                  padding: "10px 12px",
-                  fontWeight: 950,
-                  cursor: "pointer",
-                }}
-              >
-                Search
-              </button>
-            </form>
+        if (
+          Number.isSafeInteger(saved.page) &&
+          saved.page > 0
+        ) {
+          setPage(saved.page);
+        }
 
-            <div style={{ marginTop: 10, display: "flex", gap: 8, overflowX: "auto", paddingBottom: 2 }}>
-              <GradeFilterButton
-                label="All"
-                count={totalQuantity}
-                active={grade === "ALL"}
-                dark
-                onClick={() => {
-                  setGrade("ALL");
-                  if (sort === "random") setRandomSeed(String(Date.now()));
-                  setPage(1);
-                }}
-              />
-              {(["10", "9", "8", "7", "6"] as const).map((g) => (
-                <GradeFilterButton
-                  key={g}
-                  label={`VCS ${g}`}
-                  count={gradeCounts[g]}
-                  active={grade === g}
-                  dark
-                  onClick={() => {
-                    setGrade(g);
-                    if (sort === "random") setRandomSeed(String(Date.now()));
-                    setPage(1);
-                  }}
-                />
-              ))}
-            </div>
-
-            <div style={{ marginTop: 10, display: "grid", gridTemplateColumns: "1fr auto auto", gap: 8 }}>
-              <select
-                value={sort}
-                onChange={(e) => {
-                  const nextSort = e.target.value as SortMode;
-                  setSort(nextSort);
-                  if (nextSort === "random") setRandomSeed(String(Date.now()));
-                  setPage(1);
-                }}
-                style={{
-                  minWidth: 0,
-                  border: `1px solid ${colors.carouselBorder}`,
-                  borderRadius: 12,
-                  padding: "9px 10px",
-                  fontWeight: 900,
-                  color: colors.carouselText,
-                  background: "rgba(255,255,255,0.08)",
-                }}
-              >
-                <option value="grade_desc">Highest grade</option>
-                <option value="value_desc">Highest value</option>
-                <option value="newest">Newest graded</option>
-                <option value="player_asc">Player A–Z</option>
-                <option value="year_desc">Newest year</option>
-                <option value="random">Random</option>
-              </select>
-
-              <button
-                type="button"
-                onClick={reshuffleRandom}
-                style={{
-                  border: `1px solid ${colors.carouselBorder}`,
-                  background: "rgba(255,255,255,0.08)",
-                  color: colors.carouselText,
-                  borderRadius: 12,
-                  padding: "9px 10px",
-                  fontWeight: 950,
-                  cursor: "pointer",
-                }}
-              >
-                Shuffle
-              </button>
-
-              <button
-                type="button"
-                onClick={clearFilters}
-                style={{
-                  border: `1px solid ${colors.carouselBorder}`,
-                  background: "rgba(255,255,255,0.08)",
-                  color: colors.carouselText,
-                  borderRadius: 12,
-                  padding: "9px 10px",
-                  fontWeight: 950,
-                  cursor: "pointer",
-                }}
-              >
-                Clear
-              </button>
-            </div>
-          </div>
-        ) : null}
-      </div>
-
-      <div
-        style={{
-          position: "relative",
-          zIndex: 1,
-          display: "grid",
-          alignItems: "center",
-          justifyItems: "center",
-          padding: "6px 0 0",
-          overflow: "hidden",
-        }}
-      >
-        {previousRow ? (
-          <div
-            aria-hidden
-            style={{
-              position: "absolute",
-              left: "-48%",
-              top: "50%",
-              transform: "translateY(-50%) scale(0.78)",
-              opacity: 0.16,
-              filter: "blur(1px)",
-              width: "min(92vw, 350px)",
-              pointerEvents: "none",
-            }}
-          >
-            <VcsSlab
-              player={previousRow.player}
-              cardNumber={previousRow.cardNumber}
-              setName={getSetName(previousRow)}
-              team={previousRow.team}
-              grade={previousRow.grade}
-              gradeability={previousRow.gradeability}
-              gradeabilityLabel={previousRow.gradeabilityLabel}
-              valueCents={previousRow.valueCents}
-              quantity={previousRow.quantity}
-              imageUrl={previousRow.frontImageUrl}
-            />
-          </div>
-        ) : null}
-
-        {nextRow ? (
-          <div
-            aria-hidden
-            style={{
-              position: "absolute",
-              right: "-48%",
-              top: "50%",
-              transform: "translateY(-50%) scale(0.78)",
-              opacity: 0.16,
-              filter: "blur(1px)",
-              width: "min(92vw, 350px)",
-              pointerEvents: "none",
-            }}
-          >
-            <VcsSlab
-              player={nextRow.player}
-              cardNumber={nextRow.cardNumber}
-              setName={getSetName(nextRow)}
-              team={nextRow.team}
-              grade={nextRow.grade}
-              gradeability={nextRow.gradeability}
-              gradeabilityLabel={nextRow.gradeabilityLabel}
-              valueCents={nextRow.valueCents}
-              quantity={nextRow.quantity}
-              imageUrl={nextRow.frontImageUrl}
-            />
-          </div>
-        ) : null}
-
-        <div
-          style={{
-            position: "absolute",
-            left: "50%",
-            top: "50%",
-            width: 390,
-            display: "grid",
-            justifyItems: "center",
-            transform: "translate(-50%, -50%) scale(0.72)",
-            transformOrigin: "center",
-            filter: "drop-shadow(0 30px 55px rgba(0,0,0,0.55))",
-          }}
-        >
-          <VcsSlab
-            player={row.player}
-            cardNumber={row.cardNumber}
-            setName={getSetName(row)}
-            team={row.team}
-            grade={row.grade}
-            gradeability={row.gradeability}
-            gradeabilityLabel={row.gradeabilityLabel}
-            valueCents={row.valueCents}
-            quantity={row.quantity}
-            imageUrl={row.frontImageUrl}
-          />
-        </div>
-      </div>
-
-      <div
-        style={{
-          position: "relative",
-          zIndex: 2,
-          padding: "10px 12px 14px",
-          background: "linear-gradient(0deg, rgba(3,7,18,0.98), rgba(3,7,18,0.74), transparent)",
-        }}
-      >
-        <div
-          style={{
-            border: `1px solid ${colors.carouselBorder}`,
-            background: "rgba(255,255,255,0.08)",
-            borderRadius: 22,
-            padding: 12,
-            boxShadow: "0 22px 70px rgba(0,0,0,0.34)",
-            backdropFilter: "blur(16px)",
-          }}
-        >
-          <div style={{ display: "flex", justifyContent: "space-between", gap: 12 }}>
-            <div style={{ minWidth: 0 }}>
-              <div
-                style={{
-                  color: colors.carouselText,
-                  fontSize: 18,
-                  fontWeight: 1000,
-                  lineHeight: 1.1,
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {row.player}
-              </div>
-
-              <div
-                style={{
-                  marginTop: 4,
-                  color: colors.carouselMuted,
-                  fontSize: 13,
-                  fontWeight: 850,
-                  lineHeight: 1.3,
-                }}
-              >
-                {getSetName(row)} #{row.cardNumber}
-                {getSubline(row) ? ` • ${getSubline(row)}` : ""}
-              </div>
-            </div>
-
-            <div style={{ textAlign: "right", flex: "0 0 auto" }}>
-              <div
-                style={{
-                  color: "#fef3c7",
-                  fontSize: 17,
-                  fontWeight: 1000,
-                  lineHeight: 1.1,
-                }}
-              >
-                VCS {row.grade}
-              </div>
-              <div style={{ marginTop: 4, color: "#bbf7d0", fontSize: 13, fontWeight: 1000 }}>
-                {formatDollarsFromCents(row.totalValueCents)}
-              </div>
-            </div>
-          </div>
-
-          <div
-            style={{
-              marginTop: 12,
-              display: "grid",
-              gridTemplateColumns: "auto 1fr auto",
-              gap: 10,
-              alignItems: "center",
-            }}
-          >
-            <button
-              onClick={goPrev}
-              disabled={activeSlabIndex <= 0}
-              style={{
-                border: `1px solid ${colors.carouselBorder}`,
-                background: "rgba(255,255,255,0.08)",
-                color: colors.carouselText,
-                borderRadius: 14,
-                padding: "10px 12px",
-                fontWeight: 1000,
-                opacity: activeSlabIndex <= 0 ? 0.35 : 1,
-                cursor: activeSlabIndex <= 0 ? "not-allowed" : "pointer",
-              }}
-            >
-              ←
-            </button>
-
-            <Link
-              href={`/cards/${row.cardId}`}
-              style={{
-                border: `1px solid ${colors.carouselBorder}`,
-                background: "rgba(255,255,255,0.06)",
-                color: colors.carouselText,
-                borderRadius: 14,
-                padding: "10px 12px",
-                fontWeight: 950,
-                textAlign: "center",
-                textDecoration: "none",
-              }}
-            >
-              Card details
-            </Link>
-
-            <button
-              onClick={goNext}
-              disabled={activeSlabIndex >= rows.length - 1}
-              style={{
-                border: `1px solid ${colors.carouselBorder}`,
-                background: "rgba(255,255,255,0.08)",
-                color: colors.carouselText,
-                borderRadius: 14,
-                padding: "10px 12px",
-                fontWeight: 1000,
-                opacity: activeSlabIndex >= rows.length - 1 ? 0.35 : 1,
-                cursor: activeSlabIndex >= rows.length - 1 ? "not-allowed" : "pointer",
-              }}
-            >
-              →
-            </button>
-          </div>
-        </div>
-
-        {totalPages > 1 ? (
-          <div
-            style={{
-              marginTop: 10,
-              display: "flex",
-              justifyContent: "center",
-              gap: 10,
-              alignItems: "center",
-            }}
-          >
-            <button
-              onClick={() => setPage((p) => Math.max(1, p - 1))}
-              disabled={page <= 1}
-              style={{
-                border: `1px solid ${colors.carouselBorder}`,
-                background: "rgba(255,255,255,0.07)",
-                color: colors.carouselText,
-                borderRadius: 999,
-                padding: "8px 12px",
-                fontWeight: 950,
-                opacity: page <= 1 ? 0.35 : 1,
-                cursor: page <= 1 ? "not-allowed" : "pointer",
-              }}
-            >
-              Prev page
-            </button>
-
-            <button
-              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-              disabled={page >= totalPages}
-              style={{
-                border: `1px solid ${colors.carouselBorder}`,
-                background: "rgba(255,255,255,0.07)",
-                color: colors.carouselText,
-                borderRadius: 999,
-                padding: "8px 12px",
-                fontWeight: 950,
-                opacity: page >= totalPages ? 0.35 : 1,
-                cursor: page >= totalPages ? "not-allowed" : "pointer",
-              }}
-            >
-              Next page
-            </button>
-          </div>
-        ) : null}
-      </div>
-    </div>
-  );
-}
-
-function MetricPill({ label, value }: { label: string; value: string }) {
-  return (
-    <div
-      style={{
-        border: `1px solid ${colors.carouselBorder}`,
-        background: "rgba(255,255,255,0.06)",
-        borderRadius: 14,
-        padding: "8px 6px",
-        textAlign: "center",
-        minWidth: 0,
-      }}
-    >
-      <div
-        style={{
-          color: colors.carouselMuted,
-          fontSize: 10,
-          fontWeight: 950,
-          textTransform: "uppercase",
-          letterSpacing: "0.08em",
-        }}
-      >
-        {label}
-      </div>
-      <div
-        style={{
-          marginTop: 2,
-          color: colors.carouselText,
-          fontSize: 12,
-          fontWeight: 1000,
-          overflow: "hidden",
-          textOverflow: "ellipsis",
-          whiteSpace: "nowrap",
-        }}
-      >
-        {value}
-      </div>
-    </div>
-  );
-}
-
-function DesktopStats({
-  totalUniqueSlabs,
-  totalQuantity,
-  totalValueCents,
-}: {
-  totalUniqueSlabs: number;
-  totalQuantity: number;
-  totalValueCents: number;
-}) {
-  const metrics = [
-    { label: "Slab types", value: totalUniqueSlabs.toLocaleString() },
-    { label: "Total slabs", value: totalQuantity.toLocaleString() },
-    { label: "Est. value", value: formatDollarsFromCents(totalValueCents) },
-  ];
-
-  return (
-    <div
-      className="slabStatsBar"
-      style={{
-        marginTop: 14,
-        display: "grid",
-        gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-        border: `1px solid ${colors.border}`,
-        borderRadius: 16,
-        overflow: "hidden",
-        background: "rgba(255,255,255,0.78)",
-        boxShadow: "0 8px 24px rgba(0,0,0,0.025)",
-      }}
-    >
-      {metrics.map((metric, index) => (
-        <div
-          key={metric.label}
-          style={{
-            minWidth: 0,
-            padding: "10px 12px",
-            borderLeft: index === 0 ? "none" : `1px solid ${colors.border}`,
-          }}
-        >
-          <div
-            style={{
-              color: colors.mutedText,
-              fontSize: 10,
-              fontWeight: 950,
-              textTransform: "uppercase",
-              letterSpacing: "0.05em",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {metric.label}
-          </div>
-          <div
-            style={{
-              marginTop: 2,
-              color: colors.text,
-              fontSize: 18,
-              fontWeight: 1000,
-              lineHeight: 1.1,
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {metric.value}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function DesktopControls({
-  queryInput,
-  setQueryInput,
-  submitSearch,
-  clearFilters,
-  grade,
-  setGrade,
-  sort,
-  setSort,
-  setRandomSeed,
-  setPage,
-  gradeCounts,
-  totalQuantity,
-}: {
-  queryInput: string;
-  setQueryInput: React.Dispatch<React.SetStateAction<string>>;
-  submitSearch: (e: React.FormEvent<HTMLFormElement>) => void;
-  clearFilters: () => void;
-  grade: string;
-  setGrade: React.Dispatch<React.SetStateAction<string>>;
-  sort: SortMode;
-  setSort: React.Dispatch<React.SetStateAction<SortMode>>;
-  setRandomSeed: React.Dispatch<React.SetStateAction<string>>;
-  setPage: React.Dispatch<React.SetStateAction<number>>;
-  gradeCounts: ApiResponse["countsByGrade"];
-  totalQuantity: number;
-}) {
-  const gradeOptions = [
-    { value: "ALL", label: "All", count: totalQuantity },
-    { value: "10", label: "VCS 10", count: gradeCounts["10"] },
-    { value: "9", label: "VCS 9", count: gradeCounts["9"] },
-    { value: "8", label: "VCS 8", count: gradeCounts["8"] },
-    { value: "7", label: "VCS 7", count: gradeCounts["7"] },
-    { value: "6", label: "VCS 6", count: gradeCounts["6"] },
-  ];
-
-  return (
-    <div
-      style={{
-        marginTop: 12,
-        background: colors.card,
-        border: `1px solid ${colors.border}`,
-        borderRadius: 16,
-        padding: 10,
-        display: "grid",
-        gap: 10,
-      }}
-    >
-      <form
-        className="slabSearchForm"
-        onSubmit={submitSearch}
-        style={{
-          display: "grid",
-          gridTemplateColumns: "minmax(0, 1fr) auto auto",
-          gap: 7,
-        }}
-      >
-        <input
-          value={queryInput}
-          onChange={(e) => setQueryInput(e.target.value)}
-          placeholder="Search player, team, set, card number…"
-          style={{
-            minWidth: 0,
-            border: `1px solid ${colors.border}`,
-            borderRadius: 11,
-            padding: "9px 10px",
-            fontWeight: 800,
-            fontSize: 13,
-            background: "#fff",
-          }}
-        />
-
-        <button
-          type="submit"
-          style={{
-            border: `1px solid ${colors.blue}`,
-            background: colors.blue,
-            color: "#fff",
-            borderRadius: 11,
-            padding: "8px 11px",
-            fontWeight: 950,
-            fontSize: 13,
-            cursor: "pointer",
-          }}
-        >
-          Search
-        </button>
-
-        <button
-          type="button"
-          onClick={clearFilters}
-          style={{
-            border: `1px solid ${colors.border}`,
-            background: colors.muted,
-            color: colors.text,
-            borderRadius: 11,
-            padding: "8px 11px",
-            fontWeight: 950,
-            fontSize: 13,
-            cursor: "pointer",
-          }}
-        >
-          Clear
-        </button>
-      </form>
-
-      <div
-        className="slabGradeGrid"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(6, minmax(0, 1fr))",
-          gap: 6,
-        }}
-      >
-        {gradeOptions.map((option) => {
-          const active = grade === option.value;
-
-          return (
-            <button
-              key={option.value}
-              type="button"
-              onClick={() => {
-                setGrade(option.value);
-                if (sort === "random") setRandomSeed(String(Date.now()));
-                setPage(1);
-              }}
-              style={{
-                minWidth: 0,
-                border: `1px solid ${active ? colors.blue : colors.border}`,
-                background: active ? colors.blueSoft : "#fff",
-                color: active ? colors.blue : colors.text,
-                borderRadius: 12,
-                padding: "7px 5px",
-                cursor: "pointer",
-                textAlign: "center",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: 12,
-                  fontWeight: 1000,
-                  lineHeight: 1.05,
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {option.label}
-              </div>
-              <div
-                style={{
-                  marginTop: 2,
-                  color: active ? colors.blue : colors.mutedText,
-                  fontSize: 11,
-                  fontWeight: 900,
-                  lineHeight: 1,
-                }}
-              >
-                {option.count.toLocaleString()}
-              </div>
-            </button>
+        if (
+          typeof saved.scroll === "number" &&
+          Number.isFinite(saved.scroll)
+        ) {
+          savedScroll.current = Math.max(
+            0,
+            saved.scroll
           );
-        })}
-      </div>
+        }
+      }
+    } catch {
+      // Saved UI state is optional.
+    }
 
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <select
-          value={sort}
-          onChange={(e) => {
-            const nextSort = e.target.value as SortMode;
-            setSort(nextSort);
-            if (nextSort === "random") setRandomSeed(String(Date.now()));
-            setPage(1);
-          }}
-          style={{
-            width: "min(100%, 230px)",
-            border: `1px solid ${colors.border}`,
-            borderRadius: 11,
-            padding: "8px 10px",
-            fontWeight: 900,
-            fontSize: 13,
-            background: "#fff",
-          }}
-        >
-          <option value="grade_desc">Highest grade</option>
-          <option value="value_desc">Highest value</option>
-          <option value="newest">Newest graded</option>
-          <option value="player_asc">Player A–Z</option>
-          <option value="year_desc">Newest year</option>
-          <option value="random">Random</option>
-        </select>
-      </div>
-    </div>
-  );
-}
+    setHydrated(true);
+  }, []);
 
-function MobileSlabBrowseList({ rows }: { rows: SlabRow[] }) {
-  return (
-    <div
-      style={{
-        marginTop: 12,
-        display: "grid",
-        gap: 8,
-      }}
-    >
-      {rows.map((row) => (
-        <div
-          key={row.key}
-          style={{
-            background: colors.card,
-            border: `1px solid ${colors.border}`,
-            borderRadius: 15,
-            padding: 9,
-            display: "grid",
-            gridTemplateColumns: "64px minmax(0, 1fr)",
-            gap: 10,
-            alignItems: "center",
-            boxShadow: "0 7px 20px rgba(0,0,0,0.025)",
-          }}
-        >
-          <div
-            style={{
-              width: 64,
-              height: 88,
-              borderRadius: 9,
-              border: `1px solid ${colors.border}`,
-              background: colors.muted,
-              overflow: "hidden",
-              display: "grid",
-              placeItems: "center",
-            }}
-          >
-            {row.frontImageUrl ? (
-              <img
-                src={row.frontImageUrl}
-                alt={`${row.player} #${row.cardNumber}`}
-                loading="lazy"
-                decoding="async"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  display: "block",
-                  objectFit: "cover",
-                }}
-              />
-            ) : (
-              <span style={{ color: colors.mutedText, fontWeight: 900, fontSize: 11 }}>No image</span>
-            )}
-          </div>
+  const persist = useCallback(() => {
+    try {
+      sessionStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+          queryInput,
+          q,
+          grade,
+          sport,
+          year,
+          sort,
+          page,
+          scroll: window.scrollY,
+        })
+      );
+    } catch {
+      // Storage can be disabled.
+    }
+  }, [
+    grade,
+    page,
+    q,
+    queryInput,
+    sort,
+    sport,
+    year,
+  ]);
 
-          <div style={{ minWidth: 0 }}>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: 8,
-                alignItems: "flex-start",
-              }}
-            >
-              <div style={{ minWidth: 0 }}>
-                <div
-                  style={{
-                    fontSize: 15,
-                    lineHeight: 1.12,
-                    fontWeight: 1000,
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                  }}
-                >
-                  #{row.cardNumber} — {row.player}
-                </div>
-                <div
-                  style={{
-                    marginTop: 3,
-                    color: colors.mutedText,
-                    fontSize: 11.5,
-                    fontWeight: 800,
-                    lineHeight: 1.25,
-                  }}
-                >
-                  {getSetName(row)}
-                  {row.team ? ` • ${row.team}` : ""}
-                </div>
-              </div>
+  const load = useCallback(async () => {
+    if (!hydrated) return;
 
-              <div
-                style={{
-                  flex: "0 0 auto",
-                  border: `1px solid ${row.grade === 10 ? "#d6b85d" : colors.border}`,
-                  background: row.grade === 10 ? colors.goldSoft : colors.blueSoft,
-                  color: row.grade === 10 ? colors.gold : colors.blue,
-                  borderRadius: 10,
-                  padding: "5px 7px",
-                  textAlign: "center",
-                }}
-              >
-                <div style={{ fontSize: 10, fontWeight: 950, lineHeight: 1 }}>VCS</div>
-                <div style={{ marginTop: 1, fontSize: 17, fontWeight: 1000, lineHeight: 1 }}>{row.grade}</div>
-              </div>
-            </div>
+    const id = ++request.current;
 
-            <div
-              style={{
-                marginTop: 8,
-                display: "flex",
-                justifyContent: "space-between",
-                gap: 8,
-                alignItems: "center",
-              }}
-            >
-              <div style={{ minWidth: 0 }}>
-                <div style={{ color: colors.green, fontSize: 12, fontWeight: 1000 }}>
-                  {formatDollarsFromCents(row.valueCents)}
-                  {row.quantity > 1 ? (
-                    <span style={{ color: colors.mutedText, fontWeight: 850 }}> × {row.quantity}</span>
-                  ) : null}
-                </div>
-                {row.quantity > 1 ? (
-                  <div style={{ marginTop: 1, color: colors.mutedText, fontSize: 10.5, fontWeight: 800 }}>
-                    Total {formatDollarsFromCents(row.totalValueCents)}
-                  </div>
-                ) : null}
-              </div>
+    abort.current?.abort();
 
-              <Link
-                href={`/cards/${row.cardId}`}
-                style={{
-                  color: colors.blue,
-                  fontWeight: 950,
-                  fontSize: 12,
-                  whiteSpace: "nowrap",
-                }}
-              >
-                Card details
-              </Link>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
+    const controller = new AbortController();
+    abort.current = controller;
 
-function DesktopSlabGrid({ rows }: { rows: SlabRow[] }) {
-  return (
-    <div
-      style={{
-        marginTop: 16,
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(310px, 1fr))",
-        gap: 18,
-        alignItems: "start",
-      }}
-    >
-      {rows.map((row) => (
-        <div
-          key={row.key}
-          style={{
-            display: "grid",
-            justifyItems: "center",
-            gap: 10,
-          }}
-        >
-          <VcsSlab
-            player={row.player}
-            cardNumber={row.cardNumber}
-            setName={getSetName(row)}
-            team={row.team}
-            grade={row.grade}
-            gradeability={row.gradeability}
-            gradeabilityLabel={row.gradeabilityLabel}
-            valueCents={row.valueCents}
-            quantity={row.quantity}
-            imageUrl={row.frontImageUrl}
-          />
+    setRefreshing(true);
 
-          <div
-            style={{
-              width: "100%",
-              maxWidth: 390,
-              background: colors.card,
-              border: `1px solid ${colors.border}`,
-              borderRadius: 14,
-              padding: 10,
-              boxShadow: "0 8px 24px rgba(0,0,0,0.04)",
-            }}
-          >
-            <div style={{ fontSize: 15, fontWeight: 1000 }}>
-              #{row.cardNumber} — {row.player}
-            </div>
+    try {
+      const params = new URLSearchParams();
 
-            <div
-              style={{
-                marginTop: 3,
-                color: colors.mutedText,
-                fontSize: 12,
-                fontWeight: 800,
-                lineHeight: 1.35,
-              }}
-            >
-              {getSetName(row)}
-              {getSubline(row) ? ` • ${getSubline(row)}` : ""}
-            </div>
+      if (q.trim()) params.set("q", q.trim());
+      if (grade !== "ALL") params.set("grade", grade);
+      if (sport !== "ALL") params.set("sport", sport);
+      if (year !== "ALL") params.set("year", year);
 
-            <div
-              style={{
-                marginTop: 8,
-                display: "flex",
-                justifyContent: "space-between",
-                gap: 10,
-                flexWrap: "wrap",
-                alignItems: "center",
-              }}
-            >
-              <div style={{ color: colors.green, fontWeight: 1000, fontSize: 13 }}>
-                Total: {formatDollarsFromCents(row.totalValueCents)}
-              </div>
+      params.set("sort", sort);
 
-              <Link
-                href={`/cards/${row.cardId}`}
-                style={{
-                  color: colors.blue,
-                  fontWeight: 950,
-                  fontSize: 13,
-                }}
-              >
-                Card details
-              </Link>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
+      if (sort === "random") {
+        params.set("seed", seed);
+      }
 
-function EmptyState() {
-  return (
-    <div
-      style={{
-        marginTop: 14,
-        background: colors.card,
-        border: `1px solid ${colors.border}`,
-        borderRadius: 16,
-        padding: 18,
-        color: colors.subtext,
-        fontWeight: 850,
-        lineHeight: 1.45,
-      }}
-    >
-      No slabs found. Submit cards for VCS grading, then reveal completed mailers to add slabs to this gallery.
-    </div>
-  );
-}
+      params.set("page", String(page));
+      params.set("pageSize", "24");
 
-function Pagination({
-  page,
-  totalPages,
-  total,
-  pageSize,
-  setPage,
-}: {
-  page: number;
-  totalPages: number;
-  total: number;
-  pageSize: number;
-  setPage: React.Dispatch<React.SetStateAction<number>>;
-}) {
-  const [jumpPage, setJumpPage] = useState(String(page));
+      const response = await fetch(
+        `/api/collection/slabs?${params.toString()}`,
+        {
+          cache: "no-store",
+          signal: controller.signal,
+        }
+      );
+
+      const json = await response.json();
+
+      if (!response.ok || !json?.ok) {
+        throw new Error(
+          json?.error || "Couldn't load your slab gallery."
+        );
+      }
+
+      if (id !== request.current) return;
+
+      const next = json as ApiResponse;
+
+      setData(next);
+      setError("");
+
+      if (next.page !== page) {
+        setPage(next.page);
+      }
+    } catch (err) {
+      if (!controller.signal.aborted && id === request.current) {
+        setError(
+          err instanceof Error
+            ? err.message
+            : "Couldn't load your slab gallery."
+        );
+      }
+    } finally {
+      if (
+        id === request.current &&
+        !controller.signal.aborted
+      ) {
+        setLoading(false);
+        setRefreshing(false);
+      }
+    }
+  }, [
+    grade,
+    hydrated,
+    page,
+    q,
+    seed,
+    sort,
+    sport,
+    year,
+  ]);
 
   useEffect(() => {
-    setJumpPage(String(page));
-  }, [page]);
+    void load();
 
-  const start = total === 0 ? 0 : (page - 1) * pageSize + 1;
-  const end = Math.min(total, page * pageSize);
+    return () => abort.current?.abort();
+  }, [load]);
 
-  function goToJumpPage() {
-    const parsed = Number.parseInt(jumpPage, 10);
-    if (!Number.isFinite(parsed)) {
-      setJumpPage(String(page));
+  useEffect(() => {
+    if (
+      loading ||
+      savedScroll.current == null ||
+      !data
+    ) {
       return;
     }
 
-    setPage(Math.max(1, Math.min(totalPages, parsed)));
+    const top = savedScroll.current;
+
+    const frame = requestAnimationFrame(() => {
+      window.scrollTo({
+        top,
+        behavior: "instant",
+      });
+
+      savedScroll.current = null;
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, [data, loading]);
+
+  useEffect(() => {
+    if (!hydrated) return;
+
+    const save = () => persist();
+
+    window.addEventListener("pagehide", save);
+
+    return () => {
+      window.removeEventListener("pagehide", save);
+    };
+  }, [hydrated, persist]);
+
+  const rows = data?.rows ?? [];
+
+  const total = data?.total ?? 0;
+  const totalQuantity = data?.totalQuantity ?? 0;
+  const totalValueCents = data?.totalValueCents ?? 0;
+
+  const counts =
+    data?.countsByGrade ?? {
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+    };
+
+  const filterCount =
+    Number(sport !== "ALL") +
+    Number(year !== "ALL");
+
+  const activeContextCount =
+    filterCount + Number(grade !== "ALL");
+
+  function submitSearch(
+    event: React.FormEvent<HTMLFormElement>
+  ) {
+    event.preventDefault();
+    setQ(queryInput.trim());
+    setPage(1);
+
+    if (sort === "random") {
+      setSeed(String(Date.now()));
+    }
+  }
+
+  function setGradeFilter(next: string) {
+    setGrade(next);
+    setPage(1);
+  }
+
+  function reshuffle() {
+    setSort("random");
+    setSeed(String(Date.now()));
+    setPage(1);
+  }
+
+  function resetFilters() {
+    setGrade("ALL");
+    setSport("ALL");
+    setYear("ALL");
+    setSort("grade_desc");
+    setPage(1);
   }
 
   return (
-    <div style={{ marginTop: 12, marginBottom: 8 }}>
-      <div style={{ color: colors.mutedText, fontWeight: 900, fontSize: 12 }}>
-        Showing {start.toLocaleString()}–{end.toLocaleString()} of {total.toLocaleString()}
-      </div>
+    <main className="slabs-shell">
+      <section className="slabs-masthead">
+        <div>
+          <span className="slabs-eyebrow">
+            GRADED COLLECTION
+          </span>
 
-      <div
-        className="slabPagination"
-        style={{
-          marginTop: 7,
-          display: "grid",
-          gridTemplateColumns: "auto auto auto 1fr auto auto",
-          gap: 7,
-          alignItems: "center",
-        }}
-      >
-        <button
-          onClick={() => setPage((p) => Math.max(1, p - 1))}
-          disabled={page <= 1}
-          style={{
-            border: `1px solid ${colors.border}`,
-            background: "#fff",
-            borderRadius: 10,
-            padding: "7px 9px",
-            fontWeight: 950,
-            fontSize: 12,
-            cursor: page <= 1 ? "not-allowed" : "pointer",
-            opacity: page <= 1 ? 0.45 : 1,
-          }}
-        >
-          ‹ Prev
-        </button>
+          <h1>Slab Gallery</h1>
 
-        <div style={{ color: colors.text, fontWeight: 1000, fontSize: 13, whiteSpace: "nowrap" }}>
-          {page} / {totalPages}
+          <button
+            className="slabs-summary"
+            disabled={loading}
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            }}
+          >
+            {loading ? (
+              "Your VCS vault"
+            ) : (
+              <>
+                <strong>{number(totalQuantity)}</strong>{" "}
+                slabs
+                <span>·</span>
+                <strong>{number(total)}</strong> types
+                <span>·</span>
+                <strong>{money(totalValueCents)}</strong>{" "}
+                value
+              </>
+            )}
+          </button>
         </div>
 
-        <button
-          onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-          disabled={page >= totalPages}
-          style={{
-            border: `1px solid ${colors.border}`,
-            background: "#fff",
-            borderRadius: 10,
-            padding: "7px 9px",
-            fontWeight: 950,
-            fontSize: 12,
-            cursor: page >= totalPages ? "not-allowed" : "pointer",
-            opacity: page >= totalPages ? 0.45 : 1,
-          }}
+        <div className="slabs-masthead-actions">
+          <Link
+            href="/grading"
+            className="slabs-text-button"
+            onClick={persist}
+          >
+            Grading
+            <Icon kind="arrow" />
+          </Link>
+
+          <Link
+            href="/collection"
+            className="slabs-text-button"
+            onClick={persist}
+          >
+            Collection
+            <Icon kind="arrow" />
+          </Link>
+        </div>
+      </section>
+
+      <section className="slabs-controls">
+        <form
+          className="slabs-search"
+          onSubmit={submitSearch}
         >
-          Next ›
+          <Icon kind="search" />
+
+          <input
+            type="search"
+            placeholder="Search player, set, team, card…"
+            value={queryInput}
+            onChange={(event) =>
+              setQueryInput(event.target.value)
+            }
+          />
+
+          {queryInput && (
+            <button
+              type="button"
+              aria-label="Clear search"
+              onClick={() => {
+                setQueryInput("");
+                setQ("");
+                setPage(1);
+              }}
+            >
+              <Icon kind="close" />
+            </button>
+          )}
+        </form>
+
+        <button
+          className="slabs-secondary slabs-filter-button"
+          onClick={() => setFiltersOpen(true)}
+        >
+          <Icon kind="filter" />
+          <span>Filter / Sort</span>
+
+          {filterCount > 0 && <b>{filterCount}</b>}
+        </button>
+      </section>
+
+      <nav
+        className="slabs-grade-strip"
+        aria-label="Filter by VCS grade"
+      >
+        <button
+          aria-current={
+            grade === "ALL" ? "page" : undefined
+          }
+          onClick={() => setGradeFilter("ALL")}
+        >
+          <span>All</span>
+          <strong>
+            {number(
+              counts["10"] +
+                counts["9"] +
+                counts["8"] +
+                counts["7"] +
+                counts["6"]
+            )}
+          </strong>
         </button>
 
-        <div />
+        {(["10", "9", "8", "7", "6"] as const).map(
+          (item) => (
+            <button
+              key={item}
+              aria-current={
+                grade === item ? "page" : undefined
+              }
+              onClick={() => setGradeFilter(item)}
+            >
+              <span>VCS {item}</span>
+              <strong>{number(counts[item])}</strong>
+            </button>
+          )
+        )}
+      </nav>
 
-        <input
-          type="number"
-          min={1}
-          max={totalPages}
-          value={jumpPage}
-          onChange={(e) => setJumpPage(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") goToJumpPage();
-          }}
-          aria-label="Jump to page"
-          style={{
-            width: 58,
-            border: `1px solid ${colors.border}`,
-            borderRadius: 10,
-            padding: "7px 8px",
-            fontWeight: 900,
-            fontSize: 12,
-            background: "#fff",
-          }}
-        />
+      <div className="slabs-list-tools">
+        <div>
+          <span>
+            {loading
+              ? "Opening the vault…"
+              : `${number(total)} ${
+                  total === 1 ? "slab type" : "slab types"
+                }`}
+          </span>
 
-        <button
-          type="button"
-          onClick={goToJumpPage}
-          style={{
-            border: `1px solid ${colors.border}`,
-            background: "#fff",
-            borderRadius: 10,
-            padding: "7px 9px",
-            fontWeight: 950,
-            fontSize: 12,
-            cursor: "pointer",
-          }}
-        >
-          Go
-        </button>
+          {!loading && (
+            <span className="slabs-sort-caption">
+              · {SORT_LABELS[sort]}
+            </span>
+          )}
+        </div>
+
+        <div>
+          {activeContextCount > 0 && (
+            <button
+              className="slabs-chip"
+              onClick={resetFilters}
+            >
+              Clear filters
+              <Icon kind="close" />
+            </button>
+          )}
+
+          <button
+            className="slabs-text-button"
+            onClick={reshuffle}
+            disabled={loading || total === 0}
+          >
+            <Icon kind="shuffle" />
+            Shuffle
+          </button>
+
+          <button
+            className="slabs-icon-button"
+            onClick={() => void load()}
+            disabled={refreshing}
+            aria-label={
+              refreshing ? "Refreshing" : "Refresh gallery"
+            }
+          >
+            <Icon kind="refresh" />
+          </button>
+        </div>
       </div>
-    </div>
+
+      {error && (
+        <div className="slabs-notice" role="alert">
+          {error}
+
+          <button onClick={() => void load()}>
+            Retry
+          </button>
+        </div>
+      )}
+
+      {loading ? (
+        <div
+          className="slabs-loading"
+          aria-label="Loading slab gallery"
+          aria-busy="true"
+        >
+          {[0, 1, 2, 3, 4, 5, 6, 7].map(
+            (item) => (
+              <div key={item}>
+                <span />
+                <i />
+                <i />
+              </div>
+            )
+          )}
+        </div>
+      ) : rows.length ? (
+        <>
+          <section className="slabs-gallery">
+            {rows.map((row, index) => (
+              <GalleryTile
+                key={row.key}
+                row={row}
+                onOpen={() => {
+                  persist();
+                  setFocusIndex(index);
+                }}
+              />
+            ))}
+          </section>
+
+          <nav
+            className="slabs-pagination"
+            aria-label="Slab gallery pages"
+          >
+            <button
+              className="slabs-secondary"
+              disabled={(data?.page ?? 1) <= 1}
+              onClick={() => {
+                setPage((value) =>
+                  Math.max(1, value - 1)
+                );
+
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
+              }}
+            >
+              ← Previous
+            </button>
+
+            <span>
+              Page {number(data?.page ?? 1)} of{" "}
+              {number(data?.totalPages ?? 1)}
+            </span>
+
+            <button
+              className="slabs-secondary"
+              disabled={
+                (data?.page ?? 1) >=
+                (data?.totalPages ?? 1)
+              }
+              onClick={() => {
+                setPage((value) =>
+                  Math.min(
+                    data?.totalPages ?? value,
+                    value + 1
+                  )
+                );
+
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
+              }}
+            >
+              Next →
+            </button>
+          </nav>
+        </>
+      ) : (
+        <section className="slabs-empty">
+          <span>VCS</span>
+
+          <h2>
+            {q || activeContextCount
+              ? "No slabs match this view"
+              : "Your display case is waiting"}
+          </h2>
+
+          <p>
+            {q || activeContextCount
+              ? "Try another search or clear the current filters."
+              : "Grade a card and it will appear here as part of your VCS collection."}
+          </p>
+
+          {(q || activeContextCount > 0) && (
+            <button
+              className="slabs-secondary"
+              onClick={() => {
+                setQueryInput("");
+                setQ("");
+                resetFilters();
+              }}
+            >
+              Reset gallery
+            </button>
+          )}
+
+          <Link
+            href="/grading"
+            className="slabs-primary"
+            onClick={persist}
+          >
+            Go to grading
+            <Icon kind="arrow" />
+          </Link>
+        </section>
+      )}
+
+      <footer className="slabs-footer">
+        <span>VCS · THE COLLECTOR&apos;S VAULT</span>
+        <span>Graded. Registered. Displayed.</span>
+      </footer>
+
+      {filtersOpen && (
+        <FilterSheet
+          sort={sort}
+          setSort={(next) => {
+            setSort(next);
+            setPage(1);
+
+            if (next === "random") {
+              setSeed(String(Date.now()));
+            }
+          }}
+          sport={sport}
+          setSport={(next) => {
+            setSport(next);
+            setPage(1);
+          }}
+          year={year}
+          setYear={(next) => {
+            setYear(next);
+            setPage(1);
+          }}
+          sports={data?.sports ?? []}
+          years={data?.years ?? []}
+          activeCount={filterCount}
+          total={total}
+          onReset={() => {
+            setSport("ALL");
+            setYear("ALL");
+            setSort("grade_desc");
+            setPage(1);
+          }}
+          onClose={() => setFiltersOpen(false)}
+        />
+      )}
+
+      {focusIndex != null && rows[focusIndex] && (
+        <FocusViewer
+          rows={rows}
+          index={focusIndex}
+          setIndex={setFocusIndex}
+          page={data?.page ?? 1}
+          totalPages={data?.totalPages ?? 1}
+          onClose={() => setFocusIndex(null)}
+          persist={persist}
+        />
+      )}
+    </main>
   );
 }
-

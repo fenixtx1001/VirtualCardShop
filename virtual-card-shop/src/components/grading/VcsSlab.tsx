@@ -1,204 +1,323 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {
+  useEffect,
+  useState,
+  type CSSProperties,
+  type KeyboardEvent,
+} from "react";
+
+import styles from "./VcsSlab.module.css";
 
 type Gradeability = "COMMON" | "GREAT" | "ICONIC";
+
+export type SlabRegistry = {
+  cardId?: number | null;
+  gradedAt?: string | null;
+  atGrade?: number | null;
+  totalGraded?: number | null;
+  totalOwned?: number | null;
+};
 
 export type VcsSlabProps = {
   player: string;
   cardNumber: string;
   setName: string;
   team?: string | null;
+
   grade: number;
+
+  /*
+   * Retained as optional compatibility props because older grading
+   * and Card Details callers still pass them. They are intentionally
+   * not rendered anywhere in the slab UI.
+   */
   gradeability?: Gradeability | string | null;
   gradeabilityLabel?: string | null;
+
   valueCents?: number | null;
   quantity?: number | null;
+
   imageUrl?: string | null;
+  backImageUrl?: string | null;
+
+  flipped?: boolean;
+  onFlip?: () => void;
+
+  registry?: SlabRegistry | null;
 };
 
-const tierStyles: Record<
-  Gradeability,
-  {
-    label: string;
-    accent: string;
-    accentSoft: string;
-    foil: string;
-  }
-> = {
-  COMMON: {
-    label: "Common",
-    accent: "#5f6875",
-    accentSoft: "#eef0f3",
-    foil: "linear-gradient(135deg, #d8dde4, #ffffff 45%, #aeb6c2)",
-  },
-  GREAT: {
-    label: "Great",
-    accent: "#174d8f",
-    accentSoft: "#eaf3ff",
-    foil: "linear-gradient(135deg, #8dbdf5, #ffffff 45%, #174d8f)",
-  },
-  ICONIC: {
-    label: "Iconic",
-    accent: "#9b6a08",
-    accentSoft: "#fff5d7",
-    foil: "linear-gradient(135deg, #d39b22, #fff2a8 42%, #8d5b00)",
-  },
-};
-
-function normalizeTier(value: VcsSlabProps["gradeability"]): Gradeability {
-  if (value === "GREAT" || value === "ICONIC" || value === "COMMON") return value;
-  return "COMMON";
+function gradeLabel(grade: number) {
+  if (grade >= 10) return "Gem Mint";
+  if (grade >= 9) return "Mint";
+  if (grade >= 8) return "Near Mint";
+  if (grade >= 7) return "Excellent";
+  return "VCS Grade";
 }
 
-function getGradeTone(grade: number) {
+function gradeTone(grade: number) {
   if (grade >= 10) {
     return {
-      background: "linear-gradient(135deg, #7a5200, #f9d36b 45%, #fff4bf)",
-      color: "#2a1a00",
-      shadow: "0 0 26px rgba(212, 161, 34, 0.55)",
-      label: "Gem Mint",
+      a: "#7d5b18",
+      b: "#d9bd72",
+      c: "#f3e4b7",
+      ink: "#241900",
     };
   }
 
   if (grade >= 9) {
     return {
-      background: "linear-gradient(135deg, #145c2a, #9be7aa 48%, #f2fff4)",
-      color: "#062a12",
-      shadow: "0 0 20px rgba(42, 145, 72, 0.32)",
-      label: "Mint",
+      a: "#365d3c",
+      b: "#83a87f",
+      c: "#e3efe0",
+      ink: "#102716",
     };
   }
 
   if (grade >= 8) {
     return {
-      background: "linear-gradient(135deg, #16477d, #a9d2ff 48%, #f0f8ff)",
-      color: "#071f3a",
-      shadow: "0 0 18px rgba(22, 71, 125, 0.25)",
-      label: "Near Mint",
+      a: "#365978",
+      b: "#7e9db9",
+      c: "#e0ebf5",
+      ink: "#102336",
     };
   }
 
   if (grade >= 7) {
     return {
-      background: "linear-gradient(135deg, #555c66, #d9dee5 48%, #ffffff)",
-      color: "#20242a",
-      shadow: "0 0 14px rgba(0, 0, 0, 0.16)",
-      label: "Excellent",
+      a: "#545a61",
+      b: "#9aa0a6",
+      c: "#edf0f2",
+      ink: "#1f2327",
     };
   }
 
   return {
-    background: "linear-gradient(135deg, #765039, #d3a17f 48%, #fff1e6)",
-    color: "#2b160a",
-    shadow: "0 0 14px rgba(118, 80, 57, 0.18)",
-    label: "VCS Grade",
+    a: "#6a4a38",
+    b: "#ad8167",
+    c: "#f0ded2",
+    ink: "#2d190f",
   };
 }
 
-function VcsLogo({ accent }: { accent: string }) {
-  return (
-    <div
-      aria-label="VCS Grading"
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: 8,
-        minWidth: 0,
-      }}
-    >
-      <svg width="42" height="32" viewBox="0 0 84 64" role="img" aria-hidden="true">
-        <defs>
-          <linearGradient id="vcsLogoFoil" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0%" stopColor="#ffffff" />
-            <stop offset="38%" stopColor={accent} />
-            <stop offset="72%" stopColor="#111827" />
-            <stop offset="100%" stopColor="#ffffff" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M42 4 75 16v18c0 13.5-8.9 21.8-33 26C17.9 55.8 9 47.5 9 34V16L42 4Z"
-          fill="url(#vcsLogoFoil)"
-          stroke="#111827"
-          strokeWidth="3"
-        />
-        <path d="M24 22h9l9 17 9-17h9L46 47h-8L24 22Z" fill="#fff" opacity="0.96" />
-        <path d="M22 18h40" stroke="#fff" strokeWidth="4" strokeLinecap="round" opacity="0.9" />
-      </svg>
+function formatDate(value?: string | null) {
+  if (!value) return "VCS Certified";
 
-      <div style={{ minWidth: 0, lineHeight: 1 }}>
-        <div
-          style={{
-            fontSize: 18,
-            fontWeight: 1000,
-            letterSpacing: 1.1,
-            color: "#111827",
-            whiteSpace: "nowrap",
-          }}
-        >
-          VCS
+  const date = new Date(value);
+
+  if (!Number.isFinite(date.getTime())) return "VCS Certified";
+
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+function CardImage({
+  src,
+  alt,
+  fallback,
+}: {
+  src?: string | null;
+  alt: string;
+  fallback: string;
+}) {
+  const clean = (src ?? "").trim();
+  const [landscape, setLandscape] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    setLandscape(false);
+    setFailed(false);
+  }, [clean]);
+
+  if (!clean || failed) {
+    return (
+      <div className={styles.noImage}>
+        <strong>VCS</strong>
+        <span>{fallback}</span>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={clean}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      onError={() => setFailed(true)}
+      onLoad={(event) => {
+        const img = event.currentTarget;
+        setLandscape(img.naturalWidth > img.naturalHeight);
+      }}
+      className={landscape ? styles.cardLandscape : styles.cardImage}
+    />
+  );
+}
+
+function FrontLabel({
+  player,
+  cardNumber,
+  setName,
+  team,
+  grade,
+}: Pick<
+  VcsSlabProps,
+  "player" | "cardNumber" | "setName" | "team" | "grade"
+>) {
+  return (
+    <div className={styles.label}>
+      <div className={styles.identity}>
+        <div className={styles.brandLine}>
+          <span className={styles.vcsMark}>VCS</span>
+          <span>GRADING</span>
         </div>
-        <div
-          style={{
-            fontSize: 9,
-            fontWeight: 950,
-            letterSpacing: 1.8,
-            color: accent,
-            textTransform: "uppercase",
-            whiteSpace: "nowrap",
-          }}
-        >
-          Grading
-        </div>
+
+        <strong className={styles.player}>{player}</strong>
+
+        <span className={styles.setName}>{setName}</span>
+
+        <span className={styles.cardLine}>
+          #{cardNumber}
+          {team?.trim() ? ` · ${team.trim()}` : ""}
+        </span>
+      </div>
+
+      <div className={styles.gradeBlock}>
+        <span>VCS</span>
+        <b>{grade}</b>
+        <small>{gradeLabel(grade)}</small>
       </div>
     </div>
   );
 }
 
-function SlabCardImage({ src, alt }: { src: string; alt: string }) {
-  const [isLandscape, setIsLandscape] = useState(false);
+function RegistryLabel({
+  player,
+  cardNumber,
+  setName,
+  team,
+  grade,
+  registry,
+}: Pick<
+  VcsSlabProps,
+  "player" | "cardNumber" | "setName" | "team" | "grade" | "registry"
+>) {
+  const popAtGrade =
+    typeof registry?.atGrade === "number" ? registry.atGrade : null;
 
-  useEffect(() => {
-    setIsLandscape(false);
-  }, [src]);
+  const totalGraded =
+    typeof registry?.totalGraded === "number"
+      ? registry.totalGraded
+      : null;
 
   return (
+    <div className={`${styles.label} ${styles.registryLabel}`}>
+      <div className={styles.identity}>
+        <div className={styles.brandLine}>
+          <span className={styles.vcsMark}>VCS</span>
+          <span>REGISTRY</span>
+        </div>
+
+        <strong className={styles.player}>{player}</strong>
+
+        <span className={styles.setName}>
+          {setName} · #{cardNumber}
+        </span>
+
+        <span className={styles.cardLine}>
+          {registry?.cardId ? `CARD ${registry.cardId}` : "VCS CERTIFIED"}
+          {team?.trim() ? ` · ${team.trim()}` : ""}
+        </span>
+
+        <div className={styles.registryFacts}>
+          <span>{formatDate(registry?.gradedAt)}</span>
+
+          {popAtGrade != null ? (
+            <span>
+              POP {popAtGrade}
+              {totalGraded != null ? ` · ${totalGraded} GRADED` : ""}
+            </span>
+          ) : (
+            <span>POPULATION · VCS REGISTRY</span>
+          )}
+        </div>
+      </div>
+
+      <div className={styles.gradeBlock}>
+        <span>GRADE</span>
+        <b>{grade}</b>
+        <small>Authenticated</small>
+      </div>
+    </div>
+  );
+}
+
+function SlabFace({
+  side,
+  player,
+  cardNumber,
+  setName,
+  team,
+  grade,
+  image,
+  registry,
+}: {
+  side: "front" | "back";
+  player: string;
+  cardNumber: string;
+  setName: string;
+  team?: string | null;
+  grade: number;
+  image?: string | null;
+  registry?: SlabRegistry | null;
+}) {
+  return (
     <div
-      style={{
-        width: "100%",
-        aspectRatio: "2.5 / 3.5",
-        position: "relative",
-        overflow: "hidden",
-        borderRadius: 10,
-        border: "1px solid rgba(229,231,235,0.95)",
-        background: "#f8fafc",
-      }}
+      className={`${styles.face} ${
+        side === "back" ? styles.backFace : styles.frontFace
+      }`}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={src}
-        alt={alt}
-        loading="lazy"
-        decoding="async"
-        onLoad={(event) => {
-          const image = event.currentTarget;
-          setIsLandscape(image.naturalWidth > image.naturalHeight);
-        }}
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          width: isLandscape ? "140%" : "100%",
-          height: isLandscape ? "71.4286%" : "100%",
-          objectFit: "contain",
-          display: "block",
-          background: "#f8fafc",
-          transform: isLandscape
-            ? "translate(-50%, -50%) rotate(90deg)"
-            : "translate(-50%, -50%)",
-          transformOrigin: "center",
-        }}
-      />
+      <div className={styles.case}>
+        {side === "front" ? (
+          <FrontLabel
+            player={player}
+            cardNumber={cardNumber}
+            setName={setName}
+            team={team}
+            grade={grade}
+          />
+        ) : (
+          <RegistryLabel
+            player={player}
+            cardNumber={cardNumber}
+            setName={setName}
+            team={team}
+            grade={grade}
+            registry={registry}
+          />
+        )}
+
+        <div className={styles.cardBay}>
+          <div className={styles.cardMount}>
+            <CardImage
+              src={image}
+              alt={`${player} ${side === "front" ? "front" : "back"}`}
+              fallback={side === "front" ? "NO FRONT IMAGE" : "NO BACK IMAGE"}
+            />
+          </div>
+        </div>
+
+        <div className={styles.seal}>
+          <span>VIRTUAL CARD SHOP</span>
+          <i />
+          <span>{side === "front" ? "CERTIFIED" : "REGISTRY"}</span>
+        </div>
+      </div>
+
+      <div className={styles.reflection} />
     </div>
   );
 }
@@ -209,243 +328,68 @@ export default function VcsSlab({
   setName,
   team,
   grade,
-  gradeability,
   imageUrl,
+  backImageUrl,
+  flipped = false,
+  onFlip,
+  registry,
 }: VcsSlabProps) {
-  const tierKey = normalizeTier(gradeability);
-  const tier = tierStyles[tierKey];
-  const gradeTone = getGradeTone(grade);
-  const cleanImageUrl = (imageUrl ?? "").trim();
+  const tone = gradeTone(grade);
+
+  const slabStyle = {
+    "--grade-a": tone.a,
+    "--grade-b": tone.b,
+    "--grade-c": tone.c,
+    "--grade-ink": tone.ink,
+  } as CSSProperties;
+
+  function onKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (!onFlip) return;
+
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onFlip();
+    }
+  }
 
   return (
     <div
-      style={{
-        width: "100%",
-        maxWidth: 390,
-        padding: 13,
-        borderRadius: 34,
-        background:
-          "linear-gradient(145deg, rgba(255,255,255,0.92), rgba(205,214,225,0.84) 46%, rgba(255,255,255,0.94))",
-        border: "1px solid rgba(130, 143, 160, 0.65)",
-        boxShadow:
-          "0 28px 70px rgba(0,0,0,0.24), inset 0 2px 8px rgba(255,255,255,0.9), inset 0 -8px 18px rgba(80,92,110,0.13)",
-        position: "relative",
-        overflow: "hidden",
-      }}
+      className={`${styles.shell} ${onFlip ? styles.interactive : ""}`}
+      style={slabStyle}
+      onClick={onFlip}
+      onKeyDown={onKeyDown}
+      role={onFlip ? "button" : undefined}
+      tabIndex={onFlip ? 0 : undefined}
+      aria-label={
+        onFlip
+          ? `${flipped ? "Show front of" : "Show back of"} ${player} VCS ${grade} slab`
+          : undefined
+      }
     >
       <div
-        style={{
-          position: "absolute",
-          inset: 8,
-          borderRadius: 29,
-          pointerEvents: "none",
-          background:
-            "linear-gradient(120deg, rgba(255,255,255,0.55), rgba(255,255,255,0.05) 34%, rgba(255,255,255,0.32) 36%, rgba(255,255,255,0.02) 58%)",
-          zIndex: 3,
-        }}
-      />
-
-      <div
-        style={{
-          borderRadius: 25,
-          border: "1px solid rgba(95, 107, 125, 0.62)",
-          background: "linear-gradient(180deg, #f9fafb, #e7ecf2)",
-          overflow: "hidden",
-          position: "relative",
-          zIndex: 2,
-        }}
+        className={`${styles.rotor} ${flipped ? styles.flipped : ""}`}
       >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 86px",
-            gap: 10,
-            alignItems: "stretch",
-            padding: 11,
-            background:
-              "linear-gradient(180deg, rgba(255,255,255,0.96), rgba(241,245,249,0.96))",
-            borderBottom: "1px solid rgba(148, 163, 184, 0.55)",
-          }}
-        >
-          <div
-            style={{
-              borderRadius: 16,
-              border: "1px solid rgba(148, 163, 184, 0.42)",
-              background: "#ffffff",
-              padding: "9px 10px",
-              minWidth: 0,
-              boxShadow: "inset 0 1px 0 rgba(255,255,255,0.9)",
-            }}
-          >
-            <VcsLogo accent={tier.accent} />
+        <SlabFace
+          side="front"
+          player={player}
+          cardNumber={cardNumber}
+          setName={setName}
+          team={team}
+          grade={grade}
+          image={imageUrl}
+          registry={registry}
+        />
 
-            <div
-              style={{
-                marginTop: 8,
-                height: 1,
-                background:
-                  "linear-gradient(90deg, transparent, rgba(17,24,39,0.22), transparent)",
-              }}
-            />
-
-            <div
-              style={{
-                marginTop: 8,
-                fontSize: 13,
-                fontWeight: 1000,
-                color: "#111827",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-              }}
-              title={player}
-            >
-              {player}
-            </div>
-
-            <div
-              style={{
-                marginTop: 3,
-                fontSize: 11,
-                fontWeight: 850,
-                color: "#4b5563",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-              }}
-              title={`${setName} #${cardNumber}`}
-            >
-              {setName} #{cardNumber}
-            </div>
-
-            <div
-              style={{
-                marginTop: 3,
-                fontSize: 10,
-                fontWeight: 850,
-                color: "#6b7280",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-              }}
-            >
-              {team?.trim() ? team : "Virtual Card Shop"}
-            </div>
-          </div>
-
-          <div
-            style={{
-              borderRadius: 17,
-              border: "1px solid rgba(17, 24, 39, 0.42)",
-              background: gradeTone.background,
-              color: gradeTone.color,
-              boxShadow: gradeTone.shadow,
-              display: "grid",
-              placeItems: "center",
-              textAlign: "center",
-              padding: 7,
-              overflow: "hidden",
-              position: "relative",
-            }}
-          >
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background:
-                  "linear-gradient(120deg, rgba(255,255,255,0.58), transparent 42%, rgba(255,255,255,0.28) 44%, transparent 62%)",
-                opacity: 0.75,
-              }}
-            />
-
-            <div style={{ position: "relative", zIndex: 1 }}>
-              <div
-                style={{
-                  fontSize: 9,
-                  fontWeight: 1000,
-                  letterSpacing: 1.3,
-                  textTransform: "uppercase",
-                }}
-              >
-                Grade
-              </div>
-              <div
-                style={{
-                  fontSize: 38,
-                  fontWeight: 1000,
-                  lineHeight: 0.95,
-                  letterSpacing: -1.5,
-                }}
-              >
-                {grade}
-              </div>
-              <div
-                style={{
-                  marginTop: 3,
-                  fontSize: 8,
-                  fontWeight: 1000,
-                  textTransform: "uppercase",
-                  letterSpacing: 0.8,
-                }}
-              >
-                {gradeTone.label}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          style={{
-            padding: 16,
-            background:
-              "radial-gradient(circle at 50% 18%, rgba(255,255,255,0.92), rgba(215,222,232,0.92) 48%, rgba(192,202,215,0.92))",
-          }}
-        >
-          <div
-            style={{
-              borderRadius: 21,
-              padding: 11,
-              background:
-                "linear-gradient(145deg, rgba(128,140,158,0.50), rgba(255,255,255,0.75) 45%, rgba(92,105,124,0.45))",
-              border: "1px solid rgba(100, 116, 139, 0.48)",
-              boxShadow:
-                "inset 0 3px 10px rgba(0,0,0,0.13), inset 0 -2px 7px rgba(255,255,255,0.65)",
-            }}
-          >
-            <div
-              style={{
-                borderRadius: 15,
-                background: "#ffffff",
-                padding: 8,
-                border: "1px solid rgba(203, 213, 225, 0.9)",
-                boxShadow: "0 10px 25px rgba(15,23,42,0.18)",
-              }}
-            >
-              {cleanImageUrl ? (
-                <SlabCardImage
-                  src={cleanImageUrl}
-                  alt={`${player} VCS graded card`}
-                />
-              ) : (
-                <div
-                  style={{
-                    width: "100%",
-                    aspectRatio: "2.5 / 3.5",
-                    display: "grid",
-                    placeItems: "center",
-                    borderRadius: 10,
-                    border: "1px dashed #aeb6c2",
-                    background: "#f8fafc",
-                    color: "#64748b",
-                    fontWeight: 950,
-                  }}
-                >
-                  No image
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
+        <SlabFace
+          side="back"
+          player={player}
+          cardNumber={cardNumber}
+          setName={setName}
+          team={team}
+          grade={grade}
+          image={backImageUrl}
+          registry={registry}
+        />
       </div>
     </div>
   );

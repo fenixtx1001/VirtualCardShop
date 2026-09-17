@@ -6,15 +6,19 @@ import {
   bookValueToCents,
   calculateGradedValueCents,
   getEffectiveGradeability,
-  labelGradeability,
 } from "@/lib/grading";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-type Gradeability = "COMMON" | "GREAT" | "ICONIC";
-type SortMode = "grade_desc" | "value_desc" | "player_asc" | "year_desc" | "newest" | "random";
-type TierFilter = "ALL" | Gradeability;
+type SortMode =
+  | "grade_desc"
+  | "value_desc"
+  | "total_value_desc"
+  | "player_asc"
+  | "year_desc"
+  | "newest"
+  | "random";
 
 type SlabRow = {
   key: string;
@@ -44,9 +48,6 @@ type SlabRow = {
   valueCents: number;
   totalValueCents: number;
 
-  gradeability: Gradeability;
-  gradeabilityLabel: string;
-
   gradedAt: string | null;
 };
 
@@ -58,19 +59,14 @@ function normalizeGrade(value: string | null) {
   if (value === "6" || value === "7" || value === "8" || value === "9" || value === "10") {
     return Number(value);
   }
-
   return null;
-}
-
-function normalizeTier(value: string | null): TierFilter {
-  if (value === "COMMON" || value === "GREAT" || value === "ICONIC") return value;
-  return "ALL";
 }
 
 function normalizeSort(value: string | null): SortMode {
   if (
     value === "grade_desc" ||
     value === "value_desc" ||
+    value === "total_value_desc" ||
     value === "player_asc" ||
     value === "year_desc" ||
     value === "newest" ||
@@ -102,7 +98,6 @@ function includesSearch(row: SlabRow, q: string) {
     row.productSetId,
     row.productSetName,
     row.gradeLabel,
-    row.gradeabilityLabel,
   ]
     .filter(Boolean)
     .join(" ")
@@ -146,9 +141,17 @@ function compareRows(a: SlabRow, b: SlabRow, sort: SortMode, seed: string) {
     return a.key.localeCompare(b.key);
   }
 
+  if (sort === "total_value_desc") {
+    if (b.totalValueCents !== a.totalValueCents) {
+      return b.totalValueCents - a.totalValueCents;
+    }
+    if (b.valueCents !== a.valueCents) return b.valueCents - a.valueCents;
+    if (b.grade !== a.grade) return b.grade - a.grade;
+    return sortCardNumber(a, b);
+  }
+
   if (sort === "value_desc") {
     if (b.valueCents !== a.valueCents) return b.valueCents - a.valueCents;
-    if (b.totalValueCents !== a.totalValueCents) return b.totalValueCents - a.totalValueCents;
     if (b.grade !== a.grade) return b.grade - a.grade;
     return sortCardNumber(a, b);
   }
@@ -158,6 +161,7 @@ function compareRows(a: SlabRow, b: SlabRow, sort: SortMode, seed: string) {
       numeric: true,
       sensitivity: "base",
     });
+
     if (player !== 0) return player;
     if (b.grade !== a.grade) return b.grade - a.grade;
     return sortCardNumber(a, b);
@@ -166,6 +170,7 @@ function compareRows(a: SlabRow, b: SlabRow, sort: SortMode, seed: string) {
   if (sort === "year_desc") {
     const ay = a.productYear ?? 0;
     const by = b.productYear ?? 0;
+
     if (by !== ay) return by - ay;
     if (b.grade !== a.grade) return b.grade - a.grade;
     return sortCardNumber(a, b);
@@ -174,6 +179,7 @@ function compareRows(a: SlabRow, b: SlabRow, sort: SortMode, seed: string) {
   if (sort === "newest") {
     const at = a.gradedAt ? new Date(a.gradedAt).getTime() : 0;
     const bt = b.gradedAt ? new Date(b.gradedAt).getTime() : 0;
+
     if (bt !== at) return bt - at;
     if (b.grade !== a.grade) return b.grade - a.grade;
     return sortCardNumber(a, b);
@@ -181,6 +187,7 @@ function compareRows(a: SlabRow, b: SlabRow, sort: SortMode, seed: string) {
 
   if (b.grade !== a.grade) return b.grade - a.grade;
   if (b.valueCents !== a.valueCents) return b.valueCents - a.valueCents;
+
   return sortCardNumber(a, b);
 }
 
@@ -191,18 +198,42 @@ export async function GET(req: Request) {
 
     const q = normalizeSearch(url.searchParams.get("q"));
     const gradeFilter = normalizeGrade(url.searchParams.get("grade"));
-    const tier = normalizeTier(url.searchParams.get("tier"));
     const sort = normalizeSort(url.searchParams.get("sort"));
     const seed = (url.searchParams.get("seed") ?? "").trim() || "default";
 
-    const page = clampInt(parseInt(url.searchParams.get("page") ?? "1", 10) || 1, 1, 9999);
-    const pageSize = clampInt(parseInt(url.searchParams.get("pageSize") ?? "24", 10) || 24, 6, 60);
+    const sport = (url.searchParams.get("sport") ?? "ALL").trim() || "ALL";
 
+    const yearRaw = url.searchParams.get("year");
+    const parsedYear = yearRaw && yearRaw !== "ALL" ? Number(yearRaw) : null;
+    const year =
+      parsedYear != null && Number.isSafeInteger(parsedYear) && parsedYear > 1800 && parsedYear < 2200
+        ? parsedYear
+        : null;
+
+    const page = clampInt(
+      parseInt(url.searchParams.get("page") ?? "1", 10) || 1,
+      1,
+      9999
+    );
+
+    const pageSize = clampInt(
+      parseInt(url.searchParams.get("pageSize") ?? "24", 10) || 24,
+      6,
+      60
+    );
+
+    /*
+     * Always fetch every graded ownership bucket here.
+     *
+     * Grade filtering happens after the population is built so the
+     * grade strip can continue to show useful counts while a single
+     * grade is selected.
+     */
     const ownerships = await prisma.cardOwnership.findMany({
       where: {
         userId: user.id,
         quantity: { gt: 0 },
-        grade: gradeFilter == null ? { in: [6, 7, 8, 9, 10] } : gradeFilter,
+        grade: { in: [6, 7, 8, 9, 10] },
       },
       select: {
         cardId: true,
@@ -220,7 +251,11 @@ export async function GET(req: Request) {
             bookValue: true,
             frontImageUrl: true,
             backImageUrl: true,
+
+            // Kept internally only because graded-value economics
+            // still depend on the legacy value model.
             gradeabilityOverride: true,
+
             productSetId: true,
             productSet: {
               select: {
@@ -255,12 +290,17 @@ export async function GET(req: Request) {
       const card = ownership.card;
       const product = card.productSet?.product;
 
+      /*
+       * Legacy input is intentionally contained here.
+       * It is no longer returned to the Slab Gallery UI.
+       */
       const gradeability = getEffectiveGradeability({
         cardOverride: card.gradeabilityOverride,
         productSetDefault: card.productSet?.defaultGradeability,
-      }) as Gradeability;
+      });
 
       const rawBookValueCents = bookValueToCents(card.bookValue);
+
       const valueCents = calculateGradedValueCents({
         rawBookValueCents,
         gradeability,
@@ -270,7 +310,12 @@ export async function GET(req: Request) {
       const productYear = product?.year ?? card.set?.year ?? null;
       const productBrand = product?.brand ?? card.set?.brand ?? null;
       const productSport = product?.sport ?? card.set?.sport ?? null;
-      const productId = product?.id ?? card.set?.id ?? card.productSetId ?? "unknown";
+
+      const productId =
+        product?.id ??
+        card.set?.id ??
+        card.productSetId ??
+        "unknown";
 
       return {
         key: `${card.id}-${ownership.grade}`,
@@ -296,18 +341,40 @@ export async function GET(req: Request) {
         grade: ownership.grade,
         gradeLabel: `VCS ${ownership.grade}`,
         quantity: ownership.quantity,
+
         rawBookValueCents,
         valueCents,
         totalValueCents: valueCents * ownership.quantity,
 
-        gradeability,
-        gradeabilityLabel: labelGradeability(gradeability),
-
-        gradedAt: ownership.gradedAt ? ownership.gradedAt.toISOString() : null,
+        gradedAt: ownership.gradedAt
+          ? ownership.gradedAt.toISOString()
+          : null,
       };
     });
 
     const searchedRows = allRows.filter((row) => includesSearch(row, q));
+
+    const sports = Array.from(
+      new Set(
+        searchedRows
+          .map((row) => row.productSport?.trim())
+          .filter((value): value is string => !!value)
+      )
+    ).sort((a, b) => a.localeCompare(b));
+
+    const years = Array.from(
+      new Set(
+        searchedRows
+          .map((row) => row.productYear)
+          .filter((value): value is number => value != null)
+      )
+    ).sort((a, b) => b - a);
+
+    const contextRows = searchedRows.filter((row) => {
+      if (sport !== "ALL" && row.productSport !== sport) return false;
+      if (year != null && row.productYear !== year) return false;
+      return true;
+    });
 
     const countsByGrade = {
       "6": 0,
@@ -317,36 +384,37 @@ export async function GET(req: Request) {
       "10": 0,
     };
 
-    const countsByTier = {
-      COMMON: 0,
-      GREAT: 0,
-      ICONIC: 0,
-    };
-
-    for (const row of searchedRows) {
+    for (const row of contextRows) {
       if (row.grade === 6) countsByGrade["6"] += row.quantity;
       if (row.grade === 7) countsByGrade["7"] += row.quantity;
       if (row.grade === 8) countsByGrade["8"] += row.quantity;
       if (row.grade === 9) countsByGrade["9"] += row.quantity;
       if (row.grade === 10) countsByGrade["10"] += row.quantity;
-
-      countsByTier[row.gradeability] += row.quantity;
     }
 
-    const filteredRows = searchedRows.filter((row) => {
-      if (tier !== "ALL" && row.gradeability !== tier) return false;
+    const filteredRows = contextRows.filter((row) => {
+      if (gradeFilter != null && row.grade !== gradeFilter) return false;
       return true;
     });
 
     filteredRows.sort((a, b) => compareRows(a, b, sort, seed));
 
     const total = filteredRows.length;
-    const totalQuantity = filteredRows.reduce((sum, row) => sum + row.quantity, 0);
-    const totalValueCents = filteredRows.reduce((sum, row) => sum + row.totalValueCents, 0);
+
+    const totalQuantity = filteredRows.reduce(
+      (sum, row) => sum + row.quantity,
+      0
+    );
+
+    const totalValueCents = filteredRows.reduce(
+      (sum, row) => sum + row.totalValueCents,
+      0
+    );
 
     const totalPages = Math.max(1, Math.ceil(total / pageSize));
     const safePage = clampInt(page, 1, totalPages);
     const start = (safePage - 1) * pageSize;
+
     const rows = filteredRows.slice(start, start + pageSize);
 
     return NextResponse.json(
@@ -354,25 +422,39 @@ export async function GET(req: Request) {
         ok: true,
         q,
         grade: gradeFilter == null ? "ALL" : String(gradeFilter),
-        tier,
+        sport,
+        year: year == null ? "ALL" : String(year),
         sort,
+
         page: safePage,
         pageSize,
         total,
         totalPages,
+
         totalQuantity,
         totalValueCents,
         countsByGrade,
-        countsByTier,
+
+        sports,
+        years,
+
         rows,
       },
-      { status: 200 }
+      {
+        status: 200,
+        headers: {
+          "Cache-Control": "private, no-store",
+        },
+      }
     );
   } catch (e: any) {
     const status = e?.status ?? 500;
 
     return NextResponse.json(
-      { ok: false, error: e?.message ?? "Failed to load slab gallery" },
+      {
+        ok: false,
+        error: e?.message ?? "Failed to load slab gallery",
+      },
       { status }
     );
   }
