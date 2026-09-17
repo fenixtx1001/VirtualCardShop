@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/77/1976-Topps",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/77/1976-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/77/1976-Topps",
+    "tradedUrl": "https://www.tcdb.com/Checklist.cfm/sid/78/1976-Topps-Traded",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/77/1976-Topps",
+    "distributionReference": "https://www.baseballcardpedia.com/index.php/1976_Topps",
+    "note": "1976 Topps Baseball. The 660-card flagship set was issued in one series. The 44-card Traded set was pack-issued late in the production run and is retained as a separate collector-facing ProductSet. Wrapper mail-in Team Checklists are excluded."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Standard wax: 10 cards per pack, 36 packs per box.",
+    "baseStructure": "One complete #1-660 Base ProductSet with equal base-card availability.",
+    "tradedStructure": "The 44-card Traded set remains a separate ProductSet. Contemporary references confirm it was inserted in packs late in the production run, but no precise per-pack insertion ratio is documented, so oddsPerPack remains null rather than inventing a rate.",
+    "trueRookieNaming": "RC is appended only to Base subjects returned by TCDB's rookie index. Existing RC text is normalized away first so each recognized rookie receives exactly one RC label.",
+    "metadataHandling": "UER, ERR, COR, VAR and descriptive error text are removed from Player. Short collector abbreviations such as RB, AS, ASR, TC, MGR and CL remain display-safe. No card-level odds are stored in Variant.",
+    "tradedChecklistHandling": "The Traded checklist card is printed NNO. VCS assigns deterministic number NNO-01 so ProductSet card numbers remain unique while preserving the collector-facing checklist identity.",
+    "excludedRelatedItems": "The 24-card Team Checklists were obtained by wrapper mail-in offer and issued in sheets for cutting, so they are excluded from ordinary pack outcomes.",
+    "releaseSafety": "Product remains unreleased until pricing, images, and the Traded pack-odds treatment are reviewed."
+  },
+  "product": {
+    "id": "1976_Topps_Baseball",
+    "year": 1976,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 10,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1976-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1976_Topps_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/77/1976-Topps",
+      "expectedCards": 660,
+      "notes": "Complete one-series #1-660 flagship checklist."
+    },
+    {
+      "key": "traded",
+      "id": "1976_Topps_Baseball_Traded",
+      "name": "Traded",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/78/1976-Topps-Traded",
+      "expectedCards": 44,
+      "notes": "43 T-suffixed player cards plus one NNO checklist card. Pack-issued late in the production run; exact per-pack insertion rate is not reliably documented, so no synthetic odds are assigned."
+    }
+  ]
+}
