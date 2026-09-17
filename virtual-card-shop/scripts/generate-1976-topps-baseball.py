@@ -149,6 +149,14 @@ METADATA_TAIL = re.compile(
     re.IGNORECASE,
 )
 
+# Validation should catch actual metadata tokens, not innocent letter sequences
+# inside surnames such as Figueroa (which contains "UER").
+METADATA_LEAK = re.compile(
+    r"(?:^|[\s,;])(?:UER|ERR|COR|VAR)(?=$|[\s,;:])"
+    r"|(?:^|[\s,;])(?:UERUER|ERRERR|CORCOR|VARVAR)(?=$|[\s,;:])",
+    re.IGNORECASE,
+)
+
 
 def clean_subject(raw_name: str) -> str:
     raw = " ".join(raw_name.split()).strip()
@@ -336,11 +344,7 @@ def main() -> None:
     if duplicate_rc:
         raise SystemExit(f"Duplicate RC label found; example: {duplicate_rc[0]}")
 
-    metadata_leaks = [
-        row
-        for row in all_rows
-        if re.search(r"(?:UER|ERR|COR|VAR)(?=\b|[A-Z])", row[2], re.IGNORECASE)
-    ]
+    metadata_leaks = [row for row in all_rows if METADATA_LEAK.search(row[2])]
     if metadata_leaks:
         raise SystemExit(f"Metadata leaked into Player; example: {metadata_leaks[0]}")
 
