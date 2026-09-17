@@ -172,9 +172,21 @@ META_TOKEN = re.compile(
     re.IGNORECASE,
 )
 
+GLUED_METADATA_TAIL = re.compile(
+    r"\s+(?:ERR|COR|UER|VAR)(?:ERR|COR|UER|VAR)?\s*:\s*.*$",
+    re.IGNORECASE,
+)
+
 
 def clean_player_and_notes(raw_name: str) -> tuple[str, str]:
     raw = " ".join(raw_name.split())
+
+    # TCDB can concatenate card-name metadata and its detail note inside the
+    # same table cell, e.g. "Emmitt Smith CORCOR: 5699 total yards". Strip
+    # that descriptive tail before token cleanup so it can never leak into
+    # the display-facing Player field.
+    raw = GLUED_METADATA_TAIL.sub("", raw).strip()
+
     tokens = [piece.strip() for piece in re.split(r"\s*,\s*", raw) if piece.strip()]
     player_parts: list[str] = []
     notes: list[str] = []
@@ -261,6 +273,10 @@ def build_base(true_rcs: set[str]) -> list[list[str]]:
             _source_number, raw_name, team = corrected[0]
             player, _notes = clean_player_and_notes(raw_name)
             variant = ""
+            if player != "Emmitt Smith":
+                raise SystemExit(
+                    f"base #157: corrected source did not normalize to Emmitt Smith: {player!r}"
+                )
         else:
             _source_number, raw_name, team = versions[0]
             player, variant = clean_player_and_notes(raw_name)
