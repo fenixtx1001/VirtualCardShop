@@ -198,12 +198,11 @@ function RegistryLabel({
   player,
   cardNumber,
   setName,
-  team,
   grade,
   registry,
 }: Pick<
   VcsSlabProps,
-  "player" | "cardNumber" | "setName" | "team" | "grade" | "registry"
+  "player" | "cardNumber" | "setName" | "grade" | "registry"
 >) {
   const popAtGrade =
     typeof registry?.atGrade === "number" ? registry.atGrade : null;
@@ -227,29 +226,33 @@ function RegistryLabel({
           {setName} · #{cardNumber}
         </span>
 
-        <span className={styles.cardLine}>
-          {registry?.cardId ? `CARD ${registry.cardId}` : "VCS CERTIFIED"}
-          {team?.trim() ? ` · ${team.trim()}` : ""}
-        </span>
-
-        <div className={styles.registryFacts}>
+        <div className={styles.registryMeta}>
+          <span>
+            {registry?.cardId
+              ? `REG ${registry.cardId}`
+              : "VCS CERTIFIED"}
+          </span>
           <span>{formatDate(registry?.gradedAt)}</span>
+        </div>
 
+        <div className={styles.registryPopulation}>
           {popAtGrade != null ? (
-            <span>
+            <>
               POP {popAtGrade}
-              {totalGraded != null ? ` · ${totalGraded} GRADED` : ""}
-            </span>
+              {totalGraded != null
+                ? ` · ${totalGraded} GRADED`
+                : ""}
+            </>
           ) : (
-            <span>POPULATION · VCS REGISTRY</span>
+            <>VCS POPULATION REGISTRY</>
           )}
         </div>
       </div>
 
       <div className={styles.gradeBlock}>
-        <span>GRADE</span>
+        <span>VCS</span>
         <b>{grade}</b>
-        <small>Authenticated</small>
+        <small>{gradeLabel(grade)}</small>
       </div>
     </div>
   );
@@ -294,7 +297,6 @@ function SlabFace({
             player={player}
             cardNumber={cardNumber}
             setName={setName}
-            team={team}
             grade={grade}
             registry={registry}
           />

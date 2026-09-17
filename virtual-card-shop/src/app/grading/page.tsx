@@ -1053,7 +1053,8 @@ function RevealModal({
             }
 
             .vcsRevealTitle {
-              font-size: 28px !important;
+              font-size: 25px !important;
+              line-height: 1.04 !important;
             }
 
             .vcsInteractiveSlab {

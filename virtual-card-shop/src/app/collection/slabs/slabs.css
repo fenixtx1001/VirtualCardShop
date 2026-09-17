@@ -1622,3 +1622,215 @@ body:has(.slabs-shell) {
     animation: none;
   }
 }
+
+/* =========================================================
+   VCS SLAB PRESENTATION CORRECTION V3
+   Full slab first; collector details follow in normal flow.
+   ========================================================= */
+
+@media (max-width: 760px) {
+  /*
+   * The old Focus layout reserved less vertical space than the
+   * physical slab actually occupied. That caused the information
+   * placard to begin before the slab ended.
+   *
+   * Let the object determine its own natural height instead.
+   */
+  .slabs-focus {
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+
+  .slabs-focus-stage {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+
+    min-height: auto;
+
+    padding:
+      12px
+      12px
+      calc(32px + env(safe-area-inset-bottom));
+  }
+
+  .slabs-focus-object-area {
+    width: 100%;
+    min-height: 0;
+    height: auto;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding: 6px 0 2px;
+
+    overflow: visible;
+  }
+
+  /*
+   * 72vw keeps the slab substantial while giving the entire
+   * object enough vertical room on an iPhone.
+   *
+   * Most importantly: the container now expands to the full
+   * natural slab height. Nothing below can overlap it.
+   */
+  .slabs-focus-object {
+    width: min(72vw, 286px);
+
+    display: grid;
+    justify-items: center;
+
+    gap: 9px;
+
+    filter:
+      drop-shadow(0 28px 24px rgba(0,0,0,.39))
+      drop-shadow(0 9px 10px rgba(0,0,0,.29));
+  }
+
+  .slabs-flip-hint {
+    min-height: 32px;
+
+    padding: 4px 9px;
+
+    border-color: rgba(215,187,126,.18);
+
+    background: rgba(29,32,28,.80);
+  }
+
+  .slabs-flip-hint span {
+    font-size: 9px;
+  }
+
+  .slabs-flip-hint small {
+    font-size: 8px;
+  }
+
+  .slabs-focus-arrow {
+    top: 44%;
+
+    width: 38px;
+    height: 46px;
+
+    border-color: rgba(215,187,126,.13);
+
+    background: rgba(24,27,24,.72);
+
+    font-size: 28px;
+  }
+
+  /*
+   * Details now read as the museum placard BELOW the object.
+   * They never occupy the slab's display area.
+   */
+  .slabs-focus-info {
+    position: relative;
+
+    width: 100%;
+
+    margin-top: 2px;
+    padding: 13px 14px 14px;
+
+    border-radius: 8px;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(31,35,31,.94),
+        rgba(26,30,26,.96)
+      );
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+      0 16px 42px rgba(0,0,0,.20);
+  }
+
+  .slabs-focus-info h2 {
+    margin-top: 6px;
+
+    font-size: 20px;
+    line-height: 1.04;
+  }
+
+  .slabs-focus-set {
+    margin-top: 5px;
+
+    font-size: 10.5px;
+    line-height: 1.35;
+  }
+
+  .slabs-focus-team {
+    margin-top: 2px;
+
+    font-size: 9.5px;
+  }
+
+  .slabs-focus-value {
+    margin-top: 11px;
+    padding: 10px 0;
+
+    gap: 12px;
+  }
+
+  .slabs-focus-value span,
+  .slabs-focus-facts span {
+    font-size: 8px;
+  }
+
+  .slabs-focus-value strong {
+    font-size: 17px;
+  }
+
+  .slabs-focus-facts {
+    gap: 7px;
+
+    padding: 9px 0 2px;
+  }
+
+  .slabs-focus-facts > div {
+    font-size: 10px;
+  }
+
+  .slabs-focus-actions {
+    margin-top: 10px;
+
+    gap: 7px;
+  }
+
+  .slabs-focus-actions .slabs-secondary,
+  .slabs-focus-actions .slabs-primary {
+    min-height: 40px;
+
+    font-size: 11px;
+  }
+
+  /*
+   * Population remains intentionally below the primary card details.
+   * Opening it grows the document downward. It does not resize,
+   * overlay, or push into the slab display above.
+   */
+  .slabs-population {
+    margin-top: 15px;
+    padding-top: 15px;
+  }
+
+  .slabs-pop-lead > div {
+    padding: 8px;
+  }
+
+  .slabs-pop-lead strong {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 390px) {
+  .slabs-focus-object {
+    width: min(71vw, 276px);
+  }
+
+  .slabs-focus-stage {
+    padding-inline: 10px;
+  }
+}

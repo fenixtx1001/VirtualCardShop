@@ -5,6 +5,8 @@
   perspective: 1700px;
   container-type: inline-size;
   outline: none;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .interactive {
@@ -13,7 +15,7 @@
 
 .interactive:focus-visible {
   outline: 2px solid #d7bb7e;
-  outline-offset: 8px;
+  outline-offset: 7px;
   border-radius: 8cqw;
 }
 
@@ -21,9 +23,12 @@
   position: relative;
   width: 100%;
   height: 100%;
+
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+
   transition:
-    transform 640ms cubic-bezier(.18,.78,.22,1),
+    transform 620ms cubic-bezier(.18,.78,.22,1),
     filter 240ms ease;
 }
 
@@ -34,117 +39,179 @@
 .face {
   position: absolute;
   inset: 0;
-  padding: 3.1cqw;
-  border-radius: 8.7cqw;
+
+  padding: 2.75cqw;
+
+  border: .36cqw solid #9ba7b3;
+  border-radius: 8.4cqw;
 
   background:
     linear-gradient(
       145deg,
-      rgba(255,255,255,.96),
-      rgba(206,215,225,.83) 43%,
-      rgba(245,248,251,.96) 72%,
-      rgba(181,193,207,.84)
+      #f9fbfc 0%,
+      #dbe2e8 38%,
+      #f6f8f9 68%,
+      #c8d1d9 100%
     );
 
-  border: .36cqw solid rgba(128,143,160,.68);
-
   box-shadow:
-    0 6.5cqw 12cqw rgba(0,0,0,.28),
-    0 2.6cqw 5cqw rgba(0,0,0,.20),
-    inset 0 .7cqw 2.6cqw rgba(255,255,255,.95),
-    inset 0 -2.1cqw 4.4cqw rgba(79,93,111,.14);
+    0 6.2cqw 12cqw rgba(0,0,0,.26),
+    0 2.3cqw 4.5cqw rgba(0,0,0,.18),
+    inset 0 .65cqw 2.2cqw rgba(255,255,255,.98),
+    inset 0 -1.7cqw 3.6cqw rgba(72,86,102,.14);
+
+  overflow: hidden;
 
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  overflow: hidden;
+
+  transform-style: flat;
+  -webkit-transform-style: flat;
+
+  isolation: isolate;
+}
+
+.frontFace {
+  transform: rotateY(0deg) translateZ(.6px);
+  -webkit-transform: rotateY(0deg) translateZ(.6px);
 }
 
 .backFace {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateZ(.6px);
+  -webkit-transform: rotateY(180deg) translateZ(.6px);
+
+  /*
+   * Fully opaque reverse construction. This prevents Safari from
+   * compositing the front grade label through the back face.
+   */
+  background:
+    linear-gradient(
+      145deg,
+      #f8fafb 0%,
+      #d9e0e6 40%,
+      #f4f7f8 70%,
+      #c8d0d8 100%
+    );
 }
 
 .case {
+  position: relative;
+
   height: 100%;
+
   display: grid;
-  grid-template-rows: 28% minmax(0, 1fr) 5.2%;
-  border-radius: 7cqw;
+
+  /*
+   * Previous slab used 28% for the header.
+   * The compact manufactured label gives the actual card most
+   * of the physical slab again.
+   */
+  grid-template-rows:
+    21.5%
+    minmax(0, 1fr)
+    4.4%;
+
   overflow: hidden;
 
-  border: .34cqw solid rgba(86,102,123,.60);
+  border: .34cqw solid #7f8d9b;
+  border-radius: 6.8cqw;
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(249,251,253,.97),
-      rgba(221,228,236,.97)
-    );
+  background: #e8edf1;
+
+  isolation: isolate;
 }
 
 .reflection {
   position: absolute;
   z-index: 6;
+  inset: 2cqw;
+
+  border-radius: 7cqw;
+
   pointer-events: none;
-  inset: 2.1cqw;
-  border-radius: 7.2cqw;
 
   background:
     linear-gradient(
       116deg,
-      rgba(255,255,255,.46),
-      rgba(255,255,255,.05) 31%,
-      rgba(255,255,255,.27) 33%,
-      rgba(255,255,255,.015) 56%,
-      rgba(255,255,255,.12) 79%,
+      rgba(255,255,255,.38),
+      rgba(255,255,255,.035) 29%,
+      rgba(255,255,255,.18) 31%,
+      rgba(255,255,255,.018) 57%,
+      rgba(255,255,255,.10) 78%,
       transparent
     );
 
-  mix-blend-mode: screen;
-  opacity: .72;
+  /*
+   * Avoid mix-blend-mode here. Safari can incorrectly composite
+   * a blended layer across the two 3D slab faces.
+   */
+  opacity: .64;
 }
 
+/* =========================================================
+   LABEL
+   ========================================================= */
+
 .label {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 25%;
-  gap: 2.4cqw;
+  position: relative;
+  z-index: 3;
 
   min-height: 0;
-  padding: 3.2cqw 3.5cqw 2.7cqw;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+
+  gap: 2.3cqw;
+
+  padding: 2.25cqw 3cqw;
+
+  border-bottom: .28cqw solid #bcc5cd;
 
   background:
     linear-gradient(
       180deg,
-      rgba(255,255,255,.985),
-      rgba(239,243,247,.98)
+      #fbfcfb 0%,
+      #f1f3f2 100%
     );
 
-  border-bottom: .30cqw solid rgba(137,151,169,.55);
+  color: #171b1e;
 }
 
 .identity {
   min-width: 0;
+  height: 100%;
+
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .brandLine {
   display: flex;
   align-items: center;
-  gap: 1.4cqw;
 
-  color: #495563;
-  font-size: 2.55cqw;
-  font-weight: 740;
-  letter-spacing: .15em;
+  gap: 1.15cqw;
+
+  color: #59616a;
+
+  font-size: 1.95cqw;
   line-height: 1;
+  font-weight: 760;
+  letter-spacing: .145em;
+
+  white-space: nowrap;
 }
 
 .vcsMark {
   color: var(--grade-a);
+
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 4.7cqw;
+
+  font-size: 3.65cqw;
   line-height: .9;
-  letter-spacing: -.04em;
   font-weight: 700;
+  letter-spacing: -.035em;
 }
 
 .player {
@@ -152,15 +219,16 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 
-  margin-top: 2.4cqw;
+  margin-top: 1.35cqw;
 
   overflow: hidden;
-  color: #15191d;
 
-  font-size: 5.0cqw;
+  color: #171a1d;
+
+  font-size: 4.25cqw;
   line-height: 1.02;
-  letter-spacing: -.035em;
-  font-weight: 720;
+  font-weight: 710;
+  letter-spacing: -.032em;
 }
 
 .setName {
@@ -168,188 +236,300 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 
-  margin-top: 1.5cqw;
+  margin-top: .75cqw;
+
   overflow: hidden;
 
-  color: #3f4852;
-  font-size: 3.25cqw;
-  line-height: 1.17;
-  font-weight: 600;
+  color: #515961;
+
+  font-size: 2.65cqw;
+  line-height: 1.12;
+  font-weight: 610;
 }
 
 .cardLine {
   display: block;
 
   margin-top: auto;
-  padding-top: 1.3cqw;
+  padding-top: .7cqw;
 
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 
-  color: #6a737d;
-  font-size: 2.7cqw;
-  line-height: 1.1;
+  color: #70777e;
+
+  font-size: 2.2cqw;
+  line-height: 1;
   font-weight: 580;
 }
 
+/* =========================================================
+   GRADE PLAQUE
+   ========================================================= */
+
 .gradeBlock {
   position: relative;
+
+  flex-shrink: 0;
+
+  width: 21cqw;
+  height: 21cqw;
 
   display: grid;
   grid-template-rows: auto 1fr auto;
   place-items: center;
 
-  min-width: 0;
-  padding: 2cqw .7cqw;
+  padding: 2cqw 1cqw;
 
   overflow: hidden;
-  border-radius: 4.2cqw;
-  border: .34cqw solid color-mix(in srgb, var(--grade-a), #15191d 30%);
+
+  border: .38cqw solid
+    color-mix(in srgb, var(--grade-a), #20241f 34%);
+
+  border-radius: 4.8cqw;
 
   color: var(--grade-ink);
 
   background:
+    radial-gradient(
+      circle at 32% 20%,
+      rgba(255,255,255,.52),
+      transparent 26%
+    ),
     linear-gradient(
-      140deg,
-      var(--grade-a),
-      var(--grade-b) 45%,
-      var(--grade-c)
+      142deg,
+      var(--grade-a) 0%,
+      var(--grade-b) 46%,
+      var(--grade-c) 100%
     );
 
   box-shadow:
-    0 1cqw 3.2cqw color-mix(in srgb, var(--grade-a), transparent 72%),
-    inset 0 .35cqw .5cqw rgba(255,255,255,.46);
+    0 1.1cqw 2.5cqw
+      color-mix(in srgb, var(--grade-a), transparent 74%),
+    inset 0 0 0 .45cqw rgba(255,255,255,.18),
+    inset 0 .45cqw .7cqw rgba(255,255,255,.32),
+    inset 0 -.5cqw .8cqw rgba(0,0,0,.08);
 }
 
 .gradeBlock::before {
   content: "";
+
   position: absolute;
-  inset: 0;
+  inset: .7cqw;
+
+  border: .22cqw solid rgba(37,40,34,.22);
+  border-radius: 3.7cqw;
+
+  pointer-events: none;
+}
+
+.gradeBlock::after {
+  content: "";
+
+  position: absolute;
+
+  top: -16%;
+  left: -45%;
+
+  width: 50%;
+  height: 140%;
+
+  transform: skewX(-16deg);
 
   background:
     linear-gradient(
-      118deg,
-      rgba(255,255,255,.52),
-      transparent 38%,
-      rgba(255,255,255,.26) 40%,
-      transparent 62%
+      90deg,
+      transparent,
+      rgba(255,255,255,.42),
+      transparent
     );
+
+  opacity: .58;
 }
 
 .gradeBlock > * {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .gradeBlock span {
-  font-size: 2.35cqw;
+  font-size: 1.8cqw;
   line-height: 1;
-  font-weight: 850;
-  letter-spacing: .12em;
+
+  font-weight: 820;
+  letter-spacing: .14em;
 }
 
 .gradeBlock b {
   align-self: center;
 
-  font-size: 10.9cqw;
-  line-height: .83;
-  letter-spacing: -.07em;
-  font-weight: 780;
+  font-size: 8.6cqw;
+  line-height: .82;
+
+  font-weight: 770;
+  letter-spacing: -.075em;
 }
 
 .gradeBlock small {
-  font-size: 1.95cqw;
-  line-height: 1;
-  font-weight: 760;
-  text-transform: uppercase;
-  letter-spacing: .03em;
+  max-width: 100%;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
-}
 
-.registryLabel {
-  background:
-    linear-gradient(
-      180deg,
-      #f8f8f5,
-      #e9e8e2
-    );
-}
+  font-size: 1.55cqw;
+  line-height: 1;
 
-.registryFacts {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: .8cqw 1.6cqw;
-
-  margin-top: auto;
-  padding-top: 1cqw;
-
-  color: #6e6c63;
-  font-size: 2.25cqw;
-  font-weight: 650;
+  font-weight: 780;
+  text-transform: uppercase;
   letter-spacing: .025em;
 }
 
-.registryFacts span + span::before {
-  content: "·";
-  margin-right: 1.6cqw;
-  color: #aaa596;
+/* =========================================================
+   REGISTRY LABEL — OPAQUE REVERSE
+   ========================================================= */
+
+.registryLabel {
+  /*
+   * Intentionally opaque and warmer than the front label.
+   * This should read as the reverse registry label, never
+   * transparent plastic.
+   */
+  background:
+    linear-gradient(
+      180deg,
+      #f4f2eb 0%,
+      #eae7dd 100%
+    );
+
+  border-bottom-color: #bbb7aa;
 }
 
+.registryLabel .brandLine {
+  color: #625f55;
+}
+
+.registryLabel .player {
+  color: #181914;
+}
+
+.registryLabel .setName {
+  -webkit-line-clamp: 1;
+  color: #55574f;
+}
+
+.registryMeta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: .6cqw 1.2cqw;
+
+  margin-top: auto;
+  padding-top: .6cqw;
+
+  color: #76756c;
+
+  font-size: 1.75cqw;
+  line-height: 1;
+  font-weight: 670;
+  letter-spacing: .035em;
+
+  text-transform: uppercase;
+}
+
+.registryMeta span + span::before {
+  content: "·";
+  margin-right: 1.2cqw;
+  color: #a39f92;
+}
+
+.registryPopulation {
+  margin-top: .65cqw;
+
+  color: #4f5048;
+
+  font-size: 1.8cqw;
+  line-height: 1;
+  font-weight: 760;
+  letter-spacing: .045em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   CARD BAY
+   ========================================================= */
+
 .cardBay {
+  position: relative;
+  z-index: 1;
+
   min-height: 0;
+
   display: grid;
   place-items: center;
-  padding: 4.2cqw 4.3cqw 3.6cqw;
+
+  padding: 3.3cqw 3.7cqw 3cqw;
+
+  overflow: hidden;
 
   background:
     radial-gradient(
-      ellipse at 50% 20%,
-      rgba(255,255,255,.97),
-      rgba(218,225,233,.93) 48%,
-      rgba(187,198,210,.92)
+      ellipse at 50% 18%,
+      #fbfcfd 0%,
+      #dfe5eb 49%,
+      #c5ced7 100%
     );
 }
 
 .cardMount {
+  position: relative;
+
   width: 100%;
   height: 100%;
+  min-width: 0;
+  min-height: 0;
 
   display: grid;
   place-items: center;
 
-  padding: 2.6cqw;
+  padding: 2.15cqw;
 
-  border-radius: 5.4cqw;
-  border: .34cqw solid rgba(101,116,137,.48);
+  overflow: hidden;
+
+  border: .32cqw solid #8f9dab;
+  border-radius: 5cqw;
 
   background:
     linear-gradient(
       145deg,
-      rgba(112,126,144,.42),
-      rgba(255,255,255,.82) 45%,
-      rgba(85,100,120,.38)
+      #b5c0cb 0%,
+      #f4f7f9 43%,
+      #a7b4c1 100%
     );
 
   box-shadow:
-    inset 0 1.1cqw 2.6cqw rgba(0,0,0,.13),
-    inset 0 -.7cqw 2cqw rgba(255,255,255,.67);
+    inset 0 1cqw 2.3cqw rgba(0,0,0,.12),
+    inset 0 -.65cqw 1.7cqw rgba(255,255,255,.70);
 }
 
 .cardImage,
 .cardLandscape {
   display: block;
+
   max-width: 100%;
   max-height: 100%;
 
-  background: white;
-  border: .24cqw solid rgba(203,213,225,.88);
+  object-fit: contain;
+
+  background: #fff;
+
+  border: .22cqw solid #d2d8de;
 
   box-shadow:
-    0 2.3cqw 5.4cqw rgba(15,23,42,.23);
-
-  object-fit: contain;
+    0 2cqw 4.3cqw rgba(15,23,42,.20);
 }
 
 .cardImage {
@@ -357,12 +537,19 @@
   height: 100%;
 }
 
+/*
+ * Standard card scans that arrive landscape are rotated into
+ * the slab while preserving the complete image.
+ */
 .cardLandscape {
   width: auto;
   height: auto;
+
   max-width: 142%;
-  max-height: 72%;
+  max-height: 71.5%;
+
   transform: rotate(90deg);
+  transform-origin: center;
 }
 
 .noImage {
@@ -372,48 +559,61 @@
   display: grid;
   place-items: center;
   align-content: center;
+
   gap: 2cqw;
 
-  border: .36cqw dashed #9ca8b5;
-  background: rgba(248,250,252,.88);
+  border: .34cqw dashed #99a5b0;
+
+  background: #f5f7f8;
   color: #697480;
 }
 
 .noImage strong {
-  font-family: Georgia, serif;
   color: #4c5660;
+
+  font-family: Georgia, serif;
   font-size: 8cqw;
   line-height: 1;
 }
 
 .noImage span {
-  font-size: 2.4cqw;
+  font-size: 2.3cqw;
   font-weight: 700;
   letter-spacing: .09em;
 }
+
+/* =========================================================
+   BOTTOM CERTIFICATION STRIP
+   ========================================================= */
 
 .seal {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.7cqw;
 
-  color: #6b7480;
-  background: rgba(231,236,241,.95);
+  gap: 1.5cqw;
 
-  border-top: .24cqw solid rgba(138,151,169,.38);
+  border-top: .22cqw solid #bdc5cc;
 
-  font-size: 2.05cqw;
+  background: #e7ecf0;
+  color: #707982;
+
+  font-size: 1.72cqw;
   line-height: 1;
-  font-weight: 680;
-  letter-spacing: .12em;
+  font-weight: 690;
+  letter-spacing: .13em;
+
+  white-space: nowrap;
 }
 
 .seal i {
   display: block;
-  width: .65cqw;
-  height: .65cqw;
+
+  width: .55cqw;
+  height: .55cqw;
+
   border-radius: 50%;
+
   background: var(--grade-a);
 }
 
