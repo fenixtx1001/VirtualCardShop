@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/3477/1994-Upper-Deck",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/3477/1994-Upper-Deck",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/3477/1994-Upper-Deck",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/3477/1994-Upper-Deck",
+    "note": "1994 Upper Deck Football. The 330-card base set was distributed in one series. VCS uses one universal standard 12-card pack and includes both Hobby- and Retail-specific Predictor families while excluding mail-in exchange sets, promos, and Pro Bowl Samples."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Hobby/Retail standard red-wrapper configuration: 12 cards per pack, 36 packs per box.",
+    "packChannelAbstraction": "VCS uses one universal pack. Hobby-only Predictors: Award Winners and Retail-only Predictors: League Leaders both remain available in the universal VCS pack at their published 1:20 channel odds, consistent with the existing Set Factory treatment of channel-exclusive insert families.",
+    "baseStructure": "One complete #1-330 Base ProductSet with equal base-card availability.",
+    "parallelStructure": "Electric and Electric Gold are full 330-card parallels derived from Base so card numbering, teams, subjects, and collector checklist integrity stay synchronized.",
+    "trueRookieNaming": "RC is appended only to Base subjects returned by TCDB's rookie index. Short printed subset abbreviations such as SR, HW, and CL remain display-safe in Player where present.",
+    "variationHandling": "TCDB lists Emmitt Smith #157 as 157a ERR and 157b COR. VCS intentionally keeps one logical #157 card only, sourced from the corrected 157b entry. ERR/COR detail is omitted from Player and Variant.",
+    "teamlessInsertHandling": "Generic Predictor Long Shot cards are legitimate league-wide subjects with no team assignment. They remain teamless rather than inventing NFL, League, Multiple, or another artificial team value.",
+    "excludedRelatedSets": "Predictors Exchange: Award Winners and Predictors Exchange: League Leaders are mail-in redemption-result sets and are excluded from ordinary pack outcomes. The Joe Montana promo and Pro Bowl Samples are also excluded.",
+    "releaseSafety": "Product remains unreleased until pricing and images are reviewed."
+  },
+  "product": {
+    "id": "1994_Upper_Deck_Football",
+    "year": 1994,
+    "brand": "Upper Deck",
+    "sport": "Football",
+    "cardsPerPack": 12,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1994-upper-deck-football.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1994_Upper_Deck_Football_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3477/1994-Upper-Deck",
+      "expectedCards": 330,
+      "notes": "Complete one-series #1-330 base checklist."
+    },
+    {
+      "key": "electric",
+      "id": "1994_Upper_Deck_Football_Electric",
+      "name": "Electric",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/33825/1994-Upper-Deck-Electric",
+      "expectedCards": 330,
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Electric",
+      "notes": "Full 330-card silver-foil parallel. Inserted one per standard Hobby/Retail pack; specially marked Retail packs contained two. VCS uses the standard 1:1 rate."
+    },
+    {
+      "key": "electric-gold",
+      "id": "1994_Upper_Deck_Football_Electric_Gold",
+      "name": "Electric Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": 35,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3478/1994-Upper-Deck-Electric-Gold",
+      "expectedCards": 330,
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Electric Gold",
+      "notes": "Full 330-card gold-foil parallel. Inserted 1:35 Hobby packs; special Retail distribution existed separately. VCS uses the documented Hobby rate."
+    },
+    {
+      "key": "predictors-award-winners",
+      "id": "1994_Upper_Deck_Football_Predictors_Award_Winners",
+      "name": "Predictors: Award Winners",
+      "kind": "INSERT",
+      "oddsPerPack": 20,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3479/1994-Upper-Deck-Predictors-Award-Winners",
+      "expectedCards": 20,
+      "notes": "HP1-HP20. Hobby-only predictor cards inserted 1:20 Hobby packs. Exchange-result mail-in set is excluded."
+    },
+    {
+      "key": "predictors-league-leaders",
+      "id": "1994_Upper_Deck_Football_Predictors_League_Leaders",
+      "name": "Predictors: League Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": 20,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3481/1994-Upper-Deck-Predictors-League-Leaders",
+      "expectedCards": 30,
+      "notes": "RP1-RP30. Retail-only predictor cards inserted 1:20 Retail packs. Exchange-result mail-in set is excluded."
+    },
+    {
+      "key": "pro-bowl",
+      "id": "1994_Upper_Deck_Football_Pro_Bowl",
+      "name": "Pro Bowl",
+      "kind": "INSERT",
+      "oddsPerPack": 20,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3480/1994-Upper-Deck-Pro-Bowl",
+      "expectedCards": 20,
+      "notes": "PB1-PB20 Holoview Pro Bowl insert set, inserted 1:20 packs. Pro Bowl Samples are excluded."
+    }
+  ]
+}
