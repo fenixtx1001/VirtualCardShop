@@ -1979,3 +1979,526 @@ body:has(.showcase-shell) {
     transition: none;
   }
 }
+
+/* === PRESTIGE CELEBRATION PASS START === */
+
+/*
+ * Prestige should feel earned, not loud.
+ * The palette stays inside VCS's dark / metallic language,
+ * but progression now moves from bronze → silver → gold →
+ * champagne / platinum at the rarest milestones.
+ */
+
+/* ---------------------------------------------------------
+   SUMMARY — warmer hierarchy without becoming dashboard-y
+   --------------------------------------------------------- */
+
+.showcase-prestige-summary {
+  border-color: #41453d;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.012),
+      rgba(255, 255, 255, 0)
+    );
+}
+
+.showcase-prestige-summary > div {
+  position: relative;
+  border-color: #41453d;
+}
+
+.showcase-prestige-summary > div:nth-child(3) {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(192, 157, 88, 0.075),
+      rgba(192, 157, 88, 0.012) 72%
+    );
+}
+
+.showcase-prestige-summary > div:nth-child(4) {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(215, 187, 126, 0.09),
+      rgba(215, 187, 126, 0.015) 72%
+    );
+}
+
+.showcase-prestige-summary > div:nth-child(3)::before,
+.showcase-prestige-summary > div:nth-child(4)::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 12px;
+  width: 34px;
+  height: 2px;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(215, 187, 126, 0.92),
+      rgba(215, 187, 126, 0.08)
+    );
+}
+
+.showcase-prestige-summary > div:nth-child(3) strong {
+  color: #dfcb9e;
+}
+
+.showcase-prestige-summary > div:nth-child(4) strong {
+  color: #ead8ae;
+}
+
+.showcase-prestige-summary strong {
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.24);
+}
+
+/* ---------------------------------------------------------
+   REWARDS — something good is actually waiting here
+   --------------------------------------------------------- */
+
+.showcase-rewards {
+  border-color: #6c6146;
+  background:
+    radial-gradient(
+      circle at 8% 0%,
+      rgba(215, 187, 126, 0.12),
+      transparent 34%
+    ),
+    linear-gradient(
+      145deg,
+      #282820 0%,
+      #23251f 52%,
+      #20231f 100%
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(244, 224, 177, 0.07),
+    0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+.showcase-rewards-head {
+  border-bottom-color: #514b3b;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(215, 187, 126, 0.10),
+      rgba(215, 187, 126, 0.018) 58%,
+      transparent
+    );
+}
+
+.showcase-rewards-head span {
+  color: #e0c785;
+}
+
+.showcase-rewards-head strong {
+  color: #f1eadb;
+}
+
+.showcase-reward-value > strong {
+  color: #ead5a4;
+  font-size: 13px;
+}
+
+.showcase-reward-value button {
+  border-color: #766b4f;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(215, 187, 126, 0.08),
+      rgba(215, 187, 126, 0.02)
+    );
+  color: #e2c987;
+}
+
+.showcase-reward-value button:hover:not(:disabled) {
+  border-color: #927f59;
+  background: rgba(215, 187, 126, 0.12);
+}
+
+/* ---------------------------------------------------------
+   PRESTIGE RIBBON — collectible achievement plaques
+   --------------------------------------------------------- */
+
+.showcase-prestige-ribbon {
+  border-color: #484d43;
+  background:
+    linear-gradient(
+      180deg,
+      #22251f 0%,
+      #1e211d 100%
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+/*
+ * Defaults keep unearned tiers deliberately quiet.
+ */
+.showcase-prestige-tier {
+  --tier-accent: #aaa99f;
+  --tier-wash: rgba(170, 169, 159, 0.06);
+
+  border-color: #3d423a;
+  color: #888d84;
+
+  transition:
+    background 150ms ease,
+    box-shadow 150ms ease,
+    color 150ms ease;
+}
+
+.showcase-prestige-tier:not(.has-sets) {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.008),
+      rgba(0, 0, 0, 0.045)
+    );
+  color: #858a81;
+}
+
+.showcase-prestige-tier:not(.has-sets) strong {
+  color: #949990;
+  opacity: 0.82;
+}
+
+/*
+ * Earned levels receive increasingly premium metallic finishes.
+ * These are intentionally neighboring metallic tones rather
+ * than unrelated rainbow colors.
+ */
+
+.showcase-prestige-tier.has-sets:nth-child(1) {
+  --tier-accent: #b58a61;
+  --tier-wash: rgba(156, 105, 66, 0.18);
+}
+
+.showcase-prestige-tier.has-sets:nth-child(2) {
+  --tier-accent: #bba47f;
+  --tier-wash: rgba(174, 145, 102, 0.16);
+}
+
+.showcase-prestige-tier.has-sets:nth-child(3) {
+  --tier-accent: #c5c3b7;
+  --tier-wash: rgba(178, 181, 176, 0.14);
+}
+
+.showcase-prestige-tier.has-sets:nth-child(4) {
+  --tier-accent: #cfb86f;
+  --tier-wash: rgba(190, 155, 75, 0.16);
+}
+
+.showcase-prestige-tier.has-sets:nth-child(5) {
+  --tier-accent: #d8c28c;
+  --tier-wash: rgba(205, 177, 112, 0.17);
+}
+
+/* 10× */
+.showcase-prestige-tier.has-sets:nth-child(6) {
+  --tier-accent: #e0c576;
+  --tier-wash: rgba(213, 177, 84, 0.22);
+}
+
+/* 25× */
+.showcase-prestige-tier.has-sets:nth-child(7) {
+  --tier-accent: #ead69c;
+  --tier-wash: rgba(226, 199, 126, 0.23);
+}
+
+/* 50× */
+.showcase-prestige-tier.has-sets:nth-child(8) {
+  --tier-accent: #d7d9d3;
+  --tier-wash: rgba(210, 216, 210, 0.19);
+}
+
+/* 75× */
+.showcase-prestige-tier.has-sets:nth-child(9) {
+  --tier-accent: #e4d9bf;
+  --tier-wash: rgba(225, 211, 178, 0.21);
+}
+
+/* 100× */
+.showcase-prestige-tier.has-sets:nth-child(10) {
+  --tier-accent: #f0dca0;
+  --tier-wash: rgba(235, 207, 129, 0.26);
+}
+
+.showcase-prestige-tier.has-sets {
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      var(--tier-wash),
+      transparent 72%
+    ),
+    linear-gradient(
+      155deg,
+      var(--tier-wash),
+      rgba(255, 255, 255, 0.012) 55%,
+      rgba(0, 0, 0, 0.055) 100%
+    );
+
+  color: var(--showcase-text);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+}
+
+.showcase-prestige-tier.has-sets span {
+  color: var(--tier-accent);
+}
+
+.showcase-prestige-tier.has-sets strong {
+  color: #f3efe6;
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.4),
+    0 0 18px var(--tier-wash);
+}
+
+/*
+ * Major milestones should read differently before you even
+ * process the number.
+ */
+.showcase-prestige-tier.is-major.has-sets span {
+  color: var(--tier-accent);
+  font-weight: 680;
+  letter-spacing: 0.025em;
+}
+
+.showcase-prestige-tier.is-major.has-sets strong {
+  font-weight: 640;
+}
+
+.showcase-prestige-tier.is-elite.has-sets {
+  background:
+    linear-gradient(
+      118deg,
+      rgba(255, 255, 255, 0.035),
+      transparent 28%,
+      rgba(255, 255, 255, 0.018) 52%,
+      transparent 74%
+    ),
+    radial-gradient(
+      circle at 50% 10%,
+      var(--tier-wash),
+      transparent 74%
+    ),
+    linear-gradient(
+      155deg,
+      var(--tier-wash),
+      rgba(255, 255, 255, 0.012) 58%,
+      rgba(0, 0, 0, 0.06)
+    );
+}
+
+/*
+ * Selected tier: more like choosing a trophy than pressing
+ * another filter button.
+ */
+.showcase-prestige-tier.is-active,
+.showcase-prestige-tier.is-active.has-sets,
+.showcase-prestige-tier.is-active.is-elite.has-sets {
+  background:
+    radial-gradient(
+      circle at 50% 24%,
+      rgba(229, 205, 149, 0.19),
+      transparent 70%
+    ),
+    linear-gradient(
+      155deg,
+      rgba(215, 187, 126, 0.16),
+      #2b2f28 68%,
+      #252821 100%
+    );
+
+  color: #f6f0e4;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(225, 199, 139, 0.30),
+    inset 0 1px 0 rgba(255, 245, 218, 0.08),
+    inset 0 0 24px rgba(215, 187, 126, 0.055);
+}
+
+.showcase-prestige-tier.is-active span {
+  color: #e9d292;
+}
+
+.showcase-prestige-tier.is-active strong {
+  color: #fff8e8;
+}
+
+.showcase-prestige-tier.is-active::after {
+  right: 10px;
+  left: 10px;
+  height: 3px;
+  border-radius: 999px 999px 0 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(215, 187, 126, 0.38),
+      #e4ca88 50%,
+      rgba(215, 187, 126, 0.38)
+    );
+  box-shadow: 0 -2px 9px rgba(215, 187, 126, 0.20);
+}
+
+.showcase-prestige-tier:hover {
+  background-color: #2a2e27;
+}
+
+.showcase-prestige-hint {
+  margin-top: 9px;
+  color: #858a81;
+}
+
+/* ---------------------------------------------------------
+   BUCKET PANEL — the selected achievement now has presence
+   --------------------------------------------------------- */
+
+.showcase-bucket-panel {
+  border-color: #514d40;
+
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(215, 187, 126, 0.065),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      #22251f 0%,
+      #1f221e 100%
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025),
+    0 10px 26px rgba(0, 0, 0, 0.14);
+}
+
+.showcase-bucket-panel > header {
+  position: relative;
+  border-bottom-color: #45483f;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(215, 187, 126, 0.12),
+      rgba(215, 187, 126, 0.025) 56%,
+      transparent
+    );
+}
+
+.showcase-bucket-panel > header::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 0;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ead69d,
+      #ad8f50
+    );
+
+  box-shadow: 2px 0 10px rgba(215, 187, 126, 0.13);
+}
+
+.showcase-bucket-panel > header span {
+  color: #e1c77f;
+}
+
+.showcase-bucket-panel > header h3 {
+  color: var(--showcase-text);
+  font-weight: 590;
+}
+
+.showcase-bucket-row {
+  border-bottom-color: #3b4038;
+  transition: background 130ms ease;
+}
+
+.showcase-bucket-row:hover {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(215, 187, 126, 0.045),
+      transparent 48%
+    );
+}
+
+.showcase-prestige-art {
+  border-color: #595747;
+  background:
+    linear-gradient(
+      145deg,
+      #34372f,
+      #292d27
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    0 4px 10px rgba(0, 0, 0, 0.16);
+}
+
+.showcase-bucket-copy strong {
+  color: #f1ede5;
+}
+
+.showcase-bucket-copy span {
+  color: #aaaDA4;
+}
+
+.showcase-bucket-link {
+  color: #dfc785;
+}
+
+/* ---------------------------------------------------------
+   MOBILE TUNING
+   --------------------------------------------------------- */
+
+@media (max-width: 680px) {
+  .showcase-prestige-summary {
+    margin-bottom: 16px;
+  }
+
+  .showcase-prestige-summary > div:nth-child(3)::before,
+  .showcase-prestige-summary > div:nth-child(4)::before {
+    left: 10px;
+    width: 28px;
+  }
+
+  .showcase-prestige-tier {
+    min-height: 66px;
+  }
+
+  .showcase-prestige-tier.has-sets strong {
+    font-size: 17px;
+  }
+
+  .showcase-prestige-tier.is-major.has-sets strong {
+    font-size: 18px;
+  }
+
+  .showcase-prestige-tier.is-active::after {
+    right: 8px;
+    left: 8px;
+  }
+
+  .showcase-bucket-panel {
+    margin-top: 18px;
+  }
+
+  .showcase-bucket-panel > header {
+    min-height: 70px;
+  }
+}
+
+/* === PRESTIGE CELEBRATION PASS END === */
