@@ -154,11 +154,8 @@ def fetch_set_rows(
     return rows
 
 
-# TCDB sometimes concatenates an error/variation marker and its explanation
-# into the same table cell as the subject. VCS intentionally discards those
-# descriptive tails from display-facing Player names.
-METADATA_TAIL = re.compile(
-    r"(?:,\s*|\s+)(?:ERR|COR|UER|VAR)(?:ERR|COR|UER|VAR)?\s*(?::\s*.*)?$",
+METADATA_START = re.compile(
+    r"(?:,\s*|\s+)(?:ERR|COR|UER|VAR)(?:ERR|COR|UER|VAR)?\b(?:\s*:)?",
     re.IGNORECASE,
 )
 
@@ -166,27 +163,23 @@ METADATA_TAIL = re.compile(
 def clean_subject(raw_name: str) -> str:
     raw = " ".join(raw_name.split()).strip()
 
-    # Drop a metadata tail, including concatenated forms such as
-    # "UERUER: ..." or "VAR VAR: ...".
-    while True:
-        cleaned = METADATA_TAIL.sub("", raw).strip(" ,;")
-        if cleaned == raw:
-            break
-        raw = cleaned
+    # TCDB sometimes nests one or more error/variation descriptions inside the
+    # same subject cell. Everything beginning with the first ERR/COR/UER/VAR
+    # marker is source metadata, never part of the VCS Player display name.
+    match = METADATA_START.search(raw)
+    if match:
+        raw = raw[: match.start()].strip(" ,;")
 
     # RC is controlled exclusively by the verified rookie index below.
     raw = re.sub(r"\bRC\b", "", raw, flags=re.IGNORECASE)
-
-    # ERR/COR/UER/VAR tokens without descriptive text are metadata too.
-    raw = re.sub(r"(?:,\s*|\s+)\b(?:ERR|COR|UER|VAR)\b", " ", raw, flags=re.IGNORECASE)
 
     # Preserve compact collector abbreviations such as DP and AS, but convert
     # comma-separated suffixes into the project's normal space-delimited form.
     raw = re.sub(r"\s*,\s*", " ", raw)
     raw = " ".join(raw.split()).strip(" ,;")
 
-    # TCDB variation markup can repeat an already-present short abbreviation
-    # in the same cell (for example AS AS). Collapse those harmless duplicates.
+    # Variation markup can repeat an already-present short abbreviation in the
+    # same cell (for example AS AS). Collapse those harmless duplicates.
     raw = re.sub(r"\b(AS|DP)\s+\1\b", r"\1", raw, flags=re.IGNORECASE)
     return raw
 
