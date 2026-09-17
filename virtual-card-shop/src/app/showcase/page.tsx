@@ -1,5 +1,5 @@
-// src/app/showcase/page.tsx
 import ShowcaseClient from "./showcase-client";
+import "./showcase.css";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
