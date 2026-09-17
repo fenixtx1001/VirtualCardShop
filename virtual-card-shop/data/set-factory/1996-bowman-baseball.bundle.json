@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/632/1996-Bowman",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/632/1996-Bowman",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/632/1996-Bowman",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/632/1996-Bowman",
+    "distributionReference": "https://www.baseballcardpedia.com/index.php/1996_Bowman",
+    "note": "1996 Bowman Baseball. One-series 385-card base checklist. Pack-issued collector-facing inserts and the full Foil parallel are modeled; the Guaranteed Value Certificate request form and Roberto Alomar promo are excluded."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Hobby/Retail standard pack: 11 cards per pack, 24 packs per box.",
+    "packChannelAbstraction": "VCS uses one universal standard pack. Foil uses the standard one-per-pack rate; contemporary Retail packs could contain two Foils, but the VCS canonical rate remains 1:1.",
+    "baseStructure": "One complete #1-385 Base ProductSet with equal base-card availability.",
+    "parallelStructure": "Foil is a full 385-card parallel derived from Base so card numbering, subjects, teams, and verified RC naming remain synchronized.",
+    "trueRookieNaming": "RC is appended only to Base subjects returned by TCDB's rookie index. Existing RC text is normalized away first so every recognized rookie receives exactly one RC label. Short collector abbreviations such as FBC remain in Player.",
+    "metadataHandling": "UER, ERR, COR, VAR, redemption, and descriptive variation text are removed from Player. No card-level odds are stored in Variant.",
+    "checklistHandling": "The two randomly pack-issued NNO checklist cards are retained with deterministic VCS card numbers NNO-01 and NNO-02 so ProductSet card numbers remain unique.",
+    "excludedRelatedItems": "The Major League Baseball Guaranteed Value Certificate Request Card is an administrative redemption/request instrument and is excluded. The Roberto Alomar promo is excluded.",
+    "releaseSafety": "Product remains unreleased until pricing and images are reviewed."
+  },
+  "product": {
+    "id": "1996_Bowman_Baseball",
+    "year": 1996,
+    "brand": "Bowman",
+    "sport": "Baseball",
+    "cardsPerPack": 11,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1996-bowman-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1996_Bowman_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/632/1996-Bowman",
+      "expectedCards": 385,
+      "notes": "Complete one-series #1-385 base checklist."
+    },
+    {
+      "key": "foil",
+      "id": "1996_Bowman_Baseball_Foil",
+      "name": "Foil",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10734/1996-Bowman---Foil",
+      "expectedCards": 385,
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Foil",
+      "notes": "Full 385-card foilboard parallel. Standard packs contained one Foil; some Retail distribution contained two. VCS uses 1:1."
+    },
+    {
+      "key": "bowmans-best-previews",
+      "id": "1996_Bowman_Baseball_Bowmans_Best_Previews",
+      "name": "Bowman's Best Previews",
+      "kind": "INSERT",
+      "oddsPerPack": 12,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/638/1996-Bowman---Bowmans-Best-Previews",
+      "expectedCards": 30,
+      "notes": "BBP 1-BBP 30; inserted 1:12 packs."
+    },
+    {
+      "key": "bowmans-best-previews-refractors",
+      "id": "1996_Bowman_Baseball_Bowmans_Best_Previews_Refractors",
+      "name": "Bowman's Best Previews Refractors",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/639/1996-Bowman---Bowmans-Best-Previews-Refractors",
+      "expectedCards": 30,
+      "notes": "30-card Refractor preview set; inserted 1:24 packs."
+    },
+    {
+      "key": "bowmans-best-previews-atomic-refractors",
+      "id": "1996_Bowman_Baseball_Bowmans_Best_Previews_Atomic_Refractors",
+      "name": "Bowman's Best Previews Atomic Refractors",
+      "kind": "INSERT",
+      "oddsPerPack": 48,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10735/1996-Bowman---Bowmans-Best-Previews-Atomic-Refractors",
+      "expectedCards": 30,
+      "notes": "30-card Atomic Refractor preview set; inserted 1:48 packs."
+    },
+    {
+      "key": "checklists",
+      "id": "1996_Bowman_Baseball_Checklists",
+      "name": "Checklists",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/307394/1996-Bowman---Checklists",
+      "expectedCards": 2,
+      "notes": "Two NNO checklist cards, randomly issued in packs. Synthetic VCS numbers NNO-01 and NNO-02 preserve uniqueness."
+    },
+    {
+      "key": "mickey-mantle-commemorative-reprint",
+      "id": "1996_Bowman_Baseball_Mickey_Mantle_Commemorative_Reprint",
+      "name": "Mickey Mantle Commemorative Reprint",
+      "kind": "INSERT",
+      "oddsPerPack": 48,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/307373/1996-Bowman---Mickey-Mantle-Commemorative-Reprint",
+      "expectedCards": 1,
+      "notes": "Card #20 in the multi-release commemorative run; inserted 1:48 Bowman packs."
+    },
+    {
+      "key": "minor-league-player-of-the-year-candidates",
+      "id": "1996_Bowman_Baseball_Minor_League_Player_of_the_Year_Candidates",
+      "name": "Minor League Player of the Year Candidates",
+      "kind": "INSERT",
+      "oddsPerPack": 12,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/633/1996-Bowman---Minor-League-Player-of-the-Year-Candidates",
+      "expectedCards": 15,
+      "notes": "POY 1-POY 15; inserted 1:12 packs."
+    }
+  ]
+}
