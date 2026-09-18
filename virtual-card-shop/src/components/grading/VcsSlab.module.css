@@ -1,16 +1,39 @@
+/* =========================================================
+   VCS UNIVERSAL SLAB
+   One physical object across Gallery, Showcase, Details,
+   and Grading. Tap the slab anywhere to flip it.
+   ========================================================= */
+
 .shell {
+  --slab-glare-main: .76;
+
   width: 100%;
   max-width: 390px;
-  aspect-ratio: 2.72 / 4.22;
+
+  /*
+   * Tall enough to read as a real encapsulated card while
+   * preserving the 2.5 × 3.5 collectible inside.
+   */
+  aspect-ratio: 2.72 / 4.45;
+
   perspective: 1700px;
   container-type: inline-size;
+
   outline: none;
+
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
 }
 
+.shell,
+.shell * {
+  box-sizing: border-box;
+}
+
 .interactive {
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .interactive:focus-visible {
@@ -21,6 +44,7 @@
 
 .rotor {
   position: relative;
+
   width: 100%;
   height: 100%;
 
@@ -28,7 +52,7 @@
   -webkit-transform-style: preserve-3d;
 
   transition:
-    transform 620ms cubic-bezier(.18,.78,.22,1),
+    transform 620ms cubic-bezier(.18, .78, .22, 1),
     filter 240ms ease;
 }
 
@@ -36,11 +60,17 @@
   transform: rotateY(180deg);
 }
 
+/* =========================================================
+   PHYSICAL CASE
+   ========================================================= */
+
 .face {
   position: absolute;
   inset: 0;
 
   padding: 2.75cqw;
+
+  overflow: hidden;
 
   border: .36cqw solid #9ba7b3;
   border-radius: 8.4cqw;
@@ -48,19 +78,19 @@
   background:
     linear-gradient(
       145deg,
-      #f9fbfc 0%,
-      #dbe2e8 38%,
-      #f6f8f9 68%,
+      #fafcfd 0%,
+      #dbe2e8 37%,
+      #f7f9fa 68%,
       #c8d1d9 100%
     );
 
   box-shadow:
-    0 6.2cqw 12cqw rgba(0,0,0,.26),
-    0 2.3cqw 4.5cqw rgba(0,0,0,.18),
-    inset 0 .65cqw 2.2cqw rgba(255,255,255,.98),
-    inset 0 -1.7cqw 3.6cqw rgba(72,86,102,.14);
-
-  overflow: hidden;
+    0 6.2cqw 12cqw rgba(0, 0, 0, .26),
+    0 2.3cqw 4.5cqw rgba(0, 0, 0, .18),
+    inset 0 .75cqw 2.3cqw rgba(255, 255, 255, .98),
+    inset 0 -1.9cqw 4.1cqw rgba(72, 86, 102, .15),
+    inset .55cqw 0 1.2cqw rgba(255, 255, 255, .22),
+    inset -.55cqw 0 1.1cqw rgba(113, 127, 142, .10);
 
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -71,25 +101,93 @@
   isolation: isolate;
 }
 
+.face::before {
+  content: "";
+
+  position: absolute;
+  inset: 1.1cqw;
+
+  border-radius: 7.2cqw;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 20% 10%,
+      rgba(255, 255, 255, .46),
+      rgba(255, 255, 255, .18) 20%,
+      rgba(255, 255, 255, 0) 48%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, .12) 0%,
+      rgba(255, 255, 255, .05) 18%,
+      transparent 36%,
+      rgba(255, 255, 255, .04) 68%,
+      rgba(255, 255, 255, .08) 100%
+    );
+
+  opacity: .72;
+}
+
+.face::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, .18) 0%,
+      rgba(255, 255, 255, .04) 8%,
+      transparent 18%,
+      transparent 82%,
+      rgba(255, 255, 255, .06) 92%,
+      rgba(255, 255, 255, .16) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, .16),
+      transparent 20%,
+      transparent 76%,
+      rgba(255, 255, 255, .08)
+    );
+
+  opacity: .82;
+}
+
 .frontFace {
-  transform: rotateY(0deg) translateZ(.6px);
-  -webkit-transform: rotateY(0deg) translateZ(.6px);
+  transform:
+    rotateY(0deg)
+    translateZ(.6px);
+
+  -webkit-transform:
+    rotateY(0deg)
+    translateZ(.6px);
 }
 
 .backFace {
-  transform: rotateY(180deg) translateZ(.6px);
-  -webkit-transform: rotateY(180deg) translateZ(.6px);
+  transform:
+    rotateY(180deg)
+    translateZ(.6px);
+
+  -webkit-transform:
+    rotateY(180deg)
+    translateZ(.6px);
 
   /*
-   * Fully opaque reverse construction. This prevents Safari from
-   * compositing the front grade label through the back face.
+   * Fully opaque reverse construction prevents Safari from
+   * compositing the front label through the back.
    */
   background:
     linear-gradient(
       145deg,
-      #f8fafb 0%,
-      #d9e0e6 40%,
-      #f4f7f8 70%,
+      #fafbfc 0%,
+      #d9e0e6 39%,
+      #f5f8f9 70%,
       #c8d0d8 100%
     );
 }
@@ -97,19 +195,20 @@
 .case {
   position: relative;
 
-  height: 100%;
-
   display: grid;
 
   /*
-   * Previous slab used 28% for the header.
-   * The compact manufactured label gives the actual card most
-   * of the physical slab again.
+   * The label is intentionally larger than the previous 20%.
+   * This restores the stronger older-slab header proportions
+   * and gives long identity text room to breathe.
    */
   grid-template-rows:
-    21.5%
+    23.5%
     minmax(0, 1fr)
-    4.4%;
+    4.2%;
+
+  width: 100%;
+  height: 100%;
 
   overflow: hidden;
 
@@ -118,34 +217,78 @@
 
   background: #e8edf1;
 
+  box-shadow:
+    inset 0 .35cqw .8cqw rgba(255, 255, 255, .72),
+    inset 0 -1.2cqw 2.3cqw rgba(69, 82, 96, .08);
+
   isolation: isolate;
+}
+
+.case::before {
+  content: "";
+
+  position: absolute;
+  z-index: 5;
+  inset: 1.2cqw;
+
+  border-radius: 5.8cqw;
+
+  pointer-events: none;
+
+  box-shadow:
+    inset 0 .25cqw .6cqw rgba(255, 255, 255, .55),
+    inset .25cqw 0 .55cqw rgba(255, 255, 255, .30),
+    inset -.25cqw 0 .55cqw rgba(111, 122, 134, .10);
+
+  opacity: .92;
 }
 
 .reflection {
   position: absolute;
-  z-index: 6;
-  inset: 2cqw;
+  z-index: 8;
+  inset: 1.35cqw;
 
-  border-radius: 7cqw;
+  border-radius: 7.1cqw;
 
   pointer-events: none;
 
   background:
     linear-gradient(
       116deg,
-      rgba(255,255,255,.38),
-      rgba(255,255,255,.035) 29%,
-      rgba(255,255,255,.18) 31%,
-      rgba(255,255,255,.018) 57%,
-      rgba(255,255,255,.10) 78%,
-      transparent
+      rgba(255, 255, 255, .58) 0%,
+      rgba(255, 255, 255, .18) 13%,
+      rgba(255, 255, 255, .025) 26%,
+      rgba(255, 255, 255, .30) 31%,
+      rgba(255, 255, 255, .04) 43%,
+      rgba(255, 255, 255, .15) 55%,
+      rgba(255, 255, 255, .025) 63%,
+      transparent 74%
+    ),
+    radial-gradient(
+      ellipse at 18% 11%,
+      rgba(255, 255, 255, .40),
+      rgba(255, 255, 255, .13) 22%,
+      transparent 48%
     );
 
-  /*
-   * Avoid mix-blend-mode here. Safari can incorrectly composite
-   * a blended layer across the two 3D slab faces.
-   */
-  opacity: .64;
+  opacity: var(--slab-glare-main);
+
+  transition:
+    opacity 220ms ease,
+    transform 260ms ease;
+}
+
+.interactive:hover .reflection,
+.interactive:focus-visible .reflection,
+.interactive:active .reflection {
+  opacity: .92;
+
+  transform:
+    translate3d(.4cqw, -.3cqw, 0);
+}
+
+.backFace .reflection {
+  opacity: .62;
 }
 
 /* =========================================================
@@ -153,172 +296,369 @@
    ========================================================= */
 
 .label {
+  --label-scale: 1;
+
   position: relative;
   z-index: 3;
 
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    23cqw;
+
+  gap: 2.25cqw;
+
+  min-width: 0;
   min-height: 0;
 
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
+  align-items: stretch;
 
-  gap: 2.3cqw;
-
-  padding: 2.25cqw 3cqw;
+  padding:
+    1.45cqw
+    2.6cqw
+    1.35cqw;
 
   border-bottom: .28cqw solid #bcc5cd;
 
   background:
     linear-gradient(
       180deg,
-      #fbfcfb 0%,
-      #f1f3f2 100%
+      #fdfdfb 0%,
+      #f3f4f1 100%
     );
 
   color: #171b1e;
 }
 
 .identity {
-  min-width: 0;
-  height: 100%;
-
   display: flex;
+  min-width: 0;
+  min-height: 0;
+
   flex-direction: column;
   justify-content: center;
+
+  overflow: visible;
 }
+
+/* =========================================================
+   VCS BRAND LOCKUP
+   ========================================================= */
 
 .brandLine {
   display: flex;
   align-items: center;
 
-  gap: 1.15cqw;
+  gap: 1.65cqw;
 
-  color: #59616a;
+  min-height: 6.2cqw;
+}
 
-  font-size: 1.95cqw;
+.brandShield {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  flex: 0 0 auto;
+
+  width: 8.2cqw;
+  height: 7.4cqw;
+
+  clip-path:
+    polygon(
+      50% 0%,
+      91% 15%,
+      84% 70%,
+      50% 100%,
+      16% 70%,
+      9% 15%
+    );
+
+  background:
+    linear-gradient(
+      145deg,
+      #87909a 0%,
+      #dce1e4 36%,
+      #606a74 72%,
+      #aeb6bd 100%
+    );
+
+  box-shadow:
+    inset 0 .45cqw .6cqw rgba(255, 255, 255, .8),
+    inset 0 -.55cqw .75cqw rgba(23, 31, 38, .28);
+
+  isolation: isolate;
+}
+
+.brandShield::before {
+  content: "";
+
+  position: absolute;
+  inset: 1cqw;
+
+  clip-path:
+    polygon(
+      50% 0%,
+      91% 15%,
+      84% 70%,
+      50% 100%,
+      16% 70%,
+      9% 15%
+    );
+
+  background:
+    linear-gradient(
+      145deg,
+      #59636d,
+      #89929b
+    );
+
+  opacity: .86;
+}
+
+.brandShield::after {
+  content: "";
+
+  position: absolute;
+  top: 1.2cqw;
+  left: 1.5cqw;
+
+  width: 4.6cqw;
+  height: 1.2cqw;
+
+  transform: rotate(-15deg);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, .34);
+}
+
+.brandShield b {
+  position: relative;
+  z-index: 2;
+
+  transform: translateY(-.1cqw);
+
+  color: #f6f7f5;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 4.6cqw;
+  line-height: 1;
+  font-weight: 700;
+
+  text-shadow:
+    0 .25cqw .4cqw rgba(0, 0, 0, .32);
+}
+
+.brandShield i {
+  position: absolute;
+  z-index: 2;
+
+  bottom: 1.25cqw;
+
+  width: 3.7cqw;
+  height: .32cqw;
+
+  border-radius: 999px;
+
+  background: var(--grade-b);
+
+  box-shadow:
+    0 0 .8cqw
+    color-mix(
+      in srgb,
+      var(--grade-b),
+      transparent 45%
+    );
+}
+
+.brandWordmark {
+  display: flex;
+  min-width: 0;
+
+  flex-direction: column;
+
+  line-height: 1;
+}
+
+.brandWordmark strong {
+  color: #4d545d;
+
+  font-size: calc(
+    5.05cqw *
+    var(--label-scale)
+  );
+
+  line-height: .86;
+  font-weight: 790;
+  letter-spacing: .105em;
+}
+
+.brandWordmark small {
+  margin-top: 1.05cqw;
+
+  color: #717880;
+
+  font-size: calc(
+    1.85cqw *
+    var(--label-scale)
+  );
+
   line-height: 1;
   font-weight: 760;
-  letter-spacing: .145em;
-
-  white-space: nowrap;
+  letter-spacing: .38em;
 }
 
-.vcsMark {
-  color: var(--grade-a);
-
-  font-family: Georgia, "Times New Roman", serif;
-
-  font-size: 3.65cqw;
-  line-height: .9;
-  font-weight: 700;
-  letter-spacing: -.035em;
-}
+/* =========================================================
+   COMPLETE, NON-TRUNCATING IDENTITY
+   ========================================================= */
 
 .player {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-
-  margin-top: 1.35cqw;
-
-  overflow: hidden;
+  margin-top: 1.45cqw;
 
   color: #171a1d;
 
-  font-size: 4.25cqw;
-  line-height: 1.02;
+  font-size: calc(
+    4.15cqw *
+    var(--label-scale)
+  );
+
+  line-height: .99;
   font-weight: 710;
   letter-spacing: -.032em;
+
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .setName {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-
-  margin-top: .75cqw;
-
-  overflow: hidden;
+  margin-top: .8cqw;
 
   color: #515961;
 
-  font-size: 2.65cqw;
-  line-height: 1.12;
-  font-weight: 610;
+  font-size: calc(
+    2.5cqw *
+    var(--label-scale)
+  );
+
+  line-height: 1.08;
+  font-weight: 620;
+
+  overflow-wrap: anywhere;
 }
 
 .cardLine {
-  display: block;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+
+  gap: .35cqw 1cqw;
 
   margin-top: auto;
-  padding-top: .7cqw;
-
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  padding-top: .8cqw;
 
   color: #70777e;
 
-  font-size: 2.2cqw;
-  line-height: 1;
-  font-weight: 580;
+  font-size: calc(
+    2.05cqw *
+    var(--label-scale)
+  );
+
+  line-height: 1.05;
+  font-weight: 590;
+
+  overflow-wrap: anywhere;
+}
+
+.cardLine b {
+  color: #5e6670;
+  font-weight: 720;
+}
+
+.cardLine i {
+  color: #a1a7ac;
+  font-style: normal;
 }
 
 /* =========================================================
    GRADE PLAQUE
+   Taller like the original, filling the header top-to-bottom.
    ========================================================= */
 
 .gradeBlock {
   position: relative;
 
-  flex-shrink: 0;
-
-  width: 21cqw;
-  height: 21cqw;
-
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows:
+    auto
+    minmax(0, 1fr)
+    auto;
+
   place-items: center;
 
-  padding: 2cqw 1cqw;
+  align-self: stretch;
+
+  width: 23cqw;
+  height: 100%;
+  min-height: 0;
+
+  padding:
+    1.55cqw
+    1.15cqw
+    1.45cqw;
 
   overflow: hidden;
 
   border: .38cqw solid
-    color-mix(in srgb, var(--grade-a), #20241f 34%);
+    color-mix(
+      in srgb,
+      var(--grade-a),
+      #20241f 32%
+    );
 
-  border-radius: 4.8cqw;
+  border-radius: 4.75cqw;
 
   color: var(--grade-ink);
 
   background:
     radial-gradient(
-      circle at 32% 20%,
-      rgba(255,255,255,.52),
-      transparent 26%
+      circle at 30% 17%,
+      rgba(255, 255, 255, .60),
+      transparent 25%
     ),
     linear-gradient(
-      142deg,
+      145deg,
       var(--grade-a) 0%,
-      var(--grade-b) 46%,
+      var(--grade-b) 47%,
       var(--grade-c) 100%
     );
 
   box-shadow:
-    0 1.1cqw 2.5cqw
-      color-mix(in srgb, var(--grade-a), transparent 74%),
-    inset 0 0 0 .45cqw rgba(255,255,255,.18),
-    inset 0 .45cqw .7cqw rgba(255,255,255,.32),
-    inset 0 -.5cqw .8cqw rgba(0,0,0,.08);
+    0 1.2cqw 2.7cqw
+      color-mix(
+        in srgb,
+        var(--grade-a),
+        transparent 72%
+      ),
+    0 .45cqw 1.1cqw rgba(0, 0, 0, .12),
+    inset 0 0 0 .5cqw rgba(255, 255, 255, .18),
+    inset 0 .5cqw .8cqw rgba(255, 255, 255, .35),
+    inset 0 -.55cqw .85cqw rgba(0, 0, 0, .09);
 }
 
 .gradeBlock::before {
   content: "";
 
   position: absolute;
-  inset: .7cqw;
+  inset: .72cqw;
 
-  border: .22cqw solid rgba(37,40,34,.22);
+  border: .21cqw solid rgba(37, 40, 34, .23);
   border-radius: 3.7cqw;
 
   pointer-events: none;
@@ -329,11 +669,11 @@
 
   position: absolute;
 
-  top: -16%;
-  left: -45%;
+  top: -15%;
+  left: -42%;
 
-  width: 50%;
-  height: 140%;
+  width: 48%;
+  height: 138%;
 
   transform: skewX(-16deg);
 
@@ -341,11 +681,11 @@
     linear-gradient(
       90deg,
       transparent,
-      rgba(255,255,255,.42),
+      rgba(255, 255, 255, .48),
       transparent
     );
 
-  opacity: .58;
+  opacity: .70;
 }
 
 .gradeBlock > * {
@@ -354,69 +694,117 @@
 }
 
 .gradeBlock span {
-  font-size: 1.8cqw;
+  font-size: 1.85cqw;
   line-height: 1;
 
-  font-weight: 820;
-  letter-spacing: .14em;
+  font-weight: 840;
+  letter-spacing: .15em;
 }
 
 .gradeBlock b {
   align-self: center;
 
-  font-size: 8.6cqw;
-  line-height: .82;
+  font-size: 10.25cqw;
+  line-height: .78;
 
-  font-weight: 770;
+  font-weight: 760;
   letter-spacing: -.075em;
+
+  text-shadow:
+    0 .15cqw .25cqw
+    rgba(255, 255, 255, .2);
 }
 
 .gradeBlock small {
-  max-width: 100%;
+  width: 100%;
 
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  color: var(--grade-ink);
 
-  font-size: 1.55cqw;
-  line-height: 1;
+  font-size: 1.45cqw;
+  line-height: 1.02;
 
-  font-weight: 780;
-  text-transform: uppercase;
+  font-weight: 820;
   letter-spacing: .025em;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  white-space: normal;
 }
 
 /* =========================================================
-   REGISTRY LABEL — OPAQUE REVERSE
+   REVERSE REGISTRY HEADER
    ========================================================= */
 
 .registryLabel {
-  /*
-   * Intentionally opaque and warmer than the front label.
-   * This should read as the reverse registry label, never
-   * transparent plastic.
-   */
+  grid-template-columns:
+    minmax(0, 1fr)
+    9.8cqw
+    23cqw;
+
+  gap: 1.55cqw;
+
   background:
     linear-gradient(
       180deg,
-      #f4f2eb 0%,
+      #f7f5ef 0%,
       #eae7dd 100%
     );
 
-  border-bottom-color: #bbb7aa;
+  border-bottom-color: #b9b6aa;
 }
 
 .registryLabel .brandLine {
-  color: #625f55;
+  min-height: 5.7cqw;
+}
+
+.registryLabel .brandShield {
+  width: 7.4cqw;
+  height: 6.6cqw;
+}
+
+.registryLabel .brandShield b {
+  font-size: 4cqw;
+}
+
+.registryLabel .brandWordmark strong {
+  color: #4d504b;
+
+  font-size: calc(
+    4.4cqw *
+    var(--label-scale)
+  );
+}
+
+.registryLabel .brandWordmark small {
+  color: #716f66;
+
+  font-size: calc(
+    1.55cqw *
+    var(--label-scale)
+  );
 }
 
 .registryLabel .player {
+  margin-top: 1cqw;
+
   color: #181914;
+
+  font-size: calc(
+    3.55cqw *
+    var(--label-scale)
+  );
 }
 
 .registryLabel .setName {
-  -webkit-line-clamp: 1;
+  margin-top: .55cqw;
+
   color: #55574f;
+
+  font-size: calc(
+    2.12cqw *
+    var(--label-scale)
+  );
 }
 
 .registryMeta {
@@ -424,38 +812,198 @@
   align-items: center;
   flex-wrap: wrap;
 
-  gap: .6cqw 1.2cqw;
+  gap: .45cqw 1cqw;
 
   margin-top: auto;
-  padding-top: .6cqw;
+  padding-top: .55cqw;
 
   color: #76756c;
 
-  font-size: 1.75cqw;
+  font-size: calc(
+    1.55cqw *
+    var(--label-scale)
+  );
+
   line-height: 1;
-  font-weight: 670;
-  letter-spacing: .035em;
+  font-weight: 680;
+  letter-spacing: .03em;
 
   text-transform: uppercase;
 }
 
 .registryMeta span + span::before {
   content: "·";
-  margin-right: 1.2cqw;
+
+  margin-right: 1cqw;
+
   color: #a39f92;
 }
 
 .registryPopulation {
-  margin-top: .65cqw;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 
-  color: #4f5048;
+  gap: .45cqw 1cqw;
 
-  font-size: 1.8cqw;
+  margin-top: .6cqw;
+
+  color: #5a5b53;
+
+  font-size: calc(
+    1.62cqw *
+    var(--label-scale)
+  );
+
   line-height: 1;
-  font-weight: 760;
-  letter-spacing: .045em;
+  font-weight: 700;
 
   text-transform: uppercase;
+}
+
+.registryPopulation strong {
+  color: #34362f;
+  font-weight: 830;
+}
+
+.registryPopulation span::before {
+  content: "·";
+
+  margin-right: 1cqw;
+
+  color: #aaa597;
+}
+
+/* =========================================================
+   AUTHENTICITY HOLOGRAM
+   Small security-foil sticker on the reverse label.
+   ========================================================= */
+
+.hologram {
+  position: relative;
+
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 8.7cqw;
+  height: 8.7cqw;
+
+  overflow: hidden;
+
+  border: .22cqw solid rgba(78, 83, 82, .35);
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 30% 22%,
+      rgba(255, 255, 255, .92),
+      transparent 18%
+    ),
+    repeating-conic-gradient(
+      from 17deg,
+      rgba(255, 255, 255, .18) 0deg 8deg,
+      rgba(61, 225, 245, .22) 8deg 16deg,
+      rgba(211, 93, 241, .20) 16deg 24deg,
+      rgba(248, 210, 85, .22) 24deg 32deg,
+      rgba(102, 239, 170, .20) 32deg 40deg
+    ),
+    conic-gradient(
+      from 30deg,
+      #b7f6ff,
+      #d9b9ff,
+      #ffe59e,
+      #a9f6c8,
+      #9ed5ff,
+      #f4bbef,
+      #b7f6ff
+    );
+
+  box-shadow:
+    0 .45cqw 1.15cqw rgba(0, 0, 0, .16),
+    inset 0 0 0 .45cqw rgba(255, 255, 255, .36),
+    inset 0 0 1.8cqw rgba(255, 255, 255, .48);
+
+  filter:
+    saturate(.86)
+    contrast(1.04);
+
+  transform: rotate(-5deg);
+
+  isolation: isolate;
+}
+
+.hologram::before {
+  content: "";
+
+  position: absolute;
+  inset: 1.15cqw;
+
+  border: .18cqw solid rgba(255, 255, 255, .68);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 .22cqw rgba(58, 68, 74, .16),
+    inset 0 0 1.3cqw rgba(255, 255, 255, .48);
+}
+
+.hologram::after {
+  content: "";
+
+  position: absolute;
+
+  top: -20%;
+  left: 18%;
+
+  width: 22%;
+  height: 145%;
+
+  transform: rotate(31deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, .82),
+      transparent
+    );
+
+  opacity: .62;
+}
+
+.hologram span,
+.hologram small {
+  position: relative;
+  z-index: 2;
+
+  color: rgba(44, 50, 52, .78);
+
+  text-shadow:
+    0 .12cqw rgba(255, 255, 255, .75);
+}
+
+.hologram span {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 2.55cqw;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -.05em;
+}
+
+.hologram small {
+  margin-top: .45cqw;
+
+  font-size: .9cqw;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: .12em;
 }
 
 /* =========================================================
@@ -466,12 +1014,16 @@
   position: relative;
   z-index: 1;
 
-  min-height: 0;
-
   display: grid;
   place-items: center;
 
-  padding: 3.3cqw 3.7cqw 3cqw;
+  min-width: 0;
+  min-height: 0;
+
+  padding:
+    2.6cqw
+    3.2cqw
+    2.45cqw;
 
   overflow: hidden;
 
@@ -484,18 +1036,42 @@
     );
 }
 
+.cardBay::before {
+  content: "";
+
+  position: absolute;
+  inset: 1.5cqw 1.6cqw 1.2cqw;
+
+  border-radius: 4.8cqw;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, .22),
+      rgba(255, 255, 255, .09) 18%,
+      transparent 34%,
+      rgba(255, 255, 255, .11) 50%,
+      transparent 67%
+    );
+
+  opacity: .72;
+}
+
 .cardMount {
   position: relative;
-
-  width: 100%;
-  height: 100%;
-  min-width: 0;
-  min-height: 0;
 
   display: grid;
   place-items: center;
 
-  padding: 2.15cqw;
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  padding: 1.6cqw;
 
   overflow: hidden;
 
@@ -511,185 +1087,37 @@
     );
 
   box-shadow:
-    inset 0 1cqw 2.3cqw rgba(0,0,0,.12),
-    inset 0 -.65cqw 1.7cqw rgba(255,255,255,.70);
+    inset 0 1cqw 2.3cqw rgba(0, 0, 0, .12),
+    inset 0 -.65cqw 1.7cqw rgba(255, 255, 255, .70),
+    0 .7cqw 1.3cqw rgba(255, 255, 255, .18);
 }
 
-.cardImage,
-.cardLandscape {
-  display: block;
+.cardMount::before {
+  content: "";
 
-  max-width: 100%;
-  max-height: 100%;
+  position: absolute;
+  inset: 1.1cqw;
 
-  object-fit: contain;
+  border-radius: 3.4cqw;
 
-  background: #fff;
+  pointer-events: none;
 
-  border: .22cqw solid #d2d8de;
+  background:
+    linear-gradient(
+      116deg,
+      rgba(255, 255, 255, .18),
+      rgba(255, 255, 255, .04) 24%,
+      transparent 34%,
+      rgba(255, 255, 255, .12) 46%,
+      transparent 62%
+    );
 
-  box-shadow:
-    0 2cqw 4.3cqw rgba(15,23,42,.20);
-}
-
-.cardImage {
-  width: 100%;
-  height: 100%;
-}
-
-/*
- * Standard card scans that arrive landscape are rotated into
- * the slab while preserving the complete image.
- */
-.cardLandscape {
-  width: auto;
-  height: auto;
-
-  max-width: 142%;
-  max-height: 71.5%;
-
-  transform: rotate(90deg);
-  transform-origin: center;
-}
-
-.noImage {
-  width: 100%;
-  height: 100%;
-
-  display: grid;
-  place-items: center;
-  align-content: center;
-
-  gap: 2cqw;
-
-  border: .34cqw dashed #99a5b0;
-
-  background: #f5f7f8;
-  color: #697480;
-}
-
-.noImage strong {
-  color: #4c5660;
-
-  font-family: Georgia, serif;
-  font-size: 8cqw;
-  line-height: 1;
-}
-
-.noImage span {
-  font-size: 2.3cqw;
-  font-weight: 700;
-  letter-spacing: .09em;
-}
-
-/* =========================================================
-   BOTTOM CERTIFICATION STRIP
-   ========================================================= */
-
-.seal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 1.5cqw;
-
-  border-top: .22cqw solid #bdc5cc;
-
-  background: #e7ecf0;
-  color: #707982;
-
-  font-size: 1.72cqw;
-  line-height: 1;
-  font-weight: 690;
-  letter-spacing: .13em;
-
-  white-space: nowrap;
-}
-
-.seal i {
-  display: block;
-
-  width: .55cqw;
-  height: .55cqw;
-
-  border-radius: 50%;
-
-  background: var(--grade-a);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .rotor {
-    transition: none;
-  }
-}
-
-
-/* =========================================================
-   VCS SLAB CARD FIT V4
-   Preserve the entire sports-card scan inside every slab.
-   ========================================================= */
-
-.shell {
-  /*
-   * Slightly taller, more realistic physical slab.
-   * Header height is reduced proportionally below, so this
-   * additional room goes almost entirely to the card.
-   */
-  aspect-ratio: 2.72 / 4.45;
-}
-
-.shell,
-.shell * {
-  box-sizing: border-box;
-}
-
-.case {
-  /*
-   * Keep the compact label we liked while handing the added
-   * vertical room to the actual collectible.
-   */
-  grid-template-rows:
-    20%
-    minmax(0, 1fr)
-    4.2%;
-}
-
-.cardBay {
-  min-width: 0;
-  min-height: 0;
-
-  padding:
-    2.7cqw
-    3.2cqw
-    2.5cqw;
-}
-
-.cardMount {
-  /*
-   * This is the plastic recess, not the card dimensions.
-   * Keep it within the bay and center a true card viewport
-   * inside it.
-   */
-  width: 100%;
-  height: 100%;
-  min-width: 0;
-  min-height: 0;
-
-  padding: 1.6cqw;
-
-  box-sizing: border-box;
-
-  display: grid;
-  place-items: center;
-
-  overflow: hidden;
+  opacity: .67;
 }
 
 /*
- * Critical fix:
- * The old slab correctly enforced a 2.5 x 3.5 sports-card
- * viewport. Re-establish that here instead of stretching
- * the image to whatever shape happens to remain in the slab.
+ * A real 2.5 × 3.5 card-shaped viewport. The entire scan remains
+ * visible; landscape scans rotate rather than crop.
  */
 .cardViewport {
   position: relative;
@@ -713,17 +1141,14 @@
   background: #fff;
 
   box-shadow:
-    0 2cqw 4.3cqw rgba(15,23,42,.20);
+    0 2cqw 4.3cqw rgba(15, 23, 42, .20);
 }
 
-/*
- * Portrait scan:
- * absolutely fill the CARD-SHAPED viewport and contain the
- * source image. Nothing can be cropped.
- */
 .cardViewport .cardImage {
   position: absolute;
   inset: 0;
+
+  display: block;
 
   width: 100%;
   height: 100%;
@@ -732,7 +1157,6 @@
   max-height: none;
 
   border: 0;
-  box-shadow: none;
 
   object-fit: contain;
   object-position: center;
@@ -740,15 +1164,13 @@
   background: #fff;
 }
 
-/*
- * Landscape scans are rotated exactly as the original slab
- * implementation handled them. The full scan remains visible.
- */
 .cardViewport .cardLandscape {
   position: absolute;
 
   top: 50%;
   left: 50%;
+
+  display: block;
 
   width: 140%;
   height: 71.4286%;
@@ -757,7 +1179,6 @@
   max-height: none;
 
   border: 0;
-  box-shadow: none;
 
   object-fit: contain;
   object-position: center;
@@ -771,266 +1192,93 @@
   background: #fff;
 }
 
+.noImage {
+  display: grid;
+  place-items: center;
+  align-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  gap: 2cqw;
+
+  border: .34cqw dashed #99a5b0;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f7f8f8,
+      #edf1f3
+    );
+
+  color: #697480;
+}
+
+.noImage strong {
+  color: #4c5660;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 8cqw;
+  line-height: 1;
+}
+
+.noImage span {
+  font-size: 2.15cqw;
+  font-weight: 700;
+  letter-spacing: .09em;
+}
 
 /* =========================================================
-   VCS SLAB SHEEN V5
-   Restore a richer, more realistic plastic/glare effect.
+   BOTTOM CERTIFICATION STRIP
    ========================================================= */
 
-.shell {
-  --slab-glare-main: .84;
-  --slab-glare-soft: .34;
-  --slab-edge-glow: .24;
-  --slab-rim-glow: .20;
-}
+.seal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-/*
- * Strengthen the slab shell itself very slightly so the plastic
- * reads as a premium physical object rather than a flat UI card.
- */
-.face {
-  box-shadow:
-    0 6.2cqw 12cqw rgba(0,0,0,.26),
-    0 2.3cqw 4.5cqw rgba(0,0,0,.18),
-    inset 0 .75cqw 2.3cqw rgba(255,255,255,.98),
-    inset 0 -1.9cqw 4.1cqw rgba(72,86,102,.15),
-    inset .55cqw 0 1.2cqw rgba(255,255,255,.22),
-    inset -.55cqw 0 1.1cqw rgba(113,127,142,.10);
-}
+  gap: 1.5cqw;
 
-/*
- * A soft overall glass wash across the slab surface.
- * This is subtle and broad — meant to restore "encased in plastic"
- * realism without obscuring the card.
- */
-.face::before {
-  content: "";
-
-  position: absolute;
-  inset: 1.1cqw;
-
-  border-radius: 7.2cqw;
-
-  pointer-events: none;
+  border-top: .22cqw solid #bdc5cc;
 
   background:
-    radial-gradient(
-      ellipse at 20% 10%,
-      rgba(255,255,255,.46),
-      rgba(255,255,255,.18) 20%,
-      rgba(255,255,255,0) 48%
-    ),
     linear-gradient(
       180deg,
-      rgba(255,255,255,.12) 0%,
-      rgba(255,255,255,.05) 18%,
-      rgba(255,255,255,0) 36%,
-      rgba(255,255,255,.04) 68%,
-      rgba(255,255,255,.08) 100%
+      #edf1f4,
+      #e3e9ed
     );
 
-  opacity: .72;
+  color: #707982;
+
+  font-size: 1.62cqw;
+  line-height: 1;
+  font-weight: 690;
+  letter-spacing: .13em;
+
+  white-space: nowrap;
 }
 
-/*
- * Edge flare and side highlights help the outer shell feel like
- * molded plastic rather than a flat illustrated border.
- */
-.face::after {
-  content: "";
+.seal i {
+  display: block;
 
-  position: absolute;
-  inset: 0;
+  width: .55cqw;
+  height: .55cqw;
 
-  pointer-events: none;
+  border-radius: 50%;
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,.18) 0%,
-      rgba(255,255,255,.04) 8%,
-      rgba(255,255,255,0) 18%,
-      rgba(255,255,255,0) 82%,
-      rgba(255,255,255,.06) 92%,
-      rgba(255,255,255,.16) 100%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.16) 0%,
-      rgba(255,255,255,0) 20%,
-      rgba(255,255,255,0) 76%,
-      rgba(255,255,255,.08) 100%
-    );
-
-  opacity: .82;
+  background: var(--grade-a);
 }
 
-.case {
-  box-shadow:
-    inset 0 .35cqw .8cqw rgba(255,255,255,.72),
-    inset 0 -1.2cqw 2.3cqw rgba(69,82,96,.08);
-}
+@media (prefers-reduced-motion: reduce) {
+  .rotor {
+    transition: none;
+  }
 
-/*
- * Additional inner-shell rim highlight around the slab contents.
- */
-.case::before {
-  content: "";
-
-  position: absolute;
-  inset: 1.2cqw;
-
-  border-radius: 5.8cqw;
-  pointer-events: none;
-
-  box-shadow:
-    inset 0 .25cqw .6cqw rgba(255,255,255,.55),
-    inset .25cqw 0 .55cqw rgba(255,255,255,.30),
-    inset -.25cqw 0 .55cqw rgba(111,122,134,.10);
-
-  opacity: .95;
-}
-
-/*
- * This is the main visible reflection layer. Make it more believable:
- * one bold diagonal streak, one soft bloom, and one faint surface wash.
- * Still no blend modes, to avoid Safari reverse-side artifacts.
- */
-.reflection {
-  inset: 1.35cqw;
-  border-radius: 7.1cqw;
-
-  background:
-    linear-gradient(
-      116deg,
-      rgba(255,255,255,.62) 0%,
-      rgba(255,255,255,.20) 13%,
-      rgba(255,255,255,.03) 26%,
-      rgba(255,255,255,.34) 31%,
-      rgba(255,255,255,.05) 43%,
-      rgba(255,255,255,.18) 55%,
-      rgba(255,255,255,.03) 63%,
-      transparent 74%
-    ),
-    radial-gradient(
-      ellipse at 18% 11%,
-      rgba(255,255,255,.45) 0%,
-      rgba(255,255,255,.16) 22%,
-      rgba(255,255,255,0) 48%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.09) 0%,
-      rgba(255,255,255,.02) 24%,
-      rgba(255,255,255,0) 46%,
-      rgba(255,255,255,.05) 82%,
-      rgba(255,255,255,.08) 100%
-    );
-
-  opacity: var(--slab-glare-main);
-  filter: saturate(1.02);
-
-  transition:
-    opacity 220ms ease,
-    transform 260ms ease;
-}
-
-/*
- * Slight interaction bump so the light feels alive when the slab
- * is tapped/hovered/focused, without requiring new JS.
- */
-.interactive:hover .reflection,
-.interactive:focus-visible .reflection,
-.interactive:active .reflection {
-  opacity: .96;
-  transform: translate3d(.45cqw, -.35cqw, 0);
-}
-
-.cardBay::before {
-  content: "";
-
-  position: absolute;
-  inset: 1.5cqw 1.6cqw 1.2cqw 1.6cqw;
-
-  border-radius: 4.8cqw;
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      120deg,
-      rgba(255,255,255,.22) 0%,
-      rgba(255,255,255,.09) 18%,
-      rgba(255,255,255,0) 34%,
-      rgba(255,255,255,.11) 50%,
-      rgba(255,255,255,0) 67%
-    );
-
-  opacity: .78;
-}
-
-/*
- * Restore a bit more realism around the card recess itself.
- */
-.cardMount {
-  box-shadow:
-    inset 0 1cqw 2.3cqw rgba(0,0,0,.12),
-    inset 0 -.65cqw 1.7cqw rgba(255,255,255,.70),
-    0 .7cqw 1.3cqw rgba(255,255,255,.18);
-}
-
-.cardMount::before {
-  content: "";
-
-  position: absolute;
-  inset: 1.1cqw;
-
-  border-radius: 3.4cqw;
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      116deg,
-      rgba(255,255,255,.18),
-      rgba(255,255,255,.04) 24%,
-      rgba(255,255,255,0) 34%,
-      rgba(255,255,255,.12) 46%,
-      rgba(255,255,255,0) 62%
-    );
-
-  opacity: .72;
-}
-
-.gradeBlock {
-  box-shadow:
-    0 1.1cqw 2.5cqw color-mix(in srgb, var(--grade-a), transparent 74%),
-    0 .4cqw 1.1cqw rgba(0,0,0,.10),
-    inset 0 0 0 .45cqw rgba(255,255,255,.18),
-    inset 0 .45cqw .7cqw rgba(255,255,255,.32),
-    inset 0 -.5cqw .8cqw rgba(0,0,0,.08);
-}
-
-/*
- * A little extra foil-like movement on the grade plaque.
- */
-.gradeBlock::after {
-  top: -14%;
-  left: -40%;
-
-  width: 46%;
-  height: 136%;
-
-  opacity: .72;
-}
-
-/*
- * Keep the reverse glossy too, but slightly calmer than the front.
- */
-.backFace .reflection {
-  opacity: .68;
-}
-
-.backFace.interactive:hover .reflection,
-.backFace.interactive:focus-visible .reflection,
-.backFace.interactive:active .reflection {
-  opacity: .80;
+  .reflection {
+    transition: none;
+  }
 }

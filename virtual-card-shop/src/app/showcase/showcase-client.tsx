@@ -1558,6 +1558,9 @@ export default function ShowcaseClient() {
                               imageUrl={
                                 card.frontImageUrl
                               }
+                              registry={{
+                                cardId: card.cardId,
+                              }}
                             />
                           </div>
                         ) : (

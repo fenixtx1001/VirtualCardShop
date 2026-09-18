@@ -820,11 +820,7 @@ function GalleryTile({
 }) {
   return (
     <article className="slabs-tile">
-      <button
-        className="slabs-display"
-        onClick={onOpen}
-        aria-label={`View ${row.player} VCS ${row.grade} slab`}
-      >
+      <div className="slabs-display">
         <span className="slabs-spotlight" />
 
         <span className="slabs-object">
@@ -842,7 +838,7 @@ function GalleryTile({
             }}
           />
         </span>
-      </button>
+      </div>
 
       <div className="slabs-tile-copy">
         <h3>{row.player}</h3>
@@ -863,6 +859,15 @@ function GalleryTile({
             <span>VCS {row.grade}</span>
           )}
         </div>
+
+        <button
+          type="button"
+          className="slabs-tile-open"
+          onClick={onOpen}
+        >
+          Open gallery
+          <Icon kind="arrow" />
+        </button>
       </div>
     </article>
   );

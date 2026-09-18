@@ -802,6 +802,9 @@ function InteractiveRevealSlab({
           valueCents={result.valueCents}
           quantity={result.quantity}
           imageUrl={payload.card.frontImageUrl}
+          registry={{
+            cardId: payload.card.id,
+          }}
         />
 
         <div

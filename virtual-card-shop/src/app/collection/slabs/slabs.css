@@ -2040,3 +2040,66 @@ body:has(.slabs-shell) {
     z-index: 3 !important;
   }
 }
+
+/* === UNIVERSAL SLAB FLIP GRID START === */
+
+.slabs-display {
+  cursor: default;
+}
+
+.slabs-tile-open {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  min-height: 34px;
+
+  margin-top: 9px;
+  padding: 4px 0;
+
+  border: 0;
+
+  background: transparent;
+  color: var(--slab-gold);
+
+  font-size: 10px;
+  font-weight: 560;
+
+  cursor: pointer;
+}
+
+.slabs-tile-open svg {
+  width: 13px;
+  height: 13px;
+}
+
+.slabs-tile-open:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/*
+ * The slab itself is now the interactive object.
+ * Hover elevation belongs to the slab, not the surrounding
+ * gallery panel.
+ */
+.slabs-display:hover .slabs-object {
+  transform: none;
+}
+
+.slabs-object:hover {
+  transform: translateY(-3px);
+
+  filter:
+    drop-shadow(0 25px 22px rgba(0,0,0,.34))
+    drop-shadow(0 9px 8px rgba(0,0,0,.23));
+}
+
+@media (max-width: 680px) {
+  .slabs-tile-open {
+    min-height: 38px;
+  }
+}
+
+/* === UNIVERSAL SLAB FLIP GRID END === */

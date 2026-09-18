@@ -1440,6 +1440,20 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                         valueCents={selectedSlab.valueCents}
                         quantity={selectedSlab.quantity}
                         imageUrl={frontUrl}
+                        backImageUrl={backUrl}
+                        registry={{
+                          cardId: c.id,
+                          atGrade:
+                            data.population.gradeBreakdown.find(
+                              (bucket) =>
+                                bucket.grade ===
+                                selectedSlab.grade
+                            )?.quantity ?? null,
+                          totalGraded:
+                            data.population.graded ?? null,
+                          totalOwned:
+                            data.population.totalOwned ?? null,
+                        }}
                       />
                     </div>
                   ) : !hasAnyImage ? (
