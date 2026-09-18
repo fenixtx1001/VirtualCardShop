@@ -172,8 +172,11 @@ ODDS_TEXT = re.compile(
     re.IGNORECASE,
 )
 
+# TCDB occasionally concatenates repeated annotations in the displayed subject,
+# e.g. "Darrin Fletcher VARVAR: No code...". Treat repeated core metadata
+# markers as metadata just like a normal single VAR/ERR/COR/UER marker.
 META_START = re.compile(
-    r"(?:^|\s)(?=(?:RC|ERR|COR|UER|VAR|RB|MGR|TL|FRDP|FS|ASR|AS|"
+    r"(?:^|\s)(?=(?:(?:RC|ERR|COR|UER|VAR)+|RB|MGR|TL|FRDP|FS|ASR|AS|"
     r"LL|CL|DP|TBC|FTC|MG|CAPT|SP|AU|MEM|CUT|EXCH|RDM|PR\d+|SN\d+)\b)",
     re.IGNORECASE,
 )
