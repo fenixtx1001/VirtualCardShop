@@ -298,9 +298,17 @@ function GradePlaque({
 }) {
   return (
     <div className={styles.gradeBlock}>
-      <span>VCS</span>
-      <b>{grade}</b>
-      <small>{gradeLabel(grade)}</small>
+      <div className={styles.gradeTopBand}>
+        <span>VCS</span>
+      </div>
+
+      <div className={styles.gradeField}>
+        <b>{grade}</b>
+      </div>
+
+      <div className={styles.gradeBottomBand}>
+        <small>{gradeLabel(grade)}</small>
+      </div>
     </div>
   );
 }

@@ -1659,3 +1659,433 @@
 }
 
 /* === VCS LABEL AUTHORITY PASS END === */
+
+/* === VCS PLAQUE OVERHAUL PASS START === */
+
+/*
+ * This is the first truly structural pass on the certification
+ * label. The slab body, slab dimensions, and plaque dimensions
+ * all remain unchanged.
+ *
+ * Goals:
+ * - eliminate the “floating text in empty space” feeling
+ * - make the plaque read like a real manufactured grade plate
+ * - tighten the left label so it feels printed and intentional
+ * - rival PSA/BGS authority while staying cleaner and more modern
+ */
+
+/* =========================================================
+   FRONT HEADER TIGHTENING
+   ========================================================= */
+
+.frontFace .label {
+  gap: 1.95cqw;
+
+  padding:
+    1.02cqw
+    2.15cqw
+    1.02cqw;
+}
+
+.frontFace .identity {
+  justify-content: flex-start;
+  min-height: 0;
+}
+
+.frontFace .brandLine {
+  min-height: 5.5cqw;
+  gap: 1.2cqw;
+}
+
+.frontFace .brandShield {
+  width: 7.2cqw;
+  height: 6.55cqw;
+}
+
+.frontFace .brandShield b {
+  font-size: 4.08cqw;
+}
+
+.frontFace .brandShield i {
+  bottom: 1.06cqw;
+  width: 3.15cqw;
+}
+
+.frontFace .brandWordmark strong {
+  color: #4d545d;
+
+  font-size: calc(
+    4.48cqw *
+    var(--label-scale)
+  );
+
+  line-height: .88;
+  font-weight: 820;
+  letter-spacing: .075em;
+}
+
+.frontFace .brandWordmark small {
+  margin-top: .42cqw;
+
+  color: #6f7780;
+
+  font-size: calc(
+    1.62cqw *
+    var(--label-scale)
+  );
+
+  line-height: 1;
+  font-weight: 810;
+  letter-spacing: .27em;
+}
+
+.frontFace .player {
+  margin-top: .75cqw;
+
+  color: #22262b;
+
+  font-size: calc(
+    4.52cqw *
+    var(--label-scale)
+  );
+
+  line-height: .96;
+  font-weight: 760;
+  letter-spacing: -.03em;
+}
+
+.frontFace .setName {
+  margin-top: .34cqw;
+
+  color: #59616a;
+
+  font-size: calc(
+    2.62cqw *
+    var(--label-scale)
+  );
+
+  line-height: 1.02;
+  font-weight: 640;
+}
+
+.frontFace .cardLine {
+  width: 100%;
+
+  margin-top: .72cqw;
+  padding-top: .58cqw;
+
+  border-top:
+    .16cqw solid
+    rgba(105, 112, 119, .18);
+
+  color: #737a81;
+
+  font-size: calc(
+    2.14cqw *
+    var(--label-scale)
+  );
+
+  line-height: 1;
+  font-weight: 610;
+}
+
+.frontFace .cardLine b {
+  color: #666e77;
+  font-weight: 760;
+}
+
+.frontFace .cardLine i {
+  color: #a1a8ae;
+}
+
+/* =========================================================
+   GRADE PLAQUE — REAL INTERNAL ARCHITECTURE
+   ========================================================= */
+
+.gradeBlock {
+  /*
+   * SAME OUTER SIZE.
+   * Only the internal composition changes.
+   */
+  display: grid;
+  grid-template-rows:
+    3.25cqw
+    minmax(0, 1fr)
+    3.4cqw;
+
+  padding: .56cqw;
+  row-gap: .34cqw;
+
+  overflow: hidden;
+
+  border: .38cqw solid
+    color-mix(
+      in srgb,
+      var(--grade-a),
+      #20241f 32%
+    );
+
+  border-radius: 4.75cqw;
+
+  background:
+    radial-gradient(
+      circle at 28% 15%,
+      rgba(255, 255, 255, .60),
+      transparent 22%
+    ),
+    linear-gradient(
+      145deg,
+      var(--grade-a) 0%,
+      var(--grade-b) 48%,
+      var(--grade-c) 100%
+    );
+
+  box-shadow:
+    0 1.2cqw 2.7cqw
+      color-mix(
+        in srgb,
+        var(--grade-a),
+        transparent 72%
+      ),
+    0 .45cqw 1.1cqw rgba(0, 0, 0, .12),
+    inset 0 0 0 .48cqw rgba(255, 255, 255, .18),
+    inset 0 .48cqw .76cqw rgba(255, 255, 255, .34),
+    inset 0 -.55cqw .85cqw rgba(0, 0, 0, .09);
+}
+
+.gradeBlock::before {
+  content: "";
+
+  position: absolute;
+  inset: .58cqw;
+
+  border:
+    .2cqw solid
+    rgba(37, 40, 34, .22);
+
+  border-radius: 3.92cqw;
+
+  pointer-events: none;
+
+  box-shadow:
+    inset 0 .12cqw .24cqw rgba(255, 255, 255, .22),
+    inset 0 -.12cqw .24cqw rgba(0, 0, 0, .07);
+}
+
+.gradeBlock::after {
+  content: "";
+
+  position: absolute;
+
+  top: -12%;
+  left: -39%;
+
+  width: 42%;
+  height: 132%;
+
+  transform: skewX(-15deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, .46),
+      transparent
+    );
+
+  opacity: .62;
+}
+
+/*
+ * The three zones below are the key to solving the dead-space
+ * problem. They should read like intentional sections of a
+ * manufactured grading plate.
+ */
+
+.gradeTopBand,
+.gradeField,
+.gradeBottomBand {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+}
+
+.gradeTopBand {
+  align-self: start;
+
+  min-height: 2.7cqw;
+  padding: 0 .9cqw;
+
+  border:
+    .14cqw solid
+    rgba(62, 66, 57, .18);
+
+  border-bottom-color:
+    rgba(42, 45, 40, .24);
+
+  border-radius: 3.1cqw 3.1cqw 2.35cqw 2.35cqw;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, .26) 0%,
+      rgba(255, 255, 255, .09) 100%
+    );
+
+  box-shadow:
+    inset 0 .12cqw .2cqw rgba(255, 255, 255, .18),
+    inset 0 -.16cqw .22cqw rgba(0, 0, 0, .06);
+}
+
+.gradeTopBand span {
+  color: var(--grade-ink);
+
+  font-size: 2.45cqw;
+  line-height: 1;
+
+  font-weight: 890;
+  letter-spacing: .1em;
+
+  text-shadow:
+    0 .1cqw .12cqw
+      rgba(255, 255, 255, .18);
+}
+
+.gradeField {
+  min-height: 0;
+  flex: 1 1 auto;
+
+  border-radius: 3.18cqw;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, .06),
+      rgba(255, 255, 255, .015) 28%,
+      rgba(22, 24, 21, .035) 100%
+    );
+
+  box-shadow:
+    inset 0 .16cqw .26cqw rgba(255, 255, 255, .10),
+    inset 0 -.24cqw .34cqw rgba(0, 0, 0, .05);
+}
+
+.gradeField b {
+  color: var(--grade-ink);
+
+  margin:
+    -.08cqw
+    0
+    0;
+
+  font-family:
+    var(
+      --font-sans,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif
+    );
+
+  font-size: 14cqw;
+  line-height: .68;
+
+  font-weight: 780;
+  letter-spacing: -.085em;
+
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+
+  text-shadow:
+    0 .16cqw .24cqw rgba(255, 255, 255, .16),
+    0 .16cqw .24cqw rgba(0, 0, 0, .06);
+}
+
+.gradeBottomBand {
+  align-self: end;
+
+  min-height: 2.82cqw;
+  padding: 0 .9cqw;
+
+  border:
+    .14cqw solid
+    rgba(62, 66, 57, .20);
+
+  border-top-color:
+    rgba(43, 45, 40, .28);
+
+  border-radius: 2.4cqw 2.4cqw 3.3cqw 3.3cqw;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(29, 31, 27, .035) 0%,
+      rgba(19, 21, 18, .10) 100%
+    );
+
+  box-shadow:
+    inset 0 .08cqw .16cqw rgba(255, 255, 255, .10),
+    inset 0 -.14cqw .24cqw rgba(0, 0, 0, .07);
+}
+
+.gradeBottomBand small {
+  color: var(--grade-ink);
+
+  font-size: 2.02cqw;
+  line-height: 1;
+
+  font-weight: 890;
+  letter-spacing: .012em;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  text-shadow:
+    0 .09cqw .11cqw
+      rgba(255, 255, 255, .14);
+}
+
+/* =========================================================
+   REVERSE PLAQUE — SAME AUTHORITY ON THE BACK
+   ========================================================= */
+
+.registryLabel .gradeBlock {
+  align-self: stretch;
+}
+
+/* =========================================================
+   SMALL CONTEXTS
+   Keep micro-slabs from looking faint in Showcase-style grids.
+   ========================================================= */
+
+@container (max-width: 230px) {
+  .frontFace .brandWordmark strong {
+    font-weight: 840;
+  }
+
+  .frontFace .player {
+    font-weight: 780;
+  }
+
+  .gradeTopBand span {
+    font-weight: 900;
+  }
+
+  .gradeField b {
+    font-weight: 800;
+  }
+
+  .gradeBottomBand small {
+    font-weight: 900;
+  }
+}
+
+/* === VCS PLAQUE OVERHAUL PASS END === */
