@@ -595,10 +595,15 @@
   position: relative;
 
   display: grid;
+
+  /*
+   * Keep the plaque itself exactly the same size.
+   * Give the numeral nearly all of the internal vertical space.
+   */
   grid-template-rows:
-    auto
+    2.05cqw
     minmax(0, 1fr)
-    auto;
+    2.15cqw;
 
   place-items: center;
 
@@ -609,9 +614,11 @@
   min-height: 0;
 
   padding:
-    1.55cqw
-    1.15cqw
-    1.45cqw;
+    1.05cqw
+    .9cqw
+    1.05cqw;
+
+  row-gap: .18cqw;
 
   overflow: hidden;
 
@@ -694,21 +701,41 @@
 }
 
 .gradeBlock span {
-  font-size: 1.85cqw;
+  align-self: start;
+
+  font-size: 1.62cqw;
   line-height: 1;
 
   font-weight: 840;
-  letter-spacing: .15em;
+  letter-spacing: .16em;
 }
 
 .gradeBlock b {
+  /*
+   * The grade is the hero of the plaque.
+   *
+   * Larger actual type — no transform, scaleX, font-stretch,
+   * or other distortion. This keeps 6/7/8/9/10 beautiful and
+   * naturally proportioned.
+   */
   align-self: center;
 
-  font-size: 10.25cqw;
-  line-height: .78;
+  margin:
+    -.45cqw
+    0
+    -.3cqw;
 
-  font-weight: 760;
-  letter-spacing: -.075em;
+  font-family:
+    var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+
+  font-size: 13.6cqw;
+  line-height: .72;
+
+  font-weight: 775;
+  letter-spacing: -.085em;
+
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
 
   text-shadow:
     0 .15cqw .25cqw
@@ -716,20 +743,22 @@
 }
 
 .gradeBlock small {
+  align-self: end;
+
   width: 100%;
 
   color: var(--grade-ink);
 
-  font-size: 1.45cqw;
-  line-height: 1.02;
+  font-size: 1.25cqw;
+  line-height: 1;
 
-  font-weight: 820;
-  letter-spacing: .025em;
+  font-weight: 830;
+  letter-spacing: .035em;
 
   text-align: center;
   text-transform: uppercase;
 
-  white-space: normal;
+  white-space: nowrap;
 }
 
 /* =========================================================
