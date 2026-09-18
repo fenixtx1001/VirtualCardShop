@@ -93,6 +93,12 @@ EXPECTED_TOTAL = sum(EXPECTED_COUNTS.values())
 EXPECTED_PRODUCT_SETS = len(EXPECTED_COUNTS)
 EXPECTED_TRUE_RCS = 30
 
+# Published set structure: every base rookie #91-120 is serial numbered.
+# Unsigned rookies are /3500; signed rookies are /2500 except these five /500.
+# TCDB's checklist display currently omits the SN annotation on two rookie rows,
+# so the generator fills the known serial tier when the source row omits it.
+ROOKIE_SN500_NUMBERS = {92, 93, 96, 98, 103}
+
 
 class RowParser(HTMLParser):
     def __init__(self) -> None:
@@ -268,6 +274,30 @@ def variant_text(*parts: str) -> str:
     return "; ".join(seen)
 
 
+def expected_rookie_serial(number: int, variant: str) -> str:
+    if number in ROOKIE_SN500_NUMBERS:
+        return "SN500"
+    if re.search(r"\bAU\b", variant, re.IGNORECASE):
+        return "SN2500"
+    return "SN3500"
+
+
+def normalize_rookie_serial(number: int, variant: str) -> str:
+    expected = expected_rookie_serial(number, variant)
+    source_serials = re.findall(r"\bSN\d+\b", variant, re.IGNORECASE)
+
+    if source_serials:
+        normalized = {serial.upper() for serial in source_serials}
+        if normalized != {expected}:
+            raise SystemExit(
+                f"Base #{number}: source serial metadata {sorted(normalized)} "
+                f"conflicts with published SPx rookie tier {expected}"
+            )
+        return variant
+
+    return variant_text(variant, expected)
+
+
 def load_true_rc_numbers() -> set[int]:
     rookie_numbers: set[int] = set()
 
@@ -312,9 +342,13 @@ def build_base_rows(true_rcs: set[int]) -> list[list[str]]:
     for number in range(1, 121):
         raw_name, team = cards[number]
         player, source_notes = clean_player_and_notes(raw_name)
+        variant = variant_text(source_notes)
 
         if number in true_rcs:
             player = f"{player} RC"
+
+        if 91 <= number <= 120:
+            variant = normalize_rookie_serial(number, variant)
 
         if not team:
             raise SystemExit(f"Base #{number} {player} is missing team data")
@@ -326,7 +360,7 @@ def build_base_rows(true_rcs: set[int]) -> list[list[str]]:
                 player,
                 team,
                 "Rookie" if 91 <= number <= 120 else "",
-                variant_text(source_notes),
+                variant,
             ]
         )
 
@@ -457,6 +491,15 @@ def validate_base_metadata(rows: list[list[str]]) -> None:
         raise SystemExit(
             f"Expected 20 autographed base rookie cards, found {len(autograph_rookies)}"
         )
+
+    for number in range(91, 121):
+        row = base[number]
+        expected_sn = expected_rookie_serial(number, row[5])
+        if expected_sn not in row[5]:
+            raise SystemExit(
+                f"Base #{number} serial normalization failed: {row}; "
+                f"expected {expected_sn}"
+            )
 
     checks = {
         91: ("Elton Brand RC", "SN3500"),
