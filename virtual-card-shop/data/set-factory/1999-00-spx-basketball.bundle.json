@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/2848/1999-00-SPx",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/2848/1999-00-SPx",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/2848/1999-00-SPx",
+    "note": "1999-00 SPx Basketball hobby product. The 120-card flagship checklist remains one collector-facing VCS Base ProductSet. All TCDB-listed pack insert families and both full parallels are modeled. Winning Materials autograph variants are split from the ordinary Winning Materials checklist so the published 1:252 odds are not incorrectly applied to the signed cards. The five-copy Michael Jordan Master Collection redemption is also modeled as a pack outcome from sealed-box documentation even though TCDB does not list it as a normal insert checklist."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Hobby: 4 cards per pack, 18 packs per box.",
+    "collectorChecklistIntegrity": "Base #1-120 remains one VCS Base ProductSet. Cards #91-120 are recognized RCs with card-specific serial/autograph metadata, but VCS intentionally flattens range/card-specific base scarcity so completion percentage reflects the full 120-card set.",
+    "trueRookieNaming": "True RC status is taken from the TCDB rookie-card index. Only verified base RCs get RC appended to Player.",
+    "cleanPlayerNames": "Player contains only the clean card subject name plus verified RC when applicable. AU, MEM, SN/PR, VAR and related collector annotations stay in Variant.",
+    "oddsPlacement": "Verified pack odds live only on ProductSets. No card Variant contains set-wide 1:N odds.",
+    "parallelOdds": "Radiance is SN100 and Spectrum is SN1, but no reliable standalone pack rates were found. Their oddsPerPack values remain null rather than inferring odds from print runs.",
+    "winningMaterialsModeling": "The eight ordinary Winning Materials cards are a 1:252 ProductSet. Michael Jordan WM1a (AU/MEM/SN23) and Karl Malone WM2a (AU/MEM/SN32) are separated into Winning Materials Autographs with oddsPerPack null because the 1:252 rate applies to the ordinary Winning Materials insert family, not a verified autograph rate.",
+    "redemptionModeling": "One Michael Jordan Master Collection Redemption card is modeled as its own one-card insert with PR5 metadata. No per-pack odds are invented for the five-copy redemption.",
+    "releaseSafety": "Product remains unreleased until images, pricing and any null pack odds intended for gameplay are reviewed."
+  },
+  "product": {
+    "id": "1999_00_SPx_Basketball",
+    "year": 1999,
+    "brand": "SPx",
+    "sport": "Basketball",
+    "cardsPerPack": 4,
+    "packsPerBox": 18,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1999-00-spx-basketball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1999_00_SPx_Basketball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2848/1999-00-SPx",
+      "expectedCards": 120,
+      "notes": "Complete flagship checklist #1-120. #91-120 are recognized RCs and retain source AU/SN metadata in Variant; all 120 have equal VCS Base availability for collector completion integrity."
+    },
+    {
+      "key": "radiance",
+      "id": "1999_00_SPx_Basketball_Radiance",
+      "name": "Radiance",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/26335/1999-00-SPx---Radiance",
+      "expectedCards": 120,
+      "notes": "Full 120-card parallel, SN100. Published pack rate not verified; no inferred odds."
+    },
+    {
+      "key": "spectrum",
+      "id": "1999_00_SPx_Basketball_Spectrum",
+      "name": "Spectrum",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/26336/1999-00-SPx---Spectrum",
+      "expectedCards": 120,
+      "notes": "Full 120-card one-of-one parallel, SN1. Published pack rate not verified; no inferred odds."
+    },
+    {
+      "key": "decade-of-jordan",
+      "id": "1999_00_SPx_Basketball_Decade_of_Jordan",
+      "name": "Decade of Jordan",
+      "kind": "INSERT",
+      "oddsPerPack": 9,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2849/1999-00-SPx---Decade-of-Jordan",
+      "expectedCards": 10,
+      "notes": "10-card Michael Jordan insert, inserted 1:9 packs."
+    },
+    {
+      "key": "masters",
+      "id": "1999_00_SPx_Basketball_Masters",
+      "name": "Masters",
+      "kind": "INSERT",
+      "oddsPerPack": 17,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/26333/1999-00-SPx---Masters",
+      "expectedCards": 15,
+      "notes": "15-card insert, inserted 1:17 packs."
+    },
+    {
+      "key": "prolifics",
+      "id": "1999_00_SPx_Basketball_Prolifics",
+      "name": "Prolifics",
+      "kind": "INSERT",
+      "oddsPerPack": 17,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/26334/1999-00-SPx---Prolifics",
+      "expectedCards": 15,
+      "notes": "15-card insert, inserted 1:17 packs."
+    },
+    {
+      "key": "spxcitement",
+      "id": "1999_00_SPx_Basketball_SPxcitement",
+      "name": "SPxcitement",
+      "kind": "INSERT",
+      "oddsPerPack": 3,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/26337/1999-00-SPx---SPxcitement",
+      "expectedCards": 20,
+      "notes": "20-card insert, inserted 1:3 packs."
+    },
+    {
+      "key": "spxtreme",
+      "id": "1999_00_SPx_Basketball_SPxtreme",
+      "name": "SPxtreme",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/26338/1999-00-SPx---SPxtreme",
+      "expectedCards": 20,
+      "notes": "20-card insert, inserted 1:6 packs."
+    },
+    {
+      "key": "starscape",
+      "id": "1999_00_SPx_Basketball_Starscape",
+      "name": "Starscape",
+      "kind": "INSERT",
+      "oddsPerPack": 9,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/26339/1999-00-SPx---Starscape",
+      "expectedCards": 10,
+      "notes": "10-card insert, inserted 1:9 packs."
+    },
+    {
+      "key": "winning-materials",
+      "id": "1999_00_SPx_Basketball_Winning_Materials",
+      "name": "Winning Materials",
+      "kind": "INSERT",
+      "oddsPerPack": 252,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2850/1999-00-SPx---Winning-Materials",
+      "expectedCards": 8,
+      "notes": "Eight ordinary memorabilia cards, inserted 1:252 packs. WM3 and WM7 do not exist. The two autograph variants are modeled separately."
+    },
+    {
+      "key": "winning-materials-autographs",
+      "id": "1999_00_SPx_Basketball_Winning_Materials_Autographs",
+      "name": "Winning Materials Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2850/1999-00-SPx---Winning-Materials",
+      "expectedCards": 2,
+      "notes": "Michael Jordan WM1a AU/MEM/SN23 and Karl Malone WM2a AU/MEM/SN32. No standalone autograph pack rate is encoded."
+    },
+    {
+      "key": "master-collection-redemption",
+      "id": "1999_00_SPx_Basketball_Master_Collection_Redemption",
+      "name": "Michael Jordan Master Collection Redemption",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://sports.ha.com/c/catalog-print.zx?ic5=CatalogHome-AucType-PrintableCatalog-071515&saleNo=70014",
+      "expectedCards": 1,
+      "notes": "Pack-inserted Michael Jordan Master Collection redemption; sealed-box documentation reports only five total redemption cards. No unsupported per-pack rate is inferred."
+    }
+  ]
+}
