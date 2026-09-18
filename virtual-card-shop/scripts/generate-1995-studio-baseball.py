@@ -16,25 +16,11 @@ GOLD_URL = "https://www.tcdb.com/Checklist.cfm/sid/587/1995-Studio-Gold"
 PLATINUM_URL = "https://www.tcdb.com/Checklist.cfm/sid/588/1995-Studio-Platinum"
 
 SOURCES = [
-    {
-        "key": "gold",
-        "url": GOLD_URL,
-        "expected": 50,
-        "subset": "Gold",
-    },
-    {
-        "key": "platinum",
-        "url": PLATINUM_URL,
-        "expected": 25,
-        "subset": "Platinum",
-    },
+    {"key": "gold", "url": GOLD_URL, "expected": 50, "subset": "Gold"},
+    {"key": "platinum", "url": PLATINUM_URL, "expected": 25, "subset": "Platinum"},
 ]
 
-EXPECTED_COUNTS = {
-    "base": 200,
-    "gold": 50,
-    "platinum": 25,
-}
+EXPECTED_COUNTS = {"base": 200, "gold": 50, "platinum": 25}
 EXPECTED_TOTAL = sum(EXPECTED_COUNTS.values())
 EXPECTED_PRODUCT_SETS = len(EXPECTED_COUNTS)
 EXPECTED_TRUE_RCS = 0
@@ -196,6 +182,11 @@ def clean_player_and_notes(raw_name: str) -> tuple[str, str]:
     if not player:
         raise SystemExit(f"Could not derive clean player/subject from {raw_name!r}")
 
+    # TCDB renders the two checklist subjects as e.g. "Checklist: 1-100 CL".
+    # CL is source metadata, not part of the display-facing subject.
+    if player.lower().startswith("checklist"):
+        player = re.sub(r"\s+CL$", "", player, flags=re.IGNORECASE).strip()
+
     notes = normalize_repeated_markers(notes)
     notes = ODDS_TEXT.sub("", notes)
     notes = re.sub(r"\b(?:RC|ROO)\b\s*,?\s*", "", notes, flags=re.IGNORECASE)
@@ -216,6 +207,19 @@ def variant_text(*parts: str) -> str:
             if piece not in seen:
                 seen.append(piece)
     return "; ".join(seen)
+
+
+def normalize_team(player: str, raw_team: str) -> str:
+    team = " ".join(raw_team.split()).strip()
+    if team:
+        return team
+
+    # Checklist cards represent the league-wide product checklist and do not
+    # belong to one club. Preserve complete team data with the neutral MLB value.
+    if player.lower().startswith("checklist"):
+        return "MLB"
+
+    raise SystemExit(f"{player} is missing team data")
 
 
 def validate_no_true_rookies() -> None:
@@ -246,10 +250,12 @@ def build_base_rows() -> list[list[str]]:
 
     for raw_number, raw_name, raw_team in parsed:
         player, source_notes = clean_player_and_notes(raw_name)
-        team = " ".join(raw_team.split()).strip()
+        try:
+            team = normalize_team(player, raw_team)
+        except SystemExit as exc:
+            raise SystemExit(f"Base #{raw_number} {exc}") from None
 
-        if not team:
-            raise SystemExit(f"Base #{raw_number} {player} is missing team data")
+        subset = "Checklist" if player.lower().startswith("checklist") else ""
 
         rows.append(
             [
@@ -257,7 +263,7 @@ def build_base_rows() -> list[list[str]]:
                 raw_number,
                 player,
                 team,
-                "",
+                subset,
                 variant_text(source_notes),
             ]
         )
@@ -281,10 +287,10 @@ def build_insert_rows(
     for raw_number, raw_name, raw_team in parsed:
         number = int(raw_number)
         player, source_notes = clean_player_and_notes(raw_name)
-        team = " ".join(raw_team.split()).strip()
-
-        if not team:
-            raise SystemExit(f"{key} #{raw_number} {player} is missing team data")
+        try:
+            team = normalize_team(player, raw_team)
+        except SystemExit as exc:
+            raise SystemExit(f"{key} #{raw_number} {exc}") from None
 
         # Gold #1-50 and Platinum #1-25 intentionally mirror the first portion
         # of the flagship checklist. Validate that TCDB has not drifted or been
@@ -372,7 +378,24 @@ def main() -> None:
             f"example: {missing_teams[0]}"
         )
 
-    # Spot-check the highly recognizable top of the checklist and insert mirrors.
+    base_lookup = {
+        int(row[1]): row
+        for row in all_rows
+        if row[0] == "base"
+    }
+    expected_checklists = {
+        199: "Checklist: 1-100",
+        200: "Checklist: 101-200",
+    }
+    for number, expected_player in expected_checklists.items():
+        row = base_lookup[number]
+        if row[2] != expected_player or row[3] != "MLB" or row[4] != "Checklist":
+            raise SystemExit(
+                f"Checklist normalization failed for Base #{number}: {row}; "
+                f"expected player={expected_player!r}, team='MLB', subset='Checklist'"
+            )
+
+    # Spot-check recognizable cards and insert mirrors.
     expected_spots = {
         ("base", "1"): ("Frank Thomas", "Chicago White Sox"),
         ("base", "5"): ("Ken Griffey Jr.", "Seattle Mariners"),
@@ -401,6 +424,7 @@ def main() -> None:
     for key, expected in EXPECTED_COUNTS.items():
         print(f"  {key}: {expected}")
     print("Recognized true RC cards labeled in Base player row: 0")
+    print("Checklist #199-200 normalized to team MLB / subset Checklist")
     print("Gold subjects validated against Base #1-50")
     print("Platinum subjects validated against Base #1-25")
     print("Card-level odds in Variant: 0")
