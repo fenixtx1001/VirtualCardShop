@@ -597,13 +597,15 @@
   display: grid;
 
   /*
-   * Keep the plaque itself exactly the same size.
-   * Give the numeral nearly all of the internal vertical space.
+   * Same plaque size, but with fuller supporting typography.
+   * The top and bottom rows now have enough presence to make
+   * the plaque feel complete without stealing focus from the
+   * numeral.
    */
   grid-template-rows:
-    2.05cqw
+    2.55cqw
     minmax(0, 1fr)
-    2.15cqw;
+    2.7cqw;
 
   place-items: center;
 
@@ -614,11 +616,11 @@
   min-height: 0;
 
   padding:
-    1.05cqw
-    .9cqw
-    1.05cqw;
+    .92cqw
+    .82cqw
+    .92cqw;
 
-  row-gap: .18cqw;
+  row-gap: .08cqw;
 
   overflow: hidden;
 
@@ -703,36 +705,33 @@
 .gradeBlock span {
   align-self: start;
 
-  font-size: 1.62cqw;
+  font-size: 2.02cqw;
   line-height: 1;
 
-  font-weight: 840;
-  letter-spacing: .16em;
+  font-weight: 860;
+  letter-spacing: .14em;
 }
 
 .gradeBlock b {
   /*
-   * The grade is the hero of the plaque.
-   *
-   * Larger actual type — no transform, scaleX, font-stretch,
-   * or other distortion. This keeps 6/7/8/9/10 beautiful and
-   * naturally proportioned.
+   * Keep the grade as the hero, but let the top and bottom
+   * labels breathe more naturally.
    */
   align-self: center;
 
   margin:
-    -.45cqw
+    -.28cqw
     0
-    -.3cqw;
+    -.12cqw;
 
   font-family:
     var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
 
-  font-size: 13.6cqw;
-  line-height: .72;
+  font-size: 13.05cqw;
+  line-height: .74;
 
   font-weight: 775;
-  letter-spacing: -.085em;
+  letter-spacing: -.08em;
 
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum" 1;
@@ -749,11 +748,11 @@
 
   color: var(--grade-ink);
 
-  font-size: 1.25cqw;
-  line-height: 1;
+  font-size: 1.68cqw;
+  line-height: .98;
 
-  font-weight: 830;
-  letter-spacing: .035em;
+  font-weight: 850;
+  letter-spacing: .02em;
 
   text-align: center;
   text-transform: uppercase;
