@@ -1310,3 +1310,352 @@
     transition: none;
   }
 }
+
+/* === VCS LABEL AUTHORITY PASS START === */
+
+/*
+ * PSA/BGS-inspired information discipline without copying
+ * either label. The physical slab and plaque dimensions stay
+ * exactly as-is. This pass only improves internal composition.
+ */
+
+/* =========================================================
+   FRONT CERTIFICATION LABEL
+   ========================================================= */
+
+.frontFace .label {
+  gap: 2.05cqw;
+
+  padding:
+    1.15cqw
+    2.35cqw
+    1.1cqw;
+}
+
+.frontFace .identity {
+  justify-content: flex-start;
+}
+
+/*
+ * More compact, authoritative VCS lockup.
+ */
+.frontFace .brandLine {
+  min-height: 5.9cqw;
+  gap: 1.4cqw;
+}
+
+.frontFace .brandShield {
+  width: 7.55cqw;
+  height: 6.85cqw;
+}
+
+.frontFace .brandShield b {
+  font-size: 4.3cqw;
+}
+
+.frontFace .brandShield i {
+  bottom: 1.1cqw;
+
+  width: 3.35cqw;
+}
+
+.frontFace .brandWordmark strong {
+  font-size: calc(
+    4.75cqw *
+    var(--label-scale)
+  );
+
+  line-height: .9;
+  font-weight: 810;
+  letter-spacing: .085em;
+}
+
+.frontFace .brandWordmark small {
+  margin-top: .68cqw;
+
+  font-size: calc(
+    1.72cqw *
+    var(--label-scale)
+  );
+
+  font-weight: 790;
+  letter-spacing: .31em;
+}
+
+/*
+ * Let the actual card identity use the header confidently.
+ * It still scales for unusually long names and never truncates.
+ */
+.frontFace .player {
+  margin-top: 1.05cqw;
+
+  font-size: calc(
+    4.5cqw *
+    var(--label-scale)
+  );
+
+  line-height: .99;
+  font-weight: 740;
+}
+
+.frontFace .setName {
+  margin-top: .45cqw;
+
+  font-size: calc(
+    2.65cqw *
+    var(--label-scale)
+  );
+
+  line-height: 1.04;
+  font-weight: 630;
+}
+
+/*
+ * Treat card number/team like the lower certification line
+ * on a manufactured label rather than text floating at the
+ * bottom of unused whitespace.
+ */
+.frontFace .cardLine {
+  width: 100%;
+
+  margin-top: auto;
+  padding-top: .75cqw;
+
+  border-top:
+    .16cqw solid
+    rgba(102, 111, 118, .17);
+
+  font-size: calc(
+    2.18cqw *
+    var(--label-scale)
+  );
+
+  line-height: 1;
+}
+
+/* =========================================================
+   GRADE PLAQUE
+   Three deliberate zones:
+     certification / grade / designation
+   ========================================================= */
+
+.gradeBlock {
+  /*
+   * SAME OUTER SIZE:
+   * width: 23cqw
+   * height: 100%
+   *
+   * Only the internal architecture changes.
+   */
+  grid-template-rows:
+    3.2cqw
+    minmax(0, 1fr)
+    3.4cqw;
+
+  padding:
+    .62cqw
+    .72cqw
+    .64cqw;
+
+  row-gap: 0;
+
+  /*
+   * Subtle manufactured bands.
+   *
+   * The top and bottom portions remain the same grade-colored
+   * material, but tonal separation makes every part of the
+   * plaque look intentional instead of floating in open space.
+   */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.16) 0%,
+      rgba(255,255,255,.07) 17.5%,
+
+      rgba(41,43,37,.18) 17.5%,
+      rgba(41,43,37,.18) 18.3%,
+
+      transparent 18.3%,
+      transparent 79.8%,
+
+      rgba(41,43,37,.20) 79.8%,
+      rgba(41,43,37,.20) 80.6%,
+
+      rgba(23,25,22,.045) 80.6%,
+      rgba(23,25,22,.085) 100%
+    ),
+    radial-gradient(
+      circle at 30% 17%,
+      rgba(255,255,255,.60),
+      transparent 25%
+    ),
+    linear-gradient(
+      145deg,
+      var(--grade-a) 0%,
+      var(--grade-b) 47%,
+      var(--grade-c) 100%
+    );
+
+  box-shadow:
+    0 1.2cqw 2.7cqw
+      color-mix(
+        in srgb,
+        var(--grade-a),
+        transparent 72%
+      ),
+
+    0 .45cqw 1.1cqw
+      rgba(0,0,0,.12),
+
+    inset 0 0 0 .5cqw
+      rgba(255,255,255,.18),
+
+    inset 0 .5cqw .8cqw
+      rgba(255,255,255,.35),
+
+    inset 0 -.55cqw .85cqw
+      rgba(0,0,0,.09);
+}
+
+/*
+ * Slightly crisper inner embossing.
+ */
+.gradeBlock::before {
+  inset: .62cqw;
+
+  border:
+    .2cqw solid
+    rgba(37,40,34,.24);
+
+  border-radius: 3.78cqw;
+
+  box-shadow:
+    inset 0 .18cqw .32cqw
+      rgba(255,255,255,.22),
+
+    inset 0 -.18cqw .3cqw
+      rgba(28,31,27,.08);
+}
+
+/*
+ * CERTIFICATION BAND
+ */
+.gradeBlock span {
+  align-self: center;
+
+  font-size: 2.38cqw;
+  line-height: 1;
+
+  font-weight: 870;
+  letter-spacing: .105em;
+
+  text-shadow:
+    0 .12cqw .14cqw
+      rgba(255,255,255,.23);
+}
+
+/*
+ * GRADE FIELD
+ *
+ * Large real typography. No scaleX, font-stretch, transforms,
+ * or artificial distortion.
+ */
+.gradeBlock b {
+  align-self: center;
+
+  margin:
+    -.08cqw
+    0
+    -.02cqw;
+
+  font-family:
+    var(
+      --font-sans,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif
+    );
+
+  font-size: 13.45cqw;
+  line-height: .7;
+
+  font-weight: 770;
+  letter-spacing: -.075em;
+
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+
+  text-shadow:
+    0 .18cqw .28cqw
+      rgba(255,255,255,.18),
+    0 .16cqw .25cqw
+      rgba(0,0,0,.08);
+}
+
+/*
+ * DESIGNATION BAND
+ *
+ * GEM MINT / MINT / NEAR MINT should be readable as a genuine
+ * grade designation, not microscopic manufacturing text.
+ */
+.gradeBlock small {
+  align-self: center;
+
+  width: 100%;
+
+  font-size: 1.98cqw;
+  line-height: 1;
+
+  font-weight: 875;
+  letter-spacing: .012em;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  text-shadow:
+    0 .11cqw .12cqw
+      rgba(255,255,255,.16);
+}
+
+/* =========================================================
+   REVERSE PLAQUE
+   Use the exact same visual grade authority on the back.
+   ========================================================= */
+
+.registryLabel .gradeBlock {
+  /*
+   * Keep front/back certification visually identical so the
+   * object feels manufactured as one real slab.
+   */
+  align-self: stretch;
+}
+
+/* =========================================================
+   SMALL RENDERINGS
+   Preserve readability in Showcase/grid contexts.
+   Container units automatically scale the slab, but slightly
+   stronger weights keep micro-renderings from looking faint.
+   ========================================================= */
+
+@container (max-width: 230px) {
+  .gradeBlock span {
+    font-weight: 900;
+  }
+
+  .gradeBlock b {
+    font-weight: 790;
+  }
+
+  .gradeBlock small {
+    font-weight: 900;
+  }
+
+  .frontFace .player {
+    font-weight: 760;
+  }
+}
+
+/* === VCS LABEL AUTHORITY PASS END === */
