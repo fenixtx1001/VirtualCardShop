@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/586/1995-Studio",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/586/1995-Studio",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/586/1995-Studio",
+    "note": "1995 Studio Baseball. The 200-card flagship checklist is one collector-facing VCS Base ProductSet. TCDB lists two pack insert sets: 50-card Gold and 25-card Platinum. No rookie cards or error/variation records are currently recognized for the flagship set."
+  },
+  "decisions": {
+    "canonicalPackFormat": "VCS-normalized pack: 4 cards per pack, 36 packs per box. The physical product was documented as five cards per pack; VCS uses the standing four-card pack rule while preserving verified per-pack insert frequencies.",
+    "collectorChecklistIntegrity": "Base #1-200 remains one VCS Base ProductSet with equal availability for completion and prestige tracking.",
+    "trueRookieNaming": "TCDB currently flags zero true rookie cards in this set, so no Player values receive an RC suffix.",
+    "cleanPlayerNames": "Player contains only the clean card subject name. Error/variation and odds text are not stored in Player.",
+    "oddsPlacement": "Verified pack odds live only on ProductSets. Gold is one per pack and Platinum is 1:10 packs. No card Variant contains set-wide odds.",
+    "insertModeling": "Gold and Platinum are collector-facing insert checklists rather than full 200-card base parallels: Gold contains 50 cards numbered 1-50 and Platinum contains 25 cards numbered 1-25.",
+    "releaseSafety": "Product remains unreleased until images and pricing are reviewed."
+  },
+  "product": {
+    "id": "1995_Studio_Baseball",
+    "year": 1995,
+    "brand": "Studio",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1995-studio-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1995_Studio_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/586/1995-Studio",
+      "expectedCards": 200,
+      "notes": "Complete flagship checklist #1-200. No TCDB-recognized true RCs and no listed error/variation records."
+    },
+    {
+      "key": "gold",
+      "id": "1995_Studio_Baseball_Gold",
+      "name": "Gold",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/587/1995-Studio-Gold",
+      "expectedCards": 50,
+      "notes": "50-card Gold insert checklist, numbered 1-50 and inserted one per pack."
+    },
+    {
+      "key": "platinum",
+      "id": "1995_Studio_Baseball_Platinum",
+      "name": "Platinum",
+      "kind": "INSERT",
+      "oddsPerPack": 10,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/588/1995-Studio-Platinum",
+      "expectedCards": 25,
+      "notes": "25-card Platinum insert checklist, numbered 1-25 and inserted 1:10 packs."
+    }
+  ]
+}
