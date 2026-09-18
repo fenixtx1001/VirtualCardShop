@@ -1,0 +1,462 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Dikembe Mutombo,Atlanta Hawks,,
+base,2,Alan Henderson,Atlanta Hawks,,
+base,3,Antoine Walker,Boston Celtics,,
+base,4,Paul Pierce,Boston Celtics,,
+base,5,Kenny Anderson,Boston Celtics,,
+base,6,Eddie Jones,Charlotte Hornets,,
+base,7,David Wesley,Charlotte Hornets,,
+base,8,Elden Campbell,Charlotte Hornets,,
+base,9,Toni Kukoc,Chicago Bulls,,
+base,10,Dickey Simpkins,Chicago Bulls,,
+base,11,Shawn Kemp,Cleveland Cavaliers,,
+base,12,Brevin Knight,Cleveland Cavaliers,,
+base,13,Michael Finley,Dallas Mavericks,,
+base,14,Cedric Ceballos,Dallas Mavericks,,
+base,15,Dirk Nowitzki,Dallas Mavericks,,
+base,16,Antonio McDyess,Denver Nuggets,,
+base,17,Nick Van Exel,Denver Nuggets,,
+base,18,Chauncey Billups,Denver Nuggets,,
+base,19,Grant Hill,Detroit Pistons,,
+base,20,Jerry Stackhouse,Detroit Pistons,,
+base,21,Bison Dele,Detroit Pistons,,
+base,22,Lindsey Hunter,Detroit Pistons,,
+base,23,Antawn Jamison,Golden State Warriors,,
+base,24,Donyell Marshall,Golden State Warriors,,
+base,25,John Starks,Golden State Warriors,,
+base,26,Chris Mills,Golden State Warriors,,
+base,27,Hakeem Olajuwon,Houston Rockets,,
+base,28,Scottie Pippen,Portland Trail Blazers,,
+base,29,Charles Barkley,Houston Rockets,,
+base,30,Reggie Miller,Indiana Pacers,,
+base,31,Rik Smits,Indiana Pacers,,
+base,32,Jalen Rose,Indiana Pacers,,
+base,33,Chris Mullin,Indiana Pacers,,
+base,34,Maurice Taylor,Los Angeles Clippers,,
+base,35,Michael Olowokandi,Los Angeles Clippers,,
+base,36,Shaquille O'Neal,Los Angeles Lakers,,
+base,37,Kobe Bryant,Los Angeles Lakers,,
+base,38,Glen Rice,Los Angeles Lakers,,
+base,39,Tim Hardaway,Miami Heat,,
+base,40,Alonzo Mourning,Miami Heat,,
+base,41,Dan Majerle,Miami Heat,,
+base,42,P.J. Brown,Miami Heat,,
+base,43,Glenn Robinson,Milwaukee Bucks,,
+base,44,Ray Allen,Milwaukee Bucks,,
+base,45,Sam Cassell,Milwaukee Bucks,,
+base,46,Tim Thomas,Milwaukee Bucks,,
+base,47,Kevin Garnett,Minnesota Timberwolves,,
+base,48,Bobby Jackson,Minnesota Timberwolves,,
+base,49,Joe Smith,Minnesota Timberwolves,,
+base,50,Stephon Marbury,New Jersey Nets,,
+base,51,Keith Van Horn,New Jersey Nets,,
+base,52,Jayson Williams,New Jersey Nets,,
+base,53,Patrick Ewing,New York Knicks,,
+base,54,Latrell Sprewell,New York Knicks,,
+base,55,Allan Houston,New York Knicks,,
+base,56,Marcus Camby,New York Knicks,,
+base,57,Bo Outlaw,Orlando Magic,,
+base,58,Darrell Armstrong,Orlando Magic,,
+base,59,Allen Iverson,Philadelphia 76ers,,
+base,60,Theo Ratliff,Philadelphia 76ers,,
+base,61,Larry Hughes,Philadelphia 76ers,,
+base,62,Jason Kidd,Phoenix Suns,,
+base,63,Tom Gugliotta,Phoenix Suns,,
+base,64,Clifford Robinson,Phoenix Suns,,
+base,65,Brian Grant,Portland Trail Blazers,,
+base,66,Jermaine O'Neal,Portland Trail Blazers,,
+base,67,Rasheed Wallace,Portland Trail Blazers,,
+base,68,Damon Stoudamire,Portland Trail Blazers,,
+base,69,Jason Williams,Sacramento Kings,,
+base,70,Chris Webber,Sacramento Kings,,
+base,71,Vlade Divac,Sacramento Kings,,
+base,72,Avery Johnson,San Antonio Spurs,,
+base,73,Tim Duncan,San Antonio Spurs,,
+base,74,David Robinson,San Antonio Spurs,,
+base,75,Sean Elliott,San Antonio Spurs,,
+base,76,Gary Payton,Seattle SuperSonics,,
+base,77,Vin Baker,Seattle SuperSonics,,
+base,78,Jelani McCoy,Seattle SuperSonics,,
+base,79,Charles Oakley,Toronto Raptors,,
+base,80,Vince Carter,Toronto Raptors,,
+base,81,Tracy McGrady,Toronto Raptors,,
+base,82,Doug Christie,Toronto Raptors,,
+base,83,Karl Malone,Utah Jazz,,
+base,84,John Stockton,Utah Jazz,,
+base,85,Shareef Abdur-Rahim,Vancouver Grizzlies,,
+base,86,Bryant Reeves,Vancouver Grizzlies,,
+base,87,Mike Bibby,Vancouver Grizzlies,,
+base,88,Juwan Howard,Washington Wizards,,
+base,89,Mitch Richmond,Washington Wizards,,
+base,90,Rod Strickland,Washington Wizards,,
+base,91,Elton Brand RC,Chicago Bulls,Rookie,SN3500
+base,92,Steve Francis RC,Houston Rockets,Rookie,AU; SN500
+base,93,Baron Davis RC,Charlotte Hornets,Rookie,AU; SN500
+base,94,Lamar Odom RC,Los Angeles Clippers,Rookie,SN3500
+base,95,Jonathan Bender RC,Indiana Pacers,Rookie,SN3500
+base,96,Wally Szczerbiak RC,Minnesota Timberwolves,Rookie,AU; SN500
+base,97,Richard Hamilton RC,Washington Wizards,Rookie,AU; SN2500
+base,98,Andre Miller RC,Cleveland Cavaliers,Rookie,AU; SN500
+base,99,Shawn Marion RC,Phoenix Suns,Rookie,AU; SN2500
+base,100,Jason Terry RC,Atlanta Hawks,Rookie,AU; SN2500
+base,101,Trajan Langdon RC,Cleveland Cavaliers,Rookie,AU; SN2500
+base,102,Venson Hamilton RC,Houston Rockets,Rookie,SN3500
+base,103,Corey Maggette RC,Orlando Magic,Rookie,AU; SN500
+base,104,William Avery RC,Minnesota Timberwolves,Rookie,AU; SN2500
+base,105,Dion Glover RC,Atlanta Hawks,Rookie,SN3500
+base,106,Ron Artest RC,Chicago Bulls,Rookie,AU; SN2500
+base,107,Cal Bowdler RC,Atlanta Hawks,Rookie,SN3500
+base,108,James Posey RC,Denver Nuggets,Rookie,AU; SN2500
+base,109,Quincy Lewis RC,Utah Jazz,Rookie,AU; SN2500
+base,110,Devean George RC,Los Angeles Lakers,Rookie,AU; SN2500
+base,111,Tim James RC,Miami Heat,Rookie,AU; SN2500
+base,112,Vonteego Cummings RC,Golden State Warriors,Rookie,SN3500
+base,113,Jumaine Jones RC,Philadelphia 76ers,Rookie,AU; SN2500
+base,114,Scott Padgett RC,Utah Jazz,Rookie,AU; SN2500
+base,115,Kenny Thomas RC,Houston Rockets,Rookie,SN3500
+base,116,Jeff Foster RC,Indiana Pacers,Rookie,SN3500
+base,117,Ryan Robertson RC,Sacramento Kings,Rookie,UER; SN3500UER: Clippers logo on back; should be Kings; SN3500
+base,118,Chris Herren RC,Denver Nuggets,Rookie,AU; SN2500
+base,119,Evan Eschmeyer RC,New Jersey Nets,Rookie,AU; SN2500
+base,120,A.J. Bramlett RC,Cleveland Cavaliers,Rookie,AU; SN2500
+radiance,1,Dikembe Mutombo,Atlanta Hawks,,SN100
+radiance,2,Alan Henderson,Atlanta Hawks,,SN100
+radiance,3,Antoine Walker,Boston Celtics,,SN100
+radiance,4,Paul Pierce,Boston Celtics,,SN100
+radiance,5,Kenny Anderson,Boston Celtics,,SN100
+radiance,6,Eddie Jones,Charlotte Hornets,,SN100
+radiance,7,David Wesley,Charlotte Hornets,,SN100
+radiance,8,Elden Campbell,Charlotte Hornets,,SN100
+radiance,9,Toni Kukoc,Chicago Bulls,,SN100
+radiance,10,Dickey Simpkins,Chicago Bulls,,SN100
+radiance,11,Shawn Kemp,Cleveland Cavaliers,,SN100
+radiance,12,Brevin Knight,Cleveland Cavaliers,,SN100
+radiance,13,Michael Finley,Dallas Mavericks,,SN100
+radiance,14,Cedric Ceballos,Dallas Mavericks,,SN100
+radiance,15,Dirk Nowitzki,Dallas Mavericks,,SN100
+radiance,16,Antonio McDyess,Denver Nuggets,,SN100
+radiance,17,Nick Van Exel,Denver Nuggets,,SN100
+radiance,18,Chauncey Billups,Denver Nuggets,,SN100
+radiance,19,Grant Hill,Detroit Pistons,,SN100
+radiance,20,Jerry Stackhouse,Detroit Pistons,,SN100
+radiance,21,Bison Dele,Detroit Pistons,,SN100
+radiance,22,Lindsey Hunter,Detroit Pistons,,SN100
+radiance,23,Antawn Jamison,Golden State Warriors,,SN100
+radiance,24,Donyell Marshall,Golden State Warriors,,SN100
+radiance,25,John Starks,Golden State Warriors,,SN100
+radiance,26,Chris Mills,Golden State Warriors,,SN100
+radiance,27,Hakeem Olajuwon,Houston Rockets,,SN100
+radiance,28,Scottie Pippen,Portland Trail Blazers,,SN100
+radiance,29,Charles Barkley,Houston Rockets,,SN100
+radiance,30,Reggie Miller,Indiana Pacers,,SN100
+radiance,31,Rik Smits,Indiana Pacers,,SN100
+radiance,32,Jalen Rose,Indiana Pacers,,SN100
+radiance,33,Chris Mullin,Indiana Pacers,,SN100
+radiance,34,Maurice Taylor,Los Angeles Clippers,,SN100
+radiance,35,Michael Olowokandi,Los Angeles Clippers,,SN100
+radiance,36,Shaquille O'Neal,Los Angeles Lakers,,SN100
+radiance,37,Kobe Bryant,Los Angeles Lakers,,SN100
+radiance,38,Glen Rice,Los Angeles Lakers,,SN100
+radiance,39,Tim Hardaway,Miami Heat,,SN100
+radiance,40,Alonzo Mourning,Miami Heat,,SN100
+radiance,41,Dan Majerle,Miami Heat,,SN100
+radiance,42,P.J. Brown,Miami Heat,,SN100
+radiance,43,Glenn Robinson,Milwaukee Bucks,,SN100
+radiance,44,Ray Allen,Milwaukee Bucks,,SN100
+radiance,45,Sam Cassell,Milwaukee Bucks,,SN100
+radiance,46,Tim Thomas,Milwaukee Bucks,,SN100
+radiance,47,Kevin Garnett,Minnesota Timberwolves,,SN100
+radiance,48,Bobby Jackson,Minnesota Timberwolves,,SN100
+radiance,49,Joe Smith,Minnesota Timberwolves,,SN100
+radiance,50,Stephon Marbury,New Jersey Nets,,SN100
+radiance,51,Keith Van Horn,New Jersey Nets,,SN100
+radiance,52,Jayson Williams,New Jersey Nets,,SN100
+radiance,53,Patrick Ewing,New York Knicks,,SN100
+radiance,54,Latrell Sprewell,Golden State Warriors,,SN100
+radiance,55,Allan Houston,New York Knicks,,SN100
+radiance,56,Marcus Camby,New York Knicks,,SN100
+radiance,57,Bo Outlaw,Orlando Magic,,SN100
+radiance,58,Darrell Armstrong,Orlando Magic,,SN100
+radiance,59,Allen Iverson,Philadelphia 76ers,,SN100
+radiance,60,Theo Ratliff,Philadelphia 76ers,,SN100
+radiance,61,Larry Hughes,Philadelphia 76ers,,SN100
+radiance,62,Jason Kidd,Phoenix Suns,,SN100
+radiance,63,Tom Gugliotta,Phoenix Suns,,SN100
+radiance,64,Clifford Robinson,Phoenix Suns,,SN100
+radiance,65,Brian Grant,Portland Trail Blazers,,SN100
+radiance,66,Jermaine O'Neal,Portland Trail Blazers,,SN100
+radiance,67,Rasheed Wallace,Portland Trail Blazers,,SN100
+radiance,68,Damon Stoudamire,Portland Trail Blazers,,SN100
+radiance,69,Jason Williams,Sacramento Kings,,SN100
+radiance,70,Chris Webber,Sacramento Kings,,SN100
+radiance,71,Vlade Divac,Sacramento Kings,,SN100
+radiance,72,Avery Johnson,San Antonio Spurs,,SN100
+radiance,73,Tim Duncan,San Antonio Spurs,,SN100
+radiance,74,David Robinson,San Antonio Spurs,,SN100
+radiance,75,Sean Elliott,San Antonio Spurs,,SN100
+radiance,76,Gary Payton,Seattle SuperSonics,,SN100
+radiance,77,Vin Baker,Seattle SuperSonics,,SN100
+radiance,78,Jelani McCoy,Seattle SuperSonics,,SN100
+radiance,79,Charles Oakley,Toronto Raptors,,SN100
+radiance,80,Vince Carter,Toronto Raptors,,SN100
+radiance,81,Tracy McGrady,Toronto Raptors,,SN100
+radiance,82,Doug Christie,Toronto Raptors,,SN100
+radiance,83,Karl Malone,Utah Jazz,,SN100
+radiance,84,John Stockton,Utah Jazz,,SN100
+radiance,85,Shareef Abdur-Rahim,Vancouver Grizzlies,,SN100
+radiance,86,Bryant Reeves,Vancouver Grizzlies,,SN100
+radiance,87,Mike Bibby,Vancouver Grizzlies,,SN100
+radiance,88,Juwan Howard,Washington Wizards,,SN100
+radiance,89,Mitch Richmond,Washington Wizards,,SN100
+radiance,90,Rod Strickland,Washington Wizards,,SN100
+radiance,91,Elton Brand,Chicago Bulls,,SN100
+radiance,92,Steve Francis,Houston Rockets,,SN100
+radiance,93,Baron Davis,Charlotte Hornets,,SN100
+radiance,94,Lamar Odom,Los Angeles Clippers,,SN100
+radiance,95,Jonathan Bender,Indiana Pacers,,SN100
+radiance,96,Wally Szczerbiak,Minnesota Timberwolves,,SN100
+radiance,97,Richard Hamilton,Washington Wizards,,SN100
+radiance,98,Andre Miller,Cleveland Cavaliers,,SN100
+radiance,99,Shawn Marion,Phoenix Suns,,SN100
+radiance,100,Jason Terry,Atlanta Hawks,,SN100
+radiance,101,Trajan Langdon,Cleveland Cavaliers,,SN100
+radiance,102,Venson Hamilton,Houston Rockets,,SN100
+radiance,103,Corey Maggette,Orlando Magic,,SN100
+radiance,104,William Avery,Minnesota Timberwolves,,SN100
+radiance,105,Dion Glover,Atlanta Hawks,,SN100
+radiance,106,Ron Artest,Chicago Bulls,,SN100
+radiance,107,Cal Bowdler,Atlanta Hawks,,SN100
+radiance,108,James Posey,Denver Nuggets,,SN100
+radiance,109,Quincy Lewis,Utah Jazz,,SN100
+radiance,110,Devean George,Los Angeles Lakers,,SN100
+radiance,111,Tim James,Miami Heat,,SN100
+radiance,112,Vonteego Cummings,Golden State Warriors,,SN100
+radiance,113,Jumaine Jones,Philadelphia 76ers,,SN100
+radiance,114,Scott Padgett,Utah Jazz,,SN100
+radiance,115,Kenny Thomas,Houston Rockets,,SN100
+radiance,116,Jeff Foster,Indiana Pacers,,SN100
+radiance,117,Ryan Robertson,Sacramento Kings,,UER; SN100UER: Clippers logo on back; should be Kings
+radiance,118,Chris Herren,Denver Nuggets,,SN100
+radiance,119,Evan Eschmeyer,New Jersey Nets,,SN100
+radiance,120,A.J. Bramlett,Cleveland Cavaliers,,SN100
+spectrum,1,Dikembe Mutombo,Atlanta Hawks,,SN1
+spectrum,2,Alan Henderson,Atlanta Hawks,,SN1
+spectrum,3,Antoine Walker,Boston Celtics,,SN1
+spectrum,4,Paul Pierce,Boston Celtics,,SN1
+spectrum,5,Kenny Anderson,Boston Celtics,,SN1
+spectrum,6,Eddie Jones,Charlotte Hornets,,SN1
+spectrum,7,David Wesley,Charlotte Hornets,,SN1
+spectrum,8,Elden Campbell,Charlotte Hornets,,SN1
+spectrum,9,Toni Kukoc,Chicago Bulls,,SN1
+spectrum,10,Dickey Simpkins,Chicago Bulls,,SN1
+spectrum,11,Shawn Kemp,Cleveland Cavaliers,,SN1
+spectrum,12,Brevin Knight,Cleveland Cavaliers,,SN1
+spectrum,13,Michael Finley,Dallas Mavericks,,SN1
+spectrum,14,Cedric Ceballos,Dallas Mavericks,,SN1
+spectrum,15,Dirk Nowitzki,Dallas Mavericks,,SN1
+spectrum,16,Antonio McDyess,Denver Nuggets,,SN1
+spectrum,17,Nick Van Exel,Denver Nuggets,,SN1
+spectrum,18,Chauncey Billups,Denver Nuggets,,SN1
+spectrum,19,Grant Hill,Detroit Pistons,,SN1
+spectrum,20,Jerry Stackhouse,Detroit Pistons,,SN1
+spectrum,21,Bison Dele,Detroit Pistons,,SN1
+spectrum,22,Lindsey Hunter,Detroit Pistons,,SN1
+spectrum,23,Antawn Jamison,Golden State Warriors,,SN1
+spectrum,24,Donyell Marshall,Golden State Warriors,,SN1
+spectrum,25,John Starks,Golden State Warriors,,SN1
+spectrum,26,Chris Mills,Golden State Warriors,,SN1
+spectrum,27,Hakeem Olajuwon,Houston Rockets,,SN1
+spectrum,28,Scottie Pippen,Portland Trail Blazers,,SN1
+spectrum,29,Charles Barkley,Houston Rockets,,SN1
+spectrum,30,Reggie Miller,Indiana Pacers,,SN1
+spectrum,31,Rik Smits,Indiana Pacers,,SN1
+spectrum,32,Jalen Rose,Indiana Pacers,,SN1
+spectrum,33,Chris Mullin,Indiana Pacers,,SN1
+spectrum,34,Maurice Taylor,Los Angeles Clippers,,SN1
+spectrum,35,Michael Olowokandi,Los Angeles Clippers,,SN1
+spectrum,36,Shaquille O'Neal,Los Angeles Lakers,,SN1
+spectrum,37,Kobe Bryant,Los Angeles Lakers,,SN1
+spectrum,38,Glen Rice,Los Angeles Lakers,,SN1
+spectrum,39,Tim Hardaway,Miami Heat,,SN1
+spectrum,40,Alonzo Mourning,Miami Heat,,SN1
+spectrum,41,Dan Majerle,Miami Heat,,SN1
+spectrum,42,P.J. Brown,Miami Heat,,SN1
+spectrum,43,Glenn Robinson,Milwaukee Bucks,,SN1
+spectrum,44,Ray Allen,Milwaukee Bucks,,SN1
+spectrum,45,Sam Cassell,Milwaukee Bucks,,SN1
+spectrum,46,Tim Thomas,Milwaukee Bucks,,SN1
+spectrum,47,Kevin Garnett,Minnesota Timberwolves,,SN1
+spectrum,48,Bobby Jackson,Minnesota Timberwolves,,SN1
+spectrum,49,Joe Smith,Minnesota Timberwolves,,SN1
+spectrum,50,Stephon Marbury,New Jersey Nets,,SN1
+spectrum,51,Keith Van Horn,New Jersey Nets,,SN1
+spectrum,52,Jayson Williams,New Jersey Nets,,SN1
+spectrum,53,Patrick Ewing,New York Knicks,,SN1
+spectrum,54,Latrell Sprewell,Golden State Warriors,,SN1
+spectrum,55,Allan Houston,New York Knicks,,SN1
+spectrum,56,Marcus Camby,New York Knicks,,SN1
+spectrum,57,Bo Outlaw,Orlando Magic,,SN1
+spectrum,58,Darrell Armstrong,Orlando Magic,,SN1
+spectrum,59,Allen Iverson,Philadelphia 76ers,,SN1
+spectrum,60,Theo Ratliff,Philadelphia 76ers,,SN1
+spectrum,61,Larry Hughes,Philadelphia 76ers,,SN1
+spectrum,62,Jason Kidd,Phoenix Suns,,SN1
+spectrum,63,Tom Gugliotta,Phoenix Suns,,SN1
+spectrum,64,Clifford Robinson,Phoenix Suns,,SN1
+spectrum,65,Brian Grant,Portland Trail Blazers,,SN1
+spectrum,66,Jermaine O'Neal,Portland Trail Blazers,,SN1
+spectrum,67,Rasheed Wallace,Portland Trail Blazers,,SN1
+spectrum,68,Damon Stoudamire,Portland Trail Blazers,,SN1
+spectrum,69,Jason Williams,Sacramento Kings,,SN1
+spectrum,70,Chris Webber,Sacramento Kings,,SN1
+spectrum,71,Vlade Divac,Sacramento Kings,,SN1
+spectrum,72,Avery Johnson,San Antonio Spurs,,SN1
+spectrum,73,Tim Duncan,San Antonio Spurs,,SN1
+spectrum,74,David Robinson,San Antonio Spurs,,SN1
+spectrum,75,Sean Elliott,San Antonio Spurs,,SN1
+spectrum,76,Gary Payton,Seattle SuperSonics,,SN1
+spectrum,77,Vin Baker,Seattle SuperSonics,,SN1
+spectrum,78,Jelani McCoy,Seattle SuperSonics,,SN1
+spectrum,79,Charles Oakley,Toronto Raptors,,SN1
+spectrum,80,Vince Carter,Toronto Raptors,,SN1
+spectrum,81,Tracy McGrady,Toronto Raptors,,SN1
+spectrum,82,Doug Christie,Toronto Raptors,,SN1
+spectrum,83,Karl Malone,Utah Jazz,,SN1
+spectrum,84,John Stockton,Utah Jazz,,SN1
+spectrum,85,Shareef Abdur-Rahim,Vancouver Grizzlies,,SN1
+spectrum,86,Bryant Reeves,Vancouver Grizzlies,,SN1
+spectrum,87,Mike Bibby,Vancouver Grizzlies,,SN1
+spectrum,88,Juwan Howard,Washington Wizards,,SN1
+spectrum,89,Mitch Richmond,Washington Wizards,,SN1
+spectrum,90,Rod Strickland,Washington Wizards,,SN1
+spectrum,91,Elton Brand,Chicago Bulls,,SN1
+spectrum,92,Steve Francis,Houston Rockets,,SN1
+spectrum,93,Baron Davis,Charlotte Hornets,,SN1
+spectrum,94,Lamar Odom,Los Angeles Clippers,,SN1
+spectrum,95,Jonathan Bender,Indiana Pacers,,SN1
+spectrum,96,Wally Szczerbiak,Minnesota Timberwolves,,SN1
+spectrum,97,Richard Hamilton,Washington Wizards,,SN1
+spectrum,98,Andre Miller,Cleveland Cavaliers,,SN1
+spectrum,99,Shawn Marion,Phoenix Suns,,SN1
+spectrum,100,Jason Terry,Atlanta Hawks,,SN1
+spectrum,101,Trajan Langdon,Cleveland Cavaliers,,SN1
+spectrum,102,Venson Hamilton,Houston Rockets,,SN1
+spectrum,103,Corey Maggette,Orlando Magic,,SN1
+spectrum,104,William Avery,Minnesota Timberwolves,,SN1
+spectrum,105,Dion Glover,Atlanta Hawks,,SN1
+spectrum,106,Ron Artest,Chicago Bulls,,SN1
+spectrum,107,Cal Bowdler,Atlanta Hawks,,SN1
+spectrum,108,James Posey,Denver Nuggets,,SN1
+spectrum,109,Quincy Lewis,Utah Jazz,,SN1
+spectrum,110,Devean George,Los Angeles Lakers,,SN1
+spectrum,111,Tim James,Miami Heat,,SN1
+spectrum,112,Vonteego Cummings,Golden State Warriors,,SN1
+spectrum,113,Jumaine Jones,Philadelphia 76ers,,SN1
+spectrum,114,Scott Padgett,Utah Jazz,,SN1
+spectrum,115,Kenny Thomas,Houston Rockets,,SN1
+spectrum,116,Jeff Foster,Indiana Pacers,,SN1
+spectrum,117,Ryan Robertson,Sacramento Kings,,UER; SN1UER: Clippers logo on back; should be Kings
+spectrum,118,Chris Herren,Denver Nuggets,,SN1
+spectrum,119,Evan Eschmeyer,New Jersey Nets,,SN1
+spectrum,120,A.J. Bramlett,Cleveland Cavaliers,,SN1
+decade-of-jordan,J1,Michael Jordan,Chicago Bulls,Decade of Jordan,
+decade-of-jordan,J2,Michael Jordan,Chicago Bulls,Decade of Jordan,
+decade-of-jordan,J3,Michael Jordan,Chicago Bulls,Decade of Jordan,
+decade-of-jordan,J4,Michael Jordan,Chicago Bulls,Decade of Jordan,
+decade-of-jordan,J5,Michael Jordan,Chicago Bulls,Decade of Jordan,
+decade-of-jordan,J6,Michael Jordan,Chicago Bulls,Decade of Jordan,
+decade-of-jordan,J7,Michael Jordan,Chicago Bulls,Decade of Jordan,
+decade-of-jordan,J8,Michael Jordan,Chicago Bulls,Decade of Jordan,
+decade-of-jordan,J9,Michael Jordan,Chicago Bulls,Decade of Jordan,
+decade-of-jordan,J10,Michael Jordan,Chicago Bulls,Decade of Jordan,
+masters,M1,Michael Jordan,Chicago Bulls,Masters,
+masters,M2,Vince Carter,Toronto Raptors,Masters,
+masters,M3,Tim Duncan,San Antonio Spurs,Masters,
+masters,M4,Allen Iverson,Philadelphia 76ers,Masters,
+masters,M5,Gary Payton,Seattle SuperSonics,Masters,
+masters,M6,Shareef Abdur-Rahim,Vancouver Grizzlies,Masters,
+masters,M7,Keith Van Horn,New Jersey Nets,Masters,
+masters,M8,Grant Hill,Detroit Pistons,Masters,
+masters,M9,Kobe Bryant,Los Angeles Lakers,Masters,
+masters,M10,Kevin Garnett,Minnesota Timberwolves,Masters,
+masters,M11,Karl Malone,Utah Jazz,Masters,
+masters,M12,Allan Houston,New York Knicks,Masters,
+masters,M13,Jason Kidd,Phoenix Suns,Masters,
+masters,M14,Antoine Walker,Boston Celtics,Masters,
+masters,M15,Jason Williams,Sacramento Kings,Masters,
+prolifics,P1,Michael Jordan,Chicago Bulls,Prolifics,
+prolifics,P2,Karl Malone,Utah Jazz,Prolifics,
+prolifics,P3,Jason Kidd,Phoenix Suns,Prolifics,
+prolifics,P4,Reggie Miller,Indiana Pacers,Prolifics,
+prolifics,P5,Glen Rice,Los Angeles Lakers,Prolifics,
+prolifics,P6,Hakeem Olajuwon,Houston Rockets,Prolifics,
+prolifics,P7,Mitch Richmond,Washington Wizards,Prolifics,
+prolifics,P8,Shawn Kemp,Cleveland Cavaliers,Prolifics,
+prolifics,P9,Patrick Ewing,New York Knicks,Prolifics,
+prolifics,P10,Dikembe Mutombo,Atlanta Hawks,Prolifics,
+prolifics,P11,Scottie Pippen,Portland Trail Blazers,Prolifics,
+prolifics,P12,John Stockton,Utah Jazz,Prolifics,
+prolifics,P13,David Robinson,San Antonio Spurs,Prolifics,
+prolifics,P14,Tim Hardaway,Miami Heat,Prolifics,
+prolifics,P15,Charles Barkley,Phoenix Suns,Prolifics,
+spxcitement,S1,Antoine Walker,Boston Celtics,SPxcitement,
+spxcitement,S2,Antonio McDyess,Denver Nuggets,SPxcitement,
+spxcitement,S3,Antawn Jamison,Golden State Warriors,SPxcitement,
+spxcitement,S4,Vin Baker,Seattle SuperSonics,SPxcitement,
+spxcitement,S5,Juwan Howard,Washington Wizards,SPxcitement,
+spxcitement,S6,Brian Grant,Miami Heat,SPxcitement,
+spxcitement,S7,Brevin Knight,Cleveland Cavaliers,SPxcitement,
+spxcitement,S8,Glenn Robinson,Milwaukee Bucks,SPxcitement,
+spxcitement,S9,Stephon Marbury,New Jersey Nets,SPxcitement,
+spxcitement,S10,Reggie Miller,Indiana Pacers,SPxcitement,
+spxcitement,S11,Nick Van Exel,Denver Nuggets,SPxcitement,
+spxcitement,S12,Alonzo Mourning,Miami Heat,SPxcitement,
+spxcitement,S13,David Robinson,San Antonio Spurs,SPxcitement,
+spxcitement,S14,Hakeem Olajuwon,Houston Rockets,SPxcitement,
+spxcitement,S15,Toni Kukoc,Chicago Bulls,SPxcitement,
+spxcitement,S16,Maurice Taylor,Los Angeles Clippers,SPxcitement,
+spxcitement,S17,Darrell Armstrong,Orlando Magic,SPxcitement,
+spxcitement,S18,Latrell Sprewell,New York Knicks,SPxcitement,
+spxcitement,S19,Tom Gugliotta,Phoenix Suns,SPxcitement,
+spxcitement,S20,Michael Jordan,Chicago Bulls,SPxcitement,
+spxtreme,X1,Michael Jordan,Chicago Bulls,SPxtreme,
+spxtreme,X2,Tim Hardaway,Miami Heat,SPxtreme,
+spxtreme,X3,Marcus Camby,New York Knicks,SPxtreme,
+spxtreme,X4,Jason Williams,Sacramento Kings,SPxtreme,
+spxtreme,X5,Shareef Abdur-Rahim,Vancouver Grizzlies,SPxtreme,
+spxtreme,X6,Keith Van Horn,New Jersey Nets,SPxtreme,
+spxtreme,X7,Glen Rice,Los Angeles Lakers,SPxtreme,
+spxtreme,X8,Gary Payton,Seattle SuperSonics,SPxtreme,
+spxtreme,X9,Grant Hill,Detroit Pistons,SPxtreme,
+spxtreme,X10,Allan Houston,New York Knicks,SPxtreme,
+spxtreme,X11,Ray Allen,Milwaukee Bucks,SPxtreme,
+spxtreme,X12,Michael Finley,Dallas Mavericks,SPxtreme,
+spxtreme,X13,Shawn Kemp,Cleveland Cavaliers,SPxtreme,
+spxtreme,X14,Shaquille O'Neal,Los Angeles Lakers,SPxtreme,
+spxtreme,X15,Paul Pierce,Boston Celtics,SPxtreme,
+spxtreme,X16,Mike Bibby,Vancouver Grizzlies,SPxtreme,
+spxtreme,X17,Michael Olowokandi,Los Angeles Clippers,SPxtreme,
+spxtreme,X18,Damon Stoudamire,Portland Trail Blazers,SPxtreme,
+spxtreme,X19,Mitch Richmond,Washington Wizards,SPxtreme,
+spxtreme,X20,Eddie Jones,Charlotte Hornets,SPxtreme,
+starscape,ST1,Michael Jordan,Chicago Bulls,Starscape,
+starscape,ST2,John Stockton,Utah Jazz,Starscape,
+starscape,ST3,Antonio McDyess,Denver Nuggets,Starscape,
+starscape,ST4,Alonzo Mourning,Miami Heat,Starscape,
+starscape,ST5,Shaquille O'Neal,Los Angeles Lakers,Starscape,
+starscape,ST6,Stephon Marbury,New Jersey Nets,Starscape,
+starscape,ST7,Chris Webber,Sacramento Kings,Starscape,
+starscape,ST8,Charles Barkley,Houston Rockets,Starscape,
+starscape,ST9,Antawn Jamison,Golden State Warriors,Starscape,
+starscape,ST10,Scottie Pippen,Portland Trail Blazers,Starscape,
+winning-materials,WM1,Michael Jordan,Chicago Bulls,Winning Materials,MEM: Jersey and Shoe
+winning-materials,WM2,Karl Malone,Utah Jazz,Winning Materials,MEM: Jersey and Shoe
+winning-materials,WM4,Kobe Bryant,Los Angeles Lakers,Winning Materials,MEM: Jersey and Shoe
+winning-materials,WM5,Paul Pierce,Boston Celtics,Winning Materials,MEM
+winning-materials,WM6,Kevin Garnett,Minnesota Timberwolves,Winning Materials,MEM
+winning-materials,WM8,Shaquille O'Neal,Los Angeles Lakers,Winning Materials,MEM: Jersey and Shoe
+winning-materials,WM9,David Robinson,San Antonio Spurs,Winning Materials,MEM
+winning-materials,WM10,Charles Barkley,Houston Rockets,Winning Materials,MEM
+winning-materials-autographs,WM1A,Michael Jordan,Chicago Bulls,Winning Materials Autographs,AU; MEM; SN23VAR:
+winning-materials-autographs,WM2A,Karl Malone,Utah Jazz,Winning Materials Autographs,AU; MEM; SN32MEM: Jersey and Shoe
+master-collection-redemption,MCR,Michael Jordan,Chicago Bulls,Master Collection Redemption,Redemption; PR5
