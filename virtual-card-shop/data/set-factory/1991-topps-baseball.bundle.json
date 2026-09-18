@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/167/1991-Topps",
+    "checklistReference": "https://www.tcdb.com/Checklist.cfm/sid/167/1991-Topps",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/167/1991-Topps",
+    "insertsReference": "https://www.tcdb.com/Inserts.cfm/sid/167/1991-Topps",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1991_Topps",
+    "note": "1991 Topps is one 792-card base checklist. VCS collapses TCDB's numerous error/correction, print, and copyright variations to one canonical card per printed number so completion remains a true 792-card base set. The 33-card 1990 Rookies Commemorative Set (Glossy Rookies) is modeled as the normal collectible pack insert based on checklist/insertion-ratio references describing one per 100-card Jumbo pack. Glossy All-Stars (mail-in), Collector's Edition (Tiffany), Desert Shield, Instant Win game pieces, anniversary buyback/game promotions, pre-production material, and wax-box-bottom cards are excluded from the standard VCS pack pool."
+  },
+  "decisions": {
+    "combinePhysicalSeries": true,
+    "physicalSeriesRanges": ["1-792"],
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "VCS Universal",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "excludeMinorPrinterVariations": true,
+    "variationHandling": "All source error/correction, print, copyright, and letter-suffixed variants for a printed base number collapse to one canonical VCS card. Error/correction detail is intentionally omitted from Player and Variant.",
+    "trueRookieHandling": "RC is appended only to base cards independently verified by the TCDB rookie index. The word Rookies in the Glossy Rookies insert name does not make those insert cards true rookie cards.",
+    "excludeNonStandardPackMaterial": [
+      "1990 All-Star Game Commemorative Set (Glossy All-Stars)",
+      "Collector's Edition (Tiffany)",
+      "Desert Shield",
+      "Instant Win Game",
+      "40th Anniversary buyback/game promotion",
+      "Pre-Production Sample Panel",
+      "Pre-Production Sample Panel Singles",
+      "Wax Box Bottom Panels",
+      "Wax Box Bottom Panels Singles"
+    ],
+    "packChannelAbstraction": "VCS uses one universal 4-card pack. The Glossy Rookies insert was distributed one per 100-card Jumbo pack; normalizing by card volume yields one Glossy Rookie per 25 VCS 4-card packs.",
+    "normalizedInsertOdds": {
+      "glossyRookies": "1 per 100-card Jumbo pack -> 1 per 25 VCS 4-card packs -> stored as 1:25"
+    }
+  },
+  "product": {
+    "id": "1991_Topps_Baseball",
+    "year": 1991,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1991-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1991_Topps_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/167/1991-Topps",
+      "expectedCards": 792,
+      "notes": "One canonical VCS card per printed number 1-792, equally weighted. True RC labels come only from the linked rookie index. ERR/COR/UER/VAR and printer/copyright variation detail is not shown in Player or Variant."
+    },
+    {
+      "key": "glossy-rookies",
+      "id": "1991_Topps_Baseball_Glossy_Rookies",
+      "name": "Glossy Rookies",
+      "kind": "INSERT",
+      "oddsPerPack": 25,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/8743/1991-Topps-1990-Rookies-Commemorative-Set-Glossy-Rookies",
+      "expectedCards": 33,
+      "notes": "33-card insert checklist. Distributed one per 100-card Jumbo pack; normalized by card volume to 1:25 in the VCS universal 4-card pack. Insert subjects are not labeled RC solely because the set is named Glossy Rookies."
+    }
+  ]
+}
