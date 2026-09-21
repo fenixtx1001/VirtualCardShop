@@ -19,6 +19,13 @@ EXPECTED_TOTAL = sum(EXPECTED_COUNTS.values())
 EXPECTED_PRODUCT_SETS = len(EXPECTED_COUNTS)
 EXPECTED_TRUE_RCS = 73
 
+# TCDB documents this in set trivia / errors context, but the normal checklist
+# row for #193 does not currently include the UER annotation. Preserve the
+# known collector metadata explicitly instead of depending on that row text.
+RONNIE_LOTT_UER = (
+    "UER: Bio on back lists Lott as being drafted with the 26th pick, should be 8th"
+)
+
 
 class RowParser(HTMLParser):
     def __init__(self) -> None:
@@ -82,9 +89,7 @@ def parse_rows(html: str, number_pattern: str) -> list[tuple[str, str, str]]:
         vals = [value for value in row if value]
         for i, value in enumerate(vals):
             card_number = value.strip()
-            if not pattern.fullmatch(card_number):
-                continue
-            if i + 1 >= len(vals):
+            if not pattern.fullmatch(card_number) or i + 1 >= len(vals):
                 continue
 
             raw_name = vals[i + 1].strip()
@@ -124,9 +129,7 @@ def fetch_set_rows(
             break
 
     if len(cards) != expected:
-        raise SystemExit(
-            f"{url}: expected {expected} unique cards, found {len(cards)}"
-        )
+        raise SystemExit(f"{url}: expected {expected} unique cards, found {len(cards)}")
 
     return list(cards.values())
 
@@ -136,7 +139,6 @@ ODDS_TEXT = re.compile(
     r"1\s*:\s*\d+\s*(?:hobby\s+|retail\s+)?(?:packs?)?",
     re.IGNORECASE,
 )
-
 NOTE_START = re.compile(
     r"(?:^|\s)(?=(?:(?:RC|ROO|PP|PB|FOIL|UER|ERR|COR|VAR|SP|MEM|AU|CUT|EXCH)+|"
     r"PR\d+|SN\d+)\b)",
@@ -146,17 +148,7 @@ NOTE_START = re.compile(
 
 def normalize_repeated_markers(text: str) -> str:
     for marker in (
-        "RC",
-        "ROO",
-        "PP",
-        "PB",
-        "FOIL",
-        "UER",
-        "ERR",
-        "COR",
-        "VAR",
-        "MEM",
-        "AU",
+        "RC", "ROO", "PP", "PB", "FOIL", "UER", "ERR", "COR", "VAR", "MEM", "AU"
     ):
         text = re.sub(
             rf"\b(?:{marker}){{2,}}\b",
@@ -199,15 +191,29 @@ def subset_from_notes(number: int, notes: str) -> str:
     return ""
 
 
-def variant_from_notes(notes: str) -> str:
-    value = notes
-    value = re.sub(r"\b(?:PP|PB|ROO)\b\s*,?\s*", "", value, flags=re.IGNORECASE)
-    value = ODDS_TEXT.sub("", value)
+def clean_variant_text(text: str) -> str:
+    value = ODDS_TEXT.sub("", text or "")
     value = normalize_repeated_markers(value)
     value = re.sub(r"\s*,\s*", "; ", value)
     value = re.sub(r"\s*;\s*;\s*", "; ", value)
-    value = re.sub(r"^[,;\s]+|[,;\s]+$", "", value)
-    return value
+    return re.sub(r"^[,;\s]+|[,;\s]+$", "", value)
+
+
+def variant_from_notes(notes: str) -> str:
+    value = re.sub(r"\b(?:PP|PB|ROO)\b\s*,?\s*", "", notes, flags=re.IGNORECASE)
+    return clean_variant_text(value)
+
+
+def merge_variant(*parts: str) -> str:
+    pieces: list[str] = []
+    for part in parts:
+        cleaned = clean_variant_text(part)
+        if not cleaned:
+            continue
+        for piece in [p.strip() for p in cleaned.split(";") if p.strip()]:
+            if piece not in pieces:
+                pieces.append(piece)
+    return "; ".join(pieces)
 
 
 def load_true_rc_numbers() -> set[int]:
@@ -259,7 +265,6 @@ def build_base_rows(true_rcs: set[int]) -> list[list[str]]:
         )
 
     rows: list[list[str]] = []
-
     for number in range(1, 271):
         raw_name, raw_team = source[number]
         player, source_notes = clean_player_and_notes(raw_name)
@@ -271,6 +276,10 @@ def build_base_rows(true_rcs: set[int]) -> list[list[str]]:
         if number in true_rcs:
             player = f"{player} RC"
 
+        variant = variant_from_notes(source_notes)
+        if number == 193 and "UER" not in variant.upper():
+            variant = merge_variant(variant, RONNIE_LOTT_UER)
+
         rows.append(
             [
                 "base",
@@ -278,7 +287,7 @@ def build_base_rows(true_rcs: set[int]) -> list[list[str]]:
                 player,
                 team,
                 subset_from_notes(number, source_notes),
-                variant_from_notes(source_notes),
+                variant,
             ]
         )
 
@@ -334,9 +343,10 @@ def validate_base(rows: list[list[str]], true_rcs: set[int]) -> None:
         bad = next(row for row in premier if "FOIL" not in row[5].upper())
         raise SystemExit(f"Premier Prospects FOIL metadata missing: {bad}")
 
-    if "UER" not in base[193][5].upper():
+    expected_lott_detail = "26th pick, should be 8th"
+    if "UER" not in base[193][5].upper() or expected_lott_detail.lower() not in base[193][5].lower():
         raise SystemExit(
-            f"Base #193 Ronnie Lott must retain UER detail in Variant: {base[193]}"
+            f"Base #193 Ronnie Lott must retain the documented UER detail in Variant: {base[193]}"
         )
 
     checks = {
@@ -384,35 +394,27 @@ def main() -> None:
     all_pro_rows = build_all_pro_rows()
     all_rows = [*base_rows, *all_pro_rows]
 
-    actual_counts = {
-        "base": len(base_rows),
-        "all-pro": len(all_pro_rows),
-    }
-
+    actual_counts = {"base": len(base_rows), "all-pro": len(all_pro_rows)}
     for key, expected in EXPECTED_COUNTS.items():
         actual = actual_counts.get(key, 0)
         if actual != expected:
             raise SystemExit(f"{key}: expected {expected} rows, found {actual}")
 
     if len(all_rows) != EXPECTED_TOTAL:
-        raise SystemExit(
-            f"Expected {EXPECTED_TOTAL} explicit rows, found {len(all_rows)}"
-        )
+        raise SystemExit(f"Expected {EXPECTED_TOTAL} explicit rows, found {len(all_rows)}")
 
     validate_base(all_rows, true_rcs)
     validate_all_pro(all_rows)
 
-    duplicate_keys: set[tuple[str, str]] = set()
     seen: set[tuple[str, str]] = set()
+    duplicates: set[tuple[str, str]] = set()
     for row in all_rows:
         key = (row[0], row[1].upper())
         if key in seen:
-            duplicate_keys.add(key)
+            duplicates.add(key)
         seen.add(key)
-    if duplicate_keys:
-        raise SystemExit(
-            f"Duplicate ProductSet/card numbers found: {sorted(duplicate_keys)[:10]}"
-        )
+    if duplicates:
+        raise SystemExit(f"Duplicate ProductSet/card numbers found: {sorted(duplicates)[:10]}")
 
     bad_odds = [
         (row[0], row[1], row[5])
@@ -431,11 +433,8 @@ def main() -> None:
             re.IGNORECASE,
         ):
             dirty_players.append((row[0], row[1], row[2]))
-
     if dirty_players:
-        raise SystemExit(
-            f"Collector metadata leaked into Player; example: {dirty_players[0]}"
-        )
+        raise SystemExit(f"Collector metadata leaked into Player; example: {dirty_players[0]}")
 
     missing_teams = [row for row in all_rows if not row[3].strip()]
     if missing_teams:
@@ -445,9 +444,7 @@ def main() -> None:
 
     with OUT.open("w", encoding="utf-8", newline="") as fh:
         writer = csv.writer(fh, lineterminator="\n")
-        writer.writerow(
-            ["setKey", "cardNumber", "player", "team", "subset", "variant"]
-        )
+        writer.writerow(["setKey", "cardNumber", "player", "team", "subset", "variant"])
         writer.writerows(all_rows)
 
     print("=== 1993 SP FOOTBALL CHECKLIST GENERATED ===")
@@ -457,7 +454,7 @@ def main() -> None:
     print("  all-pro: 15")
     print(f"Recognized true RC cards labeled in Base player row: {len(true_rcs)}")
     print("Premier Prospects #1-18: validated with FOIL metadata")
-    print("Ronnie Lott #193 UER: retained in Variant only")
+    print("Ronnie Lott #193 UER: documented trivia metadata retained in Variant")
     print("Historical pack configuration: 12 cards/pack, 24 packs/box")
     print("All-Pro ProductSet odds: 1:15 packs")
     print("Joe Montana promo: excluded")
