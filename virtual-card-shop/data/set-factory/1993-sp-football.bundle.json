@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/3369/1993-SP",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/3369/1993-SP",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/3369/1993-SP",
+    "note": "1993 SP Football hobby product. The 270-card flagship checklist remains one collector-facing VCS Base ProductSet. The only ordinary pack insert is the 15-card die-cut All-Pro set. The Joe Montana #19 promo is excluded because it was promotional rather than a normal sealed-pack outcome."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Historical hobby configuration: 12 cards per pack, 24 packs per box.",
+    "collectorChecklistIntegrity": "Base #1-270 remains one VCS Base ProductSet with equal availability for completion and prestige tracking.",
+    "trueRookieNaming": "True RC status is taken from the TCDB rookie-card index. The generator requires exactly 73 TCDB-recognized RC numbers and appends RC only to those Base Player values.",
+    "subsetModeling": "Cards #1-18 are Premier Prospects. Source PB markers are normalized to the Pro Bowl subset and ROO markers to the Rookie subset without treating those labels themselves as proof of true RC status.",
+    "cleanPlayerNames": "Player contains only the clean player name plus verified RC when applicable. PP, PB, ROO, FOIL, UER and similar source annotations are removed from Player.",
+    "errorHandling": "The known #193 Ronnie Lott uncorrected-error annotation is preserved only in Variant metadata, never in Player, and no duplicate correction card is invented.",
+    "oddsPlacement": "All-Pro is inserted 1:15 packs and that rate is stored only on the ProductSet. No card Variant contains set-wide odds.",
+    "excludedRelatedSets": "The Joe Montana #19 promo is excluded from this sealed-pack Product.",
+    "releaseSafety": "Product remains unreleased until images and pricing are reviewed."
+  },
+  "product": {
+    "id": "1993_SP_Football",
+    "year": 1993,
+    "brand": "SP",
+    "sport": "Football",
+    "cardsPerPack": 12,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1993-sp-football.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1993_SP_Football_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3369/1993-SP",
+      "expectedCards": 270,
+      "notes": "Complete flagship checklist #1-270. Premier Prospects #1-18 remain part of the Base checklist and retain FOIL metadata in Variant."
+    },
+    {
+      "key": "all-pro",
+      "id": "1993_SP_Football_All_Pro",
+      "name": "All-Pro",
+      "kind": "INSERT",
+      "oddsPerPack": 15,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3370/1993-SP---All-Pro",
+      "expectedCards": 15,
+      "notes": "15-card die-cut All-Pro insert checklist, inserted 1:15 packs."
+    }
+  ]
+}
