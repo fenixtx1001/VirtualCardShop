@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/75162/1989-Topps-Teenage-Mutant-Ninja-Turtles",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/75162/1989-Topps-Teenage-Mutant-Ninja-Turtles",
+    "note": "1989 Topps Teenage Mutant Ninja Turtles non-sport wax product. TCDB treats the flagship checklist as one 176-card set distributed in Series One (#1-88) and Series Two (#89-176). VCS combines both series into one collector-facing Base ProductSet with equal availability. The two 11-sticker wax-pack checklists are combined into one 22-card Stickers ProductSet because every physical pack contained one sticker. Factory-set-only Bonus Cards and Complete Collector's Edition issues are excluded from wax-pack gameplay."
+  },
+  "decisions": {
+    "canonicalPackFormat": "VCS-normalized pack: 4 collectible cards per pack, 48 packs per box. Physical wax packs contained five base cards plus one sticker; VCS uses the standing four-card pack rule, so the guaranteed sticker occupies one of the four VCS card slots.",
+    "collectorChecklistIntegrity": "Base #1-176 remains one VCS Base ProductSet. The physical Series One/Series Two split is retained only as subset metadata so completion and prestige track one 176-card set.",
+    "seriesCombination": "Series One (#1-88) and Series Two (#89-176) are combined with equal Base availability. One Series One pack image should be used for the single VCS product pack type.",
+    "stickerModeling": "The 11 Series One stickers and 11 Series Two stickers are combined into one 22-card Stickers ProductSet. Card numbers are namespaced S1-1 through S1-11 and S2-1 through S2-11 to preserve uniqueness. Because each physical pack included one sticker, oddsPerPack is 1.",
+    "nonSportMetadata": "The display-facing Player field stores the card title or sticker subject. Team is populated with the franchise value 'Teenage Mutant Ninja Turtles' so VCS retains complete metadata without inventing a sports team.",
+    "excludedRelatedSets": "Bonus Cards are explicitly factory-set inserts. Complete Collector's Edition and Complete Collector's Edition Stickers are factory-set/parallel issues, not ordinary wax-pack outcomes, and are excluded.",
+    "errorHandling": "TCDB currently lists no errors or variations for the flagship 176-card set, so no duplicate variant rows are modeled.",
+    "oddsPlacement": "The guaranteed sticker rate is stored only on the Stickers ProductSet. No card Variant contains pack odds.",
+    "releaseSafety": "Product remains unreleased until pack art, card images and pricing are reviewed."
+  },
+  "product": {
+    "id": "1989_Topps_Teenage_Mutant_Ninja_Turtles",
+    "year": 1989,
+    "brand": "Topps Teenage Mutant Ninja Turtles",
+    "sport": "Non-Sport",
+    "cardsPerPack": 4,
+    "packsPerBox": 48,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "NOT_APPLICABLE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1989-topps-teenage-mutant-ninja-turtles.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1989_Topps_Teenage_Mutant_Ninja_Turtles_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/75162/1989-Topps-Teenage-Mutant-Ninja-Turtles",
+      "expectedCards": 176,
+      "notes": "Complete flagship checklist #1-176, combining physical Series One (#1-88) and Series Two (#89-176) with equal VCS Base availability."
+    },
+    {
+      "key": "stickers",
+      "id": "1989_Topps_Teenage_Mutant_Ninja_Turtles_Stickers",
+      "name": "Stickers",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/75162/1989-Topps-Teenage-Mutant-Ninja-Turtles",
+      "expectedCards": 22,
+      "notes": "Combined wax-pack sticker checklist: 11 Series One stickers plus 11 Series Two stickers. Physical packs contained one sticker per pack; VCS card numbers use S1-/S2- prefixes to keep duplicate 1-11 numbering unique."
+    }
+  ]
+}
