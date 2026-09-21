@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/589/1995-Score-Summit",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/589/1995-Score-Summit",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/589/1995-Score-Summit",
+    "note": "1995 Score Summit Baseball hobby product. The 200-card flagship checklist remains one collector-facing VCS Base ProductSet. The full 200-card Nth Degree parallel and the three ordinary pack insert families (New Age, 21 Club, Big Bang) are modeled. The dealer-distributed Samples promo set is excluded because it was not an ordinary sealed-pack outcome."
+  },
+  "decisions": {
+    "canonicalPackFormat": "VCS-normalized pack: 4 cards per pack, 24 packs per box. The physical hobby product was documented as seven cards per pack; VCS uses the standing four-card pack rule while preserving verified per-pack insert frequencies.",
+    "collectorChecklistIntegrity": "Base #1-200 remains one VCS Base ProductSet with equal availability for completion and prestige tracking. Nth Degree is kept as one complete 200-card parallel checklist.",
+    "trueRookieNaming": "True RC status is taken from the TCDB rookie-card index. Only the 11 verified flagship rookie cards receive RC appended to Player; the broader #112-173 Rookies subset does not imply RC status.",
+    "cleanPlayerNames": "Player contains only the clean card subject name plus verified RC when applicable. ROO, UER and similar collector annotations are removed from Player and may remain only as card metadata.",
+    "oddsPlacement": "Verified pack odds live only on ProductSets. Nth Degree is 1:4, New Age 1:18, 21 Club 1:36 and Big Bang 1:72. No card Variant contains set-wide odds.",
+    "subsetModeling": "Base subset labels follow the collector-facing structure: Rookies #112-173, Bat Speed #174-188, Special Delivery #189-193 and Checklist #194-200. Nth Degree mirrors those same numbered subjects and subset labels.",
+    "errorHandling": "Uncorrected printing-error annotations are never included in Player. They are not modeled as duplicate cards because the source set has no corrected companion versions.",
+    "excludedRelatedSets": "The dealer Samples promo issue is excluded from this sealed-pack Product.",
+    "releaseSafety": "Product remains unreleased until images and pricing are reviewed."
+  },
+  "product": {
+    "id": "1995_Score_Summit_Baseball",
+    "year": 1995,
+    "brand": "Score Summit",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1995-score-summit-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1995_Score_Summit_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/589/1995-Score-Summit",
+      "expectedCards": 200,
+      "notes": "Complete flagship checklist #1-200. Eleven TCDB-recognized true RCs receive the RC suffix; rookie-themed subset membership alone does not."
+    },
+    {
+      "key": "nth-degree",
+      "id": "1995_Score_Summit_Baseball_Nth_Degree",
+      "name": "Nth Degree",
+      "kind": "PARALLEL",
+      "oddsPerPack": 4,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/593/1995-Score-Summit---Nth-Degree",
+      "expectedCards": 200,
+      "notes": "Full 200-card prismatic parallel, inserted 1:4 packs."
+    },
+    {
+      "key": "new-age",
+      "id": "1995_Score_Summit_Baseball_New_Age",
+      "name": "New Age",
+      "kind": "INSERT",
+      "oddsPerPack": 18,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/592/1995-Score-Summit---New-Age",
+      "expectedCards": 15,
+      "notes": "15-card insert checklist, inserted 1:18 packs."
+    },
+    {
+      "key": "21-club",
+      "id": "1995_Score_Summit_Baseball_21_Club",
+      "name": "21 Club",
+      "kind": "INSERT",
+      "oddsPerPack": 36,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/590/1995-Score-Summit---21-Club",
+      "expectedCards": 9,
+      "notes": "Nine-card insert checklist, inserted 1:36 packs."
+    },
+    {
+      "key": "big-bang",
+      "id": "1995_Score_Summit_Baseball_Big_Bang",
+      "name": "Big Bang",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/591/1995-Score-Summit---Big-Bang",
+      "expectedCards": 20,
+      "notes": "20-card insert checklist, inserted 1:72 packs."
+    }
+  ]
+}
