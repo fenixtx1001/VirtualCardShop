@@ -12,41 +12,15 @@ OUT = DATA / "1995-score-summit-baseball.cards.csv"
 
 BASE_URL = "https://www.tcdb.com/Checklist.cfm/sid/589/1995-Score-Summit"
 ROOKIES_URL = "https://www.tcdb.com/Rookies.cfm/sid/589/1995-Score-Summit"
-NTH_DEGREE_URL = (
-    "https://www.tcdb.com/Checklist.cfm/sid/593/1995-Score-Summit---Nth-Degree"
-)
-NEW_AGE_URL = (
-    "https://www.tcdb.com/Checklist.cfm/sid/592/1995-Score-Summit---New-Age"
-)
-CLUB_21_URL = (
-    "https://www.tcdb.com/Checklist.cfm/sid/590/1995-Score-Summit---21-Club"
-)
-BIG_BANG_URL = (
-    "https://www.tcdb.com/Checklist.cfm/sid/591/1995-Score-Summit---Big-Bang"
-)
+NTH_DEGREE_URL = "https://www.tcdb.com/Checklist.cfm/sid/593/1995-Score-Summit---Nth-Degree"
+NEW_AGE_URL = "https://www.tcdb.com/Checklist.cfm/sid/592/1995-Score-Summit---New-Age"
+CLUB_21_URL = "https://www.tcdb.com/Checklist.cfm/sid/590/1995-Score-Summit---21-Club"
+BIG_BANG_URL = "https://www.tcdb.com/Checklist.cfm/sid/591/1995-Score-Summit---Big-Bang"
 
 SOURCES = [
-    {
-        "key": "new-age",
-        "url": NEW_AGE_URL,
-        "expected": 15,
-        "pattern": r"NA\d{1,2}",
-        "subset": "New Age",
-    },
-    {
-        "key": "21-club",
-        "url": CLUB_21_URL,
-        "expected": 9,
-        "pattern": r"TC\d{1,2}",
-        "subset": "21 Club",
-    },
-    {
-        "key": "big-bang",
-        "url": BIG_BANG_URL,
-        "expected": 20,
-        "pattern": r"BB\d{1,2}",
-        "subset": "Big Bang",
-    },
+    {"key": "new-age", "url": NEW_AGE_URL, "expected": 15, "pattern": r"NA\d{1,2}", "subset": "New Age"},
+    {"key": "21-club", "url": CLUB_21_URL, "expected": 9, "pattern": r"TC\d{1,2}", "subset": "21 Club"},
+    {"key": "big-bang", "url": BIG_BANG_URL, "expected": 20, "pattern": r"BB\d{1,2}", "subset": "Big Bang"},
 ]
 
 EXPECTED_COUNTS = {
@@ -58,19 +32,7 @@ EXPECTED_COUNTS = {
 }
 EXPECTED_TOTAL = sum(EXPECTED_COUNTS.values())
 EXPECTED_PRODUCT_SETS = len(EXPECTED_COUNTS)
-EXPECTED_TRUE_RC_NUMBERS = {
-    114,
-    124,
-    129,
-    134,
-    136,
-    141,
-    149,
-    150,
-    155,
-    156,
-    160,
-}
+EXPECTED_TRUE_RC_NUMBERS = {114, 124, 129, 134, 136, 141, 149, 150, 155, 156, 160}
 
 
 class RowParser(HTMLParser):
@@ -144,6 +106,9 @@ def parse_rows(html: str, number_pattern: str) -> list[tuple[str, str, str]]:
             if not raw_name or raw_name.lower() in {"options", "add", "edit"}:
                 continue
 
+            # TCDB checklist cards #194-200 do not have a team cell; the next
+            # non-empty cell is checklist-description text. Those rows are
+            # normalized explicitly later instead of trusting this value.
             team = vals[i + 2].strip() if i + 2 < len(vals) else ""
             found.append((card_number.upper(), raw_name, team))
             break
@@ -166,10 +131,7 @@ def fetch_set_rows(
         for row in parsed:
             cards[row[0].upper()] = row
         added = len(cards) - before
-        print(
-            f"  page {page_index}: parsed {len(parsed)} rows; "
-            f"+{added}; unique {len(cards)}"
-        )
+        print(f"  page {page_index}: parsed {len(parsed)} rows; +{added}; unique {len(cards)}")
 
         if len(cards) >= expected:
             break
@@ -177,9 +139,7 @@ def fetch_set_rows(
             break
 
     if len(cards) != expected:
-        raise SystemExit(
-            f"{url}: expected {expected} unique cards, found {len(cards)}"
-        )
+        raise SystemExit(f"{url}: expected {expected} unique cards, found {len(cards)}")
 
     return list(cards.values())
 
@@ -190,8 +150,10 @@ ODDS_TEXT = re.compile(
     re.IGNORECASE,
 )
 
+# TCDB appends source-only checklist/subset flags (ROO, BS, SD, CL) and
+# collector metadata to the visible subject. Keep those out of Player.
 NOTE_START = re.compile(
-    r"(?:^|\s)(?=(?:(?:RC|ROO|UER|ERR|COR|VAR|SP|MEM|AU|CUT|EXCH)+|"
+    r"(?:^|\s)(?=(?:(?:RC|ROO|UER|ERR|COR|VAR|SP|MEM|AU|CUT|EXCH|BS|SD|CL)+|"
     r"PR\d+|SN\d+)\b)",
     re.IGNORECASE,
 )
@@ -199,12 +161,7 @@ NOTE_START = re.compile(
 
 def normalize_repeated_markers(text: str) -> str:
     for marker in ("MEM", "AU", "VAR", "ERR", "COR", "UER", "RC", "ROO"):
-        text = re.sub(
-            rf"\b(?:{marker}){{2,}}\b",
-            marker,
-            text,
-            flags=re.IGNORECASE,
-        )
+        text = re.sub(rf"\b(?:{marker}){{2,}}\b", marker, text, flags=re.IGNORECASE)
     return text
 
 
@@ -224,7 +181,7 @@ def clean_player_and_notes(raw_name: str) -> tuple[str, str]:
 
     notes = normalize_repeated_markers(notes)
     notes = ODDS_TEXT.sub("", notes)
-    notes = re.sub(r"\b(?:RC|ROO)\b\s*,?\s*", "", notes, flags=re.IGNORECASE)
+    notes = re.sub(r"\b(?:RC|ROO|BS|SD|CL)\b\s*,?\s*", "", notes, flags=re.IGNORECASE)
     notes = re.sub(r"\s*,\s*,+", ", ", notes)
     notes = re.sub(r"^[,;\s]+|[,;\s]+$", "", notes)
     return player, notes
@@ -244,13 +201,16 @@ def variant_text(*parts: str) -> str:
     return "; ".join(seen)
 
 
-def normalize_team(player: str, raw_team: str) -> str:
+def normalize_team(player: str, raw_team: str, *, checklist: bool = False) -> str:
+    # TCDB leaves #194-200 team blank because the cards are league/product
+    # checklists. The parser can otherwise mistake checklist description text for
+    # a team, so force the neutral league-wide value for these rows.
+    if checklist:
+        return "MLB"
+
     team = " ".join(raw_team.split()).strip()
     if team:
         return team
-
-    if player.lower().startswith("checklist"):
-        return "MLB"
 
     raise SystemExit(f"{player} is missing team data")
 
@@ -275,16 +235,12 @@ def load_true_rc_numbers() -> set[int]:
         for card_number, _raw_name, _team in rows
         if card_number.isdigit() and 1 <= int(card_number) <= 200
     }
-    print(
-        f"  page 1: parsed {len(rows)} rows; "
-        f"{len(recognized)} unique recognized RC card numbers"
-    )
+    print(f"  page 1: parsed {len(rows)} rows; {len(recognized)} unique recognized RC card numbers")
 
     if recognized != EXPECTED_TRUE_RC_NUMBERS:
         raise SystemExit(
             "1995 Score Summit rookie index changed; "
-            f"expected={sorted(EXPECTED_TRUE_RC_NUMBERS)}, "
-            f"found={sorted(recognized)}"
+            f"expected={sorted(EXPECTED_TRUE_RC_NUMBERS)}, found={sorted(recognized)}"
         )
 
     return recognized
@@ -304,32 +260,29 @@ def build_base_rows(true_rcs: set[int]) -> list[list[str]]:
     if set(source) != required:
         missing = sorted(required - set(source))
         extra = sorted(set(source) - required)
-        raise SystemExit(
-            f"Base numbering mismatch; missing={missing[:30]}, extra={extra[:30]}"
-        )
+        raise SystemExit(f"Base numbering mismatch; missing={missing[:30]}, extra={extra[:30]}")
 
     rows: list[list[str]] = []
     for number in range(1, 201):
         raw_name, raw_team = source[number]
         player, source_notes = clean_player_and_notes(raw_name)
+        is_checklist = 194 <= number <= 200
         try:
-            team = normalize_team(player, raw_team)
+            team = normalize_team(player, raw_team, checklist=is_checklist)
         except SystemExit as exc:
             raise SystemExit(f"Base #{number} {exc}") from None
 
         if number in true_rcs:
             player = f"{player} RC"
 
-        rows.append(
-            [
-                "base",
-                str(number),
-                player,
-                team,
-                subset_for_base_number(number),
-                variant_text(source_notes),
-            ]
-        )
+        rows.append([
+            "base",
+            str(number),
+            player,
+            team,
+            subset_for_base_number(number),
+            variant_text(source_notes),
+        ])
 
     return rows
 
@@ -348,9 +301,7 @@ def build_nth_degree_rows(base_rows: list[list[str]]) -> list[list[str]]:
     if set(source) != required:
         missing = sorted(required - set(source))
         extra = sorted(set(source) - required)
-        raise SystemExit(
-            f"Nth Degree numbering mismatch; missing={missing[:30]}, extra={extra[:30]}"
-        )
+        raise SystemExit(f"Nth Degree numbering mismatch; missing={missing[:30]}, extra={extra[:30]}")
 
     base_by_number = {int(row[1]): row for row in base_rows}
     rows: list[list[str]] = []
@@ -358,8 +309,9 @@ def build_nth_degree_rows(base_rows: list[list[str]]) -> list[list[str]]:
     for number in range(1, 201):
         raw_name, raw_team = source[number]
         player, source_notes = clean_player_and_notes(raw_name)
+        is_checklist = 194 <= number <= 200
         try:
-            team = normalize_team(player, raw_team)
+            team = normalize_team(player, raw_team, checklist=is_checklist)
         except SystemExit as exc:
             raise SystemExit(f"Nth Degree #{number} {exc}") from None
 
@@ -368,20 +320,17 @@ def build_nth_degree_rows(base_rows: list[list[str]]) -> list[list[str]]:
         if player != base_player or team != base[3]:
             raise SystemExit(
                 f"Nth Degree #{number} does not match Base #{number}: "
-                f"parallel=({player!r}, {team!r}), "
-                f"base=({base_player!r}, {base[3]!r})"
+                f"parallel=({player!r}, {team!r}), base=({base_player!r}, {base[3]!r})"
             )
 
-        rows.append(
-            [
-                "nth-degree",
-                str(number),
-                player,
-                team,
-                base[4],
-                variant_text(source_notes),
-            ]
-        )
+        rows.append([
+            "nth-degree",
+            str(number),
+            player,
+            team,
+            base[4],
+            variant_text(source_notes),
+        ])
 
     return rows
 
@@ -404,16 +353,7 @@ def build_insert_rows(source: dict[str, object]) -> list[list[str]]:
         except SystemExit as exc:
             raise SystemExit(f"{key} #{card_number} {exc}") from None
 
-        rows.append(
-            [
-                key,
-                card_number,
-                player,
-                team,
-                subset,
-                variant_text(source_notes),
-            ]
-        )
+        rows.append([key, card_number, player, team, subset, variant_text(source_notes)])
 
     return rows
 
@@ -436,14 +376,13 @@ def validate_subsets(rows: list[list[str]]) -> None:
 
     for number, subset in expected.items():
         if base[number][4] != subset:
-            raise SystemExit(
-                f"Base #{number} subset mismatch: {base[number][4]!r} != {subset!r}"
-            )
+            raise SystemExit(f"Base #{number} subset mismatch: {base[number][4]!r} != {subset!r}")
         if nth[number][4] != subset:
-            raise SystemExit(
-                f"Nth Degree #{number} subset mismatch: "
-                f"{nth[number][4]!r} != {subset!r}"
-            )
+            raise SystemExit(f"Nth Degree #{number} subset mismatch: {nth[number][4]!r} != {subset!r}")
+
+    for number in range(194, 201):
+        if base[number][3] != "MLB" or nth[number][3] != "MLB":
+            raise SystemExit(f"Checklist #{number} must use neutral MLB team")
 
 
 def validate_spot_cards(rows: list[list[str]]) -> None:
@@ -468,15 +407,11 @@ def validate_spot_cards(rows: list[list[str]]) -> None:
 
 def main() -> None:
     true_rcs = load_true_rc_numbers()
-
     base_rows = build_base_rows(true_rcs)
     nth_rows = build_nth_degree_rows(base_rows)
 
     all_rows = [*base_rows, *nth_rows]
-    actual_counts: dict[str, int] = {
-        "base": len(base_rows),
-        "nth-degree": len(nth_rows),
-    }
+    actual_counts: dict[str, int] = {"base": len(base_rows), "nth-degree": len(nth_rows)}
 
     for source in SOURCES:
         key = str(source["key"])
@@ -490,17 +425,12 @@ def main() -> None:
             raise SystemExit(f"{key}: expected {expected} rows, found {actual}")
 
     if len(all_rows) != EXPECTED_TOTAL:
-        raise SystemExit(
-            f"Expected {EXPECTED_TOTAL} explicit rows, found {len(all_rows)}"
-        )
+        raise SystemExit(f"Expected {EXPECTED_TOTAL} explicit rows, found {len(all_rows)}")
 
-    rc_labels = [
-        row for row in all_rows if row[0] == "base" and row[2].endswith(" RC")
-    ]
+    rc_labels = [row for row in all_rows if row[0] == "base" and row[2].endswith(" RC")]
     if len(rc_labels) != len(EXPECTED_TRUE_RC_NUMBERS):
         raise SystemExit(
-            f"Expected {len(EXPECTED_TRUE_RC_NUMBERS)} RC labels in Base, "
-            f"found {len(rc_labels)}"
+            f"Expected {len(EXPECTED_TRUE_RC_NUMBERS)} RC labels in Base, found {len(rc_labels)}"
         )
 
     bad_odds = [
@@ -515,21 +445,18 @@ def main() -> None:
         (row[0], row[1], row[2])
         for row in all_rows
         if re.search(
-            r"\b(?:ROO|UER|ERR|COR|VAR|MEM|AU|PR\d+|SN\d+)\b",
+            r"\b(?:ROO|UER|ERR|COR|VAR|MEM|AU|PR\d+|SN\d+|BS|SD|CL)\b",
             row[2],
             re.IGNORECASE,
         )
     ]
     if dirty_players:
-        raise SystemExit(
-            f"Collector metadata leaked into Player; example: {dirty_players[0]}"
-        )
+        raise SystemExit(f"Collector metadata leaked into Player; example: {dirty_players[0]}")
 
     missing_teams = [row for row in all_rows if not row[3].strip()]
     if missing_teams:
         raise SystemExit(
-            f"Found {len(missing_teams)} cards missing team data; "
-            f"example: {missing_teams[0]}"
+            f"Found {len(missing_teams)} cards missing team data; example: {missing_teams[0]}"
         )
 
     validate_subsets(all_rows)
@@ -537,9 +464,7 @@ def main() -> None:
 
     with OUT.open("w", encoding="utf-8", newline="") as fh:
         writer = csv.writer(fh, lineterminator="\n")
-        writer.writerow(
-            ["setKey", "cardNumber", "player", "team", "subset", "variant"]
-        )
+        writer.writerow(["setKey", "cardNumber", "player", "team", "subset", "variant"])
         writer.writerows(all_rows)
 
     print("=== 1995 SCORE SUMMIT BASEBALL CHECKLIST GENERATED ===")
@@ -550,6 +475,7 @@ def main() -> None:
     print(f"Recognized true RC cards labeled in Base player row: {len(rc_labels)}")
     print("Base collector checklist: 200 cards, kept intact")
     print("Nth Degree subjects validated against all 200 Base cards")
+    print("Checklist cards #194-200 normalized to team MLB")
     print("Dealer Samples promo excluded from sealed-pack product")
     print("Card-level odds in Variant: 0")
     print("Team data: COMPLETE")
