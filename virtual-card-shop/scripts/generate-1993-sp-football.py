@@ -343,8 +343,12 @@ def validate_base(rows: list[list[str]], true_rcs: set[int]) -> None:
         bad = next(row for row in premier if "FOIL" not in row[5].upper())
         raise SystemExit(f"Premier Prospects FOIL metadata missing: {bad}")
 
-    expected_lott_detail = "26th pick, should be 8th"
-    if "UER" not in base[193][5].upper() or expected_lott_detail.lower() not in base[193][5].lower():
+    lott_variant = base[193][5].lower()
+    if not (
+        "uer" in lott_variant
+        and "26th pick" in lott_variant
+        and "should be 8th" in lott_variant
+    ):
         raise SystemExit(
             f"Base #193 Ronnie Lott must retain the documented UER detail in Variant: {base[193]}"
         )
