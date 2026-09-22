@@ -166,6 +166,14 @@ METADATA_DETAIL_START = re.compile(
     re.IGNORECASE,
 )
 
+# TCDB also sometimes appends a print-code note directly to the subject without
+# a VAR/UER prefix, e.g. 'Adam Creighton "B*" print code' or
+# 'Al Iafrate "A*B*" print code'. This is source metadata, never Player text.
+PRINT_CODE_SUFFIX = re.compile(
+    r"(?:,\s*|\s+)(?:\"[^\"]+\"|'[^']+'|[A-Z*]+)\s+print\s+code\b.*$",
+    re.IGNORECASE,
+)
+
 
 def clean_subject(raw_name: str) -> str:
     raw = " ".join(raw_name.split()).strip()
@@ -173,6 +181,9 @@ def clean_subject(raw_name: str) -> str:
     detail = METADATA_DETAIL_START.search(raw)
     if detail:
         raw = raw[: detail.start()].strip(" ,;")
+
+    # Strip unprefixed trailing print-code notes before any other display cleanup.
+    raw = PRINT_CODE_SUFFIX.sub("", raw).strip(" ,;")
 
     # RC status is controlled exclusively by TCDB's rookie index.
     raw = re.sub(r"(?:,\s*|\s+)\bRC\b", " ", raw, flags=re.IGNORECASE)
@@ -382,7 +393,7 @@ def main() -> None:
     metadata_leaks = [
         row
         for row in all_rows
-        if re.search(r"\b(?:UER|ERR|COR|VAR)\b", row[2], re.IGNORECASE)
+        if re.search(r"\b(?:UER|ERR|COR|VAR)\b|\bprint\s+code\b", row[2], re.IGNORECASE)
     ]
     if metadata_leaks:
         raise SystemExit(f"Metadata leaked into Player; example: {metadata_leaks[0]}")
@@ -417,6 +428,7 @@ def main() -> None:
     print(f"Recognized true RC cards labeled in Base player row: {len(true_rcs)}")
     print(f"Duplicate print-code source records collapsed: {collapsed_variations}")
     print("C*/D*/C*D* print-code variations: one logical VCS card per number")
+    print("Print-code notes in Player: 0")
     print("Team Scoring Leaders glossy inserts: 1 per pack")
     print("Box Bottoms / Box Bottom Panels: EXCLUDED")
     print("Collector's Edition (Tiffany) issues: EXCLUDED")
