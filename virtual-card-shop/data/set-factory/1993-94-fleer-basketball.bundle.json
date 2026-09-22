@@ -6,20 +6,21 @@
     "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/2142/1993-94-Fleer",
     "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/2142/1993-94-Fleer",
     "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/2142/1993-94-Fleer",
-    "note": "1993-94 Fleer Basketball. Physical Series One (#1-240) and Series Two (#241-400) are combined into one collector-facing 400-card VCS Base ProductSet with equal base availability. Standard wax used 15-card packs and 36-pack boxes. Wax-only insert sets are modeled; cello-only, mail-in, promo, and non-pack Clyde Drexler cards #13-16 are excluded."
+    "note": "1993-94 Fleer Basketball. Physical Series One (#1-240) and Series Two (#241-400) are combined into one collector-facing 400-card VCS Base ProductSet with equal base availability. Standard wax used 15-card packs and 36-pack boxes. Pack-issued wax and cello insert sets are modeled; mail-in, promo, and non-pack Clyde Drexler cards #13-16 are excluded."
   },
   "decisions": {
-    "canonicalPackFormat": "Historical standard wax configuration: 15 cards per pack, 36 packs per box.",
+    "canonicalPackFormat": "Historical standard wax configuration: 15 cards per pack, 36 packs per box. VCS uses one collector-facing Fleer pack product while retaining source-format notes for wax versus cello inserts.",
     "seriesCombination": "Combine physical Series One (#1-240) and Series Two (#241-400) into one 400-card Base ProductSet. One Series One pack image may be used for the single VCS pack type.",
     "baseAvailability": "All 400 Base cards are equally available in VCS despite the historical series split so completion/prestige reflects one collector-facing base set.",
     "trueRookieNaming": "RC is appended only to the 59 Base card numbers returned by TCDB's rookie index. Source RC text is removed first to prevent duplication.",
     "cleanPlayerNames": "Player remains collector-facing only. TCDB metadata such as UER/ERR/COR/VAR, print-code notes, odds, redemption notes, serial-number notes, and other source annotations are excluded from Player. Intentional short checklist labels such as LL, AW, PV, and CL may remain.",
-    "waxInsertScope": "Include All-Stars, Clyde Drexler Career Highlights #1-12, Clyde Drexler Career Highlights Autographs, NBA Internationals, First Year Phenoms, Living Legends, NBA Superstars, and Sharpshooters. Exclude Rookie Sensations and Tower of Power because TCDB identifies them as cello-only, and exclude mail-in/promo issues.",
-    "clydeCareerHighlightsScope": "Only #1-12 were normal pack pulls and are included. #13-15 were wrapper mail-in cards and #16 was distributed through NBA Inside Stuff, so #13-16 are excluded from VCS wax gameplay.",
-    "seriesSpecificOdds": "Where TCDB publishes wax odds, retain those historical rates on the corresponding ProductSet even though VCS combines both physical series into one product.",
-    "unverifiedSeriesTwoCommonOdds": "TCDB confirms NBA Superstars and Sharpshooters were issued in Series Two wax packs but does not publish numeric pack odds for either. Their ProductSets are included with oddsPerPack null rather than inventing rates. They are therefore intentionally non-pullable until defensible numeric odds are supplied.",
-    "redemptionExclusion": "The 1993 NBA Draft Lottery Set Redemption card is a pack-related redemption mechanism but TCDB does not provide a numeric insertion rate. It is excluded from this wax model rather than adding an unreachable or invented-odds ProductSet.",
-    "releaseSafety": "Product remains unreleased. Release should remain blocked until images/pricing are reviewed and numeric odds for NBA Superstars and Sharpshooters are resolved if those sets are expected to be pullable."
+    "packInsertScope": "Include pack-issued wax inserts plus the two cello-only collector insert sets: Rookie Sensations and Tower of Power. Exclude mail-in/promo issues and non-pack Clyde Drexler cards #13-16.",
+    "celloInsertHandling": "Rookie Sensations is a 24-card Series One cello insert at 1:5 cello packs and is represented directly with oddsPerPack 5. Tower of Power is a 30-card Series Two cello insert at 2:3 cello packs. VCS currently stores oddsPerPack as an integer 1-in-N denominator, so 2:3 cannot be represented exactly; Tower of Power is created with oddsPerPack null rather than falsifying the historical rate.",
+    "clydeCareerHighlightsScope": "Only #1-12 were normal pack pulls and are included. #13-15 were wrapper mail-in cards and #16 was distributed through NBA Inside Stuff, so #13-16 are excluded from VCS pack gameplay.",
+    "seriesSpecificOdds": "Where TCDB publishes representable pack odds, retain those historical rates on the corresponding ProductSet even though VCS combines both physical series into one product.",
+    "unverifiedSeriesTwoCommonOdds": "TCDB confirms NBA Superstars and Sharpshooters were issued in Series Two wax packs but does not publish numeric pack odds for either. Their ProductSets are included with oddsPerPack null rather than inventing rates.",
+    "redemptionExclusion": "The 1993 NBA Draft Lottery Set Redemption card is a pack-related redemption mechanism but TCDB does not provide a numeric insertion rate. It is excluded rather than adding an unreachable or invented-odds ProductSet.",
+    "releaseSafety": "Product remains unreleased. Release should remain blocked until images/pricing are reviewed and unresolved odds/modeling for NBA Superstars, Sharpshooters, and Tower of Power are addressed if those sets are expected to be pullable."
   },
   "product": {
     "id": "1993_94_Fleer_Basketball",
@@ -37,7 +38,7 @@
   "review": {
     "teamData": "COMPLETE",
     "rookieData": "VERIFIED",
-    "insertOdds": "PENDING_NBA_SUPERSTARS_AND_SHARPSHOOTERS",
+    "insertOdds": "PENDING_NBA_SUPERSTARS_SHARPSHOOTERS_AND_TOWER_FRACTIONAL_MODEL",
     "packImage": "PENDING",
     "cardImages": "PENDING",
     "pricing": "PENDING",
@@ -76,7 +77,7 @@
       "defaultGradeability": "COMMON",
       "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2144/1993-94-Fleer-Clyde-Drexler-Career-Highlights",
       "expectedCards": 12,
-      "notes": "Pack-issued portion only: #1-12 at 1:6 Series One packs. Cards #13-16 were non-pack distributions and are excluded."
+      "notes": "Pack-issued portion only: #1-12 at 1:6 Series One wax packs. Cards #13-16 were non-pack distributions and are excluded."
     },
     {
       "key": "clyde-career-highlights-autographs",
@@ -99,6 +100,17 @@
       "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2148/1993-94-Fleer-NBA-Internationals",
       "expectedCards": 12,
       "notes": "Inserted 1:10 Series One wax packs."
+    },
+    {
+      "key": "rookie-sensations",
+      "id": "1993_94_Fleer_Basketball_Rookie_Sensations",
+      "name": "Rookie Sensations",
+      "kind": "INSERT",
+      "oddsPerPack": 5,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2150/1993-94-Fleer-Rookie-Sensations",
+      "expectedCards": 24,
+      "notes": "24-card insert set issued 1:5 Series One cello packs. Included in VCS at the verified 1:5 rate."
     },
     {
       "key": "first-year-phenoms",
@@ -143,6 +155,17 @@
       "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2151/1993-94-Fleer-Sharpshooters",
       "expectedCards": 10,
       "notes": "Confirmed issued in Series Two wax packs; numeric wax insertion rate not verified, so odds remain null rather than invented."
+    },
+    {
+      "key": "tower-of-power",
+      "id": "1993_94_Fleer_Basketball_Tower_Of_Power",
+      "name": "Tower of Power",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2152/1993-94-Fleer-Tower-of-Power",
+      "expectedCards": 30,
+      "notes": "30-card insert set issued 2:3 Series Two cello packs. VCS oddsPerPack is currently an integer 1-in-N field, so the verified 2:3 rate cannot be represented exactly and remains null pending fractional-odds support."
     }
   ]
 }
