@@ -168,7 +168,7 @@ METADATA_DETAIL_START = re.compile(
 
 # TCDB also sometimes appends a print-code note directly to the subject without
 # a VAR/UER prefix, e.g. 'Adam Creighton "B*" print code' or
-# 'Al Iafrate "A*B*" print code'. This is source metadata, never Player text.
+# 'Jim Hrivnak TP "A*" print code RC'. This is source metadata, never Player text.
 PRINT_CODE_SUFFIX = re.compile(
     r"(?:,\s*|\s+)(?:\"[^\"]+\"|'[^']+'|[A-Z*]+)\s+print\s+code\b.*$",
     re.IGNORECASE,
@@ -182,11 +182,14 @@ def clean_subject(raw_name: str) -> str:
     if detail:
         raw = raw[: detail.start()].strip(" ,;")
 
-    # Strip unprefixed trailing print-code notes before any other display cleanup.
-    raw = PRINT_CODE_SUFFIX.sub("", raw).strip(" ,;")
-
-    # RC status is controlled exclusively by TCDB's rookie index.
+    # RC status is controlled exclusively by TCDB's rookie index. Remove source
+    # RC markers first because TCDB can place them after a print-code suffix.
     raw = re.sub(r"(?:,\s*|\s+)\bRC\b", " ", raw, flags=re.IGNORECASE)
+    raw = " ".join(raw.split()).strip(" ,;")
+
+    # Strip unprefixed trailing print-code notes after RC cleanup so source text
+    # such as 'Jim Hrivnak TP "A*" print code RC' resolves to 'Jim Hrivnak TP'.
+    raw = PRINT_CODE_SUFFIX.sub("", raw).strip(" ,;")
 
     # Strip standalone source-only metadata tags that remain after detail cleanup.
     raw = re.sub(
