@@ -206,6 +206,34 @@ def clean_subject(raw_name: str) -> tuple[str, bool]:
     return raw, had_uer
 
 
+def normalize_base_subset_subject(number: int, player: str) -> str:
+    """Keep intentional subset suffixes but strip TCDB's descriptive note text."""
+    marker: str | None = None
+    if 221 <= number <= 228:
+        marker = "LL"
+    elif 229 <= number <= 232:
+        marker = "AW"
+    elif 233 <= number <= 237:
+        marker = "PV"
+
+    if not marker:
+        return player
+
+    # TCDB may concatenate the description into the same subject cell without a
+    # separator, e.g. "Michael Jordan LLScoring/Steals Leader" or
+    # "Charles Barkley AWMVP". Player should remain "Michael Jordan LL" / 
+    # "Charles Barkley AW"; the range-derived subset carries the description.
+    match = re.match(rf"^(.*?)\s+{marker}", player, flags=re.IGNORECASE)
+    if not match:
+        raise SystemExit(
+            f"Base #{number} expected collector suffix {marker} but got {player!r}"
+        )
+    subject = match.group(1).strip()
+    if not subject:
+        raise SystemExit(f"Base #{number} lost subject while normalizing {player!r}")
+    return f"{subject} {marker}"
+
+
 def load_true_rc_numbers() -> set[int]:
     print("rookie-index:")
     rookie_numbers: set[int] = set()
@@ -237,11 +265,11 @@ def load_true_rc_numbers() -> set[int]:
 
 
 def base_subset(number: int, player: str) -> str:
-    if 221 <= number <= 228 or re.search(r"\bLL\b", player):
+    if 221 <= number <= 228:
         return "NBA League Leaders"
-    if 229 <= number <= 232 or re.search(r"\bAW\b", player):
+    if 229 <= number <= 232:
         return "NBA Award Winners"
-    if 233 <= number <= 237 or re.search(r"\bPV\b", player):
+    if 233 <= number <= 237:
         return "Pro-Visions"
     if number in CHECKLIST_NUMBERS or re.search(r"\bCL\b", player):
         return "Checklist"
@@ -255,6 +283,7 @@ def build_base(true_rcs: set[int]) -> list[list[str]]:
     for number in range(1, 401):
         raw_name, raw_team = source[number]
         player, had_uer = clean_subject(raw_name)
+        player = normalize_base_subset_subject(number, player)
         team = " ".join(raw_team.split()).strip()
         subset = base_subset(number, player)
 
@@ -306,8 +335,6 @@ def build_clyde_highlights() -> list[list[str]]:
         if not team:
             raise SystemExit(f"Clyde Career Highlights #{number} is missing team data")
 
-        # TCDB includes the individual highlight title in the subject cell. Keep
-        # Player clean and preserve that collector-facing title in Variant.
         title = re.sub(r"^Clyde\s+Drexler\b", "", clean, flags=re.IGNORECASE).strip(" -–—")
         rows.append(
             [
@@ -381,6 +408,7 @@ def validate_rows(rows: list[list[str]], true_rcs: set[int]) -> None:
     checks = {
         ("base", "1"): ("Stacey Augmon", "Atlanta Hawks"),
         ("base", "224"): ("Michael Jordan LL", "Chicago Bulls"),
+        ("base", "229"): ("Charles Barkley AW", "Phoenix Suns"),
         ("base", "234"): ("Alonzo Mourning PV", "Charlotte Hornets"),
         ("base", "241"): ("Doug Edwards RC", "Atlanta Hawks"),
         ("base", "282"): ("Allan Houston RC", "Detroit Pistons"),
@@ -432,6 +460,22 @@ def validate_rows(rows: list[list[str]], true_rcs: set[int]) -> None:
     ]
     if metadata_leaks:
         raise SystemExit(f"Metadata leaked into Player; example: {metadata_leaks[0]}")
+
+    subset_description_leaks = [
+        row
+        for row in rows
+        if row[0] == "base"
+        and 221 <= int(row[1]) <= 232
+        and re.search(
+            r"\b(?:Leader|MVP|POY|Rookie\s+of\s+the\s+Year|Sixth\s+Man)\b",
+            row[2],
+            re.IGNORECASE,
+        )
+    ]
+    if subset_description_leaks:
+        raise SystemExit(
+            f"Subset description leaked into Player; example: {subset_description_leaks[0]}"
+        )
 
     duplicate_rc = [row for row in rows if re.search(r"\bRC\s+RC\b", row[2])]
     if duplicate_rc:
@@ -523,6 +567,7 @@ def main() -> None:
     print("Clyde Highlights #13-16: excluded as non-pack distributions")
     print("Cello-only / mail-in / promo issues: excluded")
     print("Player metadata leakage: 0")
+    print("Subset-description leakage into Player: 0")
     print("Card-level odds in Variant: 0")
     print("Team data: COMPLETE")
     print(f"Expected Product Sets: {EXPECTED_PRODUCT_SETS}")
