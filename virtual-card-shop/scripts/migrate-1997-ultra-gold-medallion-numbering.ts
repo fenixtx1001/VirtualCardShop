@@ -15,6 +15,8 @@ function chunks<T>(values: T[], size: number) {
 }
 
 async function main() {
+  const apply = process.argv.slice(2).includes("--apply");
+
   const cards = await prisma.card.findMany({
     where: { productSetId: PRODUCT_SET_ID },
     select: { id: true, cardNumber: true },
@@ -70,6 +72,17 @@ async function main() {
         `${PRODUCT_SET_ID} is missing card #${number}; migration aborted.`
       );
     }
+  }
+
+  console.log(
+    `[1997 Ultra Gold Medallion] ${apply ? "APPLY" : "DRY RUN"}: ${EXPECTED_CARDS} cards are ready to migrate in place from 1-${EXPECTED_CARDS} to G1-G${EXPECTED_CARDS}.`
+  );
+
+  if (!apply) {
+    console.log(
+      "[1997 Ultra Gold Medallion] dry run complete; rerun with --apply to write."
+    );
+    return;
   }
 
   for (const batch of chunks(numericCards, 50)) {
