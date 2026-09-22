@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/76/1975-Topps",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/76/1975-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/76/1975-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/76/1975-Topps",
+    "packagingUrl": "https://www.tcdb.com/Packaging.cfm/sid/76/1975-Topps",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1975_Topps",
+    "note": "1975 Topps flagship baseball. TCDB is the checklist and rookie-card authority. The flagship checklist contains 660 cards issued in one series. Physical wax packs contained 10 cards plus gum and no inserts. The 1975 Topps Mini, O-Pee-Chee issue, mail-in Team Checklists, and later Topps Vault File Copies are separate or non-pack issues and are intentionally excluded from this VCS product."
+  },
+  "decisions": {
+    "canonicalPackFormat": "VCS-normalized pack: 4 cards per pack, 36 packs per box. The physical wax product was 10 cards plus one stick of gum per pack; VCS uses the standing four-card pack rule.",
+    "baseStructure": "#1-660, one physical series, modeled as one collector-facing VCS Base ProductSet.",
+    "baseAvailability": "All 660 flagship cards have equal VCS pull availability for completion and prestige tracking; no short-print weighting is modeled.",
+    "insertHandling": "No pack inserts are modeled because the standard 1975 Topps wax product contained only base cards.",
+    "relatedSetHandling": "1975 Topps Mini and O-Pee-Chee are separate products. Mail-in Team Checklists and later Topps Vault File Copies are not standard wax-pack pulls and are excluded.",
+    "trueRookieNaming": "Append RC to Player only for card numbers on TCDB's 1975 Topps Rookie Cards index. Generic Rookie subset wording does not independently create an RC label.",
+    "cleanPlayerNames": "Player contains the clean subject plus compact collector abbreviations only. TCDB error annotations and descriptive error text are removed from Player; compact error status may be retained in Variant.",
+    "subsetHandling": "Highlights, MVPs, League Leaders, Postseason, Rookie Prospects, team cards, checklists, All-Stars and All-Star Rookies remain inside the single Base ProductSet and are identified through Subset where useful.",
+    "oddsPlacement": "There are no non-base ProductSet odds for this product, and no card Variant stores set-wide odds.",
+    "releaseSafety": "Product remains unreleased until pack imagery, card imagery and pricing are reviewed."
+  },
+  "product": {
+    "id": "1975_Topps_Baseball",
+    "year": 1975,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1975-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1975_Topps_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/76/1975-Topps",
+      "expectedCards": 660,
+      "notes": "Complete flagship checklist #1-660. One series, equal VCS availability. TCDB-recognized true rookie cards receive RC in Player."
+    }
+  ]
+}
