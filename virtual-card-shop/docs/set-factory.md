@@ -80,6 +80,13 @@ that must be removed from the display name include `UER: Photo actually ...`, `E
 other collector metadata. Preserve useful information of that kind in `variant`,
 `subset`, or other metadata instead.
 
+Print-code annotations are never part of the player name. Source strings such as
+`Adam Creighton "B*" print code`, `Al Iafrate "A*B*" print code`, or similar printer
+codes must display simply as `Adam Creighton` and `Al Iafrate`. More generally, the
+Player field should contain the collector-facing subject name plus only intentional
+abbreviations that improve card identification; source notes and production metadata
+must be stripped or moved to metadata fields.
+
 For example, source text such as `Dave Collins UER: Photo actually Bobby Jones`
 must display as `Dave Collins` in `player`, with the UER/photo detail retained only
 as metadata when the dataset models it.
