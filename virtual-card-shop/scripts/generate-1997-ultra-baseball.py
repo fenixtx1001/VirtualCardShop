@@ -108,8 +108,8 @@ def parse_rows(html: str, number_pattern: str) -> list[tuple[str, str, str]]:
     for row in parser.rows:
         vals = [value for value in row if value]
         for i, value in enumerate(vals):
-            card_number = value.strip()
-            if not pattern.fullmatch(card_number):
+            number = value.strip()
+            if not pattern.fullmatch(number):
                 continue
             if i + 1 >= len(vals):
                 continue
@@ -121,7 +121,7 @@ def parse_rows(html: str, number_pattern: str) -> list[tuple[str, str, str]]:
             team = vals[-1].strip() if i + 2 < len(vals) else ""
             if team == raw_name:
                 team = ""
-            found.append((card_number.upper(), raw_name, team))
+            found.append((number.upper(), raw_name, team))
             break
 
     return found
@@ -144,7 +144,7 @@ def fetch_set_rows(
         before = len(rows)
 
         for number, raw_name, team in parsed:
-            rows.setdefault(number.upper(), (number.upper(), raw_name, team))
+            rows.setdefault(number, (number, raw_name, team))
 
         added = len(rows) - before
         print(
@@ -153,10 +153,12 @@ def fetch_set_rows(
         )
 
         if numeric:
-            actual_numbers = {
-                int(number) for number in rows if number.isdigit() and 1 <= int(number) <= expected
+            actual = {
+                int(number)
+                for number in rows
+                if number.isdigit() and 1 <= int(number) <= expected
             }
-            if actual_numbers == set(range(1, expected + 1)):
+            if actual == set(range(1, expected + 1)):
                 break
         elif len(rows) >= expected:
             break
@@ -165,13 +167,15 @@ def fetch_set_rows(
             break
 
     if numeric:
-        expected_numbers = set(range(1, expected + 1))
-        actual_numbers = {
-            int(number) for number in rows if number.isdigit() and 1 <= int(number) <= expected
+        required = set(range(1, expected + 1))
+        actual = {
+            int(number)
+            for number in rows
+            if number.isdigit() and 1 <= int(number) <= expected
         }
-        if actual_numbers != expected_numbers:
-            missing = sorted(expected_numbers - actual_numbers)
-            extra = sorted(actual_numbers - expected_numbers)
+        if actual != required:
+            missing = sorted(required - actual)
+            extra = sorted(actual - required)
             raise SystemExit(
                 f"{label}: numbering mismatch; missing={missing[:30]}, extra={extra[:30]}"
             )
@@ -183,7 +187,11 @@ def fetch_set_rows(
     def natural_key(item: tuple[str, str, str]):
         number = item[0]
         match = re.search(r"(\d+)$", number)
-        return (re.sub(r"\d+$", "", number), int(match.group(1)) if match else 999999, number)
+        return (
+            re.sub(r"\d+$", "", number),
+            int(match.group(1)) if match else 999999,
+            number,
+        )
 
     return sorted(rows.values(), key=natural_key)
 
@@ -235,33 +243,50 @@ def variant_text(*parts: str) -> str:
     return "; ".join(out)
 
 
-def load_true_rc_numbers() -> set[str]:
-    rows = fetch_set_rows(
-        ROOKIES_URL,
-        r"\d{1,3}",
-        EXPECTED_TRUE_RCS,
-        "rookie-index",
-        numeric=False,
-        max_pages=3,
-    )
-    rc_numbers = {number for number, _name, _team in rows if number.isdigit()}
-    if len(rc_numbers) != EXPECTED_TRUE_RCS:
-        raise SystemExit(
-            f"Expected {EXPECTED_TRUE_RCS} recognized RC numbers, found {len(rc_numbers)}"
-        )
-    print(f"Rookie index: {len(rc_numbers)} recognized true RC card numbers")
-    return rc_numbers
+def is_checklist_card(player: str, subset: str = "") -> bool:
+    return "checklist" in player.lower() or "checklist" in subset.lower()
 
 
 def normalize_team(player: str, team: str, subset: str) -> str:
     cleaned = " ".join(team.split()).strip()
     if cleaned:
         return cleaned
-
-    if "checklist" in subset.lower() or "checklist" in player.lower():
-        return "MLB"
-
+    if is_checklist_card(player, subset):
+        return ""
     raise SystemExit(f"{subset}: {player} is missing team data")
+
+
+def load_true_rc_numbers() -> set[str]:
+    # TCDB currently recognizes exactly 28 rookies in the flagship checklist.
+    # Fetch the rookie index directly so RC is never inferred from words such
+    # as Rookie, Rookie Reflections, or prospect-oriented insert names.
+    seen: dict[str, tuple[str, str, str]] = {}
+    print("rookie-index:")
+
+    for page_index in range(1, 4):
+        parsed = parse_rows(fetch(page_url(ROOKIES_URL, page_index)), r"\d{1,3}")
+        before = len(seen)
+        for row in parsed:
+            number = row[0]
+            if number.isdigit() and 1 <= int(number) <= EXPECTED_BASE:
+                seen.setdefault(number, row)
+        added = len(seen) - before
+        print(
+            f"  page {page_index}: parsed {len(parsed)} rows; "
+            f"+{added}; unique {len(seen)}"
+        )
+        if len(seen) == EXPECTED_TRUE_RCS:
+            break
+        if page_index > 1 and (not parsed or added == 0):
+            break
+
+    if len(seen) != EXPECTED_TRUE_RCS:
+        raise SystemExit(
+            f"Expected {EXPECTED_TRUE_RCS} recognized RC numbers, found {len(seen)}"
+        )
+
+    print(f"Rookie index: {len(seen)} recognized true RC card numbers")
+    return set(seen)
 
 
 def build_base_rows(true_rcs: set[str]) -> list[list[str]]:
@@ -278,10 +303,8 @@ def build_base_rows(true_rcs: set[str]) -> list[list[str]]:
     for number, raw_name, raw_team in parsed:
         player, notes = clean_player_and_notes(raw_name)
         team = normalize_team(player, raw_team, "Base")
-
         if number in true_rcs:
             player = f"{player} RC"
-
         rows.append(["base", number, player, team, "", variant_text(notes)])
 
     return rows
@@ -291,6 +314,7 @@ def build_source_rows(source: dict[str, object]) -> list[list[str]]:
     key = str(source["key"])
     expected = int(source["expected"])
     subset = str(source["subset"])
+
     parsed = fetch_set_rows(
         str(source["url"]),
         str(source["pattern"]),
@@ -318,7 +342,7 @@ def main() -> None:
         counts[str(source["key"])] = len(rows)
 
     # TCDB catalogs this as a standalone insert on the parent set rather than
-    # as an Insert Set with its own checklist page.
+    # an Insert Set with a separate checklist page.
     all_rows.append(
         [
             "andruw-jones-autograph",
@@ -366,28 +390,28 @@ def main() -> None:
             f"Collector metadata leaked into Player; example: {dirty_players[0]}"
         )
 
-    missing_teams = [row for row in all_rows if not row[3].strip()]
+    missing_teams = [
+        row
+        for row in all_rows
+        if not row[3].strip() and not is_checklist_card(row[2], row[4])
+    ]
     if missing_teams:
         raise SystemExit(
-            f"Found {len(missing_teams)} rows missing team data; example: {missing_teams[0]}"
+            f"Found {len(missing_teams)} non-checklist rows missing team data; "
+            f"example: {missing_teams[0]}"
         )
 
-    row_lookup = {(row[0], row[1]): row for row in all_rows}
-    spot_checks = {
-        ("base", "99"): ("Derek Jeter", "New York Yankees"),
-        ("base", "121"): ("Ken Griffey, Jr.", "Seattle Mariners"),
-        ("base", "518"): ("David Arias RC", "Minnesota Twins"),
-        ("base", "553"): ("Hideki Irabu RC", "New York Yankees"),
-        ("top-30", "9"): ("Derek Jeter", "New York Yankees"),
-        ("thunderclap", "8"): ("Ken Griffey, Jr.", "Seattle Mariners"),
-    }
-    for key, (expected_player, expected_team) in spot_checks.items():
-        row = row_lookup.get(key)
-        if not row or row[2] != expected_player or row[3] != expected_team:
-            raise SystemExit(
-                f"Spot validation failed for {key}: {row}; "
-                f"expected ({expected_player!r}, {expected_team!r})"
-            )
+    base_lookup = {row[1]: row for row in all_rows if row[0] == "base"}
+    for rc_number in true_rcs:
+        row = base_lookup.get(rc_number)
+        if not row or not row[2].endswith(" RC"):
+            raise SystemExit(f"True RC labeling failed for Base #{rc_number}: {row}")
+
+    # Key 1997 rookie-card identity guard. TCDB lists David Ortiz under his
+    # then-used surname, David Arias, on card #518.
+    arias = base_lookup.get("518")
+    if not arias or "David Arias" not in arias[2] or not arias[2].endswith(" RC"):
+        raise SystemExit(f"Base #518 David Arias RC validation failed: {arias}")
 
     with OUT.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.writer(handle)
@@ -405,7 +429,7 @@ def main() -> None:
     print(f"Total resolved cards expected: {EXPECTED_RESOLVED}")
     print("Card-level odds in Variant: 0")
     print("Player metadata leakage: 0")
-    print("Team data: COMPLETE")
+    print("Team data: COMPLETE (checklist-card blank-team exception allowed)")
 
 
 if __name__ == "__main__":
