@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/4330/1999-Score",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/4330/1999-Score",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/4330/1999-Score",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/4330/1999-Score",
+    "note": "1999 Score Football flagship release. TCDB is the checklist authority. The separate 110-card Score Supplemental release, The National Atlanta 1999 promo, and the NNO information card are intentionally excluded from this product."
+  },
+  "decisions": {
+    "canonicalPackFormat": "VCS-normalized pack: 4 cards per pack, 36 packs per box. Contemporary Hobby and Retail references document 10 physical cards per pack and 36 packs per box; VCS applies the standing four-card pack rule while retaining the 36-pack box size.",
+    "baseChecklist": "One 275-card Base ProductSet, #1-275.",
+    "baseShortPrintHandling": "Physical cards #221-275 were short printed, with Hobby and Retail distribution differing. VCS intentionally keeps all 275 flagship cards equally available inside one Base ProductSet so completion and prestige track the single published set rather than physical collation scarcity.",
+    "baseSubsets": "#221-260 Rookie, #261-270 All-Pro, #271-275 Great Combos. These remain inside Base.",
+    "trueRookieNaming": "Append RC only to Base cards returned by TCDB's Rookie Cards index. The generator requires 40 verified RC card numbers and does not treat generic ROO text in reprints or inserts as a new rookie-card designation.",
+    "channelHandling": "The physical release used Hobby- and Retail-specific insert programs. VCS combines those families into one product. Where TCDB or a reliable product reference gives a clear denominator, that denominator is stored on the ProductSet. Sets documented only as randomly inserted or by print run remain null rather than receiving invented pack odds.",
+    "nnoHandling": "Rookie Preview Autographs are physically unnumbered. VCS assigns deterministic sequence numbers 1-35 in TCDB checklist order and stores Physical NNO in Variant so every card is uniquely addressable.",
+    "derivedSets": "10th Anniversary Reprints Autographs derive from the 20-card unsigned checklist; Millennium Men Autographs derive from the three-card Millennium Men checklist; Anniversary Artist Proof and Anniversary Showcase derive one-to-one from the 275-card Base checklist.",
+    "promoHandling": "The National Atlanta 1999 promo and the single NNO Information Card are excluded. 1999 Score Supplemental is a separate release and is not folded into this product.",
+    "oddsPlacement": "Pack odds live only at ProductSet level. Serial numbering, autograph status, print-run information and Physical NNO may appear in Variant, but set-wide insertion odds may not.",
+    "releaseSafety": "Product remains unreleased until pricing and images are reviewed."
+  },
+  "product": {
+    "id": "1999_Score_Football",
+    "year": 1999,
+    "brand": "Score",
+    "sport": "Football",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1999-score-football.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1999_Score_Football_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4330/1999-Score",
+      "expectedCards": 275,
+      "notes": "Complete flagship checklist #1-275. Physical #221-275 short-print scarcity is intentionally normalized into one equally weighted VCS Base pool."
+    },
+    {
+      "key": "10th-anniversary-reprints",
+      "id": "1999_Score_Football_10th_Anniversary_Reprints",
+      "name": "10th Anniversary Reprints",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35384/1999-Score---10th-Anniversary-Reprints",
+      "expectedCards": 20,
+      "notes": "20-card Retail insert set. Unsigned copies are SN1989 with copies 0151-1989 comprising the unsigned population. No trustworthy per-pack denominator is modeled."
+    },
+    {
+      "key": "10th-anniversary-reprints-autographs",
+      "id": "1999_Score_Football_10th_Anniversary_Reprints_Autographs",
+      "name": "10th Anniversary Reprints Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 20,
+      "deriveCardsFrom": "10th-anniversary-reprints",
+      "derivedVariant": "AU; SN1989; PR150",
+      "notes": "Hobby autograph counterpart of the 20-card 10th Anniversary checklist. First 150 serial-numbered copies were autographed. Randomly inserted; no reliable pack denominator modeled."
+    },
+    {
+      "key": "complete-players",
+      "id": "1999_Score_Football_Complete_Players",
+      "name": "Complete Players",
+      "kind": "INSERT",
+      "oddsPerPack": 35,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35387/1999-Score---Complete-Players",
+      "expectedCards": 30,
+      "notes": "30-card insert checklist. TCDB documents 1:35 packs."
+    },
+    {
+      "key": "future-franchise",
+      "id": "1999_Score_Football_Future_Franchise",
+      "name": "Future Franchise",
+      "kind": "INSERT",
+      "oddsPerPack": 35,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35389/1999-Score---Future-Franchise",
+      "expectedCards": 31,
+      "notes": "31-card Hobby insert checklist. Contemporary Hobby-box references document 1:35 packs."
+    },
+    {
+      "key": "millennium-men",
+      "id": "1999_Score_Football_Millennium_Men",
+      "name": "Millennium Men",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4331/1999-Score---Millennium-Men",
+      "expectedCards": 3,
+      "notes": "Three-card Retail set, SN1000 with unsigned copies 0101-1000 (PR900). No published denominator modeled."
+    },
+    {
+      "key": "millennium-men-autographs",
+      "id": "1999_Score_Football_Millennium_Men_Autographs",
+      "name": "Millennium Men Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 3,
+      "deriveCardsFrom": "millennium-men",
+      "derivedVariant": "AU; SN1000; PR100",
+      "notes": "Autographed first 100 copies of each three-card Millennium Men subject. Retail issue; no published pack denominator modeled."
+    },
+    {
+      "key": "numbers-game",
+      "id": "1999_Score_Football_Numbers_Game",
+      "name": "Numbers Game",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35390/1999-Score---Numbers-Game",
+      "expectedCards": 30,
+      "notes": "30-card Hobby insert set with card-specific serial numbering tied to player yardage statistics. Randomly inserted; no reliable pack denominator modeled."
+    },
+    {
+      "key": "rookie-preview-autographs",
+      "id": "1999_Score_Football_Rookie_Preview_Autographs",
+      "name": "Rookie Preview Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35391/1999-Score---Rookie-Preview-Autographs",
+      "expectedCards": 35,
+      "notes": "35-card physically unnumbered Hobby autograph checklist, generally PR600. VCS uses deterministic sequence numbers 1-35 and preserves Physical NNO in Variant. No pack denominator modeled."
+    },
+    {
+      "key": "scoring-core",
+      "id": "1999_Score_Football_Scoring_Core",
+      "name": "Scoring Core",
+      "kind": "INSERT",
+      "oddsPerPack": 35,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35392/1999-Score---Scoring-Core",
+      "expectedCards": 30,
+      "notes": "30-card insert checklist. TCDB documents 1:35 packs."
+    },
+    {
+      "key": "settle-the-score",
+      "id": "1999_Score_Football_Settle_the_Score",
+      "name": "Settle the Score",
+      "kind": "INSERT",
+      "oddsPerPack": 17,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35393/1999-Score---Settle-the-Score",
+      "expectedCards": 30,
+      "notes": "30-card insert checklist. TCDB documents 1:17 packs."
+    },
+    {
+      "key": "the-franchise",
+      "id": "1999_Score_Football_The_Franchise",
+      "name": "The Franchise",
+      "kind": "INSERT",
+      "oddsPerPack": 35,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35388/1999-Score---The-Franchise",
+      "expectedCards": 31,
+      "notes": "31-card insert checklist. TCDB documents 1:35 packs."
+    },
+    {
+      "key": "anniversary-artist-proof",
+      "id": "1999_Score_Football_Anniversary_Artist_Proof",
+      "name": "Anniversary Artist Proof",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35386/1999-Score---Anniversary-Artist-Proof",
+      "expectedCards": 275,
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Anniversary Artist Proof; SN10",
+      "notes": "Full 275-card flagship parallel, serial numbered to 10. No reliable per-pack denominator modeled."
+    },
+    {
+      "key": "anniversary-showcase",
+      "id": "1999_Score_Football_Anniversary_Showcase",
+      "name": "Anniversary Showcase",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35394/1999-Score---Anniversary-Showcase",
+      "expectedCards": 275,
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Anniversary Showcase; SN1989",
+      "notes": "Full 275-card flagship parallel, serial numbered to 1989. No reliable per-pack denominator modeled."
+    }
+  ]
+}
