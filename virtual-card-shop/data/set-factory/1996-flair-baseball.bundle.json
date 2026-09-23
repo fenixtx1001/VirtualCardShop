@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/672/1996-Flair",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/672/1996-Flair",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/672/1996-Flair",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/672/1996-Flair",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1996_Flair",
+    "note": "1996 Flair Baseball has a 400-number flagship checklist, but every base card was produced in two equally common foil/background variations. TCDB identifies the physical variations as a/b records. VCS preserves both physical cards as separately harvestable collectibles while keeping them together in one equally weighted Base ProductSet. Promotional Sample and Promo Panels are excluded from the pack product."
+  },
+  "decisions": {
+    "canonicalPackFormat": "VCS-normalized pack: 4 cards per pack, 24 packs per box. The primary physical Hobby configuration was seven cards per pack and 24 packs per box; other 18-pack Hobby and 36-pack Retail box configurations also existed. VCS uses the standing four-card pack rule and the 24-pack Hobby box while preserving verified insert denominators.",
+    "baseChecklist": "TCDB catalogs 400 logical card numbers, #1-400.",
+    "baseVariationHandling": "Each of the 400 base numbers exists in two equal-production physical versions. VCS stores both as unique base collectibles using TCDB-style card numbers 1a-400a and 1b-400b, for 800 equally weighted Base cards. Suffix a is gold lettering with silver background; suffix b is silver lettering with gold background.",
+    "baseScarcity": "Neither base variation is treated as a parallel or hit. Both were produced in equal quantities and share the normal Base pull pool.",
+    "trueRookieNaming": "Append RC only to TCDB-recognized true rookie card numbers. TCDB lists five logical rookie numbers; because both physical base variations exist, VCS contains ten RC rows.",
+    "insertModeling": "Diamond Cuts, Hot Gloves, Powerline, and Wave of the Future are the four verified pack insert sets. Promotional Sample and Promo Panels are excluded as promos.",
+    "oddsPlacement": "Pack odds live only on ProductSets. Card Variant does not contain set-wide insertion odds.",
+    "cleanPlayerNames": "Player contains only the clean card subject plus RC when verified. TCDB VAR/error/collector metadata remains outside Player.",
+    "releaseSafety": "Product remains unreleased until images and pricing are reviewed."
+  },
+  "product": {
+    "id": "1996_Flair_Baseball",
+    "year": 1996,
+    "brand": "Flair",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1996-flair-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1996_Flair_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/ViewSet.cfm/sid/672/1996-Flair",
+      "expectedCards": 800,
+      "notes": "All 400 logical base numbers in both equally produced physical variations. Card numbers use TCDB-style a/b suffixes so image harvesting matches the source exactly."
+    },
+    {
+      "key": "diamond-cuts",
+      "id": "1996_Flair_Baseball_Diamond_Cuts",
+      "name": "Diamond Cuts",
+      "kind": "INSERT",
+      "oddsPerPack": 20,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/673/1996-Flair---Diamond-Cuts",
+      "expectedCards": 12,
+      "notes": "12-card insert set, numbered 1-12. Physical insertion ratio 1:20 packs."
+    },
+    {
+      "key": "hot-gloves",
+      "id": "1996_Flair_Baseball_Hot_Gloves",
+      "name": "Hot Gloves",
+      "kind": "INSERT",
+      "oddsPerPack": 90,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/674/1996-Flair---Hot-Gloves",
+      "expectedCards": 10,
+      "notes": "10-card insert set, numbered 1-10. Physical insertion ratio 1:90 packs."
+    },
+    {
+      "key": "powerline",
+      "id": "1996_Flair_Baseball_Powerline",
+      "name": "Powerline",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/675/1996-Flair---Powerline",
+      "expectedCards": 10,
+      "notes": "10-card insert set, numbered 1-10. Physical insertion ratio 1:6 packs."
+    },
+    {
+      "key": "wave-of-the-future",
+      "id": "1996_Flair_Baseball_Wave_of_the_Future",
+      "name": "Wave of the Future",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/676/1996-Flair---Wave-of-the-Future",
+      "expectedCards": 20,
+      "notes": "20-card insert set, numbered 1-20. Physical insertion ratio 1:72 packs."
+    }
+  ]
+}
