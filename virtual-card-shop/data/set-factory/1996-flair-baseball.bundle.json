@@ -7,14 +7,14 @@
     "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/672/1996-Flair",
     "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/672/1996-Flair",
     "distributionReference": "https://baseballcardpedia.com/index.php/1996_Flair",
-    "note": "1996 Flair Baseball has a 400-number flagship checklist, but every base card was produced in two equally common foil/background variations. TCDB identifies the physical variations as a/b records. VCS preserves both physical cards as separately harvestable collectibles while keeping them together in one equally weighted Base ProductSet. Promotional Sample and Promo Panels are excluded from the pack product."
+    "note": "1996 Flair Baseball is modeled in VCS as the collector-facing 400-card flagship checklist. Every base number was printed in two equal-production foil/background treatments, but VCS intentionally ignores those print variants so completion and prestige require one card per logical checklist number. Promotional Sample and Promo Panels are excluded from the pack product."
   },
   "decisions": {
-    "canonicalPackFormat": "VCS-normalized pack: 4 cards per pack, 24 packs per box. The primary physical Hobby configuration was seven cards per pack and 24 packs per box; other 18-pack Hobby and 36-pack Retail box configurations also existed. VCS uses the standing four-card pack rule and the 24-pack Hobby box while preserving verified insert denominators.",
-    "baseChecklist": "TCDB catalogs 400 logical card numbers, #1-400.",
-    "baseVariationHandling": "Each of the 400 base numbers exists in two equal-production physical versions. VCS stores both as unique base collectibles using TCDB-style card numbers 1a-400a and 1b-400b, for 800 equally weighted Base cards. Suffix a is gold lettering with silver background; suffix b is silver lettering with gold background.",
-    "baseScarcity": "Neither base variation is treated as a parallel or hit. Both were produced in equal quantities and share the normal Base pull pool.",
-    "trueRookieNaming": "Append RC only to TCDB-recognized true rookie card numbers. TCDB lists five logical rookie numbers; because both physical base variations exist, VCS contains ten RC rows.",
+    "canonicalPackFormat": "VCS-normalized pack: 4 cards per pack, 24 packs per box. The primary physical Hobby configuration was seven cards per pack and 24 packs per box; VCS uses the standing four-card pack rule while preserving verified insert denominators.",
+    "baseChecklist": "One 400-card collector-facing Base ProductSet, numbered #1-400.",
+    "baseVariationHandling": "TCDB notes two equal-production print treatments for every base card: gold lettering/silver background and silver lettering/gold background. VCS intentionally ignores this distinction. Both physical treatments map to the same logical VCS card number and do not create separate completion/prestige requirements.",
+    "baseScarcity": "Neither print treatment is a parallel or hit. The variants are ignored rather than modeled as separate cards or ProductSets.",
+    "trueRookieNaming": "Append RC only to TCDB-recognized true rookie card numbers. With variants collapsed, VCS contains five RC cards: one logical row for each recognized rookie number.",
     "insertModeling": "Diamond Cuts, Hot Gloves, Powerline, and Wave of the Future are the four verified pack insert sets. Promotional Sample and Promo Panels are excluded as promos.",
     "oddsPlacement": "Pack odds live only on ProductSets. Card Variant does not contain set-wide insertion odds.",
     "cleanPlayerNames": "Player contains only the clean card subject plus RC when verified. TCDB VAR/error/collector metadata remains outside Player.",
@@ -50,9 +50,9 @@
       "kind": "BASE",
       "oddsPerPack": null,
       "defaultGradeability": "COMMON",
-      "sourceUrl": "https://www.tcdb.com/ViewSet.cfm/sid/672/1996-Flair",
-      "expectedCards": 800,
-      "notes": "All 400 logical base numbers in both equally produced physical variations. Card numbers use TCDB-style a/b suffixes so image harvesting matches the source exactly."
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/672/1996-Flair",
+      "expectedCards": 400,
+      "notes": "Complete logical flagship checklist #1-400. The two equal-production foil/background print treatments are intentionally ignored and do not create separate VCS cards."
     },
     {
       "key": "diamond-cuts",
