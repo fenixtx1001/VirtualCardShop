@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/549/1995-Select",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/549/1995-Select",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/549/1995-Select",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/549/1995-Select",
+    "distributionReference": "https://www.baseballcardpedia.com/index.php/1995_Select",
+    "note": "1995 Select Baseball was a Hobby-only single-series release. VCS models the 250 cards actually available in packs as the flagship Base ProductSet, plus the four verified pack-inserted families. Hideo Nomo #251 and its Artist's Proof counterpart were dealer/case-order issues rather than pack pulls and are intentionally excluded, as are the four-card Samples promo set."
+  },
+  "decisions": {
+    "canonicalPackFormat": "VCS-normalized pack: 4 cards per pack, 24 packs per box. The physical Hobby product was documented as 12 cards per pack; VCS uses the standing four-card pack rule while preserving verified per-pack insert frequencies.",
+    "collectorChecklistIntegrity": "Base #1-250 is the pack-pullable collector checklist and all 250 cards share equal base availability for completion and prestige tracking.",
+    "dealerCardHandling": "Hideo Nomo #251 was distributed to qualifying hobby dealers and was not inserted in packs. It is excluded from the VCS Base ProductSet. The corresponding Artist's Proof #251 is excluded for the same reason.",
+    "promoHandling": "The three player Samples plus information/title card were pre-release promotional material and are excluded from the VCS pack product.",
+    "artistProofRepresentation": "Artist's Proofs are modeled as a 250-card derived parallel of Base #1-250. TCDB catalogs 251 records because it also includes dealer-only #251, which VCS intentionally excludes from pack play.",
+    "trueRookieNaming": "Append RC to Player only for the seven cards currently recognized by TCDB's Rookie Cards index. Select Rookie (SR) source notation alone does not create an RC designation.",
+    "cleanPlayerNames": "Player contains the clean card subject name plus verified RC when applicable. TCDB source codes such as SR, ST, CL, and UER are kept out of Player; checklist identity is stored in Subset and other source metadata may be retained in Variant.",
+    "oddsPlacement": "Verified pack odds live only on ProductSets. No card Variant contains set-wide insertion odds.",
+    "releaseSafety": "Product remains unreleased until pack/card images and pricing are reviewed."
+  },
+  "product": {
+    "id": "1995_Select_Baseball",
+    "year": 1995,
+    "brand": "Select",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1995-select-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1995_Select_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/549/1995-Select",
+      "expectedCards": 250,
+      "notes": "Pack-issued flagship checklist #1-250. Dealer-only Hideo Nomo #251 is intentionally excluded."
+    },
+    {
+      "key": "artists-proofs",
+      "id": "1995_Select_Baseball_Artists_Proofs",
+      "name": "Artist's Proofs",
+      "kind": "PARALLEL",
+      "oddsPerPack": 24,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10650/1995-Select---Artist%27s-Proofs",
+      "expectedCards": 250,
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Artist's Proof",
+      "notes": "Pack-issued Artist's Proof parallel of Base #1-250, inserted 1:24 packs. TCDB's dealer-only #251 Artist's Proof is intentionally excluded."
+    },
+    {
+      "key": "big-sticks",
+      "id": "1995_Select_Baseball_Big_Sticks",
+      "name": "Big Sticks",
+      "kind": "INSERT",
+      "oddsPerPack": 48,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/550/1995-Select---Big-Sticks",
+      "expectedCards": 12,
+      "notes": "12-card insert numbered BS1-BS12, inserted 1:48 packs."
+    },
+    {
+      "key": "cant-miss",
+      "id": "1995_Select_Baseball_Cant_Miss",
+      "name": "Can't Miss",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/551/1995-Select---Can%27t-Miss",
+      "expectedCards": 12,
+      "notes": "12-card insert numbered CM1-CM12, inserted 1:24 packs."
+    },
+    {
+      "key": "sure-shots",
+      "id": "1995_Select_Baseball_Sure_Shots",
+      "name": "Sure Shots",
+      "kind": "INSERT",
+      "oddsPerPack": 90,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/555/1995-Select---Sure-Shots",
+      "expectedCards": 10,
+      "notes": "10-card insert numbered SS1-SS10, inserted 1:90 packs."
+    }
+  ]
+}
