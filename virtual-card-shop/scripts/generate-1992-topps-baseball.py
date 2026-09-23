@@ -22,6 +22,15 @@ EXPECTED_TRUE_RCS = 61
 EXPECTED_PRODUCT_SETS = 3
 EXPECTED_TOTAL = EXPECTED_BASE + EXPECTED_GOLD + EXPECTED_MATCH_STATS
 
+GOLD_CHECKLIST_REPLACEMENTS = {
+    131: "Terry Mathews",
+    264: "Rod Beck",
+    366: "Tony Perezchica",
+    527: "Terry McDaniel",
+    658: "John Ramos",
+    787: "Brian Williams",
+}
+
 
 class RowParser(HTMLParser):
     def __init__(self) -> None:
@@ -122,16 +131,28 @@ def clean_player_and_variant(raw_name: str) -> tuple[str, str]:
     player = pieces[0].strip(" ,;")
     metadata = pieces[1].strip(" ,;") if len(pieces) > 1 else ""
 
+    variant_tokens: list[str] = []
+
+    # TCDB appends this descriptive note to the six Gold cards that replace
+    # base checklist cards. It is source metadata, not part of the player name.
+    if re.search(r"\s+Checklist replacement\s*$", player, re.IGNORECASE):
+        player = re.sub(
+            r"\s+Checklist replacement\s*$",
+            "",
+            player,
+            flags=re.IGNORECASE,
+        ).strip(" ,;")
+        variant_tokens.append("Checklist replacement")
+
     # RC comes only from TCDB's dedicated Rookie Cards index.
     player = re.sub(r",?\s+RC\b", "", player, flags=re.IGNORECASE).strip(" ,;")
     player = " ".join(player.split())
 
-    variant_tokens: list[str] = []
     for token in ("UER", "ERR", "COR"):
         if re.search(rf"\b{token}\b", metadata, re.IGNORECASE):
             variant_tokens.append(token)
 
-    return player, "; ".join(variant_tokens)
+    return player, "; ".join(dict.fromkeys(variant_tokens))
 
 
 def is_checklist_card(player: str, subset: str = "") -> bool:
@@ -337,15 +358,28 @@ def main() -> None:
         )
 
     # Gold must preserve Topps' six replacement subjects instead of silently
-    # deriving those rows from the flagship checklist.
-    replacement_numbers = {131, 264, 366, 527, 658, 787}
-    for number in replacement_numbers:
+    # deriving those rows from the flagship checklist. TCDB appends the text
+    # 'Checklist replacement'; that descriptor belongs in Variant, not Player.
+    for number, expected_player in GOLD_CHECKLIST_REPLACEMENTS.items():
         base_player = base_cards[number][0]
-        gold_player = gold_cards[number][0]
+        gold_player, gold_team, gold_variant = gold_cards[number]
+
         if not is_checklist_card(base_player, "Checklist"):
-            raise SystemExit(f"Expected Base #{number} to be a checklist card: {base_player!r}")
-        if is_checklist_card(gold_player):
-            raise SystemExit(f"Expected Gold #{number} to replace the checklist: {gold_player!r}")
+            raise SystemExit(
+                f"Expected Base #{number} to be a checklist card: {base_player!r}"
+            )
+        if gold_player != expected_player:
+            raise SystemExit(
+                f"Gold #{number} replacement mismatch: expected {expected_player!r}, "
+                f"found {gold_player!r}"
+            )
+        if not gold_team:
+            raise SystemExit(f"Gold #{number} {gold_player} is missing team data")
+        if "Checklist replacement" not in gold_variant.split("; "):
+            raise SystemExit(
+                f"Gold #{number} did not preserve checklist-replacement metadata: "
+                f"{gold_variant!r}"
+            )
 
     # High-value guards and clean display-facing metadata checks.
     spot_checks = {
@@ -354,6 +388,7 @@ def main() -> None:
         ("base", "186"): ("Cliff Floyd DPK RC", "Montreal Expos"),
         ("base", "768"): ("Jim Thome", "Cleveland Indians"),
         ("gold", "1"): ("Nolan Ryan", "Texas Rangers"),
+        ("gold", "658"): ("John Ramos", "New York Yankees"),
     }
     lookup = {(row[0], row[1]): row for row in all_rows}
     for key, (expected_player, expected_team) in spot_checks.items():
@@ -368,11 +403,16 @@ def main() -> None:
         row
         for row in all_rows
         if re.search(r"\b(?:UER|ERR|COR|VAR|SN\d+|PR\d+)\b", row[2], re.IGNORECASE)
+        or "checklist replacement" in row[2].lower()
     ]
     if dirty_players:
         raise SystemExit(f"Collector metadata leaked into Player: {dirty_players[:5]}")
 
-    bad_odds = [row for row in all_rows if re.search(r"\b1\s*:\s*\d+\b", row[5] or "")]
+    bad_odds = [
+        row
+        for row in all_rows
+        if re.search(r"\b1\s*:\s*\d+\b", row[5] or "")
+    ]
     if bad_odds:
         raise SystemExit(f"Card-level odds leaked into Variant: {bad_odds[:5]}")
 
