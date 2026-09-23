@@ -291,7 +291,7 @@ def base_subset(number: int) -> str:
 
 def build_base(true_rcs: set[str]) -> list[list[str]]:
     source_rows = fetch_unique_rows(BASE_URL, r"\d{1,3}", EXPECTED_BASE, "base")
-    grouped: dict[int, tuple[str, str]] = {}
+    grouped: dict[int, tuple[str, str, str]] = {}
 
     for raw_number, raw_name, raw_team in source_rows:
         number = int(raw_number)
@@ -418,14 +418,15 @@ def main() -> None:
         raise SystemExit(f"Unexpected missing team data: {missing_teams[:5]}")
 
     lookup = {(row[0], row[1]): row for row in all_rows}
-    if lookup[("base", "1")][2:4] != ["Randy Moss", "Minnesota Vikings"]:
-        raise SystemExit(f"Base #1 spot check failed: {lookup[(\"base\", \"1\")]}")
-    if lookup[("base", "222")][2] != "Ricky Williams RC":
-        raise SystemExit(f"Base #222 RC spot check failed: {lookup[(\"base\", \"222\")]}")
-    if lookup[("complete-players", "21")][2:4] != ["Ricky Williams", "New Orleans Saints"]:
-        raise SystemExit(
-            f"Complete Players #21 spot check failed: {lookup[(\"complete-players\", \"21\")] }"
-        )
+    base_one = lookup[("base", "1")]
+    base_ricky = lookup[("base", "222")]
+    complete_ricky = lookup[("complete-players", "21")]
+    if base_one[2:4] != ["Randy Moss", "Minnesota Vikings"]:
+        raise SystemExit(f"Base #1 spot check failed: {base_one}")
+    if base_ricky[2] != "Ricky Williams RC":
+        raise SystemExit(f"Base #222 RC spot check failed: {base_ricky}")
+    if complete_ricky[2:4] != ["Ricky Williams", "New Orleans Saints"]:
+        raise SystemExit(f"Complete Players #21 spot check failed: {complete_ricky}")
 
     with OUT.open("w", encoding="utf-8", newline="") as fh:
         writer = csv.writer(fh, lineterminator="\n")
