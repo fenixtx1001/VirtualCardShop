@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/212/1992-Topps",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/212/1992-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/212/1992-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/212/1992-Topps",
+    "packagingUrl": "https://www.tcdb.com/Packaging.cfm/sid/212/1992-Topps",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1992_Topps",
+    "note": "1992 Topps flagship baseball. TCDB is the checklist and rookie-card authority. The 792-card flagship was issued in one series. VCS models the standard 15-card, 36-pack box configuration. Topps Gold and Match the Stats are included because they were inserted in packs; Gold Winners and pre-production/promotional issues are excluded because they were mail-in or promotional releases rather than normal pack pulls."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Mirror the standard 1992 Topps 15-card pack and 36-pack box configuration.",
+    "baseStructure": "One 792-card Base ProductSet, #1-792, issued in one physical series.",
+    "baseAvailability": "All 792 flagship cards use equal VCS availability for completion and prestige tracking.",
+    "goldStructure": "Topps Gold is modeled as an explicit 792-card ProductSet rather than a derived parallel because six base checklist numbers were replaced with different player cards in Gold. For the standard 15-card pack format, Gold was inserted 1:36 packs.",
+    "matchTheStatsStructure": "Match the Stats is a 52-card physically unnumbered pack insert set, inserted one per pack. VCS assigns deterministic sequence numbers 1-52 and records Physical NNO in Variant. White-back and gray-back print variations are intentionally collapsed to one logical collectible per subject.",
+    "excludedRelatedIssues": "Gold Winners is excluded because it was obtained by mail-in redemption of Match the Stats game pieces. 1993 pre-production samples and panel/promotional issues are excluded from the normal pack product. Gold factory-set-only bonus #793 is excluded because it was not a standard pack pull.",
+    "trueRookieNaming": "Append RC only to TCDB-recognized true rookie cards. The base rookie index contains 61 records. Gold cards retain RC when they correspond to those recognized rookie card numbers; Gold-specific checklist replacement subjects are not given RC unless independently recognized by source data.",
+    "variationHandling": "Ignore print-code, copyright-line and similar manufacturing variants unless they define a materially different checklist subject. One logical VCS collectible is kept per card number within Base and Gold.",
+    "cleanPlayerNames": "Player contains the clean card subject plus compact collector abbreviations only. Error/variation descriptions and other source metadata do not appear in Player.",
+    "oddsPlacement": "Set-wide insertion odds live only on ProductSets. Card Variant never stores 1:n odds.",
+    "releaseSafety": "Product remains unreleased until pack imagery, card imagery and pricing are reviewed."
+  },
+  "product": {
+    "id": "1992_Topps_Baseball",
+    "year": 1992,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 15,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1992-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1992_Topps_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/212/1992-Topps",
+      "expectedCards": 792,
+      "notes": "Complete flagship checklist #1-792, one series, equal VCS availability."
+    },
+    {
+      "key": "gold",
+      "id": "1992_Topps_Baseball_Gold",
+      "name": "Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": 36,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10273/1992-Topps-Gold",
+      "expectedCards": 792,
+      "notes": "Explicit checklist because six base checklist cards were replaced with different players in Gold. Standard 15-card pack insertion ratio 1:36. Factory-set-only #793 excluded."
+    },
+    {
+      "key": "match-the-stats",
+      "id": "1992_Topps_Baseball_Match_the_Stats",
+      "name": "Match the Stats Game",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/104558/1992-Topps-Match-the-Stats-Game",
+      "expectedCards": 52,
+      "notes": "52 physically unnumbered game cards inserted one per pack. VCS uses deterministic sequence numbers 1-52 and collapses white/gray-back print variants."
+    }
+  ]
+}
