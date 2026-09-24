@@ -91,6 +91,44 @@ elif new_spot in source:
 else:
     raise SystemExit("Expected Anniversary 1983 spot-check anchor not found; refusing to modify generator.")
 
+old_recollection = '''        for number, raw_name, raw_team, extras in parsed:
+            exact = (number, raw_name, raw_team, tuple(extras))
+            if exact in seen_exact:
+                continue
+            seen_exact.add(exact)
+'''
+
+new_recollection = '''        for number, raw_name, raw_team, extras in parsed:
+            if sequence:
+                # Recollection Collection consists specifically of autographed,
+                # serial-numbered buybacks. TCDB's generic HTML tables can expose
+                # number-like navigation/stat rows; require the defining AU + SN
+                # metadata so those UI rows never become logical cards.
+                source_text = " ".join([raw_name, *extras])
+                if not re.search(r"\\bAU\\b", source_text, re.IGNORECASE) or not re.search(
+                    r"\\bSN\\d+\\b", source_text, re.IGNORECASE
+                ):
+                    print(
+                        f"    skipping non-Recollection row: "
+                        f"number={number!r} name={raw_name!r} extras={extras!r}"
+                    )
+                    continue
+
+            exact = (number, raw_name, raw_team, tuple(extras))
+            if exact in seen_exact:
+                continue
+            seen_exact.add(exact)
+'''
+
+if old_recollection in source:
+    source = source.replace(old_recollection, new_recollection)
+    changed = True
+    print("Added strict AU + SN filtering for Recollection Collection rows.")
+elif new_recollection in source:
+    print("Recollection Collection AU + SN filtering already present.")
+else:
+    raise SystemExit("Expected Recollection fetch loop not found; refusing to modify generator.")
+
 if changed:
     path.write_text(source, encoding="utf-8")
     print("2003 Donruss generator patch complete.")
