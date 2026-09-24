@@ -1541,7 +1541,7 @@ export default function ShowcaseClient() {
                       </div>
 
                       <Link
-                        href={`/cards/${card.cardId}`}
+                        href={`/cards/${card.cardId}?grade=${card.grade ?? 0}`}
                         className="showcase-card-display"
                         aria-label={`Open ${card.player} details`}
                       >
@@ -1573,7 +1573,7 @@ export default function ShowcaseClient() {
 
                       <div className="showcase-card-copy">
                         <Link
-                          href={`/cards/${card.cardId}`}
+                          href={`/cards/${card.cardId}?grade=${card.grade ?? 0}`}
                           className="showcase-card-name"
                         >
                           {card.player}
@@ -1630,7 +1630,7 @@ export default function ShowcaseClient() {
                             </button>
                           ) : (
                             <Link
-                              href={`/cards/${card.cardId}`}
+                              href={`/cards/${card.cardId}?grade=${card.grade ?? 0}`}
                               className="showcase-details-action"
                             >
                               Details

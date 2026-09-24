@@ -2,6 +2,8 @@
 "use client";
 
 import Link from "next/link";
+import { useCardBrowseSource, returnState, restoreScroll } from "@/lib/card-details/browsing";
+
 import { useEffect, useMemo, useState } from "react";
 import SubmitForGradingButton from "@/components/grading/SubmitForGradingButton";
 
@@ -235,7 +237,11 @@ export default function CollectionSetClient({ productId }: { productId: string }
   }
 
   useEffect(() => {
-    load();
+    const saved = returnState(location.pathname + location.search);
+    const ps = typeof saved?.selectedProductSetId === "string" ? saved.selectedProductSetId : "";
+    setSelectedProductSetId(ps);
+    if (typeof saved?.selectedId === "number") setSelectedId(saved.selectedId);
+    load(ps).then(() => restoreScroll(location.pathname + location.search));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
@@ -267,6 +273,8 @@ export default function CollectionSetClient({ productId }: { productId: string }
     if (!cards.length) return null;
     return cards.find((c) => c.cardId === selectedId) ?? cards[0];
   }, [cards, selectedId]);
+
+  useCardBrowseSource(cards.map(c => ({ cardId: c.cardId })), "Set collection", { selectedProductSetId, selectedId });
 
   const selectedBreakdown = useMemo(() => normalizeBreakdown(selected), [selected]);
 
@@ -437,6 +445,7 @@ export default function CollectionSetClient({ productId }: { productId: string }
                 )}
               </div>
 
+              {selected && <Link href={`/cards/${selected.cardId}`} style={{ display: "inline-block", marginTop: 12 }}>Card details ↗</Link>}
               <div style={{ marginTop: 12, display: "grid", gap: 8, fontSize: 14 }}>
                 <div>
                   <b>Total Qty:</b> {selected?.quantity ?? 0}

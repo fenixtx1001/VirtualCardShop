@@ -23,6 +23,8 @@ type OwnershipBucket = {
   label: string;
   quantity: number;
   valueCents: number;
+  auctionLockedQuantity?: number;
+  availableQuantity?: number;
 };
 
 type PopulationBucket = {
@@ -181,6 +183,7 @@ export async function GET(req: Request, ctx: Ctx) {
         userId: true,
         grade: true,
         quantity: true,
+        auctionLockedQuantity: true,
       },
     });
 
@@ -188,9 +191,7 @@ export async function GET(req: Request, ctx: Ctx) {
       where: {
         cardId,
         quantity: { gt: 0 },
-        status: {
-          in: ["PENDING", "READY"],
-        },
+        revealedAt: null,
       },
       select: {
         userId: true,
@@ -235,6 +236,8 @@ export async function GET(req: Request, ctx: Ctx) {
         gradeability,
       });
 
+      bucket.auctionLockedQuantity = Math.min(quantity, Math.max(0, row.auctionLockedQuantity));
+      bucket.availableQuantity = Math.max(0, quantity - bucket.auctionLockedQuantity);
       owner.gradeBreakdown.push(bucket);
       owner.totalQuantity += quantity;
       owner.totalValueCents += bucket.valueCents * quantity;

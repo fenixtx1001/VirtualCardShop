@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useState, useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { SealedShop } from "./sealed-shop";
 import "./shop.css";
 import "./singles-shop.css";
@@ -21,6 +21,17 @@ function subscribeView(onChange: () => void) {
 export default function ShopPage() {
   const view = useSyncExternalStore(subscribeView, readView, () => "discover" as const);
   const [singles, setSingles] = useState(false);
+  useEffect(() => {
+    const sync = () => setSingles(new URLSearchParams(window.location.search).get("tab") === "singles");
+    sync(); window.addEventListener("popstate", sync);
+    return () => window.removeEventListener("popstate", sync);
+  }, []);
+  function selectSingles(value: boolean) {
+    setSingles(value);
+    const url = new URL(window.location.href);
+    if (value) url.searchParams.set("tab", "singles"); else url.searchParams.delete("tab");
+    window.history.replaceState(null, "", url.pathname + url.search);
+  }
   function changeView(next: "discover" | "all") {
     sessionView = next;
     try { localStorage.setItem("vcs:shop-view", next); } catch { /* Storage is optional. */ }
@@ -34,19 +45,19 @@ export default function ShopPage() {
     <nav className="shop-tabs" aria-label="Shop views">
       <button
         aria-current={!singles && view === "discover" ? "page" : undefined}
-        onClick={() => { setSingles(false); changeView("discover"); }}
+        onClick={() => { selectSingles(false); changeView("discover"); }}
       >
         Discover
       </button>
       <button
         aria-current={!singles && view === "all" ? "page" : undefined}
-        onClick={() => { setSingles(false); changeView("all"); }}
+        onClick={() => { selectSingles(false); changeView("all"); }}
       >
         All products
       </button>
       <button
         aria-current={singles ? "page" : undefined}
-        onClick={() => setSingles(true)}
+        onClick={() => selectSingles(true)}
       >
         Singles
       </button>
