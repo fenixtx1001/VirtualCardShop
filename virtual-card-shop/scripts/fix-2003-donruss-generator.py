@@ -227,6 +227,74 @@ elif new_fetch in source:
 else:
     raise SystemExit("Expected generator fetch() block not found; refusing to modify generator.")
 
+old_sequence_count = '''    logical_count = len(records) if sequence else len({row[0] for row in records})
+    if logical_count != expected:
+        raise SystemExit(
+            f"{label}: expected {expected} logical records, found {logical_count}; source={url}"
+        )
+    return records
+'''
+
+new_sequence_count = '''    if sequence and len(records) > expected:
+        # TCDB reports 302 Recollection cards, but its paginated HTML currently
+        # exposes one extra valid-looking row. Collapse only rows that resolve to
+        # the same original buyback identity: physical card number + cleaned
+        # subject + team + original source release. This preserves genuine
+        # distinctions such as Black Ink vs Blue Ink source releases.
+        canonical: dict[tuple[str, str, str, tuple[str, ...]], tuple[str, str, str, list[str]]] = {}
+        deduped: list[tuple[str, str, str, list[str]]] = []
+
+        for record in records:
+            number, raw_name, raw_team, extras = record
+            player, _variant = clean_player_and_variant(raw_name, extras)
+            normalized_team = " ".join(raw_team.lower().split())
+            normalized_extras = [" ".join(extra.lower().split()) for extra in extras if extra.strip()]
+            source_release = tuple(
+                extra for extra in normalized_extras if re.match(r"^(?:19|20)\\d{2}\\b", extra)
+            )
+            if not source_release:
+                source_release = tuple(normalized_extras)
+
+            identity = (number.upper(), player.lower(), normalized_team, source_release)
+            prior = canonical.get(identity)
+            if prior is not None:
+                print(
+                    "    collapsing duplicate Recollection identity: "
+                    f"kept={prior!r} dropped={record!r}"
+                )
+                continue
+
+            canonical[identity] = record
+            deduped.append(record)
+
+        if len(deduped) != len(records):
+            print(
+                f"  Recollection identity dedupe: {len(records)} source rows -> "
+                f"{len(deduped)} logical cards"
+            )
+            records = deduped
+
+    logical_count = len(records) if sequence else len({row[0] for row in records})
+    if logical_count != expected:
+        if sequence and logical_count > expected:
+            print("  Recollection rows still exceeding authoritative TCDB total:")
+            for record in records[-12:]:
+                print(f"    {record!r}")
+        raise SystemExit(
+            f"{label}: expected {expected} logical records, found {logical_count}; source={url}"
+        )
+    return records
+'''
+
+if old_sequence_count in source:
+    source = source.replace(old_sequence_count, new_sequence_count)
+    changed = True
+    print("Added Recollection original-card identity deduplication.")
+elif new_sequence_count in source:
+    print("Recollection original-card identity deduplication already present.")
+else:
+    raise SystemExit("Expected Recollection logical-count block not found; refusing to modify generator.")
+
 if changed:
     path.write_text(source, encoding="utf-8")
     print("2003 Donruss generator patch complete.")
