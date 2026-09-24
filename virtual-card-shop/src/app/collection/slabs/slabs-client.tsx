@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useCardBrowseSource } from "@/lib/card-details/browsing";
 import {
   useCallback,
   useEffect,
@@ -680,7 +681,7 @@ function FocusViewer({
             </button>
 
             <Link
-              href={`/cards/${row.cardId}`}
+              href={`/cards/${row.cardId}?grade=${row.grade}`}
               className="slabs-primary"
               onClick={persist}
             >
@@ -1123,6 +1124,7 @@ export default function SlabsClient() {
   }, [hydrated, persist]);
 
   const rows = data?.rows ?? [];
+  useCardBrowseSource(rows.map(r => ({ cardId: r.cardId, grade: r.grade })), "Slab gallery");
 
   const total = data?.total ?? 0;
   const totalQuantity = data?.totalQuantity ?? 0;

@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { useCardBrowseSource, returnState, restoreScroll } from "@/lib/card-details/browsing";
+
 import { useEffect, useMemo, useState } from "react";
 
 type ProductSetOption = {
@@ -251,16 +253,15 @@ export default function ChecklistClient({ productId }: { productId: string }) {
 
   useEffect(() => {
     loadUsers();
-    // reset to defaults when switching products
-    setSelectedProductSetId("");
-    setSelectedUserId("");
-    setPage(1);
-    setJumpTo("");
-    setSortKey("cardNumber");
-    setSortDir("asc");
-    setActionErr(null);
-    setActionMsg(null);
-    load({ page: 1, sortKey: "cardNumber", sortDir: "asc" });
+    const saved = returnState(location.pathname + location.search);
+    const ps = typeof saved?.selectedProductSetId === "string" ? saved.selectedProductSetId : "";
+    const uid = typeof saved?.selectedUserId === "string" ? saved.selectedUserId : "";
+    const pg = typeof saved?.page === "number" ? saved.page : 1;
+    const sk = typeof saved?.sortKey === "string" ? saved.sortKey as SortKey : "cardNumber";
+    const sd = saved?.sortDir === "desc" ? "desc" : "asc";
+    setSelectedProductSetId(ps); setSelectedUserId(uid); setPage(pg);
+    setSortKey(sk); setSortDir(sd); setJumpTo(""); setActionErr(null); setActionMsg(null);
+    load({ productSetId: ps, selectedUserId: uid, page: pg, sortKey: sk, sortDir: sd }).then(() => restoreScroll(location.pathname + location.search));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
@@ -422,6 +423,7 @@ export default function ChecklistClient({ productId }: { productId: string }) {
   }
 
   const rows = data?.rows ?? [];
+  useCardBrowseSource(rows.map(r => ({ cardId: r.cardId })), "Checklist", { selectedProductSetId, selectedUserId, page, sortKey, sortDir });
 
   const thClickable: React.CSSProperties = {
     textAlign: "left",

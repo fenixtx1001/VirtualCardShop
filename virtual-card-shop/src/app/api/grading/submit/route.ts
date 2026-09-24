@@ -53,7 +53,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: "Invalid cardId" }, { status: 400 });
     }
 
-    if (!Number.isFinite(rawQuantity) || rawQuantity <= 0) {
+    if (!Number.isSafeInteger(rawQuantity) || rawQuantity <= 0) {
       return NextResponse.json({ ok: false, error: "Invalid quantity" }, { status: 400 });
     }
 
@@ -63,6 +63,7 @@ export async function POST(req: Request) {
     const now = new Date();
 
     const result = await prisma.$transaction(async (tx) => {
+      await tx.$queryRaw`SELECT id FROM "User" WHERE id = ${user.id} FOR UPDATE`;
       const card = await tx.card.findUnique({
         where: { id: cardId },
         select: {
@@ -117,11 +118,12 @@ export async function POST(req: Request) {
         select: {
           id: true,
           quantity: true,
+          auctionLockedQuantity: true,
         },
       });
 
-      if (!rawOwnership || rawOwnership.quantity < quantity) {
-        throw makeHttpError("You do not have enough raw copies of this card to grade", 400);
+      if (!rawOwnership || rawOwnership.quantity - rawOwnership.auctionLockedQuantity < quantity) {
+        throw makeHttpError("Not enough available raw copies. Auction-listed copies are reserved", 400);
       }
 
       const u = await tx.user.findUnique({
@@ -141,6 +143,9 @@ export async function POST(req: Request) {
       const rawBookValueCents = bookValueToCents(card.bookValue);
       const feePerCardCents = calculateGradingFeeCents(rawBookValueCents);
       const totalFeeCents = feePerCardCents * quantity;
+      if (body.expectedFeeCents != null && Number(body.expectedFeeCents) !== totalFeeCents) {
+        throw makeHttpError("The grading fee changed. Reload the card and review it before submitting.", 409);
+      }
 
       if ((u.balanceCents ?? 0) < totalFeeCents) {
         throw makeHttpError("Insufficient funds", 400);
@@ -183,10 +188,12 @@ export async function POST(req: Request) {
         })),
       });
 
-      await tx.cardOwnership.update({
-        where: { id: rawOwnership.id },
-        data: { quantity: { decrement: quantity } },
-      });
+      const removed = await tx.$queryRaw<{ id: number }[]>`
+        UPDATE "CardOwnership" SET quantity = quantity - ${quantity}
+        WHERE id = ${rawOwnership.id} AND quantity - "auctionLockedQuantity" >= ${quantity}
+        RETURNING id
+      `;
+      if (removed.length !== 1) throw makeHttpError("Available copies changed. Refresh before grading.", 409);
 
       const eligibleBoxCards = await tx.ripBoxCard.findMany({
         where: {

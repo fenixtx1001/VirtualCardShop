@@ -16,6 +16,7 @@ export const dynamic = "force-dynamic";
 type CreateAuctionBody = {
   cardId?: unknown;
   grade?: unknown;
+  expectedStartingBidCents?: unknown;
 };
 
 function toPositiveInt(value: unknown): number | null {
@@ -48,6 +49,7 @@ export async function POST(req: Request) {
     const endsAt = new Date(now.getTime() + AUCTION_DURATION_MS);
 
     const result = await prisma.$transaction(async (tx) => {
+      await tx.$queryRaw`SELECT id FROM "User" WHERE id = ${user.id} FOR UPDATE`;
       const ownership = await tx.cardOwnership.findUnique({
         where: {
           userId_cardId_grade: {
@@ -88,6 +90,9 @@ export async function POST(req: Request) {
 
       const valueBasisCents = Math.max(1, valueBasis.valueBasisCents);
       const startingBidCents = calculateStartingBidCents(valueBasisCents);
+      if (body.expectedStartingBidCents != null && Number(body.expectedStartingBidCents) !== startingBidCents) {
+        throw new Error("The starting bid changed. Reload the card and review the listing.");
+      }
       const dummyMax = calculateHiddenDummyMaxBidCents(valueBasisCents);
 
       const auction = await tx.auction.create({
@@ -139,16 +144,12 @@ export async function POST(req: Request) {
         });
       }
 
-      await tx.cardOwnership.update({
-        where: {
-          id: ownership.id,
-        },
-        data: {
-          auctionLockedQuantity: {
-            increment: 1,
-          },
-        },
-      });
+      const reserved = await tx.$queryRaw<{ id: number }[]>`
+        UPDATE "CardOwnership" SET "auctionLockedQuantity" = "auctionLockedQuantity" + 1
+        WHERE id = ${ownership.id} AND quantity - "auctionLockedQuantity" >= 1
+        RETURNING id
+      `;
+      if (reserved.length !== 1) throw new Error("This copy is no longer available. Refresh the card.");
 
       return auction;
     });

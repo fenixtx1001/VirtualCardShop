@@ -45,7 +45,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: "Missing or invalid offerId." }, { status: 400 });
     }
 
-    if (!Number.isFinite(quantity) || quantity <= 0) {
+    if (!Number.isSafeInteger(quantity) || quantity <= 0) {
       return NextResponse.json({ ok: false, error: "Missing or invalid quantity." }, { status: 400 });
     }
 
@@ -59,6 +59,7 @@ export async function POST(req: Request) {
     const now = new Date();
 
     const out = await prisma.$transaction(async (tx) => {
+      await tx.$queryRaw`SELECT id FROM "User" WHERE id = ${user.id} FOR UPDATE`;
       const offer = await tx.shopOffer.findUnique({
         where: { id: offerId },
         select: {
@@ -125,10 +126,10 @@ export async function POST(req: Request) {
             grade: selectedGrade,
           },
         },
-        select: { id: true, quantity: true, grade: true },
+        select: { id: true, quantity: true, grade: true, auctionLockedQuantity: true },
       });
 
-      const ownedQty = own?.quantity ?? 0;
+      const ownedQty = Math.max(0, (own?.quantity ?? 0) - (own?.auctionLockedQuantity ?? 0));
       const sellQty = Math.floor(quantity);
       const gradeLabel = labelShopGrade(selectedGrade);
 
@@ -144,7 +145,7 @@ export async function POST(req: Request) {
         return {
           ok: false as const,
           status: 400 as const,
-          error: `You only own ${ownedQty} of this ${gradeLabel} version.`,
+          error: `Only ${ownedQty} ${gradeLabel} copies are available. Auction-listed copies are reserved.`,
         };
       }
 
@@ -169,10 +170,20 @@ export async function POST(req: Request) {
         };
       }
 
-      await tx.cardOwnership.update({
-        where: { id: own.id },
-        data: { quantity: ownedQty - sellQty },
+      if (body.expectedTotalCents != null && Number(body.expectedTotalCents) !== quote.totalCents) {
+        return { ok: false as const, status: 400 as const, error: "The quote changed. Reload the card and review the new payout." };
+      }
+      const claimed = await tx.shopOffer.updateMany({
+        where: { id: offer.id, acceptedAt: null, rejectedAt: null, expiresAt: { gt: new Date() } },
+        data: { acceptedAt: now },
       });
+      if (claimed.count !== 1) throw new Error("This offer was already used or expired. Reload your offers.");
+      const removed = await tx.$queryRaw<{ id: number }[]>`
+        UPDATE "CardOwnership" SET quantity = quantity - ${sellQty}
+        WHERE id = ${own.id} AND quantity - "auctionLockedQuantity" >= ${sellQty}
+        RETURNING id
+      `;
+      if (removed.length !== 1) throw new Error("Available copies changed. Refresh the card before selling.");
 
       await tx.shopInventory.upsert({
         where: { cardId: offer.cardId },
@@ -314,7 +325,7 @@ export async function POST(req: Request) {
     return NextResponse.json(out, { status: 200 });
   } catch (e: any) {
     return NextResponse.json(
-      { ok: false, error: "Failed to sell to shop.", extra: shortErr(e) },
+      { ok: false, error: e instanceof Error && /offer|copies|quote/i.test(e.message) ? e.message : "Failed to sell to shop.", extra: shortErr(e) },
       { status: 500 }
     );
   }

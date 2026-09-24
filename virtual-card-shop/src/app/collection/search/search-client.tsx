@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { useCardBrowseSource, returnState, restoreScroll } from "@/lib/card-details/browsing";
+
 import { useEffect, useMemo, useRef, useState } from "react";
 
 type Gradeability = "COMMON" | "GREAT" | "ICONIC";
@@ -167,17 +169,23 @@ export default function SearchClient() {
     }
   }
 
+  const restoringSearch = useRef(true);
   useEffect(() => {
+    const saved = returnState(location.pathname + location.search);
+    if (saved && typeof saved.q === "string" && saved.q) {
+      setQ(saved.q); setPage(typeof saved.page === "number" ? saved.page : 1);
+      if (saved.view === "table" || saved.view === "cards") setView(saved.view);
+      if (typeof saved.gradeabilityFilter === "string") setGradeabilityFilter(saved.gradeabilityFilter as GradeabilityFilter);
+      if (typeof saved.ownershipFilter === "string") setOwnershipFilter(saved.ownershipFilter as OwnershipFilter);
+      load({ q: saved.q, page: typeof saved.page === "number" ? saved.page : 1 }).then(() => restoreScroll(location.pathname + location.search));
+    } else restoringSearch.current = false;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  useEffect(() => {
+    if (restoringSearch.current) { if (q) restoringSearch.current = false; return; }
     if (timerRef.current) clearTimeout(timerRef.current);
-
-    timerRef.current = setTimeout(() => {
-      setPage(1);
-      load({ q, page: 1 });
-    }, 350);
-
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
+    timerRef.current = setTimeout(() => { setPage(1); load({ q, page: 1 }); }, 350);
+    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q]);
 
@@ -196,6 +204,8 @@ export default function SearchClient() {
       return gradeabilityOk && ownershipOk;
     });
   }, [data, gradeabilityFilter, ownershipFilter]);
+
+  useCardBrowseSource(rows.map(r => ({ cardId: r.cardId })), "Search results", { q, page, view, gradeabilityFilter, ownershipFilter });
 
   function setLabel(r: Row) {
     const baseLabel = r.productSetName?.trim()
