@@ -129,6 +129,104 @@ elif new_recollection in source:
 else:
     raise SystemExit("Expected Recollection fetch loop not found; refusing to modify generator.")
 
+old_imports = '''import csv
+import re
+import urllib.request
+'''
+new_imports = '''import csv
+import hashlib
+import re
+import time
+import urllib.error
+import urllib.request
+'''
+
+if old_imports in source:
+    source = source.replace(old_imports, new_imports)
+    changed = True
+    print("Added rate-limit/cache imports.")
+elif new_imports in source:
+    print("Rate-limit/cache imports already present.")
+else:
+    raise SystemExit("Expected generator import block not found; refusing to modify generator.")
+
+old_fetch = '''def fetch(url: str) -> str:
+    request = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "Mozilla/5.0 (compatible; VCS Set Factory research import)",
+            "Accept": "text/html,application/xhtml+xml",
+        },
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        return response.read().decode("utf-8", errors="replace")
+'''
+
+new_fetch = '''TCDB_CACHE_DIR = Path("/tmp/vcs-set-factory-tcdb-cache/2003-donruss")
+TCDB_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+LAST_NETWORK_REQUEST_AT = 0.0
+MIN_REQUEST_INTERVAL_SECONDS = 1.25
+
+
+def fetch(url: str) -> str:
+    global LAST_NETWORK_REQUEST_AT
+
+    cache_key = hashlib.sha256(url.encode("utf-8")).hexdigest()
+    cache_path = TCDB_CACHE_DIR / f"{cache_key}.html"
+    if cache_path.exists():
+        return cache_path.read_text(encoding="utf-8", errors="replace")
+
+    request = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "Mozilla/5.0 (compatible; VCS Set Factory research import)",
+            "Accept": "text/html,application/xhtml+xml",
+        },
+    )
+
+    max_attempts = 7
+    for attempt in range(1, max_attempts + 1):
+        elapsed = time.monotonic() - LAST_NETWORK_REQUEST_AT
+        if elapsed < MIN_REQUEST_INTERVAL_SECONDS:
+            time.sleep(MIN_REQUEST_INTERVAL_SECONDS - elapsed)
+
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                LAST_NETWORK_REQUEST_AT = time.monotonic()
+                body = response.read().decode("utf-8", errors="replace")
+                cache_path.write_text(body, encoding="utf-8")
+                return body
+        except urllib.error.HTTPError as exc:
+            LAST_NETWORK_REQUEST_AT = time.monotonic()
+            if exc.code not in {429, 503} or attempt == max_attempts:
+                raise
+
+            retry_after = exc.headers.get("Retry-After") if exc.headers else None
+            try:
+                server_wait = float(retry_after) if retry_after else 0.0
+            except (TypeError, ValueError):
+                server_wait = 0.0
+
+            backoff = min(60.0, 5.0 * (2 ** (attempt - 1)))
+            delay = max(server_wait, backoff)
+            print(
+                f"  TCDB returned HTTP {exc.code}; retry {attempt}/{max_attempts} "
+                f"after rate-limit backoff."
+            )
+            time.sleep(delay)
+
+    raise RuntimeError(f"TCDB fetch exhausted retries for {url}")
+'''
+
+if old_fetch in source:
+    source = source.replace(old_fetch, new_fetch)
+    changed = True
+    print("Added TCDB pacing, retry/backoff, and local response caching.")
+elif new_fetch in source:
+    print("TCDB pacing/retry/cache already present.")
+else:
+    raise SystemExit("Expected generator fetch() block not found; refusing to modify generator.")
+
 if changed:
     path.write_text(source, encoding="utf-8")
     print("2003 Donruss generator patch complete.")
