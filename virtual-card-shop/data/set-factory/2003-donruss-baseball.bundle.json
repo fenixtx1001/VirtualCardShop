@@ -7,7 +7,7 @@
     "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1603/2003-Donruss",
     "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/1603/2003-Donruss",
     "distributionReference": "https://baseballcardpedia.com/index.php/2003_Donruss",
-    "note": "2003 Donruss is a 400-card one-series release. VCS includes the 400-card flagship, both full Stat Line parallels, and the 16 TCDB pack-insert families. Magazine samples and show wrapper-redemption/promotional sets are excluded."
+    "note": "2003 Donruss is a 400-card one-series release. VCS includes the 400-card flagship, both full Stat Line parallels, and the 16 TCDB pack-insert families. Magazine samples and show wrapper-redemption/promotional sets are excluded. TCDB's Recollection Collection summary currently says 302 cards, but its live paginated checklist exposes 303 distinct linked card records; VCS follows the actual checklist records."
   },
   "decisions": {
     "canonicalPackFormat": "Mirror the primary Hobby release: 13 cards per pack and 24 packs per box.",
@@ -15,7 +15,7 @@
     "subsetHandling": "Base #1-20 are Diamond Kings and #21-70 are Rated Rookies. These subset labels do not create separate ProductSets.",
     "trueRookieNaming": "TCDB currently flags zero Rookie Cards for sid 1603. Per VCS convention, RR branding alone does not create RC, so no base Player value receives RC unless the TCDB rookie index changes and the generator intentionally gets reviewed.",
     "statLineHandling": "Stat Line Career and Stat Line Season are explicit 400-card parallels because each card has a card-specific serial-number ceiling. Serial-number metadata is stored in Variant, not Player.",
-    "recollectionHandling": "Recollection Collection contains 302 autographed buyback cards whose physical card numbers repeat across historical releases. VCS assigns deterministic RC-001 through RC-302 card numbers and retains the source physical card number/release metadata in Variant so every collectible is uniquely addressable.",
+    "recollectionHandling": "Recollection Collection currently exposes 303 distinct real card-detail records in TCDB's live checklist even though the set summary header says 302. All 303 survive exact-row, AU+SN, original-card-identity, and ViewCard-link validation. VCS therefore models 303 collectibles, assigns deterministic RC-001 through RC-303 card numbers, and retains source physical card number/release metadata in Variant.",
     "retailInsertHandling": "All-Stars was retail-only at 1:12 retail packs. It remains in the unified VCS product catalog as a pack-issued insert family, while the Product itself mirrors the Hobby 13-card/24-pack configuration.",
     "promoExclusions": "Beckett Samples Gold/Silver, Chicago Collection Wrapper Redemption, National Sports Collectors Convention Stat Line Season, and National Sports Collectors Convention Wrapper Redemption are excluded because they were magazine/show promotional distributions rather than standard pack pulls.",
     "contestCardExclusion": "The NNO Fantasy Baseball Sluggers promotional/contest card is not modeled as a collectible ProductSet.",
@@ -64,6 +64,6 @@
     {"key":"jersey-kings","id":"2003_Donruss_Baseball_Jersey_Kings","name":"Jersey Kings","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":20,"notes":"JK-1 through JK-20 game-worn jersey cards with player-specific serial numbering."},
     {"key":"jersey-kings-studio","id":"2003_Donruss_Baseball_Jersey_Kings_Studio","name":"Jersey Kings Studio Series","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":20,"notes":"JK-1 through JK-20 game-worn jersey parallel; #1-10 SN50, #11-20 SN25."},
     {"key":"timber-and-threads","id":"2003_Donruss_Baseball_Timber_and_Threads","name":"Timber and Threads","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":50,"notes":"TT-1 through TT-20 game-used bat; TT-21 through TT-50 game-worn jersey; serial numbering varies."},
-    {"key":"recollection-collection","id":"2003_Donruss_Baseball_Recollection_Collection","name":"Recollection Collection","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":302,"notes":"302 autographed buyback cards from Donruss releases 1981-2002. VCS uses deterministic RC-001 through RC-302 numbering because physical card numbers repeat across source releases."}
+    {"key":"recollection-collection","id":"2003_Donruss_Baseball_Recollection_Collection","name":"Recollection Collection","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":303,"notes":"303 distinct live TCDB checklist records for autographed buybacks from Donruss releases 1981-2002. TCDB's summary header currently says 302, but the paginated checklist exposes 303 real linked cards. VCS uses deterministic RC-001 through RC-303 numbering because physical card numbers repeat across source releases."}
   ]
 }
