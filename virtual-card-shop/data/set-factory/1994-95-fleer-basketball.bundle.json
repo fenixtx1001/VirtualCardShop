@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/2234/1994-95-Fleer",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/2234/1994-95-Fleer",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/2234/1994-95-Fleer",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/2234/1994-95-Fleer",
+    "distributionReference": "https://www.dacardworld.com/sports-cards/1994-95-fleer-series-1-basketball-hobby-box",
+    "note": "1994-95 Fleer Basketball was released in Series One (#1-240) and Series Two (#241-390). VCS combines both physical series into one 390-card Base ProductSet with equal completion availability. The standard Hobby configuration modeled here is 12 cards per pack and 36 packs per box. All sixteen TCDB-listed pack-issued insert families are included. The redeemed 11-card Draft Lottery Pick Exchange set and promotional issues are excluded because they were not direct pack pulls."
+  },
+  "decisions": {
+    "seriesHandling": "Series One #1-240 and Series Two #241-390 are combined into one Base ProductSet. All 390 logical base cards are equally available in VCS regardless of physical series distribution.",
+    "packConfiguration": "12 cards per pack and 36 packs per box, matching the standard Hobby box configuration being modeled. The single VCS pack image should use a Series One pack when an image is added.",
+    "trueRookieNaming": "Append RC only to the 49 Base card numbers returned by TCDB's dedicated rookie index. Rookie-themed inserts do not automatically receive RC.",
+    "insertModeling": "Include all sixteen direct pack-issued insert families listed by TCDB, including channel-specific Hobby, Retail and Cello inserts. The 1994 NBA Draft Lottery redemption card is included because it was a direct 1:175 Series One pack pull; the 11-card redeemed exchange set is excluded.",
+    "variationHandling": "Logical checklist identity wins over error/correction or manufacturing variants. Letter-suffixed variants that map to the same logical card number and subject are collapsed to one VCS card; when a corrected version exists, its metadata is preferred. Error detail never appears in Player.",
+    "oddsPlacement": "Published insertion ratios live only on ProductSets. Card Variant never stores set-wide 1:n pack odds.",
+    "cleanPlayerNames": "Player contains only the clean subject plus verified RC when applicable. Source metadata such as ERR, COR, UER, RDM, EXCH and insert abbreviations is removed from Player and retained only when useful in Variant.",
+    "releaseSafety": "Product remains unreleased until pack image, card images and pricing are reviewed."
+  },
+  "product": {
+    "id": "1994_95_Fleer_Basketball",
+    "year": 1994,
+    "brand": "Fleer",
+    "sport": "Basketball",
+    "cardsPerPack": 12,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1994-95-fleer-basketball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1994_95_Fleer_Basketball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2234/1994-95-Fleer",
+      "expectedCards": 390,
+      "notes": "Combined Series One #1-240 and Series Two #241-390 into one equally available VCS Base checklist."
+    },
+    {
+      "key": "draft-lottery-redemption",
+      "id": "1994_95_Fleer_Basketball_Draft_Lottery_Redemption",
+      "name": "1994 NBA Draft Lottery Set Redemption",
+      "kind": "INSERT",
+      "oddsPerPack": 175,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/280533/1994-95-Fleer-1994-NBA-Draft-Lottery-Set-Redemption",
+      "expectedCards": 1,
+      "notes": "Physical NNO redemption card inserted 1:175 Series One packs. The separately redeemed 11-card exchange set is excluded."
+    },
+    {
+      "key": "first-year-phenoms",
+      "id": "1994_95_Fleer_Basketball_First_Year_Phenoms",
+      "name": "1st Year Phenoms",
+      "kind": "INSERT",
+      "oddsPerPack": 5,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2237/1994-95-Fleer-1st-Year-Phenoms",
+      "expectedCards": 10,
+      "notes": "Inserted 1:5 Series Two packs."
+    },
+    {
+      "key": "all-defensive-team",
+      "id": "1994_95_Fleer_Basketball_All_Defensive_Team",
+      "name": "All-Defensive Team",
+      "kind": "INSERT",
+      "oddsPerPack": 9,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2235/1994-95-Fleer-All-Defensive-Team",
+      "expectedCards": 10,
+      "notes": "Inserted 1:9 Series One packs."
+    },
+    {
+      "key": "all-star-weekend",
+      "id": "1994_95_Fleer_Basketball_All_Star_Weekend",
+      "name": "All-Star Weekend",
+      "kind": "INSERT",
+      "oddsPerPack": 2,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2239/1994-95-Fleer-All-Star-Weekend",
+      "expectedCards": 26,
+      "notes": "Inserted 1:2 Series One packs."
+    },
+    {
+      "key": "career-achievement-awards",
+      "id": "1994_95_Fleer_Basketball_Career_Achievement_Awards",
+      "name": "Career Achievement Awards",
+      "kind": "INSERT",
+      "oddsPerPack": 37,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2236/1994-95-Fleer-Career-Achievement-Awards",
+      "expectedCards": 6,
+      "notes": "Inserted 1:37 Series One packs."
+    },
+    {
+      "key": "nba-award-winners",
+      "id": "1994_95_Fleer_Basketball_NBA_Award_Winners",
+      "name": "NBA Award Winners",
+      "kind": "INSERT",
+      "oddsPerPack": 22,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2240/1994-95-Fleer-NBA-Award-Winners",
+      "expectedCards": 4,
+      "notes": "Inserted 1:22 Series One packs."
+    },
+    {
+      "key": "nba-league-leaders",
+      "id": "1994_95_Fleer_Basketball_NBA_League_Leaders",
+      "name": "NBA League Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": 11,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2241/1994-95-Fleer-NBA-League-Leaders",
+      "expectedCards": 8,
+      "notes": "Inserted 1:11 Series One packs."
+    },
+    {
+      "key": "nba-rookie-sensations",
+      "id": "1994_95_Fleer_Basketball_NBA_Rookie_Sensations",
+      "name": "NBA Rookie Sensations",
+      "kind": "INSERT",
+      "oddsPerPack": 3,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2243/1994-95-Fleer-NBA-Rookie-Sensations",
+      "expectedCards": 25,
+      "notes": "Inserted 1:3 Series One Cello packs. Rookie-themed insert; no RC labels are added solely because of the insert name."
+    },
+    {
+      "key": "pro-visions",
+      "id": "1994_95_Fleer_Basketball_Pro_Visions",
+      "name": "Pro-Visions",
+      "kind": "INSERT",
+      "oddsPerPack": 5,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2242/1994-95-Fleer-Pro-Visions",
+      "expectedCards": 9,
+      "notes": "Inserted 1:5 Series One packs."
+    },
+    {
+      "key": "sharpshooters",
+      "id": "1994_95_Fleer_Basketball_Sharpshooters",
+      "name": "Sharpshooters",
+      "kind": "INSERT",
+      "oddsPerPack": 7,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2244/1994-95-Fleer-Sharpshooters",
+      "expectedCards": 10,
+      "notes": "Inserted 1:7 Series Two Retail packs."
+    },
+    {
+      "key": "super-stars",
+      "id": "1994_95_Fleer_Basketball_Super_Stars",
+      "name": "Super Stars",
+      "kind": "INSERT",
+      "oddsPerPack": 37,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2245/1994-95-Fleer-Super-Stars",
+      "expectedCards": 6,
+      "notes": "Inserted 1:37 Series Two packs."
+    },
+    {
+      "key": "team-leaders",
+      "id": "1994_95_Fleer_Basketball_Team_Leaders",
+      "name": "Team Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": 3,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2246/1994-95-Fleer-Team-Leaders",
+      "expectedCards": 9,
+      "notes": "Inserted 1:3 Series Two packs. ERR/COR versions of #3 are collapsed to one logical VCS card with corrected metadata preferred."
+    },
+    {
+      "key": "total-d",
+      "id": "1994_95_Fleer_Basketball_Total_D",
+      "name": "Total D",
+      "kind": "INSERT",
+      "oddsPerPack": 7,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2247/1994-95-Fleer-Total-D",
+      "expectedCards": 10,
+      "notes": "Inserted 1:7 Series Two Hobby packs."
+    },
+    {
+      "key": "tower-of-power",
+      "id": "1994_95_Fleer_Basketball_Tower_of_Power",
+      "name": "Tower of Power",
+      "kind": "INSERT",
+      "oddsPerPack": 5,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2248/1994-95-Fleer-Tower-of-Power",
+      "expectedCards": 10,
+      "notes": "Inserted 1:5 Series Two Cello packs."
+    },
+    {
+      "key": "triple-threats",
+      "id": "1994_95_Fleer_Basketball_Triple_Threats",
+      "name": "Triple Threats",
+      "kind": "INSERT",
+      "oddsPerPack": 9,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2249/1994-95-Fleer-Triple-Threats",
+      "expectedCards": 10,
+      "notes": "Inserted 1:9 Series One packs."
+    },
+    {
+      "key": "young-lions",
+      "id": "1994_95_Fleer_Basketball_Young_Lions",
+      "name": "Young Lions",
+      "kind": "INSERT",
+      "oddsPerPack": 5,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2250/1994-95-Fleer-Young-Lions",
+      "expectedCards": 6,
+      "notes": "Inserted 1:5 Series Two packs."
+    }
+  ]
+}
