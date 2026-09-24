@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1603/2003-Donruss",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/1603/2003-Donruss",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1603/2003-Donruss",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/1603/2003-Donruss",
+    "distributionReference": "https://baseballcardpedia.com/index.php/2003_Donruss",
+    "note": "2003 Donruss is a 400-card one-series release. VCS includes the 400-card flagship, both full Stat Line parallels, and the 16 TCDB pack-insert families. Magazine samples and show wrapper-redemption/promotional sets are excluded."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Mirror the primary Hobby release: 13 cards per pack and 24 packs per box.",
+    "baseChecklist": "One 400-card Base ProductSet, #1-400. No base cards were short-printed.",
+    "subsetHandling": "Base #1-20 are Diamond Kings and #21-70 are Rated Rookies. These subset labels do not create separate ProductSets.",
+    "trueRookieNaming": "TCDB currently flags zero Rookie Cards for sid 1603. Per VCS convention, RR branding alone does not create RC, so no base Player value receives RC unless the TCDB rookie index changes and the generator intentionally gets reviewed.",
+    "statLineHandling": "Stat Line Career and Stat Line Season are explicit 400-card parallels because each card has a card-specific serial-number ceiling. Serial-number metadata is stored in Variant, not Player.",
+    "recollectionHandling": "Recollection Collection contains 302 autographed buyback cards whose physical card numbers repeat across historical releases. VCS assigns deterministic RC-001 through RC-302 card numbers and retains the source physical card number/release metadata in Variant so every collectible is uniquely addressable.",
+    "retailInsertHandling": "All-Stars was retail-only at 1:12 retail packs. It remains in the unified VCS product catalog as a pack-issued insert family, while the Product itself mirrors the Hobby 13-card/24-pack configuration.",
+    "promoExclusions": "Beckett Samples Gold/Silver, Chicago Collection Wrapper Redemption, National Sports Collectors Convention Stat Line Season, and National Sports Collectors Convention Wrapper Redemption are excluded because they were magazine/show promotional distributions rather than standard pack pulls.",
+    "contestCardExclusion": "The NNO Fantasy Baseball Sluggers promotional/contest card is not modeled as a collectible ProductSet.",
+    "oddsPlacement": "Only verified per-pack denominators are stored: Anniversary 1983 at 1:12 and All-Stars at 1:12 retail. Other serial-numbered, memorabilia, autograph, and parallel families keep oddsPerPack null rather than inventing odds. Card-level serial numbering remains in Variant.",
+    "cleanPlayerNames": "Player contains only the clean subject plus legitimate short collector labels such as DK or RR. MEM, AU, SN, PR, error, and descriptive source metadata stay in Variant.",
+    "releaseSafety": "Product remains unreleased until images, pricing, and odds review are complete."
+  },
+  "product": {
+    "id": "2003_Donruss_Baseball",
+    "year": 2003,
+    "brand": "Donruss",
+    "sport": "Baseball",
+    "cardsPerPack": 13,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED_ZERO_CURRENT_TCDB_FLAGS",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "2003-donruss-baseball.cards.csv",
+  "productSets": [
+    {"key":"base","id":"2003_Donruss_Baseball_Base","name":"Base","kind":"BASE","oddsPerPack":null,"defaultGradeability":"COMMON","sourceUrl":"https://www.tcdb.com/Checklist.cfm/sid/1603/2003-Donruss","expectedCards":400,"notes":"One-series flagship #1-400. #1-20 Diamond Kings; #21-70 Rated Rookies. No short prints."},
+    {"key":"stat-line-career","id":"2003_Donruss_Baseball_Stat_Line_Career","name":"Stat Line Career","kind":"PARALLEL","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":400,"notes":"Full parallel. Each card serial numbered to a player-specific career statistic (6-396)."},
+    {"key":"stat-line-season","id":"2003_Donruss_Baseball_Stat_Line_Season","name":"Stat Line Season","kind":"PARALLEL","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":400,"notes":"Full parallel. Each card serial numbered to a player-specific 2002 season statistic (1-127)."},
+    {"key":"anniversary-1983","id":"2003_Donruss_Baseball_Anniversary_1983","name":"Anniversary 1983","kind":"INSERT","oddsPerPack":12,"defaultGradeability":"COMMON","expectedCards":20,"notes":"20-card insert, inserted 1:12 Hobby and Retail packs."},
+    {"key":"all-stars","id":"2003_Donruss_Baseball_All_Stars","name":"All-Stars","kind":"INSERT","oddsPerPack":12,"defaultGradeability":"COMMON","expectedCards":10,"notes":"10-card retail-only insert, inserted 1:12 Retail packs."},
+    {"key":"diamond-kings-gold","id":"2003_Donruss_Baseball_Diamond_Kings_Gold","name":"Diamond Kings Gold","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":20,"notes":"DK-1 through DK-20; serial numbered to 2500."},
+    {"key":"diamond-kings-gold-studio","id":"2003_Donruss_Baseball_Diamond_Kings_Gold_Studio","name":"Diamond Kings Gold Studio Series","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":20,"notes":"DK-1 through DK-20; serial numbered to 250."},
+    {"key":"elite-series","id":"2003_Donruss_Baseball_Elite_Series","name":"Elite Series","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":15,"notes":"ES-1 through ES-15; serial numbered to 2500."},
+    {"key":"elite-series-dominators","id":"2003_Donruss_Baseball_Elite_Series_Dominators","name":"Elite Series Dominators","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":15,"notes":"ES-1 through ES-15; serial numbered to 25."},
+    {"key":"production-line","id":"2003_Donruss_Baseball_Production_Line","name":"Production Line","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":30,"notes":"PL-1 through PL-30; serial numbered to the player's 2002 statistic."},
+    {"key":"production-line-die-cut","id":"2003_Donruss_Baseball_Production_Line_Die_Cut","name":"Production Line Die Cut","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":30,"notes":"PL-1 through PL-30; die-cut and serial numbered to 100."},
+    {"key":"longball-leaders","id":"2003_Donruss_Baseball_Longball_Leaders","name":"Longball Leaders","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":10,"notes":"LL-1 through LL-10; serial numbered to 1000."},
+    {"key":"longball-leaders-seasonal-sums","id":"2003_Donruss_Baseball_Longball_Leaders_Seasonal_Sums","name":"Longball Leaders Seasonal Sums","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":10,"notes":"LL-1 through LL-10; serial numbered to each player's 2002 home run total (39-57)."},
+    {"key":"bat-kings","id":"2003_Donruss_Baseball_Bat_Kings","name":"Bat Kings","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":20,"notes":"BK-1 through BK-20 game-used bat cards with player-specific serial numbering."},
+    {"key":"bat-kings-studio","id":"2003_Donruss_Baseball_Bat_Kings_Studio","name":"Bat Kings Studio Series","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":20,"notes":"BK-1 through BK-20 game-used bat parallel; #1-10 SN50, #11-20 SN25."},
+    {"key":"jersey-kings","id":"2003_Donruss_Baseball_Jersey_Kings","name":"Jersey Kings","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":20,"notes":"JK-1 through JK-20 game-worn jersey cards with player-specific serial numbering."},
+    {"key":"jersey-kings-studio","id":"2003_Donruss_Baseball_Jersey_Kings_Studio","name":"Jersey Kings Studio Series","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":20,"notes":"JK-1 through JK-20 game-worn jersey parallel; #1-10 SN50, #11-20 SN25."},
+    {"key":"timber-and-threads","id":"2003_Donruss_Baseball_Timber_and_Threads","name":"Timber and Threads","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":50,"notes":"TT-1 through TT-20 game-used bat; TT-21 through TT-50 game-worn jersey; serial numbering varies."},
+    {"key":"recollection-collection","id":"2003_Donruss_Baseball_Recollection_Collection","name":"Recollection Collection","kind":"INSERT","oddsPerPack":null,"defaultGradeability":"COMMON","expectedCards":302,"notes":"302 autographed buyback cards from Donruss releases 1981-2002. VCS uses deterministic RC-001 through RC-302 numbering because physical card numbers repeat across source releases."}
+  ]
+}
