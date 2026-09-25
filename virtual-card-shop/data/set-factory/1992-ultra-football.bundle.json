@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/3311/1992-Ultra",
+    "checklistReference": "https://footballcardshop.com/by-set/1992-ultra",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/3311/1992-Ultra",
+    "insertsReference": "https://www.tcdb.com/Inserts.cfm/sid/3311/1992-Ultra",
+    "note": "The public shop page supplies the base checklist. TCDB is a manual research cross-check only; its data and images are not automatically extracted."
+  },
+  "decisions": {
+    "combinePhysicalSeries": true,
+    "physicalSeriesRanges": [
+      "1-450"
+    ],
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "One universal VCS pack",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "historicalFranchiseNames": "The source uses current team abbreviations, mapped to 1992 Oilers, Raiders, Rams, Chargers, Cardinals, and Redskins names.",
+    "trueRookieHandling": "RC appears only on the 46 printed numbers independently verified by the rookie index; the generic Rookie category for #416 is not treated as a true RC.",
+    "insertOdds": "No reliable numeric pull rates found. Five pack-issued insert/parallel groups are cataloged with null odds and need review before pack release.",
+    "excludeNonStandardPackMaterial": "Chris Miller and Reggie White highlights #11-12 were mail-in cards. Stockholder and Super Bowl promo cards were distributed separately."
+  },
+  "product": {
+    "id": "1992_Ultra_Football",
+    "year": 1992,
+    "brand": "Ultra",
+    "sport": "Football",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1992-ultra-football.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1992_Ultra_Football_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 450,
+      "sourceUrl": "https://footballcardshop.com/by-set/1992-ultra",
+      "notes": "One equally weighted checklist 1-450 including four teamless checklist cards."
+    },
+    {
+      "key": "award-winners",
+      "id": "1992_Ultra_Football_award_winners",
+      "name": "Award Winners",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 10,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3312/1992-Ultra---Award-Winners",
+      "notes": "Pack-issued cards; numeric odds unverified. Odds must be reviewed before release."
+    },
+    {
+      "key": "chris-miller",
+      "id": "1992_Ultra_Football_chris_miller",
+      "name": "Chris Miller: Performance Highlights",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 10,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/33580/1992-Ultra---Chris-Miller:-Performance-Highlights",
+      "notes": "Pack-issued cards; numeric odds unverified. Odds must be reviewed before release."
+    },
+    {
+      "key": "reggie-white",
+      "id": "1992_Ultra_Football_reggie_white",
+      "name": "Reggie White: Career Highlights",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 10,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/33581/1992-Ultra-Reggie-White-Career-Highlights",
+      "notes": "Pack-issued cards; numeric odds unverified. Odds must be reviewed before release."
+    },
+    {
+      "key": "chris-miller-autographed",
+      "id": "1992_Ultra_Football_chris_miller_autographed",
+      "name": "Chris Miller: Performance Highlights Autographed",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 10,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/314429/1992-Ultra-Chris-Miller-Performance-Highlights-Autographed",
+      "deriveCardsFrom": "chris-miller",
+      "derivedVariant": "Autographed; embossed Fleer insignia",
+      "notes": "Pack-issued cards; numeric odds unverified. Odds must be reviewed before release."
+    },
+    {
+      "key": "reggie-white-autographed",
+      "id": "1992_Ultra_Football_reggie_white_autographed",
+      "name": "Reggie White: Career Highlights Autographed",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 10,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/33582/1992-Ultra-Reggie-White-Career-Highlights-Autographed",
+      "deriveCardsFrom": "reggie-white",
+      "derivedVariant": "Autographed; embossed Fleer insignia",
+      "notes": "Pack-issued cards; numeric odds unverified. Odds must be reviewed before release."
+    }
+  ]
+}
