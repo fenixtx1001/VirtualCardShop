@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/165/1991-Stadium-Club",
+    "checklistReference": "https://baseballcardpedia.com/index.php/1991_Stadium_Club",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/165/1991-Stadium-Club",
+    "teamReference": "https://www.laststicker.com/cards/topps_stadium_club_mlb_1991/",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1991_Stadium_Club",
+    "note": "BCP supplies the checklist; TCDB is a manual structure and RC cross-check only. No TCDB data or images are automatically extracted."
+  },
+  "decisions": {
+    "combinePhysicalSeries": true,
+    "physicalSeriesRanges": [
+      "1-300",
+      "301-600"
+    ],
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "One universal VCS pack",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "excludeMinorPrinterVariations": true,
+    "variationHandling": "Printer-code variants collapse to one card per printed number; BCP's duplicate #45 is removed. Error descriptions remain in Variant.",
+    "trueRookieHandling": "Only the 28 unique printed numbers confirmed on the TCDB rookie index display RC.",
+    "exclusions": "Pre-production sales and press promos, jumbo press proofs, and separately distributed members-only cards are not standard pack pulls."
+  },
+  "product": {
+    "id": "1991_Stadium_Club_Baseball",
+    "year": 1991,
+    "brand": "Stadium Club",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1991-stadium-club-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1991_Stadium_Club_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1991_Stadium_Club",
+      "expectedCards": 600,
+      "notes": "One equally weighted numbered checklist including six teamless checklist cards; all 28 verified rookie numbers are marked RC."
+    }
+  ]
+}
