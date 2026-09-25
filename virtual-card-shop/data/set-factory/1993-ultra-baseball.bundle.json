@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/298/1993-Ultra",
+    "checklistReference": "https://baseballcardpedia.com/index.php/1993_Ultra",
+    "note": "TCDB used only for structure and spot checks; no TCDB data or images automatically extracted."
+  },
+  "decisions": {
+    "combinePhysicalSeries": true,
+    "physicalSeriesRanges": [
+      "1-300",
+      "301-650"
+    ],
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "One universal four-card VCS pack",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "seriesWeighting": "Because all 650 base cards are equally available, Series One has a 300/650 share and Series Two a 350/650 share. Series-exclusive physical insert odds are divided by those weights and rounded to VCS integer denominators. Dennis Eckersley #1-10 appeared in both series at 1:18 and retains that rate.",
+    "excluded": "Promo, mail-in Ultra Performers, and Eckersley Career Highlights #11-12 were not pack-inserted. Dennis Eckersley autographs (2000 signed total) were pack-inserted, but a verified per-pack rate is unavailable; their addition is deferred rather than inventing odds."
+  },
+  "product": {
+    "id": "1993_Ultra_Baseball",
+    "year": 1993,
+    "brand": "Ultra",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1993-ultra-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1993_Ultra_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 650,
+      "notes": "One equally weighted 650-card checklist combining both physical series."
+    },
+    {
+      "key": "award-winners",
+      "id": "1993_Ultra_Baseball_Award_Winners",
+      "name": "Award Winners",
+      "kind": "INSERT",
+      "oddsPerPack": 13,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 25
+    },
+    {
+      "key": "homerun-kings",
+      "id": "1993_Ultra_Baseball_Homerun_Kings",
+      "name": "Homerun Kings",
+      "kind": "INSERT",
+      "oddsPerPack": 39,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 10
+    },
+    {
+      "key": "dennis-eckersley",
+      "id": "1993_Ultra_Baseball_Dennis_Eckersley_Career_Highlights",
+      "name": "Dennis Eckersley Career Highlights",
+      "kind": "INSERT",
+      "oddsPerPack": 18,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 10
+    },
+    {
+      "key": "ultra-all-stars",
+      "id": "1993_Ultra_Baseball_Ultra_All_Stars",
+      "name": "Ultra All-Stars",
+      "kind": "INSERT",
+      "oddsPerPack": 17,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 20
+    },
+    {
+      "key": "all-rookie-team",
+      "id": "1993_Ultra_Baseball_All_Rookie_Team",
+      "name": "All Rookie Team",
+      "kind": "INSERT",
+      "oddsPerPack": 33,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 10
+    },
+    {
+      "key": "strikeout-kings",
+      "id": "1993_Ultra_Baseball_Strike_Out_Kings",
+      "name": "Strike Out Kings",
+      "kind": "INSERT",
+      "oddsPerPack": 69,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 5
+    }
+  ]
+}
