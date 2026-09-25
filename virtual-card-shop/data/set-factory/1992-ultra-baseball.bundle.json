@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/216/1992-Ultra",
+    "checklistReference": "https://baseballcardpedia.com/index.php/1992_Ultra",
+    "note": "TCDB used only to cross-check totals and insert structure; its data/images were not automatically extracted."
+  },
+  "decisions": {
+    "combinePhysicalSeries": true,
+    "physicalSeriesRanges": [
+      "1-300",
+      "301-600"
+    ],
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "One universal VCS pack",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "seriesInsertOdds": "Series-exclusive insert rates are weighted 50/50 in the combined pack. Award Winners and All Stars 1:13; Tony Gwynn and All-Rookie Team 1:26.",
+    "exclusions": "Mail-in cards, promotional issues and pre-production samples were not pack-inserted. Tony Gwynn signed cards were pack-inserted, but their per-pack rate is unverified, so they are held for a later, sourced addition. The reversed-negative Award Winners #21 is treated as a variation rather than an additional numbered checklist card."
+  },
+  "product": {
+    "id": "1992_Ultra_Baseball",
+    "year": 1992,
+    "brand": "Ultra",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1992-ultra-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1992_Ultra_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 600,
+      "notes": "One equally weighted checklist from both physical series."
+    },
+    {
+      "key": "award-winners",
+      "id": "1992_Ultra_Baseball_Award_Winners",
+      "name": "Award Winners",
+      "kind": "INSERT",
+      "oddsPerPack": 13,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 25
+    },
+    {
+      "key": "tony-gwynn",
+      "id": "1992_Ultra_Baseball_Tony_Gwynn_Commemorative_Series",
+      "name": "Tony Gwynn Commemorative Series",
+      "kind": "INSERT",
+      "oddsPerPack": 26,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 10
+    },
+    {
+      "key": "all-stars",
+      "id": "1992_Ultra_Baseball_All_Stars",
+      "name": "All Stars",
+      "kind": "INSERT",
+      "oddsPerPack": 13,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 20
+    },
+    {
+      "key": "all-rookie-team",
+      "id": "1992_Ultra_Baseball_All_Rookie_Team",
+      "name": "All-Rookie Team",
+      "kind": "INSERT",
+      "oddsPerPack": 26,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 10
+    }
+  ]
+}
