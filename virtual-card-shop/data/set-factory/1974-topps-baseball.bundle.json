@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/74/1974-Topps",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/74/1974-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/74/1974-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/74/1974-Topps",
+    "researchReferences": [
+      "https://baseballcardpedia.com/index.php/1974_Topps",
+      "https://1974topps.blogspot.com/p/checklist.html",
+      "https://keymancollectibles.com/baseballcards/1974toppsbaseballcardchecklist.htm"
+    ],
+    "note": "Offline, reviewed checklist facts; no image copying or automated TCDB retrieval."
+  },
+  "decisions": {
+    "baseStructure": "One 660-card base ProductSet; all base cards equally available in the VCS pack.",
+    "canonicalPackFormat": "Four cards per VCS pack, 36 packs per box, following the original wax-box format for box count.",
+    "packChannelAbstraction": "Specially marked team-checklist packs and late-run Traded distribution are combined into one VCS draft. Their canonical VCS odds require review and are null.",
+    "rookieNaming": "RC labels appear only on the 63 unique TCDB rookie-indexed base numbers; shared rookie cards receive one RC label per card.",
+    "variationHandling": "Fifteen Washington-name cards and three other base printing variations live outside Base, preserving 660-card base completion. The two team-checklist back variants are separate ProductSets.",
+    "checklistHandling": "Five numbered base checklists and the Traded Checklist have clean Checklist subjects. Team checklists use synthetic stable NNO numbers and explicit teams.",
+    "excludedRelatedItems": "Topps Vault file copies, Canadian O-Pee-Chee, stamps, wrapper offers, and the catalog factory-set packaging are excluded.",
+    "releaseSafety": "Images, pricing, and canonical mixed-pack odds must be reviewed before release."
+  },
+  "product": {
+    "id": "1974_Topps_Baseball",
+    "year": 1974,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1974-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1974_Topps_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/74/1974-Topps",
+      "expectedCards": 660,
+      "notes": "Complete #1-660 single-series base checklist; equal base-card availability."
+    },
+    {
+      "key": "washington",
+      "id": "1974_Topps_Baseball_Washington_Variations",
+      "name": "Washington Variations",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Errors.cfm/sid/74/1974-Topps",
+      "expectedCards": 15,
+      "notes": "15 San Diego Padres-related cards printed with Washington Nat'l Lea. team name. #456 Dave Winfield is not among them."
+    },
+    {
+      "key": "base-variations",
+      "id": "1974_Topps_Baseball_Base_Variations",
+      "name": "Base Variations",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Errors.cfm/sid/74/1974-Topps",
+      "expectedCards": 3,
+      "notes": "#599 larger San Diego type, #608 corrected Apodaca spelling, and #654 position on front. Base retains the other printing of each."
+    },
+    {
+      "key": "team-checklists",
+      "id": "1974_Topps_Baseball_Team_Checklists",
+      "name": "Team Checklists",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10108/1974-Topps-Team-Checklists",
+      "expectedCards": 24,
+      "notes": "24 unnumbered red-border team checklists. Synthetic NNO-01 through NNO-24 preserve uniqueness; one-asterisk backs."
+    },
+    {
+      "key": "team-checklists-two-stars",
+      "id": "1974_Topps_Baseball_Team_Checklists_Two_Stars",
+      "name": "Team Checklists Two Stars",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10108/1974-Topps-Team-Checklists",
+      "expectedCards": 24,
+      "notes": "Same 24 teams with two asterisks before the copyright line.",
+      "deriveCardsFrom": "team-checklists",
+      "derivedVariant": "Two asterisks before copyright"
+    },
+    {
+      "key": "traded",
+      "id": "1974_Topps_Baseball_Traded",
+      "name": "Traded",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/75/1974-Topps---Traded",
+      "expectedCards": 44,
+      "notes": "43 T-suffixed cards with destination clubs plus one unnumbered Traded Checklist; late-run packs and catalog factory set."
+    }
+  ]
+}
