@@ -1,0 +1,464 @@
+{
+  "diamond-kings": [
+    {
+      "cardNumber": "DK-1",
+      "player": "Frank Thomas"
+    },
+    {
+      "cardNumber": "DK-2",
+      "player": "Mo Vaughn"
+    },
+    {
+      "cardNumber": "DK-3",
+      "player": "Manny Ramirez"
+    },
+    {
+      "cardNumber": "DK-4",
+      "player": "Mark McGwire"
+    },
+    {
+      "cardNumber": "DK-5",
+      "player": "Juan Gonzalez"
+    },
+    {
+      "cardNumber": "DK-6",
+      "player": "Roberto Alomar"
+    },
+    {
+      "cardNumber": "DK-7",
+      "player": "Tim Salmon"
+    },
+    {
+      "cardNumber": "DK-8",
+      "player": "Barry Bonds"
+    },
+    {
+      "cardNumber": "DK-9",
+      "player": "Tony Gwynn"
+    },
+    {
+      "cardNumber": "DK-10",
+      "player": "Reggie Sanders"
+    },
+    {
+      "cardNumber": "DK-11",
+      "player": "Larry Walker"
+    },
+    {
+      "cardNumber": "DK-12",
+      "player": "Pedro Martinez"
+    },
+    {
+      "cardNumber": "DK-13",
+      "player": "Jeff King"
+    },
+    {
+      "cardNumber": "DK-14",
+      "player": "Mark Grace"
+    },
+    {
+      "cardNumber": "DK-15",
+      "player": "Greg Maddux"
+    },
+    {
+      "cardNumber": "DK-16",
+      "player": "Don Mattingly"
+    },
+    {
+      "cardNumber": "DK-17",
+      "player": "Gregg Jefferies"
+    },
+    {
+      "cardNumber": "DK-18",
+      "player": "Chad Curtis"
+    },
+    {
+      "cardNumber": "DK-19",
+      "player": "Jason Isringhausen"
+    },
+    {
+      "cardNumber": "DK-20",
+      "player": "B.J. Surhoff"
+    },
+    {
+      "cardNumber": "DK-21",
+      "player": "Jeff Conine"
+    },
+    {
+      "cardNumber": "DK-22",
+      "player": "Kirby Puckett"
+    },
+    {
+      "cardNumber": "DK-23",
+      "player": "Derek Bell"
+    },
+    {
+      "cardNumber": "DK-24",
+      "player": "Wally Joyner"
+    },
+    {
+      "cardNumber": "DK-25",
+      "player": "Brian Jordan"
+    },
+    {
+      "cardNumber": "DK-26",
+      "player": "Edgar Martinez"
+    },
+    {
+      "cardNumber": "DK-27",
+      "player": "Hideo Nomo"
+    },
+    {
+      "cardNumber": "DK-28",
+      "player": "Mike Mussina"
+    },
+    {
+      "cardNumber": "DK-29",
+      "player": "Eddie Murray"
+    },
+    {
+      "cardNumber": "DK-30",
+      "player": "Cal Ripken, Jr."
+    },
+    {
+      "cardNumber": "DK-31",
+      "player": "Diamond Kings Checklist"
+    }
+  ],
+  "elite-series": [
+    {
+      "cardNumber": "61",
+      "player": "Cal Ripken, Jr."
+    },
+    {
+      "cardNumber": "62",
+      "player": "Hideo Nomo"
+    },
+    {
+      "cardNumber": "63",
+      "player": "Reggie Sanders"
+    },
+    {
+      "cardNumber": "64",
+      "player": "Mo Vaughn"
+    },
+    {
+      "cardNumber": "65",
+      "player": "Tim Salmon"
+    },
+    {
+      "cardNumber": "66",
+      "player": "Chipper Jones"
+    },
+    {
+      "cardNumber": "67",
+      "player": "Manny Ramirez"
+    },
+    {
+      "cardNumber": "68",
+      "player": "Greg Maddux"
+    },
+    {
+      "cardNumber": "69",
+      "player": "Frank Thomas"
+    },
+    {
+      "cardNumber": "70",
+      "player": "Ken Griffey, Jr."
+    },
+    {
+      "cardNumber": "71",
+      "player": "Dante Bichette"
+    },
+    {
+      "cardNumber": "72",
+      "player": "Tony Gwynn"
+    }
+  ],
+  "freeze-frame": [
+    {
+      "cardNumber": "1",
+      "player": "Frank Thomas"
+    },
+    {
+      "cardNumber": "2",
+      "player": "Ken Griffey, Jr."
+    },
+    {
+      "cardNumber": "3",
+      "player": "Cal Ripken, Jr."
+    },
+    {
+      "cardNumber": "4",
+      "player": "Hideo Nomo"
+    },
+    {
+      "cardNumber": "5",
+      "player": "Greg Maddux"
+    },
+    {
+      "cardNumber": "6",
+      "player": "Albert Belle"
+    },
+    {
+      "cardNumber": "7",
+      "player": "Chipper Jones"
+    },
+    {
+      "cardNumber": "8",
+      "player": "Mike Piazza"
+    }
+  ],
+  "hit-list": [
+    {
+      "cardNumber": "1",
+      "player": "Tony Gwynn"
+    },
+    {
+      "cardNumber": "2",
+      "player": "Ken Griffey, Jr."
+    },
+    {
+      "cardNumber": "3",
+      "player": "Will Clark"
+    },
+    {
+      "cardNumber": "4",
+      "player": "Mike Piazza"
+    },
+    {
+      "cardNumber": "5",
+      "player": "Carlos Baerga"
+    },
+    {
+      "cardNumber": "6",
+      "player": "Mo Vaughn"
+    },
+    {
+      "cardNumber": "7",
+      "player": "Mark Grace"
+    },
+    {
+      "cardNumber": "8",
+      "player": "Kirby Puckett"
+    },
+    {
+      "cardNumber": "9",
+      "player": "Frank Thomas"
+    },
+    {
+      "cardNumber": "10",
+      "player": "Barry Bonds"
+    },
+    {
+      "cardNumber": "11",
+      "player": "Jeff Bagwell"
+    },
+    {
+      "cardNumber": "12",
+      "player": "Edgar Martinez"
+    },
+    {
+      "cardNumber": "13",
+      "player": "Tim Salmon"
+    },
+    {
+      "cardNumber": "14",
+      "player": "Wade Boggs"
+    },
+    {
+      "cardNumber": "15",
+      "player": "Don Mattingly"
+    },
+    {
+      "cardNumber": "16",
+      "player": "Eddie Murray"
+    }
+  ],
+  "long-ball-leaders": [
+    {
+      "cardNumber": "1",
+      "player": "Barry Bonds"
+    },
+    {
+      "cardNumber": "2",
+      "player": "Ryan Klesko"
+    },
+    {
+      "cardNumber": "3",
+      "player": "Mark McGwire"
+    },
+    {
+      "cardNumber": "4",
+      "player": "Raul Mondesi"
+    },
+    {
+      "cardNumber": "5",
+      "player": "Cecil Fielder"
+    },
+    {
+      "cardNumber": "6",
+      "player": "Ken Griffey, Jr."
+    },
+    {
+      "cardNumber": "7",
+      "player": "Larry Walker"
+    },
+    {
+      "cardNumber": "8",
+      "player": "Frank Thomas"
+    }
+  ],
+  "power-alley": [
+    {
+      "cardNumber": "1",
+      "player": "Frank Thomas"
+    },
+    {
+      "cardNumber": "2",
+      "player": "Barry Bonds"
+    },
+    {
+      "cardNumber": "3",
+      "player": "Reggie Sanders"
+    },
+    {
+      "cardNumber": "4",
+      "player": "Albert Belle"
+    },
+    {
+      "cardNumber": "5",
+      "player": "Tim Salmon"
+    },
+    {
+      "cardNumber": "6",
+      "player": "Dante Bichette"
+    },
+    {
+      "cardNumber": "7",
+      "player": "Mo Vaughn"
+    },
+    {
+      "cardNumber": "8",
+      "player": "Jim Edmonds"
+    },
+    {
+      "cardNumber": "9",
+      "player": "Manny Ramirez"
+    },
+    {
+      "cardNumber": "10",
+      "player": "Ken Griffey, Jr."
+    }
+  ],
+  "pure-power": [
+    {
+      "cardNumber": "1",
+      "player": "Raul Mondesi"
+    },
+    {
+      "cardNumber": "2",
+      "player": "Barry Bonds"
+    },
+    {
+      "cardNumber": "3",
+      "player": "Albert Belle"
+    },
+    {
+      "cardNumber": "4",
+      "player": "Frank Thomas"
+    },
+    {
+      "cardNumber": "5",
+      "player": "Mike Piazza"
+    },
+    {
+      "cardNumber": "6",
+      "player": "Dante Bichette"
+    },
+    {
+      "cardNumber": "7",
+      "player": "Manny Ramirez"
+    },
+    {
+      "cardNumber": "8",
+      "player": "Mo Vaughn"
+    }
+  ],
+  "round-trippers": [
+    {
+      "cardNumber": "1",
+      "player": "Albert Belle"
+    },
+    {
+      "cardNumber": "2",
+      "player": "Barry Bonds"
+    },
+    {
+      "cardNumber": "3",
+      "player": "Jeff Bagwell"
+    },
+    {
+      "cardNumber": "4",
+      "player": "Tim Salmon"
+    },
+    {
+      "cardNumber": "5",
+      "player": "Mo Vaughn"
+    },
+    {
+      "cardNumber": "6",
+      "player": "Ken Griffey, Jr."
+    },
+    {
+      "cardNumber": "7",
+      "player": "Mike Piazza"
+    },
+    {
+      "cardNumber": "8",
+      "player": "Cal Ripken, Jr."
+    },
+    {
+      "cardNumber": "9",
+      "player": "Frank Thomas"
+    },
+    {
+      "cardNumber": "10",
+      "player": "Dante Bichette"
+    }
+  ],
+  "showdown": [
+    {
+      "cardNumber": "1",
+      "player": "Frank Thomas / Hideo Nomo"
+    },
+    {
+      "cardNumber": "2",
+      "player": "Barry Bonds / Randy Johnson"
+    },
+    {
+      "cardNumber": "3",
+      "player": "Greg Maddux / Ken Griffey, Jr."
+    },
+    {
+      "cardNumber": "4",
+      "player": "Tony Gwynn / Roger Clemens"
+    },
+    {
+      "cardNumber": "5",
+      "player": "Mike Piazza / Mike Mussina"
+    },
+    {
+      "cardNumber": "6",
+      "player": "Cal Ripken, Jr. / Pedro Martinez"
+    },
+    {
+      "cardNumber": "7",
+      "player": "Tim Wakefield / Matt Williams"
+    },
+    {
+      "cardNumber": "8",
+      "player": "Manny Ramirez / Carlos Perez"
+    }
+  ]
+}
