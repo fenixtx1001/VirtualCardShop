@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1174/1998-Pacific-Aurora",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/1174/1998-Pacific-Aurora",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1174/1998-Pacific-Aurora",
+    "insertIndexUrl": "https://www.tcdb.com/Inserts.cfm/sid/1174/1998-Pacific-Aurora",
+    "sourceChecklistUrl": "https://baseballcardpedia.com/index.php/1998_Aurora",
+    "crossCheckUrl": "https://www.baseball-almanac.com/baseball_cards/baseball_cards_oneset.php?s=1998aur01",
+    "note": "Base and insert numerical checklists transcribed from BaseballCardPedia and cross-checked against the linked TCDB set, insert index, and rookie index. Team blocks follow the TCDB base checklist. No third-party images are copied."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Hobby. The physical product held six cards per pack, 24 packs per box, plus one separate Cel-Cube box topper. VCS uses its four-card digital pack format and keeps 24 packs per box.",
+    "collectorChecklistIntegrity": "One 200-card Base ProductSet, six other explicitly numbered checklists, four complete 50-card Pennant Fever parallels, and the three signed Tony Gwynn variants. Total: 523 collector entries across 11 ProductSets.",
+    "trueRookieNaming": "The linked TCDB rookie index identifies only base #24 Magglio Ordonez, #78 Rolando Arrojo, #139 John Halama, and #168 Masato Yoshii as true RC cards. Insert appearances do not inherit RC.",
+    "cleanPlayerNames": "Player contains only the subject name and verified base RC designation. Serial numbering, autograph status and printed-number collisions are in variant or ProductSet notes.",
+    "oddsPlacement": "Known Hobby odds are on ProductSets. Pennant Fever is 1:1, Hardball Cel-Fusions 1:73, and Kings of the Major Leagues 1:361. On Deck's reported 4:37 ratio cannot be represented exactly as integer 1:N, so its odds remain null pending pack-engine support. Platinum Blue, Copper and Tony Gwynn autograph odds are unpublished and remain null.",
+    "boxTopper": "Cubes are three-dimensional box toppers, one per Hobby box. They are retained as a collector ProductSet with null pack odds rather than falsely inserted into ordinary packs.",
+    "retailExclusives": "Pennant Fever Red (reported 1:4 Retail packs) and Silver (Retail-only, SN250, odds unpublished) retain their full collector checklists. Both have null odds in the canonical Hobby pack; a separate Retail configuration is needed to rip them authentically.",
+    "autographNumbers": "TCDB assigns the same printed AU1 number to three unique signed Tony Gwynn parallels. AU1-C, AU1-PB and AU1-S are distinct import keys, and each variant preserves printed AU1 and its underlying parallel.",
+    "promo": "Dealer-distributed Tony Gwynn SAMPLE is excluded because it was not a Hobby pack or box outcome.",
+    "releaseSafety": "Product remains unreleased pending images, pricing, exact On Deck odds support, box-topper handling, and separate Retail pack configuration."
+  },
+  "product": {
+    "id": "1998_Pacific_Aurora_Baseball",
+    "year": 1998,
+    "brand": "Pacific Aurora",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1998-pacific-aurora-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1998_Pacific_Aurora_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1174/1998-Pacific-Aurora",
+      "expectedCards": 200,
+      "notes": "Complete #1-200 base checklist."
+    },
+    {
+      "key": "pennant-fever",
+      "id": "1998_Pacific_Aurora_Baseball_Pennant_Fever",
+      "name": "Pennant Fever",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Aurora#Pennant_Fever",
+      "expectedCards": 50,
+      "notes": "Complete #1-50 insert checklist; one per physical pack in Hobby and Retail."
+    },
+    {
+      "key": "cubes",
+      "id": "1998_Pacific_Aurora_Baseball_Cubes",
+      "name": "Cubes",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11157/1998-Pacific-Aurora-Cubes",
+      "expectedCards": 20,
+      "notes": "20 numbered three-dimensional Cel-Cubes. One separate box topper per sealed Hobby box; not a card in an ordinary pack."
+    },
+    {
+      "key": "on-deck-laser-cuts",
+      "id": "1998_Pacific_Aurora_Baseball_On_Deck_Laser_Cuts",
+      "name": "On Deck Laser Cuts",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Aurora#On-Deck_Laser_Cuts",
+      "expectedCards": 20,
+      "notes": "20 cards. Published insertion ratio is 4:37 packs, which cannot be represented exactly by this importer's integer 1:N odds field."
+    },
+    {
+      "key": "hardball-cel-fusions",
+      "id": "1998_Pacific_Aurora_Baseball_Hardball_Cel_Fusions",
+      "name": "Hardball Cel-Fusions",
+      "kind": "INSERT",
+      "oddsPerPack": 73,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Aurora#Hardball_Cel-Fusions",
+      "expectedCards": 20,
+      "notes": "20-card insert checklist; 1:73 Hobby packs."
+    },
+    {
+      "key": "kings-of-the-major-leagues",
+      "id": "1998_Pacific_Aurora_Baseball_Kings_of_the_Major_Leagues",
+      "name": "Kings of the Major Leagues",
+      "kind": "INSERT",
+      "oddsPerPack": 361,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Aurora#Kings_of_the_Major_Leagues",
+      "expectedCards": 10,
+      "notes": "10-card insert checklist; 1:361 Hobby packs."
+    },
+    {
+      "key": "pennant-fever-red",
+      "id": "1998_Pacific_Aurora_Baseball_Pennant_Fever_Red",
+      "name": "Pennant Fever Red",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/1174/1998-Pacific-Aurora",
+      "expectedCards": 50,
+      "deriveCardsFrom": "pennant-fever",
+      "derivedVariant": "Red; Retail only; 1:4 Retail packs",
+      "notes": "Full 50-card Pennant Fever Red parallel. Retail-exclusive 1:4; unavailable in canonical Hobby pack."
+    },
+    {
+      "key": "pennant-fever-silver",
+      "id": "1998_Pacific_Aurora_Baseball_Pennant_Fever_Silver",
+      "name": "Pennant Fever Silver",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/1174/1998-Pacific-Aurora",
+      "expectedCards": 50,
+      "deriveCardsFrom": "pennant-fever",
+      "derivedVariant": "Silver; SN250; Retail only",
+      "notes": "Full 50-card Pennant Fever Silver parallel; SN250; Retail-exclusive; insertion odds unpublished."
+    },
+    {
+      "key": "pennant-fever-platinum-blue",
+      "id": "1998_Pacific_Aurora_Baseball_Pennant_Fever_Platinum_Blue",
+      "name": "Pennant Fever Platinum Blue",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/1174/1998-Pacific-Aurora",
+      "expectedCards": 50,
+      "deriveCardsFrom": "pennant-fever",
+      "derivedVariant": "Platinum Blue; SN100",
+      "notes": "Full 50-card Pennant Fever Platinum Blue parallel; SN100; insertion odds unpublished."
+    },
+    {
+      "key": "pennant-fever-copper",
+      "id": "1998_Pacific_Aurora_Baseball_Pennant_Fever_Copper",
+      "name": "Pennant Fever Copper",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/1174/1998-Pacific-Aurora",
+      "expectedCards": 50,
+      "deriveCardsFrom": "pennant-fever",
+      "derivedVariant": "Copper; SN20",
+      "notes": "Full 50-card Pennant Fever Copper parallel; SN20; insertion odds unpublished."
+    },
+    {
+      "key": "tony-gwynn-autographs",
+      "id": "1998_Pacific_Aurora_Baseball_Pennant_Fever_Tony_Gwynn_Autographs",
+      "name": "Pennant Fever Tony Gwynn Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/243198/1998-Pacific-Aurora-Pennant-Fever-Tony-Gwynn-Autographs",
+      "expectedCards": 3,
+      "notes": "Three unique one-of-one signed copies of Pennant Fever Copper, Platinum Blue, and Silver. All printed AU1; distinct internal suffixes resolve the card-number collision. Odds unpublished."
+    }
+  ]
+}
