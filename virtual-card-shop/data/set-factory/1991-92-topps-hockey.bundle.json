@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/4882/1991-92-Topps",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/4882/1991-92-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/4882/1991-92-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/4882/1991-92-Topps",
+    "researchReferences": [
+      "https://www.hobbyinsider.net/forum/threads/checklist-1991-92-o-pee-chee-topps.436750/",
+      "https://www.beckett.com/hockey/1991-92/topps/",
+      "https://www.beckett.com/hockey/1991-92/topps-team-scoring-leaders/"
+    ],
+    "note": "Offline checklist fixture; no automated TCDB extraction or image copying."
+  },
+  "decisions": {
+    "baseStructure": "One complete #1-528 Base ProductSet, with equal base-card availability.",
+    "canonicalPackFormat": "Four collectible cards per VCS pack and 36 packs per box. Original standard wax was 14 base plus one glossy insert.",
+    "teamScoringLeaders": "The 21-card glossy Team Scoring Leaders checklist appears at 1:1 standard-pack odds; the VCS pack fills its remaining three slots from Base.",
+    "rookieNaming": "Only the 24 unique numbers in the TCDB rookie index receive an RC suffix. Super Rookie and Top Prospect alone do not imply RC.",
+    "subjectCleanup": "Checklist abbreviations and UER notes are excluded from Player. Named subsets and pertinent printing details remain in Subset/Variant.",
+    "variationHandling": "Team Scoring Leaders A*/B* copyright print codes are collapsed to one card per printed number. The four base checklists remain part of Base.",
+    "excludedRelatedItems": "Pre-production samples, the promotional sheet, and blank-back promotional copies are excluded from the ordinary pack product.",
+    "releaseSafety": "Product remains unreleased until card/pack images and pricing are reviewed."
+  },
+  "product": {
+    "id": "1991_92_Topps_Hockey",
+    "year": 1991,
+    "brand": "Topps",
+    "sport": "Hockey",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1991-92-topps-hockey.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1991_92_Topps_Hockey_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4882/1991-92-Topps",
+      "expectedCards": 528,
+      "notes": "Complete #1-528 base checklist, including four numbered checklists and 24 team checklist cards."
+    },
+    {
+      "key": "team-scoring-leaders",
+      "id": "1991_92_Topps_Hockey_Team_Scoring_Leaders",
+      "name": "Team Scoring Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/8785/1991-92-Topps---Team-Scoring-Leaders",
+      "expectedCards": 21,
+      "notes": "21 glossy cards, one per standard pack. A*/B* print codes are collapsed."
+    }
+  ]
+}
