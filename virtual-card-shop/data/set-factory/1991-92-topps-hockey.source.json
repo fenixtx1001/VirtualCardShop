@@ -1,0 +1,2730 @@
+{
+  "base": {
+    "1": [
+      "Guy Lafleur TR",
+      "Montreal Canadiens",
+      "Tribute"
+    ],
+    "2": [
+      "Guy Lafleur TR",
+      "New York Rangers",
+      "Tribute"
+    ],
+    "3": [
+      "Guy Lafleur TR",
+      "Quebec Nordiques",
+      "Tribute"
+    ],
+    "4": [
+      "Ed Belfour SR",
+      "Chicago Blackhawks",
+      "Super Rookie"
+    ],
+    "5": [
+      "Ken Hodge SR",
+      "Boston Bruins",
+      "Super Rookie"
+    ],
+    "6": [
+      "Rob Blake SR, UER",
+      "Los Angeles Kings",
+      "Super Rookie"
+    ],
+    "7": [
+      "Bobby Holik SR",
+      "Hartford Whalers",
+      "Super Rookie"
+    ],
+    "8": [
+      "Sergei Fedorov SR, UER",
+      "Detroit Red Wings",
+      "Super Rookie"
+    ],
+    "9": [
+      "Jaromir Jagr SR",
+      "Pittsburgh Penguins",
+      "Super Rookie"
+    ],
+    "10": [
+      "Eric Weinrich SR",
+      "New Jersey Devils",
+      "Super Rookie"
+    ],
+    "11": [
+      "Mike Richter SR",
+      "New York Rangers",
+      "Super Rookie"
+    ],
+    "12": [
+      "Mats Sundin SR",
+      "Quebec Nordiques",
+      "Super Rookie"
+    ],
+    "13": [
+      "Mike Ricci SR",
+      "Philadelphia Flyers",
+      "Super Rookie"
+    ],
+    "14": [
+      "Eric Desjardins",
+      "Montreal Canadiens",
+      ""
+    ],
+    "15": [
+      "Paul Ranheim",
+      "Calgary Flames",
+      ""
+    ],
+    "16": [
+      "Joe Sakic",
+      "Quebec Nordiques",
+      ""
+    ],
+    "17": [
+      "Curt Giles",
+      "Minnesota North Stars",
+      ""
+    ],
+    "18": [
+      "Mike Foligno",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "19": [
+      "Brad Marsh",
+      "Detroit Red Wings",
+      ""
+    ],
+    "20": [
+      "Ed Belfour",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "21": [
+      "Steve Smith",
+      "Edmonton Oilers",
+      ""
+    ],
+    "22": [
+      "Kirk Muller",
+      "New Jersey Devils",
+      ""
+    ],
+    "23": [
+      "Kelly Chase",
+      "St. Louis Blues",
+      ""
+    ],
+    "24": [
+      "Jim McKenzie RC",
+      "Hartford Whalers",
+      ""
+    ],
+    "25": [
+      "Mick Vukota",
+      "New York Islanders",
+      ""
+    ],
+    "26": [
+      "Tony Amonte RC, TP",
+      "New York Rangers",
+      "Top Prospect"
+    ],
+    "27": [
+      "Danton Cole",
+      "Winnipeg Jets",
+      ""
+    ],
+    "28": [
+      "Jay Mazur RC",
+      "Vancouver Canucks",
+      ""
+    ],
+    "29": [
+      "Pete Peeters",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "30": [
+      "Petri Skriko",
+      "Boston Bruins",
+      ""
+    ],
+    "31": [
+      "Steve Duchesne",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "32": [
+      "Buffalo Sabres TC",
+      "Buffalo Sabres",
+      "Team Checklist"
+    ],
+    "33": [
+      "Phil Bourque UER",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "34": [
+      "Tim Bergland",
+      "Washington Capitals",
+      ""
+    ],
+    "35": [
+      "Tim Cheveldae",
+      "Detroit Red Wings",
+      ""
+    ],
+    "36": [
+      "Bill Armstrong RC, TP",
+      "Philadelphia Flyers",
+      "Top Prospect"
+    ],
+    "37": [
+      "John McIntyre",
+      "Los Angeles Kings",
+      ""
+    ],
+    "38": [
+      "Dave Andreychuk",
+      "Buffalo Sabres",
+      ""
+    ],
+    "39": [
+      "Curtis Leschyshyn",
+      "Quebec Nordiques",
+      ""
+    ],
+    "40": [
+      "Jaromir Jagr",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "41": [
+      "Craig Janney",
+      "Boston Bruins",
+      ""
+    ],
+    "42": [
+      "Doug Brown",
+      "New Jersey Devils",
+      ""
+    ],
+    "43": [
+      "Ken Sabourin",
+      "Washington Capitals",
+      ""
+    ],
+    "44": [
+      "Minnesota North Stars TC",
+      "Minnesota North Stars",
+      "Team Checklist"
+    ],
+    "45": [
+      "Fredrik Olausson UER",
+      "Winnipeg Jets",
+      ""
+    ],
+    "46": [
+      "Mike Gartner UER",
+      "New York Rangers",
+      ""
+    ],
+    "47": [
+      "Mark Fitzpatrick",
+      "New York Islanders",
+      ""
+    ],
+    "48": [
+      "Joe Murphy",
+      "Edmonton Oilers",
+      ""
+    ],
+    "49": [
+      "Doug Wilson",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "50": [
+      "Brian MacLellan",
+      "Detroit Red Wings",
+      ""
+    ],
+    "51": [
+      "Bob Bassen",
+      "St. Louis Blues",
+      ""
+    ],
+    "52": [
+      "Robert Kron",
+      "Vancouver Canucks",
+      ""
+    ],
+    "53": [
+      "Roger Johansson",
+      "Calgary Flames",
+      ""
+    ],
+    "54": [
+      "Guy Carbonneau UER",
+      "Montreal Canadiens",
+      ""
+    ],
+    "55": [
+      "Rob Ramage",
+      "Minnesota North Stars",
+      ""
+    ],
+    "56": [
+      "Bobby Holik",
+      "Hartford Whalers",
+      ""
+    ],
+    "57": [
+      "Alan May",
+      "Washington Capitals",
+      ""
+    ],
+    "58": [
+      "Rick Meagher",
+      "St. Louis Blues",
+      ""
+    ],
+    "59": [
+      "Cliff Ronning",
+      "Vancouver Canucks",
+      ""
+    ],
+    "60": [
+      "Detroit Red Wings TC",
+      "Detroit Red Wings",
+      "Team Checklist"
+    ],
+    "61": [
+      "Bob Kudelski",
+      "Los Angeles Kings",
+      ""
+    ],
+    "62": [
+      "Wayne McBean",
+      "New York Islanders",
+      ""
+    ],
+    "63": [
+      "Craig MacTavish",
+      "Edmonton Oilers",
+      ""
+    ],
+    "64": [
+      "Owen Nolan",
+      "Quebec Nordiques",
+      ""
+    ],
+    "65": [
+      "Dale Hawerchuk",
+      "Buffalo Sabres",
+      ""
+    ],
+    "66": [
+      "Ray Bourque",
+      "Boston Bruins",
+      ""
+    ],
+    "67": [
+      "Sean Burke",
+      "New Jersey Devils",
+      ""
+    ],
+    "68": [
+      "Frank Musil",
+      "Calgary Flames",
+      ""
+    ],
+    "69": [
+      "Joe Mullen",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "70": [
+      "Drake Berehowsky TP",
+      "Toronto Maple Leafs",
+      "Top Prospect"
+    ],
+    "71": [
+      "Darren Turcotte",
+      "New York Rangers",
+      ""
+    ],
+    "72": [
+      "Randy Carlyle",
+      "Winnipeg Jets",
+      ""
+    ],
+    "73": [
+      "Paul Cyr",
+      "Hartford Whalers",
+      ""
+    ],
+    "74": [
+      "Dave Gagner",
+      "Minnesota North Stars",
+      ""
+    ],
+    "75": [
+      "Steve Larmer",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "76": [
+      "Petr Svoboda",
+      "Montreal Canadiens",
+      ""
+    ],
+    "77": [
+      "Keith Acton",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "78": [
+      "Dmitri Khristich",
+      "Washington Capitals",
+      ""
+    ],
+    "79": [
+      "Brad McCrimmon",
+      "Detroit Red Wings",
+      ""
+    ],
+    "80": [
+      "Pat LaFontaine",
+      "New York Islanders",
+      ""
+    ],
+    "81": [
+      "Jeff Reese",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "82": [
+      "Mario Marois",
+      "St. Louis Blues",
+      ""
+    ],
+    "83": [
+      "Rob Brown",
+      "Hartford Whalers",
+      ""
+    ],
+    "84": [
+      "Grant Fuhr",
+      "Edmonton Oilers",
+      ""
+    ],
+    "85": [
+      "Carey Wilson",
+      "Calgary Flames",
+      ""
+    ],
+    "86": [
+      "Garry Galley",
+      "Boston Bruins",
+      ""
+    ],
+    "87": [
+      "Troy Murray",
+      "Winnipeg Jets",
+      ""
+    ],
+    "88": [
+      "Tony Granato",
+      "Los Angeles Kings",
+      ""
+    ],
+    "89": [
+      "Gord Murphy UER",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "90": [
+      "Brent Gilchrist",
+      "Montreal Canadiens",
+      ""
+    ],
+    "91": [
+      "Mike Richter",
+      "New York Rangers",
+      ""
+    ],
+    "92": [
+      "Eric Weinrich",
+      "New Jersey Devils",
+      ""
+    ],
+    "93": [
+      "Marc Bureau",
+      "Minnesota North Stars",
+      ""
+    ],
+    "94": [
+      "Bob Errey",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "95": [
+      "Dave McLlwain",
+      "Winnipeg Jets",
+      ""
+    ],
+    "96": [
+      "Quebec Nordiques TC",
+      "Quebec Nordiques",
+      "Team Checklist"
+    ],
+    "97": [
+      "Clint Malarchuk UER",
+      "Buffalo Sabres",
+      ""
+    ],
+    "98": [
+      "Shawn Antoski TP, UER",
+      "Vancouver Canucks",
+      "Top Prospect"
+    ],
+    "99": [
+      "Bob Sweeney",
+      "Boston Bruins",
+      ""
+    ],
+    "100": [
+      "Steve Leach",
+      "Boston Bruins",
+      ""
+    ],
+    "101": [
+      "Gary Nylund",
+      "New York Islanders",
+      ""
+    ],
+    "102": [
+      "Lucien DeBlois",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "103": [
+      "Edmonton Oilers TC",
+      "Edmonton Oilers",
+      "Team Checklist"
+    ],
+    "104": [
+      "Jimmy Carson",
+      "Detroit Red Wings",
+      ""
+    ],
+    "105": [
+      "Rod Langway",
+      "Washington Capitals",
+      ""
+    ],
+    "106": [
+      "Jeremy Roenick",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "107": [
+      "Mike Vernon",
+      "Calgary Flames",
+      ""
+    ],
+    "108": [
+      "Brian Leetch",
+      "New York Rangers",
+      ""
+    ],
+    "109": [
+      "Mark Hunter",
+      "Hartford Whalers",
+      ""
+    ],
+    "110": [
+      "Brian Bellows",
+      "Minnesota North Stars",
+      ""
+    ],
+    "111": [
+      "Pelle Eklund",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "112": [
+      "Rob Blake",
+      "Los Angeles Kings",
+      ""
+    ],
+    "113": [
+      "Mike Hough",
+      "Quebec Nordiques",
+      ""
+    ],
+    "114": [
+      "Frank Pietrangelo",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "115": [
+      "Christian Ruuttu",
+      "Buffalo Sabres",
+      ""
+    ],
+    "116": [
+      "Bryan Marchment RC, TP",
+      "Winnipeg Jets",
+      "Top Prospect"
+    ],
+    "117": [
+      "Garry Valk",
+      "Vancouver Canucks",
+      ""
+    ],
+    "118": [
+      "Ken Daneyko UER",
+      "New Jersey Devils",
+      ""
+    ],
+    "119": [
+      "Russ Courtnall",
+      "Montreal Canadiens",
+      ""
+    ],
+    "120": [
+      "Ron Wilson",
+      "St. Louis Blues",
+      ""
+    ],
+    "121": [
+      "Shayne Stevenson TP",
+      "Boston Bruins",
+      ""
+    ],
+    "122": [
+      "Bill Berg RC",
+      "New York Islanders",
+      ""
+    ],
+    "123": [
+      "Toronto Maple Leafs TC",
+      "Toronto Maple Leafs",
+      "Team Checklist"
+    ],
+    "124": [
+      "Glenn Anderson",
+      "Edmonton Oilers",
+      ""
+    ],
+    "125": [
+      "Kevin Miller",
+      "Detroit Red Wings",
+      ""
+    ],
+    "126": [
+      "Calle Johansson",
+      "Washington Capitals",
+      ""
+    ],
+    "127": [
+      "Jimmy Waite",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "128": [
+      "Allen Pedersen",
+      "Minnesota North Stars",
+      ""
+    ],
+    "129": [
+      "Brian Mullen",
+      "San Jose Sharks",
+      ""
+    ],
+    "130": [
+      "Ron Francis",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "131": [
+      "Jergus Baca TP",
+      "Hartford Whalers",
+      "Top Prospect"
+    ],
+    "132": [
+      "Checklist 1 CL",
+      "",
+      "Checklist"
+    ],
+    "133": [
+      "Tony Tanti",
+      "Buffalo Sabres",
+      ""
+    ],
+    "134": [
+      "Wes Walz",
+      "Boston Bruins",
+      ""
+    ],
+    "135": [
+      "Stephan Lebeau",
+      "Montreal Canadiens",
+      ""
+    ],
+    "136": [
+      "Ken Wregget",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "137": [
+      "Scott Arniel UER",
+      "Winnipeg Jets",
+      ""
+    ],
+    "138": [
+      "Dave Taylor",
+      "Los Angeles Kings",
+      ""
+    ],
+    "139": [
+      "Steven Finn",
+      "Quebec Nordiques",
+      ""
+    ],
+    "140": [
+      "Brendan Shanahan",
+      "St. Louis Blues",
+      ""
+    ],
+    "141": [
+      "Petr Nedved",
+      "Vancouver Canucks",
+      ""
+    ],
+    "142": [
+      "Chris Dahlquist",
+      "Minnesota North Stars",
+      ""
+    ],
+    "143": [
+      "Rich Sutter",
+      "St. Louis Blues",
+      ""
+    ],
+    "144": [
+      "Joe Reekie",
+      "New York Islanders",
+      ""
+    ],
+    "145": [
+      "Peter Ing",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "146": [
+      "Ken Linseman",
+      "Edmonton Oilers",
+      ""
+    ],
+    "147": [
+      "Dave Barr",
+      "Detroit Red Wings",
+      ""
+    ],
+    "148": [
+      "Al Iafrate",
+      "Washington Capitals",
+      ""
+    ],
+    "149": [
+      "Greg Gilbert",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "150": [
+      "Craig Ludwig",
+      "Minnesota North Stars",
+      ""
+    ],
+    "151": [
+      "Gary Suter",
+      "Calgary Flames",
+      ""
+    ],
+    "152": [
+      "Jan Erixon",
+      "New York Rangers",
+      ""
+    ],
+    "153": [
+      "Mario Lemieux",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "154": [
+      "Mike Liut UER",
+      "Washington Capitals",
+      ""
+    ],
+    "155": [
+      "Uwe Krupp",
+      "Buffalo Sabres",
+      ""
+    ],
+    "156": [
+      "Darin Kimble",
+      "St. Louis Blues",
+      ""
+    ],
+    "157": [
+      "Shayne Corson",
+      "Montreal Canadiens",
+      ""
+    ],
+    "158": [
+      "Winnipeg Jets TC",
+      "Winnipeg Jets",
+      "Team Checklist"
+    ],
+    "159": [
+      "Stephane Morin UER",
+      "Quebec Nordiques",
+      ""
+    ],
+    "160": [
+      "Rick Tocchet",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "161": [
+      "John Tonelli UER",
+      "Los Angeles Kings",
+      ""
+    ],
+    "162": [
+      "Adrien Plavsic",
+      "Vancouver Canucks",
+      ""
+    ],
+    "163": [
+      "Jason Miller TP",
+      "New Jersey Devils",
+      "Top Prospect"
+    ],
+    "164": [
+      "Tim Kerr",
+      "New York Rangers",
+      ""
+    ],
+    "165": [
+      "Brent Sutter",
+      "New York Islanders",
+      ""
+    ],
+    "166": [
+      "Michel Petit",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "167": [
+      "Adam Graves",
+      "Edmonton Oilers",
+      ""
+    ],
+    "168": [
+      "Jamie Macoun",
+      "Calgary Flames",
+      ""
+    ],
+    "169": [
+      "Terry Yake",
+      "Hartford Whalers",
+      ""
+    ],
+    "170": [
+      "Boston Bruins TC",
+      "Boston Bruins",
+      "Team Checklist"
+    ],
+    "171": [
+      "Alexander Mogilny",
+      "Buffalo Sabres",
+      ""
+    ],
+    "172": [
+      "Karl Dykhuis TP",
+      "Chicago Blackhawks",
+      "Top Prospect"
+    ],
+    "173": [
+      "Tomas Sandstrom",
+      "Los Angeles Kings",
+      ""
+    ],
+    "174": [
+      "Bernie Nicholls",
+      "New York Rangers",
+      ""
+    ],
+    "175": [
+      "Slava Fetisov",
+      "New Jersey Devils",
+      ""
+    ],
+    "176": [
+      "Andrew Cassels",
+      "Montreal Canadiens",
+      ""
+    ],
+    "177": [
+      "Ulf Dahlen",
+      "Minnesota North Stars",
+      ""
+    ],
+    "178": [
+      "Brian Hayward",
+      "San Jose Sharks",
+      ""
+    ],
+    "179": [
+      "Doug Lidster",
+      "Vancouver Canucks",
+      ""
+    ],
+    "180": [
+      "Dave Lowry",
+      "St. Louis Blues",
+      ""
+    ],
+    "181": [
+      "Ron Tugnutt UER",
+      "Quebec Nordiques",
+      ""
+    ],
+    "182": [
+      "Ed Olczyk",
+      "Winnipeg Jets",
+      ""
+    ],
+    "183": [
+      "Paul Coffey",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "184": [
+      "Shawn Burr UER",
+      "Detroit Red Wings",
+      ""
+    ],
+    "185": [
+      "Hartford Whalers TC",
+      "Hartford Whalers",
+      "Team Checklist"
+    ],
+    "186": [
+      "Mark Janssens",
+      "New York Rangers",
+      ""
+    ],
+    "187": [
+      "Mike Craig TP",
+      "Minnesota North Stars",
+      "Top Prospect"
+    ],
+    "188": [
+      "Gary Leeman",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "189": [
+      "Phil Sykes",
+      "Winnipeg Jets",
+      ""
+    ],
+    "190": [
+      "Brett Hull LL",
+      "St. Louis Blues",
+      "League Leader"
+    ],
+    "191": [
+      "New Jersey Devils TC",
+      "New Jersey Devils",
+      "Team Checklist"
+    ],
+    "192": [
+      "Cam Neely",
+      "Boston Bruins",
+      ""
+    ],
+    "193": [
+      "Petr Klima",
+      "Edmonton Oilers",
+      ""
+    ],
+    "194": [
+      "Mike Ricci",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "195": [
+      "Kelly Hrudey",
+      "Los Angeles Kings",
+      ""
+    ],
+    "196": [
+      "Mark Recchi",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "197": [
+      "Mikael Andersson",
+      "Hartford Whalers",
+      ""
+    ],
+    "198": [
+      "Bob Probert",
+      "Detroit Red Wings",
+      ""
+    ],
+    "199": [
+      "Craig Wolanin",
+      "Quebec Nordiques",
+      ""
+    ],
+    "200": [
+      "Scott Mellanby",
+      "Edmonton Oilers",
+      ""
+    ],
+    "201": [
+      "Wayne Gretzky HL",
+      "Los Angeles Kings",
+      "Highlight"
+    ],
+    "202": [
+      "Laurie Boschman",
+      "New Jersey Devils",
+      ""
+    ],
+    "203": [
+      "Gino Odjick",
+      "Vancouver Canucks",
+      ""
+    ],
+    "204": [
+      "Garth Butcher",
+      "St. Louis Blues",
+      ""
+    ],
+    "205": [
+      "Randy Wood",
+      "New York Islanders",
+      ""
+    ],
+    "206": [
+      "John Druce",
+      "Washington Capitals",
+      ""
+    ],
+    "207": [
+      "Doug Bodger",
+      "Buffalo Sabres",
+      ""
+    ],
+    "208": [
+      "Doug Gilmour",
+      "Calgary Flames",
+      ""
+    ],
+    "209": [
+      "John LeClair RC, TP",
+      "Montreal Canadiens",
+      "Top Prospect"
+    ],
+    "210": [
+      "Steve Thomas",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "211": [
+      "Kjell Samuelsson",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "212": [
+      "Daniel Marois",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "213": [
+      "Jiri Hrdina",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "214": [
+      "Darrin Shannon",
+      "Buffalo Sabres",
+      ""
+    ],
+    "215": [
+      "New York Rangers TC",
+      "New York Rangers",
+      "Team Checklist"
+    ],
+    "216": [
+      "Bob McGill",
+      "San Jose Sharks",
+      ""
+    ],
+    "217": [
+      "Dirk Graham",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "218": [
+      "Thomas Steen",
+      "Winnipeg Jets",
+      ""
+    ],
+    "219": [
+      "Mats Sundin",
+      "Quebec Nordiques",
+      ""
+    ],
+    "220": [
+      "Kevin Lowe",
+      "Edmonton Oilers",
+      ""
+    ],
+    "221": [
+      "Kirk McLean",
+      "Vancouver Canucks",
+      ""
+    ],
+    "222": [
+      "Jeff Brown",
+      "St. Louis Blues",
+      ""
+    ],
+    "223": [
+      "Joe Nieuwendyk",
+      "Calgary Flames",
+      ""
+    ],
+    "224": [
+      "Wayne Gretzky LL",
+      "Los Angeles Kings",
+      "League Leader"
+    ],
+    "225": [
+      "Marty McSorley",
+      "Los Angeles Kings",
+      ""
+    ],
+    "226": [
+      "John Cullen",
+      "Hartford Whalers",
+      ""
+    ],
+    "227": [
+      "Brian Propp",
+      "Minnesota North Stars",
+      ""
+    ],
+    "228": [
+      "Yves Racine",
+      "Detroit Red Wings",
+      ""
+    ],
+    "229": [
+      "Dale Hunter",
+      "Washington Capitals",
+      ""
+    ],
+    "230": [
+      "Dennis Vaske RC, TP",
+      "New York Islanders",
+      "Top Prospect"
+    ],
+    "231": [
+      "Sylvain Turgeon",
+      "Montreal Canadiens",
+      ""
+    ],
+    "232": [
+      "Ron Sutter",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "233": [
+      "Chris Chelios",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "234": [
+      "Brian Bradley",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "235": [
+      "Scott Young",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "236": [
+      "Mike Ramsey",
+      "Buffalo Sabres",
+      ""
+    ],
+    "237": [
+      "Jon Casey",
+      "Minnesota North Stars",
+      ""
+    ],
+    "238": [
+      "Nevin Markwart",
+      "Boston Bruins",
+      ""
+    ],
+    "239": [
+      "John MacLean",
+      "New Jersey Devils",
+      ""
+    ],
+    "240": [
+      "Brent Ashton",
+      "Winnipeg Jets",
+      ""
+    ],
+    "241": [
+      "Tony Hrkac",
+      "San Jose Sharks",
+      ""
+    ],
+    "242": [
+      "Vancouver Canucks TC",
+      "Vancouver Canucks",
+      "Team Checklist"
+    ],
+    "243": [
+      "Jeff Norton",
+      "New York Islanders",
+      ""
+    ],
+    "244": [
+      "Martin Gelinas",
+      "Edmonton Oilers",
+      ""
+    ],
+    "245": [
+      "Mike Ridley",
+      "Washington Capitals",
+      ""
+    ],
+    "246": [
+      "Pat Jablonski RC, TP",
+      "St. Louis Blues",
+      "Top Prospect"
+    ],
+    "247": [
+      "Calgary Flames TC",
+      "Calgary Flames",
+      "Team Checklist"
+    ],
+    "248": [
+      "Paul Ysebaert",
+      "Detroit Red Wings",
+      ""
+    ],
+    "249": [
+      "Sylvain Cote",
+      "Hartford Whalers",
+      ""
+    ],
+    "250": [
+      "Marc Habscheid",
+      "Calgary Flames",
+      ""
+    ],
+    "251": [
+      "Todd Elik",
+      "Minnesota North Stars",
+      ""
+    ],
+    "252": [
+      "Mike McPhee",
+      "Montreal Canadiens",
+      ""
+    ],
+    "253": [
+      "James Patrick",
+      "New York Rangers",
+      ""
+    ],
+    "254": [
+      "Murray Craven",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "255": [
+      "Trent Yawney",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "256": [
+      "Robert Cimetta",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "257": [
+      "Wayne Gretzky LL",
+      "Los Angeles Kings",
+      "League Leader"
+    ],
+    "258": [
+      "Wayne Gretzky AS",
+      "Los Angeles Kings",
+      "All Star"
+    ],
+    "259": [
+      "Brett Hull AS",
+      "St. Louis Blues",
+      "All Star"
+    ],
+    "260": [
+      "Luc Robitaille AS",
+      "Los Angeles Kings",
+      "All Star"
+    ],
+    "261": [
+      "Ray Bourque AS",
+      "Boston Bruins",
+      "All Star"
+    ],
+    "262": [
+      "Al MacInnis AS",
+      "Calgary Flames",
+      "All Star"
+    ],
+    "263": [
+      "Ed Belfour AS",
+      "Chicago Blackhawks",
+      "All Star"
+    ],
+    "264": [
+      "Checklist 2 CL",
+      "",
+      "Checklist"
+    ],
+    "265": [
+      "Adam Oates AS",
+      "St. Louis Blues",
+      "All Star"
+    ],
+    "266": [
+      "Cam Neely AS",
+      "Boston Bruins",
+      "All Star"
+    ],
+    "267": [
+      "Kevin Stevens AS",
+      "Pittsburgh Penguins",
+      "All Star"
+    ],
+    "268": [
+      "Chris Chelios AS",
+      "Chicago Blackhawks",
+      "All Star"
+    ],
+    "269": [
+      "Brian Leetch AS",
+      "New York Rangers",
+      "All Star"
+    ],
+    "270": [
+      "Patrick Roy AS",
+      "Montreal Canadiens",
+      "All Star"
+    ],
+    "271": [
+      "Ed Belfour LL",
+      "Chicago Blackhawks",
+      "League Leader"
+    ],
+    "272": [
+      "Rob Zettler",
+      "San Jose Sharks",
+      ""
+    ],
+    "273": [
+      "Donald Audette TP",
+      "Buffalo Sabres",
+      "Top Prospect"
+    ],
+    "274": [
+      "Teppo Numminen",
+      "Winnipeg Jets",
+      ""
+    ],
+    "275": [
+      "Peter Stastny",
+      "New Jersey Devils",
+      ""
+    ],
+    "276": [
+      "Dave Christian",
+      "Boston Bruins",
+      ""
+    ],
+    "277": [
+      "Larry Murphy",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "278": [
+      "Johan Garpenlov",
+      "Detroit Red Wings",
+      ""
+    ],
+    "279": [
+      "Tom Fitzgerald",
+      "New York Islanders",
+      ""
+    ],
+    "280": [
+      "Gerald Diduck",
+      "Vancouver Canucks",
+      ""
+    ],
+    "281": [
+      "Gino Cavallini",
+      "St. Louis Blues",
+      ""
+    ],
+    "282": [
+      "Theo Fleury",
+      "Calgary Flames",
+      ""
+    ],
+    "283": [
+      "Los Angeles Kings TC",
+      "Los Angeles Kings",
+      "Team Checklist"
+    ],
+    "284": [
+      "Jeff Beukeboom",
+      "Edmonton Oilers",
+      ""
+    ],
+    "285": [
+      "Kevin Dineen",
+      "Hartford Whalers",
+      ""
+    ],
+    "286": [
+      "Jacques Cloutier",
+      "Quebec Nordiques",
+      ""
+    ],
+    "287": [
+      "Tom Chorske",
+      "Montreal Canadiens",
+      ""
+    ],
+    "288": [
+      "Ed Belfour LL",
+      "Chicago Blackhawks",
+      "League Leader"
+    ],
+    "289": [
+      "Ray Sheppard",
+      "New York Rangers",
+      ""
+    ],
+    "290": [
+      "Olaf Kolzig TP",
+      "Washington Capitals",
+      "Top Prospect"
+    ],
+    "291": [
+      "Terry Carkner",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "292": [
+      "Benoit Hogue",
+      "Buffalo Sabres",
+      ""
+    ],
+    "293": [
+      "Mike Peluso",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "294": [
+      "Bruce Driver",
+      "New Jersey Devils",
+      ""
+    ],
+    "295": [
+      "Jari Kurri",
+      "Los Angeles Kings",
+      ""
+    ],
+    "296": [
+      "Peter Sidorkiewicz",
+      "Hartford Whalers",
+      ""
+    ],
+    "297": [
+      "Scott Pearson",
+      "Quebec Nordiques",
+      ""
+    ],
+    "298": [
+      "Montreal Canadiens TC",
+      "Montreal Canadiens",
+      "Team Checklist"
+    ],
+    "299": [
+      "Vincent Damphousse",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "300": [
+      "John Carter",
+      "Boston Bruins",
+      ""
+    ],
+    "301": [
+      "Geoff Smith",
+      "Edmonton Oilers",
+      ""
+    ],
+    "302": [
+      "Steve Kasper",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "303": [
+      "Brett Hull",
+      "St. Louis Blues",
+      ""
+    ],
+    "304": [
+      "Ray Ferraro",
+      "New York Islanders",
+      ""
+    ],
+    "305": [
+      "Geoff Courtnall",
+      "Vancouver Canucks",
+      ""
+    ],
+    "306": [
+      "David Shaw",
+      "New York Rangers",
+      ""
+    ],
+    "307": [
+      "Bob Essensa",
+      "Winnipeg Jets",
+      ""
+    ],
+    "308": [
+      "Mark Tinordi",
+      "Minnesota North Stars",
+      ""
+    ],
+    "309": [
+      "Keith Primeau",
+      "Detroit Red Wings",
+      ""
+    ],
+    "310": [
+      "Kevin Hatcher",
+      "Washington Capitals",
+      ""
+    ],
+    "311": [
+      "Chris Nilan",
+      "Boston Bruins",
+      ""
+    ],
+    "312": [
+      "Trevor Kidd TP",
+      "Calgary Flames",
+      "Top Prospect"
+    ],
+    "313": [
+      "Daniel Berthiaume",
+      "Los Angeles Kings",
+      ""
+    ],
+    "314": [
+      "Adam Creighton",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "315": [
+      "Everett Sanipass",
+      "Quebec Nordiques",
+      ""
+    ],
+    "316": [
+      "Ken Baumgartner",
+      "New York Islanders",
+      ""
+    ],
+    "317": [
+      "Sheldon Kennedy TP",
+      "Detroit Red Wings",
+      ""
+    ],
+    "318": [
+      "Dave Capuano",
+      "Vancouver Canucks",
+      ""
+    ],
+    "319": [
+      "Don Sweeney",
+      "Boston Bruins",
+      ""
+    ],
+    "320": [
+      "Gary Roberts",
+      "Calgary Flames",
+      ""
+    ],
+    "321": [
+      "Wayne Gretzky",
+      "Los Angeles Kings",
+      ""
+    ],
+    "322": [
+      "Theo Fleury / Marty McSorley LL, UER",
+      "Calgary Flames / Los Angeles Kings",
+      "League Leader"
+    ],
+    "323": [
+      "Ulf Samuelsson",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "324": [
+      "Mike Krushelnyski",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "325": [
+      "Dean Evason",
+      "Hartford Whalers",
+      ""
+    ],
+    "326": [
+      "Pat Elynuik",
+      "Winnipeg Jets",
+      ""
+    ],
+    "327": [
+      "Michal Pivonka",
+      "Washington Capitals",
+      ""
+    ],
+    "328": [
+      "Paul Cavallini",
+      "St. Louis Blues",
+      ""
+    ],
+    "329": [
+      "Philadelphia Flyers TC",
+      "Philadelphia Flyers",
+      "Team Checklist"
+    ],
+    "330": [
+      "Denis Savard",
+      "Montreal Canadiens",
+      ""
+    ],
+    "331": [
+      "Paul Fenton",
+      "Calgary Flames",
+      ""
+    ],
+    "332": [
+      "Jon Morris",
+      "New Jersey Devils",
+      ""
+    ],
+    "333": [
+      "Daren Puppa",
+      "Buffalo Sabres",
+      ""
+    ],
+    "334": [
+      "Doug Smail",
+      "Minnesota North Stars",
+      ""
+    ],
+    "335": [
+      "Kelly Kisio",
+      "San Jose Sharks",
+      ""
+    ],
+    "336": [
+      "Michel Goulet",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "337": [
+      "Mike Sillinger",
+      "Detroit Red Wings",
+      ""
+    ],
+    "338": [
+      "Andy Moog",
+      "Boston Bruins",
+      ""
+    ],
+    "339": [
+      "Paul Stanton",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "340": [
+      "Greg Adams",
+      "Vancouver Canucks",
+      ""
+    ],
+    "341": [
+      "Doug Crossman",
+      "Detroit Red Wings",
+      ""
+    ],
+    "342": [
+      "Kelly Miller",
+      "Washington Capitals",
+      ""
+    ],
+    "343": [
+      "Patrick Flatley",
+      "New York Islanders",
+      ""
+    ],
+    "344": [
+      "Zarley Zalapski",
+      "Hartford Whalers",
+      ""
+    ],
+    "345": [
+      "Mark Osborne",
+      "Winnipeg Jets",
+      ""
+    ],
+    "346": [
+      "Mark Messier",
+      "Edmonton Oilers",
+      ""
+    ],
+    "347": [
+      "St. Louis Blues TC",
+      "St. Louis Blues",
+      "Team Checklist"
+    ],
+    "348": [
+      "Neil Wilkinson",
+      "San Jose Sharks",
+      ""
+    ],
+    "349": [
+      "Brian Skrudland",
+      "Montreal Canadiens",
+      ""
+    ],
+    "350": [
+      "Lyle Odelein",
+      "Montreal Canadiens",
+      ""
+    ],
+    "351": [
+      "Luke Richardson",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "352": [
+      "Zdeno Ciger",
+      "New Jersey Devils",
+      ""
+    ],
+    "353": [
+      "John Vanbiesbrouck",
+      "New York Rangers",
+      ""
+    ],
+    "354": [
+      "Lou Franceschetti",
+      "Buffalo Sabres",
+      ""
+    ],
+    "355": [
+      "Alexei Gusarov RC",
+      "Quebec Nordiques",
+      ""
+    ],
+    "356": [
+      "Bill Ranford",
+      "Edmonton Oilers",
+      ""
+    ],
+    "357": [
+      "Normand Lacombe UER",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "358": [
+      "Randy Burridge",
+      "Washington Capitals",
+      ""
+    ],
+    "359": [
+      "Brian Benning",
+      "Los Angeles Kings",
+      ""
+    ],
+    "360": [
+      "Dave Hannan",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "361": [
+      "Todd Gill",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "362": [
+      "Peter Bondra",
+      "Washington Capitals",
+      ""
+    ],
+    "363": [
+      "Mike Hartman",
+      "Buffalo Sabres",
+      ""
+    ],
+    "364": [
+      "Trevor Linden",
+      "Vancouver Canucks",
+      ""
+    ],
+    "365": [
+      "John Ogrodnick",
+      "New York Rangers",
+      ""
+    ],
+    "366": [
+      "Steve Konroyd",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "367": [
+      "Mike Modano",
+      "Minnesota North Stars",
+      ""
+    ],
+    "368": [
+      "Glenn Healy",
+      "New York Islanders",
+      ""
+    ],
+    "369": [
+      "Stephane Richer",
+      "Montreal Canadiens",
+      ""
+    ],
+    "370": [
+      "Vincent Riendeau",
+      "St. Louis Blues",
+      ""
+    ],
+    "371": [
+      "Randy Moller",
+      "New York Rangers",
+      ""
+    ],
+    "372": [
+      "Pittsburgh Penguins TC",
+      "Pittsburgh Penguins",
+      "Team Checklist"
+    ],
+    "373": [
+      "Murray Baron",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "374": [
+      "Troy Crowder",
+      "New Jersey Devils",
+      ""
+    ],
+    "375": [
+      "Rick Tabaracci UER",
+      "Winnipeg Jets",
+      ""
+    ],
+    "376": [
+      "Brent Fedyk",
+      "Detroit Red Wings",
+      ""
+    ],
+    "377": [
+      "Randy Velischek",
+      "Quebec Nordiques",
+      ""
+    ],
+    "378": [
+      "Esa Tikkanen",
+      "Edmonton Oilers",
+      ""
+    ],
+    "379": [
+      "Rich Pilon",
+      "New York Islanders",
+      ""
+    ],
+    "380": [
+      "Jeff Lazaro RC",
+      "Boston Bruins",
+      ""
+    ],
+    "381": [
+      "Dave Ellett",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "382": [
+      "Jeff Hackett",
+      "San Jose Sharks",
+      ""
+    ],
+    "383": [
+      "Stephane Matteau",
+      "Calgary Flames",
+      ""
+    ],
+    "384": [
+      "Washington Capitals TC",
+      "Washington Capitals",
+      "Team Checklist"
+    ],
+    "385": [
+      "Wayne Presley",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "386": [
+      "Grant Ledyard",
+      "Buffalo Sabres",
+      ""
+    ],
+    "387": [
+      "Kip Miller TP",
+      "Quebec Nordiques",
+      "Top Prospect"
+    ],
+    "388": [
+      "Dean Kennedy",
+      "Buffalo Sabres",
+      ""
+    ],
+    "389": [
+      "Hubie McDonough",
+      "New York Islanders",
+      ""
+    ],
+    "390": [
+      "Anatoli Semenov",
+      "Edmonton Oilers",
+      ""
+    ],
+    "391": [
+      "Daryl Reaugh",
+      "Hartford Whalers",
+      ""
+    ],
+    "392": [
+      "Mathieu Schneider",
+      "Montreal Canadiens",
+      ""
+    ],
+    "393": [
+      "Dan Quinn",
+      "St. Louis Blues",
+      ""
+    ],
+    "394": [
+      "Claude Lemieux",
+      "New Jersey Devils",
+      ""
+    ],
+    "395": [
+      "Phil Housley",
+      "Winnipeg Jets",
+      ""
+    ],
+    "396": [
+      "Checklist 3 CL",
+      "",
+      "Checklist"
+    ],
+    "397": [
+      "Steve Bozek",
+      "Vancouver Canucks",
+      ""
+    ],
+    "398": [
+      "Bobby Smith",
+      "Minnesota North Stars",
+      ""
+    ],
+    "399": [
+      "Mark Pederson",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "400": [
+      "Kevin Todd RC",
+      "New Jersey Devils",
+      ""
+    ],
+    "401": [
+      "Sergei Fedorov",
+      "Detroit Red Wings",
+      ""
+    ],
+    "402": [
+      "Tom Barrasso",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "403": [
+      "Brett Hull HL",
+      "St. Louis Blues",
+      "Highlight"
+    ],
+    "404": [
+      "Bob Carpenter",
+      "Boston Bruins",
+      ""
+    ],
+    "405": [
+      "Luc Robitaille",
+      "Los Angeles Kings",
+      ""
+    ],
+    "406": [
+      "Mark Hardy",
+      "New York Rangers",
+      ""
+    ],
+    "407": [
+      "Neil Sheehy",
+      "Washington Capitals",
+      ""
+    ],
+    "408": [
+      "Mike McNeill",
+      "Quebec Nordiques",
+      ""
+    ],
+    "409": [
+      "Dave Manson",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "410": [
+      "Mike Tomlak",
+      "Hartford Whalers",
+      ""
+    ],
+    "411": [
+      "Robert Reichel",
+      "Calgary Flames",
+      ""
+    ],
+    "412": [
+      "New York Islanders TC",
+      "New York Islanders",
+      "Team Checklist"
+    ],
+    "413": [
+      "Patrick Roy",
+      "Montreal Canadiens",
+      ""
+    ],
+    "414": [
+      "Shaun Van Allen RC, TP",
+      "Edmonton Oilers",
+      "Top Prospect"
+    ],
+    "415": [
+      "Dale Kushner",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "416": [
+      "Pierre Turgeon",
+      "Buffalo Sabres",
+      ""
+    ],
+    "417": [
+      "Curtis Joseph",
+      "St. Louis Blues",
+      ""
+    ],
+    "418": [
+      "Randy Gilhen",
+      "Los Angeles Kings",
+      ""
+    ],
+    "419": [
+      "Jyrki Lumme",
+      "Vancouver Canucks",
+      ""
+    ],
+    "420": [
+      "Neal Broten",
+      "Minnesota North Stars",
+      ""
+    ],
+    "421": [
+      "Kevin Stevens",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "422": [
+      "Chris Terreri",
+      "New Jersey Devils",
+      ""
+    ],
+    "423": [
+      "David Reid",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "424": [
+      "Steve Yzerman",
+      "Detroit Red Wings",
+      ""
+    ],
+    "425": [
+      "Ed Belfour LL",
+      "Chicago Blackhawks",
+      "League Leader"
+    ],
+    "426": [
+      "Jim Johnson",
+      "Minnesota North Stars",
+      ""
+    ],
+    "427": [
+      "Joey Kocur",
+      "New York Rangers",
+      ""
+    ],
+    "428": [
+      "Joel Otto",
+      "Calgary Flames",
+      ""
+    ],
+    "429": [
+      "Dino Ciccarelli",
+      "Washington Capitals",
+      ""
+    ],
+    "430": [
+      "Chicago Blackhawks TC",
+      "Chicago Blackhawks",
+      "Team Checklist"
+    ],
+    "431": [
+      "Claude Lapointe RC",
+      "Quebec Nordiques",
+      ""
+    ],
+    "432": [
+      "Chris Joseph",
+      "Edmonton Oilers",
+      ""
+    ],
+    "433": [
+      "Gaetan Duchesne",
+      "Minnesota North Stars",
+      ""
+    ],
+    "434": [
+      "Mike Keane",
+      "Montreal Canadiens",
+      ""
+    ],
+    "435": [
+      "Dave Chyzowski",
+      "New York Islanders",
+      ""
+    ],
+    "436": [
+      "Glen Featherstone",
+      "St. Louis Blues",
+      ""
+    ],
+    "437": [
+      "Jim Paek RC, TP",
+      "Pittsburgh Penguins",
+      "Top Prospect"
+    ],
+    "438": [
+      "Doug Evans",
+      "Winnipeg Jets",
+      ""
+    ],
+    "439": [
+      "Alexei Kasatonov UER",
+      "New Jersey Devils",
+      ""
+    ],
+    "440": [
+      "Ken Hodge",
+      "Boston Bruins",
+      ""
+    ],
+    "441": [
+      "Dave Snuggerud",
+      "Buffalo Sabres",
+      ""
+    ],
+    "442": [
+      "Brad Shaw",
+      "Hartford Whalers",
+      ""
+    ],
+    "443": [
+      "Gerard Gallant",
+      "Detroit Red Wings",
+      ""
+    ],
+    "444": [
+      "Jiri Latal",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "445": [
+      "Peter Zezel",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "446": [
+      "Troy Gamble",
+      "Vancouver Canucks",
+      ""
+    ],
+    "447": [
+      "Craig Coxe",
+      "San Jose Sharks",
+      ""
+    ],
+    "448": [
+      "Adam Oates",
+      "St. Louis Blues",
+      ""
+    ],
+    "449": [
+      "Todd Krygier",
+      "Hartford Whalers",
+      ""
+    ],
+    "450": [
+      "Andre Racicot RC",
+      "Montreal Canadiens",
+      ""
+    ],
+    "451": [
+      "Patrik Sundstrom",
+      "New Jersey Devils",
+      ""
+    ],
+    "452": [
+      "Glen Wesley",
+      "Boston Bruins",
+      ""
+    ],
+    "453": [
+      "Jocelyn Lemieux",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "454": [
+      "Rick Zombo",
+      "Detroit Red Wings",
+      ""
+    ],
+    "455": [
+      "Derek King",
+      "New York Islanders",
+      ""
+    ],
+    "456": [
+      "J.J. Daigneault",
+      "Montreal Canadiens",
+      ""
+    ],
+    "457": [
+      "Rick Vaive",
+      "Buffalo Sabres",
+      ""
+    ],
+    "458": [
+      "Larry Robinson",
+      "Los Angeles Kings",
+      ""
+    ],
+    "459": [
+      "Rick Wamsley",
+      "Calgary Flames",
+      ""
+    ],
+    "460": [
+      "Craig Simpson",
+      "Edmonton Oilers",
+      ""
+    ],
+    "461": [
+      "Corey Millen RC",
+      "New York Rangers",
+      ""
+    ],
+    "462": [
+      "Sergio Momesso",
+      "Vancouver Canucks",
+      ""
+    ],
+    "463": [
+      "Paul MacDermid",
+      "Winnipeg Jets",
+      ""
+    ],
+    "464": [
+      "Wendel Clark",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "465": [
+      "Mikhail Tatarinov",
+      "Quebec Nordiques",
+      ""
+    ],
+    "466": [
+      "Mark Howe",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "467": [
+      "Jay Miller",
+      "Los Angeles Kings",
+      ""
+    ],
+    "468": [
+      "Grant Jennings",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "469": [
+      "Paul Gillis",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "470": [
+      "Ron Hextall",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "471": [
+      "Alexander Godynyuk RC, UER",
+      "Toronto Maple Leafs",
+      ""
+    ],
+    "472": [
+      "Bryan Trottier",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "473": [
+      "Kevin Haller RC",
+      "Buffalo Sabres",
+      ""
+    ],
+    "474": [
+      "Troy Mallette",
+      "New York Rangers",
+      ""
+    ],
+    "475": [
+      "Jim Wiemer",
+      "Boston Bruins",
+      ""
+    ],
+    "476": [
+      "David Maley",
+      "New Jersey Devils",
+      ""
+    ],
+    "477": [
+      "Moe Mantha UER",
+      "Winnipeg Jets",
+      ""
+    ],
+    "478": [
+      "Brad Jones RC",
+      "Los Angeles Kings",
+      ""
+    ],
+    "479": [
+      "Craig Muni",
+      "Edmonton Oilers",
+      ""
+    ],
+    "480": [
+      "Igor Larionov",
+      "Vancouver Canucks",
+      ""
+    ],
+    "481": [
+      "Scott Stevens",
+      "St. Louis Blues",
+      ""
+    ],
+    "482": [
+      "Sergei Makarov",
+      "Calgary Flames",
+      ""
+    ],
+    "483": [
+      "Mike Lalor",
+      "Washington Capitals",
+      ""
+    ],
+    "484": [
+      "Tony McKegney",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "485": [
+      "Perry Berezan",
+      "Minnesota North Stars",
+      ""
+    ],
+    "486": [
+      "Derrick Smith",
+      "Philadelphia Flyers",
+      ""
+    ],
+    "487": [
+      "Jim Hrivnak",
+      "Washington Capitals",
+      ""
+    ],
+    "488": [
+      "David Volek",
+      "New York Islanders",
+      ""
+    ],
+    "489": [
+      "Sylvain Lefebvre",
+      "Montreal Canadiens",
+      ""
+    ],
+    "490": [
+      "Rod Brind'Amour",
+      "St. Louis Blues",
+      ""
+    ],
+    "491": [
+      "Al MacInnis",
+      "Calgary Flames",
+      ""
+    ],
+    "492": [
+      "Jamie Leach",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "493": [
+      "Robert Dirk",
+      "Vancouver Canucks",
+      ""
+    ],
+    "494": [
+      "Gordie Roberts",
+      "Pittsburgh Penguins",
+      ""
+    ],
+    "495": [
+      "Mike Hudson",
+      "Chicago Blackhawks",
+      ""
+    ],
+    "496": [
+      "Francois Breault TP",
+      "Los Angeles Kings",
+      ""
+    ],
+    "497": [
+      "Rejean Lemelin",
+      "Boston Bruins",
+      ""
+    ],
+    "498": [
+      "Kris King",
+      "New York Rangers",
+      ""
+    ],
+    "499": [
+      "Pat Verbeek",
+      "Hartford Whalers",
+      ""
+    ],
+    "500": [
+      "Bryan Fogarty",
+      "Quebec Nordiques",
+      ""
+    ],
+    "501": [
+      "Perry Anderson RC",
+      "San Jose Sharks",
+      ""
+    ],
+    "502": [
+      "Joe Cirella",
+      "New York Rangers",
+      ""
+    ],
+    "503": [
+      "Mikko Makela",
+      "Buffalo Sabres",
+      ""
+    ],
+    "504": [
+      "Paul Coffey HL",
+      "Pittsburgh Penguins",
+      "Highlight"
+    ],
+    "505": [
+      "Don Beaupre",
+      "Washington Capitals",
+      ""
+    ],
+    "506": [
+      "Brian Glynn RC",
+      "Minnesota North Stars",
+      ""
+    ],
+    "507": [
+      "Dave Poulin",
+      "Boston Bruins",
+      ""
+    ],
+    "508": [
+      "Steve Chiasson",
+      "Detroit Red Wings",
+      ""
+    ],
+    "509": [
+      "Myles O'Connor RC",
+      "New Jersey Devils",
+      ""
+    ],
+    "510": [
+      "Ilkka Sinisalo",
+      "Los Angeles Kings",
+      ""
+    ],
+    "511": [
+      "Nick Kypreos",
+      "Washington Capitals",
+      ""
+    ],
+    "512": [
+      "Doug Houda UER",
+      "Hartford Whalers",
+      ""
+    ],
+    "513": [
+      "Valeri Kamensky RC, FN",
+      "Quebec Nordiques",
+      "Future NHLer"
+    ],
+    "514": [
+      "Sergei Nemchinov FN",
+      "New York Rangers",
+      "Future NHLer"
+    ],
+    "515": [
+      "Dmitri Mironov FN",
+      "Toronto Maple Leafs",
+      "Future NHLer"
+    ],
+    "516": [
+      "Brett Hull AW",
+      "St. Louis Blues",
+      "Award Winner"
+    ],
+    "517": [
+      "Ray Bourque AW",
+      "Boston Bruins",
+      "Award Winner"
+    ],
+    "518": [
+      "Ed Belfour AW",
+      "Chicago Blackhawks",
+      "Award Winner"
+    ],
+    "519": [
+      "Ed Belfour AW, UER",
+      "Chicago Blackhawks",
+      "Award Winner"
+    ],
+    "520": [
+      "Wayne Gretzky AW",
+      "Los Angeles Kings",
+      "Award Winner"
+    ],
+    "521": [
+      "Dirk Graham AW",
+      "Chicago Blackhawks",
+      "Award Winner"
+    ],
+    "522": [
+      "Wayne Gretzky AW",
+      "Los Angeles Kings",
+      "Award Winner"
+    ],
+    "523": [
+      "Mario Lemieux AW",
+      "Pittsburgh Penguins",
+      "Award Winner"
+    ],
+    "524": [
+      "Wayne Gretzky HL",
+      "Los Angeles Kings",
+      "Highlight"
+    ],
+    "525": [
+      "San Jose Sharks TC",
+      "San Jose Sharks",
+      "Team Checklist"
+    ],
+    "526": [
+      "Tampa Bay Lightning TC, UER",
+      "Tampa Bay Lightning",
+      "Team Checklist"
+    ],
+    "527": [
+      "Ottawa Senators TC",
+      "Ottawa Senators",
+      "Team Checklist"
+    ],
+    "528": [
+      "Checklist 4 CL",
+      "",
+      "Checklist"
+    ]
+  },
+  "teamScoringLeaders": {
+    "1": [
+      "Pat Verbeek",
+      "Hartford Whalers"
+    ],
+    "2": [
+      "Dale Hawerchuk",
+      "Buffalo Sabres"
+    ],
+    "3": [
+      "Steve Yzerman",
+      "Detroit Red Wings"
+    ],
+    "4": [
+      "Brian Leetch",
+      "New York Rangers"
+    ],
+    "5": [
+      "Mark Recchi",
+      "Pittsburgh Penguins"
+    ],
+    "6": [
+      "Esa Tikkanen",
+      "Edmonton Oilers"
+    ],
+    "7": [
+      "Dave Gagner",
+      "Minnesota North Stars"
+    ],
+    "8": [
+      "Joe Sakic",
+      "Quebec Nordiques"
+    ],
+    "9": [
+      "Vincent Damphousse",
+      "Toronto Maple Leafs"
+    ],
+    "10": [
+      "Wayne Gretzky",
+      "Los Angeles Kings"
+    ],
+    "11": [
+      "Phil Housley",
+      "Winnipeg Jets"
+    ],
+    "12": [
+      "Pat LaFontaine",
+      "New York Islanders"
+    ],
+    "13": [
+      "Rick Tocchet",
+      "Philadelphia Flyers"
+    ],
+    "14": [
+      "Theo Fleury UER",
+      "Calgary Flames"
+    ],
+    "15": [
+      "John MacLean",
+      "New Jersey Devils"
+    ],
+    "16": [
+      "Kevin Hatcher",
+      "Washington Capitals"
+    ],
+    "17": [
+      "Trevor Linden",
+      "Vancouver Canucks"
+    ],
+    "18": [
+      "Russ Courtnall",
+      "Montreal Canadiens"
+    ],
+    "19": [
+      "Ray Bourque",
+      "Boston Bruins"
+    ],
+    "20": [
+      "Brett Hull",
+      "St. Louis Blues"
+    ],
+    "21": [
+      "Steve Larmer",
+      "Chicago Blackhawks"
+    ]
+  }
+}
