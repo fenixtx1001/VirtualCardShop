@@ -1,5 +1,7 @@
 import { redirect } from "next/navigation";
+
 import ChecklistClient from "./checklist-client";
+import "./checklist.css";
 
 type Ctx =
   | { params: { productId?: string } }
@@ -7,10 +9,14 @@ type Ctx =
 
 async function getProductId(ctx: Ctx) {
   const p: any = (ctx as any).params;
-  const params = typeof p?.then === "function" ? await p : p;
+  const params =
+    typeof p?.then === "function" ? await p : p;
 
   const raw = params?.productId;
-  if (typeof raw !== "string" || !raw.trim()) return undefined;
+
+  if (typeof raw !== "string" || !raw.trim()) {
+    return undefined;
+  }
 
   try {
     return decodeURIComponent(raw);

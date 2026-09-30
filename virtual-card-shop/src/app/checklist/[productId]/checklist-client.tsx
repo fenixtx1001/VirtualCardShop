@@ -1,9 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { useCardBrowseSource, returnState, restoreScroll } from "@/lib/card-details/browsing";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 
-import { useEffect, useMemo, useState } from "react";
+import {
+  restoreScroll,
+  returnState,
+  useCardBrowseSource,
+} from "@/lib/card-details/browsing";
 
 type ProductSetOption = {
   id: string;
@@ -20,8 +30,30 @@ type UserOption = {
 
 type OfferStatus =
   | { state: "AVAILABLE" }
-  | { state: "ACTIVE"; offerId: number; expiresAt: string }
-  | { state: "LOCKED"; lockedUntil: string };
+  | {
+      state: "ACTIVE";
+      offerId: number;
+      expiresAt: string;
+    }
+  | {
+      state: "LOCKED";
+      lockedUntil: string;
+    };
+
+type ChecklistFilter = "all" | "need";
+
+type SortKey =
+  | "cardNumber"
+  | "owned"
+  | "qty"
+  | "rawQty"
+  | "player"
+  | "team"
+  | "subset"
+  | "variant"
+  | "bookValue";
+
+type SortDir = "asc" | "desc";
 
 type ChecklistRow = {
   cardId: number;
@@ -31,17 +63,23 @@ type ChecklistRow = {
   subset: string | null;
   variant: string | null;
   isInsert: boolean;
+
   bookValue: number | null;
+  frontImageUrl: string | null;
 
   ownedQty: number;
   rawQty: number;
+  needQty: number;
+
+  revealedOwnedQty?: number;
+  auctionLockedQty?: number;
+  pendingGradingQty?: number;
+
   myOwnedQty?: number;
   myRawQty?: number;
+
   offerStatus?: OfferStatus;
 };
-
-type SortKey = "cardNumber" | "owned" | "qty" | "rawQty" | "player" | "team" | "subset" | "variant" | "bookValue";
-type SortDir = "asc" | "desc";
 
 type ChecklistResponse = {
   ok: boolean;
@@ -60,123 +98,305 @@ type ChecklistResponse = {
   uniqueOwned: number;
   percentComplete: number;
 
+  prestigeLevel: number;
+  nextPrestigeLevel: number;
+  cardsAtNextPrestige: number;
+  cardsNeededForNextPrestige: number;
+  nextPrestigePct: number;
+
   setTotalBookValue: number;
   setOwnedBookValue: number;
   setMissingBookValue: number;
   setOwnedValuePercent: number;
+  holdingsBookValue: number;
   mySetOwnedBookValue?: number | null;
+
+  searchText: string;
+  filterMode: ChecklistFilter;
+  resultCount: number;
 
   page: number;
   pageSize: number;
   totalPages: number;
 
-  sortKey?: SortKey;
-  sortDir?: SortDir;
+  sortKey: SortKey;
+  sortDir: SortDir;
 
   rows: ChecklistRow[];
 };
 
+type LoadOpts = {
+  productSetId?: string;
+  selectedUserId?: string;
+  page?: number;
+  sortKey?: SortKey;
+  sortDir?: SortDir;
+  searchText?: string;
+  filterMode?: ChecklistFilter;
+};
+
+type IconKind =
+  | "refresh"
+  | "search"
+  | "arrow"
+  | "chevron";
+
+const PAGE_SIZE = 100;
+const ECONOMY_CHANGED_EVENT = "vcs:economy-changed";
+
+const SORT_OPTIONS: Array<{
+  value: SortKey;
+  label: string;
+}> = [
+  { value: "cardNumber", label: "Card #" },
+  { value: "bookValue", label: "Value" },
+  { value: "qty", label: "Qty Owned" },
+  { value: "rawQty", label: "Raw Qty" },
+  { value: "owned", label: "Owned" },
+  { value: "player", label: "Player" },
+  { value: "team", label: "Team" },
+  { value: "subset", label: "Subset" },
+  { value: "variant", label: "Variant" },
+];
+
+function Icon({ kind }: { kind: IconKind }) {
+  const paths: Record<IconKind, ReactNode> = {
+    refresh: (
+      <>
+        <path d="M20 5v5h-5M4 19v-5h5" />
+        <path d="M19 10a7 7 0 0 0-12-5M5 14a7 7 0 0 0 12 5" />
+      </>
+    ),
+    search: (
+      <>
+        <circle cx="10.5" cy="10.5" r="6.5" />
+        <path d="m16 16 4 4" />
+      </>
+    ),
+    arrow: <path d="M4 12h15m-6-6 6 6-6 6" />,
+    chevron: <path d="m9 6 6 6-6 6" />,
+  };
+
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {paths[kind]}
+    </svg>
+  );
+}
+
 function formatSetLabel(ps: ProductSetOption) {
-  const base = ps.name?.trim() ? ps.name!.trim() : ps.id;
+  const base = ps.name?.trim() ? ps.name.trim() : ps.id;
   return ps.isBase ? `Base — ${base}` : `Insert — ${base}`;
 }
 
-function formatUserLabel(u: UserOption) {
-  const name = (u.name ?? "").trim();
+function formatUserLabel(user: UserOption) {
+  const name = (user.name ?? "").trim();
   if (name) return name;
-  return u.email ?? "Unknown user";
+
+  const email = (user.email ?? "").trim();
+  if (email) return email.split("@")[0]?.trim() || "Collector";
+
+  return "Collector";
+}
+
+function friendlyTitle(raw: string | null | undefined) {
+  const decoded = decodeURIComponent(String(raw ?? "").trim());
+
+  return decoded
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+function money(value: unknown) {
+  const n =
+    typeof value === "number"
+      ? value
+      : Number(value ?? 0);
+
+  const safe = Number.isFinite(n) ? n : 0;
+
+  return safe.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+}
+
+function number(value: unknown) {
+  const n =
+    typeof value === "number"
+      ? value
+      : Number(value ?? 0);
+
+  return (Number.isFinite(n) ? n : 0).toLocaleString("en-US");
 }
 
 function clampInt(n: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n));
 }
 
-function money(v: any) {
-  const n = typeof v === "number" ? v : Number(v ?? 0);
-  const safe = Number.isFinite(n) ? n : 0;
-  return `$${safe.toFixed(2)}`;
-}
-
 function sortIcon(active: boolean, dir: SortDir) {
   if (!active) return "";
   return dir === "asc" ? " ▲" : " ▼";
 }
-function friendlyTitle(raw: string | null | undefined) {
-  const decoded = decodeURIComponent(String(raw ?? "").trim());
-  return decoded
-    .replace(/[_-]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim()
-    .replace(/\b\w/g, (m) => m.toUpperCase());
-}
 
-function smallMeta(parts: Array<string | null | undefined>) {
-  const clean = parts.map((p) => String(p ?? "").trim()).filter(Boolean);
-  return clean.length ? clean.join(" • ") : "—";
+function defaultSortDir(key: SortKey): SortDir {
+  if (
+    key === "owned" ||
+    key === "qty" ||
+    key === "rawQty" ||
+    key === "bookValue"
+  ) {
+    return "desc";
+  }
+
+  return "asc";
 }
 
 function compactTimeUntil(iso: string | null | undefined) {
   if (!iso) return "soon";
+
   const ms = new Date(iso).getTime() - Date.now();
-  if (!Number.isFinite(ms) || ms <= 0) return "soon";
+
+  if (!Number.isFinite(ms) || ms <= 0) {
+    return "soon";
+  }
 
   const totalMinutes = Math.ceil(ms / 60000);
   const hours = Math.floor(totalMinutes / 60);
   const minutes = totalMinutes % 60;
 
   if (hours >= 24) return `${Math.ceil(hours / 24)}d`;
-  if (hours > 0) return minutes > 0 ? `${hours}h ${minutes}m` : `${hours}h`;
+  if (hours > 0) {
+    return minutes > 0 ? `${hours}h ${minutes}m` : `${hours}h`;
+  }
+
   return `${minutes}m`;
 }
 
-const ECONOMY_CHANGED_EVENT = "vcs:economy-changed";
+function rowMeta(row: ChecklistRow) {
+  return [row.team, row.subset, row.variant]
+    .map((value) => String(value ?? "").trim())
+    .filter(Boolean)
+    .join(" · ");
+}
 
-export default function ChecklistClient({ productId }: { productId: string }) {
+function CardThumb({
+  src,
+  alt,
+}: {
+  src: string | null;
+  alt: string;
+}) {
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    setFailed(false);
+  }, [src]);
+
+  return (
+    <span className="checklist-thumb">
+      {src && !failed ? (
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          onError={() => setFailed(true)}
+        />
+      ) : (
+        <span className="checklist-thumb-fallback" aria-hidden="true">
+          VCS
+        </span>
+      )}
+    </span>
+  );
+}
+
+export default function ChecklistClient({
+  productId,
+}: {
+  productId: string;
+}) {
   const [data, setData] = useState<ChecklistResponse | null>(null);
   const [err, setErr] = useState<string | null>(null);
+
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
 
-  // ProductSet dropdown state
-  const [selectedProductSetId, setSelectedProductSetId] = useState<string>("");
+  const [selectedProductSetId, setSelectedProductSetId] =
+    useState("");
+  const [selectedUserId, setSelectedUserId] = useState("");
 
-  // Compare dropdown state
-  const [selectedUserId, setSelectedUserId] = useState<string>("");
+  const [page, setPage] = useState(1);
+  const [jumpTo, setJumpTo] = useState("");
 
-  // Pagination state
-  const [page, setPage] = useState<number>(1);
-  const pageSize = 100;
-  const [jumpTo, setJumpTo] = useState<string>("");
+  const [sortKey, setSortKey] =
+    useState<SortKey>("cardNumber");
+  const [sortDir, setSortDir] =
+    useState<SortDir>("asc");
 
-  // ✅ NEW: sort state (server-side)
-  const [sortKey, setSortKey] = useState<SortKey>("cardNumber");
-  const [sortDir, setSortDir] = useState<SortDir>("asc");
+  const [filterMode, setFilterMode] =
+    useState<ChecklistFilter>("all");
 
-  // Users list for dropdown
+  const [searchInput, setSearchInput] = useState("");
+  const [searchApplied, setSearchApplied] = useState("");
+
   const [users, setUsers] = useState<UserOption[]>([]);
-  const [usersLoading, setUsersLoading] = useState<boolean>(false);
+  const [usersLoading, setUsersLoading] = useState(false);
 
-  const [actionMsg, setActionMsg] = useState<string | null>(null);
-  const [actionErr, setActionErr] = useState<string | null>(null);
-  const [auctioningCardId, setAuctioningCardId] = useState<number | null>(null);
-  const [offeringCardId, setOfferingCardId] = useState<number | null>(null);
+  const [actionMsg, setActionMsg] =
+    useState<string | null>(null);
+  const [actionErr, setActionErr] =
+    useState<string | null>(null);
+
+  const [auctioningCardId, setAuctioningCardId] =
+    useState<number | null>(null);
+  const [offeringCardId, setOfferingCardId] =
+    useState<number | null>(null);
+
+  const requestSequence = useRef(0);
 
   async function loadUsers() {
     setUsersLoading(true);
-    try {
-      const res = await fetch("/api/users", { cache: "no-store" });
-      const raw = await res.text();
 
-      let j: any = null;
+    try {
+      const response = await fetch("/api/users", {
+        cache: "no-store",
+      });
+
+      const raw = await response.text();
+
+      let json: any = null;
+
       try {
-        j = raw ? JSON.parse(raw) : null;
+        json = raw ? JSON.parse(raw) : null;
       } catch {
-        throw new Error(`Users returned non-JSON (${res.status}): ${raw.slice(0, 140)}`);
+        throw new Error(
+          `Users returned invalid data (${response.status}).`
+        );
       }
 
-      if (!res.ok) throw new Error(j?.error ?? `Failed (${res.status})`);
+      if (!response.ok) {
+        throw new Error(
+          json?.error || `Failed (${response.status})`
+        );
+      }
 
-      const list = (j?.users ?? []) as UserOption[];
-      setUsers(list);
+      setUsers(Array.isArray(json?.users) ? json.users : []);
     } catch {
       setUsers([]);
     } finally {
@@ -184,108 +404,200 @@ export default function ChecklistClient({ productId }: { productId: string }) {
     }
   }
 
-  async function load(opts?: {
-    productSetId?: string;
-    selectedUserId?: string;
-    page?: number;
-    sortKey?: SortKey;
-    sortDir?: SortDir;
-  }) {
-    setLoading(true);
+  async function load(
+    opts: LoadOpts = {},
+    background = false
+  ) {
+    const sequence = ++requestSequence.current;
+
+    if (background) {
+      setRefreshing(true);
+    } else {
+      setLoading(true);
+    }
+
     setErr(null);
 
     try {
       const qs = new URLSearchParams();
 
-      const psid = (opts?.productSetId ?? selectedProductSetId).trim();
-      if (psid) qs.set("productSetId", psid);
+      const productSetId = (
+        opts.productSetId ?? selectedProductSetId
+      ).trim();
 
-      const suid = (opts?.selectedUserId ?? selectedUserId).trim();
-      if (suid) qs.set("selectedUserId", suid);
-
-      const nextPage = opts?.page ?? page;
-      qs.set("page", String(nextPage));
-      qs.set("pageSize", String(pageSize));
-
-      // ✅ NEW: sort params
-      const sk = (opts?.sortKey ?? sortKey) as SortKey;
-      const sd = (opts?.sortDir ?? sortDir) as SortDir;
-      qs.set("sortKey", sk);
-      qs.set("sortDir", sd);
-
-      const url = `/api/checklist/${encodeURIComponent(productId)}` + (qs.toString() ? `?${qs.toString()}` : "");
-
-      const res = await fetch(url, { cache: "no-store" });
-      const raw = await res.text();
-
-      let j: any = null;
-      try {
-        j = raw ? JSON.parse(raw) : null;
-      } catch {
-        throw new Error(`Checklist returned non-JSON (${res.status}): ${raw.slice(0, 140)}`);
+      if (productSetId) {
+        qs.set("productSetId", productSetId);
       }
 
-      if (!res.ok) throw new Error(j?.error ?? `Failed (${res.status})`);
+      const userId = (
+        opts.selectedUserId ?? selectedUserId
+      ).trim();
 
-      const next = j as ChecklistResponse;
+      if (userId) {
+        qs.set("selectedUserId", userId);
+      }
+
+      const nextPage = opts.page ?? page;
+      const nextSortKey = opts.sortKey ?? sortKey;
+      const nextSortDir = opts.sortDir ?? sortDir;
+      const nextSearch = (
+        opts.searchText ?? searchApplied
+      ).trim();
+      const nextFilter = opts.filterMode ?? filterMode;
+
+      qs.set("page", String(nextPage));
+      qs.set("pageSize", String(PAGE_SIZE));
+      qs.set("sortKey", nextSortKey);
+      qs.set("sortDir", nextSortDir);
+      qs.set("filter", nextFilter);
+
+      if (nextSearch) {
+        qs.set("q", nextSearch);
+      }
+
+      const response = await fetch(
+        `/api/checklist/${encodeURIComponent(
+          productId
+        )}?${qs.toString()}`,
+        { cache: "no-store" }
+      );
+
+      const raw = await response.text();
+
+      let json: any = null;
+
+      try {
+        json = raw ? JSON.parse(raw) : null;
+      } catch {
+        throw new Error(
+          `Checklist returned invalid data (${response.status}).`
+        );
+      }
+
+      if (!response.ok) {
+        throw new Error(
+          json?.error || `Failed (${response.status})`
+        );
+      }
+
+      if (sequence !== requestSequence.current) {
+        return;
+      }
+
+      const next = json as ChecklistResponse;
+
       setData(next);
 
-      // keep dropdown default in sync
-      if (!selectedProductSetId && next?.productSetId) {
+      if (!selectedProductSetId && next.productSetId) {
         setSelectedProductSetId(next.productSetId);
       }
 
-      // keep pagination in sync (API may clamp)
-      if (typeof next?.page === "number") {
-        setPage(next.page);
+      setPage(next.page);
+      setSortKey(next.sortKey);
+      setSortDir(next.sortDir);
+      setFilterMode(next.filterMode ?? "all");
+    } catch (error) {
+      if (sequence !== requestSequence.current) {
+        return;
       }
 
-      // keep sort in sync (API echoes it)
-      if (next?.sortKey) setSortKey(next.sortKey);
-      if (next?.sortDir) setSortDir(next.sortDir);
-    } catch (e: any) {
-      setErr(e?.message ?? "Failed to load checklist");
-      setData(null);
+      setErr(
+        error instanceof Error
+          ? error.message
+          : "Failed to load checklist."
+      );
     } finally {
-      setLoading(false);
+      if (sequence === requestSequence.current) {
+        setLoading(false);
+        setRefreshing(false);
+      }
     }
   }
 
   useEffect(() => {
-    loadUsers();
-    const saved = returnState(location.pathname + location.search);
-    const ps = typeof saved?.selectedProductSetId === "string" ? saved.selectedProductSetId : "";
-    const uid = typeof saved?.selectedUserId === "string" ? saved.selectedUserId : "";
-    const pg = typeof saved?.page === "number" ? saved.page : 1;
-    const sk = typeof saved?.sortKey === "string" ? saved.sortKey as SortKey : "cardNumber";
-    const sd = saved?.sortDir === "desc" ? "desc" : "asc";
-    setSelectedProductSetId(ps); setSelectedUserId(uid); setPage(pg);
-    setSortKey(sk); setSortDir(sd); setJumpTo(""); setActionErr(null); setActionMsg(null);
-    load({ productSetId: ps, selectedUserId: uid, page: pg, sortKey: sk, sortDir: sd }).then(() => restoreScroll(location.pathname + location.search));
+    void loadUsers();
+
+    const source =
+      location.pathname + location.search;
+
+    const saved = returnState(source);
+
+    const productSetId =
+      typeof saved?.selectedProductSetId === "string"
+        ? saved.selectedProductSetId
+        : "";
+
+    const userId =
+      typeof saved?.selectedUserId === "string"
+        ? saved.selectedUserId
+        : "";
+
+    const restoredPage =
+      typeof saved?.page === "number" ? saved.page : 1;
+
+    const restoredSort =
+      typeof saved?.sortKey === "string"
+        ? (saved.sortKey as SortKey)
+        : "cardNumber";
+
+    const restoredDir: SortDir =
+      saved?.sortDir === "desc" ? "desc" : "asc";
+
+    const restoredSearch =
+      typeof saved?.searchText === "string"
+        ? saved.searchText
+        : "";
+
+    const restoredFilter: ChecklistFilter =
+      saved?.filterMode === "need" ? "need" : "all";
+
+    setSelectedProductSetId(productSetId);
+    setSelectedUserId(userId);
+    setPage(restoredPage);
+    setSortKey(restoredSort);
+    setSortDir(restoredDir);
+    setFilterMode(restoredFilter);
+    setSearchInput(restoredSearch);
+    setSearchApplied(restoredSearch);
+    setJumpTo("");
+
+    void load({
+      productSetId,
+      selectedUserId: userId,
+      page: restoredPage,
+      sortKey: restoredSort,
+      sortDir: restoredDir,
+      searchText: restoredSearch,
+      filterMode: restoredFilter,
+    }).then(() => restoreScroll(source));
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
-  function onChangeProductSet(nextId: string) {
-    setSelectedProductSetId(nextId);
-    setPage(1);
-    setJumpTo("");
-    setActionErr(null);
-    setActionMsg(null);
-    load({ productSetId: nextId, page: 1 });
-  }
+  useEffect(() => {
+    if (searchInput === searchApplied) {
+      return;
+    }
 
-  function onChangeSelectedUser(nextId: string) {
-    setSelectedUserId(nextId);
-    setPage(1);
-    setJumpTo("");
-    setActionErr(null);
-    setActionMsg(null);
-    load({ selectedUserId: nextId, page: 1 });
-  }
+    const timer = window.setTimeout(() => {
+      setSearchApplied(searchInput);
+      setPage(1);
+
+      void load({
+        searchText: searchInput,
+        page: 1,
+      });
+    }, 260);
+
+    return () => window.clearTimeout(timer);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchInput]);
 
   const productSetsSorted = useMemo(() => {
-    const arr = data?.productSets ?? [];
-    return [...arr].sort((a, b) => Number(b.isBase) - Number(a.isBase));
+    return [...(data?.productSets ?? [])].sort(
+      (a, b) => Number(b.isBase) - Number(a.isBase)
+    );
   }, [data]);
 
   const compareMode = Boolean(data?.isCompareMode);
@@ -294,56 +606,156 @@ export default function ChecklistClient({ productId }: { productId: string }) {
   const canPrev = (data?.page ?? 1) > 1;
   const canNext = (data?.page ?? 1) < totalPages;
 
-  function goPrev() {
-    if (!canPrev) return;
-    const next = (data?.page ?? 1) - 1;
-    setPage(next);
-    load({ page: next });
-  }
+  const rows = data?.rows ?? [];
 
-  function goNext() {
-    if (!canNext) return;
-    const next = (data?.page ?? 1) + 1;
-    setPage(next);
-    load({ page: next });
-  }
-
-  function doJump() {
-    const n = clampInt(parseInt(jumpTo || "1", 10) || 1, 1, totalPages);
-    setPage(n);
-    load({ page: n });
-  }
-
-  // ✅ NEW: header click handler (server-side sort)
-  function onSort(nextKey: SortKey) {
-    const isSame = nextKey === sortKey;
-
-    let nextDir: SortDir;
-    if (isSame) {
-      nextDir = sortDir === "asc" ? "desc" : "asc";
-    } else {
-      // sensible defaults
-      if (nextKey === "owned" || nextKey === "qty" || nextKey === "rawQty" || nextKey === "bookValue") nextDir = "desc";
-      else nextDir = "asc";
+  useCardBrowseSource(
+    rows.map((row) => ({
+      cardId: row.cardId,
+    })),
+    "Checklist",
+    {
+      selectedProductSetId,
+      selectedUserId,
+      page,
+      sortKey,
+      sortDir,
+      searchText: searchApplied,
+      filterMode,
     }
+  );
+
+  function onChangeProductSet(nextId: string) {
+    setSelectedProductSetId(nextId);
+    setPage(1);
+    setJumpTo("");
+    setActionErr(null);
+    setActionMsg(null);
+
+    void load({
+      productSetId: nextId,
+      page: 1,
+    });
+  }
+
+  function onChangeSelectedUser(nextId: string) {
+    setSelectedUserId(nextId);
+    setPage(1);
+    setJumpTo("");
+    setActionErr(null);
+    setActionMsg(null);
+
+    void load({
+      selectedUserId: nextId,
+      page: 1,
+    });
+  }
+
+  function onFilter(next: ChecklistFilter) {
+    if (next === filterMode) return;
+
+    setFilterMode(next);
+    setPage(1);
+    setJumpTo("");
+
+    void load({
+      filterMode: next,
+      page: 1,
+    });
+  }
+
+  function onSort(nextKey: SortKey) {
+    const nextDir: SortDir =
+      nextKey === sortKey
+        ? sortDir === "asc"
+          ? "desc"
+          : "asc"
+        : defaultSortDir(nextKey);
 
     setSortKey(nextKey);
     setSortDir(nextDir);
     setPage(1);
     setJumpTo("");
 
-    load({ sortKey: nextKey, sortDir: nextDir, page: 1 });
+    void load({
+      sortKey: nextKey,
+      sortDir: nextDir,
+      page: 1,
+    });
+  }
+
+  function setSortFromSelect(nextKey: SortKey) {
+    const nextDir = defaultSortDir(nextKey);
+
+    setSortKey(nextKey);
+    setSortDir(nextDir);
+    setPage(1);
+    setJumpTo("");
+
+    void load({
+      sortKey: nextKey,
+      sortDir: nextDir,
+      page: 1,
+    });
+  }
+
+  function toggleSortDir() {
+    const nextDir: SortDir =
+      sortDir === "asc" ? "desc" : "asc";
+
+    setSortDir(nextDir);
+    setPage(1);
+
+    void load({
+      sortDir: nextDir,
+      page: 1,
+    });
+  }
+
+  function goPrev() {
+    if (!canPrev) return;
+
+    const next = (data?.page ?? 1) - 1;
+
+    setPage(next);
+    void load({ page: next });
+  }
+
+  function goNext() {
+    if (!canNext) return;
+
+    const next = (data?.page ?? 1) + 1;
+
+    setPage(next);
+    void load({ page: next });
+  }
+
+  function doJump() {
+    const next = clampInt(
+      parseInt(jumpTo || "1", 10) || 1,
+      1,
+      totalPages
+    );
+
+    setPage(next);
+    void load({ page: next });
+  }
+
+  function clearSearch() {
+    setSearchInput("");
+    setSearchApplied("");
+    setPage(1);
+
+    void load({
+      searchText: "",
+      page: 1,
+    });
   }
 
   async function requestOfferForCard(cardId: number) {
     if (compareMode) {
-      setActionErr("Switch Viewing to Me to request shop offers.");
-      setActionMsg(null);
-      return;
-    }
-
-    if (!Number.isFinite(cardId) || cardId <= 0) {
-      setActionErr("Invalid cardId.");
+      setActionErr(
+        "Switch Viewing to Me to request shop offers."
+      );
       setActionMsg(null);
       return;
     }
@@ -353,27 +765,40 @@ export default function ChecklistClient({ productId }: { productId: string }) {
     setActionMsg(null);
 
     try {
-      const res = await fetch("/api/shop/singles/offers", {
+      const response = await fetch("/api/shop/singles/offers", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({ cardId }),
       });
 
-      const raw = await res.text();
-      let j: any = {};
-      try {
-        j = raw ? JSON.parse(raw) : {};
-      } catch {
-        throw new Error(`Non-JSON from shop offer (${res.status}): ${raw.slice(0, 140)}`);
+      const raw = await response.text();
+      const json = raw ? JSON.parse(raw) : {};
+
+      if (!response.ok) {
+        throw new Error(
+          json?.error || "Offer request failed."
+        );
       }
 
-      if (!res.ok) throw new Error(j?.error ?? `Offer request failed (${res.status})`);
+      setActionMsg(
+        json?.reused
+          ? "Shop offer already active."
+          : "Shop offer created."
+      );
 
-      setActionMsg(j?.reused ? "Shop offer already active." : "Shop offer created. Open the Shop Singles tab to accept or reject it.");
-      window.dispatchEvent(new CustomEvent(ECONOMY_CHANGED_EVENT));
-      load();
-    } catch (e: any) {
-      setActionErr(e?.message ?? "Offer request failed");
+      window.dispatchEvent(
+        new CustomEvent(ECONOMY_CHANGED_EVENT)
+      );
+
+      await load({}, true);
+    } catch (error) {
+      setActionErr(
+        error instanceof Error
+          ? error.message
+          : "Offer request failed."
+      );
     } finally {
       setOfferingCardId(null);
     }
@@ -381,13 +806,9 @@ export default function ChecklistClient({ productId }: { productId: string }) {
 
   async function createAuctionForCard(cardId: number) {
     if (compareMode) {
-      setActionErr("Switch Viewing to Me to create auctions.");
-      setActionMsg(null);
-      return;
-    }
-
-    if (!Number.isFinite(cardId) || cardId <= 0) {
-      setActionErr("Invalid cardId.");
+      setActionErr(
+        "Switch Viewing to Me to create auctions."
+      );
       setActionMsg(null);
       return;
     }
@@ -397,658 +818,857 @@ export default function ChecklistClient({ productId }: { productId: string }) {
     setActionMsg(null);
 
     try {
-      const res = await fetch("/api/auctions/create", {
+      const response = await fetch("/api/auctions/create", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cardId, grade: 0 }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          cardId,
+          grade: 0,
+        }),
       });
 
-      const raw = await res.text();
-      let j: any = {};
-      try {
-        j = raw ? JSON.parse(raw) : {};
-      } catch {
-        throw new Error(`Non-JSON from auction create (${res.status}): ${raw.slice(0, 140)}`);
+      const raw = await response.text();
+      const json = raw ? JSON.parse(raw) : {};
+
+      if (!response.ok) {
+        throw new Error(
+          json?.error || "Auction create failed."
+        );
       }
 
-      if (!res.ok) throw new Error(j?.error ?? `Auction create failed (${res.status})`);
+      setActionMsg(
+        "Auction created. One raw copy is reserved for the auction."
+      );
 
-      setActionMsg("Auction created. One raw copy is now locked until the auction is collected or ends.");
-      load();
-    } catch (e: any) {
-      setActionErr(e?.message ?? "Auction create failed");
+      await load({}, true);
+    } catch (error) {
+      setActionErr(
+        error instanceof Error
+          ? error.message
+          : "Auction create failed."
+      );
     } finally {
       setAuctioningCardId(null);
     }
   }
 
-  const rows = data?.rows ?? [];
-  useCardBrowseSource(rows.map(r => ({ cardId: r.cardId })), "Checklist", { selectedProductSetId, selectedUserId, page, sortKey, sortDir });
+  const currentUser = users.find(
+    (user) => user.id === data?.currentUserId
+  );
 
-  const thClickable: React.CSSProperties = {
-    textAlign: "left",
-    padding: 8,
-    borderBottom: "1px solid #ddd",
-    whiteSpace: "nowrap",
-    cursor: "pointer",
-    userSelect: "none",
-  };
+  const selectedUser = selectedUserId
+    ? users.find((user) => user.id === selectedUserId)
+    : currentUser;
 
-  const thPlain: React.CSSProperties = {
-    textAlign: "left",
-    padding: 8,
-    borderBottom: "1px solid #ddd",
-    whiteSpace: "nowrap",
-  };
+  const resultCount = data?.resultCount ?? 0;
+
+  const pageStart =
+    resultCount > 0 && data
+      ? (data.page - 1) * data.pageSize + 1
+      : 0;
+
+  const pageEnd = data
+    ? Math.min(data.page * data.pageSize, resultCount)
+    : 0;
 
   return (
-    <div className="checklistPage" style={{ maxWidth: 1280, margin: "0 auto" }}>
-      <style jsx>{`
-        .checklistPage {
-          padding: 16px;
-        }
+    <main
+      className={`checklist-shell ${
+        loading && data ? "is-updating" : ""
+      }`}
+    >
+      <header className="checklist-masthead">
+        <div>
+          <span className="checklist-eyebrow">CHECKLIST</span>
 
-        .checklistActions {
-          display: flex;
-          gap: 6px;
-          align-items: center;
-          flex-wrap: nowrap;
-          white-space: nowrap;
-        }
+          <h1>{friendlyTitle(productId)}</h1>
 
-        @media (max-width: 760px) {
-          .checklistPage {
-            padding: 10px 8px 18px;
-          }
+          {data ? (
+            <div className="checklist-title-meta">
+              <span>
+                {data.productSetIsBase ? "Base Set" : "Insert Set"}
+              </span>
 
-          .checklistDesktopOptional {
-            display: none;
-          }
+              <i>·</i>
 
-          .checklistControls {
-            display: grid !important;
-            gap: 10px !important;
-            margin-bottom: 10px !important;
-          }
+              <span>
+                <strong>{number(data.uniqueOwned)}</strong>/
+                {number(data.totalCards)} unique
+              </span>
 
-          .checklistField {
-            display: grid !important;
-            grid-template-columns: 64px minmax(0, 1fr);
-            gap: 8px !important;
-            align-items: center !important;
-            width: 100%;
-            min-width: 0;
-          }
+              <i>·</i>
 
-          .checklistFieldLabel {
-            font-size: 14px;
-          }
+              <span>
+                {data.percentComplete.toFixed(1)}% complete
+              </span>
+            </div>
+          ) : null}
+        </div>
 
-          .checklistSelect {
-            width: 100%;
-            min-width: 0 !important;
-            max-width: 100%;
-            padding: 9px 10px !important;
-          }
+        <button
+          type="button"
+          className={`checklist-refresh ${
+            refreshing ? "is-refreshing" : ""
+          }`}
+          onClick={() => void load({}, true)}
+          disabled={refreshing}
+          aria-label="Refresh checklist"
+          title="Refresh checklist"
+        >
+          <Icon kind="refresh" />
+        </button>
+      </header>
 
-          .checklistSetCompletion {
-            display: none;
-          }
-
-          .checklistPagination {
-            width: 100%;
-            margin-left: 0 !important;
-            display: grid !important;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 6px !important;
-          }
-
-          .checklistPageInfo {
-            grid-column: 1 / -1;
-            grid-row: 1;
-            text-align: center;
-            font-size: 14px;
-          }
-
-          .checklistPrev {
-            grid-column: 1;
-            grid-row: 2;
-          }
-
-          .checklistNext {
-            grid-column: 3;
-            grid-row: 2;
-          }
-
-          .checklistPrev,
-          .checklistNext {
-            width: 100%;
-            min-height: 40px;
-          }
-
-          .checklistJump {
-            grid-column: 1 / -1;
-            grid-row: 3;
-            display: grid !important;
-            grid-template-columns: minmax(0, 1fr) auto;
-            gap: 6px !important;
-            width: 100%;
-          }
-
-          .checklistJumpInput {
-            width: 100% !important;
-            min-width: 0;
-            min-height: 40px;
-          }
-
-          .checklistProgress {
-            margin-bottom: 10px !important;
-            padding: 12px !important;
-            border-radius: 14px !important;
-          }
-
-          .checklistProgressMain {
-            font-size: 22px !important;
-            line-height: 1.12;
-            margin-bottom: 8px !important;
-          }
-
-          .checklistProgressCount {
-            display: block;
-            margin-top: 4px;
-            font-size: 13px !important;
-            line-height: 1.3;
-          }
-
-          .checklistProgressGrid {
-            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-            gap: 8px 12px !important;
-            font-size: 13px;
-            line-height: 1.3;
-          }
-
-          .checklistTableWrap {
-            border-radius: 12px !important;
-          }
-
-          .checklistTable {
-            font-size: 12px;
-            line-height: 1.18;
-          }
-
-          .checklistTable th {
-            padding: 5px 5px !important;
-            font-size: 10.5px;
-            line-height: 1.1;
-            letter-spacing: 0.12px;
-          }
-
-          .checklistTable td {
-            padding: 4px 5px !important;
-            vertical-align: middle;
-          }
-
-          .checklistTable tbody tr {
-            height: 34px;
-          }
-
-          .checklistOwnedCell {
-            font-size: 12px;
-            line-height: 1;
-          }
-
-          .checklistOwnedColumn {
-            width: 38px;
-            max-width: 38px;
-          }
-
-          .checklistQtyColumn,
-          .checklistRawColumn {
-            width: 32px;
-            max-width: 32px;
-            text-align: center !important;
-          }
-
-          .checklistRawPositive {
-            color: #16477d;
-            font-weight: 1000;
-          }
-
-          .checklistRawZero {
-            color: #9aa1aa;
-            font-weight: 800;
-          }
-
-          .checklistDetailsColumn {
-            width: 58px;
-          }
-
-          .checklistActions {
-            gap: 3px;
-            flex-wrap: nowrap;
-            white-space: nowrap;
-            width: auto;
-          }
-
-          .checklistActions :global(.vcs-button) {
-            min-height: 28px;
-            padding: 4px 5px;
-            border-radius: 8px;
-            font-size: 10.5px;
-            line-height: 1;
-          }
-        }
-      `}</style>
-
-      <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
-        <Link href={`/collection/${encodeURIComponent(productId)}`} className="vcs-back-link">
+      <nav className="checklist-nav">
+        <Link
+          href={`/collection/${encodeURIComponent(productId)}`}
+        >
           ← Back to Set
         </Link>
 
-        <div style={{ fontWeight: 950, fontSize: 22 }}>{friendlyTitle(productId)}</div>
-
-        <button onClick={() => load()} className="vcs-button vcs-button-soft vcs-button-compact">
-          Refresh
-        </button>
-
-        <Link href="/collection" className="vcs-button vcs-button-secondary vcs-button-compact">
-          Collection →
+        <Link href="/collection">
+          Collection
+          <Icon kind="arrow" />
         </Link>
-      </div>
+      </nav>
 
-      <hr style={{ margin: "14px 0" }} />
-
-      {/* Controls row */}
-      <div
-        className="checklistControls"
-        style={{
-          display: "flex",
-          gap: 12,
-          alignItems: "center",
-          flexWrap: "wrap",
-          marginBottom: 12,
-        }}
-      >
-        {/* User dropdown */}
-        <div className="checklistField" style={{ display: "flex", gap: 8, alignItems: "center" }}>
-          <div className="checklistFieldLabel" style={{ fontWeight: 900 }}>Viewing:</div>
-          <select
-            value={selectedUserId}
-            onChange={(e) => onChangeSelectedUser(e.target.value)}
-            className="checklistSelect"
-            style={{
-              padding: "8px 10px",
-              border: "1px solid #ddd",
-              borderRadius: 10,
-              minWidth: 220,
-              fontWeight: 800,
-            }}
-          >
-            <option value="">Me</option>
-            {usersLoading
-              ? null
-              : users
-                  .filter((u) => u.id !== data?.currentUserId)
-                  .map((u) => (
-                    <option key={u.id} value={u.id}>
-                      {formatUserLabel(u)}
-                    </option>
-                  ))}
-          </select>
-        </div>
-
-        {/* ProductSet dropdown */}
-        {data?.productSets?.length ? (
-          <div className="checklistField" style={{ display: "flex", gap: 8, alignItems: "center" }}>
-            <div className="checklistFieldLabel" style={{ fontWeight: 900 }}>Set:</div>
-            <select
-              value={selectedProductSetId}
-              onChange={(e) => onChangeProductSet(e.target.value)}
-              className="checklistSelect"
-              style={{
-                padding: "8px 10px",
-                border: "1px solid #ddd",
-                borderRadius: 10,
-                minWidth: 280,
-                fontWeight: 800,
-              }}
-            >
-              {productSetsSorted.map((ps) => (
-                <option key={ps.id} value={ps.id}>
-                  {formatSetLabel(ps)}
-                </option>
-              ))}
-            </select>
-
-            <div className="checklistSetCompletion" style={{ color: "#666", fontWeight: 700 }}>{data.productSetIsBase ? "Base set completion" : "Insert set completion"}</div>
-          </div>
-        ) : null}
-
-        {/* Pagination controls */}
-        <div className="checklistPagination" style={{ display: "flex", gap: 8, alignItems: "center", marginLeft: "auto" }}>
-          <button className="checklistPrev" onClick={goPrev} disabled={!canPrev || loading} style={{ padding: "6px 10px", opacity: !canPrev || loading ? 0.5 : 1 }}>
-            ← Prev
-          </button>
-
-          <div className="checklistPageInfo" style={{ fontWeight: 900, whiteSpace: "nowrap" }}>
-            Page {data?.page ?? 1} of {totalPages}
-          </div>
-
-          <button className="checklistNext" onClick={goNext} disabled={!canNext || loading} style={{ padding: "6px 10px", opacity: !canNext || loading ? 0.5 : 1 }}>
-            Next →
-          </button>
-
-          <div className="checklistJump" style={{ display: "flex", gap: 6, alignItems: "center" }}>
-            <input
-              value={jumpTo}
-              onChange={(e) => setJumpTo(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") doJump();
-              }}
-              placeholder="Jump"
-              inputMode="numeric"
-              className="checklistJumpInput"
-              style={{
-                width: 80,
-                padding: "6px 8px",
-                border: "1px solid #ddd",
-                borderRadius: 10,
-                fontWeight: 800,
-              }}
-            />
-            <button onClick={doJump} disabled={loading} style={{ padding: "6px 10px" }}>
-              Go
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {compareMode ? (
-        <div
-          style={{
-            marginBottom: 12,
-            padding: 10,
-            border: "1px solid #d9e6ff",
-            background: "#f5f9ff",
-            borderRadius: 12,
-            fontWeight: 800,
-          }}
-        >
-          Primary checks show <span style={{ fontWeight: 900 }}>their</span> collection.
-          <span style={{ marginLeft: 10 }}>
-            Small dot in <span style={{ fontWeight: 900 }}>Me</span> column means <span style={{ fontWeight: 900 }}>you</span> own it.
-          </span>
-          <span style={{ marginLeft: 10, color: "#444" }}>
-            (Shop offers are disabled in compare mode.)
-          </span>
+      {err ? (
+        <div className="checklist-notice is-error" role="alert">
+          {err}
         </div>
       ) : null}
 
       {actionErr ? (
-        <div style={{ marginBottom: 12, padding: 10, background: "#fee", border: "1px solid #f99", borderRadius: 12 }}>
-          {actionErr}
+        <div
+          className="checklist-action-toast is-error"
+          role="alert"
+        >
+          <span>{actionErr}</span>
+
+          <button
+            type="button"
+            onClick={() => setActionErr(null)}
+            aria-label="Dismiss"
+          >
+            ×
+          </button>
         </div>
       ) : null}
 
       {actionMsg ? (
-        <div style={{ marginBottom: 12, padding: 10, background: "#efe", border: "1px solid #9f9", borderRadius: 12 }}>
-          {actionMsg}{" "}
-          <Link href="/shop" style={{ textDecoration: "underline", fontWeight: 900 }}>
-            Open Shop →
-          </Link>
+        <div className="checklist-action-toast" role="status">
+          <span>{actionMsg}</span>
+
+          <Link href="/shop">Shop →</Link>
+
+          <button
+            type="button"
+            onClick={() => setActionMsg(null)}
+            aria-label="Dismiss"
+          >
+            ×
+          </button>
         </div>
       ) : null}
 
-      {err && <div style={{ marginBottom: 12, padding: 10, background: "#fee", border: "1px solid #f99" }}>{err}</div>}
-
-      {loading ? (
-        <div>Loading…</div>
+      {loading && !data ? (
+        <div className="checklist-loading">
+          Loading checklist…
+        </div>
       ) : !data ? (
-        <div>No data.</div>
+        <div className="checklist-empty">
+          Checklist data unavailable.
+        </div>
       ) : (
         <>
-          <div
-            className="checklistProgress"
-            style={{
-              marginBottom: 14,
-              padding: 14,
-              border: "1px solid #e5e7eb",
-              background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
-              borderRadius: 16,
-              boxShadow: "0 8px 24px rgba(15, 23, 42, 0.05)",
-            }}
-          >
-            <div style={{ fontSize: 12, fontWeight: 950, color: "#64748b", textTransform: "uppercase", letterSpacing: 0.6, marginBottom: 6 }}>
-              Checklist progress
-            </div>
-            <div className="checklistProgressMain" style={{ fontWeight: 950, fontSize: 24, marginBottom: 10 }}>
-              {data.percentComplete.toFixed(1)}% Complete <span className="checklistProgressCount" style={{ color: "#64748b", fontSize: 16 }}>({data.uniqueOwned}/{data.totalCards} unique)</span>
-            </div>
-            <div
-              className="checklistProgressGrid"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
-                gap: 10,
-                fontWeight: 800,
-              }}
-            >
-            <div>
-              Set Value: <span style={{ fontWeight: 900 }}>{money(data.setTotalBookValue)}</span>
-            </div>
-            <div>
-              Owned Value: <span style={{ fontWeight: 900 }}>{money(data.setOwnedBookValue)}</span>
-            </div>
-            <div>
-              Missing Value: <span style={{ fontWeight: 900 }}>{money(data.setMissingBookValue)}</span>
-            </div>
-            <div>
-              Value Complete: <span style={{ fontWeight: 900 }}>{(data.setOwnedValuePercent ?? 0).toFixed(1)}%</span>
-            </div>
-
-            {compareMode && data.mySetOwnedBookValue != null ? (
+          <section className="checklist-progress">
+            <div className="checklist-progress-main">
               <div>
-                My Owned Value: <span style={{ fontWeight: 900 }}>{money(data.mySetOwnedBookValue)}</span>
+                <span className="checklist-progress-kicker">
+                  {data.prestigeLevel > 0
+                    ? "NEXT PRESTIGE"
+                    : "SET PROGRESS"}
+                </span>
+
+                <strong>
+                  {data.prestigeLevel > 0
+                    ? `Prestige ${data.prestigeLevel}× → ${data.nextPrestigeLevel}×`
+                    : `${data.percentComplete.toFixed(
+                        1
+                      )}% Complete`}
+                </strong>
+
+                <p>
+                  <b>{number(data.cardsAtNextPrestige)}</b>/
+                  {number(data.totalCards)} ready
+                  <span>·</span>
+                  <b>
+                    {number(data.cardsNeededForNextPrestige)}
+                  </b>{" "}
+                  {data.cardsNeededForNextPrestige === 1
+                    ? "card"
+                    : "cards"}{" "}
+                  needed
+                </p>
               </div>
-            ) : null}
+
+              <div className="checklist-set-value">
+                <span>SET BOOK VALUE</span>
+                <strong>
+                  {money(data.setTotalBookValue)}
+                </strong>
+              </div>
             </div>
-          </div>
 
-          {rows.length === 0 && (
-            <div style={{ padding: 10, border: "1px solid #ddd", background: "#fffdf2" }}>
-              Checklist loaded but returned 0 rows. This usually means the product set has no cards.
+            <div
+              className="checklist-track"
+              role="progressbar"
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={Math.round(data.nextPrestigePct)}
+              aria-label={`Progress to Prestige ${data.nextPrestigeLevel}`}
+            >
+              <span
+                style={{
+                  width: `${Math.max(
+                    0,
+                    Math.min(100, data.nextPrestigePct)
+                  )}%`,
+                }}
+              />
             </div>
-          )}
 
-          <div className="checklistTableWrap" style={{ overflowX: "auto", border: "1px solid #e5e7eb", borderRadius: 16, boxShadow: "0 8px 24px rgba(15, 23, 42, 0.04)", background: "white" }}>
-            <table className="checklistTable" style={{ width: "100%", borderCollapse: "collapse" }}>
-              <thead style={{ position: "sticky", top: 0, background: "#f8fafc", zIndex: 1 }}>
-                <tr>
-                  <th
-                    className="checklistOwnedColumn"
-                    style={thClickable}
-                    onClick={() => onSort("owned")}
-                    title="Sort by Owned (whole set, then paged)"
-                  >
-                    Owned{sortIcon(sortKey === "owned", sortDir)}
-                  </th>
+            <div className="checklist-progress-foot">
+              <span>Prestige {data.prestigeLevel}×</span>
+              <span>
+                {data.nextPrestigePct.toFixed(1)}% toward{" "}
+                {data.nextPrestigeLevel}×
+              </span>
+            </div>
+          </section>
 
-                  {compareMode ? (
-                    <th style={thPlain} title="You own this card">
-                      Me
-                    </th>
-                  ) : null}
+          <section className="checklist-controls">
+            <label className="checklist-control">
+              <span>Set</span>
 
-                  <th style={thClickable} onClick={() => onSort("cardNumber")} title="Sort by Card Number">
-                    #{sortIcon(sortKey === "cardNumber", sortDir)}
-                  </th>
+              <select
+                value={selectedProductSetId}
+                onChange={(event) =>
+                  onChangeProductSet(event.target.value)
+                }
+              >
+                {productSetsSorted.map((ps) => (
+                  <option key={ps.id} value={ps.id}>
+                    {formatSetLabel(ps)}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-                  <th style={thClickable} onClick={() => onSort("player")} title="Sort by Player">
-                    Player{sortIcon(sortKey === "player", sortDir)}
-                  </th>
+            <label className="checklist-control">
+              <span>Viewing</span>
 
-                  <th style={thClickable} onClick={() => onSort("team")} title="Sort by Team">
-                    Team{sortIcon(sortKey === "team", sortDir)}
-                  </th>
+              <select
+                value={selectedUserId}
+                onChange={(event) =>
+                  onChangeSelectedUser(event.target.value)
+                }
+                disabled={usersLoading}
+              >
+                <option value="">
+                  {currentUser
+                    ? `${formatUserLabel(currentUser)} (Me)`
+                    : "Me"}
+                </option>
 
-                  <th className="checklistDesktopOptional" style={thClickable} onClick={() => onSort("subset")} title="Sort by Subset">
-                    Subset{sortIcon(sortKey === "subset", sortDir)}
-                  </th>
+                {users
+                  .filter(
+                    (user) => user.id !== data.currentUserId
+                  )
+                  .map((user) => (
+                    <option key={user.id} value={user.id}>
+                      {formatUserLabel(user)}
+                    </option>
+                  ))}
+              </select>
+            </label>
 
-                  <th className="checklistDesktopOptional" style={thClickable} onClick={() => onSort("variant")} title="Sort by Variant">
-                    Variant{sortIcon(sortKey === "variant", sortDir)}
-                  </th>
+            <label className="checklist-search">
+              <Icon kind="search" />
 
-                  <th className="checklistDesktopOptional" style={thPlain}>Type</th>
+              <span className="checklist-sr-only">
+                Search checklist
+              </span>
 
-                  <th style={thClickable} onClick={() => onSort("bookValue")} title="Sort by Value">
-                    Value{sortIcon(sortKey === "bookValue", sortDir)}
-                  </th>
+              <input
+                type="search"
+                value={searchInput}
+                onChange={(event) =>
+                  setSearchInput(event.target.value)
+                }
+                placeholder="Search #, player, team..."
+                autoComplete="off"
+              />
 
-                  <th
-                    className="checklistQtyColumn"
-                    style={thClickable}
-                    onClick={() => onSort("qty")}
-                    title="Sort by total quantity owned (whole set, then paged)"
-                  >
-                    Qty{sortIcon(sortKey === "qty", sortDir)}
-                  </th>
+              {searchInput ? (
+                <button
+                  type="button"
+                  onClick={clearSearch}
+                  aria-label="Clear search"
+                >
+                  ×
+                </button>
+              ) : null}
+            </label>
+          </section>
 
-                  <th
-                    className="checklistRawColumn"
-                    style={thClickable}
-                    onClick={() => onSort("rawQty")}
-                    title="Sort by raw copies available to grade"
-                  >
-                    Raw{sortIcon(sortKey === "rawQty", sortDir)}
-                  </th>
+          {compareMode ? (
+            <div className="checklist-compare">
+              <strong>
+                Viewing{" "}
+                {selectedUser
+                  ? formatUserLabel(selectedUser)
+                  : "collector"}
+              </strong>
 
-                  <th className="checklistDetailsColumn" style={thPlain}>Details</th>
-                </tr>
-              </thead>
+              <span>
+                Their quantities drive Checklist and Prestige
+                progress. Your quantity remains visible for
+                reference.
+              </span>
+            </div>
+          ) : null}
 
-              <tbody>
-                {rows.map((r, idx) => {
-                  const owned = (r.ownedQty ?? 0) > 0;
-                  const myOwned = (r.myOwnedQty ?? 0) > 0;
+          <section className="checklist-list-tools">
+            <div className="checklist-filters">
+              <button
+                type="button"
+                className={
+                  filterMode === "all" ? "is-active" : ""
+                }
+                onClick={() => onFilter("all")}
+              >
+                All
+              </button>
 
-                  return (
-                    <tr key={r.cardId} style={{ background: idx % 2 === 0 ? "#fff" : "#fcfcfc" }}>
-                      <td className="checklistOwnedCell checklistOwnedColumn" style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>{owned ? "✅" : "⬜"}</td>
+              <button
+                type="button"
+                className={
+                  filterMode === "need" ? "is-active" : ""
+                }
+                onClick={() => onFilter("need")}
+              >
+                Need for Prestige
+                <span>
+                  {number(data.cardsNeededForNextPrestige)}
+                </span>
+              </button>
+            </div>
+
+            <div className="checklist-result-tools">
+              <span className="checklist-result-count">
+                <strong>{number(resultCount)}</strong>{" "}
+                {resultCount === 1 ? "card" : "cards"}
+              </span>
+
+              <label className="checklist-sort">
+                <span className="checklist-sr-only">
+                  Sort checklist
+                </span>
+
+                <select
+                  value={sortKey}
+                  onChange={(event) =>
+                    setSortFromSelect(
+                      event.target.value as SortKey
+                    )
+                  }
+                >
+                  {SORT_OPTIONS.map((option) => (
+                    <option
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+
+                <button
+                  type="button"
+                  onClick={toggleSortDir}
+                  aria-label={`Sort ${
+                    sortDir === "asc"
+                      ? "descending"
+                      : "ascending"
+                  }`}
+                >
+                  {sortDir === "asc" ? "↑" : "↓"}
+                </button>
+              </label>
+            </div>
+          </section>
+
+          {rows.length === 0 ? (
+            <div className="checklist-empty">
+              <strong>No cards match this view.</strong>
+              <span>
+                Try clearing the search or switching back to All.
+              </span>
+            </div>
+          ) : (
+            <>
+              <div className="checklist-desktop-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th
+                        className="is-sortable checklist-number-col"
+                        onClick={() => onSort("cardNumber")}
+                      >
+                        #
+                        {sortIcon(
+                          sortKey === "cardNumber",
+                          sortDir
+                        )}
+                      </th>
+
+                      <th
+                        className="is-sortable"
+                        onClick={() => onSort("player")}
+                      >
+                        Card
+                        {sortIcon(
+                          sortKey === "player",
+                          sortDir
+                        )}
+                      </th>
+
+                      <th
+                        className="is-sortable checklist-money-col"
+                        onClick={() => onSort("bookValue")}
+                      >
+                        Value
+                        {sortIcon(
+                          sortKey === "bookValue",
+                          sortDir
+                        )}
+                      </th>
+
+                      <th
+                        className="is-sortable checklist-small-col"
+                        onClick={() => onSort("qty")}
+                      >
+                        Qty
+                        {sortIcon(sortKey === "qty", sortDir)}
+                      </th>
+
+                      <th
+                        className="is-sortable checklist-small-col"
+                        onClick={() => onSort("rawQty")}
+                      >
+                        Raw
+                        {sortIcon(
+                          sortKey === "rawQty",
+                          sortDir
+                        )}
+                      </th>
 
                       {compareMode ? (
-                        <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>
-                          {myOwned ? (
-                            <span
-                              title="You own this"
-                              style={{
-                                display: "inline-block",
-                                width: 10,
-                                height: 10,
-                                borderRadius: 999,
-                                background: "#2b6cb0",
-                              }}
-                            />
-                          ) : (
-                            <span style={{ display: "inline-block", width: 10, height: 10 }} />
-                          )}
-                        </td>
+                        <th className="checklist-small-col">
+                          You
+                        </th>
                       ) : null}
 
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}>{r.cardNumber}</td>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.player}</td>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.team ?? "—"}</td>
-                      <td className="checklistDesktopOptional" style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.subset ?? "—"}</td>
-                      <td className="checklistDesktopOptional" style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.variant ?? "—"}</td>
-                      <td className="checklistDesktopOptional" style={{ padding: 8, borderBottom: "1px solid #eee" }}>{r.isInsert ? "Insert" : "Base"}</td>
-                      <td style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900, whiteSpace: "nowrap" }}>{money(r.bookValue)}</td>
-                      <td
-                        className="checklistQtyColumn"
-                        style={{ padding: 8, borderBottom: "1px solid #eee", fontWeight: 900 }}
-                        title="Total quantity owned"
-                      >
-                        {r.ownedQty ?? 0}
-                      </td>
+                      <th className="checklist-need-col">
+                        Need
+                      </th>
 
-                      <td
-                        className={`checklistRawColumn ${(r.rawQty ?? 0) > 0 ? "checklistRawPositive" : "checklistRawZero"}`}
-                        style={{ padding: 8, borderBottom: "1px solid #eee" }}
-                        title={`${r.rawQty ?? 0} raw cop${(r.rawQty ?? 0) === 1 ? "y" : "ies"} available to grade`}
-                      >
-                        {(r.rawQty ?? 0) > 0 ? r.rawQty : "—"}
-                      </td>
-
-                      <td className="checklistDetailsColumn" style={{ padding: 6, borderBottom: "1px solid #eee" }}>
-                        <div className="checklistActions">
-                          <Link
-                            href={`/cards/${encodeURIComponent(String(r.cardId))}`}
-                            className="vcs-button vcs-button-soft vcs-button-compact"
-                          >
-                            Details
-                          </Link>
-
-                          {!compareMode && owned ? (() => {
-                            const status = r.offerStatus ?? { state: "AVAILABLE" as const };
-                            const isActive = status.state === "ACTIVE";
-                            const isLocked = status.state === "LOCKED";
-                            const disabledOffer = offeringCardId === r.cardId || isActive || isLocked;
-                            const label =
-                              offeringCardId === r.cardId
-                                ? "Offering…"
-                                : isActive
-                                  ? "Offer Active"
-                                  : isLocked
-                                    ? `Offer ${compactTimeUntil(status.lockedUntil)}`
-                                    : "Offer";
-
-                            return (
-                              <button
-                                onClick={() => requestOfferForCard(r.cardId)}
-                                disabled={disabledOffer}
-                                title={
-                                  isActive
-                                    ? "An active shop offer already exists for this card."
-                                    : isLocked
-                                      ? `Shop offer available in ${compactTimeUntil(status.lockedUntil)}.`
-                                      : "Request a 24-hour shop offer for this card."
-                                }
-                                className="vcs-button vcs-button-secondary vcs-button-compact"
-                                style={{
-                                  minWidth: 62,
-                                  opacity: disabledOffer ? 0.58 : 1,
-                                  background: disabledOffer ? "#f3f4f6" : undefined,
-                                  cursor: disabledOffer ? "not-allowed" : "pointer",
-                                }}
-                              >
-                                {label}
-                              </button>
-                            );
-                          })() : null}
-
-                          {!compareMode && owned ? (
-                            <button
-                              onClick={() => createAuctionForCard(r.cardId)}
-                              disabled={auctioningCardId === r.cardId}
-                              title="Create a 24-hour auction for one raw copy of this card."
-                              className="vcs-button vcs-button-secondary vcs-button-compact"
-                              style={{
-                                opacity: auctioningCardId === r.cardId ? 0.55 : 1,
-                                cursor: auctioningCardId === r.cardId ? "not-allowed" : "pointer",
-                              }}
-                            >
-                              {auctioningCardId === r.cardId ? "Creating…" : "Auction"}
-                            </button>
-                          ) : null}
-                        </div>
-                      </td>
+                      <th className="checklist-actions-col">
+                        Actions
+                      </th>
                     </tr>
+                  </thead>
+
+                  <tbody>
+                    {rows.map((row) => {
+                      const owned = row.ownedQty > 0;
+                      const need = row.needQty > 0;
+
+                      const status =
+                        row.offerStatus ?? {
+                          state: "AVAILABLE" as const,
+                        };
+
+                      const isActive =
+                        status.state === "ACTIVE";
+                      const isLocked =
+                        status.state === "LOCKED";
+
+                      const offerDisabled =
+                        offeringCardId === row.cardId ||
+                        isActive ||
+                        isLocked;
+
+                      const offerLabel =
+                        offeringCardId === row.cardId
+                          ? "Offering…"
+                          : isActive
+                            ? "Offer Active"
+                            : isLocked
+                              ? `Offer ${compactTimeUntil(
+                                  status.lockedUntil
+                                )}`
+                              : "Offer";
+
+                      return (
+                        <tr
+                          key={row.cardId}
+                          className={
+                            need ? "needs-prestige" : ""
+                          }
+                        >
+                          <td className="checklist-number-cell">
+                            {row.cardNumber}
+                          </td>
+
+                          <td>
+                            <Link
+                              href={`/cards/${encodeURIComponent(
+                                String(row.cardId)
+                              )}`}
+                              className="checklist-card-cell"
+                            >
+                              <CardThumb
+                                src={row.frontImageUrl}
+                                alt={`${row.player} #${row.cardNumber}`}
+                              />
+
+                              <span>
+                                <strong>{row.player}</strong>
+
+                                <small>
+                                  {rowMeta(row) ||
+                                    (row.isInsert
+                                      ? "Insert"
+                                      : "Base")}
+                                </small>
+                              </span>
+                            </Link>
+                          </td>
+
+                          <td className="checklist-value-cell">
+                            {money(row.bookValue)}
+                          </td>
+
+                          <td className="checklist-stat-cell">
+                            {number(row.ownedQty)}
+                          </td>
+
+                          <td
+                            className={`checklist-stat-cell ${
+                              row.rawQty > 0 ? "has-raw" : ""
+                            }`}
+                          >
+                            {row.rawQty > 0
+                              ? number(row.rawQty)
+                              : "—"}
+                          </td>
+
+                          {compareMode ? (
+                            <td className="checklist-stat-cell">
+                              {number(row.myOwnedQty ?? 0)}
+                            </td>
+                          ) : null}
+
+                          <td className="checklist-need-cell">
+                            {need ? (
+                              <strong>
+                                +{number(row.needQty)}
+                              </strong>
+                            ) : (
+                              <span>—</span>
+                            )}
+                          </td>
+
+                          <td className="checklist-actions-cell">
+                            <div>
+                              <Link
+                                href={`/cards/${encodeURIComponent(
+                                  String(row.cardId)
+                                )}`}
+                              >
+                                Details
+                              </Link>
+
+                              {!compareMode && owned ? (
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    void requestOfferForCard(
+                                      row.cardId
+                                    )
+                                  }
+                                  disabled={offerDisabled}
+                                >
+                                  {offerLabel}
+                                </button>
+                              ) : null}
+
+                              {!compareMode && row.rawQty > 0 ? (
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    void createAuctionForCard(
+                                      row.cardId
+                                    )
+                                  }
+                                  disabled={
+                                    auctioningCardId === row.cardId
+                                  }
+                                >
+                                  {auctioningCardId === row.cardId
+                                    ? "Creating…"
+                                    : "Auction"}
+                                </button>
+                              ) : null}
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="checklist-mobile-list">
+                {rows.map((row) => {
+                  const need = row.needQty > 0;
+                  const owned = row.ownedQty > 0;
+
+                  const status =
+                    row.offerStatus ?? {
+                      state: "AVAILABLE" as const,
+                    };
+
+                  const isActive = status.state === "ACTIVE";
+                  const isLocked = status.state === "LOCKED";
+
+                  const offerDisabled =
+                    offeringCardId === row.cardId ||
+                    isActive ||
+                    isLocked;
+
+                  const offerLabel =
+                    offeringCardId === row.cardId
+                      ? "Offering…"
+                      : isActive
+                        ? "Offer Active"
+                        : isLocked
+                          ? `Offer in ${compactTimeUntil(
+                              status.lockedUntil
+                            )}`
+                          : "Request Offer";
+
+                  return (
+                    <article
+                      className={`checklist-mobile-card ${
+                        need ? "needs-prestige" : ""
+                      }`}
+                      key={row.cardId}
+                    >
+                      <Link
+                        href={`/cards/${encodeURIComponent(
+                          String(row.cardId)
+                        )}`}
+                        className="checklist-mobile-main"
+                      >
+                        <CardThumb
+                          src={row.frontImageUrl}
+                          alt={`${row.player} #${row.cardNumber}`}
+                        />
+
+                        <span className="checklist-mobile-copy">
+                          <span className="checklist-mobile-title">
+                            <strong>
+                              #{row.cardNumber} {row.player}
+                            </strong>
+
+                            <b>{money(row.bookValue)}</b>
+                          </span>
+
+                          <small>
+                            {rowMeta(row) ||
+                              (row.isInsert ? "Insert" : "Base")}
+                          </small>
+
+                          <span className="checklist-mobile-stats">
+                            <span>
+                              Qty <b>{number(row.ownedQty)}</b>
+                            </span>
+
+                            <span>
+                              Raw{" "}
+                              <b
+                                className={
+                                  row.rawQty > 0
+                                    ? "has-raw"
+                                    : ""
+                                }
+                              >
+                                {number(row.rawQty)}
+                              </b>
+                            </span>
+
+                            {compareMode ? (
+                              <span>
+                                You{" "}
+                                <b>
+                                  {number(row.myOwnedQty ?? 0)}
+                                </b>
+                              </span>
+                            ) : null}
+
+                            {need ? (
+                              <span className="checklist-mobile-need">
+                                Need{" "}
+                                <b>
+                                  +{number(row.needQty)}
+                                </b>
+                              </span>
+                            ) : null}
+                          </span>
+                        </span>
+
+                        <span className="checklist-mobile-chevron">
+                          <Icon kind="chevron" />
+                        </span>
+                      </Link>
+
+                      {!compareMode && owned ? (
+                        <details className="checklist-mobile-actions">
+                          <summary aria-label="Card actions">
+                            •••
+                          </summary>
+
+                          <div>
+                            <Link
+                              href={`/cards/${encodeURIComponent(
+                                String(row.cardId)
+                              )}`}
+                            >
+                              Card Details
+                            </Link>
+
+                            <button
+                              type="button"
+                              onClick={() =>
+                                void requestOfferForCard(
+                                  row.cardId
+                                )
+                              }
+                              disabled={offerDisabled}
+                            >
+                              {offerLabel}
+                            </button>
+
+                            {row.rawQty > 0 ? (
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  void createAuctionForCard(
+                                    row.cardId
+                                  )
+                                }
+                                disabled={
+                                  auctioningCardId === row.cardId
+                                }
+                              >
+                                {auctioningCardId === row.cardId
+                                  ? "Creating Auction…"
+                                  : "Create Auction"}
+                              </button>
+                            ) : null}
+                          </div>
+                        </details>
+                      ) : null}
+                    </article>
                   );
                 })}
-              </tbody>
-            </table>
-          </div>
+              </div>
+            </>
+          )}
+
+          <footer className="checklist-pagination">
+            <div className="checklist-range">
+              {resultCount > 0
+                ? `${number(pageStart)}–${number(
+                    pageEnd
+                  )} of ${number(resultCount)}`
+                : "0 cards"}
+
+              {searchApplied ? (
+                <span>for “{searchApplied}”</span>
+              ) : null}
+            </div>
+
+            <div className="checklist-page-buttons">
+              <button
+                type="button"
+                onClick={goPrev}
+                disabled={!canPrev || loading}
+                aria-label="Previous page"
+              >
+                ← <span>Prev</span>
+              </button>
+
+              <strong>
+                {data.page} / {totalPages}
+              </strong>
+
+              <button
+                type="button"
+                onClick={goNext}
+                disabled={!canNext || loading}
+                aria-label="Next page"
+              >
+                <span>Next</span> →
+              </button>
+            </div>
+
+            <div className="checklist-jump">
+              <label>
+                <span>Page</span>
+
+                <input
+                  value={jumpTo}
+                  onChange={(event) =>
+                    setJumpTo(event.target.value)
+                  }
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      doJump();
+                    }
+                  }}
+                  inputMode="numeric"
+                  placeholder={String(data.page)}
+                  aria-label="Jump to page"
+                />
+              </label>
+
+              <button
+                type="button"
+                onClick={doJump}
+                disabled={loading}
+              >
+                Go
+              </button>
+            </div>
+          </footer>
         </>
       )}
-    </div>
+    </main>
   );
 }
