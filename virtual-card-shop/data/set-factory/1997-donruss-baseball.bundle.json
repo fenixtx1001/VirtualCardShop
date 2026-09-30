@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/893/1997-Donruss",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/893/1997-Donruss",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/893/1997-Donruss",
+    "insertIndexUrl": "https://www.tcdb.com/Inserts.cfm/sid/893/1997-Donruss",
+    "numericalChecklistsUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+    "teamDataNote": "The companion fixture freezes card-level assignments using Lahman 1996/1997 team records, the linked TCDB checklist for trade and photo corrections, and seven deliberate checklist exceptions. No TCDB pages are fetched by the generator.",
+    "rosterReferenceUrl": "https://github.com/vincentarelbundock/Rdatasets/tree/master/csv/Lahman"
+  },
+  "decisions": {
+    "canonicalPackFormat": "One VCS Hobby pack with four cards and Series One pack art pending; physical Series One had 18 ten-card packs/box and Update had 24 ten-card packs/box. VCS uses an 18-pack box and one combined #1-450 base pool.",
+    "collectorChecklistIntegrity": "One 450-card Base ProductSet and two full 450-card Press Proof checklists. Fourteen additional pack insert or insert-parallel checklists. Total 1569 collector entries across 17 ProductSets.",
+    "trueRookieNaming": "Only the ten base cards verified by the linked TCDB rookie index have RC appended: #166, #361, #364, #377, #379, #380, #384, #388, #394, #396. The Rookies base subset and Rated Rookies insert do not turn other cards into RCs.",
+    "packOdds": "Known original series odds are stored at ProductSet level. Press Proofs used different odds in Series One and Update; the complete unified parallels use the Series One rates and equal card odds. Original Update rates remain in set notes. Unknown odds remain null.",
+    "channelExclusives": "Long Ball Leaders were Series One Retail, Rocket Launchers Series One Jumbo. Their checklists are retained but are not assigned Hobby pack odds. Dominators and Power Alley odds were unpublished.",
+    "ripkenBookCard": "The Only Way I Know #10 was distributed only with a book; its autograph version was also book-only. The collector pack insert checklist has #1-9.",
+    "excluded": "Blister-pack information card, book-only Ripken card and autograph, and dealer SAMPLE promos are excluded from the one-pack Hobby draft.",
+    "cleanNames": "Display names omit generic Rookie designations and print annotations. The seven checklist cards have the Checklist subset and intentionally blank team. Team pairs on dual-subject cards are preserved.",
+    "releaseSafety": "Keep unreleased until images, pricing, insert odds, and channel-specific product configuration are reviewed."
+  },
+  "product": {
+    "id": "1997_Donruss_Baseball",
+    "year": 1997,
+    "brand": "Donruss",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 18,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1997-donruss-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1997_Donruss_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+      "expectedCards": 450,
+      "notes": "Complete #1-450 combined checklist: Series One #1-270 and Update #271-450, each equally available in VCS. Seven named checklist cards belong here."
+    },
+    {
+      "key": "press-proofs-silver",
+      "id": "1997_Donruss_Baseball_PressProofsSilver",
+      "name": "Press Proofs Silver",
+      "kind": "PARALLEL",
+      "oddsPerPack": 8,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+      "expectedCards": 450,
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Silver Press Proof; PR2000",
+      "notes": "Complete #1-450; PR2000, not serial numbered. Original odds 1:8 Series One and 1:16 Update; unified VCS odds use 1:8 and equal subject odds."
+    },
+    {
+      "key": "press-proofs-gold",
+      "id": "1997_Donruss_Baseball_PressProofsGold",
+      "name": "Press Proofs Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": 32,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+      "expectedCards": 450,
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Gold Press Proof; PR500; die cut",
+      "notes": "Complete #1-450 die-cut parallel; PR500, not serial numbered. Original odds 1:32 Series One and 1:64 Update; unified VCS odds use 1:32 and equal subject odds."
+    },
+    {
+      "key": "rated-rookies",
+      "id": "1997_Donruss_Baseball_RatedRookies",
+      "name": "Rated Rookies",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+      "expectedCards": 30,
+      "notes": "Series One insert. Rated Rookie is a design designation, not a true RC label."
+    },
+    {
+      "key": "diamond-kings",
+      "id": "1997_Donruss_Baseball_DiamondKings",
+      "name": "Diamond Kings",
+      "kind": "INSERT",
+      "oddsPerPack": 45,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+      "expectedCards": 10,
+      "notes": "Series One non-canvas cards serial numbered 00501-10000; 1:45 packs. The first 500 of each subject were Canvas."
+    },
+    {
+      "key": "diamond-kings-canvas",
+      "id": "1997_Donruss_Baseball_DiamondKingsCanvas",
+      "name": "Diamond Kings Canvas",
+      "kind": "PARALLEL",
+      "oddsPerPack": 864,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+      "expectedCards": 10,
+      "deriveCardsFrom": "diamond-kings",
+      "derivedVariant": "Canvas; SN10000; copies 00001-00500",
+      "notes": "Series One canvas issue, copies 00001-00500; 1:864 packs."
+    },
+    {
+      "key": "elite-series",
+      "id": "1997_Donruss_Baseball_EliteSeries",
+      "name": "Elite Series",
+      "kind": "INSERT",
+      "oddsPerPack": 144,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+      "expectedCards": 12,
+      "notes": "Series One, SN2500; 1:144 packs. Dealer SAMPLE promo excluded."
+    },
+    {
+      "key": "armed-and-dangerous",
+      "id": "1997_Donruss_Baseball_ArmedAndDangerous",
+      "name": "Armed and Dangerous",
+      "kind": "INSERT",
+      "oddsPerPack": 58,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+      "expectedCards": 15,
+      "notes": "Series One Hobby exclusive, SN5000; 1:58 packs."
+    },
+    {
+      "key": "long-ball-leaders",
+      "id": "1997_Donruss_Baseball_LongBallLeaders",
+      "name": "Long Ball Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+      "expectedCards": 15,
+      "notes": "Series One Retail exclusive, SN5000; original Retail odds unpublished. Retained for collector completion with no Hobby pack odds."
+    },
+    {
+      "key": "rocket-launchers",
+      "id": "1997_Donruss_Baseball_RocketLaunchers",
+      "name": "Rocket Launchers",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+      "expectedCards": 15,
+      "notes": "Series One Jumbo exclusive, SN5000; original Jumbo odds unpublished. Retained for collector completion with no Hobby pack odds."
+    },
+    {
+      "key": "dominators",
+      "id": "1997_Donruss_Baseball_Dominators",
+      "name": "Dominators",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+      "expectedCards": 20,
+      "notes": "Update insert in all pack channels; published odds unknown."
+    },
+    {
+      "key": "rookie-diamond-kings",
+      "id": "1997_Donruss_Baseball_RookieDiamondKings",
+      "name": "Rookie Diamond Kings",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+      "expectedCards": 10,
+      "notes": "Update non-canvas cards serial numbered 00501-10000; 1:24 packs. Rookie-themed design does not imply a true RC."
+    },
+    {
+      "key": "rookie-diamond-kings-canvas",
+      "id": "1997_Donruss_Baseball_RookieDiamondKingsCanvas",
+      "name": "Rookie Diamond Kings Canvas",
+      "kind": "PARALLEL",
+      "oddsPerPack": 480,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+      "expectedCards": 10,
+      "deriveCardsFrom": "rookie-diamond-kings",
+      "derivedVariant": "Canvas; SN10000; copies 00001-00500",
+      "notes": "Update canvas issue, copies 00001-00500; 1:480 packs."
+    },
+    {
+      "key": "cal-ripken-the-only-way-i-know",
+      "id": "1997_Donruss_Baseball_CalRipkenTheOnlyWayIKnow",
+      "name": "Cal Ripken: The Only Way I Know",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+      "expectedCards": 9,
+      "notes": "Pack-issued Update #1-9, SN5000; 1:24 packs. Book-only #10 and its separate 2131 signed book copies excluded from pack checklist."
+    },
+    {
+      "key": "power-alley",
+      "id": "1997_Donruss_Baseball_PowerAlley",
+      "name": "Power Alley",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+      "expectedCards": 24,
+      "notes": "Update 24-card color-fractured insert: Gold 4 SN1000, Blue 8 SN2000, Green 12 SN4000. Regular cards are numbered 0251 through their color limit; odds unpublished."
+    },
+    {
+      "key": "power-alley-die-cuts",
+      "id": "1997_Donruss_Baseball_PowerAlleyDieCuts",
+      "name": "Power Alley Die Cuts",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+      "expectedCards": 24,
+      "notes": "Update die-cut counterparts for all 24 color-fractured subjects. Copies 0001-0250 of each color; odds unpublished."
+    },
+    {
+      "key": "franchise-features",
+      "id": "1997_Donruss_Baseball_FranchiseFeatures",
+      "name": "Franchise Features",
+      "kind": "INSERT",
+      "oddsPerPack": 48,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1997_Donruss",
+      "expectedCards": 15,
+      "notes": "Update Hobby exclusive dual-front cards, SN3000; 1:48 packs. Linked TCDB checklist and BaseballCardPedia numerical list contain 15 subjects; BCP ratio table says 20 in error."
+    }
+  ]
+}
