@@ -1,0 +1,456 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Charles Barkley,Philadelphia 76ers,All-Star,Physical short print
+base,2,Larry Bird,Boston Celtics,All-Star,Physical short print
+base,3,Joe Dumars,Detroit Pistons,All-Star,Physical short print
+base,4,Patrick Ewing,New York Knicks,All-Star,Physical short print; Uncorrected error
+base,5,Michael Jordan,Chicago Bulls,All-Star,Physical short print; Uncorrected error
+base,6,Kevin McHale,Boston Celtics,All-Star,Physical short print
+base,7,Reggie Miller,Indiana Pacers,All-Star,Physical short print
+base,8,Robert Parish,Boston Celtics,All-Star,Physical short print
+base,9,Scottie Pippen,Chicago Bulls,All-Star,Physical short print
+base,10,Dennis Rodman,Detroit Pistons,All-Star,Physical short print
+base,11,Isiah Thomas,Detroit Pistons,All-Star,Physical short print
+base,12,Dominique Wilkins,Atlanta Hawks,All-Star,Physical short print
+base,13,All-Star Checklist,Detroit Pistons / Los Angeles Lakers,All-Star Checklist,Corrected; numbered #13; Physical short print
+base,14,Rolando Blackman,Dallas Mavericks,All-Star,Physical short print
+base,15,Tom Chambers,Phoenix Suns,All-Star,Physical short print
+base,16,Clyde Drexler,Portland Trail Blazers,All-Star,Physical short print
+base,17,A.C. Green,Los Angeles Lakers,All-Star,Physical short print
+base,18,Earvin Johnson,Los Angeles Lakers,All-Star,Physical short print
+base,19,Kevin Johnson,Phoenix Suns,All-Star,Physical short print
+base,20,Lafayette Lever,Denver Nuggets,All-Star,Physical short print
+base,21,Karl Malone,Utah Jazz,All-Star,Physical short print
+base,22,Chris Mullin,Golden State Warriors,All-Star,Physical short print
+base,23,Akeem Olajuwon,Houston Rockets,All-Star,Physical short print
+base,24,David Robinson,San Antonio Spurs,All-Star,Physical short print
+base,25,John Stockton,Utah Jazz,All-Star,Physical short print
+base,26,James Worthy,Los Angeles Lakers,All-Star,Physical short print
+base,27,John Battle,Atlanta Hawks,,
+base,28,Jon Koncak,Atlanta Hawks,,
+base,29,Cliff Levingston,Atlanta Hawks,,Physical short print
+base,30,John Long,Atlanta Hawks,,Physical short print
+base,31,Moses Malone,Atlanta Hawks,,
+base,32,Glenn Rivers,Atlanta Hawks,,
+base,33,Kenny Smith,Atlanta Hawks,,Physical short print
+base,34,Alexander Volkov RC,Atlanta Hawks,Rookie Stars,Uncorrected error
+base,35,Spud Webb,Atlanta Hawks,,
+base,36,Dominique Wilkins,Atlanta Hawks,,
+base,37,Kevin Willis,Atlanta Hawks,,
+base,38,John Bagley,Boston Celtics,,
+base,39,Larry Bird,Boston Celtics,,
+base,40,Kevin Gamble,Boston Celtics,,
+base,41,Dennis Johnson,Boston Celtics,,Physical short print
+base,42,Joe Kleine,Boston Celtics,,
+base,43,Reggie Lewis,Boston Celtics,,
+base,44,Kevin McHale,Boston Celtics,,
+base,45,Robert Parish,Boston Celtics,,
+base,46,Jim Paxson,Boston Celtics,,Physical short print
+base,47,Ed Pinckney,Boston Celtics,,
+base,48,Brian Shaw,Boston Celtics,,
+base,49,Richard Anderson,Charlotte Hornets,,Physical short print
+base,50,Muggsy Bogues,Charlotte Hornets,,
+base,51,Rex Chapman,Charlotte Hornets,,
+base,52,Dell Curry,Charlotte Hornets,,
+base,53,Kenny Gattison RC,Charlotte Hornets,,
+base,54,Armon Gilliam,Charlotte Hornets,,
+base,55,Dave Hoppen,Charlotte Hornets,,
+base,56,Randolph Keys,Charlotte Hornets,,
+base,57,J.R. Reid RC,Charlotte Hornets,Rookie Stars,
+base,58,Robert Reid,Charlotte Hornets,,Physical short print
+base,59,Kelly Tripucka,Charlotte Hornets,,
+base,60,B.J. Armstrong RC,Chicago Bulls,Rookie Stars,
+base,61,Bill Cartwright,Chicago Bulls,,
+base,62,Charles Davis,Chicago Bulls,,Physical short print
+base,63,Horace Grant,Chicago Bulls,,
+base,64,Craig Hodges,Chicago Bulls,,
+base,65,Michael Jordan,Chicago Bulls,,
+base,66,Stacey King RC,Chicago Bulls,Rookie Stars,
+base,67,John Paxson,Chicago Bulls,,
+base,68,Will Perdue,Chicago Bulls,,
+base,69,Scottie Pippen,Chicago Bulls,,
+base,70,Winston Bennett,Cleveland Cavaliers,Rookie Stars,
+base,71,Chucky Brown RC,Cleveland Cavaliers,Rookie Stars,
+base,72,Derrick Chievous,Cleveland Cavaliers,,
+base,73,Brad Daugherty,Cleveland Cavaliers,,
+base,74,Craig Ehlo,Cleveland Cavaliers,,
+base,75,Steve Kerr,Cleveland Cavaliers,,
+base,76,Paul Mokeski,Cleveland Cavaliers,,Physical short print
+base,77,John Morton,Cleveland Cavaliers,Rookie Stars,
+base,78,Larry Nance,Cleveland Cavaliers,,
+base,79,Mark Price,Cleveland Cavaliers,,
+base,80,John Williams,Cleveland Cavaliers,,
+base,81,Steve Alford,Dallas Mavericks,,
+base,82,Rolando Blackman,Dallas Mavericks,,
+base,83,Adrian Dantley,Dallas Mavericks,,Physical short print
+base,84,Brad Davis,Dallas Mavericks,,
+base,85,James Donaldson,Dallas Mavericks,,
+base,86,Derek Harper,Dallas Mavericks,,
+base,87,Sam Perkins,Dallas Mavericks,,Physical short print
+base,88,Roy Tarpley,Dallas Mavericks,,
+base,89,Bill Wennington,Dallas Mavericks,,Physical short print
+base,90,Herb Williams,Dallas Mavericks,,
+base,91,Michael Adams,Denver Nuggets,,
+base,92,Joe Barry Carroll,Denver Nuggets,,Physical short print
+base,93,Walter Davis,Denver Nuggets,,Uncorrected error
+base,94,Alex English,Denver Nuggets,,Physical short print
+base,95,Bill Hanzlik,Denver Nuggets,,
+base,96,Jerome Lane,Denver Nuggets,,
+base,97,Fat Lever,Denver Nuggets,,Physical short print
+base,98,Todd Lichti RC,Denver Nuggets,Rookie Stars,
+base,99,Blair Rasmussen,Denver Nuggets,,
+base,100,Dan Schayes,Denver Nuggets,,Physical short print
+base,101,Mark Aguirre,Detroit Pistons,,
+base,102,William Bedford RC,Detroit Pistons,,
+base,103,Joe Dumars,Detroit Pistons,,
+base,104,James Edwards,Detroit Pistons,,
+base,105,Scott Hastings,Detroit Pistons,,
+base,106,Gerald Henderson,Detroit Pistons,,Physical short print
+base,107,Vinnie Johnson,Detroit Pistons,,
+base,108,Bill Laimbeer,Detroit Pistons,,
+base,109,Dennis Rodman DPOY,Detroit Pistons,,
+base,110,John Salley,Detroit Pistons,,
+base,111,Isiah Thomas,Detroit Pistons,,
+base,112,Manute Bol,Golden State Warriors,,Physical short print
+base,113,Tim Hardaway RC,Golden State Warriors,Rookie Stars,Uncorrected error
+base,114,Rod Higgins,Golden State Warriors,,
+base,115,Sarunas Marciulionis RC,Golden State Warriors,Rookie Stars,
+base,116,Chris Mullin,Golden State Warriors,,
+base,117,Jim Petersen,Golden State Warriors,,
+base,118,Mitch Richmond,Golden State Warriors,,
+base,119,Mike Smrek,Golden State Warriors,,
+base,120,Terry Teagle,Golden State Warriors,,Physical short print
+base,121,Tom Tolbert RC,Golden State Warriors,,
+base,122,Christian Welp,Golden State Warriors,,Physical short print
+base,123,Byron Dinkins RC,Houston Rockets,Rookie Stars,Physical short print
+base,124,Eric Floyd,Houston Rockets,,
+base,125,Buck Johnson,Houston Rockets,,
+base,126,Vernon Maxwell,Houston Rockets,,
+base,127,Akeem Olajuwon,Houston Rockets,,
+base,128,Larry Smith,Houston Rockets,,
+base,129,Otis Thorpe,Houston Rockets,,
+base,130,Mitchell Wiggins RC,Houston Rockets,,Physical short print
+base,131,Mike Woodson,Houston Rockets,,
+base,132,Greg Dreiling RC,Indiana Pacers,,
+base,133,Vern Fleming,Indiana Pacers,,
+base,134,Rickey Green,Indiana Pacers,,Physical short print
+base,135,Reggie Miller,Indiana Pacers,,
+base,136,Chuck Person,Indiana Pacers,,
+base,137,Mike Sanders,Indiana Pacers,,
+base,138,Detlef Schrempf,Indiana Pacers,,
+base,139,Rik Smits,Indiana Pacers,,
+base,140,LaSalle Thompson,Indiana Pacers,,
+base,141,Randy Wittman,Indiana Pacers,,
+base,142,Benoit Benjamin,Los Angeles Clippers,,
+base,143,Winston Garland,Los Angeles Clippers,,
+base,144,Tom Garrick,Los Angeles Clippers,,
+base,145,Gary Grant,Los Angeles Clippers,,Uncorrected error
+base,146,Ron Harper,Los Angeles Clippers,,
+base,147,Danny Manning,Los Angeles Clippers,,
+base,148,Jeff Martin RC,Los Angeles Clippers,Rookie Stars,
+base,149,Ken Norman,Los Angeles Clippers,,
+base,150,David Rivers,Los Angeles Clippers,,Physical short print
+base,151,Charles Smith,Los Angeles Clippers,,
+base,152,Joe Wolf,Los Angeles Clippers,,Physical short print
+base,153,Michael Cooper,Los Angeles Lakers,,Physical short print
+base,154,Vlade Divac RC,Los Angeles Lakers,Rookie Stars,Uncorrected error
+base,155,Larry Drew,Los Angeles Lakers,,
+base,156,A.C. Green,Los Angeles Lakers,,
+base,157,Magic Johnson,Los Angeles Lakers,Most Valuable Player,
+base,158,Mark McNamara,Los Angeles Lakers,,Physical short print
+base,159,Byron Scott,Los Angeles Lakers,,
+base,160,Mychal Thompson,Los Angeles Lakers,,
+base,161,Jay Vincent,Los Angeles Lakers,,Physical short print
+base,162,Orlando Woolridge,Los Angeles Lakers,,Physical short print
+base,163,James Worthy,Los Angeles Lakers,,
+base,164,Sherman Douglas RC,Miami Heat,Rookie Stars,
+base,165,Kevin Edwards,Miami Heat,,
+base,166,Tellis Frank,Miami Heat,,Physical short print
+base,167,Grant Long,Miami Heat,,
+base,168,Glen Rice RC,Miami Heat,Rookie Stars,
+base,169,Rony Seikaly,Miami Heat,Most Improved Player,"Error; birthplace Athens, Greece"
+base,170,Rory Sparrow,Miami Heat,,Physical short print
+base,171,Billy Thompson,Miami Heat,,Error; Billy Thompson numbered #171; Series II
+base,172,Jon Sundvold,Miami Heat,,Error; Jon Sundvold numbered #172; Series II
+base,173,Greg Anderson,Milwaukee Bucks,,
+base,174,Jeff Grayer RC,Milwaukee Bucks,,
+base,175,Jay Humphries,Milwaukee Bucks,,
+base,176,Frank Kornet,Milwaukee Bucks,Rookie Stars,
+base,177,Larry Krystkowiak,Milwaukee Bucks,,
+base,178,Brad Lohaus,Milwaukee Bucks,,
+base,179,Ricky Pierce 6MOY,Milwaukee Bucks,,
+base,180,Paul Pressey,Milwaukee Bucks,,Physical short print
+base,181,Fred Roberts,Milwaukee Bucks,,
+base,182,Alvin Robertson,Milwaukee Bucks,,
+base,183,Jack Sikma,Milwaukee Bucks,,
+base,184,Randy Breuer,Minnesota Timberwolves,,
+base,185,Tony Campbell,Minnesota Timberwolves,,
+base,186,Tyrone Corbin,Minnesota Timberwolves,,
+base,187,Sidney Lowe,Minnesota Timberwolves,,Physical short print
+base,188,Sam Mitchell RC,Minnesota Timberwolves,Rookie Stars,
+base,189,Tod Murphy,Minnesota Timberwolves,,
+base,190,Pooh Richardson RC,Minnesota Timberwolves,Rookie Stars,
+base,191,Scott Roth,Minnesota Timberwolves,,Physical short print
+base,192,Brad Sellers,Minnesota Timberwolves,,Physical short print
+base,193,Mookie Blaylock RC,New Jersey Nets,Rookie Stars,
+base,194,Sam Bowie,New Jersey Nets,,
+base,195,Lester Conner,New Jersey Nets,,
+base,196,Derrick Gervin RC,New Jersey Nets,Rookie Stars,
+base,197,Jack Haley RC,New Jersey Nets,,
+base,198,Roy Hinson,New Jersey Nets,,
+base,199,Dennis Hopson,New Jersey Nets,,Physical short print
+base,200,Chris Morris,New Jersey Nets,,
+base,201,Purvis Short,New Jersey Nets,,Physical short print
+base,202,Maurice Cheeks,New York Knicks,,
+base,203,Patrick Ewing,New York Knicks,,
+base,204,Stuart Gray,New York Knicks,,
+base,205,Mark Jackson,New York Knicks,,
+base,206,Johnny Newman,New York Knicks,,Physical short print
+base,207,Charles Oakley,New York Knicks,,
+base,208,Trent Tucker,New York Knicks,,
+base,209,Kiki Vandeweghe,New York Knicks,,
+base,210,Kenny Walker,New York Knicks,,
+base,211,Eddie Lee Wilkins,New York Knicks,,
+base,212,Gerald Wilkins,New York Knicks,,
+base,213,Mark Acres,Orlando Magic,,
+base,214,Nick Anderson RC,Orlando Magic,Rookie Stars,
+base,215,Michael Ansley RC,Orlando Magic,Rookie Stars,Uncorrected error
+base,216,Terry Catledge,Orlando Magic,,
+base,217,Dave Corzine,Orlando Magic,,Physical short print
+base,218,Sidney Green,Orlando Magic,,Physical short print
+base,219,Jerry Reynolds,Orlando Magic,,
+base,220,Scott Skiles,Orlando Magic,,
+base,221,Otis Smith,Orlando Magic,,
+base,222,Reggie Theus,Orlando Magic,,Physical short print
+base,223,Sam Vincent,Orlando Magic,,Laying up; white jersey; Series I
+base,224,Ron Anderson,Philadelphia 76ers,,
+base,225,Charles Barkley,Philadelphia 76ers,,
+base,226,Scott Brooks,Philadelphia 76ers,,Physical short print; Uncorrected error
+base,227,Johnny Dawkins,Philadelphia 76ers,,
+base,228,Mike Gminski,Philadelphia 76ers,,
+base,229,Hersey Hawkins,Philadelphia 76ers,,
+base,230,Rick Mahorn,Philadelphia 76ers,,
+base,231,Derek Smith,Philadelphia 76ers,,Physical short print
+base,232,Bob Thornton,Philadelphia 76ers,,
+base,233,Kenny Battle RC,Phoenix Suns,Rookie Stars,
+base,234,Tom Chambers,Phoenix Suns,,Forward on front; Series I
+base,235,Greg Grant RC,Phoenix Suns,,Physical short print; Uncorrected error
+base,236,Jeff Hornacek,Phoenix Suns,,
+base,237,Eddie Johnson,Phoenix Suns,,
+base,238,Kevin Johnson,Phoenix Suns,,Forward on front; Series II
+base,239,Dan Majerle,Phoenix Suns,,
+base,240,Tim Perry,Phoenix Suns,,
+base,241,Kurt Rambis,Phoenix Suns,,
+base,242,Mark West,Phoenix Suns,,
+base,243,Mark Bryant,Portland Trail Blazers,,
+base,244,Wayne Cooper,Portland Trail Blazers,,
+base,245,Clyde Drexler,Portland Trail Blazers,,
+base,246,Kevin Duckworth,Portland Trail Blazers,,
+base,247,Jerome Kersey,Portland Trail Blazers,,
+base,248,Drazen Petrovic RC,Portland Trail Blazers,Rookie Stars,
+base,249,Terry Porter,Portland Trail Blazers,,Error; no NBA logo on back
+base,250,Cliff Robinson RC,Portland Trail Blazers,Rookie Stars,
+base,251,Buck Williams,Portland Trail Blazers,,
+base,252,Danny Young,Portland Trail Blazers,,
+base,253,Danny Ainge,Sacramento Kings,,Physical short print
+base,254,Randy Allen RC,Sacramento Kings,,Physical short print
+base,255,Antoine Carr,Sacramento Kings,,
+base,256,Vinny Del Negro,Sacramento Kings,,Physical short print
+base,257,Pervis Ellison RC,Sacramento Kings,Rookie Stars,Physical short print
+base,258,Greg Kite,Sacramento Kings,,Physical short print
+base,259,Rodney McCray,Sacramento Kings,,Physical short print
+base,260,Harold Pressley,Sacramento Kings,,Physical short print
+base,261,Ralph Sampson,Sacramento Kings,,
+base,262,Wayman Tisdale,Sacramento Kings,,
+base,263,Willie Anderson,San Antonio Spurs,,
+base,264,Uwe Blab,San Antonio Spurs,,Physical short print
+base,265,Frank Brickowski,San Antonio Spurs,,Physical short print
+base,266,Terry Cummings,San Antonio Spurs,,
+base,267,Sean Elliott RC,San Antonio Spurs,Rookie Stars,
+base,268,Caldwell Jones,San Antonio Spurs,,Physical short print
+base,269,Johnny Moore,San Antonio Spurs,,Physical short print
+base,270,David Robinson ROY,San Antonio Spurs,,
+base,271,Rod Strickland,San Antonio Spurs,,
+base,272,Reggie Williams,San Antonio Spurs,,
+base,273,David Wingate,San Antonio Spurs,,Physical short print
+base,274,Dana Barros RC,Seattle SuperSonics,Rookie Stars,Uncorrected error
+base,275,Michael Cage,Seattle SuperSonics,,
+base,276,Quintin Dailey,Seattle SuperSonics,,
+base,277,Dale Ellis,Seattle SuperSonics,,
+base,278,Steve Johnson,Seattle SuperSonics,,Physical short print
+base,279,Shawn Kemp RC,Seattle SuperSonics,Rookie Stars,
+base,280,Xavier McDaniel,Seattle SuperSonics,,
+base,281,Derrick McKey,Seattle SuperSonics,,
+base,282,Nate McMillan,Seattle SuperSonics,,
+base,283,Olden Polynice,Seattle SuperSonics,,
+base,284,Sedale Threatt,Seattle SuperSonics,,
+base,285,Thurl Bailey,Utah Jazz,,
+base,286,Mike Brown,Utah Jazz,,
+base,287,Mark Eaton,Utah Jazz,,
+base,288,Blue Edwards RC,Utah Jazz,Rookie Stars,
+base,289,Darrell Griffith,Utah Jazz,,
+base,290,Bobby Hansen,Utah Jazz,,Physical short print
+base,291,Eric Leckner,Utah Jazz,,Physical short print
+base,292,Karl Malone,Utah Jazz,,
+base,293,Delaney Rudd RC,Utah Jazz,Rookie Stars,
+base,294,John Stockton,Utah Jazz,,
+base,295,Mark Alarie,Washington Bullets,,
+base,296,Ledell Eackles,Washington Bullets,,Physical short print
+base,297,Harvey Grant,Washington Bullets,,
+base,298,Tom Hammonds RC,Washington Bullets,,Error; no rookie star on front
+base,299,Charles Jones RC,Washington Bullets,,
+base,300,Bernard King,Washington Bullets,,
+base,301,Jeff Malone,Washington Bullets,,Physical short print
+base,302,Mel Turpin,Washington Bullets,,Physical short print
+base,303,Darrell Walker,Washington Bullets,,
+base,304,John Williams,Washington Bullets,,
+base,305,Bob Weiss,Atlanta Hawks,Coaches,
+base,306,Chris Ford,Boston Celtics,Coaches,
+base,307,Gene Littles,Charlotte Hornets,Coaches,
+base,308,Phil Jackson,Chicago Bulls,Coaches,
+base,309,Lenny Wilkens,Cleveland Cavaliers,Coaches,
+base,310,Richie Adubato,Dallas Mavericks,Coaches,
+base,311,Doug Moe,Denver Nuggets,Coaches,Physical short print
+base,312,Chuck Daly,Detroit Pistons,Coaches,
+base,313,Don Nelson,Golden State Warriors,Coaches,
+base,314,Don Chaney,Houston Rockets,Coaches,
+base,315,Dick Versace,Indiana Pacers,Coaches,
+base,316,Mike Schuler,Los Angeles Clippers,Coaches,
+base,317,Pat Riley,Los Angeles Lakers,Coaches,Physical short print
+base,318,Ron Rothstein,Miami Heat,Coaches,
+base,319,Del Harris,Milwaukee Bucks,Coaches,
+base,320,Bill Musselman,Minnesota Timberwolves,Coaches,
+base,321,Bill Fitch,New Jersey Nets,Coaches,
+base,322,Stu Jackson,New York Knicks,Coaches,
+base,323,Matt Guokas,Orlando Magic,Coaches,
+base,324,Jim Lynam,Philadelphia 76ers,Coaches,
+base,325,Cotton Fitzsimmons,Phoenix Suns,Coaches,
+base,326,Rick Adelman,Portland Trail Blazers,Coaches,
+base,327,Dick Motta,Sacramento Kings,Coaches,
+base,328,Larry Brown,San Antonio Spurs,Coaches,
+base,329,K.C. Jones,Seattle SuperSonics,Coaches,
+base,330,Jerry Sloan,Utah Jazz,Coaches,
+base,331,Wes Unseld,Washington Bullets,Coaches,
+base,332,Checklist,,Checklist,Cards 1-87; Physical short print
+base,333,Checklist,,Checklist,Cards 88-167; Physical short print
+base,334,Checklist,,Checklist,Cards 168-250; Physical short print
+base,335,Checklist,,Checklist,Cards 251-336; Physical short print
+base,336,Danny Ferry RC,Cleveland Cavaliers,Rookie Stars,Physical short print
+base,337,Detroit Pistons,Detroit Pistons,NBA Finals,Pistons Win Finals Opener
+base,338,Portland Trail Blazers,Portland Trail Blazers,NBA Finals,Blazers Win In Overtime Tie NBA Finals At 1-1
+base,339,Detroit Pistons,Detroit Pistons,NBA Finals,"Pistons End Jinx, Rout Blazers For 2-1 Edge"
+base,340,Detroit Pistons,Detroit Pistons,NBA Finals,Pistons Take 3-1 Lead
+base,341,Detroit Pistons,Detroit Pistons,NBA Finals,Error; no Sports banner on back; Pistons Win Second Straight NBA Championship!
+base,342,Detroit Pistons,Detroit Pistons,NBA Finals,Back To Back World Champions
+base,343,K.C. Jones,Boston Celtics / Seattle SuperSonics,Coaches,
+base,344,Wes Unseld,Washington Bullets,Coaches,
+base,345,Don Nelson,Boston Celtics / Golden State Warriors,Coaches,
+base,346,Bob Weiss,Chicago Bulls / Atlanta Hawks,Coaches,
+base,347,Chris Ford,Boston Celtics,Coaches,
+base,348,Phil Jackson,New York Knicks / Chicago Bulls,Coaches,
+base,349,Lenny Wilkens,Seattle SuperSonics / Cleveland Cavaliers,Coaches,
+base,350,Don Chaney,Boston Celtics / Houston Rockets,Coaches,
+base,351,Mike Dunleavy,San Antonio Spurs / Los Angeles Lakers,Coaches,
+base,352,Matt Guokas,Philadelphia 76ers / Orlando Magic,Coaches,
+base,353,Rick Adelman,Portland Trail Blazers,Coaches,
+base,354,Jerry Sloan,Chicago Bulls / Utah Jazz,Coaches,
+base,355,Dominique Wilkins,Atlanta Hawks,Team Checklist,
+base,356,Larry Bird,Boston Celtics,Team Checklist,
+base,357,Rex Chapman,Charlotte Hornets,Team Checklist,
+base,358,Michael Jordan,Chicago Bulls,Team Checklist,
+base,359,Mark Price,Cleveland Cavaliers,Team Checklist,
+base,360,Rolando Blackman,Dallas Mavericks,Team Checklist,
+base,361,Michael Adams,Denver Nuggets,Team Checklist,
+base,362,Joe Dumars,Detroit Pistons,Team Checklist,
+base,363,Chris Mullin,Golden State Warriors,Team Checklist,
+base,364,Akeem Olajuwon,Houston Rockets,Team Checklist,
+base,365,Reggie Miller,Indiana Pacers,Team Checklist,
+base,366,Danny Manning,Los Angeles Clippers,Team Checklist,
+base,367,Magic Johnson,Los Angeles Lakers,Team Checklist,
+base,368,Rony Seikaly,Miami Heat,Team Checklist,
+base,369,Alvin Robertson,Milwaukee Bucks,Team Checklist,
+base,370,Pooh Richardson,Minnesota Timberwolves,Team Checklist,
+base,371,Chris Morris,New Jersey Nets,Team Checklist,
+base,372,Patrick Ewing,New York Knicks,Team Checklist,
+base,373,Nick Anderson,Orlando Magic,Team Checklist,
+base,374,Charles Barkley,Philadelphia 76ers,Team Checklist,
+base,375,Kevin Johnson,Phoenix Suns,Team Checklist,
+base,376,Clyde Drexler,Portland Trail Blazers,Team Checklist,
+base,377,Wayman Tisdale,Sacramento Kings,Team Checklist,
+base,378,David Robinson,San Antonio Spurs,Team Checklist,Basketball fully visible on front
+base,379,Xavier McDaniel,Seattle SuperSonics,Team Checklist,
+base,380,Karl Malone,Utah Jazz,Team Checklist,
+base,381,Bernard King,Washington Bullets,Team Checklist,
+base,382,Michael Jordan's Playground,Chicago Bulls,Special Features,
+base,383,"Lights, Camera, NBA Action",Utah Jazz,Special Features,
+base,384,European Imports,Los Angeles Lakers / Golden State Warriors,Special Features,
+base,385,Super Streaks,Los Angeles Lakers / Chicago Bulls,Special Features,
+base,386,Johnny Newman,Charlotte Hornets,Special Features,
+base,387,Dell Curry,Charlotte Hornets,Special Features,
+base,388,Patrick Ewing,New York Knicks,Special Features,
+base,389,Isiah Thomas,Detroit Pistons,Special Features,
+base,390,Derrick Coleman RC,New Jersey Nets,Lottery Picks,
+base,391,Gary Payton RC,Seattle SuperSonics,Lottery Picks,
+base,392,Chris Jackson RC,Denver Nuggets,Lottery Picks,
+base,393,Dennis Scott RC,Orlando Magic,Lottery Picks,
+base,394,Kendall Gill RC,Charlotte Hornets,Lottery Picks,
+base,395,Felton Spencer RC,Minnesota Timberwolves,Lottery Picks,
+base,396,Lionel Simmons RC,Sacramento Kings,Lottery Picks,
+base,397,Bo Kimble RC,Los Angeles Clippers,Lottery Picks,
+base,398,Willie Burton RC,Miami Heat,Lottery Picks,
+base,399,Rumeal Robinson RC,Atlanta Hawks,Lottery Picks,
+base,400,Tyrone Hill RC,Golden State Warriors,Lottery Picks,
+base,401,Tim McCormick,Atlanta Hawks,Series II Updates,
+base,402,Sidney Moncrief,Atlanta Hawks,Series II Updates,
+base,403,Johnny Newman,Charlotte Hornets,Series II Updates,
+base,404,Dennis Hopson,Chicago Bulls,Series II Updates,
+base,405,Cliff Levingston,Chicago Bulls,Series II Updates,
+base,406,Danny Ferry,Cleveland Cavaliers,Series II Updates,Error; no position on front
+base,407,Alex English,Dallas Mavericks,Series II Updates,
+base,408,Fat Lever,Dallas Mavericks,Series II Updates,
+base,409,Rodney McCray,Dallas Mavericks,Series II Updates,
+base,410,Mike Dunleavy,Los Angeles Lakers,Series II Updates,
+base,411,Orlando Woolridge,Denver Nuggets,Series II Updates,
+base,412,Joe Wolf,Denver Nuggets,Series II Updates,
+base,413,Tree Rollins,Detroit Pistons,Series II Updates,
+base,414,Kenny Smith,Houston Rockets,Series II Updates,Error; no position on front
+base,415,Sam Perkins,Los Angeles Lakers,Series II Updates,
+base,416,Terry Teagle,Los Angeles Lakers,Series II Updates,
+base,417,Frank Brickowski,Milwaukee Bucks,Series II Updates,
+base,418,Dan Schayes,Milwaukee Bucks,Series II Updates,
+base,419,Scott Brooks,Minnesota Timberwolves,Series II Updates,
+base,420,Reggie Theus,New Jersey Nets,Series II Updates,
+base,421,Greg Grant,New York Knicks,Series II Updates,Error; no position on front
+base,422,Paul Westhead,Denver Nuggets,Series II Updates,
+base,423,Greg Kite,Orlando Magic,Series II Updates,
+base,424,Manute Bol,Philadelphia 76ers,Series II Updates,
+base,425,Rickey Green,Philadelphia 76ers,Series II Updates,
+base,426,Ed Nealy,Phoenix Suns,Series II Updates,
+base,427,Danny Ainge,Portland Trail Blazers,Series II Updates,
+base,428,Bobby Hansen,Sacramento Kings,Series II Updates,
+base,429,Eric Leckner,Sacramento Kings,Series II Updates,
+base,430,Rory Sparrow,Sacramento Kings,Series II Updates,
+base,431,Bill Wennington,Sacramento Kings,Series II Updates,
+base,432,Paul Pressey,San Antonio Spurs,Series II Updates,
+base,433,David Greenwood,San Antonio Spurs,Series II Updates,
+base,434,Mark McNamara,Orlando Magic,Series II Updates,
+base,435,Sidney Green,San Antonio Spurs,Series II Updates,
+base,436,Dave Corzine,Seattle SuperSonics,Series II Updates,
+base,437,Jeff Malone,Utah Jazz,Series II Updates,
+base,438,Pervis Ellison,Washington Bullets,Series II Updates,Error; no position on front
+base,439,Checklist,,Checklist,Cards 337-381
+base,440,Checklist,,Checklist,Cards 382-440
+variations,NNO,All-Star Checklist,Detroit Pistons / Los Angeles Lakers,All-Star Checklist,Error; unnumbered All-Star checklist; missing #13; Physical short print
+variations,169b,Rony Seikaly,Miami Heat,Most Improved Player,"Corrected; birthplace Beirut, Lebanon"
+variations,171b,Jon Sundvold,Miami Heat,,Corrected; Jon Sundvold numbered #171; Series I
+variations,172b,Billy Thompson,Miami Heat,,Corrected; Billy Thompson numbered #172; Series I
+variations,223b,Sam Vincent,Orlando Magic,,Dribbling; black jersey; Series II
+variations,234b,Tom Chambers,Phoenix Suns,,Guard on front; Series II
+variations,238b,Kevin Johnson,Phoenix Suns,,Guard on front; Series I
+variations,249b,Terry Porter,Portland Trail Blazers,,Corrected; NBA logo on back
+variations,298b,Tom Hammonds RC,Washington Bullets,,Corrected; rookie star on front
+variations,341b,Detroit Pistons,Detroit Pistons,NBA Finals,Corrected; Sports banner on back; Pistons Win Second Straight NBA Championship!
+variations,378b,David Robinson,San Antonio Spurs,Team Checklist,Basketball half visible on front
+variations,406b,Danny Ferry,Cleveland Cavaliers,Series II Updates,Corrected; position on front
+variations,414b,Kenny Smith,Houston Rockets,Series II Updates,Corrected; position on front
+variations,421b,Greg Grant,New York Knicks,Series II Updates,Corrected; position on front
+variations,438b,Pervis Ellison,Washington Bullets,Series II Updates,Corrected; position on front
