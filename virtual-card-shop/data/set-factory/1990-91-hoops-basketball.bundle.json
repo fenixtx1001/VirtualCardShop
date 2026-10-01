@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "primarySetUrl": "https://www.tcdb.com/ViewSet.cfm/sid/2080/1990-91-Hoops",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/2080/1990-91-Hoops",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/2080/1990-91-Hoops",
+    "variationsUrl": "https://www.tcdb.com/Errors.cfm/sid/2080/1990-91-Hoops",
+    "relatedSetsUrl": "https://www.tcdb.com/Inserts.cfm/sid/2080/1990-91-Hoops",
+    "teamDataNote": "The companion source CSV freezes TCDB's 440 numbered cards and 15 alternate printings with displayed team assignments. The generator reads only this local snapshot."
+  },
+  "decisions": {
+    "collectorChecklistIntegrity": "One combined 440-card Base ProductSet spanning Series I #1-336 and Series II #337-440. All numbered cards have equal VCS availability and one shared completion percentage.",
+    "physicalShortPrints": "TCDB marks some individual cards SP, including All-Stars and selected first-series cards. These are noted on those entries, but the combined VCS base pool deliberately gives every #1-440 card equal odds.",
+    "variations": "Fourteen alternate b printings and the unnumbered #13 error are preserved as a separate 15-card Variations ProductSet. Each a printing supplies its numbered Base slot; #13's numbered correction supplies Base #13. Historical variation odds are unknown and therefore not invented.",
+    "trueRookieNaming": "The 51 distinct card numbers flagged as true rookie cards in TCDB's rookie index receive an RC suffix. Tom Hammonds #298 has two printings but is one distinct base RC number; generic RS and Lottery Pick labels do not create other RC names.",
+    "relatedSets": "The two wrapper mail-in offers and five promo sets shown in TCDB are not part of the standard pack-issued checklist and are excluded from this draft.",
+    "packConfiguration": "One combined VCS four-card pack uses the Series I pack-image slot. A 36-pack box follows the Series I wax-box configuration. Images and pricing remain pending.",
+    "releaseSafety": "Keep unreleased until the Series I pack art, card images, pricing and any desired variation pack treatment are reviewed."
+  },
+  "product": {
+    "id": "1990_91_Hoops_Basketball",
+    "year": 1990,
+    "brand": "Hoops",
+    "sport": "Basketball",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1990-91-hoops-basketball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1990_91_Hoops_Basketball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2080/1990-91-Hoops",
+      "expectedCards": 440,
+      "notes": "Unified #1-440. Series I #1-336; Series II #337-440. All numbered base cards equally available in the four-card VCS pack despite physical series and short-print differences."
+    },
+    {
+      "key": "variations",
+      "id": "1990_91_Hoops_Basketball_Variations",
+      "name": "Errors and Variations",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Errors.cfm/sid/2080/1990-91-Hoops",
+      "expectedCards": 15,
+      "notes": "Fourteen b alternates plus the unnumbered #13 error. This separate checklist leaves the main Base completion at 440. Unknown physical variation odds remain unset."
+    }
+  ]
+}
