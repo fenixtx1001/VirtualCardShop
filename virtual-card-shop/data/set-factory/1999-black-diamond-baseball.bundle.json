@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "primaryChecklistUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1359/1999-Upper-Deck-Black-Diamond",
+    "baseChecklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/1359/1999-Upper-Deck-Black-Diamond",
+    "baseSecondPageUrl": "https://www.tcdb.com/Checklist.cfm/sid/1359/1999-Upper-Deck-Black-Diamond?PageIndex=2",
+    "insertIndexUrl": "https://www.tcdb.com/Inserts.cfm/sid/1359/1999-Upper-Deck-Black-Diamond",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1359/1999-Upper-Deck-Black-Diamond",
+    "numericalChecklistsUrl": "https://baseballcardpedia.com/index.php/1999_Black_Diamond",
+    "teamDataNote": "Teams are frozen as numbered ranges in the generator from both TCDB base checklist pages; insert teams are mapped to their same-name base subjects. The generator does not fetch TCDB."
+  },
+  "decisions": {
+    "collectorChecklistIntegrity": "One complete 120-card Base checklist #1-120, including the 30 Diamond Debuts #91-120; one complete 120-card checklist for each of Double, Triple, and Quadruple. Five insert or insert-parallel checklists make 606 total collector entries across nine ProductSets.",
+    "shortPrints": "Diamond Debut base cards were inserted approximately 1:4 original Hobby packs. The VCS Base ProductSet has uniform card availability, so the physical subset rate cannot be modeled separately without breaking the 120-card collector checklist.",
+    "serialExceptions": "Double, Triple, and Quadruple card-specific print limits are stored per card, including separate Diamond Debut limits and special #18 Sammy Sosa, #76 Ken Griffey Jr., and #80 Mark McGwire limits.",
+    "trueRookieNaming": "No RC suffixes. BaseballCardPedia states the set has no true rookie cards; TCDB's rookie index has zero flagged cards. Diamond Debut is a subset title, not a rookie designation.",
+    "packOdds": "The source records 30 Hobby packs per box, six cards per pack and a physical 1:4 rate for Diamond Debuts, but does not publish verified per-pack rates for complete parallel and insert checklists. All ProductSet odds are null pending verified figures. Do not infer odds from serial-number limits.",
+    "relics": "A Piece of History has six game-used bat cards with stated PR350 each, not serial numbered.",
+    "releaseSafety": "Keep unreleased until card images, pack and box art, pricing, and pack insertion odds are reviewed."
+  },
+  "product": {
+    "id": "1999_Upper_Deck_Black_Diamond_Baseball",
+    "year": 1999,
+    "brand": "Upper Deck Black Diamond",
+    "sport": "Baseball",
+    "cardsPerPack": 6,
+    "packsPerBox": 30,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1999-black-diamond-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1999_Upper_Deck_Black_Diamond_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Black_Diamond",
+      "expectedCards": 120,
+      "notes": "#1-90 short set and #91-120 Diamond Debut short prints in one 120-card collector checklist. Physical Diamond Debut odds 1:4 Hobby packs; flattened within VCS Base."
+    },
+    {
+      "key": "double",
+      "id": "1999_Upper_Deck_Black_Diamond_Baseball_Double",
+      "name": "Double Diamond",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Black_Diamond",
+      "expectedCards": 120,
+      "notes": "Red foil. #1-90 SN3000; #91-120 SN2500; Sosa #18, Griffey #76, and McGwire #80 SN1998. Historical pack odds unpublished."
+    },
+    {
+      "key": "triple",
+      "id": "1999_Upper_Deck_Black_Diamond_Baseball_Triple",
+      "name": "Triple Diamond",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Black_Diamond",
+      "expectedCards": 120,
+      "notes": "Yellow foil. #1-90 SN1500; #91-120 SN1000; Sosa #18 SN273, Griffey #76 SN350, McGwire #80 SN457. Historical pack odds unpublished."
+    },
+    {
+      "key": "quadruple",
+      "id": "1999_Upper_Deck_Black_Diamond_Baseball_Quadruple",
+      "name": "Quadruple Diamond",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Black_Diamond",
+      "expectedCards": 120,
+      "notes": "Green foil. #1-90 SN150; #91-120 SN100; Sosa #18 SN66, Griffey #76 SN56, McGwire #80 SN70. Historical pack odds unpublished."
+    },
+    {
+      "key": "dominance",
+      "id": "1999_Upper_Deck_Black_Diamond_Baseball_Dominance",
+      "name": "Diamond Dominance",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Black_Diamond",
+      "expectedCards": 30,
+      "notes": "D1-D30, SN1500 each. Historical pack odds unpublished."
+    },
+    {
+      "key": "dominance-emerald",
+      "id": "1999_Upper_Deck_Black_Diamond_Baseball_Dominance_Emerald",
+      "name": "Diamond Dominance Emerald",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Black_Diamond",
+      "expectedCards": 30,
+      "notes": "D1-D30 one-of-one insert parallel. Historical pack odds unpublished."
+    },
+    {
+      "key": "mystery-numbers",
+      "id": "1999_Upper_Deck_Black_Diamond_Baseball_Mystery_Numbers",
+      "name": "Mystery Numbers",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Black_Diamond",
+      "expectedCards": 30,
+      "notes": "M1-M30; each card's serial limit equals its sequential number times 100. Historical pack odds unpublished."
+    },
+    {
+      "key": "mystery-numbers-emerald",
+      "id": "1999_Upper_Deck_Black_Diamond_Baseball_Mystery_Numbers_Emerald",
+      "name": "Mystery Numbers Emerald",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Black_Diamond",
+      "expectedCards": 30,
+      "notes": "M1-M30; each Emerald card's serial limit equals its sequential number. Historical pack odds unpublished."
+    },
+    {
+      "key": "a-piece-of-history",
+      "id": "1999_Upper_Deck_Black_Diamond_Baseball_A_Piece_of_History",
+      "name": "A Piece of History",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Black_Diamond",
+      "expectedCards": 6,
+      "notes": "BW, JG, MM, MV, SS, TG game-used bat cards; stated PR350 per subject and not individually serial numbered. Historical pack odds unpublished."
+    }
+  ]
+}
