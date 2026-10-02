@@ -1,0 +1,2028 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Rich Becker,Minnesota Twins,Rookie Class,
+base,2,Greg Blosser,Boston Red Sox,Rookie Class,
+base,3,Midre Cummings,Pittsburgh Pirates,Rookie Class,
+base,4,Carlos Delgado,Toronto Blue Jays,Rookie Class,
+base,5,Steve Dreyer RC,Texas Rangers,Rookie Class,
+base,6,Carl Everett,Florida Marlins,Rookie Class,
+base,7,Cliff Floyd,Montreal Expos,Rookie Class,
+base,8,Alex Gonzalez,Toronto Blue Jays,Rookie Class,
+base,9,Shawn Green,Toronto Blue Jays,Rookie Class,
+base,10,Butch Huskey,New York Mets,Rookie Class,
+base,11,Mark Hutton,New York Yankees,Rookie Class,
+base,12,Miguel Jimenez,Oakland Athletics,Rookie Class,
+base,13,Steve Karsay,Oakland Athletics,Rookie Class,
+base,14,Marc Newfield,Seattle Mariners,Rookie Class,
+base,15,Luis Ortiz,Boston Red Sox,Rookie Class,
+base,16,Manny Ramirez,Cleveland Indians,Rookie Class,
+base,17,Johnny Ruffin,Cincinnati Reds,Rookie Class,
+base,18,Scott Stahoviak,Minnesota Twins,Rookie Class,
+base,19,Salomon Torres,San Francisco Giants,Rookie Class,
+base,20,Gabe White,Montreal Expos,Rookie Class,
+base,21,Brian Anderson RC,California Angels,First Draft Picks,
+base,22,Wayne Gomes RC,Philadelphia Phillies,First Draft Picks,
+base,23,Jeff Granger,Kansas City Royals,First Draft Picks,
+base,24,Steve Soderstrom RC,San Francisco Giants,First Draft Picks,
+base,25,Trot Nixon RC,Boston Red Sox,First Draft Picks,
+base,26,Kirk Presley RC,New York Mets,First Draft Picks,
+base,27,Matt Brunson RC,Detroit Tigers,First Draft Picks,
+base,28,Brooks Kieschnick RC,Chicago Cubs,First Draft Picks,
+base,29,Billy Wagner RC,Houston Astros,First Draft Picks,
+base,30,Matt Drews RC,New York Yankees,First Draft Picks,
+base,31,Kurt Abbott RC,Oakland Athletics,Base,
+base,32,Luis Alicea,St. Louis Cardinals,Base,
+base,33,Roberto Alomar,Toronto Blue Jays,Base,
+base,34,Sandy Alomar Jr.,Cleveland Indians,Base,
+base,35,Moises Alou,Montreal Expos,Base,
+base,36,Wilson Alvarez,Chicago White Sox,Base,
+base,37,Rich Amaral,Seattle Mariners,Base,
+base,38,Eric Anthony,Houston Astros,Base,
+base,39,Luis Aquino,Florida Marlins,Base,
+base,40,Jack Armstrong,Florida Marlins,Base,
+base,41,Rene Arocha,St. Louis Cardinals,Base,
+base,42,Rich Aude RC,Pittsburgh Pirates,Base,
+base,43,Brad Ausmus,San Diego Padres,Base,
+base,44,Steve Avery,Atlanta Braves,Base,
+base,45,Bob Ayrault,Seattle Mariners,Base,
+base,46,Willie Banks,Minnesota Twins,Base,
+base,47,Bret Barberie,Florida Marlins,Base,
+base,48,Kim Batiste,Philadelphia Phillies,Base,
+base,49,Rod Beck,San Francisco Giants,Base,
+base,50,Jason Bere,Chicago White Sox,Base,
+base,51,Sean Berry,Montreal Expos,Base,
+base,52,Dante Bichette,Colorado Rockies,Base,
+base,53,Jeff Blauser,Atlanta Braves,Base,
+base,54,Mike Blowers,Seattle Mariners,Base,
+base,55,Tim Bogar,New York Mets,Base,
+base,56,Tom Bolton,Detroit Tigers,Base,
+base,57,Ricky Bones,Milwaukee Brewers,Base,
+base,58,Bobby Bonilla,New York Mets,Base,
+base,59,Bret Boone,Seattle Mariners,Base,
+base,60,Pat Borders,Toronto Blue Jays,Base,
+base,61,Mike Bordick,Oakland Athletics,Base,
+base,62,Daryl Boston,Colorado Rockies,Base,
+base,63,Ryan Bowen,Florida Marlins,Base,
+base,64,Jeff Branson,Cincinnati Reds,Base,
+base,65,George Brett,Kansas City Royals,Base,
+base,66,Steve Buechele,Chicago Cubs,Base,
+base,67,Dave Burba,San Francisco Giants,Base,
+base,68,John Burkett,San Francisco Giants,Base,
+base,69,Jeromy Burnitz,New York Mets,Base,
+base,70,Brett Butler,Los Angeles Dodgers,Base,
+base,71,Rob Butler,Toronto Blue Jays,Base,
+base,72,Ken Caminiti,Houston Astros,Base,
+base,73,Cris Carpenter,Texas Rangers,Base,
+base,74,Vinny Castilla,Colorado Rockies,Base,
+base,75,Andujar Cedeno,Houston Astros,Base,
+base,76,Wes Chamberlain,Philadelphia Phillies,Base,
+base,77,Archi Cianfrocco,San Diego Padres,Base,
+base,78,Dave Clark,Pittsburgh Pirates,Base,
+base,79,Jerald Clark,Colorado Rockies,Base,
+base,80,Royce Clayton,San Francisco Giants,Base,
+base,81,David Cone,Kansas City Royals,Base,
+base,82,Jeff Conine,Florida Marlins,Base,
+base,83,Steve Cooke,Pittsburgh Pirates,Base,
+base,84,Scott Cooper,Boston Red Sox,Base,
+base,85,Joey Cora,Chicago White Sox,Base,
+base,86,Tim Costo,Cincinnati Reds,Base,
+base,87,Chad Curtis,California Angels,Base,
+base,88,Ron Darling,Oakland Athletics,Base,
+base,89,Danny Darwin,Boston Red Sox,Base,
+base,90,Rob Deer,Boston Red Sox,Base,
+base,91,Jim Deshaies,San Francisco Giants,Base,
+base,92,Delino DeShields,Montreal Expos,Base,
+base,93,Rob Dibble,Cincinnati Reds,Base,
+base,94,Gary DiSarcina,California Angels,Base,
+base,95,Doug Drabek,Houston Astros,Base,
+base,96,Scott Erickson,Minnesota Twins,Base,
+base,97,Rikkert Faneyte RC,San Francisco Giants,Base,
+base,98,Jeff Fassero,Montreal Expos,Base,
+base,99,Alex Fernandez,Chicago White Sox,Base,
+base,100,Cecil Fielder,Detroit Tigers,Base,
+base,101,Dave Fleming,Seattle Mariners,Base,
+base,102,Darrin Fletcher,Montreal Expos,Base,
+base,103,Scott Fletcher,Boston Red Sox,Base,
+base,104,Mike Gallego,New York Yankees,Base,
+base,105,Carlos Garcia,Pittsburgh Pirates,Base,
+base,106,Jeff Gardner,San Diego Padres,Base,
+base,107,Brent Gates,Oakland Athletics,Base,
+base,108,Benji Gil,Texas Rangers,Base,
+base,109,Bernard Gilkey,St. Louis Cardinals,Base,
+base,110,Chris Gomez,Detroit Tigers,Base,
+base,111,Luis Gonzalez,Houston Astros,Base,
+base,112,Tom Gordon,Kansas City Royals,Base,
+base,113,Jim Gott,Los Angeles Dodgers,Base,
+base,114,Mark Grace,Chicago Cubs,Base,
+base,115,Tommy Greene,Philadelphia Phillies,Base,
+base,116,Willie Greene,Cincinnati Reds,Base,
+base,117,Ken Griffey Jr.,Seattle Mariners,Base,
+base,118,Bill Gullickson,Detroit Tigers,Base,
+base,119,Ricky Gutierrez,San Diego Padres,Base,
+base,120,Juan Guzman,Toronto Blue Jays,Base,
+base,121,Chris Gwynn,Kansas City Royals,Base,
+base,122,Tony Gwynn,San Diego Padres,Base,
+base,123,Jeffrey Hammonds,Baltimore Orioles,Base,
+base,124,Erik Hanson,Seattle Mariners,Base,
+base,125,Gene Harris,San Diego Padres,Base,
+base,126,Greg W. Harris,Colorado Rockies,Base,
+base,127,Bryan Harvey,Florida Marlins,Base,
+base,128,Billy Hatcher,Boston Red Sox,Base,
+base,129,Hilly Hathaway,California Angels,Base,
+base,130,Charlie Hayes,Colorado Rockies,Base,
+base,131,Rickey Henderson,Toronto Blue Jays,Base,
+base,132,Mike Henneman,Detroit Tigers,Base,
+base,133,Pat Hentgen,Toronto Blue Jays,Base,
+base,134,Roberto Hernandez,Chicago White Sox,Base,
+base,135,Orel Hershiser,Los Angeles Dodgers,Base,
+base,136,Phil Hiatt,Kansas City Royals,Base,
+base,137,Glenallen Hill,Chicago Cubs,Base,
+base,138,Ken Hill,Montreal Expos,Base,
+base,139,Eric Hillman,New York Mets,Base,
+base,140,Chris Hoiles,Baltimore Orioles,Base,
+base,141,Dave Hollins,Philadelphia Phillies,Base,
+base,142,David Hulse,Texas Rangers,Base,
+base,143,Todd Hundley,New York Mets,Base,
+base,144,Pete Incaviglia,Philadelphia Phillies,Base,
+base,145,Danny Jackson,Philadelphia Phillies,Base,
+base,146,John Jaha,Milwaukee Brewers,Base,
+base,147,Domingo Jean,New York Yankees,Base,
+base,148,Gregg Jefferies,St. Louis Cardinals,Base,
+base,149,Reggie Jefferson,Cleveland Indians,Base,
+base,150,Lance Johnson,Chicago White Sox,Base,
+base,151,Bobby Jones,New York Mets,Base,
+base,152,Chipper Jones,Atlanta Braves,Base,
+base,153,Todd Jones,Houston Astros,Base,
+base,154,Brian Jordan,St. Louis Cardinals,Base,
+base,155,Wally Joyner,Kansas City Royals,Base,
+base,156,David Justice,Atlanta Braves,Base,
+base,157,Ron Karkovice,Chicago White Sox,Base,
+base,158,Eric Karros,Los Angeles Dodgers,Base,
+base,159,Jeff Kent,New York Mets,Base,
+base,160,Jimmy Key,New York Yankees,Base,
+base,161,Mark Kiefer,Milwaukee Brewers,Base,
+base,162,Darryl Kile,Houston Astros,Base,
+base,163,Jeff King,Pittsburgh Pirates,Base,
+base,164,Wayne Kirby,Cleveland Indians,Base,
+base,165,Ryan Klesko,Atlanta Braves,Base,
+base,166,Chuck Knoblauch,Minnesota Twins,Base,
+base,167,Chad Kreuter,Detroit Tigers,Base,
+base,168,John Kruk,Philadelphia Phillies,Base,
+base,169,Mark Langston,California Angels,Base,
+base,170,Mike Lansing,Montreal Expos,Base,
+base,171,Barry Larkin,Cincinnati Reds,Base,
+base,172,Manuel Lee,Texas Rangers,Base,
+base,173,Phil Leftwich RC,California Angels,Base,
+base,174,Darren Lewis,San Francisco Giants,Base,
+base,175,Derek Lilliquist,Cleveland Indians,Base,
+base,176,Jose Lind,Kansas City Royals,Base,
+base,177,Albie Lopez,Cleveland Indians,Base,
+base,178,Javy Lopez,Atlanta Braves,Base,
+base,179,Torey Lovullo,California Angels,Base,
+base,180,Scott Lydy,Oakland Athletics,Base,
+base,181,Mike Macfarlane,Kansas City Royals,Base,
+base,182,Shane Mack,Minnesota Twins,Base,
+base,183,Greg Maddux,Atlanta Braves,Base,
+base,184,Dave Magadan,Seattle Mariners,Base,
+base,185,Joe Magrane,California Angels,Base,
+base,186,Kirt Manwaring,San Francisco Giants,Base,
+base,187,Al Martin,Pittsburgh Pirates,Base,
+base,188,Pedro A. Martinez RC,San Diego Padres,Base,
+base,189,Pedro J. Martinez,Los Angeles Dodgers,Base,"UER: Born 7/25, should be 10/25"
+base,190,Ramon Martinez,Los Angeles Dodgers,Base,
+base,191,Tino Martinez,Seattle Mariners,Base,
+base,192,Don Mattingly,New York Yankees,Base,
+base,193,Derrick May,Chicago Cubs,Base,
+base,194,David McCarty,Minnesota Twins,Base,
+base,195,Ben McDonald,Baltimore Orioles,Base,
+base,196,Roger McDowell,Los Angeles Dodgers,Base,
+base,197,Fred McGriff,Atlanta Braves,Base,UER: lists 1989 SB total as 73 (should be 7)
+base,198,Mark McLemore,Baltimore Orioles,Base,
+base,199,Greg McMichael,Atlanta Braves,Base,"UER: Last name misspelled ""Mc Michael"" on front and back"
+base,200,Jeff McNeely,Boston Red Sox,Base,
+base,201,Brian McRae,Kansas City Royals,Base,
+base,202,Pat Meares,Minnesota Twins,Base,
+base,203,Roberto Mejia,Colorado Rockies,Base,
+base,204,Orlando Merced,Pittsburgh Pirates,Base,
+base,205,Jose Mesa,Cleveland Indians,Base,
+base,206,Blas Minor,Pittsburgh Pirates,Base,
+base,207,Angel Miranda,Milwaukee Brewers,Base,
+base,208,Paul Molitor,Toronto Blue Jays,Base,
+base,209,Raul Mondesi,Los Angeles Dodgers,Base,
+base,210,Jeff Montgomery,Kansas City Royals,Base,
+base,211,Mickey Morandini,Philadelphia Phillies,Base,
+base,212,Mike Morgan,Chicago Cubs,Base,
+base,213,Jamie Moyer,Baltimore Orioles,Base,
+base,214,Bobby Munoz,New York Yankees,Base,
+base,215,Troy Neel,Oakland Athletics,Base,
+base,216,Dave Nilsson,Milwaukee Brewers,Base,
+base,217,John O'Donoghue,Baltimore Orioles,Base,
+base,218,Paul O'Neill,New York Yankees,Base,
+base,219,Jose Offerman,Los Angeles Dodgers,Base,
+base,220,Joe Oliver,Cincinnati Reds,Base,
+base,221,Greg Olson,Atlanta Braves,Base,
+base,222,Donovan Osborne,St. Louis Cardinals,Base,
+base,223,Jayhawk Owens,Colorado Rockies,Base,
+base,224,Mike Pagliarulo,Baltimore Orioles,Base,
+base,225,Craig Paquette,Oakland Athletics,Base,
+base,226,Roger Pavlik,Texas Rangers,Base,
+base,227,Brad Pennington,Baltimore Orioles,Base,
+base,228,Eduardo Perez,California Angels,Base,
+base,229,Mike Perez,St. Louis Cardinals,Base,
+base,230,Tony Phillips,Detroit Tigers,Base,
+base,231,Hipolito Pichardo,Kansas City Royals,Base,
+base,232,Phil Plantier,San Diego Padres,Base,
+base,233,Curtis Pride RC,Montreal Expos,Base,
+base,234,Tim Pugh,Cincinnati Reds,Base,
+base,235,Scott Radinsky,Chicago White Sox,Base,
+base,236,Pat Rapp,Florida Marlins,Base,
+base,237,Kevin Reimer,Milwaukee Brewers,Base,
+base,238,Armando Reynoso,Colorado Rockies,Base,
+base,239,Jose Rijo,Cincinnati Reds,Base,
+base,240,Cal Ripken Jr.,Baltimore Orioles,Base,
+base,241,Kevin Roberson,Chicago Cubs,Base,
+base,242,Kenny Rogers,Texas Rangers,Base,
+base,243,Kevin Rogers,San Francisco Giants,Base,
+base,244,Mel Rojas,Montreal Expos,Base,
+base,245,John Roper,Cincinnati Reds,Base,
+base,246,Kirk Rueter,Montreal Expos,Base,
+base,247,Scott Ruffcorn,Chicago White Sox,Base,
+base,248,Ken Ryan,Boston Red Sox,Base,
+base,249,Nolan Ryan,Texas Rangers,Base,
+base,250,Bret Saberhagen,New York Mets,Base,
+base,251,Tim Salmon,California Angels,Base,
+base,252,Reggie Sanders,Cincinnati Reds,Base,
+base,253,Curt Schilling,Philadelphia Phillies,Base,
+base,254,David Segui,Baltimore Orioles,Base,
+base,255,Aaron Sele,Boston Red Sox,Base,
+base,256,Scott Servais,Houston Astros,Base,
+base,257,Gary Sheffield,Florida Marlins,Base,
+base,258,Ruben Sierra,Oakland Athletics,Base,
+base,259,Don Slaught,Pittsburgh Pirates,Base,
+base,260,Lee Smith,New York Yankees,Base,
+base,261,Cory Snyder,Los Angeles Dodgers,Base,
+base,262,Paul Sorrento,Cleveland Indians,Base,
+base,263,Sammy Sosa,Chicago Cubs,Base,
+base,264,Bill Spiers,Milwaukee Brewers,Base,
+base,265,Mike Stanley,New York Yankees,Base,
+base,266,Dave Staton,San Diego Padres,Base,
+base,267,Terry Steinbach,Oakland Athletics,Base,
+base,268,Kevin Stocker,Philadelphia Phillies,Base,
+base,269,Todd Stottlemyre,Toronto Blue Jays,Base,
+base,270,Doug Strange,Texas Rangers,Base,
+base,271,Bill Swift,San Francisco Giants,Base,
+base,272,Kevin Tapani,Minnesota Twins,Base,
+base,273,Tony Tarasco,Atlanta Braves,Base,
+base,274,Julian Tavarez RC,Cleveland Indians,Base,
+base,275,Mickey Tettleton,Detroit Tigers,Base,
+base,276,Ryan Thompson,New York Mets,Base,
+base,277,Chris Turner,California Angels,Base,
+base,278,John Valentin,Boston Red Sox,Base,
+base,279,Todd Van Poppel,Oakland Athletics,Base,
+base,280,Andy Van Slyke,Pittsburgh Pirates,Base,
+base,281,Mo Vaughn,Boston Red Sox,Base,
+base,282,Robin Ventura,Chicago White Sox,Base,
+base,283,Frank Viola,Boston Red Sox,Base,
+base,284,Jose Vizcaino,Chicago Cubs,Base,
+base,285,Omar Vizquel,Seattle Mariners,Base,
+base,286,Larry Walker,Montreal Expos,Base,
+base,287,Duane Ward,Toronto Blue Jays,Base,
+base,288,Allen Watson,St. Louis Cardinals,Base,
+base,289,Bill Wegman,Milwaukee Brewers,Base,
+base,290,Turk Wendell,Chicago Cubs,Base,
+base,291,Lou Whitaker,Detroit Tigers,Base,
+base,292,Devon White,Toronto Blue Jays,Base,
+base,293,Rondell White,Montreal Expos,Base,
+base,294,Mark Whiten,St. Louis Cardinals,Base,
+base,295,Darrell Whitmore,Florida Marlins,Base,
+base,296,Bob Wickman,New York Yankees,Base,
+base,297,Rick Wilkins,Chicago Cubs,Base,
+base,298,Bernie Williams,New York Yankees,Base,
+base,299,Matt Williams,San Francisco Giants,Base,
+base,300,Woody Williams,Toronto Blue Jays,Base,
+base,301,Nigel Wilson,Florida Marlins,Base,
+base,302,Dave Winfield,Minnesota Twins,Base,
+base,303,Anthony Young,New York Mets,Base,
+base,304,Eric Young,Colorado Rockies,Base,
+base,305,Todd Zeile,St. Louis Cardinals,Base,
+base,306,John Burkett / Tom Glavine / Jack McDowell,San Francisco Giants / Atlanta Braves / Chicago White Sox,Top Performers,Wins Leaders
+base,307,Randy Johnson,Seattle Mariners,Top Performers,Strikeouts Leader
+base,308,Randy Myers,Chicago Cubs,Top Performers,Saves Leader
+base,309,Jack McDowell,Chicago White Sox,Top Performers,Cy Young Award Winner
+base,310,Mike Piazza,Los Angeles Dodgers,Top Performers,Rookie-of-the-Year
+base,311,Barry Bonds,San Francisco Giants,Top Performers,Most Valuable Player
+base,312,Andres Galarraga,Colorado Rockies,Top Performers,Batting Champion
+base,313,Juan Gonzalez / Barry Bonds,Texas Rangers / San Francisco Giants,Top Performers,Home Run Champions
+base,314,Albert Belle,Cleveland Indians,Top Performers,RBI Leader
+base,315,Kenny Lofton,Cleveland Indians,Top Performers,Stolen Bases Leader
+base,316,Barry Bonds,San Francisco Giants,Checklist,Checklist: 1-64
+base,317,Ken Griffey Jr.,Seattle Mariners,Checklist,Checklist: 65-128
+base,318,Mike Piazza,Los Angeles Dodgers,Checklist,Checklist: 129-192
+base,319,Kirby Puckett,Minnesota Twins,Checklist,Checklist: 193-256
+base,320,Nolan Ryan,Texas Rangers,Checklist,Checklist: 257-320
+base,321,Roberto Alomar,Toronto Blue Jays,Checklist,Checklist: 321-370
+base,322,Roger Clemens,Boston Red Sox,Checklist,Checklist: 371-420
+base,323,Juan Gonzalez,Texas Rangers,Checklist,Checklist: 421-470
+base,324,Ken Griffey Jr.,Seattle Mariners,Checklist,Checklist: 471-520
+base,325,David Justice,Atlanta Braves,Checklist,Checklist: 521-570
+base,326,John Kruk,Philadelphia Phillies,Checklist,Checklist: 571-620
+base,327,Frank Thomas,Chicago White Sox,Checklist,Checklist: 621-670
+base,328,Tim Salmon,California Angels,Team Checklist,
+base,329,Jeff Bagwell,Houston Astros,Team Checklist,
+base,330,Mark McGwire,Oakland Athletics,Team Checklist,
+base,331,Roberto Alomar,Toronto Blue Jays,Team Checklist,
+base,332,David Justice,Atlanta Braves,Team Checklist,
+base,333,Pat Listach,Milwaukee Brewers,Team Checklist,
+base,334,Ozzie Smith,St. Louis Cardinals,Team Checklist,
+base,335,Ryne Sandberg,Chicago Cubs,Team Checklist,
+base,336,Mike Piazza,Los Angeles Dodgers,Team Checklist,
+base,337,Cliff Floyd,Montreal Expos,Team Checklist,
+base,338,Barry Bonds,San Francisco Giants,Team Checklist,
+base,339,Albert Belle,Cleveland Indians,Team Checklist,
+base,340,Ken Griffey Jr.,Seattle Mariners,Team Checklist,
+base,341,Gary Sheffield,Florida Marlins,Team Checklist,
+base,342,Dwight Gooden,New York Mets,Team Checklist,
+base,343,Cal Ripken Jr.,Baltimore Orioles,Team Checklist,
+base,344,Tony Gwynn,San Diego Padres,Team Checklist,
+base,345,Lenny Dykstra,Philadelphia Phillies,Team Checklist,
+base,346,Andy Van Slyke,Pittsburgh Pirates,Team Checklist,
+base,347,Juan Gonzalez,Texas Rangers,Team Checklist,
+base,348,Roger Clemens,Boston Red Sox,Team Checklist,
+base,349,Barry Larkin,Cincinnati Reds,Team Checklist,
+base,350,Andres Galarraga,Colorado Rockies,Team Checklist,
+base,351,Kevin Appier,Kansas City Royals,Team Checklist,
+base,352,Cecil Fielder,Detroit Tigers,Team Checklist,
+base,353,Kirby Puckett,Minnesota Twins,Team Checklist,
+base,354,Frank Thomas,Chicago White Sox,Team Checklist,
+base,355,Don Mattingly,New York Yankees,Team Checklist,
+base,356,Bo Jackson,California Angels,Base,
+base,357,Randy Johnson,Seattle Mariners,Base,
+base,358,Darren Daulton,Philadelphia Phillies,Base,
+base,359,Charlie Hough,Florida Marlins,Base,
+base,360,Andres Galarraga,Colorado Rockies,Base,
+base,361,Mike Felder,Houston Astros,Base,
+base,362,Chris Hammond,Florida Marlins,Base,
+base,363,Shawon Dunston,Chicago Cubs,Base,
+base,364,Junior Felix,Detroit Tigers,Base,
+base,365,Ray Lankford,St. Louis Cardinals,Base,
+base,366,Darryl Strawberry,Los Angeles Dodgers,Base,
+base,367,Dave Magadan,Florida Marlins,Base,
+base,368,Gregg Olson,Atlanta Braves,Base,
+base,369,Lenny Dykstra,Philadelphia Phillies,Base,
+base,370,Darrin Jackson,Chicago White Sox,Base,
+base,371,Dave Stewart,Toronto Blue Jays,Base,
+base,372,Terry Pendleton,Atlanta Braves,Base,
+base,373,Arthur Rhodes,Baltimore Orioles,Base,
+base,374,Benito Santiago,Florida Marlins,Base,
+base,375,Travis Fryman,Detroit Tigers,Base,
+base,376,Scott Brosius,Oakland Athletics,Base,
+base,377,Stan Belinda,Kansas City Royals,Base,
+base,378,Derek Parks,Minnesota Twins,Base,
+base,379,Kevin Seitzer,Milwaukee Brewers,Base,
+base,380,Wade Boggs,New York Yankees,Base,
+base,381,Wally Whitehurst,San Diego Padres,Base,
+base,382,Scott Leius,Minnesota Twins,Base,
+base,383,Danny Tartabull,New York Yankees,Base,"UER: Born in ""Miami, FL"", should be San Juan, PR"
+base,384,Harold Reynolds,California Angels,Base,
+base,385,Tim Raines,Chicago White Sox,Base,
+base,386,Darryl Hamilton,Milwaukee Brewers,Base,
+base,387,Felix Fermin,Seattle Mariners,Base,
+base,388,Jim Eisenreich,Philadelphia Phillies,Base,
+base,389,Kurt Abbott,Florida Marlins,Base,
+base,390,Kevin Appier,Kansas City Royals,Base,
+base,391,Chris Bosio,Seattle Mariners,Base,
+base,392,Randy Tomlin,Pittsburgh Pirates,Base,
+base,393,Bob Hamelin,Kansas City Royals,Base,
+base,394,Kevin Gross,Los Angeles Dodgers,Base,
+base,395,Wil Cordero,Montreal Expos,Base,
+base,396,Joe Girardi,Colorado Rockies,Base,
+base,397,Orestes Destrade,Florida Marlins,Base,
+base,398,Chris Haney,Kansas City Royals,Base,
+base,399,Xavier Hernandez,New York Yankees,Base,
+base,400,Mike Piazza,Los Angeles Dodgers,Base,
+base,401,Alex Arias,Florida Marlins,Base,
+base,402,Tom Candiotti,Los Angeles Dodgers,Base,
+base,403,Kirk Gibson,Detroit Tigers,Base,
+base,404,Chuck Carr,Florida Marlins,Base,
+base,405,Brady Anderson,Baltimore Orioles,Base,
+base,406,Greg Gagne,Kansas City Royals,Base,
+base,407,Bruce Ruffin,Colorado Rockies,Base,
+base,408,Scott Hemond,Oakland Athletics,Base,
+base,409,Keith Miller,Kansas City Royals,Base,
+base,410,John Wetteland,Montreal Expos,Base,
+base,411,Eric Anthony,Seattle Mariners,Base,
+base,412,Andre Dawson,Boston Red Sox,Base,
+base,413,Doug Henry,Milwaukee Brewers,Base,
+base,414,John Franco,New York Mets,Base,
+base,415,Julio Franco,Chicago White Sox,Base,
+base,416,Dave Hansen,Los Angeles Dodgers,Base,
+base,417,Mike Harkey,Colorado Rockies,Base,
+base,418,Jack Armstrong,Texas Rangers,Base,
+base,419,Joe Orsulak,New York Mets,Base,
+base,420,John Smoltz,Atlanta Braves,Base,
+base,421,Scott Livingstone,Detroit Tigers,Base,
+base,422,Darren Holmes,Colorado Rockies,Base,
+base,423,Ed Sprague,Toronto Blue Jays,Base,
+base,424,Jay Buhner,Seattle Mariners,Base,
+base,425,Kirby Puckett,Minnesota Twins,Base,
+base,426,Phil Clark,San Diego Padres,Base,
+base,427,Anthony Young,Chicago Cubs,Base,
+base,428,Reggie Jefferson,Seattle Mariners,Base,
+base,429,Mariano Duncan,Philadelphia Phillies,Base,
+base,430,Tom Glavine,Atlanta Braves,Base,
+base,431,Dave Henderson,Kansas City Royals,Base,
+base,432,Melido Perez,New York Yankees,Base,
+base,433,Paul Wagner,Pittsburgh Pirates,Base,
+base,434,Tim Worrell,San Diego Padres,Base,
+base,435,Ozzie Guillen,Chicago White Sox,Base,
+base,436,Mike Butcher,California Angels,Base,
+base,437,Jim Deshaies,Minnesota Twins,Base,
+base,438,Kevin Young,Pittsburgh Pirates,Base,
+base,439,Tom Browning,Cincinnati Reds,Base,
+base,440,Mike Greenwell,Boston Red Sox,Base,
+base,441,Mike Stanton,Atlanta Braves,Base,
+base,442,John Doherty,Detroit Tigers,Base,
+base,443,John Dopson,California Angels,Base,
+base,444,Carlos Baerga,Cleveland Indians,Base,
+base,445,Jack McDowell,Chicago White Sox,Base,
+base,446,Kent Mercker,Atlanta Braves,Base,
+base,447,Ricky Jordan,Philadelphia Phillies,Base,
+base,448,Jerry Browne,Florida Marlins,Base,
+base,449,Fernando Vina,New York Mets,Base,
+base,450,Jim Abbott,New York Yankees,Base,
+base,451,Teddy Higuera,Milwaukee Brewers,Base,
+base,452,Tim Naehring,Boston Red Sox,Base,
+base,453,Jim Leyritz,New York Yankees,Base,
+base,454,Frank Castillo,Chicago Cubs,Base,
+base,455,Joe Carter,Toronto Blue Jays,Base,
+base,456,Craig Biggio,Houston Astros,Base,
+base,457,Geronimo Pena,St. Louis Cardinals,Base,
+base,458,Alejandro Pena,Pittsburgh Pirates,Base,
+base,459,Mike Moore,Detroit Tigers,Base,
+base,460,Randy Myers,Chicago Cubs,Base,
+base,461,Greg Myers,California Angels,Base,
+base,462,Greg Hibbard,Seattle Mariners,Base,
+base,463,Jose Guzman,Chicago Cubs,Base,
+base,464,Tom Pagnozzi,St. Louis Cardinals,Base,
+base,465,Marquis Grissom,Montreal Expos,Base,
+base,466,Tim Wallach,Los Angeles Dodgers,Base,
+base,467,Joe Grahe,California Angels,Base,
+base,468,Bob Tewksbury,St. Louis Cardinals,Base,
+base,469,B.J. Surhoff,Milwaukee Brewers,Base,
+base,470,Kevin Mitchell,Cincinnati Reds,Base,
+base,471,Bobby Witt,Oakland Athletics,Base,
+base,472,Milt Thompson,Philadelphia Phillies,Base,
+base,473,John Smiley,Cincinnati Reds,Base,
+base,474,Alan Trammell,Detroit Tigers,Base,
+base,475,Mike Mussina,Baltimore Orioles,Base,
+base,476,Rick Aguilera,Minnesota Twins,Base,
+base,477,Jose Valentin,Milwaukee Brewers,Base,
+base,478,Harold Baines,Baltimore Orioles,Base,
+base,479,Bip Roberts,San Diego Padres,Base,
+base,480,Edgar Martinez,Seattle Mariners,Base,
+base,481,Rheal Cormier,St. Louis Cardinals,Base,
+base,482,Hal Morris,Cincinnati Reds,Base,
+base,483,Pat Kelly,New York Yankees,Base,
+base,484,Roberto Kelly,Cincinnati Reds,Base,
+base,485,Chris Sabo,Baltimore Orioles,Base,
+base,486,Kent Hrbek,Minnesota Twins,Base,
+base,487,Scott Kamieniecki,New York Yankees,Base,
+base,488,Walt Weiss,Colorado Rockies,Base,
+base,489,Karl Rhodes,Chicago Cubs,Base,
+base,490,Derek Bell,San Diego Padres,Base,
+base,491,Chili Davis,California Angels,Base,
+base,492,Brian Harper,Milwaukee Brewers,Base,
+base,493,Felix Jose,Kansas City Royals,Base,
+base,494,Trevor Hoffman,San Diego Padres,Base,
+base,495,Dennis Eckersley,Oakland Athletics,Base,
+base,496,Pedro Astacio,Los Angeles Dodgers,Base,
+base,497,Jay Bell,Pittsburgh Pirates,Base,
+base,498,Randy Velarde,New York Yankees,Base,
+base,499,David Wells,Detroit Tigers,Base,
+base,500,Frank Thomas,Chicago White Sox,Base,
+base,501,Mark Lemke,Atlanta Braves,Base,
+base,502,Mike Devereaux,Baltimore Orioles,Base,
+base,503,Chuck McElroy,Cincinnati Reds,Base,
+base,504,Luis Polonia,New York Yankees,Base,
+base,505,Damion Easley,California Angels,Base,
+base,506,Greg A. Harris,Boston Red Sox,Base,
+base,507,Chris James,Texas Rangers,Base,
+base,508,Terry Mulholland,New York Yankees,Base,
+base,509,Pete Smith,New York Mets,Base,
+base,510,Rickey Henderson,Oakland Athletics,Base,
+base,511,Sid Fernandez,Baltimore Orioles,Base,
+base,512,Al Leiter,Toronto Blue Jays,Base,
+base,513,Doug Jones,Philadelphia Phillies,Base,
+base,514,Steve Farr,Cleveland Indians,Base,
+base,515,Chuck Finley,California Angels,Base,
+base,516,Bobby Thigpen,Seattle Mariners,Base,
+base,517,Jim Edmonds,California Angels,Base,
+base,518,Graeme Lloyd,Milwaukee Brewers,Base,
+base,519,Dwight Gooden,New York Mets,Base,
+base,520,Pat Listach,Milwaukee Brewers,Base,
+base,521,Kevin Bass,Houston Astros,Base,
+base,522,Willie Banks,Chicago Cubs,Base,
+base,523,Steve Finley,Houston Astros,Base,
+base,524,Delino DeShields,Los Angeles Dodgers,Base,
+base,525,Mark McGwire,Oakland Athletics,Base,
+base,526,Greg Swindell,Houston Astros,Base,
+base,527,Chris Nabholz,Cleveland Indians,Base,
+base,528,Scott Sanders,San Diego Padres,Base,
+base,529,David Segui,New York Mets,Base,
+base,530,Howard Johnson,Colorado Rockies,Base,
+base,531,Jaime Navarro,Milwaukee Brewers,Base,
+base,532,Jose Vizcaino,New York Mets,Base,
+base,533,Mark Lewis,Cleveland Indians,Base,
+base,534,Pete Harnisch,Houston Astros,Base,
+base,535,Robby Thompson,San Francisco Giants,Base,
+base,536,Marcus Moore,Colorado Rockies,Base,
+base,537,Kevin Brown,Texas Rangers,Base,
+base,538,Mark Clark,Cleveland Indians,Base,
+base,539,Sterling Hitchcock,New York Yankees,Base,
+base,540,Will Clark,Texas Rangers,Base,
+base,541,Denis Boucher,Montreal Expos,Base,
+base,542,Jack Morris,Cleveland Indians,Base,
+base,543,Pedro Munoz,Minnesota Twins,Base,
+base,544,Bret Boone,Cincinnati Reds,Base,
+base,545,Ozzie Smith,St. Louis Cardinals,Base,
+base,546,Dennis Martinez,Cleveland Indians,Base,
+base,547,Dan Wilson,Seattle Mariners,Base,
+base,548,Rick Sutcliffe,St. Louis Cardinals,Base,
+base,549,Kevin McReynolds,New York Mets,Base,
+base,550,Roger Clemens,Boston Red Sox,Base,
+base,551,Todd Benzinger,San Francisco Giants,Base,
+base,552,Bill Haselman,Seattle Mariners,Base,
+base,553,Bobby Munoz,Philadelphia Phillies,Base,
+base,554,Ellis Burks,Colorado Rockies,Base,
+base,555,Ryne Sandberg,Chicago Cubs,Base,
+base,556,Lee Smith,Baltimore Orioles,Base,
+base,557,Danny Bautista,Detroit Tigers,Base,
+base,558,Rey Sanchez,Chicago Cubs,Base,
+base,559,Norm Charlton,Philadelphia Phillies,Base,
+base,560,Jose Canseco,Texas Rangers,Base,
+base,561,Tim Belcher,Detroit Tigers,Base,
+base,562,Denny Neagle,Pittsburgh Pirates,Base,
+base,563,Eric Davis,Detroit Tigers,Base,
+base,564,Jody Reed,Milwaukee Brewers,Base,
+base,565,Kenny Lofton,Cleveland Indians,Base,
+base,566,Gary Gaetti,Kansas City Royals,Base,
+base,567,Todd Worrell,Los Angeles Dodgers,Base,
+base,568,Mark Portugal,San Francisco Giants,Base,
+base,569,Dick Schofield,Toronto Blue Jays,Base,
+base,570,Andy Benes,San Diego Padres,Base,
+base,571,Zane Smith,Pittsburgh Pirates,Base,
+base,572,Bobby Ayala,Seattle Mariners,Base,
+base,573,Chip Hale,Minnesota Twins,Base,
+base,574,Bob Welch,Oakland Athletics,Base,
+base,575,Deion Sanders,Atlanta Braves,Base,
+base,576,Dave Nied,Colorado Rockies,Base,
+base,577,Pat Mahomes,Minnesota Twins,Base,
+base,578,Charles Nagy,Cleveland Indians,Base,"UER: Born in Fairfield, CT should be born in Bridgeport, CT"
+base,579,Otis Nixon,Boston Red Sox,Base,
+base,580,Dean Palmer,Texas Rangers,Base,
+base,581,Roberto Petagine,Houston Astros,Base,
+base,582,Dwight Smith,California Angels,Base,
+base,583,Jeff Russell,Boston Red Sox,Base,
+base,584,Mark Dewey,Pittsburgh Pirates,Base,
+base,585,Greg Vaughn,Milwaukee Brewers,Base,
+base,586,Brian Hunter,Pittsburgh Pirates,Base,
+base,587,Willie McGee,San Francisco Giants,Base,
+base,588,Pedro J. Martinez,Montreal Expos,Base,"UER: Born 7/25, should be 10/25"
+base,589,Roger Salkeld,Seattle Mariners,Base,
+base,590,Jeff Bagwell,Houston Astros,Base,
+base,591,Spike Owen,California Angels,Base,
+base,592,Jeff Reardon,New York Yankees,Base,
+base,593,Erik Pappas,St. Louis Cardinals,Base,
+base,594,Brian Williams,Houston Astros,Base,
+base,595,Eddie Murray,Cleveland Indians,Base,
+base,596,Henry Rodriguez,Los Angeles Dodgers,Base,
+base,597,Erik Hanson,Cincinnati Reds,Base,
+base,598,Stan Javier,Oakland Athletics,Base,
+base,599,Mitch Williams,Houston Astros,Base,
+base,600,John Olerud,Toronto Blue Jays,Base,
+base,601,Vince Coleman,Kansas City Royals,Base,
+base,602,Damon Berryhill,Boston Red Sox,Base,
+base,603,Tom Brunansky,Milwaukee Brewers,Base,
+base,604,Robb Nen,Florida Marlins,Base,
+base,605,Rafael Palmeiro,Baltimore Orioles,Base,
+base,606,Cal Eldred,Milwaukee Brewers,Base,
+base,607,Jeff Brantley,Cincinnati Reds,Base,
+base,608,Alan Mills,Baltimore Orioles,Base,
+base,609,Jeff Nelson,Seattle Mariners,Base,
+base,610,Barry Bonds,San Francisco Giants,Base,
+base,611,Carlos Pulido RC,Minnesota Twins,Base,
+base,612,Tim Hyers RC,San Diego Padres,Base,
+base,613,Steve Howe,New York Yankees,Base,
+base,614,Brian Turang RC,Seattle Mariners,Base,
+base,615,Leo Gomez,Baltimore Orioles,Base,
+base,616,Jesse Orosco,Milwaukee Brewers,Base,
+base,617,Dan Pasqua,Chicago White Sox,Base,
+base,618,Marvin Freeman,Colorado Rockies,Base,
+base,619,Tony Fernandez,Cincinnati Reds,Base,
+base,620,Albert Belle,Cleveland Indians,Base,
+base,621,Eddie Taubensee,Houston Astros,Base,
+base,622,Mike Jackson,San Francisco Giants,Base,
+base,623,Jose Bautista,Chicago Cubs,Base,
+base,624,Jim Thome,Cleveland Indians,Base,
+base,625,Ivan Rodriguez,Texas Rangers,Base,
+base,626,Ben Rivera,Philadelphia Phillies,Base,
+base,627,Dave Valle,Boston Red Sox,Base,
+base,628,Tom Henke,Texas Rangers,Base,
+base,629,Omar Vizquel,Cleveland Indians,Base,
+base,630,Juan Gonzalez,Texas Rangers,Base,
+base,631,Roberto Alomar,Toronto Blue Jays,Up Close,Black stripe on lower front
+base,632,Barry Bonds,San Francisco Giants,Up Close,Black stripe on lower front
+base,633,Juan Gonzalez,Texas Rangers,Up Close,Black stripe on lower front
+base,634,Ken Griffey Jr.,Seattle Mariners,Up Close,Black stripe on lower front
+base,635,Michael Jordan,Chicago White Sox,Up Close,Black stripe on lower front
+base,636,David Justice,Atlanta Braves,Up Close,Black stripe on lower front
+base,637,Mike Piazza,Los Angeles Dodgers,Up Close,Black stripe on lower front
+base,638,Kirby Puckett,Minnesota Twins,Up Close,Black stripe on lower front
+base,639,Tim Salmon,California Angels,Up Close,Black stripe on lower front
+base,640,Frank Thomas,Chicago White Sox,Up Close,Black stripe on lower front
+base,641,Alan Benes RC,St. Louis Cardinals,Future Foundations,
+base,642,Johnny Damon,Kansas City Royals,Future Foundations,
+base,643,Brad Fullmer RC,Montreal Expos,Future Foundations,
+base,644,Derek Jeter,New York Yankees,Future Foundations,
+base,645,Derrek Lee RC,San Diego Padres,Future Foundations,
+base,646,Alex Ochoa,Baltimore Orioles,Future Foundations,
+base,647,Alex Rodriguez RC,Seattle Mariners,Future Foundations,
+base,648,Jose Silva RC,Toronto Blue Jays,Future Foundations,
+base,649,Terrell Wade RC,Atlanta Braves,Future Foundations,
+base,650,Preston Wilson,New York Mets,Future Foundations,
+base,651,Shane Andrews,Montreal Expos,Rookie Class,
+base,652,James Baldwin,Chicago White Sox,Rookie Class,
+base,653,Ricky Bottalico RC,Philadelphia Phillies,Rookie Class,
+base,654,Tavo Alvarez,Montreal Expos,Rookie Class,
+base,655,Donnie Elliott,San Diego Padres,Rookie Class,
+base,656,Joey Eischen,Montreal Expos,Rookie Class,
+base,657,Jason Giambi,Oakland Athletics,Rookie Class,
+base,658,Todd Hollandsworth,Los Angeles Dodgers,Rookie Class,
+base,659,Brian L. Hunter,Houston Astros,Rookie Class,
+base,660,Charles Johnson,Florida Marlins,Rookie Class,
+base,661,Michael Jordan RC,Chicago White Sox,Rookie Class,
+base,662,Jeff Juden,Philadelphia Phillies,Rookie Class,
+base,663,Mike Kelly,Atlanta Braves,Rookie Class,
+base,664,James Mouton,Houston Astros,Rookie Class,
+base,665,Ray Holbert,San Diego Padres,Rookie Class,
+base,666,Pokey Reese,Cincinnati Reds,Rookie Class,
+base,667,Ruben Santana RC,Seattle Mariners,Rookie Class,
+base,668,Paul Spoljaric,Toronto Blue Jays,Rookie Class,
+base,669,Luis Lopez,San Diego Padres,Rookie Class,
+base,670,Matt Walbeck,Minnesota Twins,Rookie Class,
+team-vs-team,NNO-01,Roberto Alomar / Frank Thomas,Toronto Blue Jays / Chicago White Sox,Team vs. Team,Scratch-off game piece; contest expired
+team-vs-team,NNO-02,Barry Bonds / Ken Griffey Jr.,San Francisco Giants / Seattle Mariners,Team vs. Team,Scratch-off game piece; contest expired
+team-vs-team,NNO-03,Roger Clemens / Don Mattingly,Boston Red Sox / New York Yankees,Team vs. Team,Scratch-off game piece; contest expired
+team-vs-team,NNO-04,Lenny Dykstra / David Justice,Philadelphia Phillies / Atlanta Braves,Team vs. Team,Scratch-off game piece; contest expired
+team-vs-team,NNO-05,Andres Galarraga / Tony Gwynn,Colorado Rockies / San Diego Padres,Team vs. Team,Scratch-off game piece; contest expired
+team-vs-team,NNO-06,Dwight Gooden / Gary Sheffield,New York Mets / Florida Marlins,Team vs. Team,Scratch-off game piece; contest expired
+team-vs-team,NNO-07,Ken Griffey Jr. / Juan Gonzalez,Seattle Mariners / Texas Rangers,Team vs. Team,Scratch-off game piece; contest expired
+team-vs-team,NNO-08,Barry Larkin / Jeff Bagwell,Cincinnati Reds / Houston Astros,Team vs. Team,Scratch-off game piece; contest expired
+team-vs-team,NNO-09,Pat Listach / Albert Belle,Milwaukee Brewers / Cleveland Indians,Team vs. Team,Scratch-off game piece; contest expired
+team-vs-team,NNO-10,Mark McGwire / Tim Salmon,Oakland Athletics / California Angels,Team vs. Team,Scratch-off game piece; contest expired
+team-vs-team,NNO-11,Mike Piazza / Barry Bonds,Los Angeles Dodgers / San Francisco Giants,Team vs. Team,Scratch-off game piece; contest expired
+team-vs-team,NNO-12,Kirby Puckett / Brian McRae,Minnesota Twins / Kansas City Royals,Team vs. Team,Scratch-off game piece; contest expired
+team-vs-team,NNO-13,Cal Ripken Jr. / Cecil Fielder,Baltimore Orioles / Detroit Tigers,Team vs. Team,Scratch-off game piece; contest expired
+team-vs-team,NNO-14,Ryne Sandberg / Ozzie Smith,Chicago Cubs / St. Louis Cardinals,Team vs. Team,Scratch-off game piece; contest expired
+team-vs-team,NNO-15,Andy Van Slyke / Cliff Floyd,Pittsburgh Pirates / Montreal Expos,Team vs. Team,Scratch-off game piece; contest expired
+instant-winner,NNO-01,Eighth Prize Redemption,,Instant Winner Redemption,Expired redemption for 8-card Home Run All-Stars set
+instant-winner,NNO-02,Seventh Prize Redemption,,Instant Winner Redemption,Expired redemption for Upper Deck T-shirt
+silver-signature,1,Rich Becker,Minnesota Twins,Rookie Class,Silver Signature
+silver-signature,2,Greg Blosser,Boston Red Sox,Rookie Class,Silver Signature
+silver-signature,3,Midre Cummings,Pittsburgh Pirates,Rookie Class,Silver Signature
+silver-signature,4,Carlos Delgado,Toronto Blue Jays,Rookie Class,Silver Signature
+silver-signature,5,Steve Dreyer RC,Texas Rangers,Rookie Class,Silver Signature
+silver-signature,6,Carl Everett,Florida Marlins,Rookie Class,Silver Signature
+silver-signature,7,Cliff Floyd,Montreal Expos,Rookie Class,Silver Signature
+silver-signature,8,Alex Gonzalez,Toronto Blue Jays,Rookie Class,Silver Signature
+silver-signature,9,Shawn Green,Toronto Blue Jays,Rookie Class,Silver Signature
+silver-signature,10,Butch Huskey,New York Mets,Rookie Class,Silver Signature
+silver-signature,11,Mark Hutton,New York Yankees,Rookie Class,Silver Signature
+silver-signature,12,Miguel Jimenez,Oakland Athletics,Rookie Class,Silver Signature
+silver-signature,13,Steve Karsay,Oakland Athletics,Rookie Class,Silver Signature
+silver-signature,14,Marc Newfield,Seattle Mariners,Rookie Class,Silver Signature
+silver-signature,15,Luis Ortiz,Boston Red Sox,Rookie Class,Silver Signature
+silver-signature,16,Manny Ramirez,Cleveland Indians,Rookie Class,Silver Signature
+silver-signature,17,Johnny Ruffin,Cincinnati Reds,Rookie Class,Silver Signature
+silver-signature,18,Scott Stahoviak,Minnesota Twins,Rookie Class,Silver Signature
+silver-signature,19,Salomon Torres,San Francisco Giants,Rookie Class,Silver Signature
+silver-signature,20,Gabe White,Montreal Expos,Rookie Class,Silver Signature
+silver-signature,21,Brian Anderson RC,California Angels,First Draft Picks,Silver Signature
+silver-signature,22,Wayne Gomes RC,Philadelphia Phillies,First Draft Picks,Silver Signature
+silver-signature,23,Jeff Granger,Kansas City Royals,First Draft Picks,Silver Signature
+silver-signature,24,Steve Soderstrom RC,San Francisco Giants,First Draft Picks,Silver Signature
+silver-signature,25,Trot Nixon RC,Boston Red Sox,First Draft Picks,Silver Signature
+silver-signature,26,Kirk Presley RC,New York Mets,First Draft Picks,Silver Signature
+silver-signature,27,Matt Brunson RC,Detroit Tigers,First Draft Picks,Silver Signature
+silver-signature,28,Brooks Kieschnick RC,Chicago Cubs,First Draft Picks,Silver Signature
+silver-signature,29,Billy Wagner RC,Houston Astros,First Draft Picks,Silver Signature
+silver-signature,30,Matt Drews RC,New York Yankees,First Draft Picks,Silver Signature
+silver-signature,31,Kurt Abbott RC,Oakland Athletics,Base,Silver Signature
+silver-signature,32,Luis Alicea,St. Louis Cardinals,Base,Silver Signature
+silver-signature,33,Roberto Alomar,Toronto Blue Jays,Base,Silver Signature
+silver-signature,34,Sandy Alomar Jr.,Cleveland Indians,Base,Silver Signature
+silver-signature,35,Moises Alou,Montreal Expos,Base,Silver Signature
+silver-signature,36,Wilson Alvarez,Chicago White Sox,Base,Silver Signature
+silver-signature,37,Rich Amaral,Seattle Mariners,Base,Silver Signature
+silver-signature,38,Eric Anthony,Houston Astros,Base,Silver Signature
+silver-signature,39,Luis Aquino,Florida Marlins,Base,Silver Signature
+silver-signature,40,Jack Armstrong,Florida Marlins,Base,Silver Signature
+silver-signature,41,Rene Arocha,St. Louis Cardinals,Base,Silver Signature
+silver-signature,42,Rich Aude RC,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,43,Brad Ausmus,San Diego Padres,Base,Silver Signature
+silver-signature,44,Steve Avery,Atlanta Braves,Base,Silver Signature
+silver-signature,45,Bob Ayrault,Seattle Mariners,Base,Silver Signature
+silver-signature,46,Willie Banks,Minnesota Twins,Base,Silver Signature
+silver-signature,47,Bret Barberie,Florida Marlins,Base,Silver Signature
+silver-signature,48,Kim Batiste,Philadelphia Phillies,Base,Silver Signature
+silver-signature,49,Rod Beck,San Francisco Giants,Base,Silver Signature
+silver-signature,50,Jason Bere,Chicago White Sox,Base,Silver Signature
+silver-signature,51,Sean Berry,Montreal Expos,Base,Silver Signature
+silver-signature,52,Dante Bichette,Colorado Rockies,Base,Silver Signature
+silver-signature,53,Jeff Blauser,Atlanta Braves,Base,Silver Signature
+silver-signature,54,Mike Blowers,Seattle Mariners,Base,Silver Signature
+silver-signature,55,Tim Bogar,New York Mets,Base,Silver Signature
+silver-signature,56,Tom Bolton,Detroit Tigers,Base,Silver Signature
+silver-signature,57,Ricky Bones,Milwaukee Brewers,Base,Silver Signature
+silver-signature,58,Bobby Bonilla,New York Mets,Base,Silver Signature
+silver-signature,59,Bret Boone,Seattle Mariners,Base,Silver Signature
+silver-signature,60,Pat Borders,Toronto Blue Jays,Base,Silver Signature
+silver-signature,61,Mike Bordick,Oakland Athletics,Base,Silver Signature
+silver-signature,62,Daryl Boston,Colorado Rockies,Base,Silver Signature
+silver-signature,63,Ryan Bowen,Florida Marlins,Base,Silver Signature
+silver-signature,64,Jeff Branson,Cincinnati Reds,Base,Silver Signature
+silver-signature,65,George Brett,Kansas City Royals,Base,Silver Signature
+silver-signature,66,Steve Buechele,Chicago Cubs,Base,Silver Signature
+silver-signature,67,Dave Burba,San Francisco Giants,Base,Silver Signature
+silver-signature,68,John Burkett,San Francisco Giants,Base,Silver Signature
+silver-signature,69,Jeromy Burnitz,New York Mets,Base,Silver Signature
+silver-signature,70,Brett Butler,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,71,Rob Butler,Toronto Blue Jays,Base,Silver Signature
+silver-signature,72,Ken Caminiti,Houston Astros,Base,Silver Signature
+silver-signature,73,Cris Carpenter,Texas Rangers,Base,Silver Signature
+silver-signature,74,Vinny Castilla,Colorado Rockies,Base,Silver Signature
+silver-signature,75,Andujar Cedeno,Houston Astros,Base,Silver Signature
+silver-signature,76,Wes Chamberlain,Philadelphia Phillies,Base,Silver Signature
+silver-signature,77,Archi Cianfrocco,San Diego Padres,Base,Silver Signature
+silver-signature,78,Dave Clark,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,79,Jerald Clark,Colorado Rockies,Base,Silver Signature
+silver-signature,80,Royce Clayton,San Francisco Giants,Base,Silver Signature
+silver-signature,81,David Cone,Kansas City Royals,Base,Silver Signature
+silver-signature,82,Jeff Conine,Florida Marlins,Base,Silver Signature
+silver-signature,83,Steve Cooke,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,84,Scott Cooper,Boston Red Sox,Base,Silver Signature
+silver-signature,85,Joey Cora,Chicago White Sox,Base,Silver Signature
+silver-signature,86,Tim Costo,Cincinnati Reds,Base,Silver Signature
+silver-signature,87,Chad Curtis,California Angels,Base,Silver Signature
+silver-signature,88,Ron Darling,Oakland Athletics,Base,Silver Signature
+silver-signature,89,Danny Darwin,Boston Red Sox,Base,Silver Signature
+silver-signature,90,Rob Deer,Boston Red Sox,Base,Silver Signature
+silver-signature,91,Jim Deshaies,San Francisco Giants,Base,Silver Signature
+silver-signature,92,Delino DeShields,Montreal Expos,Base,Silver Signature
+silver-signature,93,Rob Dibble,Cincinnati Reds,Base,Silver Signature
+silver-signature,94,Gary DiSarcina,California Angels,Base,Silver Signature
+silver-signature,95,Doug Drabek,Houston Astros,Base,Silver Signature
+silver-signature,96,Scott Erickson,Minnesota Twins,Base,Silver Signature
+silver-signature,97,Rikkert Faneyte RC,San Francisco Giants,Base,Silver Signature
+silver-signature,98,Jeff Fassero,Montreal Expos,Base,Silver Signature
+silver-signature,99,Alex Fernandez,Chicago White Sox,Base,Silver Signature
+silver-signature,100,Cecil Fielder,Detroit Tigers,Base,Silver Signature
+silver-signature,101,Dave Fleming,Seattle Mariners,Base,Silver Signature
+silver-signature,102,Darrin Fletcher,Montreal Expos,Base,Silver Signature
+silver-signature,103,Scott Fletcher,Boston Red Sox,Base,Silver Signature
+silver-signature,104,Mike Gallego,New York Yankees,Base,Silver Signature
+silver-signature,105,Carlos Garcia,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,106,Jeff Gardner,San Diego Padres,Base,Silver Signature
+silver-signature,107,Brent Gates,Oakland Athletics,Base,Silver Signature
+silver-signature,108,Benji Gil,Texas Rangers,Base,Silver Signature
+silver-signature,109,Bernard Gilkey,St. Louis Cardinals,Base,Silver Signature
+silver-signature,110,Chris Gomez,Detroit Tigers,Base,Silver Signature
+silver-signature,111,Luis Gonzalez,Houston Astros,Base,Silver Signature
+silver-signature,112,Tom Gordon,Kansas City Royals,Base,Silver Signature
+silver-signature,113,Jim Gott,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,114,Mark Grace,Chicago Cubs,Base,Silver Signature
+silver-signature,115,Tommy Greene,Philadelphia Phillies,Base,Silver Signature
+silver-signature,116,Willie Greene,Cincinnati Reds,Base,Silver Signature
+silver-signature,117,Ken Griffey Jr.,Seattle Mariners,Base,Silver Signature
+silver-signature,118,Bill Gullickson,Detroit Tigers,Base,Silver Signature
+silver-signature,119,Ricky Gutierrez,San Diego Padres,Base,Silver Signature
+silver-signature,120,Juan Guzman,Toronto Blue Jays,Base,Silver Signature
+silver-signature,121,Chris Gwynn,Kansas City Royals,Base,Silver Signature
+silver-signature,122,Tony Gwynn,San Diego Padres,Base,Silver Signature
+silver-signature,123,Jeffrey Hammonds,Baltimore Orioles,Base,Silver Signature; UER: Facsimile autograph belongs to Roland Hemond
+silver-signature,124,Erik Hanson,Seattle Mariners,Base,Silver Signature
+silver-signature,125,Gene Harris,San Diego Padres,Base,Silver Signature
+silver-signature,126,Greg W. Harris,Colorado Rockies,Base,Silver Signature
+silver-signature,127,Bryan Harvey,Florida Marlins,Base,Silver Signature
+silver-signature,128,Billy Hatcher,Boston Red Sox,Base,Silver Signature
+silver-signature,129,Hilly Hathaway,California Angels,Base,Silver Signature
+silver-signature,130,Charlie Hayes,Colorado Rockies,Base,Silver Signature
+silver-signature,131,Rickey Henderson,Toronto Blue Jays,Base,Silver Signature
+silver-signature,132,Mike Henneman,Detroit Tigers,Base,Silver Signature
+silver-signature,133,Pat Hentgen,Toronto Blue Jays,Base,Silver Signature
+silver-signature,134,Roberto Hernandez,Chicago White Sox,Base,Silver Signature
+silver-signature,135,Orel Hershiser,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,136,Phil Hiatt,Kansas City Royals,Base,Silver Signature
+silver-signature,137,Glenallen Hill,Chicago Cubs,Base,Silver Signature
+silver-signature,138,Ken Hill,Montreal Expos,Base,Silver Signature
+silver-signature,139,Eric Hillman,New York Mets,Base,Silver Signature
+silver-signature,140,Chris Hoiles,Baltimore Orioles,Base,Silver Signature
+silver-signature,141,Dave Hollins,Philadelphia Phillies,Base,Silver Signature
+silver-signature,142,David Hulse,Texas Rangers,Base,Silver Signature
+silver-signature,143,Todd Hundley,New York Mets,Base,Silver Signature
+silver-signature,144,Pete Incaviglia,Philadelphia Phillies,Base,Silver Signature
+silver-signature,145,Danny Jackson,Philadelphia Phillies,Base,Silver Signature
+silver-signature,146,John Jaha,Milwaukee Brewers,Base,Silver Signature
+silver-signature,147,Domingo Jean,New York Yankees,Base,Silver Signature
+silver-signature,148,Gregg Jefferies,St. Louis Cardinals,Base,Silver Signature
+silver-signature,149,Reggie Jefferson,Cleveland Indians,Base,Silver Signature
+silver-signature,150,Lance Johnson,Chicago White Sox,Base,Silver Signature
+silver-signature,151,Bobby Jones,New York Mets,Base,Silver Signature
+silver-signature,152,Chipper Jones,Atlanta Braves,Base,Silver Signature
+silver-signature,153,Todd Jones,Houston Astros,Base,Silver Signature
+silver-signature,154,Brian Jordan,St. Louis Cardinals,Base,Silver Signature
+silver-signature,155,Wally Joyner,Kansas City Royals,Base,Silver Signature
+silver-signature,156,David Justice,Atlanta Braves,Base,Silver Signature
+silver-signature,157,Ron Karkovice,Chicago White Sox,Base,Silver Signature
+silver-signature,158,Eric Karros,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,159,Jeff Kent,New York Mets,Base,Silver Signature
+silver-signature,160,Jimmy Key,New York Yankees,Base,Silver Signature
+silver-signature,161,Mark Kiefer,Milwaukee Brewers,Base,Silver Signature
+silver-signature,162,Darryl Kile,Houston Astros,Base,Silver Signature
+silver-signature,163,Jeff King,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,164,Wayne Kirby,Cleveland Indians,Base,Silver Signature
+silver-signature,165,Ryan Klesko,Atlanta Braves,Base,Silver Signature
+silver-signature,166,Chuck Knoblauch,Minnesota Twins,Base,Silver Signature
+silver-signature,167,Chad Kreuter,Detroit Tigers,Base,Silver Signature
+silver-signature,168,John Kruk,Philadelphia Phillies,Base,Silver Signature
+silver-signature,169,Mark Langston,California Angels,Base,Silver Signature
+silver-signature,170,Mike Lansing,Montreal Expos,Base,Silver Signature
+silver-signature,171,Barry Larkin,Cincinnati Reds,Base,Silver Signature
+silver-signature,172,Manuel Lee,Texas Rangers,Base,Silver Signature
+silver-signature,173,Phil Leftwich RC,California Angels,Base,Silver Signature
+silver-signature,174,Darren Lewis,San Francisco Giants,Base,Silver Signature
+silver-signature,175,Derek Lilliquist,Cleveland Indians,Base,Silver Signature
+silver-signature,176,Jose Lind,Kansas City Royals,Base,Silver Signature
+silver-signature,177,Albie Lopez,Cleveland Indians,Base,Silver Signature
+silver-signature,178,Javy Lopez,Atlanta Braves,Base,Silver Signature
+silver-signature,179,Torey Lovullo,California Angels,Base,Silver Signature
+silver-signature,180,Scott Lydy,Oakland Athletics,Base,Silver Signature
+silver-signature,181,Mike Macfarlane,Kansas City Royals,Base,Silver Signature
+silver-signature,182,Shane Mack,Minnesota Twins,Base,Silver Signature
+silver-signature,183,Greg Maddux,Atlanta Braves,Base,Silver Signature
+silver-signature,184,Dave Magadan,Seattle Mariners,Base,Silver Signature
+silver-signature,185,Joe Magrane,California Angels,Base,Silver Signature
+silver-signature,186,Kirt Manwaring,San Francisco Giants,Base,Silver Signature
+silver-signature,187,Al Martin,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,188,Pedro A. Martinez RC,San Diego Padres,Base,Silver Signature
+silver-signature,189,Pedro J. Martinez,Los Angeles Dodgers,Base,"Silver Signature; UER: Born 7/25, should be 10/25"
+silver-signature,190,Ramon Martinez,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,191,Tino Martinez,Seattle Mariners,Base,Silver Signature
+silver-signature,192,Don Mattingly,New York Yankees,Base,Silver Signature
+silver-signature,193,Derrick May,Chicago Cubs,Base,Silver Signature
+silver-signature,194,David McCarty,Minnesota Twins,Base,Silver Signature
+silver-signature,195,Ben McDonald,Baltimore Orioles,Base,Silver Signature
+silver-signature,196,Roger McDowell,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,197,Fred McGriff,Atlanta Braves,Base,Silver Signature; UER: lists 1989 SB total as 73 (should be 7)
+silver-signature,198,Mark McLemore,Baltimore Orioles,Base,Silver Signature
+silver-signature,199,Greg McMichael,Atlanta Braves,Base,"Silver Signature; UER: Last name misspelled ""Mc Michael"" on front and back"
+silver-signature,200,Jeff McNeely,Boston Red Sox,Base,Silver Signature
+silver-signature,201,Brian McRae,Kansas City Royals,Base,Silver Signature
+silver-signature,202,Pat Meares,Minnesota Twins,Base,Silver Signature
+silver-signature,203,Roberto Mejia,Colorado Rockies,Base,Silver Signature
+silver-signature,204,Orlando Merced,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,205,Jose Mesa,Cleveland Indians,Base,Silver Signature
+silver-signature,206,Blas Minor,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,207,Angel Miranda,Milwaukee Brewers,Base,Silver Signature
+silver-signature,208,Paul Molitor,Toronto Blue Jays,Base,Silver Signature
+silver-signature,209,Raul Mondesi,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,210,Jeff Montgomery,Kansas City Royals,Base,Silver Signature
+silver-signature,211,Mickey Morandini,Philadelphia Phillies,Base,Silver Signature
+silver-signature,212,Mike Morgan,Chicago Cubs,Base,Silver Signature
+silver-signature,213,Jamie Moyer,Baltimore Orioles,Base,Silver Signature
+silver-signature,214,Bobby Munoz,New York Yankees,Base,Silver Signature
+silver-signature,215,Troy Neel,Oakland Athletics,Base,Silver Signature
+silver-signature,216,Dave Nilsson,Milwaukee Brewers,Base,Silver Signature
+silver-signature,217,John O'Donoghue,Baltimore Orioles,Base,Silver Signature
+silver-signature,218,Paul O'Neill,New York Yankees,Base,Silver Signature
+silver-signature,219,Jose Offerman,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,220,Joe Oliver,Cincinnati Reds,Base,Silver Signature
+silver-signature,221,Greg Olson,Atlanta Braves,Base,Silver Signature
+silver-signature,222,Donovan Osborne,St. Louis Cardinals,Base,Silver Signature
+silver-signature,223,Jayhawk Owens,Colorado Rockies,Base,Silver Signature
+silver-signature,224,Mike Pagliarulo,Baltimore Orioles,Base,Silver Signature
+silver-signature,225,Craig Paquette,Oakland Athletics,Base,Silver Signature
+silver-signature,226,Roger Pavlik,Texas Rangers,Base,Silver Signature
+silver-signature,227,Brad Pennington,Baltimore Orioles,Base,Silver Signature
+silver-signature,228,Eduardo Perez,California Angels,Base,Silver Signature
+silver-signature,229,Mike Perez,St. Louis Cardinals,Base,Silver Signature
+silver-signature,230,Tony Phillips,Detroit Tigers,Base,Silver Signature
+silver-signature,231,Hipolito Pichardo,Kansas City Royals,Base,Silver Signature
+silver-signature,232,Phil Plantier,San Diego Padres,Base,Silver Signature
+silver-signature,233,Curtis Pride RC,Montreal Expos,Base,Silver Signature
+silver-signature,234,Tim Pugh,Cincinnati Reds,Base,Silver Signature
+silver-signature,235,Scott Radinsky,Chicago White Sox,Base,Silver Signature
+silver-signature,236,Pat Rapp,Florida Marlins,Base,Silver Signature
+silver-signature,237,Kevin Reimer,Milwaukee Brewers,Base,Silver Signature
+silver-signature,238,Armando Reynoso,Colorado Rockies,Base,Silver Signature
+silver-signature,239,Jose Rijo,Cincinnati Reds,Base,Silver Signature
+silver-signature,240,Cal Ripken Jr.,Baltimore Orioles,Base,Silver Signature
+silver-signature,241,Kevin Roberson,Chicago Cubs,Base,Silver Signature
+silver-signature,242,Kenny Rogers,Texas Rangers,Base,Silver Signature
+silver-signature,243,Kevin Rogers,San Francisco Giants,Base,Silver Signature
+silver-signature,244,Mel Rojas,Montreal Expos,Base,Silver Signature
+silver-signature,245,John Roper,Cincinnati Reds,Base,Silver Signature
+silver-signature,246,Kirk Rueter,Montreal Expos,Base,Silver Signature
+silver-signature,247,Scott Ruffcorn,Chicago White Sox,Base,Silver Signature
+silver-signature,248,Ken Ryan,Boston Red Sox,Base,Silver Signature
+silver-signature,249,Nolan Ryan,Texas Rangers,Base,Silver Signature
+silver-signature,250,Bret Saberhagen,New York Mets,Base,Silver Signature
+silver-signature,251,Tim Salmon,California Angels,Base,Silver Signature
+silver-signature,252,Reggie Sanders,Cincinnati Reds,Base,Silver Signature
+silver-signature,253,Curt Schilling,Philadelphia Phillies,Base,Silver Signature
+silver-signature,254,David Segui,Baltimore Orioles,Base,Silver Signature
+silver-signature,255,Aaron Sele,Boston Red Sox,Base,Silver Signature
+silver-signature,256,Scott Servais,Houston Astros,Base,Silver Signature
+silver-signature,257,Gary Sheffield,Florida Marlins,Base,Silver Signature
+silver-signature,258,Ruben Sierra,Oakland Athletics,Base,Silver Signature
+silver-signature,259,Don Slaught,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,260,Lee Smith,New York Yankees,Base,Silver Signature
+silver-signature,261,Cory Snyder,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,262,Paul Sorrento,Cleveland Indians,Base,Silver Signature
+silver-signature,263,Sammy Sosa,Chicago Cubs,Base,Silver Signature
+silver-signature,264,Bill Spiers,Milwaukee Brewers,Base,Silver Signature
+silver-signature,265,Mike Stanley,New York Yankees,Base,Silver Signature
+silver-signature,266,Dave Staton,San Diego Padres,Base,Silver Signature
+silver-signature,267,Terry Steinbach,Oakland Athletics,Base,Silver Signature
+silver-signature,268,Kevin Stocker,Philadelphia Phillies,Base,Silver Signature
+silver-signature,269,Todd Stottlemyre,Toronto Blue Jays,Base,Silver Signature
+silver-signature,270,Doug Strange,Texas Rangers,Base,Silver Signature
+silver-signature,271,Bill Swift,San Francisco Giants,Base,Silver Signature
+silver-signature,272,Kevin Tapani,Minnesota Twins,Base,Silver Signature
+silver-signature,273,Tony Tarasco,Atlanta Braves,Base,Silver Signature
+silver-signature,274,Julian Tavarez RC,Cleveland Indians,Base,Silver Signature
+silver-signature,275,Mickey Tettleton,Detroit Tigers,Base,Silver Signature
+silver-signature,276,Ryan Thompson,New York Mets,Base,Silver Signature
+silver-signature,277,Chris Turner,California Angels,Base,Silver Signature
+silver-signature,278,John Valentin,Boston Red Sox,Base,Silver Signature
+silver-signature,279,Todd Van Poppel,Oakland Athletics,Base,Silver Signature
+silver-signature,280,Andy Van Slyke,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,281,Mo Vaughn,Boston Red Sox,Base,Silver Signature
+silver-signature,282,Robin Ventura,Chicago White Sox,Base,Silver Signature
+silver-signature,283,Frank Viola,Boston Red Sox,Base,Silver Signature
+silver-signature,284,Jose Vizcaino,Chicago Cubs,Base,Silver Signature
+silver-signature,285,Omar Vizquel,Seattle Mariners,Base,Silver Signature
+silver-signature,286,Larry Walker,Montreal Expos,Base,Silver Signature
+silver-signature,287,Duane Ward,Toronto Blue Jays,Base,Silver Signature
+silver-signature,288,Allen Watson,St. Louis Cardinals,Base,Silver Signature
+silver-signature,289,Bill Wegman,Milwaukee Brewers,Base,Silver Signature
+silver-signature,290,Turk Wendell,Chicago Cubs,Base,Silver Signature
+silver-signature,291,Lou Whitaker,Detroit Tigers,Base,Silver Signature
+silver-signature,292,Devon White,Toronto Blue Jays,Base,Silver Signature
+silver-signature,293,Rondell White,Montreal Expos,Base,Silver Signature
+silver-signature,294,Mark Whiten,St. Louis Cardinals,Base,Silver Signature
+silver-signature,295,Darrell Whitmore,Florida Marlins,Base,Silver Signature
+silver-signature,296,Bob Wickman,New York Yankees,Base,Silver Signature
+silver-signature,297,Rick Wilkins,Chicago Cubs,Base,Silver Signature
+silver-signature,298,Bernie Williams,New York Yankees,Base,Silver Signature
+silver-signature,299,Matt Williams,San Francisco Giants,Base,Silver Signature
+silver-signature,300,Woody Williams,Toronto Blue Jays,Base,Silver Signature
+silver-signature,301,Nigel Wilson,Florida Marlins,Base,Silver Signature
+silver-signature,302,Dave Winfield,Minnesota Twins,Base,Silver Signature
+silver-signature,303,Anthony Young,New York Mets,Base,Silver Signature
+silver-signature,304,Eric Young,Colorado Rockies,Base,Silver Signature
+silver-signature,305,Todd Zeile,St. Louis Cardinals,Base,Silver Signature
+silver-signature,306,John Burkett / Tom Glavine / Jack McDowell,San Francisco Giants / Atlanta Braves / Chicago White Sox,Top Performers,Silver Signature; Wins Leaders
+silver-signature,307,Randy Johnson,Seattle Mariners,Top Performers,Silver Signature; Strikeouts Leader
+silver-signature,308,Randy Myers,Chicago Cubs,Top Performers,Silver Signature; Saves Leader
+silver-signature,309,Jack McDowell,Chicago White Sox,Top Performers,Silver Signature; Cy Young Award Winner
+silver-signature,310,Mike Piazza,Los Angeles Dodgers,Top Performers,Silver Signature; Rookie-of-the-Year
+silver-signature,311,Barry Bonds,San Francisco Giants,Top Performers,Silver Signature; Most Valuable Player
+silver-signature,312,Andres Galarraga,Colorado Rockies,Top Performers,Silver Signature; Batting Champion
+silver-signature,313,Juan Gonzalez / Barry Bonds,Texas Rangers / San Francisco Giants,Top Performers,Silver Signature; Home Run Champions
+silver-signature,314,Albert Belle,Cleveland Indians,Top Performers,Silver Signature; RBI Leader
+silver-signature,315,Kenny Lofton,Cleveland Indians,Top Performers,Silver Signature; Stolen Bases Leader
+silver-signature,316,Barry Bonds,San Francisco Giants,Checklist,Silver Signature; Checklist: 1-64
+silver-signature,317,Ken Griffey Jr.,Seattle Mariners,Checklist,Silver Signature; Checklist: 65-128
+silver-signature,318,Mike Piazza,Los Angeles Dodgers,Checklist,Silver Signature; Checklist: 129-192
+silver-signature,319,Kirby Puckett,Minnesota Twins,Checklist,Silver Signature; Checklist: 193-256
+silver-signature,320,Nolan Ryan,Texas Rangers,Checklist,Silver Signature; Checklist: 257-320
+silver-signature,321,Roberto Alomar,Toronto Blue Jays,Checklist,Silver Signature; Checklist: 321-370
+silver-signature,322,Roger Clemens,Boston Red Sox,Checklist,Silver Signature; Checklist: 371-420
+silver-signature,323,Juan Gonzalez,Texas Rangers,Checklist,Silver Signature; Checklist: 421-470
+silver-signature,324,Ken Griffey Jr.,Seattle Mariners,Checklist,Silver Signature; Checklist: 471-520
+silver-signature,325,David Justice,Atlanta Braves,Checklist,Silver Signature; Checklist: 521-570
+silver-signature,326,John Kruk,Philadelphia Phillies,Checklist,Silver Signature; Checklist: 571-620
+silver-signature,327,Frank Thomas,Chicago White Sox,Checklist,Silver Signature; Checklist: 621-670
+silver-signature,328,Tim Salmon,California Angels,Team Checklist,Silver Signature
+silver-signature,329,Jeff Bagwell,Houston Astros,Team Checklist,Silver Signature
+silver-signature,330,Mark McGwire,Oakland Athletics,Team Checklist,Silver Signature
+silver-signature,331,Roberto Alomar,Toronto Blue Jays,Team Checklist,Silver Signature
+silver-signature,332,David Justice,Atlanta Braves,Team Checklist,Silver Signature
+silver-signature,333,Pat Listach,Milwaukee Brewers,Team Checklist,Silver Signature
+silver-signature,334,Ozzie Smith,St. Louis Cardinals,Team Checklist,Silver Signature
+silver-signature,335,Ryne Sandberg,Chicago Cubs,Team Checklist,Silver Signature
+silver-signature,336,Mike Piazza,Los Angeles Dodgers,Team Checklist,Silver Signature
+silver-signature,337,Cliff Floyd,Montreal Expos,Team Checklist,Silver Signature
+silver-signature,338,Barry Bonds,San Francisco Giants,Team Checklist,Silver Signature
+silver-signature,339,Albert Belle,Cleveland Indians,Team Checklist,Silver Signature
+silver-signature,340,Ken Griffey Jr.,Seattle Mariners,Team Checklist,Silver Signature
+silver-signature,341,Gary Sheffield,Florida Marlins,Team Checklist,Silver Signature
+silver-signature,342,Dwight Gooden,New York Mets,Team Checklist,Silver Signature
+silver-signature,343,Cal Ripken Jr.,Baltimore Orioles,Team Checklist,Silver Signature
+silver-signature,344,Tony Gwynn,San Diego Padres,Team Checklist,Silver Signature
+silver-signature,345,Lenny Dykstra,Philadelphia Phillies,Team Checklist,Silver Signature
+silver-signature,346,Andy Van Slyke,Pittsburgh Pirates,Team Checklist,Silver Signature
+silver-signature,347,Juan Gonzalez,Texas Rangers,Team Checklist,Silver Signature
+silver-signature,348,Roger Clemens,Boston Red Sox,Team Checklist,Silver Signature
+silver-signature,349,Barry Larkin,Cincinnati Reds,Team Checklist,Silver Signature
+silver-signature,350,Andres Galarraga,Colorado Rockies,Team Checklist,Silver Signature
+silver-signature,351,Kevin Appier,Kansas City Royals,Team Checklist,Silver Signature
+silver-signature,352,Cecil Fielder,Detroit Tigers,Team Checklist,Silver Signature
+silver-signature,353,Kirby Puckett,Minnesota Twins,Team Checklist,Silver Signature
+silver-signature,354,Frank Thomas,Chicago White Sox,Team Checklist,Silver Signature
+silver-signature,355,Don Mattingly,New York Yankees,Team Checklist,Silver Signature
+silver-signature,356,Bo Jackson,California Angels,Base,Silver Signature
+silver-signature,357,Randy Johnson,Seattle Mariners,Base,Silver Signature
+silver-signature,358,Darren Daulton,Philadelphia Phillies,Base,Silver Signature
+silver-signature,359,Charlie Hough,Florida Marlins,Base,Silver Signature
+silver-signature,360,Andres Galarraga,Colorado Rockies,Base,Silver Signature
+silver-signature,361,Mike Felder,Houston Astros,Base,Silver Signature
+silver-signature,362,Chris Hammond,Florida Marlins,Base,Silver Signature
+silver-signature,363,Shawon Dunston,Chicago Cubs,Base,Silver Signature
+silver-signature,364,Junior Felix,Detroit Tigers,Base,Silver Signature
+silver-signature,365,Ray Lankford,St. Louis Cardinals,Base,Silver Signature
+silver-signature,366,Darryl Strawberry,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,367,Dave Magadan,Florida Marlins,Base,Silver Signature
+silver-signature,368,Gregg Olson,Atlanta Braves,Base,Silver Signature
+silver-signature,369,Lenny Dykstra,Philadelphia Phillies,Base,Silver Signature
+silver-signature,370,Darrin Jackson,Chicago White Sox,Base,Silver Signature
+silver-signature,371,Dave Stewart,Toronto Blue Jays,Base,Silver Signature
+silver-signature,372,Terry Pendleton,Atlanta Braves,Base,Silver Signature
+silver-signature,373,Arthur Rhodes,Baltimore Orioles,Base,Silver Signature
+silver-signature,374,Benito Santiago,Florida Marlins,Base,Silver Signature
+silver-signature,375,Travis Fryman,Detroit Tigers,Base,Silver Signature
+silver-signature,376,Scott Brosius,Oakland Athletics,Base,Silver Signature
+silver-signature,377,Stan Belinda,Kansas City Royals,Base,Silver Signature
+silver-signature,378,Derek Parks,Minnesota Twins,Base,Silver Signature
+silver-signature,379,Kevin Seitzer,Milwaukee Brewers,Base,Silver Signature
+silver-signature,380,Wade Boggs,New York Yankees,Base,Silver Signature
+silver-signature,381,Wally Whitehurst,San Diego Padres,Base,Silver Signature
+silver-signature,382,Scott Leius,Minnesota Twins,Base,Silver Signature
+silver-signature,383,Danny Tartabull,New York Yankees,Base,"Silver Signature; UER: Born in ""Miami, FL"", should be San Juan, PR"
+silver-signature,384,Harold Reynolds,California Angels,Base,Silver Signature
+silver-signature,385,Tim Raines,Chicago White Sox,Base,Silver Signature
+silver-signature,386,Darryl Hamilton,Milwaukee Brewers,Base,Silver Signature
+silver-signature,387,Felix Fermin,Seattle Mariners,Base,Silver Signature
+silver-signature,388,Jim Eisenreich,Philadelphia Phillies,Base,Silver Signature
+silver-signature,389,Kurt Abbott,Florida Marlins,Base,Silver Signature
+silver-signature,390,Kevin Appier,Kansas City Royals,Base,Silver Signature
+silver-signature,391,Chris Bosio,Seattle Mariners,Base,Silver Signature
+silver-signature,392,Randy Tomlin,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,393,Bob Hamelin,Kansas City Royals,Base,Silver Signature
+silver-signature,394,Kevin Gross,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,395,Wil Cordero,Montreal Expos,Base,Silver Signature
+silver-signature,396,Joe Girardi,Colorado Rockies,Base,Silver Signature
+silver-signature,397,Orestes Destrade,Florida Marlins,Base,Silver Signature
+silver-signature,398,Chris Haney,Kansas City Royals,Base,Silver Signature
+silver-signature,399,Xavier Hernandez,New York Yankees,Base,Silver Signature
+silver-signature,400,Mike Piazza,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,401,Alex Arias,Florida Marlins,Base,Silver Signature
+silver-signature,402,Tom Candiotti,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,403,Kirk Gibson,Detroit Tigers,Base,Silver Signature
+silver-signature,404,Chuck Carr,Florida Marlins,Base,Silver Signature
+silver-signature,405,Brady Anderson,Baltimore Orioles,Base,Silver Signature
+silver-signature,406,Greg Gagne,Kansas City Royals,Base,Silver Signature
+silver-signature,407,Bruce Ruffin,Colorado Rockies,Base,Silver Signature
+silver-signature,408,Scott Hemond,Oakland Athletics,Base,Silver Signature
+silver-signature,409,Keith Miller,Kansas City Royals,Base,Silver Signature
+silver-signature,410,John Wetteland,Montreal Expos,Base,Silver Signature
+silver-signature,411,Eric Anthony,Seattle Mariners,Base,Silver Signature
+silver-signature,412,Andre Dawson,Boston Red Sox,Base,Silver Signature
+silver-signature,413,Doug Henry,Milwaukee Brewers,Base,Silver Signature
+silver-signature,414,John Franco,New York Mets,Base,Silver Signature
+silver-signature,415,Julio Franco,Chicago White Sox,Base,Silver Signature
+silver-signature,416,Dave Hansen,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,417,Mike Harkey,Colorado Rockies,Base,Silver Signature
+silver-signature,418,Jack Armstrong,Texas Rangers,Base,Silver Signature
+silver-signature,419,Joe Orsulak,New York Mets,Base,Silver Signature
+silver-signature,420,John Smoltz,Atlanta Braves,Base,Silver Signature
+silver-signature,421,Scott Livingstone,Detroit Tigers,Base,Silver Signature
+silver-signature,422,Darren Holmes,Colorado Rockies,Base,Silver Signature
+silver-signature,423,Ed Sprague,Toronto Blue Jays,Base,Silver Signature
+silver-signature,424,Jay Buhner,Seattle Mariners,Base,Silver Signature
+silver-signature,425,Kirby Puckett,Minnesota Twins,Base,Silver Signature
+silver-signature,426,Phil Clark,San Diego Padres,Base,Silver Signature
+silver-signature,427,Anthony Young,Chicago Cubs,Base,Silver Signature
+silver-signature,428,Reggie Jefferson,Seattle Mariners,Base,Silver Signature
+silver-signature,429,Mariano Duncan,Philadelphia Phillies,Base,Silver Signature
+silver-signature,430,Tom Glavine,Atlanta Braves,Base,Silver Signature
+silver-signature,431,Dave Henderson,Kansas City Royals,Base,Silver Signature
+silver-signature,432,Melido Perez,New York Yankees,Base,Silver Signature
+silver-signature,433,Paul Wagner,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,434,Tim Worrell,San Diego Padres,Base,Silver Signature
+silver-signature,435,Ozzie Guillen,Chicago White Sox,Base,Silver Signature
+silver-signature,436,Mike Butcher,California Angels,Base,Silver Signature
+silver-signature,437,Jim Deshaies,Minnesota Twins,Base,Silver Signature
+silver-signature,438,Kevin Young,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,439,Tom Browning,Cincinnati Reds,Base,Silver Signature
+silver-signature,440,Mike Greenwell,Boston Red Sox,Base,Silver Signature
+silver-signature,441,Mike Stanton,Atlanta Braves,Base,Silver Signature
+silver-signature,442,John Doherty,Detroit Tigers,Base,Silver Signature
+silver-signature,443,John Dopson,California Angels,Base,Silver Signature
+silver-signature,444,Carlos Baerga,Cleveland Indians,Base,Silver Signature
+silver-signature,445,Jack McDowell,Chicago White Sox,Base,Silver Signature
+silver-signature,446,Kent Mercker,Atlanta Braves,Base,Silver Signature
+silver-signature,447,Ricky Jordan,Philadelphia Phillies,Base,Silver Signature
+silver-signature,448,Jerry Browne,Florida Marlins,Base,Silver Signature
+silver-signature,449,Fernando Vina,New York Mets,Base,Silver Signature
+silver-signature,450,Jim Abbott,New York Yankees,Base,Silver Signature
+silver-signature,451,Teddy Higuera,Milwaukee Brewers,Base,Silver Signature
+silver-signature,452,Tim Naehring,Boston Red Sox,Base,Silver Signature
+silver-signature,453,Jim Leyritz,New York Yankees,Base,Silver Signature
+silver-signature,454,Frank Castillo,Chicago Cubs,Base,Silver Signature
+silver-signature,455,Joe Carter,Toronto Blue Jays,Base,Silver Signature
+silver-signature,456,Craig Biggio,Houston Astros,Base,Silver Signature
+silver-signature,457,Geronimo Pena,St. Louis Cardinals,Base,Silver Signature
+silver-signature,458,Alejandro Pena,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,459,Mike Moore,Detroit Tigers,Base,Silver Signature
+silver-signature,460,Randy Myers,Chicago Cubs,Base,Silver Signature
+silver-signature,461,Greg Myers,California Angels,Base,Silver Signature
+silver-signature,462,Greg Hibbard,Seattle Mariners,Base,Silver Signature
+silver-signature,463,Jose Guzman,Chicago Cubs,Base,Silver Signature
+silver-signature,464,Tom Pagnozzi,St. Louis Cardinals,Base,Silver Signature
+silver-signature,465,Marquis Grissom,Montreal Expos,Base,Silver Signature
+silver-signature,466,Tim Wallach,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,467,Joe Grahe,California Angels,Base,Silver Signature
+silver-signature,468,Bob Tewksbury,St. Louis Cardinals,Base,Silver Signature
+silver-signature,469,B.J. Surhoff,Milwaukee Brewers,Base,Silver Signature
+silver-signature,470,Kevin Mitchell,Cincinnati Reds,Base,Silver Signature
+silver-signature,471,Bobby Witt,Oakland Athletics,Base,Silver Signature
+silver-signature,472,Milt Thompson,Philadelphia Phillies,Base,Silver Signature
+silver-signature,473,John Smiley,Cincinnati Reds,Base,Silver Signature
+silver-signature,474,Alan Trammell,Detroit Tigers,Base,Silver Signature
+silver-signature,475,Mike Mussina,Baltimore Orioles,Base,Silver Signature
+silver-signature,476,Rick Aguilera,Minnesota Twins,Base,Silver Signature
+silver-signature,477,Jose Valentin,Milwaukee Brewers,Base,Silver Signature
+silver-signature,478,Harold Baines,Baltimore Orioles,Base,Silver Signature
+silver-signature,479,Bip Roberts,San Diego Padres,Base,Silver Signature
+silver-signature,480,Edgar Martinez,Seattle Mariners,Base,Silver Signature
+silver-signature,481,Rheal Cormier,St. Louis Cardinals,Base,Silver Signature
+silver-signature,482,Hal Morris,Cincinnati Reds,Base,Silver Signature
+silver-signature,483,Pat Kelly,New York Yankees,Base,Silver Signature
+silver-signature,484,Roberto Kelly,Cincinnati Reds,Base,Silver Signature
+silver-signature,485,Chris Sabo,Baltimore Orioles,Base,Silver Signature
+silver-signature,486,Kent Hrbek,Minnesota Twins,Base,Silver Signature
+silver-signature,487,Scott Kamieniecki,New York Yankees,Base,Silver Signature
+silver-signature,488,Walt Weiss,Colorado Rockies,Base,Silver Signature
+silver-signature,489,Karl Rhodes,Chicago Cubs,Base,Silver Signature
+silver-signature,490,Derek Bell,San Diego Padres,Base,Silver Signature
+silver-signature,491,Chili Davis,California Angels,Base,Silver Signature
+silver-signature,492,Brian Harper,Milwaukee Brewers,Base,Silver Signature
+silver-signature,493,Felix Jose,Kansas City Royals,Base,Silver Signature
+silver-signature,494,Trevor Hoffman,San Diego Padres,Base,Silver Signature
+silver-signature,495,Dennis Eckersley,Oakland Athletics,Base,Silver Signature
+silver-signature,496,Pedro Astacio,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,497,Jay Bell,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,498,Randy Velarde,New York Yankees,Base,Silver Signature
+silver-signature,499,David Wells,Detroit Tigers,Base,Silver Signature
+silver-signature,500,Frank Thomas,Chicago White Sox,Base,Silver Signature
+silver-signature,501,Mark Lemke,Atlanta Braves,Base,Silver Signature
+silver-signature,502,Mike Devereaux,Baltimore Orioles,Base,Silver Signature
+silver-signature,503,Chuck McElroy,Cincinnati Reds,Base,Silver Signature
+silver-signature,504,Luis Polonia,New York Yankees,Base,Silver Signature
+silver-signature,505,Damion Easley,California Angels,Base,Silver Signature
+silver-signature,506,Greg A. Harris,Boston Red Sox,Base,Silver Signature
+silver-signature,507,Chris James,Texas Rangers,Base,Silver Signature
+silver-signature,508,Terry Mulholland,New York Yankees,Base,Silver Signature
+silver-signature,509,Pete Smith,New York Mets,Base,Silver Signature
+silver-signature,510,Rickey Henderson,Oakland Athletics,Base,Silver Signature
+silver-signature,511,Sid Fernandez,Baltimore Orioles,Base,Silver Signature
+silver-signature,512,Al Leiter,Toronto Blue Jays,Base,Silver Signature
+silver-signature,513,Doug Jones,Philadelphia Phillies,Base,Silver Signature
+silver-signature,514,Steve Farr,Cleveland Indians,Base,Silver Signature
+silver-signature,515,Chuck Finley,California Angels,Base,Silver Signature
+silver-signature,516,Bobby Thigpen,Seattle Mariners,Base,Silver Signature
+silver-signature,517,Jim Edmonds,California Angels,Base,Silver Signature
+silver-signature,518,Graeme Lloyd,Milwaukee Brewers,Base,Silver Signature
+silver-signature,519,Dwight Gooden,New York Mets,Base,Silver Signature
+silver-signature,520,Pat Listach,Milwaukee Brewers,Base,Silver Signature
+silver-signature,521,Kevin Bass,Houston Astros,Base,Silver Signature
+silver-signature,522,Willie Banks,Chicago Cubs,Base,Silver Signature
+silver-signature,523,Steve Finley,Houston Astros,Base,Silver Signature
+silver-signature,524,Delino DeShields,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,525,Mark McGwire,Oakland Athletics,Base,Silver Signature
+silver-signature,526,Greg Swindell,Houston Astros,Base,Silver Signature
+silver-signature,527,Chris Nabholz,Cleveland Indians,Base,Silver Signature
+silver-signature,528,Scott Sanders,San Diego Padres,Base,Silver Signature
+silver-signature,529,David Segui,New York Mets,Base,Silver Signature
+silver-signature,530,Howard Johnson,Colorado Rockies,Base,Silver Signature
+silver-signature,531,Jaime Navarro,Milwaukee Brewers,Base,Silver Signature
+silver-signature,532,Jose Vizcaino,New York Mets,Base,Silver Signature
+silver-signature,533,Mark Lewis,Cleveland Indians,Base,Silver Signature
+silver-signature,534,Pete Harnisch,Houston Astros,Base,Silver Signature
+silver-signature,535,Robby Thompson,San Francisco Giants,Base,Silver Signature
+silver-signature,536,Marcus Moore,Colorado Rockies,Base,Silver Signature
+silver-signature,537,Kevin Brown,Texas Rangers,Base,Silver Signature
+silver-signature,538,Mark Clark,Cleveland Indians,Base,Silver Signature
+silver-signature,539,Sterling Hitchcock,New York Yankees,Base,Silver Signature
+silver-signature,540,Will Clark,Texas Rangers,Base,Silver Signature
+silver-signature,541,Denis Boucher,Montreal Expos,Base,Silver Signature
+silver-signature,542,Jack Morris,Cleveland Indians,Base,Silver Signature
+silver-signature,543,Pedro Munoz,Minnesota Twins,Base,Silver Signature
+silver-signature,544,Bret Boone,Cincinnati Reds,Base,Silver Signature
+silver-signature,545,Ozzie Smith,St. Louis Cardinals,Base,Silver Signature
+silver-signature,546,Dennis Martinez,Cleveland Indians,Base,Silver Signature
+silver-signature,547,Dan Wilson,Seattle Mariners,Base,Silver Signature
+silver-signature,548,Rick Sutcliffe,St. Louis Cardinals,Base,Silver Signature
+silver-signature,549,Kevin McReynolds,New York Mets,Base,Silver Signature
+silver-signature,550,Roger Clemens,Boston Red Sox,Base,Silver Signature
+silver-signature,551,Todd Benzinger,San Francisco Giants,Base,Silver Signature
+silver-signature,552,Bill Haselman,Seattle Mariners,Base,Silver Signature
+silver-signature,553,Bobby Munoz,Philadelphia Phillies,Base,Silver Signature
+silver-signature,554,Ellis Burks,Colorado Rockies,Base,Silver Signature
+silver-signature,555,Ryne Sandberg,Chicago Cubs,Base,Silver Signature
+silver-signature,556,Lee Smith,Baltimore Orioles,Base,Silver Signature
+silver-signature,557,Danny Bautista,Detroit Tigers,Base,Silver Signature
+silver-signature,558,Rey Sanchez,Chicago Cubs,Base,Silver Signature
+silver-signature,559,Norm Charlton,Philadelphia Phillies,Base,Silver Signature
+silver-signature,560,Jose Canseco,Texas Rangers,Base,Silver Signature
+silver-signature,561,Tim Belcher,Detroit Tigers,Base,Silver Signature
+silver-signature,562,Denny Neagle,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,563,Eric Davis,Detroit Tigers,Base,Silver Signature
+silver-signature,564,Jody Reed,Milwaukee Brewers,Base,Silver Signature
+silver-signature,565,Kenny Lofton,Cleveland Indians,Base,Silver Signature
+silver-signature,566,Gary Gaetti,Kansas City Royals,Base,Silver Signature
+silver-signature,567,Todd Worrell,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,568,Mark Portugal,San Francisco Giants,Base,Silver Signature
+silver-signature,569,Dick Schofield,Toronto Blue Jays,Base,Silver Signature
+silver-signature,570,Andy Benes,San Diego Padres,Base,Silver Signature
+silver-signature,571,Zane Smith,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,572,Bobby Ayala,Seattle Mariners,Base,Silver Signature
+silver-signature,573,Chip Hale,Minnesota Twins,Base,Silver Signature
+silver-signature,574,Bob Welch,Oakland Athletics,Base,Silver Signature
+silver-signature,575,Deion Sanders,Atlanta Braves,Base,Silver Signature
+silver-signature,576,Dave Nied,Colorado Rockies,Base,Silver Signature
+silver-signature,577,Pat Mahomes,Minnesota Twins,Base,Silver Signature
+silver-signature,578,Charles Nagy,Cleveland Indians,Base,"Silver Signature; UER: Born in Fairfield, CT should be born in Bridgeport, CT"
+silver-signature,579,Otis Nixon,Boston Red Sox,Base,Silver Signature
+silver-signature,580,Dean Palmer,Texas Rangers,Base,Silver Signature
+silver-signature,581,Roberto Petagine,Houston Astros,Base,Silver Signature
+silver-signature,582,Dwight Smith,California Angels,Base,Silver Signature
+silver-signature,583,Jeff Russell,Boston Red Sox,Base,Silver Signature
+silver-signature,584,Mark Dewey,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,585,Greg Vaughn,Milwaukee Brewers,Base,Silver Signature
+silver-signature,586,Brian Hunter,Pittsburgh Pirates,Base,Silver Signature
+silver-signature,587,Willie McGee,San Francisco Giants,Base,Silver Signature
+silver-signature,588,Pedro J. Martinez,Montreal Expos,Base,"Silver Signature; UER: Born 7/25, should be 10/25"
+silver-signature,589,Roger Salkeld,Seattle Mariners,Base,Silver Signature
+silver-signature,590,Jeff Bagwell,Houston Astros,Base,Silver Signature
+silver-signature,591,Spike Owen,California Angels,Base,Silver Signature
+silver-signature,592,Jeff Reardon,New York Yankees,Base,Silver Signature
+silver-signature,593,Erik Pappas,St. Louis Cardinals,Base,Silver Signature
+silver-signature,594,Brian Williams,Houston Astros,Base,Silver Signature
+silver-signature,595,Eddie Murray,Cleveland Indians,Base,Silver Signature
+silver-signature,596,Henry Rodriguez,Los Angeles Dodgers,Base,Silver Signature
+silver-signature,597,Erik Hanson,Cincinnati Reds,Base,Silver Signature
+silver-signature,598,Stan Javier,Oakland Athletics,Base,Silver Signature
+silver-signature,599,Mitch Williams,Houston Astros,Base,Silver Signature
+silver-signature,600,John Olerud,Toronto Blue Jays,Base,Silver Signature
+silver-signature,601,Vince Coleman,Kansas City Royals,Base,Silver Signature
+silver-signature,602,Damon Berryhill,Boston Red Sox,Base,Silver Signature
+silver-signature,603,Tom Brunansky,Milwaukee Brewers,Base,Silver Signature
+silver-signature,604,Robb Nen,Florida Marlins,Base,Silver Signature
+silver-signature,605,Rafael Palmeiro,Baltimore Orioles,Base,Silver Signature
+silver-signature,606,Cal Eldred,Milwaukee Brewers,Base,Silver Signature
+silver-signature,607,Jeff Brantley,Cincinnati Reds,Base,Silver Signature
+silver-signature,608,Alan Mills,Baltimore Orioles,Base,Silver Signature
+silver-signature,609,Jeff Nelson,Seattle Mariners,Base,Silver Signature
+silver-signature,610,Barry Bonds,San Francisco Giants,Base,Silver Signature
+silver-signature,611,Carlos Pulido RC,Minnesota Twins,Base,Silver Signature
+silver-signature,612,Tim Hyers RC,San Diego Padres,Base,Silver Signature
+silver-signature,613,Steve Howe,New York Yankees,Base,Silver Signature
+silver-signature,614,Brian Turang RC,Seattle Mariners,Base,Silver Signature
+silver-signature,615,Leo Gomez,Baltimore Orioles,Base,Silver Signature
+silver-signature,616,Jesse Orosco,Milwaukee Brewers,Base,Silver Signature
+silver-signature,617,Dan Pasqua,Chicago White Sox,Base,Silver Signature
+silver-signature,618,Marvin Freeman,Colorado Rockies,Base,Silver Signature
+silver-signature,619,Tony Fernandez,Cincinnati Reds,Base,Silver Signature
+silver-signature,620,Albert Belle,Cleveland Indians,Base,Silver Signature
+silver-signature,621,Eddie Taubensee,Houston Astros,Base,Silver Signature
+silver-signature,622,Mike Jackson,San Francisco Giants,Base,Silver Signature
+silver-signature,623,Jose Bautista,Chicago Cubs,Base,Silver Signature
+silver-signature,624,Jim Thome,Cleveland Indians,Base,Silver Signature
+silver-signature,625,Ivan Rodriguez,Texas Rangers,Base,Silver Signature
+silver-signature,626,Ben Rivera,Philadelphia Phillies,Base,Silver Signature
+silver-signature,627,Dave Valle,Boston Red Sox,Base,Silver Signature
+silver-signature,628,Tom Henke,Texas Rangers,Base,Silver Signature
+silver-signature,629,Omar Vizquel,Cleveland Indians,Base,Silver Signature
+silver-signature,630,Juan Gonzalez,Texas Rangers,Base,Silver Signature
+silver-signature,631,Roberto Alomar,Toronto Blue Jays,Up Close,Silver Signature; Silver stripe on lower front
+silver-signature,632,Barry Bonds,San Francisco Giants,Up Close,Silver Signature; Silver stripe on lower front
+silver-signature,633,Juan Gonzalez,Texas Rangers,Up Close,Silver Signature; Silver stripe on lower front
+silver-signature,634,Ken Griffey Jr.,Seattle Mariners,Up Close,Silver Signature; Silver stripe on lower front
+silver-signature,635,Michael Jordan,Chicago White Sox,Up Close,Silver Signature; Silver stripe on lower front
+silver-signature,636,David Justice,Atlanta Braves,Up Close,Silver Signature; Silver stripe on lower front
+silver-signature,637,Mike Piazza,Los Angeles Dodgers,Up Close,Silver Signature; Silver stripe on lower front
+silver-signature,638,Kirby Puckett,Minnesota Twins,Up Close,Silver Signature; Silver stripe on lower front
+silver-signature,639,Tim Salmon,California Angels,Up Close,Silver Signature; Silver stripe on lower front
+silver-signature,640,Frank Thomas,Chicago White Sox,Up Close,Silver Signature; Silver stripe on lower front
+silver-signature,641,Alan Benes RC,St. Louis Cardinals,Future Foundations,Silver Signature
+silver-signature,642,Johnny Damon,Kansas City Royals,Future Foundations,Silver Signature
+silver-signature,643,Brad Fullmer RC,Montreal Expos,Future Foundations,Silver Signature
+silver-signature,644,Derek Jeter,New York Yankees,Future Foundations,Silver Signature
+silver-signature,645,Derrek Lee RC,San Diego Padres,Future Foundations,Silver Signature
+silver-signature,646,Alex Ochoa,Baltimore Orioles,Future Foundations,Silver Signature
+silver-signature,647,Alex Rodriguez RC,Seattle Mariners,Future Foundations,Silver Signature
+silver-signature,648,Jose Silva RC,Toronto Blue Jays,Future Foundations,Silver Signature
+silver-signature,649,Terrell Wade RC,Atlanta Braves,Future Foundations,Silver Signature
+silver-signature,650,Preston Wilson,New York Mets,Future Foundations,Silver Signature
+silver-signature,651,Shane Andrews,Montreal Expos,Rookie Class,Silver Signature
+silver-signature,652,James Baldwin,Chicago White Sox,Rookie Class,Silver Signature
+silver-signature,653,Ricky Bottalico RC,Philadelphia Phillies,Rookie Class,Silver Signature
+silver-signature,654,Tavo Alvarez,Montreal Expos,Rookie Class,Silver Signature
+silver-signature,655,Donnie Elliott,San Diego Padres,Rookie Class,Silver Signature
+silver-signature,656,Joey Eischen,Montreal Expos,Rookie Class,Silver Signature
+silver-signature,657,Jason Giambi,Oakland Athletics,Rookie Class,Silver Signature
+silver-signature,658,Todd Hollandsworth,Los Angeles Dodgers,Rookie Class,Silver Signature
+silver-signature,659,Brian L. Hunter,Houston Astros,Rookie Class,Silver Signature
+silver-signature,660,Charles Johnson,Florida Marlins,Rookie Class,Silver Signature
+silver-signature,661,Michael Jordan RC,Chicago White Sox,Rookie Class,Silver Signature
+silver-signature,662,Jeff Juden,Philadelphia Phillies,Rookie Class,Silver Signature
+silver-signature,663,Mike Kelly,Atlanta Braves,Rookie Class,Silver Signature
+silver-signature,664,James Mouton,Houston Astros,Rookie Class,Silver Signature
+silver-signature,665,Ray Holbert,San Diego Padres,Rookie Class,Silver Signature
+silver-signature,666,Pokey Reese,Cincinnati Reds,Rookie Class,Silver Signature
+silver-signature,667,Ruben Santana RC,Seattle Mariners,Rookie Class,Silver Signature
+silver-signature,668,Paul Spoljaric,Toronto Blue Jays,Rookie Class,Silver Signature
+silver-signature,669,Luis Lopez,San Diego Padres,Rookie Class,Silver Signature
+silver-signature,670,Matt Walbeck,Minnesota Twins,Rookie Class,Silver Signature
+gold-signature,1,Rich Becker,Minnesota Twins,Rookie Class,Gold Signature
+gold-signature,2,Greg Blosser,Boston Red Sox,Rookie Class,Gold Signature
+gold-signature,3,Midre Cummings,Pittsburgh Pirates,Rookie Class,Gold Signature
+gold-signature,4,Carlos Delgado,Toronto Blue Jays,Rookie Class,Gold Signature
+gold-signature,5,Steve Dreyer RC,Texas Rangers,Rookie Class,Gold Signature
+gold-signature,6,Carl Everett,Florida Marlins,Rookie Class,Gold Signature
+gold-signature,7,Cliff Floyd,Montreal Expos,Rookie Class,Gold Signature
+gold-signature,8,Alex Gonzalez,Toronto Blue Jays,Rookie Class,Gold Signature
+gold-signature,9,Shawn Green,Toronto Blue Jays,Rookie Class,Gold Signature
+gold-signature,10,Butch Huskey,New York Mets,Rookie Class,Gold Signature
+gold-signature,11,Mark Hutton,New York Yankees,Rookie Class,Gold Signature
+gold-signature,12,Miguel Jimenez,Oakland Athletics,Rookie Class,Gold Signature
+gold-signature,13,Steve Karsay,Oakland Athletics,Rookie Class,Gold Signature
+gold-signature,14,Marc Newfield,Seattle Mariners,Rookie Class,Gold Signature
+gold-signature,15,Luis Ortiz,Boston Red Sox,Rookie Class,Gold Signature
+gold-signature,16,Manny Ramirez,Cleveland Indians,Rookie Class,Gold Signature
+gold-signature,17,Johnny Ruffin,Cincinnati Reds,Rookie Class,Gold Signature
+gold-signature,18,Scott Stahoviak,Minnesota Twins,Rookie Class,Gold Signature
+gold-signature,19,Salomon Torres,San Francisco Giants,Rookie Class,Gold Signature
+gold-signature,20,Gabe White,Montreal Expos,Rookie Class,Gold Signature
+gold-signature,21,Brian Anderson RC,California Angels,First Draft Picks,Gold Signature
+gold-signature,22,Wayne Gomes RC,Philadelphia Phillies,First Draft Picks,Gold Signature
+gold-signature,23,Jeff Granger,Kansas City Royals,First Draft Picks,Gold Signature
+gold-signature,24,Steve Soderstrom RC,San Francisco Giants,First Draft Picks,Gold Signature
+gold-signature,25,Trot Nixon RC,Boston Red Sox,First Draft Picks,Gold Signature
+gold-signature,26,Kirk Presley RC,New York Mets,First Draft Picks,Gold Signature
+gold-signature,27,Matt Brunson RC,Detroit Tigers,First Draft Picks,Gold Signature
+gold-signature,28,Brooks Kieschnick RC,Chicago Cubs,First Draft Picks,Gold Signature
+gold-signature,29,Billy Wagner RC,Houston Astros,First Draft Picks,Gold Signature
+gold-signature,30,Matt Drews RC,New York Yankees,First Draft Picks,Gold Signature
+gold-signature,31,Kurt Abbott RC,Oakland Athletics,Base,Gold Signature
+gold-signature,32,Luis Alicea,St. Louis Cardinals,Base,Gold Signature
+gold-signature,33,Roberto Alomar,Toronto Blue Jays,Base,Gold Signature
+gold-signature,34,Sandy Alomar Jr.,Cleveland Indians,Base,Gold Signature
+gold-signature,35,Moises Alou,Montreal Expos,Base,Gold Signature
+gold-signature,36,Wilson Alvarez,Chicago White Sox,Base,Gold Signature
+gold-signature,37,Rich Amaral,Seattle Mariners,Base,Gold Signature
+gold-signature,38,Eric Anthony,Houston Astros,Base,Gold Signature
+gold-signature,39,Luis Aquino,Florida Marlins,Base,Gold Signature
+gold-signature,40,Jack Armstrong,Florida Marlins,Base,Gold Signature
+gold-signature,41,Rene Arocha,St. Louis Cardinals,Base,Gold Signature
+gold-signature,42,Rich Aude RC,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,43,Brad Ausmus,San Diego Padres,Base,Gold Signature
+gold-signature,44,Steve Avery,Atlanta Braves,Base,Gold Signature
+gold-signature,45,Bob Ayrault,Seattle Mariners,Base,Gold Signature
+gold-signature,46,Willie Banks,Minnesota Twins,Base,Gold Signature
+gold-signature,47,Bret Barberie,Florida Marlins,Base,Gold Signature
+gold-signature,48,Kim Batiste,Philadelphia Phillies,Base,Gold Signature
+gold-signature,49,Rod Beck,San Francisco Giants,Base,Gold Signature
+gold-signature,50,Jason Bere,Chicago White Sox,Base,Gold Signature
+gold-signature,51,Sean Berry,Montreal Expos,Base,Gold Signature
+gold-signature,52,Dante Bichette,Colorado Rockies,Base,Gold Signature
+gold-signature,53,Jeff Blauser,Atlanta Braves,Base,Gold Signature
+gold-signature,54,Mike Blowers,Seattle Mariners,Base,Gold Signature
+gold-signature,55,Tim Bogar,New York Mets,Base,Gold Signature
+gold-signature,56,Tom Bolton,Detroit Tigers,Base,Gold Signature
+gold-signature,57,Ricky Bones,Milwaukee Brewers,Base,Gold Signature
+gold-signature,58,Bobby Bonilla,New York Mets,Base,Gold Signature
+gold-signature,59,Bret Boone,Seattle Mariners,Base,Gold Signature
+gold-signature,60,Pat Borders,Toronto Blue Jays,Base,Gold Signature
+gold-signature,61,Mike Bordick,Oakland Athletics,Base,Gold Signature
+gold-signature,62,Daryl Boston,Colorado Rockies,Base,Gold Signature
+gold-signature,63,Ryan Bowen,Florida Marlins,Base,Gold Signature
+gold-signature,64,Jeff Branson,Cincinnati Reds,Base,Gold Signature
+gold-signature,65,George Brett,Kansas City Royals,Base,Gold Signature
+gold-signature,66,Steve Buechele,Chicago Cubs,Base,Gold Signature
+gold-signature,67,Dave Burba,San Francisco Giants,Base,Gold Signature
+gold-signature,68,John Burkett,San Francisco Giants,Base,Gold Signature
+gold-signature,69,Jeromy Burnitz,New York Mets,Base,Gold Signature
+gold-signature,70,Brett Butler,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,71,Rob Butler,Toronto Blue Jays,Base,Gold Signature
+gold-signature,72,Ken Caminiti,Houston Astros,Base,Gold Signature
+gold-signature,73,Cris Carpenter,Texas Rangers,Base,Gold Signature
+gold-signature,74,Vinny Castilla,Colorado Rockies,Base,Gold Signature
+gold-signature,75,Andujar Cedeno,Houston Astros,Base,Gold Signature
+gold-signature,76,Wes Chamberlain,Philadelphia Phillies,Base,Gold Signature
+gold-signature,77,Archi Cianfrocco,San Diego Padres,Base,Gold Signature
+gold-signature,78,Dave Clark,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,79,Jerald Clark,Colorado Rockies,Base,Gold Signature
+gold-signature,80,Royce Clayton,San Francisco Giants,Base,Gold Signature
+gold-signature,81,David Cone,Kansas City Royals,Base,Gold Signature
+gold-signature,82,Jeff Conine,Florida Marlins,Base,Gold Signature
+gold-signature,83,Steve Cooke,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,84,Scott Cooper,Boston Red Sox,Base,Gold Signature
+gold-signature,85,Joey Cora,Chicago White Sox,Base,Gold Signature
+gold-signature,86,Tim Costo,Cincinnati Reds,Base,Gold Signature
+gold-signature,87,Chad Curtis,California Angels,Base,Gold Signature
+gold-signature,88,Ron Darling,Oakland Athletics,Base,Gold Signature
+gold-signature,89,Danny Darwin,Boston Red Sox,Base,Gold Signature
+gold-signature,90,Rob Deer,Boston Red Sox,Base,Gold Signature
+gold-signature,91,Jim Deshaies,San Francisco Giants,Base,Gold Signature
+gold-signature,92,Delino DeShields,Montreal Expos,Base,Gold Signature
+gold-signature,93,Rob Dibble,Cincinnati Reds,Base,Gold Signature
+gold-signature,94,Gary DiSarcina,California Angels,Base,Gold Signature
+gold-signature,95,Doug Drabek,Houston Astros,Base,Gold Signature
+gold-signature,96,Scott Erickson,Minnesota Twins,Base,Gold Signature
+gold-signature,97,Rikkert Faneyte RC,San Francisco Giants,Base,Gold Signature
+gold-signature,98,Jeff Fassero,Montreal Expos,Base,Gold Signature
+gold-signature,99,Alex Fernandez,Chicago White Sox,Base,Gold Signature
+gold-signature,100,Cecil Fielder,Detroit Tigers,Base,Gold Signature
+gold-signature,101,Dave Fleming,Seattle Mariners,Base,Gold Signature
+gold-signature,102,Darrin Fletcher,Montreal Expos,Base,Gold Signature
+gold-signature,103,Scott Fletcher,Boston Red Sox,Base,Gold Signature
+gold-signature,104,Mike Gallego,New York Yankees,Base,Gold Signature
+gold-signature,105,Carlos Garcia,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,106,Jeff Gardner,San Diego Padres,Base,Gold Signature
+gold-signature,107,Brent Gates,Oakland Athletics,Base,Gold Signature
+gold-signature,108,Benji Gil,Texas Rangers,Base,Gold Signature
+gold-signature,109,Bernard Gilkey,St. Louis Cardinals,Base,Gold Signature
+gold-signature,110,Chris Gomez,Detroit Tigers,Base,Gold Signature
+gold-signature,111,Luis Gonzalez,Houston Astros,Base,Gold Signature
+gold-signature,112,Tom Gordon,Kansas City Royals,Base,Gold Signature
+gold-signature,113,Jim Gott,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,114,Mark Grace,Chicago Cubs,Base,Gold Signature
+gold-signature,115,Tommy Greene,Philadelphia Phillies,Base,Gold Signature
+gold-signature,116,Willie Greene,Cincinnati Reds,Base,Gold Signature
+gold-signature,117,Ken Griffey Jr.,Seattle Mariners,Base,Gold Signature
+gold-signature,118,Bill Gullickson,Detroit Tigers,Base,Gold Signature
+gold-signature,119,Ricky Gutierrez,San Diego Padres,Base,Gold Signature
+gold-signature,120,Juan Guzman,Toronto Blue Jays,Base,Gold Signature
+gold-signature,121,Chris Gwynn,Kansas City Royals,Base,Gold Signature
+gold-signature,122,Tony Gwynn,San Diego Padres,Base,Gold Signature
+gold-signature,123,Jeffrey Hammonds,Baltimore Orioles,Base,Gold Signature; UER: Facsimile autograph belongs to Roland Hemond
+gold-signature,124,Erik Hanson,Seattle Mariners,Base,Gold Signature
+gold-signature,125,Gene Harris,San Diego Padres,Base,Gold Signature
+gold-signature,126,Greg W. Harris,Colorado Rockies,Base,Gold Signature
+gold-signature,127,Bryan Harvey,Florida Marlins,Base,Gold Signature
+gold-signature,128,Billy Hatcher,Boston Red Sox,Base,Gold Signature
+gold-signature,129,Hilly Hathaway,California Angels,Base,Gold Signature
+gold-signature,130,Charlie Hayes,Colorado Rockies,Base,Gold Signature
+gold-signature,131,Rickey Henderson,Toronto Blue Jays,Base,Gold Signature
+gold-signature,132,Mike Henneman,Detroit Tigers,Base,Gold Signature
+gold-signature,133,Pat Hentgen,Toronto Blue Jays,Base,Gold Signature
+gold-signature,134,Roberto Hernandez,Chicago White Sox,Base,Gold Signature
+gold-signature,135,Orel Hershiser,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,136,Phil Hiatt,Kansas City Royals,Base,Gold Signature
+gold-signature,137,Glenallen Hill,Chicago Cubs,Base,Gold Signature
+gold-signature,138,Ken Hill,Montreal Expos,Base,Gold Signature
+gold-signature,139,Eric Hillman,New York Mets,Base,Gold Signature
+gold-signature,140,Chris Hoiles,Baltimore Orioles,Base,Gold Signature
+gold-signature,141,Dave Hollins,Philadelphia Phillies,Base,Gold Signature
+gold-signature,142,David Hulse,Texas Rangers,Base,Gold Signature
+gold-signature,143,Todd Hundley,New York Mets,Base,Gold Signature
+gold-signature,144,Pete Incaviglia,Philadelphia Phillies,Base,Gold Signature
+gold-signature,145,Danny Jackson,Philadelphia Phillies,Base,Gold Signature
+gold-signature,146,John Jaha,Milwaukee Brewers,Base,Gold Signature
+gold-signature,147,Domingo Jean,New York Yankees,Base,Gold Signature
+gold-signature,148,Gregg Jefferies,St. Louis Cardinals,Base,Gold Signature
+gold-signature,149,Reggie Jefferson,Cleveland Indians,Base,Gold Signature
+gold-signature,150,Lance Johnson,Chicago White Sox,Base,Gold Signature
+gold-signature,151,Bobby Jones,New York Mets,Base,Gold Signature
+gold-signature,152,Chipper Jones,Atlanta Braves,Base,Gold Signature
+gold-signature,153,Todd Jones,Houston Astros,Base,Gold Signature
+gold-signature,154,Brian Jordan,St. Louis Cardinals,Base,Gold Signature
+gold-signature,155,Wally Joyner,Kansas City Royals,Base,Gold Signature
+gold-signature,156,David Justice,Atlanta Braves,Base,Gold Signature
+gold-signature,157,Ron Karkovice,Chicago White Sox,Base,Gold Signature
+gold-signature,158,Eric Karros,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,159,Jeff Kent,New York Mets,Base,Gold Signature
+gold-signature,160,Jimmy Key,New York Yankees,Base,Gold Signature
+gold-signature,161,Mark Kiefer,Milwaukee Brewers,Base,Gold Signature
+gold-signature,162,Darryl Kile,Houston Astros,Base,Gold Signature
+gold-signature,163,Jeff King,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,164,Wayne Kirby,Cleveland Indians,Base,Gold Signature
+gold-signature,165,Ryan Klesko,Atlanta Braves,Base,Gold Signature
+gold-signature,166,Chuck Knoblauch,Minnesota Twins,Base,Gold Signature
+gold-signature,167,Chad Kreuter,Detroit Tigers,Base,Gold Signature
+gold-signature,168,John Kruk,Philadelphia Phillies,Base,Gold Signature
+gold-signature,169,Mark Langston,California Angels,Base,Gold Signature
+gold-signature,170,Mike Lansing,Montreal Expos,Base,Gold Signature
+gold-signature,171,Barry Larkin,Cincinnati Reds,Base,Gold Signature
+gold-signature,172,Manuel Lee,Texas Rangers,Base,Gold Signature
+gold-signature,173,Phil Leftwich RC,California Angels,Base,Gold Signature
+gold-signature,174,Darren Lewis,San Francisco Giants,Base,Gold Signature
+gold-signature,175,Derek Lilliquist,Cleveland Indians,Base,Gold Signature
+gold-signature,176,Jose Lind,Kansas City Royals,Base,Gold Signature
+gold-signature,177,Albie Lopez,Cleveland Indians,Base,Gold Signature
+gold-signature,178,Javy Lopez,Atlanta Braves,Base,Gold Signature
+gold-signature,179,Torey Lovullo,California Angels,Base,Gold Signature
+gold-signature,180,Scott Lydy,Oakland Athletics,Base,Gold Signature
+gold-signature,181,Mike Macfarlane,Kansas City Royals,Base,Gold Signature
+gold-signature,182,Shane Mack,Minnesota Twins,Base,Gold Signature
+gold-signature,183,Greg Maddux,Atlanta Braves,Base,Gold Signature
+gold-signature,184,Dave Magadan,Seattle Mariners,Base,Gold Signature
+gold-signature,185,Joe Magrane,California Angels,Base,Gold Signature
+gold-signature,186,Kirt Manwaring,San Francisco Giants,Base,Gold Signature
+gold-signature,187,Al Martin,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,188,Pedro A. Martinez RC,San Diego Padres,Base,Gold Signature
+gold-signature,189,Pedro J. Martinez,Los Angeles Dodgers,Base,"Gold Signature; UER: Born 7/25, should be 10/25"
+gold-signature,190,Ramon Martinez,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,191,Tino Martinez,Seattle Mariners,Base,Gold Signature
+gold-signature,192,Don Mattingly,New York Yankees,Base,Gold Signature
+gold-signature,193,Derrick May,Chicago Cubs,Base,Gold Signature
+gold-signature,194,David McCarty,Minnesota Twins,Base,Gold Signature
+gold-signature,195,Ben McDonald,Baltimore Orioles,Base,Gold Signature
+gold-signature,196,Roger McDowell,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,197,Fred McGriff,Atlanta Braves,Base,Gold Signature; UER: lists 1989 SB total as 73 (should be 7)
+gold-signature,198,Mark McLemore,Baltimore Orioles,Base,Gold Signature
+gold-signature,199,Greg McMichael,Atlanta Braves,Base,"Gold Signature; UER: Last name misspelled ""Mc Michael"" on front and back"
+gold-signature,200,Jeff McNeely,Boston Red Sox,Base,Gold Signature
+gold-signature,201,Brian McRae,Kansas City Royals,Base,Gold Signature
+gold-signature,202,Pat Meares,Minnesota Twins,Base,Gold Signature
+gold-signature,203,Roberto Mejia,Colorado Rockies,Base,Gold Signature
+gold-signature,204,Orlando Merced,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,205,Jose Mesa,Cleveland Indians,Base,Gold Signature
+gold-signature,206,Blas Minor,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,207,Angel Miranda,Milwaukee Brewers,Base,Gold Signature
+gold-signature,208,Paul Molitor,Toronto Blue Jays,Base,Gold Signature
+gold-signature,209,Raul Mondesi,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,210,Jeff Montgomery,Kansas City Royals,Base,Gold Signature
+gold-signature,211,Mickey Morandini,Philadelphia Phillies,Base,Gold Signature
+gold-signature,212,Mike Morgan,Chicago Cubs,Base,Gold Signature
+gold-signature,213,Jamie Moyer,Baltimore Orioles,Base,Gold Signature
+gold-signature,214,Bobby Munoz,New York Yankees,Base,Gold Signature
+gold-signature,215,Troy Neel,Oakland Athletics,Base,Gold Signature
+gold-signature,216,Dave Nilsson,Milwaukee Brewers,Base,Gold Signature
+gold-signature,217,John O'Donoghue,Baltimore Orioles,Base,Gold Signature
+gold-signature,218,Paul O'Neill,New York Yankees,Base,Gold Signature
+gold-signature,219,Jose Offerman,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,220,Joe Oliver,Cincinnati Reds,Base,Gold Signature
+gold-signature,221,Greg Olson,Atlanta Braves,Base,Gold Signature
+gold-signature,222,Donovan Osborne,St. Louis Cardinals,Base,Gold Signature
+gold-signature,223,Jayhawk Owens,Colorado Rockies,Base,Gold Signature
+gold-signature,224,Mike Pagliarulo,Baltimore Orioles,Base,Gold Signature
+gold-signature,225,Craig Paquette,Oakland Athletics,Base,Gold Signature
+gold-signature,226,Roger Pavlik,Texas Rangers,Base,Gold Signature
+gold-signature,227,Brad Pennington,Baltimore Orioles,Base,Gold Signature
+gold-signature,228,Eduardo Perez,California Angels,Base,Gold Signature
+gold-signature,229,Mike Perez,St. Louis Cardinals,Base,Gold Signature
+gold-signature,230,Tony Phillips,Detroit Tigers,Base,Gold Signature
+gold-signature,231,Hipolito Pichardo,Kansas City Royals,Base,Gold Signature
+gold-signature,232,Phil Plantier,San Diego Padres,Base,Gold Signature
+gold-signature,233,Curtis Pride RC,Montreal Expos,Base,Gold Signature
+gold-signature,234,Tim Pugh,Cincinnati Reds,Base,Gold Signature
+gold-signature,235,Scott Radinsky,Chicago White Sox,Base,Gold Signature
+gold-signature,236,Pat Rapp,Florida Marlins,Base,Gold Signature
+gold-signature,237,Kevin Reimer,Milwaukee Brewers,Base,Gold Signature
+gold-signature,238,Armando Reynoso,Colorado Rockies,Base,Gold Signature
+gold-signature,239,Jose Rijo,Cincinnati Reds,Base,Gold Signature
+gold-signature,240,Cal Ripken Jr.,Baltimore Orioles,Base,Gold Signature
+gold-signature,241,Kevin Roberson,Chicago Cubs,Base,Gold Signature
+gold-signature,242,Kenny Rogers,Texas Rangers,Base,Gold Signature
+gold-signature,243,Kevin Rogers,San Francisco Giants,Base,Gold Signature
+gold-signature,244,Mel Rojas,Montreal Expos,Base,Gold Signature
+gold-signature,245,John Roper,Cincinnati Reds,Base,Gold Signature
+gold-signature,246,Kirk Rueter,Montreal Expos,Base,Gold Signature
+gold-signature,247,Scott Ruffcorn,Chicago White Sox,Base,Gold Signature
+gold-signature,248,Ken Ryan,Boston Red Sox,Base,Gold Signature
+gold-signature,249,Nolan Ryan,Texas Rangers,Base,Gold Signature
+gold-signature,250,Bret Saberhagen,New York Mets,Base,Gold Signature
+gold-signature,251,Tim Salmon,California Angels,Base,Gold Signature
+gold-signature,252,Reggie Sanders,Cincinnati Reds,Base,Gold Signature
+gold-signature,253,Curt Schilling,Philadelphia Phillies,Base,Gold Signature
+gold-signature,254,David Segui,Baltimore Orioles,Base,Gold Signature
+gold-signature,255,Aaron Sele,Boston Red Sox,Base,Gold Signature
+gold-signature,256,Scott Servais,Houston Astros,Base,Gold Signature
+gold-signature,257,Gary Sheffield,Florida Marlins,Base,Gold Signature
+gold-signature,258,Ruben Sierra,Oakland Athletics,Base,Gold Signature
+gold-signature,259,Don Slaught,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,260,Lee Smith,New York Yankees,Base,Gold Signature
+gold-signature,261,Cory Snyder,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,262,Paul Sorrento,Cleveland Indians,Base,Gold Signature
+gold-signature,263,Sammy Sosa,Chicago Cubs,Base,Gold Signature
+gold-signature,264,Bill Spiers,Milwaukee Brewers,Base,Gold Signature
+gold-signature,265,Mike Stanley,New York Yankees,Base,Gold Signature
+gold-signature,266,Dave Staton,San Diego Padres,Base,Gold Signature
+gold-signature,267,Terry Steinbach,Oakland Athletics,Base,Gold Signature
+gold-signature,268,Kevin Stocker,Philadelphia Phillies,Base,Gold Signature
+gold-signature,269,Todd Stottlemyre,Toronto Blue Jays,Base,Gold Signature
+gold-signature,270,Doug Strange,Texas Rangers,Base,Gold Signature
+gold-signature,271,Bill Swift,San Francisco Giants,Base,Gold Signature
+gold-signature,272,Kevin Tapani,Minnesota Twins,Base,Gold Signature
+gold-signature,273,Tony Tarasco,Atlanta Braves,Base,Gold Signature
+gold-signature,274,Julian Tavarez RC,Cleveland Indians,Base,Gold Signature
+gold-signature,275,Mickey Tettleton,Detroit Tigers,Base,Gold Signature
+gold-signature,276,Ryan Thompson,New York Mets,Base,Gold Signature
+gold-signature,277,Chris Turner,California Angels,Base,Gold Signature
+gold-signature,278,John Valentin,Boston Red Sox,Base,Gold Signature
+gold-signature,279,Todd Van Poppel,Oakland Athletics,Base,Gold Signature
+gold-signature,280,Andy Van Slyke,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,281,Mo Vaughn,Boston Red Sox,Base,Gold Signature
+gold-signature,282,Robin Ventura,Chicago White Sox,Base,Gold Signature
+gold-signature,283,Frank Viola,Boston Red Sox,Base,Gold Signature
+gold-signature,284,Jose Vizcaino,Chicago Cubs,Base,Gold Signature
+gold-signature,285,Omar Vizquel,Seattle Mariners,Base,Gold Signature
+gold-signature,286,Larry Walker,Montreal Expos,Base,Gold Signature
+gold-signature,287,Duane Ward,Toronto Blue Jays,Base,Gold Signature
+gold-signature,288,Allen Watson,St. Louis Cardinals,Base,Gold Signature
+gold-signature,289,Bill Wegman,Milwaukee Brewers,Base,Gold Signature
+gold-signature,290,Turk Wendell,Chicago Cubs,Base,Gold Signature
+gold-signature,291,Lou Whitaker,Detroit Tigers,Base,Gold Signature
+gold-signature,292,Devon White,Toronto Blue Jays,Base,Gold Signature
+gold-signature,293,Rondell White,Montreal Expos,Base,Gold Signature
+gold-signature,294,Mark Whiten,St. Louis Cardinals,Base,Gold Signature
+gold-signature,295,Darrell Whitmore,Florida Marlins,Base,Gold Signature
+gold-signature,296,Bob Wickman,New York Yankees,Base,Gold Signature
+gold-signature,297,Rick Wilkins,Chicago Cubs,Base,Gold Signature
+gold-signature,298,Bernie Williams,New York Yankees,Base,Gold Signature
+gold-signature,299,Matt Williams,San Francisco Giants,Base,Gold Signature
+gold-signature,300,Woody Williams,Toronto Blue Jays,Base,Gold Signature
+gold-signature,301,Nigel Wilson,Florida Marlins,Base,Gold Signature
+gold-signature,302,Dave Winfield,Minnesota Twins,Base,Gold Signature
+gold-signature,303,Anthony Young,New York Mets,Base,Gold Signature
+gold-signature,304,Eric Young,Colorado Rockies,Base,Gold Signature
+gold-signature,305,Todd Zeile,St. Louis Cardinals,Base,Gold Signature
+gold-signature,306,John Burkett / Tom Glavine / Jack McDowell,San Francisco Giants / Atlanta Braves / Chicago White Sox,Top Performers,Gold Signature; Wins Leaders
+gold-signature,307,Randy Johnson,Seattle Mariners,Top Performers,Gold Signature; Strikeouts Leader
+gold-signature,308,Randy Myers,Chicago Cubs,Top Performers,Gold Signature; Saves Leader
+gold-signature,309,Jack McDowell,Chicago White Sox,Top Performers,Gold Signature; Cy Young Award Winner
+gold-signature,310,Mike Piazza,Los Angeles Dodgers,Top Performers,Gold Signature; Rookie-of-the-Year
+gold-signature,311,Barry Bonds,San Francisco Giants,Top Performers,Gold Signature; Most Valuable Player
+gold-signature,312,Andres Galarraga,Colorado Rockies,Top Performers,Gold Signature; Batting Champion
+gold-signature,313,Juan Gonzalez / Barry Bonds,Texas Rangers / San Francisco Giants,Top Performers,Gold Signature; Home Run Champions
+gold-signature,314,Albert Belle,Cleveland Indians,Top Performers,Gold Signature; RBI Leader
+gold-signature,315,Kenny Lofton,Cleveland Indians,Top Performers,Gold Signature; Stolen Bases Leader
+gold-signature,316,Barry Bonds,San Francisco Giants,Checklist,Gold Signature; Checklist: 1-64
+gold-signature,317,Ken Griffey Jr.,Seattle Mariners,Checklist,Gold Signature; Checklist: 65-128
+gold-signature,318,Mike Piazza,Los Angeles Dodgers,Checklist,Gold Signature; Checklist: 129-192
+gold-signature,319,Kirby Puckett,Minnesota Twins,Checklist,Gold Signature; Checklist: 193-256
+gold-signature,320,Nolan Ryan,Texas Rangers,Checklist,Gold Signature; Checklist: 257-320
+gold-signature,321,Roberto Alomar,Toronto Blue Jays,Checklist,Gold Signature; Checklist: 321-370
+gold-signature,322,Roger Clemens,Boston Red Sox,Checklist,Gold Signature; Checklist: 371-420
+gold-signature,323,Juan Gonzalez,Texas Rangers,Checklist,Gold Signature; Checklist: 421-470
+gold-signature,324,Ken Griffey Jr.,Seattle Mariners,Checklist,Gold Signature; Checklist: 471-520
+gold-signature,325,David Justice,Atlanta Braves,Checklist,Gold Signature; Checklist: 521-570
+gold-signature,326,John Kruk,Philadelphia Phillies,Checklist,Gold Signature; Checklist: 571-620
+gold-signature,327,Frank Thomas,Chicago White Sox,Checklist,Gold Signature; Checklist: 621-670
+gold-signature,328,Tim Salmon,California Angels,Team Checklist,Gold Signature
+gold-signature,329,Jeff Bagwell,Houston Astros,Team Checklist,Gold Signature
+gold-signature,330,Mark McGwire,Oakland Athletics,Team Checklist,Gold Signature
+gold-signature,331,Roberto Alomar,Toronto Blue Jays,Team Checklist,Gold Signature
+gold-signature,332,David Justice,Atlanta Braves,Team Checklist,Gold Signature
+gold-signature,333,Pat Listach,Milwaukee Brewers,Team Checklist,Gold Signature
+gold-signature,334,Ozzie Smith,St. Louis Cardinals,Team Checklist,Gold Signature
+gold-signature,335,Ryne Sandberg,Chicago Cubs,Team Checklist,Gold Signature
+gold-signature,336,Mike Piazza,Los Angeles Dodgers,Team Checklist,Gold Signature
+gold-signature,337,Cliff Floyd,Montreal Expos,Team Checklist,Gold Signature
+gold-signature,338,Barry Bonds,San Francisco Giants,Team Checklist,Gold Signature
+gold-signature,339,Albert Belle,Cleveland Indians,Team Checklist,Gold Signature
+gold-signature,340,Ken Griffey Jr.,Seattle Mariners,Team Checklist,Gold Signature
+gold-signature,341,Gary Sheffield,Florida Marlins,Team Checklist,Gold Signature
+gold-signature,342,Dwight Gooden,New York Mets,Team Checklist,Gold Signature
+gold-signature,343,Cal Ripken Jr.,Baltimore Orioles,Team Checklist,Gold Signature
+gold-signature,344,Tony Gwynn,San Diego Padres,Team Checklist,Gold Signature
+gold-signature,345,Lenny Dykstra,Philadelphia Phillies,Team Checklist,Gold Signature
+gold-signature,346,Andy Van Slyke,Pittsburgh Pirates,Team Checklist,Gold Signature
+gold-signature,347,Juan Gonzalez,Texas Rangers,Team Checklist,Gold Signature
+gold-signature,348,Roger Clemens,Boston Red Sox,Team Checklist,Gold Signature
+gold-signature,349,Barry Larkin,Cincinnati Reds,Team Checklist,Gold Signature
+gold-signature,350,Andres Galarraga,Colorado Rockies,Team Checklist,Gold Signature
+gold-signature,351,Kevin Appier,Kansas City Royals,Team Checklist,Gold Signature
+gold-signature,352,Cecil Fielder,Detroit Tigers,Team Checklist,Gold Signature
+gold-signature,353,Kirby Puckett,Minnesota Twins,Team Checklist,Gold Signature
+gold-signature,354,Frank Thomas,Chicago White Sox,Team Checklist,Gold Signature
+gold-signature,355,Don Mattingly,New York Yankees,Team Checklist,Gold Signature
+gold-signature,356,Bo Jackson,California Angels,Base,Gold Signature
+gold-signature,357,Randy Johnson,Seattle Mariners,Base,Gold Signature
+gold-signature,358,Darren Daulton,Philadelphia Phillies,Base,Gold Signature
+gold-signature,359,Charlie Hough,Florida Marlins,Base,Gold Signature
+gold-signature,360,Andres Galarraga,Colorado Rockies,Base,Gold Signature
+gold-signature,361,Mike Felder,Houston Astros,Base,Gold Signature
+gold-signature,362,Chris Hammond,Florida Marlins,Base,Gold Signature
+gold-signature,363,Shawon Dunston,Chicago Cubs,Base,Gold Signature
+gold-signature,364,Junior Felix,Detroit Tigers,Base,Gold Signature
+gold-signature,365,Ray Lankford,St. Louis Cardinals,Base,Gold Signature
+gold-signature,366,Darryl Strawberry,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,367,Dave Magadan,Florida Marlins,Base,Gold Signature
+gold-signature,368,Gregg Olson,Atlanta Braves,Base,Gold Signature
+gold-signature,369,Lenny Dykstra,Philadelphia Phillies,Base,Gold Signature
+gold-signature,370,Darrin Jackson,Chicago White Sox,Base,Gold Signature
+gold-signature,371,Dave Stewart,Toronto Blue Jays,Base,Gold Signature
+gold-signature,372,Terry Pendleton,Atlanta Braves,Base,Gold Signature
+gold-signature,373,Arthur Rhodes,Baltimore Orioles,Base,Gold Signature
+gold-signature,374,Benito Santiago,Florida Marlins,Base,Gold Signature
+gold-signature,375,Travis Fryman,Detroit Tigers,Base,Gold Signature
+gold-signature,376,Scott Brosius,Oakland Athletics,Base,Gold Signature
+gold-signature,377,Stan Belinda,Kansas City Royals,Base,Gold Signature
+gold-signature,378,Derek Parks,Minnesota Twins,Base,Gold Signature
+gold-signature,379,Kevin Seitzer,Milwaukee Brewers,Base,Gold Signature
+gold-signature,380,Wade Boggs,New York Yankees,Base,Gold Signature
+gold-signature,381,Wally Whitehurst,San Diego Padres,Base,Gold Signature
+gold-signature,382,Scott Leius,Minnesota Twins,Base,Gold Signature
+gold-signature,383,Danny Tartabull,New York Yankees,Base,"Gold Signature; UER: Born in ""Miami, FL"", should be San Juan, PR"
+gold-signature,384,Harold Reynolds,California Angels,Base,Gold Signature
+gold-signature,385,Tim Raines,Chicago White Sox,Base,Gold Signature
+gold-signature,386,Darryl Hamilton,Milwaukee Brewers,Base,Gold Signature
+gold-signature,387,Felix Fermin,Seattle Mariners,Base,Gold Signature
+gold-signature,388,Jim Eisenreich,Philadelphia Phillies,Base,Gold Signature
+gold-signature,389,Kurt Abbott,Florida Marlins,Base,Gold Signature
+gold-signature,390,Kevin Appier,Kansas City Royals,Base,Gold Signature
+gold-signature,391,Chris Bosio,Seattle Mariners,Base,Gold Signature
+gold-signature,392,Randy Tomlin,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,393,Bob Hamelin,Kansas City Royals,Base,Gold Signature
+gold-signature,394,Kevin Gross,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,395,Wil Cordero,Montreal Expos,Base,Gold Signature
+gold-signature,396,Joe Girardi,Colorado Rockies,Base,Gold Signature
+gold-signature,397,Orestes Destrade,Florida Marlins,Base,Gold Signature
+gold-signature,398,Chris Haney,Kansas City Royals,Base,Gold Signature
+gold-signature,399,Xavier Hernandez,New York Yankees,Base,Gold Signature
+gold-signature,400,Mike Piazza,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,401,Alex Arias,Florida Marlins,Base,Gold Signature
+gold-signature,402,Tom Candiotti,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,403,Kirk Gibson,Detroit Tigers,Base,Gold Signature
+gold-signature,404,Chuck Carr,Florida Marlins,Base,Gold Signature
+gold-signature,405,Brady Anderson,Baltimore Orioles,Base,Gold Signature
+gold-signature,406,Greg Gagne,Kansas City Royals,Base,Gold Signature
+gold-signature,407,Bruce Ruffin,Colorado Rockies,Base,Gold Signature
+gold-signature,408,Scott Hemond,Oakland Athletics,Base,Gold Signature
+gold-signature,409,Keith Miller,Kansas City Royals,Base,Gold Signature
+gold-signature,410,John Wetteland,Montreal Expos,Base,Gold Signature
+gold-signature,411,Eric Anthony,Seattle Mariners,Base,Gold Signature
+gold-signature,412,Andre Dawson,Boston Red Sox,Base,Gold Signature
+gold-signature,413,Doug Henry,Milwaukee Brewers,Base,Gold Signature
+gold-signature,414,John Franco,New York Mets,Base,Gold Signature
+gold-signature,415,Julio Franco,Chicago White Sox,Base,Gold Signature
+gold-signature,416,Dave Hansen,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,417,Mike Harkey,Colorado Rockies,Base,Gold Signature
+gold-signature,418,Jack Armstrong,Texas Rangers,Base,Gold Signature
+gold-signature,419,Joe Orsulak,New York Mets,Base,Gold Signature
+gold-signature,420,John Smoltz,Atlanta Braves,Base,Gold Signature
+gold-signature,421,Scott Livingstone,Detroit Tigers,Base,Gold Signature
+gold-signature,422,Darren Holmes,Colorado Rockies,Base,Gold Signature
+gold-signature,423,Ed Sprague,Toronto Blue Jays,Base,Gold Signature
+gold-signature,424,Jay Buhner,Seattle Mariners,Base,Gold Signature
+gold-signature,425,Kirby Puckett,Minnesota Twins,Base,Gold Signature
+gold-signature,426,Phil Clark,San Diego Padres,Base,Gold Signature
+gold-signature,427,Anthony Young,Chicago Cubs,Base,Gold Signature
+gold-signature,428,Reggie Jefferson,Seattle Mariners,Base,Gold Signature
+gold-signature,429,Mariano Duncan,Philadelphia Phillies,Base,Gold Signature
+gold-signature,430,Tom Glavine,Atlanta Braves,Base,Gold Signature
+gold-signature,431,Dave Henderson,Kansas City Royals,Base,Gold Signature
+gold-signature,432,Melido Perez,New York Yankees,Base,Gold Signature
+gold-signature,433,Paul Wagner,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,434,Tim Worrell,San Diego Padres,Base,Gold Signature
+gold-signature,435,Ozzie Guillen,Chicago White Sox,Base,Gold Signature
+gold-signature,436,Mike Butcher,California Angels,Base,Gold Signature
+gold-signature,437,Jim Deshaies,Minnesota Twins,Base,Gold Signature
+gold-signature,438,Kevin Young,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,439,Tom Browning,Cincinnati Reds,Base,Gold Signature
+gold-signature,440,Mike Greenwell,Boston Red Sox,Base,Gold Signature
+gold-signature,441,Mike Stanton,Atlanta Braves,Base,Gold Signature
+gold-signature,442,John Doherty,Detroit Tigers,Base,Gold Signature
+gold-signature,443,John Dopson,California Angels,Base,Gold Signature
+gold-signature,444,Carlos Baerga,Cleveland Indians,Base,Gold Signature
+gold-signature,445,Jack McDowell,Chicago White Sox,Base,Gold Signature
+gold-signature,446,Kent Mercker,Atlanta Braves,Base,Gold Signature
+gold-signature,447,Ricky Jordan,Philadelphia Phillies,Base,Gold Signature
+gold-signature,448,Jerry Browne,Florida Marlins,Base,Gold Signature
+gold-signature,449,Fernando Vina,New York Mets,Base,Gold Signature
+gold-signature,450,Jim Abbott,New York Yankees,Base,Gold Signature
+gold-signature,451,Teddy Higuera,Milwaukee Brewers,Base,Gold Signature
+gold-signature,452,Tim Naehring,Boston Red Sox,Base,Gold Signature
+gold-signature,453,Jim Leyritz,New York Yankees,Base,Gold Signature
+gold-signature,454,Frank Castillo,Chicago Cubs,Base,Gold Signature
+gold-signature,455,Joe Carter,Toronto Blue Jays,Base,Gold Signature
+gold-signature,456,Craig Biggio,Houston Astros,Base,Gold Signature
+gold-signature,457,Geronimo Pena,St. Louis Cardinals,Base,Gold Signature
+gold-signature,458,Alejandro Pena,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,459,Mike Moore,Detroit Tigers,Base,Gold Signature
+gold-signature,460,Randy Myers,Chicago Cubs,Base,Gold Signature
+gold-signature,461,Greg Myers,California Angels,Base,Gold Signature
+gold-signature,462,Greg Hibbard,Seattle Mariners,Base,Gold Signature
+gold-signature,463,Jose Guzman,Chicago Cubs,Base,Gold Signature
+gold-signature,464,Tom Pagnozzi,St. Louis Cardinals,Base,Gold Signature
+gold-signature,465,Marquis Grissom,Montreal Expos,Base,Gold Signature
+gold-signature,466,Tim Wallach,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,467,Joe Grahe,California Angels,Base,Gold Signature
+gold-signature,468,Bob Tewksbury,St. Louis Cardinals,Base,Gold Signature
+gold-signature,469,B.J. Surhoff,Milwaukee Brewers,Base,Gold Signature
+gold-signature,470,Kevin Mitchell,Cincinnati Reds,Base,Gold Signature
+gold-signature,471,Bobby Witt,Oakland Athletics,Base,Gold Signature
+gold-signature,472,Milt Thompson,Philadelphia Phillies,Base,Gold Signature
+gold-signature,473,John Smiley,Cincinnati Reds,Base,Gold Signature
+gold-signature,474,Alan Trammell,Detroit Tigers,Base,Gold Signature
+gold-signature,475,Mike Mussina,Baltimore Orioles,Base,Gold Signature
+gold-signature,476,Rick Aguilera,Minnesota Twins,Base,Gold Signature
+gold-signature,477,Jose Valentin,Milwaukee Brewers,Base,Gold Signature
+gold-signature,478,Harold Baines,Baltimore Orioles,Base,Gold Signature
+gold-signature,479,Bip Roberts,San Diego Padres,Base,Gold Signature
+gold-signature,480,Edgar Martinez,Seattle Mariners,Base,Gold Signature
+gold-signature,481,Rheal Cormier,St. Louis Cardinals,Base,Gold Signature
+gold-signature,482,Hal Morris,Cincinnati Reds,Base,Gold Signature
+gold-signature,483,Pat Kelly,New York Yankees,Base,Gold Signature
+gold-signature,484,Roberto Kelly,Cincinnati Reds,Base,Gold Signature
+gold-signature,485,Chris Sabo,Baltimore Orioles,Base,Gold Signature
+gold-signature,486,Kent Hrbek,Minnesota Twins,Base,Gold Signature
+gold-signature,487,Scott Kamieniecki,New York Yankees,Base,Gold Signature
+gold-signature,488,Walt Weiss,Colorado Rockies,Base,Gold Signature
+gold-signature,489,Karl Rhodes,Chicago Cubs,Base,Gold Signature
+gold-signature,490,Derek Bell,San Diego Padres,Base,Gold Signature
+gold-signature,491,Chili Davis,California Angels,Base,Gold Signature
+gold-signature,492,Brian Harper,Milwaukee Brewers,Base,Gold Signature
+gold-signature,493,Felix Jose,Kansas City Royals,Base,Gold Signature
+gold-signature,494,Trevor Hoffman,San Diego Padres,Base,Gold Signature
+gold-signature,495,Dennis Eckersley,Oakland Athletics,Base,Gold Signature
+gold-signature,496,Pedro Astacio,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,497,Jay Bell,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,498,Randy Velarde,New York Yankees,Base,Gold Signature
+gold-signature,499,David Wells,Detroit Tigers,Base,Gold Signature
+gold-signature,500,Frank Thomas,Chicago White Sox,Base,Gold Signature
+gold-signature,501,Mark Lemke,Atlanta Braves,Base,Gold Signature
+gold-signature,502,Mike Devereaux,Baltimore Orioles,Base,Gold Signature
+gold-signature,503,Chuck McElroy,Cincinnati Reds,Base,Gold Signature
+gold-signature,504,Luis Polonia,New York Yankees,Base,Gold Signature
+gold-signature,505,Damion Easley,California Angels,Base,Gold Signature
+gold-signature,506,Greg A. Harris,Boston Red Sox,Base,Gold Signature
+gold-signature,507,Chris James,Texas Rangers,Base,Gold Signature
+gold-signature,508,Terry Mulholland,New York Yankees,Base,Gold Signature
+gold-signature,509,Pete Smith,New York Mets,Base,Gold Signature
+gold-signature,510,Rickey Henderson,Oakland Athletics,Base,Gold Signature
+gold-signature,511,Sid Fernandez,Baltimore Orioles,Base,Gold Signature
+gold-signature,512,Al Leiter,Toronto Blue Jays,Base,Gold Signature
+gold-signature,513,Doug Jones,Philadelphia Phillies,Base,Gold Signature
+gold-signature,514,Steve Farr,Cleveland Indians,Base,Gold Signature
+gold-signature,515,Chuck Finley,California Angels,Base,Gold Signature
+gold-signature,516,Bobby Thigpen,Seattle Mariners,Base,Gold Signature
+gold-signature,517,Jim Edmonds,California Angels,Base,Gold Signature
+gold-signature,518,Graeme Lloyd,Milwaukee Brewers,Base,Gold Signature
+gold-signature,519,Dwight Gooden,New York Mets,Base,Gold Signature
+gold-signature,520,Pat Listach,Milwaukee Brewers,Base,Gold Signature
+gold-signature,521,Kevin Bass,Houston Astros,Base,Gold Signature
+gold-signature,522,Willie Banks,Chicago Cubs,Base,Gold Signature
+gold-signature,523,Steve Finley,Houston Astros,Base,Gold Signature
+gold-signature,524,Delino DeShields,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,525,Mark McGwire,Oakland Athletics,Base,Gold Signature
+gold-signature,526,Greg Swindell,Houston Astros,Base,Gold Signature
+gold-signature,527,Chris Nabholz,Cleveland Indians,Base,Gold Signature
+gold-signature,528,Scott Sanders,San Diego Padres,Base,Gold Signature
+gold-signature,529,David Segui,New York Mets,Base,Gold Signature
+gold-signature,530,Howard Johnson,Colorado Rockies,Base,Gold Signature
+gold-signature,531,Jaime Navarro,Milwaukee Brewers,Base,Gold Signature
+gold-signature,532,Jose Vizcaino,New York Mets,Base,Gold Signature
+gold-signature,533,Mark Lewis,Cleveland Indians,Base,Gold Signature
+gold-signature,534,Pete Harnisch,Houston Astros,Base,Gold Signature
+gold-signature,535,Robby Thompson,San Francisco Giants,Base,Gold Signature
+gold-signature,536,Marcus Moore,Colorado Rockies,Base,Gold Signature
+gold-signature,537,Kevin Brown,Texas Rangers,Base,Gold Signature
+gold-signature,538,Mark Clark,Cleveland Indians,Base,Gold Signature
+gold-signature,539,Sterling Hitchcock,New York Yankees,Base,Gold Signature
+gold-signature,540,Will Clark,Texas Rangers,Base,Gold Signature
+gold-signature,541,Denis Boucher,Montreal Expos,Base,Gold Signature
+gold-signature,542,Jack Morris,Cleveland Indians,Base,Gold Signature
+gold-signature,543,Pedro Munoz,Minnesota Twins,Base,Gold Signature
+gold-signature,544,Bret Boone,Cincinnati Reds,Base,Gold Signature
+gold-signature,545,Ozzie Smith,St. Louis Cardinals,Base,Gold Signature
+gold-signature,546,Dennis Martinez,Cleveland Indians,Base,Gold Signature
+gold-signature,547,Dan Wilson,Seattle Mariners,Base,Gold Signature
+gold-signature,548,Rick Sutcliffe,St. Louis Cardinals,Base,Gold Signature
+gold-signature,549,Kevin McReynolds,New York Mets,Base,Gold Signature
+gold-signature,550,Roger Clemens,Boston Red Sox,Base,Gold Signature
+gold-signature,551,Todd Benzinger,San Francisco Giants,Base,Gold Signature
+gold-signature,552,Bill Haselman,Seattle Mariners,Base,Gold Signature
+gold-signature,553,Bobby Munoz,Philadelphia Phillies,Base,Gold Signature
+gold-signature,554,Ellis Burks,Colorado Rockies,Base,Gold Signature
+gold-signature,555,Ryne Sandberg,Chicago Cubs,Base,Gold Signature
+gold-signature,556,Lee Smith,Baltimore Orioles,Base,Gold Signature
+gold-signature,557,Danny Bautista,Detroit Tigers,Base,Gold Signature
+gold-signature,558,Rey Sanchez,Chicago Cubs,Base,Gold Signature
+gold-signature,559,Norm Charlton,Philadelphia Phillies,Base,Gold Signature
+gold-signature,560,Jose Canseco,Texas Rangers,Base,Gold Signature
+gold-signature,561,Tim Belcher,Detroit Tigers,Base,Gold Signature
+gold-signature,562,Denny Neagle,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,563,Eric Davis,Detroit Tigers,Base,Gold Signature
+gold-signature,564,Jody Reed,Milwaukee Brewers,Base,Gold Signature
+gold-signature,565,Kenny Lofton,Cleveland Indians,Base,Gold Signature
+gold-signature,566,Gary Gaetti,Kansas City Royals,Base,Gold Signature
+gold-signature,567,Todd Worrell,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,568,Mark Portugal,San Francisco Giants,Base,Gold Signature
+gold-signature,569,Dick Schofield,Toronto Blue Jays,Base,Gold Signature
+gold-signature,570,Andy Benes,San Diego Padres,Base,Gold Signature
+gold-signature,571,Zane Smith,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,572,Bobby Ayala,Seattle Mariners,Base,Gold Signature
+gold-signature,573,Chip Hale,Minnesota Twins,Base,Gold Signature
+gold-signature,574,Bob Welch,Oakland Athletics,Base,Gold Signature
+gold-signature,575,Deion Sanders,Atlanta Braves,Base,Gold Signature
+gold-signature,576,Dave Nied,Colorado Rockies,Base,Gold Signature
+gold-signature,577,Pat Mahomes,Minnesota Twins,Base,Gold Signature
+gold-signature,578,Charles Nagy,Cleveland Indians,Base,"Gold Signature; UER: Born in Fairfield, CT should be born in Bridgeport, CT"
+gold-signature,579,Otis Nixon,Boston Red Sox,Base,Gold Signature
+gold-signature,580,Dean Palmer,Texas Rangers,Base,Gold Signature
+gold-signature,581,Roberto Petagine,Houston Astros,Base,Gold Signature
+gold-signature,582,Dwight Smith,California Angels,Base,Gold Signature
+gold-signature,583,Jeff Russell,Boston Red Sox,Base,Gold Signature
+gold-signature,584,Mark Dewey,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,585,Greg Vaughn,Milwaukee Brewers,Base,Gold Signature
+gold-signature,586,Brian Hunter,Pittsburgh Pirates,Base,Gold Signature
+gold-signature,587,Willie McGee,San Francisco Giants,Base,Gold Signature
+gold-signature,588,Pedro J. Martinez,Montreal Expos,Base,"Gold Signature; UER: Born 7/25, should be 10/25"
+gold-signature,589,Roger Salkeld,Seattle Mariners,Base,Gold Signature
+gold-signature,590,Jeff Bagwell,Houston Astros,Base,Gold Signature
+gold-signature,591,Spike Owen,California Angels,Base,Gold Signature
+gold-signature,592,Jeff Reardon,New York Yankees,Base,Gold Signature
+gold-signature,593,Erik Pappas,St. Louis Cardinals,Base,Gold Signature
+gold-signature,594,Brian Williams,Houston Astros,Base,Gold Signature
+gold-signature,595,Eddie Murray,Cleveland Indians,Base,Gold Signature
+gold-signature,596,Henry Rodriguez,Los Angeles Dodgers,Base,Gold Signature
+gold-signature,597,Erik Hanson,Cincinnati Reds,Base,Gold Signature
+gold-signature,598,Stan Javier,Oakland Athletics,Base,Gold Signature
+gold-signature,599,Mitch Williams,Houston Astros,Base,Gold Signature
+gold-signature,600,John Olerud,Toronto Blue Jays,Base,Gold Signature
+gold-signature,601,Vince Coleman,Kansas City Royals,Base,Gold Signature
+gold-signature,602,Damon Berryhill,Boston Red Sox,Base,Gold Signature
+gold-signature,603,Tom Brunansky,Milwaukee Brewers,Base,Gold Signature
+gold-signature,604,Robb Nen,Florida Marlins,Base,Gold Signature
+gold-signature,605,Rafael Palmeiro,Baltimore Orioles,Base,Gold Signature
+gold-signature,606,Cal Eldred,Milwaukee Brewers,Base,Gold Signature
+gold-signature,607,Jeff Brantley,Cincinnati Reds,Base,Gold Signature
+gold-signature,608,Alan Mills,Baltimore Orioles,Base,Gold Signature
+gold-signature,609,Jeff Nelson,Seattle Mariners,Base,Gold Signature
+gold-signature,610,Barry Bonds,San Francisco Giants,Base,Gold Signature
+gold-signature,611,Carlos Pulido RC,Minnesota Twins,Base,Gold Signature
+gold-signature,612,Tim Hyers RC,San Diego Padres,Base,Gold Signature
+gold-signature,613,Steve Howe,New York Yankees,Base,Gold Signature
+gold-signature,614,Brian Turang RC,Seattle Mariners,Base,Gold Signature
+gold-signature,615,Leo Gomez,Baltimore Orioles,Base,Gold Signature
+gold-signature,616,Jesse Orosco,Milwaukee Brewers,Base,Gold Signature
+gold-signature,617,Dan Pasqua,Chicago White Sox,Base,Gold Signature
+gold-signature,618,Marvin Freeman,Colorado Rockies,Base,Gold Signature
+gold-signature,619,Tony Fernandez,Cincinnati Reds,Base,Gold Signature
+gold-signature,620,Albert Belle,Cleveland Indians,Base,Gold Signature
+gold-signature,621,Eddie Taubensee,Houston Astros,Base,Gold Signature
+gold-signature,622,Mike Jackson,San Francisco Giants,Base,Gold Signature
+gold-signature,623,Jose Bautista,Chicago Cubs,Base,Gold Signature
+gold-signature,624,Jim Thome,Cleveland Indians,Base,Gold Signature
+gold-signature,625,Ivan Rodriguez,Texas Rangers,Base,Gold Signature
+gold-signature,626,Ben Rivera,Philadelphia Phillies,Base,Gold Signature
+gold-signature,627,Dave Valle,Boston Red Sox,Base,Gold Signature
+gold-signature,628,Tom Henke,Texas Rangers,Base,Gold Signature
+gold-signature,629,Omar Vizquel,Cleveland Indians,Base,Gold Signature
+gold-signature,630,Juan Gonzalez,Texas Rangers,Base,Gold Signature
+gold-signature,631,Roberto Alomar,Toronto Blue Jays,Up Close,Gold Signature; Gold stripe on lower front
+gold-signature,632,Barry Bonds,San Francisco Giants,Up Close,Gold Signature; Gold stripe on lower front
+gold-signature,633,Juan Gonzalez,Texas Rangers,Up Close,Gold Signature; Gold stripe on lower front
+gold-signature,634,Ken Griffey Jr.,Seattle Mariners,Up Close,Gold Signature; Gold stripe on lower front
+gold-signature,635,Michael Jordan,Chicago White Sox,Up Close,Gold Signature; Gold stripe on lower front
+gold-signature,636,David Justice,Atlanta Braves,Up Close,Gold Signature; Gold stripe on lower front
+gold-signature,637,Mike Piazza,Los Angeles Dodgers,Up Close,Gold Signature; Gold stripe on lower front
+gold-signature,638,Kirby Puckett,Minnesota Twins,Up Close,Gold Signature; Gold stripe on lower front
+gold-signature,639,Tim Salmon,California Angels,Up Close,Gold Signature; Gold stripe on lower front
+gold-signature,640,Frank Thomas,Chicago White Sox,Up Close,Gold Signature; Gold stripe on lower front
+gold-signature,641,Alan Benes RC,St. Louis Cardinals,Future Foundations,Gold Signature
+gold-signature,642,Johnny Damon,Kansas City Royals,Future Foundations,Gold Signature
+gold-signature,643,Brad Fullmer RC,Montreal Expos,Future Foundations,Gold Signature
+gold-signature,644,Derek Jeter,New York Yankees,Future Foundations,Gold Signature
+gold-signature,645,Derrek Lee RC,San Diego Padres,Future Foundations,Gold Signature
+gold-signature,646,Alex Ochoa,Baltimore Orioles,Future Foundations,Gold Signature
+gold-signature,647,Alex Rodriguez RC,Seattle Mariners,Future Foundations,Gold Signature
+gold-signature,648,Jose Silva RC,Toronto Blue Jays,Future Foundations,Gold Signature
+gold-signature,649,Terrell Wade RC,Atlanta Braves,Future Foundations,Gold Signature
+gold-signature,650,Preston Wilson,New York Mets,Future Foundations,Gold Signature
+gold-signature,651,Shane Andrews,Montreal Expos,Rookie Class,Gold Signature
+gold-signature,652,James Baldwin,Chicago White Sox,Rookie Class,Gold Signature
+gold-signature,653,Ricky Bottalico RC,Philadelphia Phillies,Rookie Class,Gold Signature
+gold-signature,654,Tavo Alvarez,Montreal Expos,Rookie Class,Gold Signature
+gold-signature,655,Donnie Elliott,San Diego Padres,Rookie Class,Gold Signature
+gold-signature,656,Joey Eischen,Montreal Expos,Rookie Class,Gold Signature
+gold-signature,657,Jason Giambi,Oakland Athletics,Rookie Class,Gold Signature
+gold-signature,658,Todd Hollandsworth,Los Angeles Dodgers,Rookie Class,Gold Signature
+gold-signature,659,Brian L. Hunter,Houston Astros,Rookie Class,Gold Signature
+gold-signature,660,Charles Johnson,Florida Marlins,Rookie Class,Gold Signature
+gold-signature,661,Michael Jordan RC,Chicago White Sox,Rookie Class,Gold Signature
+gold-signature,662,Jeff Juden,Philadelphia Phillies,Rookie Class,Gold Signature
+gold-signature,663,Mike Kelly,Atlanta Braves,Rookie Class,Gold Signature
+gold-signature,664,James Mouton,Houston Astros,Rookie Class,Gold Signature
+gold-signature,665,Ray Holbert,San Diego Padres,Rookie Class,Gold Signature
+gold-signature,666,Pokey Reese,Cincinnati Reds,Rookie Class,Gold Signature
+gold-signature,667,Ruben Santana RC,Seattle Mariners,Rookie Class,Gold Signature
+gold-signature,668,Paul Spoljaric,Toronto Blue Jays,Rookie Class,Gold Signature
+gold-signature,669,Luis Lopez,San Diego Padres,Rookie Class,Gold Signature
+gold-signature,670,Matt Walbeck,Minnesota Twins,Rookie Class,Gold Signature
