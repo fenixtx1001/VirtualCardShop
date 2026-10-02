@@ -9,7 +9,9 @@
     "lint": "eslint",
     "import:set": "tsx scripts/import-set-manifest.ts",
     "import:set-bundle": "tsx scripts/import-set-bundle-entry.ts",
-    "import:set-images": "tsx scripts/import-set-images.ts"
+    "import:set-images": "tsx scripts/import-set-images.ts",
+    "import:card-images": "node --import tsx scripts/import-card-image-batch.ts",
+    "export:missing-images": "node --import tsx scripts/export-missing-card-images.ts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.1",

@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "batchId": "2026-10-02-rare-cards",
+  "cards": [
+    {
+      "cardId": 15680,
+      "player": "Tim Couch",
+      "cardNumber": "141",
+      "productSetId": "1999_Donruss_Stat_Line_Season_Football",
+      "front": {
+        "file": "images/15680-front-reconstructed.png",
+        "sha256": "26d922c6436bf4f6002a4f6f9f368597bf2c8a1266fd524ef79e21ae9724f04e",
+        "sourceType": "ai_reconstruction",
+        "sources": [
+          "https://www.ebay.com/itm/178524806388",
+          "https://www.ebay.com/itm/188449025331"
+        ],
+        "notes": "Foil and stamp rendering inferred from Booker parallel. 001/001 is reconstructed. AI-generated illustrative reconstruction, not a verified rare-variant scan."
+      },
+      "back": {
+        "file": "images/15680-back-reconstructed.png",
+        "sha256": "afd51fe33c8b75032b4ef4c09a0196ee43f551a1682604d71a6edf122b3cb774",
+        "sourceType": "ai_reconstruction",
+        "sources": [
+          "https://www.ebay.com/itm/178524806388",
+          "https://www.ebay.com/itm/188449025331"
+        ],
+        "notes": "Foil and stamp rendering inferred from Booker parallel. 001/001 is reconstructed. AI-generated illustrative reconstruction, not a verified rare-variant scan."
+      }
+    },
+    {
+      "cardId": 15641,
+      "player": "Jerome Bettis",
+      "cardNumber": "102",
+      "productSetId": "1999_Donruss_Stat_Line_Season_Football",
+      "front": {
+        "file": "images/15641-front-reconstructed.png",
+        "sha256": "f9e65e045466e752c02363bb4ac0b90c9935cc4e3fe97f0d1e85c7122ce70732",
+        "sourceType": "ai_reconstruction",
+        "sources": [
+          "https://www.ebay.com/itm/116005587066",
+          "https://www.ebay.com/itm/188449025331"
+        ],
+        "notes": "Foil and stamp inferred. Back serial 001/042 is an arbitrary illustrative serial. AI-generated illustrative reconstruction, not a verified rare-variant scan."
+      },
+      "back": {
+        "file": "images/15641-back-reconstructed.png",
+        "sha256": "ca1c83e9c41a41cf78b781b247aeaf40f9419c795d5b1183fdfd93c46ba0b089",
+        "sourceType": "ai_reconstruction",
+        "sources": [
+          "https://www.ebay.com/itm/116005587066",
+          "https://www.ebay.com/itm/188449025331"
+        ],
+        "notes": "Foil and stamp inferred. Back serial 001/042 is an arbitrary illustrative serial. AI-generated illustrative reconstruction, not a verified rare-variant scan."
+      }
+    },
+    {
+      "cardId": 51538,
+      "player": "Derek Jeter",
+      "cardNumber": "6",
+      "productSetId": "1999_Pacific_Crown_Royale_Cramer's_Choice_Light_Blue_Baseball",
+      "front": {
+        "file": "images/51538-front-reconstructed.png",
+        "sha256": "b6f12f6d0498d73b8cab8f4c4fbff3a711e75ddaf7f2d8083b32c1e760e2cf87",
+        "sourceType": "ai_reconstruction",
+        "sources": [
+          "https://www.ebay.com/itm/237074131223",
+          "https://www.ebay.com/itm/136844120096"
+        ],
+        "notes": "Light blue square foil inferred using cross-sport Green reference. Back follows base; no verified serial. Alpha edges may show color fringe. AI-generated illustrative reconstruction, not a verified rare-variant scan."
+      },
+      "back": {
+        "file": "images/51538-back-reconstructed.png",
+        "sha256": "0258c9ce864efb83cb0cfeb532667c6ac8757a8f35fc0620fd6fdd93ba85c142",
+        "sourceType": "ai_reconstruction",
+        "sources": [
+          "https://www.ebay.com/itm/237074131223",
+          "https://www.ebay.com/itm/136844120096"
+        ],
+        "notes": "Light blue square foil inferred using cross-sport Green reference. Back follows base; no verified serial. Alpha edges may show color fringe. AI-generated illustrative reconstruction, not a verified rare-variant scan."
+      }
+    },
+    {
+      "cardId": 51529,
+      "player": "J.D. Drew",
+      "cardNumber": "7",
+      "productSetId": "1999_Pacific_Crown_Royale_Cramer's_Choice_Green_Baseball",
+      "front": {
+        "file": "images/51529-front-reconstructed.png",
+        "sha256": "98679e3bf8b06a623ed56a018850bff4efa623818f4f797486208b899edc24b8",
+        "sourceType": "ai_reconstruction",
+        "sources": [
+          "https://www.ebay.com/p/11089735659",
+          "https://www.ebay.com/itm/136844120096"
+        ],
+        "notes": "Green square foil inferred using cross-sport reference. Back follows base; no verified serial. Alpha edges may show color fringe. AI-generated illustrative reconstruction, not a verified rare-variant scan."
+      },
+      "back": {
+        "file": "images/51529-back-reconstructed.png",
+        "sha256": "ca3d8c629a904b4f250792404e2c7861b4e5e3122e139582014d17adfd64d445",
+        "sourceType": "ai_reconstruction",
+        "sources": [
+          "https://www.ebay.com/p/11089735659",
+          "https://www.ebay.com/itm/136844120096"
+        ],
+        "notes": "Green square foil inferred using cross-sport reference. Back follows base; no verified serial. Alpha edges may show color fringe. AI-generated illustrative reconstruction, not a verified rare-variant scan."
+      }
+    },
+    {
+      "cardId": 4046,
+      "player": "Cade McNown",
+      "cardNumber": "WZ3",
+      "productSetId": "1999_UD_Ionix_Warp_Zone_Football",
+      "front": {
+        "file": "images/4046-front-scan.jpg",
+        "sha256": "5867a001fcb97075044eafe9e7d3b1a352eb87f43ecbc6d3a2cf2e05da1763e8",
+        "sourceType": "verified_scan",
+        "sources": [
+          "https://www.ebay.com/p/25089709259"
+        ],
+        "notes": "Exact Warp Zone front stock scan. Back seller photograph omitted due to sleeve glare and background."
+      }
+    }
+  ]
+}
