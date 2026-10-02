@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/4453/2001-Bowman-Chrome",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/4453/2001-Bowman-Chrome",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/4453/2001-Bowman-Chrome",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/4453/2001-Bowman-Chrome",
+    "note": "Frozen TCDB source checklist is in 2001-bowman-chrome-football.source.csv. Standard hobby packs; 255-card one-series base checklist, two full parallels, six named insert sets, and one unnumbered pack checklist."
+  },
+  "decisions": {
+    "baseChecklist": "One #1-255 Base ProductSet with equal VCS availability across all base subjects. #111-255 are the physically short-printed, serial-numbered rookie Refractors (1:3 packs, SN1999); they have no ordinary non-Refractor base counterpart. Physical scarcity is recorded as subset/variant, while the complete Base checklist remains one collector set.",
+    "trueRookies": "TCDB's recognized rookie-card index identifies all 145 base cards #111-255. Only these base subjects receive the RC suffix. Historical rookie-themed 1996 Rookies and Rookie Reprints are not treated as new true RCs.",
+    "parallelChecklists": "Gold Refractors and Xfractors each cover all #1-255 and derive their checklist and RC names from Base. Gold Refractors are SN99. The derived variant replaces the Base variant, so Gold cards do not incorrectly retain the base rookie SN1999 label.",
+    "packOdds": "Verified uniform hobby odds belong to the relevant ProductSet: Gold 1:38, Xfractors 1:23, 1996 Rookies Refractor 1:16, Rookie Relics 1:78, and Rookie Reprints 1:24. Base rookie Refractors were physically 1:3; one unified VCS Base checklist deliberately flattens that range's rarity. Autographs differ between veteran 1:315 and rookie 1:772; Draft Day hats 1:2129 and jerseys 1:131. Those mixed checklists have null set-wide odds. Mini Helmet redemption and NNO checklist have no reliable uniform odds.",
+    "relicChecklist": "TCDB lists twelve Draft Day Relics (six hats and six jerseys); a secondary checklist lists eleven. The collector set follows TCDB's twelve individually numbered entries. Rookie Relics retain the source college team labels.",
+    "redemptions": "Ten original pack-issued Mini Helmet Autographs Redemption cards are cataloged for completion; their exchange offer is expired. They are labeled as expired in Variant, not presented as redeemable prizes.",
+    "cleanNames": "Source AU, MEM, EXCH, RC/SN annotations are removed from Player, with independently verified base RC suffix restored. Card-specific autograph, memorabilia and serial attributes live in Variant; no card carries set-wide odds.",
+    "releaseSafety": "Product remains unreleased pending pack art, card images and prices."
+  },
+  "product": {
+    "id": "2001_Bowman_Chrome_Football",
+    "year": 2001,
+    "brand": "Bowman Chrome",
+    "sport": "Football",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "2001-bowman-chrome-football.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2001_Bowman_Chrome_Football_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4453/2001-Bowman-Chrome",
+      "expectedCards": 255,
+      "notes": "Complete #1-255 collector checklist. #111-255 are Refractors SN1999 and historically appeared 1:3 packs; VCS gives all 255 equal Base availability."
+    },
+    {
+      "key": "gold-refractors",
+      "id": "2001_Bowman_Chrome_Football_Gold_Refractors",
+      "name": "Gold Refractors",
+      "kind": "PARALLEL",
+      "oddsPerPack": 38,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/36407/2001-Bowman-Chrome-Gold-Refractors",
+      "expectedCards": 255,
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Gold Refractor; SN99",
+      "notes": "Full #1-255 serial-numbered parallel, 1:38 hobby packs."
+    },
+    {
+      "key": "xfractors",
+      "id": "2001_Bowman_Chrome_Football_Xfractors",
+      "name": "Xfractors",
+      "kind": "PARALLEL",
+      "oddsPerPack": 23,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/36411/2001-Bowman-Chrome-Xfractors",
+      "expectedCards": 255,
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Xfractor",
+      "notes": "Full #1-255 parallel, 1:23 hobby packs."
+    },
+    {
+      "key": "1996-rookies",
+      "id": "2001_Bowman_Chrome_Football_1996_Rookies_Refractor",
+      "name": "1996 Rookies Refractor",
+      "kind": "INSERT",
+      "oddsPerPack": 16,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/36404/2001-Bowman-Chrome-1996-Rookies-Refractor",
+      "expectedCards": 15,
+      "notes": "BRC1-BRC15, one per 16 packs; 1996 rookie subjects are not automatically 2001 true RCs."
+    },
+    {
+      "key": "autographs",
+      "id": "2001_Bowman_Chrome_Football_Autographs",
+      "name": "Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/36405/2001-Bowman-Chrome-Autographs",
+      "expectedCards": 28,
+      "notes": "BC-* checklist; veteran and rookie autograph insertion rates differ, so no misleading single odds value is assigned."
+    },
+    {
+      "key": "draft-day-relics",
+      "id": "2001_Bowman_Chrome_Football_Draft_Day_Relics",
+      "name": "Draft Day Relics",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/36406/2001-Bowman-Chrome-Draft-Day-Relics",
+      "expectedCards": 12,
+      "notes": "Six DH-* hat and six DJ-* jersey cards; materially different pack rates, kept as one collector checklist."
+    },
+    {
+      "key": "mini-helmet-redemptions",
+      "id": "2001_Bowman_Chrome_Football_Mini_Helmet_Autographs_Redemption",
+      "name": "Mini Helmet Autographs Redemption",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/36408/2001-Bowman-Chrome-Mini-Helmet-Autographs-Redemption",
+      "expectedCards": 10,
+      "notes": "Ten numbered pack-issued exchange cards. The historical redemption offer has expired."
+    },
+    {
+      "key": "rookie-relics",
+      "id": "2001_Bowman_Chrome_Football_Rookie_Relics",
+      "name": "Rookie Relics",
+      "kind": "INSERT",
+      "oddsPerPack": 78,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/36409/2001-Bowman-Chrome-Rookie-Relics",
+      "expectedCards": 23,
+      "notes": "BCR-* event-worn college jersey checklist, 1:78 hobby packs."
+    },
+    {
+      "key": "rookie-reprints",
+      "id": "2001_Bowman_Chrome_Football_Rookie_Reprints",
+      "name": "Rookie Reprints",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/36410/2001-Bowman-Chrome-Rookie-Reprints",
+      "expectedCards": 16,
+      "notes": "Sixteen historical player rookie-card reprints retaining their original card numbers and historical team names; 1:24 hobby packs."
+    },
+    {
+      "key": "pack-checklist",
+      "id": "2001_Bowman_Chrome_Football_Pack_Checklist",
+      "name": "Pack Checklist",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4453/2001-Bowman-Chrome",
+      "expectedCards": 1,
+      "notes": "Single unnumbered Checklist CL (NNO) shown on TCDB's insert overview."
+    }
+  ]
+}
