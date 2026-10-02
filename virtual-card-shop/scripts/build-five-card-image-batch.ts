@@ -194,8 +194,13 @@ async function main() {
   for (const expected of cards) {
     const db = byId.get(expected.id);
     if (!db) throw new Error(`Card ID ${expected.id} was not found in VCS.`);
-    if (db.player !== expected.player || db.cardNumber !== expected.cardNumber || !db.productSetId) {
+
+    const playerMatches = db.player.toLowerCase().startsWith(expected.player.toLowerCase());
+    if (!playerMatches || db.cardNumber !== expected.cardNumber || !db.productSetId) {
       throw new Error(`Identity mismatch for ${expected.id}. Expected ${expected.player} #${expected.cardNumber}; found ${db.player} #${db.cardNumber} (${db.productSetId ?? "no productSetId"}).`);
+    }
+    if (db.player !== expected.player) {
+      console.log(`[image-factory] ${expected.id}: using live VCS player label "${db.player}" (base name "${expected.player}").`);
     }
 
     const entry: any = {
