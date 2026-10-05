@@ -88,9 +88,9 @@ model Product {
 model DailyDeal {
   saleProductIds        String[] @default([])
   shopPromotionsVersion Int      @default(0)
-  dateKey   String   @id
-  productId String
-  createdAt DateTime @default(now())
+  dateKey               String   @id
+  productId             String
+  createdAt             DateTime @default(now())
 
   product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 
@@ -98,31 +98,31 @@ model DailyDeal {
 }
 
 model ProductSet {
-  id                      String               @id
-  productId               String
-  name                    String?
-  isBase                  Boolean              @default(false)
-  isInsert                Boolean              @default(false)
-  oddsPerPack             Int?
-  commonPrice             Float?
-  semiStarPrice           Float?
-  unlistedStarPrice       Float?
-  star1Price              Float?
-  star2Price              Float?
-  star3Price              Float?
-  defaultGradeability     Gradeability         @default(COMMON)
-  createdAt               DateTime             @default(now())
-  updatedAt               DateTime             @updatedAt
-  cards                   Card[]
-  product                 Product              @relation(fields: [productId], references: [id], onDelete: Cascade)
-  prestiges               ProductSetPrestige[]
+  id                  String               @id
+  productId           String
+  name                String?
+  isBase              Boolean              @default(false)
+  isInsert            Boolean              @default(false)
+  oddsPerPack         Int?
+  commonPrice         Float?
+  semiStarPrice       Float?
+  unlistedStarPrice   Float?
+  star1Price          Float?
+  star2Price          Float?
+  star3Price          Float?
+  defaultGradeability Gradeability         @default(COMMON)
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+  cards               Card[]
+  product             Product              @relation(fields: [productId], references: [id], onDelete: Cascade)
+  prestiges           ProductSetPrestige[]
 
   @@index([productId])
   @@index([defaultGradeability])
 }
 
 model Card {
-  id                   Int               @id @default(autoincrement())
+  id                   Int           @id @default(autoincrement())
   setId                String
   productSetId         String?
   cardNumber           String
@@ -131,14 +131,14 @@ model Card {
   position             String?
   subset               String?
   variant              String?
-  bookValue            Float             @default(0)
-  quantityOwned        Int               @default(0)
+  bookValue            Float         @default(0)
+  quantityOwned        Int           @default(0)
   frontImageUrl        String?
   backImageUrl         String?
   gradeabilityOverride Gradeability?
 
   productSet          ProductSet?          @relation(fields: [productSetId], references: [id])
-  set                 Set                 @relation(fields: [setId], references: [id])
+  set                 Set                  @relation(fields: [setId], references: [id])
   ownerships          CardOwnership[]
   gradingOrders       GradingOrder[]
   favoritedBy         CardFavorite[]
@@ -159,14 +159,14 @@ model Card {
 }
 
 model PlayerTierProfile {
-  id             Int        @id @default(autoincrement())
-  sport          String     @default("")
+  id             Int         @id @default(autoincrement())
+  sport          String      @default("")
   canonicalName  String
   normalizedName String
   tier           PlayerTier?
   notes          String?
-  createdAt      DateTime   @default(now())
-  updatedAt      DateTime   @updatedAt
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
 
   @@unique([sport, normalizedName])
   @@index([sport])
@@ -210,24 +210,25 @@ model User {
   financialTransactions   FinancialTransaction[]
   financialDailySnapshots FinancialDailySnapshot[]
   ripBoxes                RipBox[]
-  auctionListings         Auction[]         @relation("AuctionSeller")
-  auctionWins             Auction[]         @relation("AuctionWinner")
+  auctionListings         Auction[]                @relation("AuctionSeller")
+  auctionWins             Auction[]                @relation("AuctionWinner")
   auctionBids             AuctionBid[]
-  cardSalesSold           CardSaleHistory[] @relation("CardSaleSeller")
-  cardSalesBought         CardSaleHistory[] @relation("CardSaleBuyer")
+  cardSalesSold           CardSaleHistory[]        @relation("CardSaleSeller")
+  cardSalesBought         CardSaleHistory[]        @relation("CardSaleBuyer")
   accounts                Account[]
   sessions                Session[]
 }
 
 model SealedInventory {
-  id         Int      @id @default(autoincrement())
-  userId     String
-  productId  String
-  packsOwned Int      @default(0)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id             Int      @id @default(autoincrement())
+  userId         String
+  productId      String
+  packsOwned     Int      @default(0)
+  costBasisCents Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  product        Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, productId])
 }
@@ -283,7 +284,7 @@ model CardOwnership {
   // VCS grading buckets:
   // grade = 0 means raw/ungraded.
   // grade = 6-10 means VCS graded.
-  grade    Int    @default(0)
+  grade    Int       @default(0)
   gradedAt DateTime?
 
   // Cards listed at auction stay visible in collection,
@@ -422,16 +423,16 @@ model ProductSetPrestige {
 }
 
 model ShopOffer {
-  id                 Int      @id @default(autoincrement())
+  id                 Int       @id @default(autoincrement())
   userId             String
   cardId             Int
   offerBps           Int
-  createdAt          DateTime @default(now())
+  createdAt          DateTime  @default(now())
   expiresAt          DateTime
   acceptedAt         DateTime?
   rejectedAt         DateTime?
-  acceptedQty        Int      @default(0)
-  acceptedTotalCents Int      @default(0)
+  acceptedQty        Int       @default(0)
+  acceptedTotalCents Int       @default(0)
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   card Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
@@ -474,18 +475,18 @@ model ShopTransaction {
 }
 
 model Auction {
-  id           Int           @id @default(autoincrement())
+  id           Int     @id @default(autoincrement())
   sellerUserId String
   winnerUserId String?
   cardId       Int
-  grade        Int           @default(0)
-  quantity     Int           @default(1)
+  grade        Int     @default(0)
+  quantity     Int     @default(1)
 
   startingBidCents       Int
-  currentBidCents        Int      @default(0)
+  currentBidCents        Int @default(0)
   valueBasisCents        Int
   hiddenDummyMaxBidCents Int
-  slabPremiumBps         Int      @default(0)
+  slabPremiumBps         Int @default(0)
 
   status      AuctionStatus @default(ACTIVE)
   createdAt   DateTime      @default(now())
@@ -510,7 +511,7 @@ model Auction {
 }
 
 model AuctionBid {
-  id        Int               @id @default(autoincrement())
+  id        Int     @id @default(autoincrement())
   auctionId Int
   userId    String?
 
@@ -564,12 +565,12 @@ model CardSaleHistory {
   sellerUserId String?
   buyerUserId  String?
 
-  salePriceCents     Int
-  valueBasisCents    Int
-  percentOfValueBps  Int
+  salePriceCents    Int
+  valueBasisCents   Int
+  percentOfValueBps Int
 
-  auctionId          Int?
-  shopTransactionId  Int?
+  auctionId         Int?
+  shopTransactionId Int?
 
   createdAt DateTime @default(now())
 
@@ -614,6 +615,10 @@ model FinancialDailySnapshot {
   dateKey              String
   balanceCents         Int
   collectionValueCents Int
+  sealedValueCents     Int      @default(0)
+  openingNetWorthCents Int      @default(0)
+  closingNetWorthCents Int      @default(0)
+  valuationVersion     Int      @default(2)
   netWorthCents        Int
   createdAt            DateTime @default(now())
   updatedAt            DateTime @updatedAt

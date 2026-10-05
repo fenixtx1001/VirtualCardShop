@@ -4,6 +4,7 @@ import { requireUser } from "@/lib/current-user";
 import { processAuctionLifecycle } from "@/lib/auction-engine";
 import { getPercentOfValueBps } from "@/lib/auctions";
 import { labelVcsGrade } from "@/lib/grading";
+import { syncDailyPortfolioSnapshot } from "@/lib/portfolio";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -187,7 +188,7 @@ export async function POST(_req: Request, ctx: Ctx) {
             userId: buyer.id,
             category: "AUCTION_PURCHASE",
             direction: "EXPENSE",
-            amountCents: salePriceCents,
+            amountCents: -salePriceCents,
             description: `Auction purchase: ${description}`,
             balanceAfterCents: buyer.balanceCents - salePriceCents,
             metadata: {
@@ -296,6 +297,12 @@ export async function POST(_req: Request, ctx: Ctx) {
           currentBidCents: salePriceCents,
         },
       });
+
+      await syncDailyPortfolioSnapshot(tx, auction.sellerUserId);
+
+      if (buyerType === "HUMAN" && buyerUserId) {
+        await syncDailyPortfolioSnapshot(tx, buyerUserId);
+      }
 
       return {
         auction: collected,

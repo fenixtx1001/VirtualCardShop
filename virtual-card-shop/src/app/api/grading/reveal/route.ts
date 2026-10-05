@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { syncDailyPortfolioSnapshot } from "@/lib/portfolio";
 import {
   bookValueToCents,
   calculateGradedValueCents,
@@ -222,6 +223,8 @@ export async function POST(req: Request) {
           resultGrade: primaryResult?.grade ?? null,
         },
       });
+
+      await syncDailyPortfolioSnapshot(tx, user.id);
 
       const updatedUser = await tx.user.findUnique({
         where: { id: user.id },

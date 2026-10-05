@@ -1,5 +1,5 @@
-// src/lib/financial-transactions.ts
 import { Prisma } from "@prisma/client";
+import { syncDailyPortfolioSnapshot } from "@/lib/portfolio";
 
 export type FinancialCategory =
   | "PACK_PURCHASE"
@@ -8,7 +8,9 @@ export type FinancialCategory =
   | "GRADING_FEE"
   | "CARD_SALE"
   | "REWARD_BONUS"
-  | "PRESTIGE_REWARD";
+  | "PRESTIGE_REWARD"
+  | "AUCTION_PURCHASE"
+  | "AUCTION_SALE";
 
 export type FinancialDirection = "INCOME" | "EXPENSE";
 
@@ -27,7 +29,7 @@ export async function createFinancialTransaction(opts: {
 }) {
   const { tx, userId, category, amountCents, description, balanceAfterCents, metadata } = opts;
 
-  return tx.financialTransaction.create({
+  const transaction = await tx.financialTransaction.create({
     data: {
       userId,
       category,
@@ -38,4 +40,7 @@ export async function createFinancialTransaction(opts: {
       metadata: metadata ?? Prisma.JsonNull,
     },
   });
+
+  await syncDailyPortfolioSnapshot(tx, userId);
+  return transaction;
 }

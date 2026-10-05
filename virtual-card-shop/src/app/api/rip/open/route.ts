@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
 import { syncPrestigeProgressForProductSets } from "@/lib/prestige";
+import { openedPackCostBasisCents } from "@/lib/analytics-math";
+import { syncDailyPortfolioSnapshot } from "@/lib/portfolio";
 
 type Body = { productId?: string };
 
@@ -142,9 +144,17 @@ export async function POST(req: Request) {
           ? null
           : openRipBoxes.find((box) => box.packsOpened < box.packsPurchased) ?? null;
 
+      const openedPackBasis = openedPackCostBasisCents(
+        inv.costBasisCents,
+        inv.packsOwned
+      );
+
       await tx.sealedInventory.update({
         where: { userId_productId: { userId: user.id, productId } },
-        data: { packsOwned: { decrement: 1 } },
+        data: {
+          packsOwned: { decrement: 1 },
+          costBasisCents: { decrement: openedPackBasis },
+        },
       });
 
       const insertsToPull: { setId: string; count: number }[] = [];
@@ -443,6 +453,8 @@ export async function POST(req: Request) {
           productSetIds: productSetIdsTouched,
         });
       }
+
+      await syncDailyPortfolioSnapshot(tx, user.id);
 
       return {
         cards: enriched,

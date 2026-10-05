@@ -145,11 +145,13 @@ export async function POST(req: Request) {
           userId: user.id,
           productId,
           packsOwned: packsToAdd,
+          costBasisCents: costCents,
         },
         update: {
           packsOwned: { increment: packsToAdd },
+          costBasisCents: { increment: costCents },
         },
-        select: { packsOwned: true },
+        select: { packsOwned: true, costBasisCents: true },
       });
 
       const purchaseBatchId = randomUUID();

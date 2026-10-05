@@ -3,6 +3,7 @@
 // src/app/analytics/boxes/[boxId]/box-detail-client.tsx
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import AnalyticsTabs from "@/components/analytics/AnalyticsTabs";
 
 type SortKey =
   | "position"
@@ -684,6 +685,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
       `}</style>
 
       <div className="boxDetailWrap">
+        <AnalyticsTabs />
         <Link href="/analytics/boxes" className="vcs-back-link">
           ← Box Portfolio
         </Link>

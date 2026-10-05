@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import AnalyticsTabs from "@/components/analytics/AnalyticsTabs";
 
 type ViewMode = "summary" | "cards";
 type ScopeMode = "me" | "all_users" | "single_user";
@@ -723,11 +724,12 @@ export default function AnalyticsClient() {
       `}</style>
 
       <div className="analyticsShell">
+        <AnalyticsTabs />
         <header className="analyticsHeader">
           <div>
-            <h1 className="analyticsTitle">Analytics</h1>
+            <h1 className="analyticsTitle">Collection Analytics</h1>
             <div className="analyticsSubtitle">
-              Understand your collection, compare ownership, and explore the VCS card universe.
+              Explore your cards by player, team, set, brand, year, or sport and compare ownership across collectors.
             </div>
           </div>
         </header>

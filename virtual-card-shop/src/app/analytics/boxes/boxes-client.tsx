@@ -1,13 +1,14 @@
 "use client";
 
-// src/app/analytics/boxes/boxes-client.tsx
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import AnalyticsTabs from "@/components/analytics/AnalyticsTabs";
 
 type BoxRow = {
   id: number;
   productId: string;
   productName: string;
+  product: { boxImageUrl: string | null; packImageUrl: string | null };
   purchasePriceCents: number;
   packsPurchased: number;
   packsOpened: number;
@@ -15,641 +16,182 @@ type BoxRow = {
   createdAt: string;
   totalPulledCards: number;
   totalPullValueCents: number;
+  remainingInventoryValueCents: number;
+  realizedCents: number;
+  gradingFeeCents: number;
+  totalPositionCents: number;
   profitCents: number;
   roiPct: number | null;
-  topCard: null | {
-    id: number;
-    cardNumber: string;
-    player: string;
-    team: string | null;
-    subset: string | null;
-    variant: string | null;
-    bookValueCents: number;
-    frontImageUrl: string | null;
-    quantity: number;
-  };
+  breakEvenCents: number;
+  topCard: null | { id: number; cardNumber: string; player: string; bookValueCents: number };
 };
 
 type ApiData = {
   ok: boolean;
-  error?: string;
   totals: {
-    boxes: number;
+    completedBoxes: number;
+    activeBoxes: number;
+    profitableBoxes: number;
     costCents: number;
-    pullValueCents: number;
+    positionCents: number;
     profitCents: number;
-    packsPurchased: number;
-    packsOpened: number;
+    gradingFeeCents: number;
     roiPct: number | null;
+    profitablePct: number | null;
+    bestBox: null | { id: number; productName: string; roiPct: number | null; profitCents: number };
   };
-  boxes: BoxRow[];
+  active: BoxRow[];
+  completed: BoxRow[];
+  productPerformance: {
+    productId: string;
+    productName: string;
+    boxes: number;
+    profitableBoxes: number;
+    costCents: number;
+    positionCents: number;
+    profitCents: number;
+    roiPct: number | null;
+    profitablePct: number | null;
+  }[];
 };
 
-type SortKey = "date" | "roi" | "profit" | "value" | "cost" | "progress";
+type SortKey = "date" | "roi" | "profit" | "position" | "cost";
 
-const colors = {
-  text: "#171717",
-  muted: "#6b7280",
-  border: "#e5ded3",
-  borderStrong: "#d7cbb9",
-  gold: "#8a6200",
-  goldSoft: "#fff8e8",
-  green: "#166534",
-  red: "#991b1b",
-};
+function money(cents: number) { return (cents / 100).toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 2 }); }
+function signedMoney(cents: number) { return `${cents > 0 ? "+" : ""}${money(cents)}`; }
+function pct(value: number | null) { return value == null ? "—" : `${value > 0 ? "+" : ""}${value.toFixed(1)}%`; }
 
-function money(cents: number) {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 2,
-  }).format(cents / 100);
-}
+function BoxCard({ box }: { box: BoxRow }) {
+  const progress = box.packsPurchased > 0 ? Math.min(100, Math.round((box.packsOpened / box.packsPurchased) * 100)) : 0;
+  const image = box.product.boxImageUrl || box.product.packImageUrl;
 
-function pct(value: number | null) {
-  if (value === null || !Number.isFinite(value)) return "—";
-  const sign = value > 0 ? "+" : "";
-  return `${sign}${value.toFixed(1)}%`;
-}
-
-function dateLabel(value: string) {
-  return new Intl.DateTimeFormat("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  }).format(new Date(value));
-}
-
-function cardSubtitle(card: NonNullable<BoxRow["topCard"]>) {
-  return [card.team, card.subset, card.variant].filter(Boolean).join(" · ");
+  return (
+    <Link href={`/analytics/boxes/${box.id}`} className="analytics-box-card">
+      <div className="analytics-box-art">{image ? <img src={image} alt="" /> : <strong>VCS</strong>}</div>
+      <div>
+        <div className="analytics-box-title">{box.productName}</div>
+        <div className="analytics-box-sub">{box.packsOpened}/{box.packsPurchased} packs{box.topCard ? ` · Top pull: ${box.topCard.player} ${money(box.topCard.bookValueCents)}` : ""}</div>
+        {!box.isClosed ? (
+          <>
+            <div className="analytics-progress"><span style={{ width: `${progress}%` }} /></div>
+            <div className="analytics-box-sub">{box.breakEvenCents > 0 ? `${money(box.breakEvenCents)} to break even` : `${signedMoney(box.profitCents)} ahead of cost`}</div>
+          </>
+        ) : null}
+      </div>
+      <div className="analytics-box-metrics">
+        <div><div className="analytics-mini-label">Cost</div><div className="analytics-mini-value">{money(box.purchasePriceCents)}</div></div>
+        <div><div className="analytics-mini-label">Position</div><div className="analytics-mini-value">{money(box.totalPositionCents)}</div></div>
+        <div><div className="analytics-mini-label">{box.isClosed ? "ROI" : "P/L"}</div><div className={`analytics-mini-value ${box.profitCents >= 0 ? "analytics-positive" : "analytics-negative"}`}>{box.isClosed ? pct(box.roiPct) : signedMoney(box.profitCents)}</div></div>
+      </div>
+    </Link>
+  );
 }
 
 export default function BoxesClient() {
   const [data, setData] = useState<ApiData | null>(null);
   const [error, setError] = useState("");
-  const [sortKey, setSortKey] = useState<SortKey>("date");
+  const [sort, setSort] = useState<SortKey>("date");
 
   useEffect(() => {
     let cancelled = false;
-
     async function load() {
-      setError("");
-
-      const res = await fetch("/api/analytics/boxes", { cache: "no-store" });
-      const json = (await res.json().catch(() => null)) as ApiData | null;
-
-      if (cancelled) return;
-
-      if (!res.ok || !json?.ok) {
-        setError(json?.error ?? "Failed to load box portfolio.");
-        setData(null);
-        return;
+      try {
+        const response = await fetch("/api/analytics/boxes", { cache: "no-store" });
+        const json = await response.json();
+        if (!response.ok || !json?.ok) throw new Error(json?.error ?? "Couldn't load Box Portfolio.");
+        if (!cancelled) setData(json);
+      } catch (err) {
+        if (!cancelled) setError(err instanceof Error ? err.message : "Couldn't load Box Portfolio.");
       }
-
-      setData(json);
     }
-
-    load();
-
-    return () => {
-      cancelled = true;
-    };
+    void load();
+    return () => { cancelled = true; };
   }, []);
 
-  const sortedBoxes = useMemo(() => {
-    const rows = [...(data?.boxes ?? [])];
-
+  const completed = useMemo(() => {
+    const rows = [...(data?.completed ?? [])];
     rows.sort((a, b) => {
-      if (sortKey === "roi") return (b.roiPct ?? -999999) - (a.roiPct ?? -999999);
-      if (sortKey === "profit") return b.profitCents - a.profitCents;
-      if (sortKey === "value") return b.totalPullValueCents - a.totalPullValueCents;
-      if (sortKey === "cost") return b.purchasePriceCents - a.purchasePriceCents;
-      if (sortKey === "progress") {
-        const ap = a.packsPurchased > 0 ? a.packsOpened / a.packsPurchased : 0;
-        const bp = b.packsPurchased > 0 ? b.packsOpened / b.packsPurchased : 0;
-        return bp - ap;
-      }
-
+      if (sort === "roi") return (b.roiPct ?? -Infinity) - (a.roiPct ?? -Infinity);
+      if (sort === "profit") return b.profitCents - a.profitCents;
+      if (sort === "position") return b.totalPositionCents - a.totalPositionCents;
+      if (sort === "cost") return b.purchasePriceCents - a.purchasePriceCents;
       return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
     });
-
     return rows;
-  }, [data?.boxes, sortKey]);
+  }, [data, sort]);
 
   return (
-    <main className="boxesPage">
-      <style>{`
-        .boxesPage {
-          min-height: 100vh;
-          color: ${colors.text};
-          background:
-            radial-gradient(circle at top left, rgba(245,158,11,.12), transparent 30%),
-            linear-gradient(180deg, #f8f3ea 0%, #f2eadf 100%);
-          padding: 12px 10px 30px;
-        }
+    <main className="analytics-suite-page">
+      <div className="analytics-suite-shell">
+        <AnalyticsTabs />
 
-        .boxesShell {
-          max-width: 1240px;
-          margin: 0 auto;
-        }
-
-        .boxesHeader {
-          display: flex;
-          justify-content: space-between;
-          gap: 12px;
-          align-items: flex-end;
-          flex-wrap: wrap;
-        }
-
-        .boxesTitle {
-          margin: 7px 0 3px;
-          font-size: clamp(30px, 7vw, 42px);
-          letter-spacing: -.045em;
-          line-height: 1;
-          font-weight: 1000;
-        }
-
-        .boxesSubtitle {
-          color: ${colors.muted};
-          font-size: 12.5px;
-          font-weight: 750;
-        }
-
-        .boxesSummary {
-          margin-top: 12px;
-          display: grid;
-          grid-template-columns: repeat(6, minmax(0, 1fr));
-          border: 1px solid ${colors.borderStrong};
-          border-radius: 16px;
-          overflow: hidden;
-          background: rgba(255,255,255,.9);
-        }
-
-        .boxesSummaryCell {
-          min-width: 0;
-          padding: 10px 11px;
-          border-left: 1px solid ${colors.border};
-        }
-
-        .boxesSummaryCell:first-child {
-          border-left: 0;
-        }
-
-        .boxesLabel {
-          color: ${colors.muted};
-          font-size: 9px;
-          font-weight: 950;
-          text-transform: uppercase;
-          letter-spacing: .04em;
-          white-space: nowrap;
-        }
-
-        .boxesValue {
-          margin-top: 3px;
-          font-size: 17px;
-          line-height: 1.05;
-          font-weight: 1000;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-
-        .boxesListPanel {
-          margin-top: 12px;
-          border: 1px solid ${colors.borderStrong};
-          background: rgba(255,255,255,.82);
-          border-radius: 17px;
-          padding: 10px;
-          box-shadow: 0 10px 28px rgba(80,49,20,.05);
-        }
-
-        .boxesListHeader {
-          display: flex;
-          justify-content: space-between;
-          gap: 10px;
-          align-items: center;
-          flex-wrap: wrap;
-          margin-bottom: 8px;
-        }
-
-        .boxesSort {
-          border: 1px solid ${colors.borderStrong};
-          background: #fff;
-          border-radius: 11px;
-          padding: 8px 10px;
-          font-weight: 900;
-          font-size: 12px;
-          color: ${colors.text};
-        }
-
-        .boxesList {
-          display: grid;
-          gap: 8px;
-        }
-
-        .boxCard {
-          display: grid;
-          grid-template-columns: minmax(0, 1.55fr) repeat(5, minmax(84px,.7fr)) 80px;
-          gap: 8px;
-          align-items: center;
-          border: 1px solid ${colors.border};
-          background: #fff;
-          border-radius: 14px;
-          padding: 10px;
-          text-decoration: none;
-          color: inherit;
-        }
-
-        .boxTitle {
-          font-weight: 1000;
-          font-size: 13px;
-          line-height: 1.15;
-        }
-
-        .boxSub {
-          margin-top: 2px;
-          color: ${colors.muted};
-          font-weight: 750;
-          font-size: 10.5px;
-        }
-
-        .boxTopPull {
-          margin-top: 4px;
-          color: #92400e;
-          font-weight: 850;
-          font-size: 10.5px;
-          line-height: 1.25;
-        }
-
-        .boxMetricsMobile {
-          display: none;
-        }
-
-        @media (max-width: 760px) {
-          .boxesPage {
-            padding: 10px 8px 24px;
-          }
-
-          .boxesHeader {
-            align-items: start;
-          }
-
-          .boxesTitle {
-            font-size: 30px;
-          }
-
-          .boxesSubtitle {
-            font-size: 11.5px;
-          }
-
-          .boxesSummary {
-            grid-template-columns: repeat(3, minmax(0,1fr));
-          }
-
-          .boxesSummaryCell {
-            padding: 8px 7px;
-          }
-
-          .boxesSummaryCell:nth-child(4) {
-            border-left: 0;
-            border-top: 1px solid ${colors.border};
-          }
-
-          .boxesSummaryCell:nth-child(5),
-          .boxesSummaryCell:nth-child(6) {
-            border-top: 1px solid ${colors.border};
-          }
-
-          .boxesValue {
-            font-size: 13px;
-          }
-
-          .boxesListPanel {
-            padding: 8px;
-            border-radius: 14px;
-          }
-
-          .boxesListHeader {
-            align-items: stretch;
-          }
-
-          .boxesSort {
-            width: 100%;
-          }
-
-          .boxCard {
-            display: block;
-            border-radius: 14px;
-            padding: 9px;
-          }
-
-          .boxTitle {
-            font-size: 14px;
-          }
-
-          .boxSub,
-          .boxTopPull {
-            font-size: 10px;
-          }
-
-          .boxMetricsDesktop {
-            display: none !important;
-          }
-
-          .boxMetricsMobile {
-            margin-top: 8px;
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0,1fr));
-            border: 1px solid ${colors.border};
-            border-radius: 11px;
-            overflow: hidden;
-          }
-
-          .boxMetricMobile {
-            min-width: 0;
-            padding: 7px 6px;
-            border-left: 1px solid ${colors.border};
-          }
-
-          .boxMetricMobile:first-child {
-            border-left: 0;
-          }
-
-          .boxMetricMobile .boxesValue {
-            font-size: 11.5px;
-          }
-
-          .boxFooterMobile {
-            margin-top: 7px;
-            display: grid;
-            grid-template-columns: minmax(0,1fr) auto;
-            gap: 8px;
-            align-items: center;
-          }
-
-          .boxProgressTrack {
-            height: 7px;
-            border-radius: 999px;
-            background: #eee7dc;
-            overflow: hidden;
-          }
-
-          .boxProgressFill {
-            height: 100%;
-            border-radius: inherit;
-            background: linear-gradient(90deg,#c98d18,#e8bf57);
-          }
-
-          .boxStatusMobile {
-            font-size: 10px;
-            font-weight: 950;
-            color: ${colors.gold};
-            white-space: nowrap;
-          }
-        }
-      `}</style>
-
-      <div className="boxesShell">
-        <header className="boxesHeader">
+        <header className="analytics-masthead">
           <div>
-            <Link href="/analytics" className="vcs-back-link">
-              ← Analytics
-            </Link>
-            <h1 className="boxesTitle">Box Portfolio</h1>
-            <div className="boxesSubtitle">
-              Track each box as an investment: cost, pull value, profit, ROI, and progress.
-            </div>
+            <div className="analytics-eyebrow">Rip Performance</div>
+            <h1 className="analytics-heading">Box Portfolio</h1>
+            <div className="analytics-subtitle">Follow active boxes separately from completed investments, then compare true position value, profit, ROI, and product performance.</div>
           </div>
-
-          <Link href="/shop" className="vcs-button vcs-button-primary vcs-button-compact">
-            Buy Boxes →
-          </Link>
+          <Link href="/shop" className="vcs-button vcs-button-primary vcs-button-compact">Buy Boxes →</Link>
         </header>
 
-        {error ? (
-          <div
-            style={{
-              marginTop: 10,
-              border: "1px solid #fecaca",
-              background: "#fff1f2",
-              color: colors.red,
-              borderRadius: 12,
-              padding: 10,
-              fontWeight: 850,
-              fontSize: 12,
-            }}
-          >
-            {error}
-          </div>
-        ) : null}
+        {error ? <div className="vcs-notice vcs-notice-danger">{error}</div> : null}
 
         {!data ? (
-          <div
-            style={{
-              marginTop: 12,
-              border: `1px solid ${colors.border}`,
-              background: "rgba(255,255,255,.75)",
-              borderRadius: 14,
-              padding: 12,
-              fontWeight: 850,
-            }}
-          >
-            Loading box portfolio…
-          </div>
+          <div className="vcs-state vcs-state-loading"><span className="vcs-state-mark" /><div className="vcs-state-body"><div className="vcs-state-title">Loading box portfolio</div></div></div>
         ) : (
           <>
-            <section className="boxesSummary">
-              <SummaryCell label="Boxes" value={String(data.totals.boxes)} />
-              <SummaryCell label="Cost" value={money(data.totals.costCents)} />
-              <SummaryCell label="Pull Value" value={money(data.totals.pullValueCents)} />
-              <SummaryCell
-                label="Profit"
-                value={money(data.totals.profitCents)}
-                tone={data.totals.profitCents}
-              />
-              <SummaryCell
-                label="ROI"
-                value={pct(data.totals.roiPct)}
-                tone={data.totals.profitCents}
-              />
-              <SummaryCell
-                label="Packs"
-                value={`${data.totals.packsOpened}/${data.totals.packsPurchased}`}
-              />
+            <section className="analytics-stat-grid">
+              <div className="analytics-stat"><div className="analytics-mini-label">Completed</div><div className="analytics-stat-value">{data.totals.completedBoxes}</div></div>
+              <div className="analytics-stat"><div className="analytics-mini-label">Cost</div><div className="analytics-stat-value">{money(data.totals.costCents)}</div></div>
+              <div className="analytics-stat"><div className="analytics-mini-label">Position</div><div className="analytics-stat-value">{money(data.totals.positionCents)}</div></div>
+              <div className="analytics-stat"><div className="analytics-mini-label">Profit / Loss</div><div className={`analytics-stat-value ${data.totals.profitCents >= 0 ? "analytics-positive" : "analytics-negative"}`}>{signedMoney(data.totals.profitCents)}</div></div>
             </section>
 
-            <section className="boxesListPanel">
-              <div className="boxesListHeader">
-                <div>
-                  <div style={{ fontWeight: 1000, fontSize: 16 }}>Tracked Boxes</div>
-                  <div style={{ color: colors.muted, fontWeight: 700, fontSize: 10.5 }}>
-                    Paper ROI uses raw book value of cards pulled.
-                  </div>
-                </div>
+            <section className="analytics-section analytics-stat-grid">
+              <div className="analytics-stat"><div className="analytics-mini-label">ROI</div><div className={`analytics-stat-value ${data.totals.profitCents >= 0 ? "analytics-positive" : "analytics-negative"}`}>{pct(data.totals.roiPct)}</div></div>
+              <div className="analytics-stat"><div className="analytics-mini-label">Profitable Boxes</div><div className="analytics-stat-value">{data.totals.profitablePct == null ? "—" : `${data.totals.profitablePct.toFixed(0)}%`}</div></div>
+              <div className="analytics-stat"><div className="analytics-mini-label">Active</div><div className="analytics-stat-value">{data.totals.activeBoxes}</div></div>
+              <div className="analytics-stat"><div className="analytics-mini-label">Best Box</div><div className="analytics-stat-value" style={{ fontSize: 13 }}>{data.totals.bestBox ? pct(data.totals.bestBox.roiPct) : "—"}</div></div>
+            </section>
 
-                <select
-                  className="boxesSort"
-                  value={sortKey}
-                  onChange={(e) => setSortKey(e.target.value as SortKey)}
-                >
-                  <option value="date">Newest</option>
-                  <option value="roi">Best ROI</option>
-                  <option value="profit">Best Profit</option>
-                  <option value="value">Pull Value</option>
-                  <option value="cost">Cost</option>
-                  <option value="progress">Most Opened</option>
+            <section className="analytics-section analytics-panel analytics-panel-pad">
+              <div className="analytics-section-head"><div><h2 className="analytics-section-title">Active Boxes</h2><div className="analytics-section-copy">Active boxes stay out of headline ROI until every pack has been opened.</div></div></div>
+              <div className="analytics-box-grid">
+                {data.active.map((box) => <BoxCard box={box} key={box.id} />)}
+                {data.active.length === 0 ? <div className="analytics-empty">No active boxes right now.</div> : null}
+              </div>
+            </section>
+
+            <section className="analytics-section analytics-panel analytics-panel-pad">
+              <div className="analytics-section-head">
+                <div><h2 className="analytics-section-title">Completed Boxes</h2><div className="analytics-section-copy">Position value equals realized proceeds plus remaining card inventory, less grading fees when calculating profit.</div></div>
+                <select value={sort} onChange={(event) => setSort(event.target.value as SortKey)} style={{ minHeight: 34, padding: "6px 9px", fontSize: 11, fontWeight: 900 }}>
+                  <option value="date">Newest</option><option value="roi">Best ROI</option><option value="profit">Best Profit</option><option value="position">Position Value</option><option value="cost">Cost</option>
                 </select>
               </div>
+              <div className="analytics-box-grid">
+                {completed.map((box) => <BoxCard box={box} key={box.id} />)}
+                {completed.length === 0 ? <div className="analytics-empty">Finish opening a box and its final performance will appear here.</div> : null}
+              </div>
+            </section>
 
-              {sortedBoxes.length === 0 ? (
-                <div
-                  style={{
-                    border: `1px dashed ${colors.borderStrong}`,
-                    borderRadius: 12,
-                    padding: 12,
-                    color: colors.muted,
-                    fontWeight: 750,
-                    fontSize: 12,
-                  }}
-                >
-                  No boxes tracked yet. Buy a box from the shop to start building your portfolio.
-                </div>
-              ) : (
-                <div className="boxesList">
-                  {sortedBoxes.map((box) => {
-                    const progress =
-                      box.packsPurchased > 0
-                        ? Math.round((box.packsOpened / box.packsPurchased) * 100)
-                        : 0;
-
-                    return (
-                      <Link
-                        key={box.id}
-                        href={`/analytics/boxes/${box.id}`}
-                        className="boxCard"
-                      >
-                        <div style={{ minWidth: 0 }}>
-                          <div className="boxTitle">
-                            Box #{box.id} · {box.productName}
-                          </div>
-                          <div className="boxSub">
-                            Purchased {dateLabel(box.createdAt)} · {box.packsOpened}/{box.packsPurchased} packs opened
-                          </div>
-
-                          {box.topCard ? (
-                            <div className="boxTopPull">
-                              Top pull: {box.topCard.player} #{box.topCard.cardNumber}
-                              {cardSubtitle(box.topCard) ? ` · ${cardSubtitle(box.topCard)}` : ""}
-                            </div>
-                          ) : (
-                            <div className="boxSub" style={{ marginTop: 4 }}>
-                              No tracked packs opened yet
-                            </div>
-                          )}
-
-                          <div className="boxMetricsMobile">
-                            <MobileMetric label="Cost" value={money(box.purchasePriceCents)} />
-                            <MobileMetric label="Value" value={money(box.totalPullValueCents)} />
-                            <MobileMetric label="Profit" value={money(box.profitCents)} tone={box.profitCents} />
-                            <MobileMetric label="ROI" value={pct(box.roiPct)} tone={box.profitCents} />
-                          </div>
-
-                          <div className="boxFooterMobile">
-                            <div className="boxProgressTrack">
-                              <div className="boxProgressFill" style={{ width: `${Math.min(100, progress)}%` }} />
-                            </div>
-                            <div className="boxStatusMobile">
-                              {box.isClosed ? "Closed" : `${progress}% open`}
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="boxMetricsDesktop"><Cell label="Cost" value={money(box.purchasePriceCents)} /></div>
-                        <div className="boxMetricsDesktop"><Cell label="Pull Value" value={money(box.totalPullValueCents)} /></div>
-                        <div className="boxMetricsDesktop"><Cell label="Profit" value={money(box.profitCents)} tone={box.profitCents} /></div>
-                        <div className="boxMetricsDesktop"><Cell label="ROI" value={pct(box.roiPct)} tone={box.profitCents} /></div>
-                        <div className="boxMetricsDesktop"><Cell label="Packs" value={`${box.packsOpened}/${box.packsPurchased}`} /></div>
-
-                        <div
-                          className="boxMetricsDesktop"
-                          style={{
-                            borderRadius: 999,
-                            padding: "7px 9px",
-                            background: box.isClosed ? "#dcfce7" : colors.goldSoft,
-                            color: box.isClosed ? colors.green : colors.gold,
-                            fontWeight: 950,
-                            fontSize: 11,
-                            textAlign: "center",
-                          }}
-                        >
-                          {box.isClosed ? "Closed" : `${progress}%`}
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
-              )}
+            <section className="analytics-section analytics-panel">
+              <div style={{ padding: "13px 14px 10px" }}><h2 className="analytics-section-title">Product Performance</h2><div className="analytics-section-copy">Completed-box results grouped by product.</div></div>
+              <div className="analytics-product-list">
+                {data.productPerformance.map((product) => (
+                  <div className="analytics-product-row" key={product.productId}>
+                    <div><div className="analytics-box-title">{product.productName}</div><div className="analytics-box-sub">{product.boxes} completed box{product.boxes === 1 ? "" : "es"}</div></div>
+                    <div><div className="analytics-mini-label">ROI</div><div className={`analytics-mini-value ${product.profitCents >= 0 ? "analytics-positive" : "analytics-negative"}`}>{pct(product.roiPct)}</div></div>
+                    <div><div className="analytics-mini-label">Profitable</div><div className="analytics-mini-value">{product.profitablePct == null ? "—" : `${product.profitablePct.toFixed(0)}%`}</div></div>
+                    <div><div className="analytics-mini-label">P/L</div><div className={`analytics-mini-value ${product.profitCents >= 0 ? "analytics-positive" : "analytics-negative"}`}>{signedMoney(product.profitCents)}</div></div>
+                  </div>
+                ))}
+                {data.productPerformance.length === 0 ? <div className="analytics-empty">Product results will appear after boxes are completed.</div> : null}
+              </div>
             </section>
           </>
         )}
       </div>
     </main>
-  );
-}
-
-function SummaryCell({
-  label,
-  value,
-  tone,
-}: {
-  label: string;
-  value: string;
-  tone?: number;
-}) {
-  const color = tone === undefined ? colors.text : tone >= 0 ? colors.green : colors.red;
-
-  return (
-    <div className="boxesSummaryCell">
-      <div className="boxesLabel">{label}</div>
-      <div className="boxesValue" style={{ color }}>{value}</div>
-    </div>
-  );
-}
-
-function MobileMetric({
-  label,
-  value,
-  tone,
-}: {
-  label: string;
-  value: string;
-  tone?: number;
-}) {
-  const color = tone === undefined ? colors.text : tone >= 0 ? colors.green : colors.red;
-
-  return (
-    <div className="boxMetricMobile">
-      <div className="boxesLabel">{label}</div>
-      <div className="boxesValue" style={{ color }}>{value}</div>
-    </div>
-  );
-}
-
-function Cell({
-  label,
-  value,
-  tone,
-}: {
-  label: string;
-  value: string;
-  tone?: number;
-}) {
-  const color = tone === undefined ? colors.text : tone >= 0 ? colors.green : colors.red;
-
-  return (
-    <div style={{ minWidth: 0 }}>
-      <div className="boxesLabel">{label}</div>
-      <div style={{ color, fontWeight: 1000, fontSize: 13 }}>{value}</div>
-    </div>
   );
 }
