@@ -1,0 +1,1823 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Paul Molitor,Minnesota Twins,Base,
+base,2,Juan Gonzalez,Texas Rangers,Base,
+base,3,Darryl Kile,Houston Astros,Base,
+base,4,Randy Johnson,Seattle Mariners,Base,
+base,5,Tom Glavine,Atlanta Braves,Base,
+base,6,Pat Hentgen,Toronto Blue Jays,Base,
+base,7,David Justice,Cleveland Indians,Base,
+base,8,Kevin Brown,Florida Marlins,Base,
+base,9,Mike Mussina,Baltimore Orioles,Base,
+base,10,Ken Caminiti,San Diego Padres,Base,
+base,11,Todd Hundley,New York Mets,Base,
+base,12,Frank Thomas,Chicago White Sox,Base,
+base,13,Ray Lankford,St. Louis Cardinals,Base,
+base,14,Justin Thompson,Detroit Tigers,Base,
+base,15,Jason Dickson,Anaheim Angels,Base,
+base,16,Kenny Lofton,Atlanta Braves,Base,
+base,17,Ivan Rodriguez,Texas Rangers,Base,
+base,18,Pedro Martinez,Montreal Expos,Base,
+base,19,Brady Anderson,Baltimore Orioles,Base,
+base,20,Barry Larkin,Cincinnati Reds,Base,
+base,21,Chipper Jones,Atlanta Braves,Base,
+base,22,Tony Gwynn,San Diego Padres,Base,
+base,23,Roger Clemens,Toronto Blue Jays,Base,
+base,24,Sandy Alomar Jr.,Cleveland Indians,Base,
+base,25,Tino Martinez,New York Yankees,Base,
+base,26,Jeff Bagwell,Houston Astros,Base,
+base,27,Shawn Estes,San Francisco Giants,Base,
+base,28,Ken Griffey Jr.,Seattle Mariners,Base,
+base,29,Javy Lopez,Atlanta Braves,Base,
+base,30,Denny Neagle,Atlanta Braves,Base,
+base,31,Mike Piazza,Los Angeles Dodgers,Base,
+base,32,Andres Galarraga,Colorado Rockies,Base,
+base,33,Larry Walker,Colorado Rockies,Base,
+base,34,Alex Rodriguez,Seattle Mariners,Base,
+base,35,Greg Maddux,Atlanta Braves,Base,
+base,36,Albert Belle,Chicago White Sox,Base,
+base,37,Barry Bonds,San Francisco Giants,Base,
+base,38,Mo Vaughn,Boston Red Sox,Base,
+base,39,Kevin Appier,Kansas City Royals,Base,
+base,40,Wade Boggs,New York Yankees,Base,
+base,41,Garret Anderson,Anaheim Angels,Base,
+base,42,Jeffrey Hammonds,Baltimore Orioles,Base,
+base,43,Marquis Grissom,Cleveland Indians,Base,
+base,44,Jim Edmonds,Anaheim Angels,Base,
+base,45,Brian Jordan,St. Louis Cardinals,Base,
+base,46,Raul Mondesi,Los Angeles Dodgers,Base,
+base,47,John Valentin,Boston Red Sox,Base,
+base,48,Brad Radke,Minnesota Twins,Base,
+base,49,Ismael Valdes,Los Angeles Dodgers,Base,
+base,50,Matt Stairs,Oakland Athletics,Base,
+base,51,Matt Williams,Cleveland Indians,Base,
+base,52,Reggie Jefferson,Boston Red Sox,Base,
+base,53,Alan Benes,St. Louis Cardinals,Base,
+base,54,Charles Johnson,Florida Marlins,Base,
+base,55,Chuck Knoblauch,Minnesota Twins,Base,
+base,56,Edgar Martinez,Seattle Mariners,Base,
+base,57,Nomar Garciaparra,Boston Red Sox,Base,
+base,58,Craig Biggio,Houston Astros,Base,
+base,59,Bernie Williams,New York Yankees,Base,
+base,60,David Cone,New York Yankees,Base,
+base,61,Cal Ripken Jr.,Baltimore Orioles,Base,
+base,62,Mark McGwire,St. Louis Cardinals,Base,
+base,63,Roberto Alomar,Baltimore Orioles,Base,
+base,64,Fred McGriff,Atlanta Braves,Base,
+base,65,Eric Karros,Los Angeles Dodgers,Base,
+base,66,Robin Ventura,Chicago White Sox,Base,
+base,67,Darin Erstad,Anaheim Angels,Base,
+base,68,Michael Tucker,Atlanta Braves,Base,
+base,69,Jim Thome,Cleveland Indians,Base,
+base,70,Mark Grace,Chicago Cubs,Base,
+base,71,Lou Collier,Pittsburgh Pirates,Rookies,
+base,72,Karim Garcia,Los Angeles Dodgers,Base,
+base,73,Alex Fernandez,Florida Marlins,Base,
+base,74,J.T. Snow,San Francisco Giants,Base,
+base,75,Reggie Sanders,Cincinnati Reds,Base,
+base,76,John Smoltz,Atlanta Braves,Base,
+base,77,Tim Salmon,Anaheim Angels,Base,
+base,78,Paul O'Neill,New York Yankees,Base,
+base,79,Vinny Castilla,Colorado Rockies,Base,
+base,80,Rafael Palmeiro,Baltimore Orioles,Base,
+base,81,Jaret Wright,Cleveland Indians,Base,
+base,82,Jay Buhner,Seattle Mariners,Base,
+base,83,Brett Butler,Los Angeles Dodgers,Base,
+base,84,Todd Greene,Anaheim Angels,Base,
+base,85,Scott Rolen,Philadelphia Phillies,Base,
+base,86,Sammy Sosa,Chicago Cubs,Base,
+base,87,Jason Giambi,Oakland Athletics,Base,
+base,88,Carlos Delgado,Toronto Blue Jays,Base,
+base,89,Deion Sanders,Cincinnati Reds,Base,
+base,90,Wilton Guerrero,Los Angeles Dodgers,Base,
+base,91,Andy Pettitte,New York Yankees,Base,
+base,92,Brian Giles,Cleveland Indians,Base,
+base,93,Dmitri Young,St. Louis Cardinals,Base,
+base,94,Ron Coomer,Minnesota Twins,Base,
+base,95,Mike Cameron,Chicago White Sox,Base,
+base,96,Edgardo Alfonzo,New York Mets,Base,
+base,97,Jimmy Key,Baltimore Orioles,Base,
+base,98,Ryan Klesko,Atlanta Braves,Base,
+base,99,Andy Benes,St. Louis Cardinals,Base,
+base,100,Derek Jeter,New York Yankees,Base,
+base,101,Jeff Fassero,Seattle Mariners,Base,
+base,102,Neifi Perez,Colorado Rockies,Base,
+base,103,Hideo Nomo,Los Angeles Dodgers,Base,
+base,104,Andruw Jones,Atlanta Braves,Base,
+base,105,Todd Helton,Colorado Rockies,Rookies,
+base,106,Livan Hernandez,Florida Marlins,Rookies,
+base,107,Brett Tomko,Cincinnati Reds,Base,
+base,108,Shannon Stewart,Toronto Blue Jays,Base,
+base,109,Bartolo Colon,Cleveland Indians,Base,
+base,110,Matt Morris,St. Louis Cardinals,Base,
+base,111,Miguel Tejada,Oakland Athletics,Rookies,
+base,112,Pokey Reese,Cincinnati Reds,Base,
+base,113,Fernando Tatis,Texas Rangers,Rookies,
+base,114,Todd Dunwoody,Florida Marlins,Base,
+base,115,Jose Cruz Jr.,Toronto Blue Jays,Base,
+base,116,Chan Ho Park,Los Angeles Dodgers,Base,
+base,117,Kevin Young,Pittsburgh Pirates,Base,
+base,118,Rickey Henderson,Anaheim Angels,Base,
+base,119,Hideki Irabu,New York Yankees,Base,
+base,120,Francisco Cordova,Pittsburgh Pirates,Base,
+base,121,Al Martin,Pittsburgh Pirates,Base,
+base,122,Tony Clark,Detroit Tigers,Base,
+base,123,Curt Schilling,Philadelphia Phillies,Base,
+base,124,Rusty Greer,Texas Rangers,Base,
+base,125,Jose Canseco,Oakland Athletics,Base,
+base,126,Edgar Renteria,Florida Marlins,Base,
+base,127,Todd Walker,Minnesota Twins,Base,
+base,128,Wally Joyner,San Diego Padres,Base,
+base,129,Bill Mueller,San Francisco Giants,Base,
+base,130,Jose Guillen,Pittsburgh Pirates,Base,
+base,131,Manny Ramirez,Cleveland Indians,Base,
+base,132,Bobby Higginson,Detroit Tigers,Base,
+base,133,Kevin Orie,Chicago Cubs,Base,
+base,134,Will Clark,Texas Rangers,Base,
+base,135,Dave Nilsson,Milwaukee Brewers,Base,
+base,136,Jason Kendall,Pittsburgh Pirates,Base,
+base,137,Ivan Cruz,New York Yankees,Rookies,
+base,138,Gary Sheffield,Florida Marlins,Base,
+base,139,Bubba Trammell,Detroit Tigers,Rookies,
+base,140,Vladimir Guerrero,Montreal Expos,Base,
+base,141,Dennis Reyes,Los Angeles Dodgers,Rookies,
+base,142,Bobby Bonilla,Florida Marlins,Base,
+base,143,Ruben Rivera,San Diego Padres,Base,
+base,144,Ben Grieve,Oakland Athletics,Rookies,
+base,145,Moises Alou,Florida Marlins,Base,
+base,146,Tony Womack,Pittsburgh Pirates,Base,
+base,147,Eric Young,Los Angeles Dodgers,Base,
+base,148,Paul Konerko,Los Angeles Dodgers,Rookies,
+base,149,Dante Bichette,Colorado Rockies,Base,
+base,150,Joe Carter,Toronto Blue Jays,Base,
+base,151,Rondell White,Montreal Expos,Base,
+base,152,Chris Holt,Houston Astros,Base,
+base,153,Shawn Green,Toronto Blue Jays,Base,
+base,154,Mark Grudzielanek,Montreal Expos,Base,"UER: Last name on back missing ""G"""
+base,155,Jermaine Dye,Kansas City Royals,Base,
+base,156,Ken Griffey Jr.,Seattle Mariners,Fan Club,
+base,157,Frank Thomas,Chicago White Sox,Fan Club,
+base,158,Chipper Jones,Atlanta Braves,Fan Club,
+base,159,Mike Piazza,Los Angeles Dodgers,Fan Club,
+base,160,Cal Ripken Jr.,Baltimore Orioles,Fan Club,
+base,161,Greg Maddux,Atlanta Braves,Fan Club,
+base,162,Juan Gonzalez,Texas Rangers,Fan Club,
+base,163,Alex Rodriguez,Seattle Mariners,Fan Club,
+base,164,Mark McGwire,St. Louis Cardinals,Fan Club,
+base,165,Derek Jeter,New York Yankees,Fan Club,
+base,166,Larry Walker,,Checklist,
+base,167,Tony Gwynn,,Checklist,
+base,168,Tino Martinez,,Checklist,
+base,169,Scott Rolen,,Checklist,
+base,170,Nomar Garciaparra,,Checklist,
+base,171,Mike Sweeney,Kansas City Royals,Base,
+base,172,Dustin Hermanson,Montreal Expos,Base,
+base,173,Darren Dreifort,Los Angeles Dodgers,Base,
+base,174,Ron Gant,St. Louis Cardinals,Base,
+base,175,Todd Hollandsworth,Los Angeles Dodgers,Base,
+base,176,John Jaha,Milwaukee Brewers,Base,
+base,177,Kerry Wood,Chicago Cubs,Rookies,
+base,178,Chris Stynes,Cincinnati Reds,Base,
+base,179,Kevin Elster,Texas Rangers,Base,
+base,180,Derek Bell,Houston Astros,Base,
+base,181,Darryl Strawberry,New York Yankees,Base,
+base,182,Damion Easley,Detroit Tigers,Base,
+base,183,Jeff Cirillo,Milwaukee Brewers,Base,
+base,184,John Thomson,Colorado Rockies,Rookies,
+base,185,Dan Wilson,Seattle Mariners,Base,
+base,186,Jay Bell,Arizona Diamondbacks,Base,
+base,187,Bernard Gilkey,New York Mets,Base,
+base,188,Marc Valdes,Montreal Expos,Rookies,
+base,189,Ramon Martinez,Los Angeles Dodgers,Base,
+base,190,Charles Nagy,Cleveland Indians,Base,
+base,191,Derek Lowe,Boston Red Sox,Rookies,
+base,192,Andy Benes,Arizona Diamondbacks,Base,
+base,193,Delino DeShields,St. Louis Cardinals,Base,
+base,194,Ryan Jackson RC,Florida Marlins,Rookies,
+base,195,Kenny Lofton,Cleveland Indians,Base,
+base,196,Chuck Knoblauch,New York Yankees,Base,
+base,197,Andres Galarraga,Atlanta Braves,Base,
+base,198,Jose Canseco,Toronto Blue Jays,Base,
+base,199,John Olerud,New York Mets,Base,
+base,200,Lance Johnson,Chicago Cubs,Base,
+base,201,Darryl Kile,Colorado Rockies,Base,
+base,202,Luis Castillo,Florida Marlins,Base,
+base,203,Joe Carter,Baltimore Orioles,Base,
+base,204,Dennis Eckersley,Boston Red Sox,Base,
+base,205,Steve Finley,San Diego Padres,Base,
+base,206,Esteban Loaiza,Pittsburgh Pirates,Base,
+base,207,Ryan Christenson RC,Oakland Athletics,Rookies,
+base,208,Deivi Cruz,Detroit Tigers,Base,
+base,209,Mariano Rivera,New York Yankees,Base,
+base,210,Mike Judd RC,Los Angeles Dodgers,Rookies,
+base,211,Billy Wagner,Houston Astros,Base,
+base,212,Scott Spiezio,Oakland Athletics,Base,
+base,213,Russ Davis,Seattle Mariners,Base,
+base,214,Jeff Suppan,Arizona Diamondbacks,Base,
+base,215,Doug Glanville,Philadelphia Phillies,Base,
+base,216,Dmitri Young,Cincinnati Reds,Base,
+base,217,Rey Ordonez,New York Mets,Base,
+base,218,Cecil Fielder,Anaheim Angels,Base,
+base,219,Masato Yoshii RC,New York Mets,Rookies,
+base,220,Raul Casanova,Detroit Tigers,Base,
+base,221,Rolando Arrojo RC,Tampa Bay Devil Rays,Rookies,
+base,222,Ellis Burks,Colorado Rockies,Base,
+base,223,Butch Huskey,New York Mets,Base,
+base,224,Brian Hunter,Detroit Tigers,Base,
+base,225,Marquis Grissom,Milwaukee Brewers,Base,
+base,226,Kevin Brown,San Diego Padres,Base,
+base,227,Joe Randa,Detroit Tigers,Base,
+base,228,Henry Rodriguez,Chicago Cubs,Base,
+base,229,Omar Vizquel,Cleveland Indians,Base,
+base,230,Fred McGriff,Tampa Bay Devil Rays,Base,
+base,231,Matt Williams,Arizona Diamondbacks,Base,UER: Team incorrectly listed as Devil Rays on front and back; should be Diamondbacks
+base,232,Moises Alou,Houston Astros,Base,
+base,233,Travis Fryman,Cleveland Indians,Base,
+base,234,Wade Boggs,Tampa Bay Devil Rays,Base,
+base,235,Pedro Martinez,Boston Red Sox,Base,
+base,236,Rickey Henderson,Oakland Athletics,Base,
+base,237,Bubba Trammell,Tampa Bay Devil Rays,Base,
+base,238,Mike Caruso,Chicago White Sox,Rookies,
+base,239,Wilson Alvarez,Tampa Bay Devil Rays,Base,
+base,240,Geronimo Berroa,Cleveland Indians,Base,
+base,241,Eric Milton,Minnesota Twins,Rookies,
+base,242,Scott Erickson,Baltimore Orioles,Base,
+base,243,Todd Erdos RC,Arizona Diamondbacks,Rookies,
+base,244,Bobby Hughes,Milwaukee Brewers,Rookies,
+base,245,Dave Hollins,Anaheim Angels,Base,
+base,246,Dean Palmer,Kansas City Royals,Base,
+base,247,Carlos Baerga,New York Mets,Base,
+base,248,Jose Silva,Pittsburgh Pirates,Rookies,
+base,249,Jose Cabrera RC,Houston Astros,Rookies,
+base,250,Tom Evans,Toronto Blue Jays,Rookies,
+base,251,Marty Cordova,Minnesota Twins,Base,
+base,252,Hanley Frias RC,Arizona Diamondbacks,Rookies,
+base,253,Javier Valentin,Minnesota Twins,Rookies,
+base,254,Mario Valdez,Chicago White Sox,Rookies,
+base,255,Joey Cora,Seattle Mariners,Base,
+base,256,Mike Lansing,Colorado Rockies,Base,
+base,257,Jeff Kent,San Francisco Giants,Base,
+base,258,David Dellucci RC,Arizona Diamondbacks,Rookies,
+base,259,Curtis King RC,St. Louis Cardinals,Rookies,
+base,260,David Segui,Seattle Mariners,Base,
+base,261,Royce Clayton,St. Louis Cardinals,Base,
+base,262,Jeff Blauser,Chicago Cubs,Base,
+base,263,Manny Aybar RC,St. Louis Cardinals,Rookies,
+base,264,Mike Cather RC,Atlanta Braves,Rookies,
+base,265,Todd Zeile,Florida Marlins,Base,
+base,266,Richard Hidalgo,Houston Astros,Rookies,
+base,267,Dante Powell,San Francisco Giants,Rookies,
+base,268,Mike DeJean RC,Colorado Rockies,Rookies,
+base,269,Ken Cloude,Seattle Mariners,Rookies,
+base,270,Danny Klassen,Arizona Diamondbacks,Rookies,
+base,271,Sean Casey,Cincinnati Reds,Rookies,
+base,272,A.J. Hinch,Oakland Athletics,Rookies,
+base,273,Rich Butler RC,Tampa Bay Devil Rays,Rookies,
+base,274,Ben Ford RC,Arizona Diamondbacks,Rookies,
+base,275,Billy McMillon,Philadelphia Phillies,Rookies,
+base,276,Wilson Delgado,San Francisco Giants,Rookies,
+base,277,Orlando Cabrera,Montreal Expos,Rookies,
+base,278,Geoff Jenkins,Milwaukee Brewers,Rookies,
+base,279,Enrique Wilson,Cleveland Indians,Rookies,
+base,280,Derrek Lee,Florida Marlins,Rookies,
+base,281,Marc Pisciotta RC,Chicago Cubs,Rookies,
+base,282,Abraham Nunez,Pittsburgh Pirates,Rookies,
+base,283,Aaron Boone,Cincinnati Reds,Rookies,
+base,284,Brad Fullmer,Montreal Expos,Rookies,
+base,285,Rob Stanifer RC,Florida Marlins,Rookies,
+base,286,Preston Wilson,New York Mets,Rookies,
+base,287,Greg Norton,Chicago White Sox,Rookies,
+base,288,Bobby Smith,Tampa Bay Devil Rays,Rookies,
+base,289,Josh Booty,Florida Marlins,Rookies,
+base,290,Russell Branyan,Cleveland Indians,Rookies,
+base,291,Jeremi Gonzalez,Chicago Cubs,Rookies,
+base,292,Michael Coleman,Boston Red Sox,Rookies,
+base,293,Cliff Politte,St. Louis Cardinals,Rookies,
+base,294,Eric Ludwick,Florida Marlins,Rookies,
+base,295,Rafael Medina,Florida Marlins,Rookies,
+base,296,Jason Varitek,Boston Red Sox,Rookies,
+base,297,Ron Wright,Pittsburgh Pirates,Rookies,
+base,298,Mark Kotsay,Florida Marlins,Rookies,
+base,299,David Ortiz,Minnesota Twins,Rookies,
+base,300,Frank Catalanotto RC,Detroit Tigers,Rookies,
+base,301,Robinson Checo,Boston Red Sox,Rookies,
+base,302,Kevin Millwood RC,Atlanta Braves,Rookies,
+base,303,Jacob Cruz,San Francisco Giants,Rookies,
+base,304,Javier Vazquez,Montreal Expos,Rookies,
+base,305,Magglio Ordonez RC,Chicago White Sox,Rookies,
+base,306,Kevin Witt,Toronto Blue Jays,Rookies,
+base,307,Derrick Gibson,Colorado Rockies,Rookies,
+base,308,Shane Monahan,Seattle Mariners,Rookies,
+base,309,Brian Rose,Boston Red Sox,Rookies,
+base,310,Bobby Estalella,Philadelphia Phillies,Rookies,
+base,311,Felix Heredia,Florida Marlins,Rookies,
+base,312,Desi Relaford,Philadelphia Phillies,Rookies,
+base,313,Esteban Yan RC,Tampa Bay Devil Rays,Rookies,
+base,314,Ricky Ledee,New York Yankees,Rookies,
+base,315,Steve Woodard,Milwaukee Brewers,Rookies,
+base,316,Pat Watkins,Cincinnati Reds,Rookies,
+base,317,Damian Moss,Atlanta Braves,Rookies,
+base,318,Bob Abreu,Philadelphia Phillies,Rookies,
+base,319,Jeff Abbott,Chicago White Sox,Rookies,
+base,320,Miguel Cairo,Tampa Bay Devil Rays,Rookies,
+base,321,Rigo Beltran RC,New York Mets,Rookies,
+base,322,Tony Saunders,Tampa Bay Devil Rays,Rookies,
+base,323,Randall Simon,Atlanta Braves,Rookies,
+base,324,Hiram Bocachica,Montreal Expos,Rookies,
+base,325,Richie Sexson,Cleveland Indians,Rookies,
+base,326,Karim Garcia,Arizona Diamondbacks,Rookies,
+base,327,Mike Lowell RC,New York Yankees,Rookies,
+base,328,Pat Cline,Chicago Cubs,Rookies,
+base,329,Matt Clement,San Diego Padres,Rookies,
+base,330,Scott Elarton,Houston Astros,Rookies,
+base,331,Manuel Barrios RC,Los Angeles Dodgers,Rookies,
+base,332,Bruce Chen,Atlanta Braves,Rookies,
+base,333,Juan Encarnacion,Detroit Tigers,Rookies,
+base,334,Travis Lee,Arizona Diamondbacks,Rookies,
+base,335,Wes Helms,Atlanta Braves,Rookies,
+base,336,Chad Fox RC,Milwaukee Brewers,Rookies,
+base,337,Donnie Sadler,Boston Red Sox,Rookies,
+base,338,Carlos Mendoza RC,Tampa Bay Devil Rays,Rookies,
+base,339,Damian Jackson,Cincinnati Reds,Rookies,
+base,340,Julio Ramirez RC,Florida Marlins,Rookies,
+base,341,John Halama RC,Houston Astros,Rookies,
+base,342,Edwin Diaz,Arizona Diamondbacks,Rookies,
+base,343,Felix Martinez,Kansas City Royals,Rookies,
+base,344,Eli Marrero,St. Louis Cardinals,Rookies,
+base,345,Carl Pavano,Montreal Expos,Rookies,
+base,346,Vladimir Guerrero,Montreal Expos,Hit List,
+base,347,Barry Bonds,San Francisco Giants,Hit List,
+base,348,Darin Erstad,Anaheim Angels,Hit List,
+base,349,Albert Belle,Chicago White Sox,Hit List,
+base,350,Kenny Lofton,Cleveland Indians,Hit List,
+base,351,Mo Vaughn,Boston Red Sox,Hit List,
+base,352,Jose Cruz Jr.,Toronto Blue Jays,Hit List,
+base,353,Tony Clark,Detroit Tigers,Hit List,
+base,354,Roberto Alomar,Baltimore Orioles,Hit List,
+base,355,Manny Ramirez,Cleveland Indians,Hit List,
+base,356,Paul Molitor,Minnesota Twins,Hit List,
+base,357,Jim Thome,Cleveland Indians,Hit List,
+base,358,Tino Martinez,New York Yankees,Hit List,
+base,359,Tim Salmon,Anaheim Angels,Hit List,
+base,360,David Justice,Cleveland Indians,Hit List,
+base,361,Raul Mondesi,Los Angeles Dodgers,Hit List,
+base,362,Mark Grace,Chicago Cubs,Hit List,
+base,363,Craig Biggio,Houston Astros,Hit List,
+base,364,Larry Walker,Colorado Rockies,Hit List,
+base,365,Mark McGwire,St. Louis Cardinals,Hit List,
+base,366,Juan Gonzalez,Texas Rangers,Hit List,
+base,367,Derek Jeter,New York Yankees,Hit List,
+base,368,Chipper Jones,Atlanta Braves,Hit List,
+base,369,Frank Thomas,Chicago White Sox,Hit List,
+base,370,Alex Rodriguez,Seattle Mariners,Hit List,
+base,371,Mike Piazza,New York Mets,Hit List,
+base,372,Tony Gwynn,San Diego Padres,Hit List,
+base,373,Jeff Bagwell,Houston Astros,Hit List,
+base,374,Nomar Garciaparra,Boston Red Sox,Hit List,
+base,375,Ken Griffey Jr.,Seattle Mariners,Hit List,
+base,376,Livan Hernandez,Florida Marlins,The Untouchables,
+base,377,Chan Ho Park,Los Angeles Dodgers,The Untouchables,
+base,378,Mike Mussina,Baltimore Orioles,The Untouchables,
+base,379,Andy Pettitte,New York Yankees,The Untouchables,
+base,380,Greg Maddux,Atlanta Braves,The Untouchables,
+base,381,Hideo Nomo,Los Angeles Dodgers,The Untouchables,
+base,382,Roger Clemens,Toronto Blue Jays,The Untouchables,
+base,383,Randy Johnson,Seattle Mariners,The Untouchables,
+base,384,Pedro Martinez,Boston Red Sox,The Untouchables,
+base,385,Jaret Wright,Cleveland Indians,The Untouchables,
+base,386,Ken Griffey Jr.,Seattle Mariners,Spirit of the Game,
+base,387,Todd Helton,Colorado Rockies,Spirit of the Game,
+base,388,Paul Konerko,Los Angeles Dodgers,Spirit of the Game,
+base,389,Cal Ripken Jr.,Baltimore Orioles,Spirit of the Game,
+base,390,Larry Walker,Colorado Rockies,Spirit of the Game,
+base,391,Ken Caminiti,San Diego Padres,Spirit of the Game,
+base,392,Jose Guillen,Pittsburgh Pirates,Spirit of the Game,
+base,393,Jim Edmonds,Anaheim Angels,Spirit of the Game,
+base,394,Barry Larkin,Cincinnati Reds,Spirit of the Game,
+base,395,Bernie Williams,New York Yankees,Spirit of the Game,
+base,396,Tony Clark,Detroit Tigers,Spirit of the Game,
+base,397,Jose Cruz Jr.,Toronto Blue Jays,Spirit of the Game,
+base,398,Ivan Rodriguez,Texas Rangers,Spirit of the Game,
+base,399,Darin Erstad,Anaheim Angels,Spirit of the Game,
+base,400,Scott Rolen,Philadelphia Phillies,Spirit of the Game,
+base,401,Mark McGwire,St. Louis Cardinals,Spirit of the Game,
+base,402,Andruw Jones,Atlanta Braves,Spirit of the Game,
+base,403,Juan Gonzalez,Texas Rangers,Spirit of the Game,
+base,404,Derek Jeter,New York Yankees,Spirit of the Game,
+base,405,Chipper Jones,Atlanta Braves,Spirit of the Game,
+base,406,Greg Maddux,Atlanta Braves,Spirit of the Game,
+base,407,Frank Thomas,Chicago White Sox,Spirit of the Game,
+base,408,Alex Rodriguez,Seattle Mariners,Spirit of the Game,
+base,409,Mike Piazza,New York Mets,Spirit of the Game,
+base,410,Tony Gwynn,San Diego Padres,Spirit of the Game,
+base,411,Jeff Bagwell,Houston Astros,Spirit of the Game,
+base,412,Nomar Garciaparra,Boston Red Sox,Spirit of the Game,
+base,413,Hideo Nomo,Los Angeles Dodgers,Spirit of the Game,
+base,414,Barry Bonds,San Francisco Giants,Spirit of the Game,
+base,415,Ben Grieve,Oakland Athletics,Spirit of the Game,
+base,416,Barry Bonds,,Checklist,
+base,417,Mark McGwire,,Checklist,
+base,418,Roger Clemens,,Checklist,
+base,419,Livan Hernandez,,Checklist,
+base,420,Ken Griffey Jr.,,Checklist,
+signature-preview,NNO-01,Sandy Alomar Jr.,Cleveland Indians,1998 Donruss Signature Series Preview,Autograph; print run 96
+signature-preview,NNO-02,Moises Alou,Houston Astros,1998 Donruss Signature Series Preview,Autograph; aftermarket release (not pack issued)
+signature-preview,NNO-03,Andy Benes,Arizona Diamondbacks,1998 Donruss Signature Series Preview,Autograph; print run 135
+signature-preview,NNO-04,Russell Branyan,Cleveland Indians,1998 Donruss Signature Series Preview,Autograph; print run 188
+signature-preview,NNO-05,Sean Casey,Cincinnati Reds,1998 Donruss Signature Series Preview,Autograph; aftermarket release (not pack issued)
+signature-preview,NNO-06,Tony Clark,Detroit Tigers,1998 Donruss Signature Series Preview,Autograph; print run 188
+signature-preview,NNO-07,Juan Encarnacion,Detroit Tigers,1998 Donruss Signature Series Preview,Autograph; print run 193
+signature-preview,NNO-08,Brad Fullmer,Montreal Expos,1998 Donruss Signature Series Preview,Autograph; print run 396
+signature-preview,NNO-09,Juan Gonzalez,Texas Rangers,1998 Donruss Signature Series Preview,Autograph; print run 108
+signature-preview,NNO-10,Ben Grieve,Oakland Athletics,1998 Donruss Signature Series Preview,Autograph; print run 100
+signature-preview,NNO-11,Todd Helton,Colorado Rockies,1998 Donruss Signature Series Preview,Autograph; print run 101
+signature-preview,NNO-12,Richard Hidalgo,Houston Astros,1998 Donruss Signature Series Preview,Autograph; print run 380
+signature-preview,NNO-13,A.J. Hinch,Oakland Athletics,1998 Donruss Signature Series Preview,Autograph; print run 400
+signature-preview,NNO-14,Damian Jackson,Cincinnati Reds,1998 Donruss Signature Series Preview,Autograph; print run 15
+signature-preview,NNO-15,Geoff Jenkins,Milwaukee Brewers,1998 Donruss Signature Series Preview,Autograph; aftermarket release (not pack issued)
+signature-preview,NNO-16,Derek Jeter,New York Yankees,1998 Donruss Signature Series Preview,Autograph; aftermarket release (not pack issued)
+signature-preview,NNO-17,Chipper Jones,Atlanta Braves,1998 Donruss Signature Series Preview,Autograph; print run 112
+signature-preview,NNO-18,Chuck Knoblauch,New York Yankees,1998 Donruss Signature Series Preview,Autograph; print run 98
+signature-preview,NNO-19,Travis Lee,Arizona Diamondbacks,1998 Donruss Signature Series Preview,Autograph; print run 101
+signature-preview,NNO-20,Mike Lowell,New York Yankees,1998 Donruss Signature Series Preview,Autograph; print run 450
+signature-preview,NNO-21,Greg Maddux,Atlanta Braves,1998 Donruss Signature Series Preview,Autograph; print run 92
+signature-preview,NNO-22,Kevin Millwood,Atlanta Braves,1998 Donruss Signature Series Preview,Autograph; print run 395
+signature-preview,NNO-23,Magglio Ordonez,Chicago White Sox,1998 Donruss Signature Series Preview,Autograph; print run 420
+signature-preview,NNO-24,David Ortiz,Minnesota Twins,1998 Donruss Signature Series Preview,Autograph; print run 393
+signature-preview,NNO-25,Rafael Palmeiro,Baltimore Orioles,1998 Donruss Signature Series Preview,Autograph; print run 107
+signature-preview,NNO-26,Cal Ripken Jr.,Baltimore Orioles,1998 Donruss Signature Series Preview,Autograph; print run 22
+signature-preview,NNO-27,Alex Rodriguez,Seattle Mariners,1998 Donruss Signature Series Preview,Autograph; print run 23
+signature-preview,NNO-28,Curt Schilling,Philadelphia Phillies,1998 Donruss Signature Series Preview,Autograph; print run 100
+signature-preview,NNO-29,Randall Simon,Atlanta Braves,1998 Donruss Signature Series Preview,Autograph; print run 380
+signature-preview,NNO-30,Fernando Tatis,Texas Rangers,1998 Donruss Signature Series Preview,Autograph; print run 400
+signature-preview,NNO-31,Miguel Tejada,Oakland Athletics,1998 Donruss Signature Series Preview,Autograph; print run 375
+signature-preview,NNO-32,Robin Ventura,Chicago White Sox,1998 Donruss Signature Series Preview,Autograph; print run 95
+signature-preview,NNO-33,Dan Wilson,Seattle Mariners,1998 Donruss Signature Series Preview,Autograph; aftermarket release (not pack issued)
+signature-preview,NNO-34,Kerry Wood,Chicago Cubs,1998 Donruss Signature Series Preview,Autograph; print run 373
+crusade-green,1,Tim Salmon,Anaheim Angels,Crusade,Serial numbered to 250
+crusade-green,2,Garret Anderson,Anaheim Angels,Crusade,Serial numbered to 250
+crusade-green,5,Jason Dickson,Anaheim Angels,Crusade,Serial numbered to 250
+crusade-green,6,Todd Greene,Anaheim Angels,Crusade,Serial numbered to 250
+crusade-green,7,Roberto Alomar,Baltimore Orioles,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,8,Cal Ripken Jr.,Baltimore Orioles,Crusade,Serial numbered to 250
+crusade-green,9,Rafael Palmeiro,Baltimore Orioles,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,10,Brady Anderson,Baltimore Orioles,Crusade,Serial numbered to 250
+crusade-green,12,Mo Vaughn,Boston Red Sox,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,13,Nomar Garciaparra,Boston Red Sox,Crusade,Serial numbered to 250
+crusade-green,14,Frank Thomas,Chicago White Sox,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,16,Mike Cameron,Chicago White Sox,Crusade,Serial numbered to 250
+crusade-green,17,Robin Ventura,Chicago White Sox,Crusade,Serial numbered to 250
+crusade-green,20,Sandy Alomar Jr.,Cleveland Indians,Crusade,Serial numbered to 250
+crusade-green,21,David Justice,Cleveland Indians,Crusade,Serial numbered to 250
+crusade-green,22,Matt Williams,Cleveland Indians,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,23,Tony Clark,Detroit Tigers,Crusade,Serial numbered to 250
+crusade-green,25,Justin Thompson,Detroit Tigers,Crusade,Serial numbered to 250
+crusade-green,27,Kevin Appier,Kansas City Royals,Crusade,Serial numbered to 250
+crusade-green,29,Chuck Knoblauch,Minnesota Twins,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,31,Bernie Williams,New York Yankees,Crusade,Serial numbered to 250
+crusade-green,32,Derek Jeter,New York Yankees,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,33,Tino Martinez,New York Yankees,Crusade,Serial numbered to 250
+crusade-green,36,Hideki Irabu,New York Yankees,Crusade,Serial numbered to 250
+crusade-green,37,Jose Canseco,Oakland Athletics,Crusade,Serial numbered to 250
+crusade-green,38,Jason Giambi,Oakland Athletics,Crusade,Serial numbered to 250
+crusade-green,39,Ken Griffey Jr.,Seattle Mariners,Crusade,Serial numbered to 250
+crusade-green,42,Edgar Martinez,Seattle Mariners,Crusade,Serial numbered to 250
+crusade-green,43,Jay Buhner,Seattle Mariners,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,44,Juan Gonzalez,Texas Rangers,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,45,Will Clark,Texas Rangers,Crusade,Serial numbered to 250
+crusade-green,47,Rusty Greer,Texas Rangers,Crusade,Serial numbered to 250
+crusade-green,49,Carlos Delgado,Toronto Blue Jays,Crusade,Serial numbered to 250
+crusade-green,50,Shawn Green,Toronto Blue Jays,Crusade,Serial numbered to 250
+crusade-green,51,Jose Cruz Jr.,Toronto Blue Jays,Crusade,Serial numbered to 250
+crusade-green,52,Kenny Lofton,Atlanta Braves,Crusade,Serial numbered to 250
+crusade-green,53,Chipper Jones,Atlanta Braves,Crusade,Serial numbered to 250
+crusade-green,55,Greg Maddux,Atlanta Braves,Crusade,Serial numbered to 250
+crusade-green,57,Tom Glavine,Atlanta Braves,Crusade,Serial numbered to 250
+crusade-green,60,Mark Grace,Chicago Cubs,Crusade,Serial numbered to 250
+crusade-green,61,Sammy Sosa,Chicago Cubs,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,62,Kevin Orie,Chicago Cubs,Crusade,Serial numbered to 250
+crusade-green,63,Barry Larkin,Cincinnati Reds,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,65,Deion Sanders,Cincinnati Reds,Crusade,Serial numbered to 250
+crusade-green,67,Larry Walker,Colorado Rockies,Crusade,Serial numbered to 250
+crusade-green,68,Dante Bichette,Colorado Rockies,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,69,Neifi Perez,Colorado Rockies,Crusade,Serial numbered to 250
+crusade-green,71,Todd Helton,Colorado Rockies,Crusade,Serial numbered to 250
+crusade-green,72,Gary Sheffield,Florida Marlins,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,74,Bobby Bonilla,Florida Marlins,Crusade,Serial numbered to 250
+crusade-green,75,Kevin Brown,Florida Marlins,Crusade,Serial numbered to 250
+crusade-green,77,Jeff Bagwell,Houston Astros,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,78,Craig Biggio,Houston Astros,Crusade,Serial numbered to 250
+crusade-green,80,Raul Mondesi,Los Angeles Dodgers,Crusade,Serial numbered to 250
+crusade-green,81,Hideo Nomo,Los Angeles Dodgers,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,82,Wilton Guerrero,Los Angeles Dodgers,Crusade,Serial numbered to 250
+crusade-green,83,Rondell White,Montreal Expos,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,84,Vladimir Guerrero,Montreal Expos,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,85,Pedro Martinez,Montreal Expos,Crusade,Serial numbered to 250
+crusade-green,86,Edgardo Alfonzo,New York Mets,Crusade,Serial numbered to 250
+crusade-green,87,Todd Hundley,New York Mets,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,88,Scott Rolen,Philadelphia Phillies,Crusade,Serial numbered to 250
+crusade-green,89,Francisco Cordova,Pittsburgh Pirates,Crusade,Serial numbered to 250
+crusade-green,90,Jose Guillen,Pittsburgh Pirates,Crusade,Serial numbered to 250
+crusade-green,92,Ray Lankford,St. Louis Cardinals,Crusade,Serial numbered to 250
+crusade-green,93,Mark McGwire,St. Louis Cardinals,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,94,Matt Morris,St. Louis Cardinals,Crusade,Serial numbered to 250
+crusade-green,96,Brian Jordan,St. Louis Cardinals,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,99,Barry Bonds,San Francisco Giants,Call to Arms,Serial numbered to 250; card number absent on back
+crusade-green,100,Shawn Estes,San Francisco Giants,Crusade,Serial numbered to 250
+crusade-purple,1,Tim Salmon,Anaheim Angels,Crusade,Serial numbered to 100
+crusade-purple,2,Garret Anderson,Anaheim Angels,Crusade,Serial numbered to 100
+crusade-purple,5,Jason Dickson,Anaheim Angels,Crusade,Serial numbered to 100
+crusade-purple,6,Todd Greene,Anaheim Angels,Crusade,Serial numbered to 100
+crusade-purple,7,Roberto Alomar,Baltimore Orioles,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,8,Cal Ripken Jr.,Baltimore Orioles,Crusade,Serial numbered to 100
+crusade-purple,9,Rafael Palmeiro,Baltimore Orioles,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,10,Brady Anderson,Baltimore Orioles,Crusade,Serial numbered to 100
+crusade-purple,12,Mo Vaughn,Boston Red Sox,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,13,Nomar Garciaparra,Boston Red Sox,Crusade,Serial numbered to 100
+crusade-purple,14,Frank Thomas,Chicago White Sox,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,16,Mike Cameron,Chicago White Sox,Crusade,Serial numbered to 100
+crusade-purple,17,Robin Ventura,Chicago White Sox,Crusade,Serial numbered to 100
+crusade-purple,20,Sandy Alomar Jr.,Cleveland Indians,Crusade,Serial numbered to 100
+crusade-purple,21,David Justice,Cleveland Indians,Crusade,Serial numbered to 100
+crusade-purple,22,Matt Williams,Cleveland Indians,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,23,Tony Clark,Detroit Tigers,Crusade,Serial numbered to 100
+crusade-purple,25,Justin Thompson,Detroit Tigers,Crusade,Serial numbered to 100
+crusade-purple,27,Kevin Appier,Kansas City Royals,Crusade,Serial numbered to 100
+crusade-purple,29,Chuck Knoblauch,Minnesota Twins,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,31,Bernie Williams,New York Yankees,Crusade,Serial numbered to 100
+crusade-purple,32,Derek Jeter,New York Yankees,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,33,Tino Martinez,New York Yankees,Crusade,Serial numbered to 100
+crusade-purple,36,Hideki Irabu,New York Yankees,Crusade,Serial numbered to 100
+crusade-purple,37,Jose Canseco,Oakland Athletics,Crusade,Serial numbered to 100
+crusade-purple,38,Jason Giambi,Oakland Athletics,Crusade,Serial numbered to 100
+crusade-purple,39,Ken Griffey Jr.,Seattle Mariners,Crusade,Serial numbered to 100
+crusade-purple,42,Edgar Martinez,Seattle Mariners,Crusade,Serial numbered to 100
+crusade-purple,43,Jay Buhner,Seattle Mariners,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,44,Juan Gonzalez,Texas Rangers,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,45,Will Clark,Texas Rangers,Crusade,Serial numbered to 100
+crusade-purple,47,Rusty Greer,Texas Rangers,Crusade,Serial numbered to 100
+crusade-purple,49,Carlos Delgado,Toronto Blue Jays,Crusade,Serial numbered to 100
+crusade-purple,50,Shawn Green,Toronto Blue Jays,Crusade,Serial numbered to 100
+crusade-purple,51,Jose Cruz Jr.,Toronto Blue Jays,Crusade,Serial numbered to 100
+crusade-purple,52,Kenny Lofton,Atlanta Braves,Crusade,Serial numbered to 100
+crusade-purple,53,Chipper Jones,Atlanta Braves,Crusade,Serial numbered to 100
+crusade-purple,55,Greg Maddux,Atlanta Braves,Crusade,Serial numbered to 100
+crusade-purple,57,Tom Glavine,Atlanta Braves,Crusade,Serial numbered to 100
+crusade-purple,60,Mark Grace,Chicago Cubs,Crusade,Serial numbered to 100
+crusade-purple,61,Sammy Sosa,Chicago Cubs,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,62,Kevin Orie,Chicago Cubs,Crusade,Serial numbered to 100
+crusade-purple,63,Barry Larkin,Cincinnati Reds,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,65,Deion Sanders,Cincinnati Reds,Crusade,Serial numbered to 100
+crusade-purple,67,Larry Walker,Colorado Rockies,Crusade,Serial numbered to 100
+crusade-purple,68,Dante Bichette,Colorado Rockies,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,69,Neifi Perez,Colorado Rockies,Crusade,Serial numbered to 100
+crusade-purple,71,Todd Helton,Colorado Rockies,Crusade,Serial numbered to 100
+crusade-purple,72,Gary Sheffield,Florida Marlins,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,74,Bobby Bonilla,Florida Marlins,Crusade,Serial numbered to 100
+crusade-purple,75,Kevin Brown,Florida Marlins,Crusade,Serial numbered to 100
+crusade-purple,77,Jeff Bagwell,Houston Astros,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,78,Craig Biggio,Houston Astros,Crusade,Serial numbered to 100
+crusade-purple,80,Raul Mondesi,Los Angeles Dodgers,Crusade,Serial numbered to 100
+crusade-purple,81,Hideo Nomo,Los Angeles Dodgers,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,82,Wilton Guerrero,Los Angeles Dodgers,Crusade,Serial numbered to 100
+crusade-purple,83,Rondell White,Montreal Expos,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,84,Vladimir Guerrero,Montreal Expos,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,85,Pedro Martinez,Montreal Expos,Crusade,Serial numbered to 100
+crusade-purple,86,Edgardo Alfonzo,New York Mets,Crusade,Serial numbered to 100
+crusade-purple,87,Todd Hundley,New York Mets,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,88,Scott Rolen,Philadelphia Phillies,Crusade,Serial numbered to 100
+crusade-purple,89,Francisco Cordova,Pittsburgh Pirates,Crusade,Serial numbered to 100
+crusade-purple,90,Jose Guillen,Pittsburgh Pirates,Crusade,Serial numbered to 100
+crusade-purple,92,Ray Lankford,St. Louis Cardinals,Crusade,Serial numbered to 100
+crusade-purple,93,Mark McGwire,St. Louis Cardinals,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,94,Matt Morris,St. Louis Cardinals,Crusade,Serial numbered to 100
+crusade-purple,96,Brian Jordan,St. Louis Cardinals,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,99,Barry Bonds,San Francisco Giants,Call to Arms,Serial numbered to 100; card number absent on back
+crusade-purple,100,Shawn Estes,San Francisco Giants,Crusade,Serial numbered to 100
+crusade-red,1,Tim Salmon,Anaheim Angels,Crusade,Serial numbered to 25
+crusade-red,2,Garret Anderson,Anaheim Angels,Crusade,Serial numbered to 25
+crusade-red,5,Jason Dickson,Anaheim Angels,Crusade,Serial numbered to 25
+crusade-red,6,Todd Greene,Anaheim Angels,Crusade,Serial numbered to 25
+crusade-red,7,Roberto Alomar,Baltimore Orioles,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,8,Cal Ripken Jr.,Baltimore Orioles,Crusade,Serial numbered to 25
+crusade-red,9,Rafael Palmeiro,Baltimore Orioles,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,10,Brady Anderson,Baltimore Orioles,Crusade,Serial numbered to 25
+crusade-red,12,Mo Vaughn,Boston Red Sox,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,13,Nomar Garciaparra,Boston Red Sox,Crusade,Serial numbered to 25
+crusade-red,14,Frank Thomas,Chicago White Sox,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,16,Mike Cameron,Chicago White Sox,Crusade,Serial numbered to 25
+crusade-red,17,Robin Ventura,Chicago White Sox,Crusade,Serial numbered to 25
+crusade-red,20,Sandy Alomar Jr.,Cleveland Indians,Crusade,Serial numbered to 25
+crusade-red,21,David Justice,Cleveland Indians,Crusade,Serial numbered to 25
+crusade-red,22,Matt Williams,Cleveland Indians,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,23,Tony Clark,Detroit Tigers,Crusade,Serial numbered to 25
+crusade-red,25,Justin Thompson,Detroit Tigers,Crusade,Serial numbered to 25
+crusade-red,27,Kevin Appier,Kansas City Royals,Crusade,Serial numbered to 25
+crusade-red,29,Chuck Knoblauch,Minnesota Twins,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,31,Bernie Williams,New York Yankees,Crusade,Serial numbered to 25
+crusade-red,32,Derek Jeter,New York Yankees,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,33,Tino Martinez,New York Yankees,Crusade,Serial numbered to 25
+crusade-red,36,Hideki Irabu,New York Yankees,Crusade,Serial numbered to 25
+crusade-red,37,Jose Canseco,Oakland Athletics,Crusade,Serial numbered to 25
+crusade-red,38,Jason Giambi,Oakland Athletics,Crusade,Serial numbered to 25
+crusade-red,39,Ken Griffey Jr.,Seattle Mariners,Crusade,Serial numbered to 25
+crusade-red,42,Edgar Martinez,Seattle Mariners,Crusade,Serial numbered to 25
+crusade-red,43,Jay Buhner,Seattle Mariners,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,44,Juan Gonzalez,Texas Rangers,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,45,Will Clark,Texas Rangers,Crusade,Serial numbered to 25
+crusade-red,47,Rusty Greer,Texas Rangers,Crusade,Serial numbered to 25
+crusade-red,49,Carlos Delgado,Toronto Blue Jays,Crusade,Serial numbered to 25
+crusade-red,50,Shawn Green,Toronto Blue Jays,Crusade,Serial numbered to 25
+crusade-red,51,Jose Cruz Jr.,Toronto Blue Jays,Crusade,Serial numbered to 25
+crusade-red,52,Kenny Lofton,Atlanta Braves,Crusade,Serial numbered to 25
+crusade-red,53,Chipper Jones,Atlanta Braves,Crusade,Serial numbered to 25
+crusade-red,55,Greg Maddux,Atlanta Braves,Crusade,Serial numbered to 25
+crusade-red,57,Tom Glavine,Atlanta Braves,Crusade,Serial numbered to 25
+crusade-red,60,Mark Grace,Chicago Cubs,Crusade,Serial numbered to 25
+crusade-red,61,Sammy Sosa,Chicago Cubs,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,62,Kevin Orie,Chicago Cubs,Crusade,Serial numbered to 25
+crusade-red,63,Barry Larkin,Cincinnati Reds,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,65,Deion Sanders,Cincinnati Reds,Crusade,Serial numbered to 25
+crusade-red,67,Larry Walker,Colorado Rockies,Crusade,Serial numbered to 25
+crusade-red,68,Dante Bichette,Colorado Rockies,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,69,Neifi Perez,Colorado Rockies,Crusade,Serial numbered to 25
+crusade-red,71,Todd Helton,Colorado Rockies,Crusade,Serial numbered to 25
+crusade-red,72,Gary Sheffield,Florida Marlins,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,74,Bobby Bonilla,Florida Marlins,Crusade,Serial numbered to 25
+crusade-red,75,Kevin Brown,Florida Marlins,Crusade,Serial numbered to 25
+crusade-red,77,Jeff Bagwell,Houston Astros,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,78,Craig Biggio,Houston Astros,Crusade,Serial numbered to 25
+crusade-red,80,Raul Mondesi,Los Angeles Dodgers,Crusade,Serial numbered to 25
+crusade-red,81,Hideo Nomo,Los Angeles Dodgers,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,82,Wilton Guerrero,Los Angeles Dodgers,Crusade,Serial numbered to 25
+crusade-red,83,Rondell White,Montreal Expos,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,84,Vladimir Guerrero,Montreal Expos,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,85,Pedro Martinez,Montreal Expos,Crusade,Serial numbered to 25
+crusade-red,86,Edgardo Alfonzo,New York Mets,Crusade,Serial numbered to 25
+crusade-red,87,Todd Hundley,New York Mets,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,88,Scott Rolen,Philadelphia Phillies,Crusade,Serial numbered to 25
+crusade-red,89,Francisco Cordova,Pittsburgh Pirates,Crusade,Serial numbered to 25
+crusade-red,90,Jose Guillen,Pittsburgh Pirates,Crusade,Serial numbered to 25
+crusade-red,92,Ray Lankford,St. Louis Cardinals,Crusade,Serial numbered to 25
+crusade-red,93,Mark McGwire,St. Louis Cardinals,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,94,Matt Morris,St. Louis Cardinals,Crusade,Serial numbered to 25
+crusade-red,96,Brian Jordan,St. Louis Cardinals,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,99,Barry Bonds,San Francisco Giants,Call to Arms,Serial numbered to 25; card number absent on back
+crusade-red,100,Shawn Estes,San Francisco Giants,Crusade,Serial numbered to 25
+diamond-kings,1,Cal Ripken Jr.,Baltimore Orioles,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,2,Greg Maddux,Atlanta Braves,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,3,Ivan Rodriguez,Texas Rangers,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,4,Tony Gwynn,San Diego Padres,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,5,Paul Molitor,Minnesota Twins,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,6,Kenny Lofton,Atlanta Braves,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,7,Andy Pettitte,New York Yankees,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,8,Darin Erstad,Anaheim Angels,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,9,Randy Johnson,Seattle Mariners,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,10,Derek Jeter,New York Yankees,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,11,Hideo Nomo,Los Angeles Dodgers,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,12,David Justice,Cleveland Indians,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,13,Bernie Williams,New York Yankees,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,14,Roger Clemens,Toronto Blue Jays,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,15,Barry Larkin,Cincinnati Reds,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,16,Andruw Jones,Atlanta Braves,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,17,Mike Piazza,Los Angeles Dodgers,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,18,Frank Thomas,Chicago White Sox,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,19,Alex Rodriguez,Seattle Mariners,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings,20,Ken Griffey Jr.,Seattle Mariners,Diamond Kings,Serial numbered to 10000; print run 9500
+diamond-kings-canvas,1,Cal Ripken Jr.,Baltimore Orioles,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,2,Greg Maddux,Atlanta Braves,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,3,Ivan Rodriguez,Texas Rangers,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,4,Tony Gwynn,San Diego Padres,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,5,Paul Molitor,Minnesota Twins,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,6,Kenny Lofton,Atlanta Braves,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,7,Andy Pettitte,New York Yankees,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,8,Darin Erstad,Anaheim Angels,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,9,Randy Johnson,Seattle Mariners,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,10,Derek Jeter,New York Yankees,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,11,Hideo Nomo,Los Angeles Dodgers,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,12,David Justice,Cleveland Indians,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,13,Bernie Williams,New York Yankees,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,14,Roger Clemens,Toronto Blue Jays,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,15,Barry Larkin,Cincinnati Reds,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,16,Andruw Jones,Atlanta Braves,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,17,Mike Piazza,Los Angeles Dodgers,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,18,Frank Thomas,Chicago White Sox,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,19,Alex Rodriguez,Seattle Mariners,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+diamond-kings-canvas,20,Ken Griffey Jr.,Seattle Mariners,Diamond Kings Canvas,Serial numbered to 10000; print run 500
+dominators,1,Roger Clemens,Toronto Blue Jays,Dominators,
+dominators,2,Tony Clark,Detroit Tigers,Dominators,
+dominators,3,Darin Erstad,Anaheim Angels,Dominators,
+dominators,4,Jeff Bagwell,Houston Astros,Dominators,
+dominators,5,Ken Griffey Jr.,Seattle Mariners,Dominators,
+dominators,6,Andruw Jones,Atlanta Braves,Dominators,
+dominators,7,Juan Gonzalez,Texas Rangers,Dominators,
+dominators,8,Ivan Rodriguez,Texas Rangers,Dominators,
+dominators,9,Randy Johnson,Seattle Mariners,Dominators,
+dominators,10,Tino Martinez,New York Yankees,Dominators,
+dominators,11,Mark McGwire,St. Louis Cardinals,Dominators,
+dominators,12,Chuck Knoblauch,New York Yankees,Dominators,
+dominators,13,Jim Thome,Cleveland Indians,Dominators,
+dominators,14,Alex Rodriguez,Seattle Mariners,Dominators,
+dominators,15,Hideo Nomo,Los Angeles Dodgers,Dominators,
+dominators,16,Jose Cruz Jr.,Toronto Blue Jays,Dominators,
+dominators,17,Chipper Jones,Atlanta Braves,Dominators,
+dominators,18,Tony Gwynn,San Diego Padres,Dominators,
+dominators,19,Barry Bonds,San Francisco Giants,Dominators,
+dominators,20,Mo Vaughn,Boston Red Sox,Dominators,
+dominators,21,Cal Ripken Jr.,Baltimore Orioles,Dominators,
+dominators,22,Greg Maddux,Atlanta Braves,Dominators,
+dominators,23,Manny Ramirez,Cleveland Indians,Dominators,
+dominators,24,Andres Galarraga,Atlanta Braves,Dominators,
+dominators,25,Vladimir Guerrero,Montreal Expos,Dominators,
+dominators,26,Albert Belle,Chicago White Sox,Dominators,
+dominators,27,Nomar Garciaparra,Boston Red Sox,Dominators,
+dominators,28,Kenny Lofton,Cleveland Indians,Dominators,
+dominators,29,Mike Piazza,Los Angeles Dodgers,Dominators,
+dominators,30,Frank Thomas,Chicago White Sox,Dominators,
+elite-series,1,Jeff Bagwell,Houston Astros,Elite Series,Serial numbered to 2500
+elite-series,2,Andruw Jones,Atlanta Braves,Elite Series,Serial numbered to 2500
+elite-series,3,Ken Griffey Jr.,Seattle Mariners,Elite Series,Serial numbered to 2500
+elite-series,4,Derek Jeter,New York Yankees,Elite Series,Serial numbered to 2500
+elite-series,5,Juan Gonzalez,Texas Rangers,Elite Series,Serial numbered to 2500
+elite-series,6,Mark McGwire,St. Louis Cardinals,Elite Series,Serial numbered to 2500
+elite-series,7,Ivan Rodriguez,Texas Rangers,Elite Series,Serial numbered to 2500
+elite-series,8,Paul Molitor,Minnesota Twins,Elite Series,Serial numbered to 2500
+elite-series,9,Hideo Nomo,Los Angeles Dodgers,Elite Series,Serial numbered to 2500
+elite-series,10,Mo Vaughn,Boston Red Sox,Elite Series,Serial numbered to 2500
+elite-series,11,Chipper Jones,Atlanta Braves,Elite Series,Serial numbered to 2500
+elite-series,12,Nomar Garciaparra,Boston Red Sox,Elite Series,Serial numbered to 2500
+elite-series,13,Mike Piazza,Los Angeles Dodgers,Elite Series,Serial numbered to 2500
+elite-series,14,Frank Thomas,Chicago White Sox,Elite Series,Serial numbered to 2500
+elite-series,15,Greg Maddux,Atlanta Braves,Elite Series,Serial numbered to 2500
+elite-series,16,Cal Ripken Jr.,Baltimore Orioles,Elite Series,Serial numbered to 2500
+elite-series,17,Alex Rodriguez,Seattle Mariners,Elite Series,Serial numbered to 2500
+elite-series,18,Jose Cruz Jr.,Toronto Blue Jays,Elite Series,Serial numbered to 2500
+elite-series,19,Barry Bonds,San Francisco Giants,Elite Series,Serial numbered to 2500
+elite-series,20,Tony Gwynn,San Diego Padres,Elite Series,Serial numbered to 2500
+fantasy-team,1,Frank Thomas,Chicago White Sox,FANtasy Team,Serial numbered to 2000; print run 1750
+fantasy-team,2,Ken Griffey Jr.,Seattle Mariners,FANtasy Team,Serial numbered to 2000; print run 1750
+fantasy-team,3,Cal Ripken Jr.,Baltimore Orioles,FANtasy Team,Serial numbered to 2000; print run 1750
+fantasy-team,4,Jose Cruz Jr.,Toronto Blue Jays,FANtasy Team,Serial numbered to 2000; print run 1750
+fantasy-team,5,Travis Lee,Arizona Diamondbacks,FANtasy Team,Serial numbered to 2000; print run 1750
+fantasy-team,6,Greg Maddux,Atlanta Braves,FANtasy Team,Serial numbered to 2000; print run 1750
+fantasy-team,7,Alex Rodriguez,Seattle Mariners,FANtasy Team,Serial numbered to 2000; print run 1750
+fantasy-team,8,Mark McGwire,St. Louis Cardinals,FANtasy Team,Serial numbered to 2000; print run 1750
+fantasy-team,9,Chipper Jones,Atlanta Braves,FANtasy Team,Serial numbered to 2000; print run 1750
+fantasy-team,10,Andruw Jones,Atlanta Braves,FANtasy Team,Serial numbered to 2000; print run 1750
+fantasy-team,11,Mike Piazza,Los Angeles Dodgers,FANtasy Team,Serial numbered to 4000; print run 3750
+fantasy-team,12,Tony Gwynn,San Diego Padres,FANtasy Team,Serial numbered to 4000; print run 3750
+fantasy-team,13,Larry Walker,Colorado Rockies,FANtasy Team,Serial numbered to 4000; print run 3750
+fantasy-team,14,Nomar Garciaparra,Boston Red Sox,FANtasy Team,Serial numbered to 4000; print run 3750
+fantasy-team,15,Jaret Wright,Cleveland Indians,FANtasy Team,Serial numbered to 4000; print run 3750
+fantasy-team,16,Livan Hernandez,Florida Marlins,FANtasy Team,Serial numbered to 4000; print run 3750
+fantasy-team,17,Roger Clemens,Toronto Blue Jays,FANtasy Team,Serial numbered to 4000; print run 3750
+fantasy-team,18,Derek Jeter,New York Yankees,FANtasy Team,Serial numbered to 4000; print run 3750
+fantasy-team,19,Scott Rolen,Philadelphia Phillies,FANtasy Team,Serial numbered to 4000; print run 3750
+fantasy-team,20,Jeff Bagwell,Houston Astros,FANtasy Team,Serial numbered to 4000; print run 3750
+fantasy-team-die-cuts,1,Frank Thomas,Chicago White Sox,FANtasy Team Die Cuts,Serial numbered to 2000; print run 250; die cut
+fantasy-team-die-cuts,2,Ken Griffey Jr.,Seattle Mariners,FANtasy Team Die Cuts,Serial numbered to 2000; print run 250; die cut
+fantasy-team-die-cuts,3,Cal Ripken Jr.,Baltimore Orioles,FANtasy Team Die Cuts,Serial numbered to 2000; print run 250; die cut
+fantasy-team-die-cuts,4,Jose Cruz Jr.,Toronto Blue Jays,FANtasy Team Die Cuts,Serial numbered to 2000; print run 250; die cut
+fantasy-team-die-cuts,5,Travis Lee,Arizona Diamondbacks,FANtasy Team Die Cuts,Serial numbered to 2000; print run 250; die cut
+fantasy-team-die-cuts,6,Greg Maddux,Atlanta Braves,FANtasy Team Die Cuts,Serial numbered to 2000; print run 250; die cut
+fantasy-team-die-cuts,7,Alex Rodriguez,Seattle Mariners,FANtasy Team Die Cuts,Serial numbered to 2000; print run 250; die cut
+fantasy-team-die-cuts,8,Mark McGwire,St. Louis Cardinals,FANtasy Team Die Cuts,Serial numbered to 2000; print run 250; die cut
+fantasy-team-die-cuts,9,Chipper Jones,Atlanta Braves,FANtasy Team Die Cuts,Serial numbered to 2000; print run 250; die cut
+fantasy-team-die-cuts,10,Andruw Jones,Atlanta Braves,FANtasy Team Die Cuts,Serial numbered to 2000; print run 250; die cut
+fantasy-team-die-cuts,11,Mike Piazza,Los Angeles Dodgers,FANtasy Team Die Cuts,Serial numbered to 4000; print run 250; die cut
+fantasy-team-die-cuts,12,Tony Gwynn,San Diego Padres,FANtasy Team Die Cuts,Serial numbered to 4000; print run 250; die cut
+fantasy-team-die-cuts,13,Larry Walker,Colorado Rockies,FANtasy Team Die Cuts,Serial numbered to 4000; print run 250; die cut
+fantasy-team-die-cuts,14,Nomar Garciaparra,Boston Red Sox,FANtasy Team Die Cuts,Serial numbered to 4000; print run 250; die cut
+fantasy-team-die-cuts,15,Jaret Wright,Cleveland Indians,FANtasy Team Die Cuts,Serial numbered to 4000; print run 250; die cut
+fantasy-team-die-cuts,16,Livan Hernandez,Florida Marlins,FANtasy Team Die Cuts,Serial numbered to 4000; print run 250; die cut
+fantasy-team-die-cuts,17,Roger Clemens,Toronto Blue Jays,FANtasy Team Die Cuts,Serial numbered to 4000; print run 250; die cut
+fantasy-team-die-cuts,18,Derek Jeter,New York Yankees,FANtasy Team Die Cuts,Serial numbered to 4000; print run 250; die cut
+fantasy-team-die-cuts,19,Scott Rolen,Philadelphia Phillies,FANtasy Team Die Cuts,Serial numbered to 4000; print run 250; die cut
+fantasy-team-die-cuts,20,Jeff Bagwell,Houston Astros,FANtasy Team Die Cuts,Serial numbered to 4000; print run 250; die cut
+long-ball-leaders,1,Ken Griffey Jr.,Seattle Mariners,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,2,Mark McGwire,St. Louis Cardinals,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,3,Tino Martinez,New York Yankees,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,4,Barry Bonds,San Francisco Giants,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,5,Frank Thomas,Chicago White Sox,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,6,Albert Belle,Chicago White Sox,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,7,Mike Piazza,Los Angeles Dodgers,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,8,Chipper Jones,Atlanta Braves,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,9,Vladimir Guerrero,Montreal Expos,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,10,Matt Williams,Cleveland Indians,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,11,Sammy Sosa,Chicago Cubs,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,12,Tim Salmon,Anaheim Angels,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,13,Raul Mondesi,Los Angeles Dodgers,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,14,Jeff Bagwell,Houston Astros,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,15,Mo Vaughn,Boston Red Sox,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,16,Manny Ramirez,Cleveland Indians,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,17,Jim Thome,Cleveland Indians,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,18,Jim Edmonds,Anaheim Angels,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,19,Tony Clark,Detroit Tigers,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,20,Nomar Garciaparra,Boston Red Sox,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,21,Juan Gonzalez,Texas Rangers,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,22,Scott Rolen,Philadelphia Phillies,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,23,Larry Walker,Colorado Rockies,Long Ball Leaders,Serial numbered to 5000
+long-ball-leaders,24,Andres Galarraga,Colorado Rockies,Long Ball Leaders,Serial numbered to 5000
+mlb-99,1,Cal Ripken Jr.,Baltimore Orioles,MLB 99,
+mlb-99,2,Nomar Garciaparra,Boston Red Sox,MLB 99,
+mlb-99,3,Barry Bonds,San Francisco Giants,MLB 99,
+mlb-99,4,Mike Mussina,Baltimore Orioles,MLB 99,
+mlb-99,5,Pedro Martinez,Boston Red Sox,MLB 99,
+mlb-99,6,Derek Jeter,New York Yankees,MLB 99,
+mlb-99,7,Andruw Jones,Atlanta Braves,MLB 99,
+mlb-99,8,Kenny Lofton,Cleveland Indians,MLB 99,
+mlb-99,9,Gary Sheffield,Florida Marlins,MLB 99,
+mlb-99,10,Raul Mondesi,Los Angeles Dodgers,MLB 99,
+mlb-99,11,Jeff Bagwell,Houston Astros,MLB 99,
+mlb-99,12,Tim Salmon,Anaheim Angels,MLB 99,
+mlb-99,13,Tom Glavine,Atlanta Braves,MLB 99,
+mlb-99,14,Ben Grieve,Oakland Athletics,MLB 99,
+mlb-99,15,Matt Williams,Arizona Diamondbacks,MLB 99,
+mlb-99,16,Juan Gonzalez,Texas Rangers,MLB 99,
+mlb-99,17,Mark McGwire,St. Louis Cardinals,MLB 99,
+mlb-99,18,Bernie Williams,New York Yankees,MLB 99,
+mlb-99,19,Andres Galarraga,Atlanta Braves,MLB 99,
+mlb-99,20,Jose Cruz Jr.,Toronto Blue Jays,MLB 99,
+production-line-obp,1,Frank Thomas,Chicago White Sox,Production Line On-Base Percentage,Serial numbered to 456
+production-line-obp,2,Edgar Martinez,Seattle Mariners,Production Line On-Base Percentage,Serial numbered to 456
+production-line-obp,3,Roberto Alomar,Baltimore Orioles,Production Line On-Base Percentage,Serial numbered to 390
+production-line-obp,4,Chuck Knoblauch,Minnesota Twins,Production Line On-Base Percentage,Serial numbered to 390
+production-line-obp,5,Mike Piazza,Los Angeles Dodgers,Production Line On-Base Percentage,Serial numbered to 431
+production-line-obp,6,Barry Larkin,Cincinnati Reds,Production Line On-Base Percentage,Serial numbered to 440
+production-line-obp,7,Kenny Lofton,Atlanta Braves,Production Line On-Base Percentage,Serial numbered to 409
+production-line-obp,8,Jeff Bagwell,Houston Astros,Production Line On-Base Percentage,Serial numbered to 425
+production-line-obp,9,Barry Bonds,San Francisco Giants,Production Line On-Base Percentage,Serial numbered to 446
+production-line-obp,10,Rusty Greer,Texas Rangers,Production Line On-Base Percentage,Serial numbered to 405
+production-line-obp,11,Gary Sheffield,Florida Marlins,Production Line On-Base Percentage,Serial numbered to 424
+production-line-obp,12,Mark McGwire,St. Louis Cardinals,Production Line On-Base Percentage,Serial numbered to 393
+production-line-obp,13,Chipper Jones,Atlanta Braves,Production Line On-Base Percentage,Serial numbered to 371
+production-line-obp,14,Tony Gwynn,San Diego Padres,Production Line On-Base Percentage,Serial numbered to 409
+production-line-obp,15,Craig Biggio,Houston Astros,Production Line On-Base Percentage,Serial numbered to 415
+production-line-obp,16,Mo Vaughn,Boston Red Sox,Production Line On-Base Percentage,Serial numbered to 420
+production-line-obp,17,Bernie Williams,New York Yankees,Production Line On-Base Percentage,Serial numbered to 408
+production-line-obp,18,Ken Griffey Jr.,Seattle Mariners,Production Line On-Base Percentage,Serial numbered to 382
+production-line-obp,19,Brady Anderson,Baltimore Orioles,Production Line On-Base Percentage,Serial numbered to 393
+production-line-obp,20,Derek Jeter,New York Yankees,Production Line On-Base Percentage,Serial numbered to 370
+production-line-power-index,1,Frank Thomas,Chicago White Sox,Production Line Power Index,Serial numbered to 1067
+production-line-power-index,2,Mark McGwire,St. Louis Cardinals,Production Line Power Index,Serial numbered to 1039
+production-line-power-index,3,Barry Bonds,San Francisco Giants,Production Line Power Index,Serial numbered to 1031
+production-line-power-index,4,Jeff Bagwell,Houston Astros,Production Line Power Index,Serial numbered to 1017
+production-line-power-index,5,Ken Griffey Jr.,Seattle Mariners,Production Line Power Index,Serial numbered to 1028
+production-line-power-index,6,Alex Rodriguez,Seattle Mariners,Production Line Power Index,Serial numbered to 846
+production-line-power-index,7,Chipper Jones,Atlanta Braves,Production Line Power Index,Serial numbered to 850
+production-line-power-index,8,Mike Piazza,Los Angeles Dodgers,Production Line Power Index,Serial numbered to 1070
+production-line-power-index,9,Mo Vaughn,Boston Red Sox,Production Line Power Index,Serial numbered to 980
+production-line-power-index,10,Brady Anderson,Baltimore Orioles,Production Line Power Index,Serial numbered to 863
+production-line-power-index,11,Manny Ramirez,Cleveland Indians,Production Line Power Index,Serial numbered to 953
+production-line-power-index,12,Albert Belle,Chicago White Sox,Production Line Power Index,Serial numbered to 823
+production-line-power-index,13,Jim Thome,Cleveland Indians,Production Line Power Index,Serial numbered to 1001
+production-line-power-index,14,Bernie Williams,New York Yankees,Production Line Power Index,Serial numbered to 952
+production-line-power-index,15,Scott Rolen,Philadelphia Phillies,Production Line Power Index,Serial numbered to 846
+production-line-power-index,16,Vladimir Guerrero,Montreal Expos,Production Line Power Index,Serial numbered to 833
+production-line-power-index,17,Larry Walker,Colorado Rockies,Production Line Power Index,Serial numbered to 1172
+production-line-power-index,18,David Justice,Cleveland Indians,Production Line Power Index,Serial numbered to 1013
+production-line-power-index,19,Tino Martinez,New York Yankees,Production Line Power Index,Serial numbered to 948
+production-line-power-index,20,Tony Gwynn,San Diego Padres,Production Line Power Index,Serial numbered to 957
+production-line-slugging,1,Mark McGwire,St. Louis Cardinals,Production Line Slugging Percentage,Serial numbered to 646
+production-line-slugging,2,Ken Griffey Jr.,Seattle Mariners,Production Line Slugging Percentage,Serial numbered to 646
+production-line-slugging,3,Andres Galarraga,Colorado Rockies,Production Line Slugging Percentage,Serial numbered to 585
+production-line-slugging,4,Barry Bonds,San Francisco Giants,Production Line Slugging Percentage,Serial numbered to 585
+production-line-slugging,5,Juan Gonzalez,Texas Rangers,Production Line Slugging Percentage,Serial numbered to 589
+production-line-slugging,6,Mike Piazza,Los Angeles Dodgers,Production Line Slugging Percentage,Serial numbered to 638
+production-line-slugging,7,Jeff Bagwell,Houston Astros,Production Line Slugging Percentage,Serial numbered to 592
+production-line-slugging,8,Manny Ramirez,Cleveland Indians,Production Line Slugging Percentage,Serial numbered to 538
+production-line-slugging,9,Jim Thome,Cleveland Indians,Production Line Slugging Percentage,Serial numbered to 579
+production-line-slugging,10,Mo Vaughn,Boston Red Sox,Production Line Slugging Percentage,Serial numbered to 560
+production-line-slugging,11,Larry Walker,Colorado Rockies,Production Line Slugging Percentage,Serial numbered to 720
+production-line-slugging,12,Tino Martinez,New York Yankees,Production Line Slugging Percentage,Serial numbered to 577
+production-line-slugging,13,Frank Thomas,Chicago White Sox,Production Line Slugging Percentage,Serial numbered to 611
+production-line-slugging,14,Tim Salmon,Anaheim Angels,Production Line Slugging Percentage,Serial numbered to 517
+production-line-slugging,15,Raul Mondesi,Los Angeles Dodgers,Production Line Slugging Percentage,Serial numbered to 541
+production-line-slugging,16,Alex Rodriguez,Seattle Mariners,Production Line Slugging Percentage,Serial numbered to 496
+production-line-slugging,17,Nomar Garciaparra,Boston Red Sox,Production Line Slugging Percentage,Serial numbered to 534
+production-line-slugging,18,Jose Cruz Jr.,Toronto Blue Jays,Production Line Slugging Percentage,Serial numbered to 499
+production-line-slugging,19,Tony Clark,Detroit Tigers,Production Line Slugging Percentage,Serial numbered to 500
+production-line-slugging,20,Cal Ripken Jr.,Baltimore Orioles,Production Line Slugging Percentage,Serial numbered to 402
+rated-rookies,1,Mark Kotsay,Florida Marlins,Rated Rookies,
+rated-rookies,2,Neifi Perez,Colorado Rockies,Rated Rookies,
+rated-rookies,3,Paul Konerko,Los Angeles Dodgers,Rated Rookies,
+rated-rookies,4,Jose Cruz Jr.,Toronto Blue Jays,Rated Rookies,
+rated-rookies,5,Hideki Irabu,New York Yankees,Rated Rookies,
+rated-rookies,6,Mike Cameron,Chicago White Sox,Rated Rookies,
+rated-rookies,7,Jeff Suppan,Boston Red Sox,Rated Rookies,
+rated-rookies,8,Kevin Orie,Chicago Cubs,Rated Rookies,
+rated-rookies,9,Pokey Reese,Cincinnati Reds,Rated Rookies,
+rated-rookies,10,Todd Dunwoody,Florida Marlins,Rated Rookies,
+rated-rookies,11,Miguel Tejada,Oakland Athletics,Rated Rookies,
+rated-rookies,12,Jose Guillen,Pittsburgh Pirates,Rated Rookies,
+rated-rookies,13,Bartolo Colon,Cleveland Indians,Rated Rookies,
+rated-rookies,14,Derrek Lee,San Diego Padres,Rated Rookies,
+rated-rookies,15,Antone Williamson,Milwaukee Brewers,Rated Rookies,
+rated-rookies,16,Wilton Guerrero,Los Angeles Dodgers,Rated Rookies,
+rated-rookies,17,Jaret Wright,Cleveland Indians,Rated Rookies,
+rated-rookies,18,Todd Helton,Colorado Rockies,Rated Rookies,
+rated-rookies,19,Shannon Stewart,Toronto Blue Jays,Rated Rookies,
+rated-rookies,20,Nomar Garciaparra,Boston Red Sox,Rated Rookies,
+rated-rookies,21,Brett Tomko,Cincinnati Reds,Rated Rookies,
+rated-rookies,22,Fernando Tatis,Texas Rangers,Rated Rookies,
+rated-rookies,23,Raul Ibanez,Seattle Mariners,Rated Rookies,
+rated-rookies,24,Dennis Reyes,Los Angeles Dodgers,Rated Rookies,
+rated-rookies,25,Bobby Estalella,Philadelphia Phillies,Rated Rookies,
+rated-rookies,26,Lou Collier,Pittsburgh Pirates,Rated Rookies,
+rated-rookies,27,Bubba Trammell,Detroit Tigers,Rated Rookies,
+rated-rookies,28,Ben Grieve,Oakland Athletics,Rated Rookies,
+rated-rookies,29,Ivan Cruz,New York Yankees,Rated Rookies,
+rated-rookies,30,Karim Garcia,Los Angeles Dodgers,Rated Rookies,
+rated-rookies-medalists,1,Mark Kotsay,Florida Marlins,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,2,Neifi Perez,Colorado Rockies,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,3,Paul Konerko,Los Angeles Dodgers,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,4,Jose Cruz Jr.,Toronto Blue Jays,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,5,Hideki Irabu,New York Yankees,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,6,Mike Cameron,Chicago White Sox,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,7,Jeff Suppan,Boston Red Sox,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,8,Kevin Orie,Chicago Cubs,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,9,Pokey Reese,Cincinnati Reds,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,10,Todd Dunwoody,Florida Marlins,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,11,Miguel Tejada,Oakland Athletics,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,12,Jose Guillen,Pittsburgh Pirates,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,13,Bartolo Colon,Cleveland Indians,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,14,Derrek Lee,San Diego Padres,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,15,Antone Williamson,Milwaukee Brewers,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,16,Wilton Guerrero,Los Angeles Dodgers,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,17,Jaret Wright,Cleveland Indians,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,18,Todd Helton,Colorado Rockies,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,19,Shannon Stewart,Toronto Blue Jays,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,20,Nomar Garciaparra,Boston Red Sox,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,21,Brett Tomko,Cincinnati Reds,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,22,Fernando Tatis,Texas Rangers,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,23,Raul Ibanez,Seattle Mariners,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,24,Dennis Reyes,Los Angeles Dodgers,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,25,Bobby Estalella,Philadelphia Phillies,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,26,Lou Collier,Pittsburgh Pirates,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,27,Bubba Trammell,Detroit Tigers,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,28,Ben Grieve,Oakland Athletics,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,29,Ivan Cruz,New York Yankees,Rated Rookies Medalists,Print run 250
+rated-rookies-medalists,30,Karim Garcia,Los Angeles Dodgers,Rated Rookies Medalists,Print run 250
+rookie-diamond-kings,1,Travis Lee,Arizona Diamondbacks,Rookie Diamond Kings,Serial numbered to 10000; print run 9500
+rookie-diamond-kings,2,Fernando Tatis,Texas Rangers,Rookie Diamond Kings,Serial numbered to 10000; print run 9500
+rookie-diamond-kings,3,Livan Hernandez,Florida Marlins,Rookie Diamond Kings,Serial numbered to 10000; print run 9500
+rookie-diamond-kings,4,Todd Helton,Colorado Rockies,Rookie Diamond Kings,Serial numbered to 10000; print run 9500
+rookie-diamond-kings,5,Derrek Lee,Florida Marlins,Rookie Diamond Kings,Serial numbered to 10000; print run 9500
+rookie-diamond-kings,6,Jaret Wright,Cleveland Indians,Rookie Diamond Kings,Serial numbered to 10000; print run 9500
+rookie-diamond-kings,7,Ben Grieve,Oakland Athletics,Rookie Diamond Kings,Serial numbered to 10000; print run 9500
+rookie-diamond-kings,8,Paul Konerko,Los Angeles Dodgers,Rookie Diamond Kings,Serial numbered to 10000; print run 9500
+rookie-diamond-kings,9,Jose Cruz Jr.,Toronto Blue Jays,Rookie Diamond Kings,Serial numbered to 10000; print run 9500
+rookie-diamond-kings,10,Mark Kotsay,Florida Marlins,Rookie Diamond Kings,Serial numbered to 10000; print run 9500
+rookie-diamond-kings,11,Todd Greene,Anaheim Angels,Rookie Diamond Kings,Serial numbered to 10000; print run 9500
+rookie-diamond-kings,12,Brad Fullmer,Montreal Expos,Rookie Diamond Kings,Serial numbered to 10000; print run 9500
+rookie-diamond-kings-canvas,1,Travis Lee,Arizona Diamondbacks,Rookie Diamond Kings Canvas,Serial numbered to 10000; print run 500
+rookie-diamond-kings-canvas,2,Fernando Tatis,Texas Rangers,Rookie Diamond Kings Canvas,Serial numbered to 10000; print run 500
+rookie-diamond-kings-canvas,3,Livan Hernandez,Florida Marlins,Rookie Diamond Kings Canvas,Serial numbered to 10000; print run 500
+rookie-diamond-kings-canvas,4,Todd Helton,Colorado Rockies,Rookie Diamond Kings Canvas,Serial numbered to 10000; print run 500
+rookie-diamond-kings-canvas,5,Derrek Lee,Florida Marlins,Rookie Diamond Kings Canvas,Serial numbered to 10000; print run 500
+rookie-diamond-kings-canvas,6,Jaret Wright,Cleveland Indians,Rookie Diamond Kings Canvas,Serial numbered to 10000; print run 500
+rookie-diamond-kings-canvas,7,Ben Grieve,Oakland Athletics,Rookie Diamond Kings Canvas,Serial numbered to 10000; print run 500
+rookie-diamond-kings-canvas,8,Paul Konerko,Los Angeles Dodgers,Rookie Diamond Kings Canvas,Serial numbered to 10000; print run 500
+rookie-diamond-kings-canvas,9,Jose Cruz Jr.,Toronto Blue Jays,Rookie Diamond Kings Canvas,Serial numbered to 10000; print run 500
+rookie-diamond-kings-canvas,10,Mark Kotsay,Florida Marlins,Rookie Diamond Kings Canvas,Serial numbered to 10000; print run 500
+rookie-diamond-kings-canvas,11,Todd Greene,Anaheim Angels,Rookie Diamond Kings Canvas,Serial numbered to 10000; print run 500
+rookie-diamond-kings-canvas,12,Brad Fullmer,Montreal Expos,Rookie Diamond Kings Canvas,Serial numbered to 10000; print run 500
+press-proofs-gold,1,Paul Molitor,Minnesota Twins,Base,Print run 500
+press-proofs-gold,2,Juan Gonzalez,Texas Rangers,Base,Print run 500
+press-proofs-gold,3,Darryl Kile,Houston Astros,Base,Print run 500
+press-proofs-gold,4,Randy Johnson,Seattle Mariners,Base,Print run 500
+press-proofs-gold,5,Tom Glavine,Atlanta Braves,Base,Print run 500
+press-proofs-gold,6,Pat Hentgen,Toronto Blue Jays,Base,Print run 500
+press-proofs-gold,7,David Justice,Cleveland Indians,Base,Print run 500
+press-proofs-gold,8,Kevin Brown,Florida Marlins,Base,Print run 500
+press-proofs-gold,9,Mike Mussina,Baltimore Orioles,Base,Print run 500
+press-proofs-gold,10,Ken Caminiti,San Diego Padres,Base,Print run 500
+press-proofs-gold,11,Todd Hundley,New York Mets,Base,Print run 500
+press-proofs-gold,12,Frank Thomas,Chicago White Sox,Base,Print run 500
+press-proofs-gold,13,Ray Lankford,St. Louis Cardinals,Base,Print run 500
+press-proofs-gold,14,Justin Thompson,Detroit Tigers,Base,Print run 500
+press-proofs-gold,15,Jason Dickson,Anaheim Angels,Base,Print run 500
+press-proofs-gold,16,Kenny Lofton,Atlanta Braves,Base,Print run 500
+press-proofs-gold,17,Ivan Rodriguez,Texas Rangers,Base,Print run 500
+press-proofs-gold,18,Pedro Martinez,Montreal Expos,Base,Print run 500
+press-proofs-gold,19,Brady Anderson,Baltimore Orioles,Base,Print run 500
+press-proofs-gold,20,Barry Larkin,Cincinnati Reds,Base,Print run 500
+press-proofs-gold,21,Chipper Jones,Atlanta Braves,Base,Print run 500
+press-proofs-gold,22,Tony Gwynn,San Diego Padres,Base,Print run 500
+press-proofs-gold,23,Roger Clemens,Toronto Blue Jays,Base,Print run 500
+press-proofs-gold,24,Sandy Alomar Jr.,Cleveland Indians,Base,Print run 500
+press-proofs-gold,25,Tino Martinez,New York Yankees,Base,Print run 500
+press-proofs-gold,26,Jeff Bagwell,Houston Astros,Base,Print run 500
+press-proofs-gold,27,Shawn Estes,San Francisco Giants,Base,Print run 500
+press-proofs-gold,28,Ken Griffey Jr.,Seattle Mariners,Base,Print run 500
+press-proofs-gold,29,Javier Lopez,Atlanta Braves,Base,Print run 500
+press-proofs-gold,30,Denny Neagle,Atlanta Braves,Base,Print run 500
+press-proofs-gold,31,Mike Piazza,Los Angeles Dodgers,Base,Print run 500
+press-proofs-gold,32,Andres Galarraga,Colorado Rockies,Base,Print run 500
+press-proofs-gold,33,Larry Walker,Colorado Rockies,Base,Print run 500
+press-proofs-gold,34,Alex Rodriguez,Seattle Mariners,Base,Print run 500
+press-proofs-gold,35,Greg Maddux,Atlanta Braves,Base,Print run 500
+press-proofs-gold,36,Albert Belle,Chicago White Sox,Base,Print run 500
+press-proofs-gold,37,Barry Bonds,San Francisco Giants,Base,Print run 500
+press-proofs-gold,38,Mo Vaughn,Boston Red Sox,Base,Print run 500
+press-proofs-gold,39,Kevin Appier,Kansas City Royals,Base,Print run 500
+press-proofs-gold,40,Wade Boggs,New York Yankees,Base,Print run 500
+press-proofs-gold,41,Garret Anderson,Anaheim Angels,Base,Print run 500
+press-proofs-gold,42,Jeffrey Hammonds,Baltimore Orioles,Base,Print run 500
+press-proofs-gold,43,Marquis Grissom,Cleveland Indians,Base,Print run 500
+press-proofs-gold,44,Jim Edmonds,Anaheim Angels,Base,Print run 500
+press-proofs-gold,45,Brian Jordan,St. Louis Cardinals,Base,Print run 500
+press-proofs-gold,46,Raul Mondesi,Los Angeles Dodgers,Base,Print run 500
+press-proofs-gold,47,John Valentin,Boston Red Sox,Base,Print run 500
+press-proofs-gold,48,Brad Radke,Minnesota Twins,Base,Print run 500
+press-proofs-gold,49,Ismael Valdes,Los Angeles Dodgers,Base,Print run 500
+press-proofs-gold,50,Matt Stairs,Oakland Athletics,Base,Print run 500
+press-proofs-gold,51,Matt Williams,Cleveland Indians,Base,Print run 500
+press-proofs-gold,52,Reggie Jefferson,Boston Red Sox,Base,Print run 500
+press-proofs-gold,53,Alan Benes,St. Louis Cardinals,Base,Print run 500
+press-proofs-gold,54,Charles Johnson,Florida Marlins,Base,Print run 500
+press-proofs-gold,55,Chuck Knoblauch,Minnesota Twins,Base,Print run 500
+press-proofs-gold,56,Edgar Martinez,Seattle Mariners,Base,Print run 500
+press-proofs-gold,57,Nomar Garciaparra,Boston Red Sox,Base,Print run 500
+press-proofs-gold,58,Craig Biggio,Houston Astros,Base,Print run 500
+press-proofs-gold,59,Bernie Williams,New York Yankees,Base,Print run 500
+press-proofs-gold,60,David Cone,New York Yankees,Base,Print run 500
+press-proofs-gold,61,Cal Ripken Jr.,Baltimore Orioles,Base,Print run 500
+press-proofs-gold,62,Mark McGwire,St. Louis Cardinals,Base,Print run 500
+press-proofs-gold,63,Roberto Alomar,Baltimore Orioles,Base,Print run 500
+press-proofs-gold,64,Fred McGriff,Atlanta Braves,Base,Print run 500
+press-proofs-gold,65,Eric Karros,Los Angeles Dodgers,Base,Print run 500
+press-proofs-gold,66,Robin Ventura,Chicago White Sox,Base,Print run 500
+press-proofs-gold,67,Darin Erstad,Anaheim Angels,Base,Print run 500
+press-proofs-gold,68,Michael Tucker,Atlanta Braves,Base,Print run 500
+press-proofs-gold,69,Jim Thome,Cleveland Indians,Base,Print run 500
+press-proofs-gold,70,Mark Grace,Chicago Cubs,Base,Print run 500
+press-proofs-gold,71,Lou Collier,Pittsburgh Pirates,Rookies,Print run 500
+press-proofs-gold,72,Karim Garcia,Los Angeles Dodgers,Base,Print run 500
+press-proofs-gold,73,Alex Fernandez,Florida Marlins,Base,Print run 500
+press-proofs-gold,74,J.T. Snow,San Francisco Giants,Base,Print run 500
+press-proofs-gold,75,Reggie Sanders,Cincinnati Reds,Base,Print run 500
+press-proofs-gold,76,John Smoltz,Atlanta Braves,Base,Print run 500
+press-proofs-gold,77,Tim Salmon,Anaheim Angels,Base,Print run 500
+press-proofs-gold,78,Paul O'Neill,New York Yankees,Base,Print run 500
+press-proofs-gold,79,Vinny Castilla,Colorado Rockies,Base,Print run 500
+press-proofs-gold,80,Rafael Palmeiro,Baltimore Orioles,Base,Print run 500
+press-proofs-gold,81,Jaret Wright,Cleveland Indians,Base,Print run 500
+press-proofs-gold,82,Jay Buhner,Seattle Mariners,Base,Print run 500
+press-proofs-gold,83,Brett Butler,Los Angeles Dodgers,Base,Print run 500
+press-proofs-gold,84,Todd Greene,Anaheim Angels,Base,Print run 500
+press-proofs-gold,85,Scott Rolen,Philadelphia Phillies,Base,Print run 500
+press-proofs-gold,86,Sammy Sosa,Chicago Cubs,Base,Print run 500
+press-proofs-gold,87,Jason Giambi,Oakland Athletics,Base,Print run 500
+press-proofs-gold,88,Carlos Delgado,Toronto Blue Jays,Base,Print run 500
+press-proofs-gold,89,Deion Sanders,Cincinnati Reds,Base,Print run 500
+press-proofs-gold,90,Wilton Guerrero,Los Angeles Dodgers,Base,Print run 500
+press-proofs-gold,91,Andy Pettitte,New York Yankees,Base,Print run 500
+press-proofs-gold,92,Brian Giles,Cleveland Indians,Base,Print run 500
+press-proofs-gold,93,Dmitri Young,St. Louis Cardinals,Base,Print run 500
+press-proofs-gold,94,Ron Coomer,Minnesota Twins,Base,Print run 500
+press-proofs-gold,95,Mike Cameron,Chicago White Sox,Base,Print run 500
+press-proofs-gold,96,Edgardo Alfonzo,New York Mets,Base,Print run 500
+press-proofs-gold,97,Jimmy Key,Baltimore Orioles,Base,Print run 500
+press-proofs-gold,98,Ryan Klesko,Atlanta Braves,Base,Print run 500
+press-proofs-gold,99,Andy Benes,St. Louis Cardinals,Base,Print run 500
+press-proofs-gold,100,Derek Jeter,New York Yankees,Base,Print run 500
+press-proofs-gold,101,Jeff Fassero,Seattle Mariners,Base,Print run 500
+press-proofs-gold,102,Neifi Perez,Colorado Rockies,Base,Print run 500
+press-proofs-gold,103,Hideo Nomo,Los Angeles Dodgers,Base,Print run 500
+press-proofs-gold,104,Andruw Jones,Atlanta Braves,Base,Print run 500
+press-proofs-gold,105,Todd Helton,Colorado Rockies,Rookies,Print run 500
+press-proofs-gold,106,Livan Hernandez,Florida Marlins,Rookies,Print run 500
+press-proofs-gold,107,Brett Tomko,Cincinnati Reds,Base,Print run 500
+press-proofs-gold,108,Shannon Stewart,Toronto Blue Jays,Base,Print run 500
+press-proofs-gold,109,Bartolo Colon,Cleveland Indians,Base,Print run 500
+press-proofs-gold,110,Matt Morris,St. Louis Cardinals,Base,Print run 500
+press-proofs-gold,111,Miguel Tejada,Oakland Athletics,Rookies,Print run 500
+press-proofs-gold,112,Pokey Reese,Cincinnati Reds,Base,Print run 500
+press-proofs-gold,113,Fernando Tatis,Texas Rangers,Rookies,Print run 500
+press-proofs-gold,114,Todd Dunwoody,Florida Marlins,Base,Print run 500
+press-proofs-gold,115,Jose Cruz Jr.,Toronto Blue Jays,Base,Print run 500
+press-proofs-gold,116,Chan Ho Park,Los Angeles Dodgers,Base,Print run 500
+press-proofs-gold,117,Kevin Young,Pittsburgh Pirates,Base,Print run 500
+press-proofs-gold,118,Rickey Henderson,Anaheim Angels,Base,Print run 500
+press-proofs-gold,119,Hideki Irabu,New York Yankees,Base,Print run 500
+press-proofs-gold,120,Francisco Cordova,Pittsburgh Pirates,Base,Print run 500
+press-proofs-gold,121,Al Martin,Pittsburgh Pirates,Base,Print run 500
+press-proofs-gold,122,Tony Clark,Detroit Tigers,Base,Print run 500
+press-proofs-gold,123,Curt Schilling,Philadelphia Phillies,Base,Print run 500
+press-proofs-gold,124,Rusty Greer,Texas Rangers,Base,Print run 500
+press-proofs-gold,125,Jose Canseco,Oakland Athletics,Base,Print run 500
+press-proofs-gold,126,Edgar Renteria,Florida Marlins,Base,Print run 500
+press-proofs-gold,127,Todd Walker,Minnesota Twins,Base,Print run 500
+press-proofs-gold,128,Wally Joyner,San Diego Padres,Base,Print run 500
+press-proofs-gold,129,Bill Mueller,San Francisco Giants,Base,Print run 500
+press-proofs-gold,130,Jose Guillen,Pittsburgh Pirates,Base,Print run 500
+press-proofs-gold,131,Manny Ramirez,Cleveland Indians,Base,Print run 500
+press-proofs-gold,132,Bobby Higginson,Detroit Tigers,Base,Print run 500
+press-proofs-gold,133,Kevin Orie,Chicago Cubs,Base,Print run 500
+press-proofs-gold,134,Will Clark,Texas Rangers,Base,Print run 500
+press-proofs-gold,135,Dave Nilsson,Milwaukee Brewers,Base,Print run 500
+press-proofs-gold,136,Jason Kendall,Pittsburgh Pirates,Base,Print run 500
+press-proofs-gold,137,Ivan Cruz,New York Yankees,Rookies,Print run 500
+press-proofs-gold,138,Gary Sheffield,Florida Marlins,Base,Print run 500
+press-proofs-gold,139,Bubba Trammell,Detroit Tigers,Rookies,Print run 500
+press-proofs-gold,140,Vladimir Guerrero,Montreal Expos,Base,Print run 500
+press-proofs-gold,141,Dennis Reyes,Los Angeles Dodgers,Rookies,Print run 500
+press-proofs-gold,142,Bobby Bonilla,Florida Marlins,Base,Print run 500
+press-proofs-gold,143,Ruben Rivera,San Diego Padres,Base,Print run 500
+press-proofs-gold,144,Ben Grieve,Oakland Athletics,Rookies,Print run 500
+press-proofs-gold,145,Moises Alou,Florida Marlins,Base,Print run 500
+press-proofs-gold,146,Tony Womack,Pittsburgh Pirates,Base,Print run 500
+press-proofs-gold,147,Eric Young,Los Angeles Dodgers,Base,Print run 500
+press-proofs-gold,148,Paul Konerko,Los Angeles Dodgers,Rookies,Print run 500
+press-proofs-gold,149,Dante Bichette,Colorado Rockies,Base,Print run 500
+press-proofs-gold,150,Joe Carter,Toronto Blue Jays,Base,Print run 500
+press-proofs-gold,151,Rondell White,Montreal Expos,Base,Print run 500
+press-proofs-gold,152,Chris Holt,Houston Astros,Base,Print run 500
+press-proofs-gold,153,Shawn Green,Toronto Blue Jays,Base,Print run 500
+press-proofs-gold,154,Mark Grudzielanek,Montreal Expos,Base,"Print run 500; UER: Last name on back missing ""G"""
+press-proofs-gold,155,Jermaine Dye,Kansas City Royals,Base,Print run 500
+press-proofs-gold,156,Ken Griffey Jr.,Seattle Mariners,Fan Club,Print run 500
+press-proofs-gold,157,Frank Thomas,Chicago White Sox,Fan Club,Print run 500
+press-proofs-gold,158,Chipper Jones,Atlanta Braves,Fan Club,Print run 500
+press-proofs-gold,159,Mike Piazza,Los Angeles Dodgers,Fan Club,Print run 500
+press-proofs-gold,160,Cal Ripken Jr.,Baltimore Orioles,Fan Club,Print run 500
+press-proofs-gold,161,Greg Maddux,Atlanta Braves,Fan Club,Print run 500
+press-proofs-gold,162,Juan Gonzalez,Texas Rangers,Fan Club,Print run 500
+press-proofs-gold,163,Alex Rodriguez,Seattle Mariners,Fan Club,Print run 500
+press-proofs-gold,164,Mark McGwire,St. Louis Cardinals,Fan Club,Print run 500
+press-proofs-gold,165,Derek Jeter,New York Yankees,Fan Club,Print run 500
+press-proofs-gold,166,Larry Walker,,Checklist,Print run 500
+press-proofs-gold,167,Tony Gwynn,San Diego Padres,Checklist,Print run 500
+press-proofs-gold,168,Tino Martinez,New York Yankees,Checklist,Print run 500
+press-proofs-gold,169,Scott Rolen,Philadelphia Phillies,Checklist,Print run 500
+press-proofs-gold,170,Nomar Garciaparra,,Checklist,Print run 500
+press-proofs-gold,171,Mike Sweeney,Kansas City Royals,Base,Print run 500
+press-proofs-gold,172,Dustin Hermanson,Montreal Expos,Base,Print run 500
+press-proofs-gold,173,Darren Dreifort,Los Angeles Dodgers,Base,Print run 500
+press-proofs-gold,174,Ron Gant,St. Louis Cardinals,Base,Print run 500
+press-proofs-gold,175,Todd Hollandsworth,Los Angeles Dodgers,Base,Print run 500
+press-proofs-gold,176,John Jaha,Milwaukee Brewers,Base,Print run 500
+press-proofs-gold,177,Kerry Wood,Chicago Cubs,Rookies,Print run 500
+press-proofs-gold,178,Chris Stynes,Cincinnati Reds,Base,Print run 500
+press-proofs-gold,179,Kevin Elster,Texas Rangers,Base,Print run 500
+press-proofs-gold,180,Derek Bell,Houston Astros,Base,Print run 500
+press-proofs-gold,181,Darryl Strawberry,New York Yankees,Base,Print run 500
+press-proofs-gold,182,Damion Easley,Detroit Tigers,Base,Print run 500
+press-proofs-gold,183,Jeff Cirillo,Milwaukee Brewers,Base,Print run 500
+press-proofs-gold,184,John Thomson,Colorado Rockies,Rookies,Print run 500
+press-proofs-gold,185,Dan Wilson,Seattle Mariners,Base,Print run 500
+press-proofs-gold,186,Jay Bell,Arizona Diamondbacks,Base,Print run 500
+press-proofs-gold,187,Bernard Gilkey,New York Mets,Base,Print run 500
+press-proofs-gold,188,Marc Valdes,Montreal Expos,Rookies,Print run 500
+press-proofs-gold,189,Ramon Martinez,Los Angeles Dodgers,Base,Print run 500
+press-proofs-gold,190,Charles Nagy,Cleveland Indians,Base,Print run 500
+press-proofs-gold,191,Derek Lowe,Boston Red Sox,Rookies,Print run 500
+press-proofs-gold,192,Andy Benes,Arizona Diamondbacks,Base,Print run 500
+press-proofs-gold,193,Delino DeShields,St. Louis Cardinals,Base,Print run 500
+press-proofs-gold,194,Ryan Jackson,Florida Marlins,Rookies,Print run 500
+press-proofs-gold,195,Kenny Lofton,Cleveland Indians,Base,Print run 500
+press-proofs-gold,196,Chuck Knoblauch,New York Yankees,Base,Print run 500
+press-proofs-gold,197,Andres Galarraga,Atlanta Braves,Base,Print run 500
+press-proofs-gold,198,Jose Canseco,Toronto Blue Jays,Base,Print run 500
+press-proofs-gold,199,John Olerud,New York Mets,Base,Print run 500
+press-proofs-gold,200,Lance Johnson,Chicago Cubs,Base,Print run 500
+press-proofs-gold,201,Darryl Kile,Colorado Rockies,Base,Print run 500
+press-proofs-gold,202,Luis Castillo,Florida Marlins,Base,Print run 500
+press-proofs-gold,203,Joe Carter,Baltimore Orioles,Base,Print run 500
+press-proofs-gold,204,Dennis Eckersley,Boston Red Sox,Base,Print run 500
+press-proofs-gold,205,Steve Finley,San Diego Padres,Base,Print run 500
+press-proofs-gold,206,Esteban Loaiza,Pittsburgh Pirates,Base,Print run 500
+press-proofs-gold,207,Ryan Christenson,Oakland Athletics,Rookies,Print run 500
+press-proofs-gold,208,Deivi Cruz,Detroit Tigers,Base,Print run 500
+press-proofs-gold,209,Mariano Rivera,New York Yankees,Base,Print run 500
+press-proofs-gold,210,Mike Judd,Los Angeles Dodgers,Rookies,Print run 500
+press-proofs-gold,211,Billy Wagner,Houston Astros,Base,Print run 500
+press-proofs-gold,212,Scott Spiezio,Oakland Athletics,Base,Print run 500
+press-proofs-gold,213,Russ Davis,Seattle Mariners,Base,Print run 500
+press-proofs-gold,214,Jeff Suppan,Arizona Diamondbacks,Base,Print run 500
+press-proofs-gold,215,Doug Glanville,Philadelphia Phillies,Base,Print run 500
+press-proofs-gold,216,Dmitri Young,Cincinnati Reds,Base,Print run 500
+press-proofs-gold,217,Rey Ordonez,New York Mets,Base,Print run 500
+press-proofs-gold,218,Cecil Fielder,Anaheim Angels,Base,Print run 500
+press-proofs-gold,219,Masato Yoshii,New York Mets,Rookies,Print run 500
+press-proofs-gold,220,Raul Casanova,Detroit Tigers,Base,Print run 500
+press-proofs-gold,221,Rolando Arrojo,Tampa Bay Devil Rays,Rookies,Print run 500
+press-proofs-gold,222,Ellis Burks,Colorado Rockies,Base,Print run 500
+press-proofs-gold,223,Butch Huskey,New York Mets,Base,Print run 500
+press-proofs-gold,224,Brian Hunter,Detroit Tigers,Base,Print run 500
+press-proofs-gold,225,Marquis Grissom,Milwaukee Brewers,Base,Print run 500
+press-proofs-gold,226,Kevin Brown,San Diego Padres,Base,Print run 500
+press-proofs-gold,227,Joe Randa,Detroit Tigers,Base,Print run 500
+press-proofs-gold,228,Henry Rodriguez,Chicago Cubs,Base,Print run 500
+press-proofs-gold,229,Omar Vizquel,Cleveland Indians,Base,Print run 500
+press-proofs-gold,230,Fred McGriff,Tampa Bay Devil Rays,Base,Print run 500
+press-proofs-gold,231,Matt Williams,Arizona Diamondbacks,Base,Print run 500; UER: Team incorrectly listed as Devil Rays on front and back; should be Diamondbacks
+press-proofs-gold,232,Moises Alou,Houston Astros,Base,Print run 500
+press-proofs-gold,233,Travis Fryman,Cleveland Indians,Base,Print run 500
+press-proofs-gold,234,Wade Boggs,Tampa Bay Devil Rays,Base,Print run 500
+press-proofs-gold,235,Pedro Martinez,Boston Red Sox,Base,Print run 500
+press-proofs-gold,236,Rickey Henderson,Oakland Athletics,Base,Print run 500
+press-proofs-gold,237,Bubba Trammell,Tampa Bay Devil Rays,Base,Print run 500
+press-proofs-gold,238,Mike Caruso,Chicago White Sox,Rookies,Print run 500
+press-proofs-gold,239,Wilson Alvarez,Tampa Bay Devil Rays,Base,Print run 500
+press-proofs-gold,240,Geronimo Berroa,Cleveland Indians,Base,Print run 500
+press-proofs-gold,241,Eric Milton,Minnesota Twins,Rookies,Print run 500
+press-proofs-gold,242,Scott Erickson,Baltimore Orioles,Base,Print run 500
+press-proofs-gold,243,Todd Erdos,Arizona Diamondbacks,Rookies,Print run 500
+press-proofs-gold,244,Bobby Hughes,Milwaukee Brewers,Rookies,Print run 500
+press-proofs-gold,245,Dave Hollins,Anaheim Angels,Base,Print run 500
+press-proofs-gold,246,Dean Palmer,Kansas City Royals,Base,Print run 500
+press-proofs-gold,247,Carlos Baerga,New York Mets,Base,Print run 500
+press-proofs-gold,248,Jose Silva,Pittsburgh Pirates,Rookies,Print run 500
+press-proofs-gold,249,Jose Cabrera,Houston Astros,Rookies,Print run 500
+press-proofs-gold,250,Tom Evans,Toronto Blue Jays,Rookies,Print run 500
+press-proofs-gold,251,Marty Cordova,Minnesota Twins,Base,Print run 500
+press-proofs-gold,252,Hanley Frias,Arizona Diamondbacks,Rookies,Print run 500
+press-proofs-gold,253,Javier Valentin,Minnesota Twins,Rookies,Print run 500
+press-proofs-gold,254,Mario Valdez,Chicago White Sox,Rookies,Print run 500
+press-proofs-gold,255,Joey Cora,Seattle Mariners,Base,Print run 500
+press-proofs-gold,256,Mike Lansing,Colorado Rockies,Base,Print run 500
+press-proofs-gold,257,Jeff Kent,San Francisco Giants,Base,Print run 500
+press-proofs-gold,258,David Dellucci,Arizona Diamondbacks,Rookies,Print run 500
+press-proofs-gold,259,Curtis King,St. Louis Cardinals,Rookies,Print run 500
+press-proofs-gold,260,David Segui,Seattle Mariners,Base,Print run 500
+press-proofs-gold,261,Royce Clayton,St. Louis Cardinals,Base,Print run 500
+press-proofs-gold,262,Jeff Blauser,Chicago Cubs,Base,Print run 500
+press-proofs-gold,263,Manny Aybar,St. Louis Cardinals,Rookies,Print run 500
+press-proofs-gold,264,Mike Cather,Atlanta Braves,Rookies,Print run 500
+press-proofs-gold,265,Todd Zeile,Florida Marlins,Base,Print run 500
+press-proofs-gold,266,Richard Hidalgo,Houston Astros,Rookies,Print run 500
+press-proofs-gold,267,Dante Powell,San Francisco Giants,Rookies,Print run 500
+press-proofs-gold,268,Mike DeJean,Colorado Rockies,Rookies,Print run 500
+press-proofs-gold,269,Ken Cloude,Seattle Mariners,Rookies,Print run 500
+press-proofs-gold,270,Danny Klassen,Arizona Diamondbacks,Rookies,Print run 500
+press-proofs-gold,271,Sean Casey,Cincinnati Reds,Rookies,Print run 500
+press-proofs-gold,272,A.J. Hinch,Oakland Athletics,Rookies,Print run 500
+press-proofs-gold,273,Rich Butler,Tampa Bay Devil Rays,Rookies,Print run 500
+press-proofs-gold,274,Ben Ford,Arizona Diamondbacks,Rookies,Print run 500
+press-proofs-gold,275,Billy McMillon,Philadelphia Phillies,Rookies,Print run 500
+press-proofs-gold,276,Wilson Delgado,San Francisco Giants,Rookies,Print run 500
+press-proofs-gold,277,Orlando Cabrera,Montreal Expos,Rookies,Print run 500
+press-proofs-gold,278,Geoff Jenkins,Milwaukee Brewers,Rookies,Print run 500
+press-proofs-gold,279,Enrique Wilson,Cleveland Indians,Rookies,Print run 500
+press-proofs-gold,280,Derrek Lee,Florida Marlins,Rookies,Print run 500
+press-proofs-gold,281,Marc Pisciotta,Chicago Cubs,Rookies,Print run 500
+press-proofs-gold,282,Abraham Nunez,Pittsburgh Pirates,Rookies,Print run 500
+press-proofs-gold,283,Aaron Boone,Cincinnati Reds,Rookies,Print run 500
+press-proofs-gold,284,Brad Fullmer,Montreal Expos,Rookies,Print run 500
+press-proofs-gold,285,Rob Stanifer,Florida Marlins,Rookies,Print run 500
+press-proofs-gold,286,Preston Wilson,New York Mets,Rookies,Print run 500
+press-proofs-gold,287,Greg Norton,Chicago White Sox,Rookies,Print run 500
+press-proofs-gold,288,Bobby Smith,Tampa Bay Devil Rays,Rookies,Print run 500
+press-proofs-gold,289,Josh Booty,Florida Marlins,Rookies,Print run 500
+press-proofs-gold,290,Russell Branyan,Cleveland Indians,Rookies,Print run 500
+press-proofs-gold,291,Jeremi Gonzalez,Chicago Cubs,Rookies,Print run 500
+press-proofs-gold,292,Michael Coleman,Boston Red Sox,Rookies,Print run 500
+press-proofs-gold,293,Cliff Politte,St. Louis Cardinals,Rookies,Print run 500
+press-proofs-gold,294,Eric Ludwick,Florida Marlins,Rookies,Print run 500
+press-proofs-gold,295,Rafael Medina,Florida Marlins,Rookies,Print run 500
+press-proofs-gold,296,Jason Varitek,Boston Red Sox,Rookies,Print run 500
+press-proofs-gold,297,Ron Wright,Pittsburgh Pirates,Rookies,Print run 500
+press-proofs-gold,298,Mark Kotsay,Florida Marlins,Rookies,Print run 500
+press-proofs-gold,299,David Ortiz,Minnesota Twins,Rookies,Print run 500
+press-proofs-gold,300,Frank Catalanotto,Detroit Tigers,Rookies,Print run 500
+press-proofs-gold,301,Robinson Checo,Boston Red Sox,Rookies,Print run 500
+press-proofs-gold,302,Kevin Millwood,Atlanta Braves,Rookies,Print run 500
+press-proofs-gold,303,Jacob Cruz,San Francisco Giants,Rookies,Print run 500
+press-proofs-gold,304,Javier Vazquez,Montreal Expos,Rookies,Print run 500
+press-proofs-gold,305,Magglio Ordonez,Chicago White Sox,Rookies,Print run 500
+press-proofs-gold,306,Kevin Witt,Toronto Blue Jays,Rookies,Print run 500
+press-proofs-gold,307,Derrick Gibson,Colorado Rockies,Rookies,Print run 500
+press-proofs-gold,308,Shane Monahan,Seattle Mariners,Rookies,Print run 500
+press-proofs-gold,309,Brian Rose,Boston Red Sox,Rookies,Print run 500
+press-proofs-gold,310,Bobby Estalella,Philadelphia Phillies,Rookies,Print run 500
+press-proofs-gold,311,Felix Heredia,Florida Marlins,Rookies,Print run 500
+press-proofs-gold,312,Desi Relaford,Philadelphia Phillies,Rookies,Print run 500
+press-proofs-gold,313,Esteban Yan,Tampa Bay Devil Rays,Rookies,Print run 500
+press-proofs-gold,314,Ricky Ledee,New York Yankees,Rookies,Print run 500
+press-proofs-gold,315,Steve Woodard,Milwaukee Brewers,Rookies,Print run 500
+press-proofs-gold,316,Pat Watkins,Cincinnati Reds,Rookies,Print run 500
+press-proofs-gold,317,Damian Moss,Atlanta Braves,Rookies,Print run 500
+press-proofs-gold,318,Bob Abreu,Philadelphia Phillies,Rookies,Print run 500
+press-proofs-gold,319,Jeff Abbott,Chicago White Sox,Rookies,Print run 500
+press-proofs-gold,320,Miguel Cairo,Tampa Bay Devil Rays,Rookies,Print run 500
+press-proofs-gold,321,Rigo Beltran,New York Mets,Rookies,Print run 500
+press-proofs-gold,322,Tony Saunders,Tampa Bay Devil Rays,Rookies,Print run 500
+press-proofs-gold,323,Randall Simon,Atlanta Braves,Rookies,Print run 500
+press-proofs-gold,324,Hiram Bocachica,Montreal Expos,Rookies,Print run 500
+press-proofs-gold,325,Richie Sexson,Cleveland Indians,Rookies,Print run 500
+press-proofs-gold,326,Karim Garcia,Arizona Diamondbacks,Rookies,Print run 500
+press-proofs-gold,327,Mike Lowell,New York Yankees,Rookies,Print run 500
+press-proofs-gold,328,Pat Cline,Chicago Cubs,Rookies,Print run 500
+press-proofs-gold,329,Matt Clement,San Diego Padres,Rookies,Print run 500
+press-proofs-gold,330,Scott Elarton,Houston Astros,Rookies,Print run 500
+press-proofs-gold,331,Manuel Barrios,Los Angeles Dodgers,Rookies,Print run 500
+press-proofs-gold,332,Bruce Chen,Atlanta Braves,Rookies,Print run 500
+press-proofs-gold,333,Juan Encarnacion,Detroit Tigers,Rookies,Print run 500
+press-proofs-gold,334,Travis Lee,Arizona Diamondbacks,Rookies,Print run 500
+press-proofs-gold,335,Wes Helms,Atlanta Braves,Rookies,Print run 500
+press-proofs-gold,336,Chad Fox,Milwaukee Brewers,Rookies,Print run 500
+press-proofs-gold,337,Donnie Sadler,Boston Red Sox,Rookies,Print run 500
+press-proofs-gold,338,Carlos Mendoza,Tampa Bay Devil Rays,Rookies,Print run 500
+press-proofs-gold,339,Damian Jackson,Cincinnati Reds,Rookies,Print run 500
+press-proofs-gold,340,Julio Ramirez,Florida Marlins,Rookies,Print run 500
+press-proofs-gold,341,John Halama,Houston Astros,Rookies,Print run 500
+press-proofs-gold,342,Edwin Diaz,Arizona Diamondbacks,Rookies,Print run 500
+press-proofs-gold,343,Felix Martinez,Kansas City Royals,Rookies,Print run 500
+press-proofs-gold,344,Eli Marrero,St. Louis Cardinals,Rookies,Print run 500
+press-proofs-gold,345,Carl Pavano,Montreal Expos,Rookies,Print run 500
+press-proofs-gold,346,Vladimir Guerrero,Montreal Expos,Hit List,Print run 500
+press-proofs-gold,347,Barry Bonds,San Francisco Giants,Hit List,Print run 500
+press-proofs-gold,348,Darin Erstad,Anaheim Angels,Hit List,Print run 500
+press-proofs-gold,349,Albert Belle,Chicago White Sox,Hit List,Print run 500
+press-proofs-gold,350,Kenny Lofton,Cleveland Indians,Hit List,Print run 500
+press-proofs-gold,351,Mo Vaughn,Boston Red Sox,Hit List,Print run 500
+press-proofs-gold,352,Jose Cruz Jr.,Toronto Blue Jays,Hit List,Print run 500
+press-proofs-gold,353,Tony Clark,Detroit Tigers,Hit List,Print run 500
+press-proofs-gold,354,Roberto Alomar,Baltimore Orioles,Hit List,Print run 500
+press-proofs-gold,355,Manny Ramirez,Cleveland Indians,Hit List,Print run 500
+press-proofs-gold,356,Paul Molitor,Minnesota Twins,Hit List,Print run 500
+press-proofs-gold,357,Jim Thome,Cleveland Indians,Hit List,Print run 500
+press-proofs-gold,358,Tino Martinez,New York Yankees,Hit List,Print run 500
+press-proofs-gold,359,Tim Salmon,Anaheim Angels,Hit List,Print run 500
+press-proofs-gold,360,David Justice,Cleveland Indians,Hit List,Print run 500
+press-proofs-gold,361,Raul Mondesi,Los Angeles Dodgers,Hit List,Print run 500
+press-proofs-gold,362,Mark Grace,Chicago Cubs,Hit List,Print run 500
+press-proofs-gold,363,Craig Biggio,Houston Astros,Hit List,Print run 500
+press-proofs-gold,364,Larry Walker,Colorado Rockies,Hit List,Print run 500
+press-proofs-gold,365,Mark McGwire,St. Louis Cardinals,Hit List,Print run 500
+press-proofs-gold,366,Juan Gonzalez,Texas Rangers,Hit List,Print run 500
+press-proofs-gold,367,Derek Jeter,New York Yankees,Hit List,Print run 500
+press-proofs-gold,368,Chipper Jones,Atlanta Braves,Hit List,Print run 500
+press-proofs-gold,369,Frank Thomas,Chicago White Sox,Hit List,Print run 500
+press-proofs-gold,370,Alex Rodriguez,Seattle Mariners,Hit List,Print run 500
+press-proofs-gold,371,Mike Piazza,New York Mets,Hit List,Print run 500
+press-proofs-gold,372,Tony Gwynn,San Diego Padres,Hit List,Print run 500
+press-proofs-gold,373,Jeff Bagwell,Houston Astros,Hit List,Print run 500
+press-proofs-gold,374,Nomar Garciaparra,Boston Red Sox,Hit List,Print run 500
+press-proofs-gold,375,Ken Griffey Jr.,Seattle Mariners,Hit List,Print run 500
+press-proofs-gold,376,Livan Hernandez,Florida Marlins,The Untouchables,Print run 500
+press-proofs-gold,377,Chan Ho Park,Los Angeles Dodgers,The Untouchables,Print run 500
+press-proofs-gold,378,Mike Mussina,Baltimore Orioles,The Untouchables,Print run 500
+press-proofs-gold,379,Andy Pettitte,New York Yankees,The Untouchables,Print run 500
+press-proofs-gold,380,Greg Maddux,Atlanta Braves,The Untouchables,Print run 500
+press-proofs-gold,381,Hideo Nomo,Los Angeles Dodgers,The Untouchables,Print run 500
+press-proofs-gold,382,Roger Clemens,Toronto Blue Jays,The Untouchables,Print run 500
+press-proofs-gold,383,Randy Johnson,Seattle Mariners,The Untouchables,Print run 500
+press-proofs-gold,384,Pedro Martinez,Boston Red Sox,The Untouchables,Print run 500
+press-proofs-gold,385,Jaret Wright,Cleveland Indians,The Untouchables,Print run 500
+press-proofs-gold,386,Ken Griffey Jr.,Seattle Mariners,Spirit of the Game,Print run 500
+press-proofs-gold,387,Todd Helton,Colorado Rockies,Spirit of the Game,Print run 500
+press-proofs-gold,388,Paul Konerko,Los Angeles Dodgers,Spirit of the Game,Print run 500
+press-proofs-gold,389,Cal Ripken Jr.,Baltimore Orioles,Spirit of the Game,Print run 500
+press-proofs-gold,390,Larry Walker,Colorado Rockies,Spirit of the Game,Print run 500
+press-proofs-gold,391,Ken Caminiti,San Diego Padres,Spirit of the Game,Print run 500
+press-proofs-gold,392,Jose Guillen,Pittsburgh Pirates,Spirit of the Game,Print run 500
+press-proofs-gold,393,Jim Edmonds,Anaheim Angels,Spirit of the Game,Print run 500
+press-proofs-gold,394,Barry Larkin,Cincinnati Reds,Spirit of the Game,Print run 500
+press-proofs-gold,395,Bernie Williams,New York Yankees,Spirit of the Game,Print run 500
+press-proofs-gold,396,Tony Clark,Detroit Tigers,Spirit of the Game,Print run 500
+press-proofs-gold,397,Jose Cruz Jr.,Toronto Blue Jays,Spirit of the Game,Print run 500
+press-proofs-gold,398,Ivan Rodriguez,Texas Rangers,Spirit of the Game,Print run 500
+press-proofs-gold,399,Darin Erstad,Anaheim Angels,Spirit of the Game,Print run 500
+press-proofs-gold,400,Scott Rolen,Philadelphia Phillies,Spirit of the Game,Print run 500
+press-proofs-gold,401,Mark McGwire,St. Louis Cardinals,Spirit of the Game,Print run 500
+press-proofs-gold,402,Andruw Jones,Atlanta Braves,Spirit of the Game,Print run 500
+press-proofs-gold,403,Juan Gonzalez,Texas Rangers,Spirit of the Game,Print run 500
+press-proofs-gold,404,Derek Jeter,New York Yankees,Spirit of the Game,Print run 500
+press-proofs-gold,405,Chipper Jones,Atlanta Braves,Spirit of the Game,Print run 500
+press-proofs-gold,406,Greg Maddux,Atlanta Braves,Spirit of the Game,Print run 500
+press-proofs-gold,407,Frank Thomas,Chicago White Sox,Spirit of the Game,Print run 500
+press-proofs-gold,408,Alex Rodriguez,Seattle Mariners,Spirit of the Game,Print run 500
+press-proofs-gold,409,Mike Piazza,New York Mets,Spirit of the Game,Print run 500
+press-proofs-gold,410,Tony Gwynn,San Diego Padres,Spirit of the Game,Print run 500
+press-proofs-gold,411,Jeff Bagwell,Houston Astros,Spirit of the Game,Print run 500
+press-proofs-gold,412,Nomar Garciaparra,Boston Red Sox,Spirit of the Game,Print run 500
+press-proofs-gold,413,Hideo Nomo,Los Angeles Dodgers,Spirit of the Game,Print run 500
+press-proofs-gold,414,Barry Bonds,San Francisco Giants,Spirit of the Game,Print run 500
+press-proofs-gold,415,Ben Grieve,Oakland Athletics,Spirit of the Game,Print run 500
+press-proofs-gold,416,Barry Bonds,San Francisco Giants,Checklist,Print run 500
+press-proofs-gold,417,Mark McGwire,St. Louis Cardinals,Checklist,Print run 500
+press-proofs-gold,418,Roger Clemens,Toronto Blue Jays,Checklist,Print run 500
+press-proofs-gold,419,Livan Hernandez,Florida Marlins,Checklist,Print run 500
+press-proofs-gold,420,Ken Griffey Jr.,Seattle Mariners,Checklist,Print run 500
+press-proofs-silver,1,Paul Molitor,Minnesota Twins,Base,Print run 1500
+press-proofs-silver,2,Juan Gonzalez,Texas Rangers,Base,Print run 1500
+press-proofs-silver,3,Darryl Kile,Houston Astros,Base,Print run 1500
+press-proofs-silver,4,Randy Johnson,Seattle Mariners,Base,Print run 1500
+press-proofs-silver,5,Tom Glavine,Atlanta Braves,Base,Print run 1500
+press-proofs-silver,6,Pat Hentgen,Toronto Blue Jays,Base,Print run 1500
+press-proofs-silver,7,David Justice,Cleveland Indians,Base,Print run 1500
+press-proofs-silver,8,Kevin Brown,Florida Marlins,Base,Print run 1500
+press-proofs-silver,9,Mike Mussina,Baltimore Orioles,Base,Print run 1500
+press-proofs-silver,10,Ken Caminiti,San Diego Padres,Base,Print run 1500
+press-proofs-silver,11,Todd Hundley,New York Mets,Base,Print run 1500
+press-proofs-silver,12,Frank Thomas,Chicago White Sox,Base,Print run 1500
+press-proofs-silver,13,Ray Lankford,St. Louis Cardinals,Base,Print run 1500
+press-proofs-silver,14,Justin Thompson,Detroit Tigers,Base,Print run 1500
+press-proofs-silver,15,Jason Dickson,Anaheim Angels,Base,Print run 1500
+press-proofs-silver,16,Kenny Lofton,Atlanta Braves,Base,Print run 1500
+press-proofs-silver,17,Ivan Rodriguez,Texas Rangers,Base,Print run 1500
+press-proofs-silver,18,Pedro Martinez,Montreal Expos,Base,Print run 1500
+press-proofs-silver,19,Brady Anderson,Baltimore Orioles,Base,Print run 1500
+press-proofs-silver,20,Barry Larkin,Cincinnati Reds,Base,Print run 1500
+press-proofs-silver,21,Chipper Jones,Atlanta Braves,Base,Print run 1500
+press-proofs-silver,22,Tony Gwynn,San Diego Padres,Base,Print run 1500
+press-proofs-silver,23,Roger Clemens,Toronto Blue Jays,Base,Print run 1500
+press-proofs-silver,24,Sandy Alomar Jr.,Cleveland Indians,Base,Print run 1500
+press-proofs-silver,25,Tino Martinez,New York Yankees,Base,Print run 1500
+press-proofs-silver,26,Jeff Bagwell,Houston Astros,Base,Print run 1500
+press-proofs-silver,27,Shawn Estes,San Francisco Giants,Base,Print run 1500
+press-proofs-silver,28,Ken Griffey Jr.,Seattle Mariners,Base,Print run 1500
+press-proofs-silver,29,Javier Lopez,Atlanta Braves,Base,Print run 1500
+press-proofs-silver,30,Denny Neagle,Atlanta Braves,Base,Print run 1500
+press-proofs-silver,31,Mike Piazza,Los Angeles Dodgers,Base,Print run 1500
+press-proofs-silver,32,Andres Galarraga,Colorado Rockies,Base,Print run 1500
+press-proofs-silver,33,Larry Walker,Colorado Rockies,Base,Print run 1500
+press-proofs-silver,34,Alex Rodriguez,Seattle Mariners,Base,Print run 1500
+press-proofs-silver,35,Greg Maddux,Atlanta Braves,Base,Print run 1500
+press-proofs-silver,36,Albert Belle,Chicago White Sox,Base,Print run 1500
+press-proofs-silver,37,Barry Bonds,San Francisco Giants,Base,Print run 1500
+press-proofs-silver,38,Mo Vaughn,Boston Red Sox,Base,Print run 1500
+press-proofs-silver,39,Kevin Appier,Kansas City Royals,Base,Print run 1500
+press-proofs-silver,40,Wade Boggs,New York Yankees,Base,Print run 1500
+press-proofs-silver,41,Garret Anderson,Anaheim Angels,Base,Print run 1500
+press-proofs-silver,42,Jeffrey Hammonds,Baltimore Orioles,Base,Print run 1500
+press-proofs-silver,43,Marquis Grissom,Cleveland Indians,Base,Print run 1500
+press-proofs-silver,44,Jim Edmonds,Anaheim Angels,Base,Print run 1500
+press-proofs-silver,45,Brian Jordan,St. Louis Cardinals,Base,Print run 1500
+press-proofs-silver,46,Raul Mondesi,Los Angeles Dodgers,Base,Print run 1500
+press-proofs-silver,47,John Valentin,Boston Red Sox,Base,Print run 1500
+press-proofs-silver,48,Brad Radke,Minnesota Twins,Base,Print run 1500
+press-proofs-silver,49,Ismael Valdes,Los Angeles Dodgers,Base,Print run 1500
+press-proofs-silver,50,Matt Stairs,Oakland Athletics,Base,Print run 1500
+press-proofs-silver,51,Matt Williams,Cleveland Indians,Base,Print run 1500
+press-proofs-silver,52,Reggie Jefferson,Boston Red Sox,Base,Print run 1500
+press-proofs-silver,53,Alan Benes,St. Louis Cardinals,Base,Print run 1500
+press-proofs-silver,54,Charles Johnson,Florida Marlins,Base,Print run 1500
+press-proofs-silver,55,Chuck Knoblauch,Minnesota Twins,Base,Print run 1500
+press-proofs-silver,56,Edgar Martinez,Seattle Mariners,Base,Print run 1500
+press-proofs-silver,57,Nomar Garciaparra,Boston Red Sox,Base,Print run 1500
+press-proofs-silver,58,Craig Biggio,Houston Astros,Base,Print run 1500
+press-proofs-silver,59,Bernie Williams,New York Yankees,Base,Print run 1500
+press-proofs-silver,60,David Cone,New York Yankees,Base,Print run 1500
+press-proofs-silver,61,Cal Ripken Jr.,Baltimore Orioles,Base,Print run 1500
+press-proofs-silver,62,Mark McGwire,St. Louis Cardinals,Base,Print run 1500
+press-proofs-silver,63,Roberto Alomar,Baltimore Orioles,Base,Print run 1500
+press-proofs-silver,64,Fred McGriff,Atlanta Braves,Base,Print run 1500
+press-proofs-silver,65,Eric Karros,Los Angeles Dodgers,Base,Print run 1500
+press-proofs-silver,66,Robin Ventura,Chicago White Sox,Base,Print run 1500
+press-proofs-silver,67,Darin Erstad,Anaheim Angels,Base,Print run 1500
+press-proofs-silver,68,Michael Tucker,Atlanta Braves,Base,Print run 1500
+press-proofs-silver,69,Jim Thome,Cleveland Indians,Base,Print run 1500
+press-proofs-silver,70,Mark Grace,Chicago Cubs,Base,Print run 1500
+press-proofs-silver,71,Lou Collier,Pittsburgh Pirates,Rookies,Print run 1500
+press-proofs-silver,72,Karim Garcia,Los Angeles Dodgers,Base,Print run 1500
+press-proofs-silver,73,Alex Fernandez,Florida Marlins,Base,Print run 1500
+press-proofs-silver,74,J.T. Snow,San Francisco Giants,Base,Print run 1500
+press-proofs-silver,75,Reggie Sanders,Cincinnati Reds,Base,Print run 1500
+press-proofs-silver,76,John Smoltz,Atlanta Braves,Base,Print run 1500
+press-proofs-silver,77,Tim Salmon,Anaheim Angels,Base,Print run 1500
+press-proofs-silver,78,Paul O'Neill,New York Yankees,Base,Print run 1500
+press-proofs-silver,79,Vinny Castilla,Colorado Rockies,Base,Print run 1500
+press-proofs-silver,80,Rafael Palmeiro,Baltimore Orioles,Base,Print run 1500
+press-proofs-silver,81,Jaret Wright,Cleveland Indians,Base,Print run 1500
+press-proofs-silver,82,Jay Buhner,Seattle Mariners,Base,Print run 1500
+press-proofs-silver,83,Brett Butler,Los Angeles Dodgers,Base,Print run 1500
+press-proofs-silver,84,Todd Greene,Anaheim Angels,Base,Print run 1500
+press-proofs-silver,85,Scott Rolen,Philadelphia Phillies,Base,Print run 1500
+press-proofs-silver,86,Sammy Sosa,Chicago Cubs,Base,Print run 1500
+press-proofs-silver,87,Jason Giambi,Oakland Athletics,Base,Print run 1500
+press-proofs-silver,88,Carlos Delgado,Toronto Blue Jays,Base,Print run 1500
+press-proofs-silver,89,Deion Sanders,Cincinnati Reds,Base,Print run 1500
+press-proofs-silver,90,Wilton Guerrero,Los Angeles Dodgers,Base,Print run 1500
+press-proofs-silver,91,Andy Pettitte,New York Yankees,Base,Print run 1500
+press-proofs-silver,92,Brian Giles,Cleveland Indians,Base,Print run 1500
+press-proofs-silver,93,Dmitri Young,St. Louis Cardinals,Base,Print run 1500
+press-proofs-silver,94,Ron Coomer,Minnesota Twins,Base,Print run 1500
+press-proofs-silver,95,Mike Cameron,Chicago White Sox,Base,Print run 1500
+press-proofs-silver,96,Edgardo Alfonzo,New York Mets,Base,Print run 1500
+press-proofs-silver,97,Jimmy Key,Baltimore Orioles,Base,Print run 1500
+press-proofs-silver,98,Ryan Klesko,Atlanta Braves,Base,Print run 1500
+press-proofs-silver,99,Andy Benes,St. Louis Cardinals,Base,Print run 1500
+press-proofs-silver,100,Derek Jeter,New York Yankees,Base,Print run 1500
+press-proofs-silver,101,Jeff Fassero,Seattle Mariners,Base,Print run 1500
+press-proofs-silver,102,Neifi Perez,Colorado Rockies,Base,Print run 1500
+press-proofs-silver,103,Hideo Nomo,Los Angeles Dodgers,Base,Print run 1500
+press-proofs-silver,104,Andruw Jones,Atlanta Braves,Base,Print run 1500
+press-proofs-silver,105,Todd Helton,Colorado Rockies,Rookies,Print run 1500
+press-proofs-silver,106,Livan Hernandez,Florida Marlins,Rookies,Print run 1500
+press-proofs-silver,107,Brett Tomko,Cincinnati Reds,Base,Print run 1500
+press-proofs-silver,108,Shannon Stewart,Toronto Blue Jays,Base,Print run 1500
+press-proofs-silver,109,Bartolo Colon,Cleveland Indians,Base,Print run 1500
+press-proofs-silver,110,Matt Morris,St. Louis Cardinals,Base,Print run 1500
+press-proofs-silver,111,Miguel Tejada,Oakland Athletics,Rookies,Print run 1500
+press-proofs-silver,112,Pokey Reese,Cincinnati Reds,Base,Print run 1500
+press-proofs-silver,113,Fernando Tatis,Texas Rangers,Rookies,Print run 1500
+press-proofs-silver,114,Todd Dunwoody,Florida Marlins,Base,Print run 1500
+press-proofs-silver,115,Jose Cruz Jr.,Toronto Blue Jays,Base,Print run 1500
+press-proofs-silver,116,Chan Ho Park,Los Angeles Dodgers,Base,Print run 1500
+press-proofs-silver,117,Kevin Young,Pittsburgh Pirates,Base,Print run 1500
+press-proofs-silver,118,Rickey Henderson,Anaheim Angels,Base,Print run 1500
+press-proofs-silver,119,Hideki Irabu,New York Yankees,Base,Print run 1500
+press-proofs-silver,120,Francisco Cordova,Pittsburgh Pirates,Base,Print run 1500
+press-proofs-silver,121,Al Martin,Pittsburgh Pirates,Base,Print run 1500
+press-proofs-silver,122,Tony Clark,Detroit Tigers,Base,Print run 1500
+press-proofs-silver,123,Curt Schilling,Philadelphia Phillies,Base,Print run 1500
+press-proofs-silver,124,Rusty Greer,Texas Rangers,Base,Print run 1500
+press-proofs-silver,125,Jose Canseco,Oakland Athletics,Base,Print run 1500
+press-proofs-silver,126,Edgar Renteria,Florida Marlins,Base,Print run 1500
+press-proofs-silver,127,Todd Walker,Minnesota Twins,Base,Print run 1500
+press-proofs-silver,128,Wally Joyner,San Diego Padres,Base,Print run 1500
+press-proofs-silver,129,Bill Mueller,San Francisco Giants,Base,Print run 1500
+press-proofs-silver,130,Jose Guillen,Pittsburgh Pirates,Base,Print run 1500
+press-proofs-silver,131,Manny Ramirez,Cleveland Indians,Base,Print run 1500
+press-proofs-silver,132,Bobby Higginson,Detroit Tigers,Base,Print run 1500
+press-proofs-silver,133,Kevin Orie,Chicago Cubs,Base,Print run 1500
+press-proofs-silver,134,Will Clark,Texas Rangers,Base,Print run 1500
+press-proofs-silver,135,Dave Nilsson,Milwaukee Brewers,Base,Print run 1500
+press-proofs-silver,136,Jason Kendall,Pittsburgh Pirates,Base,Print run 1500
+press-proofs-silver,137,Ivan Cruz,New York Yankees,Rookies,Print run 1500
+press-proofs-silver,138,Gary Sheffield,Florida Marlins,Base,Print run 1500
+press-proofs-silver,139,Bubba Trammell,Detroit Tigers,Rookies,Print run 1500
+press-proofs-silver,140,Vladimir Guerrero,Montreal Expos,Base,Print run 1500
+press-proofs-silver,141,Dennis Reyes,Los Angeles Dodgers,Rookies,Print run 1500
+press-proofs-silver,142,Bobby Bonilla,Florida Marlins,Base,Print run 1500
+press-proofs-silver,143,Ruben Rivera,San Diego Padres,Base,Print run 1500
+press-proofs-silver,144,Ben Grieve,Oakland Athletics,Rookies,Print run 1500
+press-proofs-silver,145,Moises Alou,Florida Marlins,Base,Print run 1500
+press-proofs-silver,146,Tony Womack,Pittsburgh Pirates,Base,Print run 1500
+press-proofs-silver,147,Eric Young,Los Angeles Dodgers,Base,Print run 1500
+press-proofs-silver,148,Paul Konerko,Los Angeles Dodgers,Rookies,Print run 1500
+press-proofs-silver,149,Dante Bichette,Colorado Rockies,Base,Print run 1500
+press-proofs-silver,150,Joe Carter,Toronto Blue Jays,Base,Print run 1500
+press-proofs-silver,151,Rondell White,Montreal Expos,Base,Print run 1500
+press-proofs-silver,152,Chris Holt,Houston Astros,Base,Print run 1500
+press-proofs-silver,153,Shawn Green,Toronto Blue Jays,Base,Print run 1500
+press-proofs-silver,154,Mark Grudzielanek,Montreal Expos,Base,"Print run 1500; UER: Last name on back missing ""G"""
+press-proofs-silver,155,Jermaine Dye,Kansas City Royals,Base,Print run 1500
+press-proofs-silver,156,Ken Griffey Jr.,Seattle Mariners,Fan Club,Print run 1500
+press-proofs-silver,157,Frank Thomas,Chicago White Sox,Fan Club,Print run 1500
+press-proofs-silver,158,Chipper Jones,Atlanta Braves,Fan Club,Print run 1500
+press-proofs-silver,159,Mike Piazza,Los Angeles Dodgers,Fan Club,Print run 1500
+press-proofs-silver,160,Cal Ripken Jr.,Baltimore Orioles,Fan Club,Print run 1500
+press-proofs-silver,161,Greg Maddux,Atlanta Braves,Fan Club,Print run 1500
+press-proofs-silver,162,Juan Gonzalez,Texas Rangers,Fan Club,Print run 1500
+press-proofs-silver,163,Alex Rodriguez,Seattle Mariners,Fan Club,Print run 1500
+press-proofs-silver,164,Mark McGwire,St. Louis Cardinals,Fan Club,Print run 1500
+press-proofs-silver,165,Derek Jeter,New York Yankees,Fan Club,Print run 1500
+press-proofs-silver,166,Larry Walker,,Checklist,Print run 1500
+press-proofs-silver,167,Tony Gwynn,San Diego Padres,Checklist,Print run 1500
+press-proofs-silver,168,Tino Martinez,New York Yankees,Checklist,Print run 1500
+press-proofs-silver,169,Scott Rolen,Philadelphia Phillies,Checklist,Print run 1500
+press-proofs-silver,170,Nomar Garciaparra,,Checklist,Print run 1500
+press-proofs-silver,171,Mike Sweeney,Kansas City Royals,Base,Print run 1500
+press-proofs-silver,172,Dustin Hermanson,Montreal Expos,Base,Print run 1500
+press-proofs-silver,173,Darren Dreifort,Los Angeles Dodgers,Base,Print run 1500
+press-proofs-silver,174,Ron Gant,St. Louis Cardinals,Base,Print run 1500
+press-proofs-silver,175,Todd Hollandsworth,Los Angeles Dodgers,Base,Print run 1500
+press-proofs-silver,176,John Jaha,Milwaukee Brewers,Base,Print run 1500
+press-proofs-silver,177,Kerry Wood,Chicago Cubs,Rookies,Print run 1500
+press-proofs-silver,178,Chris Stynes,Cincinnati Reds,Base,Print run 1500
+press-proofs-silver,179,Kevin Elster,Texas Rangers,Base,Print run 1500
+press-proofs-silver,180,Derek Bell,Houston Astros,Base,Print run 1500
+press-proofs-silver,181,Darryl Strawberry,New York Yankees,Base,Print run 1500
+press-proofs-silver,182,Damion Easley,Detroit Tigers,Base,Print run 1500
+press-proofs-silver,183,Jeff Cirillo,Milwaukee Brewers,Base,Print run 1500
+press-proofs-silver,184,John Thomson,Colorado Rockies,Rookies,Print run 1500
+press-proofs-silver,185,Dan Wilson,Seattle Mariners,Base,Print run 1500
+press-proofs-silver,186,Jay Bell,Arizona Diamondbacks,Base,Print run 1500
+press-proofs-silver,187,Bernard Gilkey,New York Mets,Base,Print run 1500
+press-proofs-silver,188,Marc Valdes,Montreal Expos,Rookies,Print run 1500
+press-proofs-silver,189,Ramon Martinez,Los Angeles Dodgers,Base,Print run 1500
+press-proofs-silver,190,Charles Nagy,Cleveland Indians,Base,Print run 1500
+press-proofs-silver,191,Derek Lowe,Boston Red Sox,Rookies,Print run 1500
+press-proofs-silver,192,Andy Benes,Arizona Diamondbacks,Base,Print run 1500
+press-proofs-silver,193,Delino DeShields,St. Louis Cardinals,Base,Print run 1500
+press-proofs-silver,194,Ryan Jackson,Florida Marlins,Rookies,Print run 1500
+press-proofs-silver,195,Kenny Lofton,Cleveland Indians,Base,Print run 1500
+press-proofs-silver,196,Chuck Knoblauch,New York Yankees,Base,Print run 1500
+press-proofs-silver,197,Andres Galarraga,Atlanta Braves,Base,Print run 1500
+press-proofs-silver,198,Jose Canseco,Toronto Blue Jays,Base,Print run 1500
+press-proofs-silver,199,John Olerud,New York Mets,Base,Print run 1500
+press-proofs-silver,200,Lance Johnson,Chicago Cubs,Base,Print run 1500
+press-proofs-silver,201,Darryl Kile,Colorado Rockies,Base,Print run 1500
+press-proofs-silver,202,Luis Castillo,Florida Marlins,Base,Print run 1500
+press-proofs-silver,203,Joe Carter,Baltimore Orioles,Base,Print run 1500
+press-proofs-silver,204,Dennis Eckersley,Boston Red Sox,Base,Print run 1500
+press-proofs-silver,205,Steve Finley,San Diego Padres,Base,Print run 1500
+press-proofs-silver,206,Esteban Loaiza,Pittsburgh Pirates,Base,Print run 1500
+press-proofs-silver,207,Ryan Christenson,Oakland Athletics,Rookies,Print run 1500
+press-proofs-silver,208,Deivi Cruz,Detroit Tigers,Base,Print run 1500
+press-proofs-silver,209,Mariano Rivera,New York Yankees,Base,Print run 1500
+press-proofs-silver,210,Mike Judd,Los Angeles Dodgers,Rookies,Print run 1500
+press-proofs-silver,211,Billy Wagner,Houston Astros,Base,Print run 1500
+press-proofs-silver,212,Scott Spiezio,Oakland Athletics,Base,Print run 1500
+press-proofs-silver,213,Russ Davis,Seattle Mariners,Base,Print run 1500
+press-proofs-silver,214,Jeff Suppan,Arizona Diamondbacks,Base,Print run 1500
+press-proofs-silver,215,Doug Glanville,Philadelphia Phillies,Base,Print run 1500
+press-proofs-silver,216,Dmitri Young,Cincinnati Reds,Base,Print run 1500
+press-proofs-silver,217,Rey Ordonez,New York Mets,Base,Print run 1500
+press-proofs-silver,218,Cecil Fielder,Anaheim Angels,Base,Print run 1500
+press-proofs-silver,219,Masato Yoshii,New York Mets,Rookies,Print run 1500
+press-proofs-silver,220,Raul Casanova,Detroit Tigers,Base,Print run 1500
+press-proofs-silver,221,Rolando Arrojo,Tampa Bay Devil Rays,Rookies,Print run 1500
+press-proofs-silver,222,Ellis Burks,Colorado Rockies,Base,Print run 1500
+press-proofs-silver,223,Butch Huskey,New York Mets,Base,Print run 1500
+press-proofs-silver,224,Brian Hunter,Detroit Tigers,Base,Print run 1500
+press-proofs-silver,225,Marquis Grissom,Milwaukee Brewers,Base,Print run 1500
+press-proofs-silver,226,Kevin Brown,San Diego Padres,Base,Print run 1500
+press-proofs-silver,227,Joe Randa,Detroit Tigers,Base,Print run 1500
+press-proofs-silver,228,Henry Rodriguez,Chicago Cubs,Base,Print run 1500
+press-proofs-silver,229,Omar Vizquel,Cleveland Indians,Base,Print run 1500
+press-proofs-silver,230,Fred McGriff,Tampa Bay Devil Rays,Base,Print run 1500
+press-proofs-silver,231,Matt Williams,Arizona Diamondbacks,Base,Print run 1500; UER: Team incorrectly listed as Devil Rays on front and back; should be Diamondbacks
+press-proofs-silver,232,Moises Alou,Houston Astros,Base,Print run 1500
+press-proofs-silver,233,Travis Fryman,Cleveland Indians,Base,Print run 1500
+press-proofs-silver,234,Wade Boggs,Tampa Bay Devil Rays,Base,Print run 1500
+press-proofs-silver,235,Pedro Martinez,Boston Red Sox,Base,Print run 1500
+press-proofs-silver,236,Rickey Henderson,Oakland Athletics,Base,Print run 1500
+press-proofs-silver,237,Bubba Trammell,Tampa Bay Devil Rays,Base,Print run 1500
+press-proofs-silver,238,Mike Caruso,Chicago White Sox,Rookies,Print run 1500
+press-proofs-silver,239,Wilson Alvarez,Tampa Bay Devil Rays,Base,Print run 1500
+press-proofs-silver,240,Geronimo Berroa,Cleveland Indians,Base,Print run 1500
+press-proofs-silver,241,Eric Milton,Minnesota Twins,Rookies,Print run 1500
+press-proofs-silver,242,Scott Erickson,Baltimore Orioles,Base,Print run 1500
+press-proofs-silver,243,Todd Erdos,Arizona Diamondbacks,Rookies,Print run 1500
+press-proofs-silver,244,Bobby Hughes,Milwaukee Brewers,Rookies,Print run 1500
+press-proofs-silver,245,Dave Hollins,Anaheim Angels,Base,Print run 1500
+press-proofs-silver,246,Dean Palmer,Kansas City Royals,Base,Print run 1500
+press-proofs-silver,247,Carlos Baerga,New York Mets,Base,Print run 1500
+press-proofs-silver,248,Jose Silva,Pittsburgh Pirates,Rookies,Print run 1500
+press-proofs-silver,249,Jose Cabrera,Houston Astros,Rookies,Print run 1500
+press-proofs-silver,250,Tom Evans,Toronto Blue Jays,Rookies,Print run 1500
+press-proofs-silver,251,Marty Cordova,Minnesota Twins,Base,Print run 1500
+press-proofs-silver,252,Hanley Frias,Arizona Diamondbacks,Rookies,Print run 1500
+press-proofs-silver,253,Javier Valentin,Minnesota Twins,Rookies,Print run 1500
+press-proofs-silver,254,Mario Valdez,Chicago White Sox,Rookies,Print run 1500
+press-proofs-silver,255,Joey Cora,Seattle Mariners,Base,Print run 1500
+press-proofs-silver,256,Mike Lansing,Colorado Rockies,Base,Print run 1500
+press-proofs-silver,257,Jeff Kent,San Francisco Giants,Base,Print run 1500
+press-proofs-silver,258,David Dellucci,Arizona Diamondbacks,Rookies,Print run 1500
+press-proofs-silver,259,Curtis King,St. Louis Cardinals,Rookies,Print run 1500
+press-proofs-silver,260,David Segui,Seattle Mariners,Base,Print run 1500
+press-proofs-silver,261,Royce Clayton,St. Louis Cardinals,Base,Print run 1500
+press-proofs-silver,262,Jeff Blauser,Chicago Cubs,Base,Print run 1500
+press-proofs-silver,263,Manny Aybar,St. Louis Cardinals,Rookies,Print run 1500
+press-proofs-silver,264,Mike Cather,Atlanta Braves,Rookies,Print run 1500
+press-proofs-silver,265,Todd Zeile,Florida Marlins,Base,Print run 1500
+press-proofs-silver,266,Richard Hidalgo,Houston Astros,Rookies,Print run 1500
+press-proofs-silver,267,Dante Powell,San Francisco Giants,Rookies,Print run 1500
+press-proofs-silver,268,Mike DeJean,Colorado Rockies,Rookies,Print run 1500
+press-proofs-silver,269,Ken Cloude,Seattle Mariners,Rookies,Print run 1500
+press-proofs-silver,270,Danny Klassen,Arizona Diamondbacks,Rookies,Print run 1500
+press-proofs-silver,271,Sean Casey,Cincinnati Reds,Rookies,Print run 1500
+press-proofs-silver,272,A.J. Hinch,Oakland Athletics,Rookies,Print run 1500
+press-proofs-silver,273,Rich Butler,Tampa Bay Devil Rays,Rookies,Print run 1500
+press-proofs-silver,274,Ben Ford,Arizona Diamondbacks,Rookies,Print run 1500
+press-proofs-silver,275,Billy McMillon,Philadelphia Phillies,Rookies,Print run 1500
+press-proofs-silver,276,Wilson Delgado,San Francisco Giants,Rookies,Print run 1500
+press-proofs-silver,277,Orlando Cabrera,Montreal Expos,Rookies,Print run 1500
+press-proofs-silver,278,Geoff Jenkins,Milwaukee Brewers,Rookies,Print run 1500
+press-proofs-silver,279,Enrique Wilson,Cleveland Indians,Rookies,Print run 1500
+press-proofs-silver,280,Derrek Lee,Florida Marlins,Rookies,Print run 1500
+press-proofs-silver,281,Marc Pisciotta,Chicago Cubs,Rookies,Print run 1500
+press-proofs-silver,282,Abraham Nunez,Pittsburgh Pirates,Rookies,Print run 1500
+press-proofs-silver,283,Aaron Boone,Cincinnati Reds,Rookies,Print run 1500
+press-proofs-silver,284,Brad Fullmer,Montreal Expos,Rookies,Print run 1500
+press-proofs-silver,285,Rob Stanifer,Florida Marlins,Rookies,Print run 1500
+press-proofs-silver,286,Preston Wilson,New York Mets,Rookies,Print run 1500
+press-proofs-silver,287,Greg Norton,Chicago White Sox,Rookies,Print run 1500
+press-proofs-silver,288,Bobby Smith,Tampa Bay Devil Rays,Rookies,Print run 1500
+press-proofs-silver,289,Josh Booty,Florida Marlins,Rookies,Print run 1500
+press-proofs-silver,290,Russell Branyan,Cleveland Indians,Rookies,Print run 1500
+press-proofs-silver,291,Jeremi Gonzalez,Chicago Cubs,Rookies,Print run 1500
+press-proofs-silver,292,Michael Coleman,Boston Red Sox,Rookies,Print run 1500
+press-proofs-silver,293,Cliff Politte,St. Louis Cardinals,Rookies,Print run 1500
+press-proofs-silver,294,Eric Ludwick,Florida Marlins,Rookies,Print run 1500
+press-proofs-silver,295,Rafael Medina,Florida Marlins,Rookies,Print run 1500
+press-proofs-silver,296,Jason Varitek,Boston Red Sox,Rookies,Print run 1500
+press-proofs-silver,297,Ron Wright,Pittsburgh Pirates,Rookies,Print run 1500
+press-proofs-silver,298,Mark Kotsay,Florida Marlins,Rookies,Print run 1500
+press-proofs-silver,299,David Ortiz,Minnesota Twins,Rookies,Print run 1500
+press-proofs-silver,300,Frank Catalanotto,Detroit Tigers,Rookies,Print run 1500
+press-proofs-silver,301,Robinson Checo,Boston Red Sox,Rookies,Print run 1500
+press-proofs-silver,302,Kevin Millwood,Atlanta Braves,Rookies,Print run 1500
+press-proofs-silver,303,Jacob Cruz,San Francisco Giants,Rookies,Print run 1500
+press-proofs-silver,304,Javier Vazquez,Montreal Expos,Rookies,Print run 1500
+press-proofs-silver,305,Magglio Ordonez,Chicago White Sox,Rookies,Print run 1500
+press-proofs-silver,306,Kevin Witt,Toronto Blue Jays,Rookies,Print run 1500
+press-proofs-silver,307,Derrick Gibson,Colorado Rockies,Rookies,Print run 1500
+press-proofs-silver,308,Shane Monahan,Seattle Mariners,Rookies,Print run 1500
+press-proofs-silver,309,Brian Rose,Boston Red Sox,Rookies,Print run 1500
+press-proofs-silver,310,Bobby Estalella,Philadelphia Phillies,Rookies,Print run 1500
+press-proofs-silver,311,Felix Heredia,Florida Marlins,Rookies,Print run 1500
+press-proofs-silver,312,Desi Relaford,Philadelphia Phillies,Rookies,Print run 1500
+press-proofs-silver,313,Esteban Yan,Tampa Bay Devil Rays,Rookies,Print run 1500
+press-proofs-silver,314,Ricky Ledee,New York Yankees,Rookies,Print run 1500
+press-proofs-silver,315,Steve Woodard,Milwaukee Brewers,Rookies,Print run 1500
+press-proofs-silver,316,Pat Watkins,Cincinnati Reds,Rookies,Print run 1500
+press-proofs-silver,317,Damian Moss,Atlanta Braves,Rookies,Print run 1500
+press-proofs-silver,318,Bob Abreu,Philadelphia Phillies,Rookies,Print run 1500
+press-proofs-silver,319,Jeff Abbott,Chicago White Sox,Rookies,Print run 1500
+press-proofs-silver,320,Miguel Cairo,Tampa Bay Devil Rays,Rookies,Print run 1500
+press-proofs-silver,321,Rigo Beltran,New York Mets,Rookies,Print run 1500
+press-proofs-silver,322,Tony Saunders,Tampa Bay Devil Rays,Rookies,Print run 1500
+press-proofs-silver,323,Randall Simon,Atlanta Braves,Rookies,Print run 1500
+press-proofs-silver,324,Hiram Bocachica,Montreal Expos,Rookies,Print run 1500
+press-proofs-silver,325,Richie Sexson,Cleveland Indians,Rookies,Print run 1500
+press-proofs-silver,326,Karim Garcia,Arizona Diamondbacks,Rookies,Print run 1500
+press-proofs-silver,327,Mike Lowell,New York Yankees,Rookies,Print run 1500
+press-proofs-silver,328,Pat Cline,Chicago Cubs,Rookies,Print run 1500
+press-proofs-silver,329,Matt Clement,San Diego Padres,Rookies,Print run 1500
+press-proofs-silver,330,Scott Elarton,Houston Astros,Rookies,Print run 1500
+press-proofs-silver,331,Manuel Barrios,Los Angeles Dodgers,Rookies,Print run 1500
+press-proofs-silver,332,Bruce Chen,Atlanta Braves,Rookies,Print run 1500
+press-proofs-silver,333,Juan Encarnacion,Detroit Tigers,Rookies,Print run 1500
+press-proofs-silver,334,Travis Lee,Arizona Diamondbacks,Rookies,Print run 1500
+press-proofs-silver,335,Wes Helms,Atlanta Braves,Rookies,Print run 1500
+press-proofs-silver,336,Chad Fox,Milwaukee Brewers,Rookies,Print run 1500
+press-proofs-silver,337,Donnie Sadler,Boston Red Sox,Rookies,Print run 1500
+press-proofs-silver,338,Carlos Mendoza,Tampa Bay Devil Rays,Rookies,Print run 1500
+press-proofs-silver,339,Damian Jackson,Cincinnati Reds,Rookies,Print run 1500
+press-proofs-silver,340,Julio Ramirez,Florida Marlins,Rookies,Print run 1500
+press-proofs-silver,341,John Halama,Houston Astros,Rookies,Print run 1500
+press-proofs-silver,342,Edwin Diaz,Arizona Diamondbacks,Rookies,Print run 1500
+press-proofs-silver,343,Felix Martinez,Kansas City Royals,Rookies,Print run 1500
+press-proofs-silver,344,Eli Marrero,St. Louis Cardinals,Rookies,Print run 1500
+press-proofs-silver,345,Carl Pavano,Montreal Expos,Rookies,Print run 1500
+press-proofs-silver,346,Vladimir Guerrero,Montreal Expos,Hit List,Print run 1500
+press-proofs-silver,347,Barry Bonds,San Francisco Giants,Hit List,Print run 1500
+press-proofs-silver,348,Darin Erstad,Anaheim Angels,Hit List,Print run 1500
+press-proofs-silver,349,Albert Belle,Chicago White Sox,Hit List,Print run 1500
+press-proofs-silver,350,Kenny Lofton,Cleveland Indians,Hit List,Print run 1500
+press-proofs-silver,351,Mo Vaughn,Boston Red Sox,Hit List,Print run 1500
+press-proofs-silver,352,Jose Cruz Jr.,Toronto Blue Jays,Hit List,Print run 1500
+press-proofs-silver,353,Tony Clark,Detroit Tigers,Hit List,Print run 1500
+press-proofs-silver,354,Roberto Alomar,Baltimore Orioles,Hit List,Print run 1500
+press-proofs-silver,355,Manny Ramirez,Cleveland Indians,Hit List,Print run 1500
+press-proofs-silver,356,Paul Molitor,Minnesota Twins,Hit List,Print run 1500
+press-proofs-silver,357,Jim Thome,Cleveland Indians,Hit List,Print run 1500
+press-proofs-silver,358,Tino Martinez,New York Yankees,Hit List,Print run 1500
+press-proofs-silver,359,Tim Salmon,Anaheim Angels,Hit List,Print run 1500
+press-proofs-silver,360,David Justice,Cleveland Indians,Hit List,Print run 1500
+press-proofs-silver,361,Raul Mondesi,Los Angeles Dodgers,Hit List,Print run 1500
+press-proofs-silver,362,Mark Grace,Chicago Cubs,Hit List,Print run 1500
+press-proofs-silver,363,Craig Biggio,Houston Astros,Hit List,Print run 1500
+press-proofs-silver,364,Larry Walker,Colorado Rockies,Hit List,Print run 1500
+press-proofs-silver,365,Mark McGwire,St. Louis Cardinals,Hit List,Print run 1500
+press-proofs-silver,366,Juan Gonzalez,Texas Rangers,Hit List,Print run 1500
+press-proofs-silver,367,Derek Jeter,New York Yankees,Hit List,Print run 1500
+press-proofs-silver,368,Chipper Jones,Atlanta Braves,Hit List,Print run 1500
+press-proofs-silver,369,Frank Thomas,Chicago White Sox,Hit List,Print run 1500
+press-proofs-silver,370,Alex Rodriguez,Seattle Mariners,Hit List,Print run 1500
+press-proofs-silver,371,Mike Piazza,New York Mets,Hit List,Print run 1500
+press-proofs-silver,372,Tony Gwynn,San Diego Padres,Hit List,Print run 1500
+press-proofs-silver,373,Jeff Bagwell,Houston Astros,Hit List,Print run 1500
+press-proofs-silver,374,Nomar Garciaparra,Boston Red Sox,Hit List,Print run 1500
+press-proofs-silver,375,Ken Griffey Jr.,Seattle Mariners,Hit List,Print run 1500
+press-proofs-silver,376,Livan Hernandez,Florida Marlins,The Untouchables,Print run 1500
+press-proofs-silver,377,Chan Ho Park,Los Angeles Dodgers,The Untouchables,Print run 1500
+press-proofs-silver,378,Mike Mussina,Baltimore Orioles,The Untouchables,Print run 1500
+press-proofs-silver,379,Andy Pettitte,New York Yankees,The Untouchables,Print run 1500
+press-proofs-silver,380,Greg Maddux,Atlanta Braves,The Untouchables,Print run 1500
+press-proofs-silver,381,Hideo Nomo,Los Angeles Dodgers,The Untouchables,Print run 1500
+press-proofs-silver,382,Roger Clemens,Toronto Blue Jays,The Untouchables,Print run 1500
+press-proofs-silver,383,Randy Johnson,Seattle Mariners,The Untouchables,Print run 1500
+press-proofs-silver,384,Pedro Martinez,Boston Red Sox,The Untouchables,Print run 1500
+press-proofs-silver,385,Jaret Wright,Cleveland Indians,The Untouchables,Print run 1500
+press-proofs-silver,386,Ken Griffey Jr.,Seattle Mariners,Spirit of the Game,Print run 1500
+press-proofs-silver,387,Todd Helton,Colorado Rockies,Spirit of the Game,Print run 1500
+press-proofs-silver,388,Paul Konerko,Los Angeles Dodgers,Spirit of the Game,Print run 1500
+press-proofs-silver,389,Cal Ripken Jr.,Baltimore Orioles,Spirit of the Game,Print run 1500
+press-proofs-silver,390,Larry Walker,Colorado Rockies,Spirit of the Game,Print run 1500
+press-proofs-silver,391,Ken Caminiti,San Diego Padres,Spirit of the Game,Print run 1500
+press-proofs-silver,392,Jose Guillen,Pittsburgh Pirates,Spirit of the Game,Print run 1500
+press-proofs-silver,393,Jim Edmonds,Anaheim Angels,Spirit of the Game,Print run 1500
+press-proofs-silver,394,Barry Larkin,Cincinnati Reds,Spirit of the Game,Print run 1500
+press-proofs-silver,395,Bernie Williams,New York Yankees,Spirit of the Game,Print run 1500
+press-proofs-silver,396,Tony Clark,Detroit Tigers,Spirit of the Game,Print run 1500
+press-proofs-silver,397,Jose Cruz Jr.,Toronto Blue Jays,Spirit of the Game,Print run 1500
+press-proofs-silver,398,Ivan Rodriguez,Texas Rangers,Spirit of the Game,Print run 1500
+press-proofs-silver,399,Darin Erstad,Anaheim Angels,Spirit of the Game,Print run 1500
+press-proofs-silver,400,Scott Rolen,Philadelphia Phillies,Spirit of the Game,Print run 1500
+press-proofs-silver,401,Mark McGwire,St. Louis Cardinals,Spirit of the Game,Print run 1500
+press-proofs-silver,402,Andruw Jones,Atlanta Braves,Spirit of the Game,Print run 1500
+press-proofs-silver,403,Juan Gonzalez,Texas Rangers,Spirit of the Game,Print run 1500
+press-proofs-silver,404,Derek Jeter,New York Yankees,Spirit of the Game,Print run 1500
+press-proofs-silver,405,Chipper Jones,Atlanta Braves,Spirit of the Game,Print run 1500
+press-proofs-silver,406,Greg Maddux,Atlanta Braves,Spirit of the Game,Print run 1500
+press-proofs-silver,407,Frank Thomas,Chicago White Sox,Spirit of the Game,Print run 1500
+press-proofs-silver,408,Alex Rodriguez,Seattle Mariners,Spirit of the Game,Print run 1500
+press-proofs-silver,409,Mike Piazza,New York Mets,Spirit of the Game,Print run 1500
+press-proofs-silver,410,Tony Gwynn,San Diego Padres,Spirit of the Game,Print run 1500
+press-proofs-silver,411,Jeff Bagwell,Houston Astros,Spirit of the Game,Print run 1500
+press-proofs-silver,412,Nomar Garciaparra,Boston Red Sox,Spirit of the Game,Print run 1500
+press-proofs-silver,413,Hideo Nomo,Los Angeles Dodgers,Spirit of the Game,Print run 1500
+press-proofs-silver,414,Barry Bonds,San Francisco Giants,Spirit of the Game,Print run 1500
+press-proofs-silver,415,Ben Grieve,Oakland Athletics,Spirit of the Game,Print run 1500
+press-proofs-silver,416,Barry Bonds,San Francisco Giants,Checklist,Print run 1500
+press-proofs-silver,417,Mark McGwire,St. Louis Cardinals,Checklist,Print run 1500
+press-proofs-silver,418,Roger Clemens,Toronto Blue Jays,Checklist,Print run 1500
+press-proofs-silver,419,Livan Hernandez,Florida Marlins,Checklist,Print run 1500
+press-proofs-silver,420,Ken Griffey Jr.,Seattle Mariners,Checklist,Print run 1500
