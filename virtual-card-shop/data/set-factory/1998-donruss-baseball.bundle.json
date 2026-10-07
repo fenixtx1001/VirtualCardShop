@@ -1,0 +1,291 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1127/1998-Donruss",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/1127/1998-Donruss",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1127/1998-Donruss",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/1127/1998-Donruss",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1998_Donruss",
+    "note": "TCDB base, rookie, related-set and parallel checklists, consulted 2026-10-07. The historical insertion table has no verified numeric odds for these Product Sets."
+  },
+  "decisions": {
+    "collectorChecklistIntegrity": "One 420-card Base ProductSet combines Series One #1-170 and Donruss Update #171-420 with equal base-card availability. Each Gold and Silver Press Proof parallel remains a complete 420-card collector checklist.",
+    "trueRookieNaming": "Only the 28 numbered Base cards in TCDB's Rookie Cards index receive RC in Player. The other 85 cards bearing the ROO source annotation, Rated Rookies inserts, rookie-themed inserts and Press Proof parallels do not receive an unverified RC suffix.",
+    "checklistAndErrorHandling": "Ten numbered base checklist cards have no team label by design. Player names omit ROO, CL, UER and other source annotations. Base and Press Proof #154/#231 retain the documented UER details in Variant. The Press Proof #29 subject follows its source as Javier Lopez, whereas Base #29 is Javy Lopez.",
+    "crusadeReconciliation": "TCDB says 70 Donruss-issued cards per Crusade color: #1-40 and #71-100. Purple #11 Mike Mussina, #30 Todd Walker and #91 Jason Kendall also appear erroneously in the Donruss checklist although the Leaf checklist assigns them to 1998 Leaf; excluded from this Product. Call to Arms cards lack printed numbers but retain catalog numbers in VCS and a Variant note.",
+    "signaturePreview": "The 34-card unnumbered autograph checklist uses deterministic NNO-01 through NNO-34 keys in source order. Alou, Casey, Jenkins, Jeter and Wilson were secondary-market releases after Pinnacle's bankruptcy; those five are identified in Variant and do not have separate pack odds.",
+    "productChannelDifferences": "Production Line OBP was jumbo only, Power Index hobby only and Slugging Percentage retail only. Historical channel distinctions are documented in ProductSet notes; the combined virtual pack has no channel selector.",
+    "packFormat": "Four-card VCS pack, 24 packs per virtual box. Physical hobby and retail packs had ten cards; 24 packs per box. Two physical series are combined into one virtual pack.",
+    "unknownOdds": "Neither TCDB nor the referenced historical insertion table supplies reliable numeric pack odds for these insert and parallel checklists. ProductSet oddsPerPack remains null throughout. Cards are cataloged but excluded from virtual hit pulls until odds are reviewed and configured; no print-run-to-pack-odds estimates were invented.",
+    "excludedPromos": "Executive Crusade promos, dealer samples, sweepstakes forms, production-line promos and Leaf-issued Crusades are not modeled as pack-issued Donruss cards.",
+    "releaseSafety": "Product is unreleased pending pack art, card images, pricing and deliberate virtual insertion odds."
+  },
+  "product": {
+    "id": "1998_Donruss_Baseball",
+    "year": 1998,
+    "brand": "Donruss",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packOdds": "PENDING",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1998-donruss-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1998_Donruss_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1127/1998-Donruss",
+      "expectedCards": 420,
+      "notes": "One equal-availability #1-420 checklist: Series One #1-170 and Donruss Update #171-420. 28 TCDB-indexed true rookie cards; Rookie-labelled subjects alone do not imply RC."
+    },
+    {
+      "key": "signature-preview",
+      "id": "1998_Donruss_Baseball_Signature_Preview",
+      "name": "1998 Donruss Signature Series Preview",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11069/1998-Donruss-1998-Donruss-Signature-Series-Preview",
+      "expectedCards": 34,
+      "notes": "34 unnumbered autographs. Five subjects were released through liquidation after the bankruptcy; those are identified per card. Numeric pack odds unknown."
+    },
+    {
+      "key": "crusade-green",
+      "id": "1998_Donruss_Baseball_Crusade_Green",
+      "name": "Crusade Green",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1128/1998-Donruss-Crusade-Green",
+      "expectedCards": 70,
+      "notes": "70 Donruss-distributed cards, #1-40 and #71-100; serial numbered /250. Call to Arms cards lack a printed card number."
+    },
+    {
+      "key": "crusade-purple",
+      "id": "1998_Donruss_Baseball_Crusade_Purple",
+      "name": "Crusade Purple",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11056/1998-Donruss-Crusade-Purple",
+      "expectedCards": 70,
+      "notes": "70 Donruss-distributed cards, #1-40 and #71-100; serial numbered /100. Three Leaf-distributed cards are erroneously also shown under Donruss on TCDB; excluded here."
+    },
+    {
+      "key": "crusade-red",
+      "id": "1998_Donruss_Baseball_Crusade_Red",
+      "name": "Crusade Red",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11057/1998-Donruss-Crusade-Red",
+      "expectedCards": 70,
+      "notes": "70 Donruss-distributed cards, #1-40 and #71-100; serial numbered /25. Call to Arms cards lack a printed card number."
+    },
+    {
+      "key": "diamond-kings",
+      "id": "1998_Donruss_Baseball_Diamond_Kings",
+      "name": "Diamond Kings",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1129/1998-Donruss-Diamond-Kings",
+      "expectedCards": 20,
+      "notes": "20 Series One cards, serials #00501-10000 of /10000 (9500 regular copies)."
+    },
+    {
+      "key": "diamond-kings-canvas",
+      "id": "1998_Donruss_Baseball_Diamond_Kings_Canvas",
+      "name": "Diamond Kings Canvas",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11058/1998-Donruss-Diamond-Kings-Canvas",
+      "expectedCards": 20,
+      "notes": "20 Series One Canvas cards, serials #00001-00500 of /10000."
+    },
+    {
+      "key": "dominators",
+      "id": "1998_Donruss_Baseball_Dominators",
+      "name": "Dominators",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11065/1998-Donruss-Dominators",
+      "expectedCards": 30,
+      "notes": "30 Update pack inserts."
+    },
+    {
+      "key": "elite-series",
+      "id": "1998_Donruss_Baseball_Elite_Series",
+      "name": "Elite Series",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11064/1998-Donruss-Elite-Series",
+      "expectedCards": 20,
+      "notes": "20 Series One cards serial numbered /2500."
+    },
+    {
+      "key": "fantasy-team",
+      "id": "1998_Donruss_Baseball_Fantasy_Team",
+      "name": "FANtasy Team",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11066/1998-Donruss-FANtasy-Team",
+      "expectedCards": 20,
+      "notes": "20 Update inserts; #1-10 have regular serials #0251-2000, #11-20 have regular serials #0251-4000."
+    },
+    {
+      "key": "fantasy-team-die-cuts",
+      "id": "1998_Donruss_Baseball_Fantasy_Team_Die_Cuts",
+      "name": "FANtasy Team Die Cuts",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11067/1998-Donruss-FANtasy-Team-Die-Cuts",
+      "expectedCards": 20,
+      "notes": "20 Update die-cut inserts; serials #0001-0250 for both checklist ranges."
+    },
+    {
+      "key": "long-ball-leaders",
+      "id": "1998_Donruss_Baseball_Long_Ball_Leaders",
+      "name": "Long Ball Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1136/1998-Donruss-Long-Ball-Leaders",
+      "expectedCards": 24,
+      "notes": "24 Series One cards serial numbered /5000."
+    },
+    {
+      "key": "mlb-99",
+      "id": "1998_Donruss_Baseball_Mlb_99",
+      "name": "MLB 99",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11068/1998-Donruss-MLB-99",
+      "expectedCards": 20,
+      "notes": "20 promotional game inserts issued in Update packs and 1998 Studio packs."
+    },
+    {
+      "key": "production-line-obp",
+      "id": "1998_Donruss_Baseball_Production_Line_Obp",
+      "name": "Production Line On-Base Percentage",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1138/1998-Donruss-Production-Line-On-Base-Percentage",
+      "expectedCards": 20,
+      "notes": "20 green holofoil cards issued in Series One Jumbo packs; each subject's serial cap equals OBP x 1000."
+    },
+    {
+      "key": "production-line-power-index",
+      "id": "1998_Donruss_Baseball_Production_Line_Power_Index",
+      "name": "Production Line Power Index",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1139/1998-Donruss-Production-Line-Power-Index",
+      "expectedCards": 20,
+      "notes": "20 blue holofoil cards issued in Series One Hobby packs; each subject's serial cap equals OPS x 1000."
+    },
+    {
+      "key": "production-line-slugging",
+      "id": "1998_Donruss_Baseball_Production_Line_Slugging",
+      "name": "Production Line Slugging Percentage",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1140/1998-Donruss-Production-Line-Slugging-Percentage",
+      "expectedCards": 20,
+      "notes": "20 red holofoil cards issued in Series One Retail packs; each subject's serial cap equals SLG x 1000."
+    },
+    {
+      "key": "rated-rookies",
+      "id": "1998_Donruss_Baseball_Rated_Rookies",
+      "name": "Rated Rookies",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1141/1998-Donruss-Rated-Rookies",
+      "expectedCards": 30,
+      "notes": "30 Series One insert cards. Rookie-themed design is not evidence of true RC status."
+    },
+    {
+      "key": "rated-rookies-medalists",
+      "id": "1998_Donruss_Baseball_Rated_Rookies_Medalists",
+      "name": "Rated Rookies Medalists",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11060/1998-Donruss-Rated-Rookies-Medalists",
+      "expectedCards": 30,
+      "notes": "30 Series One insert parallels with a print run of 250."
+    },
+    {
+      "key": "rookie-diamond-kings",
+      "id": "1998_Donruss_Baseball_Rookie_Diamond_Kings",
+      "name": "Rookie Diamond Kings",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11061/1998-Donruss-Rookie-Diamond-Kings",
+      "expectedCards": 12,
+      "notes": "12 Update cards, serials #00501-10000 of /10000 (9500 regular copies)."
+    },
+    {
+      "key": "rookie-diamond-kings-canvas",
+      "id": "1998_Donruss_Baseball_Rookie_Diamond_Kings_Canvas",
+      "name": "Rookie Diamond Kings Canvas",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11062/1998-Donruss-Rookie-Diamond-Kings-Canvas",
+      "expectedCards": 12,
+      "notes": "12 Update Canvas cards, serials #00001-00500 of /10000."
+    },
+    {
+      "key": "press-proofs-gold",
+      "id": "1998_Donruss_Baseball_Press_Proofs_Gold",
+      "name": "Press Proofs Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11059/1998-Donruss-Press-Proofs-Gold",
+      "expectedCards": 420,
+      "notes": "Full 420-card numbered checklist. Gold die-cut G symbol; print run 500."
+    },
+    {
+      "key": "press-proofs-silver",
+      "id": "1998_Donruss_Baseball_Press_Proofs_Silver",
+      "name": "Press Proofs Silver",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11063/1998-Donruss-Press-Proofs-Silver",
+      "expectedCards": 420,
+      "notes": "Full 420-card numbered checklist. Silver die-cut S symbol; print run 1500."
+    }
+  ]
+}
