@@ -198,7 +198,7 @@ SOURCE_NOTE_TAIL = re.compile(
 SOURCE_RC_NOTE = re.compile(r"\s+RC\s+for\s+.+?\s+only\s*$", re.IGNORECASE)
 
 SOURCE_TAG = re.compile(
-    r"(?:^|[\s,;])(?:RC|ROO|UER|ERR|COR|VAR|CL|MGR|CO|TC|LL|ATL|LCS|BP|ASR|AS|WS)"
+    r"(?:^|[\s,;])(?:RC|ROO|UER|ERR|COR|VAR|CL|MGR|CO|TC|LL|ATL|ALCS|NLCS|LCS|BP|ASR|AS|WS)"
     r"(?=$|[\s,;:])",
     re.IGNORECASE,
 )
@@ -459,7 +459,7 @@ def validate_rows(rows: list[list[str]]) -> None:
         row
         for row in rows
         if re.search(
-            r"(?:^|[\s,;])(?:UER|ERR|COR|VAR|CL|MGR|CO|TC|LL|ATL|LCS|BP|ASR|AS|WS)"
+            r"(?:^|[\s,;])(?:UER|ERR|COR|VAR|CL|MGR|CO|TC|LL|ATL|ALCS|NLCS|LCS|BP|ASR|AS|WS)"
             r"(?=$|[\s,;:])",
             row[2],
             re.IGNORECASE,
