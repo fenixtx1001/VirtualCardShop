@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/73/1973-Topps",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/73/1973-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/73/1973-Topps",
+    "rookieNotesUrl": "https://www.tcdb.com/Notes.cfm/sid/73/1973-Topps?Note=RC",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/73/1973-Topps",
+    "teamChecklistsUrl": "https://www.tcdb.com/Checklist.cfm/sid/33471/1973-Topps-Team-Checklists",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1973_Topps",
+    "note": "1973 Topps Baseball. The 660-card flagship checklist was physically issued in five 132-card series. VCS combines all five series into one collector-facing Base ProductSet with equal base-card availability. The 24 unnumbered Team Checklists are retained as a separate insert checklist; their one-star/two-star copyright-line variations are not modeled separately."
+  },
+  "decisions": {
+    "canonicalPackFormat": "VCS-normalized pack: 4 cards per pack, 24 packs per box. The physical wax product was documented as ten cards per pack; VCS uses the standing four-card pack rule while retaining the physical box pack count.",
+    "seriesHandling": "Physical Series 1-5 are combined into one complete Base ProductSet #1-660. The lower real-world print quantity of high numbers #529-660 is historical scarcity only and does not reduce their VCS base pull probability.",
+    "collectorChecklistIntegrity": "Completion and prestige track the unified 660-card flagship checklist rather than five physical series.",
+    "variationHandling": "TCDB ERR/COR/UER/VAR records that share one printed base card number are collapsed to the numbered #1-660 checklist. No error/correction or print-variation commentary is stored in Player or Variant.",
+    "trueRookieNaming": "RC status is verified from TCDB's rookie index and RC notes. The current source resolves to 57 unique rookie card numbers. On multi-player Rookie cards #601-616, RC is applied player-by-player; established players on the same card are not mislabeled.",
+    "teamChecklistHandling": "The 24 Team Checklists are unnumbered and receive deterministic VCS IDs NNO-01 through NNO-24. One-star and two-star copyright-line backs are collapsed. Sources confirm pack distribution only in limited Series Five/test-market packs plus a mail-in sheet, but do not provide a trustworthy universal insertion ratio, so oddsPerPack is intentionally null rather than invented.",
+    "packArt": "Use one canonical early-series/Series One wax-pack image for the VCS Product when pack imagery is harvested.",
+    "releaseSafety": "Product remains unreleased until pricing, images, and a deliberate Team Checklist pack-treatment decision are reviewed."
+  },
+  "product": {
+    "id": "1973_Topps_Baseball",
+    "year": 1973,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1973-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1973_Topps_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/73/1973-Topps",
+      "expectedCards": 660,
+      "notes": "Complete flagship checklist #1-660. Five physical series are unified and equally available in VCS. Source error/correction/variation rows collapse to one card per printed number."
+    },
+    {
+      "key": "team-checklists",
+      "id": "1973_Topps_Baseball_Team_Checklists",
+      "name": "Team Checklists",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/33471/1973-Topps-Team-Checklists",
+      "expectedCards": 24,
+      "notes": "24 unnumbered Team Checklists. VCS assigns NNO-01 through NNO-24 solely for unique internal checklist identity. One-star/two-star back variations are collapsed. Pack issue is verified, but exact universal insertion odds are not documented."
+    }
+  ]
+}
