@@ -207,7 +207,15 @@ SOURCE_TAG = re.compile(
 def clean_subject(raw_name: str) -> str:
     raw = " ".join(raw_name.split()).strip()
 
-    # TCDB can concatenate descriptive notes into the subject cell.
+    # TCDB sometimes merges its RC label and ERR/COR annotation into one
+    # string (e.g. "Jimmy Howarth RCERR: Gaps in borders"). Strip the whole
+    # annotation; legitimate RC labels are reapplied from the rookie index.
+    raw = re.sub(
+        r"\\s+RC(?:ERR|COR|UER|VAR)(?=\\s*:|\\s|$)",
+        " ",
+        raw,
+        flags=re.IGNORECASE,
+    ).strip(" ,;")
     raw = SOURCE_RC_NOTE.sub("", raw).strip(" ,;")
     while True:
         cleaned = SOURCE_NOTE_TAIL.sub("", raw).strip(" ,;")
