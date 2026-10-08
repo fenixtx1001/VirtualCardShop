@@ -211,7 +211,7 @@ def clean_subject(raw_name: str) -> str:
     # string (e.g. "Jimmy Howarth RCERR: Gaps in borders"). Strip the whole
     # annotation; legitimate RC labels are reapplied from the rookie index.
     raw = re.sub(
-        r"\\s+RC(?:ERR|COR|UER|VAR)(?=\\s*:|\\s|$)",
+        r"\s+RC(?:ERR|COR|UER|VAR)(?=\s*:|\s|$)",
         " ",
         raw,
         flags=re.IGNORECASE,
