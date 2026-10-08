@@ -195,7 +195,7 @@ SOURCE_NOTE_TAIL = re.compile(
     re.IGNORECASE,
 )
 
-SOURCE_RC_NOTE = re.compile(r"\s+RC\s+for\s+.+?\s+only\s*$", re.IGNORECASE)
+SOURCE_RC_NOTE = re.compile(r"\s+(?:RC)+\s+for\s+.+?\s+only\s*$", re.IGNORECASE)
 
 SOURCE_TAG = re.compile(
     r"(?:^|[\s,;])(?:RC|ROO|UER|ERR|COR|VAR|CL|MGR|CO|TC|LL|ATL|ALCS|NLCS|LCS|BP|ASR|AS|WS)"
