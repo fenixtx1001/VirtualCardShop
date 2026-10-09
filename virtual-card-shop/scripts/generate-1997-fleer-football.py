@@ -166,20 +166,48 @@ def main():
             if set(cards) != set(base_cards):
                 raise SystemExit(f"{key} not a full 450-card base parallel")
             team_differences = []
+            name_differences = []
+            unrecognized_names = []
             for number, (name, team, raw) in list(cards.items()):
                 base_name, base_team, _base_raw = base_cards[number]
-                # True parallels inherit their base card's subject and team.
-                # TCDB occasionally assigns a different club to the same
-                # player (e.g., 1997 Crystal #63 Chris Boniol: Cowboys vs.
-                # base Eagles). Reject player mismatches, but normalize team.
+                # TCDB Crystal #424 "Rod Smith WR" and Base #424
+                # "Rod Smith" identify the same Broncos receiver.
+                # Accept a recognized position qualifier only when the
+                # card number and team already match the base card.
+                # Do not strip suffixes from unrelated player names.
+                normalized_name = name
                 if name != base_name:
-                    raise SystemExit(
-                        f"{key} #{number}: different parallel subject "
-                        f"{name!r} vs base {base_name!r}"
+                    m = re.fullmatch(
+                        re.escape(base_name) + r" (QB|RB|FB|WR|TE|"
+                        r"OT|OG|C|DE|DT|LB|CB|DB|FS|SS|K|P)",
+                        name,
                     )
+                    if m and team == base_team:
+                        name_differences.append((number, name, base_name))
+                        normalized_name = base_name
+                    else:
+                        unrecognized_names.append(
+                            (number, name, team, base_name, base_team)
+                        )
+                        continue
                 if team != base_team:
                     team_differences.append((number, name, team, base_team))
-                cards[number] = (base_name, base_team, raw)
+                cards[number] = (normalized_name, base_team, raw)
+            if unrecognized_names:
+                for number, name, team, base_name, base_team in unrecognized_names:
+                    print(
+                        f"{key} #{number}: unrecognized subject "
+                        f"{name!r} ({team}) vs base {base_name!r} ({base_team})"
+                    )
+                raise SystemExit(
+                    f"{key}: {len(unrecognized_names)} unresolved "
+                    "player mismatches; no CSV written"
+                )
+            for number, source_name, base_name in name_differences:
+                print(
+                    f"{key} #{number}: position suffix normalized "
+                    f"{source_name!r} -> {base_name!r}"
+                )
             if len(team_differences) > 25:
                 raise SystemExit(
                     f"{key}: {len(team_differences)} team discrepancies: "
