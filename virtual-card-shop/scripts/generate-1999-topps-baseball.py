@@ -2,6 +2,7 @@ from __future__ import annotations
 import csv
 import re
 import urllib.request
+import urllib.error
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -39,8 +40,14 @@ class Reader(HTMLParser):
 
 def get(url):
     req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0","Accept":"text/html"})
-    with urllib.request.urlopen(req,timeout=35) as r:
-        return r.read().decode("utf-8","replace")
+    try:
+        with urllib.request.urlopen(req,timeout=35) as r:
+            return r.read().decode("utf-8","replace")
+    except urllib.error.HTTPError as exc:
+        raise SystemExit(
+            f"TCDB HTTP {exc.code} for {url}; no data written. "
+            "Source access is temporarily unavailable; do not import partial data."
+        ) from exc
 
 def cleaned(name):
     x=" ".join(name.split()).strip()
@@ -86,16 +93,18 @@ def collect(sid,label,max_pages=16):
     return found
 
 def main():
-    # Pull rookies via same numbered checklist extraction logic.
-    rookie_url="https://www.tcdb.com/Rookies.cfm/sid/1340/1999-Topps?PageIndex=1"
-    r=Reader();r.feed(get(rookie_url))
-    rookies=set()
-    for row in r.rows:
-        for item in row:
-            m=re.fullmatch(r"(\d{1,3})[A-Za-z]?",item.strip())
-            if m and int(m.group(1))<=463:rookies.add(m.group(1));break
-    if not rookies:raise SystemExit("No verified TCDB rookie-index rows found")
-    print(f"TCDB rookie card numbers: {len(rookies)}")
+    # Verified directly against TCDB's 1999 Topps rookie index (27 unique cards).
+    # Keep this local to avoid a separate TCDB request and its intermittent HTTP 403.
+    # Only one single-player RC (#368); the other 26 are multi-player cards
+    # and must receive player-specific labels only after individual verification.
+    rookies = set(str(n) for n in (
+        206, 207, 212, 213, 214, 215, 216, 217, 218, 219,
+        368, 425, 428, 429, 430, 433, 434, 435, 436, 437,
+        438, 439, 440, 441, 442, 443, 444
+    ))
+    if len(rookies) != 27:
+        raise SystemExit("Unexpected rookie index count")
+    print("TCDB verified rookie-index card numbers: 27 (fixed reference)")
     lines=[]
     multi_review=[]
     for key,sid,expected in SETS:
