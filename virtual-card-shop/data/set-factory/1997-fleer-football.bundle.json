@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/3961/1997-Fleer",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/3961/1997-Fleer",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/3961/1997-Fleer",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/3961/1997-Fleer"
+  },
+  "decisions": {
+    "requestBaseline": "Use exact headers from successful 1997 Metal Universe generator: User-Agent Mozilla/5.0 (compatible; VCS Set Factory research import), Accept text/html,application/xhtml+xml.",
+    "pack": "VCS four cards per pack, 24 packs per box; historical Fleer packs contained ten cards.",
+    "base": "Single series base #1-450, equally weighted.",
+    "trueRookies": "11 verified single-subject true RC base cards, according to TCDB rookie index; never mark Prospects '97 or Rookie Sensations as true RC by set name alone.",
+    "parallels": "Traditions Crystal and Tiffany each all 450 canonical base subjects; distinct parallel ProductSets; no per-player rarity.",
+    "inserts": "Pack issued insert families included, with set-level published 1:N odds and the hobby/retail format explicitly noted. Distribution consistency must be reviewed before release.",
+    "contest": "Exclude expired Million Dollar Moments contest cards, redemption/exchange/voided/mail-in sets, Feel the Power instant-win redemption, and promotional release-date cards from current pack pool; not normal simulated rewards.",
+    "singles": "Include source-verified Reggie White Emerald Autograph #AU1 SN80 as a single collectible insert, no guessed odds.",
+    "release": "Unreleased until scans, pricing, pack artwork, and ratio normalization QA."
+  },
+  "product": {
+    "id": "1997_Fleer_Football",
+    "year": 1997,
+    "brand": "Fleer",
+    "sport": "Football",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1997-fleer-football.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1997_Fleer_Football_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 450,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3961/1997-Fleer",
+      "notes": "450-card base checklist"
+    },
+    {
+      "key": "traditions-crystal",
+      "id": "1997_Fleer_Football_traditions_crystal",
+      "name": "Traditions Crystal",
+      "kind": "PARALLEL",
+      "oddsPerPack": 2,
+      "expectedCards": 450,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/34307/1997-Fleer",
+      "notes": "Hobby 1:2 packs; full base parallel."
+    },
+    {
+      "key": "traditions-tiffany",
+      "id": "1997_Fleer_Football_traditions_tiffany",
+      "name": "Traditions Tiffany",
+      "kind": "PARALLEL",
+      "oddsPerPack": 20,
+      "expectedCards": 450,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/34311/1997-Fleer",
+      "notes": "Hobby 1:20 packs; full base parallel."
+    },
+    {
+      "key": "decade-of-excellence",
+      "id": "1997_Fleer_Football_decade_of_excellence",
+      "name": "Decade of Excellence",
+      "kind": "INSERT",
+      "oddsPerPack": 36,
+      "expectedCards": 12,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3963/1997-Fleer",
+      "notes": "Hobby 1:36 packs."
+    },
+    {
+      "key": "decade-of-excellence-rare-traditions",
+      "id": "1997_Fleer_Football_decade_of_excellence_rare_traditions",
+      "name": "Decade of Excellence Rare Traditions",
+      "kind": "INSERT",
+      "oddsPerPack": 360,
+      "expectedCards": 12,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/299126/1997-Fleer",
+      "notes": "Hobby 1:360 packs; silver foil treatment."
+    },
+    {
+      "key": "fleer-all-pro",
+      "id": "1997_Fleer_Football_fleer_all_pro",
+      "name": "Fleer All-Pro",
+      "kind": "INSERT",
+      "oddsPerPack": 36,
+      "expectedCards": 24,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3962/1997-Fleer",
+      "notes": "Retail 1:36 packs."
+    },
+    {
+      "key": "game-breakers",
+      "id": "1997_Fleer_Football_game_breakers",
+      "name": "Game Breakers",
+      "kind": "INSERT",
+      "oddsPerPack": 2,
+      "expectedCards": 20,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3964/1997-Fleer",
+      "notes": "Retail 1:2 packs."
+    },
+    {
+      "key": "game-breakers-supreme",
+      "id": "1997_Fleer_Football_game_breakers_supreme",
+      "name": "Game Breakers Supreme",
+      "kind": "INSERT",
+      "oddsPerPack": 18,
+      "expectedCards": 20,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/34309/1997-Fleer",
+      "notes": "Embossed, 1:18 packs."
+    },
+    {
+      "key": "prospects-97",
+      "id": "1997_Fleer_Football_prospects_97",
+      "name": "Prospects '97",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "expectedCards": 10,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3975/1997-Fleer",
+      "notes": "1:6 packs."
+    },
+    {
+      "key": "rookie-sensations",
+      "id": "1997_Fleer_Football_rookie_sensations",
+      "name": "Rookie Sensations",
+      "kind": "INSERT",
+      "oddsPerPack": 4,
+      "expectedCards": 20,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3976/1997-Fleer",
+      "notes": "1:4 packs; names do not imply true RC."
+    },
+    {
+      "key": "thrill-seekers",
+      "id": "1997_Fleer_Football_thrill_seekers",
+      "name": "Thrill Seekers",
+      "kind": "INSERT",
+      "oddsPerPack": 288,
+      "expectedCards": 12,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3977/1997-Fleer",
+      "notes": "1:288 packs."
+    },
+    {
+      "key": "emerald-autograph",
+      "id": "1997_Fleer_Football_emerald_autograph",
+      "name": "Reggie White Emerald Autograph",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3961/1997-Fleer",
+      "notes": "Single special retail insert AU1, Reggie White, signed and serial-numbered to 80; pack odds unverified."
+    }
+  ]
+}
