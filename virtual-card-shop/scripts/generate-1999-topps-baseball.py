@@ -39,7 +39,7 @@ class Reader(HTMLParser):
             self.row=None
 
 def get(url):
-    req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0","Accept":"text/html"})
+    req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 (compatible; VCS Set Factory research import)","Accept":"text/html,application/xhtml+xml"})
     try:
         with urllib.request.urlopen(req,timeout=35) as r:
             return r.read().decode("utf-8","replace")
