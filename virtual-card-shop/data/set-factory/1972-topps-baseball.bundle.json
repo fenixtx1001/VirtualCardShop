@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/72/1972-Topps",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/72/1972-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/72/1972-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/72/1972-Topps",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1972_Topps",
+    "note": "1972 Topps Baseball, complete 787-card checklist issued across six physical series. TCDB lists no inserts. 'In Action' and 'Traded' cards are numbered base cards."
+  },
+  "decisions": {
+    "collectorChecklistIntegrity": "Unified Base #1-787, equal VCS pull availability despite physical high-number scarcity.",
+    "seriesHandling": "Physical Series One 1-132, Two 133-263, Three 264-394, Four 395-525, Five 526-656, Six 657-787 all combined.",
+    "canonicalPackFormat": "VCS four cards per pack and 24 packs per box. Historical wax cards-per-pack differs.",
+    "subsetHandling": "In Action, Traded, Rookie Stars, Leaders, Postseason, Boyhood Photos and other numbered subjects remain in Base.",
+    "variations": "Printer, error, correction, and color variations are collapsed into the printed base number, with no false parallel odds.",
+    "trueRookieNaming": "Only unique TCDB rookie-index numbers are recognized; individual player labels on multi-subject rookie cards require separate verification. Generator labels verified single-subject cards RC and leaves multi-subject labels pending rather than applying a potentially wrong card-wide RC.",
+    "imageHandling": "Pack and card scans pending; never substitute unrelated or made-up imagery.",
+    "releaseSafety": "Unreleased draft until multi-player RC audit, images, pricing and pack art approval."
+  },
+  "product": {
+    "id": "1972_Topps_Baseball",
+    "year": 1972,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "PENDING_MULTI_PLAYER_REVIEW",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1972-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1972_Topps_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/72/1972-Topps",
+      "expectedCards": 787,
+      "notes": "One unified base set, cards #1-787 including historical In Action and Traded subjects; no synthetic base scarcity."
+    }
+  ]
+}
