@@ -135,6 +135,12 @@ def main():
         player = next(iter(subjects))
         team = next(iter(teams)) if teams else ""
         category = subset(n, records[0][2], player)
+        # The six award cards depict trophies, not a player's club.
+        # Retain them in Base and use the neutral MLB association.
+        if 621 <= n <= 626 and category == "Awards and Trophy":
+            if team and team != "MLB":
+                raise SystemExit(f"Base #{n} award unexpectedly assigned to {team!r}")
+            team = "MLB"
         if not team and category != "Checklist":
             raise SystemExit(f"Base #{n} missing team for {player!r}")
         if n in rc:
