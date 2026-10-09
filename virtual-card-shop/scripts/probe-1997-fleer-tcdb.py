@@ -22,8 +22,8 @@ TARGETS = [
         "https://www.tcdb.com/Checklist.cfm/sid/3961/1997-Fleer?PageIndex=1",
     ),
     (
-        "1973 Topps Baseball (previously successful)",
-        "https://www.tcdb.com/Checklist.cfm/sid/73/1973-Topps?PageIndex=1",
+        "1997 Metal Universe Football (last confirmed success)",
+        "https://www.tcdb.com/Checklist.cfm/sid/3986/1997-Metal-Universe?PageIndex=1",
     ),
 ]
 print("=== TCDB REQUEST REGRESSION CHECK ===", flush=True)
