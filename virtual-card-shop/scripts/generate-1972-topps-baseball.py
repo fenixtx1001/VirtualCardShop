@@ -54,8 +54,8 @@ def parse(url, max_pages, label):
         for row in p.rows:
             values = [x.strip() for x in row if x.strip()]
             for idx, val in enumerate(values):
-                if re.fullmatch(r"\d{1,3}", val) and idx+1 < len(values):
-                    n = int(val)
+                if re.fullmatch(r"\d{1,3}[A-Za-z]?", val) and idx+1 < len(values):
+                    n = int(re.match(r"\d+", val).group())
                     if 1 <= n <= EXPECTED:
                         name = values[idx+1]
                         if name.lower() not in ("options", "add", "edit"):
