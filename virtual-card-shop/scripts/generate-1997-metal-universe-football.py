@@ -126,9 +126,21 @@ def main():
             if pmg_numbers is not None and set(cards) != pmg_numbers:
                 raise SystemExit("PMG red and green checklist numbering differs")
             pmg_numbers = set(cards)
-            for number, (player, team) in cards.items():
-                if number not in base_lookup or (player, team) != base_lookup[number]:
-                    raise SystemExit(f"{key} #{number} does not match base subject/team")
+            for number, (player, team) in list(cards.items()):
+                if number not in base_lookup:
+                    raise SystemExit(f"{key} #{number} has no base counterpart")
+                base_player, base_team = base_lookup[number]
+                if (player, team) != (base_player, base_team):
+                    # TCDB source discrepancy: PMG #191 lists Tyrus McCloud
+                    # under Arizona Cardinals; its Base #191 lists Baltimore Ravens.
+                    # Preserve canonical base affiliation for VCS parallel inheritance.
+                    if number == 191 and player == "Tyrus McCloud" and team == "Arizona Cardinals" and base_team == "Baltimore Ravens":
+                        print(f"{key} #191: TCDB team mismatch (Arizona Cardinals); inheriting base Baltimore Ravens")
+                        cards[number] = (base_player, base_team)
+                    else:
+                        raise SystemExit(
+                            f"{key} #{number} source mismatch: PMG {(player, team)!r} vs Base {(base_player, base_team)!r}"
+                        )
 
         for number, (name, team) in sorted(cards.items()):
             if key == "base" and number in (199, 200):
