@@ -85,6 +85,9 @@ LEAK = re.compile(r"(?<!\w)(?:UER|ERR|COR|VAR)(?!\w)", re.I)
 
 def clean(raw):
     text = " ".join(raw.split()).strip()
+    # Some rookie cards append multiple semicolon-separated TCDB notes.
+    # Remove the trailing photo/error explanation before the partial-RC note.
+    text = re.sub(r"\s*;\s*(?:UER|ERR|COR|VAR)\s*:.*$", "", text, flags=re.I)
     text = PARTIAL_RC_NOTE.sub("", text)
     text = NOTE_ONLY.sub("", text)
     for _ in range(6):
