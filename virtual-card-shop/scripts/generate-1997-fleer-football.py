@@ -165,12 +165,35 @@ def main():
         if key in ("traditions-crystal", "traditions-tiffany"):
             if set(cards) != set(base_cards):
                 raise SystemExit(f"{key} not a full 450-card base parallel")
-            for number, (name, team, _raw) in cards.items():
-                if (name, team) != base_cards[number][:2]:
+            team_differences = []
+            for number, (name, team, raw) in list(cards.items()):
+                base_name, base_team, _base_raw = base_cards[number]
+                # True parallels inherit their base card's subject and team.
+                # TCDB occasionally assigns a different club to the same
+                # player (e.g., 1997 Crystal #63 Chris Boniol: Cowboys vs.
+                # base Eagles). Reject player mismatches, but normalize team.
+                if name != base_name:
                     raise SystemExit(
-                        f"{key} #{number}: parallel subject/team not equal to base "
-                        f"{(name, team)!r} vs {base_cards[number][:2]!r}"
+                        f"{key} #{number}: different parallel subject "
+                        f"{name!r} vs base {base_name!r}"
                     )
+                if team != base_team:
+                    team_differences.append((number, name, team, base_team))
+                cards[number] = (base_name, base_team, raw)
+            if len(team_differences) > 25:
+                raise SystemExit(
+                    f"{key}: {len(team_differences)} team discrepancies: "
+                    "review possible source misalignment before importing"
+                )
+            for number, name, parallel_team, base_team in team_differences:
+                print(
+                    f"{key} #{number} {name}: TCDB team discrepancy "
+                    f"{parallel_team!r} -> base {base_team!r}"
+                )
+            print(
+                f"{key}: verified 450 base subjects; "
+                f"{len(team_differences)} team fields normalized to base"
+            )
         for number, (name, team, raw) in sorted(cards.items()):
             if not team and "checklist" in name.lower():
                 team = "NFL"
