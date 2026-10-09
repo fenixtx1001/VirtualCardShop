@@ -80,10 +80,12 @@ MERGED_ERROR = re.compile(
     r"\s+(?:(?:RC|RS|ROO)?(?:VAR|ERR|COR|UER)){1,3}\s*(?::\s*.*)?$", re.I
 )
 NOTE_ONLY = re.compile(r"\s+(?:RC)+\s+for\s+.+?\s+only\s*$", re.I)
+PARTIAL_RC_NOTE = re.compile(r"\s+RS\s*,\s*RC\s*,\s*UER(?:RC)?\s+for\s+.+?\s+only\s*$", re.I)
 LEAK = re.compile(r"(?<!\w)(?:UER|ERR|COR|VAR)(?!\w)", re.I)
 
 def clean(raw):
     text = " ".join(raw.split()).strip()
+    text = PARTIAL_RC_NOTE.sub("", text)
     text = NOTE_ONLY.sub("", text)
     for _ in range(6):
         old = text
@@ -92,7 +94,7 @@ def clean(raw):
         text = re.sub(r"\s+,\s*$", "", text).strip(" ,;")
         if text == old:
             break
-    if not text or LEAK.search(text):
+    if not text or LEAK.search(text) or re.search(r"\b(?:RS|RC|UERRC)\s+for\b", text, re.I):
         raise ValueError(f"Could not clean TCDB source subject: {raw!r} => {text!r}")
     return text
 
@@ -149,6 +151,11 @@ def main():
             else:
                 player += " RC"
         rows.append(["base", str(n), player, team, category, ""])
+
+    # Never import source-only annotations into display-facing names.
+    lingering = [r for r in rows if re.search(r"\\b(?:RS|RC|UERRC)\\s+for\\b|\\b(?:UER|ERR|COR|VAR)\\b", r[2], re.I)]
+    if lingering:
+        raise SystemExit(f"Source notes remain in Player, first row: {lingering[0]}")
 
     if len(rows) != EXPECTED or len({r[1] for r in rows}) != EXPECTED:
         raise SystemExit("Card count or duplicate card numbers")
