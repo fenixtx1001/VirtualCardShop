@@ -1,18 +1,45 @@
 #!/usr/bin/env python3
-"""Read-only TCDB access probe; no scraping loop, writes, or database changes."""
+"""Compare original successful vs newly introduced TCDB request headers.
+
+Read-only diagnostic: no database access or file writes.
+Four requests total. Does not rotate IPs or change cloud environment.
+"""
+import time
 import urllib.error
 import urllib.request
-URLS = [
-    ("1997 Fleer Football", "https://www.tcdb.com/Checklist.cfm/sid/3961/1997-Fleer?PageIndex=1"),
-    ("1997 Fleer Traditions Crystal", "https://www.tcdb.com/Checklist.cfm/sid/34307/1997-Fleer-Traditions-Crystal?PageIndex=1"),
+
+OLD_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (compatible; VCS Set Factory research import)",
+    "Accept": "text/html,application/xhtml+xml",
+}
+NEW_HEADERS = {
+    "User-Agent": "Mozilla/5.0",
+    "Accept": "text/html",
+}
+TARGETS = [
+    (
+        "1997 Fleer Football (currently failing)",
+        "https://www.tcdb.com/Checklist.cfm/sid/3961/1997-Fleer?PageIndex=1",
+    ),
+    (
+        "1973 Topps Baseball (previously successful)",
+        "https://www.tcdb.com/Checklist.cfm/sid/73/1973-Topps?PageIndex=1",
+    ),
 ]
-for label, url in URLS:
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0", "Accept": "text/html"})
-    try:
-        with urllib.request.urlopen(req, timeout=25) as response:
-            data = response.read(500)
-            print(f"{label}: HTTP {response.status}; sample bytes {len(data)}; TCDB reachable")
-    except urllib.error.HTTPError as exc:
-        print(f"{label}: HTTP {exc.code}; blocked from Codespace")
-    except Exception as exc:
-        print(f"{label}: request failed: {type(exc).__name__}: {exc}")
+print("=== TCDB REQUEST REGRESSION CHECK ===", flush=True)
+for target_label, url in TARGETS:
+    print(f"\n{target_label}", flush=True)
+    for label, headers in [("ORIGINAL successful headers", OLD_HEADERS),
+                           ("RECENT failing headers", NEW_HEADERS)]:
+        request = urllib.request.Request(url, headers=headers)
+        try:
+            with urllib.request.urlopen(request, timeout=20) as response:
+                payload = response.read(512)
+                result = f"HTTP {response.status}; sample bytes={len(payload)}"
+        except urllib.error.HTTPError as error:
+            result = f"HTTP {error.code}"
+        except Exception as error:
+            result = f"{type(error).__name__}: {str(error)[:120]}"
+        print(f"  {label}: {result}", flush=True)
+        time.sleep(1)
+print("\n=== DIAGNOSTIC COMPLETE; NO DATA CHANGED ===")
