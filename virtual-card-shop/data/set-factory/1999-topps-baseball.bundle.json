@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1340/1999-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1340/1999-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/1340/1999-Topps"
+  },
+  "decisions": {
+    "series": "Series 1 and 2 combined in one equally available Base pool; 462 cards; #7 retired and absent.",
+    "variations": "One canonical #220 McGwire and one #461 Sosa; no separate home-run variation odds.",
+    "packs": "VCS four cards per pack, 24 packs per box (not historical packaging).",
+    "insertOdds": "Historic odds noted where known; Series-specific or format-specific probabilities require final normalization prior to release.",
+    "mvp": "416-card TCDB MVP promotional partial parallel represented as its own set; historical weekly redemption process not simulated.",
+    "exclusions": "Two oversized box-topper sets, MVP Exchange mail-in, and pre-production promotional samples excluded from ordinary pack ripping.",
+    "images": "Pending; do not invent imagery",
+    "release": "Draft only, no pricing or product publication."
+  },
+  "product": {
+    "id": "1999_Topps_Baseball",
+    "year": 1999,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING_CHECKLIST_QA",
+    "rookieData": "PENDING_PLAYER_LEVEL_QA",
+    "pricing": "PENDING",
+    "images": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1999-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1999_Topps_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 462,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1340/1999-Topps",
+      "notes": "No universally comparable pack odds across formats/series; leave unset."
+    },
+    {
+      "key": "all-matrix",
+      "id": "1999_Topps_Baseball_all_matrix",
+      "name": "All-Matrix",
+      "kind": "INSERT",
+      "oddsPerPack": 18,
+      "expectedCards": 30,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11709/1999-Topps",
+      "notes": "Historical hobby/retail ratio 1:18, series-dependent; normalize during QA"
+    },
+    {
+      "key": "mystery-finest",
+      "id": "1999_Topps_Baseball_mystery_finest",
+      "name": "All-Topps Mystery Finest",
+      "kind": "INSERT",
+      "oddsPerPack": 36,
+      "expectedCards": 33,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11710/1999-Topps",
+      "notes": "Historical hobby/retail ratio 1:36, series-dependent; normalize during QA"
+    },
+    {
+      "key": "mystery-finest-refractors",
+      "id": "1999_Topps_Baseball_mystery_finest_refractors",
+      "name": "All-Topps Mystery Finest Refractors",
+      "kind": "INSERT",
+      "oddsPerPack": 144,
+      "expectedCards": 33,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11711/1999-Topps",
+      "notes": "Historical hobby/retail ratio 1:144, series-dependent; normalize during QA"
+    },
+    {
+      "key": "autographs",
+      "id": "1999_Topps_Baseball_autographs",
+      "name": "Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 16,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11712/1999-Topps",
+      "notes": "No universally comparable pack odds across formats/series; leave unset."
+    },
+    {
+      "key": "hall-of-fame",
+      "id": "1999_Topps_Baseball_hall_of_fame",
+      "name": "Hall of Fame Collection",
+      "kind": "INSERT",
+      "oddsPerPack": 12,
+      "expectedCards": 10,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11713/1999-Topps",
+      "notes": "Historical hobby/retail ratio 1:12, series-dependent; normalize during QA"
+    },
+    {
+      "key": "lords-of-diamond",
+      "id": "1999_Topps_Baseball_lords_of_diamond",
+      "name": "Lords of the Diamond",
+      "kind": "INSERT",
+      "oddsPerPack": 18,
+      "expectedCards": 15,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11714/1999-Topps",
+      "notes": "Historical hobby/retail ratio 1:18, series-dependent; normalize during QA"
+    },
+    {
+      "key": "mvp-promotion",
+      "id": "1999_Topps_Baseball_mvp_promotion",
+      "name": "MVP Promotion",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "expectedCards": 416,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11715/1999-Topps",
+      "notes": "No universally comparable pack odds across formats/series; leave unset."
+    },
+    {
+      "key": "new-breed",
+      "id": "1999_Topps_Baseball_new_breed",
+      "name": "New Breed",
+      "kind": "INSERT",
+      "oddsPerPack": 18,
+      "expectedCards": 15,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11717/1999-Topps",
+      "notes": "Historical hobby/retail ratio 1:18, series-dependent; normalize during QA"
+    },
+    {
+      "key": "ryan-reprints",
+      "id": "1999_Topps_Baseball_ryan_reprints",
+      "name": "Nolan Ryan Commemorative Reprints",
+      "kind": "INSERT",
+      "oddsPerPack": 18,
+      "expectedCards": 27,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1347/1999-Topps",
+      "notes": "Historical hobby/retail ratio 1:18, series-dependent; normalize during QA"
+    },
+    {
+      "key": "ryan-reprints-autographs",
+      "id": "1999_Topps_Baseball_ryan_reprints_autographs",
+      "name": "Nolan Ryan Commemorative Reprints Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 27,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11725/1999-Topps",
+      "notes": "No universally comparable pack odds across formats/series; leave unset."
+    },
+    {
+      "key": "ryan-reprints-finest",
+      "id": "1999_Topps_Baseball_ryan_reprints_finest",
+      "name": "Nolan Ryan Commemorative Reprints Finest",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "expectedCards": 27,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1346/1999-Topps",
+      "notes": "Historical hobby/retail ratio 1:72, series-dependent; normalize during QA"
+    },
+    {
+      "key": "ryan-reprints-finest-refractors",
+      "id": "1999_Topps_Baseball_ryan_reprints_finest_refractors",
+      "name": "Nolan Ryan Commemorative Reprints Finest Refractors",
+      "kind": "INSERT",
+      "oddsPerPack": 288,
+      "expectedCards": 27,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11726/1999-Topps",
+      "notes": "Historical hobby/retail ratio 1:288, series-dependent; normalize during QA"
+    },
+    {
+      "key": "picture-perfect",
+      "id": "1999_Topps_Baseball_picture_perfect",
+      "name": "Picture Perfect?",
+      "kind": "INSERT",
+      "oddsPerPack": 8,
+      "expectedCards": 10,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11720/1999-Topps",
+      "notes": "Historical hobby/retail ratio 1:8, series-dependent; normalize during QA"
+    },
+    {
+      "key": "power-brokers",
+      "id": "1999_Topps_Baseball_power_brokers",
+      "name": "Power Brokers",
+      "kind": "INSERT",
+      "oddsPerPack": 36,
+      "expectedCards": 20,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11721/1999-Topps",
+      "notes": "Historical hobby/retail ratio 1:36, series-dependent; normalize during QA"
+    },
+    {
+      "key": "power-brokers-refractors",
+      "id": "1999_Topps_Baseball_power_brokers_refractors",
+      "name": "Power Brokers Refractors",
+      "kind": "INSERT",
+      "oddsPerPack": 144,
+      "expectedCards": 20,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11722/1999-Topps",
+      "notes": "Historical hobby/retail ratio 1:144, series-dependent; normalize during QA"
+    },
+    {
+      "key": "record-numbers",
+      "id": "1999_Topps_Baseball_record_numbers",
+      "name": "Record Numbers",
+      "kind": "INSERT",
+      "oddsPerPack": 8,
+      "expectedCards": 10,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11723/1999-Topps",
+      "notes": "Historical hobby/retail ratio 1:8, series-dependent; normalize during QA"
+    },
+    {
+      "key": "record-numbers-gold",
+      "id": "1999_Topps_Baseball_record_numbers_gold",
+      "name": "Record Numbers Gold",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 10,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11724/1999-Topps",
+      "notes": "No universally comparable pack odds across formats/series; leave unset."
+    }
+  ]
+}
