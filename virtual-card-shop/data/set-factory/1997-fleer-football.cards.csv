@@ -1,0 +1,1482 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Mark Brunell,Jacksonville Jaguars,,
+base,2,Andre Reed,Buffalo Bills,,
+base,3,Darrell Green,Washington Redskins,,
+base,4,Mario Bates,New Orleans Saints,,
+base,5,Eddie George,Houston Oilers,,
+base,6,Cris Carter,Minnesota Vikings,,
+base,7,Terrell Owens,San Francisco 49ers,,
+base,8,Bill Romanowski,Denver Broncos,,
+base,9,Isaac Bruce,St. Louis Rams,League Leaders,
+base,10,Eric Curry,Tampa Bay Buccaneers,,
+base,11,Danny Kanell,New York Giants,,
+base,12,Ki-Jana Carter,Cincinnati Bengals,,
+base,13,Antonio Freeman,Green Bay Packers,Super Bowl XXXI,
+base,14,Ricky Watters,Philadelphia Eagles,,
+base,15,Ty Law,New England Patriots,Super Bowl XXXI,
+base,16,Alonzo Spellman,Chicago Bears,,
+base,17,Kordell Stewart,Pittsburgh Steelers,,
+base,18,Jerry Rice,San Francisco 49ers,All-Pro,
+base,19,Derrick Alexander,Baltimore Ravens,,
+base,20,Barry Sanders,Detroit Lions,League Leaders,
+base,21,Keyshawn Johnson,New York Jets,,
+base,22,Emmitt Smith,Dallas Cowboys,,
+base,23,Ricky Proehl,Seattle Seahawks,,
+base,24,Daryl Gardener,Miami Dolphins,,
+base,25,Dan Saleaumua,Kansas City Chiefs,,
+base,26,Kevin Greene,Carolina Panthers,All-Pro,
+base,27,Junior Seau,San Diego Chargers,All-Pro,
+base,28,Randall McDaniel,Minnesota Vikings,All-Pro,
+base,29,Marshall Faulk,Indianapolis Colts,,
+base,30,Lorenzo Lynch,Oakland Raiders,,
+base,31,Terance Mathis,Atlanta Falcons,,
+base,32,Warren Sapp,Tampa Bay Buccaneers,,
+base,33,Chris Sanders,Houston Oilers,,
+base,34,Tom Carter,Washington Redskins,,
+base,35,Aeneas Williams,Arizona Cardinals,,
+base,36,Lawrence Phillips,St. Louis Rams,,
+base,37,John Elway,Denver Broncos,League Leaders,
+base,38,Stanley Richard,Washington Redskins,,
+base,39,Darryl Williams,Seattle Seahawks,,
+base,40,Phillippi Sparks,New York Giants,,
+base,41,Tedy Bruschi,New England Patriots,Super Bowl XXXI,
+base,42,Merton Hanks,San Francisco 49ers,,
+base,43,Ray Lewis,Baltimore Ravens,,
+base,44,Erik Williams,Dallas Cowboys,All-Pro,
+base,45,Jason Gildon,Pittsburgh Steelers,,
+base,46,George Koonce,Green Bay Packers,Super Bowl XXXI,
+base,47,Louis Oliver,Miami Dolphins,,
+base,48,Muhsin Muhammad,Carolina Panthers,,
+base,49,Daryl Hobbs,New Orleans Saints,,
+base,50,Terry Glenn,New England Patriots,Super Bowl XXXI,
+base,51,Marvin Harrison,Indianapolis Colts,,
+base,52,Brian Dawkins,Philadelphia Eagles,,
+base,53,Dale Carter,Kansas City Chiefs,,
+base,54,Alex Molden,New Orleans Saints,,
+base,55,Raymont Harris,Chicago Bears,,
+base,56,Jeff Burris,Buffalo Bills,,
+base,57,Don Beebe,Green Bay Packers,Super Bowl XXXI,
+base,58,Jamir Miller,Arizona Cardinals,,
+base,59,Carl Pickens,Cincinnati Bengals,League Leaders,
+base,60,Antonio London,Detroit Lions,,
+base,61,Courtney Hall,San Diego Chargers,,
+base,62,Derrick Brooks,Tampa Bay Buccaneers,,
+base,63,Chris Boniol,Philadelphia Eagles,,
+base,64,Jeff Lageman,Jacksonville Jaguars,,
+base,65,Roy Barker,San Francisco 49ers,,
+base,66,Devin Bush,Atlanta Falcons,,
+base,67,Aaron Glenn,New York Jets,,
+base,68,Wayne Simmons,Green Bay Packers,Super Bowl XXXI,
+base,69,Steve Atwater,Denver Broncos,,
+base,70,Jimmie Jones,St. Louis Rams,,
+base,71,Mark Carrier,Carolina Panthers,,
+base,72,Chris Chandler,Atlanta Falcons,,
+base,73,Andy Harmon,Philadelphia Eagles,,
+base,74,John Friesz,Seattle Seahawks,,
+base,75,Karim Abdul-Jabbar,Miami Dolphins,,
+base,76,Levon Kirkland,Pittsburgh Steelers,,
+base,77,Torrance Small,New Orleans Saints,,
+base,78,Harvey Williams,Oakland Raiders,,
+base,79,Chris Calloway,New York Giants,,
+base,80,Vinny Testaverde,Baltimore Ravens,,
+base,81,Bryant Young,San Francisco 49ers,All-Pro,
+base,82,Ray Buchanan,Atlanta Falcons,,
+base,83,Robert Smith,Minnesota Vikings,,
+base,84,Robert Brooks,Green Bay Packers,Super Bowl XXXI,
+base,85,Ray Crockett,Denver Broncos,,
+base,86,Bennie Blades,Seattle Seahawks,,
+base,87,Mark Carrier,Chicago Bears,,
+base,88,Mike Tomczak,Pittsburgh Steelers,,
+base,89,Darick Holmes,Buffalo Bills,,
+base,90,Drew Bledsoe,New England Patriots,Super Bowl XXXI,
+base,91,Darren Woodson,Dallas Cowboys,,
+base,92,Dan Wilkinson,Cincinnati Bengals,,
+base,93,Charles Way,New York Giants,,
+base,94,Ray Farmer,Philadelphia Eagles,,
+base,95,Marcus Allen,Kansas City Chiefs,,
+base,96,Marco Coleman,San Diego Chargers,,
+base,97,Zach Thomas,Miami Dolphins,,
+base,98,Wesley Walls,Carolina Panthers,,
+base,99,Frank Wycheck,Houston Oilers,,
+base,100,Troy Aikman,Dallas Cowboys,,
+base,101,Clyde Simmons,Jacksonville Jaguars,,
+base,102,Courtney Hawkins,Tampa Bay Buccaneers,,
+base,103,Chuck Smith,Atlanta Falcons,,
+base,104,Neil O'Donnell,New York Jets,,
+base,105,Kevin Carter,St. Louis Rams,,
+base,106,Chris Slade,New England Patriots,Super Bowl XXXI,
+base,107,Jessie Armstead,New York Giants,,
+base,108,Sean Dawkins,Indianapolis Colts,,
+base,109,Robert Blackmon,Seattle Seahawks,,
+base,110,Kevin Smith,Dallas Cowboys,,
+base,111,Lonnie Johnson,Buffalo Bills,,
+base,112,Craig Newsome,Green Bay Packers,Super Bowl XXXI,
+base,113,Jonathan Ogden,Baltimore Ravens,,
+base,114,Chris Zorich,Chicago Bears,,
+base,115,Tim Brown,Oakland Raiders,,
+base,116,Fred Barnett,Miami Dolphins,,
+base,117,Michael Haynes,New Orleans Saints,,
+base,118,Eric Hill,Arizona Cardinals,,
+base,119,Ronnie Harmon,Houston Oilers,,
+base,120,Sean Gilbert,Washington Redskins,,
+base,121,"Derrick Alexander UERUER: Born 11/3, should be 11/13",Minnesota Vikings,,
+base,122,Derrick Thomas,Kansas City Chiefs,,
+base,123,Tyrone Wheatley,New York Giants,,
+base,124,Cortez Kennedy,Seattle Seahawks,,
+base,125,Jeff George,Oakland Raiders,,
+base,126,Chad Cota,Carolina Panthers,,
+base,127,Gary Zimmerman,Denver Broncos,All-Pro,
+base,128,Johnnie Morton,Detroit Lions,,
+base,129,Chad Brown,Seattle Seahawks,All-Pro,
+base,130,Marvcus Patton,Washington Redskins,,
+base,131,James Stewart,Jacksonville Jaguars,,
+base,132,Terry Kirby,San Francisco 49ers,,
+base,133,Chris Mims,San Diego Chargers,,
+base,134,William Thomas,Philadelphia Eagles,,
+base,135,Steve Tasker,Buffalo Bills,,
+base,136,Jason Belser,Indianapolis Colts,,
+base,137,Bryan Cox,Chicago Bears,,
+base,138,Jessie Tuggle,Atlanta Falcons,,
+base,139,Ashley Ambrose,Cincinnati Bengals,All-Pro,
+base,140,Mark Chmura,Green Bay Packers,Super Bowl XXXI,
+base,141,Jeff Hostetler,Oakland Raiders,,
+base,142,Rich Owens RC,Washington Redskins,,
+base,143,Willie Davis,Houston Oilers,,
+base,144,Hardy Nickerson,Tampa Bay Buccaneers,,
+base,145,Curtis Martin,New England Patriots,Super Bowl XXXI,
+base,146,Ken Norton,San Francisco 49ers,,
+base,147,Victor Green,New York Jets,,
+base,148,Anthony Miller,Denver Broncos,,
+base,149,John Kasay,Carolina Panthers,League Leaders,
+base,150,O.J. McDuffie,Miami Dolphins,,
+base,151,Darren Perry,Pittsburgh Steelers,,
+base,152,Luther Elliss,Detroit Lions,,
+base,153,Greg Hill,Kansas City Chiefs,,
+base,154,John Randle,Minnesota Vikings,All-Pro,
+base,155,Stephen Grant,Indianapolis Colts,,
+base,156,Leon Lett,Dallas Cowboys,,
+base,157,Darrien Gordon,San Diego Chargers,League Leaders,
+base,158,Ray Zellars,New Orleans Saints,,
+base,159,Michael Jackson,Baltimore Ravens,,
+base,160,Leslie O'Neal,St. Louis Rams,,
+base,161,Bruce Smith,Buffalo Bills,All-Pro,
+base,162,Santana Dotson,Green Bay Packers,,
+base,163,Bobby Hebert,Atlanta Falcons,,
+base,164,Keith Hamilton,New York Giants,,
+base,165,Tony Boselli,Jacksonville Jaguars,,
+base,166,Alfred Williams,Denver Broncos,All-Pro,
+base,167,Ty Detmer,Philadelphia Eagles,,
+base,168,Chester McGlockton,Oakland Raiders,,
+base,169,William Floyd,San Francisco 49ers,,
+base,170,Bruce Matthews,Houston Oilers,,
+base,171,Simeon Rice,Arizona Cardinals,,
+base,172,Scott Mitchell,Detroit Lions,,
+base,173,Ricardo McDonald,Cincinnati Bengals,,
+base,174,Tyrone Poole,Carolina Panthers,,
+base,175,Greg Lloyd,Pittsburgh Steelers,,
+base,176,Bruce Armstrong,New England Patriots,Super Bowl XXXI,
+base,177,Erik Kramer,Chicago Bears,,
+base,178,Kimble Anders,Kansas City Chiefs,,
+base,179,Lamar Smith,Seattle Seahawks,,
+base,180,Tony Tolbert,Dallas Cowboys,,
+base,181,Joe Aska,Oakland Raiders,,
+base,182,Eric Allen,New Orleans Saints,,
+base,183,Eric Turner,Oakland Raiders,,
+base,184,Brad Johnson,Minnesota Vikings,,
+base,185,Tony Martin,San Diego Chargers,,
+base,186,Mike Mamula,Philadelphia Eagles,,
+base,187,Irving Spikes,Miami Dolphins,,
+base,188,Keith Jackson,Green Bay Packers,Super Bowl XXXI,
+base,189,Carlton Bailey,Carolina Panthers,,
+base,190,Tyrone Braxton,Denver Broncos,League Leaders,
+base,191,Chad Bratzke RC,New York Giants,,
+base,192,Adrian Murrell,New York Jets,,
+base,193,Roman Phifer,St. Louis Rams,,
+base,194,Todd Collins,Buffalo Bills,,
+base,195,Chris Warren,Seattle Seahawks,,
+base,196,Kevin Hardy,Jacksonville Jaguars,,
+base,197,Rick Mirer,Chicago Bears,,
+base,198,Cornelius Bennett,Atlanta Falcons,,
+base,199,Jimmy Hitchcock,New England Patriots,Super Bowl XXXI,
+base,200,Michael Irvin,Dallas Cowboys,,
+base,201,Quentin Coryatt,Indianapolis Colts,,
+base,202,Reggie White,Green Bay Packers,Super Bowl XXXI,
+base,203,Larry Centers,Arizona Cardinals,All-Pro,
+base,204,Rodney Thomas,Houston Oilers,,
+base,205,Dana Stubblefield,San Francisco 49ers,,
+base,206,Rod Woodson,Pittsburgh Steelers,,
+base,207,Rhett Hall RC,Philadelphia Eagles,,
+base,208,Steve Tovar,Cincinnati Bengals,,
+base,209,Michael Westbrook,Washington Redskins,,
+base,210,Steve Wisniewski,Oakland Raiders,,
+base,211,Carlester Crumpler,Seattle Seahawks,,
+base,212,Elvis Grbac,Kansas City Chiefs,,
+base,213,Tim Bowens,Miami Dolphins,,
+base,214,Robert Porcher,Detroit Lions,,
+base,215,John Carney,San Diego Chargers,,
+base,216,Anthony Newman,New Orleans Saints,,
+base,217,Earnest Byner,Baltimore Ravens,,
+base,218,Dewayne Washington,Minnesota Vikings,,
+base,219,Willie Green,Denver Broncos,,
+base,220,Terry Allen,Washington Redskins,League Leaders,
+base,221,William Fuller,San Diego Chargers,,
+base,222,Al Del Greco,Houston Oilers,,
+base,223,Trent Dilfer,Tampa Bay Buccaneers,,
+base,224,Michael Dean Perry,Denver Broncos,,
+base,225,Larry Allen,Dallas Cowboys,All-Pro,
+base,226,Mark Bruener,Pittsburgh Steelers,,
+base,227,Clay Matthews,Atlanta Falcons,,
+base,228,Ruben Brown,Buffalo Bills,,
+base,229,Edgar Bennett,Green Bay Packers,Super Bowl XXXI,
+base,230,Neil Smith,Denver Broncos,,
+base,231,Ken Harvey,Washington Redskins,,
+base,232,Kyle Brady,New York Jets,,
+base,233,Corey Miller,New York Giants,,
+base,234,Tony Siragusa,Baltimore Ravens,,
+base,235,Todd Sauerbrun,Chicago Bears,,
+base,236,Daniel Stubbs,Miami Dolphins,,
+base,237,Robb Thomas,Tampa Bay Buccaneers,,
+base,238,Jimmy Smith,Jacksonville Jaguars,League Leaders,
+base,239,Marquez Pope,San Francisco 49ers,,
+base,240,Tim Biakabutuka,Carolina Panthers,,
+base,241,Jamie Asher,Washington Redskins,,
+base,242,Steve McNair,Houston Oilers,,
+base,243,Harold Green,St. Louis Rams,,
+base,244,Frank Sanders,Arizona Cardinals,,
+base,245,Joe Johnson,New Orleans Saints,,
+base,246,Eric Bieniemy,Cincinnati Bengals,,
+base,247,Kevin Turner,Philadelphia Eagles,,
+base,248,Rickey Dudley,Oakland Raiders,,
+base,249,Orlando Thomas,Minnesota Vikings,,
+base,250,Dan Marino,Miami Dolphins,,
+base,251,Deion Sanders,Dallas Cowboys,,
+base,252,Dan Williams,Denver Broncos,,
+base,253,Sam Gash,New England Patriots,Super Bowl XXXI,
+base,254,Lonnie Marts,Houston Oilers,,
+base,255,Mo Lewis,New York Jets,,
+base,256,Charles Johnson,Pittsburgh Steelers,,
+base,257,Chris Jacke,Green Bay Packers,Super Bowl XXXI,
+base,258,Keenan McCardell,Jacksonville Jaguars,,
+base,259,Donnell Woolford,Pittsburgh Steelers,,
+base,260,Terrance Shaw,San Diego Chargers,,
+base,261,Jason Dunn,Philadelphia Eagles,,
+base,262,Willie McGinest,New England Patriots,Super Bowl XXXI,
+base,263,Ken Dilger,Indianapolis Colts,,
+base,264,Keith Lyle,St. Louis Rams,League Leaders,
+base,265,Antonio Langham,Baltimore Ravens,,
+base,266,Carlton Gray,Indianapolis Colts,,
+base,267,LeShon Johnson,Arizona Cardinals,,
+base,268,Thurman Thomas,Buffalo Bills,,
+base,269,Jesse Campbell,Washington Redskins,,
+base,270,Carnell Lake,Pittsburgh Steelers,,
+base,271,Cris Dishman,Washington Redskins,,
+base,272,Kevin Williams,Dallas Cowboys,,
+base,273,Troy Brown,New England Patriots,Super Bowl XXXI,
+base,274,Willie Roaf,New Orleans Saints,,
+base,275,Terrell Davis,Denver Broncos,All-Pro,
+base,276,Herman Moore,Detroit Lions,All-Pro,
+base,277,Walt Harris,Chicago Bears,,
+base,278,Mark Collins,Kansas City Chiefs,,
+base,279,Bert Emanuel,Atlanta Falcons,,
+base,280,Qadry Ismail,Minnesota Vikings,,
+base,281,Phil Hansen,Buffalo Bills,,
+base,282,Steve Young,San Francisco 49ers,League Leaders,
+base,283,Michael Sinclair,Seattle Seahawks,,
+base,284,Jeff Graham,New York Jets,,
+base,285,Sam Mills,Carolina Panthers,All-Pro,
+base,286,Terry McDaniel,Oakland Raiders,,
+base,287,Eugene Robinson,Green Bay Packers,Super Bowl XXXI,
+base,288,Tony Bennett,Indianapolis Colts,,
+base,289,Daryl Johnston,Dallas Cowboys,,
+base,290,Eric Swann,Arizona Cardinals,,
+base,291,Bam Morris,Baltimore Ravens,,
+base,292,Thomas Lewis,New York Giants,,
+base,293,Terrell Fletcher,San Diego Chargers,,
+base,294,Gus Frerotte,Washington Redskins,,
+base,295,Stanley Pritchett,Miami Dolphins,,
+base,296,Mike Alstott,Tampa Bay Buccaneers,,
+base,297,Will Shields,Kansas City Chiefs,,
+base,298,Errict Rhett,Tampa Bay Buccaneers,,
+base,299,Garrison Hearst,San Francisco 49ers,,
+base,300,Kerry Collins,Carolina Panthers,,
+base,301,Darryll Lewis,Houston Oilers,,
+base,302,Chris T. Jones,Philadelphia Eagles,,
+base,303,Yancey Thigpen,Pittsburgh Steelers,,
+base,304,Jackie Harris,Tampa Bay Buccaneers,,
+base,305,Steve Christie,Buffalo Bills,,
+base,306,Gilbert Brown,Green Bay Packers,Super Bowl XXXI,
+base,307,Terry Wooden,Seattle Seahawks,,
+base,308,Pete Mitchell,Jacksonville Jaguars,,
+base,309,Tim McDonald,San Francisco 49ers,,
+base,310,Jake Reed,Minnesota Vikings,,
+base,311,Ed McCaffrey,Denver Broncos,,
+base,312,Chris Doleman,San Francisco 49ers,,
+base,313,Eric Metcalf,Atlanta Falcons,,
+base,314,Ricky Reynolds,New England Patriots,Super Bowl XXXI,
+base,315,David Sloan,Detroit Lions,,
+base,316,Marvin Washington,New York Jets,,
+base,317,Herschel Walker,Dallas Cowboys,,
+base,318,Michael Timpson,Chicago Bears,,
+base,319,Blaine Bishop,Houston Oilers,,
+base,320,Irv Smith,New Orleans Saints,,
+base,321,Seth Joyner,Arizona Cardinals,,
+base,322,Terrell Buckley,Miami Dolphins,,
+base,323,Michael Strahan,New York Giants,,
+base,324,Sam Adams,Seattle Seahawks,,
+base,325,Leslie Shepherd,Washington Redskins,,
+base,326,James Jett,Oakland Raiders,,
+base,327,Anthony Pleasant,Baltimore Ravens,,
+base,328,Lee Woodall,San Francisco 49ers,,
+base,329,Shannon Sharpe,Denver Broncos,All-Pro,
+base,330,Jamal Anderson,Atlanta Falcons,,
+base,331,Andre Hastings,Pittsburgh Steelers,,
+base,332,Troy Vincent,Philadelphia Eagles,,
+base,333,Sean LaChapelle RC,Kansas City Chiefs,,
+base,334,Winslow Oliver,Carolina Panthers,,
+base,335,Sean Jones,Green Bay Packers,Super Bowl XXXI,
+base,336,Darnay Scott,Cincinnati Bengals,,
+base,337,Todd Lyght,St. Louis Rams,,
+base,338,Leonard Russell,San Diego Chargers,,
+base,339,Nate Newton,Dallas Cowboys,,
+base,340,Zack Crockett,Indianapolis Colts,,
+base,341,Amp Lee,Minnesota Vikings,,
+base,342,Bobby Engram,Chicago Bears,,
+base,343,Mike Hollis,Jacksonville Jaguars,,
+base,344,Rodney Hampton,New York Giants,,
+base,345,Mel Gray,Houston Oilers,,
+base,346,Van Malone,Detroit Lions,,
+base,347,Aaron Craver,San Diego Chargers,,
+base,348,Jim Everett,New Orleans Saints,,
+base,349,Trace Armstrong,Miami Dolphins,,
+base,350,Pat Swilling,Oakland Raiders,,
+base,351,Brent Jones,San Francisco 49ers,,
+base,352,Chris Spielman,Buffalo Bills,,
+base,353,Brett Perriman,Detroit Lions,,
+base,354,Brian Kinchen,Baltimore Ravens,,
+base,355,Joey Galloway,Seattle Seahawks,,
+base,356,Henry Ellard,Washington Redskins,,
+base,357,Ben Coates,New England Patriots,Super Bowl XXXI,
+base,358,Dorsey Levens,Green Bay Packers,Super Bowl XXXI,
+base,359,Charlie Garner,Philadelphia Eagles,,
+base,360,Erric Pegram,Pittsburgh Steelers,,
+base,361,Anthony Johnson,Carolina Panthers,,
+base,362,Rashaan Salaam,Chicago Bears,,
+base,363,Jeff Blake,Cincinnati Bengals,,
+base,364,Kent Graham,Arizona Cardinals,,
+base,365,Broderick Thomas,Dallas Cowboys,,
+base,366,Richmond Webb,Miami Dolphins,,
+base,367,Alfred Pupunu,San Diego Chargers,,
+base,368,Mark Stepnoski,Houston Oilers,,
+base,369,David Dunn,Cincinnati Bengals,,
+base,370,Bobby Houston,New York Jets,,
+base,371,Anthony Parker,St. Louis Rams,,
+base,372,Quinn Early,Buffalo Bills,,
+base,373,LeRoy Butler,Green Bay Packers,Super Bowl XXXI,
+base,374,Kurt Gouveia,San Diego Chargers,,
+base,375,Greg Biekert,Oakland Raiders,,
+base,376,Jim Harbaugh,Indianapolis Colts,,
+base,377,Eric Bjornson,Dallas Cowboys,,
+base,378,Craig Heyward,St. Louis Rams,,
+base,379,Steve Bono,Kansas City Chiefs,,
+base,380,Tony Banks,St. Louis Rams,,
+base,381,John Mobley,Denver Broncos,,
+base,382,Irving Fryar,Philadelphia Eagles,,
+base,383,Dermontti Dawson,Pittsburgh Steelers,All-Pro,
+base,384,Eric Davis,Carolina Panthers,,
+base,385,Natrone Means,Jacksonville Jaguars,,
+base,386,Jason Sehorn,New York Giants,,
+base,387,Michael McCrary,Baltimore Ravens,,
+base,388,Corwin Brown,New England Patriots,Super Bowl XXXI,
+base,389,Kevin Glover,Detroit Lions,,
+base,390,Jerris McPhail,Miami Dolphins,,
+base,391,Bobby Taylor,Philadelphia Eagles,,
+base,392,Tony McGee,Cincinnati Bengals,,
+base,393,Curtis Conway,Chicago Bears,,
+base,394,Napoleon Kaufman,Oakland Raiders,,
+base,395,Brian Blades,Seattle Seahawks,,
+base,396,Richard Dent,Indianapolis Colts,,
+base,397,Dave Brown,New York Giants,,
+base,398,Stan Humphries,San Diego Chargers,,
+base,399,Stevon Moore,Baltimore Ravens,,
+base,400,Brett Favre,Green Bay Packers,Super Bowl XXXI,
+base,401,Jerome Bettis,Pittsburgh Steelers,All-Pro,
+base,402,Darrin Smith,Philadelphia Eagles,,
+base,403,Chris Penn,Kansas City Chiefs,,
+base,404,Rob Moore,Arizona Cardinals,,
+base,405,Micheal Barrow,Carolina Panthers,,
+base,406,Tony Brackens,Jacksonville Jaguars,,
+base,407,Wayne Martin,New Orleans Saints,,
+base,408,Warren Moon,Seattle Seahawks,,
+base,409,Jason Elam,Denver Broncos,,
+base,410,J.J. Birden,Atlanta Falcons,,
+base,411,Hugh Douglas,New York Jets,,
+base,412,Lamar Lathon,Carolina Panthers,,
+base,413,John Kidd,Miami Dolphins,League Leaders,
+base,414,Bryce Paup,Buffalo Bills,,
+base,415,Shawn Jefferson,New England Patriots,Super Bowl XXXI,
+base,416,Leeland McElroy,Arizona Cardinals,Star Studded,
+base,417,Elbert Shelley,Atlanta Falcons,Star Studded,
+base,418,Jermaine Lewis,Baltimore Ravens,Star Studded,
+base,419,Eric Moulds,Buffalo Bills,Star Studded,
+base,420,Michael Bates,Carolina Panthers,Star Studded,
+base,421,John Mangum,Chicago Bears,Star Studded,
+base,422,Corey Sawyer,Cincinnati Bengals,Star Studded,
+base,423,Jim Schwantz RC,Dallas Cowboys,Star Studded,
+base,424,Rod Smith,Denver Broncos,Star Studded,
+base,425,Glyn Milburn,Detroit Lions,Star Studded,
+base,426,Desmond Howard,Green Bay Packers,Star Studded,
+base,427,John Henry Mills RC,Houston Oilers,Star Studded,
+base,428,Cary Blanchard RC,Indianapolis Colts,Star Studded,
+base,429,Chris Hudson,Jacksonville Jaguars,Star Studded,
+base,430,Tamarick Vanover,Kansas City Chiefs,Star Studded,
+base,431,Kirby Dar Dar RC,Miami Dolphins,Star Studded,
+base,432,David Palmer,Minnesota Vikings,Star Studded,
+base,433,Dave Meggett,New England Patriots,Star Studded,
+base,434,Tyrone Hughes,New Orleans Saints,Star Studded,
+base,435,Amani Toomer,New York Giants,Star Studded,
+base,436,Wayne Chrebet,New York Jets,Star Studded,
+base,437,Carl Kidd RC,Oakland Raiders,Star Studded,
+base,438,Derrick Witherspoon,Philadelphia Eagles,Star Studded,
+base,439,Jahine Arnold,Pittsburgh Steelers,Star Studded,
+base,440,Andre Coleman,San Diego Chargers,Star Studded,
+base,441,Jeff Wilkins RC,San Francisco 49ers,Star Studded,
+base,442,Jay Bellamy RC,Seattle Seahawks,Star Studded,
+base,443,Eddie Kennison,St. Louis Rams,Star Studded,
+base,444,Nilo Silvan,Tampa Bay Buccaneers,Star Studded,
+base,445,Brian Mitchell,Washington Redskins,Star Studded,
+base,446,Ki-Jana Carter,Cincinnati Bengals / Arizona Cardinals / Atlanta Falcons / Baltimore Ravens / Buffalo Bills / Carolina Panthers / Chicago Bears / Dallas Cowboys,Checklist,
+base,447,Napoleon Kaufman,Oakland Raiders / Denver Broncos / Detroit Lions / Green Bay Packers / Houston Oilers / Indianapolis Colts / Kansas City Chiefs / Miami Dolphins,Checklist,
+base,448,Brian Mitchell,Washington Redskins / Minnesota Vikings / New England Patriots / New Orleans Saints / New York Giants / New York Jets / Oakland Raiders / Philadelphia Eagles / Pittsburgh Steelers,Checklist,
+base,449,Rodney Hampton,New York Giants / St. Louis Rams / San Diego Chargers / San Francisco 49ers / Seattle Seahawks / Tampa Bay Buccaneers / Washington Redskins,Checklist,
+base,450,Edgar Bennett CLChecklist: 446-450 and Inserts,Green Bay Packers,,
+traditions-crystal,1,Mark Brunell,Jacksonville Jaguars,,Traditions Crystal
+traditions-crystal,2,Andre Reed,Buffalo Bills,,Traditions Crystal
+traditions-crystal,3,Darrell Green,Washington Redskins,,Traditions Crystal
+traditions-crystal,4,Mario Bates,New Orleans Saints,,Traditions Crystal
+traditions-crystal,5,Eddie George,Houston Oilers,,Traditions Crystal
+traditions-crystal,6,Cris Carter,Minnesota Vikings,,Traditions Crystal
+traditions-crystal,7,Terrell Owens,San Francisco 49ers,,Traditions Crystal
+traditions-crystal,8,Bill Romanowski,Denver Broncos,,Traditions Crystal
+traditions-crystal,9,Isaac Bruce,St. Louis Rams,,Traditions Crystal
+traditions-crystal,10,Eric Curry,Tampa Bay Buccaneers,,Traditions Crystal
+traditions-crystal,11,Danny Kanell,New York Giants,,Traditions Crystal
+traditions-crystal,12,Ki-Jana Carter,Cincinnati Bengals,,Traditions Crystal
+traditions-crystal,13,Antonio Freeman,Green Bay Packers,,Traditions Crystal
+traditions-crystal,14,Ricky Watters,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,15,Ty Law,New England Patriots,,Traditions Crystal
+traditions-crystal,16,Alonzo Spellman,Chicago Bears,,Traditions Crystal
+traditions-crystal,17,Kordell Stewart,Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,18,Jerry Rice,San Francisco 49ers,,Traditions Crystal
+traditions-crystal,19,Derrick Alexander,Baltimore Ravens,,Traditions Crystal
+traditions-crystal,20,Barry Sanders,Detroit Lions,,Traditions Crystal
+traditions-crystal,21,Keyshawn Johnson,New York Jets,,Traditions Crystal
+traditions-crystal,22,Emmitt Smith,Dallas Cowboys,,Traditions Crystal
+traditions-crystal,23,Ricky Proehl,Seattle Seahawks,,Traditions Crystal
+traditions-crystal,24,Daryl Gardener,Miami Dolphins,,Traditions Crystal
+traditions-crystal,25,Dan Saleaumua,Kansas City Chiefs,,Traditions Crystal
+traditions-crystal,26,Kevin Greene,Carolina Panthers,,Traditions Crystal
+traditions-crystal,27,Junior Seau,San Diego Chargers,,Traditions Crystal
+traditions-crystal,28,Randall McDaniel,Minnesota Vikings,,Traditions Crystal
+traditions-crystal,29,Marshall Faulk,Indianapolis Colts,,Traditions Crystal
+traditions-crystal,30,Lorenzo Lynch,Oakland Raiders,,Traditions Crystal
+traditions-crystal,31,Terance Mathis,Atlanta Falcons,,Traditions Crystal
+traditions-crystal,32,Warren Sapp,Tampa Bay Buccaneers,,Traditions Crystal
+traditions-crystal,33,Chris Sanders,Houston Oilers,,Traditions Crystal
+traditions-crystal,34,Tom Carter,Washington Redskins,,Traditions Crystal
+traditions-crystal,35,Aeneas Williams,Arizona Cardinals,,Traditions Crystal
+traditions-crystal,36,Lawrence Phillips,St. Louis Rams,,Traditions Crystal
+traditions-crystal,37,John Elway,Denver Broncos,,Traditions Crystal
+traditions-crystal,38,Stanley Richard,Washington Redskins,,Traditions Crystal
+traditions-crystal,39,Darryl Williams,Seattle Seahawks,,Traditions Crystal
+traditions-crystal,40,Phillippi Sparks,New York Giants,,Traditions Crystal
+traditions-crystal,41,Tedy Bruschi,New England Patriots,,Traditions Crystal
+traditions-crystal,42,Merton Hanks,San Francisco 49ers,,Traditions Crystal
+traditions-crystal,43,Ray Lewis,Baltimore Ravens,,Traditions Crystal
+traditions-crystal,44,Erik Williams,Dallas Cowboys,,Traditions Crystal
+traditions-crystal,45,Jason Gildon,Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,46,George Koonce,Green Bay Packers,,Traditions Crystal
+traditions-crystal,47,Louis Oliver,Miami Dolphins,,Traditions Crystal
+traditions-crystal,48,Muhsin Muhammad,Carolina Panthers,,Traditions Crystal
+traditions-crystal,49,Daryl Hobbs,New Orleans Saints,,Traditions Crystal
+traditions-crystal,50,Terry Glenn,New England Patriots,,Traditions Crystal
+traditions-crystal,51,Marvin Harrison,Indianapolis Colts,,Traditions Crystal
+traditions-crystal,52,Brian Dawkins,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,53,Dale Carter,Kansas City Chiefs,,Traditions Crystal
+traditions-crystal,54,Alex Molden,New Orleans Saints,,Traditions Crystal
+traditions-crystal,55,Raymont Harris,Chicago Bears,,Traditions Crystal
+traditions-crystal,56,Jeff Burris,Buffalo Bills,,Traditions Crystal
+traditions-crystal,57,Don Beebe,Green Bay Packers,,Traditions Crystal
+traditions-crystal,58,Jamir Miller,Arizona Cardinals,,Traditions Crystal
+traditions-crystal,59,Carl Pickens,Cincinnati Bengals,,Traditions Crystal
+traditions-crystal,60,Antonio London,Detroit Lions,,Traditions Crystal
+traditions-crystal,61,Courtney Hall,San Diego Chargers,,Traditions Crystal
+traditions-crystal,62,Derrick Brooks,Tampa Bay Buccaneers,,Traditions Crystal
+traditions-crystal,63,Chris Boniol,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,64,Jeff Lageman,Jacksonville Jaguars,,Traditions Crystal
+traditions-crystal,65,Roy Barker,San Francisco 49ers,,Traditions Crystal
+traditions-crystal,66,Devin Bush,Atlanta Falcons,,Traditions Crystal
+traditions-crystal,67,Aaron Glenn,New York Jets,,Traditions Crystal
+traditions-crystal,68,Wayne Simmons,Green Bay Packers,,Traditions Crystal
+traditions-crystal,69,Steve Atwater,Denver Broncos,,Traditions Crystal
+traditions-crystal,70,Jimmie Jones,St. Louis Rams,,Traditions Crystal
+traditions-crystal,71,Mark Carrier,Carolina Panthers,,Traditions Crystal
+traditions-crystal,72,Chris Chandler,Atlanta Falcons,,Traditions Crystal
+traditions-crystal,73,Andy Harmon,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,74,John Friesz,Seattle Seahawks,,Traditions Crystal
+traditions-crystal,75,Karim Abdul-Jabbar,Miami Dolphins,,Traditions Crystal
+traditions-crystal,76,Levon Kirkland,Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,77,Torrance Small,New Orleans Saints,,Traditions Crystal
+traditions-crystal,78,Harvey Williams,Oakland Raiders,,Traditions Crystal
+traditions-crystal,79,Chris Calloway,New York Giants,,Traditions Crystal
+traditions-crystal,80,Vinny Testaverde,Baltimore Ravens,,Traditions Crystal
+traditions-crystal,81,Bryant Young,San Francisco 49ers,,Traditions Crystal
+traditions-crystal,82,Ray Buchanan,Atlanta Falcons,,Traditions Crystal
+traditions-crystal,83,Robert Smith,Minnesota Vikings,,Traditions Crystal
+traditions-crystal,84,Robert Brooks,Green Bay Packers,,Traditions Crystal
+traditions-crystal,85,Ray Crockett,Denver Broncos,,Traditions Crystal
+traditions-crystal,86,Bennie Blades,Seattle Seahawks,,Traditions Crystal
+traditions-crystal,87,Mark Carrier,Chicago Bears,,Traditions Crystal
+traditions-crystal,88,Mike Tomczak,Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,89,Darick Holmes,Buffalo Bills,,Traditions Crystal
+traditions-crystal,90,Drew Bledsoe,New England Patriots,,Traditions Crystal
+traditions-crystal,91,Darren Woodson,Dallas Cowboys,,Traditions Crystal
+traditions-crystal,92,Dan Wilkinson,Cincinnati Bengals,,Traditions Crystal
+traditions-crystal,93,Charles Way,New York Giants,,Traditions Crystal
+traditions-crystal,94,Ray Farmer,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,95,Marcus Allen,Kansas City Chiefs,,Traditions Crystal
+traditions-crystal,96,Marco Coleman,San Diego Chargers,,Traditions Crystal
+traditions-crystal,97,Zach Thomas,Miami Dolphins,,Traditions Crystal
+traditions-crystal,98,Wesley Walls,Carolina Panthers,,Traditions Crystal
+traditions-crystal,99,Frank Wycheck,Houston Oilers,,Traditions Crystal
+traditions-crystal,100,Troy Aikman,Dallas Cowboys,,Traditions Crystal
+traditions-crystal,101,Clyde Simmons,Jacksonville Jaguars,,Traditions Crystal
+traditions-crystal,102,Courtney Hawkins,Tampa Bay Buccaneers,,Traditions Crystal
+traditions-crystal,103,Chuck Smith,Atlanta Falcons,,Traditions Crystal
+traditions-crystal,104,Neil O'Donnell,New York Jets,,Traditions Crystal
+traditions-crystal,105,Kevin Carter,St. Louis Rams,,Traditions Crystal
+traditions-crystal,106,Chris Slade,New England Patriots,,Traditions Crystal
+traditions-crystal,107,Jessie Armstead,New York Giants,,Traditions Crystal
+traditions-crystal,108,Sean Dawkins,Indianapolis Colts,,Traditions Crystal
+traditions-crystal,109,Robert Blackmon,Seattle Seahawks,,Traditions Crystal
+traditions-crystal,110,Kevin Smith,Dallas Cowboys,,Traditions Crystal
+traditions-crystal,111,Lonnie Johnson,Buffalo Bills,,Traditions Crystal
+traditions-crystal,112,Craig Newsome,Green Bay Packers,,Traditions Crystal
+traditions-crystal,113,Jonathan Ogden,Baltimore Ravens,,Traditions Crystal
+traditions-crystal,114,Chris Zorich,Chicago Bears,,Traditions Crystal
+traditions-crystal,115,Tim Brown,Oakland Raiders,,Traditions Crystal
+traditions-crystal,116,Fred Barnett,Miami Dolphins,,Traditions Crystal
+traditions-crystal,117,Michael Haynes,New Orleans Saints,,Traditions Crystal
+traditions-crystal,118,Eric Hill,Arizona Cardinals,,Traditions Crystal
+traditions-crystal,119,Ronnie Harmon,Houston Oilers,,Traditions Crystal
+traditions-crystal,120,Sean Gilbert,Washington Redskins,,Traditions Crystal
+traditions-crystal,121,"Derrick Alexander UERUER: Born 11/3, should be 11/13",Minnesota Vikings,,Traditions Crystal
+traditions-crystal,122,Derrick Thomas,Kansas City Chiefs,,Traditions Crystal
+traditions-crystal,123,Tyrone Wheatley,New York Giants,,Traditions Crystal
+traditions-crystal,124,Cortez Kennedy,Seattle Seahawks,,Traditions Crystal
+traditions-crystal,125,Jeff George,Oakland Raiders,,Traditions Crystal
+traditions-crystal,126,Chad Cota,Carolina Panthers,,Traditions Crystal
+traditions-crystal,127,Gary Zimmerman,Denver Broncos,,Traditions Crystal
+traditions-crystal,128,Johnnie Morton,Detroit Lions,,Traditions Crystal
+traditions-crystal,129,Chad Brown,Seattle Seahawks,,Traditions Crystal
+traditions-crystal,130,Marvcus Patton,Washington Redskins,,Traditions Crystal
+traditions-crystal,131,James Stewart,Jacksonville Jaguars,,Traditions Crystal
+traditions-crystal,132,Terry Kirby,San Francisco 49ers,,Traditions Crystal
+traditions-crystal,133,Chris Mims,San Diego Chargers,,Traditions Crystal
+traditions-crystal,134,William Thomas,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,135,Steve Tasker,Buffalo Bills,,Traditions Crystal
+traditions-crystal,136,Jason Belser,Indianapolis Colts,,Traditions Crystal
+traditions-crystal,137,Bryan Cox,Chicago Bears,,Traditions Crystal
+traditions-crystal,138,Jessie Tuggle,Atlanta Falcons,,Traditions Crystal
+traditions-crystal,139,Ashley Ambrose,Cincinnati Bengals,,Traditions Crystal
+traditions-crystal,140,Mark Chmura,Green Bay Packers,,Traditions Crystal
+traditions-crystal,141,Jeff Hostetler,Oakland Raiders,,Traditions Crystal
+traditions-crystal,142,Rich Owens,Washington Redskins,,Traditions Crystal
+traditions-crystal,143,Willie Davis,Houston Oilers,,Traditions Crystal
+traditions-crystal,144,Hardy Nickerson,Tampa Bay Buccaneers,,Traditions Crystal
+traditions-crystal,145,Curtis Martin,New England Patriots,,Traditions Crystal
+traditions-crystal,146,Ken Norton,San Francisco 49ers,,Traditions Crystal
+traditions-crystal,147,Victor Green,New York Jets,,Traditions Crystal
+traditions-crystal,148,Anthony Miller,Denver Broncos,,Traditions Crystal
+traditions-crystal,149,John Kasay,Carolina Panthers,,Traditions Crystal
+traditions-crystal,150,O.J. McDuffie,Miami Dolphins,,Traditions Crystal
+traditions-crystal,151,Darren Perry,Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,152,Luther Elliss,Detroit Lions,,Traditions Crystal
+traditions-crystal,153,Greg Hill,Kansas City Chiefs,,Traditions Crystal
+traditions-crystal,154,John Randle,Minnesota Vikings,,Traditions Crystal
+traditions-crystal,155,Stephen Grant,Indianapolis Colts,,Traditions Crystal
+traditions-crystal,156,Leon Lett,Dallas Cowboys,,Traditions Crystal
+traditions-crystal,157,Darrien Gordon,San Diego Chargers,,Traditions Crystal
+traditions-crystal,158,Ray Zellars,New Orleans Saints,,Traditions Crystal
+traditions-crystal,159,Michael Jackson,Baltimore Ravens,,Traditions Crystal
+traditions-crystal,160,Leslie O'Neal,St. Louis Rams,,Traditions Crystal
+traditions-crystal,161,Bruce Smith,Buffalo Bills,,Traditions Crystal
+traditions-crystal,162,Santana Dotson,Green Bay Packers,,Traditions Crystal
+traditions-crystal,163,Bobby Hebert,Atlanta Falcons,,Traditions Crystal
+traditions-crystal,164,Keith Hamilton,New York Giants,,Traditions Crystal
+traditions-crystal,165,Tony Boselli,Jacksonville Jaguars,,Traditions Crystal
+traditions-crystal,166,Alfred Williams,Denver Broncos,,Traditions Crystal
+traditions-crystal,167,Ty Detmer,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,168,Chester McGlockton,Oakland Raiders,,Traditions Crystal
+traditions-crystal,169,William Floyd,San Francisco 49ers,,Traditions Crystal
+traditions-crystal,170,Bruce Matthews,Houston Oilers,,Traditions Crystal
+traditions-crystal,171,Simeon Rice,Arizona Cardinals,,Traditions Crystal
+traditions-crystal,172,Scott Mitchell,Detroit Lions,,Traditions Crystal
+traditions-crystal,173,Ricardo McDonald,Cincinnati Bengals,,Traditions Crystal
+traditions-crystal,174,Tyrone Poole,Carolina Panthers,,Traditions Crystal
+traditions-crystal,175,Greg Lloyd,Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,176,Bruce Armstrong,New England Patriots,,Traditions Crystal
+traditions-crystal,177,Erik Kramer,Chicago Bears,,Traditions Crystal
+traditions-crystal,178,Kimble Anders,Kansas City Chiefs,,Traditions Crystal
+traditions-crystal,179,Lamar Smith,Seattle Seahawks,,Traditions Crystal
+traditions-crystal,180,Tony Tolbert,Dallas Cowboys,,Traditions Crystal
+traditions-crystal,181,Joe Aska,Oakland Raiders,,Traditions Crystal
+traditions-crystal,182,Eric Allen,New Orleans Saints,,Traditions Crystal
+traditions-crystal,183,Eric Turner,Oakland Raiders,,Traditions Crystal
+traditions-crystal,184,Brad Johnson,Minnesota Vikings,,Traditions Crystal
+traditions-crystal,185,Tony Martin,San Diego Chargers,,Traditions Crystal
+traditions-crystal,186,Mike Mamula,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,187,Irving Spikes,Miami Dolphins,,Traditions Crystal
+traditions-crystal,188,Keith Jackson,Green Bay Packers,,Traditions Crystal
+traditions-crystal,189,Carlton Bailey,Carolina Panthers,,Traditions Crystal
+traditions-crystal,190,Tyrone Braxton,Denver Broncos,,Traditions Crystal
+traditions-crystal,191,Chad Bratzke,New York Giants,,Traditions Crystal
+traditions-crystal,192,Adrian Murrell,New York Jets,,Traditions Crystal
+traditions-crystal,193,Roman Phifer,St. Louis Rams,,Traditions Crystal
+traditions-crystal,194,Todd Collins,Buffalo Bills,,Traditions Crystal
+traditions-crystal,195,Chris Warren,Seattle Seahawks,,Traditions Crystal
+traditions-crystal,196,Kevin Hardy,Jacksonville Jaguars,,Traditions Crystal
+traditions-crystal,197,Rick Mirer,Chicago Bears,,Traditions Crystal
+traditions-crystal,198,Cornelius Bennett,Atlanta Falcons,,Traditions Crystal
+traditions-crystal,199,Jimmy Hitchcock,New England Patriots,,Traditions Crystal
+traditions-crystal,200,Michael Irvin,Dallas Cowboys,,Traditions Crystal
+traditions-crystal,201,Quentin Coryatt,Indianapolis Colts,,Traditions Crystal
+traditions-crystal,202,Reggie White,Green Bay Packers,,Traditions Crystal
+traditions-crystal,203,Larry Centers,Arizona Cardinals,,Traditions Crystal
+traditions-crystal,204,Rodney Thomas,Houston Oilers,,Traditions Crystal
+traditions-crystal,205,Dana Stubblefield,San Francisco 49ers,,Traditions Crystal
+traditions-crystal,206,Rod Woodson,Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,207,Rhett Hall,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,208,Steve Tovar,Cincinnati Bengals,,Traditions Crystal
+traditions-crystal,209,Michael Westbrook,Washington Redskins,,Traditions Crystal
+traditions-crystal,210,Steve Wisniewski,Oakland Raiders,,Traditions Crystal
+traditions-crystal,211,Carlester Crumpler,Seattle Seahawks,,Traditions Crystal
+traditions-crystal,212,Elvis Grbac,Kansas City Chiefs,,Traditions Crystal
+traditions-crystal,213,Tim Bowens,Miami Dolphins,,Traditions Crystal
+traditions-crystal,214,Robert Porcher,Detroit Lions,,Traditions Crystal
+traditions-crystal,215,John Carney,San Diego Chargers,,Traditions Crystal
+traditions-crystal,216,Anthony Newman,New Orleans Saints,,Traditions Crystal
+traditions-crystal,217,Earnest Byner,Baltimore Ravens,,Traditions Crystal
+traditions-crystal,218,Dewayne Washington,Minnesota Vikings,,Traditions Crystal
+traditions-crystal,219,Willie Green,Denver Broncos,,Traditions Crystal
+traditions-crystal,220,Terry Allen,Washington Redskins,,Traditions Crystal
+traditions-crystal,221,William Fuller,San Diego Chargers,,Traditions Crystal
+traditions-crystal,222,Al Del Greco,Houston Oilers,,Traditions Crystal
+traditions-crystal,223,Trent Dilfer,Tampa Bay Buccaneers,,Traditions Crystal
+traditions-crystal,224,Michael Dean Perry,Denver Broncos,,Traditions Crystal
+traditions-crystal,225,Larry Allen,Dallas Cowboys,,Traditions Crystal
+traditions-crystal,226,Mark Bruener,Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,227,Clay Matthews,Atlanta Falcons,,Traditions Crystal
+traditions-crystal,228,Ruben Brown,Buffalo Bills,,Traditions Crystal
+traditions-crystal,229,Edgar Bennett,Green Bay Packers,,Traditions Crystal
+traditions-crystal,230,Neil Smith,Denver Broncos,,Traditions Crystal
+traditions-crystal,231,Ken Harvey,Washington Redskins,,Traditions Crystal
+traditions-crystal,232,Kyle Brady,New York Jets,,Traditions Crystal
+traditions-crystal,233,Corey Miller,New York Giants,,Traditions Crystal
+traditions-crystal,234,Tony Siragusa,Baltimore Ravens,,Traditions Crystal
+traditions-crystal,235,Todd Sauerbrun,Chicago Bears,,Traditions Crystal
+traditions-crystal,236,Daniel Stubbs,Miami Dolphins,,Traditions Crystal
+traditions-crystal,237,Robb Thomas,Tampa Bay Buccaneers,,Traditions Crystal
+traditions-crystal,238,Jimmy Smith,Jacksonville Jaguars,,Traditions Crystal
+traditions-crystal,239,Marquez Pope,San Francisco 49ers,,Traditions Crystal
+traditions-crystal,240,Tim Biakabutuka,Carolina Panthers,,Traditions Crystal
+traditions-crystal,241,Jamie Asher,Washington Redskins,,Traditions Crystal
+traditions-crystal,242,Steve McNair,Houston Oilers,,Traditions Crystal
+traditions-crystal,243,Harold Green,St. Louis Rams,,Traditions Crystal
+traditions-crystal,244,Frank Sanders,Arizona Cardinals,,Traditions Crystal
+traditions-crystal,245,Joe Johnson,New Orleans Saints,,Traditions Crystal
+traditions-crystal,246,Eric Bieniemy,Cincinnati Bengals,,Traditions Crystal
+traditions-crystal,247,Kevin Turner,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,248,Rickey Dudley,Oakland Raiders,,Traditions Crystal
+traditions-crystal,249,Orlando Thomas,Minnesota Vikings,,Traditions Crystal
+traditions-crystal,250,Dan Marino,Miami Dolphins,,Traditions Crystal
+traditions-crystal,251,Deion Sanders,Dallas Cowboys,,Traditions Crystal
+traditions-crystal,252,Dan Williams,Denver Broncos,,Traditions Crystal
+traditions-crystal,253,Sam Gash,New England Patriots,,Traditions Crystal
+traditions-crystal,254,Lonnie Marts,Houston Oilers,,Traditions Crystal
+traditions-crystal,255,Mo Lewis,New York Jets,,Traditions Crystal
+traditions-crystal,256,Charles Johnson,Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,257,Chris Jacke,Green Bay Packers,,Traditions Crystal
+traditions-crystal,258,Keenan McCardell,Jacksonville Jaguars,,Traditions Crystal
+traditions-crystal,259,Donnell Woolford,Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,260,Terrance Shaw,San Diego Chargers,,Traditions Crystal
+traditions-crystal,261,Jason Dunn,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,262,Willie McGinest,New England Patriots,,Traditions Crystal
+traditions-crystal,263,Ken Dilger,Indianapolis Colts,,Traditions Crystal
+traditions-crystal,264,Keith Lyle,St. Louis Rams,,Traditions Crystal
+traditions-crystal,265,Antonio Langham,Baltimore Ravens,,Traditions Crystal
+traditions-crystal,266,Carlton Gray,Indianapolis Colts,,Traditions Crystal
+traditions-crystal,267,LeShon Johnson,Arizona Cardinals,,Traditions Crystal
+traditions-crystal,268,Thurman Thomas,Buffalo Bills,,Traditions Crystal
+traditions-crystal,269,Jesse Campbell,Washington Redskins,,Traditions Crystal
+traditions-crystal,270,Carnell Lake,Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,271,Cris Dishman,Washington Redskins,,Traditions Crystal
+traditions-crystal,272,Kevin Williams,Dallas Cowboys,,Traditions Crystal
+traditions-crystal,273,Troy Brown,New England Patriots,,Traditions Crystal
+traditions-crystal,274,Willie Roaf,New Orleans Saints,,Traditions Crystal
+traditions-crystal,275,Terrell Davis,Denver Broncos,,Traditions Crystal
+traditions-crystal,276,Herman Moore,Detroit Lions,,Traditions Crystal
+traditions-crystal,277,Walt Harris,Chicago Bears,,Traditions Crystal
+traditions-crystal,278,Mark Collins,Kansas City Chiefs,,Traditions Crystal
+traditions-crystal,279,Bert Emanuel,Atlanta Falcons,,Traditions Crystal
+traditions-crystal,280,Qadry Ismail,Minnesota Vikings,,Traditions Crystal
+traditions-crystal,281,Phil Hansen,Buffalo Bills,,Traditions Crystal
+traditions-crystal,282,Steve Young,San Francisco 49ers,,Traditions Crystal
+traditions-crystal,283,Michael Sinclair,Seattle Seahawks,,Traditions Crystal
+traditions-crystal,284,Jeff Graham,New York Jets,,Traditions Crystal
+traditions-crystal,285,Sam Mills,Carolina Panthers,,Traditions Crystal
+traditions-crystal,286,Terry McDaniel,Oakland Raiders,,Traditions Crystal
+traditions-crystal,287,Eugene Robinson,Green Bay Packers,,Traditions Crystal
+traditions-crystal,288,Tony Bennett,Indianapolis Colts,,Traditions Crystal
+traditions-crystal,289,Daryl Johnston,Dallas Cowboys,,Traditions Crystal
+traditions-crystal,290,Eric Swann,Arizona Cardinals,,Traditions Crystal
+traditions-crystal,291,Bam Morris,Baltimore Ravens,,Traditions Crystal
+traditions-crystal,292,Thomas Lewis,New York Giants,,Traditions Crystal
+traditions-crystal,293,Terrell Fletcher,San Diego Chargers,,Traditions Crystal
+traditions-crystal,294,Gus Frerotte,Washington Redskins,,Traditions Crystal
+traditions-crystal,295,Stanley Pritchett,Miami Dolphins,,Traditions Crystal
+traditions-crystal,296,Mike Alstott,Tampa Bay Buccaneers,,Traditions Crystal
+traditions-crystal,297,Will Shields,Kansas City Chiefs,,Traditions Crystal
+traditions-crystal,298,Errict Rhett,Tampa Bay Buccaneers,,Traditions Crystal
+traditions-crystal,299,Garrison Hearst,San Francisco 49ers,,Traditions Crystal
+traditions-crystal,300,Kerry Collins,Carolina Panthers,,Traditions Crystal
+traditions-crystal,301,Darryll Lewis,Houston Oilers,,Traditions Crystal
+traditions-crystal,302,Chris T. Jones,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,303,Yancey Thigpen,Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,304,Jackie Harris,Tampa Bay Buccaneers,,Traditions Crystal
+traditions-crystal,305,Steve Christie,Buffalo Bills,,Traditions Crystal
+traditions-crystal,306,Gilbert Brown,Green Bay Packers,,Traditions Crystal
+traditions-crystal,307,Terry Wooden,Seattle Seahawks,,Traditions Crystal
+traditions-crystal,308,Pete Mitchell,Jacksonville Jaguars,,Traditions Crystal
+traditions-crystal,309,Tim McDonald,San Francisco 49ers,,Traditions Crystal
+traditions-crystal,310,Jake Reed,Minnesota Vikings,,Traditions Crystal
+traditions-crystal,311,Ed McCaffrey,Denver Broncos,,Traditions Crystal
+traditions-crystal,312,Chris Doleman,San Francisco 49ers,,Traditions Crystal
+traditions-crystal,313,Eric Metcalf,Atlanta Falcons,,Traditions Crystal
+traditions-crystal,314,Ricky Reynolds,New England Patriots,,Traditions Crystal
+traditions-crystal,315,David Sloan,Detroit Lions,,Traditions Crystal
+traditions-crystal,316,Marvin Washington,New York Jets,,Traditions Crystal
+traditions-crystal,317,Herschel Walker,Dallas Cowboys,,Traditions Crystal
+traditions-crystal,318,Michael Timpson,Chicago Bears,,Traditions Crystal
+traditions-crystal,319,Blaine Bishop,Houston Oilers,,Traditions Crystal
+traditions-crystal,320,Irv Smith,New Orleans Saints,,Traditions Crystal
+traditions-crystal,321,Seth Joyner,Arizona Cardinals,,Traditions Crystal
+traditions-crystal,322,Terrell Buckley,Miami Dolphins,,Traditions Crystal
+traditions-crystal,323,Michael Strahan,New York Giants,,Traditions Crystal
+traditions-crystal,324,Sam Adams,Seattle Seahawks,,Traditions Crystal
+traditions-crystal,325,Leslie Shepherd,Washington Redskins,,Traditions Crystal
+traditions-crystal,326,James Jett,Oakland Raiders,,Traditions Crystal
+traditions-crystal,327,Anthony Pleasant,Baltimore Ravens,,Traditions Crystal
+traditions-crystal,328,Lee Woodall,San Francisco 49ers,,Traditions Crystal
+traditions-crystal,329,Shannon Sharpe,Denver Broncos,,Traditions Crystal
+traditions-crystal,330,Jamal Anderson,Atlanta Falcons,,Traditions Crystal
+traditions-crystal,331,Andre Hastings,Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,332,Troy Vincent,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,333,Sean LaChapelle,Kansas City Chiefs,,Traditions Crystal
+traditions-crystal,334,Winslow Oliver,Carolina Panthers,,Traditions Crystal
+traditions-crystal,335,Sean Jones,Green Bay Packers,,Traditions Crystal
+traditions-crystal,336,Darnay Scott,Cincinnati Bengals,,Traditions Crystal
+traditions-crystal,337,Todd Lyght,St. Louis Rams,,Traditions Crystal
+traditions-crystal,338,Leonard Russell,San Diego Chargers,,Traditions Crystal
+traditions-crystal,339,Nate Newton,Dallas Cowboys,,Traditions Crystal
+traditions-crystal,340,Zack Crockett,Indianapolis Colts,,Traditions Crystal
+traditions-crystal,341,Amp Lee,Minnesota Vikings,,Traditions Crystal
+traditions-crystal,342,Bobby Engram,Chicago Bears,,Traditions Crystal
+traditions-crystal,343,Mike Hollis,Jacksonville Jaguars,,Traditions Crystal
+traditions-crystal,344,Rodney Hampton,New York Giants,,Traditions Crystal
+traditions-crystal,345,Mel Gray,Houston Oilers,,Traditions Crystal
+traditions-crystal,346,Van Malone,Detroit Lions,,Traditions Crystal
+traditions-crystal,347,Aaron Craver,San Diego Chargers,,Traditions Crystal
+traditions-crystal,348,Jim Everett,New Orleans Saints,,Traditions Crystal
+traditions-crystal,349,Trace Armstrong,Miami Dolphins,,Traditions Crystal
+traditions-crystal,350,Pat Swilling,Oakland Raiders,,Traditions Crystal
+traditions-crystal,351,Brent Jones,San Francisco 49ers,,Traditions Crystal
+traditions-crystal,352,Chris Spielman,Buffalo Bills,,Traditions Crystal
+traditions-crystal,353,Brett Perriman,Detroit Lions,,Traditions Crystal
+traditions-crystal,354,Brian Kinchen,Baltimore Ravens,,Traditions Crystal
+traditions-crystal,355,Joey Galloway,Seattle Seahawks,,Traditions Crystal
+traditions-crystal,356,Henry Ellard,Washington Redskins,,Traditions Crystal
+traditions-crystal,357,Ben Coates,New England Patriots,,Traditions Crystal
+traditions-crystal,358,Dorsey Levens,Green Bay Packers,,Traditions Crystal
+traditions-crystal,359,Charlie Garner,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,360,Erric Pegram,Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,361,Anthony Johnson,Carolina Panthers,,Traditions Crystal
+traditions-crystal,362,Rashaan Salaam,Chicago Bears,,Traditions Crystal
+traditions-crystal,363,Jeff Blake,Cincinnati Bengals,,Traditions Crystal
+traditions-crystal,364,Kent Graham,Arizona Cardinals,,Traditions Crystal
+traditions-crystal,365,Broderick Thomas,Dallas Cowboys,,Traditions Crystal
+traditions-crystal,366,Richmond Webb,Miami Dolphins,,Traditions Crystal
+traditions-crystal,367,Alfred Pupunu,San Diego Chargers,,Traditions Crystal
+traditions-crystal,368,Mark Stepnoski,Houston Oilers,,Traditions Crystal
+traditions-crystal,369,David Dunn,Cincinnati Bengals,,Traditions Crystal
+traditions-crystal,370,Bobby Houston,New York Jets,,Traditions Crystal
+traditions-crystal,371,Anthony Parker,St. Louis Rams,,Traditions Crystal
+traditions-crystal,372,Quinn Early,Buffalo Bills,,Traditions Crystal
+traditions-crystal,373,LeRoy Butler,Green Bay Packers,,Traditions Crystal
+traditions-crystal,374,Kurt Gouveia,San Diego Chargers,,Traditions Crystal
+traditions-crystal,375,Greg Biekert,Oakland Raiders,,Traditions Crystal
+traditions-crystal,376,Jim Harbaugh,Indianapolis Colts,,Traditions Crystal
+traditions-crystal,377,Eric Bjornson,Dallas Cowboys,,Traditions Crystal
+traditions-crystal,378,Craig Heyward,St. Louis Rams,,Traditions Crystal
+traditions-crystal,379,Steve Bono,Kansas City Chiefs,,Traditions Crystal
+traditions-crystal,380,Tony Banks,St. Louis Rams,,Traditions Crystal
+traditions-crystal,381,John Mobley,Denver Broncos,,Traditions Crystal
+traditions-crystal,382,Irving Fryar,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,383,Dermontti Dawson,Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,384,Eric Davis,Carolina Panthers,,Traditions Crystal
+traditions-crystal,385,Natrone Means,Jacksonville Jaguars,,Traditions Crystal
+traditions-crystal,386,Jason Sehorn,New York Giants,,Traditions Crystal
+traditions-crystal,387,Michael McCrary,Baltimore Ravens,,Traditions Crystal
+traditions-crystal,388,Corwin Brown,New England Patriots,,Traditions Crystal
+traditions-crystal,389,Kevin Glover,Detroit Lions,,Traditions Crystal
+traditions-crystal,390,Jerris McPhail,Miami Dolphins,,Traditions Crystal
+traditions-crystal,391,Bobby Taylor,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,392,Tony McGee,Cincinnati Bengals,,Traditions Crystal
+traditions-crystal,393,Curtis Conway,Chicago Bears,,Traditions Crystal
+traditions-crystal,394,Napoleon Kaufman,Oakland Raiders,,Traditions Crystal
+traditions-crystal,395,Brian Blades,Seattle Seahawks,,Traditions Crystal
+traditions-crystal,396,Richard Dent,Indianapolis Colts,,Traditions Crystal
+traditions-crystal,397,Dave Brown,New York Giants,,Traditions Crystal
+traditions-crystal,398,Stan Humphries,San Diego Chargers,,Traditions Crystal
+traditions-crystal,399,Stevon Moore,Baltimore Ravens,,Traditions Crystal
+traditions-crystal,400,Brett Favre,Green Bay Packers,,Traditions Crystal
+traditions-crystal,401,Jerome Bettis,Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,402,Darrin Smith,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,403,Chris Penn,Kansas City Chiefs,,Traditions Crystal
+traditions-crystal,404,Rob Moore,Arizona Cardinals,,Traditions Crystal
+traditions-crystal,405,Micheal Barrow,Carolina Panthers,,Traditions Crystal
+traditions-crystal,406,Tony Brackens,Jacksonville Jaguars,,Traditions Crystal
+traditions-crystal,407,Wayne Martin,New Orleans Saints,,Traditions Crystal
+traditions-crystal,408,Warren Moon,Seattle Seahawks,,Traditions Crystal
+traditions-crystal,409,Jason Elam,Denver Broncos,,Traditions Crystal
+traditions-crystal,410,J.J. Birden,Atlanta Falcons,,Traditions Crystal
+traditions-crystal,411,Hugh Douglas,New York Jets,,Traditions Crystal
+traditions-crystal,412,Lamar Lathon,Carolina Panthers,,Traditions Crystal
+traditions-crystal,413,John Kidd,Miami Dolphins,,Traditions Crystal
+traditions-crystal,414,Bryce Paup,Buffalo Bills,,Traditions Crystal
+traditions-crystal,415,Shawn Jefferson,New England Patriots,,Traditions Crystal
+traditions-crystal,416,Leeland McElroy,Arizona Cardinals,,Traditions Crystal
+traditions-crystal,417,Elbert Shelley,Atlanta Falcons,,Traditions Crystal
+traditions-crystal,418,Jermaine Lewis,Baltimore Ravens,,Traditions Crystal
+traditions-crystal,419,Eric Moulds,Buffalo Bills,,Traditions Crystal
+traditions-crystal,420,Michael Bates,Carolina Panthers,,Traditions Crystal
+traditions-crystal,421,John Mangum,Chicago Bears,,Traditions Crystal
+traditions-crystal,422,Corey Sawyer,Cincinnati Bengals,,Traditions Crystal
+traditions-crystal,423,Jim Schwantz,Dallas Cowboys,,Traditions Crystal
+traditions-crystal,424,Rod Smith,Denver Broncos,,Traditions Crystal
+traditions-crystal,425,Glyn Milburn,Detroit Lions,,Traditions Crystal
+traditions-crystal,426,Desmond Howard,Green Bay Packers,,Traditions Crystal
+traditions-crystal,427,John Henry Mills,Houston Oilers,,Traditions Crystal
+traditions-crystal,428,Cary Blanchard,Indianapolis Colts,,Traditions Crystal
+traditions-crystal,429,Chris Hudson,Jacksonville Jaguars,,Traditions Crystal
+traditions-crystal,430,Tamarick Vanover,Kansas City Chiefs,,Traditions Crystal
+traditions-crystal,431,Kirby Dar Dar,Miami Dolphins,,Traditions Crystal
+traditions-crystal,432,David Palmer,Minnesota Vikings,,Traditions Crystal
+traditions-crystal,433,Dave Meggett,New England Patriots,,Traditions Crystal
+traditions-crystal,434,Tyrone Hughes,New Orleans Saints,,Traditions Crystal
+traditions-crystal,435,Amani Toomer,New York Giants,,Traditions Crystal
+traditions-crystal,436,Wayne Chrebet,New York Jets,,Traditions Crystal
+traditions-crystal,437,Carl Kidd,Oakland Raiders,,Traditions Crystal
+traditions-crystal,438,Derrick Witherspoon,Philadelphia Eagles,,Traditions Crystal
+traditions-crystal,439,Jahine Arnold,Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,440,Andre Coleman,San Diego Chargers,,Traditions Crystal
+traditions-crystal,441,Jeff Wilkins,San Francisco 49ers,,Traditions Crystal
+traditions-crystal,442,Jay Bellamy,Seattle Seahawks,,Traditions Crystal
+traditions-crystal,443,Eddie Kennison,St. Louis Rams,,Traditions Crystal
+traditions-crystal,444,Nilo Silvan,Tampa Bay Buccaneers,,Traditions Crystal
+traditions-crystal,445,Brian Mitchell,Washington Redskins,,Traditions Crystal
+traditions-crystal,446,Ki-Jana Carter,Cincinnati Bengals / Arizona Cardinals / Atlanta Falcons / Baltimore Ravens / Buffalo Bills / Carolina Panthers / Chicago Bears / Dallas Cowboys,,Traditions Crystal
+traditions-crystal,447,Napoleon Kaufman,Oakland Raiders / Denver Broncos / Detroit Lions / Green Bay Packers / Houston Oilers / Indianapolis Colts / Kansas City Chiefs / Miami Dolphins,,Traditions Crystal
+traditions-crystal,448,Brian Mitchell,Washington Redskins / Minnesota Vikings / New England Patriots / New Orleans Saints / New York Giants / New York Jets / Oakland Raiders / Philadelphia Eagles / Pittsburgh Steelers,,Traditions Crystal
+traditions-crystal,449,Rodney Hampton,New York Giants / St. Louis Rams / San Diego Chargers / San Francisco 49ers / Seattle Seahawks / Tampa Bay Buccaneers / Washington Redskins,,Traditions Crystal
+traditions-crystal,450,Edgar Bennett CLChecklist: 446-450 and Inserts,Green Bay Packers,,Traditions Crystal
+traditions-tiffany,1,Mark Brunell,Jacksonville Jaguars,,Traditions Tiffany
+traditions-tiffany,2,Andre Reed,Buffalo Bills,,Traditions Tiffany
+traditions-tiffany,3,Darrell Green,Washington Redskins,,Traditions Tiffany
+traditions-tiffany,4,Mario Bates,New Orleans Saints,,Traditions Tiffany
+traditions-tiffany,5,Eddie George,Houston Oilers,,Traditions Tiffany
+traditions-tiffany,6,Cris Carter,Minnesota Vikings,,Traditions Tiffany
+traditions-tiffany,7,Terrell Owens,San Francisco 49ers,,Traditions Tiffany
+traditions-tiffany,8,Bill Romanowski,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,9,Isaac Bruce,St. Louis Rams,,Traditions Tiffany
+traditions-tiffany,10,Eric Curry,Tampa Bay Buccaneers,,Traditions Tiffany
+traditions-tiffany,11,Danny Kanell,New York Giants,,Traditions Tiffany
+traditions-tiffany,12,Ki-Jana Carter,Cincinnati Bengals,,Traditions Tiffany
+traditions-tiffany,13,Antonio Freeman,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,14,Ricky Watters,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,15,Ty Law,New England Patriots,,Traditions Tiffany
+traditions-tiffany,16,Alonzo Spellman,Chicago Bears,,Traditions Tiffany
+traditions-tiffany,17,Kordell Stewart,Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,18,Jerry Rice,San Francisco 49ers,,Traditions Tiffany
+traditions-tiffany,19,Derrick Alexander,Baltimore Ravens,,Traditions Tiffany
+traditions-tiffany,20,Barry Sanders,Detroit Lions,,Traditions Tiffany
+traditions-tiffany,21,Keyshawn Johnson,New York Jets,,Traditions Tiffany
+traditions-tiffany,22,Emmitt Smith,Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,23,Ricky Proehl,Seattle Seahawks,,Traditions Tiffany
+traditions-tiffany,24,Daryl Gardener,Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,25,Dan Saleaumua,Kansas City Chiefs,,Traditions Tiffany
+traditions-tiffany,26,Kevin Greene,Carolina Panthers,,Traditions Tiffany
+traditions-tiffany,27,Junior Seau,San Diego Chargers,,Traditions Tiffany
+traditions-tiffany,28,Randall McDaniel,Minnesota Vikings,,Traditions Tiffany
+traditions-tiffany,29,Marshall Faulk,Indianapolis Colts,,Traditions Tiffany
+traditions-tiffany,30,Lorenzo Lynch,Oakland Raiders,,Traditions Tiffany
+traditions-tiffany,31,Terance Mathis,Atlanta Falcons,,Traditions Tiffany
+traditions-tiffany,32,Warren Sapp,Tampa Bay Buccaneers,,Traditions Tiffany
+traditions-tiffany,33,Chris Sanders,Houston Oilers,,Traditions Tiffany
+traditions-tiffany,34,Tom Carter,Washington Redskins,,Traditions Tiffany
+traditions-tiffany,35,Aeneas Williams,Arizona Cardinals,,Traditions Tiffany
+traditions-tiffany,36,Lawrence Phillips,St. Louis Rams,,Traditions Tiffany
+traditions-tiffany,37,John Elway,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,38,Stanley Richard,Washington Redskins,,Traditions Tiffany
+traditions-tiffany,39,Darryl Williams,Seattle Seahawks,,Traditions Tiffany
+traditions-tiffany,40,Phillippi Sparks,New York Giants,,Traditions Tiffany
+traditions-tiffany,41,Tedy Bruschi,New England Patriots,,Traditions Tiffany
+traditions-tiffany,42,Merton Hanks,San Francisco 49ers,,Traditions Tiffany
+traditions-tiffany,43,Ray Lewis,Baltimore Ravens,,Traditions Tiffany
+traditions-tiffany,44,Erik Williams,Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,45,Jason Gildon,Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,46,George Koonce,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,47,Louis Oliver,Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,48,Muhsin Muhammad,Carolina Panthers,,Traditions Tiffany
+traditions-tiffany,49,Daryl Hobbs,New Orleans Saints,,Traditions Tiffany
+traditions-tiffany,50,Terry Glenn,New England Patriots,,Traditions Tiffany
+traditions-tiffany,51,Marvin Harrison,Indianapolis Colts,,Traditions Tiffany
+traditions-tiffany,52,Brian Dawkins,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,53,Dale Carter,Kansas City Chiefs,,Traditions Tiffany
+traditions-tiffany,54,Alex Molden,New Orleans Saints,,Traditions Tiffany
+traditions-tiffany,55,Raymont Harris,Chicago Bears,,Traditions Tiffany
+traditions-tiffany,56,Jeff Burris,Buffalo Bills,,Traditions Tiffany
+traditions-tiffany,57,Don Beebe,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,58,Jamir Miller,Arizona Cardinals,,Traditions Tiffany
+traditions-tiffany,59,Carl Pickens,Cincinnati Bengals,,Traditions Tiffany
+traditions-tiffany,60,Antonio London,Detroit Lions,,Traditions Tiffany
+traditions-tiffany,61,Courtney Hall,San Diego Chargers,,Traditions Tiffany
+traditions-tiffany,62,Derrick Brooks,Tampa Bay Buccaneers,,Traditions Tiffany
+traditions-tiffany,63,Chris Boniol,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,64,Jeff Lageman,Jacksonville Jaguars,,Traditions Tiffany
+traditions-tiffany,65,Roy Barker,San Francisco 49ers,,Traditions Tiffany
+traditions-tiffany,66,Devin Bush,Atlanta Falcons,,Traditions Tiffany
+traditions-tiffany,67,Aaron Glenn,New York Jets,,Traditions Tiffany
+traditions-tiffany,68,Wayne Simmons,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,69,Steve Atwater,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,70,Jimmie Jones,St. Louis Rams,,Traditions Tiffany
+traditions-tiffany,71,Mark Carrier,Carolina Panthers,,Traditions Tiffany
+traditions-tiffany,72,Chris Chandler,Atlanta Falcons,,Traditions Tiffany
+traditions-tiffany,73,Andy Harmon,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,74,John Friesz,Seattle Seahawks,,Traditions Tiffany
+traditions-tiffany,75,Karim Abdul-Jabbar,Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,76,Levon Kirkland,Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,77,Torrance Small,New Orleans Saints,,Traditions Tiffany
+traditions-tiffany,78,Harvey Williams,Oakland Raiders,,Traditions Tiffany
+traditions-tiffany,79,Chris Calloway,New York Giants,,Traditions Tiffany
+traditions-tiffany,80,Vinny Testaverde,Baltimore Ravens,,Traditions Tiffany
+traditions-tiffany,81,Bryant Young,San Francisco 49ers,,Traditions Tiffany
+traditions-tiffany,82,Ray Buchanan,Atlanta Falcons,,Traditions Tiffany
+traditions-tiffany,83,Robert Smith,Minnesota Vikings,,Traditions Tiffany
+traditions-tiffany,84,Robert Brooks,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,85,Ray Crockett,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,86,Bennie Blades,Seattle Seahawks,,Traditions Tiffany
+traditions-tiffany,87,Mark Carrier,Chicago Bears,,Traditions Tiffany
+traditions-tiffany,88,Mike Tomczak,Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,89,Darick Holmes,Buffalo Bills,,Traditions Tiffany
+traditions-tiffany,90,Drew Bledsoe,New England Patriots,,Traditions Tiffany
+traditions-tiffany,91,Darren Woodson,Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,92,Dan Wilkinson,Cincinnati Bengals,,Traditions Tiffany
+traditions-tiffany,93,Charles Way,New York Giants,,Traditions Tiffany
+traditions-tiffany,94,Ray Farmer,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,95,Marcus Allen,Kansas City Chiefs,,Traditions Tiffany
+traditions-tiffany,96,Marco Coleman,San Diego Chargers,,Traditions Tiffany
+traditions-tiffany,97,Zach Thomas,Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,98,Wesley Walls,Carolina Panthers,,Traditions Tiffany
+traditions-tiffany,99,Frank Wycheck,Houston Oilers,,Traditions Tiffany
+traditions-tiffany,100,Troy Aikman,Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,101,Clyde Simmons,Jacksonville Jaguars,,Traditions Tiffany
+traditions-tiffany,102,Courtney Hawkins,Tampa Bay Buccaneers,,Traditions Tiffany
+traditions-tiffany,103,Chuck Smith,Atlanta Falcons,,Traditions Tiffany
+traditions-tiffany,104,Neil O'Donnell,New York Jets,,Traditions Tiffany
+traditions-tiffany,105,Kevin Carter,St. Louis Rams,,Traditions Tiffany
+traditions-tiffany,106,Chris Slade,New England Patriots,,Traditions Tiffany
+traditions-tiffany,107,Jessie Armstead,New York Giants,,Traditions Tiffany
+traditions-tiffany,108,Sean Dawkins,Indianapolis Colts,,Traditions Tiffany
+traditions-tiffany,109,Robert Blackmon,Seattle Seahawks,,Traditions Tiffany
+traditions-tiffany,110,Kevin Smith,Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,111,Lonnie Johnson,Buffalo Bills,,Traditions Tiffany
+traditions-tiffany,112,Craig Newsome,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,113,Jonathan Ogden,Baltimore Ravens,,Traditions Tiffany
+traditions-tiffany,114,Chris Zorich,Chicago Bears,,Traditions Tiffany
+traditions-tiffany,115,Tim Brown,Oakland Raiders,,Traditions Tiffany
+traditions-tiffany,116,Fred Barnett,Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,117,Michael Haynes,New Orleans Saints,,Traditions Tiffany
+traditions-tiffany,118,Eric Hill,Arizona Cardinals,,Traditions Tiffany
+traditions-tiffany,119,Ronnie Harmon,Houston Oilers,,Traditions Tiffany
+traditions-tiffany,120,Sean Gilbert,Washington Redskins,,Traditions Tiffany
+traditions-tiffany,121,"Derrick Alexander UERUER: Born 11/3, should be 11/13",Minnesota Vikings,,Traditions Tiffany
+traditions-tiffany,122,Derrick Thomas,Kansas City Chiefs,,Traditions Tiffany
+traditions-tiffany,123,Tyrone Wheatley,New York Giants,,Traditions Tiffany
+traditions-tiffany,124,Cortez Kennedy,Seattle Seahawks,,Traditions Tiffany
+traditions-tiffany,125,Jeff George,Oakland Raiders,,Traditions Tiffany
+traditions-tiffany,126,Chad Cota,Carolina Panthers,,Traditions Tiffany
+traditions-tiffany,127,Gary Zimmerman,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,128,Johnnie Morton,Detroit Lions,,Traditions Tiffany
+traditions-tiffany,129,Chad Brown,Seattle Seahawks,,Traditions Tiffany
+traditions-tiffany,130,Marvcus Patton,Washington Redskins,,Traditions Tiffany
+traditions-tiffany,131,James Stewart,Jacksonville Jaguars,,Traditions Tiffany
+traditions-tiffany,132,Terry Kirby,San Francisco 49ers,,Traditions Tiffany
+traditions-tiffany,133,Chris Mims,San Diego Chargers,,Traditions Tiffany
+traditions-tiffany,134,William Thomas,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,135,Steve Tasker,Buffalo Bills,,Traditions Tiffany
+traditions-tiffany,136,Jason Belser,Indianapolis Colts,,Traditions Tiffany
+traditions-tiffany,137,Bryan Cox,Chicago Bears,,Traditions Tiffany
+traditions-tiffany,138,Jessie Tuggle,Atlanta Falcons,,Traditions Tiffany
+traditions-tiffany,139,Ashley Ambrose,Cincinnati Bengals,,Traditions Tiffany
+traditions-tiffany,140,Mark Chmura,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,141,Jeff Hostetler,Oakland Raiders,,Traditions Tiffany
+traditions-tiffany,142,Rich Owens,Washington Redskins,,Traditions Tiffany
+traditions-tiffany,143,Willie Davis,Houston Oilers,,Traditions Tiffany
+traditions-tiffany,144,Hardy Nickerson,Tampa Bay Buccaneers,,Traditions Tiffany
+traditions-tiffany,145,Curtis Martin,New England Patriots,,Traditions Tiffany
+traditions-tiffany,146,Ken Norton,San Francisco 49ers,,Traditions Tiffany
+traditions-tiffany,147,Victor Green,New York Jets,,Traditions Tiffany
+traditions-tiffany,148,Anthony Miller,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,149,John Kasay,Carolina Panthers,,Traditions Tiffany
+traditions-tiffany,150,O.J. McDuffie,Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,151,Darren Perry,Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,152,Luther Elliss,Detroit Lions,,Traditions Tiffany
+traditions-tiffany,153,Greg Hill,Kansas City Chiefs,,Traditions Tiffany
+traditions-tiffany,154,John Randle,Minnesota Vikings,,Traditions Tiffany
+traditions-tiffany,155,Stephen Grant,Indianapolis Colts,,Traditions Tiffany
+traditions-tiffany,156,Leon Lett,Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,157,Darrien Gordon,San Diego Chargers,,Traditions Tiffany
+traditions-tiffany,158,Ray Zellars,New Orleans Saints,,Traditions Tiffany
+traditions-tiffany,159,Michael Jackson,Baltimore Ravens,,Traditions Tiffany
+traditions-tiffany,160,Leslie O'Neal,St. Louis Rams,,Traditions Tiffany
+traditions-tiffany,161,Bruce Smith,Buffalo Bills,,Traditions Tiffany
+traditions-tiffany,162,Santana Dotson,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,163,Bobby Hebert,Atlanta Falcons,,Traditions Tiffany
+traditions-tiffany,164,Keith Hamilton,New York Giants,,Traditions Tiffany
+traditions-tiffany,165,Tony Boselli,Jacksonville Jaguars,,Traditions Tiffany
+traditions-tiffany,166,Alfred Williams,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,167,Ty Detmer,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,168,Chester McGlockton,Oakland Raiders,,Traditions Tiffany
+traditions-tiffany,169,William Floyd,San Francisco 49ers,,Traditions Tiffany
+traditions-tiffany,170,Bruce Matthews,Houston Oilers,,Traditions Tiffany
+traditions-tiffany,171,Simeon Rice,Arizona Cardinals,,Traditions Tiffany
+traditions-tiffany,172,Scott Mitchell,Detroit Lions,,Traditions Tiffany
+traditions-tiffany,173,Ricardo McDonald,Cincinnati Bengals,,Traditions Tiffany
+traditions-tiffany,174,Tyrone Poole,Carolina Panthers,,Traditions Tiffany
+traditions-tiffany,175,Greg Lloyd,Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,176,Bruce Armstrong,New England Patriots,,Traditions Tiffany
+traditions-tiffany,177,Erik Kramer,Chicago Bears,,Traditions Tiffany
+traditions-tiffany,178,Kimble Anders,Kansas City Chiefs,,Traditions Tiffany
+traditions-tiffany,179,Lamar Smith,Seattle Seahawks,,Traditions Tiffany
+traditions-tiffany,180,Tony Tolbert,Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,181,Joe Aska,Oakland Raiders,,Traditions Tiffany
+traditions-tiffany,182,Eric Allen,New Orleans Saints,,Traditions Tiffany
+traditions-tiffany,183,Eric Turner,Oakland Raiders,,Traditions Tiffany
+traditions-tiffany,184,Brad Johnson,Minnesota Vikings,,Traditions Tiffany
+traditions-tiffany,185,Tony Martin,San Diego Chargers,,Traditions Tiffany
+traditions-tiffany,186,Mike Mamula,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,187,Irving Spikes,Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,188,Keith Jackson,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,189,Carlton Bailey,Carolina Panthers,,Traditions Tiffany
+traditions-tiffany,190,Tyrone Braxton,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,191,Chad Bratzke,New York Giants,,Traditions Tiffany
+traditions-tiffany,192,Adrian Murrell,New York Jets,,Traditions Tiffany
+traditions-tiffany,193,Roman Phifer,St. Louis Rams,,Traditions Tiffany
+traditions-tiffany,194,Todd Collins,Buffalo Bills,,Traditions Tiffany
+traditions-tiffany,195,Chris Warren,Seattle Seahawks,,Traditions Tiffany
+traditions-tiffany,196,Kevin Hardy,Jacksonville Jaguars,,Traditions Tiffany
+traditions-tiffany,197,Rick Mirer,Chicago Bears,,Traditions Tiffany
+traditions-tiffany,198,Cornelius Bennett,Atlanta Falcons,,Traditions Tiffany
+traditions-tiffany,199,Jimmy Hitchcock,New England Patriots,,Traditions Tiffany
+traditions-tiffany,200,Michael Irvin,Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,201,Quentin Coryatt,Indianapolis Colts,,Traditions Tiffany
+traditions-tiffany,202,Reggie White,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,203,Larry Centers,Arizona Cardinals,,Traditions Tiffany
+traditions-tiffany,204,Rodney Thomas,Houston Oilers,,Traditions Tiffany
+traditions-tiffany,205,Dana Stubblefield,San Francisco 49ers,,Traditions Tiffany
+traditions-tiffany,206,Rod Woodson,Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,207,Rhett Hall,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,208,Steve Tovar,Cincinnati Bengals,,Traditions Tiffany
+traditions-tiffany,209,Michael Westbrook,Washington Redskins,,Traditions Tiffany
+traditions-tiffany,210,Steve Wisniewski,Oakland Raiders,,Traditions Tiffany
+traditions-tiffany,211,Carlester Crumpler,Seattle Seahawks,,Traditions Tiffany
+traditions-tiffany,212,Elvis Grbac,Kansas City Chiefs,,Traditions Tiffany
+traditions-tiffany,213,Tim Bowens,Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,214,Robert Porcher,Detroit Lions,,Traditions Tiffany
+traditions-tiffany,215,John Carney,San Diego Chargers,,Traditions Tiffany
+traditions-tiffany,216,Anthony Newman,New Orleans Saints,,Traditions Tiffany
+traditions-tiffany,217,Earnest Byner,Baltimore Ravens,,Traditions Tiffany
+traditions-tiffany,218,Dewayne Washington,Minnesota Vikings,,Traditions Tiffany
+traditions-tiffany,219,Willie Green,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,220,Terry Allen,Washington Redskins,,Traditions Tiffany
+traditions-tiffany,221,William Fuller,San Diego Chargers,,Traditions Tiffany
+traditions-tiffany,222,Al Del Greco,Houston Oilers,,Traditions Tiffany
+traditions-tiffany,223,Trent Dilfer,Tampa Bay Buccaneers,,Traditions Tiffany
+traditions-tiffany,224,Michael Dean Perry,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,225,Larry Allen,Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,226,Mark Bruener,Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,227,Clay Matthews,Atlanta Falcons,,Traditions Tiffany
+traditions-tiffany,228,Ruben Brown,Buffalo Bills,,Traditions Tiffany
+traditions-tiffany,229,Edgar Bennett,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,230,Neil Smith,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,231,Ken Harvey,Washington Redskins,,Traditions Tiffany
+traditions-tiffany,232,Kyle Brady,New York Jets,,Traditions Tiffany
+traditions-tiffany,233,Corey Miller,New York Giants,,Traditions Tiffany
+traditions-tiffany,234,Tony Siragusa,Baltimore Ravens,,Traditions Tiffany
+traditions-tiffany,235,Todd Sauerbrun,Chicago Bears,,Traditions Tiffany
+traditions-tiffany,236,Daniel Stubbs,Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,237,Robb Thomas,Tampa Bay Buccaneers,,Traditions Tiffany
+traditions-tiffany,238,Jimmy Smith,Jacksonville Jaguars,,Traditions Tiffany
+traditions-tiffany,239,Marquez Pope,San Francisco 49ers,,Traditions Tiffany
+traditions-tiffany,240,Tim Biakabutuka,Carolina Panthers,,Traditions Tiffany
+traditions-tiffany,241,Jamie Asher,Washington Redskins,,Traditions Tiffany
+traditions-tiffany,242,Steve McNair,Houston Oilers,,Traditions Tiffany
+traditions-tiffany,243,Harold Green,St. Louis Rams,,Traditions Tiffany
+traditions-tiffany,244,Frank Sanders,Arizona Cardinals,,Traditions Tiffany
+traditions-tiffany,245,Joe Johnson,New Orleans Saints,,Traditions Tiffany
+traditions-tiffany,246,Eric Bieniemy,Cincinnati Bengals,,Traditions Tiffany
+traditions-tiffany,247,Kevin Turner,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,248,Rickey Dudley,Oakland Raiders,,Traditions Tiffany
+traditions-tiffany,249,Orlando Thomas,Minnesota Vikings,,Traditions Tiffany
+traditions-tiffany,250,Dan Marino,Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,251,Deion Sanders,Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,252,Dan Williams,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,253,Sam Gash,New England Patriots,,Traditions Tiffany
+traditions-tiffany,254,Lonnie Marts,Houston Oilers,,Traditions Tiffany
+traditions-tiffany,255,Mo Lewis,New York Jets,,Traditions Tiffany
+traditions-tiffany,256,Charles Johnson,Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,257,Chris Jacke,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,258,Keenan McCardell,Jacksonville Jaguars,,Traditions Tiffany
+traditions-tiffany,259,Donnell Woolford,Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,260,Terrance Shaw,San Diego Chargers,,Traditions Tiffany
+traditions-tiffany,261,Jason Dunn,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,262,Willie McGinest,New England Patriots,,Traditions Tiffany
+traditions-tiffany,263,Ken Dilger,Indianapolis Colts,,Traditions Tiffany
+traditions-tiffany,264,Keith Lyle,St. Louis Rams,,Traditions Tiffany
+traditions-tiffany,265,Antonio Langham,Baltimore Ravens,,Traditions Tiffany
+traditions-tiffany,266,Carlton Gray,Indianapolis Colts,,Traditions Tiffany
+traditions-tiffany,267,LeShon Johnson,Arizona Cardinals,,Traditions Tiffany
+traditions-tiffany,268,Thurman Thomas,Buffalo Bills,,Traditions Tiffany
+traditions-tiffany,269,Jesse Campbell,Washington Redskins,,Traditions Tiffany
+traditions-tiffany,270,Carnell Lake,Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,271,Cris Dishman,Washington Redskins,,Traditions Tiffany
+traditions-tiffany,272,Kevin Williams,Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,273,Troy Brown,New England Patriots,,Traditions Tiffany
+traditions-tiffany,274,Willie Roaf,New Orleans Saints,,Traditions Tiffany
+traditions-tiffany,275,Terrell Davis,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,276,Herman Moore,Detroit Lions,,Traditions Tiffany
+traditions-tiffany,277,Walt Harris,Chicago Bears,,Traditions Tiffany
+traditions-tiffany,278,Mark Collins,Kansas City Chiefs,,Traditions Tiffany
+traditions-tiffany,279,Bert Emanuel,Atlanta Falcons,,Traditions Tiffany
+traditions-tiffany,280,Qadry Ismail,Minnesota Vikings,,Traditions Tiffany
+traditions-tiffany,281,Phil Hansen,Buffalo Bills,,Traditions Tiffany
+traditions-tiffany,282,Steve Young,San Francisco 49ers,,Traditions Tiffany
+traditions-tiffany,283,Michael Sinclair,Seattle Seahawks,,Traditions Tiffany
+traditions-tiffany,284,Jeff Graham,New York Jets,,Traditions Tiffany
+traditions-tiffany,285,Sam Mills,Carolina Panthers,,Traditions Tiffany
+traditions-tiffany,286,Terry McDaniel,Oakland Raiders,,Traditions Tiffany
+traditions-tiffany,287,Eugene Robinson,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,288,Tony Bennett,Indianapolis Colts,,Traditions Tiffany
+traditions-tiffany,289,Daryl Johnston,Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,290,Eric Swann,Arizona Cardinals,,Traditions Tiffany
+traditions-tiffany,291,Bam Morris,Baltimore Ravens,,Traditions Tiffany
+traditions-tiffany,292,Thomas Lewis,New York Giants,,Traditions Tiffany
+traditions-tiffany,293,Terrell Fletcher,San Diego Chargers,,Traditions Tiffany
+traditions-tiffany,294,Gus Frerotte,Washington Redskins,,Traditions Tiffany
+traditions-tiffany,295,Stanley Pritchett,Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,296,Mike Alstott,Tampa Bay Buccaneers,,Traditions Tiffany
+traditions-tiffany,297,Will Shields,Kansas City Chiefs,,Traditions Tiffany
+traditions-tiffany,298,Errict Rhett,Tampa Bay Buccaneers,,Traditions Tiffany
+traditions-tiffany,299,Garrison Hearst,San Francisco 49ers,,Traditions Tiffany
+traditions-tiffany,300,Kerry Collins,Carolina Panthers,,Traditions Tiffany
+traditions-tiffany,301,Darryll Lewis,Houston Oilers,,Traditions Tiffany
+traditions-tiffany,302,Chris T. Jones,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,303,Yancey Thigpen,Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,304,Jackie Harris,Tampa Bay Buccaneers,,Traditions Tiffany
+traditions-tiffany,305,Steve Christie,Buffalo Bills,,Traditions Tiffany
+traditions-tiffany,306,Gilbert Brown,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,307,Terry Wooden,Seattle Seahawks,,Traditions Tiffany
+traditions-tiffany,308,Pete Mitchell,Jacksonville Jaguars,,Traditions Tiffany
+traditions-tiffany,309,Tim McDonald,San Francisco 49ers,,Traditions Tiffany
+traditions-tiffany,310,Jake Reed,Minnesota Vikings,,Traditions Tiffany
+traditions-tiffany,311,Ed McCaffrey,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,312,Chris Doleman,San Francisco 49ers,,Traditions Tiffany
+traditions-tiffany,313,Eric Metcalf,Atlanta Falcons,,Traditions Tiffany
+traditions-tiffany,314,Ricky Reynolds,New England Patriots,,Traditions Tiffany
+traditions-tiffany,315,David Sloan,Detroit Lions,,Traditions Tiffany
+traditions-tiffany,316,Marvin Washington,New York Jets,,Traditions Tiffany
+traditions-tiffany,317,Herschel Walker,Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,318,Michael Timpson,Chicago Bears,,Traditions Tiffany
+traditions-tiffany,319,Blaine Bishop,Houston Oilers,,Traditions Tiffany
+traditions-tiffany,320,Irv Smith,New Orleans Saints,,Traditions Tiffany
+traditions-tiffany,321,Seth Joyner,Arizona Cardinals,,Traditions Tiffany
+traditions-tiffany,322,Terrell Buckley,Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,323,Michael Strahan,New York Giants,,Traditions Tiffany
+traditions-tiffany,324,Sam Adams,Seattle Seahawks,,Traditions Tiffany
+traditions-tiffany,325,Leslie Shepherd,Washington Redskins,,Traditions Tiffany
+traditions-tiffany,326,James Jett,Oakland Raiders,,Traditions Tiffany
+traditions-tiffany,327,Anthony Pleasant,Baltimore Ravens,,Traditions Tiffany
+traditions-tiffany,328,Lee Woodall,San Francisco 49ers,,Traditions Tiffany
+traditions-tiffany,329,Shannon Sharpe,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,330,Jamal Anderson,Atlanta Falcons,,Traditions Tiffany
+traditions-tiffany,331,Andre Hastings,Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,332,Troy Vincent,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,333,Sean LaChapelle,Kansas City Chiefs,,Traditions Tiffany
+traditions-tiffany,334,Winslow Oliver,Carolina Panthers,,Traditions Tiffany
+traditions-tiffany,335,Sean Jones,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,336,Darnay Scott,Cincinnati Bengals,,Traditions Tiffany
+traditions-tiffany,337,Todd Lyght,St. Louis Rams,,Traditions Tiffany
+traditions-tiffany,338,Leonard Russell,San Diego Chargers,,Traditions Tiffany
+traditions-tiffany,339,Nate Newton,Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,340,Zack Crockett,Indianapolis Colts,,Traditions Tiffany
+traditions-tiffany,341,Amp Lee,Minnesota Vikings,,Traditions Tiffany
+traditions-tiffany,342,Bobby Engram,Chicago Bears,,Traditions Tiffany
+traditions-tiffany,343,Mike Hollis,Jacksonville Jaguars,,Traditions Tiffany
+traditions-tiffany,344,Rodney Hampton,New York Giants,,Traditions Tiffany
+traditions-tiffany,345,Mel Gray,Houston Oilers,,Traditions Tiffany
+traditions-tiffany,346,Van Malone,Detroit Lions,,Traditions Tiffany
+traditions-tiffany,347,Aaron Craver,San Diego Chargers,,Traditions Tiffany
+traditions-tiffany,348,Jim Everett,New Orleans Saints,,Traditions Tiffany
+traditions-tiffany,349,Trace Armstrong,Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,350,Pat Swilling,Oakland Raiders,,Traditions Tiffany
+traditions-tiffany,351,Brent Jones,San Francisco 49ers,,Traditions Tiffany
+traditions-tiffany,352,Chris Spielman,Buffalo Bills,,Traditions Tiffany
+traditions-tiffany,353,Brett Perriman,Detroit Lions,,Traditions Tiffany
+traditions-tiffany,354,Brian Kinchen,Baltimore Ravens,,Traditions Tiffany
+traditions-tiffany,355,Joey Galloway,Seattle Seahawks,,Traditions Tiffany
+traditions-tiffany,356,Henry Ellard,Washington Redskins,,Traditions Tiffany
+traditions-tiffany,357,Ben Coates,New England Patriots,,Traditions Tiffany
+traditions-tiffany,358,Dorsey Levens,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,359,Charlie Garner,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,360,Erric Pegram,Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,361,Anthony Johnson,Carolina Panthers,,Traditions Tiffany
+traditions-tiffany,362,Rashaan Salaam,Chicago Bears,,Traditions Tiffany
+traditions-tiffany,363,Jeff Blake,Cincinnati Bengals,,Traditions Tiffany
+traditions-tiffany,364,Kent Graham,Arizona Cardinals,,Traditions Tiffany
+traditions-tiffany,365,Broderick Thomas,Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,366,Richmond Webb,Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,367,Alfred Pupunu,San Diego Chargers,,Traditions Tiffany
+traditions-tiffany,368,Mark Stepnoski,Houston Oilers,,Traditions Tiffany
+traditions-tiffany,369,David Dunn,Cincinnati Bengals,,Traditions Tiffany
+traditions-tiffany,370,Bobby Houston,New York Jets,,Traditions Tiffany
+traditions-tiffany,371,Anthony Parker,St. Louis Rams,,Traditions Tiffany
+traditions-tiffany,372,Quinn Early,Buffalo Bills,,Traditions Tiffany
+traditions-tiffany,373,LeRoy Butler,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,374,Kurt Gouveia,San Diego Chargers,,Traditions Tiffany
+traditions-tiffany,375,Greg Biekert,Oakland Raiders,,Traditions Tiffany
+traditions-tiffany,376,Jim Harbaugh,Indianapolis Colts,,Traditions Tiffany
+traditions-tiffany,377,Eric Bjornson,Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,378,Craig Heyward,St. Louis Rams,,Traditions Tiffany
+traditions-tiffany,379,Steve Bono,Kansas City Chiefs,,Traditions Tiffany
+traditions-tiffany,380,Tony Banks,St. Louis Rams,,Traditions Tiffany
+traditions-tiffany,381,John Mobley,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,382,Irving Fryar,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,383,Dermontti Dawson,Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,384,Eric Davis,Carolina Panthers,,Traditions Tiffany
+traditions-tiffany,385,Natrone Means,Jacksonville Jaguars,,Traditions Tiffany
+traditions-tiffany,386,Jason Sehorn,New York Giants,,Traditions Tiffany
+traditions-tiffany,387,Michael McCrary,Baltimore Ravens,,Traditions Tiffany
+traditions-tiffany,388,Corwin Brown,New England Patriots,,Traditions Tiffany
+traditions-tiffany,389,Kevin Glover,Detroit Lions,,Traditions Tiffany
+traditions-tiffany,390,Jerris McPhail,Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,391,Bobby Taylor,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,392,Tony McGee,Cincinnati Bengals,,Traditions Tiffany
+traditions-tiffany,393,Curtis Conway,Chicago Bears,,Traditions Tiffany
+traditions-tiffany,394,Napoleon Kaufman,Oakland Raiders,,Traditions Tiffany
+traditions-tiffany,395,Brian Blades,Seattle Seahawks,,Traditions Tiffany
+traditions-tiffany,396,Richard Dent,Indianapolis Colts,,Traditions Tiffany
+traditions-tiffany,397,Dave Brown,New York Giants,,Traditions Tiffany
+traditions-tiffany,398,Stan Humphries,San Diego Chargers,,Traditions Tiffany
+traditions-tiffany,399,Stevon Moore,Baltimore Ravens,,Traditions Tiffany
+traditions-tiffany,400,Brett Favre,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,401,Jerome Bettis,Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,402,Darrin Smith,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,403,Chris Penn,Kansas City Chiefs,,Traditions Tiffany
+traditions-tiffany,404,Rob Moore,Arizona Cardinals,,Traditions Tiffany
+traditions-tiffany,405,Micheal Barrow,Carolina Panthers,,Traditions Tiffany
+traditions-tiffany,406,Tony Brackens,Jacksonville Jaguars,,Traditions Tiffany
+traditions-tiffany,407,Wayne Martin,New Orleans Saints,,Traditions Tiffany
+traditions-tiffany,408,Warren Moon,Seattle Seahawks,,Traditions Tiffany
+traditions-tiffany,409,Jason Elam,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,410,J.J. Birden,Atlanta Falcons,,Traditions Tiffany
+traditions-tiffany,411,Hugh Douglas,New York Jets,,Traditions Tiffany
+traditions-tiffany,412,Lamar Lathon,Carolina Panthers,,Traditions Tiffany
+traditions-tiffany,413,John Kidd,Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,414,Bryce Paup,Buffalo Bills,,Traditions Tiffany
+traditions-tiffany,415,Shawn Jefferson,New England Patriots,,Traditions Tiffany
+traditions-tiffany,416,Leeland McElroy,Arizona Cardinals,,Traditions Tiffany
+traditions-tiffany,417,Elbert Shelley,Atlanta Falcons,,Traditions Tiffany
+traditions-tiffany,418,Jermaine Lewis,Baltimore Ravens,,Traditions Tiffany
+traditions-tiffany,419,Eric Moulds,Buffalo Bills,,Traditions Tiffany
+traditions-tiffany,420,Michael Bates,Carolina Panthers,,Traditions Tiffany
+traditions-tiffany,421,John Mangum,Chicago Bears,,Traditions Tiffany
+traditions-tiffany,422,Corey Sawyer,Cincinnati Bengals,,Traditions Tiffany
+traditions-tiffany,423,Jim Schwantz,Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,424,Rod Smith,Denver Broncos,,Traditions Tiffany
+traditions-tiffany,425,Glyn Milburn,Detroit Lions,,Traditions Tiffany
+traditions-tiffany,426,Desmond Howard,Green Bay Packers,,Traditions Tiffany
+traditions-tiffany,427,John Henry Mills,Houston Oilers,,Traditions Tiffany
+traditions-tiffany,428,Cary Blanchard,Indianapolis Colts,,Traditions Tiffany
+traditions-tiffany,429,Chris Hudson,Jacksonville Jaguars,,Traditions Tiffany
+traditions-tiffany,430,Tamarick Vanover,Kansas City Chiefs,,Traditions Tiffany
+traditions-tiffany,431,Kirby Dar Dar,Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,432,David Palmer,Minnesota Vikings,,Traditions Tiffany
+traditions-tiffany,433,Dave Meggett,New England Patriots,,Traditions Tiffany
+traditions-tiffany,434,Tyrone Hughes,New Orleans Saints,,Traditions Tiffany
+traditions-tiffany,435,Amani Toomer,New York Giants,,Traditions Tiffany
+traditions-tiffany,436,Wayne Chrebet,New York Jets,,Traditions Tiffany
+traditions-tiffany,437,Carl Kidd,Oakland Raiders,,Traditions Tiffany
+traditions-tiffany,438,Derrick Witherspoon,Philadelphia Eagles,,Traditions Tiffany
+traditions-tiffany,439,Jahine Arnold,Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,440,Andre Coleman,San Diego Chargers,,Traditions Tiffany
+traditions-tiffany,441,Jeff Wilkins,San Francisco 49ers,,Traditions Tiffany
+traditions-tiffany,442,Jay Bellamy,Seattle Seahawks,,Traditions Tiffany
+traditions-tiffany,443,Eddie Kennison,St. Louis Rams,,Traditions Tiffany
+traditions-tiffany,444,Nilo Silvan,Tampa Bay Buccaneers,,Traditions Tiffany
+traditions-tiffany,445,Brian Mitchell,Washington Redskins,,Traditions Tiffany
+traditions-tiffany,446,Ki-Jana Carter,Cincinnati Bengals / Arizona Cardinals / Atlanta Falcons / Baltimore Ravens / Buffalo Bills / Carolina Panthers / Chicago Bears / Dallas Cowboys,,Traditions Tiffany
+traditions-tiffany,447,Napoleon Kaufman,Oakland Raiders / Denver Broncos / Detroit Lions / Green Bay Packers / Houston Oilers / Indianapolis Colts / Kansas City Chiefs / Miami Dolphins,,Traditions Tiffany
+traditions-tiffany,448,Brian Mitchell,Washington Redskins / Minnesota Vikings / New England Patriots / New Orleans Saints / New York Giants / New York Jets / Oakland Raiders / Philadelphia Eagles / Pittsburgh Steelers,,Traditions Tiffany
+traditions-tiffany,449,Rodney Hampton,New York Giants / St. Louis Rams / San Diego Chargers / San Francisco 49ers / Seattle Seahawks / Tampa Bay Buccaneers / Washington Redskins,,Traditions Tiffany
+traditions-tiffany,450,Edgar Bennett CLChecklist: 446-450 and Inserts,Green Bay Packers,,Traditions Tiffany
+decade-of-excellence,1,Marcus Allen,Los Angeles Raiders / Kansas City Chiefs,,
+decade-of-excellence,2,Cris Carter,Philadelphia Eagles / Minnesota Vikings,,
+decade-of-excellence,3,John Elway,Denver Broncos,,
+decade-of-excellence,4,Irving Fryar,New England Patriots / Philadelphia Eagles,,
+decade-of-excellence,5,Darrell Green,Washington Redskins,,
+decade-of-excellence,6,Dan Marino,Miami Dolphins,,
+decade-of-excellence,7,Jerry Rice,San Francisco 49ers,,
+decade-of-excellence,8,Bruce Smith,Buffalo Bills,,
+decade-of-excellence,9,Herschel Walker,Dallas Cowboys,,
+decade-of-excellence,10,Reggie White,Philadelphia Eagles / Green Bay Packers,,
+decade-of-excellence,11,Rod Woodson,Pittsburgh Steelers,,
+decade-of-excellence,12,Steve Young,San Francisco 49ers,,
+decade-of-excellence-rare-traditions,1,Marcus Allen,Los Angeles Raiders / Kansas City Chiefs,,
+decade-of-excellence-rare-traditions,2,Cris Carter,Philadelphia Eagles / Minnesota Vikings,,
+decade-of-excellence-rare-traditions,3,John Elway,Denver Broncos,,
+decade-of-excellence-rare-traditions,4,Irving Fryar,New England Patriots / Philadelphia Eagles,,
+decade-of-excellence-rare-traditions,5,Darrell Green,Washington Redskins,,
+decade-of-excellence-rare-traditions,6,Dan Marino,Miami Dolphins,,
+decade-of-excellence-rare-traditions,7,Jerry Rice,San Francisco 49ers,,
+decade-of-excellence-rare-traditions,8,Bruce Smith,Buffalo Bills,,
+decade-of-excellence-rare-traditions,9,Herschel Walker,Dallas Cowboys,,
+decade-of-excellence-rare-traditions,10,Reggie White,Philadelphia Eagles / Green Bay Packers,,
+decade-of-excellence-rare-traditions,11,Rod Woodson,Pittsburgh Steelers,,
+decade-of-excellence-rare-traditions,12,Steve Young,San Francisco 49ers,,
+fleer-all-pro,1,Troy Aikman,Dallas Cowboys,,
+fleer-all-pro,2,Larry Allen,Dallas Cowboys,,
+fleer-all-pro,3,Drew Bledsoe,New England Patriots,,
+fleer-all-pro,4,Terrell Davis,Denver Broncos,,
+fleer-all-pro,5,Dermontti Dawson,Pittsburgh Steelers,,
+fleer-all-pro,6,John Elway,Denver Broncos,,
+fleer-all-pro,7,Brett Favre,Green Bay Packers,,
+fleer-all-pro,8,Herman Moore,Detroit Lions,,
+fleer-all-pro,9,Jerry Rice,San Francisco 49ers,,
+fleer-all-pro,10,Barry Sanders,Detroit Lions,,
+fleer-all-pro,11,Shannon Sharpe,Denver Broncos,,
+fleer-all-pro,12,Erik Williams,Dallas Cowboys,,
+fleer-all-pro,13,Ashley Ambrose,Cincinnati Bengals,,
+fleer-all-pro,14,Chad Brown,Pittsburgh Steelers,,
+fleer-all-pro,15,LeRoy Butler,Green Bay Packers,,
+fleer-all-pro,16,Kevin Greene,Carolina Panthers,,
+fleer-all-pro,17,Sam Mills,Carolina Panthers,,
+fleer-all-pro,18,John Randle,Minnesota Vikings,,
+fleer-all-pro,19,Deion Sanders,Dallas Cowboys,,
+fleer-all-pro,20,Junior Seau,San Diego Chargers,,
+fleer-all-pro,21,Bruce Smith,Buffalo Bills,,
+fleer-all-pro,22,Alfred Williams,Denver Broncos,,
+fleer-all-pro,23,Darren Woodson,Dallas Cowboys,,
+fleer-all-pro,24,Bryant Young,San Francisco 49ers,,
+game-breakers,1,Troy Aikman,Dallas Cowboys,,
+game-breakers,2,Jerome Bettis,Pittsburgh Steelers,,
+game-breakers,3,Drew Bledsoe,New England Patriots,,
+game-breakers,4,Isaac Bruce,St. Louis Rams,,
+game-breakers,5,Mark Brunell,Jacksonville Jaguars,,
+game-breakers,6,Kerry Collins,Carolina Panthers,,
+game-breakers,7,Terrell Davis,Denver Broncos,,
+game-breakers,8,Marshall Faulk,Indianapolis Colts,,
+game-breakers,9,Antonio Freeman,Green Bay Packers,,
+game-breakers,10,Joey Galloway,Seattle Seahawks,,
+game-breakers,11,Terry Glenn,New England Patriots,,
+game-breakers,12,Desmond Howard,Green Bay Packers,,
+game-breakers,13,Keyshawn Johnson,New York Jets,,
+game-breakers,14,Eddie Kennison,St. Louis Rams,,
+game-breakers,15,Curtis Martin,New England Patriots,,
+game-breakers,16,Herman Moore,Detroit Lions,,
+game-breakers,17,Lawrence Phillips,St. Louis Rams,,
+game-breakers,18,Barry Sanders,Detroit Lions,,
+game-breakers,19,Shannon Sharpe,Denver Broncos,,
+game-breakers,20,Emmitt Smith,Dallas Cowboys,,
+game-breakers-supreme,1,Troy Aikman,Dallas Cowboys,,
+game-breakers-supreme,2,Jerome Bettis,Pittsburgh Steelers,,
+game-breakers-supreme,3,Drew Bledsoe,New England Patriots,,
+game-breakers-supreme,4,Isaac Bruce,St. Louis Rams,,
+game-breakers-supreme,5,Mark Brunell,Jacksonville Jaguars,,
+game-breakers-supreme,6,Kerry Collins,Carolina Panthers,,
+game-breakers-supreme,7,Terrell Davis,Denver Broncos,,
+game-breakers-supreme,8,Marshall Faulk,Indianapolis Colts,,
+game-breakers-supreme,9,Antonio Freeman,Green Bay Packers,,
+game-breakers-supreme,10,Joey Galloway,Seattle Seahawks,,
+game-breakers-supreme,11,Terry Glenn,New England Patriots,,
+game-breakers-supreme,12,Desmond Howard,Green Bay Packers,,
+game-breakers-supreme,13,Keyshawn Johnson,New York Jets,,
+game-breakers-supreme,14,Eddie Kennison,St. Louis Rams,,
+game-breakers-supreme,15,Curtis Martin,New England Patriots,,
+game-breakers-supreme,16,Herman Moore,Detroit Lions,,
+game-breakers-supreme,17,Lawrence Phillips,St. Louis Rams,,
+game-breakers-supreme,18,Barry Sanders,Detroit Lions,,
+game-breakers-supreme,19,Shannon Sharpe,Denver Broncos,,
+game-breakers-supreme,20,Emmitt Smith,Dallas Cowboys,,
+prospects-97,1,Peter Boulware,Baltimore Ravens,,
+prospects-97,2,Rae Carruth,Carolina Panthers,,
+prospects-97,3,Jim Druckenmiller,San Francisco 49ers,,
+prospects-97,4,Warrick Dunn,Tampa Bay Buccaneers,,
+prospects-97,5,Tony Gonzalez,Kansas City Chiefs,,
+prospects-97,6,Yatil Green,Miami Dolphins,,
+prospects-97,7,Ike Hilliard,New York Giants,,
+prospects-97,8,Orlando Pace,St. Louis Rams,,
+prospects-97,9,Darrell Russell,Oakland Raiders,,
+prospects-97,10,Shawn Springs,Seattle Seahawks,,
+rookie-sensations,1,Karim Abdul-Jabbar,Miami Dolphins,,
+rookie-sensations,2,Mike Alstott,Tampa Bay Buccaneers,,
+rookie-sensations,3,Tony Banks,St. Louis Rams,,
+rookie-sensations,4,Tony Brackens,Jacksonville Jaguars,,
+rookie-sensations,5,Rickey Dudley,Oakland Raiders,,
+rookie-sensations,6,Bobby Engram,Chicago Bears,,
+rookie-sensations,7,Eddie George,Houston Oilers,,
+rookie-sensations,8,Terry Glenn,New England Patriots,,
+rookie-sensations,9,Kevin Hardy,Jacksonville Jaguars,,
+rookie-sensations,10,Marvin Harrison,Indianapolis Colts,,
+rookie-sensations,11,Keyshawn Johnson,New York Jets,,
+rookie-sensations,12,Eddie Kennison,St. Louis Rams,,
+rookie-sensations,13,Jermaine Lewis,Baltimore Ravens,,
+rookie-sensations,14,Ray Lewis,Baltimore Ravens,,
+rookie-sensations,15,John Mobley,Denver Broncos,,
+rookie-sensations,16,Eric Moulds,Buffalo Bills,,
+rookie-sensations,17,Jonathan Ogden,Baltimore Ravens,,
+rookie-sensations,18,Lawrence Phillips,St. Louis Rams,,
+rookie-sensations,19,Simeon Rice,Arizona Cardinals,,
+rookie-sensations,20,Zach Thomas,Miami Dolphins,,
+thrill-seekers,1,Karim Abdul-Jabbar,Miami Dolphins,,
+thrill-seekers,2,Jerome Bettis,Pittsburgh Steelers,,
+thrill-seekers,3,Terrell Davis,Denver Broncos,,
+thrill-seekers,4,John Elway,Denver Broncos,,
+thrill-seekers,5,Brett Favre,Green Bay Packers,,
+thrill-seekers,6,Eddie George,Houston Oilers,,
+thrill-seekers,7,Terry Glenn,New England Patriots,,
+thrill-seekers,8,Keyshawn Johnson,New York Jets,,
+thrill-seekers,9,Dan Marino,Miami Dolphins,,
+thrill-seekers,10,Curtis Martin,New England Patriots,,
+thrill-seekers,11,Deion Sanders,Dallas Cowboys,,
+thrill-seekers,12,Emmitt Smith,Dallas Cowboys,,
+emerald-autograph,AU1,Reggie White,Green Bay Packers,,Emerald Autograph SN80
