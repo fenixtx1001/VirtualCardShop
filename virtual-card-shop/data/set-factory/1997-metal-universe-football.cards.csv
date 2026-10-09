@@ -1,0 +1,687 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Terry Glenn,New England Patriots,,
+base,2,Terry Kirby,San Francisco 49ers,,
+base,3,Thomas Lewis,New York Giants,,
+base,4,Tim Biakabutuka,Carolina Panthers,,
+base,5,Tim Brown,Oakland Raiders,,
+base,6,Todd Collins,Buffalo Bills,,
+base,7,Tony Banks,St. Louis Rams,,
+base,8,Tony Brackens,Jacksonville Jaguars,,
+base,9,Tony Martin,San Diego Chargers,,
+base,10,Trent Dilfer,Tampa Bay Buccaneers,,
+base,11,Troy Aikman,Dallas Cowboys,,
+base,12,Ty Detmer,Philadelphia Eagles,,
+base,13,Tyrone Wheatley,New York Giants,,
+base,14,Vinny Testaverde,Baltimore Ravens,,
+base,15,Wayne Chrebet,New York Jets,,
+base,16,Wesley Walls,Carolina Panthers,,
+base,17,William Floyd,San Francisco 49ers,,
+base,18,Willie McGinest,New England Patriots,,
+base,19,Yancey Thigpen,Pittsburgh Steelers,,
+base,20,Zach Thomas,Miami Dolphins,,
+base,21,Terry Allen,Washington Redskins,,
+base,22,Terrell Owens,San Francisco 49ers,,
+base,23,Terrell Davis,Denver Broncos,,
+base,24,Terance Mathis,Atlanta Falcons,,
+base,25,Ted Johnson,New England Patriots,,
+base,26,Tamarick Vanover,Kansas City Chiefs,,
+base,27,Steve Young,San Francisco 49ers,,
+base,28,Steve McNair,Houston Oilers,,
+base,29,Stan Humphries,San Diego Chargers,,
+base,30,Simeon Rice,Arizona Cardinals,,
+base,31,Shannon Sharpe,Denver Broncos,,
+base,32,Sean Jones,Green Bay Packers,,
+base,33,Scott Mitchell,Detroit Lions,,
+base,34,Sam Mills,Carolina Panthers,,
+base,35,Rodney Hampton,New York Giants,,
+base,36,Rod Woodson,Pittsburgh Steelers,,
+base,37,Robert Smith,Minnesota Vikings,,
+base,38,Rob Moore,Arizona Cardinals,,
+base,39,Ricky Watters,Philadelphia Eagles,,
+base,40,Rickey Dudley,Oakland Raiders,,
+base,41,Rick Mirer,Chicago Bears,,
+base,42,Reggie White,Green Bay Packers,,
+base,43,Ray Zellars,New Orleans Saints,,
+base,44,Ray Lewis,Baltimore Ravens,,
+base,45,Rashaan Salaam,Chicago Bears,,
+base,46,Quentin Coryatt,Indianapolis Colts,,
+base,47,Qadry Ismail,Minnesota Vikings,,
+base,48,O.J. McDuffie,Miami Dolphins,,
+base,49,Nilo Silvan,Tampa Bay Buccaneers,,
+base,50,Neil Smith,Denver Broncos,,
+base,51,Neil O'Donnell,New York Jets,,
+base,52,Natrone Means,Jacksonville Jaguars,,
+base,53,Napoleon Kaufman,Oakland Raiders,,
+base,54,Mike Tomczak,Pittsburgh Steelers,,
+base,55,Mike Alstott,Tampa Bay Buccaneers,,
+base,56,Michael Westbrook,Washington Redskins,,
+base,57,Michael Jackson,Baltimore Ravens,,
+base,58,Michael Irvin,Dallas Cowboys,,
+base,59,Michael Haynes,New Orleans Saints,,
+base,60,Michael Bates,Carolina Panthers,,
+base,61,Mel Gray,Houston Oilers,,
+base,62,Marvin Harrison,Indianapolis Colts,,
+base,63,Marshall Faulk,Indianapolis Colts,,
+base,64,Mark Brunell,Jacksonville Jaguars,,
+base,65,Mario Bates,New Orleans Saints,,
+base,66,Marcus Allen,Kansas City Chiefs,,
+base,67,Lorenzo Neal,New Orleans Saints,,
+base,68,Levon Kirkland,Pittsburgh Steelers,,
+base,69,Leonard Russell,San Diego Chargers,,
+base,70,Leeland McElroy,Arizona Cardinals,,
+base,71,Lawyer Milloy,New England Patriots,,
+base,72,Lawrence Phillips,St. Louis Rams,,
+base,73,Larry Centers,Arizona Cardinals,,
+base,74,Lamar Lathon,Carolina Panthers,,
+base,75,Kordell Stewart,Pittsburgh Steelers,,
+base,76,Kimble Anders,Kansas City Chiefs,,
+base,77,Ki-Jana Carter,Cincinnati Bengals,,
+base,78,Keyshawn Johnson,New York Jets,,
+base,79,Kevin Turner,Philadelphia Eagles,,
+base,80,Jermaine Lewis,Baltimore Ravens,,
+base,81,Jerome Bettis,Pittsburgh Steelers,,
+base,82,Jerris McPhail,Miami Dolphins,,
+base,83,Joey Galloway,Seattle Seahawks,,
+base,84,Jerry Rice,San Francisco 49ers,,
+base,85,Jim Everett,New Orleans Saints,,
+base,86,Jimmy Smith,Jacksonville Jaguars,,
+base,87,Jim Harbaugh,Indianapolis Colts,,
+base,88,John Elway,Denver Broncos,,
+base,89,John Friesz,Seattle Seahawks,,
+base,90,John Mobley,Denver Broncos,,
+base,91,Johnnie Morton,Detroit Lions,,
+base,92,Junior Seau,San Diego Chargers,,
+base,93,Karim Abdul-Jabbar,Miami Dolphins,,
+base,94,Keenan McCardell,Jacksonville Jaguars,,
+base,95,Ken Dilger,Indianapolis Colts,,
+base,96,Ken Norton,San Francisco 49ers,,
+base,97,Kent Graham,Arizona Cardinals,,
+base,98,Kerry Collins,Carolina Panthers,,
+base,99,Kevin Greene,Carolina Panthers,,
+base,100,Kevin Hardy,Jacksonville Jaguars,,
+base,101,Jeff Lewis,Denver Broncos,,
+base,102,Jeff George,Oakland Raiders,,
+base,103,Jeff Graham,New York Jets,,
+base,104,Jeff Blake,Cincinnati Bengals,,
+base,105,Jason Sehorn,New York Giants,,
+base,106,Jason Dunn,Philadelphia Eagles,,
+base,107,Jamie Asher,Washington Redskins,,
+base,108,Jamal Anderson,Atlanta Falcons,,
+base,109,Jake Reed,Minnesota Vikings,,
+base,110,Isaac Bruce,St. Louis Rams,,
+base,111,Irving Fryar,Philadelphia Eagles,,
+base,112,Iheanyi Uwaezuoke,San Francisco 49ers,,
+base,113,Hugh Douglas,New York Jets,,
+base,114,Herman Moore,Detroit Lions,,
+base,115,Harvey Williams,Oakland Raiders,,
+base,116,Hardy Nickerson,Tampa Bay Buccaneers,,
+base,117,Gus Frerotte,Washington Redskins,,
+base,118,Greg Hill,Kansas City Chiefs,,
+base,119,Glyn Milburn,Detroit Lions,,
+base,120,Frank Wycheck,Houston Oilers,,
+base,121,Frank Sanders,Arizona Cardinals,,
+base,122,Errict Rhett,Tampa Bay Buccaneers,,
+base,123,Erik Kramer,Chicago Bears,,
+base,124,Eric Moulds,Buffalo Bills,,
+base,125,Eric Metcalf,Atlanta Falcons,,
+base,126,Emmitt Smith,Dallas Cowboys,,
+base,127,Edgar Bennett,Green Bay Packers,,
+base,128,Eddie Kennison,St. Louis Rams,,
+base,129,Eddie George,Houston Oilers,,
+base,130,Drew Bledsoe,New England Patriots,,
+base,131,Dorsey Levens,Green Bay Packers,,
+base,132,Desmond Howard,Oakland Raiders,,
+base,133,Derrick Thomas,Kansas City Chiefs,,
+base,134,Derrick Alexander,Baltimore Ravens,,
+base,135,Deion Sanders,Dallas Cowboys,,
+base,136,Dave Brown,New York Giants,,
+base,137,Daryl Johnston,Dallas Cowboys,,
+base,138,Darnay Scott,Cincinnati Bengals,,
+base,139,Darick Holmes,Buffalo Bills,,
+base,140,Dan Marino,Miami Dolphins,,
+base,141,Curtis Martin,New England Patriots,,
+base,142,Curtis Conway,Chicago Bears,,
+base,143,Cris Carter,Minnesota Vikings,,
+base,144,Chris Warren,Seattle Seahawks,,
+base,145,Chris T. Jones,Philadelphia Eagles,,
+base,146,Chris Slade,New England Patriots,,
+base,147,Chris Sanders,Houston Oilers,,
+base,148,Chester McGlockton,Oakland Raiders,,
+base,149,Charlie Jones,San Diego Chargers,,
+base,150,Charles Way,New York Giants,,
+base,151,Carl Pickens,Cincinnati Bengals,,
+base,152,Bryan Still,San Diego Chargers,,
+base,153,Bruce Smith,Buffalo Bills,,
+base,154,Brian Mitchell,Washington Redskins,,
+base,155,Brett Perriman,Detroit Lions,,
+base,156,Brett Favre,Green Bay Packers,,
+base,157,Brad Johnson,Minnesota Vikings,,
+base,158,Thurman Thomas,Buffalo Bills,,
+base,159,Bobby Engram,Chicago Bears,,
+base,160,Bert Emanuel,Atlanta Falcons,,
+base,161,Ben Coates,New England Patriots,,
+base,162,Barry Sanders,Detroit Lions,,
+base,163,Bam Morris,Baltimore Ravens,,
+base,164,Ashley Ambrose,Cincinnati Bengals,,
+base,165,Antonio Freeman,Green Bay Packers,,
+base,166,Anthony Miller,Denver Broncos,,
+base,167,Anthony Johnson,Carolina Panthers,,
+base,168,Andre Rison,Green Bay Packers,,
+base,169,Andre Reed,Buffalo Bills,,
+base,170,Alex Molden,New Orleans Saints,,
+base,171,Aeneas Williams,Arizona Cardinals,,
+base,172,Adrian Murrell,New York Jets,,
+base,173,Aaron Hayden,San Diego Chargers,,
+base,174,Darnell Autry RC,Chicago Bears,,
+base,175,Orlando Pace RC,St. Louis Rams,,
+base,176,Darrell Russell RC,Oakland Raiders,,
+base,177,Peter Boulware RC,Baltimore Ravens,,
+base,178,Shawn Springs RC,Seattle Seahawks,,
+base,179,Bryant Westbrook RC,Detroit Lions,,
+base,180,Dwayne Rudd RC,Minnesota Vikings,,
+base,181,Rae Carruth RC,Carolina Panthers,,
+base,182,Troy Davis RC,New Orleans Saints,,
+base,183,Antowain Smith RC,Buffalo Bills,,
+base,184,James Farrior RC,New York Jets,,
+base,185,Walter Jones RC,Seattle Seahawks,,
+base,186,Sam Madison RC,Miami Dolphins,,
+base,187,Tom Knight RC,Arizona Cardinals,,
+base,188,Reidel Anthony RC,Tampa Bay Buccaneers,,
+base,189,Warrick Dunn RC,Tampa Bay Buccaneers,,
+base,190,Reinard Wilson RC,Cincinnati Bengals,,
+base,191,Tyrus McCloud RC,Baltimore Ravens,,
+base,192,Michael Booker RC,Atlanta Falcons,,
+base,193,Tony Gonzalez RC,Kansas City Chiefs,,
+base,194,Pat Barnes RC,Kansas City Chiefs,,
+base,195,Tiki Barber RC,New York Giants,,
+base,196,Sedrick Shaw RC,New England Patriots,,
+base,197,Corey Dillon RC,Cincinnati Bengals,,
+base,198,Danny Wuerffel RC,New Orleans Saints,,
+base,199,Checklist (1-152) CL,NFL,,
+base,200,"Checklist (153-200, Inserts) CL",NFL,,
+pmg-red,1,Terry Glenn,New England Patriots,,Precious Metal Gems Red SN150
+pmg-red,2,Terry Kirby,San Francisco 49ers,,Precious Metal Gems Red SN150
+pmg-red,3,Thomas Lewis,New York Giants,,Precious Metal Gems Red SN150
+pmg-red,4,Tim Biakabutuka,Carolina Panthers,,Precious Metal Gems Red SN150
+pmg-red,5,Tim Brown,Oakland Raiders,,Precious Metal Gems Red SN150
+pmg-red,6,Todd Collins,Buffalo Bills,,Precious Metal Gems Red SN150
+pmg-red,7,Tony Banks,St. Louis Rams,,Precious Metal Gems Red SN150
+pmg-red,8,Tony Brackens,Jacksonville Jaguars,,Precious Metal Gems Red SN150
+pmg-red,9,Tony Martin,San Diego Chargers,,Precious Metal Gems Red SN150
+pmg-red,10,Trent Dilfer,Tampa Bay Buccaneers,,Precious Metal Gems Red SN150
+pmg-red,11,Troy Aikman,Dallas Cowboys,,Precious Metal Gems Red SN150
+pmg-red,12,Ty Detmer,Philadelphia Eagles,,Precious Metal Gems Red SN150
+pmg-red,13,Tyrone Wheatley,New York Giants,,Precious Metal Gems Red SN150
+pmg-red,14,Vinny Testaverde,Baltimore Ravens,,Precious Metal Gems Red SN150
+pmg-red,15,Wayne Chrebet,New York Jets,,Precious Metal Gems Red SN150
+pmg-red,16,Wesley Walls,Carolina Panthers,,Precious Metal Gems Red SN150
+pmg-red,17,William Floyd,San Francisco 49ers,,Precious Metal Gems Red SN150
+pmg-red,18,Willie McGinest,New England Patriots,,Precious Metal Gems Red SN150
+pmg-red,19,Yancey Thigpen,Pittsburgh Steelers,,Precious Metal Gems Red SN150
+pmg-red,20,Zach Thomas,Miami Dolphins,,Precious Metal Gems Red SN150
+pmg-red,21,Terry Allen,Washington Redskins,,Precious Metal Gems Red SN150
+pmg-red,22,Terrell Owens,San Francisco 49ers,,Precious Metal Gems Red SN150
+pmg-red,23,Terrell Davis,Denver Broncos,,Precious Metal Gems Red SN150
+pmg-red,24,Terance Mathis,Atlanta Falcons,,Precious Metal Gems Red SN150
+pmg-red,25,Ted Johnson,New England Patriots,,Precious Metal Gems Red SN150
+pmg-red,26,Tamarick Vanover,Kansas City Chiefs,,Precious Metal Gems Red SN150
+pmg-red,27,Steve Young,San Francisco 49ers,,Precious Metal Gems Red SN150
+pmg-red,28,Steve McNair,Houston Oilers,,Precious Metal Gems Red SN150
+pmg-red,29,Stan Humphries,San Diego Chargers,,Precious Metal Gems Red SN150
+pmg-red,30,Simeon Rice,Arizona Cardinals,,Precious Metal Gems Red SN150
+pmg-red,31,Shannon Sharpe,Denver Broncos,,Precious Metal Gems Red SN150
+pmg-red,32,Sean Jones,Green Bay Packers,,Precious Metal Gems Red SN150
+pmg-red,33,Scott Mitchell,Detroit Lions,,Precious Metal Gems Red SN150
+pmg-red,34,Sam Mills,Carolina Panthers,,Precious Metal Gems Red SN150
+pmg-red,35,Rodney Hampton,New York Giants,,Precious Metal Gems Red SN150
+pmg-red,36,Rod Woodson,Pittsburgh Steelers,,Precious Metal Gems Red SN150
+pmg-red,37,Robert Smith,Minnesota Vikings,,Precious Metal Gems Red SN150
+pmg-red,38,Rob Moore,Arizona Cardinals,,Precious Metal Gems Red SN150
+pmg-red,39,Ricky Watters,Philadelphia Eagles,,Precious Metal Gems Red SN150
+pmg-red,40,Rickey Dudley,Oakland Raiders,,Precious Metal Gems Red SN150
+pmg-red,41,Rick Mirer,Chicago Bears,,Precious Metal Gems Red SN150
+pmg-red,42,Reggie White,Green Bay Packers,,Precious Metal Gems Red SN150
+pmg-red,43,Ray Zellars,New Orleans Saints,,Precious Metal Gems Red SN150
+pmg-red,44,Ray Lewis,Baltimore Ravens,,Precious Metal Gems Red SN150
+pmg-red,45,Rashaan Salaam,Chicago Bears,,Precious Metal Gems Red SN150
+pmg-red,46,Quentin Coryatt,Indianapolis Colts,,Precious Metal Gems Red SN150
+pmg-red,47,Qadry Ismail,Minnesota Vikings,,Precious Metal Gems Red SN150
+pmg-red,48,O.J. McDuffie,Miami Dolphins,,Precious Metal Gems Red SN150
+pmg-red,49,Nilo Silvan,Tampa Bay Buccaneers,,Precious Metal Gems Red SN150
+pmg-red,50,Neil Smith,Denver Broncos,,Precious Metal Gems Red SN150
+pmg-red,51,Neil O'Donnell,New York Jets,,Precious Metal Gems Red SN150
+pmg-red,52,Natrone Means,Jacksonville Jaguars,,Precious Metal Gems Red SN150
+pmg-red,53,Napoleon Kaufman,Oakland Raiders,,Precious Metal Gems Red SN150
+pmg-red,54,Mike Tomczak,Pittsburgh Steelers,,Precious Metal Gems Red SN150
+pmg-red,55,Mike Alstott,Tampa Bay Buccaneers,,Precious Metal Gems Red SN150
+pmg-red,56,Michael Westbrook,Washington Redskins,,Precious Metal Gems Red SN150
+pmg-red,57,Michael Jackson,Baltimore Ravens,,Precious Metal Gems Red SN150
+pmg-red,58,Michael Irvin,Dallas Cowboys,,Precious Metal Gems Red SN150
+pmg-red,59,Michael Haynes,New Orleans Saints,,Precious Metal Gems Red SN150
+pmg-red,60,Michael Bates,Carolina Panthers,,Precious Metal Gems Red SN150
+pmg-red,61,Mel Gray,Houston Oilers,,Precious Metal Gems Red SN150
+pmg-red,62,Marvin Harrison,Indianapolis Colts,,Precious Metal Gems Red SN150
+pmg-red,63,Marshall Faulk,Indianapolis Colts,,Precious Metal Gems Red SN150
+pmg-red,64,Mark Brunell,Jacksonville Jaguars,,Precious Metal Gems Red SN150
+pmg-red,65,Mario Bates,New Orleans Saints,,Precious Metal Gems Red SN150
+pmg-red,66,Marcus Allen,Kansas City Chiefs,,Precious Metal Gems Red SN150
+pmg-red,67,Lorenzo Neal,New Orleans Saints,,Precious Metal Gems Red SN150
+pmg-red,68,Levon Kirkland,Pittsburgh Steelers,,Precious Metal Gems Red SN150
+pmg-red,69,Leonard Russell,San Diego Chargers,,Precious Metal Gems Red SN150
+pmg-red,70,Leeland McElroy,Arizona Cardinals,,Precious Metal Gems Red SN150
+pmg-red,71,Lawyer Milloy,New England Patriots,,Precious Metal Gems Red SN150
+pmg-red,72,Lawrence Phillips,St. Louis Rams,,Precious Metal Gems Red SN150
+pmg-red,73,Larry Centers,Arizona Cardinals,,Precious Metal Gems Red SN150
+pmg-red,74,Lamar Lathon,Carolina Panthers,,Precious Metal Gems Red SN150
+pmg-red,75,Kordell Stewart,Pittsburgh Steelers,,Precious Metal Gems Red SN150
+pmg-red,76,Kimble Anders,Kansas City Chiefs,,Precious Metal Gems Red SN150
+pmg-red,77,Ki-Jana Carter,Cincinnati Bengals,,Precious Metal Gems Red SN150
+pmg-red,78,Keyshawn Johnson,New York Jets,,Precious Metal Gems Red SN150
+pmg-red,79,Kevin Turner,Philadelphia Eagles,,Precious Metal Gems Red SN150
+pmg-red,80,Jermaine Lewis,Baltimore Ravens,,Precious Metal Gems Red SN150
+pmg-red,81,Jerome Bettis,Pittsburgh Steelers,,Precious Metal Gems Red SN150
+pmg-red,82,Jerris McPhail,Miami Dolphins,,Precious Metal Gems Red SN150
+pmg-red,83,Joey Galloway,Seattle Seahawks,,Precious Metal Gems Red SN150
+pmg-red,84,Jerry Rice,San Francisco 49ers,,Precious Metal Gems Red SN150
+pmg-red,85,Jim Everett,New Orleans Saints,,Precious Metal Gems Red SN150
+pmg-red,86,Jimmy Smith,Jacksonville Jaguars,,Precious Metal Gems Red SN150
+pmg-red,87,Jim Harbaugh,Indianapolis Colts,,Precious Metal Gems Red SN150
+pmg-red,88,John Elway,Denver Broncos,,Precious Metal Gems Red SN150
+pmg-red,89,John Friesz,Seattle Seahawks,,Precious Metal Gems Red SN150
+pmg-red,90,John Mobley,Denver Broncos,,Precious Metal Gems Red SN150
+pmg-red,91,Johnnie Morton,Detroit Lions,,Precious Metal Gems Red SN150
+pmg-red,92,Junior Seau,San Diego Chargers,,Precious Metal Gems Red SN150
+pmg-red,93,Karim Abdul-Jabbar,Miami Dolphins,,Precious Metal Gems Red SN150
+pmg-red,94,Keenan McCardell,Jacksonville Jaguars,,Precious Metal Gems Red SN150
+pmg-red,95,Ken Dilger,Indianapolis Colts,,Precious Metal Gems Red SN150
+pmg-red,96,Ken Norton,San Francisco 49ers,,Precious Metal Gems Red SN150
+pmg-red,97,Kent Graham,Arizona Cardinals,,Precious Metal Gems Red SN150
+pmg-red,98,Kerry Collins,Carolina Panthers,,Precious Metal Gems Red SN150
+pmg-red,99,Kevin Greene,Carolina Panthers,,Precious Metal Gems Red SN150
+pmg-red,100,Kevin Hardy,Jacksonville Jaguars,,Precious Metal Gems Red SN150
+pmg-red,101,Jeff Lewis,Denver Broncos,,Precious Metal Gems Red SN150
+pmg-red,102,Jeff George,Oakland Raiders,,Precious Metal Gems Red SN150
+pmg-red,103,Jeff Graham,New York Jets,,Precious Metal Gems Red SN150
+pmg-red,104,Jeff Blake,Cincinnati Bengals,,Precious Metal Gems Red SN150
+pmg-red,105,Jason Sehorn,New York Giants,,Precious Metal Gems Red SN150
+pmg-red,106,Jason Dunn,Philadelphia Eagles,,Precious Metal Gems Red SN150
+pmg-red,107,Jamie Asher,Washington Redskins,,Precious Metal Gems Red SN150
+pmg-red,108,Jamal Anderson,Atlanta Falcons,,Precious Metal Gems Red SN150
+pmg-red,109,Jake Reed,Minnesota Vikings,,Precious Metal Gems Red SN150
+pmg-red,110,Isaac Bruce,St. Louis Rams,,Precious Metal Gems Red SN150
+pmg-red,111,Irving Fryar,Philadelphia Eagles,,Precious Metal Gems Red SN150
+pmg-red,112,Iheanyi Uwaezuoke,San Francisco 49ers,,Precious Metal Gems Red SN150
+pmg-red,113,Hugh Douglas,New York Jets,,Precious Metal Gems Red SN150
+pmg-red,114,Herman Moore,Detroit Lions,,Precious Metal Gems Red SN150
+pmg-red,115,Harvey Williams,Oakland Raiders,,Precious Metal Gems Red SN150
+pmg-red,116,Hardy Nickerson,Tampa Bay Buccaneers,,Precious Metal Gems Red SN150
+pmg-red,117,Gus Frerotte,Washington Redskins,,Precious Metal Gems Red SN150
+pmg-red,118,Greg Hill,Kansas City Chiefs,,Precious Metal Gems Red SN150
+pmg-red,119,Glyn Milburn,Detroit Lions,,Precious Metal Gems Red SN150
+pmg-red,120,Frank Wycheck,Houston Oilers,,Precious Metal Gems Red SN150
+pmg-red,121,Frank Sanders,Arizona Cardinals,,Precious Metal Gems Red SN150
+pmg-red,122,Errict Rhett,Tampa Bay Buccaneers,,Precious Metal Gems Red SN150
+pmg-red,123,Erik Kramer,Chicago Bears,,Precious Metal Gems Red SN150
+pmg-red,124,Eric Moulds,Buffalo Bills,,Precious Metal Gems Red SN150
+pmg-red,125,Eric Metcalf,Atlanta Falcons,,Precious Metal Gems Red SN150
+pmg-red,126,Emmitt Smith,Dallas Cowboys,,Precious Metal Gems Red SN150
+pmg-red,127,Edgar Bennett,Green Bay Packers,,Precious Metal Gems Red SN150
+pmg-red,128,Eddie Kennison,St. Louis Rams,,Precious Metal Gems Red SN150
+pmg-red,129,Eddie George,Houston Oilers,,Precious Metal Gems Red SN150
+pmg-red,130,Drew Bledsoe,New England Patriots,,Precious Metal Gems Red SN150
+pmg-red,131,Dorsey Levens,Green Bay Packers,,Precious Metal Gems Red SN150
+pmg-red,132,Desmond Howard,Oakland Raiders,,Precious Metal Gems Red SN150
+pmg-red,133,Derrick Thomas,Kansas City Chiefs,,Precious Metal Gems Red SN150
+pmg-red,134,Derrick Alexander,Baltimore Ravens,,Precious Metal Gems Red SN150
+pmg-red,135,Deion Sanders,Dallas Cowboys,,Precious Metal Gems Red SN150
+pmg-red,136,Dave Brown,New York Giants,,Precious Metal Gems Red SN150
+pmg-red,137,Daryl Johnston,Dallas Cowboys,,Precious Metal Gems Red SN150
+pmg-red,138,Darnay Scott,Cincinnati Bengals,,Precious Metal Gems Red SN150
+pmg-red,139,Darick Holmes,Buffalo Bills,,Precious Metal Gems Red SN150
+pmg-red,140,Dan Marino,Miami Dolphins,,Precious Metal Gems Red SN150
+pmg-red,141,Curtis Martin,New England Patriots,,Precious Metal Gems Red SN150
+pmg-red,142,Curtis Conway,Chicago Bears,,Precious Metal Gems Red SN150
+pmg-red,143,Cris Carter,Minnesota Vikings,,Precious Metal Gems Red SN150
+pmg-red,144,Chris Warren,Seattle Seahawks,,Precious Metal Gems Red SN150
+pmg-red,145,Chris T. Jones,Philadelphia Eagles,,Precious Metal Gems Red SN150
+pmg-red,146,Chris Slade,New England Patriots,,Precious Metal Gems Red SN150
+pmg-red,147,Chris Sanders,Houston Oilers,,Precious Metal Gems Red SN150
+pmg-red,148,Chester McGlockton,Oakland Raiders,,Precious Metal Gems Red SN150
+pmg-red,149,Charlie Jones,San Diego Chargers,,Precious Metal Gems Red SN150
+pmg-red,150,Charles Way,New York Giants,,Precious Metal Gems Red SN150
+pmg-red,151,Carl Pickens,Cincinnati Bengals,,Precious Metal Gems Red SN150
+pmg-red,152,Bryan Still,San Diego Chargers,,Precious Metal Gems Red SN150
+pmg-red,153,Bruce Smith,Buffalo Bills,,Precious Metal Gems Red SN150
+pmg-red,154,Brian Mitchell,Washington Redskins,,Precious Metal Gems Red SN150
+pmg-red,155,Brett Perriman,Detroit Lions,,Precious Metal Gems Red SN150
+pmg-red,156,Brett Favre,Green Bay Packers,,Precious Metal Gems Red SN150
+pmg-red,157,Brad Johnson,Minnesota Vikings,,Precious Metal Gems Red SN150
+pmg-red,158,Thurman Thomas,Buffalo Bills,,Precious Metal Gems Red SN150
+pmg-red,159,Bobby Engram,Chicago Bears,,Precious Metal Gems Red SN150
+pmg-red,160,Bert Emanuel,Atlanta Falcons,,Precious Metal Gems Red SN150
+pmg-red,161,Ben Coates,New England Patriots,,Precious Metal Gems Red SN150
+pmg-red,162,Barry Sanders,Detroit Lions,,Precious Metal Gems Red SN150
+pmg-red,163,Bam Morris,Baltimore Ravens,,Precious Metal Gems Red SN150
+pmg-red,164,Ashley Ambrose,Cincinnati Bengals,,Precious Metal Gems Red SN150
+pmg-red,165,Antonio Freeman,Green Bay Packers,,Precious Metal Gems Red SN150
+pmg-red,166,Anthony Miller,Denver Broncos,,Precious Metal Gems Red SN150
+pmg-red,167,Anthony Johnson,Carolina Panthers,,Precious Metal Gems Red SN150
+pmg-red,168,Andre Rison,Green Bay Packers,,Precious Metal Gems Red SN150
+pmg-red,169,Andre Reed,Buffalo Bills,,Precious Metal Gems Red SN150
+pmg-red,170,Alex Molden,New Orleans Saints,,Precious Metal Gems Red SN150
+pmg-red,171,Aeneas Williams,Arizona Cardinals,,Precious Metal Gems Red SN150
+pmg-red,172,Adrian Murrell,New York Jets,,Precious Metal Gems Red SN150
+pmg-red,173,Aaron Hayden,San Diego Chargers,,Precious Metal Gems Red SN150
+pmg-red,174,Darnell Autry,Chicago Bears,,Precious Metal Gems Red SN150
+pmg-red,175,Orlando Pace,St. Louis Rams,,Precious Metal Gems Red SN150
+pmg-red,176,Darrell Russell,Oakland Raiders,,Precious Metal Gems Red SN150
+pmg-red,177,Peter Boulware,Baltimore Ravens,,Precious Metal Gems Red SN150
+pmg-red,178,Shawn Springs,Seattle Seahawks,,Precious Metal Gems Red SN150
+pmg-red,179,Bryant Westbrook,Detroit Lions,,Precious Metal Gems Red SN150
+pmg-red,180,Dwayne Rudd,Minnesota Vikings,,Precious Metal Gems Red SN150
+pmg-red,181,Rae Carruth,Carolina Panthers,,Precious Metal Gems Red SN150
+pmg-red,182,Troy Davis,New Orleans Saints,,Precious Metal Gems Red SN150
+pmg-red,183,Antowain Smith,Buffalo Bills,,Precious Metal Gems Red SN150
+pmg-red,184,James Farrior,New York Jets,,Precious Metal Gems Red SN150
+pmg-red,185,Walter Jones,Seattle Seahawks,,Precious Metal Gems Red SN150
+pmg-red,186,Sam Madison,Miami Dolphins,,Precious Metal Gems Red SN150
+pmg-red,187,Tom Knight,Arizona Cardinals,,Precious Metal Gems Red SN150
+pmg-red,188,Reidel Anthony,Tampa Bay Buccaneers,,Precious Metal Gems Red SN150
+pmg-red,189,Warrick Dunn,Tampa Bay Buccaneers,,Precious Metal Gems Red SN150
+pmg-red,190,Reinard Wilson,Cincinnati Bengals,,Precious Metal Gems Red SN150
+pmg-red,191,Tyrus McCloud,Baltimore Ravens,,Precious Metal Gems Red SN150
+pmg-red,192,Michael Booker,Atlanta Falcons,,Precious Metal Gems Red SN150
+pmg-red,193,Tony Gonzalez,Kansas City Chiefs,,Precious Metal Gems Red SN150
+pmg-red,194,Pat Barnes,Kansas City Chiefs,,Precious Metal Gems Red SN150
+pmg-red,195,Tiki Barber,New York Giants,,Precious Metal Gems Red SN150
+pmg-red,196,Sedrick Shaw,New England Patriots,,Precious Metal Gems Red SN150
+pmg-red,197,Corey Dillon,Cincinnati Bengals,,Precious Metal Gems Red SN150
+pmg-red,198,Danny Wuerffel,New Orleans Saints,,Precious Metal Gems Red SN150
+pmg-green,1,Terry Glenn,New England Patriots,,Precious Metal Gems Green SN150
+pmg-green,2,Terry Kirby,San Francisco 49ers,,Precious Metal Gems Green SN150
+pmg-green,3,Thomas Lewis,New York Giants,,Precious Metal Gems Green SN150
+pmg-green,4,Tim Biakabutuka,Carolina Panthers,,Precious Metal Gems Green SN150
+pmg-green,5,Tim Brown,Oakland Raiders,,Precious Metal Gems Green SN150
+pmg-green,6,Todd Collins,Buffalo Bills,,Precious Metal Gems Green SN150
+pmg-green,7,Tony Banks,St. Louis Rams,,Precious Metal Gems Green SN150
+pmg-green,8,Tony Brackens,Jacksonville Jaguars,,Precious Metal Gems Green SN150
+pmg-green,9,Tony Martin,San Diego Chargers,,Precious Metal Gems Green SN150
+pmg-green,10,Trent Dilfer,Tampa Bay Buccaneers,,Precious Metal Gems Green SN150
+pmg-green,11,Troy Aikman,Dallas Cowboys,,Precious Metal Gems Green SN150
+pmg-green,12,Ty Detmer,Philadelphia Eagles,,Precious Metal Gems Green SN150
+pmg-green,13,Tyrone Wheatley,New York Giants,,Precious Metal Gems Green SN150
+pmg-green,14,Vinny Testaverde,Baltimore Ravens,,Precious Metal Gems Green SN150
+pmg-green,15,Wayne Chrebet,New York Jets,,Precious Metal Gems Green SN150
+pmg-green,16,Wesley Walls,Carolina Panthers,,Precious Metal Gems Green SN150
+pmg-green,17,William Floyd,San Francisco 49ers,,Precious Metal Gems Green SN150
+pmg-green,18,Willie McGinest,New England Patriots,,Precious Metal Gems Green SN150
+pmg-green,19,Yancey Thigpen,Pittsburgh Steelers,,Precious Metal Gems Green SN150
+pmg-green,20,Zach Thomas,Miami Dolphins,,Precious Metal Gems Green SN150
+pmg-green,21,Terry Allen,Washington Redskins,,Precious Metal Gems Green SN150
+pmg-green,22,Terrell Owens,San Francisco 49ers,,Precious Metal Gems Green SN150
+pmg-green,23,Terrell Davis,Denver Broncos,,Precious Metal Gems Green SN150
+pmg-green,24,Terance Mathis,Atlanta Falcons,,Precious Metal Gems Green SN150
+pmg-green,25,Ted Johnson,New England Patriots,,Precious Metal Gems Green SN150
+pmg-green,26,Tamarick Vanover,Kansas City Chiefs,,Precious Metal Gems Green SN150
+pmg-green,27,Steve Young,San Francisco 49ers,,Precious Metal Gems Green SN150
+pmg-green,28,Steve McNair,Houston Oilers,,Precious Metal Gems Green SN150
+pmg-green,29,Stan Humphries,San Diego Chargers,,Precious Metal Gems Green SN150
+pmg-green,30,Simeon Rice,Arizona Cardinals,,Precious Metal Gems Green SN150
+pmg-green,31,Shannon Sharpe,Denver Broncos,,Precious Metal Gems Green SN150
+pmg-green,32,Sean Jones,Green Bay Packers,,Precious Metal Gems Green SN150
+pmg-green,33,Scott Mitchell,Detroit Lions,,Precious Metal Gems Green SN150
+pmg-green,34,Sam Mills,Carolina Panthers,,Precious Metal Gems Green SN150
+pmg-green,35,Rodney Hampton,New York Giants,,Precious Metal Gems Green SN150
+pmg-green,36,Rod Woodson,Pittsburgh Steelers,,Precious Metal Gems Green SN150
+pmg-green,37,Robert Smith,Minnesota Vikings,,Precious Metal Gems Green SN150
+pmg-green,38,Rob Moore,Arizona Cardinals,,Precious Metal Gems Green SN150
+pmg-green,39,Ricky Watters,Philadelphia Eagles,,Precious Metal Gems Green SN150
+pmg-green,40,Rickey Dudley,Oakland Raiders,,Precious Metal Gems Green SN150
+pmg-green,41,Rick Mirer,Chicago Bears,,Precious Metal Gems Green SN150
+pmg-green,42,Reggie White,Green Bay Packers,,Precious Metal Gems Green SN150
+pmg-green,43,Ray Zellars,New Orleans Saints,,Precious Metal Gems Green SN150
+pmg-green,44,Ray Lewis,Baltimore Ravens,,Precious Metal Gems Green SN150
+pmg-green,45,Rashaan Salaam,Chicago Bears,,Precious Metal Gems Green SN150
+pmg-green,46,Quentin Coryatt,Indianapolis Colts,,Precious Metal Gems Green SN150
+pmg-green,47,Qadry Ismail,Minnesota Vikings,,Precious Metal Gems Green SN150
+pmg-green,48,O.J. McDuffie,Miami Dolphins,,Precious Metal Gems Green SN150
+pmg-green,49,Nilo Silvan,Tampa Bay Buccaneers,,Precious Metal Gems Green SN150
+pmg-green,50,Neil Smith,Denver Broncos,,Precious Metal Gems Green SN150
+pmg-green,51,Neil O'Donnell,New York Jets,,Precious Metal Gems Green SN150
+pmg-green,52,Natrone Means,Jacksonville Jaguars,,Precious Metal Gems Green SN150
+pmg-green,53,Napoleon Kaufman,Oakland Raiders,,Precious Metal Gems Green SN150
+pmg-green,54,Mike Tomczak,Pittsburgh Steelers,,Precious Metal Gems Green SN150
+pmg-green,55,Mike Alstott,Tampa Bay Buccaneers,,Precious Metal Gems Green SN150
+pmg-green,56,Michael Westbrook,Washington Redskins,,Precious Metal Gems Green SN150
+pmg-green,57,Michael Jackson,Baltimore Ravens,,Precious Metal Gems Green SN150
+pmg-green,58,Michael Irvin,Dallas Cowboys,,Precious Metal Gems Green SN150
+pmg-green,59,Michael Haynes,New Orleans Saints,,Precious Metal Gems Green SN150
+pmg-green,60,Michael Bates,Carolina Panthers,,Precious Metal Gems Green SN150
+pmg-green,61,Mel Gray,Houston Oilers,,Precious Metal Gems Green SN150
+pmg-green,62,Marvin Harrison,Indianapolis Colts,,Precious Metal Gems Green SN150
+pmg-green,63,Marshall Faulk,Indianapolis Colts,,Precious Metal Gems Green SN150
+pmg-green,64,Mark Brunell,Jacksonville Jaguars,,Precious Metal Gems Green SN150
+pmg-green,65,Mario Bates,New Orleans Saints,,Precious Metal Gems Green SN150
+pmg-green,66,Marcus Allen,Kansas City Chiefs,,Precious Metal Gems Green SN150
+pmg-green,67,Lorenzo Neal,New Orleans Saints,,Precious Metal Gems Green SN150
+pmg-green,68,Levon Kirkland,Pittsburgh Steelers,,Precious Metal Gems Green SN150
+pmg-green,69,Leonard Russell,San Diego Chargers,,Precious Metal Gems Green SN150
+pmg-green,70,Leeland McElroy,Arizona Cardinals,,Precious Metal Gems Green SN150
+pmg-green,71,Lawyer Milloy,New England Patriots,,Precious Metal Gems Green SN150
+pmg-green,72,Lawrence Phillips,St. Louis Rams,,Precious Metal Gems Green SN150
+pmg-green,73,Larry Centers,Arizona Cardinals,,Precious Metal Gems Green SN150
+pmg-green,74,Lamar Lathon,Carolina Panthers,,Precious Metal Gems Green SN150
+pmg-green,75,Kordell Stewart,Pittsburgh Steelers,,Precious Metal Gems Green SN150
+pmg-green,76,Kimble Anders,Kansas City Chiefs,,Precious Metal Gems Green SN150
+pmg-green,77,Ki-Jana Carter,Cincinnati Bengals,,Precious Metal Gems Green SN150
+pmg-green,78,Keyshawn Johnson,New York Jets,,Precious Metal Gems Green SN150
+pmg-green,79,Kevin Turner,Philadelphia Eagles,,Precious Metal Gems Green SN150
+pmg-green,80,Jermaine Lewis,Baltimore Ravens,,Precious Metal Gems Green SN150
+pmg-green,81,Jerome Bettis,Pittsburgh Steelers,,Precious Metal Gems Green SN150
+pmg-green,82,Jerris McPhail,Miami Dolphins,,Precious Metal Gems Green SN150
+pmg-green,83,Joey Galloway,Seattle Seahawks,,Precious Metal Gems Green SN150
+pmg-green,84,Jerry Rice,San Francisco 49ers,,Precious Metal Gems Green SN150
+pmg-green,85,Jim Everett,New Orleans Saints,,Precious Metal Gems Green SN150
+pmg-green,86,Jimmy Smith,Jacksonville Jaguars,,Precious Metal Gems Green SN150
+pmg-green,87,Jim Harbaugh,Indianapolis Colts,,Precious Metal Gems Green SN150
+pmg-green,88,John Elway,Denver Broncos,,Precious Metal Gems Green SN150
+pmg-green,89,John Friesz,Seattle Seahawks,,Precious Metal Gems Green SN150
+pmg-green,90,John Mobley,Denver Broncos,,Precious Metal Gems Green SN150
+pmg-green,91,Johnnie Morton,Detroit Lions,,Precious Metal Gems Green SN150
+pmg-green,92,Junior Seau,San Diego Chargers,,Precious Metal Gems Green SN150
+pmg-green,93,Karim Abdul-Jabbar,Miami Dolphins,,Precious Metal Gems Green SN150
+pmg-green,94,Keenan McCardell,Jacksonville Jaguars,,Precious Metal Gems Green SN150
+pmg-green,95,Ken Dilger,Indianapolis Colts,,Precious Metal Gems Green SN150
+pmg-green,96,Ken Norton,San Francisco 49ers,,Precious Metal Gems Green SN150
+pmg-green,97,Kent Graham,Arizona Cardinals,,Precious Metal Gems Green SN150
+pmg-green,98,Kerry Collins,Carolina Panthers,,Precious Metal Gems Green SN150
+pmg-green,99,Kevin Greene,Carolina Panthers,,Precious Metal Gems Green SN150
+pmg-green,100,Kevin Hardy,Jacksonville Jaguars,,Precious Metal Gems Green SN150
+pmg-green,101,Jeff Lewis,Denver Broncos,,Precious Metal Gems Green SN150
+pmg-green,102,Jeff George,Oakland Raiders,,Precious Metal Gems Green SN150
+pmg-green,103,Jeff Graham,New York Jets,,Precious Metal Gems Green SN150
+pmg-green,104,Jeff Blake,Cincinnati Bengals,,Precious Metal Gems Green SN150
+pmg-green,105,Jason Sehorn,New York Giants,,Precious Metal Gems Green SN150
+pmg-green,106,Jason Dunn,Philadelphia Eagles,,Precious Metal Gems Green SN150
+pmg-green,107,Jamie Asher,Washington Redskins,,Precious Metal Gems Green SN150
+pmg-green,108,Jamal Anderson,Atlanta Falcons,,Precious Metal Gems Green SN150
+pmg-green,109,Jake Reed,Minnesota Vikings,,Precious Metal Gems Green SN150
+pmg-green,110,Isaac Bruce,St. Louis Rams,,Precious Metal Gems Green SN150
+pmg-green,111,Irving Fryar,Philadelphia Eagles,,Precious Metal Gems Green SN150
+pmg-green,112,Iheanyi Uwaezuoke,San Francisco 49ers,,Precious Metal Gems Green SN150
+pmg-green,113,Hugh Douglas,New York Jets,,Precious Metal Gems Green SN150
+pmg-green,114,Herman Moore,Detroit Lions,,Precious Metal Gems Green SN150
+pmg-green,115,Harvey Williams,Oakland Raiders,,Precious Metal Gems Green SN150
+pmg-green,116,Hardy Nickerson,Tampa Bay Buccaneers,,Precious Metal Gems Green SN150
+pmg-green,117,Gus Frerotte,Washington Redskins,,Precious Metal Gems Green SN150
+pmg-green,118,Greg Hill,Kansas City Chiefs,,Precious Metal Gems Green SN150
+pmg-green,119,Glyn Milburn,Detroit Lions,,Precious Metal Gems Green SN150
+pmg-green,120,Frank Wycheck,Houston Oilers,,Precious Metal Gems Green SN150
+pmg-green,121,Frank Sanders,Arizona Cardinals,,Precious Metal Gems Green SN150
+pmg-green,122,Errict Rhett,Tampa Bay Buccaneers,,Precious Metal Gems Green SN150
+pmg-green,123,Erik Kramer,Chicago Bears,,Precious Metal Gems Green SN150
+pmg-green,124,Eric Moulds,Buffalo Bills,,Precious Metal Gems Green SN150
+pmg-green,125,Eric Metcalf,Atlanta Falcons,,Precious Metal Gems Green SN150
+pmg-green,126,Emmitt Smith,Dallas Cowboys,,Precious Metal Gems Green SN150
+pmg-green,127,Edgar Bennett,Green Bay Packers,,Precious Metal Gems Green SN150
+pmg-green,128,Eddie Kennison,St. Louis Rams,,Precious Metal Gems Green SN150
+pmg-green,129,Eddie George,Houston Oilers,,Precious Metal Gems Green SN150
+pmg-green,130,Drew Bledsoe,New England Patriots,,Precious Metal Gems Green SN150
+pmg-green,131,Dorsey Levens,Green Bay Packers,,Precious Metal Gems Green SN150
+pmg-green,132,Desmond Howard,Oakland Raiders,,Precious Metal Gems Green SN150
+pmg-green,133,Derrick Thomas,Kansas City Chiefs,,Precious Metal Gems Green SN150
+pmg-green,134,Derrick Alexander,Baltimore Ravens,,Precious Metal Gems Green SN150
+pmg-green,135,Deion Sanders,Dallas Cowboys,,Precious Metal Gems Green SN150
+pmg-green,136,Dave Brown,New York Giants,,Precious Metal Gems Green SN150
+pmg-green,137,Daryl Johnston,Dallas Cowboys,,Precious Metal Gems Green SN150
+pmg-green,138,Darnay Scott,Cincinnati Bengals,,Precious Metal Gems Green SN150
+pmg-green,139,Darick Holmes,Buffalo Bills,,Precious Metal Gems Green SN150
+pmg-green,140,Dan Marino,Miami Dolphins,,Precious Metal Gems Green SN150
+pmg-green,141,Curtis Martin,New England Patriots,,Precious Metal Gems Green SN150
+pmg-green,142,Curtis Conway,Chicago Bears,,Precious Metal Gems Green SN150
+pmg-green,143,Cris Carter,Minnesota Vikings,,Precious Metal Gems Green SN150
+pmg-green,144,Chris Warren,Seattle Seahawks,,Precious Metal Gems Green SN150
+pmg-green,145,Chris T. Jones,Philadelphia Eagles,,Precious Metal Gems Green SN150
+pmg-green,146,Chris Slade,New England Patriots,,Precious Metal Gems Green SN150
+pmg-green,147,Chris Sanders,Houston Oilers,,Precious Metal Gems Green SN150
+pmg-green,148,Chester McGlockton,Oakland Raiders,,Precious Metal Gems Green SN150
+pmg-green,149,Charlie Jones,San Diego Chargers,,Precious Metal Gems Green SN150
+pmg-green,150,Charles Way,New York Giants,,Precious Metal Gems Green SN150
+pmg-green,151,Carl Pickens,Cincinnati Bengals,,Precious Metal Gems Green SN150
+pmg-green,152,Bryan Still,San Diego Chargers,,Precious Metal Gems Green SN150
+pmg-green,153,Bruce Smith,Buffalo Bills,,Precious Metal Gems Green SN150
+pmg-green,154,Brian Mitchell,Washington Redskins,,Precious Metal Gems Green SN150
+pmg-green,155,Brett Perriman,Detroit Lions,,Precious Metal Gems Green SN150
+pmg-green,156,Brett Favre,Green Bay Packers,,Precious Metal Gems Green SN150
+pmg-green,157,Brad Johnson,Minnesota Vikings,,Precious Metal Gems Green SN150
+pmg-green,158,Thurman Thomas,Buffalo Bills,,Precious Metal Gems Green SN150
+pmg-green,159,Bobby Engram,Chicago Bears,,Precious Metal Gems Green SN150
+pmg-green,160,Bert Emanuel,Atlanta Falcons,,Precious Metal Gems Green SN150
+pmg-green,161,Ben Coates,New England Patriots,,Precious Metal Gems Green SN150
+pmg-green,162,Barry Sanders,Detroit Lions,,Precious Metal Gems Green SN150
+pmg-green,163,Bam Morris,Baltimore Ravens,,Precious Metal Gems Green SN150
+pmg-green,164,Ashley Ambrose,Cincinnati Bengals,,Precious Metal Gems Green SN150
+pmg-green,165,Antonio Freeman,Green Bay Packers,,Precious Metal Gems Green SN150
+pmg-green,166,Anthony Miller,Denver Broncos,,Precious Metal Gems Green SN150
+pmg-green,167,Anthony Johnson,Carolina Panthers,,Precious Metal Gems Green SN150
+pmg-green,168,Andre Rison,Green Bay Packers,,Precious Metal Gems Green SN150
+pmg-green,169,Andre Reed,Buffalo Bills,,Precious Metal Gems Green SN150
+pmg-green,170,Alex Molden,New Orleans Saints,,Precious Metal Gems Green SN150
+pmg-green,171,Aeneas Williams,Arizona Cardinals,,Precious Metal Gems Green SN150
+pmg-green,172,Adrian Murrell,New York Jets,,Precious Metal Gems Green SN150
+pmg-green,173,Aaron Hayden,San Diego Chargers,,Precious Metal Gems Green SN150
+pmg-green,174,Darnell Autry,Chicago Bears,,Precious Metal Gems Green SN150
+pmg-green,175,Orlando Pace,St. Louis Rams,,Precious Metal Gems Green SN150
+pmg-green,176,Darrell Russell,Oakland Raiders,,Precious Metal Gems Green SN150
+pmg-green,177,Peter Boulware,Baltimore Ravens,,Precious Metal Gems Green SN150
+pmg-green,178,Shawn Springs,Seattle Seahawks,,Precious Metal Gems Green SN150
+pmg-green,179,Bryant Westbrook,Detroit Lions,,Precious Metal Gems Green SN150
+pmg-green,180,Dwayne Rudd,Minnesota Vikings,,Precious Metal Gems Green SN150
+pmg-green,181,Rae Carruth,Carolina Panthers,,Precious Metal Gems Green SN150
+pmg-green,182,Troy Davis,New Orleans Saints,,Precious Metal Gems Green SN150
+pmg-green,183,Antowain Smith,Buffalo Bills,,Precious Metal Gems Green SN150
+pmg-green,184,James Farrior,New York Jets,,Precious Metal Gems Green SN150
+pmg-green,185,Walter Jones,Seattle Seahawks,,Precious Metal Gems Green SN150
+pmg-green,186,Sam Madison,Miami Dolphins,,Precious Metal Gems Green SN150
+pmg-green,187,Tom Knight,Arizona Cardinals,,Precious Metal Gems Green SN150
+pmg-green,188,Reidel Anthony,Tampa Bay Buccaneers,,Precious Metal Gems Green SN150
+pmg-green,189,Warrick Dunn,Tampa Bay Buccaneers,,Precious Metal Gems Green SN150
+pmg-green,190,Reinard Wilson,Cincinnati Bengals,,Precious Metal Gems Green SN150
+pmg-green,191,Tyrus McCloud,Baltimore Ravens,,Precious Metal Gems Green SN150
+pmg-green,192,Michael Booker,Atlanta Falcons,,Precious Metal Gems Green SN150
+pmg-green,193,Tony Gonzalez,Kansas City Chiefs,,Precious Metal Gems Green SN150
+pmg-green,194,Pat Barnes,Kansas City Chiefs,,Precious Metal Gems Green SN150
+pmg-green,195,Tiki Barber,New York Giants,,Precious Metal Gems Green SN150
+pmg-green,196,Sedrick Shaw,New England Patriots,,Precious Metal Gems Green SN150
+pmg-green,197,Corey Dillon,Cincinnati Bengals,,Precious Metal Gems Green SN150
+pmg-green,198,Danny Wuerffel,New Orleans Saints,,Precious Metal Gems Green SN150
+body-shop,1,Zach Thomas,Miami Dolphins,,
+body-shop,2,Steve Young,San Francisco 49ers,,
+body-shop,3,Steve McNair,Houston Oilers,,
+body-shop,4,Simeon Rice,Arizona Cardinals,,
+body-shop,5,Shannon Sharpe,Denver Broncos,,
+body-shop,6,Napoleon Kaufman,Oakland Raiders,,
+body-shop,7,Mike Alstott,Tampa Bay Buccaneers,,
+body-shop,8,Michael Westbrook,Washington Redskins,,
+body-shop,9,Kordell Stewart,Pittsburgh Steelers,,
+body-shop,10,Kevin Hardy,Jacksonville Jaguars,,
+body-shop,11,Kerry Collins,Carolina Panthers,,
+body-shop,12,Junior Seau,San Diego Chargers,,
+body-shop,13,Jamal Anderson,Atlanta Falcons,,
+body-shop,14,Drew Bledsoe,New England Patriots,,
+body-shop,15,Deion Sanders,Dallas Cowboys,,
+gold-universe,1,Dan Marino,Miami Dolphins,,
+gold-universe,2,Deion Sanders,Dallas Cowboys,,
+gold-universe,3,Drew Bledsoe,New England Patriots,,
+gold-universe,4,Isaac Bruce,St. Louis Rams,,
+gold-universe,5,Joey Galloway,Seattle Seahawks,,
+gold-universe,6,Karim Abdul-Jabbar,Miami Dolphins,,
+gold-universe,7,Lawrence Phillips,St. Louis Rams,,
+gold-universe,8,Marshall Faulk,Indianapolis Colts,,
+gold-universe,9,Marvin Harrison,Indianapolis Colts,,
+gold-universe,10,Steve Young,San Francisco 49ers,,
+iron-rookies,1,Darnell Autry,Chicago Bears,,
+iron-rookies,2,Orlando Pace,St. Louis Rams,,
+iron-rookies,3,Peter Boulware,Baltimore Ravens,,
+iron-rookies,4,Shawn Springs,Seattle Seahawks,,
+iron-rookies,5,Bryant Westbrook,Detroit Lions,,
+iron-rookies,6,Rae Carruth,Carolina Panthers,,
+iron-rookies,7,Troy Davis,New Orleans Saints,,
+iron-rookies,8,Antowain Smith,Buffalo Bills,,
+iron-rookies,9,James Farrior,New York Jets,,
+iron-rookies,10,Dwayne Rudd,Minnesota Vikings,,
+iron-rookies,11,Darrell Russell,Oakland Raiders,,
+iron-rookies,12,Warrick Dunn,Florida State Seminoles,,
+iron-rookies,13,Sedrick Shaw,New England Patriots,,
+iron-rookies,14,Danny Wuerffel,New Orleans Saints,,
+iron-rookies,15,Sam Madison,Miami Dolphins,,
+marvel-metal-universe,1,Barry Sanders,Detroit Lions,,
+marvel-metal-universe,2,Bruce Smith,Buffalo Bills,,
+marvel-metal-universe,3,Desmond Howard,Oakland Raiders,,
+marvel-metal-universe,4,Eddie George,Houston Oilers,,
+marvel-metal-universe,5,Eddie Kennison,St. Louis Rams,,
+marvel-metal-universe,6,Jerry Rice,San Francisco 49ers,,
+marvel-metal-universe,7,Joey Galloway,Seattle Seahawks,,
+marvel-metal-universe,8,John Elway,Denver Broncos,,
+marvel-metal-universe,9,Karim Abdul-Jabbar,Miami Dolphins,,
+marvel-metal-universe,10,Kerry Collins,Carolina Panthers,,
+marvel-metal-universe,11,Kevin Hardy,Jacksonville Jaguars,,
+marvel-metal-universe,12,Kordell Stewart,Pittsburgh Steelers,,
+marvel-metal-universe,13,Mark Brunell,Jacksonville Jaguars,,
+marvel-metal-universe,14,Marshall Faulk,Indianapolis Colts,,
+marvel-metal-universe,15,Michael Westbrook,Washington Redskins,,
+marvel-metal-universe,16,Simeon Rice,Arizona Cardinals,,
+marvel-metal-universe,17,Steve McNair,Houston Oilers,,
+marvel-metal-universe,18,Terry Glenn,New England Patriots,,
+marvel-metal-universe,19,Tony Brackens,Jacksonville Jaguars,,
+marvel-metal-universe,20,Tony Martin,San Diego Chargers,,
+platinum-portraits,1,Troy Aikman,Dallas Cowboys,,
+platinum-portraits,2,Terrell Davis,Denver Broncos,,
+platinum-portraits,3,Marvin Harrison,Indianapolis Colts,,
+platinum-portraits,4,Keyshawn Johnson,New York Jets,,
+platinum-portraits,5,Jerry Rice,San Francisco 49ers,,
+platinum-portraits,6,Emmitt Smith,Dallas Cowboys,,
+platinum-portraits,7,Dan Marino,Miami Dolphins,,
+platinum-portraits,8,Curtis Martin,New England Patriots,,
+platinum-portraits,9,Brett Favre,Green Bay Packers,,
+platinum-portraits,10,Barry Sanders,Detroit Lions,,
+titanium,1,Barry Sanders,Detroit Lions,,
+titanium,2,Brett Favre,Green Bay Packers,,
+titanium,3,Curtis Martin,New England Patriots,,
+titanium,4,Eddie George,Houston Oilers,,
+titanium,5,Eddie Kennison,St. Louis Rams,,
+titanium,6,Emmitt Smith,Dallas Cowboys,,
+titanium,7,Herman Moore,Detroit Lions,,
+titanium,8,Isaac Bruce,St. Louis Rams,,
+titanium,9,Jerry Rice,San Francisco 49ers,,
+titanium,10,John Elway,Denver Broncos,,
+titanium,11,Keyshawn Johnson,New York Jets,,
+titanium,12,Lawrence Phillips,St. Louis Rams,,
+titanium,13,Mark Brunell,Jacksonville Jaguars,,
+titanium,14,Mike Alstott,Tampa Bay Buccaneers,,
+titanium,15,Steve McNair,Houston Oilers,,
+titanium,16,Steve Young,San Francisco 49ers,,
+titanium,17,Terrell Davis,Denver Broncos,,
+titanium,18,Terry Glenn,New England Patriots,,
+titanium,19,Tony Banks,St. Louis Rams,,
+titanium,20,Troy Aikman,Dallas Cowboys,,
