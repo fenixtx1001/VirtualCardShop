@@ -131,6 +131,10 @@ def main():
                     raise SystemExit(f"{key} #{number} does not match base subject/team")
 
         for number, (name, team) in sorted(cards.items()):
+            if key == "base" and number in (199, 200):
+                if not name.lower().startswith("checklist"):
+                    raise SystemExit(f"Expected base checklist at #{number}: {name!r}")
+                team = "NFL"
             if not team:
                 raise SystemExit(f"{key} #{number} {name} is missing team")
             if key == "base" and number in EXPECTED_ROOKIES:
