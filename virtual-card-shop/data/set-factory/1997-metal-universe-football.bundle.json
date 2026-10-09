@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/3986/1997-Metal-Universe",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/3986/1997-Metal-Universe",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/3986/1997-Metal-Universe",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/3986/1997-Metal-Universe",
+    "distributionReference": "https://www.beckett.com/news/1997-metal-universe-football-cards/"
+  },
+  "decisions": {
+    "packFormat": "VCS normalized four cards per pack, 24 packs per hobby box; physical packs contained eight.",
+    "base": "200 base cards with equal odds, true RC only on the 25 verified cards #174-198.",
+    "parallel": "Precious Metal Gems red and green are distinct 198-card collector checklists. No invented serial/print odds: set-level odds null until reviewed.",
+    "inserts": "Six standard pack-issued insert sets. ProductSet odds only, with retail/hobby provenance noted.",
+    "autographics": "Shared multi-product 1997 SkyBox Autographics/Preview/Century Mark intentionally excluded pending exact checklists and product-specific distribution verification.",
+    "promos": "SAMPLE promotional Terrell Davis excluded, not a standard pack outcome.",
+    "release": "All products draft/unreleased; imagery and pricing pending."
+  },
+  "product": {
+    "id": "1997_Metal_Universe_Football",
+    "year": 1997,
+    "brand": "Metal Universe",
+    "sport": "Football",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1997-metal-universe-football.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1997_Metal_Universe_Football_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3986/1997-Metal-Universe",
+      "expectedCards": 200,
+      "notes": "Base collector checklist"
+    },
+    {
+      "key": "pmg-red",
+      "id": "1997_Metal_Universe_Football_Precious_Metal_Gems_Red",
+      "name": "Precious Metal Gems Red",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/34325/1997-Metal-Universe",
+      "expectedCards": 198,
+      "notes": "Precious Metal Gems Red; SN150, red copies 16-150"
+    },
+    {
+      "key": "pmg-green",
+      "id": "1997_Metal_Universe_Football_Precious_Metal_Gems_Green",
+      "name": "Precious Metal Gems Green",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/34326/1997-Metal-Universe",
+      "expectedCards": 198,
+      "notes": "Precious Metal Gems Green; SN150, first 15 copies"
+    },
+    {
+      "key": "body-shop",
+      "id": "1997_Metal_Universe_Football_Body_Shop",
+      "name": "Body Shop",
+      "kind": "INSERT",
+      "oddsPerPack": 96,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3988/1997-Metal-Universe",
+      "expectedCards": 15,
+      "notes": "Body Shop collector checklist"
+    },
+    {
+      "key": "gold-universe",
+      "id": "1997_Metal_Universe_Football_Gold_Universe",
+      "name": "Gold Universe",
+      "kind": "INSERT",
+      "oddsPerPack": 120,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3989/1997-Metal-Universe",
+      "expectedCards": 10,
+      "notes": "Retail-exclusive, historical 1:120 retail packs"
+    },
+    {
+      "key": "iron-rookies",
+      "id": "1997_Metal_Universe_Football_Iron_Rookies",
+      "name": "Iron Rookies",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3990/1997-Metal-Universe",
+      "expectedCards": 15,
+      "notes": "Iron Rookies collector checklist"
+    },
+    {
+      "key": "marvel-metal-universe",
+      "id": "1997_Metal_Universe_Football_Marvel_Metal_Universe",
+      "name": "Marvel Metal Universe",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3991/1997-Metal-Universe",
+      "expectedCards": 20,
+      "notes": "Marvel Metal Universe collector checklist"
+    },
+    {
+      "key": "platinum-portraits",
+      "id": "1997_Metal_Universe_Football_Platinum_Portraits",
+      "name": "Platinum Portraits",
+      "kind": "INSERT",
+      "oddsPerPack": 288,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3992/1997-Metal-Universe",
+      "expectedCards": 10,
+      "notes": "Platinum Portraits collector checklist"
+    },
+    {
+      "key": "titanium",
+      "id": "1997_Metal_Universe_Football_Titanium",
+      "name": "Titanium",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3993/1997-Metal-Universe",
+      "expectedCards": 20,
+      "notes": "Hobby-exclusive, 1:72 hobby packs"
+    }
+  ]
+}
