@@ -21,6 +21,7 @@ export async function GET(req: Request) {
     const sport = (params.get("sport") ?? "").trim().slice(0, 40);
     const year = Number(params.get("year"));
     const onlyNeed = params.get("onlyNeed") === "1";
+    const onlyPrestige = params.get("onlyPrestige") === "1";
 
     const filters: Prisma.CardWhereInput[] = [];
     if (q) {
@@ -56,11 +57,102 @@ export async function GET(req: Request) {
       sort === "recent" ? [{ updatedAt: "desc" }, { cardId: "asc" }] :
       [{ quantity: "desc" }, { updatedAt: "desc" }, { cardId: "asc" }];
 
-    const total = await prisma.shopInventory.count({ where });
+    // Prestige search/ranking must happen BEFORE the inventory page is selected.
+    const usePrestigeIndex = onlyPrestige || sort === "prestige";
+    type RankedRow = {
+      cardId: number;
+      prestigeCopiesNeeded: number;
+      prestigeNextLevel: number | null;
+      total: number;
+    };
+    let rankedRows: RankedRow[] = [];
+
+    if (usePrestigeIndex) {
+      const conditions: Prisma.Sql[] = [Prisma.sql`si.quantity > 0`];
+      if (q) {
+        const terms = [
+          Prisma.sql`c."player"`,
+          Prisma.sql`c."team"`,
+          Prisma.sql`c."cardNumber"`,
+          Prisma.sql`c."subset"`,
+          Prisma.sql`c."variant"`,
+          Prisma.sql`c."productSetId"`,
+          Prisma.sql`ps."name"`,
+          Prisma.sql`p."brand"`,
+          Prisma.sql`p."sport"`,
+        ];
+        conditions.push(Prisma.sql`(${Prisma.join(terms.map(
+          term => Prisma.sql`STRPOS(LOWER(COALESCE(${term}, '')), LOWER(${q})) > 0`,
+        ), " OR ")})`);
+      }
+      if (sport) conditions.push(Prisma.sql`LOWER(p."sport") = LOWER(${sport})`);
+      if (Number.isInteger(year) && year >= 1850 && year <= 2100)
+        conditions.push(Prisma.sql`p."year" = ${year}`);
+      if (onlyNeed) conditions.push(Prisma.sql`COALESCE(h.qty, 0) = 0`);
+
+      const ranking = sort === "prestige" ? Prisma.sql`
+          CASE WHEN "prestigeCopiesNeeded" > 0 THEN 0 ELSE 1 END ASC,
+          "prestigeCopiesNeeded" ASC, "prestigeNextLevel" DESC, "cardId" ASC
+        ` : sort === "price_asc" ? Prisma.sql`"bookPrice" ASC, "cardId" ASC`
+        : sort === "price_desc" ? Prisma.sql`"bookPrice" DESC, "cardId" ASC`
+        : sort === "name" ? Prisma.sql`"playerName" ASC, "cardId" ASC`
+        : sort === "recent" ? Prisma.sql`"lastStocked" DESC, "cardId" ASC`
+        : Prisma.sql`"stockQty" DESC, "lastStocked" DESC, "cardId" ASC`;
+
+      rankedRows = await prisma.$queryRaw<RankedRow[]>(Prisma.sql`
+        WITH held AS (
+          SELECT "cardId", SUM(qty)::int AS qty FROM (
+            SELECT "cardId", quantity AS qty FROM "CardOwnership"
+              WHERE "userId" = ${user.id} AND quantity > 0
+            UNION ALL
+            SELECT "cardId", quantity AS qty FROM "GradingOrder"
+              WHERE "userId" = ${user.id} AND quantity > 0 AND "revealedAt" IS NULL
+          ) all_held GROUP BY "cardId"
+        ), levels AS (
+          SELECT c."productSetId", COALESCE(MIN(COALESCE(h.qty, 0)), 0)::int AS level
+          FROM "Card" c LEFT JOIN held h ON h."cardId" = c.id
+          WHERE c."productSetId" IS NOT NULL
+          GROUP BY c."productSetId"
+        ), candidates AS (
+          SELECT si."cardId" AS "cardId",
+            si.quantity AS "stockQty", si."updatedAt" AS "lastStocked",
+            c."bookValue" AS "bookPrice", c.player AS "playerName",
+            CASE WHEN c."productSetId" IS NULL THEN NULL ELSE
+              (GREATEST(COALESCE(l.level, 0), COALESCE(pr."timesCompleted", 0)) + 1)::int
+            END AS "prestigeNextLevel",
+            CASE WHEN c."productSetId" IS NULL THEN 0 ELSE
+              GREATEST(0, GREATEST(COALESCE(l.level, 0), COALESCE(pr."timesCompleted", 0))
+                + 1 - COALESCE(h.qty, 0))::int
+            END AS "prestigeCopiesNeeded"
+          FROM "ShopInventory" si
+            JOIN "Card" c ON c.id = si."cardId"
+            LEFT JOIN "ProductSet" ps ON ps.id = c."productSetId"
+            LEFT JOIN "Product" p ON p.id = ps."productId"
+            LEFT JOIN held h ON h."cardId" = c.id
+            LEFT JOIN levels l ON l."productSetId" = c."productSetId"
+            LEFT JOIN "ProductSetPrestige" pr
+              ON pr."productSetId" = c."productSetId" AND pr."userId" = ${user.id}
+          WHERE ${Prisma.join(conditions, " AND ")}
+        )
+        SELECT "cardId", "prestigeNextLevel", "prestigeCopiesNeeded",
+          COUNT(*) OVER()::int AS "total"
+        FROM candidates
+        WHERE ${onlyPrestige ? Prisma.sql`"prestigeCopiesNeeded" > 0` : Prisma.sql`TRUE`}
+        ORDER BY ${ranking}
+        LIMIT ${pageSize} OFFSET ${(page - 1) * pageSize}
+      `);
+    }
+    const rankById = new Map(rankedRows.map(row => [row.cardId, row]));
+    const rankedIds = rankedRows.map(row => row.cardId);
+    const total = usePrestigeIndex
+      ? (rankedRows[0]?.total ?? 0)
+      : await prisma.shopInventory.count({ where });
     const totalPages = Math.max(1, Math.ceil(total / pageSize));
     const safePage = Math.min(page, totalPages);
-    const stock = await prisma.shopInventory.findMany({
-      where, orderBy, skip: (safePage - 1) * pageSize, take: pageSize,
+    const unsortedStock = await prisma.shopInventory.findMany({
+      where: usePrestigeIndex ? { cardId: { in: rankedIds } } : where,
+      orderBy,
+      ...(usePrestigeIndex ? {} : { skip: (safePage - 1) * pageSize, take: pageSize }),
       select: {
         cardId: true, quantity: true, updatedAt: true,
         card: { select: {
@@ -76,6 +168,10 @@ export async function GET(req: Request) {
       },
     });
 
+    const cardOrder = new Map(rankedIds.map((id, index) => [id, index]));
+    const stock = usePrestigeIndex
+      ? unsortedStock.sort((a, b) => (cardOrder.get(a.cardId) ?? 0) - (cardOrder.get(b.cardId) ?? 0))
+      : unsortedStock;
     const cardIds = stock.map(r => r.cardId);
     const setIds = [...new Set(stock.map(r => r.card.productSetId).filter((s): s is string => !!s))];
     const pending = cardIds.length
@@ -118,13 +214,17 @@ export async function GET(req: Request) {
       const c = r.card;
       const owned = c.ownerships.reduce((n, o) => n + o.quantity, 0);
       const inGrading = pendingByCard.get(r.cardId) ?? 0;
-      const nextLevel = c.productSetId ? nextLevelBySet.get(c.productSetId) ?? null : null;
+      const nextLevel = usePrestigeIndex
+        ? (rankById.get(r.cardId)?.prestigeNextLevel ?? null)
+        : c.productSetId ? nextLevelBySet.get(c.productSetId) ?? null : null;
+      const copiesNeeded = nextLevel === null ? 0 : Math.max(0, nextLevel - (owned + inGrading));
       const product = c.productSet?.product;
       return {
         cardId: r.cardId, quantity: r.quantity, updatedAt: r.updatedAt,
         youOwnQty: owned + inGrading, heldQty: owned, pendingQty: inGrading,
         prestigeNextLevel: nextLevel,
-        neededForPrestige: nextLevel !== null && owned + inGrading < nextLevel,
+        prestigeCopiesNeeded: copiesNeeded,
+        neededForPrestige: copiesNeeded > 0,
         card: {
           id: c.id, player: c.player, team: c.team, cardNumber: c.cardNumber,
           subset: c.subset, variant: c.variant, bookValue: c.bookValue,
