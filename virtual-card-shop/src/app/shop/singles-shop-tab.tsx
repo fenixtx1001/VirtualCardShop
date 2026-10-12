@@ -7,7 +7,7 @@ import { YourCardsPicker } from "./your-cards-picker";
 
 const ECONOMY_CHANGED_EVENT = "vcs:economy-changed";
 
-type SinglesSortKey = "default" | "price_asc" | "price_desc";
+type SinglesSortKey = "default" | "price_asc" | "price_desc" | "prestige";
 
 type OfferCard = {
   id: number;
@@ -60,6 +60,7 @@ type ShopInventoryRow = {
   pendingQty?: number;
   prestigeNextLevel?: number | null;
   neededForPrestige?: boolean;
+  prestigeCopiesNeeded?: number;
   card: ShopInventoryCard;
 };
 
@@ -140,6 +141,7 @@ export default function SinglesShopTab() {
   const [invTotal, setInvTotal] = useState(0);
   const [invSort, setInvSort] = useState<SinglesSortKey | "recent" | "name">("default");
   const [onlyNeed, setOnlyNeed] = useState(false);
+  const [onlyPrestige, setOnlyPrestige] = useState(false);
   const [invSport, setInvSport] = useState("");
   const [invYear, setInvYear] = useState("");
   const [filterOpen, setFilterOpen] = useState(false);
@@ -170,7 +172,7 @@ export default function SinglesShopTab() {
 
   async function loadInventory(
     page = 1, q = invQ, sort = invSort, needOnly = onlyNeed,
-    sport = invSport, year = invYear, append = false
+    sport = invSport, year = invYear, append = false, prestigeOnly = onlyPrestige
   ) {
     const seq = ++requestSeq.current;
     setInvLoading(true);
@@ -179,6 +181,7 @@ export default function SinglesShopTab() {
       const params = new URLSearchParams({ page: String(page), pageSize: "24", sort });
       if (q.trim()) params.set("q", q.trim());
       if (needOnly) params.set("onlyNeed", "1");
+      if (prestigeOnly) params.set("onlyPrestige", "1");
       if (sport) params.set("sport", sport);
       if (/^\d{4}$/.test(year)) params.set("year", year);
       const res = await fetch("/api/shop/singles/inventory?" + params, { cache: "no-store" });
@@ -199,9 +202,9 @@ export default function SinglesShopTab() {
 
   useEffect(() => { void loadOffers(); }, []); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
-    const timer = setTimeout(() => { void loadInventory(1, invQ, invSort, onlyNeed, invSport, invYear); }, 280);
+    const timer = setTimeout(() => { void loadInventory(1, invQ, invSort, onlyNeed, invSport, invYear, false, onlyPrestige); }, 280);
     return () => clearTimeout(timer);
-  }, [invQ, invSort, onlyNeed, invSport, invYear]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [invQ, invSort, onlyNeed, onlyPrestige, invSport, invYear]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (singlesMode !== "sell") return;
     setClock(Date.now());
@@ -392,7 +395,7 @@ export default function SinglesShopTab() {
       });
 
       await loadOffers();
-      await loadInventory(1, invQ, invSort, onlyNeed, invSport, invYear);
+      await loadInventory(1, invQ, invSort, onlyNeed, invSport, invYear, false, onlyPrestige);
     } catch (e: any) {
       setOffersErr(e?.message ?? "Sell failed");
     } finally {
@@ -417,7 +420,7 @@ export default function SinglesShopTab() {
         " to your collection for $" + centsToDollars(j.totalCents) + ".");
       setCheckout(null);
       window.dispatchEvent(new CustomEvent(ECONOMY_CHANGED_EVENT));
-      await loadInventory(1, invQ, invSort, onlyNeed, invSport, invYear);
+      await loadInventory(1, invQ, invSort, onlyNeed, invSport, invYear, false, onlyPrestige);
     } catch (error) {
       setCheckoutError(error instanceof Error ? error.message : "Purchase failed.");
     } finally {
@@ -472,14 +475,20 @@ export default function SinglesShopTab() {
           </div>
           <div className="singles-quick-row">
             <div className="singles-pills" role="group" aria-label="Collection filters">
-              <button type="button" className={!onlyNeed ? "is-active" : ""} aria-pressed={!onlyNeed}
-                onClick={() => setOnlyNeed(false)}>All cards</button>
+              <button type="button" className={!onlyNeed && !onlyPrestige ? "is-active" : ""}
+                aria-pressed={!onlyNeed && !onlyPrestige}
+                onClick={() => { setOnlyNeed(false); setOnlyPrestige(false); }}>All cards</button>
               <button type="button" className={onlyNeed ? "is-active" : ""} aria-pressed={onlyNeed}
-                onClick={() => setOnlyNeed(true)}>Not owned</button>
+                onClick={() => { setOnlyNeed(true); setOnlyPrestige(false); }}>Not owned</button>
+              <button type="button" className={onlyPrestige ? "is-active" : ""} aria-pressed={onlyPrestige}
+                onClick={() => {
+                  setOnlyNeed(false); setOnlyPrestige(true); setInvSort("prestige");
+                }}>Next Prestige</button>
             </div>
             <label className="singles-sort">Sort
               <select value={invSort} onChange={e => setInvSort(e.target.value as typeof invSort)}>
                 <option value="default">Most available</option>
+                <option value="prestige">Next Prestige · fewest needed</option>
                 <option value="recent">Recently stocked</option>
                 <option value="price_asc">Price: low to high</option>
                 <option value="price_desc">Price: high to low</option>
@@ -501,7 +510,7 @@ export default function SinglesShopTab() {
                 placeholder="All years" />
             </label>
             <button type="button" className="singles-clear" onClick={() => {
-              setInvQ(""); setOnlyNeed(false); setInvSort("default"); setInvSport(""); setInvYear("");
+              setInvQ(""); setOnlyNeed(false); setOnlyPrestige(false); setInvSort("default"); setInvSport(""); setInvYear("");
             }}>Clear all filters</button>
           </div>}
 
@@ -516,7 +525,7 @@ export default function SinglesShopTab() {
             <div className="singles-empty"><h3>No matching singles</h3>
               <p>Try another player, a broader search, or clear your filters.</p>
               <button type="button" onClick={() => {
-                setInvQ(""); setOnlyNeed(false); setInvSport(""); setInvYear("");
+                setInvQ(""); setOnlyNeed(false); setOnlyPrestige(false); setInvSport(""); setInvYear("");
               }}>Clear filters</button></div>
           ) : (
             <>
@@ -548,7 +557,8 @@ export default function SinglesShopTab() {
                         </span>
                         {row.neededForPrestige && row.prestigeNextLevel != null &&
                           <span className="single-tag single-tag-prestige">
-                            Needed · Prestige {row.prestigeNextLevel}</span>}
+                            Need {row.prestigeCopiesNeeded ?? Math.max(0, row.prestigeNextLevel - row.youOwnQty)}
+                            {" · Prestige "}{row.prestigeNextLevel}</span>}
                       </div>
                       <div className="single-merch-bottom">
                         <div className="single-merch-value">
@@ -713,7 +723,9 @@ export default function SinglesShopTab() {
               <p>{checkout.card.friendlyProductLabel} · {checkout.card.friendlySetName}</p>
               <span>{checkout.quantity} in stock · {checkout.youOwnQty ? "Own " + checkout.youOwnQty : "Not owned"}</span>
               {checkout.neededForPrestige && <small className="singles-checkout-prestige">
-                Needed for Prestige {checkout.prestigeNextLevel}</small>}
+                Need {checkout.prestigeCopiesNeeded ?? 1}
+                {" more for Prestige "}{checkout.prestigeNextLevel}
+              </small>}
             </div>
           </div>
           <div className="singles-checkout-row">
