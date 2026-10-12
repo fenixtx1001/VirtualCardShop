@@ -538,7 +538,7 @@ export default function SinglesShopTab() {
                       <Link className="single-merch-title" href={"/cards/" + row.cardId}>
                         {card.player}{card.cardNumber ? <small>{"#" + card.cardNumber}</small> : null}
                       </Link>
-                      {card.friendlySetName && card.friendlyProductLabel &&
+                      {card.isBase === false && card.friendlySetName && card.friendlyProductLabel &&
                         card.friendlySetName !== card.friendlyProductLabel &&
                         <div className="single-merch-subset" title={card.friendlySetName}>{card.friendlySetName}</div>}
                       {details && <div className="single-merch-meta" title={details}>{details}</div>}
