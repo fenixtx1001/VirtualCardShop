@@ -142,3 +142,7 @@
 @media(max-width:700px){.shop-singles{margin:0;padding:0}.singles-market{gap:15px}.singles-merch-grid{gap:9px}.single-merch-card{grid-template-columns:104px minmax(0,1fr);padding:11px;gap:11px;min-height:166px}.single-merch-title{font-size:15px}.single-merch-value strong{font-size:18px}.single-merch-buy{min-height:40px;padding:8px 13px}.singles-extra-filters{grid-template-columns:1fr 1fr}.singles-clear{grid-column:1/-1}.singles-sort select{max-width:155px}.singles-pills button{padding:7px 11px}.singles-count{font-size:11px}.singles-sell-panel{padding:12px}.singles-sell-heading h3{font-size:20px}}
 @media(max-width:365px){.single-merch-card{grid-template-columns:91px minmax(0,1fr);gap:10px}.single-merch-tags{gap:3px}.single-tag{padding:3px 4px;font-size:9px}.single-merch-value strong{font-size:16px}.single-merch-buy{padding:8px 10px}.singles-quick-row{align-items:stretch;gap:9px}.singles-sort{justify-content:space-between}.singles-offer-controls{grid-template-columns:1fr 80px}.singles-payout{grid-column:1/-1;text-align:left}.singles-searchbar{gap:6px}.singles-filter-toggle{padding:0 10px}}
 @media(prefers-reduced-motion:reduce){.single-skeleton{animation:none}}
+/* Three collection filters must remain usable at 320px without horizontal overflow. */
+.singles-pills{flex-wrap:wrap}
+.singles-pills button{white-space:nowrap}
+@media(max-width:365px){.singles-pills{gap:5px}.singles-pills button{padding:7px 9px;font-size:11px}}
