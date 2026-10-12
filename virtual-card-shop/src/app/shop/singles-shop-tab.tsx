@@ -1,7 +1,8 @@
 // src/app/shop/page.tsx
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { YourCardsPicker } from "./your-cards-picker";
 
 const ECONOMY_CHANGED_EVENT = "vcs:economy-changed";
@@ -46,6 +47,9 @@ type ShopInventoryCard = {
   productSetId: string | null;
   friendlySetName?: string | null;
   friendlyProductLabel?: string | null;
+  sport?: string | null;
+  year?: number | null;
+  isBase?: boolean | null;
 };
 
 type ShopInventoryRow = {
@@ -53,6 +57,9 @@ type ShopInventoryRow = {
   quantity: number;
   updatedAt?: string;
   youOwnQty: number;
+  pendingQty?: number;
+  prestigeNextLevel?: number | null;
+  neededForPrestige?: boolean;
   card: ShopInventoryCard;
 };
 
@@ -131,11 +138,19 @@ export default function SinglesShopTab() {
   const [invPage, setInvPage] = useState(1);
   const [invTotalPages, setInvTotalPages] = useState(1);
   const [invTotal, setInvTotal] = useState(0);
-  const [invSort, setInvSort] = useState<SinglesSortKey>("default");
+  const [invSort, setInvSort] = useState<SinglesSortKey | "recent" | "name">("default");
   const [onlyNeed, setOnlyNeed] = useState(false);
-
-  const [buyQty, setBuyQty] = useState<Record<number, number>>({});
+  const [invSport, setInvSport] = useState("");
+  const [invYear, setInvYear] = useState("");
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [checkout, setCheckout] = useState<ShopInventoryRow | null>(null);
+  const [checkoutQty, setCheckoutQty] = useState(1);
   const [buyingCardId, setBuyingCardId] = useState<number | null>(null);
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
+  const [selectedCardName, setSelectedCardName] = useState("");
+  const [clock, setClock] = useState(Date.now());
+  const requestSeq = useRef(0);
+  const purchaseDialog = useRef<HTMLDialogElement>(null);
 
   async function loadOffers() {
     setOffersLoading(true);
@@ -153,42 +168,53 @@ export default function SinglesShopTab() {
     }
   }
 
+
   async function loadInventory(
-    page = invPage,
-    q = invQ,
-    sort = invSort,
-    needOnly = onlyNeed
+    page = 1, q = invQ, sort = invSort, needOnly = onlyNeed,
+    sport = invSport, year = invYear, append = false
   ) {
+    const seq = ++requestSeq.current;
     setInvLoading(true);
     setInvErr(null);
     try {
-      const params = new URLSearchParams();
+      const params = new URLSearchParams({ page: String(page), pageSize: "24", sort });
       if (q.trim()) params.set("q", q.trim());
-      params.set("page", String(page));
-      params.set("pageSize", "30");
-      params.set("sort", sort);
       if (needOnly) params.set("onlyNeed", "1");
-
-      const res = await fetch(`/api/shop/singles/inventory?${params.toString()}`, { cache: "no-store" });
+      if (sport) params.set("sport", sport);
+      if (/^\d{4}$/.test(year)) params.set("year", year);
+      const res = await fetch("/api/shop/singles/inventory?" + params, { cache: "no-store" });
       const j = await res.json().catch(() => null);
-      if (!res.ok) throw new Error(j?.error ?? `Failed to load inventory (${res.status})`);
-
-      setInvRows(Array.isArray(j?.rows) ? (j.rows as ShopInventoryRow[]) : []);
-      setInvTotalPages(typeof j?.totalPages === "number" ? j.totalPages : 1);
-      setInvPage(typeof j?.page === "number" ? j.page : page);
-      setInvTotal(typeof j?.total === "number" ? j.total : 0);
-    } catch (e: any) {
-      setInvErr(e?.message ?? "Failed to load shop inventory");
+      if (!res.ok || !j?.ok) throw new Error(j?.error || "Couldn't load singles.");
+      if (seq !== requestSeq.current) return;
+      const next = Array.isArray(j.rows) ? j.rows as ShopInventoryRow[] : [];
+      setInvRows(prev => append ? [...prev, ...next.filter(x => !prev.some(p => p.cardId === x.cardId))] : next);
+      setInvPage(j.page ?? page);
+      setInvTotalPages(j.totalPages ?? 1);
+      setInvTotal(j.total ?? 0);
+    } catch (error) {
+      if (seq === requestSeq.current) setInvErr(error instanceof Error ? error.message : "Couldn't load singles.");
     } finally {
-      setInvLoading(false);
+      if (seq === requestSeq.current) setInvLoading(false);
     }
   }
 
+  useEffect(() => { void loadOffers(); }, []); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
-    loadOffers();
-    loadInventory(1, "", "default", false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    const timer = setTimeout(() => { void loadInventory(1, invQ, invSort, onlyNeed, invSport, invYear); }, 280);
+    return () => clearTimeout(timer);
+  }, [invQ, invSort, onlyNeed, invSport, invYear]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (singlesMode !== "sell") return;
+    setClock(Date.now());
+    const timer = window.setInterval(() => setClock(Date.now()), 30000);
+    return () => window.clearInterval(timer);
+  }, [singlesMode]);
+  useEffect(() => {
+    const dialog = purchaseDialog.current;
+    if (!dialog) return;
+    if (checkout && !dialog.open) dialog.showModal();
+    if (!checkout && dialog.open) dialog.close();
+  }, [checkout]);
 
   useEffect(() => {
     for (const offer of offers) {
@@ -321,6 +347,14 @@ export default function SinglesShopTab() {
   async function sellOffer(offerId: number) {
     const q = Math.max(1, Math.floor(sellQty[offerId] ?? 1));
     const grade = typeof sellGrade[offerId] === "number" ? sellGrade[offerId] : 0;
+    const offer = offers.find(o => o.id === offerId);
+    const bucket = (sellBuckets[offerId] ?? []).find(b => b.grade === grade);
+    if (!offer || !bucket || q > bucket.qtyOwned) {
+      setOffersErr("Choose an available grade and quantity.");
+      return;
+    }
+    const bps = offer.offerBps + (grade === 0 ? 0 : 1000);
+    const expectedTotalCents = Math.round(bucket.perCardValueCents * q * bps / 10000);
 
     setSellingOfferId(offerId);
     setOffersErr(null);
@@ -330,7 +364,7 @@ export default function SinglesShopTab() {
       const res = await fetch("/api/shop/singles/sell", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ offerId, quantity: q, grade }),
+        body: JSON.stringify({ offerId, quantity: q, grade, expectedTotalCents }),
       });
 
       const raw = await res.text();
@@ -358,7 +392,7 @@ export default function SinglesShopTab() {
       });
 
       await loadOffers();
-      await loadInventory(invPage, invQ, invSort, onlyNeed);
+      await loadInventory(1, invQ, invSort, onlyNeed, invSport, invYear);
     } catch (e: any) {
       setOffersErr(e?.message ?? "Sell failed");
     } finally {
@@ -366,38 +400,35 @@ export default function SinglesShopTab() {
     }
   }
 
-  async function buySingle(cardId: number) {
-    const q = Math.max(1, Math.floor(buyQty[cardId] ?? 1));
-    setBuyingCardId(cardId);
-    setInvErr(null);
-    setOffersMsg(null);
 
+  async function buySingle(cardId: number, quantity: number, expectedUnitPriceCents: number) {
+    if (buyingCardId !== null) return;
+    setBuyingCardId(cardId);
+    setCheckoutError(null);
     try {
       const res = await fetch("/api/shop/singles/buy", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cardId, quantity: q }),
+        body: JSON.stringify({ cardId, quantity, expectedUnitPriceCents }),
       });
-
-      const raw = await res.text();
-      let j: any = {};
-      try {
-        j = raw ? JSON.parse(raw) : {};
-      } catch {
-        throw new Error(`Non-JSON from buy single (${res.status}): ${raw.slice(0, 120)}`);
-      }
-
-      if (!res.ok) throw new Error(j?.error ?? `Buy failed (${res.status})`);
-
-      setOffersMsg(`Bought x${j.quantity} for $${centsToDollars(j.totalCents)}.`);
+      const j = await res.json().catch(() => null);
+      if (!res.ok || !j?.ok) throw new Error(j?.error || "Purchase failed.");
+      setOffersMsg("Added " + j.quantity + (j.quantity === 1 ? " card" : " cards") +
+        " to your collection for $" + centsToDollars(j.totalCents) + ".");
+      setCheckout(null);
       window.dispatchEvent(new CustomEvent(ECONOMY_CHANGED_EVENT));
-      await loadInventory(invPage, invQ, invSort, onlyNeed);
-    } catch (e: any) {
-      setInvErr(e?.message ?? "Buy failed");
+      await loadInventory(1, invQ, invSort, onlyNeed, invSport, invYear);
+    } catch (error) {
+      setCheckoutError(error instanceof Error ? error.message : "Purchase failed.");
     } finally {
       setBuyingCardId(null);
     }
   }
+
+  const checkoutPrice = checkout ? Math.round(Number(checkout.card.bookValue || 0) * 100) : 0;
+  const checkoutMax = checkout ? checkout.quantity : 1;
+  const checkoutValid = checkout !== null && Number.isInteger(checkoutQty) &&
+    checkoutQty >= 1 && checkoutQty <= checkoutMax && checkoutPrice > 0;
 
   const activeCount = offers.length;
 
