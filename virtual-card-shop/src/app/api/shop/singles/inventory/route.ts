@@ -184,7 +184,7 @@ export async function GET(req: Request) {
     const pendingByCard = new Map(pending.map(r => [r.cardId, r._sum.quantity ?? 0]));
 
     // Prestige matches the Shop/Collector level, including unrevealed grading orders.
-    const levels = setIds.length
+    const levels = !usePrestigeIndex && setIds.length
       ? await prisma.$queryRaw<{ productSetId: string; nextLevel: number }[]>(Prisma.sql`
           WITH held AS (
             SELECT "cardId", SUM(qty)::int AS qty FROM (
