@@ -37,9 +37,19 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: "Missing or invalid quantity." }, { status: 400 });
     }
 
-    const buyQty = Math.floor(quantity);
+    if (!Number.isSafeInteger(quantity)) {
+      return NextResponse.json({ ok: false, error: "Quantity must be a whole number." }, { status: 400 });
+    }
+    const buyQty = quantity;
+    const expectedUnitPriceCents = body?.expectedUnitPriceCents;
+    if (expectedUnitPriceCents != null && (!Number.isSafeInteger(expectedUnitPriceCents) || expectedUnitPriceCents < 0)) {
+      return NextResponse.json({ ok: false, error: "Invalid quoted price." }, { status: 400 });
+    }
 
     const out = await prisma.$transaction(async (tx) => {
+      // Serialize balance changes and stock changes before validating checkout.
+      await tx.$queryRaw`SELECT id FROM "User" WHERE id = ${user.id} FOR UPDATE`;
+      await tx.$queryRaw`SELECT id FROM "ShopInventory" WHERE "cardId" = ${cardId} FOR UPDATE`;
       const card = await tx.card.findUnique({
         where: { id: cardId },
         select: { id: true, bookValue: true },
@@ -48,6 +58,8 @@ export async function POST(req: Request) {
 
       const perCardCents = bookValueToPerCardCents(card.bookValue);
       if (perCardCents <= 0) return { ok: false as const, status: 400 as const, error: "Card has no book value." };
+      if (expectedUnitPriceCents != null && perCardCents !== expectedUnitPriceCents)
+        return { ok: false as const, status: 409 as const, error: "The price changed. Review the new price before buying." };
 
       const inv = await tx.shopInventory.findUnique({
         where: { cardId },
@@ -67,10 +79,12 @@ export async function POST(req: Request) {
       const bal = me?.balanceCents ?? 0;
       if (totalCents > bal) return { ok: false as const, status: 400 as const, error: "Insufficient funds." };
 
-      await tx.shopInventory.update({
-        where: { id: inv.id },
-        data: { quantity: available - buyQty },
+      const reserved = await tx.shopInventory.updateMany({
+        where: { id: inv.id, quantity: { gte: buyQty } },
+        data: { quantity: { decrement: buyQty } },
       });
+      if (reserved.count !== 1)
+        return { ok: false as const, status: 409 as const, error: "Stock changed. Refresh and try again." };
 
       await tx.cardOwnership.upsert({
         where: {
