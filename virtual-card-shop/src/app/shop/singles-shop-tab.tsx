@@ -433,536 +433,319 @@ export default function SinglesShopTab() {
   const activeCount = offers.length;
 
   return (
-    <div className={`singles-market singles-${singlesMode}`}>
-      <h2 style={{ fontSize: 22, fontWeight: 900, margin: "0 0 6px" }}>Singles</h2>
-      <div className="singles-intro">
-        Buy cards at book value or sell from your collection through 24-hour shop offers.
+    <section className="singles-market">
+      <div className="singles-topline">
+        <span className="shop-eyebrow">THE COLLECTOR'S DISPLAY CASE</span>
+        <h2>Singles</h2>
+        <p>Find the missing piece. Buy at book value or sell through a 24-hour offer.</p>
       </div>
-
       <nav className="singles-mode-tabs" aria-label="Singles shop">
-        <button
-          aria-current={singlesMode === "buy" ? "page" : undefined}
-          onClick={() => setSinglesMode("buy")}
-        >
-          Buy singles
-        </button>
-        <button
-          aria-current={singlesMode === "sell" ? "page" : undefined}
-          onClick={() => setSinglesMode("sell")}
-        >
-          Sell cards
+        <button type="button" aria-current={singlesMode === "buy" ? "page" : undefined}
+          onClick={() => setSinglesMode("buy")}>Buy singles</button>
+        <button type="button" aria-current={singlesMode === "sell" ? "page" : undefined}
+          onClick={() => setSinglesMode("sell")}>
+          Sell cards{activeCount > 0 ? <span className="singles-tab-count">{activeCount}</span> : null}
         </button>
       </nav>
+      {offersMsg && <div role="status" className="singles-notice">
+        <span>{offersMsg}</span><button type="button" onClick={() => setOffersMsg(null)} aria-label="Dismiss">×</button>
+      </div>}
 
-      {singlesMode === "sell" && offersErr ? (
-        <div className="singles-alert singles-alert-error" style={{ marginBottom: 12, padding: 12, background: "#fee", border: "1px solid #f99", borderRadius: 12 }}>
-          {offersErr}
-        </div>
-      ) : null}
-
-      {offersMsg ? (
-        <div className="singles-alert singles-alert-success" style={{ marginBottom: 12, padding: 12, background: "#efe", border: "1px solid #9f9", borderRadius: 12 }}>
-          {offersMsg}
-        </div>
-      ) : null}
-
-      <div className="singles-layout" style={{ display: "grid", gridTemplateColumns: "1fr", gap: 12 }}>
-        <div className="singles-panel singles-sell-request" style={{ border: "1px solid #ddd", borderRadius: 14, padding: 12, background: "#fafafa" }}>
-          <div style={{ fontWeight: 900, marginBottom: 8 }}>Request an offer</div>
-          <div style={{ fontSize: 12, color: "#555", marginBottom: 10 }}>
-            Active offers: <b>{activeCount}</b> • No global offer cap
+      {singlesMode === "buy" ? (
+        <section className="singles-catalog" aria-labelledby="singles-catalog-title">
+          <div className="singles-catalog-heading">
+            <div><span className="shop-eyebrow">IN THE DISPLAY CASE</span>
+              <h3 id="singles-catalog-title">Available singles</h3></div>
+            <span className="singles-count">{invTotal.toLocaleString()} cards</span>
           </div>
-
-          <YourCardsPicker
-            onPick={(id) => {
-              setRequestCardId(String(id));
-              setOffersMsg(`Selected Card ID ${id}. Now click “Get Offer (24h)”.`);
-              setOffersErr(null);
-            }}
-            disabled={requesting}
-          />
-
-          <div style={{ height: 10 }} />
-
-          <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-            <input
-              value={requestCardId}
-              onChange={(e) => setRequestCardId(e.target.value)}
-              placeholder="Card ID (auto-filled above, or type manually)"
-              style={{ padding: "10px 12px", borderRadius: 12, border: "1px solid #ccc", width: 320 }}
-            />
-            <button
-              onClick={requestOffer}
-              disabled={requesting}
-              style={{
-                padding: "10px 12px",
-                borderRadius: 12,
-                border: "1px solid #ccc",
-                background: requesting ? "#f2f2f2" : "white",
-                fontWeight: 900,
-                cursor: requesting ? "not-allowed" : "pointer",
-              }}
-            >
-              {requesting ? "Requesting…" : "Get Offer (24h)"}
-            </button>
-
-            <button
-              onClick={loadOffers}
-              disabled={offersLoading}
-              style={{
-                padding: "10px 12px",
-                borderRadius: 12,
-                border: "1px solid #ccc",
-                background: offersLoading ? "#f2f2f2" : "white",
-                fontWeight: 900,
-                cursor: offersLoading ? "not-allowed" : "pointer",
-              }}
-            >
-              {offersLoading ? "Loading…" : "Refresh Offers"}
-            </button>
-          </div>
-
-          <div style={{ fontSize: 12, color: "#666", marginTop: 8 }}>
-            Tip: search your collection above (player/team/set), click “Use this card →”, then request the offer.
-          </div>
-        </div>
-
-        <div className="singles-panel singles-active-offers" style={{ border: "1px solid #ddd", borderRadius: 14, padding: 12 }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 12 }}>
-            <div style={{ fontWeight: 900 }}>Active Offers</div>
-            <div style={{ fontSize: 12, color: "#666" }}>
-              Accept for instant cash, or reject to clear the offer and start the 24-hour card lockout.
-            </div>
-          </div>
-
-          {offersLoading ? (
-            <div style={{ marginTop: 10 }}>Loading offers…</div>
-          ) : offers.length === 0 ? (
-            <div className="singles-empty" style={{ marginTop: 10, padding: 12, background: "#fafafa", borderRadius: 12, border: "1px solid #eee" }}>
-              No active offers. Request one above.
-            </div>
-          ) : (
-            <div style={{ marginTop: 10, display: "grid", gap: 10 }}>
-              {offers.map((o) => {
-                const img = safeImgSrc(o.card?.frontImageUrl ?? null);
-                const exp = new Date(o.expiresAt);
-                const now = new Date();
-                const minsLeft = Math.max(0, Math.floor((exp.getTime() - now.getTime()) / 60000));
-                const hoursLeft = Math.floor(minsLeft / 60);
-                const remMins = minsLeft % 60;
-                const buckets = sellBuckets[o.id] ?? [];
-                const selectedGrade =
-                  typeof sellGrade[o.id] === "number"
-                    ? sellGrade[o.id]
-                    : buckets.find((b) => b.grade === 0)?.grade ?? buckets[0]?.grade ?? 0;
-                const selectedBucket = buckets.find((b) => b.grade === selectedGrade) ?? buckets[0] ?? null;
-                const selectedQty = Math.max(1, Math.floor(sellQty[o.id] ?? 1));
-                const effectiveBps = selectedGrade === 0 ? o.offerBps : o.offerBps + 1000;
-                const estimatedTotal =
-                  selectedBucket && selectedBucket.perCardValueCents > 0
-                    ? Math.round((selectedBucket.perCardValueCents * selectedQty * effectiveBps) / 10000)
-                    : null;
-
-                return (
-                  <div
-                    key={o.id}
-                    style={{
-                      border: "1px solid #eee",
-                      borderRadius: 14,
-                      padding: 12,
-                      background: selectedGrade === 0 ? "linear-gradient(135deg, #ffffff, #fafafa)" : "linear-gradient(135deg, #fffdf3, #fff8dd)",
-                      boxShadow: "0 10px 26px rgba(15, 23, 42, 0.05)",
-                      display: "grid",
-                      gridTemplateColumns: "72px 1fr",
-                      gap: 12,
-                      alignItems: "center",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: 72,
-                        height: 72,
-                        borderRadius: 12,
-                        overflow: "hidden",
-                        border: "1px solid #ddd",
-                        background: "white",
-                      }}
-                    >
-                      {img ? (
-                        <img src={img} alt="Card" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                      ) : (
-                        <div style={{ width: "100%", height: "100%", display: "grid", placeItems: "center", fontSize: 11, color: "#777" }}>
-                          No image
-                        </div>
-                      )}
-                    </div>
-
-                    <div style={{ display: "grid", gap: 6 }}>
-                      <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
-                        <div style={{ fontWeight: 900 }}>{fmtOfferLine(o)}</div>
-                        <div style={{ fontSize: 12, color: "#555" }}>
-                          Offer: <b>{pctBpsToText(o.offerBps)}</b>
-                          {selectedGrade !== 0 ? <span style={{ fontWeight: 900, color: "#8a5a00" }}> • VCS bonus: +10%</span> : null}
-                          {o.card ? (
-                            <>
-                              {" "}• Raw Book: <b>${Number(o.card.bookValue ?? 0).toFixed(2)}</b>
-                            </>
-                          ) : null}
-                        </div>
-                      </div>
-
-                      <div style={{ fontSize: 12, color: "#666" }}>
-                        Expires in <b>{hoursLeft}h {remMins}m</b> • Offer ID: {o.id} • Card ID: {o.cardId}
-                      </div>
-
-                      <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-                        <select
-                          value={String(selectedGrade)}
-                          onChange={(e) => {
-                            const grade = Number(e.target.value);
-                            setSellGrade((prev) => ({ ...prev, [o.id]: grade }));
-                          }}
-                          disabled={bucketLoading[o.id] || buckets.length === 0 || sellingOfferId === o.id}
-                          style={{ padding: 8, borderRadius: 10, border: "1px solid #ccc", minWidth: 150 }}
-                          title="Choose which version to sell"
-                        >
-                          {bucketLoading[o.id] ? (
-                            <option value="0">Loading grades…</option>
-                          ) : buckets.length === 0 ? (
-                            <option value="0">No owned copies</option>
-                          ) : (
-                            buckets.map((b) => (
-                              <option key={`${o.id}:${b.grade}`} value={String(b.grade)}>
-                                {b.gradeLabel} • Own {b.qtyOwned} • ${centsToDollars(b.perCardValueCents)}
-                              </option>
-                            ))
-                          )}
-                        </select>
-
-                        <input
-                          value={String(sellQty[o.id] ?? 1)}
-                          onChange={(e) => setSellQty((prev) => ({ ...prev, [o.id]: Number(e.target.value) }))}
-                          style={{ width: 80, padding: 8, borderRadius: 10, border: "1px solid #ccc" }}
-                        />
-
-                        {selectedBucket ? (
-                          <div style={{ fontSize: 12, color: "#555", fontWeight: 800 }}>
-                            Value: ${centsToDollars(selectedBucket.perCardValueCents)}
-                            {selectedGrade !== 0 ? " • Offer +10%" : ""}
-                            {estimatedTotal !== null ? ` • Est. $${centsToDollars(estimatedTotal)}` : ""}
-                          </div>
-                        ) : null}
-
-                        <button
-                          onClick={() => sellOffer(o.id)}
-                          disabled={sellingOfferId === o.id || bucketLoading[o.id] || buckets.length === 0 || rejectingOfferId === o.id}
-                          style={{
-                            padding: "9px 12px",
-                            borderRadius: 10,
-                            border: "1px solid #14532d",
-                            background:
-                              sellingOfferId === o.id || bucketLoading[o.id] || buckets.length === 0 || rejectingOfferId === o.id
-                                ? "#f2f2f2"
-                                : "#dcfce7",
-                            color: "#14532d",
-                            fontWeight: 1000,
-                            cursor:
-                              sellingOfferId === o.id || bucketLoading[o.id] || buckets.length === 0 || rejectingOfferId === o.id
-                                ? "not-allowed"
-                                : "pointer",
-                          }}
-                        >
-                          {sellingOfferId === o.id ? "Selling…" : "Accept / Sell"}
-                        </button>
-
-                        <button
-                          onClick={() => rejectOffer(o.id)}
-                          disabled={rejectingOfferId === o.id || sellingOfferId === o.id}
-                          style={{
-                            padding: "9px 12px",
-                            borderRadius: 10,
-                            border: "1px solid #fecaca",
-                            background: rejectingOfferId === o.id || sellingOfferId === o.id ? "#f2f2f2" : "#fff7f7",
-                            color: "#991b1b",
-                            fontWeight: 950,
-                            cursor: rejectingOfferId === o.id || sellingOfferId === o.id ? "not-allowed" : "pointer",
-                          }}
-                          title="Reject this offer and lock this card from new shop offers for 24 hours"
-                        >
-                          {rejectingOfferId === o.id ? "Rejecting…" : "Reject"}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
-
-        <div className="singles-panel singles-buy-inventory" style={{ border: "1px solid #ddd", borderRadius: 14, padding: 12 }}>
-          <div className="singles-inventory-heading">
-            <div>
-              <span className="shop-eyebrow">IN THE DISPLAY CASE</span>
-              <h3>Singles in the shop</h3>
-            </div>
-            <span className="singles-inventory-count">
-              {invTotal.toLocaleString()} {invTotal === 1 ? "card" : "cards"} available
-            </span>
-          </div>
-
-          <div
-            className="singles-inventory-tools"
-            style={{
-              display: "flex",
-              gap: 8,
-              flexWrap: "wrap",
-              alignItems: "center",
-            }}
-          >
-            <input
-              value={invQ}
-              onChange={(e) => setInvQ(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") void loadInventory(1, invQ, invSort, onlyNeed);
-              }}
-              placeholder="Search players, teams, sets, card numbers…"
-              style={{ padding: "10px 12px", borderRadius: 12, border: "1px solid #ccc", minWidth: 320 }}
-            />
-
-            <select
-              value={invSort}
-              onChange={(e) => {
-                const next = e.target.value as SinglesSortKey;
-                setInvSort(next);
-                void loadInventory(1, invQ, next, onlyNeed);
-              }}
-              style={{ padding: "10px 12px", borderRadius: 12, border: "1px solid #ccc" }}
-            >
-              <option value="default">Sort: Stock / newest</option>
-              <option value="price_asc">Sort: Price (low → high)</option>
-              <option value="price_desc">Sort: Price (high → low)</option>
-            </select>
-
-            <label
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                padding: "10px 12px",
-                borderRadius: 12,
-                border: "1px solid #ddd",
-                background: "#fafafa",
-                fontSize: 13,
-                fontWeight: 700,
-                cursor: "pointer",
-              }}
-            >
-              <input
-                type="checkbox"
-                checked={onlyNeed}
-                onChange={(e) => {
-                  const next = e.target.checked;
-                  setOnlyNeed(next);
-                  void loadInventory(1, invQ, invSort, next);
-                }}
-              />
-              Only cards I need
+          <div className="singles-searchbar">
+            <label className="singles-search">
+              <span aria-hidden="true" className="singles-search-icon">⌕</span>
+              <input type="search" value={invQ} onChange={e => setInvQ(e.target.value)}
+                placeholder="Search players, sets, teams, card #…" aria-label="Search shop singles" />
             </label>
-
-            <button
-              onClick={() => loadInventory(1, invQ, invSort, onlyNeed)}
-              disabled={invLoading}
-              style={{
-                padding: "10px 12px",
-                borderRadius: 12,
-                border: "1px solid #ccc",
-                background: invLoading ? "#f2f2f2" : "white",
-                fontWeight: 900,
-                cursor: invLoading ? "not-allowed" : "pointer",
-              }}
-            >
-              {invLoading ? "Searching…" : "Search"}
-            </button>
-
-            <button
-              onClick={() => {
-                setInvQ("");
-                setInvSort("default");
-                setOnlyNeed(false);
-                loadInventory(1, "", "default", false);
-              }}
-              disabled={invLoading}
-              style={{
-                padding: "10px 12px",
-                borderRadius: 12,
-                border: "1px solid #ccc",
-                background: invLoading ? "#f2f2f2" : "white",
-                fontWeight: 900,
-                cursor: invLoading ? "not-allowed" : "pointer",
-              }}
-            >
-              Reset
-            </button>
-
-            <div style={{ marginLeft: "auto", fontSize: 12, color: "#555" }}>
-              Showing <b>{invRows.length}</b> of <b>{invTotal}</b> • Page <b>{invPage}</b> / {invTotalPages}
-            </div>
-
-            <button
-              onClick={() => {
-                const next = Math.max(1, invPage - 1);
-                loadInventory(next, invQ, invSort, onlyNeed);
-              }}
-              disabled={invLoading || invPage <= 1}
-              style={{
-                padding: "10px 12px",
-                borderRadius: 12,
-                border: "1px solid #ccc",
-                background: invLoading || invPage <= 1 ? "#f2f2f2" : "white",
-                fontWeight: 900,
-                cursor: invLoading || invPage <= 1 ? "not-allowed" : "pointer",
-              }}
-            >
-              Prev
-            </button>
-
-            <button
-              onClick={() => {
-                const next = Math.min(invTotalPages, invPage + 1);
-                loadInventory(next, invQ, invSort, onlyNeed);
-              }}
-              disabled={invLoading || invPage >= invTotalPages}
-              style={{
-                padding: "10px 12px",
-                borderRadius: 12,
-                border: "1px solid #ccc",
-                background: invLoading || invPage >= invTotalPages ? "#f2f2f2" : "white",
-                fontWeight: 900,
-                cursor: invLoading || invPage >= invTotalPages ? "not-allowed" : "pointer",
-              }}
-            >
-              Next
+            <button className="singles-filter-toggle" type="button" onClick={() => setFilterOpen(!filterOpen)}
+              aria-expanded={filterOpen} aria-controls="singles-extra-filters">
+              Filters{invSport || invYear ? " •" : ""}
+              <span aria-hidden="true">{filterOpen ? "−" : "+"}</span>
             </button>
           </div>
+          <div className="singles-quick-row">
+            <div className="singles-pills" role="group" aria-label="Collection filters">
+              <button type="button" className={!onlyNeed ? "is-active" : ""} aria-pressed={!onlyNeed}
+                onClick={() => setOnlyNeed(false)}>All cards</button>
+              <button type="button" className={onlyNeed ? "is-active" : ""} aria-pressed={onlyNeed}
+                onClick={() => setOnlyNeed(true)}>Not owned</button>
+            </div>
+            <label className="singles-sort">Sort
+              <select value={invSort} onChange={e => setInvSort(e.target.value as typeof invSort)}>
+                <option value="default">Most available</option>
+                <option value="recent">Recently stocked</option>
+                <option value="price_asc">Price: low to high</option>
+                <option value="price_desc">Price: high to low</option>
+                <option value="name">Player A–Z</option>
+              </select>
+            </label>
+          </div>
+          {filterOpen && <div id="singles-extra-filters" className="singles-extra-filters">
+            <label>Sport
+              <select value={invSport} onChange={e => setInvSport(e.target.value)}>
+                <option value="">All sports</option>
+                <option>Baseball</option><option>Basketball</option><option>Football</option>
+                <option>Hockey</option><option>Soccer</option>
+              </select>
+            </label>
+            <label>Year
+              <input type="text" inputMode="numeric" maxLength={4} value={invYear}
+                onChange={e => setInvYear(e.target.value.replace(/[^0-9]/g, "").slice(0, 4))}
+                placeholder="All years" />
+            </label>
+            <button type="button" className="singles-clear" onClick={() => {
+              setInvQ(""); setOnlyNeed(false); setInvSort("default"); setInvSport(""); setInvYear("");
+            }}>Clear all filters</button>
+          </div>}
 
-          {invErr ? (
-            <div className="singles-alert singles-alert-error" style={{ marginTop: 12, padding: 12, background: "#fee", border: "1px solid #f99", borderRadius: 12 }}>
-              {invErr}
+          {invErr && <div className="singles-notice singles-notice-error" role="alert">
+            <span>{invErr}</span><button type="button" onClick={() => void loadInventory(1)} aria-label="Retry loading">Retry</button>
+          </div>}
+          {invLoading && invRows.length === 0 ? (
+            <div className="singles-merch-grid" aria-label="Loading singles">
+              {Array.from({ length: 6 }, (_, x) => <div key={x} className="single-skeleton" />)}
             </div>
-          ) : null}
-
-          {invLoading ? (
-            <div className="singles-merch-grid singles-merch-loading" aria-label="Loading singles">
-              {Array.from({ length: 10 }).map((_, index) => (
-                <div className="single-merch-skeleton" key={index}>
-                  <div />
-                  <span />
-                  <span />
-                </div>
-              ))}
-            </div>
-          ) : invErr ? null : invRows.length === 0 ? (
-            <div className="singles-empty singles-inventory-empty">
-              No cards found in the shop.
-            </div>
+          ) : invRows.length === 0 && !invErr ? (
+            <div className="singles-empty"><h3>No matching singles</h3>
+              <p>Try another player, a broader search, or clear your filters.</p>
+              <button type="button" onClick={() => {
+                setInvQ(""); setOnlyNeed(false); setInvSport(""); setInvYear("");
+              }}>Clear filters</button></div>
           ) : (
-            <div className="singles-merch-grid">
-              {invRows.map((r) => {
-                const img = safeImgSrc(r.card?.frontImageUrl ?? null);
-                const priceCents = Math.round((Number(r.card.bookValue ?? 0) || 0) * 100);
-                const detailsLine = compactMetaLine([r.card.team, r.card.subset, r.card.variant]);
-                const setLine = formatFriendlyProductSetLabel(r.card);
-                const requestedQty = buyQty[r.cardId] ?? 1;
-                const selectedQty = Number.isFinite(requestedQty)
-                  ? Math.max(1, Math.min(r.quantity, Math.floor(requestedQty)))
-                  : 1;
-                const totalCents = priceCents * selectedQty;
-
-                return (
-                  <article className="single-merch-card" key={r.cardId}>
-                    <div className="single-merch-art">
-                      {img ? (
-                        <img
-                          src={img}
-                          alt={`${r.card.player}${r.card.cardNumber ? ` #${r.card.cardNumber}` : ""}`}
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      ) : (
-                        <div className="single-merch-placeholder">
-                          <span>VCS</span>
-                          <small>IMAGE UNAVAILABLE</small>
+            <>
+              <div className="singles-merch-grid" aria-busy={invLoading}>
+                {invRows.map(row => {
+                  const card = row.card;
+                  const img = safeImgSrc(card.frontImageUrl);
+                  const price = Math.round((Number(card.bookValue) || 0) * 100);
+                  const setLabel = card.friendlyProductLabel || card.friendlySetName || "Trading card";
+                  const details = compactMetaLine([card.team, card.subset, card.variant]);
+                  return <article key={row.cardId} className="single-merch-card">
+                    <Link href={"/cards/" + row.cardId} className="single-merch-art"
+                      aria-label={"View " + card.player + " card details"}>
+                      {img ? <img src={img} alt={card.player + " card front"} loading="lazy" decoding="async" /> :
+                        <span className="single-art-placeholder"><b>VCS</b><small>NO IMAGE</small></span>}
+                    </Link>
+                    <div className="single-merch-info">
+                      <div className="single-merch-set" title={setLabel}>{setLabel}</div>
+                      <Link className="single-merch-title" href={"/cards/" + row.cardId}>
+                        {card.player}{card.cardNumber ? <small>{"#" + card.cardNumber}</small> : null}
+                      </Link>
+                      {card.friendlySetName && card.friendlyProductLabel &&
+                        card.friendlySetName !== card.friendlyProductLabel &&
+                        <div className="single-merch-subset" title={card.friendlySetName}>{card.friendlySetName}</div>}
+                      {details && <div className="single-merch-meta" title={details}>{details}</div>}
+                      <div className="single-merch-tags">
+                        <span className={row.youOwnQty ? "single-tag single-tag-owned" : "single-tag"}>
+                          {row.youOwnQty ? "Own " + row.youOwnQty : "Not owned"}
+                        </span>
+                        {row.neededForPrestige && row.prestigeNextLevel != null &&
+                          <span className="single-tag single-tag-prestige">
+                            Needed · Prestige {row.prestigeNextLevel}</span>}
+                      </div>
+                      <div className="single-merch-bottom">
+                        <div className="single-merch-value">
+                          <small>{row.quantity === 1 ? "Last copy" : row.quantity.toLocaleString() + " available"}</small>
+                          <strong>{price > 0 ? "$" + centsToDollars(price) : "No price"}</strong>
                         </div>
-                      )}
-
-                      {r.youOwnQty > 0 ? (
-                        <span className="single-owned-badge">YOU OWN {r.youOwnQty}</span>
-                      ) : null}
-
-                      <span className={`single-stock-badge ${r.quantity === 1 ? "single-stock-last" : ""}`}>
-                        {r.quantity === 1 ? "LAST COPY" : `${r.quantity} AVAILABLE`}
-                      </span>
+                        <button type="button" className="single-merch-buy" disabled={price <= 0}
+                          onClick={() => { setCheckout(row); setCheckoutQty(1); setCheckoutError(null); }}>
+                          Buy <span aria-hidden="true">↗</span>
+                        </button>
+                      </div>
                     </div>
-
-                    <div className="single-merch-body">
-                      <div className="single-merch-set" title={setLine}>
-                        {setLine}
+                  </article>;
+                })}
+              </div>
+              <div className="singles-pagination">
+                <span>Showing {invRows.length.toLocaleString()} of {invTotal.toLocaleString()}</span>
+                {invPage < invTotalPages &&
+                  <button type="button" disabled={invLoading} onClick={() =>
+                    void loadInventory(invPage + 1, invQ, invSort, onlyNeed, invSport, invYear, true)}>
+                    {invLoading ? "Loading…" : "Load more singles"}
+                  </button>}
+              </div>
+            </>
+          )}
+        </section>
+      ) : (
+        <section className="singles-sell-flow">
+          <div className="singles-sell-heading">
+            <span className="shop-eyebrow">SELL TO THE SHOP</span>
+            <h3>Turn duplicates into cash.</h3>
+            <p>Choose a card, request a quote, and decide whether to accept it. Quotes last 24 hours.</p>
+          </div>
+          {offersErr && <div className="singles-notice singles-notice-error" role="alert">
+            {offersErr}<button type="button" onClick={() => setOffersErr(null)} aria-label="Dismiss">×</button>
+          </div>}
+          <div className="singles-sell-panel">
+            <div className="singles-section-line">
+              <span className="singles-step">01</span>
+              <div><h4>Choose a card</h4><p>Search your collection and select a card.</p></div>
+            </div>
+            <YourCardsPicker onPick={(id, cardLabel) => {
+              setRequestCardId(String(id)); setSelectedCardName(cardLabel || "Card #" + id);
+              setOffersErr(null);
+            }} disabled={requesting} />
+            {requestCardId && <div className="singles-selected">
+              <span><small>Selected for quote</small><strong>{selectedCardName || "Card #" + requestCardId}</strong></span>
+              <button type="button" className="singles-primary" disabled={requesting} onClick={() => void requestOffer()}>
+                {requesting ? "Requesting…" : "Get 24-hour offer →"}
+              </button>
+            </div>}
+            <details className="singles-advanced"><summary>Enter card ID manually</summary>
+              <div><input aria-label="Manual card ID" type="number" inputMode="numeric"
+                value={requestCardId} onChange={e => { setRequestCardId(e.target.value); setSelectedCardName(""); }}
+                placeholder="Card ID" />
+                <button type="button" disabled={!requestCardId || requesting} onClick={() => void requestOffer()}>Get offer</button>
+              </div>
+            </details>
+          </div>
+          <div className="singles-sell-panel">
+            <div className="singles-section-line">
+              <span className="singles-step">02</span>
+              <div><h4>Active offers <span className="singles-offer-count">{activeCount}</span></h4>
+                <p>Check payouts and expiration. Rejecting or letting an offer expire locks that card for 24 hours.</p>
+              </div>
+              <button type="button" className="singles-refresh" onClick={() => void loadOffers()} disabled={offersLoading}>
+                {offersLoading ? "Refreshing…" : "Refresh"}
+              </button>
+            </div>
+            {offersLoading && !offers.length ? <p className="singles-muted">Loading offers…</p> :
+              !offers.length ? <div className="singles-empty"><h4>No active offers</h4>
+                <p>Select a card above to request a quote.</p></div> :
+              <div className="singles-offers-list">
+                {offers.map(offer => {
+                  const buckets = sellBuckets[offer.id] ?? [];
+                  const selectedGrade = sellGrade[offer.id] ?? buckets.find(b => b.grade === 0)?.grade ?? buckets[0]?.grade ?? 0;
+                  const selected = buckets.find(b => b.grade === selectedGrade) ?? null;
+                  const qty = sellQty[offer.id] ?? 1;
+                  const validQty = Number.isInteger(qty) && qty > 0 && qty <= (selected?.qtyOwned ?? 0);
+                  const bps = offer.offerBps + (selectedGrade === 0 ? 0 : 1000);
+                  const payout = selected ? Math.round(selected.perCardValueCents * qty * bps / 10000) : 0;
+                  const left = Math.max(0, new Date(offer.expiresAt).getTime() - clock);
+                  const mins = Math.ceil(left / 60000);
+                  const expires = left === 0 ? "Expired — refresh" :
+                    Math.floor(mins / 60) + "h " + (mins % 60) + "m left";
+                  return <article className="singles-offer-card" key={offer.id}>
+                    <div className="singles-offer-header">
+                      <Link href={"/cards/" + offer.cardId} className="singles-offer-art">
+                        {offer.card?.frontImageUrl ?
+                          <img src={offer.card.frontImageUrl} alt={(offer.card.player || "Card") + " front"} loading="lazy" /> :
+                          <span>VCS</span>}
+                      </Link>
+                      <div className="singles-offer-identity">
+                        <span className="singles-offer-status">{expires}</span>
+                        <Link href={"/cards/" + offer.cardId}>{fmtOfferLine(offer)}</Link>
+                        <p>{compactMetaLine([offer.card?.team, offer.card?.subset, offer.card?.variant])}</p>
+                        <small>Quote: {pctBpsToText(offer.offerBps)}
+                          {selectedGrade !== 0 ? " + 10% graded bonus" : ""}</small>
                       </div>
-
-                      <h3>
-                        {r.card.player}
-                        {r.card.cardNumber ? <small>#{r.card.cardNumber}</small> : null}
-                      </h3>
-
-                      {detailsLine ? <p>{detailsLine}</p> : <p className="single-merch-spacer">&nbsp;</p>}
-
-                      <div className="single-merch-purchase">
-                        <div className="single-merch-price">
-                          <small>Book price</small>
-                          <strong>${centsToDollars(priceCents)}</strong>
-                        </div>
-
-                        {r.quantity > 1 ? (
-                          <label className="single-merch-qty">
-                            <span>Qty</span>
-                            <input
-                              type="number"
-                              inputMode="numeric"
-                              min="1"
-                              max={r.quantity}
-                              value={String(buyQty[r.cardId] ?? 1)}
-                              onChange={(e) =>
-                                setBuyQty((prev) => ({
-                                  ...prev,
-                                  [r.cardId]: Number(e.target.value),
-                                }))
-                              }
-                              aria-label={`Quantity of ${r.card.player}`}
-                            />
-                          </label>
-                        ) : (
-                          <span className="single-merch-one-copy">1 copy</span>
-                        )}
+                    </div>
+                    <div className="singles-offer-controls">
+                      <label>Version
+                        <select value={String(selectedGrade)} disabled={bucketLoading[offer.id] || !buckets.length}
+                          onChange={e => {
+                            setSellGrade(prev => ({...prev, [offer.id]: Number(e.target.value)}));
+                            setSellQty(prev => ({...prev, [offer.id]: 1}));
+                          }}>
+                          {bucketLoading[offer.id] ? <option value="0">Loading…</option> :
+                            !buckets.length ? <option value="0">No copies</option> :
+                            buckets.map(b => <option key={b.grade} value={b.grade}>
+                              {b.gradeLabel} · Own {b.qtyOwned}
+                            </option>)}
+                        </select>
+                      </label>
+                      <label>Quantity
+                        <input type="number" inputMode="numeric" min={1} max={selected?.qtyOwned || 1}
+                          value={qty} onChange={e => setSellQty(prev => ({
+                            ...prev, [offer.id]: e.target.value === "" ? 0 : Number(e.target.value)
+                          }))} />
+                      </label>
+                      <div className="singles-payout"><small>Estimated payout</small>
+                        <strong>{selected && validQty ? "$" + centsToDollars(payout) : "—"}</strong>
                       </div>
-
-                      <button
-                        className="single-merch-buy"
-                        onClick={() => buySingle(r.cardId)}
-                        disabled={buyingCardId === r.cardId}
-                      >
-                        <span>{buyingCardId === r.cardId ? "Buying…" : "Buy now"}</span>
-                        <strong>${centsToDollars(totalCents)}</strong>
+                    </div>
+                    {selected && <p className="singles-offer-math">
+                      {selected.gradeLabel} value {"$" + centsToDollars(selected.perCardValueCents)} per card
+                      {" · "}offer {pctBpsToText(bps)}
+                    </p>}
+                    <div className="singles-offer-actions">
+                      <button type="button" className="singles-primary" disabled={!validQty || left === 0 ||
+                        !!sellingOfferId || !!rejectingOfferId || bucketLoading[offer.id] || payout <= 0}
+                        onClick={() => void sellOffer(offer.id)}>
+                        {sellingOfferId === offer.id ? "Selling…" : "Accept offer · $" + centsToDollars(payout)}
+                      </button>
+                      <button type="button" className="singles-secondary" disabled={!!sellingOfferId || !!rejectingOfferId}
+                        onClick={() => void rejectOffer(offer.id)}>
+                        {rejectingOfferId === offer.id ? "Rejecting…" : "Reject"}
                       </button>
                     </div>
-                  </article>
-                );
-              })}
+                  </article>;
+                })}
+              </div>}
+          </div>
+        </section>
+      )}
+
+      <dialog ref={purchaseDialog} className="singles-checkout-dialog" aria-labelledby="singles-checkout-title"
+        onCancel={e => { if (buyingCardId !== null) e.preventDefault(); else setCheckout(null); }}
+        onClick={e => { if (e.target === e.currentTarget && buyingCardId === null) setCheckout(null); }}>
+        {checkout && <div className="singles-checkout-inner">
+          <div className="singles-checkout-top">
+            <span className="shop-eyebrow">REVIEW YOUR SINGLE</span>
+            <button type="button" className="singles-close" onClick={() => setCheckout(null)}
+              aria-label="Close checkout" disabled={buyingCardId !== null}>×</button>
+          </div>
+          <div className="singles-checkout-card">
+            <div className="singles-checkout-art">
+              {checkout.card.frontImageUrl ? <img src={checkout.card.frontImageUrl} alt="Card front" /> : <span>VCS</span>}
             </div>
-          )}
-        </div>
-      </div>
-    </div>
+            <div><h3 id="singles-checkout-title">{checkout.card.player}
+              {checkout.card.cardNumber ? " #" + checkout.card.cardNumber : ""}</h3>
+              <p>{checkout.card.friendlyProductLabel} · {checkout.card.friendlySetName}</p>
+              <span>{checkout.quantity} in stock · {checkout.youOwnQty ? "Own " + checkout.youOwnQty : "Not owned"}</span>
+              {checkout.neededForPrestige && <small className="singles-checkout-prestige">
+                Needed for Prestige {checkout.prestigeNextLevel}</small>}
+            </div>
+          </div>
+          <div className="singles-checkout-row">
+            <span><small>Book price per card</small><strong>{"$" + centsToDollars(checkoutPrice)}</strong></span>
+            <label>Quantity
+              <span className="singles-stepper">
+                <button type="button" aria-label="Decrease quantity" disabled={checkoutQty <= 1 || buyingCardId !== null}
+                  onClick={() => setCheckoutQty(q => Math.max(1, q - 1))}>−</button>
+                <input type="number" min="1" max={checkoutMax} inputMode="numeric"
+                  aria-label="Purchase quantity" value={checkoutQty} disabled={buyingCardId !== null}
+                  onChange={e => setCheckoutQty(e.target.value === "" ? 0 : Number(e.target.value))}/>
+                <button type="button" aria-label="Increase quantity" disabled={checkoutQty >= checkoutMax || buyingCardId !== null}
+                  onClick={() => setCheckoutQty(q => Math.min(checkoutMax, Math.max(0, q) + 1))}>+</button>
+              </span>
+            </label>
+          </div>
+          <div className="singles-checkout-total"><span>Total</span>
+            <strong>{checkoutValid ? "$" + centsToDollars(checkoutPrice * checkoutQty) : "—"}</strong>
+          </div>
+          {checkoutError && <p className="singles-checkout-error" role="alert">{checkoutError}</p>}
+          {!checkoutValid && <p className="singles-checkout-error" role="alert">
+            Choose a valid quantity from 1 to {checkoutMax}.
+          </p>}
+          <button type="button" className="singles-primary singles-checkout-submit"
+            disabled={!checkoutValid || buyingCardId !== null}
+            onClick={() => void buySingle(checkout.cardId, checkoutQty, checkoutPrice)}>
+            {buyingCardId ? "Adding to collection…" : "Confirm purchase"}
+            <span>{checkoutValid ? "$" + centsToDollars(checkoutPrice * checkoutQty) : ""}</span>
+          </button>
+          <p className="singles-checkout-note">Purchased singles are added as Raw copies to your collection.</p>
+        </div>}
+      </dialog>
+    </section>
   );
 }
-
