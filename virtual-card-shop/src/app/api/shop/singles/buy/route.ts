@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
 import { bookValueToPerCardCents } from "@/lib/shop-offers";
+import { createFinancialTransaction } from "@/lib/financial-transactions";
+import { syncPrestigeProgressForProductSets } from "@/lib/prestige";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -18,7 +20,7 @@ function shortErr(e: any) {
 
 /**
  * POST: buy a single from shop inventory at 100% book value
- * Body: { cardId: number, quantity: number }
+ * Body: { cardId: number, quantity: number, expectedUnitPriceCents?: number }
  *
  * Current shop inventory is not grade-aware yet, so all purchased singles
  * are added to the buyer's raw/ungraded ownership bucket: grade = 0.
@@ -52,7 +54,7 @@ export async function POST(req: Request) {
       await tx.$queryRaw`SELECT id FROM "ShopInventory" WHERE "cardId" = ${cardId} FOR UPDATE`;
       const card = await tx.card.findUnique({
         where: { id: cardId },
-        select: { id: true, bookValue: true },
+        select: { id: true, bookValue: true, productSetId: true, player: true, cardNumber: true },
       });
       if (!card) return { ok: false as const, status: 404 as const, error: "Card not found." };
 
@@ -118,6 +120,24 @@ export async function POST(req: Request) {
           quantity: buyQty,
           perCardCents,
           totalCents,
+        },
+      });
+
+      if (card.productSetId) {
+        await syncPrestigeProgressForProductSets({
+          tx, userId: user.id, productSetIds: [card.productSetId],
+        });
+      }
+      await createFinancialTransaction({
+        tx,
+        userId: user.id,
+        category: "SINGLE_PURCHASE",
+        amountCents: -totalCents,
+        description: "Purchased " + buyQty + "x " + card.player + " #" + card.cardNumber + " from the Singles Shop",
+        balanceAfterCents: updatedUser.balanceCents,
+        metadata: {
+          cardId, grade: RAW_GRADE, quantity: buyQty,
+          perCardCents, totalCents, productSetId: card.productSetId || "",
         },
       });
 
