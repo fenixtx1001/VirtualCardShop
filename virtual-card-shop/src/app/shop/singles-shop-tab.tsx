@@ -155,7 +155,6 @@ export default function SinglesShopTab() {
   async function loadOffers() {
     setOffersLoading(true);
     setOffersErr(null);
-    setOffersMsg(null);
     try {
       const res = await fetch("/api/shop/singles/offers", { cache: "no-store" });
       const j = await res.json().catch(() => null);
@@ -255,6 +254,7 @@ export default function SinglesShopTab() {
 
       setOffersMsg(j?.reused ? "Offer already active for that card (reused)." : "Offer created. Accept it, reject it, or let it expire; the card will be locked from new shop offers for 24 hours after a pass/expiry.");
       setRequestCardId("");
+      setSelectedCardName("");
       await loadOffers();
     } catch (e: any) {
       setOffersErr(e?.message ?? "Offer request failed");
@@ -435,7 +435,7 @@ export default function SinglesShopTab() {
   return (
     <section className="singles-market">
       <div className="singles-topline">
-        <span className="shop-eyebrow">THE COLLECTOR'S DISPLAY CASE</span>
+        <span className="shop-eyebrow">THE COLLECTOR&apos;S DISPLAY CASE</span>
         <h2>Singles</h2>
         <p>Find the missing piece. Buy at book value or sell through a 24-hour offer.</p>
       </div>
