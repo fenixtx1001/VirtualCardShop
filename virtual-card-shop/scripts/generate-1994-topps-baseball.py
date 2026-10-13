@@ -1,0 +1,234 @@
+from __future__ import annotations
+
+import csv
+import re
+import urllib.error
+import urllib.request
+from html.parser import HTMLParser
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / "data/set-factory/1994-topps-baseball.cards.csv"
+
+# Source and request protocol intentionally match the successful 1997 Metal
+# Universe Football Set Factory generator. Do not simplify the headers.
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (compatible; VCS Set Factory research import)",
+    "Accept": "text/html,application/xhtml+xml",
+}
+SOURCES = [
+    ("base",426,792),
+    ("gold",10288,792),
+    ("black-gold",427,44),
+    ("finest-pre-production",10362,40),
+]
+ROOKIE_RECORDS = 118
+GOLD_REPLACEMENTS = {
+    395:"Bill Brennan",396:"Jeff Bronkey",791:"Mike Cook",792:"Dan Pasqua"
+}
+TWO_370 = {"Benny Santiago","Mark McLemore"}
+ROOKIE_NOTE = re.compile(r"\bRC\s+for\s+(.+?)\s+only\b",re.I)
+TAGS = re.compile(
+    r"(?:[\s,;]+(?:RC|ROO|FS|ASR|AS|PROS|DPK|MOG|CA|CL|LL|TRIB|"
+    r"MGR|VAR|ERR|COR|UER|TC|HL|WS|ALCS|NLCS|SB|CD|SN\d+))+$",re.I
+)
+SOURCE_NOTES = re.compile(r"(?:^|[;, ]+)(?:UER|ERR|COR|VAR)\s*:\s*.*$",re.I)
+LEAKED_NOTES = re.compile(r"(?:^|[ ,;])(?:UER|ERR|COR|VAR)(?:$|[ ,;:])",re.I)
+
+class Rows(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.rows = []
+        self.row = None
+        self.cell = None
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "tr":
+            self.row = []
+        elif tag == "td" and self.row is not None:
+            self.cell = []
+
+    def handle_data(self, data):
+        if self.cell is not None:
+            self.cell.append(data)
+
+    def handle_endtag(self, tag):
+        if tag == "td" and self.cell is not None:
+            self.row.append(" ".join("".join(self.cell).split()))
+            self.cell = None
+        elif tag == "tr" and self.row is not None:
+            if self.row:
+                self.rows.append(self.row)
+            self.row = None
+
+def fetch(url):
+    req = urllib.request.Request(url, headers=HEADERS)
+    try:
+        with urllib.request.urlopen(req, timeout=35) as res:
+            return res.read().decode("utf-8", errors="replace")
+    except urllib.error.HTTPError as exc:
+        raise SystemExit(
+            f"TCDB HTTP {exc.code} at {url}: unable to verify checklist, "
+            "no new CSV written"
+        ) from exc
+
+def normalize(raw):
+    text=" ".join(raw.split()).strip()
+    note=ROOKIE_NOTE.search(text)
+    rc_note=note.group(1) if note else ""
+    text=SOURCE_NOTES.sub("",text).strip(" ,;")
+    text=ROOKIE_NOTE.sub("",text).strip(" ,;")
+    for _ in range(6):
+        updated=TAGS.sub("",text).strip(" ,;")
+        if updated==text:break
+        text=updated
+    if not text or LEAKED_NOTES.search(text) or ROOKIE_NOTE.search(text):
+        raise SystemExit(f"Could not clean TCDB subject {raw!r} => {text!r}")
+    return text,rc_note
+
+def fetch_cards(url, expected, label, max_pages=11):
+    # Printed #370 occurs twice for different players. Print-code variations
+    # of the SAME player are collapsed, rather than becoming extra cards.
+    cards={}
+    for page in range(1,max_pages+1):
+        parsed=Rows()
+        parsed.feed(fetch(f"{url}?PageIndex={page}"))
+        seen=0; added=0
+        for row in parsed.rows:
+            vals=[v.strip() for v in row if v.strip()]
+            for i,value in enumerate(vals):
+                if not re.fullmatch(r"\d{1,3}[a-zA-Z]?",value) or i+1>=len(vals):
+                    continue
+                number=int(re.match(r"\d+",value).group())
+                if not 1<=number<=792:continue
+                raw=vals[i+1]
+                if raw.lower() in ("add","edit","options"):continue
+                name,rc_note=normalize(raw)
+                team=vals[-1] if i+2<len(vals) else ""
+                if team==raw:team=""
+                seen+=1
+                group=cards.setdefault(number,{})
+                if name in group:
+                    if group[name][0]!=team:
+                        raise SystemExit(f"{label} #{number} {name}: conflicting teams")
+                else:
+                    group[name]=(team,raw,rc_note);added+=1
+                break
+        total=sum(len(v) for v in cards.values())
+        print(f"{label} page {page}: parsed {seen}; +{added}; {total}/{expected}",flush=True)
+        if total==expected:break
+        if page>1 and seen==0:break
+    total=sum(len(v) for v in cards.values())
+    if total!=expected:
+        raise SystemExit(f"{label}: expected {expected}, got {total}; no CSV written")
+    return cards
+
+def check_numbering(cards,label):
+    expected=set(range(1,793))-{379}
+    if set(cards)!=expected:
+        raise SystemExit(f"{label}: missing {sorted(expected-set(cards))[:15]}; extra {sorted(set(cards)-expected)[:15]}")
+    for number,names in cards.items():
+        if number==370:
+            if set(names)!=TWO_370:
+                raise SystemExit(f"{label}: incorrect double-#370 subjects: {list(names)}")
+        elif len(names)!=1:
+            raise SystemExit(f"{label} #{number}: unexpected distinct subjects {list(names)}")
+
+def output_number(number,name):
+    # "370-M" is an INTERNAL identifier; both cards physically print #370.
+    if number==370:
+        if name=="Mark McLemore":return "370-M"
+        if name=="Benny Santiago":return "370"
+        raise SystemExit("Unrecognized card #370")
+    return str(number)
+
+def subset(name,raw):
+    for tag,label in [("PROS","Prospects"),("DPK","Draft Picks"),
+                      ("FS","Future Stars"),("MOG","Measures of Greatness"),
+                      ("TRIB","Tribute"),("AS","All-Stars")]:
+        if re.search(r"\b"+tag+r"\b",raw):return label
+    if "checklist" in name.lower() or re.search(r"\bCL\b",raw):
+        return "Checklist"
+    return ""
+
+def label_named_rcs(name,note):
+    match=re.fullmatch(r"(.+?)\s*\((.+)\)",name)
+    if not match or not note:return None
+    title,inside=match.groups()
+    players=[p.strip() for p in inside.split("/")]
+    surnames=[p.split()[-1] for p in players]
+    if len(surnames)!=len(set(surnames)):return None
+    selected={i for i,surname in enumerate(surnames)
+              if re.search(r"\b"+re.escape(surname)+r"\b",note,re.I)}
+    if not selected:return None
+    return f"{title} ({' / '.join(p+' RC' if i in selected else p for i,p in enumerate(players))})"
+
+def main():
+    rookies=fetch_cards(
+        "https://www.tcdb.com/Rookies.cfm/sid/426/1994-Topps",
+        ROOKIE_RECORDS,"rookies",max_pages=4)
+    rc_numbers=set(rookies)
+    base=fetch_cards(
+        "https://www.tcdb.com/Checklist.cfm/sid/426/1994-Topps",792,"base")
+    check_numbering(base,"base")
+    gold=fetch_cards(
+        "https://www.tcdb.com/Checklist.cfm/sid/10288/1994-Topps-Gold",792,"gold")
+    check_numbering(gold,"gold")
+    for number,expected_name in GOLD_REPLACEMENTS.items():
+        if set(gold[number])!={expected_name}:
+            raise SystemExit(f"Gold #{number}: unexpected replacement {list(gold[number])}")
+    corrections=[]
+    for number,subjects in gold.items():
+        if number in GOLD_REPLACEMENTS:continue
+        for name,(team,raw,note) in list(subjects.items()):
+            if name not in base[number]:
+                raise SystemExit(f"Gold #{number} player {name!r} differs from base")
+            base_team=base[number][name][0]
+            if team!=base_team:
+                corrections.append((number,name,team,base_team))
+                subjects[name]=(base_team,raw,note)
+    if len(corrections)>30:raise SystemExit(f"Excessive Gold team mismatches: {len(corrections)}")
+    for number,name,old,new in corrections:
+        print(f"Gold #{number} {name}: team {old!r} -> {new!r}")
+    black=fetch_cards(
+        "https://www.tcdb.com/Checklist.cfm/sid/427/1994-Topps-Black-Gold",44,"black-gold")
+    finest=fetch_cards(
+        "https://www.tcdb.com/Checklist.cfm/sid/10362/1994-Topps-1994-Finest-Pre-Production",
+        40,"finest-pre-production")
+    if set(black)!=set(range(1,45)):
+        raise SystemExit("Black Gold numbering differs from #1-44")
+    rows=[];review=[]
+    for key,cards in (("base",base),("gold",gold),
+                      ("black-gold",black),("finest-pre-production",finest)):
+        for number,subjects in sorted(cards.items()):
+            for name,(team,raw,note) in sorted(subjects.items()):
+                player=name
+                if key=="base" and number in rc_numbers:
+                    if "/" in name:
+                        selected=label_named_rcs(name,note)
+                        if selected:player=selected
+                        else:review.append((number,name))
+                    else:player+=" RC"
+                group=subset(name,raw) if key=="base" else ""
+                if not team and group=="Checklist":team="MLB"
+                if not team:
+                    raise SystemExit(f"{key} #{number} {name}: missing team; no CSV")
+                rows.append((key,output_number(number,name),player,team,
+                             group,"Gold" if key=="gold" else ""))
+    expected=sum(source[2] for source in SOURCES)
+    if len(rows)!=expected or len({(r[0],r[1]) for r in rows})!=expected:
+        raise SystemExit(f"Expected {expected} unique cards; got {len(rows)}")
+    OUT.parent.mkdir(parents=True,exist_ok=True)
+    with OUT.open("w",newline="",encoding="utf-8") as file:
+        writer=csv.writer(file,lineterminator="\n")
+        writer.writerow(["setKey","cardNumber","player","team","subset","variant"])
+        writer.writerows(rows)
+    print("=== 1994 TOPPS BASEBALL GENERATED ===")
+    print(f"{len(rows)} cards / {len(SOURCES)} Product Sets")
+    print("Base 792; Gold 792; Black Gold 44; Finest Pre-Production 40")
+    print(f"TCDB rookie-index records: {ROOKIE_RECORDS}; multi-player RC review: {len(review)}")
+    for number,name in review:print(f"  REVIEW #{number}: {name}")
+    print(f"Generated CSV: {OUT}; DRAFT only, scans/pricing pending")
+
+if __name__ == "__main__":
+    main()
