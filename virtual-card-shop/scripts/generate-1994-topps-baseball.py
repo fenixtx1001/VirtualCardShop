@@ -193,8 +193,12 @@ def validate_known_annotations():
         "1B Prospects (Greg Pirkl / Roberto Petagine / D.J. Boston / Shawn Wooten)":
             "1B Prospects (Greg Pirkl / Roberto Petagine / D.J. Boston RC / Shawn Wooten RC)",
     }.items():
-        note={"SS Prospects":"Neal","Kevin Foster":"Foster",
-              "1B Prospects":"Boston and Wooten"}[raw.split(" ")[0]]
+        if raw.startswith("SS Prospects"):
+            note="Neal"
+        elif raw.startswith("Kevin Foster"):
+            note="Foster"
+        else:
+            note="Boston and Wooten"
         result=label_named_rcs(raw,note)
         if result!=expected:
             raise SystemExit(
