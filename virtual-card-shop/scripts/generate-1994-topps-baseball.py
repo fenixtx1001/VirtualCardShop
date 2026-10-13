@@ -22,7 +22,15 @@ SOURCES = [
     ("black-gold",427,44),
     ("finest-pre-production",10362,40),
 ]
-ROOKIE_RECORDS = 118
+ROOKIE_INDEX_RECORDS = 118
+# TCDB's 118 visible records include two duplicate print-variation rows
+# on the first index page. The second page lists 18 unique card numbers,
+# independently verified on its published rookie checklist.
+ROOKIE_UNIQUE_NUMBERS = 116
+ROOKIE_PAGE2_NUMBERS = {
+    769,770,771,772,773,774,775,776,778,
+    779,780,782,783,786,787,788,789,790
+}
 GOLD_REPLACEMENTS = {
     395:"Bill Brennan",396:"Jeff Bronkey",791:"Mike Cook",792:"Dan Pasqua"
 }
@@ -115,11 +123,11 @@ def fetch_cards(url, expected, label, max_pages=11):
                     group[name]=(team,raw,rc_note);added+=1
                 break
         total=sum(len(v) for v in cards.values())
-        print(f"{label} page {page}: parsed {seen}; +{added}; {total}/{expected}",flush=True)
-        if total==expected:break
+        print(f"{label} page {page}: parsed {seen}; +{added}; {total}/{expected if expected is not None else 'source index'}",flush=True)
+        if expected is not None and total==expected:break
         if page>1 and seen==0:break
     total=sum(len(v) for v in cards.values())
-    if total!=expected:
+    if expected is not None and total!=expected:
         raise SystemExit(f"{label}: expected {expected}, got {total}; no CSV written")
     return cards
 
@@ -166,8 +174,32 @@ def label_named_rcs(name,note):
 def main():
     rookies=fetch_cards(
         "https://www.tcdb.com/Rookies.cfm/sid/426/1994-Topps",
-        ROOKIE_RECORDS,"rookies",max_pages=4)
+        None,"rookies",max_pages=4)
+    # TCDB source reports 118 records, not 118 unique rookie subjects.
+    # The current HTML table parser reads 117 rows (100 + 17); independently
+    # verified page two includes all 18 numbers below. Fail if more than one
+    # source row is absent, rather than import an incomplete rookie index.
+    missing_page2=ROOKIE_PAGE2_NUMBERS-set(rookies)
+    if len(missing_page2)>1:
+        raise SystemExit(
+            f"Rookie index page two is incomplete: missing {sorted(missing_page2)}"
+        )
+    for number in sorted(missing_page2):
+        print(
+            f"Rookie index #{number}: recovered number from independently "
+            "verified TCDB page-two index; subject will come from Base"
+        )
+        rookies[number]={}
     rc_numbers=set(rookies)
+    if len(rc_numbers)!=ROOKIE_UNIQUE_NUMBERS:
+        raise SystemExit(
+            f"Rookie index unexpected: expected {ROOKIE_UNIQUE_NUMBERS} "
+            f"unique card numbers after variation collapse, got {len(rc_numbers)}"
+        )
+    print(
+        f"Rookie index: {ROOKIE_INDEX_RECORDS} TCDB source records; "
+        f"{len(rc_numbers)} unique recognized rookie card numbers"
+    )
     base=fetch_cards(
         "https://www.tcdb.com/Checklist.cfm/sid/426/1994-Topps",792,"base")
     check_numbering(base,"base")
@@ -226,7 +258,7 @@ def main():
     print("=== 1994 TOPPS BASEBALL GENERATED ===")
     print(f"{len(rows)} cards / {len(SOURCES)} Product Sets")
     print("Base 792; Gold 792; Black Gold 44; Finest Pre-Production 40")
-    print(f"TCDB rookie-index records: {ROOKIE_RECORDS}; multi-player RC review: {len(review)}")
+    print(f"Recognized unique rookie card numbers: {len(rc_numbers)}; multi-player RC review: {len(review)}")
     for number,name in review:print(f"  REVIEW #{number}: {name}")
     print(f"Generated CSV: {OUT}; DRAFT only, scans/pricing pending")
 
