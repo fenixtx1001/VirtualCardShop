@@ -93,39 +93,114 @@ def fetch(url):
         ) from exc
 
 def normalize(raw):
+    """Remove TCDB checklist metadata, but retain every actual player name.
+
+    TCDB's list view can concatenate multi-field notes with no delimiter:
+    PROS, RCRC for Boston and Wooten only; CANot an RC for either player;
+    or UER5th line. The note is captured before metadata is stripped.
+    """
     text=" ".join(raw.split()).strip()
-    # TCDB adds "Checklist replacement" after the four Gold-only players.
-    # That phrase describes the card, and is not part of the player name.
+    # This contains a true player-level label, NOT a generic card-level RC.
+    rc_match=re.search(
+        r"(?:(?:UER|ERR|COR|VAR))?(?:RC){1,2}\s+for\s+"
+        r"([A-Za-z. '-]+?(?:\s+and\s+[A-Za-z. '-]+)*)\s+only\b",
+        text,re.I,
+    )
+    rc_note=rc_match.group(1).strip() if rc_match else ""
     text=re.sub(r"\s+Checklist\s+replacement\s*$","",text,flags=re.I)
-    note=ROOKIE_NOTE.search(text)
-    rc_note=note.group(1) if note else ""
     text=SOURCE_NOTES.sub("",text).strip(" ,;")
-    text=ROOKIE_NOTE.sub("",text).strip(" ,;")
+    # Eliminate explanatory material starting at an explicit TCDB metadata
+    # tag. 'CA' is Coming Attractions, 'PROS' is Prospects, 'DPK' Draft Picks.
+    text=re.sub(
+        r"\s+(?:PROS|DPK|CA|UER|ERR|COR|VAR|RC)"
+        r"(?:(?:\s|,|:|(?=Not\b)|(?=\d))[\s\S]*)?$",
+        "",text,flags=re.I,
+    ).strip(" ,;")
+    text=re.sub(
+        r"\s+(?:UER|ERR|COR|VAR){1,4}(?=[:\s\d]).*$",
+        "",text,flags=re.I,
+    ).strip(" ,;")
+    # Historical anniversary title is joined to the surname on one
+    # TCDB listing but spaced correctly on its Gold parallel.
+    text=re.sub(r"^Hank Aaron\s*20th Anniversary #715$",
+                "Hank Aaron 20th Anniversary #715",text)
     for _ in range(6):
         updated=TAGS.sub("",text).strip(" ,;")
         if updated==text:break
         text=updated
     if not text or LEAKED_NOTES.search(text) or ROOKIE_NOTE.search(text):
         raise SystemExit(f"Could not clean TCDB subject {raw!r} => {text!r}")
+    if re.search(r"\b(?:UER|RCRC|CANot|RC for|Checklist replacement)\b",text,re.I):
+        raise SystemExit(f"Uncleaned TCDB annotation in {raw!r} => {text!r}")
     return text,rc_note
 
 def validate_known_annotations():
-    # Fail fast before requesting TCDB if source normalization regresses.
-    checks = {
-        "Mark McLemore UERUER: #370 on back, was supposed to be #379": "Mark McLemore",
-        "Mark McLemore UER: #370 on back": "Mark McLemore",
-        "Benny Santiago": "Benny Santiago",
-        "Bill Brennan Checklist replacement": "Bill Brennan",
-        "Jeff Bronkey Checklist replacement": "Jeff Bronkey",
-        "Mike Cook Checklist replacement": "Mike Cook",
-        "Dan Pasqua Checklist replacement": "Dan Pasqua",
+    # Real TCDB Base/Gold mismatches observed in the 2026-10-13 audit.
+    # Regression tests prevent another repeated fetch/fail at each card.
+    checks={
+        "Mark McLemore UERUER: #370 on back, was supposed to be #379": ("Mark McLemore",""),
+        "Mark McLemore UER: #370 on back": ("Mark McLemore",""),
+        "Benny Santiago": ("Benny Santiago",""),
+        "Bill Brennan Checklist replacement": ("Bill Brennan",""),
+        "Jeff Bronkey Checklist replacement": ("Jeff Bronkey",""),
+        "Mike Cook Checklist replacement": ("Mike Cook",""),
+        "Dan Pasqua Checklist replacement": ("Dan Pasqua",""),
+        "SS Prospects (Orlando Miller / Brandon Wilson / Derek Jeter / Mike Neal) PROS, RC, UERRC for Neal only":
+            ("SS Prospects (Orlando Miller / Brandon Wilson / Derek Jeter / Mike Neal)","Neal"),
+        "1B Prospects (Greg Pirkl / Roberto Petagine / D.J. Boston / Shawn Wooten) PROS, RCRC for Boston and Wooten only":
+            ("1B Prospects (Greg Pirkl / Roberto Petagine / D.J. Boston / Shawn Wooten)","Boston and Wooten"),
+        "OF Prospects (Eddie Zambrano / Glenn Murray / Chad Mottola / Jermaine Allensworth) PROS, RCRC for Allensworth and Zambrano only":
+            ("OF Prospects (Eddie Zambrano / Glenn Murray / Chad Mottola / Jermaine Allensworth)","Allensworth and Zambrano"),
+        "C Prospects (Chris Howard / Carlos Delgado / Jason Kendall / Paul Bako) PROS, RCRC for Bako and Howard only":
+            ("C Prospects (Chris Howard / Carlos Delgado / Jason Kendall / Paul Bako)","Bako and Howard"),
+        "Dan Ehler DPK, UER5th line, \"...rest in history\", should be \"...rest is history\"":
+            ("Dan Ehler",""),
+        "James Baldwin / Rod Bolton CANot an RC for either player":
+            ("James Baldwin / Rod Bolton",""),
+        "Chipper Jones / Ryan Klesko CANot an RC for either player":
+            ("Chipper Jones / Ryan Klesko",""),
+        "Carl Everett / Dave Weathers CANot an RC for either player":
+            ("Carl Everett / Dave Weathers",""),
+        "Gabe White / Rondell White CANot an RC for either player":
+            ("Gabe White / Rondell White",""),
+        "Brook Fordyce / Bill Pulsipher CANot an RC for either player":
+            ("Brook Fordyce / Bill Pulsipher",""),
+        "Kevin Foster / Gene Schall CA, RCRC for Foster only":
+            ("Kevin Foster / Gene Schall","Foster"),
+        "Rich Aude / Midre Cummings CA, RCRC for Aude only":
+            ("Rich Aude / Midre Cummings","Aude"),
+        "Brian Barber / Richard Batchelor CA, RCRC for Batchelor only":
+            ("Brian Barber / Richard Batchelor","Batchelor"),
+        "Brian Johnson / Scott Sanders CA, RCRC for Johnson only":
+            ("Brian Johnson / Scott Sanders","Johnson"),
+        "Rikkert Faneyte / J.R. Phillips CA, RCRC for Faneyte only":
+            ("Rikkert Faneyte / J.R. Phillips","Faneyte"),
+        "Hank Aaron20th Anniversary #715":
+            ("Hank Aaron 20th Anniversary #715",""),
     }
-    for raw, expected in checks.items():
-        actual, _note = normalize(raw)
-        if actual != expected:
+    for raw,expected in checks.items():
+        observed=normalize(raw)
+        if observed!=expected:
             raise SystemExit(
-                f"Source-note normalization test failed: {raw!r} => {actual!r}"
+                f"Normalization test failed: {raw!r}\n"
+                f"  expected: {expected!r}\n  observed: {observed!r}"
             )
+    for raw,expected in {
+        "SS Prospects (Orlando Miller / Brandon Wilson / Derek Jeter / Mike Neal)":
+            "SS Prospects (Orlando Miller / Brandon Wilson / Derek Jeter / Mike Neal RC)",
+        "Kevin Foster / Gene Schall":
+            "Kevin Foster RC / Gene Schall",
+        "1B Prospects (Greg Pirkl / Roberto Petagine / D.J. Boston / Shawn Wooten)":
+            "1B Prospects (Greg Pirkl / Roberto Petagine / D.J. Boston RC / Shawn Wooten RC)",
+    }.items():
+        note={"SS Prospects":"Neal","Kevin Foster":"Foster",
+              "1B Prospects":"Boston and Wooten"}[raw.split(" ")[0]]
+        result=label_named_rcs(raw,note)
+        if result!=expected:
+            raise SystemExit(
+                f"Player-specific RC test failed {raw!r}: {result!r}"
+            )
+    print(f"Annotation regression checks: {len(checks)} documented cases passed",flush=True)
 
 def fetch_cards(url, expected, label, max_pages=11):
     # Printed #370 occurs twice for different players. Print-code variations
@@ -193,16 +268,24 @@ def subset(name,raw):
     return ""
 
 def label_named_rcs(name,note):
+    """Label only expressly named rookie players, including unparenthesized CA."""
+    if not note or "/" not in name:return None
     match=re.fullmatch(r"(.+?)\s*\((.+)\)",name)
-    if not match or not note:return None
-    title,inside=match.groups()
+    if match:
+        prefix,inside=match.groups()
+    else:
+        prefix=None
+        inside=name
     players=[p.strip() for p in inside.split("/")]
     surnames=[p.split()[-1] for p in players]
     if len(surnames)!=len(set(surnames)):return None
     selected={i for i,surname in enumerate(surnames)
               if re.search(r"\b"+re.escape(surname)+r"\b",note,re.I)}
     if not selected:return None
-    return f"{title} ({' / '.join(p+' RC' if i in selected else p for i,p in enumerate(players))})"
+    updated=' / '.join(
+        p+' RC' if i in selected else p for i,p in enumerate(players)
+    )
+    return f"{prefix} ({updated})" if prefix else updated
 
 def main():
     validate_known_annotations()
@@ -274,6 +357,12 @@ def main():
     corrections=[]
     aliases=[]
     unresolved=[]
+    # Explicitly verified alternative public names, never global guessing.
+    gold_aliases={
+        (73,"Bill Spiers"):"Billy Spiers",
+        (440,"Denny Martinez"):"Dennis Martinez",
+        (457,"Roberto Kelly"):"Bobby Kelly",
+    }
     for number,subjects in gold.items():
         if number in GOLD_REPLACEMENTS:continue
         for name,(team,raw,note) in list(subjects.items()):
@@ -283,10 +372,11 @@ def main():
                 # same team: TCDB Base #73 calls him "Billy Spiers" while
                 # Gold #73 uses "Bill Spiers". Canonicalize ONLY this
                 # explicitly researched alias, never arbitrary lookalikes.
-                if (number==73 and name=="Bill Spiers"
-                        and set(base[number])=={"Billy Spiers"}
-                        and team==base[number]["Billy Spiers"][0]):
-                    base_name="Billy Spiers"
+                preferred=gold_aliases.get((number,name))
+                if (preferred is not None
+                        and set(base[number])=={preferred}
+                        and team==base[number][preferred][0]):
+                    base_name=preferred
                     aliases.append((number,name,base_name))
                     del subjects[name]
                     subjects[base_name]=(team,raw,note)
