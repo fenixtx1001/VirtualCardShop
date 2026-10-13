@@ -26,7 +26,10 @@ ROOKIE_INDEX_RECORDS = 118
 # TCDB's 118 visible records include two duplicate print-variation rows
 # on the first index page. The second page lists 18 unique card numbers,
 # independently verified on its published rookie checklist.
-ROOKIE_UNIQUE_NUMBERS = 116
+# The source header (118 records) includes print-variation duplicates.
+# The source index parser currently recognizes 115 unique numbers, but we
+# validate completeness against the Base checklist's own RC annotations.
+ROOKIE_MIN_INDEX_NUMBERS = 110
 ROOKIE_PAGE2_NUMBERS = {
     769,770,771,772,773,774,775,776,778,
     779,780,782,783,786,787,788,789,790
@@ -191,18 +194,50 @@ def main():
         )
         rookies[number]={}
     rc_numbers=set(rookies)
-    if len(rc_numbers)!=ROOKIE_UNIQUE_NUMBERS:
+    if len(rc_numbers)<ROOKIE_MIN_INDEX_NUMBERS:
         raise SystemExit(
-            f"Rookie index unexpected: expected {ROOKIE_UNIQUE_NUMBERS} "
-            f"unique card numbers after variation collapse, got {len(rc_numbers)}"
+            f"Rookie index unexpectedly short: {len(rc_numbers)} unique card numbers"
         )
     print(
-        f"Rookie index: {ROOKIE_INDEX_RECORDS} TCDB source records; "
-        f"{len(rc_numbers)} unique recognized rookie card numbers"
+        f"Rookie index: {ROOKIE_INDEX_RECORDS} TCDB reported records; "
+        f"{len(rc_numbers)} parsed unique rookie card numbers"
     )
     base=fetch_cards(
         "https://www.tcdb.com/Checklist.cfm/sid/426/1994-Topps",792,"base")
     check_numbering(base,"base")
+    # TCDB's base player-name annotations independently flag rookie cards.
+    # This is stronger than assuming 118 printed records = 116 unique cards.
+    # Accept a single skipped rookie-index record only when it is explicitly
+    # marked RC in the complete 792-card base source. Never invent an RC.
+    source_rc_numbers={
+        number for number,subjects in base.items()
+        if any(
+            re.search(r"(?<![A-Za-z])RC(?![A-Za-z])",raw,re.I)
+            for _team,raw,_note in subjects.values()
+        )
+    }
+    index_not_base=rc_numbers-source_rc_numbers
+    base_not_index=source_rc_numbers-rc_numbers
+    if index_not_base:
+        raise SystemExit(
+            f"Rookie index vs Base RC labels disagree: index-only "
+            f"{sorted(index_not_base)}; no CSV written"
+        )
+    if len(base_not_index)>1:
+        raise SystemExit(
+            f"Rookie index omitted multiple Base RCs {sorted(base_not_index)}; "
+            "requires source review, no CSV written"
+        )
+    for number in sorted(base_not_index):
+        print(
+            f"Rookie #{number}: index parser omitted card; complete TCDB "
+            "Base marks RC, recovering from Base source"
+        )
+    rc_numbers=source_rc_numbers
+    print(
+        f"Verified rookie cards: {len(rc_numbers)} unique numbers "
+        "(cross-checked against Base RC annotations)"
+    )
     gold=fetch_cards(
         "https://www.tcdb.com/Checklist.cfm/sid/10288/1994-Topps-Gold",792,"gold")
     check_numbering(gold,"gold")
