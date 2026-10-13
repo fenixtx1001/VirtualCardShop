@@ -32,7 +32,6 @@ async function auditOne(sample: ImageSample) {
     const res = await fetch(sample.url, {
       method: "HEAD",
       signal: AbortSignal.timeout(10000),
-      cache: "no-store",
     });
 
     const durationMs = Math.round(performance.now() - started);
