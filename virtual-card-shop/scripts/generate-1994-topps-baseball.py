@@ -29,7 +29,7 @@ ROOKIE_INDEX_RECORDS = 118
 # The source header (118 records) includes print-variation duplicates.
 # The source index parser currently recognizes 115 unique numbers, but we
 # validate completeness against the Base checklist's own RC annotations.
-ROOKIE_MIN_INDEX_NUMBERS = 110
+ROOKIE_MIN_INDEX_NUMBERS = 115
 ROOKIE_PAGE2_NUMBERS = {
     769,770,771,772,773,774,775,776,778,
     779,780,782,783,786,787,788,789,790
@@ -205,38 +205,34 @@ def main():
     base=fetch_cards(
         "https://www.tcdb.com/Checklist.cfm/sid/426/1994-Topps",792,"base")
     check_numbering(base,"base")
-    # TCDB's base player-name annotations independently flag rookie cards.
-    # This is stronger than assuming 118 printed records = 116 unique cards.
-    # Accept a single skipped rookie-index record only when it is explicitly
-    # marked RC in the complete 792-card base source. Never invent an RC.
-    source_rc_numbers={
+    # The dedicated TCDB Rookie Cards index is the authority for whether
+    # a card number is recognized as a rookie card. The base checklist's
+    # displayed "RC" annotations are NOT a complete equivalent: for
+    # multi-player/Coming Attraction cards a card can be in the rookie index
+    # while the base listing omits or rearranges the RC annotation.
+    # Preserve the index, and report discrepancies for manual QA.
+    base_rc_numbers={
         number for number,subjects in base.items()
         if any(
             re.search(r"(?<![A-Za-z])RC(?![A-Za-z])",raw,re.I)
             for _team,raw,_note in subjects.values()
         )
     }
-    index_not_base=rc_numbers-source_rc_numbers
-    base_not_index=source_rc_numbers-rc_numbers
-    if index_not_base:
-        raise SystemExit(
-            f"Rookie index vs Base RC labels disagree: index-only "
-            f"{sorted(index_not_base)}; no CSV written"
-        )
-    if len(base_not_index)>1:
-        raise SystemExit(
-            f"Rookie index omitted multiple Base RCs {sorted(base_not_index)}; "
-            "requires source review, no CSV written"
-        )
-    for number in sorted(base_not_index):
+    index_only=sorted(rc_numbers-base_rc_numbers)
+    base_only=sorted(base_rc_numbers-rc_numbers)
+    if index_only:
         print(
-            f"Rookie #{number}: index parser omitted card; complete TCDB "
-            "Base marks RC, recovering from Base source"
+            f"Rookie index: {len(index_only)} cards have no explicit RC "
+            f"tag in Base: {index_only}; trusting dedicated rookie index"
         )
-    rc_numbers=source_rc_numbers
+    if base_only:
+        print(
+            f"Rookie review: {len(base_only)} Base RC-tagged cards not in "
+            f"rookie index: {base_only}; NOT automatically labeling them RC"
+        )
     print(
-        f"Verified rookie cards: {len(rc_numbers)} unique numbers "
-        "(cross-checked against Base RC annotations)"
+        f"Rookie-number authority: {len(rc_numbers)} TCDB index card "
+        "numbers; player-level exceptions still require review"
     )
     gold=fetch_cards(
         "https://www.tcdb.com/Checklist.cfm/sid/10288/1994-Topps-Gold",792,"gold")
