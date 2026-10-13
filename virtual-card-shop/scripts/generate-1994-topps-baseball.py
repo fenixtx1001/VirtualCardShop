@@ -43,8 +43,17 @@ TAGS = re.compile(
     r"(?:[\s,;]+(?:RC|ROO|FS|ASR|AS|PROS|DPK|MOG|CA|CL|LL|TRIB|"
     r"MGR|VAR|ERR|COR|UER|TC|HL|WS|ALCS|NLCS|SB|CD|SN\d+))+$",re.I
 )
-SOURCE_NOTES = re.compile(r"(?:^|[;, ]+)(?:UER|ERR|COR|VAR)\s*:\s*.*$",re.I)
-LEAKED_NOTES = re.compile(r"(?:^|[ ,;])(?:UER|ERR|COR|VAR)(?:$|[ ,;:])",re.I)
+# TCDB sometimes concatenates repeated error labels, e.g.
+# "Mark McLemore UERUER: #370 on back, was supposed to be #379".
+# Treat these as checklist commentary, not player-name text.
+SOURCE_NOTES = re.compile(
+    r"(?:^|[;, ]+)(?:(?:UER|ERR|COR|VAR)){1,4}\s*:\s*.*$",
+    re.I,
+)
+LEAKED_NOTES = re.compile(
+    r"(?:^|[ ,;])(?:(?:UER|ERR|COR|VAR)){1,4}(?:$|[ ,;:])",
+    re.I,
+)
 
 class Rows(HTMLParser):
     def __init__(self):
@@ -96,6 +105,20 @@ def normalize(raw):
     if not text or LEAKED_NOTES.search(text) or ROOKIE_NOTE.search(text):
         raise SystemExit(f"Could not clean TCDB subject {raw!r} => {text!r}")
     return text,rc_note
+
+def validate_known_annotations():
+    # Fail fast before requesting TCDB if source normalization regresses.
+    checks = {
+        "Mark McLemore UERUER: #370 on back, was supposed to be #379": "Mark McLemore",
+        "Mark McLemore UER: #370 on back": "Mark McLemore",
+        "Benny Santiago": "Benny Santiago",
+    }
+    for raw, expected in checks.items():
+        actual, _note = normalize(raw)
+        if actual != expected:
+            raise SystemExit(
+                f"Source-note normalization test failed: {raw!r} => {actual!r}"
+            )
 
 def fetch_cards(url, expected, label, max_pages=11):
     # Printed #370 occurs twice for different players. Print-code variations
@@ -175,6 +198,7 @@ def label_named_rcs(name,note):
     return f"{title} ({' / '.join(p+' RC' if i in selected else p for i,p in enumerate(players))})"
 
 def main():
+    validate_known_annotations()
     rookies=fetch_cards(
         "https://www.tcdb.com/Rookies.cfm/sid/426/1994-Topps",
         None,"rookies",max_pages=4)
