@@ -94,6 +94,9 @@ def fetch(url):
 
 def normalize(raw):
     text=" ".join(raw.split()).strip()
+    # TCDB adds "Checklist replacement" after the four Gold-only players.
+    # That phrase describes the card, and is not part of the player name.
+    text=re.sub(r"\s+Checklist\s+replacement\s*$","",text,flags=re.I)
     note=ROOKIE_NOTE.search(text)
     rc_note=note.group(1) if note else ""
     text=SOURCE_NOTES.sub("",text).strip(" ,;")
@@ -112,6 +115,10 @@ def validate_known_annotations():
         "Mark McLemore UERUER: #370 on back, was supposed to be #379": "Mark McLemore",
         "Mark McLemore UER: #370 on back": "Mark McLemore",
         "Benny Santiago": "Benny Santiago",
+        "Bill Brennan Checklist replacement": "Bill Brennan",
+        "Jeff Bronkey Checklist replacement": "Jeff Bronkey",
+        "Mike Cook Checklist replacement": "Mike Cook",
+        "Dan Pasqua Checklist replacement": "Dan Pasqua",
     }
     for raw, expected in checks.items():
         actual, _note = normalize(raw)
