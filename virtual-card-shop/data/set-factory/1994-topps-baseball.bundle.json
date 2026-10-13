@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/426/1994-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/426/1994-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/426/1994-Topps",
+    "crosscheck": "https://www.cardboardconnection.com/1994-topps-baseball-cards"
+  },
+  "decisions": {
+    "requestBaseline": "Use exact successful 1997 Metal Universe and Fleer HTTP headers: User-Agent Mozilla/5.0 (compatible; VCS Set Factory research import); Accept text/html,application/xhtml+xml; PageIndex pagination.",
+    "series": "Combine 396-card Series One and 396-card Series Two into one equal-odds 792-card Base.",
+    "baseNumbering": "Topps misnumbered two distinct subjects #370 (Benny Santiago and Mark McLemore) and skipped printed #379. Treat them as separate 792-card checklist entries, Mark uniquely identified in VCS as 370-M. Do not invent a #379 or split print-code variations.",
+    "gold": "Gold parallels cover 792 cards, with checklist #395, #396, #791 and #792 replaced with four players. Must use source Gold checklist, never automatically clone base.",
+    "rookies": "Use TCDB's 118 rookie-index records. Single-player RC labels may be applied; multi-player cards require player-level documentation, Derek Jeter is not RC on #158 (Mike Neal only).",
+    "packs": "Four cards per virtual pack, 24 packs per virtual box, all base cards equally likely.",
+    "odds": "Gold 1 per standard wax pack; Black Gold 1:72 standard packs; Finest pre-production 1:36 Series Two only => 1:72 across equal Series One + Two virtual pool.",
+    "excluded": "1994 Finest redemption cards, Black Gold Winners Redemptions, Certified Winners exchange and factory-only promotional sets, not normal pack-issued sports cards.",
+    "images": "No fabricated artwork; scans, pricing, pack art pending.",
+    "release": "Unreleased until complete QA on multi-player rookie labeling, image sourcing, pricing and pack probability review."
+  },
+  "product": {
+    "id": "1994_Topps_Baseball",
+    "year": 1994,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "PENDING_MULTIPLAYER_REVIEW",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1994-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1994_Topps_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 792,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/426/1994-Topps",
+      "notes": "792 physical subjects; duplicate printed #370 includes Benny Santiago and Mark McLemore (VCS unique key 370-M); no printed #379."
+    },
+    {
+      "key": "gold",
+      "id": "1994_Topps_Baseball_gold",
+      "name": "Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "expectedCards": 792,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10288/1994-Topps",
+      "notes": "One Gold per wax pack. Four checklist replacements: #395 Bill Brennan, #396 Jeff Bronkey, #791 Mike Cook, #792 Dan Pasqua."
+    },
+    {
+      "key": "black-gold",
+      "id": "1994_Topps_Baseball_black_gold",
+      "name": "Black Gold",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "expectedCards": 44,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/427/1994-Topps",
+      "notes": "1:72 standard hobby/retail packs; 22 per physical series, merged."
+    },
+    {
+      "key": "finest-pre-production",
+      "id": "1994_Topps_Baseball_finest_pre_production",
+      "name": "1994 Finest Pre-Production",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "expectedCards": 40,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10362/1994-Topps",
+      "notes": "1:36 physical Series 2 packs, adjusted to 1:72 blended across both equal-size virtual series."
+    }
+  ]
+}
