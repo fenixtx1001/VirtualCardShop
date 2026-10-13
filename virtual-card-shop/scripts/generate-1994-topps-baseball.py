@@ -272,18 +272,57 @@ def main():
         if set(gold[number])!={expected_name}:
             raise SystemExit(f"Gold #{number}: unexpected replacement {list(gold[number])}")
     corrections=[]
+    aliases=[]
+    unresolved=[]
     for number,subjects in gold.items():
         if number in GOLD_REPLACEMENTS:continue
         for name,(team,raw,note) in list(subjects.items()):
+            base_name=name
             if name not in base[number]:
-                raise SystemExit(f"Gold #{number} player {name!r} differs from base")
-            base_team=base[number][name][0]
+                # Verified identical player, same printed card number and
+                # same team: TCDB Base #73 calls him "Billy Spiers" while
+                # Gold #73 uses "Bill Spiers". Canonicalize ONLY this
+                # explicitly researched alias, never arbitrary lookalikes.
+                if (number==73 and name=="Bill Spiers"
+                        and set(base[number])=={"Billy Spiers"}
+                        and team==base[number]["Billy Spiers"][0]):
+                    base_name="Billy Spiers"
+                    aliases.append((number,name,base_name))
+                    del subjects[name]
+                    subjects[base_name]=(team,raw,note)
+                else:
+                    unresolved.append((
+                        number,name,team,
+                        [(base_n,base_t[0]) for base_n,base_t
+                         in base[number].items()]
+                    ))
+                    continue
+            base_team=base[number][base_name][0]
             if team!=base_team:
-                corrections.append((number,name,team,base_team))
-                subjects[name]=(base_team,raw,note)
-    if len(corrections)>30:raise SystemExit(f"Excessive Gold team mismatches: {len(corrections)}")
+                corrections.append((number,base_name,team,base_team))
+                subjects[base_name]=(base_team,raw,note)
+    for number,alias,canonical in aliases:
+        print(f"Gold #{number}: verified player-name alias {alias!r} -> {canonical!r}")
+    if unresolved:
+        print(f"Gold: {len(unresolved)} unexpected player mismatches (all listed):")
+        for number,name,team,candidates in sorted(unresolved):
+            print(
+                f"  Gold #{number}: {name!r} / {team!r}; "
+                f"Base candidates: {candidates!r}"
+            )
+        raise SystemExit(
+            "Gold has unresolved player mismatches: "
+            "review entire list before import; NO CSV written"
+        )
+    if len(corrections)>30:
+        raise SystemExit(f"Excessive Gold team mismatches: {len(corrections)}")
     for number,name,old,new in corrections:
         print(f"Gold #{number} {name}: team {old!r} -> {new!r}")
+    print(
+        f"Gold: {sum(len(v) for v in gold.values())} cards validated; "
+        f"{len(aliases)} verified name alias(es), "
+        f"{len(corrections)} team difference(s)"
+    )
     black=fetch_cards(
         "https://www.tcdb.com/Checklist.cfm/sid/427/1994-Topps-Black-Gold",44,"black-gold")
     finest=fetch_cards(
