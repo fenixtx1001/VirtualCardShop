@@ -1,5 +1,5 @@
 import { Prisma } from "@prisma/client";
-import { syncDailyPortfolioSnapshot } from "@/lib/portfolio";
+import { syncCashOnlyDailyPortfolioSnapshot, syncDailyPortfolioSnapshot } from "@/lib/portfolio";
 
 export type FinancialCategory =
   | "PACK_PURCHASE"
@@ -25,9 +25,12 @@ export async function createFinancialTransaction(opts: {
   amountCents: number;
   description: string;
   balanceAfterCents?: number | null;
+  /** Reward-like cash-only change; avoids revaluing an unchanged collection. */
+  cashOnlyPreviousBalanceCents?: number;
   metadata?: Prisma.InputJsonValue;
 }) {
-  const { tx, userId, category, amountCents, description, balanceAfterCents, metadata } = opts;
+  const { tx, userId, category, amountCents, description, balanceAfterCents,
+    cashOnlyPreviousBalanceCents, metadata } = opts;
 
   const transaction = await tx.financialTransaction.create({
     data: {
@@ -41,6 +44,16 @@ export async function createFinancialTransaction(opts: {
     },
   });
 
-  await syncDailyPortfolioSnapshot(tx, userId);
+  if (
+    cashOnlyPreviousBalanceCents !== undefined &&
+    balanceAfterCents !== undefined && balanceAfterCents !== null &&
+    balanceAfterCents - cashOnlyPreviousBalanceCents === amountCents
+  ) {
+    await syncCashOnlyDailyPortfolioSnapshot(
+      tx, userId, cashOnlyPreviousBalanceCents, balanceAfterCents
+    );
+  } else {
+    await syncDailyPortfolioSnapshot(tx, userId);
+  }
   return transaction;
 }
