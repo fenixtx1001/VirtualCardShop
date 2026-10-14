@@ -341,6 +341,16 @@ export default function BinderClient({
               <strong>{page < 0 ? "Front Cover" : "Page " + (page + 1) + " of " + pageCount}</strong>
               <small>{page < 0 ? "Your collection begins here" :
                 onPage + " of " + currentCards.length + " pockets filled"}</small>
+              {pageCount > 8 && <label className="binder-page-jump">
+                Jump to
+                <select aria-label="Jump to binder page" value={page}
+                  disabled={Boolean(turn)} onChange={event => flip(Number(event.target.value))}>
+                  <option value={-1}>Cover</option>
+                  {Array.from({ length: pageCount }, (_, index) => (
+                    <option key={index} value={index}>Page {index + 1}</option>
+                  ))}
+                </select>
+              </label>}
             </div>
             <button className="binder-nav-button binder-nav-next" type="button"
               onClick={() => flip(page + 1)} disabled={page >= pageCount - 1 || Boolean(turn)}>
