@@ -1,0 +1,19 @@
+.box{display:grid;gap:13px;padding:15px;border:1px solid #4a5045;border-radius:10px;background:#222622;color:#f2eee5;min-width:0}
+.box *{box-sizing:border-box}
+.box button,.box input{font:inherit}
+.box :is(button,input):focus-visible{outline:2px solid #d7bb7e;outline-offset:3px}
+.head{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.eyebrow{color:#d7bb7e;font-size:10px;font-weight:650;letter-spacing:.14em}
+.title{font-size:16px;font-weight:650;margin:4px 0;color:#f2eee5}
+.subtitle{margin:0;color:#b2b4aa;font-size:12px}
+.form{display:flex;align-items:end;gap:10px;flex-wrap:wrap}
+.form label{display:grid;gap:5px;color:#b2b4aa;font-size:11px}
+.form input{height:43px;width:78px;padding:8px 10px;background:#171c18;border:1px solid #51594e;border-radius:6px;color:#f2eee5;font-size:16px}
+.form button{min-height:43px;padding:10px 16px;background:#d7bb7e;border:1px solid #d7bb7e;border-radius:6px;color:#21251e;font-weight:700;font-size:12px;cursor:pointer}
+.form button:disabled{opacity:.5;cursor:not-allowed}
+.fee{font-variant-numeric:tabular-nums;font-size:21px;color:#f2eee5;font-weight:650}
+.muted{color:#b2b4aa;font-size:11px;line-height:1.5;margin:0}
+.message{padding:10px 12px;border:1px solid #586747;border-radius:7px;background:#2c382c;color:#dcf0d8;font-size:12px}
+.error{border-color:#805047;background:#362622;color:#f6c4b9}
+.empty{border:1px solid #454d42;border-radius:8px;background:#242923;color:#b2b4aa;padding:12px;font-size:12px}
+@media(max-width:400px){.form button{flex:1}.box{padding:12px}}
