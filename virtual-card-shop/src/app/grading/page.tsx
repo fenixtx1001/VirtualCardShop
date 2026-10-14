@@ -9,6 +9,7 @@ import {
   useState,
 } from "react";
 import VcsSlab from "@/components/grading/VcsSlab";
+import "./grading.css";
 
 type GradingResultRow = {
   id: number;
@@ -275,69 +276,15 @@ function getRevealTone(grade: number) {
 function ImgThumb({ src, alt }: { src: string | null; alt: string }) {
   const [broken, setBroken] = useState(false);
   const url = (src ?? "").trim();
-
-  if (!url || broken) {
-    return (
-      <div
-        style={{
-          width: 72,
-          height: 98,
-          borderRadius: 8,
-          border: `1px dashed ${colors.border}`,
-          background: colors.muted,
-          display: "grid",
-          placeItems: "center",
-          color: colors.mutedText,
-          fontWeight: 900,
-          fontSize: 12,
-        }}
-      >
-        —
-      </div>
-    );
-  }
-
-  return (
-    <img
-      src={url}
-      alt={alt}
-      loading="lazy"
-      decoding="async"
-      onError={() => setBroken(true)}
-      style={{
-        width: 72,
-        height: 98,
-        objectFit: "cover",
-        borderRadius: 8,
-        border: `1px solid ${colors.border}`,
-        background: "#fff",
-        display: "block",
-      }}
-    />
-  );
+  if (!url || broken) return <span className="grading-image-missing" aria-label="No card scan">VCS</span>;
+  return <img src={url} alt={alt} loading="lazy" decoding="async"
+    onError={() => setBroken(true)} />;
 }
 
 function StatusPill({ status }: { status: GradingOrderRow["status"] }) {
-  const s = getStatusStyle(status);
-
-  return (
-    <span
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        border: `1px solid ${s.border}`,
-        background: s.background,
-        color: s.color,
-        borderRadius: 999,
-        padding: "4px 7px",
-        fontSize: 11,
-        fontWeight: 950,
-        whiteSpace: "nowrap",
-      }}
-    >
-      {s.label}
-    </span>
-  );
+  return <span className={"grading-status-pill grading-status-" + status.toLowerCase()}>
+    {getStatusStyle(status).label}
+  </span>;
 }
 
 function ResultPills({ results }: { results: GradingResultRow[] }) {
@@ -1350,105 +1297,76 @@ export default function GradingPage() {
   const [filter, setFilter] = useState<StatusFilter>("READY");
   const [page, setPage] = useState(1);
   const [pageJump, setPageJump] = useState("1");
+  const [queryInput, setQueryInput] = useState("");
+  const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
   const [revealingId, setRevealingId] = useState<number | null>(null);
-  const [tick, setTick] = useState(0);
-
+  const requestId = useRef(0);
   const [revealOrderId, setRevealOrderId] = useState<number | null>(null);
-  const [revealPayload, setRevealPayload] =
-    useState<RevealPayload | null>(null);
-  const [revealStage, setRevealStage] =
-    useState<RevealStage>("closed");
+  const [revealPayload, setRevealPayload] = useState<RevealPayload | null>(null);
+  const [revealStage, setRevealStage] = useState<RevealStage>("closed");
 
-  async function load(nextFilter = filter, nextPage = page) {
+  async function load(nextFilter = filter, nextPage = page, nextQuery = query) {
+    const id = ++requestId.current;
     setLoading(true);
     setErr(null);
-
     try {
-      const qs = new URLSearchParams();
+      const qs = new URLSearchParams({ page: String(nextPage), pageSize: "25" });
       if (nextFilter !== "ALL") qs.set("status", nextFilter);
-      qs.set("page", String(nextPage));
-      qs.set("pageSize", "25");
-
-      const res = await fetch(`/api/grading/orders?${qs.toString()}`, {
-        cache: "no-store",
-      });
-
-      const raw = await res.text();
-
-      let json: any = null;
-      try {
-        json = raw ? JSON.parse(raw) : null;
-      } catch {
-        throw new Error(
-          `Grading orders returned non-JSON (${res.status}): ${raw.slice(
-            0,
-            180
-          )}`
-        );
+      if (nextQuery) qs.set("q", nextQuery);
+      const response = await fetch("/api/grading/orders?" + qs.toString(), { cache: "no-store" });
+      const json = await response.json().catch(() => null);
+      if (!response.ok || !json?.ok) {
+        throw new Error(json?.error || "Couldn't load grading orders.");
       }
-
-      if (!res.ok || !json?.ok) {
-        throw new Error(
-          json?.error ?? `Failed to load grading orders (${res.status})`
-        );
-      }
-
-      const nextData = json as ApiResponse;
-      setData(nextData);
-
-      if (nextData.page !== nextPage) {
-        setPage(nextData.page);
-      }
-      setPageJump(String(nextData.page));
-
-      if (
-        nextFilter === "READY" &&
-        nextData.counts.READY === 0 &&
-        nextData.counts.PENDING > 0
-      ) {
-        setFilter("PENDING");
-        setPage(1);
-      }
-    } catch (e: any) {
-      setErr(e?.message ?? "Failed to load grading orders");
-      setData(null);
+      if (id !== requestId.current) return;
+      const next = json as ApiResponse;
+      setData(next);
+      if (next.page !== nextPage) setPage(next.page);
+      setPageJump(String(next.page));
+    } catch (error) {
+      if (id !== requestId.current) return;
+      setErr(error instanceof Error ? error.message : "Couldn't load grading orders.");
     } finally {
-      setLoading(false);
+      if (id === requestId.current) setLoading(false);
     }
   }
 
-  function chooseFilter(nextFilter: StatusFilter) {
-    if (nextFilter === filter) return;
-    setFilter(nextFilter);
+  // Search is debounced; readiness is NEVER auto-refreshed or revealed.
+  useEffect(() => {
+    const handle = window.setTimeout(() => {
+      setPage(1);
+      setQuery(queryInput.trim());
+    }, 320);
+    return () => window.clearTimeout(handle);
+  }, [queryInput]);
+
+  useEffect(() => {
+    void load(filter, page, query);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filter, page, query]);
+
+  function selectFilter(value: StatusFilter) {
+    if (filter === value) return;
+    setFilter(value);
     setPage(1);
     setPageJump("1");
   }
 
-  function goToPage(nextPage: number) {
-    const totalPages = data?.totalPages ?? 1;
-    const safePage = Math.max(
-      1,
-      Math.min(totalPages, Math.floor(nextPage))
-    );
-
-    if (safePage === page) return;
-
-    setPage(safePage);
-    setPageJump(String(safePage));
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  function goToPage(value: number) {
+    const last = Math.max(1, data?.totalPages ?? 1);
+    const next = Math.min(last, Math.max(1, Math.floor(value)));
+    if (!Number.isFinite(next) || next === page) return;
+    setPage(next);
+    setPageJump(String(next));
+    document.getElementById("grading-results")?.scrollIntoView({ block: "start", behavior: "smooth" });
   }
 
   function submitPageJump() {
-    const parsed = Number.parseInt(pageJump, 10);
-
-    if (!Number.isInteger(parsed)) {
-      setPageJump(String(page));
-      return;
-    }
-
-    goToPage(parsed);
+    const target = Number(pageJump);
+    if (Number.isSafeInteger(target)) goToPage(target);
+    else setPageJump(String(page));
   }
 
   function openRevealModal(orderId: number) {
@@ -1468,768 +1386,190 @@ export default function GradingPage() {
     setRevealingId(orderId);
     setRevealStage("opening");
     setErr(null);
-
     try {
-      const res = await fetch("/api/grading/reveal", {
+      const response = await fetch("/api/grading/reveal", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         cache: "no-store",
         body: JSON.stringify({ orderId }),
       });
-
-      const raw = await res.text();
-
-      let json: any = null;
-      try {
-        json = raw ? JSON.parse(raw) : null;
-      } catch {
-        throw new Error(
-          `Reveal returned non-JSON (${res.status}): ${raw.slice(
-            0,
-            180
-          )}`
-        );
-      }
-
-      if (!res.ok || !json?.ok) {
-        throw new Error(
-          json?.error ?? `Failed to reveal order (${res.status})`
-        );
-      }
-
+      const json = await response.json().catch(() => null);
+      if (!response.ok || !json?.ok) throw new Error(json?.error || "Failed to reveal grading order.");
       setRevealPayload(json as RevealPayload);
-
-      window.setTimeout(() => {
-        setRevealStage("revealed");
-      }, 850);
-
-      await load(filter, page);
-    } catch (e: any) {
+      window.setTimeout(() => setRevealStage("revealed"), 850);
+      // Refresh this list only after the collector deliberately opens a mailer.
+      await load(filter, page, query);
+    } catch (error) {
       setRevealStage("closed");
-      setErr(e?.message ?? "Failed to reveal order");
+      setErr(error instanceof Error ? error.message : "Failed to reveal grading order.");
     } finally {
       setRevealingId(null);
     }
   }
 
-  useEffect(() => {
-    load(filter, page);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filter, page]);
-
-  useEffect(() => {
-    const id = window.setInterval(() => setTick((x) => x + 1), 1000);
-    return () => window.clearInterval(id);
-  }, []);
-
   const orders = data?.orders ?? [];
   const totalOrders = data?.totalOrders ?? 0;
   const totalPages = data?.totalPages ?? 1;
-  const pageSize = data?.pageSize ?? 25;
-
-  const firstOrderNumber =
-    totalOrders === 0 ? 0 : (page - 1) * pageSize + 1;
-  const lastOrderNumber = Math.min(totalOrders, page * pageSize);
+  const first = totalOrders > 0 ? (page - 1) * (data?.pageSize ?? 25) + 1 : 0;
+  const last = Math.min(totalOrders, page * (data?.pageSize ?? 25));
+  const statusLabels: Record<StatusFilter, string> = {
+    READY: "Ready", PENDING: "Pending", REVEALED: "Revealed", ALL: "All",
+  };
 
   return (
-    <main
-      className="gradingPage"
-      style={{
-        background: colors.bg,
-        minHeight: "calc(100vh - 80px)",
-        padding: 20,
-        color: colors.text,
-      }}
-    >
-      <style>
-        {`
-          .gradingHeaderActions {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-          }
-
-          .gradingStatusFilters {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 6px;
-          }
-
-          .gradingStatusButton {
-            min-width: 0;
-            border-radius: 11px;
-            padding: 8px 8px;
-            font-size: 12px;
-            line-height: 1.1;
-            font-weight: 950;
-            cursor: pointer;
-            white-space: nowrap;
-          }
-
-          .gradingPagination {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            flex-wrap: wrap;
-          }
-
-          .gradingPaginationActions {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-          }
-
-          .gradingOrderCard {
-            background: ${colors.card};
-            border: 1px solid ${colors.border};
-            border-radius: 15px;
-            padding: 11px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.025);
-            display: grid;
-            grid-template-columns: auto minmax(0, 1fr) auto;
-            gap: 12px;
-            align-items: center;
-          }
-
-          .gradingOrderActions {
-            display: grid;
-            gap: 7px;
-            justify-items: end;
-            align-self: stretch;
-            align-content: center;
-          }
-
-          .gradingOpenMailer {
-            border: 1px solid #7a5200;
-            color: #1b1202;
-            border-radius: 999px;
-            padding: 9px 12px;
-            font-weight: 1000;
-            white-space: nowrap;
-          }
-
-          @media (max-width: 720px) {
-            .gradingPage {
-              padding: 12px 10px 18px !important;
-            }
-
-            .gradingPageHeader {
-              gap: 10px !important;
-            }
-
-            .gradingPageTitle {
-              font-size: 27px !important;
-              margin-bottom: 3px !important;
-            }
-
-            .gradingPageSubtitle {
-              font-size: 12.5px !important;
-              line-height: 1.35 !important;
-            }
-
-            .gradingHeaderActions {
-              width: 100%;
-              gap: 6px;
-            }
-
-            .gradingHeaderActions > * {
-              flex: 1 1 0;
-              text-align: center;
-              justify-content: center;
-              min-height: 36px;
-              padding: 8px 8px !important;
-              font-size: 12px;
-            }
-
-            .gradingStatusPanel {
-              padding: 8px !important;
-              border-radius: 13px !important;
-              margin-bottom: 10px !important;
-            }
-
-            .gradingStatusButton {
-              padding: 7px 4px;
-              font-size: 11px;
-            }
-
-            .gradingStatusButtonCount {
-              display: block;
-              margin-top: 2px;
-              font-size: 10px;
-              font-weight: 850;
-            }
-
-            .gradingPagination {
-              gap: 7px;
-              margin-bottom: 9px !important;
-            }
-
-            .gradingPaginationSummary {
-              width: 100%;
-              font-size: 11px !important;
-            }
-
-            .gradingPaginationActions {
-              flex: 1;
-            }
-
-            .gradingPaginationActions button {
-              min-height: 32px;
-              padding: 6px 9px !important;
-              font-size: 11px;
-            }
-
-            .gradingJump {
-              margin-left: auto;
-            }
-
-            .gradingOrderList {
-              gap: 8px !important;
-            }
-
-            .gradingOrderCard {
-              grid-template-columns: 72px minmax(0, 1fr);
-              gap: 10px;
-              padding: 9px;
-              align-items: start;
-            }
-
-            .gradingOrderActions {
-              grid-column: 2;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              gap: 8px;
-              align-self: auto;
-              margin-top: 2px;
-            }
-
-            .gradingOpenMailer {
-              padding: 8px 10px !important;
-              font-size: 11px;
-            }
-
-            .gradingCardTitle {
-              font-size: 15px !important;
-              line-height: 1.18 !important;
-              margin-top: 5px !important;
-            }
-
-            .gradingCardMeta {
-              margin-top: 2px !important;
-              font-size: 11.5px !important;
-              line-height: 1.3 !important;
-            }
-
-            .gradingCardValueLine {
-              margin-top: 6px !important;
-              font-size: 11.5px !important;
-            }
-
-            .gradingCardDetails {
-              font-size: 11.5px !important;
-            }
-          }
-        `}
-      </style>
-
+    <main className="grading-desk">
       {revealOrderId != null ? (
         <RevealModal
           payload={revealPayload}
           stage={revealStage}
-          isOpening={
-            revealingId === revealOrderId || revealStage === "opening"
-          }
-          onOpenMailer={() => reveal(revealOrderId)}
+          isOpening={revealingId === revealOrderId || revealStage === "opening"}
+          onOpenMailer={() => void reveal(revealOrderId)}
           onClose={closeRevealModal}
         />
       ) : null}
-
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <div
-          className="gradingPageHeader"
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            gap: 14,
-            flexWrap: "wrap",
-          }}
-        >
+      <div className="grading-desk-inner">
+        <header className="grading-desk-header">
           <div>
-            <h1
-              className="gradingPageTitle"
-              style={{
-                fontSize: 34,
-                fontWeight: 950,
-                marginTop: 0,
-                marginBottom: 6,
-              }}
-            >
-              VCS Grading
-            </h1>
-
-            <div
-              className="gradingPageSubtitle"
-              style={{
-                color: colors.subtext,
-                fontSize: 14,
-                fontWeight: 750,
-                lineHeight: 1.45,
-              }}
-            >
-              Open ready mailers, track pending cards, and review your
-              revealed grades.
-            </div>
+            <span className="grading-eyebrow">THE GRADING DESK</span>
+            <h1>VCS Grading</h1>
+            <p className="grading-desk-subtitle">
+              Your sealed returns, ready when you are. Reveal each grade on your schedule.
+            </p>
           </div>
-
-          <div className="gradingHeaderActions">
-            <button
-              onClick={() => load(filter, page)}
-              disabled={loading}
-              className="vcs-button vcs-button-secondary vcs-button-compact"
-            >
-              {loading ? "Refreshing…" : "Refresh"}
+          <div className="grading-desk-actions">
+            <Link href="/collection/slabs" className="grading-desk-link">
+              Slab Gallery <span aria-hidden="true">↗</span>
+            </Link>
+            <button type="button" className="grading-refresh" onClick={() => void load()}
+              disabled={loading} aria-label="Refresh grading orders" title="Refresh grading orders">
+              <span aria-hidden="true">↻</span>
+              <span className="grading-refresh-label">Refresh</span>
             </button>
-
-            <Link
-              href="/collection/slabs"
-              className="vcs-button vcs-button-secondary vcs-button-compact"
-              style={{ textDecoration: "none" }}
-            >
-              Slab Gallery
-            </Link>
-
-            <Link
-              href="/collection"
-              className="vcs-button vcs-button-secondary vcs-button-compact"
-              style={{ textDecoration: "none" }}
-            >
-              Collection
-            </Link>
           </div>
+        </header>
+
+        <nav className="grading-desk-filters" aria-label="Grading order status">
+          {(["READY", "PENDING", "REVEALED", "ALL"] as StatusFilter[]).map(status => (
+            <button key={status} type="button" className="grading-filter"
+              aria-current={filter === status ? "page" : undefined}
+              onClick={() => selectFilter(status)}>
+              <span>{statusLabels[status]}</span>
+              <strong>{(data?.counts?.[status] ?? 0).toLocaleString()}</strong>
+            </button>
+          ))}
+        </nav>
+
+        <div className="grading-desk-tools">
+          <label className="grading-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+              <circle cx="10.8" cy="10.8" r="7.4" />
+              <path d="m16.2 16.2 5 5" />
+            </svg>
+            <input type="search" aria-label="Search grading orders"
+              placeholder="Search player, team, set, or card number…"
+              value={queryInput} onChange={event => setQueryInput(event.target.value)} />
+            {queryInput ? <button className="grading-search-clear" type="button"
+              aria-label="Clear grading search"
+              onClick={() => { setQueryInput(""); setQuery(""); setPage(1); }}>×</button> : null}
+          </label>
+          <span className="grading-search-note">Search all orders in this status</span>
         </div>
 
-        <hr
-          style={{ margin: "13px 0", borderColor: colors.border }}
-        />
-
-        <div
-          className="gradingStatusPanel"
-          style={{
-            background: colors.card,
-            border: `1px solid ${colors.border}`,
-            borderRadius: 15,
-            padding: 10,
-            marginBottom: 11,
-          }}
-        >
-          <div className="gradingStatusFilters">
-            {(
-              ["ALL", "PENDING", "READY", "REVEALED"] as StatusFilter[]
-            ).map((status) => {
-              const count = data?.counts?.[status] ?? 0;
-              const active = filter === status;
-              const label =
-                status === "ALL"
-                  ? "All"
-                  : status[0] + status.slice(1).toLowerCase();
-
-              return (
-                <button
-                  key={status}
-                  className="gradingStatusButton"
-                  onClick={() => chooseFilter(status)}
-                  style={{
-                    border: `1px solid ${
-                      active
-                        ? status === "READY"
-                          ? "#d7ad49"
-                          : colors.blue
-                        : colors.border
-                    }`,
-                    background: active
-                      ? status === "READY"
-                        ? colors.goldSoft
-                        : colors.blueSoft
-                      : "#fff",
-                    color: active
-                      ? status === "READY"
-                        ? colors.gold
-                        : colors.blue
-                      : colors.text,
-                  }}
-                >
-                  {label}
-                  <span
-                    className="gradingStatusButtonCount"
-                    style={{
-                      color: active ? "inherit" : colors.mutedText,
-                      marginLeft: 4,
-                    }}
-                  >
-                    {count}
-                  </span>
-                </button>
-              );
-            })}
+        <section id="grading-results" aria-label="Grading orders">
+          <div className="grading-list-heading">
+            <h2>{statusLabels[filter]} mailers</h2>
+            <span>{query ? "Search results" : "Grading orders"} · {totalOrders.toLocaleString()}</span>
           </div>
-        </div>
 
-        {err ? (
-          <div
-            style={{
-              marginBottom: 10,
-              padding: 10,
-              background: colors.redSoft,
-              border: "1px solid #f3b7b7",
-              borderRadius: 11,
-              color: colors.red,
-              fontWeight: 900,
-              fontSize: 12,
-            }}
-          >
-            {err}
-          </div>
-        ) : null}
-
-        {!loading && totalOrders > 0 ? (
-          <div
-            className="gradingPagination"
-            style={{ marginBottom: 10 }}
-          >
-            <div
-              className="gradingPaginationSummary"
-              style={{
-                color: colors.mutedText,
-                fontWeight: 800,
-                fontSize: 12,
-              }}
-            >
-              Showing {firstOrderNumber}–{lastOrderNumber} of{" "}
-              {totalOrders}
+          {err ? <div className="grading-notice error" role="alert">
+            {err} <button type="button" onClick={() => void load()}>Retry</button>
+          </div> : null}
+          {loading && orders.length === 0 ? <div className="grading-loading" aria-label="Loading grading orders">
+            {Array.from({ length: 6 }, (_, i) => <div key={i} />)}
+          </div> : !loading && orders.length === 0 ? (
+            <div className="grading-empty">
+              <h3>{query ? "No matching mailers" : filter === "READY" ? "No mailers ready to open" : "No orders in this view"}</h3>
+              <p>{query ? "Try a different player, set, team, or card number." :
+                filter === "READY" ? "You can return whenever you want to open your next batch." :
+                "Other grading statuses may still have cards."}</p>
+              {query ? <button type="button" onClick={() => { setQueryInput(""); setQuery(""); setPage(1); }}>
+                Clear search</button> : null}
             </div>
-
-            <div className="gradingPaginationActions">
-              <button
-                type="button"
-                onClick={() => goToPage(page - 1)}
-                disabled={page <= 1 || loading}
-                className="vcs-button vcs-button-secondary vcs-button-compact"
-              >
-                ‹ Prev
-              </button>
-
-              <span
-                style={{
-                  fontSize: 11.5,
-                  fontWeight: 900,
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {page} / {totalPages}
-              </span>
-
-              <button
-                type="button"
-                onClick={() => goToPage(page + 1)}
-                disabled={page >= totalPages || loading}
-                className="vcs-button vcs-button-secondary vcs-button-compact"
-              >
-                Next ›
-              </button>
-            </div>
-
-            {totalPages > 1 ? (
-              <div
-                className="gradingJump"
-                style={{
-                  display: "flex",
-                  gap: 5,
-                  alignItems: "center",
-                }}
-              >
-                <input
-                  type="number"
-                  min={1}
-                  max={totalPages}
-                  value={pageJump}
-                  onChange={(e) => setPageJump(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") submitPageJump();
-                  }}
-                  aria-label="Jump to grading page"
-                  style={{
-                    width: 48,
-                    minHeight: 32,
-                    border: `1px solid ${colors.border}`,
-                    borderRadius: 9,
-                    padding: "5px 6px",
-                    fontWeight: 850,
-                    fontSize: 11,
-                  }}
-                />
-
-                <button
-                  type="button"
-                  onClick={submitPageJump}
-                  className="vcs-button vcs-button-secondary vcs-button-compact"
-                >
-                  Go
-                </button>
-              </div>
-            ) : null}
-          </div>
-        ) : null}
-
-        {loading ? (
-          <div
-            style={{
-              color: colors.subtext,
-              fontWeight: 900,
-              fontSize: 13,
-            }}
-          >
-            Loading grading orders…
-          </div>
-        ) : orders.length === 0 ? (
-          <div
-            style={{
-              background: colors.card,
-              border: `1px solid ${colors.border}`,
-              borderRadius: 15,
-              padding: 16,
-              color: colors.subtext,
-              fontWeight: 800,
-              fontSize: 13,
-            }}
-          >
-            {filter === "READY"
-              ? "No mailers are ready to reveal."
-              : filter === "PENDING"
-                ? "No grading orders are currently pending."
-                : filter === "REVEALED"
-                  ? "No revealed grading orders yet."
-                  : "No grading orders yet. Go to a collection set, choose a raw card, and submit it for VCS grading."}
-          </div>
-        ) : (
-          <div
-            className="gradingOrderList"
-            style={{ display: "grid", gap: 10 }}
-          >
-            {orders.map((order) => {
-              const canReveal = order.status === "READY";
-              const isRevealing = revealingId === order.id;
-              const isRevealed =
-                order.status === "REVEALED" ||
-                order.status === "COMPLETED";
-
-              const remainingMs =
-                order.status === "PENDING" && order.readyAt
-                  ? Math.max(
-                      0,
-                      new Date(order.readyAt).getTime() - Date.now()
-                    )
-                  : order.millisecondsRemaining;
-
-              return (
-                <div key={order.id} className="gradingOrderCard">
-                  <ImgThumb
-                    src={order.card.frontImageUrl}
-                    alt={order.card.player}
-                  />
-
-                  <div style={{ minWidth: 0 }}>
-                    <div
-                      style={{
-                        display: "flex",
-                        gap: 6,
-                        alignItems: "center",
-                        flexWrap: "wrap",
-                      }}
-                    >
+          ) : (
+            <div className="grading-list" aria-busy={loading}>
+              {orders.map(order => {
+                const ready = order.status === "READY";
+                const revealed = order.status === "REVEALED" || order.status === "COMPLETED";
+                const details = [order.card.team, order.card.subset, order.card.variant].filter(Boolean).join(" · ");
+                const remaining = order.readyAt ?
+                  Math.max(0, new Date(order.readyAt).getTime() - Date.now()) :
+                  order.millisecondsRemaining;
+                return <article key={order.id} className="grading-order">
+                  <div className="grading-order-art">
+                    <ImgThumb src={order.card.frontImageUrl} alt={order.card.player + " card front"} />
+                  </div>
+                  <div className="grading-order-content">
+                    <div className="grading-order-top">
                       <StatusPill status={order.status} />
-
-                      {order.quantity > 1 ? (
-                        <span
-                          style={{
-                            color: colors.mutedText,
-                            fontSize: 10.5,
-                            fontWeight: 900,
-                          }}
-                        >
-                          Qty {order.quantity}
-                        </span>
-                      ) : null}
+                      {order.quantity > 1 ? <span className="grading-order-qty">Qty {order.quantity}</span> : null}
                     </div>
-
-                    <div
-                      className="gradingCardTitle"
-                      style={{
-                        marginTop: 6,
-                        fontWeight: 950,
-                        fontSize: 16.5,
-                        lineHeight: 1.2,
-                      }}
-                    >
-                      #{order.card.cardNumber} — {order.card.player}
-                    </div>
-
-                    <div
-                      className="gradingCardMeta"
-                      style={{
-                        marginTop: 3,
-                        color: colors.mutedText,
-                        fontWeight: 750,
-                        fontSize: 12.5,
-                        lineHeight: 1.35,
-                      }}
-                    >
-                      {getSetNameFromCard(order.card)}
-                      {order.card.team
-                        ? ` • ${order.card.team}`
-                        : ""}
-                      {order.card.subset
-                        ? ` • ${order.card.subset}`
-                        : ""}
-                      {order.card.variant
-                        ? ` • ${order.card.variant}`
-                        : ""}
-                    </div>
-
-                    <div
-                      className="gradingCardValueLine"
-                      style={{
-                        marginTop: 7,
-                        color: colors.subtext,
-                        fontWeight: 800,
-                        fontSize: 12.5,
-                      }}
-                    >
-                      {order.status === "PENDING" ? (
-                        <>
-                          Raw{" "}
-                          {formatDollarsFromCents(
-                            order.rawBookValueCents
-                          )}
-                          <span style={{ color: colors.mutedText }}>
-                            {" "}
-                            • Ready in{" "}
-                            {formatRemaining(remainingMs + tick * 0)}
-                          </span>
-                        </>
-                      ) : canReveal ? (
-                        <>
-                          Raw{" "}
-                          {formatDollarsFromCents(
-                            order.rawBookValueCents
-                          )}
-                        </>
-                      ) : isRevealed &&
-                        order.results.length > 0 ? (
-                        <ResultPills results={order.results} />
-                      ) : null}
-                    </div>
-
-                    {isRevealed && order.results.length > 0 ? (
-                      <div
-                        style={{
-                          marginTop: 5,
-                          color: colors.green,
-                          fontWeight: 900,
-                          fontSize: 11.5,
-                        }}
-                      >
-                        Value{" "}
-                        {formatDollarsFromCents(
-                          order.totalRevealedValueCents
-                        )}
+                    <h3 className="grading-order-title">{order.card.player}
+                      <small> #{order.card.cardNumber}</small>
+                    </h3>
+                    <div className="grading-order-set">{getSetNameFromCard(order.card)}</div>
+                    {details && <div className="grading-order-team">{details}</div>}
+                    {revealed && order.results.length ? (
+                      <div className="grading-result-pills" aria-label="Revealed grades">
+                        {order.results.map(result => <span key={result.id} className="grading-result-pill">
+                          VCS {result.grade} <small>×{result.quantity}</small>
+                        </span>)}
                       </div>
                     ) : null}
+                    <div className="grading-order-facts">
+                      {revealed ? <span>Graded value <strong>
+                        {formatDollarsFromCents(order.totalRevealedValueCents)}</strong></span> :
+                        <span>Raw <strong>{formatDollarsFromCents(order.rawBookValueCents)}</strong></span>}
+                      {order.status === "PENDING" && <span>
+                        Estimated: <strong>{order.readyAt ? formatRemaining(remaining) : "Pending"}</strong></span>}
+                    </div>
                   </div>
-
-                  <div className="gradingOrderActions">
-                    {canReveal ? (
-                      <button
-                        onClick={() => openRevealModal(order.id)}
-                        disabled={isRevealing}
-                        className="gradingOpenMailer"
-                        style={{
-                          background: isRevealing
-                            ? "#f0d28a"
-                            : "linear-gradient(135deg, #6f4700, #d89b1d 50%, #fff0a8)",
-                          cursor: isRevealing
-                            ? "not-allowed"
-                            : "pointer",
-                          boxShadow:
-                            "0 8px 20px rgba(122,82,0,0.14)",
-                        }}
-                      >
-                        {isRevealing ? "Opening…" : "Open Mailer"}
-                      </button>
-                    ) : null}
-
-                    <Link
-                      href={`/cards/${order.card.id}`}
-                      className="gradingCardDetails"
-                      style={{
-                        color: colors.blue,
-                        fontWeight: 900,
-                        fontSize: 12.5,
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      Card details
+                  <div className="grading-order-actions">
+                    {ready ? <button type="button" className="grading-mailer-action"
+                      disabled={revealingId === order.id}
+                      onClick={() => openRevealModal(order.id)}>
+                      {revealingId === order.id ? "Opening…" : "Open Mailer"} <span aria-hidden="true">↗</span>
+                    </button> : <span className="grading-quiet-status">
+                      {order.status === "PENDING" ? "Sealed · awaiting return" : "Grading record"}
+                    </span>}
+                    <Link href={"/cards/" + order.card.id} className="grading-details-link">
+                      Card details <span aria-hidden="true">→</span>
                     </Link>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
+                </article>;
+              })}
+            </div>
+          )}
 
-        {!loading && totalPages > 1 && orders.length > 0 ? (
-          <div
-            style={{
-              marginTop: 11,
-              display: "flex",
-              justifyContent: "center",
-              gap: 8,
-              alignItems: "center",
-            }}
-          >
-            <button
-              type="button"
-              onClick={() => goToPage(page - 1)}
-              disabled={page <= 1}
-              className="vcs-button vcs-button-secondary vcs-button-compact"
-            >
-              ‹ Prev
-            </button>
-
-            <span
-              style={{
-                color: colors.mutedText,
-                fontWeight: 850,
-                fontSize: 11.5,
-              }}
-            >
-              Page {page} of {totalPages}
+          {!loading && totalOrders > 0 && <div className="grading-pagination">
+            <span className="grading-pagination-summary">
+              Showing {first.toLocaleString()}–{last.toLocaleString()} of {totalOrders.toLocaleString()} orders
             </span>
-
-            <button
-              type="button"
-              onClick={() => goToPage(page + 1)}
-              disabled={page >= totalPages}
-              className="vcs-button vcs-button-secondary vcs-button-compact"
-            >
-              Next ›
-            </button>
-          </div>
-        ) : null}
+            {totalPages > 1 && <>
+              <div className="grading-pages">
+                <button type="button" disabled={page <= 1} onClick={() => goToPage(page - 1)}>← Previous</button>
+                <b>{page} / {totalPages}</b>
+                <button type="button" disabled={page >= totalPages} onClick={() => goToPage(page + 1)}>Next →</button>
+              </div>
+              <label className="grading-jump">
+                Page <input type="number" min={1} max={totalPages} inputMode="numeric"
+                  value={pageJump} onChange={event => setPageJump(event.target.value)}
+                  onKeyDown={event => { if (event.key === "Enter") submitPageJump(); }} />
+                <button type="button" onClick={submitPageJump}>Go</button>
+              </label>
+            </>}
+          </div>}
+        </section>
       </div>
     </main>
   );
