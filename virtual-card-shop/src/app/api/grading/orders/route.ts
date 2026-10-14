@@ -176,7 +176,7 @@ export async function GET(req: Request) {
 
     const url = new URL(req.url);
     const statusFilter = parseStatusFilter(url.searchParams.get("status"));
-    const q = (url.searchParams.get("q") ?? "").trim().replace(/\\s+/g, " ").slice(0, 80);
+    const q = (url.searchParams.get("q") ?? "").trim().replace(/\s+/g, " ").slice(0, 80);
     const requestedPage = parsePositiveInt(url.searchParams.get("page"), 1);
     const pageSize = Math.min(
       parsePositiveInt(url.searchParams.get("pageSize"), DEFAULT_PAGE_SIZE),
