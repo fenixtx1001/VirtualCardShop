@@ -259,3 +259,7 @@ body:has(.binder-shell){background:#171a17}
 .binder-page-jump{display:flex;justify-content:center;align-items:center;gap:6px;margin-top:8px;font-size:10px;color:#acb7a8}
 .binder-page-jump select{min-height:34px;border-radius:6px;border:1px solid #55604d;background:#283028;color:#ecdec0;font-size:11px;padding:5px 8px}
 @media(max-width:365px){.binder-page-jump{font-size:9px}.binder-page-jump select{font-size:10px;max-width:98px}}
+
+/* The physical album cover is an interactive, fully tappable first page. */
+.binder-cover{appearance:none;cursor:pointer;font:inherit;color:inherit;text-align:inherit}
+.binder-cover:hover:not(:disabled){filter:brightness(1.055)}
