@@ -135,6 +135,7 @@ export default function BinderClient({
     const direction = target > page ? "next" : "previous";
     if (timer.current) clearTimeout(timer.current);
     setTurn({ from: page, to: target, direction });
+    const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
     timer.current = setTimeout(() => {
       setPage(target);
       try {
@@ -142,7 +143,7 @@ export default function BinderClient({
       } catch { /* Browsing still works when storage is unavailable. */ }
       setTurn(null);
       timer.current = null;
-    }, 520);
+    }, reducedMotion ? 0 : 520);
   }, [data, loading, page, pageCount, turn, productId]);
 
   useEffect(() => {
@@ -220,7 +221,8 @@ export default function BinderClient({
 
   function renderCover() {
     if (!data) return null;
-    return <div className="binder-cover">
+    return <button type="button" className="binder-cover" aria-label="Open your trading card binder"
+      onClick={() => flip(0)} disabled={Boolean(turn) || pageCount === 0}>
       <div className="binder-cover-spine" aria-hidden="true" />
       <div className="binder-cover-face">
         <div className="binder-cover-emboss" aria-hidden="true">
@@ -239,7 +241,7 @@ export default function BinderClient({
           <span className="binder-cover-stamp">EST. 1990</span>
         </div>
       </div>
-    </div>;
+    </button>;
   }
 
   function renderSheet(index: number) {
