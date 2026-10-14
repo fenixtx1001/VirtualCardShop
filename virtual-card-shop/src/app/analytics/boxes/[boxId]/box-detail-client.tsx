@@ -83,18 +83,18 @@ type ApiData = {
 };
 
 const colors = {
-  text: "#171717",
-  muted: "#6b7280",
-  border: "#e5ded3",
-  borderStrong: "#d7cbb9",
-  gold: "#8a6200",
-  goldSoft: "#fff8e8",
-  green: "#166534",
-  greenSoft: "#ecfdf3",
-  red: "#991b1b",
-  blue: "#16477d",
-  blueSoft: "#eef5fb",
-  purple: "#6d28d9",
+  text: "#f2eee5",
+  muted: "#b2b4aa",
+  border: "#41483e",
+  borderStrong: "#4e584a",
+  gold: "#d7bb7e",
+  goldSoft: "#393629",
+  green: "#a5d5b0",
+  greenSoft: "#293b2d",
+  red: "#efa69c",
+  blue: "#b4c8d3",
+  blueSoft: "#29383e",
+  purple: "#cdb4df",
 };
 
 function money(cents: number) {
@@ -247,15 +247,14 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
         .boxDetailPage {
           min-height: 100vh;
           color: ${colors.text};
-          background:
-            radial-gradient(circle at top left, rgba(245,158,11,.12), transparent 30%),
-            linear-gradient(180deg,#f8f3ea,#f2eadf);
+          background: #181a19;
+          color-scheme: dark;
         }
 
         .boxDetailWrap {
-          max-width: 1280px;
+          max-width: 1220px;
           margin: 0 auto;
-          padding: 12px 10px 32px;
+          padding: 22px clamp(13px,3vw,32px) 45px;
         }
 
         .boxDetailTitle {
@@ -263,7 +262,9 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
           font-size: clamp(30px,7vw,40px);
           line-height: 1;
           letter-spacing: -.045em;
-          font-weight: 1000;
+          font-weight: 500;
+          font-family: Georgia, "Times New Roman", serif;
+          color: #f2eee5;
         }
 
         .boxDetailProduct {
@@ -279,7 +280,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
           border: 1px solid ${colors.borderStrong};
           border-radius: 15px;
           overflow: hidden;
-          background: rgba(255,255,255,.9);
+          background: #222622;
         }
 
         .boxSummaryCell {
@@ -314,7 +315,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
         .boxSection {
           margin-top: 11px;
           border: 1px solid ${colors.borderStrong};
-          background: rgba(255,255,255,.86);
+          background: #222622;
           border-radius: 16px;
           overflow: hidden;
         }
@@ -326,7 +327,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
           align-items: center;
           padding: 10px 11px;
           border-bottom: 1px solid ${colors.border};
-          background: linear-gradient(90deg,${colors.goldSoft},rgba(255,255,255,.94));
+          background: #292e27;
         }
 
         .boxSectionTitle {
@@ -363,10 +364,10 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
         .topPullImage {
           width: 100%;
           aspect-ratio: 2.5 / 3.5;
-          object-fit: cover;
+          object-fit: contain;
           border-radius: 9px;
           border: 1px solid ${colors.border};
-          background: #f3f4f6;
+          background: #171d18;
         }
 
         .topPullMissing {
@@ -374,7 +375,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
           aspect-ratio: 2.5 / 3.5;
           border-radius: 9px;
           border: 1px solid ${colors.border};
-          background: #f4f4f5;
+          background: #202620;
           display: grid;
           place-items: center;
           text-align: center;
@@ -402,7 +403,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
         .boxSort {
           border: 1px solid ${colors.borderStrong};
           border-radius: 10px;
-          background: #fff;
+          background: #222822;
           padding: 7px 9px;
           color: ${colors.text};
           font-size: 11px;
@@ -431,7 +432,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
 
         .desktopLedger td {
           padding: 8px;
-          border-bottom: 1px solid #eee;
+          border-bottom: 1px solid #41483e;
           font-size: 12px;
           font-weight: 750;
         }
@@ -459,9 +460,9 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
         .holding { background: ${colors.blueSoft}; color: ${colors.blue}; }
         .partial { background: ${colors.goldSoft}; color: ${colors.gold}; }
         .sold { background: ${colors.greenSoft}; color: ${colors.green}; }
-        .graded { background: #f5f3ff; color: ${colors.purple}; }
-        .gradedPartial { background: #fef3c7; color: #7c2d12; }
-        .gradedSold { background: #d1fae5; color: #047857; }
+        .graded { background: #34303d; color: ${colors.purple}; }
+        .gradedPartial { background: #393525; color: #d7bb7e; }
+        .gradedSold { background: #293c33; color: #a5d5b0; }
 
         .ledgerActions {
           display: flex;
@@ -481,9 +482,9 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
         }
 
         .ledgerButton.primary {
-          background: ${colors.text};
-          color: #fff;
-          border-color: ${colors.text};
+          background: #d7bb7e;
+          color: #1c241d;
+          border-color: #d7bb7e;
         }
 
         .ledgerButton:disabled {
@@ -497,7 +498,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
 
         @media (max-width: 760px) {
           .boxDetailWrap {
-            padding: 10px 8px 24px;
+            padding: 14px 12px 32px;
           }
 
           .boxDetailTitle {
@@ -509,26 +510,17 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
           }
 
           .boxSummary {
-            grid-template-columns: repeat(3,minmax(0,1fr));
+            grid-template-columns: repeat(2,minmax(0,1fr));
           }
 
           .boxSummaryCell {
             padding: 7px 6px;
           }
 
-          .boxSummaryCell:nth-child(4) {
-            border-left: 0;
-            border-top: 1px solid ${colors.border};
-          }
+          .boxSummaryCell:nth-child(odd) { border-left: 0; }
+          .boxSummaryCell:nth-child(n+3) { border-top: 1px solid ${colors.border}; }
 
-          .boxSummaryCell:nth-child(5),
-          .boxSummaryCell:nth-child(6) {
-            border-top: 1px solid ${colors.border};
-          }
-
-          .boxSummaryValue {
-            font-size: 12.5px;
-          }
+          .boxSummaryValue { font-size: 15px; white-space: normal; overflow-wrap: anywhere; }
 
           .boxSection {
             margin-top: 9px;
@@ -625,7 +617,7 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
           .mobilePullInfo {
             margin-top: 6px;
             display: grid;
-            grid-template-columns: repeat(4,minmax(0,1fr));
+            grid-template-columns: repeat(2,minmax(0,1fr));
             border: 1px solid ${colors.border};
             border-radius: 9px;
             overflow: hidden;
@@ -652,14 +644,15 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
           }
 
           .mobilePullFooter {
-            margin-top: 6px;
+            margin-top: 9px;
             display: grid;
-            grid-template-columns: minmax(0,1fr) auto auto auto;
+            grid-template-columns: repeat(3,minmax(0,1fr));
             gap: 5px;
             align-items: center;
           }
 
           .mobileStatusLine {
+            grid-column: 1/-1;
             min-width: 0;
             display: flex;
             gap: 4px;
@@ -676,8 +669,9 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
           .mobilePullFooter .ledgerButton,
           .mobilePullFooter a.ledgerButton {
             min-width: 0;
-            padding: 5px 7px;
-            font-size: 9.5px;
+            min-height: 40px;
+            padding: 9px 7px;
+            font-size: 11px;
             text-decoration: none;
             text-align: center;
           }
