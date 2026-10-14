@@ -163,3 +163,80 @@ export async function syncDailyPortfolioSnapshot(
     },
   });
 }
+
+
+/**
+ * Fast, atomic snapshot maintenance for transactions that ONLY change cash.
+ *
+ * Every reward still records a FinancialTransaction. For an already-current
+ * version-2 daily snapshot, adding cash cannot change the collection or sealed
+ * valuation, so there is no reason to scan thousands of owned cards.
+ *
+ * A missing, stale, or inconsistent snapshot falls back to the full valuation.
+ * This preserves the midnight baseline and self-heals older snapshot data.
+ * Call from the SAME transaction that updates the User balance.
+ */
+export async function syncCashOnlyDailyPortfolioSnapshot(
+  db: PortfolioDb,
+  userId: string,
+  previousBalanceCents: number,
+  newBalanceCents: number,
+  now = new Date()
+): Promise<"incremental" | "revalued"> {
+  const delta = newBalanceCents - previousBalanceCents;
+  if (
+    !Number.isSafeInteger(previousBalanceCents) ||
+    !Number.isSafeInteger(newBalanceCents) ||
+    !Number.isSafeInteger(delta)
+  ) {
+    await syncDailyPortfolioSnapshot(db, userId, now);
+    return "revalued";
+  }
+
+  const dateKey = getChicagoDateKey(now);
+  const snapshot = await db.financialDailySnapshot.findUnique({
+    where: { userId_dateKey: { userId, dateKey } },
+    select: {
+      id: true,
+      balanceCents: true,
+      collectionValueCents: true,
+      sealedValueCents: true,
+      closingNetWorthCents: true,
+      netWorthCents: true,
+      valuationVersion: true,
+    },
+  });
+
+  const consistent = snapshot &&
+    snapshot.valuationVersion >= 2 &&
+    snapshot.balanceCents === previousBalanceCents &&
+    snapshot.netWorthCents === snapshot.closingNetWorthCents &&
+    snapshot.closingNetWorthCents ===
+      snapshot.balanceCents + snapshot.collectionValueCents + snapshot.sealedValueCents;
+
+  if (consistent) {
+    // Compare-and-swap guards against another writer revaluing this snapshot
+    // between the read and update. Increment only the cash/net worth fields;
+    // leave the day's opening balance and all noncash components untouched.
+    const updated = await db.financialDailySnapshot.updateMany({
+      where: {
+        id: snapshot.id,
+        valuationVersion: snapshot.valuationVersion,
+        balanceCents: previousBalanceCents,
+        collectionValueCents: snapshot.collectionValueCents,
+        sealedValueCents: snapshot.sealedValueCents,
+        closingNetWorthCents: snapshot.closingNetWorthCents,
+      },
+      data: {
+        balanceCents: newBalanceCents,
+        closingNetWorthCents: { increment: delta },
+        netWorthCents: { increment: delta },
+      },
+    });
+    if (updated.count === 1) return "incremental";
+  }
+
+  // First claim of a new day or preexisting snapshot mismatch: full valuation.
+  await syncDailyPortfolioSnapshot(db, userId, now);
+  return "revalued";
+}
