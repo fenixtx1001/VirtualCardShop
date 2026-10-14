@@ -45,37 +45,33 @@ export async function POST() {
   const now = new Date();
 
   try {
+    const started = Date.now();
     const result = await prisma.$transaction(async (tx) => {
-      const user = await tx.user.findUnique({
-        where: { id: userId },
-        select: { balanceCents: true, nextRewardAt: true },
-      });
-
-      if (!user) {
-        throw new Error(`User not found (${userId}).`);
-      }
-
-      const canClaim =
-        user.nextRewardAt === null || now.getTime() >= user.nextRewardAt.getTime();
-
-      if (!canClaim) {
-        const err = new Error("Reward not ready yet");
-        (err as Error & { status?: number; nextRewardAt?: Date | null }).status = 400;
-        (err as Error & { status?: number; nextRewardAt?: Date | null }).nextRewardAt =
-          user.nextRewardAt;
-        throw err;
-      }
-
       const nextRewardAt = new Date(now.getTime() + COOLDOWN_MS);
-
-      const updatedUser = await tx.user.update({
-        where: { id: userId },
+      const claim = await tx.user.updateMany({
+        where: {
+          id: userId,
+          OR: [{ nextRewardAt: null }, { nextRewardAt: { lte: now } }],
+        },
         data: {
           balanceCents: { increment: REWARD_CENTS },
           nextRewardAt,
         },
+      });
+
+      const updatedUser = await tx.user.findUnique({
+        where: { id: userId },
         select: { balanceCents: true, nextRewardAt: true },
       });
+      if (!updatedUser) throw new Error("User not found.");
+
+      if (claim.count !== 1) {
+        const err = new Error("Reward not ready yet");
+        (err as Error & { status?: number; nextRewardAt?: Date | null }).status = 400;
+        (err as Error & { status?: number; nextRewardAt?: Date | null }).nextRewardAt =
+          updatedUser.nextRewardAt;
+        throw err;
+      }
 
       await createFinancialTransaction({
         tx,
@@ -84,6 +80,7 @@ export async function POST() {
         amountCents: REWARD_CENTS,
         description: "Claimed 30-minute reward bonus",
         balanceAfterCents: updatedUser.balanceCents,
+        cashOnlyPreviousBalanceCents: updatedUser.balanceCents - REWARD_CENTS,
         metadata: {
           rewardCents: REWARD_CENTS,
           cooldownMs: COOLDOWN_MS,
@@ -93,13 +90,12 @@ export async function POST() {
         },
       });
 
-      return {
-        ...updatedUser,
-        claimedCents: REWARD_CENTS,
-      };
+      return { ...updatedUser, claimedCents: REWARD_CENTS };
     });
 
-    return NextResponse.json(buildRewardResponse(result));
+    return NextResponse.json(buildRewardResponse(result), {
+      headers: { "Server-Timing": `claim;dur=${Date.now() - started}` },
+    });
   } catch (e: any) {
     const status = e?.status ?? 500;
 
