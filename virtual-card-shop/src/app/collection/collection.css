@@ -993,3 +993,21 @@ body:has(.collection-shell) {
     animation: none;
   }
 }
+
+
+/* Binder View entry point: a visually distinct, touch-friendly collection action. */
+.collection-binder-link{
+  border:1px solid #776c4e;
+  border-radius:6px;
+  padding:6px 10px;
+  min-height:34px;
+  color:#e7d4a3;
+  background:#383629;
+  white-space:nowrap;
+}
+.collection-binder-link:hover{background:#484331;text-decoration:none}
+@media(max-width:680px){
+  .collection-set-footer{flex-wrap:wrap;justify-content:flex-end;gap:5px 11px;padding:7px 11px}
+  .collection-facts{flex:1 0 100%}
+  .collection-binder-link{min-height:36px}
+}
