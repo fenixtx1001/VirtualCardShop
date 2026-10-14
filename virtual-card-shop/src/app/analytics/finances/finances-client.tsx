@@ -68,7 +68,7 @@ function Trend({ snapshots }: { snapshots: FinanceData["snapshots"] }) {
 
   return (
     <svg className="analytics-chart" viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" role="img" aria-label="Net worth trend">
-      <path d={d} fill="none" stroke="#2b6cb0" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d={d} fill="none" stroke="#d7bb7e" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
