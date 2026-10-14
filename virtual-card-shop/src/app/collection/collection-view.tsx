@@ -961,6 +961,13 @@ export default function CollectionView() {
                   </div>
 
                   <Link
+                    href={`/collection/${encodeURIComponent(row.productId)}/binder`}
+                    className="collection-checklist-link collection-binder-link"
+                    aria-label={`Open ${friendlyName} binder`}
+                  >
+                    ◫ Binder
+                  </Link>
+                  <Link
                     href={`/checklist/${encodeURIComponent(
                       row.productId
                     )}`}
