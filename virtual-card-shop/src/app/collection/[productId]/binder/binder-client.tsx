@@ -82,7 +82,19 @@ export default function BinderClient({
       if (signal.aborted) return;
       const incoming = json as BinderData;
       setData(incoming);
-      setPage(-1);
+      // Returning from Card Details restores the sleeve page; a never-opened
+      // product set still starts with its nostalgic front cover.
+      const storageKey = "vcs:binder:" + productId + ":" + incoming.productSet.id;
+      let savedPage = -1;
+      try {
+        const rawPage = sessionStorage.getItem(storageKey);
+        if (rawPage !== null) {
+          const parsed = Number(rawPage);
+          if (Number.isSafeInteger(parsed)) savedPage = Math.max(-1,
+            Math.min(Math.ceil(incoming.cards.length / 9) - 1, parsed));
+        }
+      } catch { /* Session memory is a convenience, never required. */ }
+      setPage(savedPage);
       setTurn(null);
       setBrokenScans({});
     } catch (e) {
@@ -125,10 +137,13 @@ export default function BinderClient({
     setTurn({ from: page, to: target, direction });
     timer.current = setTimeout(() => {
       setPage(target);
+      try {
+        sessionStorage.setItem("vcs:binder:" + productId + ":" + data.productSet.id, String(target));
+      } catch { /* Browsing still works when storage is unavailable. */ }
       setTurn(null);
       timer.current = null;
     }, 520);
-  }, [data, loading, page, pageCount, turn]);
+  }, [data, loading, page, pageCount, turn, productId]);
 
   useEffect(() => {
     function keyDown(event: KeyboardEvent) {
@@ -159,6 +174,7 @@ export default function BinderClient({
     setPage(-1);
     setData(null);
     setPreview(null);
+    try { sessionStorage.removeItem("vcs:binder:" + productId + ":" + next); } catch { /* optional */ }
     setSetId(next);
     const url = "/collection/" + encodeURIComponent(productId) + "/binder?productSetId=" +
       encodeURIComponent(next);
