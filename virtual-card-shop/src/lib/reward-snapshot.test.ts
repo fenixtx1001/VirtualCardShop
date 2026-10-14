@@ -1,6 +1,5 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import type { Prisma } from "@prisma/client";
 import { syncCashOnlyDailyPortfolioSnapshot } from "./portfolio";
 
 type Db = Parameters<typeof syncCashOnlyDailyPortfolioSnapshot>[0];
@@ -46,7 +45,7 @@ test("normal reward uses one small guarded snapshot update without revaluing car
 });
 
 test("missing snapshot performs a full current-day valuation and preserves opening", async () => {
-  let created: Record<string, unknown> | null = null;
+  let created: Record<string, unknown> = {};
   const db = {
     financialDailySnapshot: {
       findUnique: async () => null,
@@ -64,12 +63,12 @@ test("missing snapshot performs a full current-day valuation and preserves openi
 
   const mode = await syncCashOnlyDailyPortfolioSnapshot(db, userId, 10000, 11000, now);
   assert.equal(mode, "revalued");
-  assert.ok(created);
-  assert.equal((created as Record<string, unknown>).userId, userId);
-  assert.equal((created as Record<string, unknown>).dateKey, dateKey);
-  assert.equal((created as Record<string, unknown>).balanceCents, 11000);
-  assert.equal((created as Record<string, unknown>).openingNetWorthCents, 11000);
-  assert.equal((created as Record<string, unknown>).closingNetWorthCents, 11000);
+  assert.ok(Object.keys(created).length);
+  assert.equal(created.userId, userId);
+  assert.equal(created.dateKey, dateKey);
+  assert.equal(created.balanceCents, 11000);
+  assert.equal(created.openingNetWorthCents, 11000);
+  assert.equal(created.closingNetWorthCents, 11000);
 });
 
 test("compare-and-swap race falls back to valuation rather than applying stale net worth", async () => {
