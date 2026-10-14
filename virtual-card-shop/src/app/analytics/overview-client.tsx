@@ -82,12 +82,12 @@ function Trend({ points }: { points: { dateKey: string; value: number }[] }) {
     <svg className="analytics-chart" viewBox={`0 0 ${width} ${height}`} role="img" aria-label="Seven day net worth trend" preserveAspectRatio="none">
       <defs>
         <linearGradient id="overview-fill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="rgba(43,108,176,.23)" />
-          <stop offset="100%" stopColor="rgba(43,108,176,0)" />
+          <stop offset="0%" stopColor="rgba(215,187,126,.20)" />
+          <stop offset="100%" stopColor="rgba(215,187,126,0)" />
         </linearGradient>
       </defs>
       <path d={`${path} L ${coords.at(-1)!.x} ${height - pad} L ${coords[0].x} ${height - pad} Z`} fill="url(#overview-fill)" />
-      <path d={path} fill="none" stroke="#2b6cb0" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d={path} fill="none" stroke="#d7bb7e" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
