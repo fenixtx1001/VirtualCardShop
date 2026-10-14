@@ -378,7 +378,10 @@ export default function CollectionView() {
   useEffect(() => {
     void load(false);
 
-    const refresh = () => {
+    const refresh = (event?: Event) => {
+      // The reward is cash-only; collection ownership and prestige are unchanged.
+      if (event?.type === "vcs:economy-changed" &&
+          (event as CustomEvent<{ cashOnly?: boolean }>).detail?.cashOnly) return;
       if (document.visibilityState === "visible") {
         void load(true);
       }
