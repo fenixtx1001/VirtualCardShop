@@ -176,6 +176,7 @@ export async function GET(req: Request) {
 
     const url = new URL(req.url);
     const statusFilter = parseStatusFilter(url.searchParams.get("status"));
+    const q = (url.searchParams.get("q") ?? "").trim().replace(/\\s+/g, " ").slice(0, 80);
     const requestedPage = parsePositiveInt(url.searchParams.get("page"), 1);
     const pageSize = Math.min(
       parsePositiveInt(url.searchParams.get("pageSize"), DEFAULT_PAGE_SIZE),
@@ -221,16 +222,38 @@ export async function GET(req: Request) {
       COMPLETED: completedCount,
     } satisfies Record<StatusFilter, number>;
 
-    const totalOrders = counts[statusFilter];
+    // Search the user's entire grading history on the server before pagination.
+    // Counts in the status tabs intentionally stay unfiltered.
+    const terms = q.split(/\s+/).filter(Boolean).slice(0, 5);
+    const searchWhere: Prisma.GradingOrderWhereInput = {
+      AND: [
+        buildWhere({ userId: user.id, statusFilter, now }),
+        ...terms.map((term): Prisma.GradingOrderWhereInput => {
+          const contains = { contains: term, mode: "insensitive" as const };
+          const year = /^\d{4}$/.test(term) ? Number(term) : null;
+          return { card: { OR: [
+            { player: contains },
+            { team: contains },
+            { cardNumber: contains },
+            { subset: contains },
+            { variant: contains },
+            { setId: contains },
+            { productSetId: contains },
+            { productSet: { is: { name: contains } } },
+            { set: { brand: contains } },
+            ...(year ? [{ set: { year } }, { productSet: { is: { product: { year } } } }] : []),
+          ] } };
+        }),
+      ],
+    };
+    const totalOrders = terms.length
+      ? await prisma.gradingOrder.count({ where: searchWhere })
+      : counts[statusFilter];
     const totalPages = Math.max(1, Math.ceil(totalOrders / pageSize));
     const page = Math.min(requestedPage, totalPages);
 
     const orders = await prisma.gradingOrder.findMany({
-      where: buildWhere({
-        userId: user.id,
-        statusFilter,
-        now,
-      }),
+      where: searchWhere,
       orderBy: getOrderBy(statusFilter),
       skip: (page - 1) * pageSize,
       take: pageSize,
@@ -368,6 +391,7 @@ export async function GET(req: Request) {
       ok: true,
       now,
       statusFilter,
+      q,
       counts,
       page,
       pageSize,
