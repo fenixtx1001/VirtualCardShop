@@ -442,7 +442,7 @@ export default function AppHeader() {
       // Other VCS components still hear the economy change. The header already
       // has the authoritative response, so it should not fetch it a second time.
       window.dispatchEvent(new CustomEvent(ECONOMY_CHANGED_EVENT, {
-        detail: { headerAlreadyUpdated: true },
+        detail: { headerAlreadyUpdated: true, cashOnly: true },
       }));
     } catch (e: any) {
       setErrorMsg(e?.message ?? "Claim failed");
