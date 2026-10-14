@@ -2,6 +2,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import styles from "./SubmitForGradingButton.module.css";
 import {
   GRADING_FEE_BPS,
   MIN_GRADING_FEE_CENTS,
@@ -128,102 +129,41 @@ export default function SubmitForGradingButton({
   }
 
   if (maxQty <= 0) {
-    return (
-      <div
-        style={{
-          border: "1px solid #ddd",
-          background: "#f7f7f7",
-          borderRadius: 12,
-          padding: 10,
-          color: "#666",
-          fontWeight: 800,
-          fontSize: 13,
-        }}
-      >
-        No raw copies available to grade.
-      </div>
-    );
+    return <div className={styles.empty}>No raw copies available to grade.</div>;
   }
 
   return (
-    <div
-      style={{
-        border: "1px solid #d9e4f5",
-        background: "#f4f8ff",
-        borderRadius: 12,
-        padding: 10,
-        display: "grid",
-        gap: 8,
-      }}
-    >
-      <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
+    <section className={styles.box} aria-label="Submit for VCS grading">
+      <div className={styles.head}>
         <div>
-          <div style={{ fontWeight: 950, color: "#16477d" }}>VCS Grading</div>
-          <div style={{ color: "#335", fontSize: 12, fontWeight: 800 }}>
-            Raw available: {maxQty} • Est. fee: {formatDollarsFromCents(fee.totalFeeCents)}
-          </div>
+          <span className={styles.eyebrow}>THE GRADING DESK</span>
+          <h3 className={styles.title}>Submit for Grading</h3>
+          <p className={styles.subtitle}>Raw copies available: {maxQty}</p>
         </div>
-
-        <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-          <label style={{ fontSize: 12, fontWeight: 900, color: "#333" }}>
-            Qty{" "}
-            <input
-              type="number"
-              min={1}
-              max={maxQty}
-              value={clampedQuantity}
-              onChange={(e) => setQuantity(Number(e.target.value))}
-              disabled={submitting}
-              style={{
-                width: 64,
-                border: "1px solid #bbb",
-                borderRadius: 8,
-                padding: "6px 8px",
-                fontWeight: 900,
-              }}
-            />
-          </label>
-
-          <button
-            type="button"
-            onClick={submitForGrading}
-            disabled={disabled}
-            style={{
-              border: "1px solid #16477d",
-              background: disabled ? "#d9e4f5" : "#16477d",
-              color: disabled ? "#557" : "#fff",
-              borderRadius: 10,
-              padding: "8px 10px",
-              fontWeight: 950,
-              cursor: disabled ? "not-allowed" : "pointer",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {submitting ? "Submitting…" : "Submit for Grading"}
-          </button>
+        <div>
+          <span className={styles.eyebrow}>ESTIMATED FEE</span>
+          <div className={styles.fee}>{formatDollarsFromCents(fee.totalFeeCents)}</div>
         </div>
       </div>
-
-      <div style={{ fontSize: 12, color: "#445", fontWeight: 750 }}>
-        Fee is {(GRADING_FEE_BPS / 100).toFixed(0)}% of raw value with a{" "}
-        {formatDollarsFromCents(MIN_GRADING_FEE_CENTS)} minimum. Grades reveal after 24 hours.
+      <div className={styles.form}>
+        <label>Quantity
+          <input type="number" min={1} max={maxQty} inputMode="numeric"
+            value={clampedQuantity} disabled={submitting}
+            onChange={event => setQuantity(Number(event.target.value))} />
+        </label>
+        <button type="button" onClick={submitForGrading} disabled={disabled}>
+          {submitting ? "Submitting…" : "Submit for Grading →"}
+        </button>
       </div>
-
-      {message ? (
-        <div
-          style={{
-            border: `1px solid ${isError ? "#f3b7b7" : "#b8d8bd"}`,
-            background: isError ? "#fff1f1" : "#f0fff3",
-            color: isError ? "#7a1f1f" : "#185c24",
-            borderRadius: 10,
-            padding: 8,
-            fontSize: 12,
-            fontWeight: 850,
-          }}
-        >
-          {message}
-        </div>
-      ) : null}
-    </div>
+      <p className={styles.muted}>
+        Fee: {(GRADING_FEE_BPS / 100).toFixed(0)}% of raw value
+        {" · "}minimum {formatDollarsFromCents(MIN_GRADING_FEE_CENTS)} per card.
+        Grades stay sealed until you choose to reveal them.
+      </p>
+      {message && <div role={isError ? "alert" : "status"}
+        className={styles.message + (isError ? " " + styles.error : "")}>
+        {message}
+      </div>}
+    </section>
   );
 }
