@@ -35,30 +35,29 @@ export async function POST() {
 
   const now = new Date();
 
+  const started = Date.now();
   const result = await prisma.$transaction(async (tx) => {
-    const user = await tx.user.findUnique({
-      where: { id: userId },
-      select: { balanceCents: true, nextRewardAt: true },
-    });
-
-    if (!user) {
-      throw new Error(`User not found (${userId}).`);
-    }
-
-    const canClaim = user.nextRewardAt === null || now.getTime() >= user.nextRewardAt.getTime();
-
-    if (!canClaim) return user;
-
     const nextRewardAt = new Date(now.getTime() + COOLDOWN_MS);
 
-    const updatedUser = await tx.user.update({
-      where: { id: userId },
+    // Atomic cooldown check: two simultaneous taps cannot both credit $10.
+    const claim = await tx.user.updateMany({
+      where: {
+        id: userId,
+        OR: [{ nextRewardAt: null }, { nextRewardAt: { lte: now } }],
+      },
       data: {
         balanceCents: { increment: REWARD_CENTS },
         nextRewardAt,
       },
+    });
+
+    const updatedUser = await tx.user.findUnique({
+      where: { id: userId },
       select: { balanceCents: true, nextRewardAt: true },
     });
+    if (!updatedUser) throw new Error("User not found.");
+
+    if (claim.count !== 1) return updatedUser;
 
     await createFinancialTransaction({
       tx,
@@ -67,6 +66,7 @@ export async function POST() {
       amountCents: REWARD_CENTS,
       description: "Claimed 30-minute reward bonus",
       balanceAfterCents: updatedUser.balanceCents,
+      cashOnlyPreviousBalanceCents: updatedUser.balanceCents - REWARD_CENTS,
       metadata: {
         rewardCents: REWARD_CENTS,
         cooldownMs: COOLDOWN_MS,
@@ -77,5 +77,7 @@ export async function POST() {
     return updatedUser;
   });
 
-  return NextResponse.json(buildEconomyResponse(result));
+  return NextResponse.json(buildEconomyResponse(result), {
+    headers: { "Server-Timing": `claim;dur=${Date.now() - started}` },
+  });
 }
