@@ -323,6 +323,13 @@ export default function CollectionSetClient({ productId }: { productId: string }
         >
           Checklist →
         </Link>
+        <Link
+          href={`/collection/${encodeURIComponent(productId)}/binder?productSetId=${encodeURIComponent(selectedProductSetId || data?.productSetId || "")}`}
+          className="vcs-button vcs-button-primary vcs-button-compact"
+          style={{ background: "#d7bb7e", color: "#1f281f", borderColor: "#d7bb7e" }}
+        >
+          ◫ Binder View
+        </Link>
 
         <Link
           href="/grading"
