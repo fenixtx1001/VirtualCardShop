@@ -439,7 +439,11 @@ export default function AppHeader() {
 
       const data = (await res.json()) as EconomyState;
       setEco(data);
-      window.dispatchEvent(new CustomEvent(ECONOMY_CHANGED_EVENT));
+      // Other VCS components still hear the economy change. The header already
+      // has the authoritative response, so it should not fetch it a second time.
+      window.dispatchEvent(new CustomEvent(ECONOMY_CHANGED_EVENT, {
+        detail: { headerAlreadyUpdated: true },
+      }));
     } catch (e: any) {
       setErrorMsg(e?.message ?? "Claim failed");
     } finally {
@@ -484,7 +488,10 @@ export default function AppHeader() {
   }, []);
 
   useEffect(() => {
-    const handler = () => loadEconomy();
+    const handler = (event: Event) => {
+      const detail = (event as CustomEvent<{ headerAlreadyUpdated?: boolean }>).detail;
+      if (!detail?.headerAlreadyUpdated) void loadEconomy();
+    };
     window.addEventListener(ECONOMY_CHANGED_EVENT, handler as EventListener);
     return () => window.removeEventListener(ECONOMY_CHANGED_EVENT, handler as EventListener);
     // eslint-disable-next-line react-hooks/exhaustive-deps
