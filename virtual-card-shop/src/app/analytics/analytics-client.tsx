@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import AnalyticsTabs from "@/components/analytics/AnalyticsTabs";
 
 type ViewMode = "summary" | "cards";
@@ -105,19 +106,19 @@ type AnalyticsSummaryRow = {
 };
 
 const colors = {
-  text: "#151515",
-  muted: "#68717f",
-  border: "#e5ded3",
-  borderStrong: "#d5ccbe",
-  card: "#ffffff",
-  blue: "#16477d",
-  blueSoft: "#eef5fb",
-  green: "#166534",
-  greenSoft: "#eef9f1",
-  gold: "#8a6200",
-  goldSoft: "#fff8e8",
-  red: "#991b1b",
-  redSoft: "#fff1f2",
+  text: "#f2eee5",
+  muted: "#b2b4aa",
+  border: "#41483e",
+  borderStrong: "#515b4f",
+  card: "#222622",
+  blue: "#d7bb7e",
+  blueSoft: "#39392d",
+  green: "#a5d5b0",
+  greenSoft: "#29382d",
+  gold: "#d7bb7e",
+  goldSoft: "#393627",
+  red: "#efa69c",
+  redSoft: "#342522",
 };
 
 function fmtMoney(n: number | null | undefined) {
@@ -1176,7 +1177,45 @@ export default function AnalyticsClient() {
               No cards found for this filter set.
             </div>
           ) : (
-            <div className="analyticsDesktopTable analyticsCardsTable">
+            <>
+              <div className="analyticsMobileCards" aria-label="Collection card results">
+                {cardRows.map(row => {
+                  const image = safeImgSrc(row.frontImageUrl);
+                  return <article key={row.cardId} className="analyticsMobileCard">
+                    <Link href={"/cards/" + row.cardId} className="analyticsMobileCardImage"
+                      aria-label={"Open " + row.player + " card details"}>
+                      {image ? <img src={image} loading="lazy" decoding="async"
+                        alt={row.player + " card front"} /> : <span>VCS</span>}
+                    </Link>
+                    <div>
+                      <Link href={"/cards/" + row.cardId} className="analyticsMobileCardTitle"
+                        style={{ textDecoration: "none" }}>
+                        {row.player}{row.cardNumber ? " #" + row.cardNumber : ""}
+                      </Link>
+                      <div className="analyticsMobileCardMeta">
+                        {[row.year, row.brand, row.productSetLabel || row.productLabel].filter(Boolean).join(" · ")}
+                        {row.team ? " · " + row.team : ""}
+                      </div>
+                      <div className="analyticsMobileCardMetrics">
+                        <span><small>Book value</small><strong>{fmtMoney(row.bookValue)}</strong></span>
+                        {!compareModeActive && <>
+                          <span><small>Owned</small><strong>{row.ownedQty ?? 0}</strong></span>
+                          <span><small>Owned value</small><strong>{fmtMoney(row.ownedValue ?? 0)}</strong></span>
+                        </>}
+                      </div>
+                      {compareModeActive && <div className="analyticsMobileCardCompare">
+                        <div><small>User A · Qty</small><span>{row.compare?.aQty ?? 0}</span>
+                          <small>{fmtMoney(row.compare?.aValue ?? 0)}</small></div>
+                        <div><small>User B · Qty</small><span>{row.compare?.bQty ?? 0}</span>
+                          <small>{fmtMoney(row.compare?.bValue ?? 0)}</small></div>
+                        <div><small>Difference · Qty</small><span>{row.compare?.diffQty ?? 0}</span>
+                          <small>{fmtMoney(row.compare?.diffValue ?? 0)}</small></div>
+                      </div>}
+                    </div>
+                  </article>;
+                })}
+              </div>
+              <div className="analyticsDesktopTable analyticsCardsTable">
               <table style={{ minWidth: compareModeActive ? 1420 : 1180 }}>
                 <thead>
                   <tr>
@@ -1242,7 +1281,7 @@ export default function AnalyticsClient() {
                                 alt="Card"
                                 loading="lazy"
                                 decoding="async"
-                                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                                style={{ width: "100%", height: "100%", objectFit: "contain" }}
                               />
                             ) : (
                               <div style={{ fontSize: 9, color: colors.muted }}>No img</div>
@@ -1311,7 +1350,8 @@ export default function AnalyticsClient() {
                   })}
                 </tbody>
               </table>
-            </div>
+              </div>
+            </>
           )}
 
           <div className="analyticsPagination">
