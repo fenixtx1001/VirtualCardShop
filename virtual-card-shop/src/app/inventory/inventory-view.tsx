@@ -154,7 +154,12 @@ export default function InventoryView() {
       }
     } catch { /* Use defaults if saved preferences cannot be read. */ }
     void load();
-    const refresh = () => { if (document.visibilityState === "visible") void load(); };
+    const refresh = (event?: Event) => {
+      // Claiming $10 changes cash, not packs. Avoid expensive inventory reloads.
+      if (event?.type === "vcs:economy-changed" &&
+          (event as CustomEvent<{ cashOnly?: boolean }>).detail?.cashOnly) return;
+      if (document.visibilityState === "visible") void load();
+    };
     window.addEventListener("focus", refresh);
     window.addEventListener("pageshow", refresh);
     window.addEventListener("vcs:collection-changed", refresh);
