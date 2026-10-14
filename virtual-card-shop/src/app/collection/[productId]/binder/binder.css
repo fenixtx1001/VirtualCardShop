@@ -77,7 +77,8 @@ body:has(.binder-shell){background:#171a17}
   background:
     radial-gradient(circle at 30% 25%,rgba(255,255,255,.035),transparent 29%),
     repeating-linear-gradient(45deg,rgba(255,255,255,.009) 0px,rgba(255,255,255,.009) 1px,transparent 1px,transparent 4px),
-    linear-gradient(125deg,#1c221b 0%,#101511 60%,#161b16);
+    linear-gradient(125deg,#1c221b77 0%,#10151133 60%,#161b1677),
+    url("/images/vcs-binder-cover-vintage.svg") center / cover no-repeat;
 }
 .binder-cover-emboss{display:flex;align-items:center;flex-direction:column;justify-content:center;
   gap:12px;max-width:95%;width:88%;padding:8% 4%;
@@ -254,3 +255,7 @@ body:has(.binder-shell){background:#171a17}
  .binder-turn-next,.binder-turn-previous{animation-duration:1ms!important}
  .binder-pocket:not(.binder-pocket-unused):hover{transform:none}
 }
+
+.binder-page-jump{display:flex;justify-content:center;align-items:center;gap:6px;margin-top:8px;font-size:10px;color:#acb7a8}
+.binder-page-jump select{min-height:34px;border-radius:6px;border:1px solid #55604d;background:#283028;color:#ecdec0;font-size:11px;padding:5px 8px}
+@media(max-width:365px){.binder-page-jump{font-size:9px}.binder-page-jump select{font-size:10px;max-width:98px}}
