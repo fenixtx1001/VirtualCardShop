@@ -229,3 +229,48 @@ body:has(.analytics-suite-page),body:has(.analyticsPage),body:has(.boxDetailPage
 .analyticsPage .analyticsMobileCardCompare span{font-size:11px;font-weight:630;color:#f2eee5}
 .analyticsPage .analyticsMobileCardCompare small{display:block;color:#aeb9aa;font-size:9px;font-weight:400}
 @media(prefers-reduced-motion:reduce){.analytics-link-card{transition:none}}
+
+/* Preserve full card art and give Box Detail its own premium dark surfaces. */
+.boxDetailPage .boxSummary,.boxDetailPage .boxSection,.boxDetailPage .mobilePullRow{
+  background:#222622;border-color:#42493f;box-shadow:none
+}
+.boxDetailPage .boxSectionHeader{background:#292e27;border-color:#42493f}
+.boxDetailPage .boxSummaryValue,.boxDetailPage .mobilePullMetricValue{
+  overflow-wrap:anywhere;white-space:normal;color:#f2eee5
+}
+.boxDetailPage .boxSummaryCell,.boxDetailPage .mobilePullMetric{border-color:#41483e}
+.boxDetailPage .boxSort{background:#20251f;color:#f2eee5;border-color:#51594e;min-height:40px}
+.boxDetailPage .ledgerButton{background:#2b312a;border-color:#545e50;color:#e6e9df}
+.boxDetailPage .ledgerButton.primary{background:#d7bb7e;border-color:#d7bb7e;color:#20251f}
+.boxDetailPage .desktopLedger th,.boxDetailPage .desktopLedger td{border-color:#41483e;color:#e3e9e0}
+.boxDetailPage .desktopLedger tr:nth-child(even){background:#262c26}
+.boxDetailPage .topPullImage{object-fit:contain;background:#1c211c}
+.boxDetailPage .cardLink{color:#eee9da}
+.boxDetailPage .cardLink:hover{color:#d7bb7e}
+.boxDetailPage .topPullName{white-space:normal;overflow-wrap:anywhere;font-weight:600}
+.boxDetailPage .boxLabel{font-weight:550;color:#acb6aa}
+.boxDetailPage .boxSectionTitle{font-weight:650;color:#f2eee5}
+.boxDetailPage .boxSectionSub,.boxDetailPage .boxDetailProduct{font-weight:420;color:#b2b4aa}
+@media(max-width:760px){
+  /* Data-first summary cards avoid 4 cramped columns on small phones. */
+  .analyticsPage .analyticsMobileSummaryRow:not(.analyticsMobileSummaryHeader){
+    grid-template-columns:repeat(3,minmax(0,1fr));row-gap:9px;padding:12px
+  }
+  .analyticsPage .analyticsMobileSummaryHeader{display:none}
+  .analyticsPage .analyticsMobileSummaryMain{grid-column:1/-1}
+  .analyticsPage .analyticsMobileSummaryValue{text-align:left;font-size:12px}
+  .analyticsPage .analyticsMobileSummaryValue::before{
+    display:block;color:#abb7a9;font-size:9px;font-weight:500;letter-spacing:.07em;margin-bottom:3px
+  }
+  .analyticsPage .analyticsMobileSummaryValue:nth-child(2)::before{content:"CARDS"}
+  .analyticsPage .analyticsMobileSummaryValue:nth-child(3)::before{content:"COPIES"}
+  .analyticsPage .analyticsMobileSummaryValue:nth-child(4)::before{content:"VALUE"}
+  .boxDetailPage .mobilePullInfo{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .boxDetailPage .mobilePullMetric:nth-child(odd){border-left:0}
+  .boxDetailPage .mobilePullMetric:nth-child(n+3){border-top:1px solid #41483e}
+  .boxDetailPage .mobilePullFooter{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .boxDetailPage .mobileStatusLine{grid-column:1/-1}
+  .boxDetailPage .mobilePullFooter .ledgerButton,.boxDetailPage .mobilePullFooter a.ledgerButton{
+    min-height:40px;display:flex;align-items:center;justify-content:center;font-size:11px
+  }
+}
