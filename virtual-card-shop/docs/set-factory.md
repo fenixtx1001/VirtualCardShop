@@ -49,6 +49,48 @@ when the source issues are genuinely distinct collector checklists.
 
 This convention applies to all new Set Factory datasets moving forward.
 
+### Optional pack rarity within a complete Product Set
+
+Set Factory can opt in to product-level pack rarity through \`packRarity\` in
+a schemaVersion 2 bundle. The collector checklist is **not** split:
+Base, Refractors or any other complete collector checklist remains one
+ProductSet even when particular cards have different historical rarity.
+
+Example (setKeys refer to ProductSets in the same bundle):
+
+\`\`\`json
+"packRarity": {
+  "version": 1,
+  "fallback": { "setKey": "base", "subset": "Bronze" },
+  "hits": [
+    { "setKey": "base", "subset": "Silver", "oddsPerPack": 4 },
+    { "setKey": "base", "subset": "Gold", "oddsPerPack": 24 },
+    { "setKey": "refractors", "subset": "Gold", "oddsPerPack": 288 }
+  ]
+}
+\`\`\`
+
+Each hit is an independently sampled 1:N **pack** event; one card is
+picked uniformly within that ProductSet+subset when the group hits.
+Unfilled pack slots draw uniformly from the configured Base fallback
+group. If more hit events occur than pack slots, choose a uniform random
+subset of successful hits. Automatic pack price/EV accounts for the
+same cap. Store each card's canonical rarity label in \`Card.subset\`.
+
+Rarity configuration is **entirely opt-in**. Products without it
+keep equal per-card Base odds and existing ProductSet-level hit odds
+unchanged. A ProductSet cannot have both per-subset rules and
+ProductSet-level \`oddsPerPack\` configured. The importer rejects missing
+rarity subsets or unreachable base cards. Do not invent historical
+pack odds. Completion, Binder and Prestige count **all** cards in the
+collector ProductSet, regardless of which rarity group contains them.
+
+Before using this on a database for the first time, apply the
+idempotent migration \`scripts/sql/enable-pack-rarity.sql\` and regenerate
+the Prisma Client. Validate with
+\`npx tsx scripts/test-pack-rarity.ts\`. For 1997 Finest use
+\`npx tsx scripts/verify-1997-finest-rarity.ts\` after draft import.
+
 ### Pack odds belong to the Product Set
 
 Pack insertion odds are Product Set-level data in VCS. Store verified insert or
