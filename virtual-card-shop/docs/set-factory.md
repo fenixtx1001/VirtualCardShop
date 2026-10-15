@@ -91,6 +91,30 @@ the Prisma Client. Validate with
 `npx tsx scripts/test-pack-rarity.ts`. For 1997 Finest use
 `npx tsx scripts/verify-1997-finest-rarity.ts` after draft import.
 
+### Admin: Base Subset Odds editor
+
+After the optional rarity engine is deployed, open
+`Admin → Products → [Product] → Base Subset Odds` to inspect the actual
+Base subsets, card counts, common fallback pool, and 1-in-N pack odds.
+
+- The editor is for **Base subset odds only**, not insert/parallel ProductSet
+  odds. Existing ProductSet odds controls continue to work as before.
+- Choose one named Base subset as the ordinary/common pack pool. Enter a
+  positive whole-number odds denominator for every other Base subset.
+- If no rarity configuration exists, **nothing changes until Save**.
+- If the Product already has parallel rarity rules (as 1997 Finest does),
+  editing Base subset odds **preserves all other existing rules**.
+- Existing released products are affected for **future pack draws** if saved.
+- Changes validate full Base coverage and the other existing rarity rules,
+  then reprice the Product if automatic pricing is enabled.
+- A product without at least two fully labeled Base subsets continues to
+  use its original uniform Base draw.
+- Restore Equal Odds is available only if there are no non-Base rarity groups;
+  otherwise it is intentionally hidden to prevent wiping parallel rules.
+
+This administrative editor doesn't change the definition of the collecting
+checklist, so a 350-card Base remains a 350-card completion/Prestige target.
+
 ### Pack odds belong to the Product Set
 
 Pack insertion odds are Product Set-level data in VCS. Store verified insert or
