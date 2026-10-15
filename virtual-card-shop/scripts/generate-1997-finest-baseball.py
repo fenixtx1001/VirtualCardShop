@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Generate the 1997 Topps Finest Baseball unreleased Set Factory checklist.
 
-Preserves the three 1997 Finest card-number printing errors, tier-specific
-distribution odds and the original successful TCDB request headers. Fail-closed:
+Preserves the three 1997 Finest card-number printing errors, all four
+collector checklists, card-level Bronze/Silver/Gold tiers and the successful
+TCDB request headers. Historic per-tier odds are documented but not simulated
+until the VCS pack engine supports weighted draws within a collector set. Fail-closed:
 never write a partial CSV. Does not connect to the database.
 """
 from __future__ import annotations
@@ -27,21 +29,35 @@ CHECKLISTS = (
     ("embossed", 10901, 150),
     ("embossed-refractors", 10902, 150),
 )
+# Four collector-facing checklists. Bronze/Silver/Gold are per-card tier
+# metadata; NEVER split a numbered checklist for pack insertion odds.
+COLLECTOR_SETS = {
+    "base": 350,
+    "refractors": 350,
+    "embossed": 150,
+    "embossed-refractors": 150,
+}
 SETS = {
-    ("finest", "BRZ"): ("bronze", 200, "Bronze"),
-    ("finest", "SIL"): ("silver", 100, "Silver"),
-    ("finest", "GOLD"): ("gold", 50, "Gold"),
-    ("refractors", "BRZ"): ("bronze-refractors", 200, "Bronze Refractor"),
-    ("refractors", "SIL"): ("silver-refractors", 100, "Silver Refractor"),
-    ("refractors", "GOLD"): ("gold-refractors", 50, "Gold Refractor"),
-    ("embossed", "SIL"): ("silver-embossed", 100, "Silver Embossed"),
-    ("embossed", "GOLD"): ("gold-embossed", 50, "Gold Embossed Die-Cut"),
+    ("finest", "BRZ"): ("base", "Bronze", ""),
+    ("finest", "SIL"): ("base", "Silver", ""),
+    ("finest", "GOLD"): ("base", "Gold", ""),
+    ("refractors", "BRZ"): ("refractors", "Bronze", "Refractor"),
+    ("refractors", "SIL"): ("refractors", "Silver", "Refractor"),
+    ("refractors", "GOLD"): ("refractors", "Gold", "Refractor"),
+    ("embossed", "SIL"): ("embossed", "Silver", "Embossed"),
+    ("embossed", "GOLD"): ("embossed", "Gold", "Embossed Die-Cut"),
     ("embossed-refractors", "SIL"): (
-        "silver-embossed-refractors", 100, "Silver Embossed Refractor"
+        "embossed-refractors", "Silver", "Embossed Refractor"
     ),
     ("embossed-refractors", "GOLD"): (
-        "gold-embossed-refractors", 50, "Gold Embossed Die-Cut Refractor"
+        "embossed-refractors", "Gold", "Embossed Die-Cut Refractor"
     ),
+}
+TIER_COUNTS = {
+    "base": {"Bronze": 200, "Silver": 100, "Gold": 50},
+    "refractors": {"Bronze": 200, "Silver": 100, "Gold": 50},
+    "embossed": {"Silver": 100, "Gold": 50},
+    "embossed-refractors": {"Silver": 100, "Gold": 50},
 }
 ROOKIES = {
     "206": ("Brian Giles", "BRZ"),
@@ -262,11 +278,18 @@ def self_test():
         "Jay Buhner GOLD, UER UER: #164 on back, was supposed to be #172"
     ) != ("Jay Buhner", "GOLD"):
         raise SystemExit("Gold numbering-error parser regression")
-    if sum(entry[1] for entry in SETS.values()) != 1000:
-        raise SystemExit("Bundle counts must total 1000")
-    if len(SETS) != 10:
-        raise SystemExit("Expected ten tier-specific ProductSets")
-    print("Finest 1997 self-tests passed (tiers, errors, odds pools, counts)")
+    if sum(COLLECTOR_SETS.values()) != 1000:
+        raise SystemExit("Expected 1000 total collectible card entries")
+    if len(COLLECTOR_SETS) != 4:
+        raise SystemExit("Expected four real collector checklists")
+    if sum(TIER_COUNTS["base"].values()) != 350:
+        raise SystemExit("All 350 base cards must count toward one completion")
+    for key, expected_total in COLLECTOR_SETS.items():
+        if sum(TIER_COUNTS[key].values()) != expected_total:
+            raise SystemExit(f"Invalid tier totals for {key}")
+    if {entry[0] for entry in SETS.values()} != set(COLLECTOR_SETS):
+        raise SystemExit("Tier mapping may not create separate collecting sets")
+    print("Finest 1997 self-tests passed (four checklists, tiers, misnumberings)")
 
 
 def main():
@@ -310,7 +333,8 @@ def main():
         print(f"{label} #{number} {player}: TCDB team {old!r} -> {new!r}")
     print(f"Parallel subject checks passed; {len(team_updates)} team corrections")
 
-    counts = {key: 0 for key,_,_ in SETS.values()}
+    counts = {key: 0 for key in COLLECTOR_SETS}
+    tier_counts = {key: {tier: 0 for tier in tiers} for key,tiers in TIER_COUNTS.items()}
     rows=[]
     for family,cards in collections.items():
         for number in sorted(cards, key=sort_key):
@@ -320,17 +344,25 @@ def main():
                     f"{family} #{number} {player} missing team; "
                     "NO CSV written"
                 )
-            set_key, _count, finish=SETS[(family, foil)]
-            counts[set_key]+=1
+            set_key, tier, finish = SETS[(family, foil)]
+            counts[set_key] += 1
+            tier_counts[set_key][tier] += 1
             if family=="finest" and number in ROOKIES:
                 player+=" RC"
-            rows.append((set_key,number,player,team,"",finish))
+            # Tier is checklist metadata, not a separate ProductSet or
+            # variant odds. Preserve different artwork/foil finishes in Variant.
+            rows.append((set_key,number,player,team,tier,finish))
 
-    for (family,tier),(key,count,finish) in SETS.items():
-        if counts[key] != count:
+    for key, expected in COLLECTOR_SETS.items():
+        if counts[key] != expected:
             raise SystemExit(
-                f"{key}: expected {count} cards, got {counts[key]}; "
+                f"{key}: expected {expected} cards, got {counts[key]}; "
                 "NO CSV written"
+            )
+        if tier_counts[key] != TIER_COUNTS[key]:
+            raise SystemExit(
+                f"{key}: unexpected Bronze/Silver/Gold distribution: "
+                f"{tier_counts[key]}; NO CSV written"
             )
     if len(rows)!=1000:
         raise SystemExit(f"Expected 1000 collectible cards; got {len(rows)}")
@@ -345,9 +377,11 @@ def main():
         )
         writer.writerows(rows)
     print("=== 1997 FINEST BASEBALL GENERATED ===")
-    print(f"Product Sets: {len(SETS)}; collectible cards: {len(rows)}")
+    print(f"Collector Product Sets: {len(COLLECTOR_SETS)}; collectible cards: {len(rows)}")
     for key in counts:
         print(f"  {key}: {counts[key]}")
+    print("Completion: one 350-card Base across all Bronze/Silver/Gold tiers")
+    print("Tier-specific pack odds pending pack-engine support; draft UNRELEASED")
     print("Base rookie names: four TCDB-confirmed individual true RCs")
     print("Three 1997 printing errors preserved as distinct b-suffix keys")
     print("Excluded five promotional sample refractors")
