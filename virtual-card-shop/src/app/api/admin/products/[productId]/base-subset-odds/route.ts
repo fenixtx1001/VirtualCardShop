@@ -70,7 +70,7 @@ function displayData(
     baseSetName: baseSet?.name ?? "Base",
     subsets,
     configEnabled: !!config,
-    fallbackSubset: config?.fallback.productSetId === baseSet?.id
+    fallbackSubset: config && baseSet && config.fallback.productSetId === baseSet.id
       ? config.fallback.subset : null,
     oddsBySubset: baseOdds,
     otherHitGroups: otherRules.length,
