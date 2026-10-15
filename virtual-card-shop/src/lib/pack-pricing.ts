@@ -141,7 +141,7 @@ export async function calculateProductPackPricing(
           avg: num(row._avg.bookValue),
           count: num(row._count._all),
         },
-      ])
+      ] as const)
     );
     const lookup = (id: string, subset: string) =>
       subsetStats.get(JSON.stringify([id, subset]));
