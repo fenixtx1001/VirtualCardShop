@@ -73,6 +73,8 @@ export default function BinderClient({
   const [brokenScans, setBrokenScans] = useState<Record<string, boolean>>({});
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const switchingSets = useRef(false);
+  const [landscapeScans, setLandscapeScans] = useState<Record<string, boolean>>({});
   const dialog = useRef<HTMLDialogElement>(null);
 
   const load = useCallback(async (signal: AbortSignal) => {
@@ -104,9 +106,12 @@ export default function BinderClient({
       // Directly linked from a specific card? Turn straight to that nine-pocket
       // page. Checklist's Binder toggle opens page one instead of hiding it
       // behind the cover; ordinary Collection links still open the cover.
-      const selectedCardIndex = initialCardId ?
+      const arrivedViaSetSwitch = switchingSets.current;
+      switchingSets.current = false;
+      const selectedCardIndex = !arrivedViaSetSwitch && initialCardId ?
         incoming.cards.findIndex(card => card.cardId === initialCardId) : -1;
-      const startPage = selectedCardIndex >= 0 ? Math.floor(selectedCardIndex / 9) :
+      const startPage = arrivedViaSetSwitch ? -1 :
+        selectedCardIndex >= 0 ? Math.floor(selectedCardIndex / 9) :
         initialOpen ? 0 : savedPage;
       setPage(Math.min(Math.max(-1, startPage), Math.ceil(incoming.cards.length / 9) - 1));
       setTurn(null);
@@ -190,10 +195,17 @@ export default function BinderClient({
     setData(null);
     setPreview(null);
     try { sessionStorage.removeItem("vcs:binder:" + productId + ":" + next); } catch { /* optional */ }
+    switchingSets.current = true;
     setSetId(next);
     const url = "/collection/" + encodeURIComponent(productId) + "/binder?productSetId=" +
       encodeURIComponent(next);
     window.history.replaceState(window.history.state, "", url);
+  }
+
+  function markLandscape(key: string, image: HTMLImageElement) {
+    const isLandscape = image.naturalWidth > image.naturalHeight;
+    setLandscapeScans(previous => previous[key] === isLandscape
+      ? previous : { ...previous, [key]: isLandscape });
   }
 
   function openPreview(card: BinderCard) {
@@ -209,11 +221,14 @@ export default function BinderClient({
     const visibleScan = owned && !!card.frontImageUrl && !brokenScans[String(card.cardId) + ":front"];
     const state = !owned ? "missing" : visibleScan ? "owned" : "scanless";
     return <button type="button" key={card.cardId}
-      className={"binder-pocket binder-pocket-" + state}
+      className={"binder-pocket binder-pocket-" + state +
+        (card.cardId === initialCardId && !switchingSets.current ? " binder-pocket-focused" : "")}
       aria-label={accessibleCard(card)} onClick={() => openPreview(card)}>
       <span className="binder-pocket-contents">
         {visibleScan ? <img src={card.frontImageUrl!}
           alt="" loading="lazy" decoding="async"
+          className={landscapeScans[String(card.cardId) + ":front"] ? "binder-oriented-scan is-landscape" : "binder-oriented-scan"}
+          onLoad={event => markLandscape(String(card.cardId) + ":front", event.currentTarget)}
           onError={() => setBrokenScans(prev => ({ ...prev, [String(card.cardId) + ":front"]: true }))} /> :
           <span className={owned ? "binder-scan-card" : "binder-empty-pocket"}>
             <span className="binder-ghost-number">#{card.cardNumber || "—"}</span>
@@ -397,6 +412,8 @@ export default function BinderClient({
           </div>
           <div className="binder-preview-art">
             {validPreviewImage ? <img src={previewImage!} alt={preview.player + " card " + (showBack ? "back" : "front")}
+              className={landscapeScans[previewKey] ? "binder-oriented-scan is-landscape" : "binder-oriented-scan"}
+              onLoad={event => markLandscape(previewKey, event.currentTarget)}
               onError={() => setBrokenScans(prev => ({ ...prev, [previewKey]: true }))} /> :
               <div className="binder-preview-placeholder">
                 <span>#{preview.cardNumber}</span>
