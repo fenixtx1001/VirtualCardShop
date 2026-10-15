@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { binderHref } from "@/lib/collection/set-view-links";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import {
@@ -257,10 +258,10 @@ export default function InventoryView() {
       {panel.kind === "summary" && <><dl className="inv-facts"><div><dt>Unopened packs</dt><dd>{number(packs)}</dd></div><div><dt>Products with packs</dt><dd>{number(products)}</dd></div><div><dt>Current pack list value</dt><dd>{money(value)}</dd></div></dl><p className="inv-sheet-note">Based on today’s standard pack prices. This is not your purchase cost or a resale offer.</p></>}
       {activeProduct && (missingSet ? <MissingCards key={`${missingSet.productSetId}-${revision}`} set={missingSet} onBack={() => setPanel({ kind: "product", productId: activeProduct.productId })} onNavigate={navigate} /> : <>
         <div className="inv-detail-product"><PackArt product={activeProduct} /><div><strong>{number(activeProduct.packsOwned)} unopened packs</strong><p>{[activeProduct.sport, activeProduct.cardsPerPack ? `${activeProduct.cardsPerPack} cards per pack` : null].filter(Boolean).join(" · ")}</p>{activeProduct.packsOwned > 0 && <Link className="inv-primary" href={`/open-pack/${encodeURIComponent(activeProduct.productId)}`} onClick={navigate}>Open pack<Icon kind="arrow" /></Link>}</div></div>
-        <div className="inv-detail-sets">{activeProduct.sets.map((set) => <section key={set.productSetId}><span className="inv-set-kind">{set.isBase ? "BASE SET" : "INSERT SET"}</span><Progress set={set} named /><button className="inv-text-button" onClick={() => setPanel({ kind: "product", productId: activeProduct.productId, setId: set.productSetId })}>View missing cards<Icon kind="arrow" /></button></section>)}</div>
+        <div className="inv-detail-sets">{activeProduct.sets.map((set) => <section key={set.productSetId}><span className="inv-set-kind">{set.isBase ? "BASE SET" : "INSERT SET"}</span><Progress set={set} named /><button className="inv-text-button" onClick={() => setPanel({ kind: "product", productId: activeProduct.productId, setId: set.productSetId })}>View missing cards<Icon kind="arrow" /></button><Link className="inv-text-button" href={binderHref(activeProduct.productId, set.productSetId, { open: true })} onClick={navigate}>◫ Binder<Icon kind="arrow" /></Link></section>)}</div>
         {!activeProduct.sets.length && <p className="inv-sheet-note">Set progress is currently unavailable.</p>}
         <dl className="inv-facts"><div><dt>Standard pack price</dt><dd>{money(activeProduct.packPriceCents)}</dd></div><div><dt>Last inventory activity</dt><dd>{new Date(activeProduct.updatedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</dd></div></dl>
-        <Link className="inv-text-button" href={`/checklist/${encodeURIComponent(activeProduct.productId)}`} onClick={navigate}>Full product checklist<Icon kind="arrow" /></Link>
+        <Link className="inv-text-button" href={`/checklist/${encodeURIComponent(activeProduct.productId)}`} onClick={navigate}>Full product checklist<Icon kind="arrow" /></Link><Link className="inv-text-button" href={binderHref(activeProduct.productId)} onClick={navigate}>◫ Open binder<Icon kind="arrow" /></Link>
       </>)}
     </Sheet>}
   </div>;
