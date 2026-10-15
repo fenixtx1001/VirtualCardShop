@@ -119,14 +119,27 @@ def fetch(url: str) -> str:
         ) from exc
 
 
-def normalize(raw: str) -> tuple[str, str]:
-    """Remove foil and error commentary; preserve actual player identity."""
+def normalize(
+    raw: str, inferred_tier: str | None = None
+) -> tuple[str, str]:
+    """Clean player name; require explicit tier unless derived from a parallel.
+
+    The regular Finest checklist labels its tiers. Some individual parallel
+    checklist rows omit them (Refractors #38 Gregg Jefferies). Parallel card
+    tiers can be inherited from their verified card-number range, but each
+    resulting parallel identity must still match the complete Base checklist.
+    Any explicitly printed tier remains authoritative and cross-checked.
+    """
     value = " ".join(raw.split()).strip()
     tag = TIER_TAG.search(value)
-    if not tag:
-        raise SystemExit(f"TCDB card missing BRZ/SIL/GOLD tier tag: {raw!r}")
-    tier = tag.group(1).upper()
-    player = value[:tag.start()].strip(" ,;")
+    if tag:
+        tier = tag.group(1).upper()
+        player = value[:tag.start()].strip(" ,;")
+    else:
+        if inferred_tier is None:
+            raise SystemExit(f"TCDB Base/rookie card missing BRZ/SIL/GOLD tier: {raw!r}")
+        tier = inferred_tier
+        player = value
     # The foil designation is part of the card's tier, not its player name.
     # Everything after it is source commentary, not collectible variants.
     if not player or re.search(r"\b(?:UER|ERR|COR|VAR)\b", player, re.I):
@@ -155,6 +168,7 @@ def expected_tier(number: str) -> str:
 
 def fetch_cards(label: str, sid: int, expected: int) -> dict:
     cards = {}
+    inferred = []
     for page in range(1, 7):
         parser = Rows()
         parser.feed(fetch(
@@ -178,8 +192,15 @@ def fetch_cards(label: str, sid: int, expected: int) -> dict:
                 raw = values[idx + 1]
                 if raw.lower() in ("add", "edit", "options"):
                     continue
-                name, tier = normalize(raw)
-                if tier != expected_tier(num):
+                number_tier = expected_tier(num)
+                source_has_tier = TIER_TAG.search(raw) is not None
+                name, tier = normalize(
+                    raw,
+                    inferred_tier=number_tier if label != "finest" else None,
+                )
+                if not source_has_tier and label != "finest":
+                    inferred.append((num, name, tier))
+                if tier != number_tier:
                     raise SystemExit(
                         f"{label} #{num} {name}: foil {tier} disagrees with "
                         f"verified physical tier {expected_tier(num)}"
@@ -207,6 +228,15 @@ def fetch_cards(label: str, sid: int, expected: int) -> dict:
             break
         if page > 1 and source_rows == 0:
             break
+    if inferred:
+        print(
+            f"{label}: {len(inferred)} source rows omit the tier label; "
+            "derived from verified number ranges and will cross-check "
+            "the subject against Base",
+            flush=True,
+        )
+        for number, name, tier in inferred[:20]:
+            print(f"  tier inferred: #{number} {name} -> {tier}", flush=True)
     if len(cards) != expected:
         raise SystemExit(
             f"{label}: expected {expected} collectible entries, "
@@ -268,6 +298,20 @@ def self_test():
             raise SystemExit(f"Misnumbered #{number} tier regression")
     if any(number in EXPECTED_IDS for number in BAD_PHYSICAL_NUMBERS):
         raise SystemExit("Fictitious printed card number regression")
+    if normalize("Gregg Jefferies", inferred_tier="BRZ") != (
+        "Gregg Jefferies", "BRZ"
+    ):
+        raise SystemExit("Parallel tier inference regression")
+    try:
+        normalize("Gregg Jefferies")
+    except SystemExit:
+        pass
+    else:
+        raise SystemExit("Base cards must not silently infer missing tier")
+    if normalize("Gregg Jefferies BRZ", inferred_tier="SIL") != (
+        "Gregg Jefferies", "BRZ"
+    ):
+        raise SystemExit("Printed tier tag must override inferred tier")
     if normalize("Barry Bonds BRZ") != ("Barry Bonds", "BRZ"):
         raise SystemExit("Bronze tier parser regression")
     if normalize(
