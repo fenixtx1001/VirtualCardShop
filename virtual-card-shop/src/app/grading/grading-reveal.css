@@ -271,7 +271,7 @@
   .vcs-reveal-header{margin-bottom:7px}
   .vcs-reveal-heading h2{font-size:20px;margin-top:2px}
   .vcs-reveal-body .vcsInteractiveSlab{
-    width:min(86vw,calc(61dvh - 185px),320px) !important;
+    width:min(86vw,calc(61dvh - 198px),320px) !important;
   }
   .vcs-reveal-summary{padding:9px}
   .vcs-reveal-divider{margin:7px 0}
