@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import type { CSSProperties } from "react";
 
 type Subset = { subset: string | null; count: number };
 type BaseOddsData = {
@@ -17,7 +18,7 @@ type BaseOddsData = {
   canConfigure: boolean;
   reason: string | null;
 };
-const sectionStyle: React.CSSProperties = {
+const sectionStyle: CSSProperties = {
   marginTop: 24,
   padding: "18px 20px",
   border: "1px solid #cbd5e1",
@@ -26,7 +27,7 @@ const sectionStyle: React.CSSProperties = {
   color: "#0f172a",
   maxWidth: 880,
 };
-const inputStyle: React.CSSProperties = {
+const inputStyle: CSSProperties = {
   width: 102,
   maxWidth: "100%",
   padding: "9px 10px",
@@ -36,7 +37,7 @@ const inputStyle: React.CSSProperties = {
   borderRadius: 8,
   fontSize: 14,
 };
-const buttonStyle: React.CSSProperties = {
+const buttonStyle: CSSProperties = {
   padding: "10px 16px",
   border: "1px solid #334155",
   background: "#172033",
