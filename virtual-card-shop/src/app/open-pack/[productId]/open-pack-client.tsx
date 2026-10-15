@@ -1011,7 +1011,7 @@ export default function OpenPackClient({
 
         .open-grid {
           display: grid;
-          grid-template-columns: 420px 360px 1fr;
+          grid-template-columns: minmax(0, 1.15fr) minmax(0, .90fr) minmax(0, .85fr);
           gap: 14px;
           align-items: start;
         }
@@ -1181,7 +1181,7 @@ export default function OpenPackClient({
           inset: 0;
           overflow: hidden;
           border-radius: 17px;
-          background: white;
+          background: #171d18;
           box-shadow:
             0 18px 34px rgba(38, 31, 22, 0.12),
             0 4px 10px rgba(38, 31, 22, 0.08);
@@ -1352,7 +1352,7 @@ export default function OpenPackClient({
           inset: 0;
           display: grid;
           place-items: center;
-          background: white;
+          background: #171d18;
           opacity: 0;
           transition:
             opacity 185ms ease,
@@ -1379,7 +1379,7 @@ export default function OpenPackClient({
           width: 100%;
           height: 100%;
           object-fit: contain;
-          background: white;
+          background: #171d18;
           pointer-events: none;
           user-select: none;
           -webkit-user-drag: none;
@@ -1663,8 +1663,8 @@ export default function OpenPackClient({
         .summary h3 {
           margin: 5px 0 0;
           font-size: 22px;
-          line-height: 1.05;
-          font-weight: 1000;
+          line-height: 1.15;
+          font-weight: 670;
           letter-spacing: -0.025em;
         }
 
@@ -1672,8 +1672,8 @@ export default function OpenPackClient({
           margin-top: 5px;
           color: ${colors.subtext};
           font-size: 12px;
-          line-height: 1.35;
-          font-weight: 800;
+          line-height: 1.5;
+          font-weight: 500;
         }
 
         .summary-totals {
@@ -1683,8 +1683,8 @@ export default function OpenPackClient({
           flex-wrap: wrap;
           padding: 8px 11px;
           border-radius: 999px;
-          background: rgba(255, 255, 255, 0.72);
-          border: 1px solid rgba(190, 213, 196, 0.8);
+          background: #293029;
+          border: 1px solid #485247;
           font-size: 12px;
           font-weight: 850;
         }
@@ -1740,8 +1740,8 @@ export default function OpenPackClient({
           align-items: center;
           padding: 9px 10px;
           border-radius: 15px;
-          background: rgba(255, 255, 255, 0.78);
-          border: 1px solid rgba(201, 219, 205, 0.85);
+          background: #272e27;
+          border: 1px solid #444e44;
           box-shadow: 0 3px 10px rgba(37, 66, 45, 0.025);
           transition:
             transform 140ms ease,
@@ -1754,7 +1754,7 @@ export default function OpenPackClient({
           transform: translateY(-1px);
           box-shadow: 0 9px 24px rgba(37, 66, 45, 0.075);
           border-color: rgba(153, 191, 164, 0.95);
-          background: rgba(255, 255, 255, 0.96);
+          background: #30382f;
         }
 
         .summary-card-thumb {
@@ -1764,7 +1764,7 @@ export default function OpenPackClient({
           border-radius: 9px;
           overflow: hidden;
           border: 1px solid ${colors.border};
-          background: white;
+          background: #1b211b;
           box-shadow: 0 5px 13px rgba(31, 29, 25, 0.07);
           flex-shrink: 0;
         }
@@ -1774,7 +1774,7 @@ export default function OpenPackClient({
           height: 100%;
           object-fit: contain;
           display: block;
-          background: white;
+          background: #1b211b;
         }
 
         .summary-card-main {
@@ -1783,8 +1783,8 @@ export default function OpenPackClient({
 
         .summary-card-title {
           font-size: 14px;
-          line-height: 1.18;
-          font-weight: 950;
+          line-height: 1.3;
+          font-weight: 650;
           letter-spacing: -0.01em;
           color: ${colors.text};
         }
@@ -1803,11 +1803,11 @@ export default function OpenPackClient({
           font-size: 11px;
           line-height: 1.25;
           font-weight: 900;
-          color: #24713d;
+          color: #b3d9ad;
         }
 
         .summary-card-note.hit {
-          color: #986707;
+          color: #e5c889;
         }
 
         .summary-card-value {
@@ -1820,15 +1820,15 @@ export default function OpenPackClient({
 
         .summary-card-value-main {
           font-size: 15px;
-          line-height: 1;
-          font-weight: 1000;
+          line-height: 1.2;
+          font-weight: 670;
           letter-spacing: -0.02em;
         }
 
         .summary-card-value-sub {
           font-size: 10px;
-          line-height: 1.15;
-          font-weight: 800;
+          line-height: 1.35;
+          font-weight: 520;
           color: ${colors.subtext};
           white-space: nowrap;
         }
@@ -1837,7 +1837,7 @@ export default function OpenPackClient({
           margin-top: 3px;
           font-size: 11px;
           font-weight: 950;
-          color: #597463;
+          color: #d7bb7e;
         }
 
         .summary-actions {
@@ -1889,6 +1889,22 @@ export default function OpenPackClient({
             opacity: 1;
             transform: translateX(0) rotate(0) scale(1);
           }
+        }
+
+        /* One consistent accessible interaction treatment across desktop and mobile. */
+        .vcs-pack-root :is(button, a, [tabindex]):focus-visible {
+          outline: 2px solid #e8d09b;
+          outline-offset: 3px;
+        }
+
+        .vcs-pack-root .details-panel,
+        .vcs-pack-root .stack-panel {
+          min-width: 0;
+        }
+
+        .vcs-pack-root .kv-card-details .kv-owned-grid strong,
+        .vcs-pack-root .value-main {
+          font-variant-numeric: tabular-nums;
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1965,7 +1981,7 @@ export default function OpenPackClient({
             border-radius: 0 0 14px 14px;
             gap: 4px;
             box-shadow: none;
-            background: rgba(255, 255, 255, 0.62);
+            background: #252b24;
             border-top: 0;
           }
 
@@ -2126,7 +2142,7 @@ export default function OpenPackClient({
             padding: 2px 4px;
             border: 1px solid rgba(218, 211, 201, 0.92);
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.86);
+            background: #252b24;
             backdrop-filter: blur(10px);
             box-shadow: 0 5px 15px rgba(40, 33, 24, 0.045);
           }
@@ -2354,8 +2370,8 @@ export default function OpenPackClient({
             margin: 3px auto 0;
             padding: 6px 8px 5px;
             border-radius: 11px;
-            background: rgba(255, 255, 255, 0.72);
-            border: 1px solid rgba(225, 220, 212, 0.82);
+            background: #272e27;
+            border: 1px solid #505a4d;
             box-shadow: 0 3px 10px rgba(40, 32, 21, 0.025);
             overflow: hidden;
           }
@@ -2409,8 +2425,8 @@ export default function OpenPackClient({
             max-width: 160px;
             padding: 3px 6px;
             border-radius: 999px;
-            background: #f2f0eb;
-            color: #605a52;
+            background: #30382e;
+            color: #d0d8c9;
             font-size: 8.5px;
             line-height: 1;
             font-weight: 900;
@@ -2420,8 +2436,8 @@ export default function OpenPackClient({
           }
 
           .mobile-current-type.special {
-            background: #f3f6fc;
-            color: #365a93;
+            background: #303b3c;
+            color: #c0d7da;
           }
 
           .mobile-current-stats {
@@ -2464,14 +2480,14 @@ export default function OpenPackClient({
             justify-content: center;
             padding: 5px 7px;
             border-radius: 10px;
-            background: rgba(255, 255, 255, 0.72);
-            border-color: rgba(218, 212, 203, 0.92);
+            background: #30372f;
+            border-color: #4b564b;
             box-shadow: none;
             font-size: 11px;
           }
 
           .mobile-card-controls .btn.flip-control {
-            background: #f1eee8;
+            background: #333a30;
           }
 
           .details-panel .stat-title,
