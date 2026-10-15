@@ -2089,3 +2089,189 @@
 }
 
 /* === VCS PLAQUE OVERHAUL PASS END === */
+
+
+/* =========================================================
+   VCS SLAB / PREMIUM FINISH 2026-10-15
+   Final, focused surface rules. Do not alter the outside case,
+   flip faces, 3D transforms, card scan orientation or registry.
+   ========================================================= */
+
+/* Reserve more of the same physical case for the actual trading card.
+   React selects a larger header on unusually verbose labels, so we don't
+   sacrifice player names, insert set titles or registry details. */
+.case {
+  grid-template-rows:
+    var(--slab-label-height, 20.5%)
+    minmax(0, 1fr)
+    3.8%;
+}
+
+/* A compact etched certification strip rather than an oversized plaque. */
+.label {
+  grid-template-columns: minmax(0, 1fr) 21.4cqw;
+  gap: 1.5cqw;
+  padding: .86cqw 1.65cqw .78cqw;
+  border-bottom: .2cqw solid #b9c1c4;
+  background: linear-gradient(180deg,#fafbf7 0%,#eef0eb 100%);
+}
+.frontFace .label {
+  gap: 1.5cqw;
+  padding: .86cqw 1.65cqw .78cqw;
+}
+.registryLabel {
+  grid-template-columns: minmax(0,1fr) 8.3cqw 21.4cqw;
+  gap: .9cqw;
+  padding: .82cqw 1.3cqw;
+  background: linear-gradient(180deg,#f8f8f3,#eeeee6);
+}
+.frontFace .identity,
+.registryLabel .identity {
+  justify-content: center;
+  min-height: 0;
+}
+.frontFace .brandLine {
+  min-height: 4.9cqw;
+  gap: 1.15cqw;
+}
+.frontFace .brandShield {
+  width: 6.65cqw;
+  height: 6.1cqw;
+}
+.frontFace .brandShield b {font-size:3.85cqw}
+.frontFace .brandShield i {bottom:.92cqw}
+.frontFace .brandWordmark strong {
+  font-size:calc(4.2cqw * var(--label-scale));
+  font-weight:740;
+  letter-spacing:.08em;
+}
+.frontFace .brandWordmark small {
+  margin-top:.4cqw;
+  font-size:calc(1.57cqw * var(--label-scale));
+  font-weight:700;
+  letter-spacing:.24em;
+}
+.frontFace .player {
+  margin-top:.58cqw;
+  font-size:calc(4.28cqw * var(--label-scale));
+  font-weight:720;
+  line-height:1.04;
+  letter-spacing:-.025em;
+  overflow-wrap:anywhere;
+}
+.frontFace .setName {
+  margin-top:.25cqw;
+  font-size:calc(2.42cqw * var(--label-scale));
+  font-weight:570;
+  line-height:1.12;
+  overflow-wrap:anywhere;
+}
+.frontFace .cardLine {
+  margin-top:auto;
+  padding-top:.44cqw;
+  font-size:calc(1.98cqw * var(--label-scale));
+  font-weight:560;
+  line-height:1.08;
+}
+.registryLabel .brandLine {min-height:4.8cqw}
+.registryLabel .brandShield {width:6.8cqw;height:6.2cqw}
+.registryLabel .brandWordmark strong {font-weight:750}
+.registryLabel .player {
+  margin-top:.48cqw;
+  font-weight:720;
+  line-height:1.08;
+}
+.registryLabel .setName {line-height:1.1}
+.registryMeta,.registryPopulation {line-height:1.12}
+.registryLabel .hologram {width:7.9cqw;height:7.9cqw}
+
+/*
+ * Single-piece satin certification plate, like an inset metal alloy:
+ * subtle edge engraving, fine top/bottom rules, no pill-shaped sticker
+ * or stacked decorative glossy pills.
+ */
+.gradeBlock {
+  width:21.4cqw;
+  height:100%;
+  min-height:0;
+  grid-template-rows:2.55cqw minmax(0,1fr) 3.1cqw;
+  gap:.12cqw;
+  padding:.7cqw .7cqw .75cqw;
+  border:.28cqw solid color-mix(in srgb,var(--grade-a),#34372f 38%);
+  border-radius:2.35cqw;
+  background:
+    linear-gradient(98deg,rgba(255,255,255,.23),transparent 21%,rgba(26,30,24,.065) 82%,rgba(255,255,255,.12)),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0 .13cqw,transparent .13cqw .45cqw),
+    linear-gradient(145deg,var(--grade-c) 0%,var(--grade-b) 58%,color-mix(in srgb,var(--grade-a),var(--grade-b) 55%) 100%);
+  box-shadow:
+    0 .38cqw .85cqw rgba(31,35,31,.16),
+    inset 0 0 0 .23cqw rgba(255,255,255,.24),
+    inset .24cqw .24cqw .5cqw rgba(255,255,255,.28),
+    inset -.26cqw -.32cqw .48cqw rgba(24,28,24,.12);
+  color:var(--grade-ink);
+}
+.gradeBlock::before {
+  inset:.37cqw;
+  border:.12cqw solid rgba(56,60,49,.22);
+  border-radius:1.55cqw;
+  box-shadow:inset 0 .10cqw .19cqw rgba(255,255,255,.20);
+}
+.gradeBlock::after {
+  width:30%;
+  left:-32%;
+  opacity:.15;
+}
+.gradeTopBand,
+.gradeField,
+.gradeBottomBand {
+  min-width:0;
+  min-height:0;
+  border:0;
+  border-radius:0;
+  padding:0;
+  background:none;
+  box-shadow:none;
+}
+.gradeTopBand {border-bottom:.13cqw solid rgba(63,66,56,.22)}
+.gradeBottomBand {border-top:.13cqw solid rgba(63,66,56,.22)}
+.gradeTopBand span {
+  font-size:2.25cqw;
+  font-weight:750;
+  letter-spacing:.11em;
+  color:var(--grade-ink);
+  text-shadow:none;
+}
+.gradeField b {
+  margin:0;
+  font-size:13.15cqw;
+  line-height:.78;
+  font-weight:725;
+  letter-spacing:-.07em;
+  color:var(--grade-ink);
+  text-shadow:0 .12cqw .15cqw rgba(255,255,255,.17);
+}
+.gradeBottomBand small {
+  font-size:1.82cqw;
+  line-height:1.12;
+  font-weight:760;
+  letter-spacing:.012em;
+  color:var(--grade-ink);
+  text-shadow:none;
+}
+/* Same slab treatment on reverse; population, hologram and registry intact. */
+.registryLabel .gradeBlock {width:21.4cqw}
+
+/* The plastic still feels molded, but no longer obscures the card scan. */
+.face {border-color:#a7b2b9}
+.cardBay {
+  padding:2.25cqw 2.85cqw 2.15cqw;
+  background:radial-gradient(ellipse at 50% 16%,#fafbfb,#e5eaec 55%,#cbd3d7);
+}
+.cardMount {
+  padding:1.25cqw;
+  border-color:#a2afb8;
+  box-shadow:inset 0 .8cqw 1.8cqw rgba(0,0,0,.10),
+    inset 0 -.5cqw 1.3cqw rgba(255,255,255,.55),
+    0 .5cqw 1cqw rgba(255,255,255,.12);
+}
+.reflection {--slab-glare-main:.66}
