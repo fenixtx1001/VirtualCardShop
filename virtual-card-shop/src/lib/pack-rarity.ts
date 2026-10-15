@@ -45,7 +45,7 @@ export function parsePackRarityConfig(input: unknown): PackRarityConfig | null {
   const hits: RarityHitRule[] = input.hits.map((item, index) => {
     const result = group(item, "packRarity.hits[" + index + "]");
     const oddsPerPack = isRecord(item) ? item.oddsPerPack : undefined;
-    if (!Number.isSafeInteger(oddsPerPack) || (oddsPerPack as number) < 1) {
+    if (typeof oddsPerPack !== "number" || !Number.isSafeInteger(oddsPerPack) || oddsPerPack < 1) {
       throw new Error("Invalid positive integer odds for rarity group " + index);
     }
     const key = rarityGroupKey(result);
