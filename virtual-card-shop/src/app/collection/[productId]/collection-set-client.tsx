@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import { checklistHref, binderHref } from "@/lib/collection/set-view-links";
 import { useCardBrowseSource, returnState, restoreScroll } from "@/lib/card-details/browsing";
 
 import { useEffect, useMemo, useState } from "react";
@@ -318,13 +319,13 @@ export default function CollectionSetClient({ productId }: { productId: string }
         </button>
 
         <Link
-          href={`/checklist/${encodeURIComponent(productId)}`}
+          href={checklistHref(productId, selectedProductSetId || data?.productSetId)}
           className="vcs-button vcs-button-primary vcs-button-compact"
         >
           Checklist →
         </Link>
         <Link
-          href={`/collection/${encodeURIComponent(productId)}/binder?productSetId=${encodeURIComponent(selectedProductSetId || data?.productSetId || "")}`}
+          href={binderHref(productId, selectedProductSetId || data?.productSetId)}
           className="vcs-button vcs-button-primary vcs-button-compact"
           style={{ background: "#d7bb7e", color: "#1f281f", borderColor: "#d7bb7e" }}
         >
