@@ -86,11 +86,10 @@ for (let i = 0; i < 3; i++) {
   assert(Math.abs(capped[i] / simulations - effective[i]) < 0.008,
     "Post-cap simulated odds differ from pricing math");
 }
-assert.deepEqual(
-  effectiveHitProbabilities(config.hits, 4),
-  config.hits.map(r => 1 / r.oddsPerPack),
-  "With fewer hit groups than slots, no cap should affect rarity"
-);
+for (const [index, p] of effectiveHitProbabilities(config.hits, 4).entries()) {
+  assert(Math.abs(p - 1 / config.hits[index].oddsPerPack) < 1e-12,
+    "With fewer hit groups than slots, no cap should affect rarity");
+}
 console.log(
   "PASS: opt-out, config integrity, unreachable-card protection, " +
   "100k-pack rarity rates, capped fairness and EV probability matching"
