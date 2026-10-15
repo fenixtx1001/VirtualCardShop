@@ -1144,3 +1144,16 @@ body:has(.cd-shell) {
     border-bottom: 1px solid var(--cd-line);
   }
 }
+
+/* Direct, set-aware Checklist / Binder shortcuts under collection prestige. */
+.cd-collection-footer{align-items:center;flex-wrap:wrap}
+.cd-set-view-shortcuts{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-left:auto}
+.cd-set-view-shortcuts a{display:inline-flex;align-items:center;justify-content:center;min-height:38px;
+  border:1px solid #555f50;border-radius:6px;padding:7px 10px;font-size:12px;
+  font-weight:620;white-space:nowrap;color:#e0d6bc;text-decoration:none}
+.cd-set-view-shortcuts a.cd-binder-shortcut{border-color:#d7bb7e;background:#d7bb7e;color:#20261e}
+.cd-set-view-shortcuts a:hover{filter:brightness(1.1)}
+@media(max-width:600px){
+  .cd-set-view-shortcuts{margin-left:0;width:100%;display:grid;grid-template-columns:1fr 1fr}
+  .cd-set-view-shortcuts a{min-width:0;padding:9px 5px}
+}
