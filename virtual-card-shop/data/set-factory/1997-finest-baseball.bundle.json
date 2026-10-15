@@ -11,16 +11,16 @@
   "decisions": {
     "requestBaseline": "Exactly retain Set Factory TCDB headers from successful 1997 Metal Universe and 1997 Fleer: User-Agent Mozilla/5.0 (compatible; VCS Set Factory research import); Accept text/html,application/xhtml+xml. Paginate PageIndex=1,2,...",
     "series": "Combine Series 1 (#1–175) and Series 2 (#176–350) into one virtual product. Do not create per-series products.",
-    "tiers": "This is a 350-card FRACTURED base set: only 200 Bronze subjects, 100 Silver subjects and 50 Gold subjects. There are NOT Bronze/Silver/Gold copies of each subject. VCS importer supports only one BASE ProductSet with one pool rate, so Bronze is the BASE, Silver/Gold are INSERT-kind pools to preserve genuine 1:4 and 1:24 pack odds. This means BASE-only completion is 200/200 rather than physical 350/350: verify game completion semantics before releasing.",
+    "tiers": "The complete 350-card collector Base is ONE ProductSet. Bronze (200), Silver (100), Gold (50) are card-level tiers inside it, stored in Card.subset, NOT separate ProductSets. Completion, Binder and prestige must count 350. Tier-specific odds are currently unsupported by the existing uniform Base draw.",
     "rarity": "BRZ source #1–100 and #176–275; SIL #101–150 and #276–325; GOLD #151–175 and #326–350. Base cards in the hit pools remain normal unnumbered rookie-capable base cards, NOT parallel artworks.",
-    "parallelCoverage": "All 350 base subjects have Refractors, but only 150 Silver/Gold subjects have Embossed and Embossed Refractors. No Bronze Embossed.",
-    "odds": "Use source-confirmed original historical Series 1 and Series 2 pack odds unchanged (tier probabilities match both equal-length series): Silver 1:4, Gold 1:24, Bronze Refractors 1:12, Silver Refractors 1:48, Gold Refractors 1:288, Silver Embossed 1:16, Gold Embossed 1:96, Silver Embossed Refractors 1:192, Gold Embossed Refractors 1:1152. The odds are per historical six-card pack and should be reviewed in VCS four-card pack mechanics before release.",
+    "parallelCoverage": "Preserve collector checklists as individual ProductSets: one 350-card Refractors checklist, one 150-card Embossed checklist, one 150-card Embossed Refractors checklist. Bronze/Silver/Gold tiers are identified on each card inside those ProductSets.",
+    "odds": "Historic tier odds are research metadata only until a generic rarity-aware pack selection capability is implemented, including pack pricing EV. Base Silver 1:4 packs, Gold 1:24; Refractors Bronze 1:12, Silver 1:48, Gold 1:288; Embossed Silver 1:16, Gold 1:96; Embossed Refractors Silver 1:192, Gold 1:1152. Do not approximate these by splitting one collector checklist into separate ProductSets or assigning single invented odds to the combined parallel ProductSets. Keep no non-base pack odds configured until supported. BLOCK RELEASE.",
     "numbers": "350 physical unique cards but three printing errors: missing intended #5/#115/#172; different physical cards printed #155/#135/#164 instead. TCDB records distinct cards as #155b/#135b/#164b. Preserve TCDB b keys as distinct internal card numbers; do not fabricate nonexistent print numbers or treat different subjects as duplicates.",
     "rookies": "Four true rookie base cards: #206 Brian Giles BRZ, #249 Bubba Trammell BRZ, #320 Hideki Irabu SIL, #337 Jose Cruz Jr. GOLD. Only these four normal base-tier cards get RC names. Parallels should not receive RC tag.",
     "subsets": "Preserve the printed theme labels only when verified by source; tier and finish are encoded separately in distinct ProductSets, not as player names.",
     "excluded": "Exclude the five Refractor Promotional Sample cards—never inserted in retail/hobby packs. No invented insert sets or variants.",
     "pack": "Four cards per VCS pack and 24 packs per box; six cards per historical Finest hobby pack.",
-    "release": "DRAFT ONLY; block until generated all 1000 cards, importer dry run, visual images, pricing, and completion/pack odds reviewed."
+    "release": "Unreleased until complete TCDB validation/dry run, rarity-aware pack pulls and corresponding EV priced correctly, 350-base completion/prestige QA, scans, pricing, rookie IDs, and product art approved."
   },
   "product": {
     "id": "1997_Finest_Baseball",
@@ -42,119 +42,53 @@
     "cardImages": "PENDING",
     "pricing": "PENDING",
     "release": "BLOCKED",
-    "gameplay": "REVIEW_TIER_COMPLETION"
+    "gameplay": "BLOCKED_RARITY_PACK_DRAW"
   },
   "cardsFile": "1997-finest-baseball.cards.csv",
   "productSets": [
     {
-      "key": "bronze",
-      "id": "1997_Finest_Baseball_bronze",
-      "name": "Bronze (Common)",
+      "key": "base",
+      "id": "1997_Finest_Baseball_base",
+      "name": "Base",
       "kind": "BASE",
       "oddsPerPack": null,
-      "expectedCards": 200,
+      "expectedCards": 350,
       "defaultGradeability": "COMMON",
       "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/922/1997-Finest",
-      "notes": "Verified BRZ physical tier, not an alternate foil copy of every player. Common Bronze base tier"
+      "notes": "One entire 350-card Base. Card.subset stores Bronze (200)/Silver (100)/Gold (50). Pack tier weighting pending; uniform base draw MUST NOT be released."
     },
     {
-      "key": "silver",
-      "id": "1997_Finest_Baseball_silver",
-      "name": "Silver (Uncommon)",
-      "kind": "INSERT",
-      "oddsPerPack": 4,
-      "expectedCards": 100,
-      "defaultGradeability": "COMMON",
-      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/922/1997-Finest",
-      "notes": "Verified SIL physical tier, not an alternate foil copy of every player. Historical 1:4 packs."
-    },
-    {
-      "key": "gold",
-      "id": "1997_Finest_Baseball_gold",
-      "name": "Gold (Rare)",
-      "kind": "INSERT",
-      "oddsPerPack": 24,
-      "expectedCards": 50,
-      "defaultGradeability": "COMMON",
-      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/922/1997-Finest",
-      "notes": "Verified GOLD physical tier, not an alternate foil copy of every player. Historical 1:24 packs."
-    },
-    {
-      "key": "bronze-refractors",
-      "id": "1997_Finest_Baseball_bronze_refractors",
-      "name": "Bronze Refractors",
+      "key": "refractors",
+      "id": "1997_Finest_Baseball_refractors",
+      "name": "Refractors",
       "kind": "PARALLEL",
-      "oddsPerPack": 12,
-      "expectedCards": 200,
+      "oddsPerPack": null,
+      "expectedCards": 350,
       "defaultGradeability": "COMMON",
-      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/923/1997-Finest",
-      "notes": "Verified BRZ physical tier, not an alternate foil copy of every player. Historical 1:12 packs."
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/923/1997-Finest-Refractors",
+      "notes": "One complete 350-card Refractor parallel. Tier-specific draw odds require an engine enhancement; release blocked."
     },
     {
-      "key": "silver-refractors",
-      "id": "1997_Finest_Baseball_silver_refractors",
-      "name": "Silver Refractors",
+      "key": "embossed",
+      "id": "1997_Finest_Baseball_embossed",
+      "name": "Embossed",
       "kind": "PARALLEL",
-      "oddsPerPack": 48,
-      "expectedCards": 100,
+      "oddsPerPack": null,
+      "expectedCards": 150,
       "defaultGradeability": "COMMON",
-      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/923/1997-Finest",
-      "notes": "Verified SIL physical tier, not an alternate foil copy of every player. Historical 1:48 packs."
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10901/1997-Finest-Embossed",
+      "notes": "One 150-card Silver/Gold embossed checklist (Gold die-cut). Tier-specific odds pending."
     },
     {
-      "key": "gold-refractors",
-      "id": "1997_Finest_Baseball_gold_refractors",
-      "name": "Gold Refractors",
+      "key": "embossed-refractors",
+      "id": "1997_Finest_Baseball_embossed_refractors",
+      "name": "Embossed Refractors",
       "kind": "PARALLEL",
-      "oddsPerPack": 288,
-      "expectedCards": 50,
+      "oddsPerPack": null,
+      "expectedCards": 150,
       "defaultGradeability": "COMMON",
-      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/923/1997-Finest",
-      "notes": "Verified GOLD physical tier, not an alternate foil copy of every player. Historical 1:288 packs."
-    },
-    {
-      "key": "silver-embossed",
-      "id": "1997_Finest_Baseball_silver_embossed",
-      "name": "Silver Embossed",
-      "kind": "PARALLEL",
-      "oddsPerPack": 16,
-      "expectedCards": 100,
-      "defaultGradeability": "COMMON",
-      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10901/1997-Finest",
-      "notes": "Verified SIL physical tier, not an alternate foil copy of every player. Historical 1:16 packs."
-    },
-    {
-      "key": "gold-embossed",
-      "id": "1997_Finest_Baseball_gold_embossed",
-      "name": "Gold Embossed Die-Cut",
-      "kind": "PARALLEL",
-      "oddsPerPack": 96,
-      "expectedCards": 50,
-      "defaultGradeability": "COMMON",
-      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10901/1997-Finest",
-      "notes": "Verified GOLD physical tier, not an alternate foil copy of every player. Historical 1:96 packs."
-    },
-    {
-      "key": "silver-embossed-refractors",
-      "id": "1997_Finest_Baseball_silver_embossed_refractors",
-      "name": "Silver Embossed Refractors",
-      "kind": "PARALLEL",
-      "oddsPerPack": 192,
-      "expectedCards": 100,
-      "defaultGradeability": "COMMON",
-      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10902/1997-Finest",
-      "notes": "Verified SIL physical tier, not an alternate foil copy of every player. Historical 1:192 packs."
-    },
-    {
-      "key": "gold-embossed-refractors",
-      "id": "1997_Finest_Baseball_gold_embossed_refractors",
-      "name": "Gold Embossed Die-Cut Refractors",
-      "kind": "PARALLEL",
-      "oddsPerPack": 1152,
-      "expectedCards": 50,
-      "defaultGradeability": "COMMON",
-      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10902/1997-Finest",
-      "notes": "Verified GOLD physical tier, not an alternate foil copy of every player. Historical 1:1152 packs."
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10902/1997-Finest-Embossed-Refractors",
+      "notes": "One 150-card Silver/Gold embossed refractor checklist (Gold die-cut). Tier-specific odds pending."
     }
   ]
 }
