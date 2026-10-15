@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import SetViewToggle from "@/components/collection/SetViewToggle";
+import { checklistHref } from "@/lib/collection/set-view-links";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 type BinderCard = {
@@ -53,8 +55,13 @@ function useBodyLocked(open: boolean) {
 }
 
 export default function BinderClient({
-  productId, initialProductSetId,
-}: { productId: string; initialProductSetId: string }) {
+  productId, initialProductSetId, initialCardId = null, initialOpen = false,
+}: {
+  productId: string;
+  initialProductSetId: string;
+  initialCardId?: number | null;
+  initialOpen?: boolean;
+}) {
   const [setId, setSetId] = useState(initialProductSetId);
   const [data, setData] = useState<BinderData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -94,7 +101,14 @@ export default function BinderClient({
             Math.min(Math.ceil(incoming.cards.length / 9) - 1, parsed));
         }
       } catch { /* Session memory is a convenience, never required. */ }
-      setPage(savedPage);
+      // Directly linked from a specific card? Turn straight to that nine-pocket
+      // page. Checklist's Binder toggle opens page one instead of hiding it
+      // behind the cover; ordinary Collection links still open the cover.
+      const selectedCardIndex = initialCardId ?
+        incoming.cards.findIndex(card => card.cardId === initialCardId) : -1;
+      const startPage = selectedCardIndex >= 0 ? Math.floor(selectedCardIndex / 9) :
+        initialOpen ? 0 : savedPage;
+      setPage(Math.min(Math.max(-1, startPage), Math.ceil(incoming.cards.length / 9) - 1));
       setTurn(null);
       setBrokenScans({});
     } catch (e) {
@@ -102,7 +116,7 @@ export default function BinderClient({
     } finally {
       if (!signal.aborted) setLoading(false);
     }
-  }, [productId, setId]);
+  }, [productId, setId, initialCardId, initialOpen]);
 
   useEffect(() => {
     const abort = new AbortController();
@@ -291,9 +305,12 @@ export default function BinderClient({
               </option>)}
             </select>
           </label>
-          <Link className="binder-collection-link" href={"/collection/" + encodeURIComponent(productId)}>Collection list ↗</Link>
+          <Link className="binder-collection-link"
+            href={checklistHref(productId, activeSetId)}>Set checklist ↗</Link>
         </div>
       </header>
+
+      {data && <SetViewToggle productId={productId} productSetId={activeSetId} active="binder" />}
 
       {error && <div className="binder-error" role="alert">
         {error} <button type="button" onClick={() => void load(new AbortController().signal)}>Try again</button>
