@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { binderHref, checklistHref } from "@/lib/collection/set-view-links";
 import {
   useCallback,
   useEffect,
@@ -694,11 +695,15 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                       this set
                     </span>
                     {card.productId && (
-                      <Link
-                        href={`/checklist/${encodeURIComponent(card.productId)}`}
-                      >
-                        Checklist ↗
-                      </Link>
+                      <span className="cd-set-view-shortcuts">
+                        <Link href={checklistHref(card.productId, card.productSetId)}>
+                          Checklist ↗
+                        </Link>
+                        <Link className="cd-binder-shortcut"
+                          href={binderHref(card.productId, card.productSetId, { cardId: card.id })}>
+                          ◫ View in Binder
+                        </Link>
+                      </span>
                     )}
                   </div>
                   <p className="cd-muted">
