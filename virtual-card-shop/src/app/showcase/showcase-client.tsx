@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { binderHref, checklistHref } from "@/lib/collection/set-view-links";
 import {
   useCallback,
   useEffect,
@@ -1991,15 +1992,21 @@ export default function ShowcaseClient() {
                               </span>
                             </div>
 
-                            <Link
-                              href={`/checklist/${encodeURIComponent(
-                                row.productSetId
-                              )}`}
-                              className="showcase-bucket-link"
-                            >
-                              Checklist
-                              <Icon kind="arrow" />
-                            </Link>
+                            <div className="showcase-set-view-links">
+                              <Link
+                                href={checklistHref(row.productId || row.productSetId,
+                                  row.productId ? row.productSetId : undefined)}
+                                className="showcase-bucket-link"
+                              >
+                                Checklist
+                              </Link>
+                              {row.productId && <Link
+                                href={binderHref(row.productId, row.productSetId, { open: true })}
+                                className="showcase-bucket-link showcase-binder-link"
+                              >
+                                ◫ Binder
+                              </Link>}
+                            </div>
                           </div>
                         )
                       )}
