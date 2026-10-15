@@ -4,12 +4,14 @@
 import Link from "next/link";
 import {
   PointerEvent as ReactPointerEvent,
+  type CSSProperties,
   useEffect,
   useRef,
   useState,
 } from "react";
 import VcsSlab from "@/components/grading/VcsSlab";
 import "./grading.css";
+import "./grading-reveal.css";
 
 type GradingResultRow = {
   id: number;
@@ -289,34 +291,12 @@ function StatusPill({ status }: { status: GradingOrderRow["status"] }) {
 
 function ResultPills({ results }: { results: GradingResultRow[] }) {
   if (results.length === 0) return null;
-
-  return (
-    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-      {results.map((result) => (
-        <span
-          key={result.id}
-          style={{
-            display: "inline-flex",
-            gap: 6,
-            alignItems: "center",
-            border: "1px solid #b9cbe8",
-            background: colors.blueSoft,
-            color: colors.blue,
-            borderRadius: 999,
-            padding: "4px 7px",
-            fontSize: 11,
-            fontWeight: 950,
-          }}
-        >
-          VCS {result.grade}
-          <span style={{ color: "#445" }}>×{result.quantity}</span>
-          <span style={{ color: "#445" }}>
-            {formatDollarsFromCents(result.valueCents)}
-          </span>
-        </span>
-      ))}
-    </div>
-  );
+  return <div className="vcs-reveal-grade-results" aria-label="Revealed grade breakdown">
+    {results.map(result => <span className="vcs-reveal-grade-chip" key={result.id}>
+      VCS {result.grade} <span>×{result.quantity}</span>
+      <span>{formatDollarsFromCents(result.valueCents)}</span>
+    </span>)}
+  </div>;
 }
 
 function getPrimaryResult(results: GradingResultRow[]) {
@@ -330,215 +310,45 @@ function getPrimaryResult(results: GradingResultRow[]) {
 }
 
 function VcsMailer({
-  stage,
-  payload,
-  onReveal,
-  isOpening,
+  order, onReveal, isOpening,
 }: {
-  stage: RevealStage;
-  payload: RevealPayload | null;
+  order: GradingOrderRow | null;
   onReveal: () => void;
   isOpening: boolean;
 }) {
-  const card = payload?.card ?? null;
-
+  // Sealed state uses only the existing, publicly visible order metadata.
+  // No grade, revealed value, or grading result reaches the envelope.
+  const card = order?.card ?? null;
+  const cardName = card ? "#" + card.cardNumber + " — " + card.player : "Your graded card";
+  const setName = card
+    ? [getSetNameFromCard(card), card.productSet?.name].filter(Boolean).join(" · ")
+    : "Certified card return";
   return (
-    <div
-      style={{
-        width: "100%",
-        maxWidth: 520,
-        minHeight: 330,
-        borderRadius: 28,
-        border: "1px solid rgba(255,255,255,0.28)",
-        background:
-          "radial-gradient(circle at 50% 10%, rgba(255,255,255,0.25), transparent 34%), linear-gradient(145deg, #191d25, #0b0d12)",
-        boxShadow:
-          "0 35px 90px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.12)",
-        padding: 18,
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          inset: -120,
-          background:
-            stage === "opening"
-              ? "conic-gradient(from 0deg, transparent, rgba(255,255,255,0.28), transparent, rgba(249,211,107,0.28), transparent)"
-              : "radial-gradient(circle, rgba(255,255,255,0.09), transparent 56%)",
-          animation:
-            stage === "opening" ? "vcsRevealSpin 1.4s linear infinite" : "none",
-          opacity: stage === "revealed" ? 0.32 : 1,
-        }}
-      />
-
-      <div
-        style={{
-          position: "relative",
-          zIndex: 2,
-          minHeight: 294,
-          display: "grid",
-          alignItems: "center",
-          justifyItems: "center",
-        }}
-      >
-        <div
-          style={{
-            width: "100%",
-            maxWidth: 430,
-            borderRadius: 20,
-            border: "1px solid rgba(203,213,225,0.55)",
-            background:
-              stage === "revealed"
-                ? "linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06))"
-                : "linear-gradient(180deg, #f4efe4, #c9b98d)",
-            boxShadow:
-              stage === "revealed"
-                ? "0 14px 35px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.18)"
-                : "0 22px 55px rgba(0,0,0,0.45), inset 0 2px 0 rgba(255,255,255,0.5)",
-            padding: 18,
-            transform:
-              stage === "opening"
-                ? "translateY(-4px) rotateX(10deg) scale(1.02)"
-                : stage === "revealed"
-                  ? "translateY(0) scale(0.98)"
-                  : "translateY(0)",
-            transition:
-              "transform 550ms ease, background 550ms ease, box-shadow 550ms ease",
-            overflow: "hidden",
-            position: "relative",
-          }}
-        >
-          <div
-            style={{
-              position: "absolute",
-              left: 0,
-              right: 0,
-              top: "45%",
-              height: 2,
-              background:
-                stage === "opening"
-                  ? "linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent)"
-                  : "rgba(122,82,0,0.32)",
-              boxShadow:
-                stage === "opening"
-                  ? "0 0 28px rgba(255,255,255,0.9)"
-                  : "none",
-            }}
-          />
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              gap: 12,
-              alignItems: "flex-start",
-              position: "relative",
-              zIndex: 2,
-            }}
-          >
-            <div>
-              <div
-                style={{
-                  color: stage === "revealed" ? "#f8fafc" : "#2a1c08",
-                  fontSize: 13,
-                  fontWeight: 1000,
-                  letterSpacing: 1.8,
-                  textTransform: "uppercase",
-                }}
-              >
-                VCS Grading
-              </div>
-              <div
-                style={{
-                  marginTop: 5,
-                  color: stage === "revealed" ? "#cbd5e1" : "#4a3210",
-                  fontSize: 12,
-                  fontWeight: 850,
-                }}
-              >
-                Certified return mailer
-              </div>
-            </div>
-
-            <div
-              style={{
-                borderRadius: 999,
-                border: "1px solid rgba(255,255,255,0.4)",
-                background:
-                  stage === "revealed"
-                    ? "rgba(255,255,255,0.12)"
-                    : "rgba(255,255,255,0.48)",
-                padding: "6px 9px",
-                color: stage === "revealed" ? "#fff" : "#2a1c08",
-                fontSize: 11,
-                fontWeight: 1000,
-                whiteSpace: "nowrap",
-              }}
-            >
-              {card ? `Order #${payload?.order.id}` : "Ready"}
-            </div>
+    <div className="vcs-mailer-scene" aria-label="Sealed padded VCS grading return">
+      <div className={"vcs-bubble-mailer" + (isOpening ? " is-opening" : "")}>
+        <div className="vcs-bubble-flap" aria-hidden="true" />
+        <div className="vcs-bubble-label">
+          <div className="vcs-bubble-label-head">
+            <div><strong>VCS GRADING</strong><span>RETURN SERVICE · CERTIFIED</span></div>
+            <div className="vcs-bubble-postmark" aria-hidden="true">VCS<br/>POST</div>
           </div>
-
-          <div
-            style={{
-              marginTop: 48,
-              display: "grid",
-              gap: 10,
-              position: "relative",
-              zIndex: 2,
-            }}
-          >
-            <div
-              style={{
-                color: stage === "revealed" ? "#fff" : "#201506",
-                fontSize: 22,
-                fontWeight: 1000,
-                letterSpacing: -0.5,
-                textAlign: "center",
-              }}
-            >
-              {stage === "revealed"
-                ? "Slab certified"
-                : "Your VCS return is sealed"}
+          <div className="vcs-bubble-routing">
+            <div>
+              <span>DELIVER TO</span>
+              <strong>THE COLLECTOR</strong>
+              <small>VIRTUAL CARD SHOP · PERSONAL COLLECTION</small>
             </div>
-
-            <div
-              style={{
-                color: stage === "revealed" ? "#cbd5e1" : "#5b4219",
-                fontSize: 13,
-                fontWeight: 850,
-                lineHeight: 1.45,
-                textAlign: "center",
-              }}
-            >
-              {card
-                ? `#${card.cardNumber} — ${card.player}`
-                : "Open the mailer to reveal the slabbed card inside."}
-            </div>
-
-            {stage !== "revealed" ? (
-              <button
-                onClick={onReveal}
-                disabled={isOpening}
-                style={{
-                  margin: "12px auto 0",
-                  border: "1px solid rgba(255,255,255,0.62)",
-                  background: isOpening
-                    ? "linear-gradient(135deg, #8d6a24, #f0d28a)"
-                    : "linear-gradient(135deg, #6f4700, #d89b1d 45%, #fff0a8)",
-                  color: "#201506",
-                  borderRadius: 999,
-                  padding: "12px 18px",
-                  fontWeight: 1000,
-                  cursor: isOpening ? "not-allowed" : "pointer",
-                  boxShadow: "0 14px 35px rgba(122,82,0,0.38)",
-                }}
-              >
-                {isOpening ? "Opening mailer…" : "Open Mailer"}
-              </button>
-            ) : null}
+            {order && <div className="vcs-bubble-order">ORDER #{order.id}</div>}
+          </div>
+          <span className="vcs-bubble-card-label">ENCLOSED CARD</span>
+          <strong className="vcs-bubble-card-name">{cardName}</strong>
+          <div className="vcs-bubble-set">{setName}</div>
+          <div className="vcs-bubble-seal">
+            <small>PADDED RETURN<br/>HANDLE WITH CARE</small>
+            <button className="vcs-bubble-open" type="button"
+              onClick={onReveal} disabled={isOpening}>
+              {isOpening ? "Opening…" : "Open Mailer →"}
+            </button>
           </div>
         </div>
       </div>
@@ -831,18 +641,7 @@ function InteractiveRevealSlab({
         </>
       ) : null}
 
-      <div
-        className="vcsSlabTouchHint"
-        style={{
-          marginTop: 12,
-          textAlign: "center",
-          color: "#94a3b8",
-          fontSize: 10.5,
-          lineHeight: 1.25,
-          fontWeight: 800,
-          letterSpacing: 0.1,
-        }}
-      >
+      <div className="vcsSlabTouchHint vcs-slab-hint">
         Drag gently to catch the light
       </div>
     </div>
@@ -850,13 +649,10 @@ function InteractiveRevealSlab({
 }
 
 function RevealModal({
-  payload,
-  stage,
-  isOpening,
-  onOpenMailer,
-  onClose,
+  payload, sealedOrder, stage, isOpening, onOpenMailer, onClose,
 }: {
   payload: RevealPayload | null;
+  sealedOrder: GradingOrderRow | null;
   stage: RevealStage;
   isOpening: boolean;
   onOpenMailer: () => void;
@@ -866,23 +662,8 @@ function RevealModal({
   const revealTone = primary ? getRevealTone(primary.grade) : null;
 
   return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: 3000,
-        background:
-          stage === "revealed" && revealTone
-            ? `radial-gradient(circle at 72% 40%, ${revealTone.glow}, transparent 29%), radial-gradient(circle at 50% 16%, rgba(22,71,125,0.34), transparent 34%), rgba(5,7,12,0.84)`
-            : "radial-gradient(circle at 50% 16%, rgba(22,71,125,0.34), transparent 34%), rgba(5,7,12,0.84)",
-        backdropFilter: "blur(12px)",
-        overflowY: "auto",
-        padding: 16,
-        transition: "background 650ms ease",
-      }}
-    >
+    <div role="dialog" aria-modal="true" aria-label="VCS grading return"
+      className="vcs-reveal-overlay">
       <style>
         {`
           @keyframes vcsRevealSpin {
@@ -1028,265 +809,72 @@ function RevealModal({
           }
         `}
       </style>
-
-      <div
-        style={{
-          maxWidth: 1080,
-          margin: "0 auto",
-          minHeight: "100%",
-          display: "grid",
-          alignItems: "center",
-        }}
-      >
-        <div
-          style={{
-            borderRadius: 30,
-            border: "1px solid rgba(255,255,255,0.16)",
-            background:
-              "linear-gradient(145deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06)), #0b0f18",
-            boxShadow: "0 35px 100px rgba(0,0,0,0.58)",
-            padding: 18,
-            color: "#fff",
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              pointerEvents: "none",
-              background:
-                "radial-gradient(circle at 18% 8%, rgba(255,255,255,0.2), transparent 26%), radial-gradient(circle at 90% 20%, rgba(249,211,107,0.16), transparent 24%)",
-            }}
-          />
-
-          <div style={{ position: "relative", zIndex: 2 }}>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: 12,
-                alignItems: "flex-start",
-              }}
-            >
-              <div>
-                <div
-                  style={{
-                    color: "#f9d36b",
-                    fontSize: 12,
-                    fontWeight: 1000,
-                    letterSpacing: 2.4,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  VCS Grading Return
-                </div>
-
-                <div
-                  className="vcsRevealTitle"
-                  style={{
-                    marginTop: 5,
-                    fontSize: 38,
-                    lineHeight: 1.05,
-                    fontWeight: 1000,
-                    letterSpacing: -1.2,
-                  }}
-                >
-                  {stage === "revealed"
-                    ? "Your slab is back."
-                    : "Mail day is here."}
-                </div>
-
-                <div
-                  style={{
-                    marginTop: 7,
-                    color: "#cbd5e1",
-                    fontWeight: 800,
-                    fontSize: 14,
-                  }}
-                >
-                  {payload?.card
-                    ? `#${payload.card.cardNumber} — ${payload.card.player}`
-                    : "Open the sealed VCS mailer to reveal the graded card."}
-                </div>
+      <div className="vcs-reveal-layout">
+        <section className={"vcs-reveal-shell" + (stage === "revealed" ? " is-revealed" : "")}
+          style={stage === "revealed" && revealTone
+            ? { "--vcs-reveal-glow": revealTone.glow } as CSSProperties
+            : undefined}>
+          <header className="vcs-reveal-header">
+            <div className="vcs-reveal-heading">
+              <span className="vcs-reveal-eyebrow">VCS GRADING RETURN</span>
+              <h2>{stage === "revealed" ? "Your slab is back." : "Mail day is here."}</h2>
+              <div className="vcs-reveal-subtitle">
+                {payload?.card
+                  ? "#" + payload.card.cardNumber + " — " + payload.card.player
+                  : sealedOrder?.card
+                    ? "#" + sealedOrder.card.cardNumber + " — " + sealedOrder.card.player
+                    : "A sealed grading return, ready when you are."}
               </div>
-
-              <button
-                onClick={onClose}
-                style={{
-                  border: "1px solid rgba(255,255,255,0.2)",
-                  background: "rgba(255,255,255,0.08)",
-                  color: "#fff",
-                  borderRadius: 999,
-                  width: 38,
-                  height: 38,
-                  fontWeight: 1000,
-                  cursor: "pointer",
-                }}
-                title="Close reveal"
-              >
-                ×
-              </button>
             </div>
+            <button className="vcs-reveal-close" type="button" onClick={onClose}
+              aria-label="Close grading return" title="Close">×</button>
+          </header>
 
-            <div
-              className="vcsRevealGrid"
-              style={{
-                marginTop: stage === "revealed" ? 10 : 18,
-                display: "grid",
-                gridTemplateColumns: "1fr",
-                gap: 18,
-                alignItems: "center",
-                justifyItems: "center",
-              }}
-            >
-              {stage !== "revealed" ? (
-                <VcsMailer
-                  stage={stage}
-                  payload={payload}
-                  onReveal={onOpenMailer}
-                  isOpening={isOpening}
-                />
-              ) : null}
+          {stage !== "revealed" ? (
+            <VcsMailer order={sealedOrder} onReveal={onOpenMailer} isOpening={isOpening} />
+          ) : null}
 
-              {stage === "revealed" && primary && payload ? (
-                <div
-                  style={{
-                    width: "100%",
-                    display: "grid",
-                    justifyItems: "center",
-                    gap: 12,
-                    animation:
-                      "vcsSlabRise 900ms cubic-bezier(.2,.9,.2,1) both",
-                    position: "relative",
-                    overflow: "visible",
-                    borderRadius: 30,
-                    padding: 8,
-                  }}
-                >
-                  <InteractiveRevealSlab
-                    payload={payload}
-                    result={primary}
-                  />
-
-                  <div
-                    style={{
-                      width: "100%",
-                      maxWidth: 430,
-                      borderRadius: 18,
-                      border: "1px solid rgba(255,255,255,0.14)",
-                      background: "rgba(255,255,255,0.08)",
-                      padding: 12,
-                      boxShadow:
-                        "inset 0 1px 0 rgba(255,255,255,0.12)",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        gap: 10,
-                        alignItems: "center",
-                        flexWrap: "wrap",
-                      }}
-                    >
-                      <div>
-                        <div
-                          style={{
-                            color: "#f9d36b",
-                            fontWeight: 1000,
-                            fontSize: 13,
-                          }}
-                        >
-                          Revealed value
-                        </div>
-                        <div
-                          style={{
-                            color: "#fff",
-                            fontWeight: 1000,
-                            fontSize: 22,
-                          }}
-                        >
-                          {formatDollarsFromCents(
-                            payload.totalRevealedValueCents
-                          )}
-                        </div>
-                      </div>
-
-                      <div
-                        style={{
-                          display: "flex",
-                          gap: 8,
-                          flexWrap: "wrap",
-                          justifyContent: "flex-end",
-                        }}
-                      >
-                        <Link
-                          href={`/cards/${payload.card.id}`}
-                          onClick={onClose}
-                          style={{
-                            border: "1px solid rgba(255,255,255,0.22)",
-                            background: "rgba(255,255,255,0.1)",
-                            color: "#fff",
-                            borderRadius: 999,
-                            padding: "9px 11px",
-                            fontWeight: 1000,
-                            textDecoration: "none",
-                            fontSize: 13,
-                          }}
-                        >
-                          Card Details
-                        </Link>
-
-                        <Link
-                          href="/collection/slabs"
-                          onClick={onClose}
-                          style={{
-                            border: "1px solid rgba(249,211,107,0.7)",
-                            background:
-                              "linear-gradient(135deg, #6f4700, #d89b1d)",
-                            color: "#1b1202",
-                            borderRadius: 999,
-                            padding: "9px 11px",
-                            fontWeight: 1000,
-                            textDecoration: "none",
-                            fontSize: 13,
-                          }}
-                        >
-                          Slab Gallery
-                        </Link>
-                      </div>
-                    </div>
-
-                    {payload.results.length > 1 ? (
-                      <div style={{ marginTop: 10 }}>
-                        <ResultPills results={payload.results} />
-                      </div>
-                    ) : null}
-
-                    <button
-                      onClick={onClose}
-                      style={{
-                        marginTop: 12,
-                        width: "100%",
-                        border: "1px solid rgba(255,255,255,0.18)",
-                        background: "rgba(255,255,255,0.08)",
-                        color: "#fff",
-                        borderRadius: 12,
-                        padding: "10px 12px",
-                        fontWeight: 1000,
-                        cursor: "pointer",
-                      }}
-                    >
-                      Done
-                    </button>
+          {stage === "revealed" && primary && payload ? (
+            <div className="vcs-reveal-body">
+              <InteractiveRevealSlab payload={payload} result={primary}/>
+              <div className="vcs-reveal-summary">
+                <div className="vcs-reveal-summary-head">
+                  <div>
+                    <span className="vcs-reveal-amount-label">REVEALED VALUE</span>
+                    <strong className="vcs-reveal-amount">
+                      {formatDollarsFromCents(payload.totalRevealedValueCents)}
+                    </strong>
+                  </div>
+                  <div className="vcs-reveal-certified">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="m8 12 2.7 2.7L16.4 9" />
+                    </svg>
+                    Certified
                   </div>
                 </div>
-              ) : null}
+
+                {payload.results.length > 1 ? (
+                  <ResultPills results={payload.results} />
+                ) : null}
+
+                <div className="vcs-reveal-divider" />
+                <div className="vcs-reveal-links">
+                  <Link href={"/cards/" + payload.card.id} onClick={onClose}>
+                    Card Details <span aria-hidden="true">↗</span>
+                  </Link>
+                  <Link href="/collection/slabs" onClick={onClose}>
+                    Slab Gallery <span aria-hidden="true">↗</span>
+                  </Link>
+                </div>
+                <button type="button" className="vcs-reveal-done" onClick={onClose}>
+                  Done
+                </button>
+              </div>
             </div>
-          </div>
-        </div>
+          ) : null}
+        </section>
       </div>
     </div>
   );
@@ -1304,6 +892,7 @@ export default function GradingPage() {
   const [revealingId, setRevealingId] = useState<number | null>(null);
   const requestId = useRef(0);
   const [revealOrderId, setRevealOrderId] = useState<number | null>(null);
+  const [selectedRevealOrder, setSelectedRevealOrder] = useState<GradingOrderRow | null>(null);
   const [revealPayload, setRevealPayload] = useState<RevealPayload | null>(null);
   const [revealStage, setRevealStage] = useState<RevealStage>("closed");
 
@@ -1370,6 +959,7 @@ export default function GradingPage() {
   }
 
   function openRevealModal(orderId: number) {
+    setSelectedRevealOrder(data?.orders.find(order => order.id === orderId) ?? null);
     setRevealOrderId(orderId);
     setRevealPayload(null);
     setRevealStage("closed");
@@ -1378,6 +968,7 @@ export default function GradingPage() {
 
   function closeRevealModal() {
     setRevealOrderId(null);
+    setSelectedRevealOrder(null);
     setRevealPayload(null);
     setRevealStage("closed");
   }
@@ -1420,6 +1011,7 @@ export default function GradingPage() {
     <main className="grading-desk">
       {revealOrderId != null ? (
         <RevealModal
+          sealedOrder={selectedRevealOrder}
           payload={revealPayload}
           stage={revealStage}
           isOpening={revealingId === revealOrderId || revealStage === "opening"}

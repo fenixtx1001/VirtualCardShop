@@ -86,10 +86,11 @@ function gradeLabel(grade: number) {
 function gradeTone(grade: number) {
   if (grade >= 10) {
     return {
-      a: "#725318",
-      b: "#d7b861",
-      c: "#f7e6a8",
-      ink: "#241900",
+      // Champagne-toned certification alloy rather than saturated gold paint.
+      a: "#796232",
+      b: "#c8b17b",
+      c: "#f0e3bf",
+      ink: "#332916",
     };
   }
 
@@ -199,6 +200,25 @@ function labelStyle(
       )
     ),
   } as CSSProperties;
+}
+
+/**
+ * Compact standard labels without clipping complicated product-set and registry
+ * names. The physical case never changes size; dense labels get a little more
+ * header room instead of ellipsis, while ordinary cards get a larger card bay.
+ */
+function labelHeaderHeight(
+  player: string,
+  setName: string,
+  cardNumber: string,
+  team: string | null | undefined,
+  reverse: boolean
+): string {
+  const scale = labelScale(player, setName, cardNumber, team);
+  if (scale <= .76) return reverse ? "27%" : "26%";
+  if (scale <= .88) return reverse ? "25%" : "23.5%";
+  if (scale <= .94) return reverse ? "23%" : "22%";
+  return reverse ? "22%" : "20.5%";
 }
 
 function CardImage({
@@ -474,7 +494,12 @@ function SlabFace({
           : styles.frontFace
       }`}
     >
-      <div className={styles.case}>
+      <div className={styles.case}
+      style={{
+        "--slab-label-height": labelHeaderHeight(
+          player, setName, cardNumber, team, side === "back"
+        ),
+      } as CSSProperties}>
         {side === "front" ? (
           <FrontLabel
             player={player}

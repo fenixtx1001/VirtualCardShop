@@ -63,28 +63,29 @@ type PointerGesture = {
 
 const RIP_MODE_EVENT = "vcs:rip-mode";
 
+// One dark VCS palette for every pack-rip state; don't mix with old light tokens.
 const colors = {
-  bg: "#fbfaf7",
-  card: "#ffffff",
-  border: "#e7e3dc",
-  borderStrong: "#d8d0c4",
-  text: "#1f1f1f",
-  subtext: "#5a5a5a",
-  accent: "#2f6fed",
-  muted: "#f2efe9",
-  soft: "#f8f6f1",
-  warnBg: "#fff6d6",
-  warnBorder: "#e6c76a",
-  errBg: "#fff1f1",
-  errBorder: "#f3b7b7",
-  okBg: "#eefbf1",
-  okBorder: "#a7e7b6",
-  posBg: "#eefbf1",
-  posBorder: "#a7e7b6",
-  negBg: "#fff1f1",
-  negBorder: "#f3b7b7",
-  neutralBg: "#f8f6f1",
-  neutralBorder: "#e7e3dc",
+  bg: "#181a19",
+  card: "#222622",
+  border: "#41483e",
+  borderStrong: "#566050",
+  text: "#f2eee5",
+  subtext: "#b9c1b5",
+  accent: "#d7bb7e",
+  muted: "#282e27",
+  soft: "#222822",
+  warnBg: "#383123",
+  warnBorder: "#988451",
+  errBg: "#352623",
+  errBorder: "#89574f",
+  okBg: "#283729",
+  okBorder: "#5c7357",
+  posBg: "#29392b",
+  posBorder: "#586e53",
+  negBg: "#382825",
+  negBorder: "#84574f",
+  neutralBg: "#252923",
+  neutralBorder: "#444b41",
 };
 
 function money(v: number | null | undefined) {
@@ -811,11 +812,11 @@ export default function OpenPackClient({
         }
 
         .vcs-pack-hero {
-          background: rgba(255, 255, 255, 0.94);
+          background: #20251f;
           border: 1px solid ${colors.border};
-          border-radius: 18px;
-          padding: 14px 16px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.035);
+          border-radius: 10px;
+          padding: 14px 17px;
+          box-shadow: none;
           display: flex;
           gap: 12px;
           align-items: center;
@@ -832,21 +833,23 @@ export default function OpenPackClient({
 
         .vcs-pack-title h1 {
           margin: 0;
-          font-size: 18px;
-          font-weight: 950;
-          letter-spacing: -0.2px;
+          font-size: clamp(18px, 2.1vw, 23px);
+          font-weight: 650;
+          line-height: 1.18;
+          letter-spacing: -0.025em;
+          color: #f2eee5;
         }
 
         .vcs-pack-title .sub {
-          color: ${colors.subtext};
-          font-size: 13px;
-          line-height: 1.35;
-          font-weight: 650;
+          color: #bdc4b9;
+          font-size: 12px;
+          line-height: 1.45;
+          font-weight: 450;
         }
 
         .vcs-pack-actions {
           display: flex;
-          gap: 10px;
+          gap: 8px;
           align-items: center;
           flex-wrap: wrap;
         }
@@ -855,9 +858,11 @@ export default function OpenPackClient({
           border: 1px solid ${colors.border};
           background: ${colors.muted};
           color: ${colors.text};
-          border-radius: 12px;
+          border-radius: 7px;
           padding: 9px 12px;
-          font-weight: 900;
+          font-weight: 620;
+          font-size: 12px;
+          min-height: 40px;
           cursor: pointer;
           transition:
             transform 120ms ease,
@@ -886,8 +891,8 @@ export default function OpenPackClient({
         .btn.primary {
           background: ${colors.accent};
           border-color: rgba(0, 0, 0, 0.08);
-          color: white;
-          box-shadow: 0 10px 24px rgba(47, 111, 237, 0.22);
+          color: #222620;
+          box-shadow: none;
         }
 
         .btn.primary:hover {
@@ -908,44 +913,55 @@ export default function OpenPackClient({
         .pill {
           display: inline-flex;
           align-items: center;
-          gap: 8px;
-          padding: 8px 10px;
-          border-radius: 999px;
-          border: 1px solid ${colors.border};
-          background: ${colors.soft};
-          font-weight: 900;
+          gap: 6px;
+          padding: 7px 10px;
+          border-radius: 7px;
+          border: 1px solid #505849;
+          background: #282c25;
+          font-weight: 620;
           font-size: 12px;
-          color: ${colors.text};
+          color: #e6e1d4;
           white-space: nowrap;
+          font-variant-numeric: tabular-nums;
         }
 
         .hint {
           display: inline-flex;
-          gap: 8px;
+          align-items: center;
+          gap: 10px;
           flex-wrap: wrap;
-          color: ${colors.subtext};
+          color: #b9c1b5;
           font-size: 12px;
-          font-weight: 750;
+          line-height: 1.5;
+          font-weight: 450;
         }
 
         .hint kbd {
-          border: 1px solid ${colors.border};
-          background: white;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 22px;
+          min-height: 22px;
+          border: 1px solid #646d5e;
+          background: #30362f;
           border-bottom-width: 2px;
-          border-radius: 8px;
+          border-radius: 5px;
           padding: 2px 6px;
+          font-family: inherit;
           font-size: 11px;
-          font-weight: 900;
-          color: ${colors.text};
+          line-height: 1.2;
+          font-weight: 650;
+          color: #f2eee5;
+          box-shadow: 0 1px 0 #131813;
         }
 
         .vcs-pack-stage {
-          margin-top: 14px;
-          background: rgba(255, 255, 255, 0.86);
-          border: 1px solid ${colors.border};
-          border-radius: 20px;
+          margin-top: 12px;
+          background: #1c201c;
+          border: 1px solid #424a40;
+          border-radius: 12px;
           padding: 14px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.035);
+          box-shadow: 0 16px 38px rgba(0, 0, 0, .13);
         }
 
         .preopen-shell {
@@ -995,23 +1011,25 @@ export default function OpenPackClient({
 
         .open-grid {
           display: grid;
-          grid-template-columns: 420px 360px 1fr;
+          grid-template-columns: minmax(0, 1.15fr) minmax(0, .90fr) minmax(0, .85fr);
           gap: 14px;
           align-items: start;
         }
 
         .panel {
-          border: 1px solid ${colors.border};
-          background: #fff;
-          border-radius: 16px;
+          border: 1px solid #424a40;
+          background: #222622;
+          border-radius: 10px;
           padding: 12px;
         }
 
         .panel-title {
           font-size: 12px;
-          color: ${colors.subtext};
-          font-weight: 900;
-          margin-bottom: 8px;
+          line-height: 1.35;
+          color: #bfc6ba;
+          font-weight: 600;
+          letter-spacing: 0.01em;
+          margin-bottom: 10px;
         }
 
         .value-box {
@@ -1044,19 +1062,22 @@ export default function OpenPackClient({
 
         .value-head {
           font-size: 12px;
-          font-weight: 900;
-          color: ${colors.subtext};
+          font-weight: 550;
+          color: #bfc6b9;
         }
 
         .value-main {
-          font-size: 22px;
-          font-weight: 950;
-          letter-spacing: -0.3px;
+          font-size: 23px;
+          font-weight: 680;
+          letter-spacing: -0.025em;
+          color: #f3eee3;
+          font-variant-numeric: tabular-nums;
         }
 
         .value-sub {
-          font-size: 13px;
-          font-weight: 800;
+          font-size: 12px;
+          font-weight: 500;
+          color: #c5c9bf;
         }
 
         .value-positive {
@@ -1160,7 +1181,7 @@ export default function OpenPackClient({
           inset: 0;
           overflow: hidden;
           border-radius: 17px;
-          background: white;
+          background: #171d18;
           box-shadow:
             0 18px 34px rgba(38, 31, 22, 0.12),
             0 4px 10px rgba(38, 31, 22, 0.08);
@@ -1171,7 +1192,7 @@ export default function OpenPackClient({
           height: 100%;
           display: block;
           object-fit: contain;
-          background: white;
+          background: #171d18;
         }
 
         .under-card::after {
@@ -1331,7 +1352,7 @@ export default function OpenPackClient({
           inset: 0;
           display: grid;
           place-items: center;
-          background: white;
+          background: #171d18;
           opacity: 0;
           transition:
             opacity 185ms ease,
@@ -1358,7 +1379,7 @@ export default function OpenPackClient({
           width: 100%;
           height: 100%;
           object-fit: contain;
-          background: white;
+          background: #171d18;
           pointer-events: none;
           user-select: none;
           -webkit-user-drag: none;
@@ -1400,55 +1421,103 @@ export default function OpenPackClient({
         }
 
         .stat-title {
-          font-size: 22px;
-          font-weight: 950;
-          letter-spacing: -0.3px;
+          font-size: clamp(17px, 1.7vw, 21px);
+          font-weight: 650;
+          letter-spacing: -0.02em;
+          line-height: 1.22;
           margin: 0;
+          color: #f2eee5;
         }
 
         .stat-sub {
           margin-top: 6px;
-          color: ${colors.subtext};
-          font-size: 13px;
-          font-weight: 750;
+          color: #bdc4b8;
+          font-size: 12px;
+          font-weight: 500;
           line-height: 1.4;
         }
 
         .kv {
           display: grid;
-          gap: 8px;
-          margin-top: 10px;
-          font-size: 13px;
-          font-weight: 800;
-          color: ${colors.text};
+          gap: 10px;
+          margin-top: 13px;
+          font-size: 12px;
+          font-weight: 500;
+          color: #e4e8df;
         }
 
         .kv b {
-          font-weight: 950;
+          font-weight: 640;
+          color: #f2eee5;
+        }
+
+        .kv-type-line {
+          display: grid;
+          gap: 4px;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #434b40;
+        }
+
+        .kv-label {
+          display: block;
+          color: #b8c1b5;
+          font-size: 10px;
+          font-weight: 620;
+          letter-spacing: .07em;
+          line-height: 1.3;
+        }
+
+        .kv-type-value {
+          font-size: 13px;
+          line-height: 1.45;
+          font-weight: 570;
+          color: #edece4;
+          overflow-wrap: anywhere;
+        }
+
+        .kv-owned-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 9px;
+        }
+
+        .kv-owned-grid > div {
+          display: grid;
+          align-content: start;
+          gap: 5px;
+          padding: 11px 10px;
+          background: #2a3029;
+          border: 1px solid #454f43;
+          border-radius: 7px;
+        }
+
+        .kv-owned-grid strong {
+          font-size: clamp(15px, 1.55vw, 19px);
+          font-weight: 660;
+          line-height: 1.18;
+          letter-spacing: -.015em;
+          color: #f2eee5;
+          font-variant-numeric: tabular-nums;
         }
 
         .prestige-progress-box {
           margin-top: 12px;
-          border-radius: 14px;
-          border: 1px solid #a7e7b6;
-          background: #eefbf1;
+          border-radius: 8px;
+          border: 1px solid #657659;
+          background: #293428;
           padding: 12px;
         }
 
         .prestige-progress-box.hit {
-          border-color: #f3c15f;
-          background: linear-gradient(
-            180deg,
-            #fff8df 0%,
-            #fff2c7 100%
-          );
-          box-shadow: 0 10px 24px rgba(245, 158, 11, 0.14);
+          border-color: #aa8f54;
+          background: linear-gradient(130deg, #3e3726, #302d23);
+          box-shadow: 0 5px 17px rgba(0, 0, 0, .14);
         }
 
         .prestige-progress-title {
           font-size: 12px;
-          font-weight: 950;
-          color: #1f1f1f;
+          font-weight: 650;
+          color: #e5d3a1;
           margin-bottom: 4px;
           text-transform: uppercase;
           letter-spacing: 0.35px;
@@ -1456,16 +1525,16 @@ export default function OpenPackClient({
 
         .prestige-progress-main {
           font-size: 15px;
-          font-weight: 950;
-          color: #1f1f1f;
+          font-weight: 680;
+          color: #f2eee5;
           line-height: 1.35;
         }
 
         .prestige-progress-sub {
           margin-top: 4px;
           font-size: 12px;
-          font-weight: 800;
-          color: #4d4d4d;
+          font-weight: 500;
+          color: #c5cbbc;
           line-height: 1.4;
         }
 
@@ -1476,12 +1545,15 @@ export default function OpenPackClient({
         }
 
         .pack-img {
+          display: block;
           width: 220px;
           max-width: 100%;
           height: auto;
-          border: 1px solid ${colors.border};
-          border-radius: 14px;
-          background: white;
+          object-fit: contain;
+          padding: 9px;
+          border: 1px solid #50594b;
+          border-radius: 8px;
+          background: #272e27;
         }
 
         .stack-mini {
@@ -1490,28 +1562,51 @@ export default function OpenPackClient({
         }
 
         .stack-top {
-          border: 1px solid ${colors.border};
-          border-radius: 14px;
+          display: grid;
+          place-items: center;
+          min-height: 104px;
+          border: 1px solid #465046;
+          border-radius: 8px;
           overflow: hidden;
-          background: white;
-          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+          background: #181e19;
+          box-shadow: inset 0 2px 8px rgba(0,0,0,.16);
         }
 
         .stack-top img {
           width: 100%;
+          max-height: 340px;
           height: auto;
           display: block;
-          background: white;
+          background: #181e19;
           object-fit: contain;
         }
 
         .stack-placeholder {
-          padding: 14px;
-          color: ${colors.subtext};
-          font-weight: 900;
+          display: grid;
+          place-items: center;
+          gap: 7px;
+          min-height: 104px;
+          width: 100%;
+          padding: 16px 12px;
+          color: #b9c3b6;
+          font-weight: 520;
           font-size: 12px;
-          background: ${colors.soft};
+          line-height: 1.4;
+          background: #1a211b;
           text-align: center;
+        }
+
+        .stack-empty-icon {
+          display: grid;
+          place-items: center;
+          width: 34px;
+          height: 34px;
+          border: 1px solid #566454;
+          border-radius: 7px;
+          color: #d7bb7e;
+          background: #283128;
+          font-size: 19px;
+          line-height: 1;
         }
 
         .stack-fan {
@@ -1525,13 +1620,13 @@ export default function OpenPackClient({
           height: 76px;
           border-radius: 12px;
           border: 1px solid ${colors.border};
-          background: ${colors.soft};
+          background: #293028;
           display: grid;
           place-items: center;
-          color: ${colors.subtext};
-          font-weight: 900;
+          color: #c9d1c6;
+          font-weight: 550;
           font-size: 11px;
-          box-shadow: 0 10px 18px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 5px 13px rgba(0, 0, 0, 0.14);
         }
 
         .summary {
@@ -1568,8 +1663,8 @@ export default function OpenPackClient({
         .summary h3 {
           margin: 5px 0 0;
           font-size: 22px;
-          line-height: 1.05;
-          font-weight: 1000;
+          line-height: 1.15;
+          font-weight: 670;
           letter-spacing: -0.025em;
         }
 
@@ -1577,8 +1672,8 @@ export default function OpenPackClient({
           margin-top: 5px;
           color: ${colors.subtext};
           font-size: 12px;
-          line-height: 1.35;
-          font-weight: 800;
+          line-height: 1.5;
+          font-weight: 500;
         }
 
         .summary-totals {
@@ -1588,8 +1683,8 @@ export default function OpenPackClient({
           flex-wrap: wrap;
           padding: 8px 11px;
           border-radius: 999px;
-          background: rgba(255, 255, 255, 0.72);
-          border: 1px solid rgba(190, 213, 196, 0.8);
+          background: #293029;
+          border: 1px solid #485247;
           font-size: 12px;
           font-weight: 850;
         }
@@ -1645,8 +1740,8 @@ export default function OpenPackClient({
           align-items: center;
           padding: 9px 10px;
           border-radius: 15px;
-          background: rgba(255, 255, 255, 0.78);
-          border: 1px solid rgba(201, 219, 205, 0.85);
+          background: #272e27;
+          border: 1px solid #444e44;
           box-shadow: 0 3px 10px rgba(37, 66, 45, 0.025);
           transition:
             transform 140ms ease,
@@ -1659,7 +1754,7 @@ export default function OpenPackClient({
           transform: translateY(-1px);
           box-shadow: 0 9px 24px rgba(37, 66, 45, 0.075);
           border-color: rgba(153, 191, 164, 0.95);
-          background: rgba(255, 255, 255, 0.96);
+          background: #30382f;
         }
 
         .summary-card-thumb {
@@ -1669,7 +1764,7 @@ export default function OpenPackClient({
           border-radius: 9px;
           overflow: hidden;
           border: 1px solid ${colors.border};
-          background: white;
+          background: #1b211b;
           box-shadow: 0 5px 13px rgba(31, 29, 25, 0.07);
           flex-shrink: 0;
         }
@@ -1679,7 +1774,7 @@ export default function OpenPackClient({
           height: 100%;
           object-fit: contain;
           display: block;
-          background: white;
+          background: #1b211b;
         }
 
         .summary-card-main {
@@ -1688,8 +1783,8 @@ export default function OpenPackClient({
 
         .summary-card-title {
           font-size: 14px;
-          line-height: 1.18;
-          font-weight: 950;
+          line-height: 1.3;
+          font-weight: 650;
           letter-spacing: -0.01em;
           color: ${colors.text};
         }
@@ -1708,11 +1803,11 @@ export default function OpenPackClient({
           font-size: 11px;
           line-height: 1.25;
           font-weight: 900;
-          color: #24713d;
+          color: #b3d9ad;
         }
 
         .summary-card-note.hit {
-          color: #986707;
+          color: #e5c889;
         }
 
         .summary-card-value {
@@ -1725,15 +1820,15 @@ export default function OpenPackClient({
 
         .summary-card-value-main {
           font-size: 15px;
-          line-height: 1;
-          font-weight: 1000;
+          line-height: 1.2;
+          font-weight: 670;
           letter-spacing: -0.02em;
         }
 
         .summary-card-value-sub {
           font-size: 10px;
-          line-height: 1.15;
-          font-weight: 800;
+          line-height: 1.35;
+          font-weight: 520;
           color: ${colors.subtext};
           white-space: nowrap;
         }
@@ -1742,7 +1837,7 @@ export default function OpenPackClient({
           margin-top: 3px;
           font-size: 11px;
           font-weight: 950;
-          color: #597463;
+          color: #d7bb7e;
         }
 
         .summary-actions {
@@ -1794,6 +1889,22 @@ export default function OpenPackClient({
             opacity: 1;
             transform: translateX(0) rotate(0) scale(1);
           }
+        }
+
+        /* One consistent accessible interaction treatment across desktop and mobile. */
+        .vcs-pack-root :is(button, a, [tabindex]):focus-visible {
+          outline: 2px solid #e8d09b;
+          outline-offset: 3px;
+        }
+
+        .vcs-pack-root .details-panel,
+        .vcs-pack-root .stack-panel {
+          min-width: 0;
+        }
+
+        .vcs-pack-root .kv-card-details .kv-owned-grid strong,
+        .vcs-pack-root .value-main {
+          font-variant-numeric: tabular-nums;
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1870,7 +1981,7 @@ export default function OpenPackClient({
             border-radius: 0 0 14px 14px;
             gap: 4px;
             box-shadow: none;
-            background: rgba(255, 255, 255, 0.62);
+            background: #252b24;
             border-top: 0;
           }
 
@@ -2031,7 +2142,7 @@ export default function OpenPackClient({
             padding: 2px 4px;
             border: 1px solid rgba(218, 211, 201, 0.92);
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.86);
+            background: #252b24;
             backdrop-filter: blur(10px);
             box-shadow: 0 5px 15px rgba(40, 33, 24, 0.045);
           }
@@ -2259,8 +2370,8 @@ export default function OpenPackClient({
             margin: 3px auto 0;
             padding: 6px 8px 5px;
             border-radius: 11px;
-            background: rgba(255, 255, 255, 0.72);
-            border: 1px solid rgba(225, 220, 212, 0.82);
+            background: #272e27;
+            border: 1px solid #505a4d;
             box-shadow: 0 3px 10px rgba(40, 32, 21, 0.025);
             overflow: hidden;
           }
@@ -2314,8 +2425,8 @@ export default function OpenPackClient({
             max-width: 160px;
             padding: 3px 6px;
             border-radius: 999px;
-            background: #f2f0eb;
-            color: #605a52;
+            background: #30382e;
+            color: #d0d8c9;
             font-size: 8.5px;
             line-height: 1;
             font-weight: 900;
@@ -2325,8 +2436,8 @@ export default function OpenPackClient({
           }
 
           .mobile-current-type.special {
-            background: #f3f6fc;
-            color: #365a93;
+            background: #303b3c;
+            color: #c0d7da;
           }
 
           .mobile-current-stats {
@@ -2369,14 +2480,14 @@ export default function OpenPackClient({
             justify-content: center;
             padding: 5px 7px;
             border-radius: 10px;
-            background: rgba(255, 255, 255, 0.72);
-            border-color: rgba(218, 212, 203, 0.92);
+            background: #30372f;
+            border-color: #4b564b;
             box-shadow: none;
             font-size: 11px;
           }
 
           .mobile-card-controls .btn.flip-control {
-            background: #f1eee8;
+            background: #333a30;
           }
 
           .details-panel .stat-title,
@@ -3010,22 +3121,23 @@ export default function OpenPackClient({
         }
 
         .pill {
-          border-color: #444940 !important;
-          background: #252823 !important;
-          color: #c4c8bd !important;
+          border-color: #525b4c !important;
+          background: #292e28 !important;
+          color: #e4e6dc !important;
+          font-weight: 620 !important;
         }
 
         .panel-title,
         .hint,
         .stat-sub,
         .footer-tip {
-          color: var(--vcs-rip-muted) !important;
+          color: #bdc5b8 !important;
         }
 
         .stat-title {
           color: var(--vcs-rip-text) !important;
-          font-family: Georgia, "Times New Roman", serif;
-          font-weight: 500 !important;
+          font-family: inherit;
+          font-weight: 650 !important;
         }
 
         .value-box,
@@ -3079,8 +3191,8 @@ export default function OpenPackClient({
 
         .summary h3 {
           color: var(--vcs-rip-text) !important;
-          font-family: Georgia, "Times New Roman", serif;
-          font-weight: 500 !important;
+          font-family: inherit;
+          font-weight: 650 !important;
         }
 
         .summary-count {
@@ -3093,7 +3205,7 @@ export default function OpenPackClient({
         }
 
         .summary-total-label {
-          color: #8c9288 !important;
+          color: #b9c2b6 !important;
         }
 
         .summary-total-value {
@@ -3101,8 +3213,8 @@ export default function OpenPackClient({
         }
 
         .summary-card-row {
-          border-color: #373c35 !important;
-          background: #232622 !important;
+          border-color: #414a40 !important;
+          background: #232922 !important;
           box-shadow: none !important;
         }
 
@@ -3117,7 +3229,7 @@ export default function OpenPackClient({
 
         .summary-card-sub,
         .summary-card-value-sub {
-          color: #969c91 !important;
+          color: #b8c1b5 !important;
         }
 
         .summary-card-value-main {
@@ -4343,7 +4455,8 @@ export default function OpenPackClient({
                                 />
                               ) : (
                                 <div className="img-missing">
-                                  (No back image)
+                                  <span className="stack-empty-icon" aria-hidden="true">▤</span>
+                          <span>Card back scan unavailable</span>
                                 </div>
                               )}
                             </div>
@@ -4464,7 +4577,8 @@ export default function OpenPackClient({
                         </div>
                       ) : (
                         <div className="stack-placeholder">
-                          (No cards in stack yet)
+                          <span className="stack-empty-icon" aria-hidden="true">▤</span>
+                          <span>No cards in stack yet</span>
                         </div>
                       )}
                     </div>
@@ -4504,30 +4618,30 @@ export default function OpenPackClient({
 
                   <div className="stat-sub">{subline}</div>
 
-                  <div className="kv">
-                    <div>
-                      <b>Type:</b>{" "}
-                      {current?.isInsert
-                        ? `Insert${
-                            currentInsertLabel
-                              ? ` • ${currentInsertLabel}`
-                              : ""
-                          }`
-                        : "Base"}
+                  <div className="kv kv-card-details">
+                    <div className="kv-type-line">
+                      <span className="kv-label">CARD TYPE</span>
+                      <span className="kv-type-value">
+                        {current?.isInsert
+                          ? `Insert${currentInsertLabel ? ` • ${currentInsertLabel}` : ""}`
+                          : "Base"}
+                      </span>
                     </div>
-
-                    {current?.isInsert &&
-                    currentInsertOddsLabel ? (
-                      <div>
-                        <b>Odds:</b> {currentInsertOddsLabel}
+                    {current?.isInsert && currentInsertOddsLabel ? (
+                      <div className="kv-type-line">
+                        <span className="kv-label">PACK ODDS</span>
+                        <span className="kv-type-value">{currentInsertOddsLabel}</span>
                       </div>
                     ) : null}
-
-                    <div>
-                      <b>Value:</b> {money(current?.bookValue)}
-                      &nbsp;•&nbsp;
-                      <b>You own:</b>{" "}
-                      {current?.ownedAfter ?? "—"}
+                    <div className="kv-owned-grid">
+                      <div>
+                        <span className="kv-label">CARD VALUE</span>
+                        <strong>{money(current?.bookValue)}</strong>
+                      </div>
+                      <div>
+                        <span className="kv-label">YOU OWN</span>
+                        <strong>×{current?.ownedAfter ?? "—"}</strong>
+                      </div>
                     </div>
                   </div>
 

@@ -421,6 +421,7 @@ function FocusViewer({
   const row = rows[index];
   const [flipped, setFlipped] = useState(false);
   const [populationOpen, setPopulationOpen] = useState(false);
+  const [detailsOpen, setDetailsOpen] = useState(false);
   const [population, setPopulation] =
     useState<PopulationResponse | null>(null);
   const [populationLoading, setPopulationLoading] = useState(false);
@@ -463,6 +464,7 @@ function FocusViewer({
   useEffect(() => {
     setFlipped(false);
     setPopulationOpen(false);
+    setDetailsOpen(false);
     setPopulation(null);
     setPopulationError("");
     void loadPopulation();
@@ -530,7 +532,7 @@ function FocusViewer({
         touchStart.current = event.touches[0]?.clientX ?? null;
       }}
       onTouchEnd={(event) => {
-        if (touchStart.current == null) return;
+        if (touchStart.current == null || detailsOpen) return;
 
         const end =
           event.changedTouches[0]?.clientX ?? touchStart.current;
@@ -563,10 +565,18 @@ function FocusViewer({
           </strong>
         </div>
 
-        <span className="slabs-focus-page">
-          Page {page}
-          {totalPages > 1 ? ` / ${totalPages}` : ""}
-        </span>
+        <div className="slabs-focus-header-right">
+          <span className="slabs-focus-page">
+            Page {page}
+            {totalPages > 1 ? ` / ${totalPages}` : ""}
+          </span>
+          <button type="button" className="slabs-focus-details-toggle"
+            aria-controls="slabs-focus-details"
+            aria-expanded={detailsOpen}
+            onClick={() => setDetailsOpen(value => !value)}>
+            {detailsOpen ? "Hide details" : "Details"}
+          </button>
+        </div>
       </header>
 
       <div className="slabs-focus-stage">
@@ -617,7 +627,8 @@ function FocusViewer({
           </button>
         </div>
 
-        <aside className="slabs-focus-info">
+        <aside id="slabs-focus-details"
+          className={"slabs-focus-info" + (detailsOpen ? " slabs-focus-info-open" : "")}>
           <span className="slabs-eyebrow">
             VCS {row.grade} ·{" "}
             {row.productSport || "GRADED CARD"}

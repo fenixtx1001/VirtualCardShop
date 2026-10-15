@@ -1,0 +1,300 @@
+/* Grading mail day — deliberately isolated from the shared VcsSlab component.
+   The physical slab, its flip/tilt gesture, and grade-specific effects are unchanged. */
+.vcs-reveal-overlay {
+  position:fixed;inset:0;z-index:3000;overflow-y:auto;
+  display:grid;place-items:center;padding:clamp(9px,2.5vw,24px);
+  color:#f2eee5;color-scheme:dark;
+  background:
+    radial-gradient(circle at 50% 5%,rgba(183,167,122,.10),transparent 41%),
+    rgba(9,12,13,.94);
+  backdrop-filter:blur(10px);
+}
+.vcs-reveal-overlay *{box-sizing:border-box;min-width:0}
+.vcs-reveal-overlay :is(button,a):focus-visible{outline:2px solid #f6dba4;outline-offset:3px}
+.vcs-reveal-layout{width:min(100%,760px);margin:auto;align-self:center}
+.vcs-reveal-shell{
+  position:relative;padding:clamp(16px,2.8vw,25px);
+  border:1px solid #414940;border-radius:15px;
+  background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.04),transparent 40%),#20241f;
+  box-shadow:0 24px 65px rgba(0,0,0,.46);
+}
+.vcs-reveal-shell.is-revealed{
+  background:
+    radial-gradient(circle at 50% 37%,var(--vcs-reveal-glow,rgba(215,187,126,.10)),transparent 40%),
+    #20241f;
+}
+.vcs-reveal-header{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;margin-bottom:17px}
+.vcs-reveal-heading{min-width:0}
+.vcs-reveal-eyebrow{
+  display:block;color:#d7bb7e;letter-spacing:.14em;
+  font-size:10px;line-height:1.5;font-weight:650;
+}
+.vcs-reveal-heading h2{
+  margin:4px 0 3px;color:#f2eee5;
+  font-family:inherit;font-size:clamp(23px,3.6vw,29px);
+  font-weight:660;letter-spacing:-.025em;line-height:1.15;
+}
+.vcs-reveal-subtitle{
+  color:#bbc3b8;font-size:12px;line-height:1.5;font-weight:450;
+  overflow-wrap:anywhere;
+}
+.vcs-reveal-close{
+  flex:none;display:grid;place-items:center;
+  width:42px;height:42px;border-radius:8px;
+  background:#2a3029;border:1px solid #535d50;
+  color:#ebeee7;font-size:23px;font-weight:400;
+  cursor:pointer;line-height:1;
+}
+.vcs-reveal-close:hover{background:#343d34}
+.vcs-mailer-scene{
+  width:100%;min-height:360px;
+  display:grid;place-items:center;
+  overflow:visible;
+  border:1px solid #373d36;border-radius:12px;
+  background:
+    radial-gradient(ellipse at 50% 38%,rgba(216,183,118,.12),transparent 57%),
+    repeating-linear-gradient(16deg,transparent 0 9px,rgba(255,255,255,.004) 9px 10px),
+    #171c19;
+  padding:36px clamp(12px,4vw,46px);
+}
+/* Constructed padded manila envelope with seams, flap, paper grain and a
+   believable shipping/return label. Pure CSS: no network image download. */
+.vcs-bubble-mailer{
+  position:relative;isolation:isolate;
+  width:min(100%,520px);min-height:300px;
+  padding:64px clamp(17px,4vw,31px) 24px;
+  transform:rotate(-1deg);transition:transform .42s cubic-bezier(.2,.7,.3,1);
+  border:2px solid #d4a457;border-radius:14px 17px 18px 14px;
+  background:
+    radial-gradient(ellipse at 24% 22%,rgba(255,253,219,.58),transparent 40%),
+    repeating-linear-gradient(93deg,rgba(109,72,20,.018) 0 1px,transparent 1px 4px),
+    linear-gradient(120deg,#f4cc77,#eec072 46%,#dca552 100%);
+  box-shadow:
+    inset 3px 0 8px #fff3bd77,inset -5px 0 10px #96632544,
+    inset 0 -9px 16px #aa75393f,
+    0 5px 0 #946632,0 22px 36px #0008;
+}
+.vcs-bubble-mailer:before{
+  content:"";position:absolute;inset:10px;border:1px dashed #a9773533;
+  border-radius:8px;pointer-events:none;z-index:1;
+}
+.vcs-bubble-mailer:after{
+  content:"";position:absolute;inset:auto 6px 4px;height:11px;
+  border-radius:10px;background:
+    radial-gradient(circle at 5px 5px,#fff6c358 0 2px,#bb893300 2.5px) 0 0/12px 9px,
+    linear-gradient(#f8df9d5c,#b5813724);
+  opacity:.6;pointer-events:none;z-index:1;
+}
+.vcs-bubble-flap{
+  position:absolute;z-index:0;left:7px;right:7px;top:-12px;height:76px;
+  clip-path:polygon(0 28%,15% 11%,50% 0,85% 11%,100% 28%,99% 100%,1% 100%);
+  background:
+    linear-gradient(175deg,rgba(255,248,203,.72),transparent 36%),
+    linear-gradient(178deg,#fbd98d,#e5b364 68%,#cd974a 100%);
+  border-bottom:2px solid #bb853d;
+  filter:drop-shadow(0 4px 2px #865a2a38);
+}
+.vcs-bubble-label{
+  position:relative;z-index:2;width:100%;
+  padding:14px clamp(13px,3vw,19px) 15px;border-radius:5px;
+  color:#292a21;background:
+    repeating-linear-gradient(0deg,transparent 0 17px,rgba(99,105,84,.028) 17px 18px),
+    linear-gradient(155deg,#fffdf2,#ece9d9);
+  border:1px solid #bbb5a1;
+  box-shadow:0 2px 4px #8a622962,0 0 0 2px #fff9d12c;
+}
+.vcs-bubble-label-head{display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
+.vcs-bubble-label-head strong{
+  display:block;font-size:12px;letter-spacing:.07em;font-weight:750;line-height:1.15;
+}
+.vcs-bubble-label-head span{display:block;margin-top:5px;font-size:9px;letter-spacing:.12em;
+  font-weight:650;color:#706d5d}
+.vcs-bubble-postmark{
+  display:grid;place-items:center;flex:none;width:52px;height:44px;
+  border:2px solid #727869;border-radius:4px;
+  color:#666d5e;text-align:center;font-weight:750;font-size:10px;line-height:1.1;
+  letter-spacing:.04em;transform:rotate(4deg);
+}
+.vcs-bubble-routing{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:9px;
+  margin-top:12px;padding:9px 0;border-top:1px solid #c5c3b4;border-bottom:1px solid #c5c3b4}
+.vcs-bubble-routing span,.vcs-bubble-card-label{
+  color:#686b5d;font-size:9px;letter-spacing:.10em;font-weight:650;
+}
+.vcs-bubble-routing strong{display:block;margin-top:3px;font-size:12px;line-height:1.3;font-weight:720}
+.vcs-bubble-routing small{display:block;margin-top:2px;font-size:10px;color:#7d806f}
+.vcs-bubble-order{align-self:center;font-size:10px;font-weight:650;white-space:nowrap;
+  color:#6d705e;font-variant-numeric:tabular-nums}
+.vcs-bubble-card-label{display:block;margin-top:11px}
+.vcs-bubble-card-name{
+  display:block;margin-top:4px;color:#242820;
+  font-size:clamp(14px,2vw,18px);line-height:1.18;font-weight:700;overflow-wrap:anywhere;
+}
+.vcs-bubble-set{
+  margin-top:5px;color:#656c5c;
+  font-size:11px;line-height:1.35;overflow-wrap:anywhere;
+}
+.vcs-bubble-seal{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin-top:12px;
+}
+.vcs-bubble-seal small{
+  color:#767867;font-size:9px;font-weight:650;letter-spacing:.035em;line-height:1.35;
+}
+.vcs-bubble-open{
+  flex:none;display:inline-flex;gap:7px;align-items:center;justify-content:center;
+  min-height:43px;padding:10px 15px;border-radius:7px;
+  border:1px solid #a9894c;background:#d7bb7e;color:#1e251e;
+  font-size:12px;font-weight:650;line-height:1.15;font-family:inherit;cursor:pointer;
+  box-shadow:0 2px 0 #b19763;
+}
+.vcs-bubble-open:hover:not(:disabled){background:#ead29e}
+.vcs-bubble-open:disabled{opacity:.65;cursor:wait}
+.vcs-bubble-mailer.is-opening{transform:rotate(-.5deg) translateY(-6px) scale(1.012)}
+.vcs-reveal-body{
+  width:100%;display:grid;justify-items:center;gap:16px;
+  animation:vcsSlabRise 900ms cubic-bezier(.2,.9,.2,1) both;
+}
+.vcs-reveal-body .vcsInteractiveSlab{width:min(100%,430px)}
+.vcs-reveal-summary{
+  width:min(100%,430px);padding:15px;border:1px solid #495148;border-radius:10px;
+  background:#242b25;color:#f2eee5;
+}
+.vcs-reveal-summary-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.vcs-reveal-amount-label{
+  display:block;color:#b9c3b8;letter-spacing:.055em;font-size:10px;font-weight:620;
+}
+.vcs-reveal-amount{
+  display:block;color:#f2eee5;margin-top:4px;
+  font-size:24px;line-height:1.1;font-weight:680;
+  letter-spacing:-.02em;font-variant-numeric:tabular-nums;
+}
+.vcs-reveal-certified{display:inline-flex;align-items:center;gap:5px;color:#b6d1af;font-size:11px;font-weight:560}
+.vcs-reveal-certified svg{width:16px;height:16px}
+.vcs-reveal-divider{height:1px;margin:14px 0;background:#495047}
+.vcs-reveal-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.vcs-reveal-links a{
+  min-height:44px;display:flex;align-items:center;justify-content:center;gap:7px;
+  padding:9px 12px;border-radius:7px;text-decoration:none;text-align:center;
+  background:#30372f;border:1px solid #555f52;color:#e9ebdf;
+  font-size:12px;font-weight:610;
+}
+.vcs-reveal-links a:hover{background:#384237}
+.vcs-reveal-done{
+  display:block;width:100%;min-height:44px;margin-top:9px;padding:10px 12px;
+  background:#d7bb7e;border:1px solid #d7bb7e;border-radius:7px;
+  color:#20261f;font-size:12px;font-weight:660;line-height:1.2;font-family:inherit;cursor:pointer;
+}
+.vcs-reveal-done:hover{background:#e8ce92}
+.vcs-reveal-grade-results{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.vcs-reveal-grade-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#30392f;border:1px solid #566554;border-radius:6px;
+  color:#e5ecdf;font-size:11px;font-weight:570;padding:6px 8px;
+}
+.vcs-reveal-grade-chip span{font-size:10px;color:#b9c3b5}
+.vcs-slab-hint{margin-top:12px;text-align:center;color:#bbc3b7;font-size:11px;font-weight:460;line-height:1.45;letter-spacing:0}
+@media(max-width:620px){
+  .vcs-reveal-overlay{padding:8px}
+  .vcs-reveal-shell{padding:14px;border-radius:10px}
+  .vcs-reveal-header{margin-bottom:14px}
+  .vcs-reveal-heading h2{font-size:24px}
+  .vcs-mailer-scene{padding:30px 13px;min-height:325px}
+  .vcs-bubble-mailer{padding:54px 15px 19px;min-height:275px;transform:none}
+  .vcs-bubble-flap{height:63px}
+  .vcs-bubble-label{padding:12px}
+  .vcs-bubble-card-name{font-size:15px}
+  .vcs-bubble-set{font-size:10px}
+  .vcs-bubble-seal{align-items:flex-end}
+  .vcs-reveal-body{gap:12px}
+  .vcs-reveal-summary{padding:12px}
+  .vcs-reveal-links a{padding:10px 5px;font-size:11px}
+}
+@media(max-width:370px){
+  .vcs-bubble-mailer{padding:53px 11px 15px}
+  .vcs-bubble-label{padding:10px}
+  .vcs-bubble-open{padding:9px 11px;font-size:11px;min-height:42px}
+  .vcs-bubble-seal small{font-size:8px}
+  .vcs-reveal-subtitle{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+  .vcs-bubble-mailer,.vcs-reveal-overlay{transition:none}
+  .vcs-reveal-body{animation:none}
+}
+
+
+/* ==========================================================
+   IMMERSIVE MOBILE GRADING REVEAL — FIT WITHOUT SCROLLING
+   Keep the physical slab fully visible and the essential value
+   + existing three navigation controls on the same screen.
+   Short viewports scale the slab down, never crop the slab.
+   ========================================================== */
+@media(max-width:760px){
+  .vcs-reveal-overlay{
+    min-height:100dvh;
+    padding:clamp(7px,1.7dvh,13px);
+    align-items:center;
+  }
+  .vcs-reveal-layout{width:min(100%,520px)}
+  .vcs-reveal-shell{
+    padding:clamp(10px,1.8dvh,15px);
+    border-radius:11px;
+  }
+  .vcs-reveal-header{
+    margin-bottom:clamp(8px,1.2dvh,13px);
+    align-items:center;
+  }
+  .vcs-reveal-heading h2{font-size:clamp(20px,3.1dvh,25px);line-height:1.16}
+  .vcs-reveal-eyebrow{font-size:9px;line-height:1.2}
+  .vcs-reveal-subtitle{font-size:11px;line-height:1.3}
+  .vcs-reveal-close{width:42px;height:42px}
+  .vcs-reveal-body{gap:clamp(6px,1dvh,11px)}
+  .vcs-reveal-body .vcsInteractiveSlab{
+    width:min(88vw,calc(61dvh - 202px),390px) !important;
+    max-width:100% !important;
+    margin-inline:auto;
+  }
+  .vcs-slab-hint{margin-top:6px;font-size:10px;line-height:1.25}
+  .vcs-reveal-summary{padding:11px 12px;border-radius:8px}
+  .vcs-reveal-summary-head{gap:8px}
+  .vcs-reveal-amount{font-size:21px;line-height:1.1;margin-top:2px}
+  .vcs-reveal-amount-label{font-size:9px}
+  .vcs-reveal-certified{font-size:10px}
+  .vcs-reveal-divider{margin:9px 0}
+  .vcs-reveal-links{gap:7px}
+  .vcs-reveal-links a{min-height:44px;padding:8px 5px}
+  .vcs-reveal-done{min-height:44px;margin-top:7px}
+  .vcs-reveal-grade-results{margin-top:8px}
+}
+@media(max-width:760px) and (max-height:630px){
+  .vcs-reveal-overlay{padding:6px}
+  .vcs-reveal-shell{padding:9px}
+  .vcs-reveal-header{margin-bottom:7px}
+  .vcs-reveal-heading h2{font-size:20px;margin-top:2px}
+  .vcs-reveal-body .vcsInteractiveSlab{
+    width:min(86vw,calc(61dvh - 198px),320px) !important;
+  }
+  .vcs-reveal-summary{padding:9px}
+  .vcs-reveal-divider{margin:7px 0}
+}
+/* Do not change the 3D tilt, touch gestures, lighting, gem animations,
+   or the grading result. Width alone controls the render geometry. */
+
+/* Multiple grades retain all result chips without increasing viewport height. */
+@media(max-width:760px){
+  .vcs-reveal-grade-results{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scrollbar-width:thin;
+    padding-bottom:3px;
+  }
+  .vcs-reveal-grade-chip{flex:none;white-space:nowrap}
+}
+/* Extreme landscape/zoom is physically too short for a meaningful full-size
+   slab and three actions; allow safe overflow rather than clipping controls. */
+@media(max-width:760px) and (max-height:480px){
+  .vcs-reveal-overlay{align-items:start;overflow-y:auto}
+  .vcs-reveal-body .vcsInteractiveSlab{
+    width:min(56vw,220px) !important;
+  }
+}
