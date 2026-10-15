@@ -387,7 +387,7 @@ async function main() {
 
   const existingProduct = await prisma.product.findUnique({
     where: { id: bundle.product.id },
-    select: { id: true, released: true },
+    select: { id: true, released: true, packRarityConfig: true },
   });
 
   if (existingProduct?.released && packRarity) {
@@ -444,6 +444,11 @@ async function main() {
     teamData: bundle.review?.teamData ?? "missing",
     missingTeamCount: missingTeams.length,
     rarityGroups: packRarity?.hits.length ?? 0,
+    rarityAction: existingProduct?.packRarityConfig != null
+      ? "preserve-existing-config"
+      : packRarity
+        ? "configure-from-bundle"
+        : "legacy-uniform-base",
   });
   console.table(plan);
 
@@ -476,7 +481,9 @@ async function main() {
       sport: bundle.product.sport ?? null,
       cardsPerPack: bundle.product.cardsPerPack ?? null,
       packsPerBox: bundle.product.packsPerBox ?? null,
-      ...(packRarity
+      // An existing, manually edited rarity configuration is authoritative.
+      // Re-importing a checklist must not silently overwrite admin changes.
+      ...(packRarity && existingProduct?.packRarityConfig == null
         ? { packRarityConfig: packRarity as unknown as Prisma.InputJsonValue }
         : {}),
     },
