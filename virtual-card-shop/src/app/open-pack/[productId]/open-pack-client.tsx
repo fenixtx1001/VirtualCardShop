@@ -1192,7 +1192,7 @@ export default function OpenPackClient({
           height: 100%;
           display: block;
           object-fit: contain;
-          background: white;
+          background: #171d18;
         }
 
         .under-card::after {
