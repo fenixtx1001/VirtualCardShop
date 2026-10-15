@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import { binderHref } from "@/lib/collection/set-view-links";
 import { useEffect, useMemo, useState } from "react";
 
 type SummaryRow = {
@@ -476,6 +477,9 @@ function MiniSetCard({
         </Link>
         <Link className="homePillLink" href={`/checklist/${encodeURIComponent(row.productId)}`}>
           Checklist
+        </Link>
+        <Link className="homePillLink" href={binderHref(row.productId)}>
+          ◫ Binder
         </Link>
       </div>
     </div>
