@@ -7,6 +7,7 @@ import {
   drawPackHits,
   effectiveHitProbabilities,
   parsePackRarityConfig,
+  replaceBaseSubsetOdds,
   validateRarityInventory,
 } from "../src/lib/pack-rarity";
 
@@ -39,6 +40,30 @@ assert.throws(() => validateRarityInventory(config, [
   { id: "Finest_Refractors", isBase: false, oddsPerPack: null,
     subsets: ["Bronze"] },
 ]), /whole-set odds/);
+
+// An admin Base edit must retain historical non-Base rarity groups verbatim.
+const finestStyle = parsePackRarityConfig({
+  version: 1,
+  fallback: { productSetId: "BASE", subset: "Bronze" },
+  hits: [
+    { productSetId: "BASE", subset: "Silver", oddsPerPack: 4 },
+    { productSetId: "BASE", subset: "Gold", oddsPerPack: 24 },
+    { productSetId: "REFRACTORS", subset: "Gold", oddsPerPack: 288 },
+    { productSetId: "EMBOSSED", subset: "Silver", oddsPerPack: 16 },
+  ],
+});
+assert(finestStyle);
+const edited = replaceBaseSubsetOdds(finestStyle, "BASE", "Bronze", [
+  { subset: "Silver", oddsPerPack: 5 },
+  { subset: "Gold", oddsPerPack: 30 },
+]);
+assert.deepEqual(edited.hits.filter(r => r.productSetId !== "BASE"),
+  finestStyle.hits.filter(r => r.productSetId !== "BASE"),
+  "Base odds UI must not change Refractors/Embossed odds");
+assert.deepEqual(edited.hits.filter(r => r.productSetId === "BASE").map(r => r.oddsPerPack),
+  [5, 30], "Base edits must save their actual new odds");
+assert.deepEqual(finestStyle.hits.slice(0, 2).map(r => r.oddsPerPack),
+  [4, 24], "Original fetched config must remain immutable");
 
 assert.throws(() => parsePackRarityConfig({
   version: 1,
@@ -92,5 +117,5 @@ for (const [index, p] of effectiveHitProbabilities(config.hits, 4).entries()) {
 }
 console.log(
   "PASS: opt-out, config integrity, unreachable-card protection, " +
-  "100k-pack rarity rates, capped fairness and EV probability matching"
+  "100k-pack rarity rates, safe Base-only edits, capped fairness and EV probability matching"
 );
