@@ -11,16 +11,16 @@
   "decisions": {
     "requestBaseline": "Exactly retain Set Factory TCDB headers from successful 1997 Metal Universe and 1997 Fleer: User-Agent Mozilla/5.0 (compatible; VCS Set Factory research import); Accept text/html,application/xhtml+xml. Paginate PageIndex=1,2,...",
     "series": "Combine Series 1 (#1–175) and Series 2 (#176–350) into one virtual product. Do not create per-series products.",
-    "tiers": "The complete 350-card collector Base is ONE ProductSet. Bronze (200), Silver (100), Gold (50) are card-level tiers inside it, stored in Card.subset, NOT separate ProductSets. Completion, Binder and prestige must count 350. Tier-specific odds are currently unsupported by the existing uniform Base draw.",
+    "tiers": "One complete 350-card Base ProductSet, grouped by Bronze/Silver/Gold Card.subset (200/100/50). All count toward completion and Prestige. Each tier group can have different pull odds via packRarity, without splitting the checklist.",
     "rarity": "BRZ source #1–100 and #176–275; SIL #101–150 and #276–325; GOLD #151–175 and #326–350. Base cards in the hit pools remain normal unnumbered rookie-capable base cards, NOT parallel artworks.",
     "parallelCoverage": "Preserve collector checklists as individual ProductSets: one 350-card Refractors checklist, one 150-card Embossed checklist, one 150-card Embossed Refractors checklist. Bronze/Silver/Gold tiers are identified on each card inside those ProductSets.",
-    "odds": "Historic tier odds are research metadata only until a generic rarity-aware pack selection capability is implemented, including pack pricing EV. Base Silver 1:4 packs, Gold 1:24; Refractors Bronze 1:12, Silver 1:48, Gold 1:288; Embossed Silver 1:16, Gold 1:96; Embossed Refractors Silver 1:192, Gold 1:1152. Do not approximate these by splitting one collector checklist into separate ProductSets or assigning single invented odds to the combined parallel ProductSets. Keep no non-base pack odds configured until supported. BLOCK RELEASE.",
+    "odds": "Reusable opt-in Product.packRarityConfig: Bronze base is fallback (fills remaining slots); separate 1:N Bernoulli hit rules for Base Silver 1:4, Base Gold 1:24, Refractors BRZ 1:12 SIL 1:48 GOLD 1:288, Embossed SIL 1:16 GOLD 1:96, Embossed Refractors SIL 1:192 GOLD 1:1152. Hits capped fairly at pack slots; EV pricing models effective post-cap hit rates. Null config on existing products keeps their original draws.",
     "numbers": "350 physical unique cards but three printing errors: missing intended #5/#115/#172; different physical cards printed #155/#135/#164 instead. TCDB records distinct cards as #155b/#135b/#164b. Preserve TCDB b keys as distinct internal card numbers; do not fabricate nonexistent print numbers or treat different subjects as duplicates.",
     "rookies": "Four true rookie base cards: #206 Brian Giles BRZ, #249 Bubba Trammell BRZ, #320 Hideki Irabu SIL, #337 Jose Cruz Jr. GOLD. Only these four normal base-tier cards get RC names. Parallels should not receive RC tag.",
     "subsets": "Preserve the printed theme labels only when verified by source; tier and finish are encoded separately in distinct ProductSets, not as player names.",
     "excluded": "Exclude the five Refractor Promotional Sample cards—never inserted in retail/hobby packs. No invented insert sets or variants.",
     "pack": "Four cards per VCS pack and 24 packs per box; six cards per historical Finest hobby pack.",
-    "release": "Unreleased until complete TCDB validation/dry run, rarity-aware pack pulls and corresponding EV priced correctly, 350-base completion/prestige QA, scans, pricing, rookie IDs, and product art approved."
+    "release": "Unreleased draft until live TCDB generation + dry run, Prisma model migration, opt-in rarity smoke tests/TypeScript check, pack odds statistical QA, team and rookie verification, images, pack art and pricing approved."
   },
   "product": {
     "id": "1997_Finest_Baseball",
@@ -42,7 +42,7 @@
     "cardImages": "PENDING",
     "pricing": "PENDING",
     "release": "BLOCKED",
-    "gameplay": "BLOCKED_RARITY_PACK_DRAW"
+    "gameplay": "RARITY_ENGINE_IMPLEMENTED_PENDING_TEST"
   },
   "cardsFile": "1997-finest-baseball.cards.csv",
   "productSets": [
@@ -90,5 +90,59 @@
       "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10902/1997-Finest-Embossed-Refractors",
       "notes": "One 150-card Silver/Gold embossed refractor checklist (Gold die-cut). Tier-specific odds pending."
     }
-  ]
+  ],
+  "packRarity": {
+    "version": 1,
+    "fallback": {
+      "setKey": "base",
+      "subset": "Bronze"
+    },
+    "hits": [
+      {
+        "setKey": "base",
+        "subset": "Silver",
+        "oddsPerPack": 4
+      },
+      {
+        "setKey": "base",
+        "subset": "Gold",
+        "oddsPerPack": 24
+      },
+      {
+        "setKey": "refractors",
+        "subset": "Bronze",
+        "oddsPerPack": 12
+      },
+      {
+        "setKey": "refractors",
+        "subset": "Silver",
+        "oddsPerPack": 48
+      },
+      {
+        "setKey": "refractors",
+        "subset": "Gold",
+        "oddsPerPack": 288
+      },
+      {
+        "setKey": "embossed",
+        "subset": "Silver",
+        "oddsPerPack": 16
+      },
+      {
+        "setKey": "embossed",
+        "subset": "Gold",
+        "oddsPerPack": 96
+      },
+      {
+        "setKey": "embossed-refractors",
+        "subset": "Silver",
+        "oddsPerPack": 192
+      },
+      {
+        "setKey": "embossed-refractors",
+        "subset": "Gold",
+        "oddsPerPack": 1152
+      }
+    ]
+  }
 }
