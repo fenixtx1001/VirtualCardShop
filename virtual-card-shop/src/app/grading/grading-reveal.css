@@ -249,7 +249,7 @@
   .vcs-reveal-close{width:42px;height:42px}
   .vcs-reveal-body{gap:clamp(6px,1dvh,11px)}
   .vcs-reveal-body .vcsInteractiveSlab{
-    width:min(88vw,calc(61dvh - 190px),390px) !important;
+    width:min(88vw,calc(61dvh - 202px),390px) !important;
     max-width:100% !important;
     margin-inline:auto;
   }
@@ -278,3 +278,23 @@
 }
 /* Do not change the 3D tilt, touch gestures, lighting, gem animations,
    or the grading result. Width alone controls the render geometry. */
+
+/* Multiple grades retain all result chips without increasing viewport height. */
+@media(max-width:760px){
+  .vcs-reveal-grade-results{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scrollbar-width:thin;
+    padding-bottom:3px;
+  }
+  .vcs-reveal-grade-chip{flex:none;white-space:nowrap}
+}
+/* Extreme landscape/zoom is physically too short for a meaningful full-size
+   slab and three actions; allow safe overflow rather than clipping controls. */
+@media(max-width:760px) and (max-height:480px){
+  .vcs-reveal-overlay{align-items:start;overflow-y:auto}
+  .vcs-reveal-body .vcsInteractiveSlab{
+    width:min(56vw,220px) !important;
+  }
+}
