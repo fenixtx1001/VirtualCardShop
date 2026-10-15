@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import SetViewToggle from "@/components/collection/SetViewToggle";
 import {
   useEffect,
   useMemo,
@@ -327,9 +328,10 @@ function CardThumb({
 }
 
 export default function ChecklistClient({
-  productId,
+  productId, initialProductSetId = "",
 }: {
   productId: string;
+  initialProductSetId?: string;
 }) {
   const [data, setData] = useState<ChecklistResponse | null>(null);
   const [err, setErr] = useState<string | null>(null);
@@ -338,7 +340,7 @@ export default function ChecklistClient({
   const [refreshing, setRefreshing] = useState(false);
 
   const [selectedProductSetId, setSelectedProductSetId] =
-    useState("");
+    useState(initialProductSetId);
   const [selectedUserId, setSelectedUserId] = useState("");
 
   const [page, setPage] = useState(1);
@@ -522,10 +524,11 @@ export default function ChecklistClient({
 
     const saved = returnState(source);
 
-    const productSetId =
-      typeof saved?.selectedProductSetId === "string"
+    // An explicit URL selection always wins over saved browsing history.
+    const productSetId = initialProductSetId ||
+      (typeof saved?.selectedProductSetId === "string"
         ? saved.selectedProductSetId
-        : "";
+        : "");
 
     const userId =
       typeof saved?.selectedUserId === "string"
@@ -572,7 +575,7 @@ export default function ChecklistClient({
     }).then(() => restoreScroll(source));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [productId]);
+  }, [productId, initialProductSetId]);
 
   useEffect(() => {
     if (searchInput === searchApplied) {
@@ -626,6 +629,9 @@ export default function ChecklistClient({
 
   function onChangeProductSet(nextId: string) {
     setSelectedProductSetId(nextId);
+    const url = new URL(window.location.href);
+    url.searchParams.set("productSetId", nextId);
+    window.history.replaceState(window.history.state, "", url.pathname + url.search);
     setPage(1);
     setJumpTo("");
     setActionErr(null);
@@ -933,6 +939,13 @@ export default function ChecklistClient({
           <Icon kind="arrow" />
         </Link>
       </nav>
+
+      {data && <SetViewToggle
+        productId={productId}
+        productSetId={selectedProductSetId || data.productSetId}
+        active="checklist"
+        compareMode={compareMode}
+      />}
 
       {err ? (
         <div className="checklist-notice is-error" role="alert">
