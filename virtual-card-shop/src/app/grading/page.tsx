@@ -4,6 +4,7 @@
 import Link from "next/link";
 import {
   PointerEvent as ReactPointerEvent,
+  type CSSProperties,
   useEffect,
   useRef,
   useState,
@@ -319,7 +320,9 @@ function VcsMailer({
   // No grade, revealed value, or grading result reaches the envelope.
   const card = order?.card ?? null;
   const cardName = card ? "#" + card.cardNumber + " — " + card.player : "Your graded card";
-  const setName = card ? getSlabSetName(card) : "Certified card return";
+  const setName = card
+    ? [getSetNameFromCard(card), card.productSet?.name].filter(Boolean).join(" · ")
+    : "Certified card return";
   return (
     <div className="vcs-mailer-scene" aria-label="Sealed padded VCS grading return">
       <div className={"vcs-bubble-mailer" + (isOpening ? " is-opening" : "")}>
@@ -809,7 +812,7 @@ function RevealModal({
       <div className="vcs-reveal-layout">
         <section className={"vcs-reveal-shell" + (stage === "revealed" ? " is-revealed" : "")}
           style={stage === "revealed" && revealTone
-            ? { "--vcs-reveal-glow": revealTone.glow } as React.CSSProperties
+            ? { "--vcs-reveal-glow": revealTone.glow } as CSSProperties
             : undefined}>
           <header className="vcs-reveal-header">
             <div className="vcs-reveal-heading">
