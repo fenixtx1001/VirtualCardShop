@@ -425,7 +425,7 @@ def main():
     for key in counts:
         print(f"  {key}: {counts[key]}")
     print("Completion: one 350-card Base across all Bronze/Silver/Gold tiers")
-    print("Tier-specific pack odds pending pack-engine support; draft UNRELEASED")
+    print("Nine tier-specific pack rules configured; runtime validation before release")
     print("Base rookie names: four TCDB-confirmed individual true RCs")
     print("Three 1997 printing errors preserved as distinct b-suffix keys")
     print("Excluded five promotional sample refractors")
