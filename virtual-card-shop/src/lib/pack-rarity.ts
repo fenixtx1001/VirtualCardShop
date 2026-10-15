@@ -56,6 +56,32 @@ export function parsePackRarityConfig(input: unknown): PackRarityConfig | null {
   return { version: 1, fallback, hits };
 }
 
+/** Replace Base-only subset odds while keeping all existing non-Base hit rules. */
+export function replaceBaseSubsetOdds(
+  current: PackRarityConfig | null,
+  baseSetId: string,
+  fallbackSubset: string,
+  baseHits: ReadonlyArray<{ subset: string; oddsPerPack: number }>
+): PackRarityConfig {
+  const otherHits = (current?.hits ?? []).filter(
+    hit => hit.productSetId !== baseSetId
+  );
+  const merged = parsePackRarityConfig({
+    version: 1,
+    fallback: { productSetId: baseSetId, subset: fallbackSubset },
+    hits: [
+      ...baseHits.map(hit => ({
+        productSetId: baseSetId,
+        subset: hit.subset,
+        oddsPerPack: hit.oddsPerPack,
+      })),
+      ...otherHits,
+    ],
+  });
+  if (!merged) throw new Error("Could not build Base subset rarity configuration");
+  return merged;
+}
+
 export type PackHit = { productSetId: string; subset: string; oddsPerPack: number };
 
 /** All hit events (including legacy inserts) are independent until slot cap. */
