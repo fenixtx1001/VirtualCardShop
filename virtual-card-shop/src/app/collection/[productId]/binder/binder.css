@@ -263,3 +263,17 @@ body:has(.binder-shell){background:#171a17}
 /* The physical album cover is an interactive, fully tappable first page. */
 .binder-cover{appearance:none;cursor:pointer;font:inherit;color:inherit;text-align:inherit}
 .binder-cover:hover:not(:disabled){filter:brightness(1.055)}
+
+
+/* Keep landscape card scans rotated within portrait 9-pocket sleeves.
+   The image's unrotated dimensions are inverse to the sleeve proportions. */
+.binder-pocket-contents,.binder-preview-art{position:relative}
+.binder-oriented-scan.is-landscape{
+  position:absolute;left:50%;top:50%;
+  width:140%;height:71.4286%;
+  min-width:0;max-width:none;min-height:0;max-height:none;
+  object-fit:contain;transform:translate(-50%,-50%) rotate(90deg);
+  transform-origin:center center;
+}
+.binder-pocket-focused{border-color:#d7bb7e;box-shadow:inset 0 0 0 1px #d7bb7eaa,0 0 9px #d7bb7e5b}
+.binder-pocket-focused .binder-qty-badge{background:#433d27}
