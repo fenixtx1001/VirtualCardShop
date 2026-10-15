@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { binderHref } from "@/lib/collection/set-view-links";
 import { useEffect, useMemo, useState } from "react";
 
 type CardRow = {
@@ -74,6 +75,9 @@ export default function CollectionSetClient({ productId }: { productId: string }
         </button>
         <Link href={`/checklist/${encodeURIComponent(productId)}`} style={{ textDecoration: "underline", fontWeight: 800 }}>
           Checklist →
+        </Link>
+        <Link href={binderHref(productId)} style={{ textDecoration: "underline", fontWeight: 800 }}>
+          ◫ Binder →
         </Link>
 
         <div style={{ marginLeft: "auto", display: "flex", gap: 8, alignItems: "center" }}>
