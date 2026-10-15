@@ -5,6 +5,7 @@ import { requireUser } from "@/lib/current-user";
 import { repriceProduct } from "@/lib/pack-pricing";
 import {
   parsePackRarityConfig,
+  replaceBaseSubsetOdds,
   validateRarityInventory,
   type PackRarityConfig,
 } from "@/lib/pack-rarity";
@@ -229,12 +230,12 @@ export async function PUT(req: Request, ctx: Ctx) {
           oddsPerPack: value,
         };
       });
-    const config = parsePackRarityConfig({
-      version: 1,
-      fallback: { productSetId: baseSet.id, subset: fallbackSubset },
-      hits: [...baseHits, ...foreignHits],
-    });
-    if (!config) return fail("Invalid rarity configuration");
+    const config = replaceBaseSubsetOdds(
+      existing,
+      baseSet.id,
+      fallbackSubset,
+      baseHits
+    );
     validateRarityInventory(
       config,
       await currentInventory(product.productSets)
