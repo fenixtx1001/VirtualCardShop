@@ -2502,3 +2502,13 @@ body:has(.showcase-shell) {
 }
 
 /* === PRESTIGE CELEBRATION PASS END === */
+
+/* Two lightweight set-view destinations next to each prestige set. */
+.showcase-set-view-links{display:flex;gap:10px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+.showcase-set-view-links .showcase-binder-link{background:#38382c;border:1px solid #7c6d50;border-radius:6px;
+  padding:5px 10px;min-height:37px;color:#e6ce9d}
+@media(max-width:590px){
+  .showcase-bucket-row{grid-template-columns:36px minmax(0,1fr)}
+  .showcase-set-view-links{grid-column:2;justify-content:flex-start;gap:12px}
+  .showcase-set-view-links .showcase-bucket-link{min-height:38px;font-size:11px}
+}
