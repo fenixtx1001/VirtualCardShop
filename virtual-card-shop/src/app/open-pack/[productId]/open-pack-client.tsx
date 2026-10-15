@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import { binderHref } from "@/lib/collection/set-view-links";
 import {
   PointerEvent as ReactPointerEvent,
   useEffect,
@@ -4744,6 +4745,9 @@ export default function OpenPackClient({
                       className="btn"
                     >
                       Checklist
+                    </Link>
+                    <Link className="btn" href={binderHref(productId)}>
+                      ◫ Binder
                     </Link>
                   </div>
                 </div>
