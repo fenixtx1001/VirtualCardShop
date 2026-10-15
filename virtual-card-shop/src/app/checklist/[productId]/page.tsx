@@ -25,12 +25,16 @@ async function getProductId(ctx: Ctx) {
   }
 }
 
-export default async function ChecklistPage(ctx: Ctx) {
+export default async function ChecklistPage(ctx: Ctx & {
+  searchParams?: Promise<{ productSetId?: string }> | { productSetId?: string };
+}) {
   const productId = await getProductId(ctx);
 
   if (!productId) {
     redirect("/collection");
   }
 
-  return <ChecklistClient productId={productId} />;
+  const query = ctx.searchParams ? await ctx.searchParams : {};
+  const productSetId = typeof query.productSetId === "string" ? query.productSetId : "";
+  return <ChecklistClient productId={productId} initialProductSetId={productSetId} />;
 }
