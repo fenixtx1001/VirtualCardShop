@@ -3,6 +3,7 @@
  * Run: npx tsx scripts/test-pack-rarity.ts
  */
 import assert from "node:assert/strict";
+import { canManagePackRarity } from "../src/lib/pack-rarity-admin";
 import {
   drawPackHits,
   effectiveHitProbabilities,
@@ -11,6 +12,14 @@ import {
   validateRarityInventory,
 } from "../src/lib/pack-rarity";
 
+assert.equal(canManagePackRarity("owner@example.com", undefined), false,
+  "Admin access must fail closed without configured allowlist");
+assert.equal(canManagePackRarity(null, "owner@example.com"), false,
+  "Anonymous users cannot edit pack odds");
+assert.equal(canManagePackRarity("collector@example.com", "owner@example.com"), false,
+  "Signed-in collectors cannot change pack odds");
+assert.equal(canManagePackRarity(" OWNER@Example.com ", "other@example.com, owner@example.com"), true,
+  "Named admins can edit pack odds, case-insensitively");
 assert.equal(parsePackRarityConfig(null), null, "Legacy sets remain opt-out");
 const config = parsePackRarityConfig({
   version: 1,
@@ -117,5 +126,5 @@ for (const [index, p] of effectiveHitProbabilities(config.hits, 4).entries()) {
 }
 console.log(
   "PASS: opt-out, config integrity, unreachable-card protection, " +
-  "100k-pack rarity rates, safe Base-only edits, capped fairness and EV probability matching"
+  "100k-pack rarity rates, admin-only authorization, safe Base-only edits, capped fairness and EV probability matching"
 );
