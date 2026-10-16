@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/2089/1991-92-SkyBox",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/2089/1991-92-SkyBox",
+    "insertUrl": "https://www.tcdb.com/Checklist.cfm/sid/25540/1991-92-SkyBox---Blister-Inserts"
+  },
+  "decisions": {
+    "base": "Combine first and second series: 659 numbered Base cards. Equal odds among every Base card; no series-level scarcity.",
+    "rookies": "47 cards per TCDB rookie index; validate against Base identities and mark only indexed RCs.",
+    "inserts": "Six actual Blister Inserts. Original one insert per blister package, not wax pack. VCS pack odds remain null pending documented normalization. Full insert checklist imported but not made artificially common.",
+    "excluded": "Exclude Prototypes from ordinary packs; no invented parallels.",
+    "pack": "Four cards per VCS pack and 24 packs per box.",
+    "release": "DRAFT; verify card images, team names, pricing and insert normalization before release."
+  },
+  "product": {
+    "id": "1991_92_SkyBox_Basketball",
+    "year": 1991,
+    "brand": "SkyBox",
+    "sport": "Basketball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "SOURCE_VERIFIED_AFTER_GENERATION",
+    "rookieData": "SOURCE_VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_STANDARD_QA"
+  },
+  "cardsFile": "1991-92-skybox-basketball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1991_92_SkyBox_Basketball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 659,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2089/1991-92-SkyBox",
+      "notes": "659 Base cards, both historical series. Equal odds."
+    },
+    {
+      "key": "blister-inserts",
+      "id": "1991_92_SkyBox_Basketball_blister_inserts",
+      "name": "Blister Inserts",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 6,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/25540/1991-92-SkyBox---Blister-Inserts",
+      "notes": "Six real package inserts; original one per blister. VCS distribution pending normalization."
+    }
+  ]
+}
