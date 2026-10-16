@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/3235/1984-Topps",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/3235/1984-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/3235/1984-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/3235/1984-Topps"
+  },
+  "decisions": {
+    "series": "Single complete #1-396 base checklist; all numbered subjects equally weighted.",
+    "variants": "Collapse TCDB a/b/c copyright-line variations to one collectible per card number; conflicting card identities block import.",
+    "rookies": "Use TCDB rookie index, deduplicated by printed card number; expected 60 unique true Base RCs; append RC only in Base.",
+    "glossy": "11-card Glossy NFL Stars set originated 1 per 45-card rack pack. With 15-card wax equivalent, VCS models approximately 1:3 packs.",
+    "superPlay": "27 team/play Super Play Game Cards are pack-issued related collectibles; numeric insertion odds not source-verified, so oddsPerPack null. Do not invent rates.",
+    "mailIns": "Exclude 1984 NFL Football Stars Collector's Edition glossy mail-ins.",
+    "pack": "VCS four cards per pack, 24 packs per box; original physical wax had 15 cards.",
+    "release": "Remain unreleased pending checklist/import verification, review of Super Play Game Card distribution, pricing, scans, pack artwork and QA."
+  },
+  "product": {
+    "id": "1984_Topps_Football",
+    "year": 1984,
+    "brand": "Topps",
+    "sport": "Football",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "VERIFIED_AFTER_GENERATION",
+    "rookieData": "VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_STANDARD_QA"
+  },
+  "cardsFile": "1984-topps-football.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1984_Topps_Football_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 396,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3235/1984-Topps",
+      "notes": "One 396-card checklist; copyright printing variations collapsed."
+    },
+    {
+      "key": "glossy-nfl-stars",
+      "id": "1984_Topps_Football_glossy_nfl_stars",
+      "name": "Glossy NFL Stars",
+      "kind": "INSERT",
+      "oddsPerPack": 3,
+      "expectedCards": 11,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/33400/1984-Topps-Glossy-NFL-Stars",
+      "notes": "1 per 45-card rack; 15-card wax equivalent approximately 1:3."
+    },
+    {
+      "key": "super-play-game-cards",
+      "id": "1984_Topps_Football_super_play_game_cards",
+      "name": "Super Play Game Cards",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 27,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/33401/1984-Topps-Super-Play-Game-Cards",
+      "notes": "TCDB recognizes 27 pack-related game cards; no documented compatible pack odds. Draft only; release requires distribution QA."
+    }
+  ]
+}
