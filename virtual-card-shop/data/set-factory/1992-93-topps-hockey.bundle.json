@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/4919/1992-93-Topps",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/4919/1992-93-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/4919/1992-93-Topps",
+    "goldUrl": "https://www.tcdb.com/Checklist.cfm/sid/48461/1992-93-Topps-Gold"
+  },
+  "decisions": {
+    "series": "One series 1-529, one base completion checklist.",
+    "trueRookies": "Only the 10 card numbers verified in TCDB rookie index receive RC on Base.",
+    "gold": "Distinct 529-card Gold checklist. Gold #525-528 are different players replacing four Base checklists. NEVER derive Gold from Base.",
+    "goldOdds": "1 Gold card per ordinary wax pack; 1:1 ProductSet odds.",
+    "factoryOnly": "Base and Gold #529 are late factory-only cards. Included for checklist completion, but current VCS set-level odds cannot exclude #529 from pack pools. Release BLOCKED until per-card pack eligibility exclusion is implemented and tested.",
+    "subsets": "Clean UER and other notes from player names. Keep printed subset abbreviations as subset metadata.",
+    "packs": "VCS four cards per pack, 24 packs per box. Original standard physical pack held 14 base plus one Gold.",
+    "release": "Unreleased until #529 factory-only handling, images, pricing, pack artwork and QA complete."
+  },
+  "product": {
+    "id": "1992_93_Topps_Hockey",
+    "year": 1992,
+    "brand": "Topps",
+    "sport": "Hockey",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING_SOURCE_VALIDATION",
+    "rookieData": "VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_FACTORY_ONLY_529"
+  },
+  "cardsFile": "1992-93-topps-hockey.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1992_93_Topps_Hockey_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 529,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4919/1992-93-Topps",
+      "notes": "529 complete Base cards; #529 factory-only, must be excluded from wax pack draws before release."
+    },
+    {
+      "key": "gold",
+      "id": "1992_93_Topps_Hockey_gold",
+      "name": "Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 529,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/48461/1992-93-Topps-Gold",
+      "notes": "1 Gold per wax pack. Actual separate checklist; #525–528 feature replacement players. #529 factory-only."
+    }
+  ]
+}
