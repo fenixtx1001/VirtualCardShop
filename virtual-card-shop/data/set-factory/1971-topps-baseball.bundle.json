@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/71/1971-Topps",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/71/1971-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/71/1971-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/71/1971-Topps"
+  },
+  "decisions": {
+    "base": "All seven 1971 physical series combined into one 752-card VCS Base set. All Base card numbers equally weighted; no high-number boost or special scarcity.",
+    "rookies": "89 unique Base rookies as indexed by TCDB. Only true RCs receive suffix RC; subset Rookie Stars alone is not sufficient.",
+    "errors": "One collectible per printed card number, not error or copyright variations; TCDB notes removed from player.",
+    "coins": "153 numbered pack-issued metal coins. Distinct ProductSet; no per-player rarity.",
+    "scratchOffs": "24 unnumbered scratch-off inserts; use stable NNO-01 through NNO-24 identifiers based on source checklist order.",
+    "odds": "No defensible universal historic pack-level odds established for coins and scratch-offs across seven physical series. Keep set odds null pending verification; do not fabricate odds.",
+    "excluded": "Exclude All-Star Rookies proofs and Pre-Production Proofs.",
+    "packs": "VCS four cards per pack; 24 packs per box. Original 1971 physical wax packs included eight cards.",
+    "release": "Remain unreleased until generator passes source validation, insertion rates confirmed, image/pack art and pricing approved."
+  },
+  "product": {
+    "id": "1971_Topps_Baseball",
+    "year": 1971,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "rookieData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1971-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1971_Topps_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 752,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/71/1971-Topps",
+      "notes": "Seven series combined, Base #1-752 equally likely."
+    },
+    {
+      "key": "coins",
+      "id": "1971_Topps_Baseball_coins",
+      "name": "Coins",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 153,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10106/1971-Topps-Coins",
+      "notes": "153 metal coins; verify pack frequency before enabling pool."
+    },
+    {
+      "key": "scratch-offs",
+      "id": "1971_Topps_Baseball_scratch_offs",
+      "name": "Scratch-Offs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 24,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10107/1971-Topps-Scratch-Offs",
+      "notes": "24 unnumbered inserts, stable NNO identities assigned by checklist order; verify odds before release."
+    }
+  ]
+}
