@@ -121,7 +121,9 @@ def main():
                 subset=m.group(1).upper()
                 name=name[:m.start()].strip()
             if key=="base" and str(n) in rookie:name+=" RC"
-            if n==529:variant=(variant+"; " if variant else "")+"Factory Set Only"
+            # #529 was historically factory-set-only but is intentionally
+            # pack-eligible in VCS at the same per-card odds as its set peers.
+            # Do not mark it as a separate rarity or exclude it from draws.
             rows.append((key,str(n),name,team,subset,variant))
     if len(rows)!=1058 or len({(r[0],r[1]) for r in rows})!=1058:
         raise SystemExit("Invalid total or duplicate keys; NO CSV written")
@@ -132,7 +134,7 @@ def main():
         writer.writerows(rows)
     print(f"GENERATED: {len(rows)} cards; Base 529; Gold 529; true RCs 10")
     print(f"CSV: {OUT}")
-    print("UNRELEASED: #529 factory-only pack exclusion must be implemented before release.")
+    print("UNRELEASED: #529 Lindros is intentionally eligible for normal VCS pack pulls.")
 
 def self_test():
     assert clean("Brett Hull UER Home: location incorrect")=="Brett Hull"
