@@ -295,16 +295,21 @@ def parse_autographs(
     for number, (name, team, raw) in sorted(
         cards.items(), key=lambda item: int(item[0][2:])
     ):
-        foil_match = re.search(r"\b(BLUE|SIL|SILVER|GOLD)\b", raw, re.IGNORECASE)
-        series_match = re.search(r"\bSeries (One|Two)\b", raw, re.IGNORECASE)
-        if not foil_match or not series_match:
+        # TCDB sometimes joins the foil and series without whitespace:
+        # "BLUESeries One", "SILSeries Two", etc.
+        metadata = re.search(
+            r"\b(BLUE|SILVER|SIL|GOLD)\s*Series\s*(One|Two)\b",
+            raw,
+            re.IGNORECASE,
+        )
+        if not metadata:
             raise SystemExit(
                 f"Certified Autograph #{number} missing foil/series metadata: {raw!r}"
             )
-        foil = foil_match.group(1).upper()
+        foil = metadata.group(1).upper()
         if foil == "SIL":
             foil = "SILVER"
-        series = f"Series {series_match.group(1).title()}"
+        series = f"Series {metadata.group(2).title()}"
         observed[(series, foil)] += 1
 
         if not team:
@@ -374,6 +379,12 @@ def self_test() -> None:
         raise SystemExit("SN99 normalization regression")
     if clean_subject("Ruben Mateo AU, BLUE Series One") != "Ruben Mateo":
         raise SystemExit("Autograph normalization regression")
+    if not re.search(
+        r"\\b(BLUE|SILVER|SIL|GOLD)\\s*Series\\s*(One|Two)\\b",
+        "Ruben Mateo AU, BLUESeries One",
+        re.IGNORECASE,
+    ):
+        raise SystemExit("Joined autograph foil/series parser regression")
     if sum(AUTO_EXPECTED.values()) != 70:
         raise SystemExit("Expected 70 Certified Autographs")
     if sum(v for (series, foil), v in AUTO_EXPECTED.items() if foil == "BLUE") != 40:
