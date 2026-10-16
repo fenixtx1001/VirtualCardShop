@@ -97,7 +97,16 @@ def main():
     issues=[]
     for n in range(1,530):
         bname,bteam,_=base[n];gname,gteam,_=gold[n]
-        if n not in range(525,529) and (bname,bteam)!=(gname,gteam):
+        # TCDB uses Jimmy on Base #100 and Jim on Gold #100.
+        # Both cards identify the same Chicago Blackhawks goaltender.
+        approved_waite = (
+            n == 100 and bname == "Jimmy Waite" and gname == "Jim Waite"
+            and bteam == gteam == "Chicago Blackhawks"
+        )
+        if approved_waite:
+            print("Gold #100: Jim Waite -> Jimmy Waite (approved name alias)")
+            gold[n] = (bname, bteam, gold[n][2])
+        elif n not in range(525,529) and (bname,bteam)!=(gname,gteam):
             issues.append(f"#{n}: Base {bname!r}/{bteam!r} vs Gold {gname!r}/{gteam!r}")
         if n in range(525,529) and bname==gname:
             issues.append(f"#{n}: expected Gold replacement subject, got same name")
