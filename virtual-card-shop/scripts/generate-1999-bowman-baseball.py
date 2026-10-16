@@ -257,7 +257,13 @@ def verify_parallel(
             and base_name == "C.C. Sabathia"
             and team == base_team
         )
-        if name != base_name and not (approved_alias or approved_hairston or approved_sabathia):
+        approved_pena = (
+            number == "401"
+            and name == "Wily Mo Pena"
+            and base_name == "Willi Mo Pena"
+            and team == base_team
+        )
+        if name != base_name and not (approved_alias or approved_hairston or approved_sabathia or approved_pena):
             raise SystemExit(
                 f"{label} #{number}: subject {name!r} does not match Base {base_name!r}"
             )
@@ -267,6 +273,8 @@ def verify_parallel(
             print(f"{label} #299: Jerry Hairston Jr. -> Jerry Hairston (verified suffix)")
         if approved_sabathia:
             print(f"{label} #344: CC Sabathia -> C.C. Sabathia (punctuation)")
+        if approved_pena:
+            print(f"{label} #401: Wily Mo Pena -> Willi Mo Pena (source spelling)")
         if team != base_team:
             team_updates.append((number, name, team, base_team))
         cards[number] = (base_name, base_team, raw)
