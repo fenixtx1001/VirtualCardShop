@@ -225,68 +225,58 @@ def fetch_rookies(base: dict[str, tuple[str, str, str]]) -> set[str]:
     return set(rookies)
 
 
+# Strict, card-specific source spelling aliases. The canonical VCS name is
+# always the Base name. Every alias still requires matching card number/team.
+PARALLEL_ALIASES = {
+    "148": ("Russell Branyan", "Russ Branyan"),
+    "299": ("Jerry Hairston Jr.", "Jerry Hairston"),
+    "344": ("CC Sabathia", "C.C. Sabathia"),
+    "401": ("Wily Mo Pena", "Willi Mo Pena"),
+    "424": ("Chris MaGruder", "Chris Magruder"),
+}
+
+
 def verify_parallel(
     label: str,
     cards: dict[str, tuple[str, str, str]],
     base: dict[str, tuple[str, str, str]],
+    issues: list[str],
 ) -> dict[str, tuple[str, str, str]]:
     if set(cards) != set(base):
-        raise SystemExit(f"{label}: parallel numbering does not match Base")
+        missing = sorted(set(base) - set(cards), key=int)
+        extra = sorted(set(cards) - set(base), key=int)
+        issues.append(
+            f"{label}: numbering mismatch; missing={missing[:20]}, extra={extra[:20]}"
+        )
+        return cards
     team_updates = []
     for number, (name, team, raw) in list(cards.items()):
         base_name, base_team, _ = base[number]
-        # TCDB lists Gold #148 as Russell Branyan, while the base card
-        # identifies the same Cleveland Indians player as Russ Branyan.
-        # Normalize only this verified identity; never broadly rewrite names.
-        approved_alias = (
-            number == "148"
-            and name == "Russell Branyan"
-            and base_name == "Russ Branyan"
-            and team == base_team == "Cleveland Indians"
-        )
-        # Gold #299 spells out the suffix; Base #299 omits it.
-        approved_hairston = (
-            number == "299"
-            and name == "Jerry Hairston Jr."
-            and base_name == "Jerry Hairston"
+        alias = (
+            PARALLEL_ALIASES.get(number) == (name, base_name)
             and team == base_team
         )
-        approved_sabathia = (
-            number == "344"
-            and name == "CC Sabathia"
-            and base_name == "C.C. Sabathia"
-            and team == base_team
-        )
-        approved_pena = (
-            number == "401"
-            and name == "Wily Mo Pena"
-            and base_name == "Willi Mo Pena"
-            and team == base_team
-        )
-        if name != base_name and not (approved_alias or approved_hairston or approved_sabathia or approved_pena):
-            raise SystemExit(
-                f"{label} #{number}: subject {name!r} does not match Base {base_name!r}"
+        if name != base_name and not alias:
+            issues.append(
+                f"{label} #{number}: subject {name!r} ({team!r}) "
+                f"does not match Base {base_name!r} ({base_team!r})"
             )
-        if approved_alias:
-            print(f"{label} #148: Russell Branyan -> Russ Branyan (verified alias)")
-        if approved_hairston:
-            print(f"{label} #299: Jerry Hairston Jr. -> Jerry Hairston (verified suffix)")
-        if approved_sabathia:
-            print(f"{label} #344: CC Sabathia -> C.C. Sabathia (punctuation)")
-        if approved_pena:
-            print(f"{label} #401: Wily Mo Pena -> Willi Mo Pena (source spelling)")
+            continue
+        if alias:
+            print(f"{label} #{number}: {name} -> {base_name} (approved alias)")
         if team != base_team:
             team_updates.append((number, name, team, base_team))
         cards[number] = (base_name, base_team, raw)
     if len(team_updates) > 25:
-        raise SystemExit(
-            f"{label}: {len(team_updates)} team mismatches require manual source review"
+        issues.append(
+            f"{label}: {len(team_updates)} team mismatches require manual review"
         )
     for number, name, old, new in team_updates:
         print(f"{label} #{number} {name}: team {old!r} -> Base {new!r}")
     print(
-        f"{label}: all 440 subjects verified; "
-        f"{len(team_updates)} team fields normalized to Base",
+        f"{label}: verified {len(cards)} source subjects; "
+        f"{len(team_updates)} team discrepancies; "
+        f"{len(issues)} cumulative issues",
         flush=True,
     )
     return cards
@@ -407,10 +397,19 @@ def main() -> None:
     verify_base_numbering(base)
     rookies = fetch_rookies(base)
 
-    gold = verify_parallel("gold", source_cards["gold"], base)
+    parallel_issues: list[str] = []
+    gold = verify_parallel("gold", source_cards["gold"], base, parallel_issues)
     international = verify_parallel(
-        "international", source_cards["international"], base
+        "international", source_cards["international"], base, parallel_issues
     )
+    if parallel_issues:
+        print("=== ALL PARALLEL SOURCE DISCREPANCIES ===", flush=True)
+        for issue in parallel_issues:
+            print("  " + issue, flush=True)
+        raise SystemExit(
+            f"{len(parallel_issues)} parallel discrepancies need review; "
+            "NO CSV written"
+        )
 
     auto_groups = parse_autographs(source_cards["certified-autographs"])
 
