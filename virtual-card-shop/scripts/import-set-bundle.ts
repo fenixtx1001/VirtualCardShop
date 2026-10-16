@@ -6,6 +6,7 @@ import path from "node:path";
 import { Gradeability, Prisma } from "@prisma/client";
 import { parse } from "csv-parse/sync";
 import { prisma } from "../src/lib/prisma";
+import { parsePackRarityConfig, validateRarityInventory } from "../src/lib/pack-rarity";
 
 type ProductSetKind = "BASE" | "INSERT" | "PARALLEL";
 
@@ -76,6 +77,11 @@ type SetBundle = {
   };
   cardsFile: string;
   productSets: BundleProductSet[];
+  packRarity?: {
+    version: 1;
+    fallback: { setKey: string; subset: string };
+    hits: Array<{ setKey: string; subset: string; oddsPerPack: number }>;
+  };
 };
 
 function requiredText(value: unknown, label: string) {
@@ -290,6 +296,51 @@ async function main() {
   const csv = await loadCsvCards(bundlePath, bundle);
   const cardsByKey = resolveProductSetCards(bundle, csv.bySetKey);
 
+  // Optional versioned rarity data is declared in Set Factory by local
+  // setKey, but persisted by stable ProductSet ID. A missing config leaves
+  // every existing product and importer behavior entirely unchanged.
+  const resolveKey = (key: string): string => {
+    const match = bundle.productSets.find((set) => set.key === key);
+    if (!match) throw new Error("Unknown pack-rarity setKey: " + key);
+    return match.id;
+  };
+  const packRarity = bundle.packRarity
+    ? parsePackRarityConfig({
+        version: bundle.packRarity.version,
+        fallback: {
+          productSetId: resolveKey(bundle.packRarity.fallback.setKey),
+          subset: bundle.packRarity.fallback.subset,
+        },
+        hits: bundle.packRarity.hits.map((r) => ({
+          productSetId: resolveKey(r.setKey),
+          subset: r.subset,
+          oddsPerPack: r.oddsPerPack,
+        })),
+      })
+    : null;
+  if (packRarity) {
+    validateRarityInventory(
+      packRarity,
+      bundle.productSets.map((ps) => ({
+        id: ps.id,
+        isBase: ps.kind === "BASE",
+        oddsPerPack: ps.oddsPerPack ?? null,
+        subsets: (cardsByKey.get(ps.key) ?? []).map(card => card.subset),
+      }))
+    );
+    const slots = bundle.product.cardsPerPack ?? 15;
+    if (!Number.isSafeInteger(slots) || slots < 1) {
+      throw new Error("Pack rarity requires a positive cardsPerPack");
+    }
+    // Prevent a configured hit group from coexisting with the deprecated
+    // whole-set draw on that SAME ProductSet.
+    console.log("[set-bundle] optional pack rarity", {
+      fallback: packRarity.fallback,
+      hitGroups: packRarity.hits.length,
+      slots,
+    });
+  }
+
   const isBaseball = bundle.product.sport?.trim().toLowerCase() === "baseball";
   const missingTeams: string[] = [];
 
@@ -336,8 +387,12 @@ async function main() {
 
   const existingProduct = await prisma.product.findUnique({
     where: { id: bundle.product.id },
-    select: { id: true, released: true },
+    select: { id: true, released: true, packRarityConfig: true },
   });
+
+  if (existingProduct?.released && packRarity) {
+    throw new Error("Refusing to change pack rarity of an already released product");
+  }
 
   const plan = [];
   let totalCards = 0;
@@ -388,6 +443,12 @@ async function main() {
     updatedCards,
     teamData: bundle.review?.teamData ?? "missing",
     missingTeamCount: missingTeams.length,
+    rarityGroups: packRarity?.hits.length ?? 0,
+    rarityAction: existingProduct?.packRarityConfig != null
+      ? "preserve-existing-config"
+      : packRarity
+        ? "configure-from-bundle"
+        : "legacy-uniform-base",
   });
   console.table(plan);
 
@@ -407,6 +468,9 @@ async function main() {
       packsPerBox: bundle.product.packsPerBox ?? null,
       packPriceCents: bundle.product.packPriceCents ?? 0,
       autoPackPricing: bundle.product.autoPackPricing ?? true,
+      ...(packRarity
+        ? { packRarityConfig: packRarity as unknown as Prisma.InputJsonValue }
+        : {}),
       packImageUrl: bundle.product.packImageUrl ?? null,
       boxImageUrl: bundle.product.boxImageUrl ?? null,
       released: false,
@@ -417,6 +481,11 @@ async function main() {
       sport: bundle.product.sport ?? null,
       cardsPerPack: bundle.product.cardsPerPack ?? null,
       packsPerBox: bundle.product.packsPerBox ?? null,
+      // An existing, manually edited rarity configuration is authoritative.
+      // Re-importing a checklist must not silently overwrite admin changes.
+      ...(packRarity && existingProduct?.packRarityConfig == null
+        ? { packRarityConfig: packRarity as unknown as Prisma.InputJsonValue }
+        : {}),
     },
   });
 

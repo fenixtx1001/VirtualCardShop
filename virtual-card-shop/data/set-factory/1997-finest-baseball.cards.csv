@@ -1,0 +1,1001 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Barry Bonds,San Francisco Giants,Bronze,
+base,2,Ryne Sandberg,Chicago Cubs,Bronze,
+base,3,Brian Jordan,St. Louis Cardinals,Bronze,
+base,4,Rocky Coppinger,Baltimore Orioles,Bronze,
+base,6,Al Martin,Pittsburgh Pirates,Bronze,
+base,7,Charles Nagy,Cleveland Indians,Bronze,
+base,8,Otis Nixon,Toronto Blue Jays,Bronze,
+base,9,Mark Johnson,Pittsburgh Pirates,Bronze,
+base,10,Jeff Bagwell,Houston Astros,Bronze,
+base,11,Ken Hill,Texas Rangers,Bronze,
+base,12,Willie Adams,Oakland Athletics,Bronze,
+base,13,Raul Mondesi,Los Angeles Dodgers,Bronze,
+base,14,Reggie Sanders,Cincinnati Reds,Bronze,
+base,15,Derek Jeter,New York Yankees,Bronze,
+base,16,Jermaine Dye,Atlanta Braves,Bronze,
+base,17,Edgar Renteria,Florida Marlins,Bronze,
+base,18,Travis Fryman,Detroit Tigers,Bronze,
+base,19,Roberto Hernandez,Chicago White Sox,Bronze,
+base,20,Sammy Sosa,Chicago Cubs,Bronze,
+base,21,Garret Anderson,California Angels,Bronze,
+base,22,Rey Ordonez,New York Mets,Bronze,
+base,23,Glenallen Hill,San Francisco Giants,Bronze,
+base,24,Dave Nilsson,Milwaukee Brewers,Bronze,
+base,25,Kevin Brown,Florida Marlins,Bronze,
+base,26,Brian McRae,Chicago Cubs,Bronze,
+base,27,Joey Hamilton,San Diego Padres,Bronze,
+base,28,Jamey Wright,Colorado Rockies,Bronze,
+base,29,Frank Thomas,Chicago White Sox,Bronze,
+base,30,Mark McGwire,Oakland Athletics,Bronze,
+base,31,Ramon Martinez,Los Angeles Dodgers,Bronze,
+base,32,Jaime Bluma,Kansas City Royals,Bronze,
+base,33,Frank Rodriguez,Minnesota Twins,Bronze,
+base,34,Andy Benes,St. Louis Cardinals,Bronze,
+base,35,Jay Buhner,Seattle Mariners,Bronze,
+base,36,Justin Thompson,Detroit Tigers,Bronze,
+base,37,Darin Erstad,California Angels,Bronze,
+base,38,Gregg Jefferies,Philadelphia Phillies,Bronze,
+base,39,Jeff D'Amico,Milwaukee Brewers,Bronze,
+base,40,Pedro Martinez,Montreal Expos,Bronze,
+base,41,Nomar Garciaparra,Boston Red Sox,Bronze,
+base,42,Jose Valentin,Milwaukee Brewers,Bronze,
+base,43,Pat Hentgen,Toronto Blue Jays,Bronze,
+base,44,Will Clark,Texas Rangers,Bronze,
+base,45,Bernie Williams,New York Yankees,Bronze,
+base,46,Luis Castillo,Florida Marlins,Bronze,
+base,47,B.J. Surhoff,Baltimore Orioles,Bronze,
+base,48,Greg Gagne,Los Angeles Dodgers,Bronze,
+base,49,Pete Schourek,Cincinnati Reds,Bronze,
+base,50,Mike Piazza,Los Angeles Dodgers,Bronze,
+base,51,Dwight Gooden,New York Yankees,Bronze,
+base,52,Javy Lopez,Atlanta Braves,Bronze,
+base,53,Chuck Finley,California Angels,Bronze,
+base,54,James Baldwin,Chicago White Sox,Bronze,
+base,55,Jack McDowell,Cleveland Indians,Bronze,
+base,56,Royce Clayton,St. Louis Cardinals,Bronze,
+base,57,Carlos Delgado,Toronto Blue Jays,Bronze,
+base,58,Neifi Perez,Colorado Rockies,Bronze,
+base,59,Eddie Taubensee,Cincinnati Reds,Bronze,
+base,60,Rafael Palmeiro,Baltimore Orioles,Bronze,
+base,61,Marty Cordova,Minnesota Twins,Bronze,
+base,62,Wade Boggs,New York Yankees,Bronze,
+base,63,Rickey Henderson,San Diego Padres,Bronze,
+base,64,Mike Hampton,Houston Astros,Bronze,
+base,65,Troy Percival,California Angels,Bronze,
+base,66,Barry Larkin,Cincinnati Reds,Bronze,
+base,67,Jermaine Allensworth,Pittsburgh Pirates,Bronze,
+base,68,Mark Clark,New York Mets,Bronze,
+base,69,Mike Lansing,Montreal Expos,Bronze,
+base,70,Mark Grudzielanek,Montreal Expos,Bronze,
+base,71,Todd Stottlemyre,St. Louis Cardinals,Bronze,
+base,72,Juan Guzman,Toronto Blue Jays,Bronze,
+base,73,John Burkett,Texas Rangers,Bronze,
+base,74,Wilson Alvarez,Chicago White Sox,Bronze,
+base,75,Ellis Burks,Colorado Rockies,Bronze,
+base,76,Bobby Higginson,Detroit Tigers,Bronze,
+base,77,Ricky Bottalico,Philadelphia Phillies,Bronze,
+base,78,Omar Vizquel,Cleveland Indians,Bronze,
+base,79,Paul Sorrento,Seattle Mariners,Bronze,
+base,80,Denny Neagle,Atlanta Braves,Bronze,
+base,81,Roger Pavlik,Texas Rangers,Bronze,
+base,82,Mike Lieberthal,Philadelphia Phillies,Bronze,
+base,83,Devon White,Florida Marlins,Bronze,
+base,84,John Olerud,Toronto Blue Jays,Bronze,
+base,85,Kevin Appier,Kansas City Royals,Bronze,
+base,86,Joe Girardi,New York Yankees,Bronze,
+base,87,Paul O'Neill,New York Yankees,Bronze,
+base,88,Mike Sweeney,Kansas City Royals,Bronze,
+base,89,John Smiley,Cincinnati Reds,Bronze,
+base,90,Ivan Rodriguez,Texas Rangers,Bronze,
+base,91,Randy Myers,Baltimore Orioles,Bronze,
+base,92,Bip Roberts,Kansas City Royals,Bronze,
+base,93,Jose Mesa,Cleveland Indians,Bronze,
+base,94,Paul Wilson,New York Mets,Bronze,
+base,95,Mike Mussina,Baltimore Orioles,Bronze,
+base,96,Ben McDonald,Milwaukee Brewers,Bronze,
+base,97,John Mabry,St. Louis Cardinals,Bronze,
+base,98,Tom Goodwin,Kansas City Royals,Bronze,
+base,99,Edgar Martinez,Seattle Mariners,Bronze,
+base,100,Andruw Jones,Atlanta Braves,Bronze,
+base,101,Jose Canseco,Boston Red Sox,Silver,
+base,102,Billy Wagner,Houston Astros,Silver,
+base,103,Dante Bichette,Colorado Rockies,Silver,
+base,104,Curt Schilling,Philadelphia Phillies,Silver,
+base,105,Dean Palmer,Texas Rangers,Silver,
+base,106,Larry Walker,Colorado Rockies,Silver,
+base,107,Bernie Williams,New York Yankees,Silver,
+base,108,Chipper Jones,Atlanta Braves,Silver,
+base,109,Gary Sheffield,Florida Marlins,Silver,
+base,110,Randy Johnson,Seattle Mariners,Silver,
+base,111,Roberto Alomar,Baltimore Orioles,Silver,
+base,112,Todd Walker,Minnesota Twins,Silver,
+base,113,Sandy Alomar,Cleveland Indians,Silver,
+base,114,John Jaha,Milwaukee Brewers,Silver,
+base,116,Ryan Klesko,Atlanta Braves,Silver,
+base,117,Mariano Rivera,New York Yankees,Silver,
+base,118,Jason Giambi,Oakland Athletics,Silver,
+base,119,Lance Johnson,New York Mets,Silver,
+base,120,Robin Ventura,Chicago White Sox,Silver,
+base,121,Todd Hollandsworth,Los Angeles Dodgers,Silver,
+base,122,Johnny Damon,Kansas City Royals,Silver,
+base,123,William Van Landingham,San Francisco Giants,Silver,
+base,124,Jason Kendall,Pittsburgh Pirates,Silver,
+base,125,Vinny Castilla,Colorado Rockies,Silver,
+base,126,Harold Baines,Chicago White Sox,Silver,
+base,127,Joe Carter,Toronto Blue Jays,Silver,
+base,128,Craig Biggio,Houston Astros,Silver,
+base,129,Tony Clark,Detroit Tigers,Silver,
+base,130,Ron Gant,St. Louis Cardinals,Silver,
+base,131,David Segui,Montreal Expos,Silver,
+base,132,Steve Trachsel,Chicago Cubs,Silver,
+base,133,Scott Rolen,Philadelphia Phillies,Silver,
+base,134,Mike Stanley,Boston Red Sox,Silver,
+base,135,Cal Ripken,Baltimore Orioles,Silver,
+base,135b,Ken Caminiti,San Diego Padres,Silver,
+base,136,John Smoltz,Atlanta Braves,Silver,
+base,137,Bobby Jones,New York Mets,Silver,
+base,138,Manny Ramirez,Cleveland Indians,Silver,
+base,139,Ken Griffey Jr.,Seattle Mariners,Silver,
+base,140,Chuck Knoblauch,Minnesota Twins,Silver,
+base,141,Mark Grace,Chicago Cubs,Silver,
+base,142,Chris Snopek,Chicago White Sox,Silver,
+base,143,Hideo Nomo,Los Angeles Dodgers,Silver,
+base,144,Tim Salmon,California Angels,Silver,
+base,145,David Cone,New York Yankees,Silver,
+base,146,Eric Young,Colorado Rockies,Silver,
+base,147,Jeff Brantley,Cincinnati Reds,Silver,
+base,148,Jim Thome,Cleveland Indians,Silver,
+base,149,Trevor Hoffman,San Diego Padres,Silver,
+base,150,Juan Gonzalez,Texas Rangers,Silver,
+base,151,Mike Piazza,Los Angeles Dodgers,Gold,
+base,152,Ivan Rodriguez,Texas Rangers,Gold,
+base,153,Mo Vaughn,Boston Red Sox,Gold,
+base,154,Brady Anderson,Baltimore Orioles,Gold,
+base,155,Mark McGwire,Oakland Athletics,Gold,
+base,155b,Dante Bichette,Colorado Rockies,Bronze,
+base,156,Rafael Palmeiro,Baltimore Orioles,Gold,
+base,157,Barry Larkin,Cincinnati Reds,Gold,
+base,158,Greg Maddux,Atlanta Braves,Gold,
+base,159,Jeff Bagwell,Houston Astros,Gold,
+base,160,Frank Thomas,Chicago White Sox,Gold,
+base,161,Ken Caminiti,San Diego Padres,Gold,
+base,162,Andruw Jones,Atlanta Braves,Gold,
+base,163,Dennis Eckersley,St. Louis Cardinals,Gold,
+base,164,Jeff Conine,Florida Marlins,Gold,
+base,164b,Jay Buhner,Seattle Mariners,Gold,
+base,165,Jim Edmonds,California Angels,Gold,
+base,166,Derek Jeter,New York Yankees,Gold,
+base,167,Vladimir Guerrero,Montreal Expos,Gold,
+base,168,Sammy Sosa,Chicago Cubs,Gold,
+base,169,Tony Gwynn,San Diego Padres,Gold,
+base,170,Andres Galarraga,Colorado Rockies,Gold,
+base,171,Todd Hundley,New York Mets,Gold,
+base,173,Paul Molitor,Minnesota Twins,Gold,
+base,174,Kenny Lofton,Cleveland Indians,Gold,
+base,175,Barry Bonds,San Francisco Giants,Gold,
+base,176,Gary Sheffield,Florida Marlins,Bronze,
+base,177,Dmitri Young,St. Louis Cardinals,Bronze,
+base,178,Jay Bell,Kansas City Royals,Bronze,
+base,179,David Wells,New York Yankees,Bronze,
+base,180,Walt Weiss,Colorado Rockies,Bronze,
+base,181,Paul Molitor,Minnesota Twins,Bronze,
+base,182,Jose Guillen,Pittsburgh Pirates,Bronze,
+base,183,Al Leiter,Florida Marlins,Bronze,
+base,184,Mike Fetters,Milwaukee Brewers,Bronze,
+base,185,Mark Langston,Anaheim Angels,Bronze,
+base,186,Fred McGriff,Atlanta Braves,Bronze,
+base,187,Darrin Fletcher,Montreal Expos,Bronze,
+base,188,Brant Brown,Chicago Cubs,Bronze,
+base,189,Geronimo Berroa,Oakland Athletics,Bronze,
+base,190,Jim Thome,Cleveland Indians,Bronze,
+base,191,Jose Vizcaino,San Francisco Giants,Bronze,
+base,192,Andy Ashby,San Diego Padres,Bronze,
+base,193,Rusty Greer,Texas Rangers,Bronze,
+base,194,Brian Hunter,Detroit Tigers,Bronze,
+base,195,Chris Hoiles,Baltimore Orioles,Bronze,
+base,196,Orlando Merced,Toronto Blue Jays,Bronze,
+base,197,Brett Butler,Los Angeles Dodgers,Bronze,
+base,198,Derek Bell,Houston Astros,Bronze,
+base,199,Bobby Bonilla,Florida Marlins,Bronze,
+base,200,Alex Ochoa,New York Mets,Bronze,
+base,201,Wally Joyner,San Diego Padres,Bronze,
+base,202,Mo Vaughn,Boston Red Sox,Bronze,
+base,203,Doug Drabek,Chicago White Sox,Bronze,
+base,204,Tino Martinez,New York Yankees,Bronze,
+base,205,Roberto Alomar,Baltimore Orioles,Bronze,
+base,206,Brian Giles RC,Cleveland Indians,Bronze,
+base,207,Todd Worrell,Los Angeles Dodgers,Bronze,
+base,208,Alan Benes,St. Louis Cardinals,Bronze,
+base,209,Jim Leyritz,Anaheim Angels,Bronze,
+base,210,Darryl Hamilton,San Francisco Giants,Bronze,
+base,211,Jimmy Key,Baltimore Orioles,Bronze,
+base,212,Juan Gonzalez,Texas Rangers,Bronze,
+base,213,Vinny Castilla,Colorado Rockies,Bronze,
+base,214,Chuck Knoblauch,Minnesota Twins,Bronze,
+base,215,Tony Phillips,Chicago White Sox,Bronze,
+base,216,Jeff Cirillo,Milwaukee Brewers,Bronze,
+base,217,Carlos Garcia,Toronto Blue Jays,Bronze,
+base,218,Brooks Kieschnick,Chicago Cubs,Bronze,
+base,219,Marquis Grissom,Cleveland Indians,Bronze,
+base,220,Dan Wilson,Seattle Mariners,Bronze,
+base,221,Greg Vaughn,San Diego Padres,Bronze,
+base,222,John Wetteland,Texas Rangers,Bronze,
+base,223,Andres Galarraga,Colorado Rockies,Bronze,
+base,224,Ozzie Guillen,Chicago White Sox,Bronze,
+base,225,Kevin Elster,Pittsburgh Pirates,Bronze,
+base,226,Bernard Gilkey,New York Mets,Bronze,
+base,227,Mike Macfarlane,Kansas City Royals,Bronze,
+base,228,Heathcliff Slocumb,Boston Red Sox,Bronze,
+base,229,Wendell Magee Jr.,Philadelphia Phillies,Bronze,
+base,230,Carlos Baerga,New York Mets,Bronze,
+base,231,Kevin Seitzer,Cleveland Indians,Bronze,
+base,232,Henry Rodriguez,Montreal Expos,Bronze,
+base,233,Roger Clemens,Toronto Blue Jays,Bronze,
+base,234,Mark Wohlers,Atlanta Braves,Bronze,
+base,235,Eddie Murray,Anaheim Angels,Bronze,
+base,236,Todd Zeile,Los Angeles Dodgers,Bronze,
+base,237,J.T. Snow,San Francisco Giants,Bronze,
+base,238,Ken Griffey Jr.,Seattle Mariners,Bronze,
+base,239,Sterling Hitchcock,San Diego Padres,Bronze,
+base,240,Albert Belle,Chicago White Sox,Bronze,
+base,241,Terry Steinbach,Minnesota Twins,Bronze,
+base,242,Robb Nen,Florida Marlins,Bronze,
+base,243,Mark McLemore,Texas Rangers,Bronze,
+base,244,Jeff King,Kansas City Royals,Bronze,
+base,245,Tony Clark,Detroit Tigers,Bronze,
+base,246,Tim Salmon,Anaheim Angels,Bronze,
+base,247,Benito Santiago,Toronto Blue Jays,Bronze,
+base,248,Robin Ventura,Chicago White Sox,Bronze,
+base,249,Bubba Trammell RC,Detroit Tigers,Bronze,
+base,250,Chili Davis,Kansas City Royals,Bronze,
+base,251,John Valentin,Boston Red Sox,Bronze,
+base,252,Cal Ripken,Baltimore Orioles,Bronze,
+base,253,Matt Williams,Cleveland Indians,Bronze,
+base,254,Jeff Kent,San Francisco Giants,Bronze,
+base,255,Eric Karros,Los Angeles Dodgers,Bronze,
+base,256,Ray Lankford,St. Louis Cardinals,Bronze,
+base,257,Ed Sprague,Toronto Blue Jays,Bronze,
+base,258,Shane Reynolds,Houston Astros,Bronze,
+base,259,Jaime Navarro,Chicago White Sox,Bronze,
+base,260,Eric Davis,Baltimore Orioles,Bronze,
+base,261,Orel Hershiser,Cleveland Indians,Bronze,
+base,262,Mark Grace,Chicago Cubs,Bronze,
+base,263,Rod Beck,San Francisco Giants,Bronze,
+base,264,Ismael Valdes,Los Angeles Dodgers,Bronze,
+base,265,Manny Ramirez,Cleveland Indians,Bronze,
+base,266,Ken Caminiti,San Diego Padres,Bronze,
+base,267,Tim Naehring,Boston Red Sox,Bronze,
+base,268,Jose Rosado,Kansas City Royals,Bronze,
+base,269,Greg Colbrunn,Minnesota Twins,Bronze,
+base,270,Dean Palmer,Texas Rangers,Bronze,
+base,271,David Justice,Cleveland Indians,Bronze,
+base,272,Scott Spiezio,Oakland Athletics,Bronze,
+base,273,Chipper Jones,Atlanta Braves,Bronze,
+base,274,Mel Rojas,Chicago Cubs,Bronze,
+base,275,Bartolo Colon,Cleveland Indians,Bronze,
+base,276,Darin Erstad,Anaheim Angels,Silver,
+base,277,Sammy Sosa,Chicago Cubs,Silver,
+base,278,Rafael Palmeiro,Baltimore Orioles,Silver,
+base,279,Frank Thomas,Chicago White Sox,Silver,
+base,280,Ruben Rivera,San Diego Padres,Silver,
+base,281,Hal Morris,Cincinnati Reds,Silver,
+base,282,Jay Buhner,Seattle Mariners,Silver,
+base,283,Kenny Lofton,Atlanta Braves,Silver,
+base,284,Jose Canseco,Oakland Athletics,Silver,
+base,285,Alex Fernandez,Florida Marlins,Silver,
+base,286,Todd Helton,Colorado Rockies,Silver,
+base,287,Andy Pettitte,New York Yankees,Silver,
+base,288,John Franco,New York Mets,Silver,
+base,289,Ivan Rodriguez,Texas Rangers,Silver,
+base,290,Ellis Burks,Colorado Rockies,Silver,
+base,291,Julio Franco,Cleveland Indians,Silver,
+base,292,Mike Piazza,Los Angeles Dodgers,Silver,
+base,293,Brian Jordan,St. Louis Cardinals,Silver,
+base,294,Greg Maddux,Atlanta Braves,Silver,
+base,295,Bob Abreu,Houston Astros,Silver,
+base,296,Rondell White,Montreal Expos,Silver,
+base,297,Moises Alou,Florida Marlins,Silver,
+base,298,Tony Gwynn,San Diego Padres,Silver,
+base,299,Deion Sanders,Cincinnati Reds,Silver,
+base,300,Jeff Montgomery,Kansas City Royals,Silver,
+base,301,Ray Durham,Chicago White Sox,Silver,
+base,302,John Wasdin,Boston Red Sox,Silver,
+base,303,Ryne Sandberg,Chicago Cubs,Silver,
+base,304,Delino DeShields,St. Louis Cardinals,Silver,
+base,305,Mark McGwire,Oakland Athletics,Silver,
+base,306,Andruw Jones,Atlanta Braves,Silver,
+base,307,Kevin Orie,Chicago Cubs,Silver,
+base,308,Matt Williams,Cleveland Indians,Silver,
+base,309,Karim Garcia,Los Angeles Dodgers,Silver,
+base,310,Derek Jeter,New York Yankees,Silver,
+base,311,Mo Vaughn,Boston Red Sox,Silver,
+base,312,Brady Anderson,Baltimore Orioles,Silver,
+base,313,Barry Bonds,San Francisco Giants,Silver,
+base,314,Steve Finley,San Diego Padres,Silver,
+base,315,Vladimir Guerrero,Montreal Expos,Silver,
+base,316,Matt Morris,St. Louis Cardinals,Silver,
+base,317,Tom Glavine,Atlanta Braves,Silver,
+base,318,Jeff Bagwell,Houston Astros,Silver,
+base,319,Albert Belle,Chicago White Sox,Silver,
+base,320,Hideki Irabu RC,New York Yankees,Silver,
+base,321,Andres Galarraga,Colorado Rockies,Silver,
+base,322,Cecil Fielder,New York Yankees,Silver,
+base,323,Barry Larkin,Cincinnati Reds,Silver,
+base,324,Todd Hundley,New York Mets,Silver,
+base,325,Fred McGriff,Atlanta Braves,Silver,
+base,326,Gary Sheffield,Florida Marlins,Gold,
+base,327,Craig Biggio,Houston Astros,Gold,
+base,328,Raul Mondesi,Los Angeles Dodgers,Gold,
+base,329,Edgar Martinez,Seattle Mariners,Gold,
+base,330,Chipper Jones,Atlanta Braves,Gold,
+base,331,Bernie Williams,New York Yankees,Gold,
+base,332,Juan Gonzalez,Texas Rangers,Gold,
+base,333,Ron Gant,St. Louis Cardinals,Gold,
+base,334,Cal Ripken,Baltimore Orioles,Gold,
+base,335,Larry Walker,Colorado Rockies,Gold,
+base,336,Matt Williams,Cleveland Indians,Gold,
+base,337,Jose Cruz Jr. RC,Seattle Mariners,Gold,
+base,338,Joe Carter,Toronto Blue Jays,Gold,
+base,339,Wilton Guerrero,Los Angeles Dodgers,Gold,
+base,340,Cecil Fielder,New York Yankees,Gold,
+base,341,Todd Walker,Minnesota Twins,Gold,
+base,342,Ken Griffey Jr.,Seattle Mariners,Gold,
+base,343,Ryan Klesko,Atlanta Braves,Gold,
+base,344,Roger Clemens,Toronto Blue Jays,Gold,
+base,345,Hideo Nomo,Los Angeles Dodgers,Gold,
+base,346,Dante Bichette,Colorado Rockies,Gold,
+base,347,Albert Belle,Chicago White Sox,Gold,
+base,348,Randy Johnson,Seattle Mariners,Gold,
+base,349,Manny Ramirez,Cleveland Indians,Gold,
+base,350,John Smoltz,Atlanta Braves,Gold,
+refractors,1,Barry Bonds,San Francisco Giants,Bronze,Refractor
+refractors,2,Ryne Sandberg,Chicago Cubs,Bronze,Refractor
+refractors,3,Brian Jordan,St. Louis Cardinals,Bronze,Refractor
+refractors,4,Rocky Coppinger,Baltimore Orioles,Bronze,Refractor
+refractors,6,Al Martin,Pittsburgh Pirates,Bronze,Refractor
+refractors,7,Charles Nagy,Cleveland Indians,Bronze,Refractor
+refractors,8,Otis Nixon,Toronto Blue Jays,Bronze,Refractor
+refractors,9,Mark Johnson,Pittsburgh Pirates,Bronze,Refractor
+refractors,10,Jeff Bagwell,Houston Astros,Bronze,Refractor
+refractors,11,Ken Hill,Texas Rangers,Bronze,Refractor
+refractors,12,Willie Adams,Oakland Athletics,Bronze,Refractor
+refractors,13,Raul Mondesi,Los Angeles Dodgers,Bronze,Refractor
+refractors,14,Reggie Sanders,Cincinnati Reds,Bronze,Refractor
+refractors,15,Derek Jeter,New York Yankees,Bronze,Refractor
+refractors,16,Jermaine Dye,Atlanta Braves,Bronze,Refractor
+refractors,17,Edgar Renteria,Florida Marlins,Bronze,Refractor
+refractors,18,Travis Fryman,Detroit Tigers,Bronze,Refractor
+refractors,19,Roberto Hernandez,Chicago White Sox,Bronze,Refractor
+refractors,20,Sammy Sosa,Chicago Cubs,Bronze,Refractor
+refractors,21,Garret Anderson,California Angels,Bronze,Refractor
+refractors,22,Rey Ordonez,New York Mets,Bronze,Refractor
+refractors,23,Glenallen Hill,San Francisco Giants,Bronze,Refractor
+refractors,24,Dave Nilsson,Milwaukee Brewers,Bronze,Refractor
+refractors,25,Kevin Brown,Florida Marlins,Bronze,Refractor
+refractors,26,Brian McRae,Chicago Cubs,Bronze,Refractor
+refractors,27,Joey Hamilton,San Diego Padres,Bronze,Refractor
+refractors,28,Jamey Wright,Colorado Rockies,Bronze,Refractor
+refractors,29,Frank Thomas,Chicago White Sox,Bronze,Refractor
+refractors,30,Mark McGwire,Oakland Athletics,Bronze,Refractor
+refractors,31,Ramon Martinez,Los Angeles Dodgers,Bronze,Refractor
+refractors,32,Jaime Bluma,Kansas City Royals,Bronze,Refractor
+refractors,33,Frank Rodriguez,Minnesota Twins,Bronze,Refractor
+refractors,34,Andy Benes,St. Louis Cardinals,Bronze,Refractor
+refractors,35,Jay Buhner,Seattle Mariners,Bronze,Refractor
+refractors,36,Justin Thompson,Detroit Tigers,Bronze,Refractor
+refractors,37,Darin Erstad,California Angels,Bronze,Refractor
+refractors,38,Gregg Jefferies,Philadelphia Phillies,Bronze,Refractor
+refractors,39,Jeff D'Amico,Milwaukee Brewers,Bronze,Refractor
+refractors,40,Pedro Martinez,Montreal Expos,Bronze,Refractor
+refractors,41,Nomar Garciaparra,Boston Red Sox,Bronze,Refractor
+refractors,42,Jose Valentin,Milwaukee Brewers,Bronze,Refractor
+refractors,43,Pat Hentgen,Toronto Blue Jays,Bronze,Refractor
+refractors,44,Will Clark,Texas Rangers,Bronze,Refractor
+refractors,45,Bernie Williams,New York Yankees,Bronze,Refractor
+refractors,46,Luis Castillo,Florida Marlins,Bronze,Refractor
+refractors,47,B.J. Surhoff,Baltimore Orioles,Bronze,Refractor
+refractors,48,Greg Gagne,Los Angeles Dodgers,Bronze,Refractor
+refractors,49,Pete Schourek,Cincinnati Reds,Bronze,Refractor
+refractors,50,Mike Piazza,Los Angeles Dodgers,Bronze,Refractor
+refractors,51,Dwight Gooden,New York Yankees,Bronze,Refractor
+refractors,52,Javy Lopez,Atlanta Braves,Bronze,Refractor
+refractors,53,Chuck Finley,California Angels,Bronze,Refractor
+refractors,54,James Baldwin,Chicago White Sox,Bronze,Refractor
+refractors,55,Jack McDowell,Cleveland Indians,Bronze,Refractor
+refractors,56,Royce Clayton,St. Louis Cardinals,Bronze,Refractor
+refractors,57,Carlos Delgado,Toronto Blue Jays,Bronze,Refractor
+refractors,58,Neifi Perez,Colorado Rockies,Bronze,Refractor
+refractors,59,Eddie Taubensee,Cincinnati Reds,Bronze,Refractor
+refractors,60,Rafael Palmeiro,Baltimore Orioles,Bronze,Refractor
+refractors,61,Marty Cordova,Minnesota Twins,Bronze,Refractor
+refractors,62,Wade Boggs,New York Yankees,Bronze,Refractor
+refractors,63,Rickey Henderson,San Diego Padres,Bronze,Refractor
+refractors,64,Mike Hampton,Houston Astros,Bronze,Refractor
+refractors,65,Troy Percival,California Angels,Bronze,Refractor
+refractors,66,Barry Larkin,Cincinnati Reds,Bronze,Refractor
+refractors,67,Jermaine Allensworth,Pittsburgh Pirates,Bronze,Refractor
+refractors,68,Mark Clark,New York Mets,Bronze,Refractor
+refractors,69,Mike Lansing,Montreal Expos,Bronze,Refractor
+refractors,70,Mark Grudzielanek,Montreal Expos,Bronze,Refractor
+refractors,71,Todd Stottlemyre,St. Louis Cardinals,Bronze,Refractor
+refractors,72,Juan Guzman,Toronto Blue Jays,Bronze,Refractor
+refractors,73,John Burkett,Texas Rangers,Bronze,Refractor
+refractors,74,Wilson Alvarez,Chicago White Sox,Bronze,Refractor
+refractors,75,Ellis Burks,Colorado Rockies,Bronze,Refractor
+refractors,76,Bobby Higginson,Detroit Tigers,Bronze,Refractor
+refractors,77,Ricky Bottalico,Philadelphia Phillies,Bronze,Refractor
+refractors,78,Omar Vizquel,Cleveland Indians,Bronze,Refractor
+refractors,79,Paul Sorrento,Seattle Mariners,Bronze,Refractor
+refractors,80,Denny Neagle,Atlanta Braves,Bronze,Refractor
+refractors,81,Roger Pavlik,Texas Rangers,Bronze,Refractor
+refractors,82,Mike Lieberthal,Philadelphia Phillies,Bronze,Refractor
+refractors,83,Devon White,Florida Marlins,Bronze,Refractor
+refractors,84,John Olerud,Toronto Blue Jays,Bronze,Refractor
+refractors,85,Kevin Appier,Kansas City Royals,Bronze,Refractor
+refractors,86,Joe Girardi,New York Yankees,Bronze,Refractor
+refractors,87,Paul O'Neill,New York Yankees,Bronze,Refractor
+refractors,88,Mike Sweeney,Kansas City Royals,Bronze,Refractor
+refractors,89,John Smiley,Cincinnati Reds,Bronze,Refractor
+refractors,90,Ivan Rodriguez,Texas Rangers,Bronze,Refractor
+refractors,91,Randy Myers,Baltimore Orioles,Bronze,Refractor
+refractors,92,Bip Roberts,Kansas City Royals,Bronze,Refractor
+refractors,93,Jose Mesa,Cleveland Indians,Bronze,Refractor
+refractors,94,Paul Wilson,New York Mets,Bronze,Refractor
+refractors,95,Mike Mussina,Baltimore Orioles,Bronze,Refractor
+refractors,96,Ben McDonald,Milwaukee Brewers,Bronze,Refractor
+refractors,97,John Mabry,St. Louis Cardinals,Bronze,Refractor
+refractors,98,Tom Goodwin,Kansas City Royals,Bronze,Refractor
+refractors,99,Edgar Martinez,Seattle Mariners,Bronze,Refractor
+refractors,100,Andruw Jones,Atlanta Braves,Bronze,Refractor
+refractors,101,Jose Canseco,Boston Red Sox,Silver,Refractor
+refractors,102,Billy Wagner,Houston Astros,Silver,Refractor
+refractors,103,Dante Bichette,Colorado Rockies,Silver,Refractor
+refractors,104,Curt Schilling,Philadelphia Phillies,Silver,Refractor
+refractors,105,Dean Palmer,Texas Rangers,Silver,Refractor
+refractors,106,Larry Walker,Colorado Rockies,Silver,Refractor
+refractors,107,Bernie Williams,New York Yankees,Silver,Refractor
+refractors,108,Chipper Jones,Atlanta Braves,Silver,Refractor
+refractors,109,Gary Sheffield,Florida Marlins,Silver,Refractor
+refractors,110,Randy Johnson,Seattle Mariners,Silver,Refractor
+refractors,111,Roberto Alomar,Baltimore Orioles,Silver,Refractor
+refractors,112,Todd Walker,Minnesota Twins,Silver,Refractor
+refractors,113,Sandy Alomar,Cleveland Indians,Silver,Refractor
+refractors,114,John Jaha,Milwaukee Brewers,Silver,Refractor
+refractors,116,Ryan Klesko,Atlanta Braves,Silver,Refractor
+refractors,117,Mariano Rivera,New York Yankees,Silver,Refractor
+refractors,118,Jason Giambi,Oakland Athletics,Silver,Refractor
+refractors,119,Lance Johnson,New York Mets,Silver,Refractor
+refractors,120,Robin Ventura,Chicago White Sox,Silver,Refractor
+refractors,121,Todd Hollandsworth,Los Angeles Dodgers,Silver,Refractor
+refractors,122,Johnny Damon,Kansas City Royals,Silver,Refractor
+refractors,123,William Van Landingham,San Francisco Giants,Silver,Refractor
+refractors,124,Jason Kendall,Pittsburgh Pirates,Silver,Refractor
+refractors,125,Vinny Castilla,Colorado Rockies,Silver,Refractor
+refractors,126,Harold Baines,Chicago White Sox,Silver,Refractor
+refractors,127,Joe Carter,Toronto Blue Jays,Silver,Refractor
+refractors,128,Craig Biggio,Houston Astros,Silver,Refractor
+refractors,129,Tony Clark,Detroit Tigers,Silver,Refractor
+refractors,130,Ron Gant,St. Louis Cardinals,Silver,Refractor
+refractors,131,David Segui,Montreal Expos,Silver,Refractor
+refractors,132,Steve Trachsel,Chicago Cubs,Silver,Refractor
+refractors,133,Scott Rolen,Philadelphia Phillies,Silver,Refractor
+refractors,134,Mike Stanley,Boston Red Sox,Silver,Refractor
+refractors,135,Cal Ripken,Baltimore Orioles,Silver,Refractor
+refractors,135b,Ken Caminiti,San Diego Padres,Silver,Refractor
+refractors,136,John Smoltz,Atlanta Braves,Silver,Refractor
+refractors,137,Bobby Jones,New York Mets,Silver,Refractor
+refractors,138,Manny Ramirez,Cleveland Indians,Silver,Refractor
+refractors,139,Ken Griffey Jr.,Seattle Mariners,Silver,Refractor
+refractors,140,Chuck Knoblauch,Minnesota Twins,Silver,Refractor
+refractors,141,Mark Grace,Chicago Cubs,Silver,Refractor
+refractors,142,Chris Snopek,Chicago White Sox,Silver,Refractor
+refractors,143,Hideo Nomo,Los Angeles Dodgers,Silver,Refractor
+refractors,144,Tim Salmon,California Angels,Silver,Refractor
+refractors,145,David Cone,New York Yankees,Silver,Refractor
+refractors,146,Eric Young,Colorado Rockies,Silver,Refractor
+refractors,147,Jeff Brantley,Cincinnati Reds,Silver,Refractor
+refractors,148,Jim Thome,Cleveland Indians,Silver,Refractor
+refractors,149,Trevor Hoffman,San Diego Padres,Silver,Refractor
+refractors,150,Juan Gonzalez,Texas Rangers,Silver,Refractor
+refractors,151,Mike Piazza,Los Angeles Dodgers,Gold,Refractor
+refractors,152,Ivan Rodriguez,Texas Rangers,Gold,Refractor
+refractors,153,Mo Vaughn,Boston Red Sox,Gold,Refractor
+refractors,154,Brady Anderson,Baltimore Orioles,Gold,Refractor
+refractors,155,Mark McGwire,Oakland Athletics,Gold,Refractor
+refractors,155b,Dante Bichette,Colorado Rockies,Bronze,Refractor
+refractors,156,Rafael Palmeiro,Baltimore Orioles,Gold,Refractor
+refractors,157,Barry Larkin,Cincinnati Reds,Gold,Refractor
+refractors,158,Greg Maddux,Atlanta Braves,Gold,Refractor
+refractors,159,Jeff Bagwell,Houston Astros,Gold,Refractor
+refractors,160,Frank Thomas,Chicago White Sox,Gold,Refractor
+refractors,161,Ken Caminiti,San Diego Padres,Gold,Refractor
+refractors,162,Andruw Jones,Atlanta Braves,Gold,Refractor
+refractors,163,Dennis Eckersley,St. Louis Cardinals,Gold,Refractor
+refractors,164,Jeff Conine,Florida Marlins,Gold,Refractor
+refractors,164b,Jay Buhner,Seattle Mariners,Gold,Refractor
+refractors,165,Jim Edmonds,California Angels,Gold,Refractor
+refractors,166,Derek Jeter,New York Yankees,Gold,Refractor
+refractors,167,Vladimir Guerrero,Montreal Expos,Gold,Refractor
+refractors,168,Sammy Sosa,Chicago Cubs,Gold,Refractor
+refractors,169,Tony Gwynn,San Diego Padres,Gold,Refractor
+refractors,170,Andres Galarraga,Colorado Rockies,Gold,Refractor
+refractors,171,Todd Hundley,New York Mets,Gold,Refractor
+refractors,173,Paul Molitor,Minnesota Twins,Gold,Refractor
+refractors,174,Kenny Lofton,Cleveland Indians,Gold,Refractor
+refractors,175,Barry Bonds,San Francisco Giants,Gold,Refractor
+refractors,176,Gary Sheffield,Florida Marlins,Bronze,Refractor
+refractors,177,Dmitri Young,St. Louis Cardinals,Bronze,Refractor
+refractors,178,Jay Bell,Kansas City Royals,Bronze,Refractor
+refractors,179,David Wells,New York Yankees,Bronze,Refractor
+refractors,180,Walt Weiss,Colorado Rockies,Bronze,Refractor
+refractors,181,Paul Molitor,Minnesota Twins,Bronze,Refractor
+refractors,182,Jose Guillen,Pittsburgh Pirates,Bronze,Refractor
+refractors,183,Al Leiter,Florida Marlins,Bronze,Refractor
+refractors,184,Mike Fetters,Milwaukee Brewers,Bronze,Refractor
+refractors,185,Mark Langston,Anaheim Angels,Bronze,Refractor
+refractors,186,Fred McGriff,Atlanta Braves,Bronze,Refractor
+refractors,187,Darrin Fletcher,Montreal Expos,Bronze,Refractor
+refractors,188,Brant Brown,Chicago Cubs,Bronze,Refractor
+refractors,189,Geronimo Berroa,Oakland Athletics,Bronze,Refractor
+refractors,190,Jim Thome,Cleveland Indians,Bronze,Refractor
+refractors,191,Jose Vizcaino,San Francisco Giants,Bronze,Refractor
+refractors,192,Andy Ashby,San Diego Padres,Bronze,Refractor
+refractors,193,Rusty Greer,Texas Rangers,Bronze,Refractor
+refractors,194,Brian Hunter,Detroit Tigers,Bronze,Refractor
+refractors,195,Chris Hoiles,Baltimore Orioles,Bronze,Refractor
+refractors,196,Orlando Merced,Toronto Blue Jays,Bronze,Refractor
+refractors,197,Brett Butler,Los Angeles Dodgers,Bronze,Refractor
+refractors,198,Derek Bell,Houston Astros,Bronze,Refractor
+refractors,199,Bobby Bonilla,Florida Marlins,Bronze,Refractor
+refractors,200,Alex Ochoa,New York Mets,Bronze,Refractor
+refractors,201,Wally Joyner,San Diego Padres,Bronze,Refractor
+refractors,202,Mo Vaughn,Boston Red Sox,Bronze,Refractor
+refractors,203,Doug Drabek,Chicago White Sox,Bronze,Refractor
+refractors,204,Tino Martinez,New York Yankees,Bronze,Refractor
+refractors,205,Roberto Alomar,Baltimore Orioles,Bronze,Refractor
+refractors,206,Brian Giles,Cleveland Indians,Bronze,Refractor
+refractors,207,Todd Worrell,Los Angeles Dodgers,Bronze,Refractor
+refractors,208,Alan Benes,St. Louis Cardinals,Bronze,Refractor
+refractors,209,Jim Leyritz,Anaheim Angels,Bronze,Refractor
+refractors,210,Darryl Hamilton,San Francisco Giants,Bronze,Refractor
+refractors,211,Jimmy Key,Baltimore Orioles,Bronze,Refractor
+refractors,212,Juan Gonzalez,Texas Rangers,Bronze,Refractor
+refractors,213,Vinny Castilla,Colorado Rockies,Bronze,Refractor
+refractors,214,Chuck Knoblauch,Minnesota Twins,Bronze,Refractor
+refractors,215,Tony Phillips,Chicago White Sox,Bronze,Refractor
+refractors,216,Jeff Cirillo,Milwaukee Brewers,Bronze,Refractor
+refractors,217,Carlos Garcia,Toronto Blue Jays,Bronze,Refractor
+refractors,218,Brooks Kieschnick,Chicago Cubs,Bronze,Refractor
+refractors,219,Marquis Grissom,Cleveland Indians,Bronze,Refractor
+refractors,220,Dan Wilson,Seattle Mariners,Bronze,Refractor
+refractors,221,Greg Vaughn,San Diego Padres,Bronze,Refractor
+refractors,222,John Wetteland,Texas Rangers,Bronze,Refractor
+refractors,223,Andres Galarraga,Colorado Rockies,Bronze,Refractor
+refractors,224,Ozzie Guillen,Chicago White Sox,Bronze,Refractor
+refractors,225,Kevin Elster,Pittsburgh Pirates,Bronze,Refractor
+refractors,226,Bernard Gilkey,New York Mets,Bronze,Refractor
+refractors,227,Mike Macfarlane,Kansas City Royals,Bronze,Refractor
+refractors,228,Heathcliff Slocumb,Boston Red Sox,Bronze,Refractor
+refractors,229,Wendell Magee Jr.,Philadelphia Phillies,Bronze,Refractor
+refractors,230,Carlos Baerga,New York Mets,Bronze,Refractor
+refractors,231,Kevin Seitzer,Cleveland Indians,Bronze,Refractor
+refractors,232,Henry Rodriguez,Montreal Expos,Bronze,Refractor
+refractors,233,Roger Clemens,Toronto Blue Jays,Bronze,Refractor
+refractors,234,Mark Wohlers,Atlanta Braves,Bronze,Refractor
+refractors,235,Eddie Murray,Anaheim Angels,Bronze,Refractor
+refractors,236,Todd Zeile,Los Angeles Dodgers,Bronze,Refractor
+refractors,237,J.T. Snow,San Francisco Giants,Bronze,Refractor
+refractors,238,Ken Griffey Jr.,Seattle Mariners,Bronze,Refractor
+refractors,239,Sterling Hitchcock,San Diego Padres,Bronze,Refractor
+refractors,240,Albert Belle,Chicago White Sox,Bronze,Refractor
+refractors,241,Terry Steinbach,Minnesota Twins,Bronze,Refractor
+refractors,242,Robb Nen,Florida Marlins,Bronze,Refractor
+refractors,243,Mark McLemore,Texas Rangers,Bronze,Refractor
+refractors,244,Jeff King,Kansas City Royals,Bronze,Refractor
+refractors,245,Tony Clark,Detroit Tigers,Bronze,Refractor
+refractors,246,Tim Salmon,Anaheim Angels,Bronze,Refractor
+refractors,247,Benito Santiago,Toronto Blue Jays,Bronze,Refractor
+refractors,248,Robin Ventura,Chicago White Sox,Bronze,Refractor
+refractors,249,Bubba Trammell,Detroit Tigers,Bronze,Refractor
+refractors,250,Chili Davis,Kansas City Royals,Bronze,Refractor
+refractors,251,John Valentin,Boston Red Sox,Bronze,Refractor
+refractors,252,Cal Ripken,Baltimore Orioles,Bronze,Refractor
+refractors,253,Matt Williams,Cleveland Indians,Bronze,Refractor
+refractors,254,Jeff Kent,San Francisco Giants,Bronze,Refractor
+refractors,255,Eric Karros,Los Angeles Dodgers,Bronze,Refractor
+refractors,256,Ray Lankford,St. Louis Cardinals,Bronze,Refractor
+refractors,257,Ed Sprague,Toronto Blue Jays,Bronze,Refractor
+refractors,258,Shane Reynolds,Houston Astros,Bronze,Refractor
+refractors,259,Jaime Navarro,Chicago White Sox,Bronze,Refractor
+refractors,260,Eric Davis,Baltimore Orioles,Bronze,Refractor
+refractors,261,Orel Hershiser,Cleveland Indians,Bronze,Refractor
+refractors,262,Mark Grace,Chicago Cubs,Bronze,Refractor
+refractors,263,Rod Beck,San Francisco Giants,Bronze,Refractor
+refractors,264,Ismael Valdes,Los Angeles Dodgers,Bronze,Refractor
+refractors,265,Manny Ramirez,Cleveland Indians,Bronze,Refractor
+refractors,266,Ken Caminiti,San Diego Padres,Bronze,Refractor
+refractors,267,Tim Naehring,Boston Red Sox,Bronze,Refractor
+refractors,268,Jose Rosado,Kansas City Royals,Bronze,Refractor
+refractors,269,Greg Colbrunn,Minnesota Twins,Bronze,Refractor
+refractors,270,Dean Palmer,Texas Rangers,Bronze,Refractor
+refractors,271,David Justice,Cleveland Indians,Bronze,Refractor
+refractors,272,Scott Spiezio,Oakland Athletics,Bronze,Refractor
+refractors,273,Chipper Jones,Atlanta Braves,Bronze,Refractor
+refractors,274,Mel Rojas,Chicago Cubs,Bronze,Refractor
+refractors,275,Bartolo Colon,Cleveland Indians,Bronze,Refractor
+refractors,276,Darin Erstad,Anaheim Angels,Silver,Refractor
+refractors,277,Sammy Sosa,Chicago Cubs,Silver,Refractor
+refractors,278,Rafael Palmeiro,Baltimore Orioles,Silver,Refractor
+refractors,279,Frank Thomas,Chicago White Sox,Silver,Refractor
+refractors,280,Ruben Rivera,San Diego Padres,Silver,Refractor
+refractors,281,Hal Morris,Cincinnati Reds,Silver,Refractor
+refractors,282,Jay Buhner,Seattle Mariners,Silver,Refractor
+refractors,283,Kenny Lofton,Atlanta Braves,Silver,Refractor
+refractors,284,Jose Canseco,Oakland Athletics,Silver,Refractor
+refractors,285,Alex Fernandez,Florida Marlins,Silver,Refractor
+refractors,286,Todd Helton,Colorado Rockies,Silver,Refractor
+refractors,287,Andy Pettitte,New York Yankees,Silver,Refractor
+refractors,288,John Franco,New York Mets,Silver,Refractor
+refractors,289,Ivan Rodriguez,Texas Rangers,Silver,Refractor
+refractors,290,Ellis Burks,Colorado Rockies,Silver,Refractor
+refractors,291,Julio Franco,Cleveland Indians,Silver,Refractor
+refractors,292,Mike Piazza,Los Angeles Dodgers,Silver,Refractor
+refractors,293,Brian Jordan,St. Louis Cardinals,Silver,Refractor
+refractors,294,Greg Maddux,Atlanta Braves,Silver,Refractor
+refractors,295,Bob Abreu,Houston Astros,Silver,Refractor
+refractors,296,Rondell White,Montreal Expos,Silver,Refractor
+refractors,297,Moises Alou,Florida Marlins,Silver,Refractor
+refractors,298,Tony Gwynn,San Diego Padres,Silver,Refractor
+refractors,299,Deion Sanders,Cincinnati Reds,Silver,Refractor
+refractors,300,Jeff Montgomery,Kansas City Royals,Silver,Refractor
+refractors,301,Ray Durham,Chicago White Sox,Silver,Refractor
+refractors,302,John Wasdin,Boston Red Sox,Silver,Refractor
+refractors,303,Ryne Sandberg,Chicago Cubs,Silver,Refractor
+refractors,304,Delino DeShields,St. Louis Cardinals,Silver,Refractor
+refractors,305,Mark McGwire,Oakland Athletics,Silver,Refractor
+refractors,306,Andruw Jones,Atlanta Braves,Silver,Refractor
+refractors,307,Kevin Orie,Chicago Cubs,Silver,Refractor
+refractors,308,Matt Williams,Cleveland Indians,Silver,Refractor
+refractors,309,Karim Garcia,Los Angeles Dodgers,Silver,Refractor
+refractors,310,Derek Jeter,New York Yankees,Silver,Refractor
+refractors,311,Mo Vaughn,Boston Red Sox,Silver,Refractor
+refractors,312,Brady Anderson,Baltimore Orioles,Silver,Refractor
+refractors,313,Barry Bonds,San Francisco Giants,Silver,Refractor
+refractors,314,Steve Finley,San Diego Padres,Silver,Refractor
+refractors,315,Vladimir Guerrero,Montreal Expos,Silver,Refractor
+refractors,316,Matt Morris,St. Louis Cardinals,Silver,Refractor
+refractors,317,Tom Glavine,Atlanta Braves,Silver,Refractor
+refractors,318,Jeff Bagwell,Houston Astros,Silver,Refractor
+refractors,319,Albert Belle,Chicago White Sox,Silver,Refractor
+refractors,320,Hideki Irabu,New York Yankees,Silver,Refractor
+refractors,321,Andres Galarraga,Colorado Rockies,Silver,Refractor
+refractors,322,Cecil Fielder,New York Yankees,Silver,Refractor
+refractors,323,Barry Larkin,Cincinnati Reds,Silver,Refractor
+refractors,324,Todd Hundley,New York Mets,Silver,Refractor
+refractors,325,Fred McGriff,Atlanta Braves,Silver,Refractor
+refractors,326,Gary Sheffield,Florida Marlins,Gold,Refractor
+refractors,327,Craig Biggio,Houston Astros,Gold,Refractor
+refractors,328,Raul Mondesi,Los Angeles Dodgers,Gold,Refractor
+refractors,329,Edgar Martinez,Seattle Mariners,Gold,Refractor
+refractors,330,Chipper Jones,Atlanta Braves,Gold,Refractor
+refractors,331,Bernie Williams,New York Yankees,Gold,Refractor
+refractors,332,Juan Gonzalez,Texas Rangers,Gold,Refractor
+refractors,333,Ron Gant,St. Louis Cardinals,Gold,Refractor
+refractors,334,Cal Ripken,Baltimore Orioles,Gold,Refractor
+refractors,335,Larry Walker,Colorado Rockies,Gold,Refractor
+refractors,336,Matt Williams,Cleveland Indians,Gold,Refractor
+refractors,337,Jose Cruz Jr.,Seattle Mariners,Gold,Refractor
+refractors,338,Joe Carter,Toronto Blue Jays,Gold,Refractor
+refractors,339,Wilton Guerrero,Los Angeles Dodgers,Gold,Refractor
+refractors,340,Cecil Fielder,New York Yankees,Gold,Refractor
+refractors,341,Todd Walker,Minnesota Twins,Gold,Refractor
+refractors,342,Ken Griffey Jr.,Seattle Mariners,Gold,Refractor
+refractors,343,Ryan Klesko,Atlanta Braves,Gold,Refractor
+refractors,344,Roger Clemens,Toronto Blue Jays,Gold,Refractor
+refractors,345,Hideo Nomo,Los Angeles Dodgers,Gold,Refractor
+refractors,346,Dante Bichette,Colorado Rockies,Gold,Refractor
+refractors,347,Albert Belle,Chicago White Sox,Gold,Refractor
+refractors,348,Randy Johnson,Seattle Mariners,Gold,Refractor
+refractors,349,Manny Ramirez,Cleveland Indians,Gold,Refractor
+refractors,350,John Smoltz,Atlanta Braves,Gold,Refractor
+embossed,101,Jose Canseco,Boston Red Sox,Silver,Embossed
+embossed,102,Billy Wagner,Houston Astros,Silver,Embossed
+embossed,103,Dante Bichette,Colorado Rockies,Silver,Embossed
+embossed,104,Curt Schilling,Philadelphia Phillies,Silver,Embossed
+embossed,105,Dean Palmer,Texas Rangers,Silver,Embossed
+embossed,106,Larry Walker,Colorado Rockies,Silver,Embossed
+embossed,107,Bernie Williams,New York Yankees,Silver,Embossed
+embossed,108,Chipper Jones,Atlanta Braves,Silver,Embossed
+embossed,109,Gary Sheffield,Florida Marlins,Silver,Embossed
+embossed,110,Randy Johnson,Seattle Mariners,Silver,Embossed
+embossed,111,Roberto Alomar,Baltimore Orioles,Silver,Embossed
+embossed,112,Todd Walker,Minnesota Twins,Silver,Embossed
+embossed,113,Sandy Alomar,Cleveland Indians,Silver,Embossed
+embossed,114,John Jaha,Milwaukee Brewers,Silver,Embossed
+embossed,116,Ryan Klesko,Atlanta Braves,Silver,Embossed
+embossed,117,Mariano Rivera,New York Yankees,Silver,Embossed
+embossed,118,Jason Giambi,Oakland Athletics,Silver,Embossed
+embossed,119,Lance Johnson,New York Mets,Silver,Embossed
+embossed,120,Robin Ventura,Chicago White Sox,Silver,Embossed
+embossed,121,Todd Hollandsworth,Los Angeles Dodgers,Silver,Embossed
+embossed,122,Johnny Damon,Kansas City Royals,Silver,Embossed
+embossed,123,William Van Landingham,San Francisco Giants,Silver,Embossed
+embossed,124,Jason Kendall,Pittsburgh Pirates,Silver,Embossed
+embossed,125,Vinny Castilla,Colorado Rockies,Silver,Embossed
+embossed,126,Harold Baines,Chicago White Sox,Silver,Embossed
+embossed,127,Joe Carter,Toronto Blue Jays,Silver,Embossed
+embossed,128,Craig Biggio,Houston Astros,Silver,Embossed
+embossed,129,Tony Clark,Detroit Tigers,Silver,Embossed
+embossed,130,Ron Gant,St. Louis Cardinals,Silver,Embossed
+embossed,131,David Segui,Montreal Expos,Silver,Embossed
+embossed,132,Steve Trachsel,Chicago Cubs,Silver,Embossed
+embossed,133,Scott Rolen,Philadelphia Phillies,Silver,Embossed
+embossed,134,Mike Stanley,Boston Red Sox,Silver,Embossed
+embossed,135,Cal Ripken,Baltimore Orioles,Silver,Embossed
+embossed,135b,Ken Caminiti,San Diego Padres,Silver,Embossed
+embossed,136,John Smoltz,Atlanta Braves,Silver,Embossed
+embossed,137,Bobby Jones,New York Mets,Silver,Embossed
+embossed,138,Manny Ramirez,Cleveland Indians,Silver,Embossed
+embossed,139,Ken Griffey Jr.,Seattle Mariners,Silver,Embossed
+embossed,140,Chuck Knoblauch,Minnesota Twins,Silver,Embossed
+embossed,141,Mark Grace,Chicago Cubs,Silver,Embossed
+embossed,142,Chris Snopek,Chicago White Sox,Silver,Embossed
+embossed,143,Hideo Nomo,Los Angeles Dodgers,Silver,Embossed
+embossed,144,Tim Salmon,California Angels,Silver,Embossed
+embossed,145,David Cone,New York Yankees,Silver,Embossed
+embossed,146,Eric Young,Colorado Rockies,Silver,Embossed
+embossed,147,Jeff Brantley,Cincinnati Reds,Silver,Embossed
+embossed,148,Jim Thome,Cleveland Indians,Silver,Embossed
+embossed,149,Trevor Hoffman,San Diego Padres,Silver,Embossed
+embossed,150,Juan Gonzalez,Texas Rangers,Silver,Embossed
+embossed,151,Mike Piazza,Los Angeles Dodgers,Gold,Embossed Die-Cut
+embossed,152,Ivan Rodriguez,Texas Rangers,Gold,Embossed Die-Cut
+embossed,153,Mo Vaughn,Boston Red Sox,Gold,Embossed Die-Cut
+embossed,154,Brady Anderson,Baltimore Orioles,Gold,Embossed Die-Cut
+embossed,155,Mark McGwire,Oakland Athletics,Gold,Embossed Die-Cut
+embossed,156,Rafael Palmeiro,Baltimore Orioles,Gold,Embossed Die-Cut
+embossed,157,Barry Larkin,Cincinnati Reds,Gold,Embossed Die-Cut
+embossed,158,Greg Maddux,Atlanta Braves,Gold,Embossed Die-Cut
+embossed,159,Jeff Bagwell,Houston Astros,Gold,Embossed Die-Cut
+embossed,160,Frank Thomas,Chicago White Sox,Gold,Embossed Die-Cut
+embossed,161,Ken Caminiti,San Diego Padres,Gold,Embossed Die-Cut
+embossed,162,Andruw Jones,Atlanta Braves,Gold,Embossed Die-Cut
+embossed,163,Dennis Eckersley,St. Louis Cardinals,Gold,Embossed Die-Cut
+embossed,164,Jeff Conine,Florida Marlins,Gold,Embossed Die-Cut
+embossed,164b,Jay Buhner,Seattle Mariners,Gold,Embossed Die-Cut
+embossed,165,Jim Edmonds,California Angels,Gold,Embossed Die-Cut
+embossed,166,Derek Jeter,New York Yankees,Gold,Embossed Die-Cut
+embossed,167,Vladimir Guerrero,Montreal Expos,Gold,Embossed Die-Cut
+embossed,168,Sammy Sosa,Chicago Cubs,Gold,Embossed Die-Cut
+embossed,169,Tony Gwynn,San Diego Padres,Gold,Embossed Die-Cut
+embossed,170,Andres Galarraga,Colorado Rockies,Gold,Embossed Die-Cut
+embossed,171,Todd Hundley,New York Mets,Gold,Embossed Die-Cut
+embossed,173,Paul Molitor,Minnesota Twins,Gold,Embossed Die-Cut
+embossed,174,Kenny Lofton,Cleveland Indians,Gold,Embossed Die-Cut
+embossed,175,Barry Bonds,San Francisco Giants,Gold,Embossed Die-Cut
+embossed,276,Darin Erstad,Anaheim Angels,Silver,Embossed
+embossed,277,Sammy Sosa,Chicago Cubs,Silver,Embossed
+embossed,278,Rafael Palmeiro,Baltimore Orioles,Silver,Embossed
+embossed,279,Frank Thomas,Chicago White Sox,Silver,Embossed
+embossed,280,Ruben Rivera,San Diego Padres,Silver,Embossed
+embossed,281,Hal Morris,Cincinnati Reds,Silver,Embossed
+embossed,282,Jay Buhner,Seattle Mariners,Silver,Embossed
+embossed,283,Kenny Lofton,Atlanta Braves,Silver,Embossed
+embossed,284,Jose Canseco,Oakland Athletics,Silver,Embossed
+embossed,285,Alex Fernandez,Florida Marlins,Silver,Embossed
+embossed,286,Todd Helton,Colorado Rockies,Silver,Embossed
+embossed,287,Andy Pettitte,New York Yankees,Silver,Embossed
+embossed,288,John Franco,New York Mets,Silver,Embossed
+embossed,289,Ivan Rodriguez,Texas Rangers,Silver,Embossed
+embossed,290,Ellis Burks,Colorado Rockies,Silver,Embossed
+embossed,291,Julio Franco,Cleveland Indians,Silver,Embossed
+embossed,292,Mike Piazza,Los Angeles Dodgers,Silver,Embossed
+embossed,293,Brian Jordan,St. Louis Cardinals,Silver,Embossed
+embossed,294,Greg Maddux,Atlanta Braves,Silver,Embossed
+embossed,295,Bob Abreu,Houston Astros,Silver,Embossed
+embossed,296,Rondell White,Montreal Expos,Silver,Embossed
+embossed,297,Moises Alou,Florida Marlins,Silver,Embossed
+embossed,298,Tony Gwynn,San Diego Padres,Silver,Embossed
+embossed,299,Deion Sanders,Cincinnati Reds,Silver,Embossed
+embossed,300,Jeff Montgomery,Kansas City Royals,Silver,Embossed
+embossed,301,Ray Durham,Chicago White Sox,Silver,Embossed
+embossed,302,John Wasdin,Boston Red Sox,Silver,Embossed
+embossed,303,Ryne Sandberg,Chicago Cubs,Silver,Embossed
+embossed,304,Delino DeShields,St. Louis Cardinals,Silver,Embossed
+embossed,305,Mark McGwire,Oakland Athletics,Silver,Embossed
+embossed,306,Andruw Jones,Atlanta Braves,Silver,Embossed
+embossed,307,Kevin Orie,Chicago Cubs,Silver,Embossed
+embossed,308,Matt Williams,Cleveland Indians,Silver,Embossed
+embossed,309,Karim Garcia,Los Angeles Dodgers,Silver,Embossed
+embossed,310,Derek Jeter,New York Yankees,Silver,Embossed
+embossed,311,Mo Vaughn,Boston Red Sox,Silver,Embossed
+embossed,312,Brady Anderson,Baltimore Orioles,Silver,Embossed
+embossed,313,Barry Bonds,San Francisco Giants,Silver,Embossed
+embossed,314,Steve Finley,San Diego Padres,Silver,Embossed
+embossed,315,Vladimir Guerrero,Montreal Expos,Silver,Embossed
+embossed,316,Matt Morris,St. Louis Cardinals,Silver,Embossed
+embossed,317,Tom Glavine,Atlanta Braves,Silver,Embossed
+embossed,318,Jeff Bagwell,Houston Astros,Silver,Embossed
+embossed,319,Albert Belle,Chicago White Sox,Silver,Embossed
+embossed,320,Hideki Irabu,New York Yankees,Silver,Embossed
+embossed,321,Andres Galarraga,Colorado Rockies,Silver,Embossed
+embossed,322,Cecil Fielder,New York Yankees,Silver,Embossed
+embossed,323,Barry Larkin,Cincinnati Reds,Silver,Embossed
+embossed,324,Todd Hundley,New York Mets,Silver,Embossed
+embossed,325,Fred McGriff,Atlanta Braves,Silver,Embossed
+embossed,326,Gary Sheffield,Florida Marlins,Gold,Embossed Die-Cut
+embossed,327,Craig Biggio,Houston Astros,Gold,Embossed Die-Cut
+embossed,328,Raul Mondesi,Los Angeles Dodgers,Gold,Embossed Die-Cut
+embossed,329,Edgar Martinez,Seattle Mariners,Gold,Embossed Die-Cut
+embossed,330,Chipper Jones,Atlanta Braves,Gold,Embossed Die-Cut
+embossed,331,Bernie Williams,New York Yankees,Gold,Embossed Die-Cut
+embossed,332,Juan Gonzalez,Texas Rangers,Gold,Embossed Die-Cut
+embossed,333,Ron Gant,St. Louis Cardinals,Gold,Embossed Die-Cut
+embossed,334,Cal Ripken,Baltimore Orioles,Gold,Embossed Die-Cut
+embossed,335,Larry Walker,Colorado Rockies,Gold,Embossed Die-Cut
+embossed,336,Matt Williams,Cleveland Indians,Gold,Embossed Die-Cut
+embossed,337,Jose Cruz Jr.,Seattle Mariners,Gold,Embossed Die-Cut
+embossed,338,Joe Carter,Toronto Blue Jays,Gold,Embossed Die-Cut
+embossed,339,Wilton Guerrero,Los Angeles Dodgers,Gold,Embossed Die-Cut
+embossed,340,Cecil Fielder,New York Yankees,Gold,Embossed Die-Cut
+embossed,341,Todd Walker,Minnesota Twins,Gold,Embossed Die-Cut
+embossed,342,Ken Griffey Jr.,Seattle Mariners,Gold,Embossed Die-Cut
+embossed,343,Ryan Klesko,Atlanta Braves,Gold,Embossed Die-Cut
+embossed,344,Roger Clemens,Toronto Blue Jays,Gold,Embossed Die-Cut
+embossed,345,Hideo Nomo,Los Angeles Dodgers,Gold,Embossed Die-Cut
+embossed,346,Dante Bichette,Colorado Rockies,Gold,Embossed Die-Cut
+embossed,347,Albert Belle,Chicago White Sox,Gold,Embossed Die-Cut
+embossed,348,Randy Johnson,Seattle Mariners,Gold,Embossed Die-Cut
+embossed,349,Manny Ramirez,Cleveland Indians,Gold,Embossed Die-Cut
+embossed,350,John Smoltz,Atlanta Braves,Gold,Embossed Die-Cut
+embossed-refractors,101,Jose Canseco,Boston Red Sox,Silver,Embossed Refractor
+embossed-refractors,102,Billy Wagner,Houston Astros,Silver,Embossed Refractor
+embossed-refractors,103,Dante Bichette,Colorado Rockies,Silver,Embossed Refractor
+embossed-refractors,104,Curt Schilling,Philadelphia Phillies,Silver,Embossed Refractor
+embossed-refractors,105,Dean Palmer,Texas Rangers,Silver,Embossed Refractor
+embossed-refractors,106,Larry Walker,Colorado Rockies,Silver,Embossed Refractor
+embossed-refractors,107,Bernie Williams,New York Yankees,Silver,Embossed Refractor
+embossed-refractors,108,Chipper Jones,Atlanta Braves,Silver,Embossed Refractor
+embossed-refractors,109,Gary Sheffield,Florida Marlins,Silver,Embossed Refractor
+embossed-refractors,110,Randy Johnson,Seattle Mariners,Silver,Embossed Refractor
+embossed-refractors,111,Roberto Alomar,Baltimore Orioles,Silver,Embossed Refractor
+embossed-refractors,112,Todd Walker,Minnesota Twins,Silver,Embossed Refractor
+embossed-refractors,113,Sandy Alomar,Cleveland Indians,Silver,Embossed Refractor
+embossed-refractors,114,John Jaha,Milwaukee Brewers,Silver,Embossed Refractor
+embossed-refractors,116,Ryan Klesko,Atlanta Braves,Silver,Embossed Refractor
+embossed-refractors,117,Mariano Rivera,New York Yankees,Silver,Embossed Refractor
+embossed-refractors,118,Jason Giambi,Oakland Athletics,Silver,Embossed Refractor
+embossed-refractors,119,Lance Johnson,New York Mets,Silver,Embossed Refractor
+embossed-refractors,120,Robin Ventura,Chicago White Sox,Silver,Embossed Refractor
+embossed-refractors,121,Todd Hollandsworth,Los Angeles Dodgers,Silver,Embossed Refractor
+embossed-refractors,122,Johnny Damon,Kansas City Royals,Silver,Embossed Refractor
+embossed-refractors,123,William Van Landingham,San Francisco Giants,Silver,Embossed Refractor
+embossed-refractors,124,Jason Kendall,Pittsburgh Pirates,Silver,Embossed Refractor
+embossed-refractors,125,Vinny Castilla,Colorado Rockies,Silver,Embossed Refractor
+embossed-refractors,126,Harold Baines,Chicago White Sox,Silver,Embossed Refractor
+embossed-refractors,127,Joe Carter,Toronto Blue Jays,Silver,Embossed Refractor
+embossed-refractors,128,Craig Biggio,Houston Astros,Silver,Embossed Refractor
+embossed-refractors,129,Tony Clark,Detroit Tigers,Silver,Embossed Refractor
+embossed-refractors,130,Ron Gant,St. Louis Cardinals,Silver,Embossed Refractor
+embossed-refractors,131,David Segui,Montreal Expos,Silver,Embossed Refractor
+embossed-refractors,132,Steve Trachsel,Chicago Cubs,Silver,Embossed Refractor
+embossed-refractors,133,Scott Rolen,Philadelphia Phillies,Silver,Embossed Refractor
+embossed-refractors,134,Mike Stanley,Boston Red Sox,Silver,Embossed Refractor
+embossed-refractors,135,Cal Ripken,Baltimore Orioles,Silver,Embossed Refractor
+embossed-refractors,135b,Ken Caminiti,San Diego Padres,Silver,Embossed Refractor
+embossed-refractors,136,John Smoltz,Atlanta Braves,Silver,Embossed Refractor
+embossed-refractors,137,Bobby Jones,New York Mets,Silver,Embossed Refractor
+embossed-refractors,138,Manny Ramirez,Cleveland Indians,Silver,Embossed Refractor
+embossed-refractors,139,Ken Griffey Jr.,Seattle Mariners,Silver,Embossed Refractor
+embossed-refractors,140,Chuck Knoblauch,Minnesota Twins,Silver,Embossed Refractor
+embossed-refractors,141,Mark Grace,Chicago Cubs,Silver,Embossed Refractor
+embossed-refractors,142,Chris Snopek,Chicago White Sox,Silver,Embossed Refractor
+embossed-refractors,143,Hideo Nomo,Los Angeles Dodgers,Silver,Embossed Refractor
+embossed-refractors,144,Tim Salmon,California Angels,Silver,Embossed Refractor
+embossed-refractors,145,David Cone,New York Yankees,Silver,Embossed Refractor
+embossed-refractors,146,Eric Young,Colorado Rockies,Silver,Embossed Refractor
+embossed-refractors,147,Jeff Brantley,Cincinnati Reds,Silver,Embossed Refractor
+embossed-refractors,148,Jim Thome,Cleveland Indians,Silver,Embossed Refractor
+embossed-refractors,149,Trevor Hoffman,San Diego Padres,Silver,Embossed Refractor
+embossed-refractors,150,Juan Gonzalez,Texas Rangers,Silver,Embossed Refractor
+embossed-refractors,151,Mike Piazza,Los Angeles Dodgers,Gold,Embossed Die-Cut Refractor
+embossed-refractors,152,Ivan Rodriguez,Texas Rangers,Gold,Embossed Die-Cut Refractor
+embossed-refractors,153,Mo Vaughn,Boston Red Sox,Gold,Embossed Die-Cut Refractor
+embossed-refractors,154,Brady Anderson,Baltimore Orioles,Gold,Embossed Die-Cut Refractor
+embossed-refractors,155,Mark McGwire,Oakland Athletics,Gold,Embossed Die-Cut Refractor
+embossed-refractors,156,Rafael Palmeiro,Baltimore Orioles,Gold,Embossed Die-Cut Refractor
+embossed-refractors,157,Barry Larkin,Cincinnati Reds,Gold,Embossed Die-Cut Refractor
+embossed-refractors,158,Greg Maddux,Atlanta Braves,Gold,Embossed Die-Cut Refractor
+embossed-refractors,159,Jeff Bagwell,Houston Astros,Gold,Embossed Die-Cut Refractor
+embossed-refractors,160,Frank Thomas,Chicago White Sox,Gold,Embossed Die-Cut Refractor
+embossed-refractors,161,Ken Caminiti,San Diego Padres,Gold,Embossed Die-Cut Refractor
+embossed-refractors,162,Andruw Jones,Atlanta Braves,Gold,Embossed Die-Cut Refractor
+embossed-refractors,163,Dennis Eckersley,St. Louis Cardinals,Gold,Embossed Die-Cut Refractor
+embossed-refractors,164,Jeff Conine,Florida Marlins,Gold,Embossed Die-Cut Refractor
+embossed-refractors,164b,Jay Buhner,Seattle Mariners,Gold,Embossed Die-Cut Refractor
+embossed-refractors,165,Jim Edmonds,California Angels,Gold,Embossed Die-Cut Refractor
+embossed-refractors,166,Derek Jeter,New York Yankees,Gold,Embossed Die-Cut Refractor
+embossed-refractors,167,Vladimir Guerrero,Montreal Expos,Gold,Embossed Die-Cut Refractor
+embossed-refractors,168,Sammy Sosa,Chicago Cubs,Gold,Embossed Die-Cut Refractor
+embossed-refractors,169,Tony Gwynn,San Diego Padres,Gold,Embossed Die-Cut Refractor
+embossed-refractors,170,Andres Galarraga,Colorado Rockies,Gold,Embossed Die-Cut Refractor
+embossed-refractors,171,Todd Hundley,New York Mets,Gold,Embossed Die-Cut Refractor
+embossed-refractors,173,Paul Molitor,Minnesota Twins,Gold,Embossed Die-Cut Refractor
+embossed-refractors,174,Kenny Lofton,Cleveland Indians,Gold,Embossed Die-Cut Refractor
+embossed-refractors,175,Barry Bonds,San Francisco Giants,Gold,Embossed Die-Cut Refractor
+embossed-refractors,276,Darin Erstad,Anaheim Angels,Silver,Embossed Refractor
+embossed-refractors,277,Sammy Sosa,Chicago Cubs,Silver,Embossed Refractor
+embossed-refractors,278,Rafael Palmeiro,Baltimore Orioles,Silver,Embossed Refractor
+embossed-refractors,279,Frank Thomas,Chicago White Sox,Silver,Embossed Refractor
+embossed-refractors,280,Ruben Rivera,San Diego Padres,Silver,Embossed Refractor
+embossed-refractors,281,Hal Morris,Cincinnati Reds,Silver,Embossed Refractor
+embossed-refractors,282,Jay Buhner,Seattle Mariners,Silver,Embossed Refractor
+embossed-refractors,283,Kenny Lofton,Atlanta Braves,Silver,Embossed Refractor
+embossed-refractors,284,Jose Canseco,Oakland Athletics,Silver,Embossed Refractor
+embossed-refractors,285,Alex Fernandez,Florida Marlins,Silver,Embossed Refractor
+embossed-refractors,286,Todd Helton,Colorado Rockies,Silver,Embossed Refractor
+embossed-refractors,287,Andy Pettitte,New York Yankees,Silver,Embossed Refractor
+embossed-refractors,288,John Franco,New York Mets,Silver,Embossed Refractor
+embossed-refractors,289,Ivan Rodriguez,Texas Rangers,Silver,Embossed Refractor
+embossed-refractors,290,Ellis Burks,Colorado Rockies,Silver,Embossed Refractor
+embossed-refractors,291,Julio Franco,Cleveland Indians,Silver,Embossed Refractor
+embossed-refractors,292,Mike Piazza,Los Angeles Dodgers,Silver,Embossed Refractor
+embossed-refractors,293,Brian Jordan,St. Louis Cardinals,Silver,Embossed Refractor
+embossed-refractors,294,Greg Maddux,Atlanta Braves,Silver,Embossed Refractor
+embossed-refractors,295,Bob Abreu,Houston Astros,Silver,Embossed Refractor
+embossed-refractors,296,Rondell White,Montreal Expos,Silver,Embossed Refractor
+embossed-refractors,297,Moises Alou,Florida Marlins,Silver,Embossed Refractor
+embossed-refractors,298,Tony Gwynn,San Diego Padres,Silver,Embossed Refractor
+embossed-refractors,299,Deion Sanders,Cincinnati Reds,Silver,Embossed Refractor
+embossed-refractors,300,Jeff Montgomery,Kansas City Royals,Silver,Embossed Refractor
+embossed-refractors,301,Ray Durham,Chicago White Sox,Silver,Embossed Refractor
+embossed-refractors,302,John Wasdin,Boston Red Sox,Silver,Embossed Refractor
+embossed-refractors,303,Ryne Sandberg,Chicago Cubs,Silver,Embossed Refractor
+embossed-refractors,304,Delino DeShields,St. Louis Cardinals,Silver,Embossed Refractor
+embossed-refractors,305,Mark McGwire,Oakland Athletics,Silver,Embossed Refractor
+embossed-refractors,306,Andruw Jones,Atlanta Braves,Silver,Embossed Refractor
+embossed-refractors,307,Kevin Orie,Chicago Cubs,Silver,Embossed Refractor
+embossed-refractors,308,Matt Williams,Cleveland Indians,Silver,Embossed Refractor
+embossed-refractors,309,Karim Garcia,Los Angeles Dodgers,Silver,Embossed Refractor
+embossed-refractors,310,Derek Jeter,New York Yankees,Silver,Embossed Refractor
+embossed-refractors,311,Mo Vaughn,Boston Red Sox,Silver,Embossed Refractor
+embossed-refractors,312,Brady Anderson,Baltimore Orioles,Silver,Embossed Refractor
+embossed-refractors,313,Barry Bonds,San Francisco Giants,Silver,Embossed Refractor
+embossed-refractors,314,Steve Finley,San Diego Padres,Silver,Embossed Refractor
+embossed-refractors,315,Vladimir Guerrero,Montreal Expos,Silver,Embossed Refractor
+embossed-refractors,316,Matt Morris,St. Louis Cardinals,Silver,Embossed Refractor
+embossed-refractors,317,Tom Glavine,Atlanta Braves,Silver,Embossed Refractor
+embossed-refractors,318,Jeff Bagwell,Houston Astros,Silver,Embossed Refractor
+embossed-refractors,319,Albert Belle,Chicago White Sox,Silver,Embossed Refractor
+embossed-refractors,320,Hideki Irabu,New York Yankees,Silver,Embossed Refractor
+embossed-refractors,321,Andres Galarraga,Colorado Rockies,Silver,Embossed Refractor
+embossed-refractors,322,Cecil Fielder,New York Yankees,Silver,Embossed Refractor
+embossed-refractors,323,Barry Larkin,Cincinnati Reds,Silver,Embossed Refractor
+embossed-refractors,324,Todd Hundley,New York Mets,Silver,Embossed Refractor
+embossed-refractors,325,Fred McGriff,Atlanta Braves,Silver,Embossed Refractor
+embossed-refractors,326,Gary Sheffield,Florida Marlins,Gold,Embossed Die-Cut Refractor
+embossed-refractors,327,Craig Biggio,Houston Astros,Gold,Embossed Die-Cut Refractor
+embossed-refractors,328,Raul Mondesi,Los Angeles Dodgers,Gold,Embossed Die-Cut Refractor
+embossed-refractors,329,Edgar Martinez,Seattle Mariners,Gold,Embossed Die-Cut Refractor
+embossed-refractors,330,Chipper Jones,Atlanta Braves,Gold,Embossed Die-Cut Refractor
+embossed-refractors,331,Bernie Williams,New York Yankees,Gold,Embossed Die-Cut Refractor
+embossed-refractors,332,Juan Gonzalez,Texas Rangers,Gold,Embossed Die-Cut Refractor
+embossed-refractors,333,Ron Gant,St. Louis Cardinals,Gold,Embossed Die-Cut Refractor
+embossed-refractors,334,Cal Ripken,Baltimore Orioles,Gold,Embossed Die-Cut Refractor
+embossed-refractors,335,Larry Walker,Colorado Rockies,Gold,Embossed Die-Cut Refractor
+embossed-refractors,336,Matt Williams,Cleveland Indians,Gold,Embossed Die-Cut Refractor
+embossed-refractors,337,Jose Cruz Jr.,Seattle Mariners,Gold,Embossed Die-Cut Refractor
+embossed-refractors,338,Joe Carter,Toronto Blue Jays,Gold,Embossed Die-Cut Refractor
+embossed-refractors,339,Wilton Guerrero,Los Angeles Dodgers,Gold,Embossed Die-Cut Refractor
+embossed-refractors,340,Cecil Fielder,New York Yankees,Gold,Embossed Die-Cut Refractor
+embossed-refractors,341,Todd Walker,Minnesota Twins,Gold,Embossed Die-Cut Refractor
+embossed-refractors,342,Ken Griffey Jr.,Seattle Mariners,Gold,Embossed Die-Cut Refractor
+embossed-refractors,343,Ryan Klesko,Atlanta Braves,Gold,Embossed Die-Cut Refractor
+embossed-refractors,344,Roger Clemens,Toronto Blue Jays,Gold,Embossed Die-Cut Refractor
+embossed-refractors,345,Hideo Nomo,Los Angeles Dodgers,Gold,Embossed Die-Cut Refractor
+embossed-refractors,346,Dante Bichette,Colorado Rockies,Gold,Embossed Die-Cut Refractor
+embossed-refractors,347,Albert Belle,Chicago White Sox,Gold,Embossed Die-Cut Refractor
+embossed-refractors,348,Randy Johnson,Seattle Mariners,Gold,Embossed Die-Cut Refractor
+embossed-refractors,349,Manny Ramirez,Cleveland Indians,Gold,Embossed Die-Cut Refractor
+embossed-refractors,350,John Smoltz,Atlanta Braves,Gold,Embossed Die-Cut Refractor

@@ -5,6 +5,7 @@ import { requireUser } from "@/lib/current-user";
 import { syncPrestigeProgressForProductSets } from "@/lib/prestige";
 import { openedPackCostBasisCents } from "@/lib/analytics-math";
 import { syncDailyPortfolioSnapshot } from "@/lib/portfolio";
+import { drawPackHits, parsePackRarityConfig } from "@/lib/pack-rarity";
 
 type Body = { productId?: string };
 
@@ -94,6 +95,8 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: `Product not found: ${productId}` }, { status: 404 });
     }
 
+    // Absent/null config takes the unmodified legacy rip path below.
+    const rarityConfig = parsePackRarityConfig(product.packRarityConfig);
     const cardsPerPack = product.cardsPerPack ?? 15;
     const packPriceCents = product.packPriceCents ?? 0;
 
@@ -157,13 +160,38 @@ export async function POST(req: Request) {
         },
       });
 
-      const insertsToPull: { setId: string; count: number }[] = [];
+      const insertsToPull: {
+        setId: string;
+        count: number;
+        subset?: string;
+      }[] = [];
 
-      for (const s of insertSets) {
-        const n = s.oddsPerPack ?? 0;
-        if (n > 0) {
-          const hit = Math.floor(Math.random() * n) === 0;
-          if (hit) insertsToPull.push({ setId: s.id, count: 1 });
+      if (rarityConfig) {
+        // Both full-ProductSet legacy hits and per-subset rarity hits
+        // participate in one uniformly capped slot lottery.
+        const allRules = [
+          ...insertSets.map((s) => ({
+            productSetId: s.id,
+            subset: "",
+            oddsPerPack: s.oddsPerPack!,
+          })),
+          ...rarityConfig.hits,
+        ];
+        for (const rule of drawPackHits(allRules, cardsPerPack)) {
+          insertsToPull.push({
+            setId: rule.productSetId,
+            subset: rule.subset || undefined,
+            count: 1,
+          });
+        }
+      } else {
+        // Legacy draw semantics remain byte-for-byte the same.
+        for (const s of insertSets) {
+          const n = s.oddsPerPack ?? 0;
+          if (n > 0) {
+            const hit = Math.floor(Math.random() * n) === 0;
+            if (hit) insertsToPull.push({ setId: s.id, count: 1 });
+          }
         }
       }
 
@@ -194,19 +222,30 @@ export async function POST(req: Request) {
         },
       });
 
-      if (baseCards.length < baseNeeded) {
+      const basePool = rarityConfig
+        ? baseCards.filter(
+            (card) =>
+              card.productSetId === rarityConfig.fallback.productSetId &&
+              card.subset === rarityConfig.fallback.subset
+          )
+        : baseCards;
+
+      if (basePool.length < baseNeeded) {
         throw new Error(
-          `Not enough base cards to build a pack. Need ${baseNeeded}, found ${baseCards.length}.`
+          `Not enough base cards to build a pack. Need ${baseNeeded}, found ${basePool.length}.`
         );
       }
 
-      const chosenBase = pickUnique(baseCards, baseNeeded);
+      const chosenBase = pickUnique(basePool, baseNeeded);
 
       const chosenInserts: PulledCard[] = [];
 
       for (const ins of insertsToPull) {
         const pool = await tx.card.findMany({
-          where: { productSetId: ins.setId },
+          where: {
+            productSetId: ins.setId,
+            ...(ins.subset ? { subset: ins.subset } : {}),
+          },
           select: {
             id: true,
             productSetId: true,
@@ -243,7 +282,7 @@ export async function POST(req: Request) {
 
       if (pulled.length < cardsPerPack) {
         const taken = new Set<number>(pulled.map((c) => c.id));
-        const remainingBase = baseCards.filter((c) => !taken.has(c.id));
+        const remainingBase = basePool.filter((c) => !taken.has(c.id));
         const need = cardsPerPack - pulled.length;
         pulled.push(...pickUnique(remainingBase, need));
       }

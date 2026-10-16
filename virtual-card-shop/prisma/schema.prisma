@@ -72,6 +72,7 @@ model Product {
   sport             String?
   packPriceCents    Int?              @default(0)
   autoPackPricing   Boolean           @default(true)
+  packRarityConfig  Json?             // Optional per-subset pack odds; null = legacy behavior
   packsPerBox       Int?
   packImageUrl      String?
   boxImageUrl       String?
