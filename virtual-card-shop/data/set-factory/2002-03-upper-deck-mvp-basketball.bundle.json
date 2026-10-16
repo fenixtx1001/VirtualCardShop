@@ -1,0 +1,209 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/9460/2002-03-Upper-Deck-MVP",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/9460/2002-03-Upper-Deck-MVP",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/9460/2002-03-Upper-Deck-MVP"
+  },
+  "decisions": {
+    "base": "220 Base cards with equal odds; true RCs only from dedicated 30-card index.",
+    "parallels": "Classic (220), Classic Black /50 (220), Gold /100 (220); original designs required; no fake templates.",
+    "inserts": "Ten original insert families with source-specific card numbering, including game-used and autograph subsets.",
+    "odds": "Preserve TCDB pack odds for seven documented insert families; unknown pools remain without inferred rates.",
+    "pack": "VCS 4-card packs, 24 packs per box; unreleased until QA.",
+    "release": "Pending source extraction verification, images, pricing, rare-insert odds and template QA."
+  },
+  "product": {
+    "id": "2002_03_Upper_Deck_MVP_Basketball",
+    "year": 2002,
+    "brand": "Upper Deck MVP",
+    "sport": "Basketball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieData": "SOURCE_VERIFIED_AFTER_GENERATION",
+    "cardImages": "PENDING",
+    "packImage": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_STANDARD_QA"
+  },
+  "cardsFile": "2002-03-upper-deck-mvp-basketball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2002_03_Upper_Deck_MVP_Basketball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 220,
+      "defaultGradeability": "COMMON",
+      "sourceSetId": 9460,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9460/2002-03-Upper-Deck-MVP",
+      "notes": "Historical per-pack odds unverified; leave null pending QA."
+    },
+    {
+      "key": "classic",
+      "id": "2002_03_Upper_Deck_MVP_Basketball_classic",
+      "name": "Classic",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "expectedCards": 220,
+      "defaultGradeability": "COMMON",
+      "sourceSetId": 27818,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27818/2002-03-Upper-Deck-MVP",
+      "notes": "Full 220-card parallel; preserve unique physical template. Historical odds unverified, leave null."
+    },
+    {
+      "key": "classic-black",
+      "id": "2002_03_Upper_Deck_MVP_Basketball_classic_black",
+      "name": "Classic Black",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "expectedCards": 220,
+      "defaultGradeability": "COMMON",
+      "sourceSetId": 27819,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27819/2002-03-Upper-Deck-MVP",
+      "notes": "Full 220-card parallel; preserve unique physical template. Historical odds unverified, leave null."
+    },
+    {
+      "key": "gold",
+      "id": "2002_03_Upper_Deck_MVP_Basketball_gold",
+      "name": "Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "expectedCards": 220,
+      "defaultGradeability": "COMMON",
+      "sourceSetId": 27821,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27821/2002-03-Upper-Deck-MVP",
+      "notes": "Full 220-card parallel; preserve unique physical template. Historical odds unverified, leave null."
+    },
+    {
+      "key": "air-apparent",
+      "id": "2002_03_Upper_Deck_MVP_Basketball_air_apparent",
+      "name": "Air Apparent",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "expectedCards": 7,
+      "defaultGradeability": "COMMON",
+      "sourceSetId": 27816,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27816/2002-03-Upper-Deck-MVP",
+      "notes": "TCDB documents 1:24 packs."
+    },
+    {
+      "key": "basketball-diary",
+      "id": "2002_03_Upper_Deck_MVP_Basketball_basketball_diary",
+      "name": "Basketball Diary",
+      "kind": "INSERT",
+      "oddsPerPack": 12,
+      "expectedCards": 14,
+      "defaultGradeability": "COMMON",
+      "sourceSetId": 27817,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27817/2002-03-Upper-Deck-MVP",
+      "notes": "TCDB documents 1:12 packs."
+    },
+    {
+      "key": "east-side-west-side-shooting-shirt",
+      "id": "2002_03_Upper_Deck_MVP_Basketball_east_side_west_side_shooting_shirt",
+      "name": "East Side West Side Shooting Shirt",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 6,
+      "defaultGradeability": "COMMON",
+      "sourceSetId": 27820,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27820/2002-03-Upper-Deck-MVP",
+      "notes": "Historical per-pack odds unverified; leave null pending QA."
+    },
+    {
+      "key": "mvp-materials-combo",
+      "id": "2002_03_Upper_Deck_MVP_Basketball_mvp_materials_combo",
+      "name": "MVP Materials Combo",
+      "kind": "INSERT",
+      "oddsPerPack": 144,
+      "expectedCards": 6,
+      "defaultGradeability": "COMMON",
+      "sourceSetId": 27822,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27822/2002-03-Upper-Deck-MVP",
+      "notes": "TCDB documents 1:144 packs."
+    },
+    {
+      "key": "mvp-materials-shooting-shirt",
+      "id": "2002_03_Upper_Deck_MVP_Basketball_mvp_materials_shooting_shirt",
+      "name": "MVP Materials Shooting Shirt",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "expectedCards": 11,
+      "defaultGradeability": "COMMON",
+      "sourceSetId": 27823,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27823/2002-03-Upper-Deck-MVP",
+      "notes": "TCDB documents 1:72 packs."
+    },
+    {
+      "key": "mvp-materials-warm-up",
+      "id": "2002_03_Upper_Deck_MVP_Basketball_mvp_materials_warm_up",
+      "name": "MVP Materials Warm Up",
+      "kind": "INSERT",
+      "oddsPerPack": 48,
+      "expectedCards": 12,
+      "defaultGradeability": "COMMON",
+      "sourceSetId": 27824,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27824/2002-03-Upper-Deck-MVP",
+      "notes": "TCDB documents 1:48 packs."
+    },
+    {
+      "key": "mvp-moments",
+      "id": "2002_03_Upper_Deck_MVP_Basketball_mvp_moments",
+      "name": "MVP Moments",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "expectedCards": 7,
+      "defaultGradeability": "COMMON",
+      "sourceSetId": 27825,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27825/2002-03-Upper-Deck-MVP",
+      "notes": "TCDB documents 1:24 packs."
+    },
+    {
+      "key": "prosign",
+      "id": "2002_03_Upper_Deck_MVP_Basketball_prosign",
+      "name": "ProSign",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 28,
+      "defaultGradeability": "COMMON",
+      "sourceSetId": 27826,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27826/2002-03-Upper-Deck-MVP",
+      "notes": "Historical per-pack odds unverified; leave null pending QA."
+    },
+    {
+      "key": "rising-to-the-occasion",
+      "id": "2002_03_Upper_Deck_MVP_Basketball_rising_to_the_occasion",
+      "name": "Rising To The Occasion",
+      "kind": "INSERT",
+      "oddsPerPack": 12,
+      "expectedCards": 14,
+      "defaultGradeability": "COMMON",
+      "sourceSetId": 27827,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27827/2002-03-Upper-Deck-MVP",
+      "notes": "TCDB documents 1:12 packs."
+    },
+    {
+      "key": "triple-dimension",
+      "id": "2002_03_Upper_Deck_MVP_Basketball_triple_dimension",
+      "name": "Triple Dimension",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 6,
+      "defaultGradeability": "COMMON",
+      "sourceSetId": 27828,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/27828/2002-03-Upper-Deck-MVP",
+      "notes": "Historical per-pack odds unverified; leave null pending QA."
+    }
+  ]
+}
