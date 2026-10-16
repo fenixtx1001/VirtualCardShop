@@ -380,7 +380,7 @@ def self_test() -> None:
     if clean_subject("Ruben Mateo AU, BLUE Series One") != "Ruben Mateo":
         raise SystemExit("Autograph normalization regression")
     if not re.search(
-        r"\\b(BLUE|SILVER|SIL|GOLD)\\s*Series\\s*(One|Two)\\b",
+        r"\b(BLUE|SILVER|SIL|GOLD)\s*Series\s*(One|Two)\b",
         "Ruben Mateo AU, BLUESeries One",
         re.IGNORECASE,
     ):
