@@ -8,7 +8,7 @@ from pathlib import Path
 OUT=Path(__file__).resolve().parents[1]/"data/set-factory/1984-topps-football.cards.csv"
 HEADERS={"User-Agent":"Mozilla/5.0 (compatible; VCS Set Factory research import)","Accept":"text/html,application/xhtml+xml"}
 SOURCES=(("base",3235,396),("glossy-nfl-stars",33400,11),("super-play-game-cards",33401,27))
-ROOKIE_EXPECTED=60
+ROOKIE_EXPECTED=86
 ANNOTATION=re.compile(r"\s+(?:UER|ERR|COR|VAR|RC)(?=\b|[A-Z]|[,;:])",re.I)
 SHORT_TAGS=re.compile(r"\s+(?:PB|IR|TL|LL|RB|CCG|SBXVIII)\s*$",re.I)
 NUMBER=re.compile(r"^(\d{1,3})(?:[a-z])?$",re.I)
@@ -140,7 +140,7 @@ def main():
         writer.writerows(rows)
     print("=== 1984 TOPPS FOOTBALL GENERATED ===")
     print("Base: 396; Glossy NFL Stars: 11; Super Play Game Cards: 27")
-    print("Total: 434; true Base RCs: 60")
+    print("Total: 434; true Base RCs: 86")
     print(f"CSV: {OUT}; STATUS: UNRELEASED")
 
 if __name__=="__main__":
