@@ -91,6 +91,16 @@ the Prisma Client. Validate with
 `npx tsx scripts/test-pack-rarity.ts`. For 1997 Finest use
 `npx tsx scripts/verify-1997-finest-rarity.ts` after draft import.
 
+### Base odds admin authorization
+
+The Base Subset Odds editor is admin-only. Set `ADMIN_EMAILS` (a
+comma-separated list of Google-login email addresses) in the Codespace
+`.env.local` and in the deployed environment's server-side variables,
+for example `ADMIN_EMAILS=owner@example.com`. No personal emails are
+committed to source control. If `ADMIN_EMAILS` is absent or does not
+match the signed-in account, the editor's API rejects access (403)
+rather than treating all logged-in collectors as administrators.
+
 ### Admin: Base Subset Odds editor
 
 After the optional rarity engine is deployed, open
