@@ -52,7 +52,7 @@ AUTO_EXPECTED = {
 }
 
 META_START = re.compile(
-    r"\s+(?:RC|AU|SN\d+|UER|ERR|COR|VAR)(?:\b|[,;:])",
+    r"\s+(?:RC|AU|SN\d+|UER|ERR|COR|VAR)(?:\b|(?=[A-Z])|[,;:])",
     re.IGNORECASE,
 )
 LEAKED_META = re.compile(
@@ -351,6 +351,8 @@ def fetch_box_checklists() -> list[tuple[str, str, str, str, str, str]]:
 
 
 def self_test() -> None:
+    if clean_subject("Calvin Murray UERMarked as Bowman Rookie Card but first Bowman card is 1992") != "Calvin Murray":
+        raise SystemExit("Run-together TCDB UER annotation regression")
     if clean_subject("Paul Hoover RC, UER") != "Paul Hoover":
         raise SystemExit("RC/UER normalization regression")
     if clean_subject("Ben Grieve SN99") != "Ben Grieve":
