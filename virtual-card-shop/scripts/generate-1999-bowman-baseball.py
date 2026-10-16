@@ -235,13 +235,24 @@ def verify_parallel(
     team_updates = []
     for number, (name, team, raw) in list(cards.items()):
         base_name, base_team, _ = base[number]
-        if name != base_name:
+        # TCDB lists Gold #148 as Russell Branyan, while the base card
+        # identifies the same Cleveland Indians player as Russ Branyan.
+        # Normalize only this verified identity; never broadly rewrite names.
+        approved_alias = (
+            number == "148"
+            and name == "Russell Branyan"
+            and base_name == "Russ Branyan"
+            and team == base_team == "Cleveland Indians"
+        )
+        if name != base_name and not approved_alias:
             raise SystemExit(
                 f"{label} #{number}: subject {name!r} does not match Base {base_name!r}"
             )
+        if approved_alias:
+            print(f"{label} #148: Russell Branyan -> Russ Branyan (verified alias)")
         if team != base_team:
             team_updates.append((number, name, team, base_team))
-            cards[number] = (name, base_team, raw)
+        cards[number] = (base_name, base_team, raw)
     if len(team_updates) > 25:
         raise SystemExit(
             f"{label}: {len(team_updates)} team mismatches require manual source review"
