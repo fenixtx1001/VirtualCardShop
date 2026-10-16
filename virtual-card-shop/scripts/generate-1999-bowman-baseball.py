@@ -244,12 +244,21 @@ def verify_parallel(
             and base_name == "Russ Branyan"
             and team == base_team == "Cleveland Indians"
         )
-        if name != base_name and not approved_alias:
+        # Gold #299 spells out the suffix; Base #299 omits it.
+        approved_hairston = (
+            number == "299"
+            and name == "Jerry Hairston Jr."
+            and base_name == "Jerry Hairston"
+            and team == base_team
+        )
+        if name != base_name and not (approved_alias or approved_hairston):
             raise SystemExit(
                 f"{label} #{number}: subject {name!r} does not match Base {base_name!r}"
             )
         if approved_alias:
             print(f"{label} #148: Russell Branyan -> Russ Branyan (verified alias)")
+        if approved_hairston:
+            print(f"{label} #299: Jerry Hairston Jr. -> Jerry Hairston (verified suffix)")
         if team != base_team:
             team_updates.append((number, name, team, base_team))
         cards[number] = (base_name, base_team, raw)
