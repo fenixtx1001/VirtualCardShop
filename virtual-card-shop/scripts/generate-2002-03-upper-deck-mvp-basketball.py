@@ -8,7 +8,7 @@ ROOT=Path(__file__).resolve().parents[1]
 BUNDLE=ROOT/"data/set-factory/2002-03-upper-deck-mvp-basketball.bundle.json"
 CSV=ROOT/"data/set-factory/2002-03-upper-deck-mvp-basketball.cards.csv"
 HEADERS={"User-Agent":"Mozilla/5.0 (compatible; VCS Set Factory research import)","Accept":"text/html,application/xhtml+xml"}
-CARD_NUM=re.compile(r"^(?:[A-Z]{0,5}\d{1,3}(?:-[A-Z0-9]{1,3})?|\d{1,3}|[A-Z]{1,4}/[A-Z]{1,4})$",re.I)
+CARD_NUM=re.compile(r"^[A-Z0-9]{1,7}(?:[-/][A-Z0-9]{1,7})?$",re.I)
 NOTE=re.compile(r"\s+(?:UER|ERR|COR|VAR|RC|MEM|AU|SN\d+)(?=\b|[A-Z]|[,;:])",re.I)
 class Rows(HTMLParser):
  def __init__(self): super().__init__();self.rows=[];self.row=None;self.cell=None
@@ -99,6 +99,7 @@ def self_test():
  assert clean("Yao Ming MVPR, RC")=="Yao Ming MVPR"
  assert clean("Kobe Bryant MEM")=="Kobe Bryant"
  assert CARD_NUM.fullmatch("CW-C")
+ assert CARD_NUM.fullmatch("KB-C")
  assert CARD_NUM.fullmatch("BD/SM")
  print("2002-03 MVP offline tests passed")
 if __name__=="__main__":
