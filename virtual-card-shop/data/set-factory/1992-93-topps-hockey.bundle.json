@@ -12,10 +12,10 @@
     "trueRookies": "Only the 10 card numbers verified in TCDB rookie index receive RC on Base.",
     "gold": "Distinct 529-card Gold checklist. Gold #525-528 are different players replacing four Base checklists. NEVER derive Gold from Base.",
     "goldOdds": "1 Gold card per ordinary wax pack; 1:1 ProductSet odds.",
-    "factoryOnly": "Base and Gold #529 are late factory-only cards. Included for checklist completion, but current VCS set-level odds cannot exclude #529 from pack pools. Release BLOCKED until per-card pack eligibility exclusion is implemented and tested.",
+    "factoryOnly": "Historical Base and Gold #529 Eric Lindros were factory-set-only. VCS intentionally makes both eligible in ordinary packs as a documented gameplay exception so the full 529-card checklists can be completed through pack ripping, with equal within-set odds.",
     "subsets": "Clean UER and other notes from player names. Keep printed subset abbreviations as subset metadata.",
     "packs": "VCS four cards per pack, 24 packs per box. Original standard physical pack held 14 base plus one Gold.",
-    "release": "Unreleased until #529 factory-only handling, images, pricing, pack artwork and QA complete."
+    "release": "Unreleased pending checklist generation and QA, images, pricing and pack artwork. #529 is explicitly pack-eligible; no factory-only exclusion needed."
   },
   "product": {
     "id": "1992_93_Topps_Hockey",
@@ -36,7 +36,7 @@
     "packImage": "PENDING",
     "cardImages": "PENDING",
     "pricing": "PENDING",
-    "release": "BLOCKED_FACTORY_ONLY_529"
+    "release": "BLOCKED_PENDING_STANDARD_QA"
   },
   "cardsFile": "1992-93-topps-hockey.cards.csv",
   "productSets": [
@@ -49,7 +49,7 @@
       "defaultGradeability": "COMMON",
       "expectedCards": 529,
       "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4919/1992-93-Topps",
-      "notes": "529 complete Base cards; #529 factory-only, must be excluded from wax pack draws before release."
+      "notes": "529 complete Base cards. Historical factory-only #529 is intentionally eligible for ordinary VCS pack draws at equal Base odds."
     },
     {
       "key": "gold",
@@ -60,7 +60,7 @@
       "defaultGradeability": "COMMON",
       "expectedCards": 529,
       "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/48461/1992-93-Topps-Gold",
-      "notes": "1 Gold per wax pack. Actual separate checklist; #525–528 feature replacement players. #529 factory-only."
+      "notes": "1 Gold per wax pack; actual separate checklist, with replacement players at #525–528. Historical factory-only #529 is deliberately eligible at equal Gold odds."
     }
   ]
 }
