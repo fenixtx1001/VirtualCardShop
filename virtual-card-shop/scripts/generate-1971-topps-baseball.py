@@ -32,7 +32,7 @@ def fetch(url):
 def clean(s):
  s=" ".join(s.split()).strip()
  # TCDB sometimes concatenates its comma-prefixed error marker and note.
- s=re.sub(r",\\s*(?:UER|ERR|COR|VAR)(?=\\d|[A-Z])[^,;]*$", "", s, flags=re.I)
+ s=re.sub(r",\s*(?:UER|ERR|COR|VAR)(?=\d|[A-Z])[^,;]*$", "", s, flags=re.I)
  m=TAGS.search(s)
  if m:s=s[:m.start()].strip(" ,;")
  if not s:raise SystemExit("Blank TCDB subject; NO CSV written")
