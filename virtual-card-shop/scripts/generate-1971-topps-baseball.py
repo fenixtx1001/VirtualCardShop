@@ -30,7 +30,10 @@ def fetch(url):
   with urllib.request.urlopen(req,timeout=35) as r:return r.read().decode("utf-8","replace")
  except Exception as e:raise SystemExit(f"TCDB access error: {url}: {e}; NO CSV written")
 def clean(s):
- s=" ".join(s.split()).strip();m=TAGS.search(s)
+ s=" ".join(s.split()).strip()
+ # TCDB sometimes concatenates its comma-prefixed error marker and note.
+ s=re.sub(r",\\s*(?:UER|ERR|COR|VAR)(?=\\d|[A-Z])[^,;]*$", "", s, flags=re.I)
+ m=TAGS.search(s)
  if m:s=s[:m.start()].strip(" ,;")
  if not s:raise SystemExit("Blank TCDB subject; NO CSV written")
  return s
@@ -108,6 +111,7 @@ def main():
 def self_test():
  assert clean("Bert Blyleven RC")=="Bert Blyleven"
  assert clean("Al Kaline UER: birth date")=="Al Kaline"
+ assert clean("Checklist: 644-752 CL, ERR6th Series")=="Checklist: 644-752 CL"
  assert re.fullmatch(r"(\d{1,3})([a-z]?)","42a",re.I).group(1)=="42"
  assert re.fullmatch(r"(\d{1,3})([a-z]?)","619b",re.I).group(1)=="619"
  print("1971 Topps self-tests passed")
