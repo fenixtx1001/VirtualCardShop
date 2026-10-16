@@ -57,6 +57,15 @@ def collect(key,sid,count,rookie=False):
      else:nno.append((name,team))
     else:
      num=int(numbered.group(1))
+     # TCDB #619 has two printing variants. The error-commentary row
+     # may contain text separated across HTML cells rather than in the
+     # same subject cell. Both explicitly verified checklist printings
+     # are the same collector card and must not become separate items.
+     if key=="base" and num==619 and re.fullmatch(
+      r"Checklist:\\s*644\\s*[-–]\\s*752\\s+CL(?:\\s*,?\\s*ERR.*)?",
+      name, re.I
+     ) and not team:
+      name="Checklist: 644-752 CL"
      prior=found.get(num)
      if prior and prior[:2]!=(name,team):
       issues.append(f"{key} #{num}: {prior[:2]!r} vs {(name,team)!r}")
