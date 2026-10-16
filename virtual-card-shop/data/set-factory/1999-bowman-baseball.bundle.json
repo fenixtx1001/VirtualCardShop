@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1300/1999-Bowman",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/1300/1999-Bowman",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1300/1999-Bowman",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/1300/1999-Bowman",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1999_Bowman"
+  },
+  "decisions": {
+    "requestBaseline": "Use the proven Set Factory TCDB request headers: User-Agent Mozilla/5.0 (compatible; VCS Set Factory research import), Accept text/html,application/xhtml+xml. Fail closed on any incomplete checklist.",
+    "series": "Combine Series One #1-220 and Series Two #221-440 into one 440-card Base ProductSet. The two physical series are equal checklist size, so VCS gives them equal base pull weight regardless of historical production volume.",
+    "pack": "VCS uses four cards per pack and 24 packs per box. Historical 1999 Bowman hobby packs contained 10 cards and boxes contained 24 packs.",
+    "baseOdds": "All 440 Base cards are equally weighted. No prospect/rookie boost and no series boost.",
+    "trueRookies": "Append RC only to the 148 Base card numbers returned by the TCDB rookie index. Prospect status alone never creates an RC label; parallels and inserts do not inherit RC labels.",
+    "cleanNames": "Player contains only the clean subject name plus true RC where applicable. TCDB UER/ERR/COR/VAR, SN, AU, foil, series and request-card metadata stay out of Player.",
+    "parallels": "International and Gold are each full 440-card parallel ProductSets verified card-by-card against Base. International is one per physical pack in both series and remains 1:1. Gold is SN99; equal-series weighting of 1:111 Series One and 1:59 Series Two yields about 1:77 combined VCS packs.",
+    "seriesOnlyInserts": "Series-only insert families at 1:12 in their applicable physical series become 1:24 in the combined VCS product because Series One and Series Two receive equal 50/50 base weight.",
+    "autographs": "Certified Autographs remain one source family but are split into Blue, Silver and Gold ProductSets solely to preserve their materially different real-world rarity. Each color combines its Series One and Series Two cards with equal-series weighted odds: Blue about 1:111, Silver about 1:335, Gold about 1:1356. No per-player rarity or invented variant odds.",
+    "boxChecklist": "The two NNO Checklist / Certificate Request cards were inserted one per 24-pack box. They are represented as one 2-card ProductSet at 1:24; internal S1-NNO and S2-NNO keys preserve the two distinct physical cards without pretending NNO is unique.",
+    "excluded": "Exclude the 6-card Pre-Production dealer promo set; it was promotional material, not a normal pack-issued chase set.",
+    "release": "Keep unreleased until live source generation, dry-run/apply validation, team/rookie checks, images, pack art, pricing and pack-rarity smoke testing are complete."
+  },
+  "product": {
+    "id": "1999_Bowman_Baseball",
+    "year": 1999,
+    "brand": "Bowman",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1999-bowman-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1999_Bowman_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 440,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1300/1999-Bowman",
+      "notes": "Series One #1-220 plus Series Two #221-440; all 440 equally weighted."
+    },
+    {
+      "key": "international",
+      "id": "1999_Bowman_Baseball_international",
+      "name": "International",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "expectedCards": 440,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11420/1999-Bowman---International",
+      "notes": "Full 440-card scenic foilboard parallel; one per pack in both physical series."
+    },
+    {
+      "key": "gold",
+      "id": "1999_Bowman_Baseball_gold",
+      "name": "Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": 77,
+      "expectedCards": 440,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11419/1999-Bowman---Gold",
+      "notes": "Full 440-card Gold foil parallel, SN99. S1 1:111 and S2 1:59; equal-series weighted combined rate is about 1:77.05, stored as integer 1:77."
+    },
+    {
+      "key": "late-bloomers",
+      "id": "1999_Bowman_Baseball_late_bloomers",
+      "name": "Late Bloomers",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "expectedCards": 10,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11421/1999-Bowman---Late-Bloomers",
+      "notes": "Series One 1:12; equal-series combined VCS rate 1:24."
+    },
+    {
+      "key": "scouts-choice",
+      "id": "1999_Bowman_Baseball_scouts_choice",
+      "name": "Scouts' Choice",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "expectedCards": 21,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11422/1999-Bowman---Scouts%27-Choice",
+      "notes": "Series One 1:12; equal-series combined VCS rate 1:24."
+    },
+    {
+      "key": "roy-favorites",
+      "id": "1999_Bowman_Baseball_roy_favorites",
+      "name": "2000 Rookie of the Year Favorites",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "expectedCards": 10,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11416/1999-Bowman---2000-Rookie-of-the-Year-Favorites",
+      "notes": "Series Two 1:12; equal-series combined VCS rate 1:24."
+    },
+    {
+      "key": "early-risers",
+      "id": "1999_Bowman_Baseball_early_risers",
+      "name": "Early Risers",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "expectedCards": 11,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11418/1999-Bowman---Early-Risers",
+      "notes": "Series Two 1:12; equal-series combined VCS rate 1:24."
+    },
+    {
+      "key": "certified-autographs-blue",
+      "id": "1999_Bowman_Baseball_certified_autographs_blue",
+      "name": "Certified Autographs - Blue",
+      "kind": "INSERT",
+      "oddsPerPack": 111,
+      "expectedCards": 40,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11417/1999-Bowman---Certified-Autographs",
+      "notes": "20 Blue cards in each series. S1 1:162 and S2 1:85; equal-series weighted combined rate about 1:111.50, stored as 1:111."
+    },
+    {
+      "key": "certified-autographs-silver",
+      "id": "1999_Bowman_Baseball_certified_autographs_silver",
+      "name": "Certified Autographs - Silver",
+      "kind": "INSERT",
+      "oddsPerPack": 335,
+      "expectedCards": 20,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11417/1999-Bowman---Certified-Autographs",
+      "notes": "10 Silver cards in each series. S1 1:485 and S2 1:256; equal-series weighted combined rate about 1:335.11, stored as 1:335."
+    },
+    {
+      "key": "certified-autographs-gold",
+      "id": "1999_Bowman_Baseball_certified_autographs_gold",
+      "name": "Certified Autographs - Gold",
+      "kind": "INSERT",
+      "oddsPerPack": 1356,
+      "expectedCards": 10,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11417/1999-Bowman---Certified-Autographs",
+      "notes": "5 Gold cards in each series. S1 1:1941 and S2 1:1042; equal-series weighted combined rate about 1:1356.03, stored as 1:1356."
+    },
+    {
+      "key": "checklists-certificate-requests",
+      "id": "1999_Bowman_Baseball_checklists_certificate_requests",
+      "name": "Checklists / Certificate Requests",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "expectedCards": 2,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/309944/1999-Bowman---Checklists-/-Certificate-Requests",
+      "notes": "One NNO checklist/request card per 24-pack physical box; S1-NNO and S2-NNO internal numbers keep the two cards unique."
+    }
+  ]
+}
