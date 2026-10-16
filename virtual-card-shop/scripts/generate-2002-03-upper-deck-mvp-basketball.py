@@ -30,6 +30,7 @@ def fetch(url):
  except Exception as e:raise SystemExit(f"TCDB unavailable at {url}: {e}; NO CSV written")
 def clean(s):
  s=" ".join(s.split()).strip()
+ s=re.sub(r",\\s*(?:RC|MEM|AU|SN\\d+)(?:\\b|$).*", "", s, flags=re.I)
  m=NOTE.search(s)
  if m:s=s[:m.start()].strip(" ,;")
  return s
