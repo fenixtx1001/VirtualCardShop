@@ -148,7 +148,11 @@ def fetch_cards(
                 if not number_re.fullmatch(value) or idx + 1 >= len(values):
                     continue
                 number = value.upper()
-                raw = values[idx + 1]
+                raw = (
+                    " ".join(values[idx + 1 : -1])
+                    if idx + 2 < len(values)
+                    else values[idx + 1]
+                )
                 if raw.lower() in ("add", "edit", "options"):
                     continue
                 name = clean_subject(raw)
