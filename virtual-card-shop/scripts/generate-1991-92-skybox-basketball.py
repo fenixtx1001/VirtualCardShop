@@ -7,6 +7,13 @@ from pathlib import Path
 OUT=Path(__file__).resolve().parents[1]/"data/set-factory/1991-92-skybox-basketball.cards.csv"
 HEADERS={"User-Agent":"Mozilla/5.0 (compatible; VCS Set Factory research import)","Accept":"text/html,application/xhtml+xml"}
 ROMANS={"i","ii","iii","iv","v","vi"}
+# Independently transcribed from the TCDB 47-record rookie index.
+EXPECTED_ROOKIE_NUMBERS={
+ 22,69,72,89,93,102,109,110,120,133,140,149,170,179,182,184,
+ 191,194,219,232,243,245,247,262,286,290,297,388,513,514,515,
+ 516,517,518,519,520,521,522,523,541,542,616,636,641,643,645,647
+}
+NON_TEAM_SUBSETS=re.compile(r"\\s+(?:ASWHL|CEN|SIS)$",re.I)
 NOTE=re.compile(r"\s+(?:UER|ERR|COR|VAR|RC)(?=\b|[A-Z]|[,;:])",re.I)
 SUBSET=re.compile(r"\s+(?:USA|CO|DFT|AS|TL|LL|CL|TC)\s*$",re.I)
 
@@ -70,12 +77,27 @@ def collect(label,sid,expected,mode):
 def main():
  base,issues=collect("base",2089,659,"base")
  inserts,problems=collect("blister",25540,6,"blister");issues+=problems
- rookies,problems=collect("rookies",2089,47,"rookies");issues+=problems
+ rookies,problems=collect("rookies",2089,46,"rookies")
+ # TCDB reports 47 RCs, but its paginated HTML produces only 46
+ # rows for the generic parser. The numbered official index is authoritative.
+ # Audit every parsed row against the verified 47-number list.
+ issues += [p for p in problems if not p.startswith("rookies: expected")]
+ actual={int(n) for n in rookies}
+ unexpected=actual-EXPECTED_ROOKIE_NUMBERS
+ if unexpected:issues.append(f"Rookies not in official index: {sorted(unexpected)}")
+ missing=EXPECTED_ROOKIE_NUMBERS-actual
+ print(f"Rookie index reconciliation: {len(actual)} parsed; {len(missing)} not parsed: {sorted(missing)}",flush=True)
+ if len(missing)!=1:issues.append(f"Expected exactly one HTML parser omission, got {sorted(missing)}")
+ for n in missing:
+  if str(n) in base:
+   rookies[str(n)]=base[str(n)]
+  else:issues.append(f"Rookie #{n} missing from Base")
+ if len(rookies)!=47:issues.append(f"Expected 47 validated RCs, got {len(rookies)}")
  for n,(name,team) in rookies.items():
   if n not in base or base[n][0]!=name:
    issues.append(f"RC #{n}: {name!r} differs from Base {base.get(n)!r}")
  for n,(name,team) in base.items():
-  if not team and "checklist" not in name.lower():
+  if not team and "checklist" not in name.lower() and not NON_TEAM_SUBSETS.search(name):
    issues.append(f"Base #{n}: missing team for {name!r}")
  if issues:
   print("=== ALL SOURCE DISCREPANCIES ===")
@@ -106,6 +128,9 @@ def self_test():
  assert clean("Rumeal Robinson UER: Drafted 11th")=="Rumeal Robinson"
  assert clean("Larry Johnson DFT, RC")=="Larry Johnson DFT"
  assert len(ROMANS)==6
+ assert len(EXPECTED_ROOKIE_NUMBERS)==47
+ assert NON_TEAM_SUBSETS.search("The Ball CEN")
+ assert NON_TEAM_SUBSETS.search("Business SIS")
  print("1991-92 SkyBox offline tests passed")
 if __name__=="__main__":
  p=argparse.ArgumentParser();p.add_argument("--self-test",action="store_true");a=p.parse_args()
