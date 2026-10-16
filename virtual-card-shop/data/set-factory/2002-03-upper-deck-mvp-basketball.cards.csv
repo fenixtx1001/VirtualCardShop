@@ -1,0 +1,992 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Shareef Abdur-Rahim,Atlanta Hawks,,
+base,2,Jason Terry,Atlanta Hawks,,
+base,3,Toni Kukoc,Atlanta Hawks,,
+base,4,DerMarr Johnson,Atlanta Hawks,,
+base,5,Nazr Mohammed,Atlanta Hawks,,
+base,6,Theo Ratliff,Atlanta Hawks,,
+base,7,Dion Glover,Atlanta Hawks,,
+base,8,Paul Pierce,Boston Celtics,,
+base,9,Antoine Walker,Boston Celtics,,
+base,10,Kenny Anderson,Boston Celtics,,
+base,11,Tony Delk,Boston Celtics,,
+base,12,Eric Williams,Boston Celtics,,
+base,13,Rodney Rogers,Boston Celtics,,
+base,14,Jamal Mashburn,New Orleans Hornets,,
+base,15,Baron Davis,New Orleans Hornets,,
+base,16,David Wesley,New Orleans Hornets,,
+base,17,Elden Campbell,New Orleans Hornets,,
+base,18,P.J. Brown,New Orleans Hornets,,
+base,19,Jamaal Magloire,New Orleans Hornets,,
+base,20,Stacey,New Orleans Hornets,,
+base,21,Jalen Rose,Chicago Bulls,,
+base,22,Marcus Fizer,Chicago Bulls,,
+base,23,Tyson Chandler,Chicago Bulls,,
+base,24,Trenton Hassell,Chicago Bulls,,
+base,25,Eddy Curry,Chicago Bulls,,
+base,26,Travis Best,Chicago Bulls,,
+base,27,Andre Miller,Cleveland Cavaliers,,
+base,28,Lamond Murray,Cleveland Cavaliers,,
+base,29,Ricky Davis,Cleveland Cavaliers,,
+base,30,Zydrunas Ilgauskas,Cleveland Cavaliers,,
+base,31,Jumaine Jones,Cleveland Cavaliers,,
+base,32,Chris Mihm,Cleveland Cavaliers,,
+base,33,Dirk Nowitzki,Dallas Mavericks,,
+base,34,Michael Finley,Dallas Mavericks,,
+base,35,Steve Nash,Dallas Mavericks,,
+base,36,Nick Van Exel,Dallas Mavericks,,
+base,37,Raef LaFrentz,Dallas Mavericks,,
+base,38,Adrian Griffin,Dallas Mavericks,,
+base,39,Avery Johnson,Dallas Mavericks,,
+base,40,Marcus Camby,Denver Nuggets,,
+base,41,Juwan Howard,Denver Nuggets,,
+base,42,James Posey,Denver Nuggets,,
+base,43,Ryan Bowen,Denver Nuggets,,
+base,44,Donnell Harvey,Denver Nuggets,,
+base,45,Voshon Lenard,Denver Nuggets,,
+base,46,Jerry Stackhouse,Detroit Pistons,,
+base,47,Clifford Robinson,Detroit Pistons,,
+base,48,Chucky Atkins,Detroit Pistons,,
+base,49,Ben Wallace,Detroit Pistons,,
+base,50,Jon Barry,Detroit Pistons,,
+base,51,Corliss Williamson,Detroit Pistons,,
+base,52,Antawn Jamison,Golden State Warriors,,
+base,53,Jason Richardson,Golden State Warriors,,
+base,54,Danny Fortson,Golden State Warriors,,
+base,55,Gilbert Arenas,Golden State Warriors,,
+base,56,Bob Sura,Golden State Warriors,,
+base,57,Troy Murphy,Golden State Warriors,,
+base,58,Steve Francis,Houston Rockets,,
+base,59,Cuttino Mobley,Houston Rockets,,
+base,60,Eddie Griffin,Houston Rockets,,
+base,61,Kenny Thomas,Houston Rockets,,
+base,62,Moochie Norris,Houston Rockets,,
+base,63,Kelvin Cato,Houston Rockets,,
+base,64,Glen Rice,Houston Rockets,,
+base,65,Reggie Miller,Indiana Pacers,,
+base,66,Jermaine O'Neal,Indiana Pacers,,
+base,67,Ron Mercer,Indiana Pacers,,
+base,68,Jamaal Tinsley,Indiana Pacers,,
+base,69,Al Harrington,Indiana Pacers,,
+base,70,Ron Artest,Indiana Pacers,,
+base,71,Austin Croshere,Indiana Pacers,,
+base,72,Elton Brand,Los Angeles Clippers,,
+base,73,Darius Miles,Los Angeles Clippers,,
+base,74,Lamar Odom,Los Angeles Clippers,,
+base,75,Quentin Richardson,Los Angeles Clippers,,
+base,76,Corey Maggette,Los Angeles Clippers,,
+base,77,Jeff McInnis,Los Angeles Clippers,,
+base,78,Michael Olowokandi,Los Angeles Clippers,,
+base,79,Kobe Bryant,Los Angeles Lakers,,
+base,80,Shaquille O'Neal,Los Angeles Lakers,,
+base,81,Derek Fisher,Los Angeles Lakers,,
+base,82,Rick Fox,Los Angeles Lakers,,
+base,83,Robert Horry,Los Angeles Lakers,,
+base,84,Devean George,Los Angeles Lakers,,
+base,85,Samaki Walker,Los Angeles Lakers,,
+base,86,Pau Gasol,Memphis Grizzlies,,
+base,87,Jason Williams,Memphis Grizzlies,,
+base,88,Shane Battier,Memphis Grizzlies,,
+base,89,Stromile Swift,Memphis Grizzlies,,
+base,90,Lorenzen Wright,Memphis Grizzlies,,
+base,91,Tony Massenburg,Memphis Grizzlies,,
+base,92,Eddie Jones,Miami Heat,,
+base,93,Alonzo Mourning,Miami Heat,,
+base,94,Brian Grant,Miami Heat,,
+base,95,Anthony Carter,Miami Heat,,
+base,96,LaPhonso Ellis,Miami Heat,,
+base,97,Jim Jackson,Miami Heat,,
+base,98,Ray Allen,Milwaukee Bucks,,
+base,99,Glenn Robinson,Milwaukee Bucks,,
+base,100,Sam Cassell,Milwaukee Bucks,,
+base,101,Tim Thomas,Milwaukee Bucks,,
+base,102,Anthony Mason,Milwaukee Bucks,,
+base,103,Joel Przybilla,Milwaukee Bucks,,
+base,104,Ervin Johnson,Milwaukee Bucks,,
+base,105,Kevin Garnett,Minnesota Timberwolves,,
+base,106,Wally Szczerbiak,Minnesota Timberwolves,,
+base,107,Chauncey Billups,Minnesota Timberwolves,,
+base,108,Terrell Brandon,Minnesota Timberwolves,,
+base,109,Marc Jackson,Minnesota Timberwolves,,
+base,110,Joe Smith,Minnesota Timberwolves,,
+base,111,Jason Kidd,New Jersey Nets,,
+base,112,Keith Van Horn,New Jersey Nets,,
+base,113,Kenyon Martin,New Jersey Nets,,
+base,114,Kerry Kittles,New Jersey Nets,,
+base,115,Richard Jefferson,New Jersey Nets,,
+base,116,Jason Collins,New Jersey Nets,,
+base,117,Todd MacCulloch,New Jersey Nets,,
+base,118,Allan Houston,New York Knicks,,
+base,119,Latrell Sprewell,New York Knicks,,
+base,120,Kurt Thomas,New York Knicks,,
+base,121,Antonio McDyess,New York Knicks,,
+base,122,Othella Harrington,New York Knicks,,
+base,123,Clarence Weatherspoon,New York Knicks,,
+base,124,Tracy McGrady,Orlando Magic,,
+base,125,Mike Miller,Orlando Magic,,
+base,126,Darrell Armstrong,Orlando Magic,,
+base,127,Grant Hill,Orlando Magic,,
+base,128,Horace Grant,Orlando Magic,,
+base,129,Steven Hunter,Orlando Magic,,
+base,130,Allen Iverson,Philadelphia 76ers,,
+base,131,Dikembe Mutombo,Philadelphia 76ers,,
+base,132,Aaron McKie,Philadelphia 76ers,,
+base,133,Derrick Coleman,Philadelphia 76ers,,
+base,134,Eric Snow,Philadelphia 76ers,,
+base,135,Matt Harpring,Philadelphia 76ers,,
+base,136,Stephon Marbury,Phoenix Suns,,
+base,137,Shawn Marion,Phoenix Suns,,
+base,138,Joe Johnson,Phoenix Suns,,
+base,139,Anfernee Hardaway,Phoenix Suns,,
+base,140,Jake Tsakalidis,Phoenix Suns,,
+base,141,Tom Gugliotta,Phoenix Suns,,
+base,142,Bo Outlaw,Phoenix Suns,,
+base,143,Rasheed Wallace,Portland Trail Blazers,,
+base,144,Damon Stoudamire,Portland Trail Blazers,,
+base,145,Scottie Pippen,Portland Trail Blazers,,
+base,146,Ruben Patterson,Portland Trail Blazers,,
+base,147,Derek Anderson,Portland Trail Blazers,,
+base,148,Dale Davis,Portland Trail Blazers,,
+base,149,Bonzi Wells,Portland Trail Blazers,,
+base,150,Chris Webber,Sacramento Kings,,
+base,151,Peja Stojakovic,Sacramento Kings,,
+base,152,Mike Bibby,Sacramento Kings,,
+base,153,Doug Christie,Sacramento Kings,,
+base,154,Vlade Divac,Sacramento Kings,,
+base,155,Bobby Jackson,Sacramento Kings,,
+base,156,Hidayet Turkoglu,Sacramento Kings,,
+base,157,Tim Duncan,San Antonio Spurs,,
+base,158,David Robinson,San Antonio Spurs,,
+base,159,Steve Smith,San Antonio Spurs,,
+base,160,Tony Parker,San Antonio Spurs,,
+base,161,Antonio Daniels,San Antonio Spurs,,
+base,162,Charles Smith,San Antonio Spurs,,
+base,163,Bruce Bowen,San Antonio Spurs,,
+base,164,Gary Payton,Seattle SuperSonics,,
+base,165,Rashard Lewis,Seattle SuperSonics,,
+base,166,Vin Baker,Seattle SuperSonics,,
+base,167,Brent Barry,Seattle SuperSonics,,
+base,168,Desmond Mason,Seattle SuperSonics,,
+base,169,Vladimir Radmanovic,Seattle SuperSonics,,
+base,170,Vince Carter,Toronto Raptors,,
+base,171,Morris Peterson,Toronto Raptors,,
+base,172,Antonio Davis,Toronto Raptors,,
+base,173,Hakeem Olajuwon,Toronto Raptors,,
+base,174,Alvin Williams,Toronto Raptors,,
+base,175,Jerome Williams,Toronto Raptors,,
+base,176,Keon Clark,Toronto Raptors,,
+base,177,Karl Malone,Utah Jazz,,
+base,178,John Stockton,Utah Jazz,,
+base,179,Donyell Marshall,Utah Jazz,,
+base,180,Andrei Kirilenko,Utah Jazz,,
+base,181,Bryon Russell,Utah Jazz,,
+base,182,Jarron Collins,Utah Jazz,,
+base,183,DeShawn Stevenson,Utah Jazz,,
+base,184,Michael Jordan,Washington Wizards,,
+base,185,Richard Hamilton,Washington Wizards,,
+base,186,Kwame Brown,Washington Wizards,,
+base,187,Chris Whitney,Washington Wizards,,
+base,188,Tyronn Lue,Washington Wizards,,
+base,189,Brendan Haywood,Washington Wizards,,
+base,190,Jahidi White,Washington Wizards,,
+base,191,Dajuan Wagner MVPR RC,Cleveland Cavaliers,,
+base,192,Jay Williams MVPR RC,Chicago Bulls,,
+base,193,Yao Ming MVPR RC,Houston Rockets,,
+base,194,Drew Gooden MVPR RC,Memphis Grizzlies,,
+base,195,Chris Jefferies MVPR RC,Toronto Raptors,,
+base,196,Casey Jacobsen MVPR RC,Phoenix Suns,,
+base,197,Juan Dixon MVPR RC,Washington Wizards,,
+base,198,Melvin Ely MVPR RC,Los Angeles Clippers,,
+base,199,Curtis Borchardt MVPR RC,Utah Jazz,,
+base,200,John Salmons MVPR RC,Philadelphia 76ers,,
+base,201,Carlos Boozer MVPR RC,Cleveland Cavaliers,,
+base,202,Fred Jones MVPR RC,Indiana Pacers,,
+base,203,Frank Williams MVPR RC,New York Knicks,,
+base,204,Jamal Sampson MVPR RC,Milwaukee Bucks,,
+base,205,Dan Dickau MVPR RC,Atlanta Hawks,,
+base,206,Marcus Haislip MVPR RC,Milwaukee Bucks,,
+base,207,Jared Jeffries MVPR RC,Washington Wizards,,
+base,208,Amare Stoudemire MVPR RC,Phoenix Suns,,
+base,209,Caron Butler MVPR RC,Miami Heat,,
+base,210,Qyntel Woods MVPR RC,Portland Trail Blazers,,
+base,211,Kareem Rush MVPR RC,Los Angeles Lakers,,
+base,212,Ryan Humphrey MVPR RC,Orlando Magic,,
+base,213,Jiri Welsch MVPR RC,Golden State Warriors,,
+base,214,Mike Dunleavy Jr. MVPR RC,Golden State Warriors,,
+base,215,Tayshaun Prince MVPR RC,Detroit Pistons,,
+base,216,Nene Hilario MVPR RC,Denver Nuggets,,
+base,217,Nikoloz Tskitishvili MVPR RC,Denver Nuggets,,
+base,218,Bostjan Nachbar MVPR RC,Houston Rockets,,
+base,219,Efthimios Rentzias MVPR RC,Philadelphia 76ers,,
+base,220,Rod Grizzard MVPR RC,Washington Wizards,,
+classic,1,Shareef Abdur-Rahim,Atlanta Hawks,,Classic
+classic,2,Jason Terry,Atlanta Hawks,,Classic
+classic,3,Toni Kukoc,Atlanta Hawks,,Classic
+classic,4,DerMarr Johnson,Atlanta Hawks,,Classic
+classic,5,Nazr Mohammed,Atlanta Hawks,,Classic
+classic,6,Theo Ratliff,Atlanta Hawks,,Classic
+classic,7,Dion Glover,Atlanta Hawks,,Classic
+classic,8,Paul Pierce,Boston Celtics,,Classic
+classic,9,Antoine Walker,Boston Celtics,,Classic
+classic,10,Kenny Anderson,Boston Celtics,,Classic
+classic,11,Tony Delk,Boston Celtics,,Classic
+classic,12,Eric Williams,Boston Celtics,,Classic
+classic,13,Rodney Rogers,Boston Celtics,,Classic
+classic,14,Jamal Mashburn,New Orleans Hornets,,Classic
+classic,15,Baron Davis,New Orleans Hornets,,Classic
+classic,16,David Wesley,New Orleans Hornets,,Classic
+classic,17,Elden Campbell,New Orleans Hornets,,Classic
+classic,18,P.J. Brown,New Orleans Hornets,,Classic
+classic,19,Jamaal Magloire,New Orleans Hornets,,Classic
+classic,20,Stacey,New Orleans Hornets,,Classic
+classic,21,Jalen Rose,Chicago Bulls,,Classic
+classic,22,Marcus Fizer,Chicago Bulls,,Classic
+classic,23,Tyson Chandler,Chicago Bulls,,Classic
+classic,24,Trenton Hassell,Chicago Bulls,,Classic
+classic,25,Eddy Curry,Chicago Bulls,,Classic
+classic,26,Travis Best,Chicago Bulls,,Classic
+classic,27,Andre Miller,Cleveland Cavaliers,,Classic
+classic,28,Lamond Murray,Cleveland Cavaliers,,Classic
+classic,29,Ricky Davis,Cleveland Cavaliers,,Classic
+classic,30,Zydrunas Ilgauskas,Cleveland Cavaliers,,Classic
+classic,31,Jumaine Jones,Cleveland Cavaliers,,Classic
+classic,32,Chris Mihm,Cleveland Cavaliers,,Classic
+classic,33,Dirk Nowitzki,Dallas Mavericks,,Classic
+classic,34,Michael Finley,Dallas Mavericks,,Classic
+classic,35,Steve Nash,Dallas Mavericks,,Classic
+classic,36,Nick Van Exel,Dallas Mavericks,,Classic
+classic,37,Raef LaFrentz,Dallas Mavericks,,Classic
+classic,38,Adrian Griffin,Dallas Mavericks,,Classic
+classic,39,Avery Johnson,Dallas Mavericks,,Classic
+classic,40,Marcus Camby,Denver Nuggets,,Classic
+classic,41,Juwan Howard,Denver Nuggets,,Classic
+classic,42,James Posey,Denver Nuggets,,Classic
+classic,43,Ryan Bowen,Denver Nuggets,,Classic
+classic,44,Donnell Harvey,Denver Nuggets,,Classic
+classic,45,Voshon Lenard,Denver Nuggets,,Classic
+classic,46,Jerry Stackhouse,Detroit Pistons,,Classic
+classic,47,Clifford Robinson,Detroit Pistons,,Classic
+classic,48,Chucky Atkins,Detroit Pistons,,Classic
+classic,49,Ben Wallace,Detroit Pistons,,Classic
+classic,50,Jon Barry,Detroit Pistons,,Classic
+classic,51,Corliss Williamson,Detroit Pistons,,Classic
+classic,52,Antawn Jamison,Golden State Warriors,,Classic
+classic,53,Jason Richardson,Golden State Warriors,,Classic
+classic,54,Danny Fortson,Golden State Warriors,,Classic
+classic,55,Gilbert Arenas,Golden State Warriors,,Classic
+classic,56,Bob Sura,Golden State Warriors,,Classic
+classic,57,Troy Murphy,Golden State Warriors,,Classic
+classic,58,Steve Francis,Houston Rockets,,Classic
+classic,59,Cuttino Mobley,Houston Rockets,,Classic
+classic,60,Eddie Griffin,Houston Rockets,,Classic
+classic,61,Kenny Thomas,Houston Rockets,,Classic
+classic,62,Moochie Norris,Houston Rockets,,Classic
+classic,63,Kelvin Cato,Houston Rockets,,Classic
+classic,64,Glen Rice,Houston Rockets,,Classic
+classic,65,Reggie Miller,Indiana Pacers,,Classic
+classic,66,Jermaine O'Neal,Indiana Pacers,,Classic
+classic,67,Ron Mercer,Indiana Pacers,,Classic
+classic,68,Jamaal Tinsley,Indiana Pacers,,Classic
+classic,69,Al Harrington,Indiana Pacers,,Classic
+classic,70,Ron Artest,Indiana Pacers,,Classic
+classic,71,Austin Croshere,Indiana Pacers,,Classic
+classic,72,Elton Brand,Los Angeles Clippers,,Classic
+classic,73,Darius Miles,Los Angeles Clippers,,Classic
+classic,74,Lamar Odom,Los Angeles Clippers,,Classic
+classic,75,Quentin Richardson,Los Angeles Clippers,,Classic
+classic,76,Corey Maggette,Los Angeles Clippers,,Classic
+classic,77,Jeff McInnis,Los Angeles Clippers,,Classic
+classic,78,Michael Olowokandi,Los Angeles Clippers,,Classic
+classic,79,Kobe Bryant,Los Angeles Lakers,,Classic
+classic,80,Shaquille O'Neal,Los Angeles Lakers,,Classic
+classic,81,Derek Fisher,Los Angeles Lakers,,Classic
+classic,82,Rick Fox,Los Angeles Lakers,,Classic
+classic,83,Robert Horry,Los Angeles Lakers,,Classic
+classic,84,Devean George,Los Angeles Lakers,,Classic
+classic,85,Samaki Walker,Los Angeles Lakers,,Classic
+classic,86,Pau Gasol,Memphis Grizzlies,,Classic
+classic,87,Jason Williams,Memphis Grizzlies,,Classic
+classic,88,Shane Battier,Memphis Grizzlies,,Classic
+classic,89,Stromile Swift,Memphis Grizzlies,,Classic
+classic,90,Lorenzen Wright,Memphis Grizzlies,,Classic
+classic,91,Tony Massenburg,Memphis Grizzlies,,Classic
+classic,92,Eddie Jones,Miami Heat,,Classic
+classic,93,Alonzo Mourning,Miami Heat,,Classic
+classic,94,Brian Grant,Miami Heat,,Classic
+classic,95,Anthony Carter,Miami Heat,,Classic
+classic,96,LaPhonso Ellis,Miami Heat,,Classic
+classic,97,Jim Jackson,Miami Heat,,Classic
+classic,98,Ray Allen,Milwaukee Bucks,,Classic
+classic,99,Glenn Robinson,Milwaukee Bucks,,Classic
+classic,100,Sam Cassell,Milwaukee Bucks,,Classic
+classic,101,Tim Thomas,Milwaukee Bucks,,Classic
+classic,102,Anthony Mason,Milwaukee Bucks,,Classic
+classic,103,Joel Przybilla,Milwaukee Bucks,,Classic
+classic,104,Ervin Johnson,Milwaukee Bucks,,Classic
+classic,105,Kevin Garnett,Minnesota Timberwolves,,Classic
+classic,106,Wally Szczerbiak,Minnesota Timberwolves,,Classic
+classic,107,Chauncey Billups,Minnesota Timberwolves,,Classic
+classic,108,Terrell Brandon,Minnesota Timberwolves,,Classic
+classic,109,Marc Jackson,Minnesota Timberwolves,,Classic
+classic,110,Joe Smith,Minnesota Timberwolves,,Classic
+classic,111,Jason Kidd,New Jersey Nets,,Classic
+classic,112,Keith Van Horn,New Jersey Nets,,Classic
+classic,113,Kenyon Martin,New Jersey Nets,,Classic
+classic,114,Kerry Kittles,New Jersey Nets,,Classic
+classic,115,Richard Jefferson,New Jersey Nets,,Classic
+classic,116,Jason Collins,New Jersey Nets,,Classic
+classic,117,Todd MacCulloch,New Jersey Nets,,Classic
+classic,118,Allan Houston,New York Knicks,,Classic
+classic,119,Latrell Sprewell,New York Knicks,,Classic
+classic,120,Kurt Thomas,New York Knicks,,Classic
+classic,121,Antonio McDyess,New York Knicks,,Classic
+classic,122,Othella Harrington,New York Knicks,,Classic
+classic,123,Clarence Weatherspoon,New York Knicks,,Classic
+classic,124,Tracy McGrady,Orlando Magic,,Classic
+classic,125,Mike Miller,Orlando Magic,,Classic
+classic,126,Darrell Armstrong,Orlando Magic,,Classic
+classic,127,Grant Hill,Orlando Magic,,Classic
+classic,128,Horace Grant,Orlando Magic,,Classic
+classic,129,Steven Hunter,Orlando Magic,,Classic
+classic,130,Allen Iverson,Philadelphia 76ers,,Classic
+classic,131,Dikembe Mutombo,Philadelphia 76ers,,Classic
+classic,132,Aaron McKie,Philadelphia 76ers,,Classic
+classic,133,Derrick Coleman,Philadelphia 76ers,,Classic
+classic,134,Eric Snow,Philadelphia 76ers,,Classic
+classic,135,Matt Harpring,Philadelphia 76ers,,Classic
+classic,136,Stephon Marbury,Phoenix Suns,,Classic
+classic,137,Shawn Marion,Phoenix Suns,,Classic
+classic,138,Joe Johnson,Phoenix Suns,,Classic
+classic,139,Anfernee Hardaway,Phoenix Suns,,Classic
+classic,140,Jake Tsakalidis,Phoenix Suns,,Classic
+classic,141,Tom Gugliotta,Phoenix Suns,,Classic
+classic,142,Bo Outlaw,Phoenix Suns,,Classic
+classic,143,Rasheed Wallace,Portland Trail Blazers,,Classic
+classic,144,Damon Stoudamire,Portland Trail Blazers,,Classic
+classic,145,Scottie Pippen,Portland Trail Blazers,,Classic
+classic,146,Ruben Patterson,Portland Trail Blazers,,Classic
+classic,147,Derek Anderson,Portland Trail Blazers,,Classic
+classic,148,Dale Davis,Portland Trail Blazers,,Classic
+classic,149,Bonzi Wells,Portland Trail Blazers,,Classic
+classic,150,Chris Webber,Sacramento Kings,,Classic
+classic,151,Peja Stojakovic,Sacramento Kings,,Classic
+classic,152,Mike Bibby,Sacramento Kings,,Classic
+classic,153,Doug Christie,Sacramento Kings,,Classic
+classic,154,Vlade Divac,Sacramento Kings,,Classic
+classic,155,Bobby Jackson,Sacramento Kings,,Classic
+classic,156,Hidayet Turkoglu,Sacramento Kings,,Classic
+classic,157,Tim Duncan,San Antonio Spurs,,Classic
+classic,158,David Robinson,San Antonio Spurs,,Classic
+classic,159,Steve Smith,San Antonio Spurs,,Classic
+classic,160,Tony Parker,San Antonio Spurs,,Classic
+classic,161,Antonio Daniels,San Antonio Spurs,,Classic
+classic,162,Charles Smith,San Antonio Spurs,,Classic
+classic,163,Bruce Bowen,San Antonio Spurs,,Classic
+classic,164,Gary Payton,Seattle SuperSonics,,Classic
+classic,165,Rashard Lewis,Seattle SuperSonics,,Classic
+classic,166,Vin Baker,Seattle SuperSonics,,Classic
+classic,167,Brent Barry,Seattle SuperSonics,,Classic
+classic,168,Desmond Mason,Seattle SuperSonics,,Classic
+classic,169,Vladimir Radmanovic,Seattle SuperSonics,,Classic
+classic,170,Vince Carter,Toronto Raptors,,Classic
+classic,171,Morris Peterson,Toronto Raptors,,Classic
+classic,172,Antonio Davis,Toronto Raptors,,Classic
+classic,173,Hakeem Olajuwon,Toronto Raptors,,Classic
+classic,174,Alvin Williams,Toronto Raptors,,Classic
+classic,175,Jerome Williams,Toronto Raptors,,Classic
+classic,176,Keon Clark,Toronto Raptors,,Classic
+classic,177,Karl Malone,Utah Jazz,,Classic
+classic,178,John Stockton,Utah Jazz,,Classic
+classic,179,Donyell Marshall,Utah Jazz,,Classic
+classic,180,Andrei Kirilenko,Utah Jazz,,Classic
+classic,181,Bryon Russell,Utah Jazz,,Classic
+classic,182,Jarron Collins,Utah Jazz,,Classic
+classic,183,DeShawn Stevenson,Utah Jazz,,Classic
+classic,184,Michael Jordan,Washington Wizards,,Classic
+classic,185,Richard Hamilton,Washington Wizards,,Classic
+classic,186,Kwame Brown,Washington Wizards,,Classic
+classic,187,Chris Whitney,Washington Wizards,,Classic
+classic,188,Tyronn Lue,Washington Wizards,,Classic
+classic,189,Brendan Haywood,Washington Wizards,,Classic
+classic,190,Jahidi White,Washington Wizards,,Classic
+classic,191,Dajuan Wagner MVPR,Cleveland Cavaliers,,Classic
+classic,192,Jay Williams MVPR,Chicago Bulls,,Classic
+classic,193,Yao Ming MVPR,Houston Rockets,,Classic
+classic,194,Drew Gooden MVPR,Memphis Grizzlies,,Classic
+classic,195,Chris Jefferies MVPR,Toronto Raptors,,Classic
+classic,196,Casey Jacobsen MVPR,Phoenix Suns,,Classic
+classic,197,Juan Dixon MVPR,Washington Wizards,,Classic
+classic,198,Melvin Ely MVPR,Los Angeles Clippers,,Classic
+classic,199,Curtis Borchardt MVPR,Utah Jazz,,Classic
+classic,200,John Salmons MVPR,Philadelphia 76ers,,Classic
+classic,201,Carlos Boozer MVPR,Cleveland Cavaliers,,Classic
+classic,202,Fred Jones MVPR,Indiana Pacers,,Classic
+classic,203,Frank Williams MVPR,New York Knicks,,Classic
+classic,204,Jamal Sampson MVPR,Milwaukee Bucks,,Classic
+classic,205,Dan Dickau MVPR,Atlanta Hawks,,Classic
+classic,206,Marcus Haislip MVPR,Milwaukee Bucks,,Classic
+classic,207,Jared Jeffries MVPR,Washington Wizards,,Classic
+classic,208,Amare Stoudemire MVPR,Phoenix Suns,,Classic
+classic,209,Caron Butler MVPR,Miami Heat,,Classic
+classic,210,Qyntel Woods MVPR,Portland Trail Blazers,,Classic
+classic,211,Kareem Rush MVPR,Los Angeles Lakers,,Classic
+classic,212,Ryan Humphrey MVPR,Orlando Magic,,Classic
+classic,213,Jiri Welsch MVPR,Golden State Warriors,,Classic
+classic,214,Mike Dunleavy Jr. MVPR,Golden State Warriors,,Classic
+classic,215,Tayshaun Prince MVPR,Detroit Pistons,,Classic
+classic,216,Nene Hilario MVPR,Denver Nuggets,,Classic
+classic,217,Nikoloz Tskitishvili MVPR,Denver Nuggets,,Classic
+classic,218,Bostjan Nachbar MVPR,Houston Rockets,,Classic
+classic,219,Efthimios Rentzias MVPR,Philadelphia 76ers,,Classic
+classic,220,Rod Grizzard MVPR,Washington Wizards,,Classic
+classic-black,1,Shareef Abdur-Rahim,Atlanta Hawks,,Classic Black
+classic-black,2,Jason Terry,Atlanta Hawks,,Classic Black
+classic-black,3,Toni Kukoc,Atlanta Hawks,,Classic Black
+classic-black,4,DerMarr Johnson,Atlanta Hawks,,Classic Black
+classic-black,5,Nazr Mohammed,Atlanta Hawks,,Classic Black
+classic-black,6,Theo Ratliff,Atlanta Hawks,,Classic Black
+classic-black,7,Dion Glover,Atlanta Hawks,,Classic Black
+classic-black,8,Paul Pierce,Boston Celtics,,Classic Black
+classic-black,9,Antoine Walker,Boston Celtics,,Classic Black
+classic-black,10,Kenny Anderson,Boston Celtics,,Classic Black
+classic-black,11,Tony Delk,Boston Celtics,,Classic Black
+classic-black,12,Eric Williams,Boston Celtics,,Classic Black
+classic-black,13,Rodney Rogers,Boston Celtics,,Classic Black
+classic-black,14,Jamal Mashburn,New Orleans Hornets,,Classic Black
+classic-black,15,Baron Davis,New Orleans Hornets,,Classic Black
+classic-black,16,David Wesley,New Orleans Hornets,,Classic Black
+classic-black,17,Elden Campbell,New Orleans Hornets,,Classic Black
+classic-black,18,P.J. Brown,New Orleans Hornets,,Classic Black
+classic-black,19,Jamaal Magloire,New Orleans Hornets,,Classic Black
+classic-black,20,Stacey,New Orleans Hornets,,Classic Black
+classic-black,21,Jalen Rose,Chicago Bulls,,Classic Black
+classic-black,22,Marcus Fizer,Chicago Bulls,,Classic Black
+classic-black,23,Tyson Chandler,Chicago Bulls,,Classic Black
+classic-black,24,Trenton Hassell,Chicago Bulls,,Classic Black
+classic-black,25,Eddy Curry,Chicago Bulls,,Classic Black
+classic-black,26,Travis Best,Chicago Bulls,,Classic Black
+classic-black,27,Andre Miller,Cleveland Cavaliers,,Classic Black
+classic-black,28,Lamond Murray,Cleveland Cavaliers,,Classic Black
+classic-black,29,Ricky Davis,Cleveland Cavaliers,,Classic Black
+classic-black,30,Zydrunas Ilgauskas,Cleveland Cavaliers,,Classic Black
+classic-black,31,Jumaine Jones,Cleveland Cavaliers,,Classic Black
+classic-black,32,Chris Mihm,Cleveland Cavaliers,,Classic Black
+classic-black,33,Dirk Nowitzki,Dallas Mavericks,,Classic Black
+classic-black,34,Michael Finley,Dallas Mavericks,,Classic Black
+classic-black,35,Steve Nash,Dallas Mavericks,,Classic Black
+classic-black,36,Nick Van Exel,Dallas Mavericks,,Classic Black
+classic-black,37,Raef LaFrentz,Dallas Mavericks,,Classic Black
+classic-black,38,Adrian Griffin,Dallas Mavericks,,Classic Black
+classic-black,39,Avery Johnson,Dallas Mavericks,,Classic Black
+classic-black,40,Marcus Camby,Denver Nuggets,,Classic Black
+classic-black,41,Juwan Howard,Denver Nuggets,,Classic Black
+classic-black,42,James Posey,Denver Nuggets,,Classic Black
+classic-black,43,Ryan Bowen,Denver Nuggets,,Classic Black
+classic-black,44,Donnell Harvey,Denver Nuggets,,Classic Black
+classic-black,45,Voshon Lenard,Denver Nuggets,,Classic Black
+classic-black,46,Jerry Stackhouse,Detroit Pistons,,Classic Black
+classic-black,47,Clifford Robinson,Detroit Pistons,,Classic Black
+classic-black,48,Chucky Atkins,Detroit Pistons,,Classic Black
+classic-black,49,Ben Wallace,Detroit Pistons,,Classic Black
+classic-black,50,Jon Barry,Detroit Pistons,,Classic Black
+classic-black,51,Corliss Williamson,Detroit Pistons,,Classic Black
+classic-black,52,Antawn Jamison,Golden State Warriors,,Classic Black
+classic-black,53,Jason Richardson,Golden State Warriors,,Classic Black
+classic-black,54,Danny Fortson,Golden State Warriors,,Classic Black
+classic-black,55,Gilbert Arenas,Golden State Warriors,,Classic Black
+classic-black,56,Bob Sura,Golden State Warriors,,Classic Black
+classic-black,57,Troy Murphy,Golden State Warriors,,Classic Black
+classic-black,58,Steve Francis,Houston Rockets,,Classic Black
+classic-black,59,Cuttino Mobley,Houston Rockets,,Classic Black
+classic-black,60,Eddie Griffin,Houston Rockets,,Classic Black
+classic-black,61,Kenny Thomas,Houston Rockets,,Classic Black
+classic-black,62,Moochie Norris,Houston Rockets,,Classic Black
+classic-black,63,Kelvin Cato,Houston Rockets,,Classic Black
+classic-black,64,Glen Rice,Houston Rockets,,Classic Black
+classic-black,65,Reggie Miller,Indiana Pacers,,Classic Black
+classic-black,66,Jermaine O'Neal,Indiana Pacers,,Classic Black
+classic-black,67,Ron Mercer,Indiana Pacers,,Classic Black
+classic-black,68,Jamaal Tinsley,Indiana Pacers,,Classic Black
+classic-black,69,Al Harrington,Indiana Pacers,,Classic Black
+classic-black,70,Ron Artest,Indiana Pacers,,Classic Black
+classic-black,71,Austin Croshere,Indiana Pacers,,Classic Black
+classic-black,72,Elton Brand,Los Angeles Clippers,,Classic Black
+classic-black,73,Darius Miles,Los Angeles Clippers,,Classic Black
+classic-black,74,Lamar Odom,Los Angeles Clippers,,Classic Black
+classic-black,75,Quentin Richardson,Los Angeles Clippers,,Classic Black
+classic-black,76,Corey Maggette,Los Angeles Clippers,,Classic Black
+classic-black,77,Jeff McInnis,Los Angeles Clippers,,Classic Black
+classic-black,78,Michael Olowokandi,Los Angeles Clippers,,Classic Black
+classic-black,79,Kobe Bryant,Los Angeles Lakers,,Classic Black
+classic-black,80,Shaquille O'Neal,Los Angeles Lakers,,Classic Black
+classic-black,81,Derek Fisher,Los Angeles Lakers,,Classic Black
+classic-black,82,Rick Fox,Los Angeles Lakers,,Classic Black
+classic-black,83,Robert Horry,Los Angeles Lakers,,Classic Black
+classic-black,84,Devean George,Los Angeles Lakers,,Classic Black
+classic-black,85,Samaki Walker,Los Angeles Lakers,,Classic Black
+classic-black,86,Pau Gasol,Memphis Grizzlies,,Classic Black
+classic-black,87,Jason Williams,Memphis Grizzlies,,Classic Black
+classic-black,88,Shane Battier,Memphis Grizzlies,,Classic Black
+classic-black,89,Stromile Swift,Memphis Grizzlies,,Classic Black
+classic-black,90,Lorenzen Wright,Memphis Grizzlies,,Classic Black
+classic-black,91,Tony Massenburg,Memphis Grizzlies,,Classic Black
+classic-black,92,Eddie Jones,Miami Heat,,Classic Black
+classic-black,93,Alonzo Mourning,Miami Heat,,Classic Black
+classic-black,94,Brian Grant,Miami Heat,,Classic Black
+classic-black,95,Anthony Carter,Miami Heat,,Classic Black
+classic-black,96,LaPhonso Ellis,Miami Heat,,Classic Black
+classic-black,97,Jim Jackson,Miami Heat,,Classic Black
+classic-black,98,Ray Allen,Milwaukee Bucks,,Classic Black
+classic-black,99,Glenn Robinson,Milwaukee Bucks,,Classic Black
+classic-black,100,Sam Cassell,Milwaukee Bucks,,Classic Black
+classic-black,101,Tim Thomas,Milwaukee Bucks,,Classic Black
+classic-black,102,Anthony Mason,Milwaukee Bucks,,Classic Black
+classic-black,103,Joel Przybilla,Milwaukee Bucks,,Classic Black
+classic-black,104,Ervin Johnson,Milwaukee Bucks,,Classic Black
+classic-black,105,Kevin Garnett,Minnesota Timberwolves,,Classic Black
+classic-black,106,Wally Szczerbiak,Minnesota Timberwolves,,Classic Black
+classic-black,107,Chauncey Billups,Minnesota Timberwolves,,Classic Black
+classic-black,108,Terrell Brandon,Minnesota Timberwolves,,Classic Black
+classic-black,109,Marc Jackson,Minnesota Timberwolves,,Classic Black
+classic-black,110,Joe Smith,Minnesota Timberwolves,,Classic Black
+classic-black,111,Jason Kidd,New Jersey Nets,,Classic Black
+classic-black,112,Keith Van Horn,New Jersey Nets,,Classic Black
+classic-black,113,Kenyon Martin,New Jersey Nets,,Classic Black
+classic-black,114,Kerry Kittles,New Jersey Nets,,Classic Black
+classic-black,115,Richard Jefferson,New Jersey Nets,,Classic Black
+classic-black,116,Jason Collins,New Jersey Nets,,Classic Black
+classic-black,117,Todd MacCulloch,New Jersey Nets,,Classic Black
+classic-black,118,Allan Houston,New York Knicks,,Classic Black
+classic-black,119,Latrell Sprewell,New York Knicks,,Classic Black
+classic-black,120,Kurt Thomas,New York Knicks,,Classic Black
+classic-black,121,Antonio McDyess,New York Knicks,,Classic Black
+classic-black,122,Othella Harrington,New York Knicks,,Classic Black
+classic-black,123,Clarence Weatherspoon,New York Knicks,,Classic Black
+classic-black,124,Tracy McGrady,Orlando Magic,,Classic Black
+classic-black,125,Mike Miller,Orlando Magic,,Classic Black
+classic-black,126,Darrell Armstrong,Orlando Magic,,Classic Black
+classic-black,127,Grant Hill,Orlando Magic,,Classic Black
+classic-black,128,Horace Grant,Orlando Magic,,Classic Black
+classic-black,129,Steven Hunter,Orlando Magic,,Classic Black
+classic-black,130,Allen Iverson,Philadelphia 76ers,,Classic Black
+classic-black,131,Dikembe Mutombo,Philadelphia 76ers,,Classic Black
+classic-black,132,Aaron McKie,Philadelphia 76ers,,Classic Black
+classic-black,133,Derrick Coleman,Philadelphia 76ers,,Classic Black
+classic-black,134,Eric Snow,Philadelphia 76ers,,Classic Black
+classic-black,135,Matt Harpring,Philadelphia 76ers,,Classic Black
+classic-black,136,Stephon Marbury,Phoenix Suns,,Classic Black
+classic-black,137,Shawn Marion,Phoenix Suns,,Classic Black
+classic-black,138,Joe Johnson,Phoenix Suns,,Classic Black
+classic-black,139,Anfernee Hardaway,Phoenix Suns,,Classic Black
+classic-black,140,Jake Tsakalidis,Phoenix Suns,,Classic Black
+classic-black,141,Tom Gugliotta,Phoenix Suns,,Classic Black
+classic-black,142,Bo Outlaw,Phoenix Suns,,Classic Black
+classic-black,143,Rasheed Wallace,Portland Trail Blazers,,Classic Black
+classic-black,144,Damon Stoudamire,Portland Trail Blazers,,Classic Black
+classic-black,145,Scottie Pippen,Portland Trail Blazers,,Classic Black
+classic-black,146,Ruben Patterson,Portland Trail Blazers,,Classic Black
+classic-black,147,Derek Anderson,Portland Trail Blazers,,Classic Black
+classic-black,148,Dale Davis,Portland Trail Blazers,,Classic Black
+classic-black,149,Bonzi Wells,Portland Trail Blazers,,Classic Black
+classic-black,150,Chris Webber,Sacramento Kings,,Classic Black
+classic-black,151,Peja Stojakovic,Sacramento Kings,,Classic Black
+classic-black,152,Mike Bibby,Sacramento Kings,,Classic Black
+classic-black,153,Doug Christie,Sacramento Kings,,Classic Black
+classic-black,154,Vlade Divac,Sacramento Kings,,Classic Black
+classic-black,155,Bobby Jackson,Sacramento Kings,,Classic Black
+classic-black,156,Hidayet Turkoglu,Sacramento Kings,,Classic Black
+classic-black,157,Tim Duncan,San Antonio Spurs,,Classic Black
+classic-black,158,David Robinson,San Antonio Spurs,,Classic Black
+classic-black,159,Steve Smith,San Antonio Spurs,,Classic Black
+classic-black,160,Tony Parker,San Antonio Spurs,,Classic Black
+classic-black,161,Antonio Daniels,San Antonio Spurs,,Classic Black
+classic-black,162,Charles Smith,San Antonio Spurs,,Classic Black
+classic-black,163,Bruce Bowen,San Antonio Spurs,,Classic Black
+classic-black,164,Gary Payton,Seattle SuperSonics,,Classic Black
+classic-black,165,Rashard Lewis,Seattle SuperSonics,,Classic Black
+classic-black,166,Vin Baker,Seattle SuperSonics,,Classic Black
+classic-black,167,Brent Barry,Seattle SuperSonics,,Classic Black
+classic-black,168,Desmond Mason,Seattle SuperSonics,,Classic Black
+classic-black,169,Vladimir Radmanovic,Seattle SuperSonics,,Classic Black
+classic-black,170,Vince Carter,Toronto Raptors,,Classic Black
+classic-black,171,Morris Peterson,Toronto Raptors,,Classic Black
+classic-black,172,Antonio Davis,Toronto Raptors,,Classic Black
+classic-black,173,Hakeem Olajuwon,Toronto Raptors,,Classic Black
+classic-black,174,Alvin Williams,Toronto Raptors,,Classic Black
+classic-black,175,Jerome Williams,Toronto Raptors,,Classic Black
+classic-black,176,Keon Clark,Toronto Raptors,,Classic Black
+classic-black,177,Karl Malone,Utah Jazz,,Classic Black
+classic-black,178,John Stockton,Utah Jazz,,Classic Black
+classic-black,179,Donyell Marshall,Utah Jazz,,Classic Black
+classic-black,180,Andrei Kirilenko,Utah Jazz,,Classic Black
+classic-black,181,Bryon Russell,Utah Jazz,,Classic Black
+classic-black,182,Jarron Collins,Utah Jazz,,Classic Black
+classic-black,183,DeShawn Stevenson,Utah Jazz,,Classic Black
+classic-black,184,Michael Jordan,Washington Wizards,,Classic Black
+classic-black,185,Richard Hamilton,Washington Wizards,,Classic Black
+classic-black,186,Kwame Brown,Washington Wizards,,Classic Black
+classic-black,187,Chris Whitney,Washington Wizards,,Classic Black
+classic-black,188,Tyronn Lue,Washington Wizards,,Classic Black
+classic-black,189,Brendan Haywood,Washington Wizards,,Classic Black
+classic-black,190,Jahidi White,Washington Wizards,,Classic Black
+classic-black,191,Dajuan Wagner MVPR,Cleveland Cavaliers,,Classic Black
+classic-black,192,Jay Williams MVPR,Chicago Bulls,,Classic Black
+classic-black,193,Yao Ming MVPR,Houston Rockets,,Classic Black
+classic-black,194,Drew Gooden MVPR,Memphis Grizzlies,,Classic Black
+classic-black,195,Chris Jefferies MVPR,Toronto Raptors,,Classic Black
+classic-black,196,Casey Jacobsen MVPR,Phoenix Suns,,Classic Black
+classic-black,197,Juan Dixon MVPR,Washington Wizards,,Classic Black
+classic-black,198,Melvin Ely MVPR,Los Angeles Clippers,,Classic Black
+classic-black,199,Curtis Borchardt MVPR,Utah Jazz,,Classic Black
+classic-black,200,John Salmons MVPR,Philadelphia 76ers,,Classic Black
+classic-black,201,Carlos Boozer MVPR,Cleveland Cavaliers,,Classic Black
+classic-black,202,Fred Jones MVPR,Indiana Pacers,,Classic Black
+classic-black,203,Frank Williams MVPR,New York Knicks,,Classic Black
+classic-black,204,Jamal Sampson MVPR,Milwaukee Bucks,,Classic Black
+classic-black,205,Dan Dickau MVPR,Atlanta Hawks,,Classic Black
+classic-black,206,Marcus Haislip MVPR,Milwaukee Bucks,,Classic Black
+classic-black,207,Jared Jeffries MVPR,Washington Wizards,,Classic Black
+classic-black,208,Amare Stoudemire MVPR,Phoenix Suns,,Classic Black
+classic-black,209,Caron Butler MVPR,Miami Heat,,Classic Black
+classic-black,210,Qyntel Woods MVPR,Portland Trail Blazers,,Classic Black
+classic-black,211,Kareem Rush MVPR,Los Angeles Lakers,,Classic Black
+classic-black,212,Ryan Humphrey MVPR,Orlando Magic,,Classic Black
+classic-black,213,Jiri Welsch MVPR,Golden State Warriors,,Classic Black
+classic-black,214,Mike Dunleavy Jr. MVPR,Golden State Warriors,,Classic Black
+classic-black,215,Tayshaun Prince MVPR,Detroit Pistons,,Classic Black
+classic-black,216,Nene Hilario MVPR,Denver Nuggets,,Classic Black
+classic-black,217,Nikoloz Tskitishvili MVPR,Denver Nuggets,,Classic Black
+classic-black,218,Bostjan Nachbar MVPR,Houston Rockets,,Classic Black
+classic-black,219,Efthimios Rentzias MVPR,Philadelphia 76ers,,Classic Black
+classic-black,220,Rod Grizzard MVPR,Washington Wizards,,Classic Black
+gold,1,Shareef Abdur-Rahim,Atlanta Hawks,,Gold
+gold,2,Jason Terry,Atlanta Hawks,,Gold
+gold,3,Toni Kukoc,Atlanta Hawks,,Gold
+gold,4,DerMarr Johnson,Atlanta Hawks,,Gold
+gold,5,Nazr Mohammed,Atlanta Hawks,,Gold
+gold,6,Theo Ratliff,Atlanta Hawks,,Gold
+gold,7,Dion Glover,Atlanta Hawks,,Gold
+gold,8,Paul Pierce,Boston Celtics,,Gold
+gold,9,Antoine Walker,Boston Celtics,,Gold
+gold,10,Kenny Anderson,Boston Celtics,,Gold
+gold,11,Tony Delk,Boston Celtics,,Gold
+gold,12,Eric Williams,Boston Celtics,,Gold
+gold,13,Rodney Rogers,Boston Celtics,,Gold
+gold,14,Jamal Mashburn,New Orleans Hornets,,Gold
+gold,15,Baron Davis,New Orleans Hornets,,Gold
+gold,16,David Wesley,New Orleans Hornets,,Gold
+gold,17,Elden Campbell,New Orleans Hornets,,Gold
+gold,18,P.J. Brown,New Orleans Hornets,,Gold
+gold,19,Jamaal Magloire,New Orleans Hornets,,Gold
+gold,20,Stacey,New Orleans Hornets,,Gold
+gold,21,Jalen Rose,Chicago Bulls,,Gold
+gold,22,Marcus Fizer,Chicago Bulls,,Gold
+gold,23,Tyson Chandler,Chicago Bulls,,Gold
+gold,24,Trenton Hassell,Chicago Bulls,,Gold
+gold,25,Eddy Curry,Chicago Bulls,,Gold
+gold,26,Travis Best,Chicago Bulls,,Gold
+gold,27,Andre Miller,Cleveland Cavaliers,,Gold
+gold,28,Lamond Murray,Cleveland Cavaliers,,Gold
+gold,29,Ricky Davis,Cleveland Cavaliers,,Gold
+gold,30,Zydrunas Ilgauskas,Cleveland Cavaliers,,Gold
+gold,31,Jumaine Jones,Cleveland Cavaliers,,Gold
+gold,32,Chris Mihm,Cleveland Cavaliers,,Gold
+gold,33,Dirk Nowitzki,Dallas Mavericks,,Gold
+gold,34,Michael Finley,Dallas Mavericks,,Gold
+gold,35,Steve Nash,Dallas Mavericks,,Gold
+gold,36,Nick Van Exel,Dallas Mavericks,,Gold
+gold,37,Raef LaFrentz,Dallas Mavericks,,Gold
+gold,38,Adrian Griffin,Dallas Mavericks,,Gold
+gold,39,Avery Johnson,Dallas Mavericks,,Gold
+gold,40,Marcus Camby,Denver Nuggets,,Gold
+gold,41,Juwan Howard,Denver Nuggets,,Gold
+gold,42,James Posey,Denver Nuggets,,Gold
+gold,43,Ryan Bowen,Denver Nuggets,,Gold
+gold,44,Donnell Harvey,Denver Nuggets,,Gold
+gold,45,Voshon Lenard,Denver Nuggets,,Gold
+gold,46,Jerry Stackhouse,Detroit Pistons,,Gold
+gold,47,Clifford Robinson,Detroit Pistons,,Gold
+gold,48,Chucky Atkins,Detroit Pistons,,Gold
+gold,49,Ben Wallace,Detroit Pistons,,Gold
+gold,50,Jon Barry,Detroit Pistons,,Gold
+gold,51,Corliss Williamson,Detroit Pistons,,Gold
+gold,52,Antawn Jamison,Golden State Warriors,,Gold
+gold,53,Jason Richardson,Golden State Warriors,,Gold
+gold,54,Danny Fortson,Golden State Warriors,,Gold
+gold,55,Gilbert Arenas,Golden State Warriors,,Gold
+gold,56,Bob Sura,Golden State Warriors,,Gold
+gold,57,Troy Murphy,Golden State Warriors,,Gold
+gold,58,Steve Francis,Houston Rockets,,Gold
+gold,59,Cuttino Mobley,Houston Rockets,,Gold
+gold,60,Eddie Griffin,Houston Rockets,,Gold
+gold,61,Kenny Thomas,Houston Rockets,,Gold
+gold,62,Moochie Norris,Houston Rockets,,Gold
+gold,63,Kelvin Cato,Houston Rockets,,Gold
+gold,64,Glen Rice,Houston Rockets,,Gold
+gold,65,Reggie Miller,Indiana Pacers,,Gold
+gold,66,Jermaine O'Neal,Indiana Pacers,,Gold
+gold,67,Ron Mercer,Indiana Pacers,,Gold
+gold,68,Jamaal Tinsley,Indiana Pacers,,Gold
+gold,69,Al Harrington,Indiana Pacers,,Gold
+gold,70,Ron Artest,Indiana Pacers,,Gold
+gold,71,Austin Croshere,Indiana Pacers,,Gold
+gold,72,Elton Brand,Los Angeles Clippers,,Gold
+gold,73,Darius Miles,Los Angeles Clippers,,Gold
+gold,74,Lamar Odom,Los Angeles Clippers,,Gold
+gold,75,Quentin Richardson,Los Angeles Clippers,,Gold
+gold,76,Corey Maggette,Los Angeles Clippers,,Gold
+gold,77,Jeff McInnis,Los Angeles Clippers,,Gold
+gold,78,Michael Olowokandi,Los Angeles Clippers,,Gold
+gold,79,Kobe Bryant,Los Angeles Lakers,,Gold
+gold,80,Shaquille O'Neal,Los Angeles Lakers,,Gold
+gold,81,Derek Fisher,Los Angeles Lakers,,Gold
+gold,82,Rick Fox,Los Angeles Lakers,,Gold
+gold,83,Robert Horry,Los Angeles Lakers,,Gold
+gold,84,Devean George,Los Angeles Lakers,,Gold
+gold,85,Samaki Walker,Los Angeles Lakers,,Gold
+gold,86,Pau Gasol,Memphis Grizzlies,,Gold
+gold,87,Jason Williams,Memphis Grizzlies,,Gold
+gold,88,Shane Battier,Memphis Grizzlies,,Gold
+gold,89,Stromile Swift,Memphis Grizzlies,,Gold
+gold,90,Lorenzen Wright,Memphis Grizzlies,,Gold
+gold,91,Tony Massenburg,Memphis Grizzlies,,Gold
+gold,92,Eddie Jones,Miami Heat,,Gold
+gold,93,Alonzo Mourning,Miami Heat,,Gold
+gold,94,Brian Grant,Miami Heat,,Gold
+gold,95,Anthony Carter,Miami Heat,,Gold
+gold,96,LaPhonso Ellis,Miami Heat,,Gold
+gold,97,Jim Jackson,Miami Heat,,Gold
+gold,98,Ray Allen,Milwaukee Bucks,,Gold
+gold,99,Glenn Robinson,Milwaukee Bucks,,Gold
+gold,100,Sam Cassell,Milwaukee Bucks,,Gold
+gold,101,Tim Thomas,Milwaukee Bucks,,Gold
+gold,102,Anthony Mason,Milwaukee Bucks,,Gold
+gold,103,Joel Przybilla,Milwaukee Bucks,,Gold
+gold,104,Ervin Johnson,Milwaukee Bucks,,Gold
+gold,105,Kevin Garnett,Minnesota Timberwolves,,Gold
+gold,106,Wally Szczerbiak,Minnesota Timberwolves,,Gold
+gold,107,Chauncey Billups,Minnesota Timberwolves,,Gold
+gold,108,Terrell Brandon,Minnesota Timberwolves,,Gold
+gold,109,Marc Jackson,Minnesota Timberwolves,,Gold
+gold,110,Joe Smith,Minnesota Timberwolves,,Gold
+gold,111,Jason Kidd,New Jersey Nets,,Gold
+gold,112,Keith Van Horn,New Jersey Nets,,Gold
+gold,113,Kenyon Martin,New Jersey Nets,,Gold
+gold,114,Kerry Kittles,New Jersey Nets,,Gold
+gold,115,Richard Jefferson,New Jersey Nets,,Gold
+gold,116,Jason Collins,New Jersey Nets,,Gold
+gold,117,Todd MacCulloch,New Jersey Nets,,Gold
+gold,118,Allan Houston,New York Knicks,,Gold
+gold,119,Latrell Sprewell,New York Knicks,,Gold
+gold,120,Kurt Thomas,New York Knicks,,Gold
+gold,121,Antonio McDyess,New York Knicks,,Gold
+gold,122,Othella Harrington,New York Knicks,,Gold
+gold,123,Clarence Weatherspoon,New York Knicks,,Gold
+gold,124,Tracy McGrady,Orlando Magic,,Gold
+gold,125,Mike Miller,Orlando Magic,,Gold
+gold,126,Darrell Armstrong,Orlando Magic,,Gold
+gold,127,Grant Hill,Orlando Magic,,Gold
+gold,128,Horace Grant,Orlando Magic,,Gold
+gold,129,Steven Hunter,Orlando Magic,,Gold
+gold,130,Allen Iverson,Philadelphia 76ers,,Gold
+gold,131,Dikembe Mutombo,Philadelphia 76ers,,Gold
+gold,132,Aaron McKie,Philadelphia 76ers,,Gold
+gold,133,Derrick Coleman,Philadelphia 76ers,,Gold
+gold,134,Eric Snow,Philadelphia 76ers,,Gold
+gold,135,Matt Harpring,Philadelphia 76ers,,Gold
+gold,136,Stephon Marbury,Phoenix Suns,,Gold
+gold,137,Shawn Marion,Phoenix Suns,,Gold
+gold,138,Joe Johnson,Phoenix Suns,,Gold
+gold,139,Anfernee Hardaway,Phoenix Suns,,Gold
+gold,140,Jake Tsakalidis,Phoenix Suns,,Gold
+gold,141,Tom Gugliotta,Phoenix Suns,,Gold
+gold,142,Bo Outlaw,Phoenix Suns,,Gold
+gold,143,Rasheed Wallace,Portland Trail Blazers,,Gold
+gold,144,Damon Stoudamire,Portland Trail Blazers,,Gold
+gold,145,Scottie Pippen,Portland Trail Blazers,,Gold
+gold,146,Ruben Patterson,Portland Trail Blazers,,Gold
+gold,147,Derek Anderson,Portland Trail Blazers,,Gold
+gold,148,Dale Davis,Portland Trail Blazers,,Gold
+gold,149,Bonzi Wells,Portland Trail Blazers,,Gold
+gold,150,Chris Webber,Sacramento Kings,,Gold
+gold,151,Peja Stojakovic,Sacramento Kings,,Gold
+gold,152,Mike Bibby,Sacramento Kings,,Gold
+gold,153,Doug Christie,Sacramento Kings,,Gold
+gold,154,Vlade Divac,Sacramento Kings,,Gold
+gold,155,Bobby Jackson,Sacramento Kings,,Gold
+gold,156,Hidayet Turkoglu,Sacramento Kings,,Gold
+gold,157,Tim Duncan,San Antonio Spurs,,Gold
+gold,158,David Robinson,San Antonio Spurs,,Gold
+gold,159,Steve Smith,San Antonio Spurs,,Gold
+gold,160,Tony Parker,San Antonio Spurs,,Gold
+gold,161,Antonio Daniels,San Antonio Spurs,,Gold
+gold,162,Charles Smith,San Antonio Spurs,,Gold
+gold,163,Bruce Bowen,San Antonio Spurs,,Gold
+gold,164,Gary Payton,Seattle SuperSonics,,Gold
+gold,165,Rashard Lewis,Seattle SuperSonics,,Gold
+gold,166,Vin Baker,Seattle SuperSonics,,Gold
+gold,167,Brent Barry,Seattle SuperSonics,,Gold
+gold,168,Desmond Mason,Seattle SuperSonics,,Gold
+gold,169,Vladimir Radmanovic,Seattle SuperSonics,,Gold
+gold,170,Vince Carter,Toronto Raptors,,Gold
+gold,171,Morris Peterson,Toronto Raptors,,Gold
+gold,172,Antonio Davis,Toronto Raptors,,Gold
+gold,173,Hakeem Olajuwon,Toronto Raptors,,Gold
+gold,174,Alvin Williams,Toronto Raptors,,Gold
+gold,175,Jerome Williams,Toronto Raptors,,Gold
+gold,176,Keon Clark,Toronto Raptors,,Gold
+gold,177,Karl Malone,Utah Jazz,,Gold
+gold,178,John Stockton,Utah Jazz,,Gold
+gold,179,Donyell Marshall,Utah Jazz,,Gold
+gold,180,Andrei Kirilenko,Utah Jazz,,Gold
+gold,181,Bryon Russell,Utah Jazz,,Gold
+gold,182,Jarron Collins,Utah Jazz,,Gold
+gold,183,DeShawn Stevenson,Utah Jazz,,Gold
+gold,184,Michael Jordan,Washington Wizards,,Gold
+gold,185,Richard Hamilton,Washington Wizards,,Gold
+gold,186,Kwame Brown,Washington Wizards,,Gold
+gold,187,Chris Whitney,Washington Wizards,,Gold
+gold,188,Tyronn Lue,Washington Wizards,,Gold
+gold,189,Brendan Haywood,Washington Wizards,,Gold
+gold,190,Jahidi White,Washington Wizards,,Gold
+gold,191,Dajuan Wagner MVPR,Cleveland Cavaliers,,Gold
+gold,192,Jay Williams MVPR,Chicago Bulls,,Gold
+gold,193,Yao Ming MVPR,Houston Rockets,,Gold
+gold,194,Drew Gooden MVPR,Memphis Grizzlies,,Gold
+gold,195,Chris Jefferies MVPR,Toronto Raptors,,Gold
+gold,196,Casey Jacobsen MVPR,Phoenix Suns,,Gold
+gold,197,Juan Dixon MVPR,Washington Wizards,,Gold
+gold,198,Melvin Ely MVPR,Los Angeles Clippers,,Gold
+gold,199,Curtis Borchardt MVPR,Utah Jazz,,Gold
+gold,200,John Salmons MVPR,Philadelphia 76ers,,Gold
+gold,201,Carlos Boozer MVPR,Cleveland Cavaliers,,Gold
+gold,202,Fred Jones MVPR,Indiana Pacers,,Gold
+gold,203,Frank Williams MVPR,New York Knicks,,Gold
+gold,204,Jamal Sampson MVPR,Milwaukee Bucks,,Gold
+gold,205,Dan Dickau MVPR,Atlanta Hawks,,Gold
+gold,206,Marcus Haislip MVPR,Milwaukee Bucks,,Gold
+gold,207,Jared Jeffries MVPR,Washington Wizards,,Gold
+gold,208,Amare Stoudemire MVPR,Phoenix Suns,,Gold
+gold,209,Caron Butler MVPR,Miami Heat,,Gold
+gold,210,Qyntel Woods MVPR,Portland Trail Blazers,,Gold
+gold,211,Kareem Rush MVPR,Los Angeles Lakers,,Gold
+gold,212,Ryan Humphrey MVPR,Orlando Magic,,Gold
+gold,213,Jiri Welsch MVPR,Golden State Warriors,,Gold
+gold,214,Mike Dunleavy Jr. MVPR,Golden State Warriors,,Gold
+gold,215,Tayshaun Prince MVPR,Detroit Pistons,,Gold
+gold,216,Nene Hilario MVPR,Denver Nuggets,,Gold
+gold,217,Nikoloz Tskitishvili MVPR,Denver Nuggets,,Gold
+gold,218,Bostjan Nachbar MVPR,Houston Rockets,,Gold
+gold,219,Efthimios Rentzias MVPR,Philadelphia 76ers,,Gold
+gold,220,Rod Grizzard MVPR,Washington Wizards,,Gold
+air-apparent,A1,Kobe Bryant,Los Angeles Lakers,,Air Apparent
+air-apparent,A2,Kevin Garnett,Minnesota Timberwolves,,Air Apparent
+air-apparent,A3,Darius Miles,Los Angeles Clippers,,Air Apparent
+air-apparent,A4,Vince Carter,Toronto Raptors,,Air Apparent
+air-apparent,A5,Tracy McGrady,Orlando Magic,,Air Apparent
+air-apparent,A6,Rashard Lewis,Seattle SuperSonics,,Air Apparent
+air-apparent,A7,Jason Richardson,Golden State Warriors,,Air Apparent
+basketball-diary,B1,Michael Jordan,Washington Wizards,,Basketball Diary
+basketball-diary,B2,Kobe Bryant,Los Angeles Lakers,,Basketball Diary
+basketball-diary,B3,Kevin Garnett,Minnesota Timberwolves,,Basketball Diary
+basketball-diary,B4,Dirk Nowitzki,Dallas Mavericks,,Basketball Diary
+basketball-diary,B5,Shaquille O'Neal,Los Angeles Lakers,,Basketball Diary
+basketball-diary,B6,Pau Gasol,Memphis Grizzlies,,Basketball Diary
+basketball-diary,B7,Stephon Marbury,Phoenix Suns,,Basketball Diary
+basketball-diary,B8,Jerry Stackhouse,Detroit Pistons,,Basketball Diary
+basketball-diary,B9,Steve Francis,Houston Rockets,,Basketball Diary
+basketball-diary,B10,Jason Richardson,Golden State Warriors,,Basketball Diary
+basketball-diary,B11,Elton Brand,Los Angeles Clippers,,Basketball Diary
+basketball-diary,B12,Vince Carter,Toronto Raptors,,Basketball Diary
+basketball-diary,B13,Jamaal Tinsley,Indiana Pacers,,Basketball Diary
+basketball-diary,B14,Tim Duncan,San Antonio Spurs,,Basketball Diary
+east-side-west-side-shooting-shirt,BD/SM,Baron Davis / Stephon Marbury,New Orleans Hornets / Phoenix Suns,,East Side West Side Shooting Shirt
+east-side-west-side-shooting-shirt,JK/JS,Jason Kidd / John Stockton,New Jersey Nets/Utah Jazz,,East Side West Side Shooting Shirt
+east-side-west-side-shooting-shirt,KW/CW,Kenyon Martin / Chris Webber,New Jersey Nets / Sacramento Kings,,East Side West Side Shooting Shirt
+east-side-west-side-shooting-shirt,MJ/KB,Michael Jordan / Kobe Bryant,Washington Wizards/Los Angeles Lakers,,East Side West Side Shooting Shirt
+east-side-west-side-shooting-shirt,PP/SH,Paul Pierce / Shawn Marion,Boston Celtics/Phoenix Suns,,East Side West Side Shooting Shirt
+east-side-west-side-shooting-shirt,RH/PS,Richard Hamilton / Peja Stojakovic,Washington Wizards / Sacramento Kings,,East Side West Side Shooting Shirt
+mvp-materials-combo,CW-C,Chris Webber,Sacramento Kings,,MVP Materials Combo
+mvp-materials-combo,KB-C,Kobe Bryant,Los Angeles Lakers,,MVP Materials Combo
+mvp-materials-combo,KG-C,Kevin Garnett,Minnesota Timberwolves,,MVP Materials Combo
+mvp-materials-combo,LO-C,Lamar Odom,Los Angeles Clippers,,MVP Materials Combo
+mvp-materials-combo,MJ-C,Michael Jordan,Washington Wizards,,MVP Materials Combo
+mvp-materials-combo,WS-C,Wally Szczerbiak,Minnesota Timberwolves,,MVP Materials Combo
+mvp-materials-shooting-shirt,AK-S,Andrei Kirilenko,Utah Jazz,,MVP Materials Shooting Shirt
+mvp-materials-shooting-shirt,AW-S,Antoine Walker,Boston Celtics,,MVP Materials Shooting Shirt
+mvp-materials-shooting-shirt,DJ-S,DerMarr Johnson,Atlanta Hawks,,MVP Materials Shooting Shirt
+mvp-materials-shooting-shirt,EB-S,Elton Brand,Los Angeles Clippers,,MVP Materials Shooting Shirt
+mvp-materials-shooting-shirt,JS-S,Jeryl Sasser,Orlando Magic,,MVP Materials Shooting Shirt
+mvp-materials-shooting-shirt,KB-S,Kobe Bryant,Los Angeles Lakers,,MVP Materials Shooting Shirt
+mvp-materials-shooting-shirt,MB-S,Mike Bibby,Sacramento Kings,,MVP Materials Shooting Shirt
+mvp-materials-shooting-shirt,MJ-S,Michael Jordan,Washington Wizards,,MVP Materials Shooting Shirt
+mvp-materials-shooting-shirt,MP-S,Morris Peterson,Toronto Raptors,,MVP Materials Shooting Shirt
+mvp-materials-shooting-shirt,SH-S,Shawn Marion,Phoenix Suns,,MVP Materials Shooting Shirt
+mvp-materials-shooting-shirt,SM-S,Stephon Marbury,Phoenix Suns,,MVP Materials Shooting Shirt
+mvp-materials-warm-up,AD-W,Antonio Davis,Toronto Raptors,,MVP Materials Warm Up
+mvp-materials-warm-up,BD-W,Baron Davis,New Orleans Hornets,,MVP Materials Warm Up
+mvp-materials-warm-up,BH-W,Brendan Haywood,Washington Wizards,,MVP Materials Warm Up
+mvp-materials-warm-up,DN-W,Dirk Nowitzki,Dallas Mavericks,,MVP Materials Warm Up
+mvp-materials-warm-up,GR-W,Glenn Robinson,Milwaukee Bucks,,MVP Materials Warm Up
+mvp-materials-warm-up,KB-W,Kobe Bryant,Los Angeles Lakers,,MVP Materials Warm Up
+mvp-materials-warm-up,KG-W,Kevin Garnett,Minnesota Timberwolves,,MVP Materials Warm Up
+mvp-materials-warm-up,KM-W,Karl Malone,Utah Jazz,,MVP Materials Warm Up
+mvp-materials-warm-up,KV-W,Keith Van Horn,New Jersey Nets,,MVP Materials Warm Up
+mvp-materials-warm-up,MC-W,Antonio McDyess,Denver Nuggets,,MVP Materials Warm Up
+mvp-materials-warm-up,MJ-W,Michael Jordan,Washington Wizards,,MVP Materials Warm Up
+mvp-materials-warm-up,SA-W,Shareef Abdur-Rahim,Atlanta Hawks,,MVP Materials Warm Up
+mvp-moments,M1,Shaquille O'Neal,Los Angeles Lakers,,MVP Moments
+mvp-moments,M2,Jason Kidd,New Jersey Nets,,MVP Moments
+mvp-moments,M3,Allen Iverson,Philadelphia 76ers,,MVP Moments
+mvp-moments,M4,Tim Duncan,San Antonio Spurs,,MVP Moments
+mvp-moments,M5,Michael Jordan,Washington Wizards,,MVP Moments
+mvp-moments,M6,Kevin Garnett,Minnesota Timberwolves,,MVP Moments
+mvp-moments,M7,Kobe Bryant,Los Angeles Lakers,,MVP Moments
+prosign,BA,Brandon Armstrong,New Jersey Nets,,ProSign
+prosign,CM,Corey Maggette,Los Angeles Clippers,,ProSign
+prosign,DJ,DerMarr Johnson,Atlanta Hawks,,ProSign
+prosign,4,Eddie Griffin,Houston Rockets,,ProSign
+prosign,5,Gilbert Arenas,Golden State Warriors,,ProSign
+prosign,HM,Hanno Mottola,Atlanta Hawks,,ProSign
+prosign,JE,Jeff Trepagnier,Cleveland Cavaliers,,ProSign
+prosign,JM,Jamaal Magloire,New Orleans Hornets,,ProSign
+prosign,JR,Jason Richardson,Golden State Warriors,,ProSign
+prosign,10,Jerry Stackhouse,Washington Wizards,,ProSign
+prosign,11,Jamaal Tinsley,Indiana Pacers,,ProSign
+prosign,12,Kobe Bryant,Los Angeles Lakers,,ProSign
+prosign,KE,Kenyon Martin,New Jersey Nets,,ProSign
+prosign,14,Kevin Garnett,Minnesota Timberwolves,,ProSign
+prosign,15,Lamond Murray,Cleveland Cavaliers,,ProSign
+prosign,16,Mark Madsen,Los Angeles Lakers,,ProSign
+prosign,17,Michael Bradley,Toronto Raptors,,ProSign
+prosign,MF,Marcus Fizer,Chicago Bulls,,ProSign
+prosign,19,Michael Jordan,Washington Wizards,,ProSign
+prosign,MO,Terence Morris,Houston Rockets,,ProSign
+prosign,21,Paul Pierce,Boston Celtics,,ProSign
+prosign,RJ,Richard Jefferson,New Jersey Nets,,ProSign
+prosign,23,Ron Mercer,Indiana Pacers,,ProSign
+prosign,24,Rodney White,Denver Nuggets,,ProSign
+prosign,SD,Samuel Dalembert,Philadelphia 76ers,,ProSign
+prosign,TC,Tyson Chandler,Chicago Bulls,,ProSign
+prosign,TM,Troy Murphy,Golden State Warriors,,ProSign
+prosign,28,Wally Szczerbiak,Minnesota Timberwolves,,ProSign
+rising-to-the-occasion,R1,Kobe Bryant,Los Angeles Lakers,,Rising To The Occasion
+rising-to-the-occasion,R2,Kevin Garnett,Minnesota Timberwolves,,Rising To The Occasion
+rising-to-the-occasion,R3,Michael Jordan,Washington Wizards,,Rising To The Occasion
+rising-to-the-occasion,R4,Paul Pierce,Boston Celtics,,Rising To The Occasion
+rising-to-the-occasion,R5,Shawn Marion,Phoenix Suns,,Rising To The Occasion
+rising-to-the-occasion,R6,Jason Kidd,New Jersey Nets,,Rising To The Occasion
+rising-to-the-occasion,R7,Peja Stojakovic,Sacramento Kings,,Rising To The Occasion
+rising-to-the-occasion,R8,Tim Duncan,San Antonio Spurs,,Rising To The Occasion
+rising-to-the-occasion,R9,Shaquille O'Neal,Los Angeles Lakers,,Rising To The Occasion
+rising-to-the-occasion,R10,Steve Francis,Houston Rockets,,Rising To The Occasion
+rising-to-the-occasion,R11,Ray Allen,Milwaukee Bucks,,Rising To The Occasion
+rising-to-the-occasion,R12,Latrell Sprewell,New York Knicks,,Rising To The Occasion
+rising-to-the-occasion,R13,Darius Miles,Los Angeles Clippers,,Rising To The Occasion
+rising-to-the-occasion,R14,Vince Carter,Toronto Raptors,,Rising To The Occasion
+triple-dimension,CW/MB/PS,Chris Webber / Mike Bibby / Predrag Stojakovic,Sacramento Kings,,Triple Dimension
+triple-dimension,EB/DM/LO,Elton Brand / Darius Miles / Lamar Odom,Los Angeles Clippers,,Triple Dimension
+triple-dimension,KG/WS/TB,Kevin Garnett / Wally Szczerbiak / Terrell Brandon,Minnesota Timberwolves,,Triple Dimension
+triple-dimension,KM/JS/AK,Karl Malone / John Stockton / Andrei Kirilenko,Utah Jazz,,Triple Dimension
+triple-dimension,MJ/KB/KG,Michael Jordan / Kobe Bryant / Kevin Garnett,Washington Wizards / Los Angeles Lakers / Minnesota Timberwolves,,Triple Dimension
+triple-dimension,TM/MM/GH,Tracy McGrady / Mike Miller / Grant Hill,Orlando Magic,,Triple Dimension
