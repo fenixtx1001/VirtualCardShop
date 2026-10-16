@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
-import { requireUser } from "@/lib/current-user";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth-options";
+import { canManagePackRarity } from "@/lib/pack-rarity-admin";
 import { repriceProduct } from "@/lib/pack-pricing";
 import {
   parsePackRarityConfig,
@@ -136,17 +138,22 @@ async function saveWithReprice(
   }
 }
 
-async function authenticate() {
-  try {
-    await requireUser();
-    return true;
-  } catch {
-    return false;
-  }
+async function authorize(): Promise<{ permitted: true } | { permitted: false; status: number }> {
+  const session = await getServerSession(authOptions);
+  const email = session?.user?.email;
+  if (!email) return { permitted: false, status: 401 };
+  return canManagePackRarity(email, process.env.ADMIN_EMAILS)
+    ? { permitted: true }
+    : { permitted: false, status: 403 };
 }
 
 export async function GET(_req: Request, ctx: Ctx) {
-  if (!await authenticate()) return fail("Unauthorized", 401);
+  const auth = await authorize();
+  if (!auth.permitted) return fail(
+    auth.status === 401 ? "Sign in required" :
+    "Admin access required. Configure ADMIN_EMAILS for this deployment.",
+    auth.status
+  );
   try {
     const { productId } = await ctx.params;
     const product = await loadProduct(productId);
@@ -163,7 +170,12 @@ export async function GET(_req: Request, ctx: Ctx) {
 }
 
 export async function PUT(req: Request, ctx: Ctx) {
-  if (!await authenticate()) return fail("Unauthorized", 401);
+  const auth = await authorize();
+  if (!auth.permitted) return fail(
+    auth.status === 401 ? "Sign in required" :
+    "Admin access required. Configure ADMIN_EMAILS for this deployment.",
+    auth.status
+  );
   try {
     const { productId } = await ctx.params;
     const body: unknown = await req.json().catch(() => null);
