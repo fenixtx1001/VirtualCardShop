@@ -1,0 +1,1059 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Wayne Gretzky,Los Angeles Kings,,
+base,2,Brett Hull,St. Louis Blues,,
+base,3,Felix Potvin,Toronto Maple Leafs,,
+base,4,Mark Tinordi,Minnesota North Stars,,
+base,5,Paul Coffey,Los Angeles Kings,HL,
+base,6,Tony Amonte,New York Rangers,SR,
+base,7,Pat Falloon,San Jose Sharks,SR,
+base,8,Pavel Bure,Vancouver Canucks,SR,
+base,9,Nicklas Lidstrom,Detroit Red Wings,SR,
+base,10,Dominic Roussel,Philadelphia Flyers,SR,
+base,11,Nelson Emerson,St. Louis Blues,SR,
+base,12,Donald Audette,Buffalo Sabres,SR,
+base,13,Gilbert Dionne,Montreal Canadiens,SR,
+base,14,Vladimir Konstantinov,Detroit Red Wings,SR,
+base,15,Kevin Todd,New Jersey Devils,SR,
+base,16,Steve Leach,Boston Bruins,,
+base,17,Ed Olczyk,Winnipeg Jets,,
+base,18,Jim Hrivnak,Washington Capitals,,
+base,19,Gilbert Dionne,Montreal Canadiens,,
+base,20,Mike Vernon,Calgary Flames,,
+base,21,Dave Christian,St. Louis Blues,,
+base,22,Ed Belfour,Chicago Blackhawks,,
+base,23,Andrew Cassels,Hartford Whalers,,
+base,24,Jaromir Jagr,Pittsburgh Penguins,,
+base,25,Arturs Irbe,San Jose Sharks,,
+base,26,Petr Klima,Edmonton Oilers,,
+base,27,Randy Gilhen,New York Rangers,,
+base,28,Ulf Dahlen,Minnesota North Stars,,
+base,29,Kelly Hrudey,Los Angeles Kings,,
+base,30,Dave Ellett,Toronto Maple Leafs,,
+base,31,Tom Fitzgerald,New York Islanders,,
+base,32,Cam Neely,Boston Bruins,,
+base,33,Greg Paslawski,Quebec Nordiques,,
+base,34,Brad May,Buffalo Sabres,,
+base,35,Viacheslav Kozlov,Detroit Red Wings,,
+base,36,Mark Hunter,Washington Capitals,,
+base,37,Steve Chiasson,Detroit Red Wings,,
+base,38,Joe Murphy,Edmonton Oilers,,
+base,39,Darryl Sydor,Los Angeles Kings,,
+base,40,Ron Hextall,Quebec Nordiques,,
+base,41,Jim Sandlak,Vancouver Canucks,,
+base,42,Dave Lowry,St. Louis Blues,,
+base,43,Claude Lemieux,New Jersey Devils,,
+base,44,Gerald Diduck,Vancouver Canucks,,
+base,45,Mike McPhee,Montreal Canadiens,,
+base,46,Rod Langway,Washington Capitals,,
+base,47,Guy Larose,Toronto Maple Leafs,,
+base,48,Craig Billington,New Jersey Devils,,
+base,49,Daniel Marois,New York Islanders,,
+base,50,Todd Nelson RC,Pittsburgh Penguins,,
+base,51,Jari Kurri,Los Angeles Kings,,
+base,52,Keith Brown,Chicago Blackhawks,,
+base,53,Valeri Kamensky,Quebec Nordiques,,
+base,54,Jim Johnson,Minnesota North Stars,,
+base,55,Vincent Damphousse,Edmonton Oilers,,
+base,56,Pat Elynuik,Winnipeg Jets,,
+base,57,Jeff Beukeboom,New York Rangers,,
+base,58,Paul Ysebaert,Detroit Red Wings,,
+base,59,Ken Sutton,Buffalo Sabres,,
+base,60,Dale Craigwell,San Jose Sharks,,
+base,61,Marc Bergevin,Tampa Bay Lightning,,
+base,62,Steph Beauregard,Winnipeg Jets,,
+base,63,Bob Probert,Detroit Red Wings,,
+base,64,Jergus Baca,Hartford Whalers,,
+base,65,Brian Propp,Minnesota North Stars,,
+base,66,Jacques Cloutier,Quebec Nordiques,,
+base,67,Jim Thomson RC,Ottawa Senators,,
+base,68,Anatoli Semenov,Tampa Bay Lightning,,
+base,69,Stephan Lebeau,Montreal Canadiens,,
+base,70,Rick Tocchet,Pittsburgh Penguins,,
+base,71,James Patrick,New York Rangers,,
+base,72,Rob Brown,Chicago Blackhawks,,
+base,73,Peter Ahola,Los Angeles Kings,,
+base,74,Bob,Buffalo Sabres,,
+base,75,Brent Sutter,Chicago Blackhawks,,
+base,76,Neil Wilkinson,San Jose Sharks,,
+base,77,Mark Osborne,Toronto Maple Leafs,,
+base,78,Ron Wilson,St. Louis Blues,,
+base,79,Todd Richards,Hartford Whalers,,
+base,80,Robert Kron,Vancouver Canucks,,
+base,81,Cliff Ronning,Vancouver Canucks,,
+base,82,Zarley Zalapski,Hartford Whalers,,
+base,83,Randy Burridge,Washington Capitals,,
+base,84,Jarrod Skalde,New Jersey Devils,,
+base,85,Gary Leeman,Calgary Flames,,
+base,86,Mike Ricci,Quebec Nordiques,,
+base,87,Dennis Vaske,New York Islanders,,
+base,88,John LeBlanc RC,Winnipeg Jets,,
+base,89,Brad Shaw,Ottawa Senators,,
+base,90,Rod Brind'Amour,Philadelphia Flyers,,
+base,91,Colin Patterson,Buffalo Sabres,,
+base,92,Gerard Gallant,Detroit Red Wings,,
+base,93,Per Djoos,New York Rangers,,
+base,94,Claude Lapointe,Quebec Nordiques,,
+base,95,Bob,Pittsburgh Penguins,,
+base,96,Norm Maciver,Edmonton Oilers,,
+base,97,Todd Elik,Minnesota North Stars,,
+base,98,Chris Chelios,Chicago Blackhawks,,
+base,99,Keith Primeau,Detroit Red Wings,,
+base,100,Jimmy Waite,Chicago Blackhawks,,
+base,101,Luc Robitaille,Los Angeles Kings,,
+base,102,Keith Tkachuk,Winnipeg Jets,,
+base,103,Benoit Hogue,New York Islanders,,
+base,104,Brian Mullen,San Jose Sharks,,
+base,105,Joe Nieuwendyk,Calgary Flames,,
+base,106,Randy McKay,New Jersey Devils,,
+base,107,Michal Pivonka,Washington Capitals,,
+base,108,Darcy Wakaluk,Minnesota North Stars,,
+base,109,Andy Brickley,Boston Bruins,,
+base,110,Patrick Roy,Montreal Canadiens,LL,
+base,111,Bob Sweeney,Boston Bruins,,
+base,112,Guy Hebert RC,St. Louis Blues,,
+base,113,Joe Mullen,Pittsburgh Penguins,,
+base,114,Gord Murphy,Boston Bruins,,
+base,115,Evgeny Davydov,Winnipeg Jets,,
+base,116,Gary Roberts,Calgary Flames,,
+base,117,Pelle Eklund,Philadelphia Flyers,,
+base,118,Tom Kurvers,New York Islanders,,
+base,119,John Tonelli,Quebec Nordiques,,
+base,120,Fredrik Olausson,Winnipeg Jets,,
+base,121,Mike Donnelly,Los Angeles Kings,,
+base,122,Doug Gilmour,Toronto Maple Leafs,,
+base,123,Wayne Gretzky,Los Angeles Kings,LL,
+base,124,Curtis Leschyshyn,Quebec Nordiques,,
+base,125,Guy Carbonneau,Montreal Canadiens,,
+base,126,Bill Ranford,Edmonton Oilers,,
+base,127,Ulf Samuelsson,Pittsburgh Penguins,,
+base,128,Joey Kocur,New York Rangers,,
+base,129,Kevin Miller,Washington Capitals,,
+base,130,Kirk McLean,Vancouver Canucks,,
+base,131,Kevin Dineen,Philadelphia Flyers,,
+base,132,John Cullen,Hartford Whalers,,
+base,133,Al Iafrate,Washington Capitals,,
+base,134,Craig Janney,St. Louis Blues,,
+base,135,Patrick Flatley,New York Islanders,,
+base,136,Dominik Hasek,Chicago Blackhawks,,
+base,137,Benoit Brunet,Montreal Canadiens,,
+base,138,Dave Babych,Vancouver Canucks,,
+base,139,Doug Brown,New Jersey Devils,,
+base,140,Mike Lalor,Winnipeg Jets,,
+base,141,Thomas Steen,Winnipeg Jets,,
+base,142,Frantisek Musil,Calgary Flames,,
+base,143,Dan Quinn,Philadelphia Flyers,,
+base,144,Dmitri Mironov,Toronto Maple Leafs,,
+base,145,Bob Kudelski,Los Angeles Kings,,
+base,146,Mike Bullard,Toronto Maple Leafs,,
+base,147,Randy Carlyle,Winnipeg Jets,,
+base,148,Kent Manderville,Toronto Maple Leafs,,
+base,149,Kevin Hatcher,Washington Capitals,,
+base,150,Steve Kasper,Philadelphia Flyers,,
+base,151,Mikael Andersson,Tampa Bay Lightning,,
+base,152,Alexei Kasatonov,New Jersey Devils,,
+base,153,Jan Erixon,New York Rangers,,
+base,154,Craig Ludwig,Minnesota North Stars,,
+base,155,Dave Poulin,Boston Bruins,,
+base,156,Scott Stevens,New Jersey Devils,,
+base,157,Robert Reichel,Calgary Flames,,
+base,158,Uwe Krupp,New York Islanders,,
+base,159,Brian Noonan,Chicago Blackhawks,,
+base,160,Stephane Richer,New Jersey Devils,,
+base,161,Brent Thompson,Los Angeles Kings,,
+base,162,Glenn Anderson,Toronto Maple Leafs,,
+base,163,Joe Cirella,New York Rangers,,
+base,164,Dave Andreychuk,Buffalo Sabres,,
+base,165,Vladimir Konstantinov,Detroit Red Wings,,
+base,166,Mike McNeill,Quebec Nordiques,,
+base,167,Darrin Shannon,Winnipeg Jets,,
+base,168,Rob Pearson,Toronto Maple Leafs,,
+base,169,John Vanbiesbrouck,New York Rangers,,
+base,170,Randy Wood,Buffalo Sabres,,
+base,171,Marty McSorley,Los Angeles Kings,,
+base,172,Mike Hudson,Chicago Blackhawks,,
+base,173,Paul Fenton,San Jose Sharks,,
+base,174,Jeff Brown,St. Louis Blues,,
+base,175,Mark Greig,Hartford Whalers,,
+base,176,Gordie Roberts,Boston Bruins,,
+base,177,Josef Beranek,Edmonton Oilers,,
+base,178,Shawn Burr,Detroit Red Wings,,
+base,179,Marc Bureau,Minnesota North Stars,,
+base,180,Mikhail Tatarinov,Quebec Nordiques,,
+base,181,Robert Cimetta,Toronto Maple Leafs,,
+base,182,Paul Coffey,Los Angeles Kings,,
+base,183,Bob Essensa,Winnipeg Jets,,
+base,184,Joe Reekie,Tampa Bay Lightning,,
+base,185,Jeff Hackett,San Jose Sharks,,
+base,186,Tomas Forslund,Calgary Flames,,
+base,187,Claude Vilgrain,New Jersey Devils,,
+base,188,John Druce,Washington Capitals,,
+base,189,Patrice Brisebois,Montreal Canadiens,,
+base,190,Peter Douris,Boston Bruins,,
+base,191,Brent Ashton,Boston Bruins,,
+base,192,Eric Desjardins,Montreal Canadiens,,
+base,193,Nick Kypreos,Hartford Whalers,,
+base,194,Dana Murzyn,Vancouver Canucks,,
+base,195,Don Beaupre,Washington Capitals,,
+base,196,Jeff Chychrun,Pittsburgh Penguins,,
+base,197,Dave Barr,New Jersey Devils,,
+base,198,Brian Glynn,Edmonton Oilers,,
+base,199,Keith Acton,Philadelphia Flyers,,
+base,200,Igor Kravchuk,Chicago Blackhawks,,
+base,201,Shayne,Montreal Canadiens,,
+base,202,Curt Giles,St. Louis Blues,,
+base,203,Darren Turcotte,New York Rangers,,
+base,204,David Volek,New York Islanders,,
+base,205,Ray Whitney,San Jose Sharks,,
+base,206,Donald Audette,Buffalo Sabres,,
+base,207,Steve Yzerman,Detroit Red Wings,,
+base,208,Craig Berube,Calgary Flames,,
+base,209,Bob McGill,Tampa Bay Lightning,,
+base,210,Stu Barnes,Winnipeg Jets,,
+base,211,Rob Blake,Los Angeles Kings,,
+base,212,Mario Lemieux,Pittsburgh Penguins,,
+base,213,Dominic Roussel,Philadelphia Flyers,,
+base,214,Sergio Momesso,Vancouver Canucks,,
+base,215,Brad Marsh,Ottawa Senators,,
+base,216,Mark Fitzpatrick,New York Islanders,,
+base,217,Ken Baumgartner,Toronto Maple Leafs,,
+base,218,Greg Gilbert,Chicago Blackhawks,,
+base,219,Ric Nattress,Toronto Maple Leafs,,
+base,220,Theoren Fleury,Calgary Flames,,
+base,221,Ray Bourque,Boston Bruins,,
+base,222,Steve Thomas,New York Islanders,,
+base,223,Scott Niedermayer,New Jersey Devils,,
+base,224,Jeff Lazaro,Ottawa Senators,,
+base,225,Tim Cheveldae / Kirk McLean,Detroit Red Wings / Vancouver Canucks,LL,
+base,226,Marc Fortier,Quebec Nordiques,,
+base,227,Rob Zettler,San Jose Sharks,,
+base,228,Kevin Todd,New Jersey Devils,,
+base,229,Tony Amonte,New York Rangers,,
+base,230,Mark Lamb,Ottawa Senators,,
+base,231,Chris Dahlquist,Minnesota North Stars,,
+base,232,James Black,Hartford Whalers,,
+base,233,Paul Cavallini,St. Louis Blues,,
+base,234,Gino Cavallini,Quebec Nordiques,,
+base,235,Tony Tanti,Buffalo Sabres,,
+base,236,Mike Ridley,Washington Capitals,,
+base,237,Curtis Joseph,St. Louis Blues,,
+base,238,Mike Craig,Minnesota North Stars,,
+base,239,Luciano Borsato,Winnipeg Jets,,
+base,240,Brian Bellows,Minnesota North Stars,,
+base,241,Barry Pederson,Boston Bruins,,
+base,242,Tony Granato,Los Angeles Kings,,
+base,243,Jim Paek,Pittsburgh Penguins,,
+base,244,Tim Bergland,Tampa Bay Lightning,,
+base,245,Jayson More,San Jose Sharks,,
+base,246,Laurie Boschman,Ottawa Senators,,
+base,247,Doug Bodger,Buffalo Sabres,,
+base,248,Murray Craven,Hartford Whalers,,
+base,249,Kris Draper,Winnipeg Jets,,
+base,250,Brian Benning,Philadelphia Flyers,,
+base,251,Jarmo Myllys,Toronto Maple Leafs,,
+base,252,Sergei Fedorov,Detroit Red Wings,,
+base,253,Mathieu Schneider,Montreal Canadiens,,
+base,254,Dave Gagner,Minnesota North Stars,,
+base,255,Michel Goulet,Chicago Blackhawks,,
+base,256,Alexander Godynyuk,Calgary Flames,,
+base,257,Ray Sheppard,Detroit Red Wings,,
+base,258,Mark Messier,New York Rangers,AS,
+base,259,Kevin Stevens,Pittsburgh Penguins,AS,
+base,260,Brett Hull,St. Louis Blues,AS,
+base,261,Brian Leetch,New York Rangers,AS,
+base,262,Ray Bourque,Boston Bruins,AS,
+base,263,Patrick Roy,Montreal Canadiens,AS,
+base,264,Mike Gartner,New York Rangers,HL,
+base,265,Mario Lemieux,Pittsburgh Penguins,AS,
+base,266,Luc Robitaille,Los Angeles Kings,AS,
+base,267,Mark Recchi,Philadelphia Flyers,AS,
+base,268,Phil Housley,Winnipeg Jets,AS,
+base,269,Scott Stevens,New Jersey Devils,AS,
+base,270,Kirk McLean,Vancouver Canucks,AS,
+base,271,Steve Duchesne,Quebec Nordiques,,
+base,272,Jiri Hrdina,Pittsburgh Penguins,,
+base,273,John MacLean,New Jersey Devils,,
+base,274,Mark Messier,New York Rangers,,
+base,275,Geoff Smith,Edmonton Oilers,,
+base,276,Russ Courtnall,Montreal Canadiens,,
+base,277,Yves Racine,Detroit Red Wings,,
+base,278,Tom Draper,Buffalo Sabres,,
+base,279,Charlie Huddy,Los Angeles Kings,,
+base,280,Trevor Kidd,Calgary Flames,,
+base,281,Garth Butcher,St. Louis Blues,,
+base,282,Mike Sullivan,San Jose Sharks,,
+base,283,Adam Burt,Hartford Whalers,,
+base,284,Troy Murray,Winnipeg Jets,,
+base,285,Stephane Fiset,Quebec Nordiques,,
+base,286,Perry Anderson,San Jose Sharks,,
+base,287,Sergei Nemchinov,New York Rangers,,
+base,288,Rick Zombo,St. Louis Blues,,
+base,289,Pierre Turgeon,New York Islanders,,
+base,290,Kevin Lowe,Edmonton Oilers,,
+base,291,Brian Bradley,Tampa Bay Lightning,,
+base,292,Martin Gelinas,Edmonton Oilers,,
+base,293,Brian Leetch,New York Rangers,,
+base,294,Peter Bondra,Washington Capitals,,
+base,295,Brendan Shanahan,St. Louis Blues,,
+base,296,Dale Hawerchuk,Buffalo Sabres,,
+base,297,Mike Hough,Quebec Nordiques,,
+base,298,Rollie Melanson,Montreal Canadiens,,
+base,299,Brad Jones,Philadelphia Flyers,,
+base,300,Jocelyn Lemieux,Chicago Blackhawks,,
+base,301,Brad McCrimmon,Detroit Red Wings,,
+base,302,Marty McInnis,New York Islanders,,
+base,303,Chris Terreri,New Jersey Devils,,
+base,304,Dean Evason,San Jose Sharks,,
+base,305,Glenn Healy,New York Islanders,,
+base,306,Ken Hodge,Boston Bruins,,
+base,307,Mike Liut,Washington Capitals,,
+base,308,Gary Suter,Calgary Flames,,
+base,309,Neal Broten,Minnesota North Stars,,
+base,310,Tim Cheveldae,Detroit Red Wings,,
+base,311,Tom Fergus,Vancouver Canucks,,
+base,312,Petr Svoboda,Buffalo Sabres,,
+base,313,Tom Chorske,New Jersey Devils,,
+base,314,Paul Ysebaert,Detroit Red Wings,LL,
+base,315,Steve Smith,Chicago Blackhawks,,
+base,316,Stephane Morin,Quebec Nordiques,,
+base,317,Pat MacLeod,San Jose Sharks,,
+base,318,Dino Ciccarelli,Detroit Red Wings,,
+base,319,Peter Zezel,Toronto Maple Leafs,,
+base,320,Chris Lindberg,Calgary Flames,,
+base,321,Grant Ledyard,Buffalo Sabres,,
+base,322,Ron Francis,Pittsburgh Penguins,,
+base,323,Adrien Plavsic,Vancouver Canucks,,
+base,324,Ray Ferraro,New York Islanders,,
+base,325,Wendel Clark,Toronto Maple Leafs,,
+base,326,Corey Millen,Los Angeles Kings,,
+base,327,Mark Pederson,Philadelphia Flyers,,
+base,328,Patrick Poulin,Hartford Whalers,,
+base,329,Adam Graves,New York Rangers,,
+base,330,Bobby Holik,Hartford Whalers,,
+base,331,Kelly Kisio,San Jose Sharks,,
+base,332,Peter Sidorkiewicz,Ottawa Senators,,
+base,333,Vladimir Ruzicka,Boston Bruins,,
+base,334,J.J. Daigneault,Montreal Canadiens,,
+base,335,Troy Mallette,New Jersey Devils,,
+base,336,Craig MacTavish,Edmonton Oilers,,
+base,337,Michel Petit,Calgary Flames,,
+base,338,Claude Loiselle,New York Islanders,,
+base,339,Teppo Numminen,Winnipeg Jets,,
+base,340,Brett Hull,St. Louis Blues,LL,
+base,341,Sylvain Lefebvre,Montreal Canadiens,,
+base,342,Perry Berezan,San Jose Sharks,,
+base,343,Kevin Stevens,Pittsburgh Penguins,,
+base,344,Randy Ladouceur,Hartford Whalers,,
+base,345,Pat LaFontaine,Buffalo Sabres,,
+base,346,Glen Wesley,Boston Bruins,,
+base,347,Michel Goulet,Chicago Blackhawks,HL,
+base,348,Jamie Macoun,Toronto Maple Leafs,,
+base,349,Owen Nolan,Quebec Nordiques,,
+base,350,Grant Fuhr,Toronto Maple Leafs,,
+base,351,Tim Kerr,Hartford Whalers,,
+base,352,Kjell Samuelsson,Pittsburgh Penguins,,
+base,353,Pavel Bure,Vancouver Canucks,,
+base,354,Murray Baron,St. Louis Blues,,
+base,355,Paul Broten,New York Rangers,,
+base,356,Craig Simpson,Edmonton Oilers,,
+base,357,Ken Daneyko,New Jersey Devils,,
+base,358,Greg Hawgood,Edmonton Oilers,,
+base,359,Johan Garpenlov,San Jose Sharks,,
+base,360,Garry Galley,Philadelphia Flyers,,
+base,361,Paul DiPietro,Montreal Canadiens,,
+base,362,Jamie Leach,Pittsburgh Penguins,,
+base,363,Clint Malarchuk,Buffalo Sabres,,
+base,364,Dan Lambert,Quebec Nordiques,,
+base,365,Joe Juneau,Boston Bruins,,
+base,366,Scott Lachance,New York Islanders,,
+base,367,Mike Richter,New York Rangers,,
+base,368,Sheldon Kennedy,Detroit Red Wings,,
+base,369,John McIntyre,Los Angeles Kings,,
+base,370,Glen Murray,Boston Bruins,,
+base,371,Ron Sutter,St. Louis Blues,,
+base,372,David Williams RC,San Jose Sharks,,
+base,373,Bill Lindsay RC,Quebec Nordiques,,
+base,374,Todd Gill,Toronto Maple Leafs,,
+base,375,Sylvain Turgeon,Ottawa Senators,,
+base,376,Dirk Graham,Chicago Blackhawks,,
+base,377,Brad Schlegel,Washington Capitals,,
+base,378,Bob Carpenter,Washington Capitals,,
+base,379,Jon Casey,Minnesota North Stars,,
+base,380,Andrei Lomakin,Philadelphia Flyers,,
+base,381,Kay Whitmore,Hartford Whalers,,
+base,382,Alexander Mogilny,Buffalo Sabres,,
+base,383,Garry Valk,Vancouver Canucks,,
+base,384,Bruce Driver,New Jersey Devils,,
+base,385,Jeff Reese,Calgary Flames,,
+base,386,Brent Gilchrist,Montreal Canadiens,,
+base,387,Kerry Huffman,Quebec Nordiques,,
+base,388,Bobby Smith,Minnesota North Stars,,
+base,389,Dave Manson,Edmonton Oilers,,
+base,390,Russ Romaniuk,Winnipeg Jets,,
+base,391,Paul MacDermid,Washington Capitals,,
+base,392,Louie DeBrusk,Edmonton Oilers,,
+base,393,Dave McLlwain,Toronto Maple Leafs,,
+base,394,Andy Moog,Boston Bruins,,
+base,395,Tie Domi,New York Rangers,,
+base,396,Pat Jablonski,Tampa Bay Lightning,,
+base,397,Troy Loney,Pittsburgh Penguins,,
+base,398,Jimmy Carson,Detroit Red Wings,,
+base,399,Eric Weinrich,New Jersey Devils,,
+base,400,Jeremy Roenick,Chicago Blackhawks,,
+base,401,Brent Fedyk,Detroit Red Wings,,
+base,402,Geoff Sanderson,Hartford Whalers,,
+base,403,Doug Lidster,Vancouver Canucks,,
+base,404,Mike Gartner,New York Rangers,,
+base,405,Derian Hatcher,Minnesota North Stars,,
+base,406,Gaetan Duchesne,Minnesota North Stars,,
+base,407,Randy Moller,Buffalo Sabres,,
+base,408,Brian Skrudland,Montreal Canadiens,,
+base,409,Luke Richardson,Edmonton Oilers,,
+base,410,Mark Recchi,Philadelphia Flyers,,
+base,411,Steve Konroyd,Hartford Whalers,,
+base,412,Troy Gamble,Vancouver Canucks,,
+base,413,Greg Johnston,Toronto Maple Leafs,,
+base,414,Denis Savard,Montreal Canadiens,,
+base,415,Mats Sundin,Quebec Nordiques,,
+base,416,Bryan Trottier,Pittsburgh Penguins,,
+base,417,Don Sweeney,Boston Bruins,,
+base,418,Pat Falloon,San Jose Sharks,,
+base,419,Alexander Semak,New Jersey Devils,,
+base,420,David Shaw,Minnesota North Stars,,
+base,421,Tomas Sandstrom,Los Angeles Kings,,
+base,422,Petr Nedved,Vancouver Canucks,,
+base,423,Peter Ing,Edmonton Oilers,,
+base,424,Wayne Presley,Buffalo Sabres,,
+base,425,Rick Wamsley,Toronto Maple Leafs,,
+base,426,Rob Zamuner RC,Tampa Bay Lightning,,
+base,427,Claude Boivin,Philadelphia Flyers,,
+base,428,Sylvain Cote,Washington Capitals,,
+base,429,Kevin Stevens,Pittsburgh Penguins,HL,
+base,430,Randy Velischek,Quebec Nordiques,,
+base,431,Derek King,New York Islanders,,
+base,432,Terry Yake,Hartford Whalers,,
+base,433,Philippe Bozon,St. Louis Blues,,
+base,434,Rich Sutter,St. Louis Blues,,
+base,435,Brian Lawton,San Jose Sharks,,
+base,436,Brian Hayward,San Jose Sharks,,
+base,437,Robert Dirk,Vancouver Canucks,,
+base,438,Bernie Nicholls,Edmonton Oilers,,
+base,439,Michel Picard,Hartford Whalers,,
+base,440,Nicklas Lidstrom,Detroit Red Wings,,
+base,441,Mike Modano,Minnesota North Stars,,
+base,442,Phil Bourque,Pittsburgh Penguins,,
+base,443,Wayne McBean,New York Islanders,,
+base,444,Scott Mellanby,Edmonton Oilers,,
+base,445,Kevin Haller,Montreal Canadiens,,
+base,446,Dave Taylor,Los Angeles Kings,,
+base,447,Larry Murphy,Pittsburgh Penguins,,
+base,448,David Bruce,San Jose Sharks,,
+base,449,Steven Finn,Quebec Nordiques,,
+base,450,Mike Krushelnyski,Toronto Maple Leafs,,
+base,451,Adam Creighton,New York Islanders,,
+base,452,Al MacInnis,Calgary Flames,,
+base,453,Rick Tabaracci,Winnipeg Jets,,
+base,454,Bob Bassen,St. Louis Blues,,
+base,455,Kelly Buchberger,Edmonton Oilers,,
+base,456,Phil Housley,Winnipeg Jets,,
+base,457,Daren Puppa,Buffalo Sabres,,
+base,458,Viacheslav Fetisov,New Jersey Devils,,
+base,459,Doug Smail,Quebec Nordiques,,
+base,460,Paul Stanton,Pittsburgh Penguins,,
+base,461,Steve Weeks,Washington Capitals,,
+base,462,Valeri Zelepukin,New Jersey Devils,,
+base,463,Stephane Matteau,Chicago Blackhawks,,
+base,464,Dale Hunter,Washington Capitals,,
+base,465,Terry Carkner,Philadelphia Flyers,,
+base,466,Vincent Riendeau,Detroit Red Wings,,
+base,467,Sergei Makarov,Calgary Flames,,
+base,468,Igor Ulanov,Winnipeg Jets,,
+base,469,Peter Stastny,New Jersey Devils,,
+base,470,Dimitri Khristich,Washington Capitals,,
+base,471,Joel Otto,Calgary Flames,,
+base,472,Geoff Courtnall,Vancouver Canucks,,
+base,473,Mike Ramsey,Buffalo Sabres,,
+base,474,Yvon,Hartford Whalers,,
+base,475,Adam Oates,Boston Bruins,,
+base,476,Esa Tikkanen,Edmonton Oilers,,
+base,477,Doug Weight,New York Rangers,,
+base,478,Mike Keane,Montreal Canadiens,,
+base,479,Kelly Miller,Washington Capitals,,
+base,480,Nelson Emerson,St. Louis Blues,,
+base,481,Shawn McEachern,Pittsburgh Penguins,,
+base,482,Doug Wilson,San Jose Sharks,,
+base,483,Jeff Odgers,San Jose Sharks,,
+base,484,Stephane Quintal,St. Louis Blues,,
+base,485,Christian Ruuttu,Winnipeg Jets,,
+base,486,Paul Ranheim,Calgary Flames,,
+base,487,Craig Wolanin,Quebec Nordiques,,
+base,488,Rob DiMaio,Tampa Bay Lightning,,
+base,489,Shawn Cronin,Winnipeg Jets,,
+base,490,Kirk Muller,Montreal Canadiens,,
+base,491,Patrick Roy,Montreal Canadiens,LL,
+base,492,Rich Pilon,New York Islanders,,
+base,493,Pat Verbeek,Hartford Whalers,,
+base,494,Ken Wregget,Pittsburgh Penguins,,
+base,495,Joe Sakic,Quebec Nordiques,,
+base,496,Zdeno Ciger,New Jersey Devils,,
+base,497,Steve Larmer,Chicago Blackhawks,,
+base,498,Calle Johansson,Washington Capitals,,
+base,499,Trevor Linden,Vancouver Canucks,,
+base,500,John LeClair,Montreal Canadiens,,
+base,501,Bryan Marchment,Chicago Blackhawks,,
+base,502,Todd Krygier,Washington Capitals,,
+base,503,Tom Barrasso,Pittsburgh Penguins,,
+base,504,Mario Lemieux,Pittsburgh Penguins,LL,
+base,505,Daniel Berthiaume,Winnipeg Jets,,
+base,506,Jamie Baker,Quebec Nordiques,,
+base,507,Greg Adams,Vancouver Canucks,,
+base,508,Patrick Roy,Montreal Canadiens,,
+base,509,Kris King,New York Rangers,,
+base,510,Jyrki Lumme,Vancouver Canucks,,
+base,511,Darin Kimble,Tampa Bay Lightning,,
+base,512,Igor Larionov,Vancouver Canucks,,
+base,513,Martin Brodeur,New Jersey Devils,,
+base,514,Denny Felsner RC,St. Louis Blues,,
+base,515,Yanick Dupre,Philadelphia Flyers,,
+base,516,Bill Guerin RC,New Jersey Devils,,
+base,517,Bret Hedican RC,St. Louis Blues,,
+base,518,Mike Hartman,Tampa Bay Lightning,,
+base,519,Steve Heinze,Boston Bruins,,
+base,520,Frantisek Kucera,Chicago Blackhawks,,
+base,521,Dave Reid,Boston Bruins,,
+base,522,Frank Pietrangelo,Hartford Whalers,,
+base,523,Martin Rucinsky,Quebec Nordiques,,
+base,524,Tony Hrkac,Chicago Blackhawks,,
+base,525,Checklist: 1-132,,CL,
+base,526,Checklist: 133-264,,CL,
+base,527,Checklist: 265-396,,CL,
+base,528,Checklist: 397-528 CL#529 added late in production run and is not listed,,,
+base,529,Eric Lindros,Philadelphia Flyers,,
+gold,1,Wayne Gretzky,Los Angeles Kings,,Gold
+gold,2,Brett Hull,St. Louis Blues,,Gold
+gold,3,Felix Potvin,Toronto Maple Leafs,,Gold
+gold,4,Mark Tinordi,Minnesota North Stars,,Gold
+gold,5,Paul Coffey,Los Angeles Kings,HL,Gold
+gold,6,Tony Amonte,New York Rangers,SR,Gold
+gold,7,Pat Falloon,San Jose Sharks,SR,Gold
+gold,8,Pavel Bure,Vancouver Canucks,SR,Gold
+gold,9,Nicklas Lidstrom,Detroit Red Wings,SR,Gold
+gold,10,Dominic Roussel,Philadelphia Flyers,SR,Gold
+gold,11,Nelson Emerson,St. Louis Blues,SR,Gold
+gold,12,Donald Audette,Buffalo Sabres,SR,Gold
+gold,13,Gilbert Dionne,Montreal Canadiens,SR,Gold
+gold,14,Vladimir Konstantinov,Detroit Red Wings,SR,Gold
+gold,15,Kevin Todd,New Jersey Devils,SR,Gold
+gold,16,Steve Leach,Boston Bruins,,Gold
+gold,17,Ed Olczyk,Winnipeg Jets,,Gold
+gold,18,Jim Hrivnak,Washington Capitals,,Gold
+gold,19,Gilbert Dionne,Montreal Canadiens,,Gold
+gold,20,Mike Vernon,Calgary Flames,,Gold
+gold,21,Dave Christian,St. Louis Blues,,Gold
+gold,22,Ed Belfour,Chicago Blackhawks,,Gold
+gold,23,Andrew Cassels,Hartford Whalers,,Gold
+gold,24,Jaromir Jagr,Pittsburgh Penguins,,Gold
+gold,25,Arturs Irbe,San Jose Sharks,,Gold
+gold,26,Petr Klima,Edmonton Oilers,,Gold
+gold,27,Randy Gilhen,New York Rangers,,Gold
+gold,28,Ulf Dahlen,Minnesota North Stars,,Gold
+gold,29,Kelly Hrudey,Los Angeles Kings,,Gold
+gold,30,Dave Ellett,Toronto Maple Leafs,,Gold
+gold,31,Tom Fitzgerald,New York Islanders,,Gold
+gold,32,Cam Neely,Boston Bruins,,Gold
+gold,33,Greg Paslawski,Quebec Nordiques,,Gold
+gold,34,Brad May,Buffalo Sabres,,Gold
+gold,35,Viacheslav Kozlov,Detroit Red Wings,,Gold
+gold,36,Mark Hunter,Washington Capitals,,Gold
+gold,37,Steve Chiasson,Detroit Red Wings,,Gold
+gold,38,Joe Murphy,Edmonton Oilers,,Gold
+gold,39,Darryl Sydor,Los Angeles Kings,,Gold
+gold,40,Ron Hextall,Quebec Nordiques,,Gold
+gold,41,Jim Sandlak,Vancouver Canucks,,Gold
+gold,42,Dave Lowry,St. Louis Blues,,Gold
+gold,43,Claude Lemieux,New Jersey Devils,,Gold
+gold,44,Gerald Diduck,Vancouver Canucks,,Gold
+gold,45,Mike McPhee,Montreal Canadiens,,Gold
+gold,46,Rod Langway,Washington Capitals,,Gold
+gold,47,Guy Larose,Toronto Maple Leafs,,Gold
+gold,48,Craig Billington,New Jersey Devils,,Gold
+gold,49,Daniel Marois,New York Islanders,,Gold
+gold,50,Todd Nelson,Pittsburgh Penguins,,Gold
+gold,51,Jari Kurri,Los Angeles Kings,,Gold
+gold,52,Keith Brown,Chicago Blackhawks,,Gold
+gold,53,Valeri Kamensky,Quebec Nordiques,,Gold
+gold,54,Jim Johnson,Minnesota North Stars,,Gold
+gold,55,Vincent Damphousse,Edmonton Oilers,,Gold
+gold,56,Pat Elynuik,Winnipeg Jets,,Gold
+gold,57,Jeff Beukeboom,New York Rangers,,Gold
+gold,58,Paul Ysebaert,Detroit Red Wings,,Gold
+gold,59,Ken Sutton,Buffalo Sabres,,Gold
+gold,60,Dale Craigwell,San Jose Sharks,,Gold
+gold,61,Marc Bergevin,Tampa Bay Lightning,,Gold
+gold,62,Steph Beauregard,Winnipeg Jets,,Gold
+gold,63,Bob Probert,Detroit Red Wings,,Gold
+gold,64,Jergus Baca,Hartford Whalers,,Gold
+gold,65,Brian Propp,Minnesota North Stars,,Gold
+gold,66,Jacques Cloutier,Quebec Nordiques,,Gold
+gold,67,Jim Thomson,Ottawa Senators,,Gold
+gold,68,Anatoli Semenov,Tampa Bay Lightning,,Gold
+gold,69,Stephan Lebeau,Montreal Canadiens,,Gold
+gold,70,Rick Tocchet,Pittsburgh Penguins,,Gold
+gold,71,James Patrick,New York Rangers,,Gold
+gold,72,Rob Brown,Chicago Blackhawks,,Gold
+gold,73,Peter Ahola,Los Angeles Kings,,Gold
+gold,74,Bob,Buffalo Sabres,,Gold
+gold,75,Brent Sutter,Chicago Blackhawks,,Gold
+gold,76,Neil Wilkinson,San Jose Sharks,,Gold
+gold,77,Mark Osborne,Toronto Maple Leafs,,Gold
+gold,78,Ron Wilson,St. Louis Blues,,Gold
+gold,79,Todd Richards,Hartford Whalers,,Gold
+gold,80,Robert Kron,Vancouver Canucks,,Gold
+gold,81,Cliff Ronning,Vancouver Canucks,,Gold
+gold,82,Zarley Zalapski,Hartford Whalers,,Gold
+gold,83,Randy Burridge,Washington Capitals,,Gold
+gold,84,Jarrod Skalde,New Jersey Devils,,Gold
+gold,85,Gary Leeman,Calgary Flames,,Gold
+gold,86,Mike Ricci,Quebec Nordiques,,Gold
+gold,87,Dennis Vaske,New York Islanders,,Gold
+gold,88,John LeBlanc,Winnipeg Jets,,Gold
+gold,89,Brad Shaw,Ottawa Senators,,Gold
+gold,90,Rod Brind'Amour,Philadelphia Flyers,,Gold
+gold,91,Colin Patterson,Buffalo Sabres,,Gold
+gold,92,Gerard Gallant,Detroit Red Wings,,Gold
+gold,93,Per Djoos,New York Rangers,,Gold
+gold,94,Claude Lapointe,Quebec Nordiques,,Gold
+gold,95,Bob,Pittsburgh Penguins,,Gold
+gold,96,Norm Maciver,Edmonton Oilers,,Gold
+gold,97,Todd Elik,Minnesota North Stars,,Gold
+gold,98,Chris Chelios,Chicago Blackhawks,,Gold
+gold,99,Keith Primeau,Detroit Red Wings,,Gold
+gold,100,Jimmy Waite,Chicago Blackhawks,,Gold
+gold,101,Luc Robitaille,Los Angeles Kings,,Gold
+gold,102,Keith Tkachuk,Winnipeg Jets,,Gold
+gold,103,Benoit Hogue,New York Islanders,,Gold
+gold,104,Brian Mullen,San Jose Sharks,,Gold
+gold,105,Joe Nieuwendyk,Calgary Flames,,Gold
+gold,106,Randy McKay,New Jersey Devils,,Gold
+gold,107,Michal Pivonka,Washington Capitals,,Gold
+gold,108,Darcy Wakaluk,Minnesota North Stars,,Gold
+gold,109,Andy Brickley,Boston Bruins,,Gold
+gold,110,Patrick Roy,Montreal Canadiens,LL,Gold
+gold,111,Bob Sweeney,Boston Bruins,,Gold
+gold,112,Guy Hebert,St. Louis Blues,,Gold
+gold,113,Joe Mullen,Pittsburgh Penguins,,Gold
+gold,114,Gord Murphy,Boston Bruins,,Gold
+gold,115,Evgeny Davydov,Winnipeg Jets,,Gold
+gold,116,Gary Roberts,Calgary Flames,,Gold
+gold,117,Pelle Eklund,Philadelphia Flyers,,Gold
+gold,118,Tom Kurvers,New York Islanders,,Gold
+gold,119,John Tonelli,Quebec Nordiques,,Gold
+gold,120,Fredrik Olausson,Winnipeg Jets,,Gold
+gold,121,Mike Donnelly,Los Angeles Kings,,Gold
+gold,122,Doug Gilmour,Toronto Maple Leafs,,Gold
+gold,123,Wayne Gretzky,Los Angeles Kings,LL,Gold
+gold,124,Curtis Leschyshyn,Quebec Nordiques,,Gold
+gold,125,Guy Carbonneau,Montreal Canadiens,,Gold
+gold,126,Bill Ranford,Edmonton Oilers,,Gold
+gold,127,Ulf Samuelsson,Pittsburgh Penguins,,Gold
+gold,128,Joey Kocur,New York Rangers,,Gold
+gold,129,Kevin Miller,Washington Capitals,,Gold
+gold,130,Kirk McLean,Vancouver Canucks,,Gold
+gold,131,Kevin Dineen,Philadelphia Flyers,,Gold
+gold,132,John Cullen,Hartford Whalers,,Gold
+gold,133,Al Iafrate,Washington Capitals,,Gold
+gold,134,Craig Janney,St. Louis Blues,,Gold
+gold,135,Patrick Flatley,New York Islanders,,Gold
+gold,136,Dominik Hasek,Chicago Blackhawks,,Gold
+gold,137,Benoit Brunet,Montreal Canadiens,,Gold
+gold,138,Dave Babych,Vancouver Canucks,,Gold
+gold,139,Doug Brown,New Jersey Devils,,Gold
+gold,140,Mike Lalor,Winnipeg Jets,,Gold
+gold,141,Thomas Steen,Winnipeg Jets,,Gold
+gold,142,Frantisek Musil,Calgary Flames,,Gold
+gold,143,Dan Quinn,Philadelphia Flyers,,Gold
+gold,144,Dmitri Mironov,Toronto Maple Leafs,,Gold
+gold,145,Bob Kudelski,Los Angeles Kings,,Gold
+gold,146,Mike Bullard,Toronto Maple Leafs,,Gold
+gold,147,Randy Carlyle,Winnipeg Jets,,Gold
+gold,148,Kent Manderville,Toronto Maple Leafs,,Gold
+gold,149,Kevin Hatcher,Washington Capitals,,Gold
+gold,150,Steve Kasper,Philadelphia Flyers,,Gold
+gold,151,Mikael Andersson,Tampa Bay Lightning,,Gold
+gold,152,Alexei Kasatonov,New Jersey Devils,,Gold
+gold,153,Jan Erixon,New York Rangers,,Gold
+gold,154,Craig Ludwig,Minnesota North Stars,,Gold
+gold,155,Dave Poulin,Boston Bruins,,Gold
+gold,156,Scott Stevens,New Jersey Devils,,Gold
+gold,157,Robert Reichel,Calgary Flames,,Gold
+gold,158,Uwe Krupp,New York Islanders,,Gold
+gold,159,Brian Noonan,Chicago Blackhawks,,Gold
+gold,160,Stephane Richer,New Jersey Devils,,Gold
+gold,161,Brent Thompson,Los Angeles Kings,,Gold
+gold,162,Glenn Anderson,Toronto Maple Leafs,,Gold
+gold,163,Joe Cirella,New York Rangers,,Gold
+gold,164,Dave Andreychuk,Buffalo Sabres,,Gold
+gold,165,Vladimir Konstantinov,Detroit Red Wings,,Gold
+gold,166,Mike McNeill,Quebec Nordiques,,Gold
+gold,167,Darrin Shannon,Winnipeg Jets,,Gold
+gold,168,Rob Pearson,Toronto Maple Leafs,,Gold
+gold,169,John Vanbiesbrouck,New York Rangers,,Gold
+gold,170,Randy Wood,Buffalo Sabres,,Gold
+gold,171,Marty McSorley,Los Angeles Kings,,Gold
+gold,172,Mike Hudson,Chicago Blackhawks,,Gold
+gold,173,Paul Fenton,San Jose Sharks,,Gold
+gold,174,Jeff Brown,St. Louis Blues,,Gold
+gold,175,Mark Greig,Hartford Whalers,,Gold
+gold,176,Gordie Roberts,Boston Bruins,,Gold
+gold,177,Josef Beranek,Edmonton Oilers,,Gold
+gold,178,Shawn Burr,Detroit Red Wings,,Gold
+gold,179,Marc Bureau,Minnesota North Stars,,Gold
+gold,180,Mikhail Tatarinov,Quebec Nordiques,,Gold
+gold,181,Robert Cimetta,Toronto Maple Leafs,,Gold
+gold,182,Paul Coffey,Los Angeles Kings,,Gold
+gold,183,Bob Essensa,Winnipeg Jets,,Gold
+gold,184,Joe Reekie,Tampa Bay Lightning,,Gold
+gold,185,Jeff Hackett,San Jose Sharks,,Gold
+gold,186,Tomas Forslund,Calgary Flames,,Gold
+gold,187,Claude Vilgrain,New Jersey Devils,,Gold
+gold,188,John Druce,Washington Capitals,,Gold
+gold,189,Patrice Brisebois,Montreal Canadiens,,Gold
+gold,190,Peter Douris,Boston Bruins,,Gold
+gold,191,Brent Ashton,Boston Bruins,,Gold
+gold,192,Eric Desjardins,Montreal Canadiens,,Gold
+gold,193,Nick Kypreos,Hartford Whalers,,Gold
+gold,194,Dana Murzyn,Vancouver Canucks,,Gold
+gold,195,Don Beaupre,Washington Capitals,,Gold
+gold,196,Jeff Chychrun,Pittsburgh Penguins,,Gold
+gold,197,Dave Barr,New Jersey Devils,,Gold
+gold,198,Brian Glynn,Edmonton Oilers,,Gold
+gold,199,Keith Acton,Philadelphia Flyers,,Gold
+gold,200,Igor Kravchuk,Chicago Blackhawks,,Gold
+gold,201,Shayne,Montreal Canadiens,,Gold
+gold,202,Curt Giles,St. Louis Blues,,Gold
+gold,203,Darren Turcotte,New York Rangers,,Gold
+gold,204,David Volek,New York Islanders,,Gold
+gold,205,Ray Whitney,San Jose Sharks,,Gold
+gold,206,Donald Audette,Buffalo Sabres,,Gold
+gold,207,Steve Yzerman,Detroit Red Wings,,Gold
+gold,208,Craig Berube,Calgary Flames,,Gold
+gold,209,Bob McGill,Tampa Bay Lightning,,Gold
+gold,210,Stu Barnes,Winnipeg Jets,,Gold
+gold,211,Rob Blake,Los Angeles Kings,,Gold
+gold,212,Mario Lemieux,Pittsburgh Penguins,,Gold
+gold,213,Dominic Roussel,Philadelphia Flyers,,Gold
+gold,214,Sergio Momesso,Vancouver Canucks,,Gold
+gold,215,Brad Marsh,Ottawa Senators,,Gold
+gold,216,Mark Fitzpatrick,New York Islanders,,Gold
+gold,217,Ken Baumgartner,Toronto Maple Leafs,,Gold
+gold,218,Greg Gilbert,Chicago Blackhawks,,Gold
+gold,219,Ric Nattress,Toronto Maple Leafs,,Gold
+gold,220,Theoren Fleury,Calgary Flames,,Gold
+gold,221,Ray Bourque,Boston Bruins,,Gold
+gold,222,Steve Thomas,New York Islanders,,Gold
+gold,223,Scott Niedermayer,New Jersey Devils,,Gold
+gold,224,Jeff Lazaro,Ottawa Senators,,Gold
+gold,225,Tim Cheveldae / Kirk McLean,Detroit Red Wings / Vancouver Canucks,LL,Gold
+gold,226,Marc Fortier,Quebec Nordiques,,Gold
+gold,227,Rob Zettler,San Jose Sharks,,Gold
+gold,228,Kevin Todd,New Jersey Devils,,Gold
+gold,229,Tony Amonte,New York Rangers,,Gold
+gold,230,Mark Lamb,Ottawa Senators,,Gold
+gold,231,Chris Dahlquist,Minnesota North Stars,,Gold
+gold,232,James Black,Hartford Whalers,,Gold
+gold,233,Paul Cavallini,St. Louis Blues,,Gold
+gold,234,Gino Cavallini,Quebec Nordiques,,Gold
+gold,235,Tony Tanti,Buffalo Sabres,,Gold
+gold,236,Mike Ridley,Washington Capitals,,Gold
+gold,237,Curtis Joseph,St. Louis Blues,,Gold
+gold,238,Mike Craig,Minnesota North Stars,,Gold
+gold,239,Luciano Borsato,Winnipeg Jets,,Gold
+gold,240,Brian Bellows,Minnesota North Stars,,Gold
+gold,241,Barry Pederson,Boston Bruins,,Gold
+gold,242,Tony Granato,Los Angeles Kings,,Gold
+gold,243,Jim Paek,Pittsburgh Penguins,,Gold
+gold,244,Tim Bergland,Tampa Bay Lightning,,Gold
+gold,245,Jayson More,San Jose Sharks,,Gold
+gold,246,Laurie Boschman,Ottawa Senators,,Gold
+gold,247,Doug Bodger,Buffalo Sabres,,Gold
+gold,248,Murray Craven,Hartford Whalers,,Gold
+gold,249,Kris Draper,Winnipeg Jets,,Gold
+gold,250,Brian Benning,Philadelphia Flyers,,Gold
+gold,251,Jarmo Myllys,Toronto Maple Leafs,,Gold
+gold,252,Sergei Fedorov,Detroit Red Wings,,Gold
+gold,253,Mathieu Schneider,Montreal Canadiens,,Gold
+gold,254,Dave Gagner,Minnesota North Stars,,Gold
+gold,255,Michel Goulet,Chicago Blackhawks,,Gold
+gold,256,Alexander Godynyuk,Calgary Flames,,Gold
+gold,257,Ray Sheppard,Detroit Red Wings,,Gold
+gold,258,Mark Messier,New York Rangers,AS,Gold
+gold,259,Kevin Stevens,Pittsburgh Penguins,AS,Gold
+gold,260,Brett Hull,St. Louis Blues,AS,Gold
+gold,261,Brian Leetch,New York Rangers,AS,Gold
+gold,262,Ray Bourque,Boston Bruins,AS,Gold
+gold,263,Patrick Roy,Montreal Canadiens,AS,Gold
+gold,264,Mike Gartner,New York Rangers,HL,Gold
+gold,265,Mario Lemieux,Pittsburgh Penguins,AS,Gold
+gold,266,Luc Robitaille,Los Angeles Kings,AS,Gold
+gold,267,Mark Recchi,Philadelphia Flyers,AS,Gold
+gold,268,Phil Housley,Winnipeg Jets,AS,Gold
+gold,269,Scott Stevens,New Jersey Devils,AS,Gold
+gold,270,Kirk McLean,Vancouver Canucks,AS,Gold
+gold,271,Steve Duchesne,Quebec Nordiques,,Gold
+gold,272,Jiri Hrdina,Pittsburgh Penguins,,Gold
+gold,273,John MacLean,New Jersey Devils,,Gold
+gold,274,Mark Messier,New York Rangers,,Gold
+gold,275,Geoff Smith,Edmonton Oilers,,Gold
+gold,276,Russ Courtnall,Montreal Canadiens,,Gold
+gold,277,Yves Racine,Detroit Red Wings,,Gold
+gold,278,Tom Draper,Buffalo Sabres,,Gold
+gold,279,Charlie Huddy,Los Angeles Kings,,Gold
+gold,280,Trevor Kidd,Calgary Flames,,Gold
+gold,281,Garth Butcher,St. Louis Blues,,Gold
+gold,282,Mike Sullivan,San Jose Sharks,,Gold
+gold,283,Adam Burt,Hartford Whalers,,Gold
+gold,284,Troy Murray,Winnipeg Jets,,Gold
+gold,285,Stephane Fiset,Quebec Nordiques,,Gold
+gold,286,Perry Anderson,San Jose Sharks,,Gold
+gold,287,Sergei Nemchinov,New York Rangers,,Gold
+gold,288,Rick Zombo,St. Louis Blues,,Gold
+gold,289,Pierre Turgeon,New York Islanders,,Gold
+gold,290,Kevin Lowe,Edmonton Oilers,,Gold
+gold,291,Brian Bradley,Tampa Bay Lightning,,Gold
+gold,292,Martin Gelinas,Edmonton Oilers,,Gold
+gold,293,Brian Leetch,New York Rangers,,Gold
+gold,294,Peter Bondra,Washington Capitals,,Gold
+gold,295,Brendan Shanahan,St. Louis Blues,,Gold
+gold,296,Dale Hawerchuk,Buffalo Sabres,,Gold
+gold,297,Mike Hough,Quebec Nordiques,,Gold
+gold,298,Rollie Melanson,Montreal Canadiens,,Gold
+gold,299,Brad Jones,Philadelphia Flyers,,Gold
+gold,300,Jocelyn Lemieux,Chicago Blackhawks,,Gold
+gold,301,Brad McCrimmon,Detroit Red Wings,,Gold
+gold,302,Marty McInnis,New York Islanders,,Gold
+gold,303,Chris Terreri,New Jersey Devils,,Gold
+gold,304,Dean Evason,San Jose Sharks,,Gold
+gold,305,Glenn Healy,New York Islanders,,Gold
+gold,306,Ken Hodge,Boston Bruins,,Gold
+gold,307,Mike Liut,Washington Capitals,,Gold
+gold,308,Gary Suter,Calgary Flames,,Gold
+gold,309,Neal Broten,Minnesota North Stars,,Gold
+gold,310,Tim Cheveldae,Detroit Red Wings,,Gold
+gold,311,Tom Fergus,Vancouver Canucks,,Gold
+gold,312,Petr Svoboda,Buffalo Sabres,,Gold
+gold,313,Tom Chorske,New Jersey Devils,,Gold
+gold,314,Paul Ysebaert,Detroit Red Wings,LL,Gold
+gold,315,Steve Smith,Chicago Blackhawks,,Gold
+gold,316,Stephane Morin,Quebec Nordiques,,Gold
+gold,317,Pat MacLeod,San Jose Sharks,,Gold
+gold,318,Dino Ciccarelli,Detroit Red Wings,,Gold
+gold,319,Peter Zezel,Toronto Maple Leafs,,Gold
+gold,320,Chris Lindberg,Calgary Flames,,Gold
+gold,321,Grant Ledyard,Buffalo Sabres,,Gold
+gold,322,Ron Francis,Pittsburgh Penguins,,Gold
+gold,323,Adrien Plavsic,Vancouver Canucks,,Gold
+gold,324,Ray Ferraro,New York Islanders,,Gold
+gold,325,Wendel Clark,Toronto Maple Leafs,,Gold
+gold,326,Corey Millen,Los Angeles Kings,,Gold
+gold,327,Mark Pederson,Philadelphia Flyers,,Gold
+gold,328,Patrick Poulin,Hartford Whalers,,Gold
+gold,329,Adam Graves,New York Rangers,,Gold
+gold,330,Bobby Holik,Hartford Whalers,,Gold
+gold,331,Kelly Kisio,San Jose Sharks,,Gold
+gold,332,Peter Sidorkiewicz,Ottawa Senators,,Gold
+gold,333,Vladimir Ruzicka,Boston Bruins,,Gold
+gold,334,J.J. Daigneault,Montreal Canadiens,,Gold
+gold,335,Troy Mallette,New Jersey Devils,,Gold
+gold,336,Craig MacTavish,Edmonton Oilers,,Gold
+gold,337,Michel Petit,Calgary Flames,,Gold
+gold,338,Claude Loiselle,New York Islanders,,Gold
+gold,339,Teppo Numminen,Winnipeg Jets,,Gold
+gold,340,Brett Hull,St. Louis Blues,LL,Gold
+gold,341,Sylvain Lefebvre,Montreal Canadiens,,Gold
+gold,342,Perry Berezan,San Jose Sharks,,Gold
+gold,343,Kevin Stevens,Pittsburgh Penguins,,Gold
+gold,344,Randy Ladouceur,Hartford Whalers,,Gold
+gold,345,Pat LaFontaine,Buffalo Sabres,,Gold
+gold,346,Glen Wesley,Boston Bruins,,Gold
+gold,347,Michel Goulet,Chicago Blackhawks,HL,Gold
+gold,348,Jamie Macoun,Toronto Maple Leafs,,Gold
+gold,349,Owen Nolan,Quebec Nordiques,,Gold
+gold,350,Grant Fuhr,Toronto Maple Leafs,,Gold
+gold,351,Tim Kerr,Hartford Whalers,,Gold
+gold,352,Kjell Samuelsson,Pittsburgh Penguins,,Gold
+gold,353,Pavel Bure,Vancouver Canucks,,Gold
+gold,354,Murray Baron,St. Louis Blues,,Gold
+gold,355,Paul Broten,New York Rangers,,Gold
+gold,356,Craig Simpson,Edmonton Oilers,,Gold
+gold,357,Ken Daneyko,New Jersey Devils,,Gold
+gold,358,Greg Hawgood,Edmonton Oilers,,Gold
+gold,359,Johan Garpenlov,San Jose Sharks,,Gold
+gold,360,Garry Galley,Philadelphia Flyers,,Gold
+gold,361,Paul DiPietro,Montreal Canadiens,,Gold
+gold,362,Jamie Leach,Pittsburgh Penguins,,Gold
+gold,363,Clint Malarchuk,Buffalo Sabres,,Gold
+gold,364,Dan Lambert,Quebec Nordiques,,Gold
+gold,365,Joe Juneau,Boston Bruins,,Gold
+gold,366,Scott Lachance,New York Islanders,,Gold
+gold,367,Mike Richter,New York Rangers,,Gold
+gold,368,Sheldon Kennedy,Detroit Red Wings,,Gold
+gold,369,John McIntyre,Los Angeles Kings,,Gold
+gold,370,Glen Murray,Boston Bruins,,Gold
+gold,371,Ron Sutter,St. Louis Blues,,Gold
+gold,372,David Williams,San Jose Sharks,,Gold
+gold,373,Bill Lindsay,Quebec Nordiques,,Gold
+gold,374,Todd Gill,Toronto Maple Leafs,,Gold
+gold,375,Sylvain Turgeon,Ottawa Senators,,Gold
+gold,376,Dirk Graham,Chicago Blackhawks,,Gold
+gold,377,Brad Schlegel,Washington Capitals,,Gold
+gold,378,Bob Carpenter,Washington Capitals,,Gold
+gold,379,Jon Casey,Minnesota North Stars,,Gold
+gold,380,Andrei Lomakin,Philadelphia Flyers,,Gold
+gold,381,Kay Whitmore,Hartford Whalers,,Gold
+gold,382,Alexander Mogilny,Buffalo Sabres,,Gold
+gold,383,Garry Valk,Vancouver Canucks,,Gold
+gold,384,Bruce Driver,New Jersey Devils,,Gold
+gold,385,Jeff Reese,Calgary Flames,,Gold
+gold,386,Brent Gilchrist,Montreal Canadiens,,Gold
+gold,387,Kerry Huffman,Quebec Nordiques,,Gold
+gold,388,Bobby Smith,Minnesota North Stars,,Gold
+gold,389,Dave Manson,Edmonton Oilers,,Gold
+gold,390,Russ Romaniuk,Winnipeg Jets,,Gold
+gold,391,Paul MacDermid,Washington Capitals,,Gold
+gold,392,Louie DeBrusk,Edmonton Oilers,,Gold
+gold,393,Dave McLlwain,Toronto Maple Leafs,,Gold
+gold,394,Andy Moog,Boston Bruins,,Gold
+gold,395,Tie Domi,New York Rangers,,Gold
+gold,396,Pat Jablonski,Tampa Bay Lightning,,Gold
+gold,397,Troy Loney,Pittsburgh Penguins,,Gold
+gold,398,Jimmy Carson,Detroit Red Wings,,Gold
+gold,399,Eric Weinrich,New Jersey Devils,,Gold
+gold,400,Jeremy Roenick,Chicago Blackhawks,,Gold
+gold,401,Brent Fedyk,Detroit Red Wings,,Gold
+gold,402,Geoff Sanderson,Hartford Whalers,,Gold
+gold,403,Doug Lidster,Vancouver Canucks,,Gold
+gold,404,Mike Gartner,New York Rangers,,Gold
+gold,405,Derian Hatcher,Minnesota North Stars,,Gold
+gold,406,Gaetan Duchesne,Minnesota North Stars,,Gold
+gold,407,Randy Moller,Buffalo Sabres,,Gold
+gold,408,Brian Skrudland,Montreal Canadiens,,Gold
+gold,409,Luke Richardson,Edmonton Oilers,,Gold
+gold,410,Mark Recchi,Philadelphia Flyers,,Gold
+gold,411,Steve Konroyd,Hartford Whalers,,Gold
+gold,412,Troy Gamble,Vancouver Canucks,,Gold
+gold,413,Greg Johnston,Toronto Maple Leafs,,Gold
+gold,414,Denis Savard,Montreal Canadiens,,Gold
+gold,415,Mats Sundin,Quebec Nordiques,,Gold
+gold,416,Bryan Trottier,Pittsburgh Penguins,,Gold
+gold,417,Don Sweeney,Boston Bruins,,Gold
+gold,418,Pat Falloon,San Jose Sharks,,Gold
+gold,419,Alexander Semak,New Jersey Devils,,Gold
+gold,420,David Shaw,Minnesota North Stars,,Gold
+gold,421,Tomas Sandstrom,Los Angeles Kings,,Gold
+gold,422,Petr Nedved,Vancouver Canucks,,Gold
+gold,423,Peter Ing,Edmonton Oilers,,Gold
+gold,424,Wayne Presley,Buffalo Sabres,,Gold
+gold,425,Rick Wamsley,Toronto Maple Leafs,,Gold
+gold,426,Rob Zamuner,Tampa Bay Lightning,,Gold
+gold,427,Claude Boivin,Philadelphia Flyers,,Gold
+gold,428,Sylvain Cote,Washington Capitals,,Gold
+gold,429,Kevin Stevens,Pittsburgh Penguins,HL,Gold
+gold,430,Randy Velischek,Quebec Nordiques,,Gold
+gold,431,Derek King,New York Islanders,,Gold
+gold,432,Terry Yake,Hartford Whalers,,Gold
+gold,433,Philippe Bozon,St. Louis Blues,,Gold
+gold,434,Rich Sutter,St. Louis Blues,,Gold
+gold,435,Brian Lawton,San Jose Sharks,,Gold
+gold,436,Brian Hayward,San Jose Sharks,,Gold
+gold,437,Robert Dirk,Vancouver Canucks,,Gold
+gold,438,Bernie Nicholls,Edmonton Oilers,,Gold
+gold,439,Michel Picard,Hartford Whalers,,Gold
+gold,440,Nicklas Lidstrom,Detroit Red Wings,,Gold
+gold,441,Mike Modano,Minnesota North Stars,,Gold
+gold,442,Phil Bourque,Pittsburgh Penguins,,Gold
+gold,443,Wayne McBean,New York Islanders,,Gold
+gold,444,Scott Mellanby,Edmonton Oilers,,Gold
+gold,445,Kevin Haller,Montreal Canadiens,,Gold
+gold,446,Dave Taylor,Los Angeles Kings,,Gold
+gold,447,Larry Murphy,Pittsburgh Penguins,,Gold
+gold,448,David Bruce,San Jose Sharks,,Gold
+gold,449,Steven Finn,Quebec Nordiques,,Gold
+gold,450,Mike Krushelnyski,Toronto Maple Leafs,,Gold
+gold,451,Adam Creighton,New York Islanders,,Gold
+gold,452,Al MacInnis,Calgary Flames,,Gold
+gold,453,Rick Tabaracci,Winnipeg Jets,,Gold
+gold,454,Bob Bassen,St. Louis Blues,,Gold
+gold,455,Kelly Buchberger,Edmonton Oilers,,Gold
+gold,456,Phil Housley,Winnipeg Jets,,Gold
+gold,457,Daren Puppa,Buffalo Sabres,,Gold
+gold,458,Viacheslav Fetisov,New Jersey Devils,,Gold
+gold,459,Doug Smail,Quebec Nordiques,,Gold
+gold,460,Paul Stanton,Pittsburgh Penguins,,Gold
+gold,461,Steve Weeks,Washington Capitals,,Gold
+gold,462,Valeri Zelepukin,New Jersey Devils,,Gold
+gold,463,Stephane Matteau,Chicago Blackhawks,,Gold
+gold,464,Dale Hunter,Washington Capitals,,Gold
+gold,465,Terry Carkner,Philadelphia Flyers,,Gold
+gold,466,Vincent Riendeau,Detroit Red Wings,,Gold
+gold,467,Sergei Makarov,Calgary Flames,,Gold
+gold,468,Igor Ulanov,Winnipeg Jets,,Gold
+gold,469,Peter Stastny,New Jersey Devils,,Gold
+gold,470,Dimitri Khristich,Washington Capitals,,Gold
+gold,471,Joel Otto,Calgary Flames,,Gold
+gold,472,Geoff Courtnall,Vancouver Canucks,,Gold
+gold,473,Mike Ramsey,Buffalo Sabres,,Gold
+gold,474,Yvon,Hartford Whalers,,Gold
+gold,475,Adam Oates,Boston Bruins,,Gold
+gold,476,Esa Tikkanen,Edmonton Oilers,,Gold
+gold,477,Doug Weight,New York Rangers,,Gold
+gold,478,Mike Keane,Montreal Canadiens,,Gold
+gold,479,Kelly Miller,Washington Capitals,,Gold
+gold,480,Nelson Emerson,St. Louis Blues,,Gold
+gold,481,Shawn McEachern,Pittsburgh Penguins,,Gold
+gold,482,Doug Wilson,San Jose Sharks,,Gold
+gold,483,Jeff Odgers,San Jose Sharks,,Gold
+gold,484,Stephane Quintal,St. Louis Blues,,Gold
+gold,485,Christian Ruuttu,Winnipeg Jets,,Gold
+gold,486,Paul Ranheim,Calgary Flames,,Gold
+gold,487,Craig Wolanin,Quebec Nordiques,,Gold
+gold,488,Rob DiMaio,Tampa Bay Lightning,,Gold
+gold,489,Shawn Cronin,Winnipeg Jets,,Gold
+gold,490,Kirk Muller,Montreal Canadiens,,Gold
+gold,491,Patrick Roy,Montreal Canadiens,LL,Gold
+gold,492,Rich Pilon,New York Islanders,,Gold
+gold,493,Pat Verbeek,Hartford Whalers,,Gold
+gold,494,Ken Wregget,Pittsburgh Penguins,,Gold
+gold,495,Joe Sakic,Quebec Nordiques,,Gold
+gold,496,Zdeno Ciger,New Jersey Devils,,Gold
+gold,497,Steve Larmer,Chicago Blackhawks,,Gold
+gold,498,Calle Johansson,Washington Capitals,,Gold
+gold,499,Trevor Linden,Vancouver Canucks,,Gold
+gold,500,John LeClair,Montreal Canadiens,,Gold
+gold,501,Bryan Marchment,Chicago Blackhawks,,Gold
+gold,502,Todd Krygier,Washington Capitals,,Gold
+gold,503,Tom Barrasso,Pittsburgh Penguins,,Gold
+gold,504,Mario Lemieux,Pittsburgh Penguins,LL,Gold
+gold,505,Daniel Berthiaume,Winnipeg Jets,,Gold
+gold,506,Jamie Baker,Quebec Nordiques,,Gold
+gold,507,Greg Adams,Vancouver Canucks,,Gold
+gold,508,Patrick Roy,Montreal Canadiens,,Gold
+gold,509,Kris King,New York Rangers,,Gold
+gold,510,Jyrki Lumme,Vancouver Canucks,,Gold
+gold,511,Darin Kimble,Tampa Bay Lightning,,Gold
+gold,512,Igor Larionov,Vancouver Canucks,,Gold
+gold,513,Martin Brodeur,New Jersey Devils,,Gold
+gold,514,Denny Felsner,St. Louis Blues,,Gold
+gold,515,Yanick Dupre,Philadelphia Flyers,,Gold
+gold,516,Bill Guerin,New Jersey Devils,,Gold
+gold,517,Bret Hedican,St. Louis Blues,,Gold
+gold,518,Mike Hartman,Tampa Bay Lightning,,Gold
+gold,519,Steve Heinze,Boston Bruins,,Gold
+gold,520,Frantisek Kucera,Chicago Blackhawks,,Gold
+gold,521,Dave Reid,Boston Bruins,,Gold
+gold,522,Frank Pietrangelo,Hartford Whalers,,Gold
+gold,523,Martin Rucinsky,Quebec Nordiques,,Gold
+gold,524,Tony Hrkac,Chicago Blackhawks,,Gold
+gold,525,Allan Conroy Checklist replacement,Philadelphia Flyers,,Gold
+gold,526,Jeff Norton Checklist replacement,New York Islanders,,Gold
+gold,527,Rob Robinson Checklist replacement,Tampa Bay Lightning,,Gold
+gold,528,Adam Foote Checklist replacement,Quebec Nordiques,,Gold
+gold,529,Eric Lindros,Philadelphia Flyers,,Gold
