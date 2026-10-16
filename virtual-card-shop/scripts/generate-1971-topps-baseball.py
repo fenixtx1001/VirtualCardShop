@@ -62,7 +62,7 @@ def collect(key,sid,count,rookie=False):
      # same subject cell. Both explicitly verified checklist printings
      # are the same collector card and must not become separate items.
      if key=="base" and num==619 and re.fullmatch(
-      r"Checklist:\\s*644\\s*[-–]\\s*752\\s+CL(?:\\s*,?\\s*ERR.*)?",
+      r"Checklist:\s*644\s*[-–]\s*752\s+CL(?:\s*,?\s*ERR.*)?",
       name, re.I
      ) and not team:
       name="Checklist: 644-752 CL"
