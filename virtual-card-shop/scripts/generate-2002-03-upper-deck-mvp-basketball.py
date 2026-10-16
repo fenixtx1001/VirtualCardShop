@@ -8,12 +8,13 @@ ROOT=Path(__file__).resolve().parents[1]
 BUNDLE=ROOT/"data/set-factory/2002-03-upper-deck-mvp-basketball.bundle.json"
 CSV=ROOT/"data/set-factory/2002-03-upper-deck-mvp-basketball.cards.csv"
 HEADERS={"User-Agent":"Mozilla/5.0 (compatible; VCS Set Factory research import)","Accept":"text/html,application/xhtml+xml"}
-CARD_NUM=re.compile(r"^[A-Z0-9]{1,7}(?:[-/][A-Z0-9]{1,7})?$",re.I)
+CARD_NUM=re.compile(r"^[A-Z0-9]{1,7}(?:[-/][A-Z0-9]{1,7}){0,2}$",re.I)
 NOTE=re.compile(r"\s+(?:UER|ERR|COR|VAR|RC|MEM|AU|SN\d+)(?=\b|[A-Z]|[,;:])",re.I)
 class Rows(HTMLParser):
- def __init__(self): super().__init__();self.rows=[];self.row=None;self.cell=None
+ def __init__(self): super().__init__();self.rows=[];self.row=None;self.cell=None;self.has_card_link=False
  def handle_starttag(self,t,a):
-  if t=="tr":self.row=[]
+  if t=="tr":self.row=[];self.has_card_link=False
+  elif t=="a" and self.row is not None and any(k=="href" and "ViewCard.cfm" in (v or "") for k,v in a):self.has_card_link=True
   elif t=="td" and self.row is not None:self.cell=[]
  def handle_data(self,d):
   if self.cell is not None:self.cell.append(d)
@@ -21,7 +22,7 @@ class Rows(HTMLParser):
   if t=="td" and self.cell is not None:
    self.row.append(" ".join("".join(self.cell).split()));self.cell=None
   elif t=="tr" and self.row is not None:
-   if self.row:self.rows.append(self.row)
+   if self.row and self.has_card_link:self.rows.append(self.row)
    self.row=None
 def fetch(url):
  try:
@@ -51,6 +52,8 @@ def collect(key,sid,expected,rookie=False):
     if team==vals[i+1]:team=""
     if key in ("base","classic","classic-black","gold") or rookie:
      if not value.isdecimal() or not 1<=int(value)<=220:continue
+    if key in ("classic","classic-black","gold") and name=="Mike Dunleavy MVPR" and team=="Golden State Warriors" and value=="214":
+     name="Mike Dunleavy Jr. MVPR"
     parsed+=1;num=value.upper()
     if num in cards and cards[num]!=(name,team):
      issues.append(f"{key} #{num}: {cards[num]!r} vs {(name,team)!r}")
@@ -101,6 +104,7 @@ def self_test():
  assert CARD_NUM.fullmatch("CW-C")
  assert CARD_NUM.fullmatch("KB-C")
  assert CARD_NUM.fullmatch("BD/SM")
+ assert CARD_NUM.fullmatch("CW/MB/PS")
  print("2002-03 MVP offline tests passed")
 if __name__=="__main__":
  p=argparse.ArgumentParser();p.add_argument("--self-test",action="store_true")
