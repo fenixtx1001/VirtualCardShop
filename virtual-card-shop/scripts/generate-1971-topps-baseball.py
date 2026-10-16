@@ -43,7 +43,8 @@ def collect(key,sid,count,rookie=False):
   for row in p.rows:
    vals=[v.strip() for v in row if v.strip()]
    for i,v in enumerate(vals):
-    valid=(v.upper()=="NNO" if key=="scratch-offs" else v.isdecimal() and 1<=int(v)<=752)
+    numbered=re.fullmatch(r"(\\d{1,3})([a-z]?)",v,re.I)
+    valid=(v.upper()=="NNO" if key=="scratch-offs" else numbered is not None and 1<=int(numbered.group(1))<=752)
     if not valid or i+1>=len(vals):continue
     name=clean(vals[i+1]);team=vals[-1] if i+2<len(vals) else ""
     if team==vals[i+1]:team=""
@@ -52,7 +53,7 @@ def collect(key,sid,count,rookie=False):
      if name in {x[0] for x in nno}:issues.append(f"Duplicate Scratch-Off subject {name}")
      else:nno.append((name,team))
     else:
-     num=int(v)
+     num=int(numbered.group(1))
      prior=found.get(num)
      if prior and prior[:2]!=(name,team):
       issues.append(f"{key} #{num}: {prior[:2]!r} vs {(name,team)!r}")
@@ -107,6 +108,8 @@ def main():
 def self_test():
  assert clean("Bert Blyleven RC")=="Bert Blyleven"
  assert clean("Al Kaline UER: birth date")=="Al Kaline"
+ assert re.fullmatch(r"(\\d{1,3})([a-z]?)","42a",re.I).group(1)=="42"
+ assert re.fullmatch(r"(\\d{1,3})([a-z]?)","619b",re.I).group(1)=="619"
  print("1971 Topps self-tests passed")
 if __name__=="__main__":
  a=argparse.ArgumentParser();a.add_argument("--self-test",action="store_true");args=a.parse_args()
