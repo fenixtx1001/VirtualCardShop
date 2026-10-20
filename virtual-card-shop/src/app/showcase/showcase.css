@@ -2559,3 +2559,21 @@ body:has(.showcase-shell) {
 .showcase-registry-credit-redemption button { border-radius: 5px; border: 1px solid #748a6a; background: #39503b; color: #fff; padding: 5px 9px; cursor: pointer; }
 .showcase-registry-credit-breakdown { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 7px 13px; color: #c6d0c3; }
 .showcase-registry-credit-breakdown b { color: #e2d6b6; text-align: right; }
+
+/* Discoverable wallet link within Prestige, separate from claimable cash. */
+.showcase-registry-credit-notice {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 15px; flex-wrap: wrap;
+}
+.showcase-credit-promo-copy { display: grid; gap: 5px; min-width: 220px; flex: 1; }
+.showcase-credit-promo-copy .showcase-section-kicker { color: #dfc992; font-size: 10px; }
+.showcase-credit-promo-copy strong { color: #f5e1ad; font-size: clamp(20px,2.4vw,27px); line-height: 1.15; }
+.showcase-credit-promo-copy p { color: #bccbbd; font-size: 12px; margin: 1px 0; line-height: 1.5; }
+.showcase-credit-promo-link {
+  background: #d8bd81; color: #25291e !important;
+  border: 1px solid #d8bd81; padding: 12px 15px; border-radius: 7px;
+  font-size: 12px; font-weight: 750; text-decoration: none !important;
+  white-space: nowrap;
+}
+.showcase-credit-promo-link:hover { background: #efdcac; }
+@media (max-width: 540px) { .showcase-credit-promo-link { width: 100%; text-align: center; } }
