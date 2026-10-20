@@ -115,6 +115,7 @@ export default function ActionSheet({
     if (mode !== "grade") return;
     const controller = new AbortController();
     setCreditLoading(true);
+    setCreditQuote(null);
     setCreditError("");
     fetch("/api/grading/credits?cardId=" + encodeURIComponent(String(data.card.id)), {
       cache: "no-store",
@@ -370,7 +371,7 @@ export default function ActionSheet({
                   </div>
                   <div className="cd-credit-due">
                     <dt>Cash due now</dt>
-                    <dd>{money(cashDueCents)}</dd>
+                    <dd>{creditLoading ? "Calculating…" : money(cashDueCents)}</dd>
                   </div>
                   <div>
                     <dt>Reveal</dt>
