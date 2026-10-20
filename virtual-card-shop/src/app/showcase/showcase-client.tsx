@@ -901,14 +901,15 @@ export default function ShowcaseClient() {
   useEffect(() => {
     try {
       const stored = localStorage.getItem(TAB_STORAGE_KEY);
-
+      const requested = new URLSearchParams(window.location.search).get("tab");
+      const tabChoice = requested || stored;
       if (
-        stored === "top" ||
-        stored === "prestige" ||
-        stored === "favorites" ||
-        stored === "community"
+        tabChoice === "top" ||
+        tabChoice === "prestige" ||
+        tabChoice === "favorites" ||
+        tabChoice === "community"
       ) {
-        setTab(stored);
+        setTab(tabChoice);
       }
     } catch {
       // Optional preference only.
@@ -1811,9 +1812,16 @@ export default function ShowcaseClient() {
                   <span>lifetime rewards</span>
                 </div>
               </div>
-              <div className="showcase-registry-credit-notice">
-                <strong>{centsToMoney(prestige.summary.gradingCreditBalanceCents ?? 0)}</strong> in set-specific grading credits earned from Prestige. One $1 credit per completed level; credits stay with their original set and automatically reduce grading fees.
-              </div>
+              {isViewingMe && <div className="showcase-registry-credit-notice">
+                <div className="showcase-credit-promo-copy">
+                  <span className="showcase-section-kicker">YOUR GRADING CREDIT WALLET</span>
+                  <strong>{centsToMoney(prestige.summary.gradingCreditBalanceCents ?? 0)} available</strong>
+                  <p>Earn $1 for each Prestige level. Credits are tied to their original product set and never expire.</p>
+                </div>
+                <Link className="showcase-credit-promo-link" href="/grading/credits">
+                  View all credits by set →
+                </Link>
+              </div>}
 
               {prestige.claimable.length > 0 ? (
                 <section className="showcase-rewards">
