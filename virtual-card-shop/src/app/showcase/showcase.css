@@ -2512,3 +2512,16 @@ body:has(.showcase-shell) {
   .showcase-set-view-links{grid-column:2;justify-content:flex-start;gap:12px}
   .showcase-set-view-links .showcase-bucket-link{min-height:38px;font-size:11px}
 }
+
+/* Value-weighted graded registry / Community overview */
+.showcase-registry-summary{margin:14px 0 18px;padding:clamp(13px,2vw,21px);border:1px solid #56634e;background:linear-gradient(135deg,#2a352d,#1c261f);border-radius:13px;color:#e8e9dd}
+.showcase-registry-summary h3{font-size:clamp(18px,2.5vw,26px);margin:7px 0 5px;line-height:1.2;color:#f5ecd6}
+.showcase-registry-summary p{color:#bac9bc;font-size:12px;margin:4px 0 13px}
+.showcase-registry-summary>small{color:#ecd5a1;display:block;padding-bottom:8px}
+.showcase-registry-top-sets{display:grid;gap:6px}
+.showcase-registry-top-sets a{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px;border-radius:8px;background:#202d23;border:1px solid #3f5342;color:#edece2;text-decoration:none;font-size:12px}
+.showcase-registry-top-sets a:hover{border-color:#a89160}
+.showcase-registry-top-sets a span{min-width:0;overflow-wrap:anywhere}
+.showcase-registry-top-sets a small{display:block;color:#aebcab;margin-top:2px}
+.showcase-registry-top-sets a strong{color:#e3cc94;white-space:nowrap}
+.showcase-community-tabs{flex-wrap:wrap}
