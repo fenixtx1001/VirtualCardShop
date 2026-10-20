@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """1998 Collector's Edge Masters Football. Source-verified, fail-closed Set Factory."""
 from __future__ import annotations
-import argparse,csv,json,re,urllib.request
+import argparse,csv,json,re,time,urllib.request,urllib.error
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import unquote
@@ -24,7 +24,7 @@ FAMILIES=[
  ("super-masters","Super Masters","INSERT",None,None,None),
  ("super-masters-autographs","Super Masters Autographs","INSERT",131616,9,None),
 ]
-NUM=re.compile(r"^(?:\d{1,3}|[A-Z]{1,4}\d{1,3}|NNO)$",re.I)
+NUM=re.compile(r"^(?:\d{1,3}|[A-Z]{1,4}\d{1,3}[a-z]?|NNO)$",re.I)
 TAIL=re.compile(r"(?:,\s*|\s+)(?:SN\d+|RC|UER(?:UER)?|ERR|COR|VAR|AU|MEM|PR\d+|PROMO)(?=\s|,|:|$)",re.I)
 class Parser(HTMLParser):
  def __init__(self):
@@ -52,9 +52,19 @@ class Parser(HTMLParser):
    if self.row and self.has_link:self.rows.append(self.row)
    self.row=None
 def source(url):
- try:
-  with urllib.request.urlopen(urllib.request.Request(url,headers=HEADERS),timeout=40) as r:return r.read().decode("utf-8","replace")
- except Exception as e:raise SystemExit(f"TCDB unavailable {url}: {e}; NO FILES WRITTEN")
+ # TCDB periodically rate-limits checklist fetches. Throttle requests,
+ # retry only transient HTTP errors, and fail closed after bounded attempts.
+ for attempt in range(5):
+  if attempt:time.sleep(min(12*(2**(attempt-1)),60))
+  try:
+   time.sleep(2)
+   with urllib.request.urlopen(urllib.request.Request(url,headers=HEADERS),timeout=40) as r:return r.read().decode("utf-8","replace")
+  except urllib.error.HTTPError as e:
+   if e.code not in (429,500,502,503,504):
+    raise SystemExit(f"TCDB unavailable {url}: HTTP {e.code}; NO FILES WRITTEN")
+   print(f"TCDB transient HTTP {e.code}; retry {attempt+1}/5 for {url}",flush=True)
+  except Exception as e:raise SystemExit(f"TCDB unavailable {url}: {e}; NO FILES WRITTEN")
+ raise SystemExit(f"TCDB rate limit persisted at {url}; NO FILES WRITTEN")
 def clean(s):
  s=" ".join(s.split()).strip()
  match=TAIL.search(s)
@@ -154,6 +164,7 @@ def tests():
  assert clean("Michael Pittman RC, SN5000")=="Michael Pittman"
  assert clean("Jerry Rice AU, SN50")=="Jerry Rice"
  assert NUM.fullmatch("S171") and NUM.fullmatch("CK1") and NUM.fullmatch("SM20")
+ assert NUM.fullmatch("SM20a") and NUM.fullmatch("SM20b")
  print("1998 Masters offline tests passed")
 if __name__=="__main__":
  ap=argparse.ArgumentParser();ap.add_argument("--self-test",action="store_true");a=ap.parse_args()
