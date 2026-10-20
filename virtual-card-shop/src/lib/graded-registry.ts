@@ -44,6 +44,7 @@ export type RegistryStanding = {
   qualified: number;
   gems: number;
   owned: number;
+  name?: string;
 };
 function median(values: number[]): number {
   if (!values.length) return 0.01;
@@ -136,6 +137,13 @@ export async function getSetRegistry(productSetId: string, viewerId: string, tar
     }) : Promise.resolve(null),
   ]);
   const calc = compute(cards, owned);
+  const collectors = calc.standings.length ? await prisma.user.findMany({
+    where: { id: { in: calc.standings.map(s => s.userId) } },
+    select: { id: true, name: true, email: true },
+  }) : [];
+  const nameById = new Map(collectors.map(user => [user.id,
+    user.name?.trim() || user.email?.split("@")[0] || "Collector"]));
+  for (const score of calc.standings) score.name = nameById.get(score.userId) || "Collector";
   const standing = calc.standings.find(s => s.userId === targetUserId)
     ?? { userId: targetUserId, score: 0, rating: 0, qualified: 0, gems: 0, owned: 0 };
   const empty: RegistryCard[] = cards.map(card => ({
