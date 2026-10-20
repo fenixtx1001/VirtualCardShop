@@ -25,3 +25,17 @@
   .heading{font-size:8px}
   .choices a{font-size:11px;padding:6px;gap:4px}
 }
+
+/* Three equal, single-row set views: Checklist / Binder / Graded Registry. */
+.choices { grid-template-columns: repeat(3, minmax(0, 1fr)); width: min(100%, 470px); }
+.choices a { min-width: 0; padding: 7px 8px; gap: 6px; }
+@media (max-width: 600px) {
+  .switcher { display: block; padding: 6px; }
+  .heading { display: none; }
+  .choices { width: 100%; max-width: none; gap: 3px; }
+  .choices a { font-size: 11px; padding: 8px 3px; white-space: nowrap; }
+  .choices svg { display: none; }
+}
+@media (max-width: 335px) {
+  .choices a { font-size: 10px; letter-spacing: -.02em; }
+}
