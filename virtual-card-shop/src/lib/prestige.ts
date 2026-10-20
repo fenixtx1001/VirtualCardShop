@@ -160,14 +160,16 @@ export async function syncPrestigeProgressForProductSets(opts: {
         timesCompleted: Math.max(0, currentLevel),
         claimedCompletions: 0,
         bonusAwardedCents: 0,
-      gradingCreditedLevels: Math.max(0, currentLevel),
-      gradingCreditBalanceCents: Math.max(0, currentLevel) * 100,
+        gradingCreditedLevels: Math.max(0, currentLevel),
+        gradingCreditBalanceCents: Math.max(0, currentLevel) * 100,
       },
       update: {},
-      select: { timesCompleted: true },
+      select: { timesCompleted: true, gradingCreditedLevels: true },
     });
 
-    await grantPrestigeGradingCredits(tx, userId, productSetId, currentLevel);
+    if (currentLevel > (row.gradingCreditedLevels ?? 0)) {
+      await grantPrestigeGradingCredits(tx, userId, productSetId, currentLevel);
+    }
     const prev = row.timesCompleted ?? 0;
     if (currentLevel > prev) {
       await tx.productSetPrestige.update({
@@ -206,8 +208,8 @@ export async function redeemPrestigeForProductSet(opts: {
       timesCompleted: Math.max(0, currentLevel),
       claimedCompletions: 0,
       bonusAwardedCents: 0,
-    gradingCreditedLevels: Math.max(0, currentLevel),
-    gradingCreditBalanceCents: Math.max(0, currentLevel) * 100,
+      gradingCreditedLevels: Math.max(0, currentLevel),
+      gradingCreditBalanceCents: Math.max(0, currentLevel) * 100,
     },
     update: {},
     select: { claimedCompletions: true, timesCompleted: true, bonusAwardedCents: true },
