@@ -164,6 +164,7 @@ export async function getSetRegistry(productSetId: string, viewerId: string, tar
     ...calc,
     cards: calc.cardsByUser.get(targetUserId) ?? empty,
     standing, rank: calc.standings.findIndex(s => s.userId === targetUserId) + 1 || null,
+    isMyRegistry: viewerId === targetUserId,
     gradingCreditBalanceCents: prestige?.gradingCreditBalanceCents ?? 0,
     timesCompleted: prestige?.timesCompleted ?? 0,
   };
