@@ -36,6 +36,16 @@ export default function SetViewToggle({
         </svg>
         {compareMode ? "My Binder" : "Binder"}
       </Link>
+      {productSetId && <Link
+        href={"/registry/" + encodeURIComponent(productSetId)}
+        className={styles.choice}
+        title="Compete for the best graded set; browse your six-slab binder">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none"
+          stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 2.5h16v19H4zM7 6h4v5H7zM13 6h4v5h-4zM7 13.5h4v5H7zM13 13.5h4v5h-4z"/>
+        </svg>
+        Graded Registry
+      </Link>}
     </div>
   </nav>;
 }
