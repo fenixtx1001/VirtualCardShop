@@ -19,7 +19,7 @@ type Registry = {
    product: { year: number | null; brand: string | null; sport: string | null } };
  cards: Card[]; totalCards: number; maximum: number; setValue: number; multiplier: number;
  productSets: Array<{ id: string; name: string | null; isBase: boolean; isInsert: boolean }>;
- rank: number | null; gradingCreditBalanceCents: number;
+ rank: number | null; isMyRegistry: boolean; gradingCreditBalanceCents: number;
  standing: Standing; standings: Standing[];
 };
 type Sort = "points" | "grade" | "value" | "newest" | "number";
@@ -125,7 +125,7 @@ export default function RegistryClient({ productSetId, targetUserId }: {
          <div><small>SET RANK</small><strong>{data.rank ? "#" + data.rank : "—"}</strong><span>Among graded registries</span></div>
          <div><small>QUALIFIED</small><strong>{num(data.standing.qualified)}<em>/{num(data.totalCards)}</em></strong><span>Grades 8–10</span></div>
          <div><small>GEMS</small><strong>{data.standing.gems}</strong><span>Grade 10 slots</span></div>
-         {!targetUserId && <div><small>SET GRADING CREDITS</small><strong>{"$" + (data.gradingCreditBalanceCents/100).toFixed(0)}</strong><span>Prestige-only credit balance</span></div>}
+         {data.isMyRegistry && <div><small>SET GRADING CREDITS</small><strong>{"$" + (data.gradingCreditBalanceCents/100).toFixed(0)}</strong><span>Prestige-only credit balance</span></div>}
        </section>
        <div className="vcs-registry-explainer">REGISTRY POINTS = GRADE POINTS × CARD VALUE WEIGHT × SET MULTIPLIER. Grade 6/7/8/9/10 earns 0/1/10/30/100 base points. Card weight uses raw value relative to the median; the multiplier uses total raw set value. Book-value corrections update Points and Rating.</div>
        <div className="vcs-registry-toolbar">
