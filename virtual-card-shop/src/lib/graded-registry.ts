@@ -163,11 +163,15 @@ export async function getRegistryCommunity() {
   });
   const setIds = [...new Set(ownership.map(o => o.card.productSetId).filter((id): id is string => Boolean(id)))];
   if (!setIds.length) return [];
-  const cards = await prisma.card.findMany({
+  const [cards, setMeta] = await Promise.all([prisma.card.findMany({
     where: { productSetId: { in: setIds } },
     select: { id: true, cardNumber: true, player: true, team: true,
       bookValue: true, frontImageUrl: true, backImageUrl: true, productSetId: true },
-  });
+  }), prisma.productSet.findMany({
+    where: { id: { in: setIds } },
+    select: { id: true, name: true, product: { select: { year: true, brand: true } } },
+  })]);
+  const metaById = new Map(setMeta.map(s => [s.id, [s.product.year, s.product.brand, s.name].filter(Boolean).join(" · ")]));
   const groupedCards = new Map<string, CardRow[]>();
   for (const c of cards) {
     if (!c.productSetId) continue;
@@ -186,7 +190,7 @@ export async function getRegistryCommunity() {
   const totals = new Map<string, {
     userId: string; totalPoints: number; activeRegistries: number;
     gem10s: number; qualified: number;
-    topSets: Array<{ productSetId: string; points: number; rating: number }>;
+    topSets: Array<{ productSetId: string; name: string; points: number; rating: number }>;
   }>();
   for (const [setId, setCards] of groupedCards) {
     const result = compute(setCards, groupedOwnership.get(setId) ?? []);
@@ -201,7 +205,7 @@ export async function getRegistryCommunity() {
       total.activeRegistries++;
       total.gem10s += standing.gems;
       total.qualified += standing.qualified;
-      total.topSets.push({ productSetId: setId, points: standing.score, rating: standing.rating });
+      total.topSets.push({ productSetId: setId, name: metaById.get(setId) || setId, points: standing.score, rating: standing.rating });
     }
   }
   return [...totals.values()].map(row => ({
