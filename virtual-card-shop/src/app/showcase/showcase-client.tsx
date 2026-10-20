@@ -2272,21 +2272,6 @@ export default function ShowcaseClient() {
             </div>
           </div>
 
-          <div className="showcase-registry-summary">
-            <span className="showcase-section-kicker">GRADED REGISTRY · COMMUNITY</span>
-            <h3>{selectedLabel} — {number(selectedRegistry?.totalPoints ?? 0)} Registry Points</h3>
-            <p>{number(selectedRegistry?.activeRegistries ?? 0)} graded sets · {number(selectedRegistry?.gem10s ?? 0)} gem 10s · {number(selectedRegistry?.qualified ?? 0)} qualified graded cards</p>
-            {registryLoading && <small>Updating live-price rankings…</small>}
-            {registryError && <small role="alert">{registryError}</small>}
-            {selectedRegistry?.topSets?.length ? <div className="showcase-registry-top-sets">
-              {selectedRegistry.topSets.map(set => <Link key={set.productSetId}
-                href={"/registry/" + encodeURIComponent(set.productSetId) + (selectedUserId ? "?userId=" + encodeURIComponent(selectedUserId) : "")}>
-                <span>{set.name}<small>Rating {set.rating.toFixed(1)}/100</small></span>
-                <strong>{number(set.points)} pts →</strong>
-              </Link>)}
-            </div> : <p>Grade a card to start a competing set registry.</p>}
-          </div>
-
           <div
             className="showcase-community-tabs"
             role="group"
@@ -2413,6 +2398,21 @@ export default function ShowcaseClient() {
               })}
             </div>
           )}
+          <div className="showcase-registry-summary">
+            <span className="showcase-section-kicker">GRADED REGISTRY · COMMUNITY</span>
+            <h3>{selectedLabel} — {number(selectedRegistry?.totalPoints ?? 0)} Registry Points</h3>
+            <p>{number(selectedRegistry?.activeRegistries ?? 0)} graded sets · {number(selectedRegistry?.gem10s ?? 0)} gem 10s · {number(selectedRegistry?.qualified ?? 0)} qualified graded cards</p>
+            {registryLoading && <small>Updating live-price rankings…</small>}
+            {registryError && <small role="alert">{registryError}</small>}
+            {selectedRegistry?.topSets?.length ? <div className="showcase-registry-top-sets"><h4>Top 5 contributing set registries</h4>
+              {selectedRegistry.topSets.map(set => <Link key={set.productSetId}
+                href={"/registry/" + encodeURIComponent(set.productSetId) + (selectedUserId ? "?userId=" + encodeURIComponent(selectedUserId) : "")}>
+                <span>{set.name}<small>Rating {set.rating.toFixed(1)}/100</small></span>
+                <strong>{number(set.points)} pts →</strong>
+              </Link>)}
+            </div> : <p>Grade a card to start a competing set registry.</p>}
+          </div>
+
         </section>
       ) : null}
 
