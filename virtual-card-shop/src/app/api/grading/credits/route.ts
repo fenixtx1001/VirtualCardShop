@@ -12,16 +12,22 @@ export async function GET(req: Request) {
     if (!Number.isSafeInteger(id) || id <= 0)
       return NextResponse.json({ ok: false, error: "Invalid cardId" }, { status: 400 });
     const card = await prisma.card.findUnique({
-      where: { id }, select: { productSetId: true, bookValue: true },
+      where: { id }, select: {
+        productSetId: true, bookValue: true,
+        productSet: { select: { name: true, isBase: true, product: { select: { year: true, brand: true, sport: true } } } },
+      },
     });
     if (!card) return NextResponse.json({ ok: false, error: "Card not found" }, { status: 404 });
     const prestige = card.productSetId ? await prisma.productSetPrestige.findUnique({
       where: { userId_productSetId: { userId: user.id, productSetId: card.productSetId } },
-      select: { gradingCreditBalanceCents: true },
+      select: { gradingCreditBalanceCents: true, timesCompleted: true },
     }) : null;
     const creditCount = Math.floor((prestige?.gradingCreditBalanceCents ?? 0) / 100);
     return NextResponse.json({
       ok: true, productSetId: card.productSetId, creditCount,
+      prestigeLevel: prestige?.timesCompleted ?? 0,
+      productSetName: card.productSet?.isBase ? "Base Set" : card.productSet?.name ?? null,
+      productName: [card.productSet?.product.year, card.productSet?.product.brand, card.productSet?.product.sport].filter(Boolean).join(" "),
       creditPerCopyCents: Math.min(100, calculateGradingFeeCents(bookValueToCents(card.bookValue))),
     }, { headers: { "Cache-Control": "private, no-store" } });
   } catch {
