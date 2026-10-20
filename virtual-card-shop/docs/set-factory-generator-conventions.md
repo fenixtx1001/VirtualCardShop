@@ -63,6 +63,23 @@ Generators should parse the source label into three concepts rather than copying
 
 When uncertain, prefer a cleaner `player` value and preserve the extra source text in `subset` or `variant` rather than displaying it inline with the player's name.
 
+## Strict trailing-token boundaries — mandatory
+
+A source tag is a token ONLY when it is a complete, separate word after the player or subject. Do not remove letters from a name merely because its ending resembles LL, CL, AS, RC, UER, ERR, or any other collector marker. Use an anchored, whitespace-delimited match and preserve the preceding name exactly.
+
+Examples (source -> player, subset):
+- Ken Boswell -> Ken Boswell, no subset
+- Ken Boswell LL -> Ken Boswell, League Leaders
+- Marshall -> Marshall, no subset
+- John Marshall LL -> John Marshall, League Leaders
+- Jim Hall -> Jim Hall, no subset
+- Jim Hall CL -> Jim Hall, Checklist
+
+Safe Python example: `re.search(r"\s+(LL|CL|AS)\s*$", raw_name, re.I)`.
+Unsafe examples: `rstrip("LL")`, `name[:-2]`, `endswith("LL")`, global `replace("LL", "")`, or a regex without a preceding boundary.
+
+All new Set Factory generators MUST test both whole-token removal and preservation of suffix-looking surnames before generating an import CSV. Treat unexpected parsing ambiguity as a validation failure rather than silently shortening a player's name.
+
 ## Standing rule
 
 These are forward-looking Set Factory rules. All new generators should include the checklist-card exception and player-field cleanup from the start rather than discovering them set-by-set.
