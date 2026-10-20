@@ -342,6 +342,23 @@ export default function ChecklistClient({
   const [selectedProductSetId, setSelectedProductSetId] =
     useState(initialProductSetId);
   const [selectedUserId, setSelectedUserId] = useState("");
+  const [registryTeaser, setRegistryTeaser] = useState<null | {
+    score: number; rating: number; rank: number | null; qualified: number; totalCards: number;
+  }>(null);
+  const registrySetId = selectedProductSetId || data?.productSetId || "";
+  useEffect(() => {
+    if (!registrySetId) { setRegistryTeaser(null); return; }
+    const controller = new AbortController();
+    fetch("/api/registry/" + encodeURIComponent(registrySetId) +
+      (selectedUserId ? "?userId=" + encodeURIComponent(selectedUserId) : ""),
+      { signal: controller.signal, cache: "no-store" })
+      .then(res => res.json()).then(json => {
+        if (!controller.signal.aborted && json?.ok)
+          setRegistryTeaser({ score: json.standing.score, rating: json.standing.rating,
+            rank: json.rank, qualified: json.standing.qualified, totalCards: json.totalCards });
+      }).catch(() => { if (!controller.signal.aborted) setRegistryTeaser(null); });
+    return () => controller.abort();
+  }, [registrySetId, selectedUserId]);
 
   const [page, setPage] = useState(1);
   const [jumpTo, setJumpTo] = useState("");
@@ -946,6 +963,18 @@ export default function ChecklistClient({
         active="checklist"
         compareMode={compareMode}
       />}
+      {registrySetId && registryTeaser && <Link
+        href={"/registry/" + encodeURIComponent(registrySetId) +
+          (selectedUserId ? "?userId=" + encodeURIComponent(selectedUserId) : "")}
+        style={{display:"flex",alignItems:"center",flexWrap:"wrap",gap:"12px",
+          margin:"12px 0",padding:"13px 16px",border:"1px solid #5a634d",
+          borderRadius:"10px",background:"#252d27",color:"#ece6d7",textDecoration:"none"}}>
+        <span style={{fontSize:"11px",letterSpacing:".08em",color:"#d3bc86"}}>GRADED REGISTRY</span>
+        <strong style={{fontSize:"19px"}}>{registryTeaser.score.toLocaleString("en-US")} pts</strong>
+        <span style={{fontSize:"12px"}}>Rating {registryTeaser.rating.toFixed(2)}/100</span>
+        <span style={{fontSize:"12px"}}>{registryTeaser.rank ? "Rank #" + registryTeaser.rank : "Unranked"}</span>
+        <span style={{marginLeft:"auto",fontSize:"12px",color:"#d9bd84"}}>View six-slab binder →</span>
+      </Link>}
 
       {err ? (
         <div className="checklist-notice is-error" role="alert">

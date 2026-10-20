@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
 import { createFinancialTransaction } from "@/lib/financial-transactions";
+import { syncDailyPortfolioSnapshot } from "@/lib/portfolio";
 import {
   RAW_GRADE,
   bookValueToCents,
@@ -147,7 +148,17 @@ export async function POST(req: Request) {
         throw makeHttpError("The grading fee changed. Reload the card and review it before submitting.", 409);
       }
 
-      if ((u.balanceCents ?? 0) < totalFeeCents) {
+      // Set-specific credits subsidize one graded copy each (maximum $1 per copy).
+      // Credits are never cash and cannot be transferred to another product set.
+      const prestige = card.productSet?.id ? await tx.productSetPrestige.findUnique({
+        where: { userId_productSetId: { userId: user.id, productSetId: card.productSet.id } },
+        select: { gradingCreditBalanceCents: true },
+      }) : null;
+      const creditCopies = body.useSetCredits === false ? 0 :
+        Math.min(quantity, Math.floor((prestige?.gradingCreditBalanceCents ?? 0) / 100));
+      const creditAppliedCents = creditCopies * Math.min(100, feePerCardCents);
+      const cashFeeCents = totalFeeCents - creditAppliedCents;
+      if ((u.balanceCents ?? 0) < cashFeeCents) {
         throw makeHttpError("Insufficient funds", 400);
       }
 
@@ -156,7 +167,7 @@ export async function POST(req: Request) {
           userId: user.id,
           cardId,
           quantity,
-          feePaidCents: totalFeeCents,
+          feePaidCents: cashFeeCents,
           status: "PENDING",
           createdAt: now,
           readyAt: calculateReadyAt({ now, gradeability }),
@@ -246,17 +257,29 @@ export async function POST(req: Request) {
         });
       }
 
+      if (creditCopies > 0 && card.productSet?.id) {
+        const updated = await tx.productSetPrestige.updateMany({
+          where: { userId: user.id, productSetId: card.productSet.id,
+            gradingCreditBalanceCents: { gte: creditCopies * 100 } },
+          data: {
+            gradingCreditBalanceCents: { decrement: creditCopies * 100 },
+            gradingCreditSpentCents: { increment: creditCopies * 100 },
+          },
+        });
+        if (updated.count !== 1) throw makeHttpError("Grading credits changed. Please retry.", 409);
+      }
+
       const updatedUser = await tx.user.update({
         where: { id: user.id },
-        data: { balanceCents: { decrement: totalFeeCents } },
+        data: { balanceCents: { decrement: cashFeeCents } },
         select: { balanceCents: true },
       });
 
-      await createFinancialTransaction({
+      if (cashFeeCents > 0) await createFinancialTransaction({
         tx,
         userId: user.id,
         category: "GRADING_FEE",
-        amountCents: -totalFeeCents,
+        amountCents: -cashFeeCents,
         description: `Submitted ${quantity}x ${card.player} #${card.cardNumber} for grading`,
         balanceAfterCents: updatedUser.balanceCents ?? 0,
         metadata: {
@@ -264,12 +287,16 @@ export async function POST(req: Request) {
           quantity,
           feePerCardCents,
           totalFeeCents,
+          cashFeeCents,
+          creditAppliedCents,
+          creditsUsed: creditCopies,
           gradingOrderId: order.id,
           ripBoxId: linkedRipBoxId,
           ripBoxLinkedQuantity: linkedQuantity,
           ripBoxUnattributedQuantity: remainingToAttribute,
         },
       });
+      else await syncDailyPortfolioSnapshot(tx, user.id);
 
       return {
         order,
@@ -279,6 +306,9 @@ export async function POST(req: Request) {
         rawBookValueCents,
         feePerCardCents,
         totalFeeCents,
+        cashFeeCents,
+        creditAppliedCents,
+        creditsUsed: creditCopies,
         estimatedValueByGradeCents: {
           6: calculateGradedValueCents({ rawBookValueCents, gradeability, grade: 6 }),
           7: calculateGradedValueCents({ rawBookValueCents, gradeability, grade: 7 }),
@@ -321,6 +351,9 @@ export async function POST(req: Request) {
       rawBookValueCents: result.rawBookValueCents,
       feePerCardCents: result.feePerCardCents,
       totalFeeCents: result.totalFeeCents,
+      cashFeeCents: result.cashFeeCents,
+      creditAppliedCents: result.creditAppliedCents,
+      creditsUsed: result.creditsUsed,
       estimatedValueByGradeCents: result.estimatedValueByGradeCents,
       balanceCents: result.balanceCents,
       rawQuantityRemaining: result.rawQuantityRemaining,

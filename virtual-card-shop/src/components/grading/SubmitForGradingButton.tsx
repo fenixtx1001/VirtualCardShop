@@ -1,7 +1,7 @@
 // src/components/grading/SubmitForGradingButton.tsx
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./SubmitForGradingButton.module.css";
 import {
   GRADING_FEE_BPS,
@@ -57,6 +57,34 @@ export default function SubmitForGradingButton({
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [isError, setIsError] = useState(false);
+  const [gradingCredits, setGradingCredits] = useState(0);
+  const [creditPerCopyCents, setCreditPerCopyCents] = useState(100);
+  const [creditSetName, setCreditSetName] = useState("");
+  const [useSetCredits, setUseSetCredits] = useState(true);
+  const [creditLoading, setCreditLoading] = useState(true);
+  const [creditError, setCreditError] = useState("");
+  const [retryCredits, setRetryCredits] = useState(0);
+  useEffect(() => {
+    const abort = new AbortController();
+    setCreditLoading(true); setCreditError("");
+    fetch("/api/grading/credits?cardId=" + encodeURIComponent(String(cardId)), {
+      cache: "no-store", signal: abort.signal,
+    }).then(async res => {
+      const j = await res.json();
+      if (!res.ok || !j?.ok) throw new Error(j?.error || "Unable to check set credits");
+      return j;
+    }).then(j => {
+      if (abort.signal.aborted) return;
+      setGradingCredits(j.creditCount ?? 0);
+      setCreditPerCopyCents(j.creditPerCopyCents ?? 100);
+      setCreditSetName([j.productName, j.productSetName].filter(Boolean).join(" · ") || "Unknown product set");
+    }).catch(e => {
+      if (!abort.signal.aborted) setCreditError(e instanceof Error ? e.message : "Credit lookup failed");
+    }).finally(() => {
+      if (!abort.signal.aborted) setCreditLoading(false);
+    });
+    return () => abort.abort();
+  }, [cardId, retryCredits]);
 
   const clampedQuantity = Math.max(1, Math.min(maxQty || 1, Math.floor(safeNum(quantity, 1))));
 
@@ -64,7 +92,12 @@ export default function SubmitForGradingButton({
     return calculateEstimatedFeeCents(bookValue, clampedQuantity);
   }, [bookValue, clampedQuantity]);
 
-  const disabled = submitting || !Number.isInteger(cardId) || cardId <= 0 || maxQty <= 0;
+  const creditCopies = useSetCredits ? Math.min(gradingCredits, clampedQuantity) : 0;
+  const creditAppliedCents = creditCopies * Math.min(fee.feePerCardCents, creditPerCopyCents);
+  const estimatedCashCents = Math.max(0, fee.totalFeeCents - creditAppliedCents);
+
+  const disabled = submitting || creditLoading || Boolean(creditError) ||
+    !Number.isInteger(cardId) || cardId <= 0 || maxQty <= 0;
 
   async function submitForGrading() {
     if (disabled) return;
@@ -74,7 +107,10 @@ export default function SubmitForGradingButton({
         `Submit ${clampedQuantity} raw cop${clampedQuantity === 1 ? "y" : "ies"} for VCS grading?`,
         "",
         `${cardNumber ? `#${cardNumber} ` : ""}${player ?? "Selected card"}`,
-        `Estimated grading fee: ${formatDollarsFromCents(fee.totalFeeCents)}`,
+        `Standard grading fee: ${formatDollarsFromCents(fee.totalFeeCents)}`,
+        creditCopies > 0 ? "Set Prestige credits applied: -" + formatDollarsFromCents(creditAppliedCents) :
+          (useSetCredits ? "No set credits available." : "Credits not applied by choice."),
+        "Estimated cash payment: " + formatDollarsFromCents(estimatedCashCents),
         "",
         "Grades are rolled now but hidden until the order is ready.",
       ].join("\n")
@@ -96,6 +132,7 @@ export default function SubmitForGradingButton({
         body: JSON.stringify({
           cardId,
           quantity: clampedQuantity,
+          useSetCredits,
         }),
       });
 
@@ -114,10 +151,11 @@ export default function SubmitForGradingButton({
 
       setMessage(
         `Submitted for grading. Fee paid: ${formatDollarsFromCents(
-          safeNum(json.totalFeeCents, fee.totalFeeCents)
+          safeNum(json.cashFeeCents, fee.totalFeeCents)
         )}.`
       );
       setIsError(false);
+      if (json.creditsUsed) setGradingCredits(current => Math.max(0, current - json.creditsUsed));
 
       await onSubmitted?.();
     } catch (e: any) {
@@ -142,8 +180,23 @@ export default function SubmitForGradingButton({
         </div>
         <div>
           <span className={styles.eyebrow}>ESTIMATED FEE</span>
-          <div className={styles.fee}>{formatDollarsFromCents(fee.totalFeeCents)}</div>
+          <div className={styles.fee}>{formatDollarsFromCents(estimatedCashCents)}</div>
         </div>
+      </div>
+      <div className={styles.creditPanel}>
+        {creditLoading ? <span role="status">Checking available Prestige grading credits…</span> :
+          creditError ? <div role="alert">Credit lookup failed: {creditError}
+            <button type="button" onClick={() => setRetryCredits(n => n + 1)}>Retry</button>
+          </div> : <>
+            <strong>{gradingCredits} set grading credit{gradingCredits === 1 ? "" : "s"} available</strong>
+            <small>{creditSetName}</small>
+            {gradingCredits > 0 ? <label>
+              <input type="checkbox" checked={useSetCredits}
+                disabled={submitting} onChange={e => setUseSetCredits(e.target.checked)} />
+              Use available credits for this submission
+            </label> : <span>Credits are restricted to their original product set.</span>}
+            <span>Standard: {formatDollarsFromCents(fee.totalFeeCents)} · Credits: -{formatDollarsFromCents(creditAppliedCents)} · <b>Cash due: {formatDollarsFromCents(estimatedCashCents)}</b></span>
+          </>}
       </div>
       <div className={styles.form}>
         <label>Quantity
@@ -159,6 +212,7 @@ export default function SubmitForGradingButton({
         Fee: {(GRADING_FEE_BPS / 100).toFixed(0)}% of raw value
         {" · "}minimum {formatDollarsFromCents(MIN_GRADING_FEE_CENTS)} per card.
         Grades stay sealed until you choose to reveal them.
+        {" "}Available set grading credits: {gradingCredits}. Each covers up to $1 on one card in its own set.
       </p>
       {message && <div role={isError ? "alert" : "status"}
         className={styles.message + (isError ? " " + styles.error : "")}>

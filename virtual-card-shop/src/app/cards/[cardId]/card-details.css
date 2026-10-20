@@ -1157,3 +1157,53 @@ body:has(.cd-shell) {
   .cd-set-view-shortcuts{margin-left:0;width:100%;display:grid;grid-template-columns:1fr 1fr}
   .cd-set-view-shortcuts a{min-width:0;padding:9px 5px}
 }
+
+/* Scoped Prestige credit receipt inside Card Details grading sheet. */
+.cd-credit-panel {
+  padding: 12px 14px;
+  margin: 12px 0;
+  border-radius: 10px;
+  background: #27352a;
+  border: 1px solid #53644f;
+  display: grid;
+  gap: 6px;
+  color: #edece0;
+  font-size: 12px;
+}
+.cd-credit-panel strong { color: #e6d09a; font-size: 14px; }
+.cd-credit-panel small { color: #bfcabe; line-height: 1.5; }
+.cd-credit-panel p { margin: 3px 0; line-height: 1.5; }
+.cd-credit-panel button {
+  padding: 8px 12px;
+  border-radius: 7px;
+  background: #455945;
+  border: 1px solid #72886a;
+  color: #fff;
+  cursor: pointer;
+}
+.cd-credit-toggle {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding-top: 4px;
+}
+.cd-credit-toggle input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  accent-color: #d5b877;
+}
+.cd-facts .cd-credit-savings { color: #b5dbaf; }
+.cd-facts .cd-credit-due {
+  border-top: 1px solid #6d775f;
+  padding-top: 10px;
+  margin-top: 6px;
+}
+.cd-facts .cd-credit-due dt, .cd-facts .cd-credit-due dd {
+  color: #e7d39e; font-weight: 750;
+}
+
+.cd-credit-wallet-link{font-size:12px;font-weight:700;color:#e6cc95!important;text-decoration:underline;text-underline-offset:3px;width:fit-content}

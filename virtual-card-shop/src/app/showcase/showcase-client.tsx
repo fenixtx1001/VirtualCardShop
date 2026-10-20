@@ -86,7 +86,11 @@ type ShowcaseTab =
   | "favorites"
   | "community";
 
-type CommunityMetric = "value" | "cards" | "sets";
+type CommunityMetric = "value" | "cards" | "sets" | "registry";
+type RegistryCommunityRow = {
+  userId: string; totalPoints: number; activeRegistries: number; gem10s: number; qualified: number;
+  topSets: Array<{ productSetId: string; name: string; points: number; rating: number }>;
+};
 
 type FavoriteCard = {
   id: number;
@@ -137,6 +141,7 @@ type PrestigeBucketSet = {
   claimedCompletions: number;
   claimable: number;
   sampleImageUrl?: string | null;
+  gradingCreditBalanceCents?: number;
 };
 
 type PrestigeClaim = {
@@ -152,6 +157,7 @@ type PrestigeClaim = {
   rewardReadyCents: number;
   nextMilestoneLevel: number | null;
   bonusAwardedCents: number;
+  gradingCreditBalanceCents?: number;
 };
 
 type PrestigeSummary = {
@@ -161,6 +167,7 @@ type PrestigeSummary = {
     totalTimesCompleted: number;
     totalClaimableCompletions: number;
     bonusAwardedCents: number;
+    gradingCreditBalanceCents?: number;
     buckets: Record<PrestigeBucketKey, number>;
     bucketSets: Record<PrestigeBucketKey, PrestigeBucketSet[]>;
   };
@@ -468,12 +475,41 @@ export default function ShowcaseClient() {
 
   const [communityMetric, setCommunityMetric] =
     useState<CommunityMetric>("value");
+  const [registryCommunity, setRegistryCommunity] = useState<RegistryCommunityRow[]>([]);
+  const [registryLoading, setRegistryLoading] = useState(false);
+  const [registryError, setRegistryError] = useState("");
 
   const [gradingCard, setGradingCard] =
     useState<TopCardRow | null>(null);
   const [gradingQuantity, setGradingQuantity] = useState(1);
   const [gradingBusy, setGradingBusy] = useState(false);
   const [gradingError, setGradingError] = useState("");
+  const [gradingCreditCount, setGradingCreditCount] = useState(0);
+  const [gradingCreditSetName, setGradingCreditSetName] = useState("");
+  const [gradingUseCredits, setGradingUseCredits] = useState(true);
+  const [gradingCreditLoading, setGradingCreditLoading] = useState(false);
+  const [gradingCreditError, setGradingCreditError] = useState("");
+  const [gradingCreditRetry, setGradingCreditRetry] = useState(0);
+  useEffect(() => {
+    if (!gradingCard) { setGradingCreditCount(0); return; }
+    const abort = new AbortController();
+    setGradingCreditLoading(true); setGradingCreditError("");
+    fetch("/api/grading/credits?cardId=" + encodeURIComponent(String(gradingCard.cardId)),
+      { cache: "no-store", signal: abort.signal }).then(async res => {
+      const j = await res.json();
+      if (!res.ok || !j?.ok) throw new Error(j?.error || "Unable to load grading credits");
+      return j;
+    }).then(j => {
+      if (abort.signal.aborted) return;
+      setGradingCreditCount(j.creditCount ?? 0);
+      setGradingCreditSetName([j.productName, j.productSetName].filter(Boolean).join(" · "));
+    }).catch(e => {
+      if (!abort.signal.aborted) setGradingCreditError(e instanceof Error ? e.message : "Credit lookup failed");
+    }).finally(() => {
+      if (!abort.signal.aborted) setGradingCreditLoading(false);
+    });
+    return () => abort.abort();
+  }, [gradingCard, gradingCreditRetry]);
 
   const [refreshing, setRefreshing] = useState(false);
   const [toast, setToast] = useState("");
@@ -539,10 +575,29 @@ export default function ShowcaseClient() {
     return highest;
   }, [prestige]);
 
+  const registryByUser = useMemo(() => new Map(registryCommunity.map(row => [row.userId, row])), [registryCommunity]);
+  const selectedRegistry = registryByUser.get(selectedUserId || meId) ?? null;
+
+  useEffect(() => {
+    if (tab !== "community") return;
+    let alive = true;
+    setRegistryLoading(true); setRegistryError("");
+    fetch("/api/registry/community", { cache: "no-store" })
+      .then(async res => { const json = await res.json(); if (!res.ok || !json?.ok) throw new Error(json?.error || "Registry unavailable"); return json; })
+      .then(json => { if (alive) setRegistryCommunity(Array.isArray(json.rows) ? json.rows : []); })
+      .catch(e => { if (alive) setRegistryError(String(e.message || e)); })
+      .finally(() => { if (alive) setRegistryLoading(false); });
+    return () => { alive = false; };
+  }, [tab]);
+
   const communityRows = useMemo(() => {
     const copy = [...leaderboard];
 
     copy.sort((a, b) => {
+      if (communityMetric === "registry") {
+        return (registryByUser.get(b.userId)?.totalPoints ?? 0) -
+          (registryByUser.get(a.userId)?.totalPoints ?? 0);
+      }
       if (communityMetric === "cards") {
         return (
           safeNum(b.totalCards) - safeNum(a.totalCards) ||
@@ -565,7 +620,7 @@ export default function ShowcaseClient() {
     });
 
     return copy;
-  }, [communityMetric, leaderboard]);
+  }, [communityMetric, leaderboard, registryByUser]);
 
   const gradingFeePerCardCents = useMemo(() => {
     if (!gradingCard) return 0;
@@ -586,6 +641,11 @@ export default function ShowcaseClient() {
       1,
       Math.min(gradingQuantity, gradingMaxQty)
     );
+
+  const gradingCreditCopies = gradingUseCredits ? Math.min(gradingCreditCount,
+    Math.max(1, Math.min(gradingQuantity, gradingMaxQty))) : 0;
+  const gradingCreditAmountCents = gradingCreditCopies * Math.min(100, gradingFeePerCardCents);
+  const gradingNetFeeCents = Math.max(0, gradingTotalFeeCents - gradingCreditAmountCents);
 
   const showToast = useCallback((message: string) => {
     setToast(message);
@@ -841,14 +901,15 @@ export default function ShowcaseClient() {
   useEffect(() => {
     try {
       const stored = localStorage.getItem(TAB_STORAGE_KEY);
-
+      const requested = new URLSearchParams(window.location.search).get("tab");
+      const tabChoice = requested || stored;
       if (
-        stored === "top" ||
-        stored === "prestige" ||
-        stored === "favorites" ||
-        stored === "community"
+        tabChoice === "top" ||
+        tabChoice === "prestige" ||
+        tabChoice === "favorites" ||
+        tabChoice === "community"
       ) {
-        setTab(stored);
+        setTab(tabChoice);
       }
     } catch {
       // Optional preference only.
@@ -1021,10 +1082,11 @@ export default function ShowcaseClient() {
     setGradingCard(card);
     setGradingQuantity(1);
     setGradingError("");
+    setGradingUseCredits(true);
   }
 
   async function submitForGrading() {
-    if (!gradingCard || gradingBusy) return;
+    if (!gradingCard || gradingBusy || gradingCreditLoading || gradingCreditError) return;
 
     const quantity = Math.max(
       1,
@@ -1049,6 +1111,7 @@ export default function ShowcaseClient() {
           body: JSON.stringify({
             cardId: gradingCard.cardId,
             quantity,
+            useSetCredits: gradingUseCredits,
           }),
         }
       );
@@ -1749,6 +1812,16 @@ export default function ShowcaseClient() {
                   <span>lifetime rewards</span>
                 </div>
               </div>
+              {isViewingMe && <div className="showcase-registry-credit-notice">
+                <div className="showcase-credit-promo-copy">
+                  <span className="showcase-section-kicker">YOUR GRADING CREDIT WALLET</span>
+                  <strong>{centsToMoney(prestige.summary.gradingCreditBalanceCents ?? 0)} available</strong>
+                  <p>Earn $1 for each Prestige level. Credits are tied to their original product set and never expire.</p>
+                </div>
+                <Link className="showcase-credit-promo-link" href="/grading/credits">
+                  View all credits by set →
+                </Link>
+              </div>}
 
               {prestige.claimable.length > 0 ? (
                 <section className="showcase-rewards">
@@ -1984,6 +2057,8 @@ export default function ShowcaseClient() {
                                   row.timesCompleted
                                 )}
                                 × complete
+                                {row.gradingCreditBalanceCents != null && isViewingMe
+                                  ? " · $" + Math.floor(row.gradingCreditBalanceCents / 100) + " grading credits" : ""}
                                 {row.claimable > 0
                                   ? ` · ${number(
                                       row.claimable
@@ -2006,6 +2081,10 @@ export default function ShowcaseClient() {
                               >
                                 ◫ Binder
                               </Link>}
+                              <Link
+                                href={"/registry/" + encodeURIComponent(row.productSetId)}
+                                className="showcase-bucket-link"
+                              >Graded Registry</Link>
                             </div>
                           </div>
                         )
@@ -2265,6 +2344,8 @@ export default function ShowcaseClient() {
             >
               Completed Sets
             </button>
+            <button type="button" className={communityMetric === "registry" ? "is-active" : ""}
+              onClick={() => setCommunityMetric("registry")}>Registry Points</button>
           </div>
 
           {leaderboardError ? (
@@ -2286,7 +2367,9 @@ export default function ShowcaseClient() {
             <div className="showcase-community-list">
               {communityRows.map((row, index) => {
                 const primary =
-                  communityMetric === "cards"
+                  communityMetric === "registry"
+                    ? `${number(registryByUser.get(row.userId)?.totalPoints ?? 0)} pts`
+                    : communityMetric === "cards"
                     ? `${number(
                         row.totalCards
                       )} cards`
@@ -2341,6 +2424,21 @@ export default function ShowcaseClient() {
               })}
             </div>
           )}
+          <div className="showcase-registry-summary">
+            <span className="showcase-section-kicker">GRADED REGISTRY · COMMUNITY</span>
+            <h3>{selectedLabel} — {number(selectedRegistry?.totalPoints ?? 0)} Registry Points</h3>
+            <p>{number(selectedRegistry?.activeRegistries ?? 0)} graded sets · {number(selectedRegistry?.gem10s ?? 0)} gem 10s · {number(selectedRegistry?.qualified ?? 0)} qualified graded cards</p>
+            {registryLoading && <small>Updating live-price rankings…</small>}
+            {registryError && <small role="alert">{registryError}</small>}
+            {selectedRegistry?.topSets?.length ? <div className="showcase-registry-top-sets"><h4>Top 5 contributing set registries</h4>
+              {selectedRegistry.topSets.map(set => <Link key={set.productSetId}
+                href={"/registry/" + encodeURIComponent(set.productSetId) + (selectedUserId ? "?userId=" + encodeURIComponent(selectedUserId) : "")}>
+                <span>{set.name}<small>Rating {set.rating.toFixed(1)}/100</small></span>
+                <strong>{number(set.points)} pts →</strong>
+              </Link>)}
+            </div> : <p>Grade a card to start a competing set registry.</p>}
+          </div>
+
         </section>
       ) : null}
 
@@ -2468,17 +2566,32 @@ export default function ShowcaseClient() {
               </select>
             </label>
 
+            <div className="showcase-registry-credit-redemption">
+              {gradingCreditLoading ? <p role="status">Checking set Prestige credits…</p> :
+                gradingCreditError ? <p role="alert">
+                  Couldn't load credits: {gradingCreditError}{" "}
+                  <button type="button" onClick={() => setGradingCreditRetry(n => n + 1)}>Retry</button>
+                </p> : <>
+                  <strong>{gradingCreditCount} set credit{gradingCreditCount === 1 ? "" : "s"} available</strong>
+                  <small>{gradingCreditSetName || "Unassigned product set"}</small>
+                  {gradingCreditCount > 0 ?
+                    <label><input type="checkbox" checked={gradingUseCredits}
+                      disabled={gradingBusy} onChange={e => setGradingUseCredits(e.target.checked)} />
+                      Apply available credits
+                    </label> : <p>Credits from other product sets cannot be used on this card.</p>}
+                  <div className="showcase-registry-credit-breakdown">
+                    <span>Standard fee</span><b>{centsToMoney(gradingTotalFeeCents)}</b>
+                    <span>Credits applied ({gradingCreditCopies})</span><b>-{centsToMoney(gradingCreditAmountCents)}</b>
+                  </div>
+                </>}
+            </div>
             <div className="showcase-grade-total">
-              <span>Estimated grading fee</span>
-              <strong>
-                {centsToMoney(
-                  gradingTotalFeeCents
-                )}
-              </strong>
+              <span>Cash due now</span>
+              <strong>{centsToMoney(gradingNetFeeCents)}</strong>
             </div>
 
             <p className="showcase-grade-note">
-              Grades are determined when submitted and
+              Grade results are independent of your credit balance. Credits can be used only within the exact product set that earned them. Grades are determined when submitted and
               remain hidden until the grading order is
               ready.
             </p>
@@ -2495,7 +2608,7 @@ export default function ShowcaseClient() {
             <button
               type="button"
               className="showcase-primary showcase-grade-submit"
-              disabled={gradingBusy}
+              disabled={gradingBusy || gradingCreditLoading || Boolean(gradingCreditError)}
               onClick={() =>
                 void submitForGrading()
               }
@@ -2511,7 +2624,7 @@ export default function ShowcaseClient() {
                       )
                     )
                   } for ${centsToMoney(
-                    gradingTotalFeeCents
+                    gradingNetFeeCents
                   )}`}
             </button>
           </section>

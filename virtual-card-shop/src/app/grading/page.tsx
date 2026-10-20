@@ -1029,6 +1029,9 @@ export default function GradingPage() {
             </p>
           </div>
           <div className="grading-desk-actions">
+            <Link href="/grading/credits" className="grading-desk-link">
+              Grading Credits <span aria-hidden="true">↗</span>
+            </Link>
             <Link href="/collection/slabs" className="grading-desk-link">
               Slab Gallery <span aria-hidden="true">↗</span>
             </Link>

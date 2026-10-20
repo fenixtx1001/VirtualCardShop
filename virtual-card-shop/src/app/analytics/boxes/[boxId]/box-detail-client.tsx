@@ -218,22 +218,45 @@ export default function BoxDetailClient({ boxId }: { boxId: string }) {
   }
 
   async function submitToGrading(cardId: number) {
-    setBusy(`grade-${cardId}`);
-
+    if (busy) return;
+    setBusy("grade-" + cardId);
     try {
+      const quoteRes = await fetch("/api/grading/credits?cardId=" + encodeURIComponent(String(cardId)), {
+        cache: "no-store",
+      });
+      const quote = await quoteRes.json();
+      if (!quoteRes.ok || !quote?.ok) {
+        throw new Error(quote?.error || "Unable to verify grading fee and set credits");
+      }
+      const creditAppliedCents = quote.creditCount > 0 ? quote.creditPerCopyCents : 0;
+      const cashDueCents = quote.feePerCopyCents - creditAppliedCents;
+      const dollars = (cents: number) => "$" + (cents / 100).toFixed(2);
+      const confirmed = window.confirm([
+        "Submit one card for VCS grading?",
+        "",
+        (quote.productName || "") + " · " + (quote.productSetName || "Product set"),
+        "Standard grading fee: " + dollars(quote.feePerCopyCents),
+        "Available set credits: " + (quote.creditCount || 0),
+        "Prestige credit applied: -" + dollars(creditAppliedCents),
+        "Cash due: " + dollars(cashDueCents),
+        "",
+        "Grades stay hidden until you reveal the order.",
+      ].join("\n"));
+      if (!confirmed) return;
       const res = await fetch("/api/grading/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cardId, quantity: 1 }),
+        body: JSON.stringify({ cardId, quantity: 1, useSetCredits: true,
+          expectedFeeCents: quote.feePerCopyCents }),
       });
-
       const json = await res.json().catch(() => null);
-
       if (!res.ok || !json?.ok) {
-        throw new Error(json?.error ?? "Grading submission failed.");
+        throw new Error(json?.error || "Grading submission failed.");
       }
-
-      alert("Submitted 1 raw copy for grading.");
+      alert("Submitted one raw copy for grading. Cash paid: " +
+        dollars(json.cashFeeCents) + ". Set credits used: " + (json.creditsUsed || 0) + ".");
+      window.dispatchEvent(new Event("vcs:collection-changed"));
+      window.dispatchEvent(new Event("vcs:economy-changed"));
     } catch (e) {
       alert(e instanceof Error ? e.message : "Grading submission failed.");
     } finally {

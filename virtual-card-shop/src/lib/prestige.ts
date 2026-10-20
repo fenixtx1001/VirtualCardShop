@@ -30,6 +30,20 @@ export function getPrestigeRewardMultiplier(level: number) {
   return PRESTIGE_MILESTONE_MULTIPLIERS[level] ?? 0;
 }
 
+// An atomic, monotonic credit grant: a Prestige level can award a credit only once.
+export async function grantPrestigeGradingCredits(
+  tx: Prisma.TransactionClient, userId: string, productSetId: string, level: number
+) {
+  const targetLevel = Math.max(0, Math.floor(level));
+  await tx.$executeRaw`
+    UPDATE "ProductSetPrestige"
+    SET "gradingCreditBalanceCents" = "gradingCreditBalanceCents" +
+        100 * GREATEST(0, ${targetLevel} - "gradingCreditedLevels"),
+        "gradingCreditedLevels" = GREATEST("gradingCreditedLevels", ${targetLevel})
+    WHERE "userId" = ${userId} AND "productSetId" = ${productSetId}
+  `;
+}
+
 export function isPrestigeRewardMilestone(level: number) {
   return Object.prototype.hasOwnProperty.call(PRESTIGE_MILESTONE_MULTIPLIERS, level);
 }
@@ -146,11 +160,16 @@ export async function syncPrestigeProgressForProductSets(opts: {
         timesCompleted: Math.max(0, currentLevel),
         claimedCompletions: 0,
         bonusAwardedCents: 0,
+        gradingCreditedLevels: Math.max(0, currentLevel),
+        gradingCreditBalanceCents: Math.max(0, currentLevel) * 100,
       },
       update: {},
-      select: { timesCompleted: true },
+      select: { timesCompleted: true, gradingCreditedLevels: true },
     });
 
+    if (currentLevel > (row.gradingCreditedLevels ?? 0)) {
+      await grantPrestigeGradingCredits(tx, userId, productSetId, currentLevel);
+    }
     const prev = row.timesCompleted ?? 0;
     if (currentLevel > prev) {
       await tx.productSetPrestige.update({
@@ -189,6 +208,8 @@ export async function redeemPrestigeForProductSet(opts: {
       timesCompleted: Math.max(0, currentLevel),
       claimedCompletions: 0,
       bonusAwardedCents: 0,
+      gradingCreditedLevels: Math.max(0, currentLevel),
+      gradingCreditBalanceCents: Math.max(0, currentLevel) * 100,
     },
     update: {},
     select: { claimedCompletions: true, timesCompleted: true, bonusAwardedCents: true },
@@ -197,6 +218,7 @@ export async function redeemPrestigeForProductSet(opts: {
   const alreadyClaimed = prog.claimedCompletions ?? 0;
   const effectiveLevel = Math.max(prog.timesCompleted ?? 0, currentLevel);
   const claimable = Math.max(0, effectiveLevel - alreadyClaimed);
+  await grantPrestigeGradingCredits(tx, userId, productSetId, effectiveLevel);
 
   if (claimable <= 0 || setValue <= 0) {
     return {

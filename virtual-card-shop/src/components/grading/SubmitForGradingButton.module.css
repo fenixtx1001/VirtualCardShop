@@ -17,3 +17,11 @@
 .error{border-color:#805047;background:#362622;color:#f6c4b9}
 .empty{border:1px solid #454d42;border-radius:8px;background:#242923;color:#b2b4aa;padding:12px;font-size:12px}
 @media(max-width:400px){.form button{flex:1}.box{padding:12px}}
+
+.creditPanel{display:grid;gap:7px;background:#29372c;border:1px solid #647255;padding:12px;border-radius:9px;color:#e7ecdd;font-size:12px;line-height:1.5}
+.creditPanel strong{color:#ecd39a;font-weight:700;font-size:14px}
+.creditPanel small{color:#bccbbb}
+.creditPanel label{display:flex;align-items:center;gap:9px;font-weight:650;cursor:pointer}
+.creditPanel input[type="checkbox"]{width:17px;height:17px;accent-color:#d7bb7e}
+.creditPanel b{color:#e5d19e}
+.creditPanel button{margin-left:9px;background:#42583f;border:1px solid #899678;color:#fff;padding:5px 9px;border-radius:5px;cursor:pointer}

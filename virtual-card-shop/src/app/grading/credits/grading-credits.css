@@ -1,0 +1,48 @@
+/* VCS graded-collection rewards wallet */
+.vcs-credit-wallet{min-height:100vh;background:#181d1a;color:#f2eee4;color-scheme:dark;padding:25px clamp(12px,3vw,34px) 70px}
+.vcs-credit-wallet *{box-sizing:border-box}
+.vcs-credit-wallet-inner{max-width:1080px;margin:0 auto}
+.vcs-credit-wallet a{color:#e6cc94;text-decoration:none}
+.vcs-credit-wallet a:hover{text-decoration:underline}
+.vcs-credit-backlinks{display:flex;justify-content:space-between;gap:16px;margin:0 0 26px;font-size:12px}
+.vcs-credit-header{display:flex;gap:16px;align-items:center;justify-content:space-between;margin:0 0 20px}
+.vcs-credit-eyebrow{font-size:10px;font-weight:700;letter-spacing:.13em;color:#d8bd80}
+.vcs-credit-header h1{color:#f4eee3!important;font:550 clamp(28px,4vw,43px)/1.2 Georgia,serif;margin:6px 0 8px}
+.vcs-credit-header p{margin:0;color:#b4bfb4;font-size:13px;line-height:1.6;max-width:650px}
+.vcs-credit-wallet button,.vcs-credit-wallet select,.vcs-credit-wallet input{font:inherit}
+.vcs-credit-header button,.vcs-credit-pages button{padding:10px 13px;border:1px solid #68785e;border-radius:7px;color:#e8e7dc;background:#2b372e;cursor:pointer;white-space:nowrap}
+.vcs-credit-wallet button:disabled{opacity:.5;cursor:default}
+.vcs-credit-wallet :is(a,button,input,select):focus-visible{outline:2px solid #ddc085;outline-offset:2px}
+.vcs-credit-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:19px}
+.vcs-credit-stats>div{background:#252f28;border:1px solid #455448;border-radius:11px;display:flex;flex-direction:column;gap:6px;padding:18px;min-width:0}
+.vcs-credit-stats .vcs-credit-primary{background:linear-gradient(120deg,#364234,#28322a);border-color:#85754f}
+.vcs-credit-stats small{font-size:10px;letter-spacing:.08em;font-weight:650;color:#ceb984}
+.vcs-credit-stats strong{font-size:clamp(21px,3vw,34px);font-weight:700;line-height:1.16;color:#f5ead1}
+.vcs-credit-stats span{font-size:11px;color:#b7c1b5}
+.vcs-credit-inventory{background:#202922;border:1px solid #425042;border-radius:13px;padding:clamp(13px,2.4vw,23px);margin-bottom:18px}
+.vcs-credit-inventory-heading{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-bottom:17px}
+.vcs-credit-inventory-heading h2{color:#f2ecdf;font-size:20px;margin:4px 0 0}
+.vcs-credit-inventory-heading>span{font-size:11px;color:#c1c9bc;white-space:nowrap}
+.vcs-credit-controls{display:grid;grid-template-columns:minmax(0,1fr) minmax(160px,230px) auto;gap:13px;align-items:end;margin-bottom:17px}
+.vcs-credit-controls label:not(.vcs-credit-show-exhausted){display:grid;gap:7px;color:#b9c5b8;font-size:11px}
+.vcs-credit-controls input[type="search"],.vcs-credit-controls select{color-scheme:dark;background:#151c17;color:#f3eee4;border:1px solid #556953;border-radius:7px;padding:10px;min-height:41px;width:100%;font-size:12px}
+.vcs-credit-controls option{background:#202920;color:#fff}
+.vcs-credit-show-exhausted{display:flex;gap:8px;align-items:center;font-size:11px;line-height:1.4;color:#e2e0d5;min-height:41px}
+.vcs-credit-show-exhausted input{accent-color:#d6bb82;width:16px;height:16px}
+.vcs-credit-set-list{display:grid;gap:7px}
+.vcs-credit-set{display:flex;align-items:center;justify-content:space-between;gap:14px;background:#27332a;border:1px solid #485a49;border-radius:9px;padding:13px 16px}
+.vcs-credit-set-info{display:grid;gap:4px;min-width:0}
+.vcs-credit-set-info>strong{font-size:14px;color:#f3efe5}
+.vcs-credit-set-info>span{font-size:11px;color:#b7c5b7}
+.vcs-credit-set-links{display:flex;gap:15px;flex-wrap:wrap;margin-top:3px;font-size:11px}
+.vcs-credit-set-balance{text-align:right;display:grid;gap:2px;flex-shrink:0}
+.vcs-credit-set-balance strong{font-size:22px;font-weight:750;color:#e9d196}
+.vcs-credit-set-balance span{color:#adbdad;font-size:11px}
+.vcs-credit-empty{padding:32px 12px;text-align:center;color:#b8c5ba;font-size:13px}
+.vcs-credit-pages{display:flex;justify-content:center;align-items:center;gap:19px;margin-top:18px;font-size:12px}
+.vcs-credit-explainer{border-left:2px solid #b59a69;padding:5px 16px;color:#bbcabf;font-size:12px;line-height:1.6}
+.vcs-credit-explainer strong{color:#eed6a0;font-size:13px}
+.vcs-credit-explainer p{margin:6px 0 0}
+.vcs-credit-error{border:1px solid #a65d5d;background:#43282a;color:#ffdada;border-radius:9px;padding:12px}
+@media(max-width:780px){.vcs-credit-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.vcs-credit-controls{grid-template-columns:minmax(0,1fr) 190px}.vcs-credit-show-exhausted{grid-column:1/-1;min-height:20px}}
+@media(max-width:480px){.vcs-credit-wallet{padding:16px 10px 40px}.vcs-credit-header{align-items:flex-start}.vcs-credit-header button{padding:8px;font-size:11px}.vcs-credit-stats{gap:7px}.vcs-credit-stats>div{padding:13px}.vcs-credit-controls{grid-template-columns:minmax(0,1fr)}.vcs-credit-inventory-heading{align-items:start;flex-direction:column}.vcs-credit-set{padding:11px;gap:7px}.vcs-credit-set-links{gap:9px}.vcs-credit-set-balance strong{font-size:20px}}

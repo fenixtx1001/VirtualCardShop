@@ -412,6 +412,9 @@ model ProductSetPrestige {
   timesCompleted     Int      @default(0)
   claimedCompletions Int      @default(0)
   bonusAwardedCents  Int      @default(0)
+  gradingCreditBalanceCents Int @default(0)
+  gradingCreditedLevels Int @default(0)
+  gradingCreditSpentCents Int @default(0)
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
 
