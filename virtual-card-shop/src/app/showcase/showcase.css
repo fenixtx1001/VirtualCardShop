@@ -2529,3 +2529,13 @@ body:has(.showcase-shell) {
 /* Separate, non-cash Prestige grading credit balance */
 .showcase-registry-credit-notice{margin:12px 0 18px;border:1px solid #59674f;background:linear-gradient(135deg,#344235,#232c27);border-radius:10px;padding:13px 15px;color:#d6dfd3;font-size:12px;line-height:1.55}
 .showcase-registry-credit-notice strong{color:#f3dda4;font-size:17px;margin-right:5px}
+
+.showcase-registry-top-sets h4 {
+  margin: 10px 1px 4px;
+  color: #e3cd94;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .085em;
+}
+.showcase-registry-summary { margin-top: 20px; }
