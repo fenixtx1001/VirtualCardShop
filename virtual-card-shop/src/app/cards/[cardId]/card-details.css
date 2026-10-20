@@ -1205,3 +1205,5 @@ body:has(.cd-shell) {
 .cd-facts .cd-credit-due dt, .cd-facts .cd-credit-due dd {
   color: #e7d39e; font-weight: 750;
 }
+
+.cd-credit-wallet-link{font-size:12px;font-weight:700;color:#e6cc95!important;text-decoration:underline;text-underline-offset:3px;width:fit-content}
