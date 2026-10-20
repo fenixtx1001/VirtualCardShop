@@ -10,7 +10,7 @@ type Card = {
  rawValue: number; grade: number; gradedAt: string | null;
  points: number; basePoints: number; weight: number;
 };
-type Standing = { userId: string; score: number; rating: number; qualified: number; gems: number; owned: number };
+type Standing = { userId: string; name?: string; score: number; rating: number; qualified: number; gems: number; owned: number };
 type Registry = {
  ok: true;
  productSet: { id: string; name: string | null; isBase: boolean; productId: string;
@@ -154,7 +154,7 @@ export default function RegistryClient({ productSetId, targetUserId }: {
          <p>Highest total score wins within this set. Duplicate slabs do not stack. Grade 6 earns zero; a 10 is the ultimate upgrade.</p>
          <div className="vcs-registry-standings">{data.standings.slice(0, 10).map((row, i) =>
            <Link key={row.userId} href={"/registry/" + setParam + "?userId=" + encodeURIComponent(row.userId)}>
-             <span>#{i+1} · Collector {row.userId === targetUserId ? "(Selected)" : ""}</span><strong>{num(row.score)} pts</strong>
+             <span>#{i+1} · {row.name || "Collector"} {row.userId === targetUserId ? "(Selected)" : ""}</span><strong>{num(row.score)} pts</strong>
            </Link>)}</div>
        </div>
      </>}
