@@ -1,7 +1,7 @@
 // src/components/grading/SubmitForGradingButton.tsx
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./SubmitForGradingButton.module.css";
 import {
   GRADING_FEE_BPS,
@@ -57,12 +57,29 @@ export default function SubmitForGradingButton({
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [isError, setIsError] = useState(false);
+  const [gradingCredits, setGradingCredits] = useState(0);
+  const [creditPerCopyCents, setCreditPerCopyCents] = useState(100);
+  useEffect(() => {
+    let active = true;
+    fetch("/api/grading/credits?cardId=" + encodeURIComponent(String(cardId)), { cache: "no-store" })
+      .then(r => r.json()).then(j => {
+        if (active && j?.ok) {
+          setGradingCredits(j.creditCount || 0);
+          setCreditPerCopyCents(j.creditPerCopyCents || 100);
+        }
+      }).catch(() => {});
+    return () => { active = false; };
+  }, [cardId]);
 
   const clampedQuantity = Math.max(1, Math.min(maxQty || 1, Math.floor(safeNum(quantity, 1))));
 
   const fee = useMemo(() => {
     return calculateEstimatedFeeCents(bookValue, clampedQuantity);
   }, [bookValue, clampedQuantity]);
+
+  const creditCopies = Math.min(gradingCredits, clampedQuantity);
+  const creditAppliedCents = creditCopies * creditPerCopyCents;
+  const estimatedCashCents = Math.max(0, fee.totalFeeCents - creditAppliedCents);
 
   const disabled = submitting || !Number.isInteger(cardId) || cardId <= 0 || maxQty <= 0;
 
@@ -74,7 +91,9 @@ export default function SubmitForGradingButton({
         `Submit ${clampedQuantity} raw cop${clampedQuantity === 1 ? "y" : "ies"} for VCS grading?`,
         "",
         `${cardNumber ? `#${cardNumber} ` : ""}${player ?? "Selected card"}`,
-        `Estimated grading fee: ${formatDollarsFromCents(fee.totalFeeCents)}`,
+        `Standard grading fee: ${formatDollarsFromCents(fee.totalFeeCents)}`,
+        creditCopies > 0 ? "Set Prestige credits applied: -" + formatDollarsFromCents(creditAppliedCents) : "Eligible set credits apply automatically.",
+        "Estimated cash payment: " + formatDollarsFromCents(estimatedCashCents),
         "",
         "Grades are rolled now but hidden until the order is ready.",
       ].join("\n")
@@ -114,10 +133,11 @@ export default function SubmitForGradingButton({
 
       setMessage(
         `Submitted for grading. Fee paid: ${formatDollarsFromCents(
-          safeNum(json.totalFeeCents, fee.totalFeeCents)
+          safeNum(json.cashFeeCents, fee.totalFeeCents)
         )}.`
       );
       setIsError(false);
+      if (json.creditsUsed) setGradingCredits(current => Math.max(0, current - json.creditsUsed));
 
       await onSubmitted?.();
     } catch (e: any) {
@@ -142,7 +162,7 @@ export default function SubmitForGradingButton({
         </div>
         <div>
           <span className={styles.eyebrow}>ESTIMATED FEE</span>
-          <div className={styles.fee}>{formatDollarsFromCents(fee.totalFeeCents)}</div>
+          <div className={styles.fee}>{formatDollarsFromCents(estimatedCashCents)}</div>
         </div>
       </div>
       <div className={styles.form}>
@@ -159,6 +179,7 @@ export default function SubmitForGradingButton({
         Fee: {(GRADING_FEE_BPS / 100).toFixed(0)}% of raw value
         {" · "}minimum {formatDollarsFromCents(MIN_GRADING_FEE_CENTS)} per card.
         Grades stay sealed until you choose to reveal them.
+        {" "}Available set grading credits: {gradingCredits}. Each covers up to $1 on one card in its own set.
       </p>
       {message && <div role={isError ? "alert" : "status"}
         className={styles.message + (isError ? " " + styles.error : "")}>
