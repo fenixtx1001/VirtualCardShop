@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/4203/1998-Collector-s-Edge-Masters",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/4203/1998-Collector-s-Edge-Masters",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/4203/1998-Collector-s-Edge-Masters"
+  },
+  "decisions": {
+    "base": "199 actual cards: #1-170 excluding nonexistent #28; #S171-S198; #CK1-CK2. All equal base probability.",
+    "rookies": "34 indexed true rookies; only base gets RC suffix.",
+    "parallels": "Three physical parallel families: 50-Point /3000, 50-Point Gold /150, HoloGold /10, each 199 actual cards.",
+    "inserts": "Nine TCDB insert families; only direct physical pack-inserted cards included. Gold Set Redemption 1:6000; redeemed factory set itself excluded.",
+    "excluded": "Gold Exchange (SN100/SN500) are mail-in complete factory sets, not directly pulled singles. Omit promo/proof sets and other-product Odyssey autos.",
+    "numbering": "Do not invent base #28. For duplicate Super Masters #SN20 treat separate subjects with unique checklist identities, preserve real #SN19 anomaly.",
+    "names": "Only strip full whitespace/comma-delimited metadata tokens; never truncate surname letters.",
+    "odds": "Only Gold Set Redemption has verified 1:6000 pack rate. Other unspecified odds remain null.",
+    "release": "Unreleased draft; source checksum, images/pricing/odds and quality assurance pending."
+  },
+  "product": {
+    "id": "1998_Collectors_Edge_Masters_Football",
+    "year": 1998,
+    "brand": "Collector's Edge Masters",
+    "sport": "Football",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1998-collectors-edge-masters-football.cards.csv",
+  "productSets": []
+}
