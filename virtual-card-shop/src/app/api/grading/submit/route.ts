@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
 import { createFinancialTransaction } from "@/lib/financial-transactions";
+import { syncDailyPortfolioSnapshot } from "@/lib/portfolio";
 import {
   RAW_GRADE,
   bookValueToCents,
@@ -274,7 +275,7 @@ export async function POST(req: Request) {
         select: { balanceCents: true },
       });
 
-      await createFinancialTransaction({
+      if (cashFeeCents > 0) await createFinancialTransaction({
         tx,
         userId: user.id,
         category: "GRADING_FEE",
@@ -295,6 +296,7 @@ export async function POST(req: Request) {
           ripBoxUnattributedQuantity: remainingToAttribute,
         },
       });
+      else await syncDailyPortfolioSnapshot(tx, user.id);
 
       return {
         order,
