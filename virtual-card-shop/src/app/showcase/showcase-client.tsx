@@ -484,6 +484,16 @@ export default function ShowcaseClient() {
   const [gradingQuantity, setGradingQuantity] = useState(1);
   const [gradingBusy, setGradingBusy] = useState(false);
   const [gradingError, setGradingError] = useState("");
+  const [gradingCreditCount, setGradingCreditCount] = useState(0);
+  useEffect(() => {
+    if (!gradingCard) { setGradingCreditCount(0); return; }
+    let active = true;
+    fetch("/api/grading/credits?cardId=" + encodeURIComponent(String(gradingCard.cardId)),
+      { cache: "no-store" }).then(r => r.json()).then(j => {
+        if (active && j?.ok) setGradingCreditCount(j.creditCount || 0);
+    }).catch(() => {});
+    return () => { active = false; };
+  }, [gradingCard]);
 
   const [refreshing, setRefreshing] = useState(false);
   const [toast, setToast] = useState("");
@@ -615,6 +625,11 @@ export default function ShowcaseClient() {
       1,
       Math.min(gradingQuantity, gradingMaxQty)
     );
+
+  const gradingCreditCopies = Math.min(gradingCreditCount,
+    Math.max(1, Math.min(gradingQuantity, gradingMaxQty)));
+  const gradingCreditAmountCents = gradingCreditCopies * Math.min(100, gradingFeePerCardCents);
+  const gradingNetFeeCents = Math.max(0, gradingTotalFeeCents - gradingCreditAmountCents);
 
   const showToast = useCallback((message: string) => {
     setToast(message);
@@ -2526,15 +2541,12 @@ export default function ShowcaseClient() {
             </label>
 
             <div className="showcase-grade-total">
-              <span>Estimated grading fee</span>
-              <strong>
-                {centsToMoney(
-                  gradingTotalFeeCents
-                )}
-              </strong>
+              <span>Estimated cash charge (after set credits)</span>
+              <strong>{centsToMoney(gradingNetFeeCents)}</strong>
             </div>
 
             <p className="showcase-grade-note">
+              {gradingCreditCopies > 0 ? String(gradingCreditCopies) + " of your " + gradingCreditCount + " set grading credits will be used (saving " + centsToMoney(gradingCreditAmountCents) + "). " : "Eligible set grading credits will apply automatically. "}
               Grades are determined when submitted and
               remain hidden until the grading order is
               ready.
@@ -2568,7 +2580,7 @@ export default function ShowcaseClient() {
                       )
                     )
                   } for ${centsToMoney(
-                    gradingTotalFeeCents
+                    gradingNetFeeCents
                   )}`}
             </button>
           </section>
