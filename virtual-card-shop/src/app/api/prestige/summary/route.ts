@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { grantPrestigeGradingCredits } from "@/lib/prestige";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -30,6 +31,7 @@ type BucketSet = {
   claimedCompletions: number;
   claimable: number;
   sampleImageUrl: string | null;
+  gradingCreditBalanceCents: number;
 };
 
 type SyncedPrestigeRow = {
@@ -44,6 +46,7 @@ type SyncedPrestigeRow = {
   timesCompleted: number;
   claimedCompletions: number;
   bonusAwardedCents: number;
+  gradingCreditBalanceCents: number;
   setValue: number;
 };
 
@@ -235,6 +238,7 @@ export async function GET(req: Request) {
             totalTimesCompleted: 0,
             totalClaimableCompletions: 0,
             bonusAwardedCents: 0,
+            gradingCreditBalanceCents: 0,
             buckets: emptyBuckets,
             bucketSets: emptyBucketSets,
           },
@@ -472,6 +476,7 @@ export async function GET(req: Request) {
         timesCompleted,
         claimedCompletions: r.claimedCompletions ?? 0,
         bonusAwardedCents: r.bonusAwardedCents ?? 0,
+        gradingCreditBalanceCents: r.gradingCreditBalanceCents ?? 0,
         setValue,
       });
     }
@@ -486,16 +491,17 @@ export async function GET(req: Request) {
     if (progressUpdates.length > 0) {
       await Promise.all(
         progressUpdates.map((update) =>
-          prisma.productSetPrestige.update({
-            where: {
-              userId_productSetId: {
-                userId: targetUserId,
-                productSetId: update.productSetId,
+          prisma.$transaction(async tx => {
+            await tx.productSetPrestige.update({
+              where: {
+                userId_productSetId: {
+                  userId: targetUserId,
+                  productSetId: update.productSetId,
+                },
               },
-            },
-            data: {
-              timesCompleted: update.timesCompleted,
-            },
+              data: { timesCompleted: update.timesCompleted },
+            });
+            await grantPrestigeGradingCredits(tx, targetUserId, update.productSetId, update.timesCompleted);
           })
         )
       );
@@ -571,6 +577,7 @@ export async function GET(req: Request) {
     let totalTimesCompleted = 0;
     let totalClaimableCompletions = 0;
     let bonusAwardedCents = 0;
+    let gradingCreditBalanceCents = 0;
 
     for (const r of rows) {
       const t = r.timesCompleted ?? 0;
@@ -588,6 +595,7 @@ export async function GET(req: Request) {
       );
 
       bonusAwardedCents += r.bonusAwardedCents ?? 0;
+      gradingCreditBalanceCents += r.gradingCreditBalanceCents ?? 0;
 
       const bucketKey = getBucketKey(t);
 
@@ -606,6 +614,7 @@ export async function GET(req: Request) {
         claimable: Math.max(0, t - claimed),
         sampleImageUrl:
           sampleImagesByProductSetId.get(r.productSetId) ?? null,
+        gradingCreditBalanceCents: r.gradingCreditBalanceCents ?? 0,
       });
     }
 
@@ -669,6 +678,7 @@ export async function GET(req: Request) {
         nextMilestoneLevel,
         bonusAwardedCents:
           r.bonusAwardedCents ?? 0,
+        gradingCreditBalanceCents: r.gradingCreditBalanceCents ?? 0,
       };
     });
 
@@ -681,6 +691,7 @@ export async function GET(req: Request) {
           totalTimesCompleted,
           totalClaimableCompletions,
           bonusAwardedCents,
+          gradingCreditBalanceCents,
           buckets,
           bucketSets,
         },
