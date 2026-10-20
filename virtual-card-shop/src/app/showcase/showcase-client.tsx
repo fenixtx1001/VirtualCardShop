@@ -86,7 +86,11 @@ type ShowcaseTab =
   | "favorites"
   | "community";
 
-type CommunityMetric = "value" | "cards" | "sets";
+type CommunityMetric = "value" | "cards" | "sets" | "registry";
+type RegistryCommunityRow = {
+  userId: string; totalPoints: number; activeRegistries: number; gem10s: number; qualified: number;
+  topSets: Array<{ productSetId: string; name: string; points: number; rating: number }>;
+};
 
 type FavoriteCard = {
   id: number;
@@ -468,6 +472,9 @@ export default function ShowcaseClient() {
 
   const [communityMetric, setCommunityMetric] =
     useState<CommunityMetric>("value");
+  const [registryCommunity, setRegistryCommunity] = useState<RegistryCommunityRow[]>([]);
+  const [registryLoading, setRegistryLoading] = useState(false);
+  const [registryError, setRegistryError] = useState("");
 
   const [gradingCard, setGradingCard] =
     useState<TopCardRow | null>(null);
@@ -539,10 +546,29 @@ export default function ShowcaseClient() {
     return highest;
   }, [prestige]);
 
+  const registryByUser = useMemo(() => new Map(registryCommunity.map(row => [row.userId, row])), [registryCommunity]);
+  const selectedRegistry = registryByUser.get(selectedUserId || meId) ?? null;
+
+  useEffect(() => {
+    if (tab !== "community") return;
+    let alive = true;
+    setRegistryLoading(true); setRegistryError("");
+    fetch("/api/registry/community", { cache: "no-store" })
+      .then(async res => { const json = await res.json(); if (!res.ok || !json?.ok) throw new Error(json?.error || "Registry unavailable"); return json; })
+      .then(json => { if (alive) setRegistryCommunity(Array.isArray(json.rows) ? json.rows : []); })
+      .catch(e => { if (alive) setRegistryError(String(e.message || e)); })
+      .finally(() => { if (alive) setRegistryLoading(false); });
+    return () => { alive = false; };
+  }, [tab]);
+
   const communityRows = useMemo(() => {
     const copy = [...leaderboard];
 
     copy.sort((a, b) => {
+      if (communityMetric === "registry") {
+        return (registryByUser.get(b.userId)?.totalPoints ?? 0) -
+          (registryByUser.get(a.userId)?.totalPoints ?? 0);
+      }
       if (communityMetric === "cards") {
         return (
           safeNum(b.totalCards) - safeNum(a.totalCards) ||
@@ -565,7 +591,7 @@ export default function ShowcaseClient() {
     });
 
     return copy;
-  }, [communityMetric, leaderboard]);
+  }, [communityMetric, leaderboard, registryByUser]);
 
   const gradingFeePerCardCents = useMemo(() => {
     if (!gradingCard) return 0;
@@ -2219,6 +2245,21 @@ export default function ShowcaseClient() {
             </div>
           </div>
 
+          <div className="showcase-registry-summary">
+            <span className="showcase-section-kicker">GRADED REGISTRY · COMMUNITY</span>
+            <h3>{selectedLabel} — {number(selectedRegistry?.totalPoints ?? 0)} Registry Points</h3>
+            <p>{number(selectedRegistry?.activeRegistries ?? 0)} graded sets · {number(selectedRegistry?.gem10s ?? 0)} gem 10s · {number(selectedRegistry?.qualified ?? 0)} qualified graded cards</p>
+            {registryLoading && <small>Updating live-price rankings…</small>}
+            {registryError && <small role="alert">{registryError}</small>}
+            {selectedRegistry?.topSets?.length ? <div className="showcase-registry-top-sets">
+              {selectedRegistry.topSets.map(set => <Link key={set.productSetId}
+                href={"/registry/" + encodeURIComponent(set.productSetId) + (selectedUserId ? "?userId=" + encodeURIComponent(selectedUserId) : "")}>
+                <span>{set.name}<small>Rating {set.rating.toFixed(1)}/100</small></span>
+                <strong>{number(set.points)} pts →</strong>
+              </Link>)}
+            </div> : <p>Grade a card to start a competing set registry.</p>}
+          </div>
+
           <div
             className="showcase-community-tabs"
             role="group"
@@ -2265,6 +2306,8 @@ export default function ShowcaseClient() {
             >
               Completed Sets
             </button>
+            <button type="button" className={communityMetric === "registry" ? "is-active" : ""}
+              onClick={() => setCommunityMetric("registry")}>Registry Points</button>
           </div>
 
           {leaderboardError ? (
@@ -2286,7 +2329,9 @@ export default function ShowcaseClient() {
             <div className="showcase-community-list">
               {communityRows.map((row, index) => {
                 const primary =
-                  communityMetric === "cards"
+                  communityMetric === "registry"
+                    ? `${number(registryByUser.get(row.userId)?.totalPoints ?? 0)} pts`
+                    : communityMetric === "cards"
                     ? `${number(
                         row.totalCards
                       )} cards`
