@@ -29,6 +29,7 @@ export async function GET(req: Request) {
       productSetName: card.productSet?.isBase ? "Base Set" : card.productSet?.name ?? null,
       productName: [card.productSet?.product.year, card.productSet?.product.brand, card.productSet?.product.sport].filter(Boolean).join(" "),
       creditPerCopyCents: Math.min(100, calculateGradingFeeCents(bookValueToCents(card.bookValue))),
+      feePerCopyCents: calculateGradingFeeCents(bookValueToCents(card.bookValue)),
     }, { headers: { "Cache-Control": "private, no-store" } });
   } catch {
     return NextResponse.json({ ok: false, error: "Unable to quote grading credits" }, { status: 500 });
