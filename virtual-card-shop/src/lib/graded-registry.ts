@@ -121,7 +121,7 @@ export async function getSetRegistry(productSetId: string, viewerId: string, tar
     },
   });
   if (!set) return null;
-  const [cards, owned, prestige] = await Promise.all([
+  const [cards, owned, prestige, productSets] = await Promise.all([
     prisma.card.findMany({
       where: { productSetId },
       select: { id: true, cardNumber: true, player: true, team: true,
@@ -135,6 +135,11 @@ export async function getSetRegistry(productSetId: string, viewerId: string, tar
       where: { userId_productSetId: { userId: viewerId, productSetId } },
       select: { gradingCreditBalanceCents: true, timesCompleted: true },
     }) : Promise.resolve(null),
+    prisma.productSet.findMany({
+      where: { productId: set.productId },
+      select: { id: true, name: true, isBase: true, isInsert: true },
+      orderBy: [{ isBase: "desc" }, { name: "asc" }],
+    }),
   ]);
   const calc = compute(cards, owned);
   const collectors = calc.standings.length ? await prisma.user.findMany({
@@ -155,6 +160,7 @@ export async function getSetRegistry(productSetId: string, viewerId: string, tar
   }));
   return {
     productSet: set,
+    productSets,
     ...calc,
     cards: calc.cardsByUser.get(targetUserId) ?? empty,
     standing, rank: calc.standings.findIndex(s => s.userId === targetUserId) + 1 || null,
