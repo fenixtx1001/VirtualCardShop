@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import RegistrySlabPreview from "./registry-slab-preview";
 import { useEffect, useMemo, useState } from "react";
 import VcsSlab from "@/components/grading/VcsSlab";
 
@@ -16,6 +18,7 @@ type Registry = {
  productSet: { id: string; name: string | null; isBase: boolean; productId: string;
    product: { year: number | null; brand: string | null; sport: string | null } };
  cards: Card[]; totalCards: number; maximum: number; setValue: number; multiplier: number;
+ productSets: Array<{ id: string; name: string | null; isBase: boolean; isInsert: boolean }>;
  rank: number | null; gradingCreditBalanceCents: number;
  standing: Standing; standings: Standing[];
 };
@@ -26,6 +29,7 @@ const num = (v: number) => Math.round(v).toLocaleString("en-US");
 export default function RegistryClient({ productSetId, targetUserId }: {
  productSetId: string; targetUserId: string;
 }) {
+ const router = useRouter();
  const [data, setData] = useState<Registry | null>(null);
  const [loading, setLoading] = useState(true);
  const [error, setError] = useState("");
@@ -38,7 +42,7 @@ export default function RegistryClient({ productSetId, targetUserId }: {
 
  useEffect(() => {
    const controller = new AbortController();
-   setLoading(true); setError("");
+   setLoading(true); setError(""); setData(null); setPage(0); setFocused(null);
    const qs = targetUserId ? "?userId=" + encodeURIComponent(targetUserId) : "";
    fetch("/api/registry/" + encodeURIComponent(productSetId) + qs,
      { cache: "no-store", signal: controller.signal })
@@ -75,7 +79,13 @@ export default function RegistryClient({ productSetId, targetUserId }: {
  const visible = rows.slice(currentPage * PAGE_SIZE, (currentPage + 1) * PAGE_SIZE);
  const go = (newPage: number) => setPage(Math.max(0, Math.min(pageCount - 1, newPage)));
  const displayName = data ? [data.productSet.product.year,
-   data.productSet.product.brand, data.productSet.name].filter(Boolean).join(" · ") : "Graded Registry";
+   data.productSet.product.brand, data.productSet.product.sport].filter(Boolean).join(" ") : "Graded Registry";
+ const selectedSetLabel = !data ? "" :
+   data.productSet.isBase ? "Base Set" :
+   (data.productSet.name?.trim() || "Insert Set");
+ const slabName = selectedSetLabel === "Base Set" ? displayName :
+   (selectedSetLabel.toLowerCase().startsWith(displayName.toLowerCase())
+     ? selectedSetLabel : displayName + " · " + selectedSetLabel);
  const setParam = encodeURIComponent(productSetId);
 
  return <main className="vcs-registry">
@@ -85,9 +95,26 @@ export default function RegistryClient({ productSetId, targetUserId }: {
          <Link href="/showcase" className="vcs-registry-back">← Showcase</Link>
          <p className="vcs-registry-eyebrow">VCS GRADED REGISTRY</p>
          <h1>{displayName}</h1>
+         <p className="vcs-registry-selected-set">{selectedSetLabel}</p>
          <p>One best owned graded slab per checklist card · live raw-value scoring</p>
        </div>
-       {data && <Link className="vcs-registry-link" href={"/collection/" + encodeURIComponent(data.productSet.productId) + "/binder?productSetId=" + setParam}>Raw Binder ↗</Link>}
+       {data && <div className="vcs-registry-header-actions">
+         <label className="vcs-registry-set-selector">Choose a product set
+           <select aria-label="Choose a product set" value={productSetId}
+             onChange={e => {
+               const id = e.target.value;
+               if (id === productSetId) return;
+               setPage(0); setFocused(null);
+               router.push("/registry/" + encodeURIComponent(id) +
+                 (targetUserId ? "?userId=" + encodeURIComponent(targetUserId) : ""));
+             }}>
+             {data.productSets.map(s => <option key={s.id} value={s.id}>
+               {s.isBase ? "Base Set" : s.name || "Insert Set"}
+             </option>)}
+           </select>
+         </label>
+         <Link className="vcs-registry-link" href={"/collection/" + encodeURIComponent(data.productSet.productId) + "/binder?productSetId=" + setParam}>Raw Binder ↗</Link>
+       </div>}
      </header>
      {loading && <p role="status">Loading graded registry…</p>}
      {error && <p role="alert" className="vcs-registry-error">{error}</p>}
@@ -132,10 +159,7 @@ export default function RegistryClient({ productSetId, targetUserId }: {
          {visible.length ? visible.map(c => <div key={c.cardId} className="vcs-registry-pocket">
            {c.grade >= 6 ?
              <button type="button" className="vcs-registry-slab-trigger" onClick={() => setFocused(c)} aria-label={"Open full slab for " + c.player + ", grade " + c.grade}>
-               <div className="vcs-registry-mini-slab">
-                 <div className="vcs-registry-mini-label"><span className="vcs-registry-mini-brand">VCS</span><strong>{c.grade}</strong></div>
-                 {c.frontImageUrl ? <img loading="lazy" src={c.frontImageUrl} alt="" /> : <span className="vcs-registry-no-scan">NO SCAN</span>}
-               </div>
+               <RegistrySlabPreview card={c} setName={slabName} />
              </button> :
              <div className="vcs-registry-missing" aria-label="No graded slab"><span>+</span><small>Unslabbed</small></div>}
            <div className="vcs-registry-card-caption">
@@ -164,7 +188,7 @@ export default function RegistryClient({ productSetId, targetUserId }: {
        <button className="vcs-registry-close" onClick={() => setFocused(null)} aria-label="Close">×</button>
        <div className="vcs-registry-large-slab">
          <VcsSlab player={focused.player} cardNumber={focused.cardNumber} team={focused.team}
-           setName={displayName} grade={focused.grade}
+           setName={slabName} grade={focused.grade}
            imageUrl={focused.frontImageUrl} backImageUrl={focused.backImageUrl}
            registry={{ cardId: focused.cardId, gradedAt: focused.gradedAt }} />
        </div>
