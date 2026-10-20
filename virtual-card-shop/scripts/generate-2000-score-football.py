@@ -80,9 +80,22 @@ def run():
  # TCDB may abbreviate subset flags differently in parallel sets; compare
  # canonical subjects, not extraneous SP/SN notation.
  for key in ("final-score","scorecard"):
-  for number,subject_team in data[key].items():
-   if data["base"].get(number)!=subject_team:
-    issues.append(f"{key} #{number}: identity differs from Base {subject_team!r} vs {data['base'].get(number)!r}")
+  for number,subject_team in list(data[key].items()):
+   base_identity=data["base"].get(number)
+   # #115 uses a DP designation on Base but not on its parallels.
+   # DP is a separate collector token, not part of Bledsoe's surname.
+   if number=="115" and base_identity==("Drew Bledsoe DP","New England Patriots") and subject_team==("Drew Bledsoe","New England Patriots"):
+    data[key][number]=base_identity
+    print(f"{key} #115: normalized DP designation to Base")
+    continue
+   # #289 is listed with given name Daniel on Scorecard; Bubba is the
+   # same Miami Hurricanes tight end. Standardize to the Base identity.
+   if key=="scorecard" and number=="289" and base_identity==("Bubba Franks","Miami Hurricanes") and subject_team==("Daniel Franks","Miami Hurricanes"):
+    data[key][number]=base_identity
+    print("scorecard #289: normalized Daniel Franks to Bubba Franks")
+    continue
+   if base_identity!=subject_team:
+    issues.append(f"{key} #{number}: identity differs from Base {subject_team!r} vs {base_identity!r}")
  if issues:
   print("=== ALL SOURCE DISCREPANCIES ===")
   for message in issues:print("  "+message)
