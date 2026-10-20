@@ -485,15 +485,31 @@ export default function ShowcaseClient() {
   const [gradingBusy, setGradingBusy] = useState(false);
   const [gradingError, setGradingError] = useState("");
   const [gradingCreditCount, setGradingCreditCount] = useState(0);
+  const [gradingCreditSetName, setGradingCreditSetName] = useState("");
+  const [gradingUseCredits, setGradingUseCredits] = useState(true);
+  const [gradingCreditLoading, setGradingCreditLoading] = useState(false);
+  const [gradingCreditError, setGradingCreditError] = useState("");
+  const [gradingCreditRetry, setGradingCreditRetry] = useState(0);
   useEffect(() => {
     if (!gradingCard) { setGradingCreditCount(0); return; }
-    let active = true;
+    const abort = new AbortController();
+    setGradingCreditLoading(true); setGradingCreditError("");
     fetch("/api/grading/credits?cardId=" + encodeURIComponent(String(gradingCard.cardId)),
-      { cache: "no-store" }).then(r => r.json()).then(j => {
-        if (active && j?.ok) setGradingCreditCount(j.creditCount || 0);
-    }).catch(() => {});
-    return () => { active = false; };
-  }, [gradingCard]);
+      { cache: "no-store", signal: abort.signal }).then(async res => {
+      const j = await res.json();
+      if (!res.ok || !j?.ok) throw new Error(j?.error || "Unable to load grading credits");
+      return j;
+    }).then(j => {
+      if (abort.signal.aborted) return;
+      setGradingCreditCount(j.creditCount ?? 0);
+      setGradingCreditSetName([j.productName, j.productSetName].filter(Boolean).join(" · "));
+    }).catch(e => {
+      if (!abort.signal.aborted) setGradingCreditError(e instanceof Error ? e.message : "Credit lookup failed");
+    }).finally(() => {
+      if (!abort.signal.aborted) setGradingCreditLoading(false);
+    });
+    return () => abort.abort();
+  }, [gradingCard, gradingCreditRetry]);
 
   const [refreshing, setRefreshing] = useState(false);
   const [toast, setToast] = useState("");
@@ -626,8 +642,8 @@ export default function ShowcaseClient() {
       Math.min(gradingQuantity, gradingMaxQty)
     );
 
-  const gradingCreditCopies = Math.min(gradingCreditCount,
-    Math.max(1, Math.min(gradingQuantity, gradingMaxQty)));
+  const gradingCreditCopies = gradingUseCredits ? Math.min(gradingCreditCount,
+    Math.max(1, Math.min(gradingQuantity, gradingMaxQty))) : 0;
   const gradingCreditAmountCents = gradingCreditCopies * Math.min(100, gradingFeePerCardCents);
   const gradingNetFeeCents = Math.max(0, gradingTotalFeeCents - gradingCreditAmountCents);
 
@@ -1065,10 +1081,11 @@ export default function ShowcaseClient() {
     setGradingCard(card);
     setGradingQuantity(1);
     setGradingError("");
+    setGradingUseCredits(true);
   }
 
   async function submitForGrading() {
-    if (!gradingCard || gradingBusy) return;
+    if (!gradingCard || gradingBusy || gradingCreditLoading || gradingCreditError) return;
 
     const quantity = Math.max(
       1,
@@ -1093,6 +1110,7 @@ export default function ShowcaseClient() {
           body: JSON.stringify({
             cardId: gradingCard.cardId,
             quantity,
+            useSetCredits: gradingUseCredits,
           }),
         }
       );
@@ -2540,14 +2558,32 @@ export default function ShowcaseClient() {
               </select>
             </label>
 
+            <div className="showcase-registry-credit-redemption">
+              {gradingCreditLoading ? <p role="status">Checking set Prestige credits…</p> :
+                gradingCreditError ? <p role="alert">
+                  Couldn't load credits: {gradingCreditError}{" "}
+                  <button type="button" onClick={() => setGradingCreditRetry(n => n + 1)}>Retry</button>
+                </p> : <>
+                  <strong>{gradingCreditCount} set credit{gradingCreditCount === 1 ? "" : "s"} available</strong>
+                  <small>{gradingCreditSetName || "Unassigned product set"}</small>
+                  {gradingCreditCount > 0 ?
+                    <label><input type="checkbox" checked={gradingUseCredits}
+                      disabled={gradingBusy} onChange={e => setGradingUseCredits(e.target.checked)} />
+                      Apply available credits
+                    </label> : <p>Credits from other product sets cannot be used on this card.</p>}
+                  <div className="showcase-registry-credit-breakdown">
+                    <span>Standard fee</span><b>{centsToMoney(gradingTotalFeeCents)}</b>
+                    <span>Credits applied ({gradingCreditCopies})</span><b>-{centsToMoney(gradingCreditAmountCents)}</b>
+                  </div>
+                </>}
+            </div>
             <div className="showcase-grade-total">
-              <span>Estimated cash charge (after set credits)</span>
+              <span>Cash due now</span>
               <strong>{centsToMoney(gradingNetFeeCents)}</strong>
             </div>
 
             <p className="showcase-grade-note">
-              {gradingCreditCopies > 0 ? String(gradingCreditCopies) + " of your " + gradingCreditCount + " set grading credits will be used (saving " + centsToMoney(gradingCreditAmountCents) + "). " : "Eligible set grading credits will apply automatically. "}
-              Grades are determined when submitted and
+              Grade results are independent of your credit balance. Credits can be used only within the exact product set that earned them. Grades are determined when submitted and
               remain hidden until the grading order is
               ready.
             </p>
@@ -2564,7 +2600,7 @@ export default function ShowcaseClient() {
             <button
               type="button"
               className="showcase-primary showcase-grade-submit"
-              disabled={gradingBusy}
+              disabled={gradingBusy || gradingCreditLoading || Boolean(gradingCreditError)}
               onClick={() =>
                 void submitForGrading()
               }
