@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/3296/1992-Playoff",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/3296/1992-Playoff",
+    "relatedUrl": "https://www.tcdb.com/Inserts.cfm/sid/3296/1992-Playoff"
+  },
+  "decisions": {
+    "base": "Complete 150-card base checklist; each Base card has equal VCS draw probability.",
+    "rookies": "Append RC only to the 10 independently verified TCDB true rookie cards.",
+    "inserts": "TCDB lists no pack-issued inserts or parallels.",
+    "promos": "Exclude separately listed promotional cards, which are not regular pack issues.",
+    "variants": "Collapse errors/uncorrected errors into one card identity; do not import annotation text as player.",
+    "playerNames": "Only remove metadata tokens when separated from the player's name by whitespace or clear delimiters. Preserve legitimate surname endings.",
+    "packs": "4 cards/pack and 24 packs/box.",
+    "release": "Keep unreleased until checklist/team/rookie QA, card art, pricing, and pack visual review."
+  },
+  "product": {
+    "id": "1992_Playoff_Football",
+    "year": 1992,
+    "brand": "Playoff",
+    "sport": "Football",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1992-playoff-football.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1992_Playoff_Football_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 150,
+      "sourceSetId": 3296,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/3296/1992-Playoff",
+      "notes": "All 150 numbered base subjects have equal pull odds; ten independently verified RCs."
+    }
+  ]
+}
