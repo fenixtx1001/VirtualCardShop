@@ -277,3 +277,6 @@ body:has(.binder-shell){background:#171a17}
 }
 .binder-pocket-focused{border-color:#d7bb7e;box-shadow:inset 0 0 0 1px #d7bb7eaa,0 0 9px #d7bb7e5b}
 .binder-pocket-focused .binder-qty-badge{background:#433d27}
+
+/* Preserve high-contrast binder title against application-wide heading styles. */
+.binder-shell .binder-header h1 { color: #f2eee5 !important; opacity: 1; }
