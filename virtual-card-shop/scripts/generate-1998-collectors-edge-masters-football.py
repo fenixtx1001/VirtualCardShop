@@ -67,6 +67,10 @@ def source(url):
  raise SystemExit(f"TCDB rate limit persisted at {url}; NO FILES WRITTEN")
 def clean(s):
  s=" ".join(s.split()).strip()
+ # TCDB occasionally concatenates checklist explanatory text immediately
+ # after the separate SN token: "CL, SN150Checklist: 1-100; ...".
+ # Only remove the serial token here; keep the meaningful checklist title.
+ s=re.sub(r"(?:,\s*|\s+)SN\d+(?=Checklist:)", "", s, flags=re.I)
  match=TAIL.search(s)
  return s[:match.start()].strip(" ,;") if match else s
 def page(url):
@@ -163,6 +167,8 @@ def tests():
  assert clean("Marshall")=="Marshall"
  assert clean("Michael Pittman RC, SN5000")=="Michael Pittman"
  assert clean("Jerry Rice AU, SN50")=="Jerry Rice"
+ assert clean("Peyton Manning CL, SN150Checklist: 1-100; Listed as #199 on checklist card")=="Peyton Manning CLChecklist: 1-100; Listed as #199 on checklist card"
+ assert clean("Ryan Leaf CL, SN10Checklist: 101-200; Listed as #200 on checklist card")=="Ryan Leaf CLChecklist: 101-200; Listed as #200 on checklist card"
  assert NUM.fullmatch("S171") and NUM.fullmatch("CK1") and NUM.fullmatch("SM20")
  assert NUM.fullmatch("SM20a") and NUM.fullmatch("SM20b")
  print("1998 Masters offline tests passed")
