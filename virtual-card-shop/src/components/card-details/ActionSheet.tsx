@@ -386,6 +386,7 @@ export default function ActionSheet({
                     </div> : creditQuote ? <>
                       <strong>{creditQuote.creditCount} grading credit{creditQuote.creditCount === 1 ? "" : "s"} available</strong>
                       <small>{creditQuote.productName || "Unknown product"} · {creditQuote.productSetName || "Unassigned set"} · Prestige {creditQuote.prestigeLevel}</small>
+                      <Link href="/grading/credits" className="cd-credit-wallet-link">View all credits by set ↗</Link>
                       {creditQuote.creditCount > 0 ?
                         <label className="cd-credit-toggle">
                           <input type="checkbox" checked={useSetCredits} disabled={busy} onChange={e => setUseSetCredits(e.target.checked)} />
