@@ -1690,3 +1690,41 @@ body:has(.checklist-shell) {
     transition: none;
   }
 }
+
+/* Desktop contrast fix: prevent global table styles and OS-native menu theming
+   from rendering a white header with pale labels in the charcoal Checklist. */
+.checklist-shell .checklist-desktop-table thead,
+.checklist-shell .checklist-desktop-table thead tr,
+.checklist-shell .checklist-desktop-table thead th {
+  background-color: #2c352d !important;
+  color: #e9e7dc !important;
+  opacity: 1 !important;
+}
+.checklist-shell .checklist-desktop-table thead th {
+  border-bottom: 1px solid #65735d !important;
+}
+.checklist-shell .checklist-desktop-table th.is-sortable:hover,
+.checklist-shell .checklist-desktop-table th.is-sortable:focus-visible {
+  background-color: #394539 !important;
+  color: #f4dba2 !important;
+}
+.checklist-shell .checklist-sort,
+.checklist-shell .checklist-sort select {
+  color-scheme: dark !important;
+  background-color: #222c24 !important;
+  color: #f4f0e5 !important;
+}
+.checklist-shell select {
+  color-scheme: dark !important;
+}
+.checklist-shell select option,
+.checklist-shell select optgroup,
+.checklist-shell .checklist-sort select option {
+  color-scheme: dark !important;
+  background: #222c24 !important;
+  color: #f4f0e5 !important;
+}
+.checklist-shell select option:checked {
+  background: #52684f !important;
+  color: #ffffff !important;
+}
