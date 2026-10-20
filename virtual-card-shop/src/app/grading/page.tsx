@@ -66,9 +66,21 @@ type GradingOrderRow = {
   totalRevealedValueCents: number;
 };
 
+type RegistryRevealImpact = {
+  productSetId: string;
+  previousBestGrade: number;
+  highestRevealedGrade: number;
+  newBestGrade: number;
+  previousPoints: number;
+  newPoints: number;
+  pointsGained: number;
+  isUpgrade: boolean;
+};
+
 type RevealPayload = {
   ok: boolean;
   alreadyRevealed: boolean;
+  registryImpact: RegistryRevealImpact | null;
   order: {
     id: number;
     status: string;
@@ -854,6 +866,43 @@ function RevealModal({
                     Certified
                   </div>
                 </div>
+
+                {payload.registryImpact && !payload.alreadyRevealed ? (
+                  <Link
+                    href={"/registry/" + encodeURIComponent(payload.registryImpact.productSetId)}
+                    className={"vcs-reveal-registry-impact" +
+                      (payload.registryImpact.pointsGained > 0 ? " has-gain" : " no-gain")}
+                    onClick={onClose}
+                    aria-label={
+                      payload.registryImpact.pointsGained > 0
+                        ? "+" + payload.registryImpact.pointsGained + " Registry Points earned; open set registry"
+                        : "No additional Registry Points; open set registry"
+                    }
+                  >
+                    <span className="vcs-reveal-registry-icon" aria-hidden="true">★</span>
+                    <span className="vcs-reveal-registry-copy">
+                      <strong>
+                        {payload.registryImpact.pointsGained > 0
+                          ? "+" + payload.registryImpact.pointsGained.toLocaleString("en-US") + " Registry Points"
+                          : "No new Registry Points"}
+                      </strong>
+                      <small>
+                        {payload.registryImpact.previousBestGrade === 0
+                          ? payload.registryImpact.newBestGrade === 6
+                            ? "First graded copy · Grade 6 earns 0 points"
+                            : "First graded copy · Grade " + payload.registryImpact.newBestGrade
+                          : payload.registryImpact.isUpgrade
+                            ? "New best slab · Grade " + payload.registryImpact.previousBestGrade +
+                              " → " + payload.registryImpact.newBestGrade
+                            : "Best owned grade " + payload.registryImpact.previousBestGrade +
+                              " remains unchanged"}
+                        {payload.results.length > 1
+                          ? " · " + payload.registryImpact.highestRevealedGrade + " highest revealed" : ""}
+                      </small>
+                    </span>
+                    <span className="vcs-reveal-registry-arrow" aria-hidden="true">↗</span>
+                  </Link>
+                ) : null}
 
                 {payload.results.length > 1 ? (
                   <ResultPills results={payload.results} />

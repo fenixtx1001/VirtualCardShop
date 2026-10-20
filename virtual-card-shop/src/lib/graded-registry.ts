@@ -62,6 +62,67 @@ export function registryValueWeight(value: number, setMedian: number) {
 export function registrySetMultiplier(setValue: number) {
   return clamp(Math.sqrt(Math.max(0, setValue) / 100), 0.35, 4);
 }
+
+/**
+ * Registry contribution from one distinct checklist card. Keep this aligned
+ * with the points displayed below an individual slab in the Registry binder.
+ * All prices are the current raw reference prices, not graded appraisals.
+ */
+export function registryPointsForGrade(
+  grade: number, rawValue: number, medianRawValue: number, setMultiplier: number
+): number {
+  return Math.round(
+    (REGISTRY_GRADE_POINTS[grade] ?? 0) *
+    registryValueWeight(rawValue, medianRawValue) * setMultiplier
+  );
+}
+
+/**
+ * Pure scoring calculation for opening a grading mailer.
+ * Only a *strictly higher* best-owned grade can improve a card's score,
+ * even when the mailer contains several copies/grades of that card.
+ * No points are minted here: the Registry total is always recomputed from
+ * current ownership and raw prices.
+ */
+export function calculateRegistryRevealImpact(input: {
+  productSetId: string;
+  previousBestGrade: number;
+  revealedGrades: number[];
+  cardRawValue: number;
+  setRawValues: number[];
+}) {
+  const { productSetId, cardRawValue, setRawValues } = input;
+  const validRevealedGrades = input.revealedGrades
+    .filter(grade => Number.isInteger(grade) && grade >= 6 && grade <= 10);
+  if (!validRevealedGrades.length) {
+    throw new Error("Registry impact requires at least one graded result");
+  }
+  const previousBestGrade = input.previousBestGrade >= 6 &&
+    input.previousBestGrade <= 10 ? input.previousBestGrade : 0;
+  const highestRevealedGrade = Math.max(...validRevealedGrades);
+  const newBestGrade = Math.max(previousBestGrade, highestRevealedGrade);
+  const medianRawValue = median(setRawValues);
+  const setValue = setRawValues.reduce((sum, value) => sum + Math.max(0, value), 0);
+  const setMultiplier = registrySetMultiplier(setValue);
+  const previousPoints = registryPointsForGrade(
+    previousBestGrade, cardRawValue, medianRawValue, setMultiplier
+  );
+  const newPoints = registryPointsForGrade(
+    newBestGrade, cardRawValue, medianRawValue, setMultiplier
+  );
+
+  return {
+    productSetId,
+    previousBestGrade,
+    highestRevealedGrade,
+    newBestGrade,
+    previousPoints,
+    newPoints,
+    pointsGained: Math.max(0, newPoints - previousPoints),
+    isUpgrade: newBestGrade > previousBestGrade,
+  };
+}
+
 function compute(cards: CardRow[], ownership: OwnRow[]) {
   const medianValue = median(cards.map(c => c.bookValue));
   const setValue = cards.reduce((sum, c) => sum + Math.max(0, c.bookValue), 0);
@@ -98,7 +159,7 @@ function compute(cards: CardRow[], ownership: OwnRow[]) {
         gradedAt: own?.gradedAt?.toISOString() ?? null,
         weight: Number(weight.toFixed(4)),
         basePoints: Number(basePoints.toFixed(2)),
-        points: Math.round(basePoints * multiplier),
+        points: registryPointsForGrade(grade, card.bookValue, medianValue, multiplier),
       });
     }
     const rating = maximumBase > 0 ? 100 * base / maximumBase : 0;

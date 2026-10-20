@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
 import { syncDailyPortfolioSnapshot } from "@/lib/portfolio";
+import { calculateRegistryRevealImpact } from "@/lib/graded-registry";
 import {
   bookValueToCents,
   calculateGradedValueCents,
@@ -168,6 +169,7 @@ export async function POST(req: Request) {
           }, 0),
           balanceCents: null as number | null,
           alreadyRevealed: true,
+          registryImpact: null,
         };
       }
 
@@ -185,6 +187,60 @@ export async function POST(req: Request) {
 
       if (resultQuantity !== order.quantity) {
         throw makeHttpError("This grading order has invalid results", 500);
+      }
+
+      // Serialize grading reveals for this card. This guarantees that the
+      // before/after Registry comparison isn't based on a stale best grade
+      // when two mailers containing the same card are opened concurrently.
+      await tx.$queryRaw`
+        SELECT "id" FROM "Card" WHERE "id" = ${order.cardId} FOR UPDATE
+      `;
+
+      const previousBest = await tx.cardOwnership.findFirst({
+        where: {
+          userId: user.id, cardId: order.cardId,
+          grade: { gte: 6, lte: 10 }, quantity: { gt: 0 },
+        },
+        orderBy: { grade: "desc" },
+        select: { grade: true },
+      });
+
+      // Match the Registry's live scoring rules precisely: use current
+      // raw book values for *all* cards in this particular product set.
+      // An unassigned card does not participate in product-set registries.
+      let registryImpact: ReturnType<typeof calculateRegistryRevealImpact> | null = null;
+      const productSetId = order.card.productSet?.id ?? null;
+      if (productSetId) {
+        const setCards = await tx.card.findMany({
+          where: { productSetId },
+          select: { bookValue: true },
+        });
+        registryImpact = calculateRegistryRevealImpact({
+          productSetId,
+          previousBestGrade: previousBest?.grade ?? 0,
+          revealedGrades: order.results.flatMap(row =>
+            row.quantity > 0 ? [row.grade] : []),
+          cardRawValue: order.card.bookValue,
+          setRawValues: setCards.map(card => card.bookValue),
+        });
+      }
+
+      // The transition is conditional: retrying/reopening a mailer must
+      // never transfer slabs twice or claim Registry points again.
+      const primaryResult = [...order.results].sort((a, b) => {
+        if (b.quantity !== a.quantity) return b.quantity - a.quantity;
+        return b.grade - a.grade;
+      })[0];
+      const transitioned = await tx.gradingOrder.updateMany({
+        where: { id: order.id, status: order.status },
+        data: {
+          status: "REVEALED",
+          revealedAt: now,
+          resultGrade: primaryResult?.grade ?? null,
+        },
+      });
+      if (transitioned.count !== 1) {
+        throw makeHttpError("This mailer has already been opened. Refresh your grading desk.", 409);
       }
 
       for (const row of order.results) {
@@ -209,20 +265,6 @@ export async function POST(req: Request) {
           },
         });
       }
-
-      const primaryResult = [...order.results].sort((a, b) => {
-        if (b.quantity !== a.quantity) return b.quantity - a.quantity;
-        return b.grade - a.grade;
-      })[0];
-
-      await tx.gradingOrder.update({
-        where: { id: order.id },
-        data: {
-          status: "REVEALED",
-          revealedAt: now,
-          resultGrade: primaryResult?.grade ?? null,
-        },
-      });
 
       await syncDailyPortfolioSnapshot(tx, user.id);
 
@@ -258,12 +300,14 @@ export async function POST(req: Request) {
         }, 0),
         balanceCents: updatedUser?.balanceCents ?? null,
         alreadyRevealed: false,
+        registryImpact,
       };
     });
 
     return NextResponse.json({
       ok: true,
       alreadyRevealed: result.alreadyRevealed,
+      registryImpact: result.registryImpact,
       order: {
         id: result.order.id,
         status: result.order.status,
