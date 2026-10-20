@@ -1,0 +1,1541 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Pat Borders,Toronto Blue Jays,,
+base,2,Greg Maddux,Chicago Cubs,,
+base,3,Daryl Boston,New York Mets,,
+base,4,Bob Ayrault RC,Philadelphia Phillies,,
+base,5,Tony Phillips,Detroit Tigers,,
+base,6,Damion Easley,California Angels,,
+base,7,Kip Gross,Los Angeles Dodgers,,
+base,8,Jim Thome,Cleveland Indians,,
+base,9,Tim Belcher,Cincinnati Reds,,
+base,10,Gary Wayne,Minnesota Twins,,
+base,11,Sam Militello,New York Yankees,,
+base,12,Mike Magnante,Kansas City Royals,,
+base,13,Tim Wakefield,Pittsburgh Pirates,,
+base,14,Tim Hulett,Baltimore Orioles,,
+base,15,Rheal Cormier,St. Louis Cardinals,,
+base,16,Juan Guerrero,Houston Astros,,
+base,17,Rich Gossage,Oakland Athletics,,
+base,18,Tim Laker RC,Montreal Expos,,
+base,19,Darrin Jackson,San Diego Padres,,
+base,20,Jack Clark,Boston Red Sox,,
+base,21,Roberto Hernandez,Chicago White Sox,,
+base,22,Dean Palmer,Texas Rangers,,
+base,23,Harold Reynolds,Seattle Mariners,,
+base,24,Dan Plesac,Milwaukee Brewers,,
+base,25,Brent Mayne,Kansas City Royals,,
+base,26,Pat Hentgen,Toronto Blue Jays,,
+base,27,Luis Sojo,California Angels,,
+base,28,Ron Gant,Atlanta Braves,,
+base,29,Paul Gibson,New York Mets,,
+base,30,Bip Roberts,Cincinnati Reds,,
+base,31,Mickey Tettleton,Detroit Tigers,,
+base,32,Randy Velarde,New York Yankees,,
+base,33,Brian McRae,Kansas City Royals,,
+base,34,Wes Chamberlain,Philadelphia Phillies,,
+base,35,Wayne Kirby,Cleveland Indians,,
+base,36,Rey Sanchez,Chicago Cubs,,
+base,37,Jesse Orosco,Milwaukee Brewers,,
+base,38,Mike Stanton,Atlanta Braves,,
+base,39,Royce Clayton,San Francisco Giants,,
+base,40,Cal Ripken,Baltimore Orioles,,
+base,41,John Dopson,Boston Red Sox,,
+base,42,Gene Larkin,Minnesota Twins,,
+base,43,Tim Raines,Chicago White Sox,,
+base,44,Randy Myers,San Diego Padres,,
+base,45,Clay Parker,Seattle Mariners,,
+base,46,Mike Scioscia,Los Angeles Dodgers,,
+base,47,Pete Incaviglia,Houston Astros,,
+base,48,Todd Van Poppel,Oakland Athletics,,
+base,49,Ray Lankford,St. Louis Cardinals,,
+base,50,Eddie Murray,New York Mets,,
+base,52,Gary Thurman,Kansas City Royals,,
+base,53,Bob Wickman,New York Yankees,,
+base,54,Joey Cora,Chicago White Sox,,
+base,55,Kenny Rogers,Texas Rangers,,
+base,56,Mike Devereaux,Baltimore Orioles,,
+base,57,Kevin Seitzer,Milwaukee Brewers,,
+base,58,Rafael Belliard,Atlanta Braves,,
+base,59,David Wells,Toronto Blue Jays,,
+base,60,Mark Clark,St. Louis Cardinals,,
+base,61,Carlos Baerga,Cleveland Indians,,
+base,62,Scott Brosius,Oakland Athletics,,
+base,63,Jeff Grotewold,Philadelphia Phillies,,
+base,64,Rick Wrona,Cincinnati Reds,,
+base,65,Kurt Knudsen RC,Detroit Tigers,,
+base,66,Lloyd McClendon,Pittsburgh Pirates,,
+base,67,Omar Vizquel,Seattle Mariners,,
+base,68,Jose Vizcaino,Chicago Cubs,,
+base,69,Rob Ducey,California Angels,,
+base,70,Casey Candaele,Houston Astros,,
+base,71,Ramon Martinez,Los Angeles Dodgers,,
+base,72,Todd Hundley,New York Mets,,
+base,73,John Marzano,Boston Red Sox,,
+base,74,Derek Parks,Minnesota Twins,,
+base,75,Jack McDowell,Chicago White Sox,,
+base,76,Tim Scott,San Diego Padres,,
+base,77,Mike Mussina,Baltimore Orioles,,
+base,78,Delino DeShields,Montreal Expos,,
+base,79,Chris Bosio,Milwaukee Brewers,,
+base,80,Mike Bordick,Oakland Athletics,,
+base,81,Rod Beck,San Francisco Giants,,
+base,82,Ted Power,Cleveland Indians,,
+base,83,John Kruk,Philadelphia Phillies,,
+base,84,Steve Shifflett RC,Kansas City Royals,,
+base,85,Danny Tartabull,New York Yankees,,
+base,86,Mike Greenwell,Boston Red Sox,,
+base,87,Jose Melendez,San Diego Padres,,
+base,88,Craig Wilson,St. Louis Cardinals,,
+base,89,Melvin Nieves,Atlanta Braves,,
+base,90,Ed Sprague,Toronto Blue Jays,,
+base,91,Willie McGee,San Francisco Giants,,
+base,92,Joe Orsulak,Baltimore Orioles,,
+base,93,Jeff King,Pittsburgh Pirates,,
+base,94,Dan Pasqua,Chicago White Sox,,
+base,95,Brian Harper,Minnesota Twins,,
+base,96,Joe Oliver,Cincinnati Reds,,
+base,97,Shane Turner,Seattle Mariners,,
+base,98,Lenny Harris,Los Angeles Dodgers,,
+base,99,Jeff Parrett,Oakland Athletics,,
+base,100,Luis Polonia,California Angels,,
+base,101,Kent Bottenfield,Montreal Expos,,
+base,102,Albert Belle,Cleveland Indians,,
+base,103,Mike Maddux,San Diego Padres,,
+base,104,Randy Tomlin,Pittsburgh Pirates,,
+base,105,Andy Stankiewicz,New York Yankees,,
+base,106,Rico Rossy,Kansas City Royals,,
+base,107,Joe Hesketh,Boston Red Sox,,
+base,108,Dennis Powell,Seattle Mariners,,
+base,109,Derrick May,Chicago Cubs,,
+base,110,Pete Harnisch,Houston Astros,,
+base,111,Kent Mercker,Atlanta Braves,,
+base,112,Scott Fletcher,Milwaukee Brewers,,
+base,113,Rex Hudler,St. Louis Cardinals,,
+base,114,Chico Walker,New York Mets,,
+base,115,Rafael Palmeiro,Texas Rangers,,
+base,116,Mark Leiter,Detroit Tigers,,
+base,117,Pedro Munoz,Minnesota Twins,,
+base,118,Jim Bullinger,Chicago Cubs,,
+base,119,Ivan Calderon,Montreal Expos,,
+base,120,Mike Timlin,Toronto Blue Jays,,
+base,121,Rene Gonzales,California Angels,,
+base,122,Greg Vaughn,Milwaukee Brewers,,
+base,123,Mike Flanagan,Baltimore Orioles,,
+base,124,Mike Hartley,Philadelphia Phillies,,
+base,125,Jeff Montgomery,Kansas City Royals,,
+base,126,Mike Gallego,New York Yankees,,
+base,127,Don Slaught,Pittsburgh Pirates,,
+base,128,Charlie O'Brien,New York Mets,,
+base,129,Jose Offerman,Los Angeles Dodgers,,
+base,130,Mark Wohlers,Atlanta Braves,,
+base,131,Eric Fox RC,Oakland Athletics,,
+base,132,Doug Strange,Chicago Cubs,,
+base,133,Jeff Frye RC,Texas Rangers,,
+base,134,Wade Boggs,Boston Red Sox,,
+base,135,Lou Whitaker,Detroit Tigers,,
+base,136,Craig Grebeck,Chicago White Sox,,
+base,137,Rich Rodriguez,San Diego Padres,,
+base,138,Jay Bell,Pittsburgh Pirates,,
+base,139,Felix Fermin,Cleveland Indians,,
+base,140,Denny Martinez,Montreal Expos,,
+base,141,Eric Anthony,Houston Astros,,
+base,142,Roberto Alomar,Toronto Blue Jays,,
+base,143,Darren Lewis,San Francisco Giants,,
+base,144,Mike Blowers,Seattle Mariners,,
+base,145,Scott Bankhead,Cincinnati Reds,,
+base,146,Jeff Reboulet RC,Minnesota Twins,,
+base,147,Frank Viola,Boston Red Sox,,
+base,148,Bill Pecota,New York Mets,,
+base,149,Carlos Hernandez,Los Angeles Dodgers,,
+base,150,Bobby Witt,Oakland Athletics,,
+base,151,Sid Bream,Atlanta Braves,,
+base,152,Todd Zeile,St. Louis Cardinals,,
+base,153,Dennis Cook,Cleveland Indians,,
+base,154,Brian Bohanon,Texas Rangers,,
+base,155,Pat Kelly,New York Yankees,,
+base,156,Milt Cuyler,Detroit Tigers,,
+base,157,Juan Bell,Philadelphia Phillies,,
+base,158,Randy Milligan,Baltimore Orioles,,
+base,159,Mark Gardner,Montreal Expos,,
+base,160,Pat Tabler,Toronto Blue Jays,,
+base,161,Jeff Reardon,Atlanta Braves,,
+base,162,Ken Patterson,Chicago Cubs,,
+base,163,Bobby Bonilla,New York Mets,,
+base,164,Tony Pena,Boston Red Sox,,
+base,165,Greg Swindell,Cincinnati Reds,,
+base,166,Kirk McCaskill,Chicago White Sox,,
+base,167,Doug Drabek,Pittsburgh Pirates,,
+base,168,Franklin Stubbs,Milwaukee Brewers,,
+base,169,Ron Tingley,California Angels,,
+base,170,Willie Banks,Minnesota Twins,,
+base,171,Sergio Valdez,Montreal Expos,,
+base,172,Mark Lemke,Atlanta Braves,,
+base,173,Robin Yount,Milwaukee Brewers,,
+base,174,Storm Davis,Baltimore Orioles,,
+base,175,Dan Walters RC,San Diego Padres,,
+base,176,Steve Farr,New York Yankees,,
+base,177,Curt Wilkerson,Kansas City Royals,,
+base,178,Luis Alicea,St. Louis Cardinals,,
+base,179,Russ Swan,Seattle Mariners,,
+base,180,Mitch Williams,Philadelphia Phillies,,
+base,181,Wilson Alvarez,Chicago White Sox,,
+base,182,Carl Willis,Minnesota Twins,,
+base,183,Craig Biggio,Houston Astros,,
+base,184,Sean Berry,Montreal Expos,,
+base,185,Trevor Wilson,San Francisco Giants,,
+base,186,Jeff Tackett,Baltimore Orioles,,
+base,187,Ellis Burks,Boston Red Sox,,
+base,188,Jeff Branson,Cincinnati Reds,,
+base,189,Matt Nokes,New York Yankees,,
+base,190,John Smiley,Minnesota Twins,,
+base,191,Danny Gladden,Detroit Tigers,,
+base,192,Mike Boddicker,Kansas City Royals,,
+base,193,Roger Pavlik RC,Texas Rangers,,
+base,194,Paul Sorrento,Cleveland Indians,,
+base,195,Vince Coleman,New York Mets,,
+base,196,Gary DiSarcina,California Angels,,
+base,197,Rafael Bournigal RC,Los Angeles Dodgers,,
+base,198,Mike Schooler,Seattle Mariners,,
+base,199,Scott Ruskin,Cincinnati Reds,,
+base,200,Frank Thomas,Chicago White Sox,,
+base,201,Kyle Abbott,Philadelphia Phillies,,
+base,202,Mike Perez,St. Louis Cardinals,,
+base,203,Andre Dawson,Chicago Cubs,,
+base,204,Bill Swift,San Francisco Giants,,
+base,205,Alejandro Pena,Atlanta Braves,,
+base,206,Dave Winfield,Toronto Blue Jays,,
+base,207,Andujar Cedeno,Houston Astros,,
+base,208,Terry Steinbach,Oakland Athletics,,
+base,209,Chris Hammond,Cincinnati Reds,,
+base,210,Todd Burns,Texas Rangers,,
+base,211,Hipolito Pichardo,Kansas City Royals,,
+base,212,John Kiely,Detroit Tigers,,
+base,213,Tim Teufel,San Diego Padres,,
+base,214,Lee Guetterman,New York Mets,,
+base,215,Geronimo Pena,St. Louis Cardinals,,
+base,216,Brett Butler,Los Angeles Dodgers,,
+base,217,Bryan Hickerson,San Francisco Giants,,
+base,218,Ricky Trlicek,Toronto Blue Jays,,
+base,219,Lee Stevens,California Angels,,
+base,220,Roger Clemens,Boston Red Sox,,
+base,221,Carlton Fisk,Chicago White Sox,,
+base,222,Chili Davis,Minnesota Twins,,
+base,223,Walt Terrell,Detroit Tigers,,
+base,224,Jim Eisenreich,Kansas City Royals,,
+base,225,Ricky Bones,Milwaukee Brewers,,
+base,226,Henry Rodriguez,Los Angeles Dodgers,,
+base,227,Ken Hill,Montreal Expos,,
+base,228,Rick Wilkins,Chicago Cubs,,
+base,229,Ricky Jordan,Philadelphia Phillies,,
+base,230,Bernard Gilkey,St. Louis Cardinals,,
+base,231,Tim Fortugno RC,California Angels,,
+base,232,Geno Petralli,Texas Rangers,,
+base,233,Jose Rijo,Cincinnati Reds,,
+base,234,Jim Leyritz,New York Yankees,,
+base,235,Kevin Campbell,Oakland Athletics,,
+base,236,Al Osuna,Houston Astros,,
+base,237,Pete Smith,Atlanta Braves,,
+base,238,Pete Schourek,New York Mets,,
+base,239,Moises Alou,Montreal Expos,,
+base,240,Donn Pall,Chicago White Sox,,
+base,241,Denny Neagle,Pittsburgh Pirates,,
+base,242,Dan Peltier,Texas Rangers,,
+base,243,Scott Scudder,Cleveland Indians,,
+base,244,Juan Guzman,Toronto Blue Jays,,
+base,245,Dave Burba,San Francisco Giants,,
+base,246,Rick Sutcliffe,Baltimore Orioles,,
+base,247,Tony Fossas,Boston Red Sox,,
+base,248,Mike Munoz,Detroit Tigers,,
+base,249,Tim Salmon,California Angels,,
+base,250,Rob Murphy,Houston Astros,,
+base,251,Roger McDowell,Los Angeles Dodgers,,
+base,252,Lance Parrish,Seattle Mariners,,
+base,253,Cliff Brantley,Philadelphia Phillies,,
+base,254,Scott Leius,Minnesota Twins,,
+base,255,Carlos Martinez,Cleveland Indians,,
+base,256,Vince Horsman,Oakland Athletics,,
+base,257,Oscar Azocar,San Diego Padres,,
+base,258,Craig Shipley,San Diego Padres,,
+base,259,Ben McDonald,Baltimore Orioles,,
+base,260,Jeff Brantley,San Francisco Giants,,
+base,261,Damon Berryhill,Atlanta Braves,,
+base,262,Joe Grahe,California Angels,,
+base,263,Dave Hansen,Los Angeles Dodgers,,
+base,264,Rich Amaral,Seattle Mariners,,
+base,265,Tim Pugh RC,Cincinnati Reds,,
+base,266,Dion James,New York Yankees,,
+base,267,Frank Tanana,Detroit Tigers,,
+base,268,Stan Belinda,Pittsburgh Pirates,,
+base,269,Jeff Kent,New York Mets,,
+base,270,Bruce Ruffin,Milwaukee Brewers,,
+base,271,Xavier Hernandez,Houston Astros,,
+base,272,Darrin Fletcher,Montreal Expos,,
+base,273,Tino Martinez,Seattle Mariners,,
+base,274,Benny Santiago,San Diego Padres,,
+base,275,Scott Radinsky,Chicago White Sox,,
+base,276,Mariano Duncan,Philadelphia Phillies,,
+base,277,Kenny Lofton,Cleveland Indians,,
+base,278,Dwight Smith,Chicago Cubs,,
+base,279,Joe Carter,Toronto Blue Jays,,
+base,280,Tim Jones,St. Louis Cardinals,,
+base,281,Jeff Huson,Texas Rangers,,
+base,282,Phil Plantier,Boston Red Sox,,
+base,283,Kirby Puckett,Minnesota Twins,,
+base,284,Johnny Guzman,Oakland Athletics,,
+base,285,Mike Morgan,Chicago Cubs,,
+base,286,Chris Sabo,Cincinnati Reds,,
+base,287,Matt Williams,San Francisco Giants,,
+base,288,Checklist: 1-100 CL,,,
+base,289,Checklist: 101-200 CL,,,
+base,290,Checklist: 201-300 CL,,,
+base,291,Dennis Eckersley MC,Oakland Athletics,,
+base,292,Eric Karros MC,Los Angeles Dodgers,,
+base,293,Pat Listach MC,Milwaukee Brewers,,
+base,294,Andy Van Slyke MC,Pittsburgh Pirates,,
+base,295,Robin Ventura MC,Chicago White Sox,,
+base,296,Tom Glavine MC,Atlanta Braves,,
+base,297,Juan Gonzalez MC,Texas Rangers,,
+base,298,Travis Fryman MC,Detroit Tigers,,
+base,299,Larry Walker MC,Montreal Expos,,
+base,300,Gary Sheffield MC,San Diego Padres,,
+base,301,Chuck Finley,California Angels,,
+base,302,Luis Gonzalez,Houston Astros,,
+base,303,Darryl Hamilton,Milwaukee Brewers,,
+base,304,Bien Figueroa RC,St. Louis Cardinals,,
+base,305,Ron Darling,Oakland Athletics,,
+base,306,Jonathan Hurst,Montreal Expos,,
+base,307,Mike Sharperson,Los Angeles Dodgers,,
+base,308,Mike Christopher,Cleveland Indians,,
+base,309,Marvin Freeman,Atlanta Braves,,
+base,310,Jay Buhner,Seattle Mariners,,
+base,311,Butch Henry,Colorado Rockies,,
+base,312,Greg Harris,San Diego Padres,,
+base,313,Darren Daulton,Philadelphia Phillies,,
+base,314,Chuck Knoblauch,Minnesota Twins,,
+base,315,Greg Harris,Boston Red Sox,,
+base,316,John Franco,New York Mets,,
+base,317,John Wehner,Pittsburgh Pirates,,
+base,318,Donald Harris,Texas Rangers,,
+base,319,Benny Santiago,Florida Marlins,,
+base,320,Larry Walker,Montreal Expos,,
+base,321,Randy Knorr,Toronto Blue Jays,,
+base,322,Ramon Martinez RC,Florida Marlins,,
+base,323,Mike Stanley,New York Yankees,,
+base,324,Bill Wegman,Milwaukee Brewers,,
+base,325,Tom Candiotti,Los Angeles Dodgers,,
+base,326,Glenn Davis,Baltimore Orioles,,
+base,327,Chuck Crim,California Angels,,
+base,328,Scott Livingstone,Detroit Tigers,,
+base,329,Eddie Taubensee,Houston Astros,,
+base,330,George Bell,Chicago White Sox,,
+base,331,Edgar Martinez,Seattle Mariners,,
+base,332,Paul Assenmacher,Chicago Cubs,,
+base,333,Steve Hosey,San Francisco Giants,,
+base,334,Mo Vaughn,Boston Red Sox,,
+base,335,Bret Saberhagen,New York Mets,,
+base,336,Mike Trombley,Minnesota Twins,,
+base,337,Mark Lewis,Cleveland Indians,,
+base,338,Terry Pendleton,Atlanta Braves,,
+base,339,Dave Hollins,Philadelphia Phillies,,
+base,340,Jeff Conine,Florida Marlins,,
+base,341,Bob Tewksbury,St. Louis Cardinals,,
+base,342,Billy Ashley,Los Angeles Dodgers,,
+base,343,Zane Smith,Pittsburgh Pirates,,
+base,344,John Wetteland,Montreal Expos,,
+base,345,Chris Hoiles,Baltimore Orioles,,
+base,346,Frank Castillo,Chicago Cubs,,
+base,347,Bruce Hurst,San Diego Padres,,
+base,348,Kevin McReynolds,Kansas City Royals,,
+base,349,Dave Henderson,Oakland Athletics,,
+base,350,Ryan Bowen,Florida Marlins,,
+base,351,Sid Fernandez,New York Mets,,
+base,352,Mark Whiten,Cleveland Indians,,
+base,353,Nolan Ryan,Texas Rangers,,
+base,354,Rick Aguilera,Minnesota Twins,,
+base,355,Mark Langston,California Angels,,
+base,356,Jack Morris,Toronto Blue Jays,,
+base,357,Rob Deer,Detroit Tigers,,
+base,358,Dave Fleming,Seattle Mariners,,
+base,359,Lance Johnson,Chicago White Sox,,
+base,360,Joe Millette,Philadelphia Phillies,,
+base,361,Wil Cordero,Montreal Expos,,
+base,362,Chito Martinez,Baltimore Orioles,,
+base,363,Scott Servais,Houston Astros,,
+base,364,Bernie Williams,New York Yankees,,
+base,365,Pedro Martinez,Los Angeles Dodgers,,
+base,366,Ryne Sandberg,Chicago Cubs,,
+base,367,Brad Ausmus,Colorado Rockies,,
+base,368,Scott Cooper,Boston Red Sox,,
+base,369,Rob Dibble,Cincinnati Reds,,
+base,370,Walt Weiss,Florida Marlins,,
+base,371,Mark Davis,Atlanta Braves,,
+base,372,Orlando Merced,Pittsburgh Pirates,,
+base,373,Mike Jackson,San Francisco Giants,,
+base,374,Kevin Appier,Kansas City Royals,,
+base,375,Esteban Beltre,Chicago White Sox,,
+base,376,Joe Slusarski,Oakland Athletics,,
+base,377,William Suero,Milwaukee Brewers,,
+base,378,Pete O'Brien,Seattle Mariners,,
+base,379,Alan Embree,Cleveland Indians,,
+base,380,Lenny Webster,Minnesota Twins,,
+base,381,Eric Davis,Los Angeles Dodgers,,
+base,382,Duane Ward,Toronto Blue Jays,,
+base,383,John Habyan,New York Yankees,,
+base,384,Jeff Bagwell,Houston Astros,,
+base,385,Ruben Amaro,Philadelphia Phillies,,
+base,386,Julio Valera,California Angels,,
+base,387,Robin Ventura,Chicago White Sox,,
+base,388,Archi Cianfrocco,Montreal Expos,,
+base,389,Skeeter Barnes,Detroit Tigers,,
+base,390,Tim Costo,Cincinnati Reds,,
+base,391,Luis Mercedes,Baltimore Orioles,,
+base,392,Jeremy Hernandez,San Diego Padres,,
+base,393,Shawon Dunston,Chicago Cubs,,
+base,394,Andy Van Slyke,Pittsburgh Pirates,,
+base,395,Kevin Maas,New York Yankees,,
+base,396,Kevin Brown,Texas Rangers,,
+base,397,J.T. Bruett,Minnesota Twins,,
+base,398,Darryl Strawberry,Los Angeles Dodgers,,
+base,399,Tom Pagnozzi,St. Louis Cardinals,,
+base,400,Sandy Alomar,Cleveland Indians,,
+base,401,Keith Miller,Kansas City Royals,,
+base,402,Rich DeLucia,Seattle Mariners,,
+base,403,Shawn Abner,Chicago White Sox,,
+base,404,Howard Johnson,New York Mets,,
+base,405,Mike Benjamin,San Francisco Giants,,
+base,406,Roberto Mejia RC,Colorado Rockies,,
+base,407,Mike Butcher,California Angels,,
+base,408,Deion Sanders,Atlanta Braves,,
+base,409,Todd Stottlemyre,Toronto Blue Jays,,
+base,410,Scott Kamieniecki,New York Yankees,,
+base,411,Doug Jones,Houston Astros,,
+base,412,John Burkett,San Francisco Giants,,
+base,413,Lance Blankenship,Oakland Athletics,,
+base,414,Jeff Parrett,Colorado Rockies,,
+base,415,Barry Larkin,Cincinnati Reds,,
+base,416,Alan Trammell,Detroit Tigers,,
+base,417,Mark Kiefer,Milwaukee Brewers,,
+base,418,Gregg Olson,Baltimore Orioles,,
+base,419,Mark Grace,Chicago Cubs,,
+base,420,Shane Mack,Minnesota Twins,,
+base,421,Bob Walk,Pittsburgh Pirates,,
+base,422,Curt Schilling,Philadelphia Phillies,,
+base,423,Erik Hanson,Seattle Mariners,,
+base,424,George Brett,Kansas City Royals,,
+base,425,Reggie Jefferson,Cleveland Indians,,
+base,426,Mark Portugal,Houston Astros,,
+base,427,Ron Karkovice,Chicago White Sox,,
+base,428,Matt Young,Boston Red Sox,,
+base,429,Troy Neel RC,Oakland Athletics,,
+base,430,Hector Fajardo,Texas Rangers,,
+base,431,Dave Righetti,San Francisco Giants,,
+base,432,Pat Listach,Milwaukee Brewers,,
+base,433,Jeff Innis,New York Mets,,
+base,434,Bob MacDonald,Toronto Blue Jays,,
+base,435,Brian Jordan,St. Louis Cardinals,,
+base,436,Jeff Blauser,Atlanta Braves,,
+base,437,Mike Myers RC,Florida Marlins,,
+base,438,Frank Seminara,San Diego Padres,,
+base,439,Rusty Meacham,Kansas City Royals,,
+base,440,Greg Briley,Seattle Mariners,,
+base,441,Derek Lilliquist,Cleveland Indians,,
+base,442,John Vander Wal,Montreal Expos,,
+base,443,Scott Erickson,Minnesota Twins,,
+base,444,Bob Scanlan,Chicago Cubs,,
+base,445,Todd Frohwirth,Baltimore Orioles,,
+base,446,Tom Goodwin,Los Angeles Dodgers,,
+base,447,William Pennyfeather,Pittsburgh Pirates,,
+base,448,Travis Fryman,Detroit Tigers,,
+base,449,Mickey Morandini,Philadelphia Phillies,,
+base,450,Greg Olson,Atlanta Braves,,
+base,451,Trevor Hoffman,Florida Marlins,,
+base,452,Dave Magadan,Florida Marlins,,
+base,453,Shawn Jeter RC,Chicago White Sox,,
+base,454,Andres Galarraga,Colorado Rockies,,
+base,455,Ted Wood,San Francisco Giants,,
+base,456,Freddie Benavides,Colorado Rockies,,
+base,457,Junior Felix,Florida Marlins,,
+base,458,Alex Cole,Colorado Rockies,,
+base,459,John Orton,California Angels,,
+base,460,Eddie Zosky,Toronto Blue Jays,,
+base,461,Dennis Eckersley,Oakland Athletics,,
+base,462,Lee Smith,St. Louis Cardinals,,
+base,463,John Smoltz,Atlanta Braves,,
+base,464,Ken Caminiti,Houston Astros,,
+base,465,Melido Perez,New York Yankees,,
+base,466,Tom Marsh RC,Philadelphia Phillies,,
+base,467,Jeff Nelson,Seattle Mariners,,
+base,468,Jesse Levis RC,Cleveland Indians,,
+base,469,Chris Nabholz,Montreal Expos,,
+base,470,Mike Macfarlane,Kansas City Royals,,
+base,471,Reggie Sanders,Cincinnati Reds,,
+base,472,Chuck McElroy,Chicago Cubs,,
+base,473,Kevin Gross,Los Angeles Dodgers,,
+base,474,Matt Whiteside RC,Texas Rangers,,
+base,475,Cal Eldred,Milwaukee Brewers,,
+base,476,Dave Gallagher,New York Mets,,
+base,477,Len Dykstra,Philadelphia Phillies,,
+base,478,Mark McGwire,Oakland Athletics,,
+base,479,David Segui,Baltimore Orioles,,
+base,480,Mike Henneman,Detroit Tigers,,
+base,481,Bret Barberie,Florida Marlins,,
+base,482,Steve Sax,Chicago White Sox,,
+base,483,Dave Valle,Seattle Mariners,,
+base,484,Danny Darwin,Boston Red Sox,,
+base,485,Devon White,Toronto Blue Jays,,
+base,486,Eric Plunk,Cleveland Indians,,
+base,487,Jim Gott,Los Angeles Dodgers,,
+base,488,Scooter Tucker,Houston Astros,,
+base,489,Omar Olivares,St. Louis Cardinals,,
+base,490,Greg Myers,California Angels,,
+base,491,Brian Hunter,Atlanta Braves,,
+base,492,Kevin Tapani,Minnesota Twins,,
+base,493,Rich Monteleone,New York Yankees,,
+base,494,Steve Buechele,Chicago Cubs,,
+base,495,Bo Jackson,Chicago White Sox,,
+base,496,Mike LaValliere,Pittsburgh Pirates,,
+base,497,Mark Leonard,San Francisco Giants,,
+base,498,Daryl Boston,Colorado Rockies,,
+base,499,Jose Canseco,Texas Rangers,,
+base,500,Brian Barnes,Montreal Expos,,
+base,501,Randy Johnson,Seattle Mariners,,
+base,502,Tim McIntosh,Milwaukee Brewers,,
+base,503,Cecil Fielder,Detroit Tigers,,
+base,504,Derek Bell,Toronto Blue Jays,,
+base,505,Kevin Koslofski RC,Kansas City Royals,,
+base,506,Darren Holmes,Colorado Rockies,,
+base,507,Brady Anderson,Baltimore Orioles,,
+base,508,John Valentin,Boston Red Sox,,
+base,509,Jerry Browne,Oakland Athletics,,
+base,510,Fred McGriff,San Diego Padres,,
+base,511,Pedro Astacio,Los Angeles Dodgers,,
+base,512,Gary Gaetti,California Angels,,
+base,513,John Burke RC,Colorado Rockies,,
+base,514,Doc Gooden,New York Mets,,
+base,515,Thomas Howard,Cleveland Indians,,
+base,516,Darrell Whitmore RC,Florida Marlins,,
+base,517,Ozzie Guillen,Chicago White Sox,,
+base,518,Darryl Kile,Houston Astros,,
+base,519,Rich Rowland,Detroit Tigers,,
+base,520,Carlos Delgado,Toronto Blue Jays,,
+base,521,Doug Henry,Milwaukee Brewers,,
+base,522,Greg Colbrunn,Montreal Expos,,
+base,523,Tom Gordon,Kansas City Royals,,
+base,524,Ivan Rodriguez,Texas Rangers,,
+base,525,Kent Hrbek,Minnesota Twins,,
+base,526,Eric Young RC,Colorado Rockies,,
+base,527,Rod Brewer,St. Louis Cardinals,,
+base,528,Eric Karros,Los Angeles Dodgers,,
+base,529,Marquis Grissom,Montreal Expos,,
+base,530,Rico Brogna,Detroit Tigers,,
+base,531,Sammy Sosa,Chicago Cubs,,
+base,532,Bret Boone,Seattle Mariners,,
+base,533,Luis Rivera,Boston Red Sox,,
+base,534,Hal Morris,Cincinnati Reds,,
+base,535,Monty Fariss,Florida Marlins,,
+base,536,Leo Gomez,Baltimore Orioles,,
+base,537,Wally Joyner,Kansas City Royals,,
+base,538,Tony Gwynn,San Diego Padres,,
+base,539,Mike Williams,Philadelphia Phillies,,
+base,540,Juan Gonzalez,Texas Rangers,,
+base,541,Ryan Klesko,Atlanta Braves,,
+base,542,Ryan Thompson,New York Mets,,
+base,543,Chad Curtis,California Angels,,
+base,544,Orel Hershiser,Los Angeles Dodgers,,
+base,545,Carlos Garcia,Pittsburgh Pirates,,
+base,546,Bob Welch,Oakland Athletics,,
+base,547,Vinny Castilla,Colorado Rockies,,
+base,548,Ozzie Smith,St. Louis Cardinals,,
+base,549,Luis Salazar,Chicago Cubs,,
+base,550,Mark Guthrie,Minnesota Twins,,
+base,551,Charles Nagy,Cleveland Indians,,
+base,552,Alex Fernandez,Chicago White Sox,,
+base,553,Mel Rojas,Montreal Expos,,
+base,554,Orestes Destrade,Florida Marlins,,
+base,555,Mark Gubicza,Kansas City Royals,,
+base,556,Steve Finley,Houston Astros,,
+base,557,Don Mattingly,New York Yankees,,
+base,558,Rickey Henderson,Oakland Athletics,,
+base,559,Tommy Greene,Philadelphia Phillies,,
+base,560,Arthur Rhodes,Baltimore Orioles,,
+base,561,Alfredo Griffin,Toronto Blue Jays,,
+base,562,Will Clark,San Francisco Giants,,
+base,563,Bob Zupcic,Boston Red Sox,,
+base,564,Chuck Carr,Florida Marlins,,
+base,565,Henry Cotto,Seattle Mariners,,
+base,566,Billy Spiers,Milwaukee Brewers,,
+base,567,Jack Armstrong,Florida Marlins,,
+base,568,Kurt Stillwell,San Diego Padres,,
+base,569,David McCarty,Minnesota Twins,,
+base,570,Joe Vitiello,Kansas City Royals,,
+base,571,Gerald Williams,New York Yankees,,
+base,572,Dale Murphy,Philadelphia Phillies,,
+base,573,Scott Aldred,Colorado Rockies,,
+base,574,Bill Gullickson,Detroit Tigers,,
+base,575,Bobby Thigpen,Chicago White Sox,,
+base,576,Glenallen Hill,Cleveland Indians,,
+base,577,Dwayne Henry,Cincinnati Reds,,
+base,578,Calvin Jones,Colorado Rockies,,
+base,579,Al Martin RC,Pittsburgh Pirates,,
+base,580,Ruben Sierra,Oakland Athletics,,
+base,581,Andy Benes,San Diego Padres,,
+base,582,Anthony Young,New York Mets,,
+base,583,Shawn Boskie,Chicago Cubs,,
+base,584,Scott Pose RC,Florida Marlins,,
+base,585,Mike Piazza,Los Angeles Dodgers,,
+base,586,Donovan Osborne,St. Louis Cardinals,,
+base,587,James Austin,Milwaukee Brewers,,
+base,588,Checklist: 301-400 CL,,,
+base,589,Checklist: 401-500 CL,,,
+base,590,Checklist: 501-600 CL,,,
+base,591,Ken Griffey Jr. MC,Seattle Mariners,,
+base,592,Ivan Rodriguez MC,Texas Rangers,,
+base,593,Carlos Baerga MC,Cleveland Indians,,
+base,594,Fred McGriff MC,San Diego Padres,,
+base,595,Mark McGwire MC,Oakland Athletics,,
+base,596,Roberto Alomar MC,Toronto Blue Jays,,
+base,597,Kirby Puckett MC,Minnesota Twins,,
+base,598,Marquis Grissom MC,Montreal Expos,,
+base,599,John Smoltz MC,Atlanta Braves,,
+base,600,Ryne Sandberg MC,Chicago Cubs,,
+base,601,Wade Boggs,New York Yankees,,
+base,602,Jeff Reardon,Cincinnati Reds,,
+base,603,Billy Ripken,Texas Rangers,,
+base,604,Bryan Harvey,Florida Marlins,,
+base,605,Carlos Quintana,Boston Red Sox,,
+base,606,Greg Hibbard,Chicago Cubs,,
+base,607,Ellis Burks,Chicago White Sox,,
+base,608,Greg Swindell,Houston Astros,,
+base,609,Dave Winfield,Minnesota Twins,,
+base,610,Charlie Hough,Florida Marlins,,
+base,611,Chili Davis,California Angels,,
+base,612,Jody Reed,Los Angeles Dodgers,,
+base,613,Mark Williamson,Baltimore Orioles,,
+base,614,Phil Plantier,San Diego Padres,,
+base,615,Jim Abbott,New York Yankees,,
+base,616,Dante Bichette,Colorado Rockies,,
+base,617,Mark Eichhorn,Toronto Blue Jays,,
+base,618,Gary Sheffield,San Diego Padres,,
+base,619,Richie Lewis RC,Florida Marlins,,
+base,620,Joe Girardi,Colorado Rockies,,
+base,621,Jaime Navarro,Milwaukee Brewers,,
+base,622,Willie Wilson,Chicago Cubs,,
+base,623,Scott Fletcher,Boston Red Sox,,
+base,624,Bud Black,San Francisco Giants,,
+base,625,Tom Brunansky,Milwaukee Brewers,,
+base,626,Steve Avery,Atlanta Braves,,
+base,627,Paul Molitor,Toronto Blue Jays,,
+base,628,Gregg Jefferies,St. Louis Cardinals,,
+base,629,Dave Stewart,Toronto Blue Jays,,
+base,630,Javy Lopez,Atlanta Braves,,
+base,631,Greg Gagne,Kansas City Royals,,
+base,632,Bobby Kelly,Cincinnati Reds,,
+base,633,Mike Fetters,Milwaukee Brewers,,
+base,634,Ozzie Canseco,St. Louis Cardinals,,
+base,635,Jeff Russell,Boston Red Sox,,
+base,636,Pete Incaviglia,Philadelphia Phillies,,
+base,637,Tom Henke,Texas Rangers,,
+base,638,Chipper Jones,Atlanta Braves,,
+base,639,Jimmy Key,New York Yankees,,
+base,640,Dave Martinez,San Francisco Giants,,
+base,641,Dave Stieb,Chicago White Sox,,
+base,642,Milt Thompson,Philadelphia Phillies,,
+base,643,Alan Mills,Baltimore Orioles,,
+base,644,Tony Fernandez,New York Mets,,
+base,645,Randy Bush,Minnesota Twins,,
+base,646,Joe Magrane,St. Louis Cardinals,,
+base,647,Ivan Calderon,Boston Red Sox,,
+base,648,Jose Guzman,Chicago Cubs,,
+base,649,John Olerud,Toronto Blue Jays,,
+base,650,Tom Glavine,Atlanta Braves,,
+base,651,Julio Franco,Texas Rangers,,
+base,652,Armando Reynoso,Colorado Rockies,,
+base,653,Felix Jose,Kansas City Royals,,
+base,654,Ben Rivera,Philadelphia Phillies,,
+base,655,Andre Dawson,Boston Red Sox,,
+base,656,Mike Harkey,Chicago Cubs,,
+base,657,Kevin Seitzer,Oakland Athletics,,
+base,658,Lonnie Smith,Pittsburgh Pirates,,
+base,659,Norm Charlton,Seattle Mariners,,
+base,660,David Justice,Atlanta Braves,,
+base,661,Fernando Valenzuela,Baltimore Orioles,,
+base,662,Dan Wilson,Cincinnati Reds,,
+base,663,Mark Gardner,Kansas City Royals,,
+base,664,Doug Dascenzo,Texas Rangers,,
+base,665,Greg Maddux,Atlanta Braves,,
+base,666,Harold Baines,Baltimore Orioles,,
+base,667,Randy Myers,Chicago Cubs,,
+base,668,Harold Reynolds,Baltimore Orioles,,
+base,669,Candy Maldonado,Chicago Cubs,,
+base,670,Al Leiter,Toronto Blue Jays,,
+base,671,Jerald Clark,Colorado Rockies,,
+base,672,Doug Drabek,Houston Astros,,
+base,673,Kirk Gibson,Detroit Tigers,,
+base,674,Steve Reed RC,Colorado Rockies,,
+base,675,Mike Felder,Seattle Mariners,,
+base,676,Ricky Gutierrez,San Diego Padres,,
+base,677,Spike Owen,New York Yankees,,
+base,678,Otis Nixon,Atlanta Braves,,
+base,679,Scott Sanderson,California Angels,,
+base,680,Mark Carreon,San Francisco Giants,,
+base,681,Troy Percival,California Angels,,
+base,682,Kevin Stocker,Philadelphia Phillies,,
+base,683,Jim Converse RC,Seattle Mariners,,
+base,684,Barry Bonds,San Francisco Giants,,
+base,685,Greg Gohr,Detroit Tigers,,
+base,686,Tim Wallach,Los Angeles Dodgers,,
+base,687,Matt Mieske,Milwaukee Brewers,,
+base,688,Robby Thompson,San Francisco Giants,,
+base,689,Brien Taylor,New York Yankees,,
+base,690,Kirt Manwaring,San Francisco Giants,,
+base,691,Mike Lansing RC,Montreal Expos,,
+base,692,Steve Decker,Florida Marlins,,
+base,693,Mike Moore,Detroit Tigers,,
+base,694,Kevin Mitchell,Cincinnati Reds,,
+base,695,Phil Hiatt,Kansas City Royals,,
+base,696,Tony Tarasco RC,Atlanta Braves,,
+base,697,Benji Gil,Texas Rangers,,
+base,698,Jeff Juden,Houston Astros,,
+base,699,Kevin Reimer,Milwaukee Brewers,,
+base,700,Andy Ashby,Colorado Rockies,,
+base,701,John Jaha,Milwaukee Brewers,,
+base,702,Tim Bogar RC,New York Mets,,
+base,703,David Cone,Kansas City Royals,,
+base,704,Willie Greene,Cincinnati Reds,,
+base,705,David Hulse RC,Texas Rangers,,
+base,706,Cris Carpenter,Florida Marlins,,
+base,707,"Ken Griffey, Jr.",Seattle Mariners,,
+base,708,Steve Bedrosian,Atlanta Braves,,
+base,709,Dave Nilsson,Milwaukee Brewers,,
+base,710,Paul Wagner RC,Pittsburgh Pirates,,
+base,711,B.J. Surhoff,Milwaukee Brewers,,
+base,712,Rene Arocha RC,St. Louis Cardinals,,
+base,713,Manuel Lee,Texas Rangers,,
+base,714,Brian Williams,Houston Astros,,
+base,715,Sherman Obando RC,Baltimore Orioles,,
+base,716,Terry Mulholland,Philadelphia Phillies,,
+base,717,Paul O'Neill,New York Yankees,,
+base,718,David Nied,Colorado Rockies,,
+base,719,J.T. Snow RC,California Angels,,
+base,720,Nigel Wilson,Florida Marlins,,
+base,721,Mike Bielecki,Cleveland Indians,,
+base,722,Kevin Young,Pittsburgh Pirates,,
+base,723,Charlie Leibrandt,Texas Rangers,,
+base,724,Frank Bolick,Montreal Expos,,
+base,725,Jon Shave RC,Texas Rangers,,
+base,726,Steve Cooke,Pittsburgh Pirates,,
+base,727,Domingo Martinez RC,Toronto Blue Jays,,
+base,728,Todd Worrell,Los Angeles Dodgers,,
+base,729,Jose Lind,Kansas City Royals,,
+base,730,Jim Tatum RC,Colorado Rockies,,
+base,731,Mike Hampton,Seattle Mariners,,
+base,732,Mike Draper RC,New York Mets,,
+base,733,Henry Mercedes,Oakland Athletics,,
+base,734,John Johnstone RC,Florida Marlins,,
+base,735,Mitch Webster,Los Angeles Dodgers,,
+base,736,Russ Springer,California Angels,,
+base,737,Bob Natal RC,Florida Marlins,,
+base,738,Steve Howe,New York Yankees,,
+base,739,Darrell Sherman RC,San Diego Padres,,
+base,740,Pat Mahomes,Minnesota Twins,,
+base,741,Alex Arias,Florida Marlins,,
+base,742,Damon Buford,Baltimore Orioles,,
+base,743,Charlie Hayes,Colorado Rockies,,
+base,744,Guillermo Velasquez,San Diego Padres,,
+base,745,Checklist: 601-750 CL,,,
+base,746,Frank Thomas MC,Chicago White Sox,,
+base,747,Barry Bonds MC,San Francisco Giants,,
+base,748,Roger Clemens MC,Boston Red Sox,,
+base,749,Joe Carter MC,Toronto Blue Jays,,
+base,750,Greg Maddux MC,Atlanta Braves,,
+base,51,Barry Bonds,Pittsburgh Pirates,,
+first-day-production,1,Pat Borders,Toronto Blue Jays,,First Day Production
+first-day-production,2,Greg Maddux,Chicago Cubs,,First Day Production
+first-day-production,3,Daryl Boston,New York Mets,,First Day Production
+first-day-production,4,Bob Ayrault,Philadelphia Phillies,,First Day Production
+first-day-production,5,Tony Phillips,Detroit Tigers,,First Day Production
+first-day-production,6,Damion Easley,California Angels,,First Day Production
+first-day-production,7,Kip Gross,Los Angeles Dodgers,,First Day Production
+first-day-production,8,Jim Thome,Cleveland Indians,,First Day Production
+first-day-production,9,Tim Belcher,Cincinnati Reds,,First Day Production
+first-day-production,10,Gary Wayne,Minnesota Twins,,First Day Production
+first-day-production,11,Sam Militello,New York Yankees,,First Day Production
+first-day-production,12,Mike Magnante,Kansas City Royals,,First Day Production
+first-day-production,13,Tim Wakefield,Pittsburgh Pirates,,First Day Production
+first-day-production,14,Tim Hulett,Baltimore Orioles,,First Day Production
+first-day-production,15,Rheal Cormier,St. Louis Cardinals,,First Day Production
+first-day-production,16,Juan Guerrero,Houston Astros,,First Day Production
+first-day-production,17,Rich Gossage,Oakland Athletics,,First Day Production
+first-day-production,18,Tim Laker,Montreal Expos,,First Day Production
+first-day-production,19,Darrin Jackson,San Diego Padres,,First Day Production
+first-day-production,20,Jack Clark,Boston Red Sox,,First Day Production
+first-day-production,21,Roberto Hernandez,Chicago White Sox,,First Day Production
+first-day-production,22,Dean Palmer,Texas Rangers,,First Day Production
+first-day-production,23,Harold Reynolds,Seattle Mariners,,First Day Production
+first-day-production,24,Dan Plesac,Milwaukee Brewers,,First Day Production
+first-day-production,25,Brent Mayne,Kansas City Royals,,First Day Production
+first-day-production,26,Pat Hentgen,Toronto Blue Jays,,First Day Production
+first-day-production,27,Luis Sojo,California Angels,,First Day Production
+first-day-production,28,Ron Gant,Atlanta Braves,,First Day Production
+first-day-production,29,Paul Gibson,New York Mets,,First Day Production
+first-day-production,30,Bip Roberts,Cincinnati Reds,,First Day Production
+first-day-production,31,Mickey Tettleton,Detroit Tigers,,First Day Production
+first-day-production,32,Randy Velarde,New York Yankees,,First Day Production
+first-day-production,33,Brian McRae,Kansas City Royals,,First Day Production
+first-day-production,34,Wes Chamberlain,Philadelphia Phillies,,First Day Production
+first-day-production,35,Wayne Kirby,Cleveland Indians,,First Day Production
+first-day-production,36,Rey Sanchez,Chicago Cubs,,First Day Production
+first-day-production,37,Jesse Orosco,Milwaukee Brewers,,First Day Production
+first-day-production,38,Mike Stanton,Atlanta Braves,,First Day Production
+first-day-production,39,Royce Clayton,San Francisco Giants,,First Day Production
+first-day-production,40,Cal Ripken,Baltimore Orioles,,First Day Production
+first-day-production,41,John Dopson,Boston Red Sox,,First Day Production
+first-day-production,42,Gene Larkin,Minnesota Twins,,First Day Production
+first-day-production,43,Tim Raines,Chicago White Sox,,First Day Production
+first-day-production,44,Randy Myers,San Diego Padres,,First Day Production
+first-day-production,45,Clay Parker,Seattle Mariners,,First Day Production
+first-day-production,46,Mike Scioscia,Los Angeles Dodgers,,First Day Production
+first-day-production,47,Pete Incaviglia,Houston Astros,,First Day Production
+first-day-production,48,Todd Van Poppel,Oakland Athletics,,First Day Production
+first-day-production,49,Ray Lankford,St. Louis Cardinals,,First Day Production
+first-day-production,50,Eddie Murray,New York Mets,,First Day Production
+first-day-production,52,Gary Thurman,Kansas City Royals,,First Day Production
+first-day-production,53,Bob Wickman,New York Yankees,,First Day Production
+first-day-production,54,Joey Cora,Chicago White Sox,,First Day Production
+first-day-production,55,Kenny Rogers,Texas Rangers,,First Day Production
+first-day-production,56,Mike Devereaux,Baltimore Orioles,,First Day Production
+first-day-production,57,Kevin Seitzer,Milwaukee Brewers,,First Day Production
+first-day-production,58,Rafael Belliard,Atlanta Braves,,First Day Production
+first-day-production,59,David Wells,Toronto Blue Jays,,First Day Production
+first-day-production,60,Mark Clark,St. Louis Cardinals,,First Day Production
+first-day-production,61,Carlos Baerga,Cleveland Indians,,First Day Production
+first-day-production,62,Scott Brosius,Oakland Athletics,,First Day Production
+first-day-production,63,Jeff Grotewold,Philadelphia Phillies,,First Day Production
+first-day-production,64,Rick Wrona,Cincinnati Reds,,First Day Production
+first-day-production,65,Kurt Knudsen,Detroit Tigers,,First Day Production
+first-day-production,66,Lloyd McClendon,Pittsburgh Pirates,,First Day Production
+first-day-production,67,Omar Vizquel,Seattle Mariners,,First Day Production
+first-day-production,68,Jose Vizcaino,Chicago Cubs,,First Day Production
+first-day-production,69,Rob Ducey,California Angels,,First Day Production
+first-day-production,70,Casey Candaele,Houston Astros,,First Day Production
+first-day-production,71,Ramon Martinez,Los Angeles Dodgers,,First Day Production
+first-day-production,72,Todd Hundley,New York Mets,,First Day Production
+first-day-production,73,John Marzano,Boston Red Sox,,First Day Production
+first-day-production,74,Derek Parks,Minnesota Twins,,First Day Production
+first-day-production,75,Jack McDowell,Chicago White Sox,,First Day Production
+first-day-production,76,Tim Scott,San Diego Padres,,First Day Production
+first-day-production,77,Mike Mussina,Baltimore Orioles,,First Day Production
+first-day-production,78,Delino DeShields,Montreal Expos,,First Day Production
+first-day-production,79,Chris Bosio,Milwaukee Brewers,,First Day Production
+first-day-production,80,Mike Bordick,Oakland Athletics,,First Day Production
+first-day-production,81,Rod Beck,San Francisco Giants,,First Day Production
+first-day-production,82,Ted Power,Cleveland Indians,,First Day Production
+first-day-production,83,John Kruk,Philadelphia Phillies,,First Day Production
+first-day-production,84,Steve Shifflett,Kansas City Royals,,First Day Production
+first-day-production,85,Danny Tartabull,New York Yankees,,First Day Production
+first-day-production,86,Mike Greenwell,Boston Red Sox,,First Day Production
+first-day-production,87,Jose Melendez,San Diego Padres,,First Day Production
+first-day-production,88,Craig Wilson,St. Louis Cardinals,,First Day Production
+first-day-production,89,Melvin Nieves,Atlanta Braves,,First Day Production
+first-day-production,90,Ed Sprague,Toronto Blue Jays,,First Day Production
+first-day-production,91,Willie McGee,San Francisco Giants,,First Day Production
+first-day-production,92,Joe Orsulak,Baltimore Orioles,,First Day Production
+first-day-production,93,Jeff King,Pittsburgh Pirates,,First Day Production
+first-day-production,94,Dan Pasqua,Chicago White Sox,,First Day Production
+first-day-production,95,Brian Harper,Minnesota Twins,,First Day Production
+first-day-production,96,Joe Oliver,Cincinnati Reds,,First Day Production
+first-day-production,97,Shane Turner,Seattle Mariners,,First Day Production
+first-day-production,98,Lenny Harris,Los Angeles Dodgers,,First Day Production
+first-day-production,99,Jeff Parrett,Oakland Athletics,,First Day Production
+first-day-production,100,Luis Polonia,California Angels,,First Day Production
+first-day-production,101,Kent Bottenfield,Montreal Expos,,First Day Production
+first-day-production,102,Albert Belle,Cleveland Indians,,First Day Production
+first-day-production,103,Mike Maddux,San Diego Padres,,First Day Production
+first-day-production,104,Randy Tomlin,Pittsburgh Pirates,,First Day Production
+first-day-production,105,Andy Stankiewicz,New York Yankees,,First Day Production
+first-day-production,106,Rico Rossy,Kansas City Royals,,First Day Production
+first-day-production,107,Joe Hesketh,Boston Red Sox,,First Day Production
+first-day-production,108,Dennis Powell,Seattle Mariners,,First Day Production
+first-day-production,109,Derrick May,Chicago Cubs,,First Day Production
+first-day-production,110,Pete Harnisch,Houston Astros,,First Day Production
+first-day-production,111,Kent Mercker,Atlanta Braves,,First Day Production
+first-day-production,112,Scott Fletcher,Milwaukee Brewers,,First Day Production
+first-day-production,113,Rex Hudler,St. Louis Cardinals,,First Day Production
+first-day-production,114,Chico Walker,New York Mets,,First Day Production
+first-day-production,115,Rafael Palmeiro,Texas Rangers,,First Day Production
+first-day-production,116,Mark Leiter,Detroit Tigers,,First Day Production
+first-day-production,117,Pedro Munoz,Minnesota Twins,,First Day Production
+first-day-production,118,Jim Bullinger,Chicago Cubs,,First Day Production
+first-day-production,119,Ivan Calderon,Montreal Expos,,First Day Production
+first-day-production,120,Mike Timlin,Toronto Blue Jays,,First Day Production
+first-day-production,121,Rene Gonzales,California Angels,,First Day Production
+first-day-production,122,Greg Vaughn,Milwaukee Brewers,,First Day Production
+first-day-production,123,Mike Flanagan,Baltimore Orioles,,First Day Production
+first-day-production,124,Mike Hartley,Philadelphia Phillies,,First Day Production
+first-day-production,125,Jeff Montgomery,Kansas City Royals,,First Day Production
+first-day-production,126,Mike Gallego,New York Yankees,,First Day Production
+first-day-production,127,Don Slaught,Pittsburgh Pirates,,First Day Production
+first-day-production,128,Charlie O'Brien,New York Mets,,First Day Production
+first-day-production,129,Jose Offerman,Los Angeles Dodgers,,First Day Production
+first-day-production,130,Mark Wohlers,Atlanta Braves,,First Day Production
+first-day-production,131,Eric Fox,Oakland Athletics,,First Day Production
+first-day-production,132,Doug Strange,Chicago Cubs,,First Day Production
+first-day-production,133,Jeff Frye,Texas Rangers,,First Day Production
+first-day-production,134,Wade Boggs,Boston Red Sox,,First Day Production
+first-day-production,135,Lou Whitaker,Detroit Tigers,,First Day Production
+first-day-production,136,Craig Grebeck,Chicago White Sox,,First Day Production
+first-day-production,137,Rich Rodriguez,San Diego Padres,,First Day Production
+first-day-production,138,Jay Bell,Pittsburgh Pirates,,First Day Production
+first-day-production,139,Felix Fermin,Cleveland Indians,,First Day Production
+first-day-production,140,Denny Martinez,Montreal Expos,,First Day Production
+first-day-production,141,Eric Anthony,Houston Astros,,First Day Production
+first-day-production,142,Roberto Alomar,Toronto Blue Jays,,First Day Production
+first-day-production,143,Darren Lewis,San Francisco Giants,,First Day Production
+first-day-production,144,Mike Blowers,Seattle Mariners,,First Day Production
+first-day-production,145,Scott Bankhead,Cincinnati Reds,,First Day Production
+first-day-production,146,Jeff Reboulet,Minnesota Twins,,First Day Production
+first-day-production,147,Frank Viola,Boston Red Sox,,First Day Production
+first-day-production,148,Bill Pecota,New York Mets,,First Day Production
+first-day-production,149,Carlos Hernandez,Los Angeles Dodgers,,First Day Production
+first-day-production,150,Bobby Witt,Oakland Athletics,,First Day Production
+first-day-production,151,Sid Bream,Atlanta Braves,,First Day Production
+first-day-production,152,Todd Zeile,St. Louis Cardinals,,First Day Production
+first-day-production,153,Dennis Cook,Cleveland Indians,,First Day Production
+first-day-production,154,Brian Bohanon,Texas Rangers,,First Day Production
+first-day-production,155,Pat Kelly,New York Yankees,,First Day Production
+first-day-production,156,Milt Cuyler,Detroit Tigers,,First Day Production
+first-day-production,157,Juan Bell,Philadelphia Phillies,,First Day Production
+first-day-production,158,Randy Milligan,Baltimore Orioles,,First Day Production
+first-day-production,159,Mark Gardner,Montreal Expos,,First Day Production
+first-day-production,160,Pat Tabler,Toronto Blue Jays,,First Day Production
+first-day-production,161,Jeff Reardon,Atlanta Braves,,First Day Production
+first-day-production,162,Ken Patterson,Chicago Cubs,,First Day Production
+first-day-production,163,Bobby Bonilla,New York Mets,,First Day Production
+first-day-production,164,Tony Pena,Boston Red Sox,,First Day Production
+first-day-production,165,Greg Swindell,Cincinnati Reds,,First Day Production
+first-day-production,166,Kirk McCaskill,Chicago White Sox,,First Day Production
+first-day-production,167,Doug Drabek,Pittsburgh Pirates,,First Day Production
+first-day-production,168,Franklin Stubbs,Milwaukee Brewers,,First Day Production
+first-day-production,169,Ron Tingley,California Angels,,First Day Production
+first-day-production,170,Willie Banks,Minnesota Twins,,First Day Production
+first-day-production,171,Sergio Valdez,Montreal Expos,,First Day Production
+first-day-production,172,Mark Lemke,Atlanta Braves,,First Day Production
+first-day-production,173,Robin Yount,Milwaukee Brewers,,First Day Production
+first-day-production,174,Storm Davis,Baltimore Orioles,,First Day Production
+first-day-production,175,Dan Walters,San Diego Padres,,First Day Production
+first-day-production,176,Steve Farr,New York Yankees,,First Day Production
+first-day-production,177,Curt Wilkerson,Kansas City Royals,,First Day Production
+first-day-production,178,Luis Alicea,St. Louis Cardinals,,First Day Production
+first-day-production,179,Russ Swan,Seattle Mariners,,First Day Production
+first-day-production,180,Mitch Williams,Philadelphia Phillies,,First Day Production
+first-day-production,181,Wilson Alvarez,Chicago White Sox,,First Day Production
+first-day-production,182,Carl Willis,Minnesota Twins,,First Day Production
+first-day-production,183,Craig Biggio,Houston Astros,,First Day Production
+first-day-production,184,Sean Berry,Montreal Expos,,First Day Production
+first-day-production,185,Trevor Wilson,San Francisco Giants,,First Day Production
+first-day-production,186,Jeff Tackett,Baltimore Orioles,,First Day Production
+first-day-production,187,Ellis Burks,Boston Red Sox,,First Day Production
+first-day-production,188,Jeff Branson,Cincinnati Reds,,First Day Production
+first-day-production,189,Matt Nokes,New York Yankees,,First Day Production
+first-day-production,190,John Smiley,Minnesota Twins,,First Day Production
+first-day-production,191,Danny Gladden,Detroit Tigers,,First Day Production
+first-day-production,192,Mike Boddicker,Kansas City Royals,,First Day Production
+first-day-production,193,Roger Pavlik,Texas Rangers,,First Day Production
+first-day-production,194,Paul Sorrento,Cleveland Indians,,First Day Production
+first-day-production,195,Vince Coleman,New York Mets,,First Day Production
+first-day-production,196,Gary DiSarcina,California Angels,,First Day Production
+first-day-production,197,Rafael Bournigal,Los Angeles Dodgers,,First Day Production
+first-day-production,198,Mike Schooler,Seattle Mariners,,First Day Production
+first-day-production,199,Scott Ruskin,Cincinnati Reds,,First Day Production
+first-day-production,200,Frank Thomas,Chicago White Sox,,First Day Production
+first-day-production,201,Kyle Abbott,Philadelphia Phillies,,First Day Production
+first-day-production,202,Mike Perez,St. Louis Cardinals,,First Day Production
+first-day-production,203,Andre Dawson,Chicago Cubs,,First Day Production
+first-day-production,204,Bill Swift,San Francisco Giants,,First Day Production
+first-day-production,205,Alejandro Pena,Atlanta Braves,,First Day Production
+first-day-production,206,Dave Winfield,Toronto Blue Jays,,First Day Production
+first-day-production,207,Andujar Cedeno,Houston Astros,,First Day Production
+first-day-production,208,Terry Steinbach,Oakland Athletics,,First Day Production
+first-day-production,209,Chris Hammond,Cincinnati Reds,,First Day Production
+first-day-production,210,Todd Burns,Texas Rangers,,First Day Production
+first-day-production,211,Hipolito Pichardo,Kansas City Royals,,First Day Production
+first-day-production,212,John Kiely,Detroit Tigers,,First Day Production
+first-day-production,213,Tim Teufel,San Diego Padres,,First Day Production
+first-day-production,214,Lee Guetterman,New York Mets,,First Day Production
+first-day-production,215,Geronimo Pena,St. Louis Cardinals,,First Day Production
+first-day-production,216,Brett Butler,Los Angeles Dodgers,,First Day Production
+first-day-production,217,Bryan Hickerson,San Francisco Giants,,First Day Production
+first-day-production,218,Ricky Trlicek,Toronto Blue Jays,,First Day Production
+first-day-production,219,Lee Stevens,California Angels,,First Day Production
+first-day-production,220,Roger Clemens,Boston Red Sox,,First Day Production
+first-day-production,221,Carlton Fisk,Chicago White Sox,,First Day Production
+first-day-production,222,Chili Davis,Minnesota Twins,,First Day Production
+first-day-production,223,Walt Terrell,Detroit Tigers,,First Day Production
+first-day-production,224,Jim Eisenreich,Kansas City Royals,,First Day Production
+first-day-production,225,Ricky Bones,Milwaukee Brewers,,First Day Production
+first-day-production,226,Henry Rodriguez,Los Angeles Dodgers,,First Day Production
+first-day-production,227,Ken Hill,Montreal Expos,,First Day Production
+first-day-production,228,Rick Wilkins,Chicago Cubs,,First Day Production
+first-day-production,229,Ricky Jordan,Philadelphia Phillies,,First Day Production
+first-day-production,230,Bernard Gilkey,St. Louis Cardinals,,First Day Production
+first-day-production,231,Tim Fortugno,California Angels,,First Day Production
+first-day-production,232,Geno Petralli,Texas Rangers,,First Day Production
+first-day-production,233,Jose Rijo,Cincinnati Reds,,First Day Production
+first-day-production,234,Jim Leyritz,New York Yankees,,First Day Production
+first-day-production,235,Kevin Campbell,Oakland Athletics,,First Day Production
+first-day-production,236,Al Osuna,Houston Astros,,First Day Production
+first-day-production,237,Pete Smith,Atlanta Braves,,First Day Production
+first-day-production,238,Pete Schourek,New York Mets,,First Day Production
+first-day-production,239,Moises Alou,Montreal Expos,,First Day Production
+first-day-production,240,Donn Pall,Chicago White Sox,,First Day Production
+first-day-production,241,Denny Neagle,Pittsburgh Pirates,,First Day Production
+first-day-production,242,Dan Peltier,Texas Rangers,,First Day Production
+first-day-production,243,Scott Scudder,Cleveland Indians,,First Day Production
+first-day-production,244,Juan Guzman,Toronto Blue Jays,,First Day Production
+first-day-production,245,Dave Burba,San Francisco Giants,,First Day Production
+first-day-production,246,Rick Sutcliffe,Baltimore Orioles,,First Day Production
+first-day-production,247,Tony Fossas,Boston Red Sox,,First Day Production
+first-day-production,248,Mike Munoz,Detroit Tigers,,First Day Production
+first-day-production,249,Tim Salmon,California Angels,,First Day Production
+first-day-production,250,Rob Murphy,Houston Astros,,First Day Production
+first-day-production,251,Roger McDowell,Los Angeles Dodgers,,First Day Production
+first-day-production,252,Lance Parrish,Seattle Mariners,,First Day Production
+first-day-production,253,Cliff Brantley,Philadelphia Phillies,,First Day Production
+first-day-production,254,Scott Leius,Minnesota Twins,,First Day Production
+first-day-production,255,Carlos Martinez,Cleveland Indians,,First Day Production
+first-day-production,256,Vince Horsman,Oakland Athletics,,First Day Production
+first-day-production,257,Oscar Azocar,San Diego Padres,,First Day Production
+first-day-production,258,Craig Shipley,San Diego Padres,,First Day Production
+first-day-production,259,Ben McDonald,Baltimore Orioles,,First Day Production
+first-day-production,260,Jeff Brantley,San Francisco Giants,,First Day Production
+first-day-production,261,Damon Berryhill,Atlanta Braves,,First Day Production
+first-day-production,262,Joe Grahe,California Angels,,First Day Production
+first-day-production,263,Dave Hansen,Los Angeles Dodgers,,First Day Production
+first-day-production,264,Rich Amaral,Seattle Mariners,,First Day Production
+first-day-production,265,Tim Pugh,Cincinnati Reds,,First Day Production
+first-day-production,266,Dion James,New York Yankees,,First Day Production
+first-day-production,267,Frank Tanana,Detroit Tigers,,First Day Production
+first-day-production,268,Stan Belinda,Pittsburgh Pirates,,First Day Production
+first-day-production,269,Jeff Kent,New York Mets,,First Day Production
+first-day-production,270,Bruce Ruffin,Milwaukee Brewers,,First Day Production
+first-day-production,271,Xavier Hernandez,Houston Astros,,First Day Production
+first-day-production,272,Darrin Fletcher,Montreal Expos,,First Day Production
+first-day-production,273,Tino Martinez,Seattle Mariners,,First Day Production
+first-day-production,274,Benny Santiago,San Diego Padres,,First Day Production
+first-day-production,275,Scott Radinsky,Chicago White Sox,,First Day Production
+first-day-production,276,Mariano Duncan,Philadelphia Phillies,,First Day Production
+first-day-production,277,Kenny Lofton,Cleveland Indians,,First Day Production
+first-day-production,278,Dwight Smith,Chicago Cubs,,First Day Production
+first-day-production,279,Joe Carter,Toronto Blue Jays,,First Day Production
+first-day-production,280,Tim Jones,St. Louis Cardinals,,First Day Production
+first-day-production,281,Jeff Huson,Texas Rangers,,First Day Production
+first-day-production,282,Phil Plantier,Boston Red Sox,,First Day Production
+first-day-production,283,Kirby Puckett,Minnesota Twins,,First Day Production
+first-day-production,284,Johnny Guzman,Oakland Athletics,,First Day Production
+first-day-production,285,Mike Morgan,Chicago Cubs,,First Day Production
+first-day-production,286,Chris Sabo,Cincinnati Reds,,First Day Production
+first-day-production,287,Matt Williams,San Francisco Giants,,First Day Production
+first-day-production,288,Checklist: 1-100 CL,,,First Day Production
+first-day-production,289,Checklist: 101-200 CL,,,First Day Production
+first-day-production,290,Checklist: 201-300 CL,,,First Day Production
+first-day-production,291,Dennis Eckersley MC,Oakland Athletics,,First Day Production
+first-day-production,292,Eric Karros MC,Los Angeles Dodgers,,First Day Production
+first-day-production,293,Pat Listach MC,Milwaukee Brewers,,First Day Production
+first-day-production,294,Andy Van Slyke MC,Pittsburgh Pirates,,First Day Production
+first-day-production,295,Robin Ventura MC,Chicago White Sox,,First Day Production
+first-day-production,296,Tom Glavine MC,Atlanta Braves,,First Day Production
+first-day-production,297,Juan Gonzalez MC,Texas Rangers,,First Day Production
+first-day-production,298,Travis Fryman MC,Detroit Tigers,,First Day Production
+first-day-production,299,Larry Walker MC,Montreal Expos,,First Day Production
+first-day-production,300,Gary Sheffield MC,San Diego Padres,,First Day Production
+first-day-production,301,Chuck Finley,California Angels,,First Day Production
+first-day-production,302,Luis Gonzalez,Houston Astros,,First Day Production
+first-day-production,303,Darryl Hamilton,Milwaukee Brewers,,First Day Production
+first-day-production,304,Bien Figueroa,St. Louis Cardinals,,First Day Production
+first-day-production,305,Ron Darling,Oakland Athletics,,First Day Production
+first-day-production,306,Jonathan Hurst,Montreal Expos,,First Day Production
+first-day-production,307,Mike Sharperson,Los Angeles Dodgers,,First Day Production
+first-day-production,308,Mike Christopher,Cleveland Indians,,First Day Production
+first-day-production,309,Marvin Freeman,Atlanta Braves,,First Day Production
+first-day-production,310,Jay Buhner,Seattle Mariners,,First Day Production
+first-day-production,311,Butch Henry,Colorado Rockies,,First Day Production
+first-day-production,312,Greg Harris,San Diego Padres,,First Day Production
+first-day-production,313,Darren Daulton,Philadelphia Phillies,,First Day Production
+first-day-production,314,Chuck Knoblauch,Minnesota Twins,,First Day Production
+first-day-production,315,Greg Harris,Boston Red Sox,,First Day Production
+first-day-production,316,John Franco,New York Mets,,First Day Production
+first-day-production,317,John Wehner,Pittsburgh Pirates,,First Day Production
+first-day-production,318,Donald Harris,Texas Rangers,,First Day Production
+first-day-production,319,Benny Santiago,Florida Marlins,,First Day Production
+first-day-production,320,Larry Walker,Montreal Expos,,First Day Production
+first-day-production,321,Randy Knorr,Toronto Blue Jays,,First Day Production
+first-day-production,322,Ramon Martinez,Florida Marlins,,First Day Production
+first-day-production,323,Mike Stanley,New York Yankees,,First Day Production
+first-day-production,324,Bill Wegman,Milwaukee Brewers,,First Day Production
+first-day-production,325,Tom Candiotti,Los Angeles Dodgers,,First Day Production
+first-day-production,326,Glenn Davis,Baltimore Orioles,,First Day Production
+first-day-production,327,Chuck Crim,California Angels,,First Day Production
+first-day-production,328,Scott Livingstone,Detroit Tigers,,First Day Production
+first-day-production,329,Eddie Taubensee,Houston Astros,,First Day Production
+first-day-production,330,George Bell,Chicago White Sox,,First Day Production
+first-day-production,331,Edgar Martinez,Seattle Mariners,,First Day Production
+first-day-production,332,Paul Assenmacher,Chicago Cubs,,First Day Production
+first-day-production,333,Steve Hosey,San Francisco Giants,,First Day Production
+first-day-production,334,Mo Vaughn,Boston Red Sox,,First Day Production
+first-day-production,335,Bret Saberhagen,New York Mets,,First Day Production
+first-day-production,336,Mike Trombley,Minnesota Twins,,First Day Production
+first-day-production,337,Mark Lewis,Cleveland Indians,,First Day Production
+first-day-production,338,Terry Pendleton,Atlanta Braves,,First Day Production
+first-day-production,339,Dave Hollins,Philadelphia Phillies,,First Day Production
+first-day-production,340,Jeff Conine,Florida Marlins,,First Day Production
+first-day-production,341,Bob Tewksbury,St. Louis Cardinals,,First Day Production
+first-day-production,342,Billy Ashley,Los Angeles Dodgers,,First Day Production
+first-day-production,343,Zane Smith,Pittsburgh Pirates,,First Day Production
+first-day-production,344,John Wetteland,Montreal Expos,,First Day Production
+first-day-production,345,Chris Hoiles,Baltimore Orioles,,First Day Production
+first-day-production,346,Frank Castillo,Chicago Cubs,,First Day Production
+first-day-production,347,Bruce Hurst,San Diego Padres,,First Day Production
+first-day-production,348,Kevin McReynolds,Kansas City Royals,,First Day Production
+first-day-production,349,Dave Henderson,Oakland Athletics,,First Day Production
+first-day-production,350,Ryan Bowen,Florida Marlins,,First Day Production
+first-day-production,351,Sid Fernandez,New York Mets,,First Day Production
+first-day-production,352,Mark Whiten,Cleveland Indians,,First Day Production
+first-day-production,353,Nolan Ryan,Texas Rangers,,First Day Production
+first-day-production,354,Rick Aguilera,Minnesota Twins,,First Day Production
+first-day-production,355,Mark Langston,California Angels,,First Day Production
+first-day-production,356,Jack Morris,Toronto Blue Jays,,First Day Production
+first-day-production,357,Rob Deer,Detroit Tigers,,First Day Production
+first-day-production,358,Dave Fleming,Seattle Mariners,,First Day Production
+first-day-production,359,Lance Johnson,Chicago White Sox,,First Day Production
+first-day-production,360,Joe Millette,Philadelphia Phillies,,First Day Production
+first-day-production,361,Wil Cordero,Montreal Expos,,First Day Production
+first-day-production,362,Chito Martinez,Baltimore Orioles,,First Day Production
+first-day-production,363,Scott Servais,Houston Astros,,First Day Production
+first-day-production,364,Bernie Williams,New York Yankees,,First Day Production
+first-day-production,365,Pedro Martinez,Los Angeles Dodgers,,First Day Production
+first-day-production,366,Ryne Sandberg,Chicago Cubs,,First Day Production
+first-day-production,367,Brad Ausmus,Colorado Rockies,,First Day Production
+first-day-production,368,Scott Cooper,Boston Red Sox,,First Day Production
+first-day-production,369,Rob Dibble,Cincinnati Reds,,First Day Production
+first-day-production,370,Walt Weiss,Florida Marlins,,First Day Production
+first-day-production,371,Mark Davis,Atlanta Braves,,First Day Production
+first-day-production,372,Orlando Merced,Pittsburgh Pirates,,First Day Production
+first-day-production,373,Mike Jackson,San Francisco Giants,,First Day Production
+first-day-production,374,Kevin Appier,Kansas City Royals,,First Day Production
+first-day-production,375,Esteban Beltre,Chicago White Sox,,First Day Production
+first-day-production,376,Joe Slusarski,Oakland Athletics,,First Day Production
+first-day-production,377,William Suero,Milwaukee Brewers,,First Day Production
+first-day-production,378,Pete O'Brien,Seattle Mariners,,First Day Production
+first-day-production,379,Alan Embree,Cleveland Indians,,First Day Production
+first-day-production,380,Lenny Webster,Minnesota Twins,,First Day Production
+first-day-production,381,Eric Davis,Los Angeles Dodgers,,First Day Production
+first-day-production,382,Duane Ward,Toronto Blue Jays,,First Day Production
+first-day-production,383,John Habyan,New York Yankees,,First Day Production
+first-day-production,384,Jeff Bagwell,Houston Astros,,First Day Production
+first-day-production,385,Ruben Amaro,Philadelphia Phillies,,First Day Production
+first-day-production,386,Julio Valera,California Angels,,First Day Production
+first-day-production,387,Robin Ventura,Chicago White Sox,,First Day Production
+first-day-production,388,Archi Cianfrocco,Montreal Expos,,First Day Production
+first-day-production,389,Skeeter Barnes,Detroit Tigers,,First Day Production
+first-day-production,390,Tim Costo,Cincinnati Reds,,First Day Production
+first-day-production,391,Luis Mercedes,Baltimore Orioles,,First Day Production
+first-day-production,392,Jeremy Hernandez,San Diego Padres,,First Day Production
+first-day-production,393,Shawon Dunston,Chicago Cubs,,First Day Production
+first-day-production,394,Andy Van Slyke,Pittsburgh Pirates,,First Day Production
+first-day-production,395,Kevin Maas,New York Yankees,,First Day Production
+first-day-production,396,Kevin Brown,Texas Rangers,,First Day Production
+first-day-production,397,J.T. Bruett,Minnesota Twins,,First Day Production
+first-day-production,398,Darryl Strawberry,Los Angeles Dodgers,,First Day Production
+first-day-production,399,Tom Pagnozzi,St. Louis Cardinals,,First Day Production
+first-day-production,400,Sandy Alomar,Cleveland Indians,,First Day Production
+first-day-production,401,Keith Miller,Kansas City Royals,,First Day Production
+first-day-production,402,Rich DeLucia,Seattle Mariners,,First Day Production
+first-day-production,403,Shawn Abner,Chicago White Sox,,First Day Production
+first-day-production,404,Howard Johnson,New York Mets,,First Day Production
+first-day-production,405,Mike Benjamin,San Francisco Giants,,First Day Production
+first-day-production,406,Roberto Mejia,Colorado Rockies,,First Day Production
+first-day-production,407,Mike Butcher,California Angels,,First Day Production
+first-day-production,408,Deion Sanders,Atlanta Braves,,First Day Production
+first-day-production,409,Todd Stottlemyre,Toronto Blue Jays,,First Day Production
+first-day-production,410,Scott Kamieniecki,New York Yankees,,First Day Production
+first-day-production,411,Doug Jones,Houston Astros,,First Day Production
+first-day-production,412,John Burkett,San Francisco Giants,,First Day Production
+first-day-production,413,Lance Blankenship,Oakland Athletics,,First Day Production
+first-day-production,414,Jeff Parrett,Colorado Rockies,,First Day Production
+first-day-production,415,Barry Larkin,Cincinnati Reds,,First Day Production
+first-day-production,416,Alan Trammell,Detroit Tigers,,First Day Production
+first-day-production,417,Mark Kiefer,Milwaukee Brewers,,First Day Production
+first-day-production,418,Gregg Olson,Baltimore Orioles,,First Day Production
+first-day-production,419,Mark Grace,Chicago Cubs,,First Day Production
+first-day-production,420,Shane Mack,Minnesota Twins,,First Day Production
+first-day-production,421,Bob Walk,Pittsburgh Pirates,,First Day Production
+first-day-production,422,Curt Schilling,Philadelphia Phillies,,First Day Production
+first-day-production,423,Erik Hanson,Seattle Mariners,,First Day Production
+first-day-production,424,George Brett,Kansas City Royals,,First Day Production
+first-day-production,425,Reggie Jefferson,Cleveland Indians,,First Day Production
+first-day-production,426,Mark Portugal,Houston Astros,,First Day Production
+first-day-production,427,Ron Karkovice,Chicago White Sox,,First Day Production
+first-day-production,428,Matt Young,Boston Red Sox,,First Day Production
+first-day-production,429,Troy Neel,Oakland Athletics,,First Day Production
+first-day-production,430,Hector Fajardo,Texas Rangers,,First Day Production
+first-day-production,431,Dave Righetti,San Francisco Giants,,First Day Production
+first-day-production,432,Pat Listach,Milwaukee Brewers,,First Day Production
+first-day-production,433,Jeff Innis,New York Mets,,First Day Production
+first-day-production,434,Bob MacDonald,Toronto Blue Jays,,First Day Production
+first-day-production,435,Brian Jordan,St. Louis Cardinals,,First Day Production
+first-day-production,436,Jeff Blauser,Atlanta Braves,,First Day Production
+first-day-production,437,Mike Myers,Florida Marlins,,First Day Production
+first-day-production,438,Frank Seminara,San Diego Padres,,First Day Production
+first-day-production,439,Rusty Meacham,Kansas City Royals,,First Day Production
+first-day-production,440,Greg Briley,Seattle Mariners,,First Day Production
+first-day-production,441,Derek Lilliquist,Cleveland Indians,,First Day Production
+first-day-production,442,John Vander Wal,Montreal Expos,,First Day Production
+first-day-production,443,Scott Erickson,Minnesota Twins,,First Day Production
+first-day-production,444,Bob Scanlan,Chicago Cubs,,First Day Production
+first-day-production,445,Todd Frohwirth,Baltimore Orioles,,First Day Production
+first-day-production,446,Tom Goodwin,Los Angeles Dodgers,,First Day Production
+first-day-production,447,William Pennyfeather,Pittsburgh Pirates,,First Day Production
+first-day-production,448,Travis Fryman,Detroit Tigers,,First Day Production
+first-day-production,449,Mickey Morandini,Philadelphia Phillies,,First Day Production
+first-day-production,450,Greg Olson,Atlanta Braves,,First Day Production
+first-day-production,451,Trevor Hoffman,Florida Marlins,,First Day Production
+first-day-production,452,Dave Magadan,Florida Marlins,,First Day Production
+first-day-production,453,Shawn Jeter,Chicago White Sox,,First Day Production
+first-day-production,454,Andres Galarraga,Colorado Rockies,,First Day Production
+first-day-production,455,Ted Wood,San Francisco Giants,,First Day Production
+first-day-production,456,Freddie Benavides,Colorado Rockies,,First Day Production
+first-day-production,457,Junior Felix,Florida Marlins,,First Day Production
+first-day-production,458,Alex Cole,Colorado Rockies,,First Day Production
+first-day-production,459,John Orton,California Angels,,First Day Production
+first-day-production,460,Eddie Zosky,Toronto Blue Jays,,First Day Production
+first-day-production,461,Dennis Eckersley,Oakland Athletics,,First Day Production
+first-day-production,462,Lee Smith,St. Louis Cardinals,,First Day Production
+first-day-production,463,John Smoltz,Atlanta Braves,,First Day Production
+first-day-production,464,Ken Caminiti,Houston Astros,,First Day Production
+first-day-production,465,Melido Perez,New York Yankees,,First Day Production
+first-day-production,466,Tom Marsh,Philadelphia Phillies,,First Day Production
+first-day-production,467,Jeff Nelson,Seattle Mariners,,First Day Production
+first-day-production,468,Jesse Levis,Cleveland Indians,,First Day Production
+first-day-production,469,Chris Nabholz,Montreal Expos,,First Day Production
+first-day-production,470,Mike Macfarlane,Kansas City Royals,,First Day Production
+first-day-production,471,Reggie Sanders,Cincinnati Reds,,First Day Production
+first-day-production,472,Chuck McElroy,Chicago Cubs,,First Day Production
+first-day-production,473,Kevin Gross,Los Angeles Dodgers,,First Day Production
+first-day-production,474,Matt Whiteside,Texas Rangers,,First Day Production
+first-day-production,475,Cal Eldred,Milwaukee Brewers,,First Day Production
+first-day-production,476,Dave Gallagher,New York Mets,,First Day Production
+first-day-production,477,Len Dykstra,Philadelphia Phillies,,First Day Production
+first-day-production,478,Mark McGwire,Oakland Athletics,,First Day Production
+first-day-production,479,David Segui,Baltimore Orioles,,First Day Production
+first-day-production,480,Mike Henneman,Detroit Tigers,,First Day Production
+first-day-production,481,Bret Barberie,Florida Marlins,,First Day Production
+first-day-production,482,Steve Sax,Chicago White Sox,,First Day Production
+first-day-production,483,Dave Valle,Seattle Mariners,,First Day Production
+first-day-production,484,Danny Darwin,Boston Red Sox,,First Day Production
+first-day-production,485,Devon White,Toronto Blue Jays,,First Day Production
+first-day-production,486,Eric Plunk,Cleveland Indians,,First Day Production
+first-day-production,487,Jim Gott,Los Angeles Dodgers,,First Day Production
+first-day-production,488,Scooter Tucker,Houston Astros,,First Day Production
+first-day-production,489,Omar Olivares,St. Louis Cardinals,,First Day Production
+first-day-production,490,Greg Myers,California Angels,,First Day Production
+first-day-production,491,Brian Hunter,Atlanta Braves,,First Day Production
+first-day-production,492,Kevin Tapani,Minnesota Twins,,First Day Production
+first-day-production,493,Rich Monteleone,New York Yankees,,First Day Production
+first-day-production,494,Steve Buechele,Chicago Cubs,,First Day Production
+first-day-production,495,Bo Jackson,Chicago White Sox,,First Day Production
+first-day-production,496,Mike LaValliere,Pittsburgh Pirates,,First Day Production
+first-day-production,497,Mark Leonard,San Francisco Giants,,First Day Production
+first-day-production,498,Daryl Boston,Colorado Rockies,,First Day Production
+first-day-production,499,Jose Canseco,Texas Rangers,,First Day Production
+first-day-production,500,Brian Barnes,Montreal Expos,,First Day Production
+first-day-production,501,Randy Johnson,Seattle Mariners,,First Day Production
+first-day-production,502,Tim McIntosh,Milwaukee Brewers,,First Day Production
+first-day-production,503,Cecil Fielder,Detroit Tigers,,First Day Production
+first-day-production,504,Derek Bell,Toronto Blue Jays,,First Day Production
+first-day-production,505,Kevin Koslofski,Kansas City Royals,,First Day Production
+first-day-production,506,Darren Holmes,Colorado Rockies,,First Day Production
+first-day-production,507,Brady Anderson,Baltimore Orioles,,First Day Production
+first-day-production,508,John Valentin,Boston Red Sox,,First Day Production
+first-day-production,509,Jerry Browne,Oakland Athletics,,First Day Production
+first-day-production,510,Fred McGriff,San Diego Padres,,First Day Production
+first-day-production,511,Pedro Astacio,Los Angeles Dodgers,,First Day Production
+first-day-production,512,Gary Gaetti,California Angels,,First Day Production
+first-day-production,513,John Burke,Colorado Rockies,,First Day Production
+first-day-production,514,Doc Gooden,New York Mets,,First Day Production
+first-day-production,515,Thomas Howard,Cleveland Indians,,First Day Production
+first-day-production,516,Darrell Whitmore,Florida Marlins,,First Day Production
+first-day-production,517,Ozzie Guillen,Chicago White Sox,,First Day Production
+first-day-production,518,Darryl Kile,Houston Astros,,First Day Production
+first-day-production,519,Rich Rowland,Detroit Tigers,,First Day Production
+first-day-production,520,Carlos Delgado,Toronto Blue Jays,,First Day Production
+first-day-production,521,Doug Henry,Milwaukee Brewers,,First Day Production
+first-day-production,522,Greg Colbrunn,Montreal Expos,,First Day Production
+first-day-production,523,Tom Gordon,Kansas City Royals,,First Day Production
+first-day-production,524,Ivan Rodriguez,Texas Rangers,,First Day Production
+first-day-production,525,Kent Hrbek,Minnesota Twins,,First Day Production
+first-day-production,526,Eric Young,Colorado Rockies,,First Day Production
+first-day-production,527,Rod Brewer,St. Louis Cardinals,,First Day Production
+first-day-production,528,Eric Karros,Los Angeles Dodgers,,First Day Production
+first-day-production,529,Marquis Grissom,Montreal Expos,,First Day Production
+first-day-production,530,Rico Brogna,Detroit Tigers,,First Day Production
+first-day-production,531,Sammy Sosa,Chicago Cubs,,First Day Production
+first-day-production,532,Bret Boone,Seattle Mariners,,First Day Production
+first-day-production,533,Luis Rivera,Boston Red Sox,,First Day Production
+first-day-production,534,Hal Morris,Cincinnati Reds,,First Day Production
+first-day-production,535,Monty Fariss,Florida Marlins,,First Day Production
+first-day-production,536,Leo Gomez,Baltimore Orioles,,First Day Production
+first-day-production,537,Wally Joyner,Kansas City Royals,,First Day Production
+first-day-production,538,Tony Gwynn,San Diego Padres,,First Day Production
+first-day-production,539,Mike Williams,Philadelphia Phillies,,First Day Production
+first-day-production,540,Juan Gonzalez,Texas Rangers,,First Day Production
+first-day-production,541,Ryan Klesko,Atlanta Braves,,First Day Production
+first-day-production,542,Ryan Thompson,New York Mets,,First Day Production
+first-day-production,543,Chad Curtis,California Angels,,First Day Production
+first-day-production,544,Orel Hershiser,Los Angeles Dodgers,,First Day Production
+first-day-production,545,Carlos Garcia,Pittsburgh Pirates,,First Day Production
+first-day-production,546,Bob Welch,Oakland Athletics,,First Day Production
+first-day-production,547,Vinny Castilla,Colorado Rockies,,First Day Production
+first-day-production,548,Ozzie Smith,St. Louis Cardinals,,First Day Production
+first-day-production,549,Luis Salazar,Chicago Cubs,,First Day Production
+first-day-production,550,Mark Guthrie,Minnesota Twins,,First Day Production
+first-day-production,551,Charles Nagy,Cleveland Indians,,First Day Production
+first-day-production,552,Alex Fernandez,Chicago White Sox,,First Day Production
+first-day-production,553,Mel Rojas,Montreal Expos,,First Day Production
+first-day-production,554,Orestes Destrade,Florida Marlins,,First Day Production
+first-day-production,555,Mark Gubicza,Kansas City Royals,,First Day Production
+first-day-production,556,Steve Finley,Houston Astros,,First Day Production
+first-day-production,557,Don Mattingly,New York Yankees,,First Day Production
+first-day-production,558,Rickey Henderson,Oakland Athletics,,First Day Production
+first-day-production,559,Tommy Greene,Philadelphia Phillies,,First Day Production
+first-day-production,560,Arthur Rhodes,Baltimore Orioles,,First Day Production
+first-day-production,561,Alfredo Griffin,Toronto Blue Jays,,First Day Production
+first-day-production,562,Will Clark,San Francisco Giants,,First Day Production
+first-day-production,563,Bob Zupcic,Boston Red Sox,,First Day Production
+first-day-production,564,Chuck Carr,Florida Marlins,,First Day Production
+first-day-production,565,Henry Cotto,Seattle Mariners,,First Day Production
+first-day-production,566,Billy Spiers,Milwaukee Brewers,,First Day Production
+first-day-production,567,Jack Armstrong,Florida Marlins,,First Day Production
+first-day-production,568,Kurt Stillwell,San Diego Padres,,First Day Production
+first-day-production,569,David McCarty,Minnesota Twins,,First Day Production
+first-day-production,570,Joe Vitiello,Kansas City Royals,,First Day Production
+first-day-production,571,Gerald Williams,New York Yankees,,First Day Production
+first-day-production,572,Dale Murphy,Philadelphia Phillies,,First Day Production
+first-day-production,573,Scott Aldred,Colorado Rockies,,First Day Production
+first-day-production,574,Bill Gullickson,Detroit Tigers,,First Day Production
+first-day-production,575,Bobby Thigpen,Chicago White Sox,,First Day Production
+first-day-production,576,Glenallen Hill,Cleveland Indians,,First Day Production
+first-day-production,577,Dwayne Henry,Cincinnati Reds,,First Day Production
+first-day-production,578,Calvin Jones,Colorado Rockies,,First Day Production
+first-day-production,579,Al Martin,Pittsburgh Pirates,,First Day Production
+first-day-production,580,Ruben Sierra,Oakland Athletics,,First Day Production
+first-day-production,581,Andy Benes,San Diego Padres,,First Day Production
+first-day-production,582,Anthony Young,New York Mets,,First Day Production
+first-day-production,583,Shawn Boskie,Chicago Cubs,,First Day Production
+first-day-production,584,Scott Pose,Florida Marlins,,First Day Production
+first-day-production,585,Mike Piazza,Los Angeles Dodgers,,First Day Production
+first-day-production,586,Donovan Osborne,St. Louis Cardinals,,First Day Production
+first-day-production,587,James Austin,Milwaukee Brewers,,First Day Production
+first-day-production,588,Checklist: 301-400 CL,,,First Day Production
+first-day-production,589,Checklist: 401-500 CL,,,First Day Production
+first-day-production,590,Checklist: 501-600 CL,,,First Day Production
+first-day-production,591,Ken Griffey Jr. MC,Seattle Mariners,,First Day Production
+first-day-production,592,Ivan Rodriguez MC,Texas Rangers,,First Day Production
+first-day-production,593,Carlos Baerga MC,Cleveland Indians,,First Day Production
+first-day-production,594,Fred McGriff MC,San Diego Padres,,First Day Production
+first-day-production,595,Mark McGwire MC,Oakland Athletics,,First Day Production
+first-day-production,596,Roberto Alomar MC,Toronto Blue Jays,,First Day Production
+first-day-production,597,Kirby Puckett MC,Minnesota Twins,,First Day Production
+first-day-production,598,Marquis Grissom MC,Montreal Expos,,First Day Production
+first-day-production,599,John Smoltz MC,Atlanta Braves,,First Day Production
+first-day-production,600,Ryne Sandberg MC,Chicago Cubs,,First Day Production
+first-day-production,601,Wade Boggs,New York Yankees,,First Day Production
+first-day-production,602,Jeff Reardon,Cincinnati Reds,,First Day Production
+first-day-production,603,Billy Ripken,Texas Rangers,,First Day Production
+first-day-production,604,Bryan Harvey,Florida Marlins,,First Day Production
+first-day-production,605,Carlos Quintana,Boston Red Sox,,First Day Production
+first-day-production,606,Greg Hibbard,Chicago Cubs,,First Day Production
+first-day-production,607,Ellis Burks,Chicago White Sox,,First Day Production
+first-day-production,608,Greg Swindell,Houston Astros,,First Day Production
+first-day-production,609,Dave Winfield,Minnesota Twins,,First Day Production
+first-day-production,610,Charlie Hough,Florida Marlins,,First Day Production
+first-day-production,611,Chili Davis,California Angels,,First Day Production
+first-day-production,612,Jody Reed,Los Angeles Dodgers,,First Day Production
+first-day-production,613,Mark Williamson,Baltimore Orioles,,First Day Production
+first-day-production,614,Phil Plantier,San Diego Padres,,First Day Production
+first-day-production,615,Jim Abbott,New York Yankees,,First Day Production
+first-day-production,616,Dante Bichette,Colorado Rockies,,First Day Production
+first-day-production,617,Mark Eichhorn,Toronto Blue Jays,,First Day Production
+first-day-production,618,Gary Sheffield,San Diego Padres,,First Day Production
+first-day-production,619,Richie Lewis,Florida Marlins,,First Day Production
+first-day-production,620,Joe Girardi,Colorado Rockies,,First Day Production
+first-day-production,621,Jaime Navarro,Milwaukee Brewers,,First Day Production
+first-day-production,622,Willie Wilson,Chicago Cubs,,First Day Production
+first-day-production,623,Scott Fletcher,Boston Red Sox,,First Day Production
+first-day-production,624,Bud Black,San Francisco Giants,,First Day Production
+first-day-production,625,Tom Brunansky,Milwaukee Brewers,,First Day Production
+first-day-production,626,Steve Avery,Atlanta Braves,,First Day Production
+first-day-production,627,Paul Molitor,Toronto Blue Jays,,First Day Production
+first-day-production,628,Gregg Jefferies,St. Louis Cardinals,,First Day Production
+first-day-production,629,Dave Stewart,Toronto Blue Jays,,First Day Production
+first-day-production,630,Javy Lopez,Atlanta Braves,,First Day Production
+first-day-production,631,Greg Gagne,Kansas City Royals,,First Day Production
+first-day-production,632,Bobby Kelly,Cincinnati Reds,,First Day Production
+first-day-production,633,Mike Fetters,Milwaukee Brewers,,First Day Production
+first-day-production,634,Ozzie Canseco,St. Louis Cardinals,,First Day Production
+first-day-production,635,Jeff Russell,Boston Red Sox,,First Day Production
+first-day-production,636,Pete Incaviglia,Philadelphia Phillies,,First Day Production
+first-day-production,637,Tom Henke,Texas Rangers,,First Day Production
+first-day-production,638,Chipper Jones,Atlanta Braves,,First Day Production
+first-day-production,639,Jimmy Key,New York Yankees,,First Day Production
+first-day-production,640,Dave Martinez,San Francisco Giants,,First Day Production
+first-day-production,641,Dave Stieb,Chicago White Sox,,First Day Production
+first-day-production,642,Milt Thompson,Philadelphia Phillies,,First Day Production
+first-day-production,643,Alan Mills,Baltimore Orioles,,First Day Production
+first-day-production,644,Tony Fernandez,New York Mets,,First Day Production
+first-day-production,645,Randy Bush,Minnesota Twins,,First Day Production
+first-day-production,646,Joe Magrane,St. Louis Cardinals,,First Day Production
+first-day-production,647,Ivan Calderon,Boston Red Sox,,First Day Production
+first-day-production,648,Jose Guzman,Chicago Cubs,,First Day Production
+first-day-production,649,John Olerud,Toronto Blue Jays,,First Day Production
+first-day-production,650,Tom Glavine,Atlanta Braves,,First Day Production
+first-day-production,651,Julio Franco,Texas Rangers,,First Day Production
+first-day-production,652,Armando Reynoso,Colorado Rockies,,First Day Production
+first-day-production,653,Felix Jose,Kansas City Royals,,First Day Production
+first-day-production,654,Ben Rivera,Philadelphia Phillies,,First Day Production
+first-day-production,655,Andre Dawson,Boston Red Sox,,First Day Production
+first-day-production,656,Mike Harkey,Chicago Cubs,,First Day Production
+first-day-production,657,Kevin Seitzer,Oakland Athletics,,First Day Production
+first-day-production,658,Lonnie Smith,Pittsburgh Pirates,,First Day Production
+first-day-production,659,Norm Charlton,Seattle Mariners,,First Day Production
+first-day-production,660,David Justice,Atlanta Braves,,First Day Production
+first-day-production,661,Fernando Valenzuela,Baltimore Orioles,,First Day Production
+first-day-production,662,Dan Wilson,Cincinnati Reds,,First Day Production
+first-day-production,663,Mark Gardner,Kansas City Royals,,First Day Production
+first-day-production,664,Doug Dascenzo,Texas Rangers,,First Day Production
+first-day-production,665,Greg Maddux,Atlanta Braves,,First Day Production
+first-day-production,666,Harold Baines,Baltimore Orioles,,First Day Production
+first-day-production,667,Randy Myers,Chicago Cubs,,First Day Production
+first-day-production,668,Harold Reynolds,Baltimore Orioles,,First Day Production
+first-day-production,669,Candy Maldonado,Chicago Cubs,,First Day Production
+first-day-production,670,Al Leiter,Toronto Blue Jays,,First Day Production
+first-day-production,671,Jerald Clark,Colorado Rockies,,First Day Production
+first-day-production,672,Doug Drabek,Houston Astros,,First Day Production
+first-day-production,673,Kirk Gibson,Detroit Tigers,,First Day Production
+first-day-production,674,Steve Reed,Colorado Rockies,,First Day Production
+first-day-production,675,Mike Felder,Seattle Mariners,,First Day Production
+first-day-production,676,Ricky Gutierrez,San Diego Padres,,First Day Production
+first-day-production,677,Spike Owen,New York Yankees,,First Day Production
+first-day-production,678,Otis Nixon,Atlanta Braves,,First Day Production
+first-day-production,679,Scott Sanderson,California Angels,,First Day Production
+first-day-production,680,Mark Carreon,San Francisco Giants,,First Day Production
+first-day-production,681,Troy Percival,California Angels,,First Day Production
+first-day-production,682,Kevin Stocker,Philadelphia Phillies,,First Day Production
+first-day-production,683,Jim Converse,Seattle Mariners,,First Day Production
+first-day-production,684,Barry Bonds,San Francisco Giants,,First Day Production
+first-day-production,685,Greg Gohr,Detroit Tigers,,First Day Production
+first-day-production,686,Tim Wallach,Los Angeles Dodgers,,First Day Production
+first-day-production,687,Matt Mieske,Milwaukee Brewers,,First Day Production
+first-day-production,688,Robby Thompson,San Francisco Giants,,First Day Production
+first-day-production,689,Brien Taylor,New York Yankees,,First Day Production
+first-day-production,690,Kirt Manwaring,San Francisco Giants,,First Day Production
+first-day-production,691,Mike Lansing,Montreal Expos,,First Day Production
+first-day-production,692,Steve Decker,Florida Marlins,,First Day Production
+first-day-production,693,Mike Moore,Detroit Tigers,,First Day Production
+first-day-production,694,Kevin Mitchell,Cincinnati Reds,,First Day Production
+first-day-production,695,Phil Hiatt,Kansas City Royals,,First Day Production
+first-day-production,696,Tony Tarasco,Atlanta Braves,,First Day Production
+first-day-production,697,Benji Gil,Texas Rangers,,First Day Production
+first-day-production,698,Jeff Juden,Houston Astros,,First Day Production
+first-day-production,699,Kevin Reimer,Milwaukee Brewers,,First Day Production
+first-day-production,700,Andy Ashby,Colorado Rockies,,First Day Production
+first-day-production,701,John Jaha,Milwaukee Brewers,,First Day Production
+first-day-production,702,Tim Bogar,New York Mets,,First Day Production
+first-day-production,703,David Cone,Kansas City Royals,,First Day Production
+first-day-production,704,Willie Greene,Cincinnati Reds,,First Day Production
+first-day-production,705,David Hulse,Texas Rangers,,First Day Production
+first-day-production,706,Cris Carpenter,Florida Marlins,,First Day Production
+first-day-production,707,"Ken Griffey, Jr.",Seattle Mariners,,First Day Production
+first-day-production,708,Steve Bedrosian,Atlanta Braves,,First Day Production
+first-day-production,709,Dave Nilsson,Milwaukee Brewers,,First Day Production
+first-day-production,710,Paul Wagner,Pittsburgh Pirates,,First Day Production
+first-day-production,711,B.J. Surhoff,Milwaukee Brewers,,First Day Production
+first-day-production,712,Rene Arocha,St. Louis Cardinals,,First Day Production
+first-day-production,713,Manuel Lee,Texas Rangers,,First Day Production
+first-day-production,714,Brian Williams,Houston Astros,,First Day Production
+first-day-production,715,Sherman Obando,Baltimore Orioles,,First Day Production
+first-day-production,716,Terry Mulholland,Philadelphia Phillies,,First Day Production
+first-day-production,717,Paul O'Neill,New York Yankees,,First Day Production
+first-day-production,718,David Nied,Colorado Rockies,,First Day Production
+first-day-production,719,J.T. Snow,California Angels,,First Day Production
+first-day-production,720,Nigel Wilson,Florida Marlins,,First Day Production
+first-day-production,721,Mike Bielecki,Cleveland Indians,,First Day Production
+first-day-production,722,Kevin Young,Pittsburgh Pirates,,First Day Production
+first-day-production,723,Charlie Leibrandt,Texas Rangers,,First Day Production
+first-day-production,724,Frank Bolick,Montreal Expos,,First Day Production
+first-day-production,725,Jon Shave,Texas Rangers,,First Day Production
+first-day-production,726,Steve Cooke,Pittsburgh Pirates,,First Day Production
+first-day-production,727,Domingo Martinez,Toronto Blue Jays,,First Day Production
+first-day-production,728,Todd Worrell,Los Angeles Dodgers,,First Day Production
+first-day-production,729,Jose Lind,Kansas City Royals,,First Day Production
+first-day-production,730,Jim Tatum,Colorado Rockies,,First Day Production
+first-day-production,731,Mike Hampton,Seattle Mariners,,First Day Production
+first-day-production,732,Mike Draper,New York Mets,,First Day Production
+first-day-production,733,Henry Mercedes,Oakland Athletics,,First Day Production
+first-day-production,734,John Johnstone,Florida Marlins,,First Day Production
+first-day-production,735,Mitch Webster,Los Angeles Dodgers,,First Day Production
+first-day-production,736,Russ Springer,California Angels,,First Day Production
+first-day-production,737,Bob Natal,Florida Marlins,,First Day Production
+first-day-production,738,Steve Howe,New York Yankees,,First Day Production
+first-day-production,739,Darrell Sherman,San Diego Padres,,First Day Production
+first-day-production,740,Pat Mahomes,Minnesota Twins,,First Day Production
+first-day-production,741,Alex Arias,Florida Marlins,,First Day Production
+first-day-production,742,Damon Buford,Baltimore Orioles,,First Day Production
+first-day-production,743,Charlie Hayes,Colorado Rockies,,First Day Production
+first-day-production,744,Guillermo Velasquez,San Diego Padres,,First Day Production
+first-day-production,745,Checklist: 601-750 CL,,,First Day Production
+first-day-production,746,Frank Thomas MC,Chicago White Sox,,First Day Production
+first-day-production,747,Barry Bonds MC,San Francisco Giants,,First Day Production
+first-day-production,748,Roger Clemens MC,Boston Red Sox,,First Day Production
+first-day-production,749,Joe Carter MC,Toronto Blue Jays,,First Day Production
+first-day-production,750,Greg Maddux MC,Atlanta Braves,,First Day Production
+first-day-production,51,Barry Bonds,Pittsburgh Pirates,,First Day Production
+3000-hit-club-expansion-draft,1,Robin Yount 3000 Hit Club,Milwaukee Brewers,,3000 Hit Club Expansion Draft
+3000-hit-club-expansion-draft,2,George Brett 3000 Hit Club,Kansas City Royals,,3000 Hit Club Expansion Draft
+3000-hit-club-expansion-draft,3,David Nied Expansion Draft,Colorado Rockies,,3000 Hit Club Expansion Draft
+3000-hit-club-expansion-draft,4,Nigel Wilson Expansion Draft,Florida Marlins,,3000 Hit Club Expansion Draft
+expansion-team-firsts,1,David Nied Colorado Rockies Firsts,Colorado Rockies,,Expansion Team Firsts
+expansion-team-firsts,2,Charlie Hough Florida Marlins Firsts,Florida Marlins,,Expansion Team Firsts
+superstar-duos,NNO-01,Will Clark / Mark McGwire Pacific Terrific,San Francisco Giants / Oakland Athletics,,Superstar Duos
+superstar-duos,NNO-02,Ken Griffey Jr. / Darryl Strawberry Pacific Terrific,Seattle Mariners / Los Angeles Dodgers,,Superstar Duos
+superstar-duos,NNO-03,Don Mattingly / Doc Gooden Broadway Stars,New York Yankees / New York Mets,,Superstar Duos
+superstar-duos,NNO-04,Frank Thomas / Ryne Sandberg Second City Sluggers,Chicago White Sox / Chicago Cubs,,Superstar Duos
+master-photos-redemptions-series-1,NNO-01,"Carlos Baerga RDMCard could be redeemed for Carlos Baerga, Cal Ripken and Mike Scioscia (Group A02)",Cleveland Indians,,Master Photos Redemptions Series 1
+master-photos-redemptions-series-1,NNO-02,"Delino DeShields RDMCard could be redeemed for Delino DeShields, Bip Roberts and Sam Militello (Group A04)",Montreal Expos,,Master Photos Redemptions Series 1
+master-photos-redemptions-series-1,NNO-03,"Brian McRae RDMCard could be redeemed for Brian McRae, Danny Tartabull and Tim Wakefield (Group A03)",Kansas City Royals,,Master Photos Redemptions Series 1
+master-photos-redemptions-series-1,NNO-04,"Sam Militello RDMCard could be redeemed for Sam Militello, Bip Roberts and ""Delina"" (UER) DeShields (Group A04)",New York Yankees,,Master Photos Redemptions Series 1
+master-photos-redemptions-series-1,NNO-05,"Joe Oliver RDMCard could be redeemed for Joe Oliver, Kirby Puckett and Rick Sutcliffe (Group A01)",Cincinnati Reds,,Master Photos Redemptions Series 1
+master-photos-redemptions-series-1,NNO-06,"Kirby Puckett RDMCard could be redeemed for Kirby Puckett, Joe Oliver and Rick Sutcliffe (Group A01)",Minnesota Twins,,Master Photos Redemptions Series 1
+master-photos-redemptions-series-1,NNO-07,"Cal Ripken RDMCard could be redeemed for Cal Ripken, Mike Scioscia and Carlos Baerga (Group A02)",Baltimore Orioles,,Master Photos Redemptions Series 1
+master-photos-redemptions-series-1,NNO-08,"Bip Roberts RDMCard could be redeemed for Bip Roberts, Delino DeShields and Sam Militello (Group A04)",Cincinnati Reds,,Master Photos Redemptions Series 1
+master-photos-redemptions-series-1,NNO-09,"Mike Scioscia RDMCard could be redeemed for Mike Scioscia, Cal Ripken and Carlos Baerga (Group A02)",Los Angeles Dodgers,,Master Photos Redemptions Series 1
+master-photos-redemptions-series-1,NNO-10,"Rick Sutcliffe RDMCard could be redeemed for Rick Sutcliffe, Joe Oliver and Kirby Puckett (Group A01)",Baltimore Orioles,,Master Photos Redemptions Series 1
+master-photos-redemptions-series-1,NNO-11,"Danny Tartabull RDMCard could be redeemed for Danny Tartabull, Tim Wakefield and Brian McRae (Group A03)",New York Yankees,,Master Photos Redemptions Series 1
+master-photos-redemptions-series-1,NNO-12,"Tim Wakefield RDMCard could be redeemed for Tim Wakefield, Danny Tartabull and Brian McRae (Group A03)",Pittsburgh Pirates,,Master Photos Redemptions Series 1
+master-photos-redemptions-series-2,NNO-01,"George Brett RDMCard could be redeemed for George Brett, Mark McGwire and Ruben Sierra (Group B05)",Kansas City Royals,,Master Photos Redemptions Series 2
+master-photos-redemptions-series-2,NNO-02,"Jose Canseco RDMCard could be redeemed for Jose Canseco, Larry Walker and Travis Fryman (Group B07)",Oakland Athletics,,Master Photos Redemptions Series 2
+master-photos-redemptions-series-2,NNO-03,"Will Clark RDMCard could be redeemed for Will Clark, Rickey Henderson and Nolan Ryan (Group B08)",San Francisco Giants,,Master Photos Redemptions Series 2
+master-photos-redemptions-series-2,NNO-04,"Travis Fryman RDMCard could be redeemed for Travis Fryman, Larry Walker and Jose Canseco (Group B07)",Detroit Tigers,,Master Photos Redemptions Series 2
+master-photos-redemptions-series-2,NNO-05,"Doc Gooden RDMCard could be redeemed for Doc Gooden, Mark Grace and Darryl Strawberry (Group B06)",New York Mets,,Master Photos Redemptions Series 2
+master-photos-redemptions-series-2,NNO-06,"Mark Grace RDMCard could be redeemed for Mark Grace, Doc Gooden and Darryl Strawberry (Group B06)",Chicago Cubs,,Master Photos Redemptions Series 2
+master-photos-redemptions-series-2,NNO-07,"Rickey Henderson RDMCard could be redeemed for Rickey Henderson, Will Clark and Nolan Ryan (Group B08)",Oakland Athletics,,Master Photos Redemptions Series 2
+master-photos-redemptions-series-2,NNO-08,"Mark McGwire RDMCard could be redeemed for Mark McGwire, George Brett and Ruben Sierra (Group B05)",Oakland Athletics,,Master Photos Redemptions Series 2
+master-photos-redemptions-series-2,NNO-09,"Nolan Ryan RDMCard could be redeemed for Nolan Ryan, Rickey Henderson and Will Clark (Group B08)",Texas Rangers,,Master Photos Redemptions Series 2
+master-photos-redemptions-series-2,NNO-10,"Ruben Sierra RDMCard could be redeemed for Ruben Sierra, Mark McGwire and George Brett (Group B05)",Oakland Athletics,,Master Photos Redemptions Series 2
+master-photos-redemptions-series-2,NNO-11,"Darryl Strawberry RDMCard could be redeemed for Darryl Strawberry, Doc Gooden and Mark Grace (Group B06)",Los Angeles Dodgers,,Master Photos Redemptions Series 2
+master-photos-redemptions-series-2,NNO-12,"Larry Walker RDMCard could be redeemed for Larry Walker, Jose Canseco and Travis Fryman (Group B07)",Montreal Expos,,Master Photos Redemptions Series 2
+master-photos-redemptions-series-3,NNO-01,"Barry Bonds RDMCard could be redeemed for Barry Bonds, J.T. Snow and David Nied (Group C10)",San Francisco Giants,,Master Photos Redemptions Series 3
+master-photos-redemptions-series-3,NNO-02,"Ken Griffey, Jr. RDMCard could be redeemed for Ken Griffey Jr., Greg Maddux and Brien Taylor (Group C09)",Seattle Mariners,,Master Photos Redemptions Series 3
+master-photos-redemptions-series-3,NNO-03,"Greg Maddux RDMCard could be redeemed for Greg Maddux, Brien Taylor and Ken Griffey Jr. (Group C09)",Atlanta Braves,,Master Photos Redemptions Series 3
+master-photos-redemptions-series-3,NNO-04,"David Nied RDMCard could be redeemed for David Nied, Barry Bonds and J.T. Snow (Group C10)",Colorado Rockies,,Master Photos Redemptions Series 3
+master-photos-redemptions-series-3,NNO-05,"J.T. Snow RDMCard could be redeemed for J.T. Snow, David Nied and Barry Bonds (Group C10)",California Angels,,Master Photos Redemptions Series 3
+master-photos-redemptions-series-3,NNO-06,"Brien Taylor RDMCard could be redeemed for Brien Taylor, Ken Griffey Jr. and Greg Maddux (Group C09)",New York Yankees,,Master Photos Redemptions Series 3
