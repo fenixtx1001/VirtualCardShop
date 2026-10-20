@@ -141,6 +141,7 @@ type PrestigeBucketSet = {
   claimedCompletions: number;
   claimable: number;
   sampleImageUrl?: string | null;
+  gradingCreditBalanceCents?: number;
 };
 
 type PrestigeClaim = {
@@ -156,6 +157,7 @@ type PrestigeClaim = {
   rewardReadyCents: number;
   nextMilestoneLevel: number | null;
   bonusAwardedCents: number;
+  gradingCreditBalanceCents?: number;
 };
 
 type PrestigeSummary = {
@@ -165,6 +167,7 @@ type PrestigeSummary = {
     totalTimesCompleted: number;
     totalClaimableCompletions: number;
     bonusAwardedCents: number;
+    gradingCreditBalanceCents?: number;
     buckets: Record<PrestigeBucketKey, number>;
     bucketSets: Record<PrestigeBucketKey, PrestigeBucketSet[]>;
   };
@@ -1775,6 +1778,9 @@ export default function ShowcaseClient() {
                   <span>lifetime rewards</span>
                 </div>
               </div>
+              <div className="showcase-registry-credit-notice">
+                <strong>{centsToMoney(prestige.summary.gradingCreditBalanceCents ?? 0)}</strong> in set-specific grading credits earned from Prestige. One $1 credit per completed level; credits stay with their original set and automatically reduce grading fees.
+              </div>
 
               {prestige.claimable.length > 0 ? (
                 <section className="showcase-rewards">
@@ -2010,6 +2016,8 @@ export default function ShowcaseClient() {
                                   row.timesCompleted
                                 )}
                                 × complete
+                                {row.gradingCreditBalanceCents != null && isViewingMe
+                                  ? " · $" + Math.floor(row.gradingCreditBalanceCents / 100) + " grading credits" : ""}
                                 {row.claimable > 0
                                   ? ` · ${number(
                                       row.claimable
@@ -2032,6 +2040,10 @@ export default function ShowcaseClient() {
                               >
                                 ◫ Binder
                               </Link>}
+                              <Link
+                                href={"/registry/" + encodeURIComponent(row.productSetId)}
+                                className="showcase-bucket-link"
+                              >Graded Registry</Link>
                             </div>
                           </div>
                         )
