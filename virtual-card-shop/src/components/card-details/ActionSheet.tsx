@@ -60,6 +60,18 @@ export default function ActionSheet({
   const [auctionId, setAuctionId] = useState<number | null>(null);
   const [refreshFailed, setRefreshFailed] = useState(false);
   const [clock, setClock] = useState(Date.now());
+  const [creditQuote, setCreditQuote] = useState<{
+    creditCount: number;
+    creditPerCopyCents: number;
+    productSetId: string | null;
+    productSetName: string | null;
+    productName: string;
+    prestigeLevel: number;
+  } | null>(null);
+  const [useSetCredits, setUseSetCredits] = useState(true);
+  const [creditLoading, setCreditLoading] = useState(mode === "grade");
+  const [creditError, setCreditError] = useState("");
+  const [creditRefresh, setCreditRefresh] = useState(0);
   const inFlight = useRef(false);
   const row = rows.find((r) => r.grade === grade);
   const available = availableCopies(row);
@@ -67,6 +79,11 @@ export default function ActionSheet({
   const valid = Number.isSafeInteger(qty) && qty > 0 && qty <= available;
   const rawCents = bookValueToCents(data.card.bookValue);
   const fee = calculateGradingFeeCents(rawCents);
+  const quotedQuantity = valid ? qty : 0;
+  const creditCopies = useSetCredits && creditQuote
+    ? Math.min(quotedQuantity, creditQuote.creditCount) : 0;
+  const creditSavings = creditCopies * Math.min(fee, creditQuote?.creditPerCopyCents ?? 100);
+  const cashDueCents = Math.max(0, fee * quotedQuantity - creditSavings);
   const active = status?.activeOffer;
   const expired = !!active && Date.parse(active.expiresAt) <= clock;
   const quote = active
@@ -95,6 +112,39 @@ export default function ActionSheet({
     return () => clearInterval(timer);
   }, []);
   useEffect(() => {
+    if (mode !== "grade") return;
+    const controller = new AbortController();
+    setCreditLoading(true);
+    setCreditError("");
+    fetch("/api/grading/credits?cardId=" + encodeURIComponent(String(data.card.id)), {
+      cache: "no-store",
+      signal: controller.signal,
+    }).then(async response => {
+      const payload = await response.json();
+      if (!response.ok || !payload?.ok) {
+        throw new Error(payload?.error || "Unable to check grading credits");
+      }
+      return payload;
+    }).then(payload => {
+      if (!controller.signal.aborted) {
+        setCreditQuote({
+          creditCount: payload.creditCount ?? 0,
+          creditPerCopyCents: payload.creditPerCopyCents ?? 100,
+          productSetId: payload.productSetId ?? null,
+          productSetName: payload.productSetName ?? null,
+          productName: payload.productName ?? "",
+          prestigeLevel: payload.prestigeLevel ?? 0,
+        });
+      }
+    }).catch(error => {
+      if (!controller.signal.aborted) setCreditError(error instanceof Error ? error.message : "Unable to check grading credits");
+    }).finally(() => {
+      if (!controller.signal.aborted) setCreditLoading(false);
+    });
+    return () => controller.abort();
+  }, [mode, data.card.id, creditRefresh]);
+
+  useEffect(() => {
     if (mode !== "sell") return;
     const abort = new AbortController();
     requestJson<OfferStatus>(
@@ -112,6 +162,10 @@ export default function ActionSheet({
   }, [data.card.id, mode]);
   async function act(kind: "request" | "grade" | "sell" | "auction") {
     if (inFlight.current || success) return;
+    if (kind === "grade" && (creditLoading || creditError || !creditQuote)) {
+      setError("Grading credits are still being checked. Please retry the credit lookup.");
+      return;
+    }
     if (kind !== "request" && !valid) {
       setError("Choose a whole number within your available copies.");
       return;
@@ -129,16 +183,20 @@ export default function ActionSheet({
         );
       } else {
         if (kind === "grade") {
-          const result = await postJson<{ totalFeeCents: number }>(
+          const result = await postJson<{
+            totalFeeCents: number; cashFeeCents: number;
+            creditAppliedCents: number; creditsUsed: number;
+          }>(
             "/api/grading/submit",
             {
               cardId: data.card.id,
               quantity: qty,
               expectedFeeCents: fee * qty,
+              useSetCredits,
             },
           );
           setSuccess(
-            `Submitted ${qty} ${qty === 1 ? "copy" : "copies"} for grading. Fee paid: ${money(result.totalFeeCents)}.`,
+            `Submitted ${qty} ${qty === 1 ? "copy" : "copies"} for grading. Cash paid: ${money(result.cashFeeCents)}${result.creditsUsed ? ` · ${result.creditsUsed} set credit(s) used` : ""}.`,
           );
         } else if (kind === "auction") {
           const result = await postJson<{ auction: { id: number } }>(
@@ -303,14 +361,38 @@ export default function ActionSheet({
                     <dd>{money(fee)}</dd>
                   </div>
                   <div>
-                    <dt>Total grading fee</dt>
-                    <dd>{money(fee * (valid ? qty : 0))}</dd>
+                    <dt>Standard grading fee</dt>
+                    <dd>{money(fee * quotedQuantity)}</dd>
+                  </div>
+                  <div>
+                    <dt>Set credits applied</dt>
+                    <dd className="cd-credit-savings">-{money(creditSavings)} ({creditCopies} credits)</dd>
+                  </div>
+                  <div className="cd-credit-due">
+                    <dt>Cash due now</dt>
+                    <dd>{money(cashDueCents)}</dd>
                   </div>
                   <div>
                     <dt>Reveal</dt>
                     <dd>After 24 hours</dd>
                   </div>
                 </dl>
+                <div className="cd-credit-panel">
+                  {creditLoading ? <p role="status">Checking available set grading credits…</p> :
+                    creditError ? <div role="alert">
+                      <p>Unable to load your set credits: {creditError}</p>
+                      <button type="button" onClick={() => setCreditRefresh(value => value + 1)}>Retry credit lookup</button>
+                    </div> : creditQuote ? <>
+                      <strong>{creditQuote.creditCount} grading credit{creditQuote.creditCount === 1 ? "" : "s"} available</strong>
+                      <small>{creditQuote.productName || "Unknown product"} · {creditQuote.productSetName || "Unassigned set"} · Prestige {creditQuote.prestigeLevel}</small>
+                      {creditQuote.creditCount > 0 ?
+                        <label className="cd-credit-toggle">
+                          <input type="checkbox" checked={useSetCredits} disabled={busy} onChange={e => setUseSetCredits(e.target.checked)} />
+                          Apply available set grading credits
+                        </label> :
+                        <p>No credits are available for this exact product set. Credits earned in other sets cannot be transferred.</p>}
+                    </> : null}
+                </div>
                 <p className="cd-muted">
                   {GRADING_FEE_BPS / 100}% of raw book value, with a{" "}
                   {money(MIN_GRADING_FEE_CENTS)} minimum per copy. Grading
@@ -318,12 +400,12 @@ export default function ActionSheet({
                 </p>
                 <button
                   className="cd-primary cd-full"
-                  disabled={busy || !valid}
+                  disabled={busy || !valid || creditLoading || Boolean(creditError) || !creditQuote}
                   onClick={() => act("grade")}
                 >
                   {busy
                     ? "Submitting…"
-                    : `Submit for grading · ${money(fee * (valid ? qty : 0))}`}
+                    : `Submit for grading · ${money(cashDueCents)} cash`}
                 </button>
               </>
             ) : method === "auction" ? (
