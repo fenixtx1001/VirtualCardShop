@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/143/1990-Leaf",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/143/1990-Leaf",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/143/1990-Leaf",
+    "puzzleUrl": "https://www.tcdb.com/Checklist.cfm/sid/99847/1990-Leaf---Yogi-Berra-Puzzle"
+  },
+  "decisions": {
+    "base": "Combine 264-card Series 1 and 264-card Series 2 into single 528-card BASE checklist, all numbered subjects equally likely.",
+    "rookies": "Use 56 unique TCDB rookie-index entries; RC suffix only on verified Base rookie cards.",
+    "puzzle": "One original 3-piece Yogi Berra puzzle panel per pack historically, 21 panels spanning 1-3 through 61-63. Separate INSERT set with oddsPerPack 1; art must use the authentic puzzle panels.",
+    "previews": "Exclude 12-card dealer-only Special Preview promos; these were not ordinary pack pulls.",
+    "errors": "Do not manufacture error/variation checklists or extra scarcity.",
+    "pack": "Four VCS cards per pack, 24 packs per box. Puzzle panel is a separate hit pool from four-card base draw.",
+    "release": "DRAFT only; imagery, pricing, grading suitability and pack QA remain outstanding."
+  },
+  "product": {
+    "id": "1990_Leaf_Baseball",
+    "year": 1990,
+    "brand": "Leaf",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "rookieData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1990-leaf-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1990_Leaf_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 528,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/143/1990-Leaf",
+      "notes": "Base #1–528 equally weighted; #1 Leaf Set included as standard collectible."
+    },
+    {
+      "key": "yogi-berra-puzzle",
+      "id": "1990_Leaf_Baseball_yogi_berra_puzzle",
+      "name": "Yogi Berra Puzzle",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "expectedCards": 21,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/99847/1990-Leaf---Yogi-Berra-Puzzle",
+      "notes": "21 three-piece puzzle panels; original foil packs contained one panel."
+    }
+  ]
+}
