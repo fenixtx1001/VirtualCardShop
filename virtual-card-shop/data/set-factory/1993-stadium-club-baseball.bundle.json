@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/280/1993-Stadium-Club",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/280/1993-Stadium-Club",
+    "insertList": "https://www.tcdb.com/Inserts.cfm/sid/280/1993-Stadium-Club"
+  },
+  "decisions": {
+    "base": "Combine all 3 series into one 750-card base pool with equal odds.",
+    "rookies": "45 indexed true RCs, independent check against full base checklist.",
+    "firstDay": "750 First Day Production physical pack parallels, 1:24 in each original series, 2000 copies per number.",
+    "insertCards": "Include 3000 Hit Club/Expansion Draft (4), Expansion Team Firsts (2), Superstar Duos (4), and physically pack-included Master Photo redemption cards (12+12+6).",
+    "excluded": "Exclude Members Only factory-set parallels and factory-only inserts, redeemed 5x7 Master Photos, Membership Forms and Info Cards as non-playing promotional paperwork.",
+    "nameRule": "Strip only whitespace-delimited whole metadata tokens; never truncate surnames ending in token-looking characters.",
+    "pack": "Four-card VCS packs and 24 packs per box; source odds per original series displayed but unified VCS odds require final normalization.",
+    "release": "DRAFT. Verify imported artwork, pricing, team data, and normalization of series-specific insert odds before release."
+  },
+  "product": {
+    "id": "1993_Stadium_Club_Baseball",
+    "year": 1993,
+    "brand": "Stadium Club",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieData": "SOURCE_VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1993-stadium-club-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1993_Stadium_Club_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 750,
+      "sourceSetId": 280,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/280/1993-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": "750 numbered cards 3 series combined."
+    },
+    {
+      "key": "first-day-production",
+      "id": "1993_Stadium_Club_Baseball_first_day_production",
+      "name": "First Day Production",
+      "kind": "PARALLEL",
+      "oddsPerPack": 24,
+      "expectedCards": 750,
+      "sourceSetId": 10322,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10322/1993-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": "750-card physical pack parallel, holofoil 1st Day Production."
+    },
+    {
+      "key": "3000-hit-club-expansion-draft",
+      "id": "1993_Stadium_Club_Baseball_3000_hit_club_expansion_draft",
+      "name": "3000 Hit Club Expansion Draft",
+      "kind": "INSERT",
+      "oddsPerPack": 15,
+      "expectedCards": 4,
+      "sourceSetId": 281,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/281/1993-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": "Original series-specific pack odds; unified pack distribution requires QA."
+    },
+    {
+      "key": "expansion-team-firsts",
+      "id": "1993_Stadium_Club_Baseball_expansion_team_firsts",
+      "name": "Expansion Team Firsts",
+      "kind": "INSERT",
+      "oddsPerPack": 15,
+      "expectedCards": 2,
+      "sourceSetId": 283,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/283/1993-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": "Original series-specific pack odds; unified pack distribution requires QA."
+    },
+    {
+      "key": "superstar-duos",
+      "id": "1993_Stadium_Club_Baseball_superstar_duos",
+      "name": "Superstar Duos",
+      "kind": "INSERT",
+      "oddsPerPack": 15,
+      "expectedCards": 4,
+      "sourceSetId": 282,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/282/1993-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": "Original series-specific pack odds; unified pack distribution requires QA."
+    },
+    {
+      "key": "master-photos-redemptions-series-1",
+      "id": "1993_Stadium_Club_Baseball_master_photos_redemptions_series_1",
+      "name": "Master Photos Redemptions Series 1",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "expectedCards": 12,
+      "sourceSetId": 338805,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/338805/1993-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": "Original series-specific pack odds; unified pack distribution requires QA."
+    },
+    {
+      "key": "master-photos-redemptions-series-2",
+      "id": "1993_Stadium_Club_Baseball_master_photos_redemptions_series_2",
+      "name": "Master Photos Redemptions Series 2",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "expectedCards": 12,
+      "sourceSetId": 338806,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/338806/1993-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": "Original series-specific pack odds; unified pack distribution requires QA."
+    },
+    {
+      "key": "master-photos-redemptions-series-3",
+      "id": "1993_Stadium_Club_Baseball_master_photos_redemptions_series_3",
+      "name": "Master Photos Redemptions Series 3",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "expectedCards": 6,
+      "sourceSetId": 10323,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10323/1993-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": "Original series-specific pack odds; unified pack distribution requires QA."
+    }
+  ]
+}
