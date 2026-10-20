@@ -79,3 +79,101 @@
  .vcs-registry-card-caption span{font-size:9px}
  .vcs-registry-card-caption b{font-size:10px}
 }
+
+/* Registry refinement: actual miniaturized VCS slabs, not re-created mockups. */
+.vcs-registry .vcs-registry-header h1 {
+  color: #f2eee4 !important;
+  text-shadow: 0 2px 14px rgba(0,0,0,.35);
+  font-weight: 550;
+  opacity: 1;
+}
+.vcs-registry-selected-set {
+  color: #d9c48e !important;
+  font-size: 14px !important;
+  font-weight: 650;
+  margin: 3px 0 5px !important;
+  line-height: 1.4;
+}
+.vcs-registry-header > div:first-child { min-width: 0; flex: 1 1 250px; }
+.vcs-registry-header-actions {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 9px;
+  flex: 0 1 320px;
+  min-width: 210px;
+}
+.vcs-registry-set-selector {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  color: #c2cdbf;
+  font-size: 11px;
+  font-weight: 550;
+}
+.vcs-registry-set-selector select {
+  width: 100%;
+  min-height: 43px;
+  padding: 9px 10px;
+  border: 1px solid #6b795c;
+  border-radius: 8px;
+  background: #202a24;
+  color: #f7f1e6;
+  font-size: 13px;
+  cursor: pointer;
+}
+.vcs-registry-set-selector select:focus-visible {
+  outline: 2px solid #e1c587;
+  outline-offset: 2px;
+}
+.vcs-registry-real-slab {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 2.72 / 4.45;
+  overflow: visible;
+  pointer-events: none;
+}
+.vcs-registry-real-slab-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 390px;
+  height: calc(390px * 4.45 / 2.72);
+  transform-origin: top left;
+  will-change: transform;
+  pointer-events: none;
+}
+.vcs-registry-slab-trigger {
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+  padding: 3px;
+  transition: transform 160ms ease;
+}
+.vcs-registry-slab-trigger:hover { transform: translateY(-2px); }
+.vcs-registry-pocket { isolation: isolate; }
+.vcs-registry-page { overflow: visible; }
+@media (max-width: 700px) {
+  .vcs-registry-header { align-items: stretch; flex-wrap: wrap; }
+  .vcs-registry-header-actions {
+    align-items: stretch;
+    flex: 1 1 100%;
+    flex-direction: row;
+    min-width: 0;
+    gap: 11px;
+  }
+  .vcs-registry-set-selector { flex: 1; min-width: 0; }
+  .vcs-registry-header-actions .vcs-registry-link {
+    align-self: end;
+    white-space: nowrap;
+    padding-bottom: 12px;
+  }
+  .vcs-registry .vcs-registry-header h1 {
+    font-size: clamp(24px, 7vw, 33px);
+    line-height: 1.16;
+  }
+  .vcs-registry-slab-trigger { padding: 1px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vcs-registry-slab-trigger { transition: none; }
+}
