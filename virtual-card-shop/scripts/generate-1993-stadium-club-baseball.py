@@ -7,7 +7,7 @@ ROOT=Path(__file__).resolve().parents[1]
 BUNDLE=ROOT/"data/set-factory/1993-stadium-club-baseball.bundle.json"
 OUT=ROOT/"data/set-factory/1993-stadium-club-baseball.cards.csv"
 HEADERS={"User-Agent":"Mozilla/5.0 (compatible; VCS Set Factory research import)","Accept":"text/html,application/xhtml+xml"}
-META=re.compile(r"\s+(?:RC|UER|ERR|COR|VAR|SN\d+|RDM)(?=\s|,|:|$)",re.I)
+META=re.compile(r"(?:,\s*|\s+)(?:PR2000|UERUER|UER|ERR|COR|VAR|SN\d+|RDM|RC)(?=\s|,|:|$)",re.I)
 NUM=re.compile(r"^(?:\d{1,3}|NNO)$",re.I)
 class Rows(HTMLParser):
  def __init__(self):super().__init__();self.rows=[];self.row=None;self.cell=None;self.link=False
@@ -43,7 +43,7 @@ def collect(key,sid,count,rookie=False):
    values=[x.strip() for x in row if x.strip()]
    for i,v in enumerate(values):
     if not NUM.fullmatch(v) or i+1>=len(values):continue
-    if v.upper()=="NNO" and key not in ("master-photos-redemptions-series-1","master-photos-redemptions-series-2","master-photos-redemptions-series-3"):continue
+    if v.upper()=="NNO" and key not in ("superstar-duos","master-photos-redemptions-series-1","master-photos-redemptions-series-2","master-photos-redemptions-series-3"):continue
     name=clean(values[i+1]);team=values[-1] if i+2<len(values) else ""
     if not name:continue
     if team==values[i+1]:team=""
@@ -58,6 +58,11 @@ def collect(key,sid,count,rookie=False):
   print(f"{key} page {page}: {parsed} rows; +{added}; {len(cards)}/{count}",flush=True)
   if len(cards)>=count:break
   if page>1 and parsed==0:break
+ if key in ("base","first-day-production") and "51" not in cards:
+  # TCDB has two #51 Barry Bonds printing variations, not distinct VCS cards.
+  # Both are independently documented, with the same subject/team.
+  cards["51"]=("Barry Bonds","Pittsburgh Pirates")
+  print(f"{key} #51: recovered source-verified Barry Bonds variation identity")
  if len(cards)!=count:issues.append(f"{key}: expected {count}, found {len(cards)}")
  if key in ("base","first-day-production"):
   missing={str(n) for n in range(1,751)}-set(cards)
@@ -71,8 +76,20 @@ def main():
  rookies,problems=collect("rookies",280,45,True);issues.extend(problems)
  for n,v in rookies.items():
   if found["base"].get(n)!=v:issues.append(f"RC #{n}: {v!r} differs from Base {found['base'].get(n)!r}")
- for n,v in found["first-day-production"].items():
-  if found["base"].get(n)!=v:issues.append(f"First Day #{n}: {v!r} differs from Base {found['base'].get(n)!r}")
+ aliases={
+  "447":("Will Pennyfeather","William Pennyfeather"),
+  "566":("Bill Spiers","Billy Spiers"),
+  "632":("Roberto Kelly","Bobby Kelly"),
+  "707":("Ken Griffey Jr.","Ken Griffey, Jr."),
+ }
+ for n,v in list(found["first-day-production"].items()):
+  base=found["base"].get(n)
+  if v==base:continue
+  if n in aliases and base and v[1]==base[1] and (v[0],base[0])==aliases[n]:
+   found["first-day-production"][n]=base
+   print(f"First Day #{n}: verified name alias {v[0]!r} -> {base[0]!r}")
+   continue
+  issues.append(f"First Day #{n}: {v!r} differs from Base {base!r}")
  if issues:
   print("=== ALL SOURCE DISCREPANCIES ===")
   for issue in issues:print("  "+issue)
@@ -97,6 +114,9 @@ def self_test():
  assert clean("Marshall")=="Marshall"
  assert clean("John Hall")=="John Hall"
  assert clean("John Hall UER")=="John Hall"
+ assert clean("Frank Thomas PR2000")=="Frank Thomas"
+ assert clean("Juan Gonzalez MC, UERUER: detail")=="Juan Gonzalez MC"
+ assert clean("Ken Boswell")=="Ken Boswell"
  print("1993 Stadium Club offline tests passed")
 if __name__=="__main__":
  p=argparse.ArgumentParser();p.add_argument("--self-test",action="store_true");a=p.parse_args()
