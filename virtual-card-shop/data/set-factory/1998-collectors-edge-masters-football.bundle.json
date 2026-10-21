@@ -39,5 +39,149 @@
     "release": "BLOCKED_PENDING_QA"
   },
   "cardsFile": "1998-collectors-edge-masters-football.cards.csv",
-  "productSets": []
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1998_Collectors_Edge_Masters_Football_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 199,
+      "sourceSetId": 4203,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4203/1998-Collectors-Edge-Masters",
+      "defaultGradeability": "COMMON"
+    },
+    {
+      "key": "50-point",
+      "id": "1998_Collectors_Edge_Masters_Football_50_point",
+      "name": "50-Point",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "expectedCards": 199,
+      "sourceSetId": 34609,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/34609/1998-Collectors-Edge-Masters",
+      "defaultGradeability": "COMMON"
+    },
+    {
+      "key": "50-point-gold",
+      "id": "1998_Collectors_Edge_Masters_Football_50_point_gold",
+      "name": "50-Point Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "expectedCards": 199,
+      "sourceSetId": 34610,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/34610/1998-Collectors-Edge-Masters",
+      "defaultGradeability": "COMMON"
+    },
+    {
+      "key": "hologold",
+      "id": "1998_Collectors_Edge_Masters_Football_hologold",
+      "name": "HoloGold",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "expectedCards": 199,
+      "sourceSetId": 34613,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/34613/1998-Collectors-Edge-Masters",
+      "defaultGradeability": "COMMON"
+    },
+    {
+      "key": "1996-game-ball-jerry-rice-autographed",
+      "id": "1998_Collectors_Edge_Masters_Football_1996_game_ball_jerry_rice_autographed",
+      "name": "1996 Collector's Edge Advantage Game Ball Jerry Rice Autographed",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 1,
+      "sourceSetId": 284852,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/284852/1998-Collectors-Edge-Masters",
+      "defaultGradeability": "COMMON"
+    },
+    {
+      "key": "gold-set-redemption",
+      "id": "1998_Collectors_Edge_Masters_Football_gold_set_redemption",
+      "name": "Gold Set Redemption",
+      "kind": "INSERT",
+      "oddsPerPack": 6000,
+      "expectedCards": 1,
+      "sourceSetId": 437615,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/437615/1998-Collectors-Edge-Masters",
+      "defaultGradeability": "COMMON"
+    },
+    {
+      "key": "legends",
+      "id": "1998_Collectors_Edge_Masters_Football_legends",
+      "name": "Legends",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 30,
+      "sourceSetId": 34614,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/34614/1998-Collectors-Edge-Masters",
+      "defaultGradeability": "COMMON"
+    },
+    {
+      "key": "main-event",
+      "id": "1998_Collectors_Edge_Masters_Football_main_event",
+      "name": "Main Event",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 20,
+      "sourceSetId": 34615,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/34615/1998-Collectors-Edge-Masters",
+      "defaultGradeability": "COMMON"
+    },
+    {
+      "key": "prodigies-autographs",
+      "id": "1998_Collectors_Edge_Masters_Football_prodigies_autographs",
+      "name": "Prodigies Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 2,
+      "sourceSetId": 280588,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/280588/1998-Collectors-Edge-Masters",
+      "defaultGradeability": "COMMON"
+    },
+    {
+      "key": "rookie-masters",
+      "id": "1998_Collectors_Edge_Masters_Football_rookie_masters",
+      "name": "Rookie Masters",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 30,
+      "sourceSetId": 34617,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/34617/1998-Collectors-Edge-Masters",
+      "defaultGradeability": "COMMON"
+    },
+    {
+      "key": "sentinels",
+      "id": "1998_Collectors_Edge_Masters_Football_sentinels",
+      "name": "Sentinels",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 10,
+      "sourceSetId": 34618,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/34618/1998-Collectors-Edge-Masters",
+      "defaultGradeability": "COMMON"
+    },
+    {
+      "key": "super-masters",
+      "id": "1998_Collectors_Edge_Masters_Football_super_masters",
+      "name": "Super Masters",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 31,
+      "sourceSetId": 34619,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/34619/1998-Collectors-Edge-Masters",
+      "defaultGradeability": "COMMON"
+    },
+    {
+      "key": "super-masters-autographs",
+      "id": "1998_Collectors_Edge_Masters_Football_super_masters_autographs",
+      "name": "Super Masters Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 9,
+      "sourceSetId": 131616,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/131616/1998-Collectors-Edge-Masters",
+      "defaultGradeability": "COMMON"
+    }
+  ]
 }
