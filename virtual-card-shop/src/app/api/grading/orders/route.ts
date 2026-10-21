@@ -7,6 +7,7 @@ import type {
 } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { shuffleReadyMailerIds } from "@/lib/grading-shuffle";
 import {
   bookValueToCents,
   calculateGradedValueCents,
@@ -90,6 +91,14 @@ function parseStatusFilter(value: string | null): StatusFilter {
 function parsePositiveInt(value: string | null, fallback: number) {
   const parsed = Number.parseInt(value ?? "", 10);
   return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+// The seed only controls presentation order, never grading outcomes.
+// Restrict it to a valid unsigned 32-bit integer to bound inputs.
+function parseReadyShuffleSeed(value: string | null, status: StatusFilter): number | null {
+  if (status !== "READY" || !value || !/^[0-9]{1,10}$/.test(value)) return null;
+  const seed = Number(value);
+  return Number.isSafeInteger(seed) && seed > 0 && seed <= 0xffffffff ? seed : null;
 }
 
 function buildWhere(input: {
@@ -176,6 +185,7 @@ export async function GET(req: Request) {
 
     const url = new URL(req.url);
     const statusFilter = parseStatusFilter(url.searchParams.get("status"));
+    const shuffleSeed = parseReadyShuffleSeed(url.searchParams.get("shuffle"), statusFilter);
     const q = (url.searchParams.get("q") ?? "").trim().replace(/\s+/g, " ").slice(0, 80);
     const requestedPage = parsePositiveInt(url.searchParams.get("page"), 1);
     const pageSize = Math.min(
@@ -252,11 +262,30 @@ export async function GET(req: Request) {
     const totalPages = Math.max(1, Math.ceil(totalOrders / pageSize));
     const page = Math.min(requestedPage, totalPages);
 
+    // Shuffle across ALL matching Ready mailers, not just the 25 already
+    // shown on one page. Fetch IDs only, then retrieve full details for the
+    // selected page. This keeps pagination deterministic and lightweight.
+    // Unrevealed results stay sealed; no grade or fee data is used to shuffle.
+    const shuffledPageIds = shuffleSeed != null
+      ? shuffleReadyMailerIds(
+          (await prisma.gradingOrder.findMany({
+            where: searchWhere,
+            select: { id: true },
+          })).map(order => order.id),
+          shuffleSeed,
+        ).slice((page - 1) * pageSize, page * pageSize)
+      : null;
+    const shuffledOrderIndex = shuffledPageIds == null
+      ? null
+      : new Map(shuffledPageIds.map((id, index) => [id, index]));
+
     const orders = await prisma.gradingOrder.findMany({
-      where: searchWhere,
-      orderBy: getOrderBy(statusFilter),
-      skip: (page - 1) * pageSize,
-      take: pageSize,
+      where: shuffledPageIds == null
+        ? searchWhere
+        : { AND: [searchWhere, { id: { in: shuffledPageIds } }] },
+      orderBy: shuffledPageIds == null ? getOrderBy(statusFilter) : undefined,
+      skip: shuffledPageIds == null ? (page - 1) * pageSize : undefined,
+      take: shuffledPageIds == null ? pageSize : undefined,
       select: {
         id: true,
         quantity: true,
@@ -314,6 +343,12 @@ export async function GET(req: Request) {
         },
       },
     });
+
+    if (shuffledOrderIndex) {
+      orders.sort((a, b) =>
+        (shuffledOrderIndex.get(a.id) ?? 0) - (shuffledOrderIndex.get(b.id) ?? 0)
+      );
+    }
 
     const mappedOrders = orders.map((order) => {
       const gradeability = getEffectiveGradeability({
@@ -391,6 +426,7 @@ export async function GET(req: Request) {
       ok: true,
       now,
       statusFilter,
+      shuffleSeed,
       q,
       counts,
       page,
