@@ -96,3 +96,56 @@ body:has(.grading-desk) { background: #181a19; }
 @media(max-width:560px){.grading-desk{padding:16px 13px 35px}.grading-desk-header{align-items:flex-start;gap:12px}.grading-desk-actions{justify-content:flex-end;gap:6px}.grading-desk-link{padding:8px 10px;font-size:11px}.grading-refresh{width:39px;padding:0;font-size:19px}.grading-refresh-label{display:none}.grading-desk-subtitle{max-width:320px;font-size:11px}.grading-filter{min-height:59px}.grading-filter span{font-size:10px}.grading-filter strong{font-size:17px}.grading-desk-filters{gap:5px}.grading-search-note{display:none}.grading-order{padding:11px;grid-template-columns:86px minmax(0,1fr);gap:11px}.grading-order-title{font-size:15px}.grading-list-heading{align-items:flex-start}.grading-order-actions{padding-top:10px}.grading-pagination{justify-content:center;text-align:center}.grading-pagination-summary{width:100%}.grading-jump{display:none}}
 @media(max-width:360px){.grading-desk{padding-left:10px;padding-right:10px}.grading-desk-header{flex-wrap:wrap}.grading-desk-actions{width:100%;justify-content:space-between}.grading-desk-filter{font-size:9px}.grading-order{grid-template-columns:75px minmax(0,1fr)}.grading-order-facts{gap:3px}.grading-mailer-action{padding:9px 11px}}
 @media(prefers-reduced-motion:reduce){.grading-loading>div{animation:none}}
+
+
+/* Quiet, inline shuffle for ready bubble mailers. It changes only the order
+   of results (including pages beyond the first), never the reveal experience. */
+.grading-list-heading-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.grading-shuffle-tools {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.grading-desk .grading-shuffle-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 33px;
+  padding: 6px 10px;
+  border-radius: 7px;
+  border: 1px solid #827550;
+  background: #302f25;
+  color: #e4cd93;
+  font-size: 11px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+.grading-shuffle-button svg { flex: none; }
+.grading-desk .grading-shuffle-button:hover:not(:disabled) {
+  background: #3c3929;
+  border-color: #c2aa6e;
+}
+.grading-desk .grading-shuffle-reset {
+  min-height: 33px;
+  padding: 5px 7px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: #b4bbad;
+  font-size: 11px;
+}
+.grading-desk .grading-shuffle-reset:hover:not(:disabled) {
+  color: var(--gd-ink);
+  text-decoration: underline;
+}
+@media(max-width:560px) {
+  .grading-list-heading-actions { gap: 6px; }
+  .grading-desk .grading-shuffle-button { min-height: 32px; padding: 5px 8px; }
+  .grading-shuffle-tools { gap: 2px; }
+}
