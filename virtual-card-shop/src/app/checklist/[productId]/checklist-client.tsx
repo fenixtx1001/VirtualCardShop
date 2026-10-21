@@ -297,7 +297,7 @@ function rowMeta(row: ChecklistRow) {
 }
 
 function BestGradeBadge({ grade }: { grade: number | null | undefined }) {
-  if (!Number.isInteger(grade) || grade == null || grade < 6 || grade > 10) {
+  if (typeof grade !== "number" || !Number.isInteger(grade) || grade < 6 || grade > 10) {
     return null;
   }
 
