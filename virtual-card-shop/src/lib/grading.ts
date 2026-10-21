@@ -28,6 +28,25 @@ const UNIVERSAL_GRADE_VALUE_MULTIPLIERS: Record<VcsGrade, number> = {
   10: 15.0,
 };
 
+/**
+ * VCS Graded Valuation V2 — Sliding Premium.
+ *
+ * These are *reference floor values*, not a flat minimum. They apply to a
+ * $0.50 raw card and scale by sqrt(raw / $0.50). The original graded
+ * multiplier wins whenever it yields a higher value.
+ *
+ * Guardrail: cards worth $1.00 or more RAW retain the exact legacy
+ * calculation, including its existing cent rounding.
+ * Grades 6 and 7, grading fees, reveal odds, and Registry Points do not change.
+ */
+export const GRADED_V2_REFERENCE_RAW_CENTS = 50;
+export const GRADED_V2_REFERENCE_FLOORS_CENTS: Readonly<Partial<Record<VcsGrade, number>>> = {
+  8: 100,
+  9: 150,
+  10: 750,
+};
+
+
 // Keep these exports shaped the same so existing code keeps compiling.
 // Gradeability no longer changes grading odds, values, or wait times.
 export const GRADE_REVEAL_WAIT_MS: Record<Gradeability, number> = {
@@ -83,7 +102,30 @@ export function calculateGradedValueCents(input: {
   grade: number;
 }): number {
   const multiplier = getGradeMultiplier(input.gradeability, input.grade);
-  return Math.round(input.rawBookValueCents * multiplier);
+  const legacyValueCents = Math.round(input.rawBookValueCents * multiplier);
+
+  // Preserve the exact legacy return for every raw card >= $1.00.
+  // This is intentionally an explicit guard, not just an assumed property
+  // of the premium curve, to eliminate accidental changes to premium cards.
+  if (
+    input.rawBookValueCents >= 100 ||
+    input.rawBookValueCents <= 0 ||
+    !Number.isFinite(input.rawBookValueCents)
+  ) {
+    return legacyValueCents;
+  }
+
+  // Grades 6/7 and unknown grades have no premium; they keep their original
+  // value and rounding, even for 1-cent raw cards.
+  const referenceFloorCents =
+    GRADED_V2_REFERENCE_FLOORS_CENTS[input.grade as VcsGrade];
+  if (referenceFloorCents == null) return legacyValueCents;
+
+  const slidingPremiumCents = Math.round(
+    referenceFloorCents *
+    Math.sqrt(input.rawBookValueCents / GRADED_V2_REFERENCE_RAW_CENTS)
+  );
+  return Math.max(legacyValueCents, slidingPremiumCents);
 }
 
 export function calculateReadyAt(input: {
