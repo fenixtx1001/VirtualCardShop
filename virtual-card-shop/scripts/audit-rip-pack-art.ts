@@ -62,7 +62,7 @@ async function main() {
     if (product.id === affectedProductId) {
       console.log("Affected product:", affectedProductId);
       console.log("Inventory pack artwork configured:", Boolean(product.packImageUrl));
-      console.log("Rip resolves the exact same URL:", meta.packImageUrl === product.packImageUrl);
+      console.log("Rip resolves the exact same URL:", meta?.packImageUrl === product.packImageUrl);
     }
   }
 
