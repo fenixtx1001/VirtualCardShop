@@ -932,6 +932,9 @@ function RevealModal({
 export default function GradingPage() {
   const [data, setData] = useState<ApiResponse | null>(null);
   const [filter, setFilter] = useState<StatusFilter>("READY");
+  // Null means the original oldest-ready-first order. A seed preserves one
+  // random ordering across pagination, searches, and intentional reveals.
+  const [shuffleSeed, setShuffleSeed] = useState<number | null>(null);
   const [page, setPage] = useState(1);
   const [pageJump, setPageJump] = useState("1");
   const [queryInput, setQueryInput] = useState("");
@@ -945,7 +948,10 @@ export default function GradingPage() {
   const [revealPayload, setRevealPayload] = useState<RevealPayload | null>(null);
   const [revealStage, setRevealStage] = useState<RevealStage>("closed");
 
-  async function load(nextFilter = filter, nextPage = page, nextQuery = query) {
+  async function load(
+    nextFilter = filter, nextPage = page, nextQuery = query,
+    nextShuffleSeed = shuffleSeed,
+  ) {
     const id = ++requestId.current;
     setLoading(true);
     setErr(null);
@@ -953,6 +959,9 @@ export default function GradingPage() {
       const qs = new URLSearchParams({ page: String(nextPage), pageSize: "25" });
       if (nextFilter !== "ALL") qs.set("status", nextFilter);
       if (nextQuery) qs.set("q", nextQuery);
+      if (nextFilter === "READY" && nextShuffleSeed != null) {
+        qs.set("shuffle", String(nextShuffleSeed));
+      }
       const response = await fetch("/api/grading/orders?" + qs.toString(), { cache: "no-store" });
       const json = await response.json().catch(() => null);
       if (!response.ok || !json?.ok) {
@@ -983,11 +992,31 @@ export default function GradingPage() {
   useEffect(() => {
     void load(filter, page, query);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filter, page, query]);
+  }, [filter, page, query, shuffleSeed]);
 
   function selectFilter(value: StatusFilter) {
     if (filter === value) return;
     setFilter(value);
+    setShuffleSeed(null);
+    setPage(1);
+    setPageJump("1");
+  }
+
+  function shuffleReadyMailers() {
+    // Randomize the order of *all* matching READY results on the server.
+    // This affects browsing only, not grading results or reveal status.
+    const sample = new Uint32Array(1);
+    window.crypto.getRandomValues(sample);
+    const freshSeed = sample[0] || 1;
+    setShuffleSeed(previous => previous === freshSeed
+      ? (freshSeed === 0xffffffff ? 1 : freshSeed + 1)
+      : freshSeed);
+    setPage(1);
+    setPageJump("1");
+  }
+
+  function resetReadyOrder() {
+    setShuffleSeed(null);
     setPage(1);
     setPageJump("1");
   }
@@ -1123,7 +1152,42 @@ export default function GradingPage() {
         <section id="grading-results" aria-label="Grading orders">
           <div className="grading-list-heading">
             <h2>{statusLabels[filter]} mailers</h2>
-            <span>{query ? "Search results" : "Grading orders"} · {totalOrders.toLocaleString()}</span>
+            <div className="grading-list-heading-actions">
+              <span>{query ? "Search results" : "Grading orders"} · {totalOrders.toLocaleString()}</span>
+              {filter === "READY" ? (
+                <div className="grading-shuffle-tools">
+                  {shuffleSeed != null ? (
+                    <button
+                      type="button"
+                      className="grading-shuffle-reset"
+                      onClick={resetReadyOrder}
+                      disabled={loading}
+                      title="Restore oldest-ready-first order"
+                    >
+                      Reset
+                    </button>
+                  ) : null}
+                  <button
+                    type="button"
+                    className="grading-shuffle-button"
+                    onClick={shuffleReadyMailers}
+                    disabled={loading || totalOrders < 2}
+                    title="Shuffle all matching ready mailers, across every page"
+                    aria-label={shuffleSeed == null ? "Shuffle ready mailers" : "Shuffle ready mailers again"}
+                  >
+                    <svg viewBox="0 0 24 24" width="15" height="15"
+                      fill="none" stroke="currentColor" strokeWidth="1.8"
+                      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M4 7h3c5 0 6 10 11 10h2"/>
+                      <path d="m17 14 3 3-3 3"/>
+                      <path d="M4 17h3c2 0 3-2 4-4M14 9c1-1 2-2 4-2h2"/>
+                      <path d="m17 4 3 3-3 3"/>
+                    </svg>
+                    {shuffleSeed == null ? "Shuffle" : "Shuffle again"}
+                  </button>
+                </div>
+              ) : null}
+            </div>
           </div>
 
           {err ? <div className="grading-notice error" role="alert">
