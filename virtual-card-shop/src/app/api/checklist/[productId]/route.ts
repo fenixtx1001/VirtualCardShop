@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { prisma } from "@/lib/prisma";
+import { highestRevealedGradeByCard } from "@/lib/checklist-best-grade";
 import {
   requireUserWithSelection,
 } from "@/lib/current-user";
@@ -362,6 +363,14 @@ export async function GET(req: Request, ctx: Ctx) {
           auctionLockedQuantity: true,
         },
       });
+
+    // Reuse the same ownership rows already fetched for Qty/Raw. A pending
+    // grading return has not yet created graded ownership, so it cannot
+    // contribute to the Registry or to this best-grade indicator.
+    const selectedBestGradeMap = highestRevealedGradeByCard(
+      ownershipAll,
+      selectedUserId
+    );
 
     const pendingAll =
       await prisma.gradingOrder.findMany({
@@ -883,6 +892,7 @@ export async function GET(req: Request, ctx: Ctx) {
         ownedQty,
         rawQty,
         needQty,
+        bestGrade: selectedBestGradeMap.get(card.id) ?? null,
 
         revealedOwnedQty,
         auctionLockedQty,

@@ -71,6 +71,7 @@ type ChecklistRow = {
   ownedQty: number;
   rawQty: number;
   needQty: number;
+  bestGrade: number | null;
 
   revealedOwnedQty?: number;
   auctionLockedQty?: number;
@@ -293,6 +294,21 @@ function rowMeta(row: ChecklistRow) {
     .map((value) => String(value ?? "").trim())
     .filter(Boolean)
     .join(" · ");
+}
+
+function BestGradeBadge({ grade }: { grade: number | null | undefined }) {
+  if (typeof grade !== "number" || !Number.isInteger(grade) || grade < 6 || grade > 10) {
+    return null;
+  }
+
+  return (
+    <span
+      className={`checklist-best-grade grade-${grade}`}
+      title={`Highest currently owned revealed slab: VCS ${grade}`}
+    >
+      Best {grade}
+    </span>
+  );
 }
 
 function CardThumb({
@@ -1391,12 +1407,15 @@ export default function ChecklistClient({
                               <span>
                                 <strong>{row.player}</strong>
 
-                                <small>
-                                  {rowMeta(row) ||
-                                    (row.isInsert
-                                      ? "Insert"
-                                      : "Base")}
-                                </small>
+                                <span className="checklist-card-subline">
+                                  <small>
+                                    {rowMeta(row) ||
+                                      (row.isInsert
+                                        ? "Insert"
+                                        : "Base")}
+                                  </small>
+                                  <BestGradeBadge grade={row.bestGrade} />
+                                </span>
                               </span>
                             </Link>
                           </td>
@@ -1563,6 +1582,8 @@ export default function ChecklistClient({
                                 {number(row.rawQty)}
                               </b>
                             </span>
+
+                            <BestGradeBadge grade={row.bestGrade} />
 
                             {compareMode ? (
                               <span>
