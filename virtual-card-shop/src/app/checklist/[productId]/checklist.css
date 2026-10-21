@@ -1728,3 +1728,54 @@ body:has(.checklist-shell) {
   background: #52684f !important;
   color: #ffffff !important;
 }
+
+
+/* Checklist best-owned grade: light-touch Registry cue, no new table columns.
+   A grade only appears for an actually owned, revealed slab (never pending).
+   Inline after Raw on mobile; alongside team/subset in desktop card metadata. */
+.checklist-card-subline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 7px;
+  min-width: 0;
+}
+.checklist-card-subline > small {
+  min-width: 0;
+  color: var(--ck-muted);
+  font-size: 9px;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.checklist-shell .checklist-best-grade {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  white-space: nowrap;
+  padding: 2px 6px;
+  border: 1px solid #576556;
+  border-radius: 5px;
+  background: rgba(139, 164, 137, .11);
+  color: #c5dac2;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.25;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .015em;
+}
+.checklist-shell .checklist-best-grade.grade-9 {
+  border-color: #627d91;
+  background: rgba(98, 139, 172, .16);
+  color: #bfdef1;
+}
+.checklist-shell .checklist-best-grade.grade-10 {
+  border-color: #a58d53;
+  background: rgba(215, 187, 126, .15);
+  color: #f3dc9c;
+}
+.checklist-mobile-stats .checklist-best-grade {
+  font-size: 9px;
+  margin-left: -2px;
+}
