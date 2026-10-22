@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/322/1994-Collector-s-Choice",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/322/1994-Collector-s-Choice",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/322/1994-Collector-s-Choice",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/322/1994-Collector-s-Choice",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1994_Collector%27s_Choice",
+    "note": "670-card two-series flagship checklist, two full Signature parallels, the Series Two scratch-off game and two cataloged pack-issued instant-winner prize redemptions. The frozen 687-row source fixture is 1994-collectors-choice-baseball.source.csv."
+  },
+  "decisions": {
+    "collectorChecklistIntegrity": "One equally available 670-card Base ProductSet spans Series One #1-320 and Series Two #321-670. Each full 670-card Signature parallel is also kept as one collector checklist. VCS combines the two historical series into one universal pack.",
+    "trueRookieNaming": "TCDB's 32 rookie-index entries represent 29 unique numbered cards after three white-letter variation duplicates are collapsed. Only those 29 Base subjects, and their matching Silver and Gold parallel subjects, receive RC in Player. The Rookie Class title by itself never implies RC.",
+    "sourceReconciliation": "TCDB's #302 Dave Winfield and #306 John Burkett / Tom Glavine / Jack McDowell are corroborated by independent card listings; BaseballCardPedia's alternate #302 and #306 transcription is not used. The Houston #659 Brian Hunter displays as Brian L. Hunter to distinguish the Pittsburgh subject in the same set.",
+    "subsetAndVariationHandling": "The two Rookie Class ranges, First Draft Picks, Top Performers, Checklists, Team Checklists, Up Close and Future Foundations are retained in Subset. Factory-only tan/white Up Close bars and Future Foundations white-letter print variants are collapsed to one numbered card per checklist. Standard Up Close bars are black on Base, silver on Silver Signature and gold on Gold Signature. Documented UER text is retained in Variant; Silver and Gold #123 record the incorrect Roland Hemond facsimile autograph.",
+    "packFormat": "Established four-card VCS pack and 36-pack box. Original wax packs contained 12 cards; jumbo packs contained 20. ProductSet odds follow verified wax-pack insertion rates, while VCS flattens the physical series separation.",
+    "packOdds": "Silver Signature 1:1 and Gold Signature 1:36 wax packs. Team vs. Team scratch-off game pieces were 1:1 Series Two packs. Instant Winner contest cards were 1:36 Series One packs in aggregate, but the two cataloged prize variants do not have separately verified odds; their ProductSet odds remain null.",
+    "unnumberedGameCards": "Fifteen physical NNO Team vs. Team game pieces use deterministic VCS NNO-01 through NNO-15 keys in checklist order. The two distinct NNO prize redemptions use NNO-01 and NNO-02 within their own ProductSet. All 1994 contest/redemption terms have expired and do not confer current prizes.",
+    "teamDataException": "Every baseball player and Team vs. Team card has a verified team label. The two prize-voucher subjects have no MLB team by design, so review.teamData is PENDING and the guarded --allow-pending-teams flag is required to stage this unreleased draft; no player team is missing.",
+    "excludedRelatedItems": "The eight-card Home Run All-Stars hologram prize set was fulfilled by mail rather than inserted as cards in packs. Promotional #50 Ken Griffey Jr. and other non-pack distribution are excluded.",
+    "releaseSafety": "Product remains unreleased pending pack art, card images, pricing and review of the two teamless prize-voucher entries."
+  },
+  "product": {
+    "id": "1994_Collectors_Choice_Baseball",
+    "year": 1994,
+    "brand": "Collector's Choice",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1994-collectors-choice-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1994_Collectors_Choice_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/322/1994-Collector-s-Choice",
+      "expectedCards": 670,
+      "notes": "One #1-670 completion checklist across Series One #1-320 and Series Two #321-670; equal VCS base-card availability, 29 verified true RC subjects."
+    },
+    {
+      "key": "silver-signature",
+      "id": "1994_Collectors_Choice_Baseball_Silver_Signature",
+      "name": "Silver Signature",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10313/1994-Collectors-Choice-Silver-Signature",
+      "expectedCards": 670,
+      "notes": "Full #1-670 parallel, one per wax pack. Explicit generated CSV rows retain individual UER descriptions and silver Up Close bars."
+    },
+    {
+      "key": "gold-signature",
+      "id": "1994_Collectors_Choice_Baseball_Gold_Signature",
+      "name": "Gold Signature",
+      "kind": "PARALLEL",
+      "oddsPerPack": 36,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10347/1994-Collectors-Choice-Gold-Signature",
+      "expectedCards": 670,
+      "notes": "Full #1-670 parallel, 1:36 wax packs. Explicit generated CSV rows retain individual UER descriptions and gold Up Close bars."
+    },
+    {
+      "key": "team-vs-team",
+      "id": "1994_Collectors_Choice_Baseball_Team_vs_Team",
+      "name": "You Crash the Deck Game Pieces (Team vs. Team)",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10285/1994-Collector-s-Choice-You-Crash-the-Deck-Game-Pieces-Team-vs-Team-",
+      "expectedCards": 15,
+      "notes": "Fifteen unnumbered foldout scratch-off matchups, one per Series Two wax pack. Synthetic NNO-01 through NNO-15 VCS keys. Contest ended October 31, 1994."
+    },
+    {
+      "key": "instant-winner",
+      "id": "1994_Collectors_Choice_Baseball_Instant_Winner_Redemptions",
+      "name": "You Crash the Deck Instant Winner Redemptions",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/280657/1994-Collector-s-Choice-You-Crash-the-Deck-Instant-Winner-Redemptions",
+      "expectedCards": 2,
+      "notes": "Two cataloged pack-issued NNO prize variants: Eighth Prize Home Run All-Stars set and Seventh Prize T-shirt. Offers expired; no unsupported variant-specific odds. Teamless voucher subjects require the guarded pending-team import flag."
+    }
+  ]
+}
