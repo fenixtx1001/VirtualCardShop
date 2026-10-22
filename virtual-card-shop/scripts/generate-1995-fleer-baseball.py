@@ -9,7 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 BUNDLE=ROOT/"data/set-factory/1995-fleer-baseball.bundle.json"
 OUT=ROOT/"data/set-factory/1995-fleer-baseball.cards.csv"
 HEADERS={"User-Agent":"Mozilla/5.0 (compatible; VCS Set Factory source validation)","Accept":"text/html,application/xhtml+xml"}
-TOKEN=re.compile(r"(?:,\s*|\s+)(?:RC|UER|ERR|COR|VAR|SP|PR\d+|SN\d+)(?=\s|,|:|$)",re.I)
+TOKEN=re.compile(r"(?:,\s*|\s+)(?:RC|UER(?:UER)?|ERR(?:ERR)?|COR(?:COR)?|VAR|SP|PR\d+|SN\d+)(?=\s|,|:|$)",re.I)
 CARDNO=re.compile(r"^(?:\d{1,3}[a-z]?|[A-Z]{1,5}[-/]?\d{1,3}[a-z]?|NNO)$",re.I)
 class Rows(HTMLParser):
  def __init__(self):super().__init__();self.rows=[];self.row=None;self.cell=None;self.link=False
@@ -108,6 +108,9 @@ def self_test():
  assert clean("Brad Cornett RC")=="Brad Cornett"
  assert clean("Tony Gwynn SN1000")=="Tony Gwynn"
  assert clean("All-Stars")=="All-Stars"
+ assert clean("Derek Jeter ERRERR: MLB and MLBPA information missing on back")=="Derek Jeter"
+ assert clean("Derek Jeter CORCOR: MLB and MLBPA information included on back")=="Derek Jeter"
+ assert clean("Ken Boswell")=="Ken Boswell"
  assert CARDNO.fullmatch("NNO") and CARDNO.fullmatch("AS1")
  assert CARDNO.fullmatch("7a") and CARDNO.fullmatch("7b")
  print("1995 Fleer offline self-tests passed")
