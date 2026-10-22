@@ -76,6 +76,7 @@ def main():
   if set(data[key])!=set(base):issues.append(f"{key}: expected complete 1-150 numbering")
   for number,identity in data[key].items():
    if identity!=base.get(number):issues.append(f"{key} #{number}: {identity!r} != Base {base.get(number)!r}")
+ if set(data["masterstrokes"])!={str(i) for i in range(1,9)}:issues.append("Masterstrokes must be numbered 1-8, with no fabricated #9/#10")
  if issues:
   print("=== SOURCE DISCREPANCIES ===")
   for issue in issues:print("  "+issue)
@@ -86,7 +87,7 @@ def main():
   for number,(name,team) in data[key].items():
    if key=="base" and number in rookies:name+=" RC"
    rows.append((key,number,name,team,"",spec["name"] if key!="base" else ""))
- if len(rows)!=632 or len({(r[0],r[1]) for r in rows})!=632:raise SystemExit("Count or identity failed; NO CSV WRITTEN")
+ if len(rows)!=630 or len({(r[0],r[1]) for r in rows})!=630:raise SystemExit("Count or identity failed; NO CSV WRITTEN")
  OUT.parent.mkdir(parents=True,exist_ok=True)
  with OUT.open("w",newline="",encoding="utf-8") as f:
   w=csv.writer(f,lineterminator="\n");w.writerow(("setKey","cardNumber","player","team","subset","variant"));w.writerows(rows)
