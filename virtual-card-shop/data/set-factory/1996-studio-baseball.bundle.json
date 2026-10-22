@@ -14,7 +14,8 @@
     "excluded": "Hit Parade Promos, Masterstrokes Promos and Masterstrokes Samples are promo-only and excluded.",
     "pack": "VCS 4 cards/pack; base uniform probability; preserve relative odds without boosts.",
     "names": "Strip only delimited metadata tokens without truncating surname characters.",
-    "release": "Unreleased until art, odds normalization, pricing, team data and full checklist QA."
+    "release": "Unreleased until art, odds normalization, pricing, team data and full checklist QA.",
+    "masterstrokes": "Masterstrokes is eight cards (#1–8) per TCDB and BaseballCardPedia; 1:96 Hobby/Retail, /5000; no #9 or #10."
   },
   "product": {
     "id": "1996_Studio_Baseball",
@@ -105,7 +106,7 @@
       "name": "Masterstrokes",
       "kind": "INSERT",
       "oddsPerPack": 96,
-      "expectedCards": 10,
+      "expectedCards": 8,
       "sourceSetId": 794,
       "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/794/1996-Studio",
       "defaultGradeability": "COMMON",
