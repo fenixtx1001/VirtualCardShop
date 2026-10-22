@@ -49,6 +49,82 @@ when the source issues are genuinely distinct collector checklists.
 
 This convention applies to all new Set Factory datasets moving forward.
 
+### Optional pack rarity within a complete Product Set
+
+Set Factory can opt in to product-level pack rarity through `packRarity` in
+a schemaVersion 2 bundle. The collector checklist is **not** split:
+Base, Refractors or any other complete collector checklist remains one
+ProductSet even when particular cards have different historical rarity.
+
+Example (setKeys refer to ProductSets in the same bundle):
+
+```json
+"packRarity": {
+  "version": 1,
+  "fallback": { "setKey": "base", "subset": "Bronze" },
+  "hits": [
+    { "setKey": "base", "subset": "Silver", "oddsPerPack": 4 },
+    { "setKey": "base", "subset": "Gold", "oddsPerPack": 24 },
+    { "setKey": "refractors", "subset": "Gold", "oddsPerPack": 288 }
+  ]
+}
+```
+
+Each hit is an independently sampled 1:N **pack** event; one card is
+picked uniformly within that ProductSet+subset when the group hits.
+Unfilled pack slots draw uniformly from the configured Base fallback
+group. If more hit events occur than pack slots, choose a uniform random
+subset of successful hits. Automatic pack price/EV accounts for the
+same cap. Store each card's canonical rarity label in `Card.subset`.
+
+Rarity configuration is **entirely opt-in**. Products without it
+keep equal per-card Base odds and existing ProductSet-level hit odds
+unchanged. A ProductSet cannot have both per-subset rules and
+ProductSet-level `oddsPerPack` configured. The importer rejects missing
+rarity subsets or unreachable base cards. Do not invent historical
+pack odds. Completion, Binder and Prestige count **all** cards in the
+collector ProductSet, regardless of which rarity group contains them.
+
+Before using this on a database for the first time, apply the
+idempotent migration `scripts/sql/enable-pack-rarity.sql` and regenerate
+the Prisma Client. Validate with
+`npx tsx scripts/test-pack-rarity.ts`. For 1997 Finest use
+`npx tsx scripts/verify-1997-finest-rarity.ts` after draft import.
+
+### Base odds admin authorization
+
+The Base Subset Odds editor is admin-only. Set `ADMIN_EMAILS` (a
+comma-separated list of Google-login email addresses) in the Codespace
+`.env.local` and in the deployed environment's server-side variables,
+for example `ADMIN_EMAILS=owner@example.com`. No personal emails are
+committed to source control. If `ADMIN_EMAILS` is absent or does not
+match the signed-in account, the editor's API rejects access (403)
+rather than treating all logged-in collectors as administrators.
+
+### Admin: Base Subset Odds editor
+
+After the optional rarity engine is deployed, open
+`Admin → Products → [Product] → Base Subset Odds` to inspect the actual
+Base subsets, card counts, common fallback pool, and 1-in-N pack odds.
+
+- The editor is for **Base subset odds only**, not insert/parallel ProductSet
+  odds. Existing ProductSet odds controls continue to work as before.
+- Choose one named Base subset as the ordinary/common pack pool. Enter a
+  positive whole-number odds denominator for every other Base subset.
+- If no rarity configuration exists, **nothing changes until Save**.
+- If the Product already has parallel rarity rules (as 1997 Finest does),
+  editing Base subset odds **preserves all other existing rules**.
+- Existing released products are affected for **future pack draws** if saved.
+- Changes validate full Base coverage and the other existing rarity rules,
+  then reprice the Product if automatic pricing is enabled.
+- A product without at least two fully labeled Base subsets continues to
+  use its original uniform Base draw.
+- Restore Equal Odds is available only if there are no non-Base rarity groups;
+  otherwise it is intentionally hidden to prevent wiping parallel rules.
+
+This administrative editor doesn't change the definition of the collecting
+checklist, so a 350-card Base remains a 350-card completion/Prestige target.
+
 ### Pack odds belong to the Product Set
 
 Pack insertion odds are Product Set-level data in VCS. Store verified insert or

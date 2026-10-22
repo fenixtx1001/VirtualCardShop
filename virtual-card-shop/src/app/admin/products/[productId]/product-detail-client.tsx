@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import BaseSubsetOddsEditor from "./base-subset-odds-editor";
 
 type ProductSetRow = {
   id: string;
@@ -353,6 +354,8 @@ export default function ProductDetailClient({ productId }: { productId: string }
               Create Product Set
             </button>
           </div>
+
+          <BaseSubsetOddsEditor productId={productId} />
 
           <hr style={{ margin: "18px 0" }} />
 
