@@ -10,7 +10,7 @@ BUNDLE=ROOT/"data/set-factory/1995-fleer-baseball.bundle.json"
 OUT=ROOT/"data/set-factory/1995-fleer-baseball.cards.csv"
 HEADERS={"User-Agent":"Mozilla/5.0 (compatible; VCS Set Factory source validation)","Accept":"text/html,application/xhtml+xml"}
 TOKEN=re.compile(r"(?:,\s*|\s+)(?:RC|UER|ERR|COR|VAR|SP|PR\d+|SN\d+)(?=\s|,|:|$)",re.I)
-CARDNO=re.compile(r"^(?:\d{1,3}|[A-Z]{1,5}[-/]?\d{1,3}[a-z]?|NNO)$",re.I)
+CARDNO=re.compile(r"^(?:\d{1,3}[a-z]?|[A-Z]{1,5}[-/]?\d{1,3}[a-z]?|NNO)$",re.I)
 class Rows(HTMLParser):
  def __init__(self):super().__init__();self.rows=[];self.row=None;self.cell=None;self.link=False
  def handle_starttag(self,tag,attrs):
@@ -51,6 +51,10 @@ def collect(key,sid,count,rookies=False):
    for i,number in enumerate(values):
     if not CARDNO.fullmatch(number) or i+1>=len(values):continue
     if key=="base" and (not number.isdecimal() or not 1<=int(number)<=600):continue
+    # TCDB lists Derek Jeter #7a ERR and #7b COR. VCS treats
+    # printing corrections as a single actual card identity (#7).
+    if key=="major-league-prospects" and number.lower() in ("7a","7b"):
+     number="7"
     player=clean(values[i+1])
     if not player:continue
     team=values[-1] if i+2<len(values) else ""
@@ -105,6 +109,7 @@ def self_test():
  assert clean("Tony Gwynn SN1000")=="Tony Gwynn"
  assert clean("All-Stars")=="All-Stars"
  assert CARDNO.fullmatch("NNO") and CARDNO.fullmatch("AS1")
+ assert CARDNO.fullmatch("7a") and CARDNO.fullmatch("7b")
  print("1995 Fleer offline self-tests passed")
 if __name__=="__main__":
  parser=argparse.ArgumentParser();parser.add_argument("--self-test",action="store_true");args=parser.parse_args()
