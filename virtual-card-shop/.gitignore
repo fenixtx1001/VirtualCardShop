@@ -45,3 +45,7 @@ next-env.d.ts
 
 # Set Factory local image bundles are intentionally not committed.
 /data/set-factory/local-images/
+
+# Local image-import reports may contain catalog state and source notes.
+/data/card-image-runs/
+/data/missing-card-images.json
