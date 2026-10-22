@@ -51,6 +51,36 @@ type PackMeta = {
 type CardMotion = "next" | "prev" | null;
 type SwipeCommit = "next" | "prev" | null;
 
+// Optional: serve legacy R2 development URLs through an R2 custom domain.
+// Only rewrites R2 development URLs, and only after the new HTTPS origin is
+// explicitly configured in Vercel. Card IDs and database URLs stay unchanged.
+const r2CdnBase = process.env.NEXT_PUBLIC_R2_CDN_BASE_URL?.trim();
+
+function cardImageUrl(url: string | null): string | null {
+  if (!url || !r2CdnBase) return url;
+
+  try {
+    const original = new URL(url);
+    const cdn = new URL(r2CdnBase);
+
+    if (
+      original.protocol !== "https:" ||
+      !original.hostname.endsWith(".r2.dev") ||
+      cdn.protocol !== "https:" ||
+      cdn.hostname.endsWith(".r2.dev") ||
+      cdn.pathname !== "/" ||
+      cdn.search ||
+      cdn.hash
+    ) {
+      return url;
+    }
+
+    return cdn.origin + original.pathname + original.search + original.hash;
+  } catch {
+    return url;
+  }
+}
+
 type PointerGesture = {
   pointerId: number | null;
   startX: number;
@@ -141,54 +171,76 @@ function OrientedCardImage({
   src,
   alt,
   loading = "eager",
+  priority = "auto",
 }: {
   src: string;
   alt: string;
   loading?: "eager" | "lazy";
+  priority?: "high" | "low" | "auto";
 }) {
-  const [orientation, setOrientation] = useState<{
+  // Tie load/orientation state to the URL so a newly opened card never
+  // momentarily displays the previous card's image.
+  const [loadState, setLoadState] = useState<{
     src: string;
+    status: "loaded" | "failed";
     isLandscape: boolean;
   } | null>(null);
 
-  // Keep orientation tied to the exact image URL instead of resetting it
-  // in an effect. With cached images, onLoad can fire before the effect,
-  // which caused the correct landscape rotation to be immediately undone.
-  const isLandscape =
-    orientation?.src === src && orientation.isLandscape;
+  const state = loadState?.src === src ? loadState : null;
+  const ready = state?.status === "loaded";
+  const failed = state?.status === "failed";
+  const isLandscape = ready && state.isLandscape;
 
   return (
-    <img
-      src={src}
-      alt={alt}
-      loading={loading}
-      decoding="async"
-      draggable={false}
-      onLoad={(event) => {
-        const image = event.currentTarget;
-
-        setOrientation({
-          src,
-          isLandscape: image.naturalWidth > image.naturalHeight,
-        });
-      }}
-      style={{
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        width: isLandscape ? "140%" : "100%",
-        height: isLandscape ? "71.4286%" : "100%",
-        objectFit: "contain",
-        display: "block",
-        background: "white",
-        transform: isLandscape
-          ? "translate(-50%, -50%) rotate(90deg)"
-          : "translate(-50%, -50%)",
-        transformOrigin: "center",
-        pointerEvents: "none",
-        userSelect: "none",
-      }}
-    />
+    <div className="vcs-rip-image-stage">
+      {!ready && (
+        <div
+          className={cx("vcs-rip-image-placeholder", failed && "is-failed")}
+          role={alt ? "status" : undefined}
+          aria-label={alt ? (failed ? "Card image unavailable" : "Loading card image") : undefined}
+          aria-hidden={!alt}
+        >
+          <span className="vcs-rip-image-symbol" aria-hidden="true">VCS</span>
+          <span>{failed ? "IMAGE UNAVAILABLE" : "LOADING CARD"}</span>
+        </div>
+      )}
+      <img
+        src={src}
+        alt={alt}
+        loading={loading}
+        fetchPriority={priority}
+        decoding="async"
+        draggable={false}
+        onLoad={(event) => {
+          const image = event.currentTarget;
+          setLoadState({
+            src,
+            status: "loaded",
+            isLandscape: image.naturalWidth > image.naturalHeight,
+          });
+        }}
+        onError={() => {
+          setLoadState({ src, status: "failed", isLandscape: false });
+        }}
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          width: isLandscape ? "140%" : "100%",
+          height: isLandscape ? "71.4286%" : "100%",
+          objectFit: "contain",
+          display: "block",
+          background: "transparent",
+          opacity: ready ? 1 : 0,
+          transform: isLandscape
+            ? "translate(-50%, -50%) rotate(90deg)"
+            : "translate(-50%, -50%)",
+          transformOrigin: "center",
+          pointerEvents: "none",
+          userSelect: "none",
+        }}
+      />
+    </div>
   );
 }
 
@@ -335,7 +387,7 @@ export default function OpenPackClient({
 
   const titleText = meta?.displayName ?? productId;
   const packImageUrl =
-    meta?.packImageUrl ?? data?.packImageUrl ?? null;
+    cardImageUrl(meta?.packImageUrl ?? data?.packImageUrl ?? null);
   const packPrice = centsToDollars(data?.packPriceCents);
 
   const progressText = useMemo(() => {
@@ -428,7 +480,15 @@ export default function OpenPackClient({
 
       const result = j as OpenResult;
 
-      setData(result);
+      setData({
+        ...result,
+        packImageUrl: cardImageUrl(result.packImageUrl),
+        cards: result.cards.map((card) => ({
+          ...card,
+          frontImageUrl: cardImageUrl(card.frontImageUrl),
+          backImageUrl: cardImageUrl(card.backImageUrl),
+        })),
+      });
       setOpened(true);
       setCardMotion("next");
 
@@ -1383,6 +1443,63 @@ export default function OpenPackClient({
           pointer-events: none;
           user-select: none;
           -webkit-user-drag: none;
+        }
+
+        /* The card face is never blank while an R2 image is in flight. */
+        .vcs-rip-image-stage {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: #20241f;
+        }
+
+        .vcs-rip-image-placeholder {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 8px;
+          background:
+            linear-gradient(110deg, transparent 25%, rgba(255,255,255,.07) 45%, transparent 65%),
+            radial-gradient(circle at 50% 25%, #414735, #1d211e 72%);
+          background-size: 240% 100%, 100% 100%;
+          animation: vcs-image-glint 2.2s ease-in-out infinite;
+          color: #c3c7b6;
+          font-size: 9px;
+          font-weight: 850;
+          letter-spacing: .12em;
+          text-align: center;
+          pointer-events: none;
+        }
+
+        .vcs-rip-image-placeholder.is-failed {
+          animation: none;
+          background: #232723;
+          color: #f1b9a4;
+        }
+
+        .vcs-rip-image-symbol {
+          display: grid;
+          place-items: center;
+          width: 48px;
+          height: 48px;
+          border: 1px solid rgba(222, 201, 134, .4);
+          border-radius: 7px;
+          color: #d8c68f;
+          font-size: 14px;
+          font-weight: 950;
+          letter-spacing: -.06em;
+        }
+
+        @keyframes vcs-image-glint {
+          0% { background-position: 130% 0, 0 0; }
+          100% { background-position: -130% 0, 0 0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .vcs-rip-image-placeholder { animation: none; }
         }
 
         .img-missing {
@@ -4404,6 +4521,7 @@ export default function OpenPackClient({
                                 <OrientedCardImage
                                   src={underCard.frontImageUrl}
                                   alt=""
+                                  priority="low"
                                 />
                               ) : (
                                 <div className="img-missing">
@@ -4439,6 +4557,7 @@ export default function OpenPackClient({
                                 <OrientedCardImage
                                   src={cardFront}
                                   alt="Card front"
+                                  priority="high"
                                 />
                               ) : (
                                 <div className="img-missing">
@@ -4452,6 +4571,7 @@ export default function OpenPackClient({
                                 <OrientedCardImage
                                   src={cardBack}
                                   alt="Card back"
+                                  priority="low"
                                 />
                               ) : (
                                 <div className="img-missing">
