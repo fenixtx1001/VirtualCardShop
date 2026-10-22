@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/494/1995-Fleer",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/494/1995-Fleer",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/494/1995-Fleer"
+  },
+  "decisions": {
+    "base": "Complete 600-card one-series base checklist; all Base cards equal VCS odds.",
+    "rookies": "Only Brad Cornett #91 and Dave Veres #470 are true Base RCs according to TCDB.",
+    "inserts": "Nine pack-issued insert families included, including the pack-inserted Rookie Set Redemption card.",
+    "excluded": "All-Fleer 9 mail-in wrapper-exchange set, nine-card Rookies Exchange redemption fulfillment set, and dealer/media Promos excluded.",
+    "packConfiguration": "VCS 4 cards/pack, 24 packs/box. Odds from TCDB are historical by packaging variant and require normalization before publication.",
+    "packOrigins": "Lumber Company retail-only 1:24; Team Leaders hobby-only 1:24; Rookie Sensations jumbo-only 1:12; other stated pack odds retain original value, with no artificially boosted odds.",
+    "nameRule": "Strip whole delimiter-separated metadata tokens only, preserving surnames and multi-subject insert identities.",
+    "release": "Unreleased. Team/rookie/import/card art/odds/pricing QA required."
+  },
+  "product": {
+    "id": "1995_Fleer_Baseball",
+    "year": 1995,
+    "brand": "Fleer",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1995-fleer-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1995_Fleer_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 600,
+      "sourceSetId": 494,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/494/1995-Fleer",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "all-stars",
+      "id": "1995_Fleer_Baseball_all_stars",
+      "name": "All-Stars",
+      "kind": "INSERT",
+      "oddsPerPack": 3,
+      "expectedCards": 25,
+      "sourceSetId": 495,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/495/1995-Fleer",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "award-winners",
+      "id": "1995_Fleer_Baseball_award_winners",
+      "name": "Award Winners",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "expectedCards": 6,
+      "sourceSetId": 496,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/496/1995-Fleer",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "league-leaders",
+      "id": "1995_Fleer_Baseball_league_leaders",
+      "name": "League Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": 8,
+      "expectedCards": 10,
+      "sourceSetId": 497,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/497/1995-Fleer",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "lumber-company",
+      "id": "1995_Fleer_Baseball_lumber_company",
+      "name": "Lumber Company",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "expectedCards": 10,
+      "sourceSetId": 498,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/498/1995-Fleer",
+      "defaultGradeability": "COMMON",
+      "notes": "Retail only"
+    },
+    {
+      "key": "major-league-prospects",
+      "id": "1995_Fleer_Baseball_major_league_prospects",
+      "name": "Major League Prospects",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "expectedCards": 10,
+      "sourceSetId": 499,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/499/1995-Fleer",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "pro-visions",
+      "id": "1995_Fleer_Baseball_pro_visions",
+      "name": "Pro-Visions",
+      "kind": "INSERT",
+      "oddsPerPack": 9,
+      "expectedCards": 6,
+      "sourceSetId": 500,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/500/1995-Fleer",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "rookie-sensations",
+      "id": "1995_Fleer_Baseball_rookie_sensations",
+      "name": "Rookie Sensations",
+      "kind": "INSERT",
+      "oddsPerPack": 12,
+      "expectedCards": 20,
+      "sourceSetId": 501,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/501/1995-Fleer",
+      "defaultGradeability": "COMMON",
+      "notes": "Jumbo packs only"
+    },
+    {
+      "key": "rookie-set-redemption",
+      "id": "1995_Fleer_Baseball_rookie_set_redemption",
+      "name": "Rookie Set Redemption",
+      "kind": "INSERT",
+      "oddsPerPack": 200,
+      "expectedCards": 1,
+      "sourceSetId": 307794,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/307794/1995-Fleer",
+      "defaultGradeability": "COMMON",
+      "notes": "Pack-issued redemption card; fulfillment cards excluded"
+    },
+    {
+      "key": "team-leaders",
+      "id": "1995_Fleer_Baseball_team_leaders",
+      "name": "Team Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "expectedCards": 28,
+      "sourceSetId": 502,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/502/1995-Fleer",
+      "defaultGradeability": "COMMON",
+      "notes": "Hobby only"
+    }
+  ]
+}
