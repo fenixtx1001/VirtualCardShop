@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/2377/1995-96-Metal",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/2377/1995-96-Metal",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/2377/1995-96-Metal",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/2377/1995-96-Metal",
+    "note": "TCDB base and individual related-set checklists, consulted 2026-10-07; 438 cataloged cards across 13 Product Sets."
+  },
+  "decisions": {
+    "collectorChecklistIntegrity": "Both physical series are combined into one #1-220 VCS Base checklist; all base cards have equal virtual availability. Silver Spotlight is its actual #1-118 collector checklist, excluding Series One checklist cards #119-120.",
+    "trueRookieNaming": "Only the 22 numbered base cards in TCDB's Rookie Cards index receive an RC suffix. Insert rookie themes and parallel cards do not receive RC solely from their names.",
+    "subsetHandling": "Checklist labels are cleaned of source CL shorthand. Toronto Raptors and Vancouver Grizzlies expansion-team cards carry Expansion in Subset; #209-218 carry Nuts & Bolts. The base #18 Mark Price has the source's two-team label.",
+    "teamReconciliation": "Silver Spotlight #18 lists Washington Bullets where base #18 lists Washington Bullets / Cleveland Cavaliers; Silver Spotlight #91 lists Portland Trail Blazers where base #91 lists Detroit Pistons. Each checklist's label is preserved. Four base checklist cards have no team by design.",
+    "packFormat": "Four cards per VCS virtual pack and 36 virtual packs per box. Verified odds from their original Series One or Series Two packs are stored at ProductSet level; the combined VCS pack flattens series and cannot represent the Metal Force retail-only channel.",
+    "unknownOdds": "Jumbo, Rookie Roll Call, and Rookie Roll Call Silver Spotlight have no supported numeric pack odds, so oddsPerPack is null; those cards are cataloged but do not enter the virtual hit pool until odds are verified.",
+    "releaseSafety": "Product unreleased with pack/box art, all card images, and pricing pending."
+  },
+  "product": {
+    "id": "1995_96_Metal_Basketball",
+    "year": 1995,
+    "brand": "Metal",
+    "sport": "Basketball",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1995-96-metal-basketball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1995_96_Metal_Basketball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2377/1995-96-Metal",
+      "expectedCards": 220,
+      "notes": "One equal-availability #1-220 collector checklist: 120 Series One and 100 Series Two cards, including four checklists and ten Nuts & Bolts subset cards. 22 individually verified true RC subjects."
+    },
+    {
+      "key": "jumbo",
+      "id": "1995_96_Metal_Basketball_Jumbo",
+      "name": "Jumbo",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/127597/1995-96-Metal-Jumbo",
+      "expectedCards": 3,
+      "notes": "Three 5 x 7 oversized related cards. Pack insertion odds and channel are not stated in the source; cataloged with no configured hit odds."
+    },
+    {
+      "key": "maximum-metal",
+      "id": "1995_96_Metal_Basketball_Maximum_Metal",
+      "name": "Maximum Metal",
+      "kind": "INSERT",
+      "oddsPerPack": 36,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2378/1995-96-Metal-Maximum-Metal",
+      "expectedCards": 10,
+      "notes": "Inserted 1:36 Series One packs."
+    },
+    {
+      "key": "metal-force",
+      "id": "1995_96_Metal_Basketball_Metal_Force",
+      "name": "Metal Force",
+      "kind": "INSERT",
+      "oddsPerPack": 54,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2379/1995-96-Metal-Metal-Force",
+      "expectedCards": 15,
+      "notes": "Inserted 1:54 Series Two retail packs; retail exclusivity cannot be represented by one universal VCS pack."
+    },
+    {
+      "key": "molten-metal",
+      "id": "1995_96_Metal_Basketball_Molten_Metal",
+      "name": "Molten Metal",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2380/1995-96-Metal-Molten-Metal",
+      "expectedCards": 10,
+      "notes": "Inserted 1:72 Series One packs."
+    },
+    {
+      "key": "rookie-roll-call",
+      "id": "1995_96_Metal_Basketball_Rookie_Roll_Call",
+      "name": "Rookie Roll Call",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2381/1995-96-Metal-Rookie-Roll-Call",
+      "expectedCards": 10,
+      "notes": "Random Series One insert; a numeric insertion rate is not verified. The insert's rookie theme does not make these true rookie cards."
+    },
+    {
+      "key": "rookie-roll-call-silver-spotlight",
+      "id": "1995_96_Metal_Basketball_Rookie_Roll_Call_Silver_Spotlight",
+      "name": "Rookie Roll Call Silver Spotlight",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/25512/1995-96-Metal-Rookie-Roll-Call-Silver-Spotlight",
+      "expectedCards": 10,
+      "notes": "Ten-card Silver Spotlight companion to Rookie Roll Call; numeric insertion rate unverified."
+    },
+    {
+      "key": "scoring-magnets",
+      "id": "1995_96_Metal_Basketball_Scoring_Magnets",
+      "name": "Scoring Magnets",
+      "kind": "INSERT",
+      "oddsPerPack": 54,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2382/1995-96-Metal-Scoring-Magnets",
+      "expectedCards": 8,
+      "notes": "Inserted 1:54 Series Two packs."
+    },
+    {
+      "key": "slick-silver",
+      "id": "1995_96_Metal_Basketball_Slick_Silver",
+      "name": "Slick Silver",
+      "kind": "INSERT",
+      "oddsPerPack": 7,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2383/1995-96-Metal-Slick-Silver",
+      "expectedCards": 10,
+      "notes": "Inserted 1:7 Series One packs."
+    },
+    {
+      "key": "stackhouse-scrapbook",
+      "id": "1995_96_Metal_Basketball_Stackhouse_Scrapbook",
+      "name": "Stackhouse's Scrapbook",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2384/1995-96-Metal-Stackhouse-s-Scrapbook",
+      "expectedCards": 2,
+      "notes": "Only Metal-issued S-7 and S-8 of the cross-product ten-card set; inserted 1:24 Series Two packs."
+    },
+    {
+      "key": "steel-tower",
+      "id": "1995_96_Metal_Basketball_Steel_Tower",
+      "name": "Steel Tower",
+      "kind": "INSERT",
+      "oddsPerPack": 4,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2385/1995-96-Metal-Steel-Tower",
+      "expectedCards": 10,
+      "notes": "Inserted 1:4 Series One packs."
+    },
+    {
+      "key": "tempered-steel",
+      "id": "1995_96_Metal_Basketball_Tempered_Steel",
+      "name": "Tempered Steel",
+      "kind": "INSERT",
+      "oddsPerPack": 12,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2386/1995-96-Metal-Tempered-Steel",
+      "expectedCards": 12,
+      "notes": "Inserted 1:12 Series Two packs."
+    },
+    {
+      "key": "silver-spotlight",
+      "id": "1995_96_Metal_Basketball_Silver_Spotlight",
+      "name": "Silver Spotlight",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/25511/1995-96-Metal-Silver-Spotlight",
+      "expectedCards": 118,
+      "notes": "118-card Series One parallel #1-118; #119-120 are checklist cards without this parallel. Inserted one per Series One pack."
+    }
+  ]
+}
