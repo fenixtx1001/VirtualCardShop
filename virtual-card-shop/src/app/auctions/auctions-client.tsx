@@ -400,7 +400,7 @@ export default function AuctionsClient() {
     }
   }
 
-  const summary = data?.summary ?? {
+  const summary: AuctionSummary = data?.summary ?? {
     view,
     total: 0,
     active: 0,
