@@ -253,7 +253,6 @@ export default function AuctionDetailClient() {
           <h1>Loading auction...</h1>
           <p>Checking for fresh bids and updated auction status.</p>
         </section>
-        <Styles />
       </main>
     );
   }
@@ -268,7 +267,6 @@ export default function AuctionDetailClient() {
             Back to Auction House
           </Link>
         </section>
-        <Styles />
       </main>
     );
   }
