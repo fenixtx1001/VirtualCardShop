@@ -1,4 +1,4 @@
-import { AuctionStatus } from "@prisma/client";
+import { AuctionStatus, Prisma } from "@prisma/client";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
@@ -135,12 +135,76 @@ export async function GET(req: Request) {
         };
 
     const now = new Date();
+    const where: Prisma.AuctionWhereInput = {
+      status: statusWhere,
+      sellerUserId: view === "mine" ? user.id : { not: user.id },
+      ...(gradeFilter !== null ? { grade: gradeFilter } : {}),
+      ...(sport ? {
+        card: {
+          OR: [
+            { set: { sport: { contains: sport, mode: "insensitive" } } },
+            { productSet: { product: { sport: { contains: sport, mode: "insensitive" } } } },
+          ],
+        },
+      } : {}),
+    };
+    // Filter at the database, before the visible-page limit is applied.
+    // This avoids hiding matching older auctions behind the old 200-row cap.
+    if (search) {
+      const cardSearch: Prisma.CardWhereInput = {
+        OR: [
+          { player: { contains: search, mode: "insensitive" } },
+          { team: { contains: search, mode: "insensitive" } },
+          { cardNumber: { contains: search, mode: "insensitive" } },
+          { subset: { contains: search, mode: "insensitive" } },
+          { variant: { contains: search, mode: "insensitive" } },
+          { set: { brand: { contains: search, mode: "insensitive" } } },
+          { set: { sport: { contains: search, mode: "insensitive" } } },
+          { productSet: { name: { contains: search, mode: "insensitive" } } },
+          { productSet: { product: { brand: { contains: search, mode: "insensitive" } } } },
+        ],
+      };
+      const existingCardFilter = where.card;
+      where.card = existingCardFilter
+        ? { AND: [existingCardFilter as Prisma.CardWhereInput, cardSearch] }
+        : cardSearch;
+    }
+
+    const sqlSorted = sort !== "bestDeal" && sort !== "hottest";
+    const sortOrder: Prisma.AuctionOrderByWithRelationInput[] =
+      sort === "newest" ? [{ createdAt: "desc" }] :
+      sort === "highestBid" ? [{ currentBidCents: "desc" }] :
+      sort === "lowestBid" ? [{ currentBidCents: "asc" }] :
+      sort === "highestValue" ? [{ valueBasisCents: "desc" }] :
+      [{ endsAt: "asc" }];
+    const [total, active, ended, sums, winningCount, globalReady, globalUnsold, completedTotals] =
+      await Promise.all([
+        prisma.auction.count({ where }),
+        prisma.auction.count({ where: { AND: [where, { status: "ACTIVE" }] } }),
+        prisma.auction.count({ where: { AND: [where, { status: "ENDED" }] } }),
+        prisma.auction.aggregate({ where, _sum: { currentBidCents: true } }),
+        prisma.auction.count({ where: { AND: [where, { winnerUserId: user.id }] } }),
+        prisma.auction.aggregate({
+          where: { sellerUserId: user.id, status: "ENDED", collectedAt: null },
+          _count: { _all: true }, _sum: { currentBidCents: true },
+        }),
+        prisma.auction.count({
+          where: {
+            sellerUserId: user.id, status: "ENDED", collectedAt: null,
+            currentBidCents: { lte: 0 },
+          },
+        }),
+        requestedStatus === "COLLECTED"
+          ? prisma.auction.aggregate({
+            where, _sum: { currentBidCents: true },
+            _avg: { currentBidCents: true },
+            _max: { currentBidCents: true },
+          })
+          : Promise.resolve(null),
+      ]);
 
     const auctions = await prisma.auction.findMany({
-      where: {
-        status: statusWhere,
-        sellerUserId: view === "mine" ? user.id : { not: user.id },
-      },
+      where,
       include: {
         seller: {
           select: {
@@ -182,10 +246,8 @@ export async function GET(req: Request) {
           },
         },
       },
-      orderBy: {
-        endsAt: "asc",
-      },
-      take: 200,
+      orderBy: sortOrder,
+      take: sqlSorted ? limit : 2000,
     });
 
     const mapped = auctions
@@ -284,49 +346,34 @@ export async function GET(req: Request) {
           sportValue: sportValue.toLowerCase(),
         };
       })
-      .filter((auction) => {
-        if (search && !includesText(auction.searchableText, search)) return false;
-        if (sport && !includesText(auction.sportValue, sport)) return false;
-        if (gradeFilter !== null && auction.grade !== gradeFilter) return false;
-        return true;
-      });
+      ;
 
-    mapped.sort((a, b) => {
-      switch (sort) {
-        case "newest":
-          return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-        case "highestBid":
-          return compareNumbers(b.currentBidCents, a.currentBidCents);
-        case "lowestBid":
-          return compareNumbers(a.currentBidCents, b.currentBidCents);
-        case "highestValue":
-          return compareNumbers(b.valueBasisCents, a.valueBasisCents);
-        case "bestDeal":
-          return compareNumbers(a.percentOfValueBps, b.percentOfValueBps);
-        case "hottest":
-          return compareNumbers(b.percentOfValueBps, a.percentOfValueBps);
-        case "endingSoonest":
-        default:
-          return new Date(a.endsAt).getTime() - new Date(b.endsAt).getTime();
-      }
-    });
+    // Percentage-based rankings are derived; sort the bounded candidate set.
+    if (!sqlSorted) {
+      mapped.sort((a, b) => sort === "bestDeal"
+        ? a.percentOfValueBps - b.percentOfValueBps
+        : b.percentOfValueBps - a.percentOfValueBps);
+    }
 
-    // Keep the visible card list capped for performance, but calculate the dashboard
-    // summary from the full filtered auction set. Otherwise the stat cards get
-    // capped at the UI limit, which makes "Active" look stuck at 72/100/etc.
-    const summarySource = mapped.map(({ searchableText, sportValue, ...auction }) => auction);
-    const rows = summarySource.slice(0, limit);
-
+    const rows = mapped.slice(0, limit).map(({ searchableText, sportValue, ...auction }) => auction);
     const summary = {
       view,
-      total: summarySource.length,
-      active: summarySource.filter((auction) => auction.status === "ACTIVE").length,
-      ended: summarySource.filter((auction) => auction.status === "ENDED").length,
-      readyToCollect: summarySource.filter((auction) => auction.canCollect).length,
-      currentBidTotalCents: summarySource.reduce((sum, auction) => sum + auction.currentBidCents, 0),
-      winningCount: summarySource.filter((auction) => auction.isWinning).length,
+      total, active, ended,
+      readyToCollect: view === "mine" ? ended : 0,
+      currentBidTotalCents: sums._sum.currentBidCents ?? 0,
+      winningCount,
       visibleCount: rows.length,
       visibleLimit: limit,
+      truncatedSort: !sqlSorted && total > 2000,
+      globalReadyToCollect: globalReady._count._all,
+      globalReadyPayoutCents: globalReady._sum.currentBidCents ?? 0,
+      globalUnsoldCount: globalUnsold,
+      completedTotals: completedTotals ? {
+        count: total,
+        totalCents: completedTotals._sum.currentBidCents ?? 0,
+        averageCents: Math.round(completedTotals._avg.currentBidCents ?? 0),
+        highCents: completedTotals._max.currentBidCents ?? 0,
+      } : null,
     };
 
     const recentBids = await prisma.auctionBid.findMany({
