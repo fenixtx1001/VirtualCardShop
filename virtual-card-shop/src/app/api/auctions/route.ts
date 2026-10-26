@@ -66,7 +66,7 @@ function normalizeStatus(value: string | null): AuctionStatusFilter | null {
 function parseLimit(value: string | null): number {
   const n = Number(value);
   if (!Number.isInteger(n) || n <= 0) return 48;
-  return Math.min(100, n);
+  return Math.min(240, n);
 }
 
 function includesText(value: unknown, query: string): boolean {
