@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import "./auction-detail.css";
+import "../auction-detail.css";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useParams } from "next/navigation";
 
