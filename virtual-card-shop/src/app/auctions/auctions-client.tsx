@@ -439,39 +439,27 @@ export default function AuctionsClient() {
         </button>
       </section>
 
-      <section className="sectionTabs">
-        <button
-          className={section === "live" ? "sectionTab activeSectionTab" : "sectionTab"}
-          onClick={() => setSection("live")}
-        >
-          <span>Live Auctions</span>
-          <small>Active + ready to collect</small>
+      <nav className="auctionPrimaryNav" aria-label="Auction House views">
+        <button type="button" className={section === "live" && view === "mine" ? "auctionNavActive" : ""} onClick={() => {setSection("live");setView("mine");setVisibleLimit(48);}}>My Auctions</button>
+        <button type="button" className={section === "live" && view === "house" ? "auctionNavActive" : ""} onClick={() => {setSection("live");setView("house");setVisibleLimit(48);}}>Browse</button>
+        <button type="button" className={section === "completed" ? "auctionNavActive" : ""} onClick={() => {setSection("completed");setVisibleLimit(48);}}>History</button>
+      </nav>
+      {section === "live" && view === "mine" ? <div className="auctionSubnav">
+        <button aria-pressed={mineStatus === "active"} onClick={() => {setMineStatus("active");setVisibleLimit(48);}}>Active</button>
+        <button aria-pressed={mineStatus === "ready"} onClick={() => {setMineStatus("ready");setVisibleLimit(48);}}>Ready to Collect ({data?.summary.globalReadyToCollect ?? 0})</button>
+      </div> : section === "completed" ? <div className="auctionSubnav">
+        <button aria-pressed={historyView === "mine"} onClick={() => {setHistoryView("mine");setVisibleLimit(48);}}>My Sales</button>
+        <button aria-pressed={historyView === "house"} onClick={() => {setHistoryView("house");setVisibleLimit(48);}}>Market Comps</button>
+      </div> : null}
+      {section === "live" && view === "mine" && (data?.summary.globalReadyToCollect ?? 0) > 0 && <section className="auctionPayoutPanel">
+        <div><span className="auctionPayoutEyebrow">AUCTIONS COMPLETE</span><strong>{data?.summary.globalReadyToCollect} to collect</strong>
+          <p>{money(data?.summary.globalReadyPayoutCents ?? 0)} estimated payout
+            {(data?.summary.globalUnsoldCount ?? 0) > 0 ? " · " + data?.summary.globalUnsoldCount + " possibly unsold" : ""}</p></div>
+        <button type="button" className="auctionCollectAll" disabled={collectingAll || busyId !== null} onClick={collectAll}>
+          {collectingAll ? "Collecting… " + collectProgress : "Collect All"}
         </button>
-        <button
-          className={section === "completed" ? "sectionTab activeSectionTab" : "sectionTab"}
-          onClick={() => setSection("completed")}
-        >
-          <span>Completed History</span>
-          <small>Collected auction sales</small>
-        </button>
-      </section>
-
-      <section className="tabs">
-        <button
-          className={view === "mine" ? "tab activeTab" : "tab"}
-          onClick={() => setView("mine")}
-        >
-          <span>My Auctions</span>
-          <small>{section === "completed" ? `${summary.total} sold` : `${summary.readyToCollect} collect`}</small>
-        </button>
-        <button
-          className={view === "house" ? "tab activeTab" : "tab"}
-          onClick={() => setView("house")}
-        >
-          <span>Auction House</span>
-          <small>{section === "completed" ? `${summary.total} comps` : `${summary.winningCount} winning`}</small>
-        </button>
-      </section>
+      </section>}
+      {notice && <div className="auctionSuccessNotice" role="status">{notice}</div>}
 
       {section === "completed" ? (
         <section className="summaryGrid">
