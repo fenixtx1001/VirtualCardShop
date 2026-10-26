@@ -404,10 +404,16 @@ export async function processAuctionLifecycle(input?: {
     where: {
       status: "ACTIVE",
       ...(input?.auctionId ? { id: input.auctionId } : {}),
+      // Avoid loading dozens of idle auctions on every search/filter change.
+      // Only uninitialized auctions, auctions with due bid intents, or
+      // auctions whose clock expired need lifecycle work.
+      OR: [
+        { endsAt: { lte: now } },
+        { bidIntents: { none: {} } },
+        { bidIntents: { some: { activatedAt: null, dueAt: { lte: now } } } },
+      ],
     },
-    orderBy: {
-      endsAt: "asc",
-    },
+    orderBy: { endsAt: "asc" },
     take: limit,
   });
 
