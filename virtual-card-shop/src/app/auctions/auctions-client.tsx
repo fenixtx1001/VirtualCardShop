@@ -346,6 +346,60 @@ export default function AuctionsClient() {
     }
   }
 
+  async function collectAll() {
+    if (collectingRef.current) return;
+    collectingRef.current = true;
+    setCollectingAll(true);
+    setCollectProgress(0);
+    setNotice(null);
+    setError(null);
+    let afterId = 0;
+    let collected = 0;
+    let payoutCents = 0;
+    let unsold = 0;
+    let failed = 0;
+    const issues: string[] = [];
+    try {
+      for (let round = 0; round < 150; round += 1) {
+        const res = await fetch("/api/auctions/collect-all", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ afterId }),
+        });
+        const json = await res.json().catch(() => null);
+        if (!res.ok) throw new Error(json?.error || "Collection batch failed.");
+        collected += json.settled ?? 0;
+        payoutCents += json.payoutCents ?? 0;
+        unsold += json.unsoldReturned ?? 0;
+        failed += json.failed ?? 0;
+        setCollectProgress(collected);
+        for (const row of json.results ?? []) {
+          if (!row.ok && issues.length < 3) issues.push(
+            "#" + row.auctionId + ": " + (row.error || "Collection failed")
+          );
+        }
+        if (!json.hasMore) break;
+        if (!Number.isSafeInteger(json.nextCursor) || json.nextCursor <= afterId)
+          throw new Error("Collection progress stopped unexpectedly.");
+        afterId = json.nextCursor;
+      }
+      setNotice(collected + " auctions collected · " + money(payoutCents) +
+        " credited" + (unsold ? " · " + unsold + " unsold cards returned" : ""));
+      if (issues.length) setError(failed + " auctions need attention: " + issues.join("; "));
+      if (collected) {
+        window.dispatchEvent(new Event("vcs:economy-changed"));
+        window.dispatchEvent(new Event("vcs:collection-changed"));
+      }
+    } catch (e) {
+      setError((e instanceof Error ? e.message : "Unable to finish collecting.") +
+        (collected ? " " + collected + " auctions were already collected successfully." : ""));
+    } finally {
+      collectingRef.current = false;
+      setCollectingAll(false);
+      await loadAuctions();
+    }
+  }
+
   const summary = data?.summary ?? {
     view,
     total: 0,
