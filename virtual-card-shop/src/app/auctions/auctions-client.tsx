@@ -304,6 +304,9 @@ export default function AuctionsClient() {
     try {
       const saved = window.localStorage.getItem("vcs-auction-display-mode");
       if (saved === "cards" || saved === "table") setDisplayMode(saved);
+      const savedSort = window.localStorage.getItem("vcs-auction-sort");
+      if (SORT_OPTIONS.some(option => option.value === savedSort))
+        setSort(savedSort as AuctionSort);
     } catch {
       // Ignore localStorage failures.
     }
@@ -312,10 +315,11 @@ export default function AuctionsClient() {
   useEffect(() => {
     try {
       window.localStorage.setItem("vcs-auction-display-mode", displayMode);
+      window.localStorage.setItem("vcs-auction-sort", sort);
     } catch {
       // Ignore localStorage failures.
     }
-  }, [displayMode]);
+  }, [displayMode, sort]);
 
   async function collectAuction(auctionId: number) {
     if (collectingRef.current) return;
