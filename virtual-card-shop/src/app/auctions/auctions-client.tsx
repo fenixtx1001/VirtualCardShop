@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import "./auction-house.css";
 
 type AuctionView = "mine" | "house";
 type AuctionDisplayMode = "cards" | "table";
@@ -24,6 +25,11 @@ type AuctionSummary = {
   readyToCollect: number;
   currentBidTotalCents: number;
   winningCount: number;
+  globalReadyToCollect?: number;
+  globalReadyPayoutCents?: number;
+  globalUnsoldCount?: number;
+  truncatedSort?: boolean;
+  completedTotals?: null | { count: number; totalCents: number; averageCents: number; highCents: number };
 };
 
 type AuctionRow = {
@@ -245,18 +251,28 @@ export default function AuctionsClient() {
   const [error, setError] = useState<string | null>(null);
   const [displayMode, setDisplayMode] = useState<AuctionDisplayMode>("cards");
   const [activityOpen, setActivityOpen] = useState(false);
+  const [mineStatus, setMineStatus] = useState<"active" | "ready">("active");
+  const [historyView, setHistoryView] = useState<AuctionView>("mine");
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [collectingAll, setCollectingAll] = useState(false);
+  const [collectProgress, setCollectProgress] = useState(0);
+  const [notice, setNotice] = useState<string | null>(null);
+  const [visibleLimit, setVisibleLimit] = useState(48);
+  const collectingRef = useRef(false);
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+  useEffect(() => { const id = setTimeout(() => setDebouncedSearch(search.trim()), 300); return () => clearTimeout(id); }, [search]);
 
   const query = useMemo(() => {
     const params = new URLSearchParams();
-    params.set("view", view);
+    params.set("view", section === "completed" ? historyView : view);
     params.set("sort", sort);
-    params.set("limit", "72");
-    if (section === "completed") params.set("status", "COLLECTED");
-    if (search.trim()) params.set("search", search.trim());
+    params.set("limit", String(visibleLimit));
+    params.set("status", section === "completed" ? "COLLECTED" : view === "house" ? "ACTIVE" : mineStatus === "ready" ? "ENDED" : "ACTIVE");
+    if (debouncedSearch) params.set("search", debouncedSearch);
     if (sport.trim()) params.set("sport", sport.trim());
     if (grade !== "all") params.set("grade", grade);
     return params.toString();
-  }, [section, view, sort, search, sport, grade]);
+  }, [section, view, historyView, mineStatus, sort, debouncedSearch, sport, grade, visibleLimit]);
 
   const loadAuctions = useCallback(async () => {
     setLoading(true);
@@ -302,7 +318,10 @@ export default function AuctionsClient() {
   }, [displayMode]);
 
   async function collectAuction(auctionId: number) {
+    if (collectingRef.current) return;
+    collectingRef.current = true;
     setBusyId(auctionId);
+    setNotice(null);
     setError(null);
 
     try {
@@ -315,11 +334,15 @@ export default function AuctionsClient() {
         throw new Error(json?.error || "Unable to collect auction.");
       }
 
+      setNotice("Auction collected successfully.");
+      window.dispatchEvent(new Event("vcs:economy-changed"));
+      window.dispatchEvent(new Event("vcs:collection-changed"));
       await loadAuctions();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unable to collect auction.");
     } finally {
       setBusyId(null);
+      collectingRef.current = false;
     }
   }
 
