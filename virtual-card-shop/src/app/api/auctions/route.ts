@@ -151,8 +151,14 @@ export async function GET(req: Request) {
     // Filter at the database, before the visible-page limit is applied.
     // This avoids hiding matching older auctions behind the old 200-row cap.
     if (search) {
+      const year = Number(search);
+      const yearClauses: Prisma.CardWhereInput[] =
+        Number.isInteger(year) && year >= 1900 && year <= 2100
+          ? [{ set: { year } }, { productSet: { product: { year } } }]
+          : [];
       const cardSearch: Prisma.CardWhereInput = {
         OR: [
+          ...yearClauses,
           { player: { contains: search, mode: "insensitive" } },
           { team: { contains: search, mode: "insensitive" } },
           { cardNumber: { contains: search, mode: "insensitive" } },
