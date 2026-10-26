@@ -183,7 +183,7 @@ export async function GET(req: Request) {
       sort === "lowestBid" ? [{ currentBidCents: "asc" }] :
       sort === "highestValue" ? [{ valueBasisCents: "desc" }] :
       [{ endsAt: "asc" }];
-    const [total, active, ended, sums, winningCount, globalReady, globalUnsold, completedTotals] =
+    const [total, active, ended, sums, winningCount, globalReady, globalUnsold, pendingWithBids, completedTotals] =
       await Promise.all([
         prisma.auction.count({ where }),
         prisma.auction.count({ where: { AND: [where, { status: "ACTIVE" }] } }),
@@ -192,13 +192,20 @@ export async function GET(req: Request) {
         prisma.auction.count({ where: { AND: [where, { winnerUserId: user.id }] } }),
         prisma.auction.aggregate({
           where: { sellerUserId: user.id, status: "ENDED", collectedAt: null },
-          _count: { _all: true }, _sum: { currentBidCents: true },
+          _count: { _all: true },
         }),
         prisma.auction.count({
           where: {
             sellerUserId: user.id, status: "ENDED", collectedAt: null,
-            currentBidCents: { lte: 0 },
+            bids: { none: {} },
           },
+        }),
+        prisma.auction.aggregate({
+          where: {
+            sellerUserId: user.id, status: "ENDED", collectedAt: null,
+            bids: { some: {} },
+          },
+          _sum: { currentBidCents: true },
         }),
         requestedStatus === "COLLECTED"
           ? prisma.auction.aggregate({
@@ -372,7 +379,9 @@ export async function GET(req: Request) {
       visibleLimit: limit,
       truncatedSort: !sqlSorted && total > 2000,
       globalReadyToCollect: globalReady._count._all,
-      globalReadyPayoutCents: globalReady._sum.currentBidCents ?? 0,
+      // The opening/minimum bid can be nonzero even with no winning bid.
+      // Only auctions with actual bids contribute to expected payout.
+      globalReadyPayoutCents: pendingWithBids._sum.currentBidCents ?? 0,
       globalUnsoldCount: globalUnsold,
       completedTotals: completedTotals ? {
         count: total,
