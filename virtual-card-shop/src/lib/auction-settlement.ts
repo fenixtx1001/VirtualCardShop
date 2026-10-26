@@ -108,6 +108,10 @@ export async function collectEndedAuctionTx(
     };
   }
 
+  // Only sold auctions reach this branch; Prisma's sale-history enum has
+  // HUMAN/DUMMY (unsold NONE is intentionally not a recorded sale).
+  const saleBuyerType: "HUMAN" | "DUMMY" = buyerType === "HUMAN" ? "HUMAN" : "DUMMY";
+
   const sold = await tx.cardOwnership.updateMany({
     where: {
       id: ownership.id, quantity: { gte: 1 }, auctionLockedQuantity: { gte: 1 },
@@ -183,7 +187,7 @@ export async function collectEndedAuctionTx(
       cardId: auction.cardId,
       grade: auction.grade,
       saleType: "AUCTION",
-      buyerType,
+      buyerType: saleBuyerType,
       sellerUserId,
       buyerUserId,
       salePriceCents,
