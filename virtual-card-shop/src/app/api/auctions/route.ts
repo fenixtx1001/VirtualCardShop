@@ -138,16 +138,19 @@ export async function GET(req: Request) {
     const where: Prisma.AuctionWhereInput = {
       status: statusWhere,
       sellerUserId: view === "mine" ? user.id : { not: user.id },
-      ...(gradeFilter !== null ? { grade: gradeFilter } : {}),
-      ...(sport ? {
-        card: {
-          OR: [
-            { set: { sport: { contains: sport, mode: "insensitive" } } },
-            { productSet: { product: { sport: { contains: sport, mode: "insensitive" } } } },
-          ],
-        },
-      } : {}),
     };
+    if (gradeFilter !== null) where.grade = gradeFilter;
+    if (sport) {
+      // A separately typed relation filter prevents QueryMode from widening
+      // to an arbitrary string inside a conditional object spread.
+      const sportFilter: Prisma.CardWhereInput = {
+        OR: [
+          { set: { sport: { contains: sport, mode: "insensitive" } } },
+          { productSet: { product: { sport: { contains: sport, mode: "insensitive" } } } },
+        ],
+      };
+      where.card = sportFilter;
+    }
     // Filter at the database, before the visible-page limit is applied.
     // This avoids hiding matching older auctions behind the old 200-row cap.
     if (search) {
