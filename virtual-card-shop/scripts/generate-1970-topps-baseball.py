@@ -10,7 +10,7 @@ CSV=ROOT/"data/set-factory/1970-topps-baseball.cards.csv"
 HEADERS={"User-Agent":"Mozilla/5.0 (compatible; VCS Set Factory checklist validator)","Accept":"text/html,application/xhtml+xml"}
 # Keep RS, LL, TC, CL source subject text; strip only TCDB classification tails.
 ANNOT=re.compile(r"(?:,\s*|\s+)(?:RC|UER|ERR|COR|VAR|SP|SN\d+|PR\d+|RS|ASR|HOF)(?=\s|,|:|$)",re.I)
-NUMBER=re.compile(r"^\d{1,3}$")
+NUMBER=re.compile(r"^(?:\d{1,3}[ab]?|NNO)$",re.I)
 ROOKIES=85
 class Rows(HTMLParser):
  def __init__(self):super().__init__();self.rows=[];self.row=None;self.cell=None;self.link=False
@@ -27,6 +27,7 @@ class Rows(HTMLParser):
    self.row=None
 def clean(value):
  value=" ".join(value.split()).strip()
+ value=re.sub(r"(?<=\s)RCUER(?=:|\s|,|$)", "RC UER", value, flags=re.I)
  m=ANNOT.search(value)
  return value[:m.start()].strip(" ,;") if m else value
 def fetch(url):
@@ -41,7 +42,7 @@ def fetch(url):
   except Exception as e:raise SystemExit(f"TCDB request failed: {e}; NO CSV WRITTEN")
  raise SystemExit(f"TCDB unavailable: {url}; NO CSV WRITTEN")
 def collect(key,sid,expected,rookies=False):
- found={};issues=[]
+ found={};issues=[];unnumbered=0
  for page in range(1,14):
   endpoint="Rookies" if rookies else "Checklist"
   p=Rows();p.feed(fetch(f"https://www.tcdb.com/{endpoint}.cfm/sid/{sid}/1970-Topps?PageIndex={page}"))
@@ -50,8 +51,13 @@ def collect(key,sid,expected,rookies=False):
    cells=[c.strip() for c in row if c.strip()]
    for i,number in enumerate(cells):
     if not NUMBER.fullmatch(number) or i+1>=len(cells):continue
-    if (key=="base" or rookies) and not 1<=int(number)<=720:continue
-    number=str(int(number));player=clean(cells[i+1])
+    if key=="base" or rookies:
+     matched=re.fullmatch(r"(\d{1,3})(?:[ab])?",number,re.I)
+     if not matched or not 1<=int(matched.group(1))<=720:continue
+    if number.upper()=="NNO":
+     unnumbered+=1;number=f"NNO-{unnumbered:02d}"
+    else:number=str(int(re.match(r"\d+",number).group()))
+    player=clean(cells[i+1])
     if not player:continue
     team=cells[-1] if i+2<len(cells) else ""
     if team==cells[i+1]:team=""
@@ -77,7 +83,8 @@ def run():
  for number,identity in rookies.items():
   if identity!=base.get(number):errors.append(f"Rookie #{number}: {identity!r} differs from Base {base.get(number)!r}")
  for key in ("booklets","posters","scratch-offs"):
-  if set(data[key])!={str(i) for i in range(1,25)}:errors.append(f"{key}: expected complete 1-24")
+  expected={f"NNO-{i:02d}" for i in range(1,25)} if key=="scratch-offs" else {str(i) for i in range(1,25)}
+  if set(data[key])!=expected:errors.append(f"{key}: expected complete 24-card checklist")
  if errors:
   print("=== SOURCE DISCREPANCIES ===")
   for issue in errors[:100]:print("  "+issue)
@@ -99,6 +106,8 @@ def selftest():
  assert clean("Mike Nagy ASR, RC")=="Mike Nagy"
  assert clean("Jose Martinez RC")=="Jose Martinez"
  assert clean("Willie Mays")=="Willie Mays"
+ assert clean("Buck Martinez RCUER: Circle on backis white.")=="Buck Martinez"
+ assert NUMBER.fullmatch("NNO") and NUMBER.fullmatch("101a")
  assert NUMBER.fullmatch("720") and NUMBER.fullmatch("1")
  print("1970 Topps offline self-tests passed")
 if __name__=="__main__":
