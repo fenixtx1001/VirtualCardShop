@@ -64,6 +64,10 @@ def fetch_cards(sid,total):
   if page>1 and parsed==0:break
  if len(cards)!=total:issues.append(f"sid {sid}: expected {total} distinct cards, found {len(cards)}")
  return cards,issues
+def remarkable_tier(number):
+ assert re.fullmatch(r"M(?:[1-9]|1[0-5])",number),number
+ value=int(number[1:])
+ return "remarkable-silver" if value<=5 else "remarkable-gold" if value<=10 else "remarkable-holofoil"
 def test():
  assert clean("J.D. Drew WP")=="J.D. Drew"
  assert clean("Ken Griffey Jr. SS")=="Ken Griffey Jr."
@@ -71,6 +75,7 @@ def test():
  assert NUMBER.fullmatch("R20") and NUMBER.fullmatch("MM15") and NUMBER.fullmatch("M15")
  assert {f"M{i}" for i in range(1,16)}==set(["M"+str(i) for i in range(1,16)])
  assert {f"R{i}" for i in range(1,16)}==set(["R"+str(i) for i in range(1,16)])
+ assert [sum(remarkable_tier(f"M{i}")==tier for i in range(1,16)) for tier in ("remarkable-silver","remarkable-gold","remarkable-holofoil")]==[5,5,5]
  print("1999 Upper Deck Ovation offline self-tests passed")
 def run():
  bundle=json.loads(BUNDLE.read_text(encoding="utf-8"))
@@ -95,8 +100,8 @@ def run():
   key=spec["key"];sid=spec["sourceSetId"]
   for n,(player,team) in source[sid].items():
    if key=="remarkable-silver" and not 1<=int(n.removeprefix("M"))<=5:continue
-   if key=="remarkable-gold" and not 6<=int(n.removeprefix("MM"))<=10:continue
-   if key=="remarkable-holofoil" and not 11<=int(n.removeprefix("MM"))<=15:continue
+   if key=="remarkable-gold" and not 6<=int(n.removeprefix("M"))<=10:continue
+   if key=="remarkable-holofoil" and not 11<=int(n.removeprefix("M"))<=15:continue
    subset=("World Premiere" if key=="base" and 61<=int(n)<=80 else "Superstar Spotlight" if key=="base" and 81<=int(n)<=90 else "")
    output.append((key,n,player,team,subset,spec["name"] if key!="base" else ""))
  expected={s["key"]:s["expectedCards"] for s in bundle["productSets"]}
