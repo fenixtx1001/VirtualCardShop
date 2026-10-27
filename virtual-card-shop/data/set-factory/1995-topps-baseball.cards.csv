@@ -1,0 +1,1423 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Frank Thomas,Chicago White Sox,,
+base,2,Mickey Morandini,Philadelphia Phillies,,
+base,3,Babe Ruth,New York Yankees,,
+base,4,Scott Cooper,Boston Red Sox,,
+base,5,David Cone,Kansas City Royals,,
+base,6,Jacob Shumate RC,Atlanta Braves,,
+base,7,Trevor Hoffman,San Diego Padres,,
+base,8,Shane Mack,Minnesota Twins,,
+base,9,Delino DeShields,Los Angeles Dodgers,,
+base,10,Matt Williams,San Francisco Giants,,
+base,11,Sammy Sosa,Chicago Cubs,,
+base,12,Gary DiSarcina,California Angels,,
+base,13,Kenny Rogers,Texas Rangers,,
+base,14,Jose Vizcaino,New York Mets,,
+base,15,Lou Whitaker,Detroit Tigers,,
+base,16,Ron Darling,Oakland Athletics,,
+base,17,Dave Nilsson,Milwaukee Brewers,,
+base,18,Chris Hammond,Florida Marlins,,
+base,19,Sid Bream,Houston Astros,,
+base,20,Denny Martinez,Cleveland Indians,,
+base,21,Orlando Merced,Pittsburgh Pirates,,
+base,22,John Wetteland,Montreal Expos,,
+base,23,Mike Devereaux,Baltimore Orioles,,
+base,24,Rene Arocha,St. Louis Cardinals,,
+base,25,Jay Buhner,Seattle Mariners,,
+base,26,Darren Holmes,Colorado Rockies,,
+base,27,Hal Morris,Cincinnati Reds,,
+base,28,Brian Buchanan RC,New York Yankees,,
+base,29,Keith Miller,Kansas City Royals,,
+base,30,Paul Molitor,Toronto Blue Jays,,
+base,31,"David West ""David"" on front, ""Dave"" on back",Philadelphia Phillies,,
+base,32,Tony Tarasco,Atlanta Braves,,
+base,33,Scott Sanders,San Diego Padres,,
+base,34,Eddie Zambrano,Chicago Cubs,,
+base,35,Ricky Bones,Milwaukee Brewers,,
+base,36,John Valentin,Boston Red Sox,,
+base,37,Kevin Tapani,Minnesota Twins,,
+base,38,Tim Wallach,Los Angeles Dodgers,,
+base,39,Darren Lewis,San Francisco Giants,,
+base,40,Travis Fryman,Detroit Tigers,,
+base,41,Mark Leiter,California Angels,,
+base,42,Jose Bautista,Chicago Cubs,,
+base,43,Pete Smith,New York Mets,,
+base,44,Bret Barberie,Florida Marlins,,
+base,45,Dennis Eckersley,Oakland Athletics,,
+base,46,Ken Hill,Montreal Expos,,
+base,47,Chad Ogea,Cleveland Indians,,
+base,48,Pete Harnisch,Houston Astros,,
+base,49,James Baldwin FS,Chicago White Sox,,
+base,50,Mike Mussina,Baltimore Orioles,,
+base,51,Al Martin,Pittsburgh Pirates,,
+base,52,Mark Thompson,Colorado Rockies,,
+base,53,Matt Smith RC,Kansas City Royals,,
+base,54,Joey Hamilton ASR,San Diego Padres,,
+base,55,Edgar Martinez,Seattle Mariners,,
+base,56,John Smiley,Cincinnati Reds,,
+base,57,Rey Sanchez,Chicago Cubs,,
+base,58,Mike Timlin,Toronto Blue Jays,,
+base,59,Ricky Bottalico,Philadelphia Phillies,,
+base,60,Jim Abbott,New York Yankees,,
+base,61,Mike Kelly,Atlanta Braves,,
+base,62,Brian Jordan,St. Louis Cardinals,,
+base,63,Ken Ryan,Boston Red Sox,,
+base,64,Matt Mieske,Milwaukee Brewers,,
+base,65,Rick Aguilera,Minnesota Twins,,
+base,66,Ismael Valdes,Los Angeles Dodgers,,
+base,67,Royce Clayton,San Francisco Giants,,
+base,68,Junior Felix,Detroit Tigers,,
+base,69,Harold Reynolds,California Angels,,
+base,70,Juan Gonzalez,Texas Rangers,,
+base,71,Kelly Stinnett,New York Mets,,
+base,72,Carlos Reyes,Oakland Athletics,,
+base,73,Dave Weathers,Florida Marlins,,
+base,74,Mel Rojas,Montreal Expos,,
+base,75,Doug Drabek,Houston Astros,,
+base,76,Charles Nagy,Cleveland Indians,,
+base,77,Tim Raines,Chicago White Sox,,
+base,78,Midre Cummings,Pittsburgh Pirates,,
+base,79,Gene Schall / Scott Talanoa / Harold Williams / Ray Brown RC,Philadelphia Phillies / Milwaukee Brewers / Chicago White Sox / Cincinnati Reds,,
+base,80,Rafael Palmeiro,Baltimore Orioles,,
+base,81,Charlie Hayes,Colorado Rockies,,
+base,82,Ray Lankford,St. Louis Cardinals,,
+base,83,Tim Davis,Seattle Mariners,,
+base,84,C.J. Nitkowski,Cincinnati Reds,,
+base,85,Andy Ashby,San Diego Padres,,
+base,86,Gerald Williams,New York Yankees,,
+base,87,Terry Shumpert,Kansas City Royals,,
+base,88,Heathcliff Slocumb,Philadelphia Phillies,,
+base,89,Domingo Cedeno,Toronto Blue Jays,,
+base,90,Mark Grace,Chicago Cubs,,
+base,91,Brad Woodall RC,Atlanta Braves,,
+base,92,Gar Finnvold,Boston Red Sox,,
+base,93,Jaime Navarro,Milwaukee Brewers,,
+base,94,Carlos Hernandez,Los Angeles Dodgers,,
+base,95,Mark Langston,California Angels,,
+base,96,Chuck Carr,Florida Marlins,,
+base,97,Mike Gardiner,Detroit Tigers,,
+base,98,David McCarty,Minnesota Twins,,
+base,99,Cris Carpenter,Texas Rangers,,
+base,100,Barry Bonds,San Francisco Giants,,
+base,101,David Segui,New York Mets,,
+base,102,Scott Brosius,Oakland Athletics,,
+base,103,Mariano Duncan,Philadelphia Phillies,,
+base,104,Kenny Lofton,Cleveland Indians,,
+base,105,Ken Caminiti,Houston Astros,,
+base,106,Darrin Jackson,Chicago White Sox,,
+base,107,Jim Poole,Baltimore Orioles,,
+base,108,Wil Cordero,Montreal Expos,,
+base,109,Danny Miceli,Pittsburgh Pirates,,
+base,110,Walt Weiss,Colorado Rockies,,
+base,111,Tom Pagnozzi,St. Louis Cardinals,,
+base,112,Terrence Long,New York Mets,,
+base,113,Bret Boone,Cincinnati Reds,,
+base,114,Daryl Boston,New York Yankees,,
+base,115,Wally Joyner,Kansas City Royals,,
+base,116,Rob Butler,Toronto Blue Jays,,
+base,117,Rafael Belliard,Atlanta Braves,,
+base,118,Luis Lopez,San Diego Padres,,
+base,119,Tony Fossas,Boston Red Sox,,
+base,120,Len Dykstra,Philadelphia Phillies,,
+base,121,Mike Morgan,Chicago Cubs,,
+base,122,Denny Hocking,Minnesota Twins,,
+base,123,Kevin Gross,Los Angeles Dodgers,,
+base,124,Todd Benzinger,San Francisco Giants,,
+base,125,John Doherty,Detroit Tigers,,
+base,126,Eduardo Perez,California Angels,,
+base,127,Dan Smith,Texas Rangers,,
+base,128,Joe Orsulak,New York Mets,,
+base,129,Brent Gates,Oakland Athletics,,
+base,130,Jeff Conine,Florida Marlins,,
+base,131,Doug Henry,Milwaukee Brewers,,
+base,132,Paul Sorrento,Cleveland Indians,,
+base,133,Mike Hampton,Houston Astros,,
+base,134,Tim Spehr,Montreal Expos,,
+base,135,Julio Franco,Chicago White Sox,,
+base,136,Mike Dyer,Pittsburgh Pirates,,
+base,137,Chris Sabo,Baltimore Orioles,,
+base,138,Rheal Cormier,St. Louis Cardinals,,
+base,139,Paul Konerko,Los Angeles Dodgers,,
+base,140,Dante Bichette,Colorado Rockies,,
+base,141,Chuck McElroy,Cincinnati Reds,,
+base,142,Mike Stanley,New York Yankees,,
+base,143,Bob Hamelin ASR,Kansas City Royals,,
+base,144,Tommy Greene,Philadelphia Phillies,,
+base,145,John Smoltz,Atlanta Braves,,
+base,146,Ed Sprague,Toronto Blue Jays,,
+base,147,Ray McDavid,San Diego Padres,,
+base,148,Otis Nixon,Boston Red Sox,,
+base,149,Turk Wendell,Chicago Cubs,,
+base,150,Chris James,Texas Rangers,,
+base,151,Derek Parks,Minnesota Twins,,
+base,152,Jose Offerman,Los Angeles Dodgers,,
+base,153,Tony Clark FS,Detroit Tigers,,
+base,154,Chad Curtis,California Angels,,
+base,155,Mark Portugal,San Francisco Giants,,
+base,156,Bill Pulsipher FS,New York Mets,,
+base,157,Troy Neel,Oakland Athletics,,
+base,158,Dave Winfield,Cleveland Indians,,
+base,159,Bill Wegman,Milwaukee Brewers,,
+base,160,Benny Santiago,Florida Marlins,,
+base,161,Jose Mesa,Cleveland Indians,,
+base,162,Luis Gonzalez,Houston Astros,,
+base,163,Alex Fernandez,Chicago White Sox,,
+base,164,Freddie Benavides,Montreal Expos,,
+base,165,Ben McDonald,Baltimore Orioles,,
+base,166,Blas Minor,Pittsburgh Pirates,,
+base,167,Bret Wagner,St. Louis Cardinals,,
+base,168,Mac Suzuki FS,Seattle Mariners,,
+base,169,Roberto Mejia,Colorado Rockies,,
+base,170,Wade Boggs,New York Yankees,,
+base,171,Calvin Reese FS,Cincinnati Reds,,
+base,172,Hipolito Pichardo,Kansas City Royals,,
+base,173,Kim Batiste,Philadelphia Phillies,,
+base,174,Darren Hall,Toronto Blue Jays,,
+base,175,Tom Glavine,Atlanta Braves,,
+base,176,Phil Plantier,San Diego Padres,,
+base,177,Chris Howard,Boston Red Sox,,
+base,178,Karl Rhodes,Chicago Cubs,,
+base,179,LaTroy Hawkins FS,Minnesota Twins,,
+base,180,Raul Mondesi ASR,Los Angeles Dodgers,,
+base,181,Jeff Reed,San Francisco Giants,,
+base,182,Milt Cuyler,Detroit Tigers,,
+base,183,Jim Edmonds,California Angels,,
+base,184,Hector Fajardo,Texas Rangers,,
+base,185,Jeff Kent,New York Mets,,
+base,186,Wilson Alvarez,Chicago White Sox,,
+base,187,Geronimo Berroa,Oakland Athletics,,
+base,188,Bill Spiers,Milwaukee Brewers,,
+base,189,Derek Lilliquist,Cleveland Indians,,
+base,190,Craig Biggio,Houston Astros,,
+base,191,Roberto Hernandez,Chicago White Sox,,
+base,192,Bob Natal,Florida Marlins,,
+base,193,Bobby Ayala,Seattle Mariners,,
+base,194,Travis Miller RC,Minnesota Twins,,
+base,195,Bob Tewksbury,St. Louis Cardinals,,
+base,196,Rondell White,Montreal Expos,,
+base,197,Steve Cooke,Pittsburgh Pirates,,
+base,198,Jeff Branson,Cincinnati Reds,,
+base,199,Derek Jeter FS,New York Yankees,,
+base,200,Tim Salmon,California Angels,,
+base,201,Steve Frey,San Francisco Giants,,
+base,202,Kent Mercker,Atlanta Braves,,
+base,203,Randy Johnson,Seattle Mariners,,
+base,204,Todd Worrell,Los Angeles Dodgers,,
+base,205,Mo Vaughn,Boston Red Sox,,
+base,206,Howard Johnson,Colorado Rockies,,
+base,207,John Wasdin FS,Oakland Athletics,,
+base,208,Eddie Williams,San Diego Padres,,
+base,209,Tim Belcher,Detroit Tigers,,
+base,210,Jeff Montgomery,Kansas City Royals,,
+base,211,Kirt Manwaring,San Francisco Giants,,
+base,212,Ben Grieve,Oakland Athletics,,
+base,213,Pat Hentgen,Toronto Blue Jays,,
+base,214,Shawon Dunston,Chicago Cubs,,
+base,215,Mike Greenwell,Boston Red Sox,,
+base,216,Alex Diaz,Milwaukee Brewers,,
+base,217,Pat Mahomes,Minnesota Twins,,
+base,218,Dave Hansen,Los Angeles Dodgers,,
+base,219,Kevin Rogers,San Francisco Giants,,
+base,220,Cecil Fielder,Detroit Tigers,,
+base,221,Andrew Lorraine,California Angels,,
+base,222,Jack Armstrong,Texas Rangers,,
+base,223,Todd Hundley,New York Mets,,
+base,224,Mark Acre,Oakland Athletics,,
+base,225,Darrell Whitmore,Florida Marlins,,
+base,226,Randy Milligan,Montreal Expos,,
+base,227,Wayne Kirby,Cleveland Indians,,
+base,228,Darryl Kile,Houston Astros,,
+base,229,Bob Zupcic,Chicago White Sox,,
+base,230,Jay Bell,Pittsburgh Pirates,,
+base,231,Dustin Hermanson,San Diego Padres,,
+base,232,Harold Baines,Baltimore Orioles,,
+base,233,Alan Benes FS,St. Louis Cardinals,,
+base,234,Felix Fermin,Seattle Mariners,,
+base,235,Ellis Burks,Colorado Rockies,,
+base,236,Jeff Brantley,Cincinnati Reds,,
+base,237,Brian Hunter / Jose Malave / Karim Garcia / Shane Pullen RC,Houston Astros / Boston Red Sox / Los Angeles Dodgers / Philadelphia Phillies,,
+base,238,Matt Nokes,New York Yankees,,
+base,239,Ben Rivera,Philadelphia Phillies,,
+base,240,Joe Carter,Toronto Blue Jays,,
+base,241,Jeff Granger,Kansas City Royals,,
+base,242,Terry Pendleton,Atlanta Braves,,
+base,243,Melvin Nieves,San Diego Padres,,
+base,244,Frank Rodriguez FS,Boston Red Sox,,
+base,245,Darryl Hamilton,Milwaukee Brewers,,
+base,246,Brooks Kieschnick FS,Chicago Cubs,,
+base,247,Todd Hollandsworth FS,Los Angeles Dodgers,,
+base,248,Joe Rosselli FS,San Francisco Giants,,
+base,249,Bill Gullickson,Detroit Tigers,,
+base,250,Chuck Knoblauch,Minnesota Twins,,
+base,251,Kurt Miller,Florida Marlins,,
+base,252,Bobby Jones,New York Mets,,
+base,253,Lance Blankenship,Oakland Athletics,,
+base,254,Matt Whiteside,Texas Rangers,,
+base,255,Darrin Fletcher,Montreal Expos,,
+base,256,Eric Plunk,Cleveland Indians,,
+base,257,Shane Reynolds,Houston Astros,,
+base,258,Norberto Martin,Chicago White Sox,,
+base,259,Mike Thurman,Montreal Expos,,
+base,260,Andy Van Slyke,Pittsburgh Pirates,,
+base,261,Dwight Smith,Baltimore Orioles,,
+base,262,Allen Watson,St. Louis Cardinals,,
+base,263,Dan Wilson,Seattle Mariners,,
+base,264,Brent Mayne,Kansas City Royals,,
+base,265,Bip Roberts,San Diego Padres,,
+base,266,Sterling Hitchcock,New York Yankees,,
+base,267,Alex Gonzalez,Toronto Blue Jays,,
+base,268,Greg Harris,Colorado Rockies,,
+base,269,Ricky Jordan,Philadelphia Phillies,,
+base,270,Johnny Ruffin,Cincinnati Reds,,
+base,271,Mike Stanton,Atlanta Braves,,
+base,272,Rich Rowland,Boston Red Sox,,
+base,273,Steve Trachsel,Chicago Cubs,,
+base,274,Pedro Munoz,Minnesota Twins,,
+base,275,Ramon Martinez,Los Angeles Dodgers,,
+base,276,Dave Henderson,Kansas City Royals,,
+base,277,Chris Gomez ASR,Detroit Tigers,,
+base,278,Joe Grahe,California Angels,,
+base,279,Rusty Greer,Texas Rangers,,
+base,280,John Franco,New York Mets,,
+base,281,Mike Bordick,Oakland Athletics,,
+base,282,Jeff D'Amico FS,Milwaukee Brewers,,
+base,283,Dave Magadan,Florida Marlins,,
+base,284,Tony Pena,Cleveland Indians,,
+base,285,Greg Swindell,Houston Astros,,
+base,286,Doug Million,Colorado Rockies,,
+base,287,Gabe White,Montreal Expos,,
+base,288,Trey Beamon FS,Pittsburgh Pirates,,
+base,289,Arthur Rhodes,Baltimore Orioles,,
+base,290,Juan Guzman,Toronto Blue Jays,,
+base,291,Jose Oquendo,St. Louis Cardinals,,
+base,292,Willie Blair,Colorado Rockies,,
+base,293,Eddie Taubensee,Cincinnati Reds,,
+base,294,Steve Howe,New York Yankees,,
+base,295,Greg Maddux,Atlanta Braves,,
+base,296,Mike Macfarlane,Kansas City Royals,,
+base,297,Curt Schilling,Philadelphia Phillies,,
+base,298,Phil Clark,San Diego Padres,,
+base,299,Woody Williams,Toronto Blue Jays,,
+base,300,Jose Canseco,Texas Rangers,,
+base,301,Aaron Sele,Boston Red Sox,,
+base,302,Carl Willis,Minnesota Twins,,
+base,303,Steve Buechele,Chicago Cubs,,
+base,304,Dave Burba,San Francisco Giants,,
+base,305,Orel Hershiser,Los Angeles Dodgers,,
+base,306,Damion Easley,California Angels,,
+base,307,Mike Henneman,Detroit Tigers,,
+base,308,Josias Manzanillo,New York Mets,,
+base,309,Kevin Seitzer,Milwaukee Brewers,,
+base,310,Ruben Sierra,Oakland Athletics,,
+base,311,Bryan Harvey,Florida Marlins,,
+base,312,Jim Thome,Cleveland Indians,,
+base,313,Ramon Castro RC,Houston Astros,,
+base,314,Lance Johnson,Chicago White Sox,,
+base,315,Marquis Grissom,Montreal Expos,,
+base,316,Terrell Wade / Juan Acevedo / Matt Arrandale / Eddie Priest RC,Atlanta Braves / Colorado Rockies / St. Louis Cardinals / Cincinnati Reds,,
+base,317,Paul Wagner,Pittsburgh Pirates,,
+base,318,Jamie Moyer,Baltimore Orioles,,
+base,319,Todd Zeile,St. Louis Cardinals,,
+base,320,Chris Bosio,Seattle Mariners,,
+base,321,Steve Reed,Colorado Rockies,,
+base,322,Erik Hanson,Cincinnati Reds,,
+base,323,Luis Polonia,New York Yankees,,
+base,324,Ryan Klesko ASR,Atlanta Braves,,
+base,325,Kevin Appier,Kansas City Royals,,
+base,326,Jim Eisenreich,Philadelphia Phillies,,
+base,327,Randy Knorr,Toronto Blue Jays,,
+base,328,Craig Shipley,San Diego Padres,,
+base,329,Tim Naehring,Boston Red Sox,,
+base,330,Randy Myers,Chicago Cubs,,
+base,331,Alex Cole,Minnesota Twins,,
+base,332,Jim Gott,Los Angeles Dodgers,,
+base,333,Mike Jackson,San Francisco Giants,,
+base,334,John Flaherty,Detroit Tigers,,
+base,335,Chili Davis,California Angels,,
+base,336,Benji Gil,Texas Rangers,,
+base,337,Jason Jacome,New York Mets,,
+base,338,Stan Javier,Oakland Athletics,,
+base,339,Mike Fetters,Milwaukee Brewers,,
+base,340,Rick Renteria,Florida Marlins,,
+base,341,Kevin Witt,Toronto Blue Jays,,
+base,342,Scott Servais,Houston Astros,,
+base,343,Craig Grebeck,Chicago White Sox,,
+base,344,Kirk Rueter,Montreal Expos,,
+base,345,Don Slaught,Pittsburgh Pirates,,
+base,346,Armando Benitez RC,Baltimore Orioles,,
+base,347,Ozzie Smith,St. Louis Cardinals,,
+base,348,Mike Blowers,Seattle Mariners,,
+base,349,Armando Reynoso,Colorado Rockies,,
+base,350,Barry Larkin,Cincinnati Reds,,
+base,351,Mike Williams,Philadelphia Phillies,,
+base,352,Scott Kamieniecki,New York Yankees,,
+base,353,Gary Gaetti,Kansas City Royals,,
+base,354,Todd Stottlemyre,Toronto Blue Jays,,
+base,355,Fred McGriff,Atlanta Braves,,
+base,356,Tim Mauser,San Diego Padres,,
+base,357,Chris Gwynn,Los Angeles Dodgers,,
+base,358,Frank Castillo,Chicago Cubs,,
+base,359,Jeff Reboulet,Minnesota Twins,,
+base,360,Roger Clemens,Boston Red Sox,,
+base,361,Mark Carreon,San Francisco Giants,,
+base,362,Chad Kreuter,Detroit Tigers,,
+base,363,Mark Farris,Pittsburgh Pirates,,
+base,364,Bob Welch,Oakland Athletics,,
+base,365,Dean Palmer,Texas Rangers,,
+base,366,Jeromy Burnitz,New York Mets,,
+base,367,B.J. Surhoff,Milwaukee Brewers,,
+base,368,Mike Butcher,California Angels,,
+base,369,Brad Clontz / Steve Phoenix / Scott Gentile / Bucky Buckles RC,Atlanta Braves / Oakland Athletics / Montreal Expos / Texas Rangers,,
+base,370,Eddie Murray,Cleveland Indians,,
+base,371,Orlando Miller,Houston Astros,,
+base,372,Ron Karkovice,Chicago White Sox,,
+base,373,Richie Lewis,Florida Marlins,,
+base,374,Lenny Webster,Montreal Expos,,
+base,375,Jeff Tackett,Baltimore Orioles,,
+base,376,Tom Urbani,St. Louis Cardinals,,
+base,377,Tino Martinez,Seattle Mariners,,
+base,378,Mark Dewey,Pittsburgh Pirates,,
+base,379,Charlie O'Brien,Atlanta Braves,,
+base,380,Terry Mulholland,New York Yankees,,
+base,381,Thomas Howard,Cincinnati Reds,,
+base,382,Chris Haney,Kansas City Royals,,
+base,383,Billy Hatcher,Philadelphia Phillies,,
+base,384,Frank Thomas / Jeff Bagwell AS,Houston Astros / Chicago White Sox,,
+base,385,Carlos Baerga / Bret Boone AS,Cleveland Indians / Cincinnati Reds,,
+base,386,Matt Williams / Wade Boggs AS,San Francisco Giants / New York Yankees,,
+base,387,Cal Ripken / Wil Cordero AS,Montreal Expos / Baltimore Orioles,,
+base,388,Ken Griffey Jr. / Barry Bonds AS,Seattle Mariners / San Francisco Giants,,
+base,389,Tony Gwynn / Albert Belle AS,San Diego Padres / Cleveland Indians,,
+base,390,Dante Bichette / Kirby Puckett AS,Colorado Rockies / Minnesota Twins,,
+base,391,Mike Piazza / Mike Stanley AS,Los Angeles Dodgers / New York Yankees,,
+base,392,Greg Maddux / David Cone AS,Atlanta Braves / Kansas City Royals,,
+base,393,Danny Jackson / Jimmy Key AS,Philadelphia Phillies / New York Yankees,,
+base,394,John Franco / Lee Smith AS,New York Mets / Baltimore Orioles,,
+base,395,Checklist: 1-198,,,
+base,396,Checklist: 199-396,,,
+base,397,Ken Griffey Jr.,Seattle Mariners,,
+base,398,Rick Heiserman RC,Cleveland Indians,,
+base,399,Don Mattingly,New York Yankees,,
+base,400,Henry Rodriguez,Los Angeles Dodgers,,
+base,401,Lenny Harris,Cincinnati Reds,,
+base,402,Ryan Thompson,New York Mets,,
+base,403,Darren Oliver,Texas Rangers,,
+base,404,Omar Vizquel,Cleveland Indians,,
+base,405,Jeff Bagwell,Houston Astros,,
+base,406,Doug Webb RC,Milwaukee Brewers,,
+base,407,Todd Van Poppel,Oakland Athletics,,
+base,408,Leo Gomez,Baltimore Orioles,,
+base,409,Mark Whiten,St. Louis Cardinals,,
+base,410,Pedro Martinez,San Diego Padres,,
+base,411,Reggie Sanders,Cincinnati Reds,,
+base,412,Kevin Foster,Chicago Cubs,,
+base,413,Danny Tartabull,New York Yankees,,
+base,414,Jeff Blauser,Atlanta Braves,,
+base,415,Mike Magnante,Kansas City Royals,,
+base,416,Tom Candiotti,Los Angeles Dodgers,,
+base,417,Rod Beck,San Francisco Giants,,
+base,418,Jody Reed,Milwaukee Brewers,,
+base,419,Vince Coleman,Kansas City Royals,,
+base,420,Danny Jackson,Philadelphia Phillies,,
+base,421,Ryan Nye RC,Philadelphia Phillies,,
+base,422,Larry Walker,Montreal Expos,,
+base,423,Russ Johnson,Houston Astros,,
+base,424,Pat Borders,Toronto Blue Jays,,
+base,425,Lee Smith,Baltimore Orioles,,
+base,426,Paul O'Neill,New York Yankees,,
+base,427,Devon White,Toronto Blue Jays,,
+base,428,Jim Bullinger,Chicago Cubs,,
+base,429,Greg Hansell / Brian Sackinsky / Carey Paige / Rob Welch RC,Los Angeles Dodgers / Baltimore Orioles / Atlanta Braves / Boston Red Sox,,
+base,430,Steve Avery,Atlanta Braves,,
+base,431,Tony Gwynn,San Diego Padres,,
+base,432,Pat Meares,Minnesota Twins,,
+base,433,Bill Swift,San Francisco Giants,,
+base,434,David Wells,Detroit Tigers,,
+base,435,John Briscoe,Oakland Athletics,,
+base,436,Roger Pavlik,Texas Rangers,,
+base,437,Jayson Peterson RC,Chicago Cubs,,
+base,438,Roberto Alomar,Toronto Blue Jays,,
+base,439,Billy Brewer,Kansas City Royals,,
+base,440,Gary Sheffield,Florida Marlins,,
+base,441,Lou Frazier,Montreal Expos,,
+base,442,Terry Steinbach,Oakland Athletics,,
+base,443,Jay Payton RC,New York Mets,,
+base,444,Jason Bere,Chicago White Sox,,
+base,445,Denny Neagle,Pittsburgh Pirates,,
+base,446,Andres Galarraga,Colorado Rockies,,
+base,447,Hector Carrasco,Cincinnati Reds,,
+base,448,Bill Risley RC,Seattle Mariners,,
+base,449,Andy Benes,San Diego Padres,,
+base,450,Jim Leyritz,New York Yankees,,
+base,451,Jose Oliva ASR,Atlanta Braves,,
+base,452,Greg Vaughn,Milwaukee Brewers,,
+base,453,Rich Monteleone,San Francisco Giants,,
+base,454,Tony Eusebio,Houston Astros,,
+base,455,Chuck Finley,California Angels,,
+base,456,Kevin Brown,Texas Rangers,,
+base,457,Joe Boever,Detroit Tigers,,
+base,458,Bobby Munoz,Philadelphia Phillies,,
+base,459,Bret Saberhagen,New York Mets,,
+base,460,Kurt Abbott,Florida Marlins,,
+base,461,Bobby Witt,Oakland Athletics,,
+base,462,Cliff Floyd,Montreal Expos,,
+base,463,Mark Clark,Cleveland Indians,,
+base,464,Andujar Cedeno,Houston Astros,,
+base,465,Marvin Freeman,Colorado Rockies,,
+base,466,Mike Piazza,Los Angeles Dodgers,,
+base,467,Willie Greene,Cincinnati Reds,,
+base,468,Pat Kelly,New York Yankees,,
+base,469,Carlos Delgado,Toronto Blue Jays,,
+base,470,Willie Banks,Chicago Cubs,,
+base,471,Matt Walbeck,Minnesota Twins,,
+base,472,Mark McGwire,Oakland Athletics,,
+base,473,McKay Christensen RC,California Angels,,
+base,474,Alan Trammell,Detroit Tigers,,
+base,475,Tom Gordon,Kansas City Royals,,
+base,476,Greg Colbrunn,Florida Marlins,,
+base,477,Darren Daulton,Philadelphia Phillies,,
+base,478,Albie Lopez,Cleveland Indians,,
+base,479,Robin Ventura,Chicago White Sox,,
+base,480,Eddie Perez / Jason Kendall / Einar Diaz / Bret Hemphill RC,Atlanta Braves / Pittsburgh Pirates / Cleveland Indians / California Angels,,
+base,481,Bryan Eversgerd,St. Louis Cardinals,,
+base,482,Dave Fleming,Seattle Mariners,,
+base,483,Scott Livingstone,San Diego Padres,,
+base,484,Pete Schourek,Cincinnati Reds,,
+base,485,Bernie Williams,New York Yankees,,
+base,486,Mark Lemke,Atlanta Braves,,
+base,487,Eric Karros,Los Angeles Dodgers,,
+base,488,Scott Ruffcorn,Chicago White Sox,,
+base,489,Billy Ashley,Los Angeles Dodgers,,
+base,490,Rico Brogna,New York Mets,,
+base,491,John Burkett,San Francisco Giants,,
+base,492,Cade Gaspar RC,Detroit Tigers,,
+base,493,Jorge Fabregas,California Angels,,
+base,494,Greg Gagne,Kansas City Royals,,
+base,495,Doug Jones,Philadelphia Phillies,,
+base,496,Troy O'Leary,Milwaukee Brewers,,
+base,497,Pat Rapp,Florida Marlins,,
+base,498,Butch Henry,Montreal Expos,,
+base,499,John Olerud,Toronto Blue Jays,,
+base,500,John Hudek,Houston Astros,,
+base,501,Jeff King,Pittsburgh Pirates,,
+base,502,Bobby Bonilla,New York Mets,,
+base,503,Albert Belle,Cleveland Indians,,
+base,504,Rick Wilkins,Chicago Cubs,,
+base,505,John Jaha,Milwaukee Brewers,,
+base,506,Nigel Wilson,Florida Marlins,,
+base,507,Sid Fernandez,Baltimore Orioles,,
+base,508,Deion Sanders,Cincinnati Reds,,
+base,509,Gil Heredia,Montreal Expos,,
+base,510,Scott Elarton RC,Houston Astros,,
+base,511,Melido Perez,New York Yankees,,
+base,512,Greg McMichael,Atlanta Braves,,
+base,513,Rusty Meacham,Kansas City Royals,,
+base,514,Shawn Green,Toronto Blue Jays,,
+base,515,Carlos Garcia,Pittsburgh Pirates,,
+base,516,Dave Stevens,Minnesota Twins,,
+base,517,Eric Young,Colorado Rockies,,
+base,518,Omar Daal,Los Angeles Dodgers,,
+base,519,Kirk Gibson,Detroit Tigers,,
+base,520,Spike Owen,California Angels,,
+base,521,Jacob Cruz RC,San Francisco Giants,,
+base,522,Sandy Alomar,Cleveland Indians,,
+base,523,Steve Bedrosian,Atlanta Braves,,
+base,524,Ricky Gutierrez,San Diego Padres,,
+base,525,Dave Veres RC,Houston Astros,,
+base,526,Gregg Jefferies,St. Louis Cardinals,,
+base,527,Jose Valentin,Milwaukee Brewers,,
+base,528,Robb Nen,Florida Marlins,,
+base,529,Jose Rijo,Cincinnati Reds,,
+base,530,Sean Berry,Montreal Expos,,
+base,531,Mike Gallego,New York Yankees,,
+base,532,Roberto Kelly,Atlanta Braves,,
+base,533,Kevin Stocker,Philadelphia Phillies,,
+base,534,Kirby Puckett,Minnesota Twins,,
+base,535,Chipper Jones,Atlanta Braves,,
+base,536,Russ Davis,New York Yankees,,
+base,537,Jon Lieber,Pittsburgh Pirates,,
+base,538,Trey Moore RC,Seattle Mariners,,
+base,539,Joe Girardi,Colorado Rockies,,
+base,540,Quilvio Veras / Arquimedez Pozo / Miguel Cairo / Jason Camilli RC,Florida Marlins / Seattle Mariners / Los Angeles Dodgers / Montreal Expos,,
+base,541,Tony Phillips,Detroit Tigers,,
+base,542,Brian Anderson ASR,California Angels,,
+base,543,Ivan Rodriguez,Texas Rangers,,
+base,544,Jeff Cirillo,Milwaukee Brewers,,
+base,545,Joey Cora,Chicago White Sox,,
+base,546,Chris Hoiles,Baltimore Orioles,,
+base,547,Bernard Gilkey,St. Louis Cardinals,,
+base,548,Mike Lansing,Montreal Expos,,
+base,549,Jimmy Key,New York Yankees,,
+base,550,Mark Wohlers,Atlanta Braves,,
+base,551,Chris Clemons RC,Chicago White Sox,,
+base,552,Vinny Castilla,Colorado Rockies,,
+base,553,Mark Guthrie,Minnesota Twins,,
+base,554,Mike Lieberthal,Philadelphia Phillies,,
+base,555,Tommy Davis RC,Baltimore Orioles,,
+base,556,Robby Thompson,San Francisco Giants,,
+base,557,Danny Bautista,Detroit Tigers,,
+base,558,Will Clark,Texas Rangers,,
+base,559,Rickey Henderson,Oakland Athletics,,
+base,560,Todd Jones,Houston Astros,,
+base,561,Jack McDowell,Chicago White Sox,,
+base,562,Carlos Rodriguez,Boston Red Sox,,
+base,563,Mark Eichhorn,Baltimore Orioles,,
+base,564,Jeff Nelson,Seattle Mariners,,
+base,565,Eric Anthony,Seattle Mariners,,
+base,566,Randy Velarde,New York Yankees,,
+base,567,Javy Lopez ASR,Atlanta Braves,,
+base,568,Kevin Mitchell,Cincinnati Reds,,
+base,569,Steve Karsay,Oakland Athletics,,
+base,570,Brian Meadows RC,Florida Marlins,,
+base,571,Ray Holbert / Rey Ordonez / Kevin Orie / Mike Metcalfe RC,San Diego Padres / New York Mets / Chicago Cubs / Los Angeles Dodgers,,
+base,572,John Kruk,Philadelphia Phillies,,
+base,573,Scott Leius,Minnesota Twins,,
+base,574,John Patterson ASR,San Francisco Giants,,
+base,575,Kevin Brown,Texas Rangers,,
+base,576,Mike Moore,Detroit Tigers,,
+base,577,Manny Ramirez ASR,Cleveland Indians,,
+base,578,Jose Lind,Kansas City Royals,,
+base,579,Derrick May,Chicago Cubs,,
+base,580,Cal Eldred,Milwaukee Brewers,,
+base,581,David Bell / Joel Chimelis / Lino Diaz / Aaron Boone RC,Cleveland Indians / San Francisco Giants / Kansas City Royals / Cincinnati Reds,,
+base,582,J.T. Snow,California Angels,,
+base,583,Luis Sojo,Seattle Mariners,,
+base,584,Moises Alou,Montreal Expos,,
+base,585,Dave Clark,Pittsburgh Pirates,,
+base,586,Dave Hollins,Philadelphia Phillies,,
+base,587,Nomar Garciaparra,Boston Red Sox,,
+base,588,Cal Ripken,Baltimore Orioles,,
+base,589,Pedro Astacio,Los Angeles Dodgers,,
+base,590,J.R. Phillips,San Francisco Giants,,
+base,591,Jeff Frye,Texas Rangers,,
+base,592,Bo Jackson,California Angels,,
+base,593,Steve Ontiveros,Oakland Athletics,,
+base,594,David Nied,Colorado Rockies,,
+base,595,Brad Ausmus,San Diego Padres,,
+base,596,Carlos Baerga,Cleveland Indians,,
+base,597,James Mouton,Houston Astros,,
+base,598,Ozzie Guillen,Chicago White Sox,,
+base,599,Ozzie Timmons / Curtis Goodwin / Johnny Damon / Jeff Abbott RC,Chicago Cubs / Baltimore Orioles / Kansas City Royals / Chicago White Sox,,
+base,600,Yorkis Perez,Florida Marlins,,
+base,601,Rich Rodriguez,St. Louis Cardinals,,
+base,602,Mark McLemore,Baltimore Orioles,,
+base,603,Jeff Fassero,Montreal Expos,,
+base,604,John Roper,Cincinnati Reds,,
+base,605,Mark Johnson RC,Chicago White Sox,,
+base,606,Wes Chamberlain,Boston Red Sox,,
+base,607,Felix Jose,Kansas City Royals,,
+base,608,Tony Longmire,Philadelphia Phillies,,
+base,609,Duane Ward,Toronto Blue Jays,,
+base,610,Brett Butler,Los Angeles Dodgers,,
+base,611,William Van Landingham,San Francisco Giants,,
+base,612,Mickey Tettleton,Detroit Tigers,,
+base,613,Brady Anderson,Baltimore Orioles,,
+base,614,Reggie Jefferson,Seattle Mariners,,
+base,615,Mike Kingery,Colorado Rockies,,
+base,616,Derek Bell,San Diego Padres,,
+base,617,Scott Erickson,Minnesota Twins,,
+base,618,Bob Wickman,New York Yankees,,
+base,619,Phil Leftwich,California Angels,,
+base,620,David Justice,Atlanta Braves,,
+base,621,Paul Wilson,New York Mets,,
+base,622,Pedro Martinez,Montreal Expos,,
+base,623,Terry Mathews,Florida Marlins,,
+base,624,Brian McRae,Kansas City Royals,,
+base,625,Bruce Ruffin,Colorado Rockies,,
+base,626,Steve Finley,Houston Astros,,
+base,627,Ron Gant,Cincinnati Reds,,
+base,628,Rafael Bournigal,Los Angeles Dodgers,,
+base,629,Darryl Strawberry,San Francisco Giants,,
+base,630,Luis Alicea,St. Louis Cardinals,,
+base,631,Mark Smith / Scott Klingenbeck OD,Baltimore Orioles,,
+base,632,Cory Bailey / Scott Hatteberg OD,Boston Red Sox,,
+base,633,Todd Greene / Troy Percival OD,California Angels,,
+base,634,Rod Bolton / Olmedo Saenz OD,Chicago White Sox,,
+base,635,Steve Kline / Herb Perry OD RC,Cleveland Indians,,
+base,636,Sean Bergman / Shannon Penn OD,Detroit Tigers,,
+base,637,Joe Randa / Joe Vitiello OD,Kansas City Royals,,
+base,638,Jose Mercedes / Duane Singleton OD,Milwaukee Brewers,,
+base,639,Marc Barcelo / Marty Cordova OD,Minnesota Twins,,
+base,640,Ruben Rivera / Andy Pettitte OD,New York Yankees,,
+base,641,Willie Adams / Scott Spiezio OD,Oakland Athletics,,
+base,642,Eddy Diaz / Desi Relaford OD RC,Seattle Mariners,,
+base,643,Terrell Lowery / Jon Shave OD,Texas Rangers,,
+base,644,Angel Martinez / Paul Spoljaric OD,Toronto Blue Jays,,
+base,645,Tony Graffanino / Damon Hollins OD,Atlanta Braves,,
+base,646,Darron Cox / Doug Glanville OD,Chicago Cubs,,
+base,647,Tim Belk / Pat Watkins OD,Cincinnati Reds,,
+base,648,Rod Pedraza / Phil Schneider OD,Colorado Rockies,,
+base,649,Vic Darensbourg / Marc Valdes OD,Florida Marlins,,
+base,650,Rick Huisman / Roberto Petagine OD,Houston Astros,,
+base,651,Roger Cedeno / Ron Coomer OD RC,Los Angeles Dodgers,,
+base,652,Shane Andrews / Carlos Perez OD RC,Montreal Expos,,
+base,653,Jason Isringhausen / Chris Roberts OD,New York Mets,,
+base,654,Wayne Gomes / Kevin Jordan OD,Philadelphia Phillies,,
+base,655,Esteban Loaiza / Steve Pegues OD,Pittsburgh Pirates,,
+base,656,Terry Bradshaw / John Frascatore OD RC,St. Louis Cardinals,,
+base,657,Andres Berumen / Bryce Florie OD,San Diego Padres,,
+base,658,Dan Carlson / Keith Williams OD,San Francisco Giants,,
+base,659,Checklist: 397-528,,,
+base,660,Checklist: 529-660,,,
+cyberstats,1,Frank Thomas,Chicago White Sox,,CyberStats (Spectralight)
+cyberstats,2,Mickey Morandini,Philadelphia Phillies,,CyberStats (Spectralight)
+cyberstats,3,Todd Worrell,Los Angeles Dodgers,,CyberStats (Spectralight)
+cyberstats,4,David Cone,Kansas City Royals,,CyberStats (Spectralight)
+cyberstats,5,Trevor Hoffman,San Diego Padres,,CyberStats (Spectralight)
+cyberstats,6,Shane Mack,Minnesota Twins,,CyberStats (Spectralight)
+cyberstats,7,Delino DeShields,Los Angeles Dodgers,,CyberStats (Spectralight)
+cyberstats,8,Matt Williams,San Francisco Giants,,CyberStats (Spectralight)
+cyberstats,9,Sammy Sosa,Chicago Cubs,,CyberStats (Spectralight)
+cyberstats,10,Gary DiSarcina,California Angels,,CyberStats (Spectralight)
+cyberstats,11,Kenny Rogers,Texas Rangers,,CyberStats (Spectralight)
+cyberstats,12,Jose Vizcaino,New York Mets,,CyberStats (Spectralight)
+cyberstats,13,Lou Whitaker,Detroit Tigers,,CyberStats (Spectralight)
+cyberstats,14,Ron Darling,Oakland Athletics,,CyberStats (Spectralight)
+cyberstats,15,Dave Nilsson,Milwaukee Brewers,,CyberStats (Spectralight)
+cyberstats,16,Denny Martinez,Cleveland Indians,,CyberStats (Spectralight)
+cyberstats,17,Orlando Merced,Pittsburgh Pirates,,CyberStats (Spectralight)
+cyberstats,18,John Wetteland,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,19,Mike Devereaux,Baltimore Orioles,,CyberStats (Spectralight)
+cyberstats,20,Rene Arocha,St. Louis Cardinals,,CyberStats (Spectralight)
+cyberstats,21,Jay Buhner,Seattle Mariners,,CyberStats (Spectralight)
+cyberstats,22,Hal Morris,Cincinnati Reds,,CyberStats (Spectralight)
+cyberstats,23,Paul Molitor,Toronto Blue Jays,,CyberStats (Spectralight)
+cyberstats,24,Dave West,Philadelphia Phillies,,CyberStats (Spectralight)
+cyberstats,25,Scott Sanders,San Diego Padres,,CyberStats (Spectralight)
+cyberstats,26,Eddie Zambrano,Chicago Cubs,,CyberStats (Spectralight)
+cyberstats,27,Ricky Bones,Milwaukee Brewers,,CyberStats (Spectralight)
+cyberstats,28,John Valentin,Boston Red Sox,,CyberStats (Spectralight)
+cyberstats,29,Kevin Tapani,Minnesota Twins,,CyberStats (Spectralight)
+cyberstats,30,Tim Wallach,Los Angeles Dodgers,,CyberStats (Spectralight)
+cyberstats,31,Darren Lewis,San Francisco Giants,,CyberStats (Spectralight)
+cyberstats,32,Travis Fryman,Detroit Tigers,,CyberStats (Spectralight)
+cyberstats,33,Bret Barberie,Florida Marlins,,CyberStats (Spectralight)
+cyberstats,34,Dennis Eckersley,Oakland Athletics,,CyberStats (Spectralight)
+cyberstats,35,Ken Hill,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,36,Pete Harnisch,Houston Astros,,CyberStats (Spectralight)
+cyberstats,37,Mike Mussina,Baltimore Orioles,,CyberStats (Spectralight)
+cyberstats,38,Dave Winfield,Cleveland Indians,,CyberStats (Spectralight)
+cyberstats,39,Joey Hamilton,San Diego Padres,,CyberStats (Spectralight)
+cyberstats,40,Edgar Martinez,Seattle Mariners,,CyberStats (Spectralight)
+cyberstats,41,John Smiley,Cincinnati Reds,,CyberStats (Spectralight)
+cyberstats,42,Jim Abbott,New York Yankees,,CyberStats (Spectralight)
+cyberstats,43,Mike Kelly,Atlanta Braves,,CyberStats (Spectralight)
+cyberstats,44,Brian Jordan,St. Louis Cardinals,,CyberStats (Spectralight)
+cyberstats,45,Ken Ryan,Boston Red Sox,,CyberStats (Spectralight)
+cyberstats,46,Matt Mieske,Milwaukee Brewers,,CyberStats (Spectralight)
+cyberstats,47,Rick Aguilera,Minnesota Twins,,CyberStats (Spectralight)
+cyberstats,48,Ismael Valdes,Los Angeles Dodgers,,CyberStats (Spectralight)
+cyberstats,49,Royce Clayton,San Francisco Giants,,CyberStats (Spectralight)
+cyberstats,50,Juan Gonzalez,Texas Rangers,,CyberStats (Spectralight)
+cyberstats,51,Mel Rojas,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,52,Doug Drabek,Houston Astros,,CyberStats (Spectralight)
+cyberstats,53,Charles Nagy,Cleveland Indians,,CyberStats (Spectralight)
+cyberstats,54,Tim Raines,Chicago White Sox,,CyberStats (Spectralight)
+cyberstats,55,Midre Cummings,Pittsburgh Pirates,,CyberStats (Spectralight)
+cyberstats,56,Rafael Palmeiro,Baltimore Orioles,,CyberStats (Spectralight)
+cyberstats,57,Charlie Hayes,Colorado Rockies,,CyberStats (Spectralight)
+cyberstats,58,Ray Lankford,St. Louis Cardinals,,CyberStats (Spectralight)
+cyberstats,59,Tim Davis,Seattle Mariners,,CyberStats (Spectralight)
+cyberstats,60,Andy Ashby,San Diego Padres,,CyberStats (Spectralight)
+cyberstats,61,Mark Grace,Chicago Cubs,,CyberStats (Spectralight)
+cyberstats,62,Mark Langston,California Angels,,CyberStats (Spectralight)
+cyberstats,63,Chuck Carr,Florida Marlins,,CyberStats (Spectralight)
+cyberstats,64,Barry Bonds,San Francisco Giants,,CyberStats (Spectralight)
+cyberstats,65,David Segui,New York Mets,,CyberStats (Spectralight)
+cyberstats,66,Mariano Duncan,Philadelphia Phillies,,CyberStats (Spectralight)
+cyberstats,67,Kenny Lofton,Cleveland Indians,,CyberStats (Spectralight)
+cyberstats,68,Ken Caminiti,Houston Astros,,CyberStats (Spectralight)
+cyberstats,69,Darrin Jackson,Chicago White Sox,,CyberStats (Spectralight)
+cyberstats,70,Wil Cordero,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,71,Walt Weiss,Colorado Rockies,,CyberStats (Spectralight)
+cyberstats,72,Tom Pagnozzi,St. Louis Cardinals,,CyberStats (Spectralight)
+cyberstats,73,Bret Boone,Cincinnati Reds,,CyberStats (Spectralight)
+cyberstats,74,Wally Joyner,Kansas City Royals,,CyberStats (Spectralight)
+cyberstats,75,Luis Lopez,San Diego Padres,,CyberStats (Spectralight)
+cyberstats,76,Len Dykstra,Philadelphia Phillies,,CyberStats (Spectralight)
+cyberstats,77,Pedro Munoz,Minnesota Twins,,CyberStats (Spectralight)
+cyberstats,78,Kevin Gross,Los Angeles Dodgers,,CyberStats (Spectralight)
+cyberstats,79,Eduardo Perez,California Angels,,CyberStats (Spectralight)
+cyberstats,80,Brent Gates,Oakland Athletics,,CyberStats (Spectralight)
+cyberstats,81,Jeff Conine,Florida Marlins,,CyberStats (Spectralight)
+cyberstats,82,Paul Sorrento,Cleveland Indians,,CyberStats (Spectralight)
+cyberstats,83,Julio Franco,Chicago White Sox,,CyberStats (Spectralight)
+cyberstats,84,Chris Sabo,Baltimore Orioles,,CyberStats (Spectralight)
+cyberstats,85,Dante Bichette,Colorado Rockies,,CyberStats (Spectralight)
+cyberstats,86,Mike Stanley,New York Yankees,,CyberStats (Spectralight)
+cyberstats,87,Bob Hamelin,Kansas City Royals,,CyberStats (Spectralight)
+cyberstats,88,Tommy Greene,Philadelphia Phillies,,CyberStats (Spectralight)
+cyberstats,89,Jeff Brantley,Cincinnati Reds,,CyberStats (Spectralight)
+cyberstats,90,Ed Sprague,Toronto Blue Jays,,CyberStats (Spectralight)
+cyberstats,91,Otis Nixon,Boston Red Sox,,CyberStats (Spectralight)
+cyberstats,92,Chad Curtis,California Angels,,CyberStats (Spectralight)
+cyberstats,93,Chuck McElroy,Cincinnati Reds,,CyberStats (Spectralight)
+cyberstats,94,Troy Neel,Oakland Athletics,,CyberStats (Spectralight)
+cyberstats,95,Benny Santiago,Florida Marlins,,CyberStats (Spectralight)
+cyberstats,96,Jose Mesa,Cleveland Indians,,CyberStats (Spectralight)
+cyberstats,97,Luis Gonzalez,Houston Astros,,CyberStats (Spectralight)
+cyberstats,98,Alex Fernandez,Chicago White Sox,,CyberStats (Spectralight)
+cyberstats,99,Ben McDonald,Baltimore Orioles,,CyberStats (Spectralight)
+cyberstats,100,Wade Boggs,New York Yankees,,CyberStats (Spectralight)
+cyberstats,101,Tom Glavine,Atlanta Braves,,CyberStats (Spectralight)
+cyberstats,102,Phil Plantier,San Diego Padres,,CyberStats (Spectralight)
+cyberstats,103,Raul Mondesi,Los Angeles Dodgers,,CyberStats (Spectralight)
+cyberstats,104,Jim Edmonds,California Angels,,CyberStats (Spectralight)
+cyberstats,105,Jeff Kent,New York Mets,,CyberStats (Spectralight)
+cyberstats,106,Wilson Alvarez,Chicago White Sox,,CyberStats (Spectralight)
+cyberstats,107,Geronimo Berroa,Oakland Athletics,,CyberStats (Spectralight)
+cyberstats,108,Craig Biggio,Houston Astros,,CyberStats (Spectralight)
+cyberstats,109,Roberto Hernandez,Chicago White Sox,,CyberStats (Spectralight)
+cyberstats,110,Bobby Ayala,Seattle Mariners,,CyberStats (Spectralight)
+cyberstats,111,Bob Tewksbury,St. Louis Cardinals,,CyberStats (Spectralight)
+cyberstats,112,Rondell White,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,113,Steve Cooke,Pittsburgh Pirates,,CyberStats (Spectralight)
+cyberstats,114,Tim Salmon,California Angels,,CyberStats (Spectralight)
+cyberstats,115,Kent Mercker,Atlanta Braves,,CyberStats (Spectralight)
+cyberstats,116,Randy Johnson,Seattle Mariners,,CyberStats (Spectralight)
+cyberstats,117,Mo Vaughn,Boston Red Sox,,CyberStats (Spectralight)
+cyberstats,118,Eddie Williams,San Diego Padres,,CyberStats (Spectralight)
+cyberstats,119,Jeff Montgomery,Kansas City Royals,,CyberStats (Spectralight)
+cyberstats,120,Kirt Manwaring,San Francisco Giants,,CyberStats (Spectralight)
+cyberstats,121,Pat Hentgen,Toronto Blue Jays,,CyberStats (Spectralight)
+cyberstats,122,Shawon Dunston,Chicago Cubs,,CyberStats (Spectralight)
+cyberstats,123,Tim Belcher,Detroit Tigers,,CyberStats (Spectralight)
+cyberstats,124,Cecil Fielder,Detroit Tigers,,CyberStats (Spectralight)
+cyberstats,125,Todd Hundley,New York Mets,,CyberStats (Spectralight)
+cyberstats,126,Mark Acre,Oakland Athletics,,CyberStats (Spectralight)
+cyberstats,127,Darrell Whitmore,Florida Marlins,,CyberStats (Spectralight)
+cyberstats,128,Darryl Kile,Houston Astros,,CyberStats (Spectralight)
+cyberstats,129,Jay Bell,Pittsburgh Pirates,,CyberStats (Spectralight)
+cyberstats,130,Harold Baines,Baltimore Orioles,,CyberStats (Spectralight)
+cyberstats,131,Felix Fermin,Seattle Mariners,,CyberStats (Spectralight)
+cyberstats,132,Ellis Burks,Colorado Rockies,,CyberStats (Spectralight)
+cyberstats,133,Joe Carter,Toronto Blue Jays,,CyberStats (Spectralight)
+cyberstats,134,Terry Pendleton,Atlanta Braves,,CyberStats (Spectralight)
+cyberstats,135,Junior Felix,Detroit Tigers,,CyberStats (Spectralight)
+cyberstats,136,Bill Gullickson,Detroit Tigers,,CyberStats (Spectralight)
+cyberstats,137,Melvin Nieves,San Diego Padres,,CyberStats (Spectralight)
+cyberstats,138,Chuck Knoblauch,Minnesota Twins,,CyberStats (Spectralight)
+cyberstats,139,Bobby Jones,New York Mets,,CyberStats (Spectralight)
+cyberstats,140,Darrin Fletcher,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,141,Andy Van Slyke,Pittsburgh Pirates,,CyberStats (Spectralight)
+cyberstats,142,Allen Watson,St. Louis Cardinals,,CyberStats (Spectralight)
+cyberstats,143,Dan Wilson,Seattle Mariners,,CyberStats (Spectralight)
+cyberstats,144,Bip Roberts,San Diego Padres,,CyberStats (Spectralight)
+cyberstats,145,Sterling Hitchcock,New York Yankees,,CyberStats (Spectralight)
+cyberstats,146,Johnny Ruffin,Cincinnati Reds,,CyberStats (Spectralight)
+cyberstats,147,Steve Trachsel,Chicago Cubs,,CyberStats (Spectralight)
+cyberstats,148,Ramon Martinez,Los Angeles Dodgers,,CyberStats (Spectralight)
+cyberstats,149,Dave Henderson,Kansas City Royals,,CyberStats (Spectralight)
+cyberstats,150,Chris Gomez,Detroit Tigers,,CyberStats (Spectralight)
+cyberstats,151,Rusty Greer,Texas Rangers,,CyberStats (Spectralight)
+cyberstats,152,John Franco,New York Mets,,CyberStats (Spectralight)
+cyberstats,153,Mike Bordick,Oakland Athletics,,CyberStats (Spectralight)
+cyberstats,154,Dave Magadan,Florida Marlins,,CyberStats (Spectralight)
+cyberstats,155,Greg Swindell,Houston Astros,,CyberStats (Spectralight)
+cyberstats,156,Arthur Rhodes,Baltimore Orioles,,CyberStats (Spectralight)
+cyberstats,157,Juan Guzman,Toronto Blue Jays,,CyberStats (Spectralight)
+cyberstats,158,Greg Maddux,Atlanta Braves,,CyberStats (Spectralight)
+cyberstats,159,Mike Macfarlane,Kansas City Royals,,CyberStats (Spectralight)
+cyberstats,160,Curt Schilling,Philadelphia Phillies,,CyberStats (Spectralight)
+cyberstats,161,Jose Canseco,Texas Rangers,,CyberStats (Spectralight)
+cyberstats,162,Aaron Sele,Boston Red Sox,,CyberStats (Spectralight)
+cyberstats,163,Steve Buechele,Chicago Cubs,,CyberStats (Spectralight)
+cyberstats,164,Orel Hershiser,Los Angeles Dodgers,,CyberStats (Spectralight)
+cyberstats,165,Mike Henneman,Detroit Tigers,,CyberStats (Spectralight)
+cyberstats,166,Kevin Seitzer,Milwaukee Brewers,,CyberStats (Spectralight)
+cyberstats,167,Ruben Sierra,Oakland Athletics,,CyberStats (Spectralight)
+cyberstats,168,Alex Cole,Minnesota Twins,,CyberStats (Spectralight)
+cyberstats,169,Jim Thome,Cleveland Indians,,CyberStats (Spectralight)
+cyberstats,170,Lance Johnson,Chicago White Sox,,CyberStats (Spectralight)
+cyberstats,171,Marquis Grissom,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,172,Jamie Moyer,Baltimore Orioles,,CyberStats (Spectralight)
+cyberstats,173,Todd Zeile,St. Louis Cardinals,,CyberStats (Spectralight)
+cyberstats,174,Chris Bosio,Seattle Mariners,,CyberStats (Spectralight)
+cyberstats,175,Steve Howe,New York Yankees,,CyberStats (Spectralight)
+cyberstats,176,Luis Polonia,New York Yankees,,CyberStats (Spectralight)
+cyberstats,177,Ryan Klesko,Atlanta Braves,,CyberStats (Spectralight)
+cyberstats,178,Kevin Appier,Kansas City Royals,,CyberStats (Spectralight)
+cyberstats,179,Tim Naehring,Boston Red Sox,,CyberStats (Spectralight)
+cyberstats,180,Randy Myers,Chicago Cubs,,CyberStats (Spectralight)
+cyberstats,181,Mike Jackson,San Francisco Giants,,CyberStats (Spectralight)
+cyberstats,182,Chili Davis,California Angels,,CyberStats (Spectralight)
+cyberstats,183,Jason Jacome,New York Mets,,CyberStats (Spectralight)
+cyberstats,184,Stan Javier,Oakland Athletics,,CyberStats (Spectralight)
+cyberstats,185,Scott Servais,Houston Astros,,CyberStats (Spectralight)
+cyberstats,186,Kirk Rueter,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,187,Don Slaught,Pittsburgh Pirates,,CyberStats (Spectralight)
+cyberstats,188,Ozzie Smith,St. Louis Cardinals,,CyberStats (Spectralight)
+cyberstats,189,Barry Larkin,Cincinnati Reds,,CyberStats (Spectralight)
+cyberstats,190,Gary Gaetti,Kansas City Royals,,CyberStats (Spectralight)
+cyberstats,191,Fred McGriff,Atlanta Braves,,CyberStats (Spectralight)
+cyberstats,192,Roger Clemens,Boston Red Sox,,CyberStats (Spectralight)
+cyberstats,193,Dean Palmer,Texas Rangers,,CyberStats (Spectralight)
+cyberstats,194,Jeromy Burnitz,New York Mets,,CyberStats (Spectralight)
+cyberstats,195,Scott Kamieniecki,New York Yankees,,CyberStats (Spectralight)
+cyberstats,196,Eddie Murray,Cleveland Indians,,CyberStats (Spectralight)
+cyberstats,197,Ron Karkovice,Chicago White Sox,,CyberStats (Spectralight)
+cyberstats,198,Tino Martinez,Seattle Mariners,,CyberStats (Spectralight)
+cyberstats,199,Ken Griffey Jr.,Seattle Mariners,,CyberStats (Spectralight)
+cyberstats,200,Don Mattingly,New York Yankees,,CyberStats (Spectralight)
+cyberstats,201,Henry Rodriguez,Los Angeles Dodgers,,CyberStats (Spectralight)
+cyberstats,202,Lenny Harris,Cincinnati Reds,,CyberStats (Spectralight)
+cyberstats,203,Ryan Thompson,New York Mets,,CyberStats (Spectralight)
+cyberstats,204,Darren Oliver,Texas Rangers,,CyberStats (Spectralight)
+cyberstats,205,Omar Vizquel,Cleveland Indians,,CyberStats (Spectralight)
+cyberstats,206,Jeff Bagwell,Houston Astros,,CyberStats (Spectralight)
+cyberstats,207,Todd Van Poppel,Oakland Athletics,,CyberStats (Spectralight)
+cyberstats,208,Leo Gomez,Baltimore Orioles,,CyberStats (Spectralight)
+cyberstats,209,Mark Whiten,St. Louis Cardinals,,CyberStats (Spectralight)
+cyberstats,210,Pedro Martinez,San Diego Padres,,CyberStats (Spectralight)
+cyberstats,211,Reggie Sanders,Cincinnati Reds,,CyberStats (Spectralight)
+cyberstats,212,Kevin Foster,Chicago Cubs,,CyberStats (Spectralight)
+cyberstats,213,Danny Tartabull,New York Yankees,,CyberStats (Spectralight)
+cyberstats,214,Jeff Blauser,Atlanta Braves,,CyberStats (Spectralight)
+cyberstats,215,Mike Magnante,Kansas City Royals,,CyberStats (Spectralight)
+cyberstats,216,Tom Candiotti,Los Angeles Dodgers,,CyberStats (Spectralight)
+cyberstats,217,Rod Beck,San Francisco Giants,,CyberStats (Spectralight)
+cyberstats,218,Jody Reed,Milwaukee Brewers,,CyberStats (Spectralight)
+cyberstats,219,Vince Coleman,Kansas City Royals,,CyberStats (Spectralight)
+cyberstats,220,Danny Jackson,Philadelphia Phillies,,CyberStats (Spectralight)
+cyberstats,221,Larry Walker,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,222,Pat Borders,Toronto Blue Jays,,CyberStats (Spectralight)
+cyberstats,223,Lee Smith,Baltimore Orioles,,CyberStats (Spectralight)
+cyberstats,224,Paul O'Neill,New York Yankees,,CyberStats (Spectralight)
+cyberstats,225,Devon White,Toronto Blue Jays,,CyberStats (Spectralight)
+cyberstats,226,Jim Bullinger,Chicago Cubs,,CyberStats (Spectralight)
+cyberstats,227,Steve Avery,Atlanta Braves,,CyberStats (Spectralight)
+cyberstats,228,Tony Gwynn,San Diego Padres,,CyberStats (Spectralight)
+cyberstats,229,Pat Meares,Minnesota Twins,,CyberStats (Spectralight)
+cyberstats,230,Bill Swift,San Francisco Giants,,CyberStats (Spectralight)
+cyberstats,231,David Wells,Detroit Tigers,,CyberStats (Spectralight)
+cyberstats,232,John Briscoe,Oakland Athletics,,CyberStats (Spectralight)
+cyberstats,233,Roger Pavlik,Texas Rangers,,CyberStats (Spectralight)
+cyberstats,234,Roberto Alomar,Toronto Blue Jays,,CyberStats (Spectralight)
+cyberstats,235,Billy Brewer,Kansas City Royals,,CyberStats (Spectralight)
+cyberstats,236,Gary Sheffield,Florida Marlins,,CyberStats (Spectralight)
+cyberstats,237,Lou Frazier,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,238,Terry Steinbach,Oakland Athletics,,CyberStats (Spectralight)
+cyberstats,239,Omar Daal,Los Angeles Dodgers,,CyberStats (Spectralight)
+cyberstats,240,Jason Bere,Chicago White Sox,,CyberStats (Spectralight)
+cyberstats,241,Denny Neagle,Pittsburgh Pirates,,CyberStats (Spectralight)
+cyberstats,242,Danny Bautista,Detroit Tigers,,CyberStats (Spectralight)
+cyberstats,243,Hector Carrasco,Cincinnati Reds,,CyberStats (Spectralight)
+cyberstats,244,Bill Risley,Seattle Mariners,,CyberStats (Spectralight)
+cyberstats,245,Andy Benes,San Diego Padres,,CyberStats (Spectralight)
+cyberstats,246,Jim Leyritz,New York Yankees,,CyberStats (Spectralight)
+cyberstats,247,Jose Oliva,Atlanta Braves,,CyberStats (Spectralight)
+cyberstats,248,Greg Vaughn,Milwaukee Brewers,,CyberStats (Spectralight)
+cyberstats,249,Rich Monteleone,San Francisco Giants,,CyberStats (Spectralight)
+cyberstats,250,Tony Eusebio,Houston Astros,,CyberStats (Spectralight)
+cyberstats,251,Chuck Finley,California Angels,,CyberStats (Spectralight)
+cyberstats,252,Joe Boever,Detroit Tigers,,CyberStats (Spectralight)
+cyberstats,253,Bobby Munoz,Philadelphia Phillies,,CyberStats (Spectralight)
+cyberstats,254,Bret Saberhagen,New York Mets,,CyberStats (Spectralight)
+cyberstats,255,Kurt Abbott,Florida Marlins,,CyberStats (Spectralight)
+cyberstats,256,Bobby Witt,Oakland Athletics,,CyberStats (Spectralight)
+cyberstats,257,Cliff Floyd,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,258,Mark Clark,Cleveland Indians,,CyberStats (Spectralight)
+cyberstats,259,Andujar Cedeno,Houston Astros,,CyberStats (Spectralight)
+cyberstats,260,Marvin Freeman,Colorado Rockies,,CyberStats (Spectralight)
+cyberstats,261,Mike Piazza,Los Angeles Dodgers,,CyberStats (Spectralight)
+cyberstats,262,Pat Kelly,New York Yankees,,CyberStats (Spectralight)
+cyberstats,263,Carlos Delgado,Toronto Blue Jays,,CyberStats (Spectralight)
+cyberstats,264,Willie Banks,Chicago Cubs,,CyberStats (Spectralight)
+cyberstats,265,Matt Walbeck,Minnesota Twins,,CyberStats (Spectralight)
+cyberstats,266,Mark McGwire,Oakland Athletics,,CyberStats (Spectralight)
+cyberstats,267,Alan Trammell,Detroit Tigers,,CyberStats (Spectralight)
+cyberstats,268,Tom Gordon,Kansas City Royals,,CyberStats (Spectralight)
+cyberstats,269,Greg Colbrunn,Florida Marlins,,CyberStats (Spectralight)
+cyberstats,270,Darren Daulton,Philadelphia Phillies,,CyberStats (Spectralight)
+cyberstats,271,Albie Lopez,Cleveland Indians,,CyberStats (Spectralight)
+cyberstats,272,Robin Ventura,Chicago White Sox,,CyberStats (Spectralight)
+cyberstats,273,Bryan Eversgerd,St. Louis Cardinals,,CyberStats (Spectralight)
+cyberstats,274,Dave Fleming,Seattle Mariners,,CyberStats (Spectralight)
+cyberstats,275,Scott Livingstone,San Diego Padres,,CyberStats (Spectralight)
+cyberstats,276,Pete Schourek,Cincinnati Reds,,CyberStats (Spectralight)
+cyberstats,277,Bernie Williams,New York Yankees,,CyberStats (Spectralight)
+cyberstats,278,Mark Lemke,Atlanta Braves,,CyberStats (Spectralight)
+cyberstats,279,Eric Karros,Los Angeles Dodgers,,CyberStats (Spectralight)
+cyberstats,280,Billy Ashley,Los Angeles Dodgers,,CyberStats (Spectralight)
+cyberstats,281,Rico Brogna,New York Mets,,CyberStats (Spectralight)
+cyberstats,282,John Burkett,San Francisco Giants,,CyberStats (Spectralight)
+cyberstats,283,Jorge Fabregas,California Angels,,CyberStats (Spectralight)
+cyberstats,284,Greg Gagne,Kansas City Royals,,CyberStats (Spectralight)
+cyberstats,285,Doug Jones,Philadelphia Phillies,,CyberStats (Spectralight)
+cyberstats,286,Troy O'Leary,Milwaukee Brewers,,CyberStats (Spectralight)
+cyberstats,287,Pat Rapp,Florida Marlins,,CyberStats (Spectralight)
+cyberstats,288,Butch Henry,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,289,John Olerud,Toronto Blue Jays,,CyberStats (Spectralight)
+cyberstats,290,John Hudek,Houston Astros,,CyberStats (Spectralight)
+cyberstats,291,Jeff King,Pittsburgh Pirates,,CyberStats (Spectralight)
+cyberstats,292,Bobby Bonilla,New York Mets,,CyberStats (Spectralight)
+cyberstats,293,Albert Belle,Cleveland Indians,,CyberStats (Spectralight)
+cyberstats,294,Rick Wilkins,Chicago Cubs,,CyberStats (Spectralight)
+cyberstats,295,John Jaha,Milwaukee Brewers,,CyberStats (Spectralight)
+cyberstats,296,Sid Fernandez,Baltimore Orioles,,CyberStats (Spectralight)
+cyberstats,297,Deion Sanders,Cincinnati Reds,,CyberStats (Spectralight)
+cyberstats,298,Gil Heredia,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,299,Melido Perez,New York Yankees,,CyberStats (Spectralight)
+cyberstats,300,Greg McMichael,Atlanta Braves,,CyberStats (Spectralight)
+cyberstats,301,Rusty Meacham,Kansas City Royals,,CyberStats (Spectralight)
+cyberstats,302,Shawn Green,Toronto Blue Jays,,CyberStats (Spectralight)
+cyberstats,303,Carlos Garcia,Pittsburgh Pirates,,CyberStats (Spectralight)
+cyberstats,304,Dave Stevens,Minnesota Twins,,CyberStats (Spectralight)
+cyberstats,305,Eric Young,Colorado Rockies,,CyberStats (Spectralight)
+cyberstats,306,Kirk Gibson,Detroit Tigers,,CyberStats (Spectralight)
+cyberstats,307,Spike Owen,California Angels,,CyberStats (Spectralight)
+cyberstats,308,Sandy Alomar,Cleveland Indians,,CyberStats (Spectralight)
+cyberstats,309,Ricky Gutierrez,San Diego Padres,,CyberStats (Spectralight)
+cyberstats,310,Dave Veres,Houston Astros,,CyberStats (Spectralight)
+cyberstats,311,Gregg Jefferies,St. Louis Cardinals,,CyberStats (Spectralight)
+cyberstats,312,Jose Valentin,Milwaukee Brewers,,CyberStats (Spectralight)
+cyberstats,313,Robb Nen,Florida Marlins,,CyberStats (Spectralight)
+cyberstats,314,Jose Rijo,Cincinnati Reds,,CyberStats (Spectralight)
+cyberstats,315,Sean Berry,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,316,Mike Gallego,New York Yankees,,CyberStats (Spectralight)
+cyberstats,317,Roberto Kelly,Atlanta Braves,,CyberStats (Spectralight)
+cyberstats,318,Kevin Stocker,Philadelphia Phillies,,CyberStats (Spectralight)
+cyberstats,319,Kirby Puckett,Minnesota Twins,,CyberStats (Spectralight)
+cyberstats,320,Jon Lieber,Pittsburgh Pirates,,CyberStats (Spectralight)
+cyberstats,321,Joe Girardi,Colorado Rockies,,CyberStats (Spectralight)
+cyberstats,322,Tony Phillips,Detroit Tigers,,CyberStats (Spectralight)
+cyberstats,323,Brian Anderson,California Angels,,CyberStats (Spectralight)
+cyberstats,324,Ivan Rodriguez,Texas Rangers,,CyberStats (Spectralight)
+cyberstats,325,Jeff Cirillo,Milwaukee Brewers,,CyberStats (Spectralight)
+cyberstats,326,Joey Cora,Chicago White Sox,,CyberStats (Spectralight)
+cyberstats,327,Chris Hoiles,Baltimore Orioles,,CyberStats (Spectralight)
+cyberstats,328,Bernard Gilkey,St. Louis Cardinals,,CyberStats (Spectralight)
+cyberstats,329,Mike Lansing,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,330,Jimmy Key,New York Yankees,,CyberStats (Spectralight)
+cyberstats,331,Vinny Castilla,Colorado Rockies,,CyberStats (Spectralight)
+cyberstats,332,Mark Guthrie,Minnesota Twins,,CyberStats (Spectralight)
+cyberstats,333,Mike Lieberthal,Philadelphia Phillies,,CyberStats (Spectralight)
+cyberstats,334,Will Clark,Texas Rangers,,CyberStats (Spectralight)
+cyberstats,335,Rickey Henderson,Oakland Athletics,,CyberStats (Spectralight)
+cyberstats,336,Todd Jones,Houston Astros,,CyberStats (Spectralight)
+cyberstats,337,Jack McDowell,Chicago White Sox,,CyberStats (Spectralight)
+cyberstats,338,Carlos Rodriguez,Boston Red Sox,,CyberStats (Spectralight)
+cyberstats,339,Mark Eichhorn,Baltimore Orioles,,CyberStats (Spectralight)
+cyberstats,340,Jeff Nelson,Seattle Mariners,,CyberStats (Spectralight)
+cyberstats,341,Eric Anthony,Seattle Mariners,,CyberStats (Spectralight)
+cyberstats,342,Randy Velarde,New York Yankees,,CyberStats (Spectralight)
+cyberstats,343,Javy Lopez ASR,Atlanta Braves,,CyberStats (Spectralight)
+cyberstats,344,Kevin Mitchell,Cincinnati Reds,,CyberStats (Spectralight)
+cyberstats,345,Steve Bedrosian,Atlanta Braves,,CyberStats (Spectralight)
+cyberstats,346,John Kruk,Philadelphia Phillies,,CyberStats (Spectralight)
+cyberstats,347,Scott Leius,Minnesota Twins,,CyberStats (Spectralight)
+cyberstats,348,John Patterson,San Francisco Giants,,CyberStats (Spectralight)
+cyberstats,349,Kevin Brown,Texas Rangers,,CyberStats (Spectralight)
+cyberstats,350,Mike Moore,Detroit Tigers,,CyberStats (Spectralight)
+cyberstats,351,Manny Ramirez,Cleveland Indians,,CyberStats (Spectralight)
+cyberstats,352,Jose Lind,Kansas City Royals,,CyberStats (Spectralight)
+cyberstats,353,Derrick May,Chicago Cubs,,CyberStats (Spectralight)
+cyberstats,354,Cal Eldred,Milwaukee Brewers,,CyberStats (Spectralight)
+cyberstats,355,J.T. Snow,California Angels,,CyberStats (Spectralight)
+cyberstats,356,Luis Sojo,Seattle Mariners,,CyberStats (Spectralight)
+cyberstats,357,Moises Alou,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,358,Dave Clark,Pittsburgh Pirates,,CyberStats (Spectralight)
+cyberstats,359,Dave Hollins,Philadelphia Phillies,,CyberStats (Spectralight)
+cyberstats,360,Cal Ripken,Baltimore Orioles,,CyberStats (Spectralight)
+cyberstats,361,Pedro Astacio,Los Angeles Dodgers,,CyberStats (Spectralight)
+cyberstats,362,Tony Longmire,Philadelphia Phillies,,CyberStats (Spectralight)
+cyberstats,363,Jeff Frye,Texas Rangers,,CyberStats (Spectralight)
+cyberstats,364,Bo Jackson,California Angels,,CyberStats (Spectralight)
+cyberstats,365,Steve Ontiveros,Oakland Athletics,,CyberStats (Spectralight)
+cyberstats,366,David Nied,Colorado Rockies,,CyberStats (Spectralight)
+cyberstats,367,Brad Ausmus,San Diego Padres,,CyberStats (Spectralight)
+cyberstats,368,Carlos Baerga,Cleveland Indians,,CyberStats (Spectralight)
+cyberstats,369,James Mouton,Houston Astros,,CyberStats (Spectralight)
+cyberstats,370,Ozzie Guillen,Chicago White Sox,,CyberStats (Spectralight)
+cyberstats,371,Yorkis Perez,Florida Marlins,,CyberStats (Spectralight)
+cyberstats,372,Rich Rodriguez,St. Louis Cardinals,,CyberStats (Spectralight)
+cyberstats,373,Mark McLemore,Baltimore Orioles,,CyberStats (Spectralight)
+cyberstats,374,Jeff Fassero,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,375,John Roper,Cincinnati Reds,,CyberStats (Spectralight)
+cyberstats,376,Wes Chamberlain,Boston Red Sox,,CyberStats (Spectralight)
+cyberstats,377,Felix Jose,Kansas City Royals,,CyberStats (Spectralight)
+cyberstats,378,Brett Butler,Los Angeles Dodgers,,CyberStats (Spectralight)
+cyberstats,379,William Van Landingham,San Francisco Giants,,CyberStats (Spectralight)
+cyberstats,380,Mickey Tettleton,Detroit Tigers,,CyberStats (Spectralight)
+cyberstats,381,Brady Anderson,Baltimore Orioles,,CyberStats (Spectralight)
+cyberstats,382,Reggie Jefferson,Seattle Mariners,,CyberStats (Spectralight)
+cyberstats,383,Mike Kingery,Colorado Rockies,,CyberStats (Spectralight)
+cyberstats,384,Derek Bell,San Diego Padres,,CyberStats (Spectralight)
+cyberstats,385,Scott Erickson,Minnesota Twins,,CyberStats (Spectralight)
+cyberstats,386,Bob Wickman,New York Yankees,,CyberStats (Spectralight)
+cyberstats,387,Phil Leftwich,California Angels,,CyberStats (Spectralight)
+cyberstats,388,David Justice,Atlanta Braves,,CyberStats (Spectralight)
+cyberstats,389,Pedro Martinez,Montreal Expos,,CyberStats (Spectralight)
+cyberstats,390,Terry Mathews,Florida Marlins,,CyberStats (Spectralight)
+cyberstats,391,Brian McRae,Kansas City Royals,,CyberStats (Spectralight)
+cyberstats,392,Bruce Ruffin,Colorado Rockies,,CyberStats (Spectralight)
+cyberstats,393,Steve Finley,Houston Astros,,CyberStats (Spectralight)
+cyberstats,394,Rafael Bournigal,Los Angeles Dodgers,,CyberStats (Spectralight)
+cyberstats,395,Darryl Strawberry,San Francisco Giants,,CyberStats (Spectralight)
+cyberstats,396,Luis Alicea,St. Louis Cardinals,,CyberStats (Spectralight)
+league-leaders,LL1,Albert Belle,Cleveland Indians,,League Leaders
+league-leaders,LL2,Kevin Mitchell,Cincinnati Reds,,League Leaders
+league-leaders,LL3,Wade Boggs,New York Yankees,,League Leaders
+league-leaders,LL4,Tony Gwynn,San Diego Padres,,League Leaders
+league-leaders,LL5,Moises Alou,Montreal Expos,,League Leaders
+league-leaders,LL6,Andres Galarraga,Colorado Rockies,,League Leaders
+league-leaders,LL7,Matt Williams,San Francisco Giants,,League Leaders
+league-leaders,LL8,Barry Bonds,San Francisco Giants,,League Leaders
+league-leaders,LL9,Frank Thomas,Chicago White Sox,,League Leaders
+league-leaders,LL10,Jose Canseco,Texas Rangers,,League Leaders
+league-leaders,LL11,Jeff Bagwell,Houston Astros,,League Leaders
+league-leaders,LL12,Kirby Puckett,Minnesota Twins,,League Leaders
+league-leaders,LL13,Julio Franco,Chicago White Sox,,League Leaders
+league-leaders,LL14,Albert Belle,Cleveland Indians,,League Leaders
+league-leaders,LL15,Fred McGriff,Atlanta Braves,,League Leaders
+league-leaders,LL16,Kenny Lofton,Cleveland Indians,,League Leaders
+league-leaders,LL17,Otis Nixon,Boston Red Sox,,League Leaders
+league-leaders,LL18,Brady Anderson,Baltimore Orioles,,League Leaders
+league-leaders,LL19,Deion Sanders,Cincinnati Reds,,League Leaders
+league-leaders,LL20,Chuck Carr,Florida Marlins,,League Leaders
+league-leaders,LL21,Pat Hentgen,Toronto Blue Jays,,League Leaders
+league-leaders,LL22,Andy Benes,San Diego Padres,,League Leaders
+league-leaders,LL23,Roger Clemens,Boston Red Sox,,League Leaders
+league-leaders,LL24,Greg Maddux,Atlanta Braves,,League Leaders
+league-leaders,LL25,Pedro Martinez,Montreal Expos,,League Leaders
+league-leaders,LL26,Paul O'Neill,New York Yankees,,League Leaders
+league-leaders,LL27,Jeff Bagwell,Houston Astros,,League Leaders
+league-leaders,LL28,Frank Thomas,Chicago White Sox,,League Leaders
+league-leaders,LL29,Hal Morris,Cincinnati Reds,,League Leaders
+league-leaders,LL30,Kenny Lofton,Cleveland Indians,,League Leaders
+league-leaders,LL31,Ken Griffey Jr.,Seattle Mariners,,League Leaders
+league-leaders,LL32,Jeff Bagwell,Houston Astros,,League Leaders
+league-leaders,LL33,Albert Belle,Cleveland Indians,,League Leaders
+league-leaders,LL34,Fred McGriff,Atlanta Braves,,League Leaders
+league-leaders,LL35,Cecil Fielder,Detroit Tigers,,League Leaders
+league-leaders,LL36,Matt Williams,San Francisco Giants,,League Leaders
+league-leaders,LL37,Joe Carter,Toronto Blue Jays,,League Leaders
+league-leaders,LL38,Dante Bichette,Colorado Rockies,,League Leaders
+league-leaders,LL39,Frank Thomas,Chicago White Sox,,League Leaders
+league-leaders,LL40,Mike Piazza,Los Angeles Dodgers,,League Leaders
+league-leaders,LL41,Craig Biggio,Houston Astros,,League Leaders
+league-leaders,LL42,Vince Coleman,Kansas City Royals,,League Leaders
+league-leaders,LL43,Marquis Grissom,Montreal Expos,,League Leaders
+league-leaders,LL44,Chuck Knoblauch,Minnesota Twins,,League Leaders
+league-leaders,LL45,Darren Lewis,San Francisco Giants,,League Leaders
+league-leaders,LL46,Randy Johnson,Seattle Mariners,,League Leaders
+league-leaders,LL47,Jose Rijo,Cincinnati Reds,,League Leaders
+league-leaders,LL48,Chuck Finley,California Angels,,League Leaders
+league-leaders,LL49,Bret Saberhagen,New York Mets,,League Leaders
+league-leaders,LL50,Kevin Appier,Kansas City Royals,,League Leaders
+own-the-game-instant-winners,NNO-01,Atlanta Braves Set RDM,Atlanta Braves,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-02,Baltimore Orioles Set RDM,Baltimore Orioles,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-03,Boston Red Sox Set RDM,Boston Red Sox,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-04,California Angels Set RDM,California Angels,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-05,Chicago Cubs Set RDM,Chicago Cubs,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-06,Chicago White Sox Set RDM,Chicago White Sox,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-07,Cincinnati Reds Set RDM,Cincinnati Reds,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-08,Cleveland Indians Set RDM,Cleveland Indians,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-09,Colorado Rockies Set RDM,Colorado Rockies,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-10,Detroit Tigers Set RDM,Detroit Tigers,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-11,Florida Marlins Set RDM,Florida Marlins,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-12,Houston Astros Set RDM,Houston Astros,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-13,Kansas City Royals Set RDM,Kansas City Royals,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-14,Los Angeles Dodgers Set RDM,Los Angeles Dodgers,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-15,Milwaukee Brewers Set RDM,Milwaukee Brewers,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-16,Minnesota Twins Set RDM,Minnesota Twins,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-17,Montreal Expos Set RDM,Montreal Expos,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-18,New York Mets Set RDM,New York Mets,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-19,New York Yankees Set RDM,New York Yankees,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-20,Oakland Athletics Set RDM,Oakland Athletics,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-21,Philadelphia Phillies Set RDM,Philadelphia Phillies,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-22,Pittsburgh Pirates Set RDM,Pittsburgh Pirates,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-23,St. Louis Cardinals Set RDM,St. Louis Cardinals,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-24,San Diego Padres Set RDM,San Diego Padres,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-25,San Francisco Giants Set RDM,San Francisco Giants,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-26,Seattle Mariners Set RDM,Seattle Mariners,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-27,Texas Rangers Set RDM,Texas Rangers,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-28,Toronto Blue Jays Set RDM,Toronto Blue Jays,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-29,American League Set RDM,,,Own the Game Instant Winners
+own-the-game-instant-winners,NNO-30,National League Set RDM,,,Own the Game Instant Winners
+stadium-club-first-day-issue,1,Cal Ripken,Baltimore Orioles,,Stadium Club First Day Issue
+stadium-club-first-day-issue,2,Bo Jackson,California Angels,,Stadium Club First Day Issue
+stadium-club-first-day-issue,3,Bryan Harvey,Florida Marlins,,Stadium Club First Day Issue
+stadium-club-first-day-issue,4,Curt Schilling,Philadelphia Phillies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,5,Bruce Ruffin,Colorado Rockies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,6,Travis Fryman,Detroit Tigers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,7,Jim Abbott,New York Yankees,,Stadium Club First Day Issue
+stadium-club-first-day-issue,8,David McCarty,Minnesota Twins,,Stadium Club First Day Issue
+stadium-club-first-day-issue,9,Gary Gaetti,Kansas City Royals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,10,Roger Clemens,Boston Red Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,11,Carlos Garcia,Pittsburgh Pirates,,Stadium Club First Day Issue
+stadium-club-first-day-issue,12,Lee Smith,Baltimore Orioles,,Stadium Club First Day Issue
+stadium-club-first-day-issue,13,Bobby Ayala,Seattle Mariners,,Stadium Club First Day Issue
+stadium-club-first-day-issue,14,Charles Nagy,Cleveland Indians,,Stadium Club First Day Issue
+stadium-club-first-day-issue,15,Lou Frazier,Montreal Expos,,Stadium Club First Day Issue
+stadium-club-first-day-issue,16,Rene Arocha,St. Louis Cardinals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,17,Carlos Delgado,Toronto Blue Jays,,Stadium Club First Day Issue
+stadium-club-first-day-issue,18,Steve Finley,Houston Astros,,Stadium Club First Day Issue
+stadium-club-first-day-issue,19,Ryan Klesko,Atlanta Braves,,Stadium Club First Day Issue
+stadium-club-first-day-issue,20,Cal Eldred,Milwaukee Brewers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,21,Rey Sanchez,Chicago Cubs,,Stadium Club First Day Issue
+stadium-club-first-day-issue,22,Ken Hill LL,Montreal Expos,,Stadium Club First Day Issue
+stadium-club-first-day-issue,23,Benny Santiago,Florida Marlins,,Stadium Club First Day Issue
+stadium-club-first-day-issue,24,Julian Tavarez,Cleveland Indians,,Stadium Club First Day Issue
+stadium-club-first-day-issue,25,Jose Vizcaino,New York Mets,,Stadium Club First Day Issue
+stadium-club-first-day-issue,26,Andy Benes,San Diego Padres,,Stadium Club First Day Issue
+stadium-club-first-day-issue,27,Mariano Duncan,Philadelphia Phillies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,28,Checklist: 1-136,,,Stadium Club First Day Issue
+stadium-club-first-day-issue,29,Shawon Dunston,Chicago Cubs,,Stadium Club First Day Issue
+stadium-club-first-day-issue,30,Rafael Palmeiro,Baltimore Orioles,,Stadium Club First Day Issue
+stadium-club-first-day-issue,31,Dean Palmer,Texas Rangers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,32,Andres Galarraga,Colorado Rockies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,33,Joey Cora,Chicago White Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,34,Mickey Tettleton,Detroit Tigers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,35,Barry Larkin,Cincinnati Reds,,Stadium Club First Day Issue
+stadium-club-first-day-issue,36,Carlos Baerga,Cleveland Indians,,Stadium Club First Day Issue
+stadium-club-first-day-issue,37,Orel Hershiser,Los Angeles Dodgers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,38,Jody Reed,Milwaukee Brewers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,39,Paul Molitor,Toronto Blue Jays,,Stadium Club First Day Issue
+stadium-club-first-day-issue,40,Jim Edmonds,California Angels,,Stadium Club First Day Issue
+stadium-club-first-day-issue,41,Bob Tewksbury,St. Louis Cardinals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,42,John Patterson,San Francisco Giants,,Stadium Club First Day Issue
+stadium-club-first-day-issue,43,Ray McDavid,San Diego Padres,,Stadium Club First Day Issue
+stadium-club-first-day-issue,44,Zane Smith,Pittsburgh Pirates,,Stadium Club First Day Issue
+stadium-club-first-day-issue,45,Bret Saberhagen SE,New York Mets,,Stadium Club First Day Issue
+stadium-club-first-day-issue,46,Greg Maddux SE,Atlanta Braves,,Stadium Club First Day Issue
+stadium-club-first-day-issue,47,Frank Thomas SE,Chicago White Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,48,Carlos Baerga SE,Cleveland Indians,,Stadium Club First Day Issue
+stadium-club-first-day-issue,49,Bill Spiers,Milwaukee Brewers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,50,Stan Javier,Oakland Athletics,,Stadium Club First Day Issue
+stadium-club-first-day-issue,51,Rex Hudler,California Angels,,Stadium Club First Day Issue
+stadium-club-first-day-issue,52,Denny Hocking,Minnesota Twins,,Stadium Club First Day Issue
+stadium-club-first-day-issue,53,Todd Worrell,Los Angeles Dodgers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,54,Mark Clark,Cleveland Indians,,Stadium Club First Day Issue
+stadium-club-first-day-issue,55,Hipolito Pichardo,Kansas City Royals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,56,Bob Wickman,New York Yankees,,Stadium Club First Day Issue
+stadium-club-first-day-issue,57,Raul Mondesi,Los Angeles Dodgers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,58,Steve Cooke,Pittsburgh Pirates,,Stadium Club First Day Issue
+stadium-club-first-day-issue,59,Rod Beck,San Francisco Giants,,Stadium Club First Day Issue
+stadium-club-first-day-issue,60,Tim Davis,Seattle Mariners,,Stadium Club First Day Issue
+stadium-club-first-day-issue,61,Jeff Kent,New York Mets,,Stadium Club First Day Issue
+stadium-club-first-day-issue,62,John Valentin,Boston Red Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,63,Alex Arias,Florida Marlins,,Stadium Club First Day Issue
+stadium-club-first-day-issue,64,Steve Reed,Colorado Rockies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,65,Ozzie Smith,St. Louis Cardinals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,66,Terry Pendleton,Atlanta Braves,,Stadium Club First Day Issue
+stadium-club-first-day-issue,67,Kenny Rogers,Texas Rangers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,68,Vince Coleman,Kansas City Royals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,69,Tom Pagnozzi,St. Louis Cardinals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,70,Roberto Alomar,Toronto Blue Jays,,Stadium Club First Day Issue
+stadium-club-first-day-issue,71,Darrin Jackson,Chicago White Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,72,Dennis Eckersley,Oakland Athletics,,Stadium Club First Day Issue
+stadium-club-first-day-issue,73,Jay Buhner,Seattle Mariners,,Stadium Club First Day Issue
+stadium-club-first-day-issue,74,Darren Lewis,San Francisco Giants,,Stadium Club First Day Issue
+stadium-club-first-day-issue,75,Dave Weathers,Florida Marlins,,Stadium Club First Day Issue
+stadium-club-first-day-issue,76,Matt Walbeck,Minnesota Twins,,Stadium Club First Day Issue
+stadium-club-first-day-issue,77,Brad Ausmus,San Diego Padres,,Stadium Club First Day Issue
+stadium-club-first-day-issue,78,Danny Bautista,Detroit Tigers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,79,Bob Hamelin,Kansas City Royals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,80,Steve Trachsel,Chicago Cubs,,Stadium Club First Day Issue
+stadium-club-first-day-issue,81,Ken Ryan,Boston Red Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,82,Chris Turner,California Angels,,Stadium Club First Day Issue
+stadium-club-first-day-issue,83,David Segui,New York Mets,,Stadium Club First Day Issue
+stadium-club-first-day-issue,84,Ben McDonald,Baltimore Orioles,,Stadium Club First Day Issue
+stadium-club-first-day-issue,85,Wade Boggs,New York Yankees,,Stadium Club First Day Issue
+stadium-club-first-day-issue,86,John Vander Wal,Colorado Rockies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,87,Sandy Alomar,Cleveland Indians,,Stadium Club First Day Issue
+stadium-club-first-day-issue,88,Ron Karkovice,Chicago White Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,89,Doug Jones,Philadelphia Phillies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,90,Gary Sheffield,Florida Marlins,,Stadium Club First Day Issue
+stadium-club-first-day-issue,91,Ken Caminiti,Houston Astros,,Stadium Club First Day Issue
+stadium-club-first-day-issue,92,Chris Bosio,Seattle Mariners,,Stadium Club First Day Issue
+stadium-club-first-day-issue,93,Kevin Tapani,Minnesota Twins,,Stadium Club First Day Issue
+stadium-club-first-day-issue,94,Walt Weiss,Colorado Rockies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,95,Erik Hanson,Cincinnati Reds,,Stadium Club First Day Issue
+stadium-club-first-day-issue,96,Ruben Sierra,Oakland Athletics,,Stadium Club First Day Issue
+stadium-club-first-day-issue,97,Nomar Garciaparra,Boston Red Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,98,Terrence Long,New York Mets,,Stadium Club First Day Issue
+stadium-club-first-day-issue,99,Jacob Shumate,Atlanta Braves,,Stadium Club First Day Issue
+stadium-club-first-day-issue,100,Paul Wilson,New York Mets,,Stadium Club First Day Issue
+stadium-club-first-day-issue,101,Kevin Witt,Toronto Blue Jays,,Stadium Club First Day Issue
+stadium-club-first-day-issue,102,Paul Konerko,Los Angeles Dodgers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,103,Ben Grieve,Oakland Athletics,,Stadium Club First Day Issue
+stadium-club-first-day-issue,104,Mark Johnson,Chicago White Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,105,Cade Gaspar,Detroit Tigers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,106,Mark Farris,Pittsburgh Pirates,,Stadium Club First Day Issue
+stadium-club-first-day-issue,107,Dustin Hermanson,San Diego Padres,,Stadium Club First Day Issue
+stadium-club-first-day-issue,108,Scott Elarton,Houston Astros,,Stadium Club First Day Issue
+stadium-club-first-day-issue,109,Doug Million,Colorado Rockies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,110,Matt Smith,Kansas City Royals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,111,Brian Buchanan,New York Yankees,,Stadium Club First Day Issue
+stadium-club-first-day-issue,112,Jayson Peterson,Chicago Cubs,,Stadium Club First Day Issue
+stadium-club-first-day-issue,113,Bret Wagner,St. Louis Cardinals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,114,C.J. Nitkowski,Cincinnati Reds,,Stadium Club First Day Issue
+stadium-club-first-day-issue,115,Ramon Castro,Houston Astros,,Stadium Club First Day Issue
+stadium-club-first-day-issue,116,Rafael Bournigal,Los Angeles Dodgers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,117,Jeff Fassero,Montreal Expos,,Stadium Club First Day Issue
+stadium-club-first-day-issue,118,Bobby Bonilla,New York Mets,,Stadium Club First Day Issue
+stadium-club-first-day-issue,119,Ricky Gutierrez,San Diego Padres,,Stadium Club First Day Issue
+stadium-club-first-day-issue,120,Roger Pavlik,Texas Rangers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,121,Mike Greenwell,Boston Red Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,122,Deion Sanders,Cincinnati Reds,,Stadium Club First Day Issue
+stadium-club-first-day-issue,123,Charlie Hayes,Colorado Rockies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,124,Paul O'Neill,New York Yankees,,Stadium Club First Day Issue
+stadium-club-first-day-issue,125,Jay Bell,Pittsburgh Pirates,,Stadium Club First Day Issue
+stadium-club-first-day-issue,126,Royce Clayton,San Francisco Giants,,Stadium Club First Day Issue
+stadium-club-first-day-issue,127,Willie Banks,Chicago Cubs,,Stadium Club First Day Issue
+stadium-club-first-day-issue,128,Mark Wohlers,Atlanta Braves,,Stadium Club First Day Issue
+stadium-club-first-day-issue,129,Todd Jones,Houston Astros,,Stadium Club First Day Issue
+stadium-club-first-day-issue,130,Todd Stottlemyre,Toronto Blue Jays,,Stadium Club First Day Issue
+stadium-club-first-day-issue,131,Will Clark,Texas Rangers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,132,Wilson Alvarez,Chicago White Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,133,Chili Davis,California Angels,,Stadium Club First Day Issue
+stadium-club-first-day-issue,134,Dave Burba,San Francisco Giants,,Stadium Club First Day Issue
+stadium-club-first-day-issue,135,Chris Hoiles,Baltimore Orioles,,Stadium Club First Day Issue
+stadium-club-first-day-issue,136,Jeff Blauser,Atlanta Braves,,Stadium Club First Day Issue
+stadium-club-first-day-issue,137,Jeff Reboulet,Minnesota Twins,,Stadium Club First Day Issue
+stadium-club-first-day-issue,138,Bret Saberhagen,New York Mets,,Stadium Club First Day Issue
+stadium-club-first-day-issue,139,Kirk Rueter,Montreal Expos,,Stadium Club First Day Issue
+stadium-club-first-day-issue,140,Dave Nilsson,Milwaukee Brewers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,141,Pat Borders,Toronto Blue Jays,,Stadium Club First Day Issue
+stadium-club-first-day-issue,142,Ron Darling,Oakland Athletics,,Stadium Club First Day Issue
+stadium-club-first-day-issue,143,Derek Bell,San Diego Padres,,Stadium Club First Day Issue
+stadium-club-first-day-issue,144,Dave Hollins,Philadelphia Phillies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,145,Juan Gonzalez,Texas Rangers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,146,Andre Dawson,Boston Red Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,147,Jim Thome,Cleveland Indians,,Stadium Club First Day Issue
+stadium-club-first-day-issue,148,Larry Walker LL,Montreal Expos,,Stadium Club First Day Issue
+stadium-club-first-day-issue,149,Mike Piazza,Los Angeles Dodgers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,150,Mike Perez,St. Louis Cardinals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,151,Steve Avery,Atlanta Braves,,Stadium Club First Day Issue
+stadium-club-first-day-issue,152,Dan Wilson,Seattle Mariners,,Stadium Club First Day Issue
+stadium-club-first-day-issue,153,Andy Van Slyke,Pittsburgh Pirates,,Stadium Club First Day Issue
+stadium-club-first-day-issue,154,Junior Felix,Detroit Tigers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,155,Jack McDowell,Chicago White Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,156,Danny Tartabull,New York Yankees,,Stadium Club First Day Issue
+stadium-club-first-day-issue,157,Willie Blair,Colorado Rockies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,158,William Van Landingham,San Francisco Giants,,Stadium Club First Day Issue
+stadium-club-first-day-issue,159,Robb Nen,Florida Marlins,,Stadium Club First Day Issue
+stadium-club-first-day-issue,160,Lee Tinsley,Boston Red Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,161,Ismael Valdes,Los Angeles Dodgers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,162,Juan Guzman,Toronto Blue Jays,,Stadium Club First Day Issue
+stadium-club-first-day-issue,163,Scott Servais,Houston Astros,,Stadium Club First Day Issue
+stadium-club-first-day-issue,164,Cliff Floyd,Montreal Expos,,Stadium Club First Day Issue
+stadium-club-first-day-issue,165,Allen Watson,St. Louis Cardinals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,166,Eddie Taubensee,Cincinnati Reds,,Stadium Club First Day Issue
+stadium-club-first-day-issue,167,Scott Hemond,Oakland Athletics,,Stadium Club First Day Issue
+stadium-club-first-day-issue,168,Jeff Tackett,Baltimore Orioles,,Stadium Club First Day Issue
+stadium-club-first-day-issue,169,Chad Curtis,California Angels,,Stadium Club First Day Issue
+stadium-club-first-day-issue,170,Rico Brogna,New York Mets,,Stadium Club First Day Issue
+stadium-club-first-day-issue,171,Luis Polonia,New York Yankees,,Stadium Club First Day Issue
+stadium-club-first-day-issue,172,Checklist: 137-270,,,Stadium Club First Day Issue
+stadium-club-first-day-issue,173,Lance Johnson,Chicago White Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,174,Sammy Sosa,Chicago Cubs,,Stadium Club First Day Issue
+stadium-club-first-day-issue,175,Mike MacFarlane,Kansas City Royals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,176,Darryl Hamilton,Milwaukee Brewers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,177,Rick Aguilera,Minnesota Twins,,Stadium Club First Day Issue
+stadium-club-first-day-issue,178,Dave West,Philadelphia Phillies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,179,Mike Gallego,New York Yankees,,Stadium Club First Day Issue
+stadium-club-first-day-issue,180,Marc Newfield,Seattle Mariners,,Stadium Club First Day Issue
+stadium-club-first-day-issue,181,Steve Buechele,Chicago Cubs,,Stadium Club First Day Issue
+stadium-club-first-day-issue,182,David Wells,Detroit Tigers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,183,Tom Glavine,Atlanta Braves,,Stadium Club First Day Issue
+stadium-club-first-day-issue,184,Joe Girardi,Colorado Rockies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,185,Craig Biggio,Houston Astros,,Stadium Club First Day Issue
+stadium-club-first-day-issue,186,Eddie Murray,Cleveland Indians,,Stadium Club First Day Issue
+stadium-club-first-day-issue,187,Kevin Gross,Los Angeles Dodgers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,188,Sid Fernandez,Baltimore Orioles,,Stadium Club First Day Issue
+stadium-club-first-day-issue,189,John Franco,New York Mets,,Stadium Club First Day Issue
+stadium-club-first-day-issue,190,Bernard Gilkey,St. Louis Cardinals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,191,Matt Williams,San Francisco Giants,,Stadium Club First Day Issue
+stadium-club-first-day-issue,192,Darrin Fletcher,Montreal Expos,,Stadium Club First Day Issue
+stadium-club-first-day-issue,193,Jeff Conine,Florida Marlins,,Stadium Club First Day Issue
+stadium-club-first-day-issue,194,Ed Sprague,Toronto Blue Jays,,Stadium Club First Day Issue
+stadium-club-first-day-issue,195,Eduardo Perez,California Angels,,Stadium Club First Day Issue
+stadium-club-first-day-issue,196,Scott Livingstone,San Diego Padres,,Stadium Club First Day Issue
+stadium-club-first-day-issue,197,Ivan Rodriguez,Texas Rangers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,198,Orlando Merced,Pittsburgh Pirates,,Stadium Club First Day Issue
+stadium-club-first-day-issue,199,Ricky Bones,Milwaukee Brewers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,200,Javier Lopez,Atlanta Braves,,Stadium Club First Day Issue
+stadium-club-first-day-issue,201,Miguel Jimenez,Oakland Athletics,,Stadium Club First Day Issue
+stadium-club-first-day-issue,202,Terry McGriff,St. Louis Cardinals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,203,Mike Lieberthal,Philadelphia Phillies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,204,David Cone,Kansas City Royals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,205,Todd Hundley,New York Mets,,Stadium Club First Day Issue
+stadium-club-first-day-issue,206,Ozzie Guillen,Chicago White Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,207,Alex Cole,Minnesota Twins,,Stadium Club First Day Issue
+stadium-club-first-day-issue,208,Tony Phillips,Detroit Tigers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,209,Jim Eisenreich,Philadelphia Phillies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,210,Greg Vaughn BSH,Milwaukee Brewers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,211,Barry Larkin BSH,Cincinnati Reds,,Stadium Club First Day Issue
+stadium-club-first-day-issue,212,Don Mattingly BSH,New York Yankees,,Stadium Club First Day Issue
+stadium-club-first-day-issue,213,Mark Grace BSH,Chicago Cubs,,Stadium Club First Day Issue
+stadium-club-first-day-issue,214,Jose Canseco BSH,Texas Rangers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,215,Joe Carter BSH,Toronto Blue Jays,,Stadium Club First Day Issue
+stadium-club-first-day-issue,216,David Cone BSH,Kansas City Royals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,217,Sandy Alomar BSH,Cleveland Indians,,Stadium Club First Day Issue
+stadium-club-first-day-issue,218,Al Martin BSH,Pittsburgh Pirates,,Stadium Club First Day Issue
+stadium-club-first-day-issue,219,Roberto Kelly BSH,Atlanta Braves,,Stadium Club First Day Issue
+stadium-club-first-day-issue,220,Paul Sorrento,Cleveland Indians,,Stadium Club First Day Issue
+stadium-club-first-day-issue,221,Tony Fernandez,Cincinnati Reds,,Stadium Club First Day Issue
+stadium-club-first-day-issue,222,Stan Belinda,Kansas City Royals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,223,Mike Stanley,New York Yankees,,Stadium Club First Day Issue
+stadium-club-first-day-issue,224,Doug Drabek,Houston Astros,,Stadium Club First Day Issue
+stadium-club-first-day-issue,225,Todd Van Poppel,Oakland Athletics,,Stadium Club First Day Issue
+stadium-club-first-day-issue,226,Matt Mieske,Milwaukee Brewers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,227,Tino Martinez,Seattle Mariners,,Stadium Club First Day Issue
+stadium-club-first-day-issue,228,Andy Ashby,San Diego Padres,,Stadium Club First Day Issue
+stadium-club-first-day-issue,229,Midre Cummings,Pittsburgh Pirates,,Stadium Club First Day Issue
+stadium-club-first-day-issue,230,Jeff Frye,Texas Rangers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,231,Hal Morris,Cincinnati Reds,,Stadium Club First Day Issue
+stadium-club-first-day-issue,232,Jose Lind,Kansas City Royals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,233,Shawn Green,Toronto Blue Jays,,Stadium Club First Day Issue
+stadium-club-first-day-issue,234,Rafael Belliard,Atlanta Braves,,Stadium Club First Day Issue
+stadium-club-first-day-issue,235,Randy Myers,Chicago Cubs,,Stadium Club First Day Issue
+stadium-club-first-day-issue,236,Frank Thomas CE,Chicago White Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,237,Darren Daulton CE,Philadelphia Phillies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,238,Sammy Sosa CE,Chicago Cubs,,Stadium Club First Day Issue
+stadium-club-first-day-issue,239,Cal Ripken CE,Baltimore Orioles,,Stadium Club First Day Issue
+stadium-club-first-day-issue,240,Jeff Bagwell CE,Houston Astros,,Stadium Club First Day Issue
+stadium-club-first-day-issue,241,Ken Griffey Jr. LL,Seattle Mariners,,Stadium Club First Day Issue
+stadium-club-first-day-issue,242,Brett Butler,Los Angeles Dodgers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,243,Derrick May,Chicago Cubs,,Stadium Club First Day Issue
+stadium-club-first-day-issue,244,Pat Listach,Milwaukee Brewers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,245,Mike Bordick,Oakland Athletics,,Stadium Club First Day Issue
+stadium-club-first-day-issue,246,Mark Langston,California Angels,,Stadium Club First Day Issue
+stadium-club-first-day-issue,247,Randy Velarde,New York Yankees,,Stadium Club First Day Issue
+stadium-club-first-day-issue,248,Julio Franco,Chicago White Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,249,Chuck Knoblauch,Minnesota Twins,,Stadium Club First Day Issue
+stadium-club-first-day-issue,250,Bill Gullickson,Detroit Tigers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,251,Dave Henderson,Kansas City Royals,,Stadium Club First Day Issue
+stadium-club-first-day-issue,252,Bret Boone,Cincinnati Reds,,Stadium Club First Day Issue
+stadium-club-first-day-issue,253,Al Martin,Pittsburgh Pirates,,Stadium Club First Day Issue
+stadium-club-first-day-issue,254,Armando Benitez,Baltimore Orioles,,Stadium Club First Day Issue
+stadium-club-first-day-issue,255,Wil Cordero,Montreal Expos,,Stadium Club First Day Issue
+stadium-club-first-day-issue,256,Al Leiter,Toronto Blue Jays,,Stadium Club First Day Issue
+stadium-club-first-day-issue,257,Luis Gonzalez,Houston Astros,,Stadium Club First Day Issue
+stadium-club-first-day-issue,258,Charlie O'Brien,Atlanta Braves,,Stadium Club First Day Issue
+stadium-club-first-day-issue,259,Tim Wallach,Los Angeles Dodgers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,260,Scott Sanders,San Diego Padres,,Stadium Club First Day Issue
+stadium-club-first-day-issue,261,Tom Henke,Texas Rangers,,Stadium Club First Day Issue
+stadium-club-first-day-issue,262,Otis Nixon,Boston Red Sox,,Stadium Club First Day Issue
+stadium-club-first-day-issue,263,Darren Daulton,Philadelphia Phillies,,Stadium Club First Day Issue
+stadium-club-first-day-issue,264,Manny Ramirez,Cleveland Indians,,Stadium Club First Day Issue
+stadium-club-first-day-issue,265,Bret Barberie,Florida Marlins,,Stadium Club First Day Issue
+stadium-club-first-day-issue,266,Mel Rojas,Montreal Expos,,Stadium Club First Day Issue
+stadium-club-first-day-issue,267,John Burkett,San Francisco Giants,,Stadium Club First Day Issue
+stadium-club-first-day-issue,268,Brady Anderson,Baltimore Orioles,,Stadium Club First Day Issue
+stadium-club-first-day-issue,269,John Roper,Cincinnati Reds,,Stadium Club First Day Issue
+stadium-club-first-day-issue,270,Shane Reynolds,Houston Astros,,Stadium Club First Day Issue
+total-bases-finest,1,Jeff Bagwell,Houston Astros,,Total Bases (Finest)
+total-bases-finest,2,Albert Belle,Cleveland Indians,,Total Bases (Finest)
+total-bases-finest,3,Ken Griffey Jr.,Seattle Mariners,,Total Bases (Finest)
+total-bases-finest,4,Frank Thomas,Chicago White Sox,,Total Bases (Finest)
+total-bases-finest,5,Matt Williams,San Francisco Giants,,Total Bases (Finest)
+total-bases-finest,6,Dante Bichette,Colorado Rockies,,Total Bases (Finest)
+total-bases-finest,7,Barry Bonds,San Francisco Giants,,Total Bases (Finest)
+total-bases-finest,8,Moises Alou,Montreal Expos,,Total Bases (Finest)
+total-bases-finest,9,Andres Galarraga,Colorado Rockies,,Total Bases (Finest)
+total-bases-finest,10,Kenny Lofton,Cleveland Indians,,Total Bases (Finest)
+total-bases-finest,11,Rafael Palmeiro,Baltimore Orioles,,Total Bases (Finest)
+total-bases-finest,12,Tony Gwynn,San Diego Padres,,Total Bases (Finest)
+total-bases-finest,13,Kirby Puckett,Minnesota Twins,,Total Bases (Finest)
+total-bases-finest,14,Jose Canseco,Texas Rangers,,Total Bases (Finest)
+total-bases-finest,15,Jeff Conine,Florida Marlins,,Total Bases (Finest)
+walmart-sweepstakes-entry,ENTRY,Win the World's Most Valuable Card Official Entry Card,,,Win the World's Most Valuable Card Official Entry Card
