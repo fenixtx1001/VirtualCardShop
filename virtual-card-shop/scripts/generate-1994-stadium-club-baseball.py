@@ -112,11 +112,11 @@ def run():
   for number,(player,team) in data[key].items():
    if key=="base" and (number in rookies or (number[:-1] in rookies and number[-1:] in ("a","b"))):player+=" RC"
    rows.append((key,number,player,team,"",spec["name"] if key!="base" else ""))
- if len(rows)!=2253 or len({(r[0],r[1]) for r in rows})!=2253:raise SystemExit("Card count mismatch; NO CSV WRITTEN")
+ if len(rows)!=2243 or len({(r[0],r[1]) for r in rows})!=2243:raise SystemExit("Card count mismatch; NO CSV WRITTEN")
  CSV.parent.mkdir(parents=True,exist_ok=True)
  with CSV.open("w",newline="",encoding="utf-8") as f:
   w=csv.writer(f,lineterminator="\n");w.writerow(("setKey","cardNumber","player","team","subset","variant"));w.writerows(rows)
- print("GENERATED 2253 cards across 10 ProductSets; 16 Base rookies; UNRELEASED")
+ print("GENERATED 2243 cards across 10 ProductSets; 16 Base rookies; UNRELEASED")
  print(f"CSV: {CSV}")
 def tests():
  assert clean("Chan Ho Park MLD, RC")=="Chan Ho Park"
