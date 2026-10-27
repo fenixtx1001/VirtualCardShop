@@ -25,6 +25,9 @@ class Rows(HTMLParser):
    self.row=None
 def clean(s):
  s=" ".join(s.split()).strip()
+ # TCDB sometimes concatenates VAR and its explanatory annotation.
+ # Restrict this repair to documented VAR+word forms, not player names.
+ s=re.sub(r"(?:,\s*|\s+)VAR(?=Randomly|Random\s)", " VAR", s, flags=re.I)
  m=TOKEN.search(s)
  return s[:m.start()].strip(" ,;") if m else s
 def get(url):
