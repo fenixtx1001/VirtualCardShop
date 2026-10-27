@@ -11,6 +11,18 @@ HEADERS={"User-Agent":"Mozilla/5.0 (compatible; VCS Set Factory source validator
 TAG=re.compile(r"(?:,\s*|\s+)(?:RC|UER(?:UER)?|ERR(?:ERR)?|COR(?:COR)?|VAR(?:VAR)?|AU|BLUE|SIL|GOLD|SP|PR\d+|SN\d+)(?=\s|,|:|$)",re.I)
 NO=re.compile(r"^(?:\d{1,3}|[A-Z]{1,4}\d{1,3}|[A-Z]{2,3})$",re.I)
 RC_TOTAL=114
+# TCDB display-name discrepancies, scoped to known parallel and card number.
+PARALLEL_NAME_ALIASES={
+ ("gold","144","Lesli Brea"):"Leslie Brea",
+ ("gold","148","Wily Mo Pena"):"Willi Mo Pena",
+ ("gold","198","CC Sabathia"):"C.C. Sabathia",
+ ("gold","222","Tony Armas Jr."):"Tony Armas",
+ ("gold","272","Leo Estrella"):"Leoncio Estrella",
+ ("retro-future","148","Wily Mo Pena"):"Willi Mo Pena",
+ ("retro-future","198","CC Sabathia"):"C.C. Sabathia",
+ ("retro-future","222","Tony Armas Jr."):"Tony Armas",
+ ("retro-future","272","Leo Estrella"):"Leoncio Estrella",
+}
 class Rows(HTMLParser):
  def __init__(self):super().__init__();self.rows=[];self.row=None;self.cell=None;self.link=False
  def handle_starttag(self,t,a):
@@ -53,6 +65,7 @@ def collect(key,sid,count,rookies=False):
      if not num.isdecimal() or not 1<=int(num)<=440:continue
      num=str(int(num))
     name=clean(cells[i+1])
+    name=PARALLEL_NAME_ALIASES.get((key,num,name),name)
     if not name:continue
     team=cells[-1] if i+2<len(cells) else ""
     if team==cells[i+1]:team=""
@@ -112,6 +125,9 @@ def tests():
  assert clean("Vladimir Guerrero SN99")=="Vladimir Guerrero"
  assert clean("J.T. Snow Jr. SN99")=="J.T. Snow Jr."
  assert clean("Carlos Zambrano RC")=="Carlos Zambrano"
+ assert len(PARALLEL_NAME_ALIASES)==9
+ assert PARALLEL_NAME_ALIASES[("gold","144","Lesli Brea")]=="Leslie Brea"
+ assert PARALLEL_NAME_ALIASES[("retro-future","198","CC Sabathia")]=="C.C. Sabathia"
  assert NO.fullmatch("BBP10") and NO.fullmatch("KJW") and NO.fullmatch("MP1")
  print("2000 Bowman offline self-tests passed")
 if __name__=="__main__":
