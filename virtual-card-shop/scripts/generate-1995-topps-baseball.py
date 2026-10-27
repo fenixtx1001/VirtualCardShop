@@ -62,12 +62,13 @@ def collect(key,sid,count,rookie=False):
      m=re.fullmatch(r"(\d{1,3})(?:[ab])?",raw_no,re.I)
      if not m or not 1<=int(m.group(1))<=660:continue
     no=normalize_number(raw_no,key)
-    if no=="NNO":
-     if key=="walmart-sweepstakes-entry":
-      sweepstakes_variations+=1
-      no="NNO"
-     else:
-      numberless+=1;no=f"NNO-{numberless:02d}"
+    if key=="walmart-sweepstakes-entry":
+     # Five different TCDB entry-card source rows map to one
+     # conceptual sweepstakes entry, never a prize card.
+     sweepstakes_variations+=1
+     no="ENTRY"
+    elif no=="NNO":
+     numberless+=1;no=f"NNO-{numberless:02d}"
     subject=clean(parts[pos+1])
     if not subject:continue
     team=parts[-1] if pos+2<len(parts) else ""
