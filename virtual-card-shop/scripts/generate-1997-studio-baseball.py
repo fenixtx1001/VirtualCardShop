@@ -27,6 +27,14 @@ def clean(value):
  value=" ".join(value.split()).strip()
  m=ANNOTATION.search(value)
  return value[:m.start()].strip(" ,;") if m else value
+def normalize_identity(key,number,player):
+ # TCDB writes Dave Justice as David on the Silver parallel checklist.
+ if key in ("base","press-proofs-silver","press-proofs-gold") and number=="19":
+  player=player.replace("David Justice","Dave Justice")
+ # Three checklist cards append pack-print metadata to subject names.
+ if key in ("base","press-proofs-silver","press-proofs-gold") and number in ("163","164","165"):
+  player=re.split(r"\s+CL(?:,?\s*PR\d+)?Checklist:",player,maxsplit=1)[0]
+ return player
 def fetch(url):
  for attempt in range(4):
   try:
@@ -50,7 +58,7 @@ def collect(key,sid,expected,rookies=False):
    for i,n in enumerate(cells):
     if not NUMBER.fullmatch(n) or i+1>=len(cells):continue
     if (key in ("base","press-proofs-silver","press-proofs-gold") or rookies) and not 1<=int(n)<=165:continue
-    number=str(int(n));player=clean(cells[i+1]);team=cells[-1] if i+2<len(cells) else ""
+    number=str(int(n));player=normalize_identity(key,number,clean(cells[i+1]));team=cells[-1] if i+2<len(cells) else ""
     if not player:continue
     if team==cells[i+1]:team=""
     identity=(player,team);parsed+=1
@@ -101,6 +109,10 @@ def run():
  print(f"CSV: {CSV}")
 def tests():
  assert clean("Brian Giles RC")=="Brian Giles"
+ assert normalize_identity("press-proofs-silver","19","David Justice")=="Dave Justice"
+ assert normalize_identity("base","163","Ken Griffey Jr. CLChecklist: 1-83")=="Ken Griffey Jr."
+ assert normalize_identity("press-proofs-silver","163","Ken Griffey Jr. CL, PR1500Checklist: 1-83")=="Ken Griffey Jr."
+ assert normalize_identity("press-proofs-gold","165","Alex Rodriguez CL, PR500Checklist: Inserts")=="Alex Rodriguez"
  assert clean("Vladimir Guerrero AU, PR500")=="Vladimir Guerrero"
  assert clean("Derek Jeter SN2000")=="Derek Jeter"
  assert clean("Ken Griffey Jr. PR1500")=="Ken Griffey Jr."
