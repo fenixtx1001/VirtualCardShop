@@ -100,11 +100,11 @@ def run():
   for number,(player,team) in data[key].items():
    if key=="base" and number in rookies:player+=" RC"
    rows.append((key,number,player,team,"",spec["name"] if key!="base" else ""))
- if len(rows)!=745 or len(set((r[0],r[1]) for r in rows))!=745:raise SystemExit("Count/identity mismatch; NO CSV WRITTEN")
+ if len(rows)!=747 or len(set((r[0],r[1]) for r in rows))!=747:raise SystemExit("Count/identity mismatch; NO CSV WRITTEN")
  OUT.parent.mkdir(parents=True,exist_ok=True)
  with OUT.open("w",newline="",encoding="utf-8") as file:
   writer=csv.writer(file,lineterminator="\n");writer.writerow(("setKey","cardNumber","player","team","subset","variant"));writer.writerows(rows)
- print(f"GENERATED 745 cards across 3 ProductSets; {len(rookies)} unique Base RCs; UNRELEASED")
+ print(f"GENERATED 747 cards across 3 ProductSets; {len(rookies)} unique Base RCs; UNRELEASED")
  print(f"CSV: {OUT}")
 def test():
  assert clean("Reggie Jackson RC")=="Reggie Jackson"
