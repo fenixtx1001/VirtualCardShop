@@ -1,0 +1,2244 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Robin Yount,Milwaukee Brewers,,
+base,2,Rick Wilkins,Chicago Cubs,,
+base,3,Steve Scarsone,San Francisco Giants,,
+base,4,Gary Sheffield,Florida Marlins,,
+base,5,George Brett,Kansas City Royals,,
+base,6,Al Martin,Pittsburgh Pirates,,
+base,7,Joe Oliver,Cincinnati Reds,,
+base,8,Stan Belinda,Kansas City Royals,,
+base,9,Denny Hocking,Minnesota Twins,,
+base,10,Roberto Alomar,Toronto Blue Jays,,
+base,11,Luis Polonia,California Angels,,
+base,12,Scott Hemond,Oakland Athletics,,
+base,13,Jody Reed,Los Angeles Dodgers,,
+base,14,Mel Rojas,Montreal Expos,,
+base,15,Junior Ortiz,Cleveland Indians,,
+base,16,Harold Baines,Baltimore Orioles,,
+base,17,Brad Pennington,Baltimore Orioles,,
+base,18,Jay Bell,Pittsburgh Pirates,,
+base,19,Tom Henke,Texas Rangers,,
+base,20,Jeff Branson,Cincinnati Reds,,
+base,21,Roberto Mejia,Colorado Rockies,,
+base,22,Pedro Munoz,Minnesota Twins,,
+base,23,Matt Nokes,New York Yankees,,
+base,24,Jack McDowell AW,Chicago White Sox,,
+base,25,Cecil Fielder,Detroit Tigers,,
+base,26,Tony Fossas,Boston Red Sox,,
+base,27,Jim Eisenreich,Philadelphia Phillies,,
+base,28,Anthony Young,New York Mets,,
+base,29,Chuck Carr,Florida Marlins,,
+base,30,Jeff Treadway,Cleveland Indians,,
+base,31,Chris Nabholz,Montreal Expos,,
+base,32,Tom Candiotti,Los Angeles Dodgers,,
+base,33,Mike Maddux,New York Mets,,
+base,34,Nolan Ryan,Texas Rangers,,
+base,35,Luis Gonzalez,Houston Astros,,
+base,36,Tim Salmon AW,California Angels,,
+base,37,Mark Whiten,St. Louis Cardinals,,
+base,38,Roger McDowell,Los Angeles Dodgers,,
+base,39,Royce Clayton,San Francisco Giants,,
+base,40,Troy Neel,Oakland Athletics,,
+base,41,Mike Harkey,Chicago Cubs,,
+base,42,Darrin Fletcher,Montreal Expos,,
+base,43,Wayne Kirby,Cleveland Indians,,
+base,44,Rich Amaral,Seattle Mariners,,
+base,45,Robb Nen,Florida Marlins,,
+base,46,Tim Teufel,San Diego Padres,,
+base,47,Steve Cooke,Pittsburgh Pirates,,
+base,48,Jeffrey McNeely,Boston Red Sox,,
+base,49,Jeff Montgomery AW,Kansas City Royals,,
+base,50,Skeeter Barnes,Detroit Tigers,,
+base,51,Scott Stahoviak,Minnesota Twins,,
+base,52,Pat Kelly,New York Yankees,,
+base,53,Brady Anderson,Baltimore Orioles,,
+base,54,Mariano Duncan,Philadelphia Phillies,,
+base,55,Brian Bohanon,Texas Rangers,,
+base,56,Jerry Spradlin RC,Cincinnati Reds,,
+base,57,Ron Karkovice,Chicago White Sox,,
+base,58,Jeff Gardner,San Diego Padres,,
+base,59,Bobby Bonilla,New York Mets,,
+base,60,Tino Martinez,Seattle Mariners,,
+base,61,Todd Benzinger,San Francisco Giants,,
+base,62,Steve Trachsel,Chicago Cubs,,
+base,63,Brian Jordan,St. Louis Cardinals,,
+base,64,Steve Bedrosian,Atlanta Braves,,
+base,65,Brent Gates,Oakland Athletics,,
+base,66,Shawn Green,Toronto Blue Jays,,
+base,67,Sean Berry,Montreal Expos,,
+base,68,Joe Klink,Florida Marlins,,
+base,69,Fernando Valenzuela,Baltimore Orioles,,
+base,70,Andy Tomberlin RC,Pittsburgh Pirates,,
+base,71,Tony Pena,Boston Red Sox,,
+base,72,Eric Young,Colorado Rockies,,
+base,73,Chris Gomez,Detroit Tigers,,
+base,74,Paul O'Neill,New York Yankees,,
+base,75,Ricky Gutierrez,San Diego Padres,,
+base,76,Brad Holman RC,Seattle Mariners,,
+base,77,Lance Painter,Colorado Rockies,,
+base,78,Mike Butcher,California Angels,,
+base,79,Sid Bream,Atlanta Braves,,
+base,80,Sammy Sosa,Chicago Cubs,,
+base,81,Felix Fermin,Cleveland Indians,,
+base,82,Todd Hundley,New York Mets,,
+base,83,Kevin Higgins,San Diego Padres,,
+base,84,Todd Pratt,Philadelphia Phillies,,
+base,85,"Ken Griffey, Jr.",Seattle Mariners,,
+base,86,John O'Donoghue,Baltimore Orioles,,
+base,87,Rick Renteria,Florida Marlins,,
+base,88,John Burkett,San Francisco Giants,,
+base,89,Jose Vizcaino,Chicago Cubs,,
+base,90,Kevin Seitzer,Milwaukee Brewers,,
+base,91,Bobby Witt,Oakland Athletics,,
+base,92,Chris Turner,California Angels,,
+base,93,Omar Vizquel,Seattle Mariners,,
+base,94,David Justice,Atlanta Braves,,
+base,95,David Segui,Baltimore Orioles,,
+base,96,Dave Hollins,Philadelphia Phillies,,
+base,97,Doug Strange,Texas Rangers,,
+base,98,Jerald Clark,Colorado Rockies,,
+base,99,Mike Moore,Detroit Tigers,,
+base,100,Joey Cora,Chicago White Sox,,
+base,101,Scott Kamieniecki,New York Yankees,,
+base,102,Andy Benes,San Diego Padres,,
+base,103,Chris Bosio,Seattle Mariners,,
+base,104,Rey Sanchez,Chicago Cubs,,
+base,105,John Jaha,Milwaukee Brewers,,
+base,106,Otis Nixon,Atlanta Braves,,
+base,107,Rickey Henderson,Toronto Blue Jays,,
+base,108,Jeff Bagwell,Houston Astros,,
+base,109,Gregg Jefferies,St. Louis Cardinals,,
+base,110,Paul Molitor / John Olerud / Roberto Alomar TRI,Toronto Blue Jays,,
+base,111,Ron Gant / David Justice / Fred McGriff TRI,Atlanta Braves,,
+base,112,Rafael Palmeiro / Juan Gonzalez / Dean Palmer TRI,Texas Rangers,,
+base,113,Greg Swindell,Houston Astros,,
+base,114,Bill Haselman,Seattle Mariners,,
+base,115,Phil Plantier,San Diego Padres,,
+base,116,Ivan Rodriguez,Texas Rangers,,
+base,117,Kevin Tapani,Minnesota Twins,,
+base,118,Mike LaValliere,Chicago White Sox,,
+base,119,Tim Costo,Cincinnati Reds,,
+base,120,Mickey Morandini,Philadelphia Phillies,,
+base,121,Brett Butler,Los Angeles Dodgers,,
+base,122,Tom Pagnozzi,St. Louis Cardinals,,
+base,123,Ron Gant,Atlanta Braves,,
+base,124,Damion Easley,California Angels,,
+base,125,Dennis Eckersley,Oakland Athletics,,
+base,126,Matt Mieske,Milwaukee Brewers,,
+base,127,Cliff Floyd,Montreal Expos,,
+base,128,Julian Tavarez RC,Cleveland Indians,,
+base,129,Arthur Rhodes,Baltimore Orioles,,
+base,130,Dave West,Philadelphia Phillies,,
+base,131,Tim Naehring,Boston Red Sox,,
+base,132,Freddie Benavides,Colorado Rockies,,
+base,133,Paul Assenmacher,New York Yankees,,
+base,134,David McCarty,Minnesota Twins,,
+base,135,Jose Lind,Kansas City Royals,,
+base,136,Reggie Sanders,Cincinnati Reds,,
+base,137,Don Slaught,Pittsburgh Pirates,,
+base,138,Andujar Cedeno,Houston Astros,,
+base,139,Rob Deer,Boston Red Sox,,
+base,140,Mike Piazza AW,Los Angeles Dodgers,,
+base,141,Moises Alou,Montreal Expos,,
+base,142,Tom Foley,Pittsburgh Pirates,,
+base,143,Benny Santiago,Florida Marlins,,
+base,144,Sandy Alomar,Cleveland Indians,,
+base,145,Carlos Hernandez,Los Angeles Dodgers,,
+base,146,Luis Alicea,St. Louis Cardinals,,
+base,147,Tom Lampkin,Milwaukee Brewers,,
+base,148,Ryan Klesko,Atlanta Braves,,
+base,149,Juan Guzman,Toronto Blue Jays,,
+base,150,Scott Servais,Houston Astros,,
+base,151,Tony Gwynn,San Diego Padres,,
+base,152,Tim Wakefield,Pittsburgh Pirates,,
+base,153,David Nied,Colorado Rockies,,
+base,154,Chris Haney,Kansas City Royals,,
+base,155,Danny Bautista,Detroit Tigers,,
+base,156,Randy Velarde,New York Yankees,,
+base,157,Darrin Jackson,New York Mets,,
+base,158,J.R. Phillips,San Francisco Giants,,
+base,159,Greg Gagne,Kansas City Royals,,
+base,160,Luis Aquino,Florida Marlins,,
+base,161,John Vander Wal,Montreal Expos,,
+base,162,Randy Myers AW,Chicago Cubs,,
+base,163,Ted Power,Seattle Mariners,,
+base,164,Scott Brosius,Oakland Athletics,,
+base,165,Len Dykstra,Philadelphia Phillies,,
+base,166,Jacob Brumfield,Cincinnati Reds,,
+base,167,Bo Jackson,Chicago White Sox,,
+base,168,Eddie Taubensee,Houston Astros,,
+base,169,Carlos Baerga,Cleveland Indians,,
+base,170,Tim Bogar,New York Mets,,
+base,171,Jose Canseco,Texas Rangers,,
+base,172,Greg Blosser,Boston Red Sox,,
+base,173,Chili Davis,California Angels,,
+base,174,Randy Knorr,Toronto Blue Jays,,
+base,175,Mike Perez,St. Louis Cardinals,,
+base,176,Henry Rodriguez,Los Angeles Dodgers,,
+base,177,Brian Turang RC,Seattle Mariners,,
+base,178,Roger Pavlik,Texas Rangers,,
+base,179,Aaron Sele,Boston Red Sox,,
+base,180,Gary Sheffield / Fred McGriff TALE,Florida Marlins / Atlanta Braves,,
+base,181,J.T. Snow / Tim Salmon TALE,California Angels,,
+base,182,Roberto Hernandez,Chicago White Sox,,
+base,183,Jeff Reboulet,Minnesota Twins,,
+base,184,John Doherty,Detroit Tigers,,
+base,185,Danny Sheaffer,Colorado Rockies,,
+base,186,Bip Roberts,Cincinnati Reds,,
+base,187,Denny Martinez,Montreal Expos,,
+base,188,Darryl Hamilton,Milwaukee Brewers,,
+base,189,Eduardo Perez,California Angels,,
+base,190,Pete Harnisch,Houston Astros,,
+base,191,Rich Gossage,Oakland Athletics,,
+base,192,Mickey Tettleton,Detroit Tigers,,
+base,193,Lenny Webster,Minnesota Twins,,
+base,194,Lance Johnson,Chicago White Sox,,
+base,195,Don Mattingly,New York Yankees,,
+base,196,Gregg Olson,Baltimore Orioles,,
+base,197,Mark Gubicza,Kansas City Royals,,
+base,198,Scott Fletcher,Boston Red Sox,,
+base,199,Jon Shave,Texas Rangers,,
+base,200,Tim Mauser,San Diego Padres,,
+base,201,Jeromy Burnitz,New York Mets,,
+base,202,Rob Dibble,Cincinnati Reds,,
+base,203,Will Clark,San Francisco Giants,,
+base,204,Steve Buechele,Chicago Cubs,,
+base,205,Brian Williams,Houston Astros,,
+base,206,Carlos Garcia,Pittsburgh Pirates,,
+base,207,Mark Clark,Cleveland Indians,,
+base,208,Rafael Palmeiro,Texas Rangers,,
+base,209,Eric Davis,Detroit Tigers,,
+base,210,Pat Meares,Minnesota Twins,,
+base,211,Chuck Finley,California Angels,,
+base,212,Jason Bere,Chicago White Sox,,
+base,213,Gary DiSarcina,California Angels,,
+base,214,Tony Fernandez,Toronto Blue Jays,,
+base,215,B.J. Surhoff,Milwaukee Brewers,,
+base,216,Lee Guetterman,St. Louis Cardinals,,
+base,217,Tim Wallach,Los Angeles Dodgers,,
+base,218,Kirt Manwaring,San Francisco Giants,,
+base,219,Albert Belle,Cleveland Indians,,
+base,220,Doc Gooden,New York Mets,,
+base,221,Archi Cianfrocco,San Diego Padres,,
+base,222,Terry Mulholland,Philadelphia Phillies,,
+base,223,Hipolito Pichardo,Kansas City Royals,,
+base,224,Kent Hrbek,Minnesota Twins,,
+base,225,Craig Grebeck,Chicago White Sox,,
+base,226,Todd Jones,Houston Astros,,
+base,227,Mike Bordick,Oakland Athletics,,
+base,228,John Olerud AW,Toronto Blue Jays,,
+base,229,Jeff Blauser,Atlanta Braves,,
+base,230,Alex Arias,Florida Marlins,,
+base,231,Bernard Gilkey,St. Louis Cardinals,,
+base,232,Denny Neagle,Pittsburgh Pirates,,
+base,233,Pedro Borbon,Atlanta Braves,,
+base,234,Dick Schofield,Toronto Blue Jays,,
+base,235,Matias Carrillo RC,Florida Marlins,,
+base,236,Juan Bell,Milwaukee Brewers,,
+base,237,Mike Hampton,Seattle Mariners,,
+base,238,Barry Bonds AW,San Francisco Giants,,
+base,239,Cris Carpenter,Texas Rangers,,
+base,240,Eric Karros,Los Angeles Dodgers,,
+base,241,Greg McMichael,Atlanta Braves,,
+base,242,Pat Hentgen,Toronto Blue Jays,,
+base,243,Tim Pugh,Cincinnati Reds,,
+base,244,Vinny Castilla,Colorado Rockies,,
+base,245,Charlie Hough,Florida Marlins,,
+base,246,Bobby Munoz,New York Yankees,,
+base,247,Kevin Baez,New York Mets,,
+base,248,Todd Frohwirth,Baltimore Orioles,,
+base,249,Charlie Hayes,Colorado Rockies,,
+base,250,Mike Macfarlane,Kansas City Royals,,
+base,251,Danny Darwin,Boston Red Sox,,
+base,252,Ben Rivera,Philadelphia Phillies,,
+base,253,Dave Henderson,Oakland Athletics,,
+base,254,Steve Avery,Atlanta Braves,,
+base,255,Tim Belcher,Chicago White Sox,,
+base,256,Dan Plesac,Chicago Cubs,,
+base,257,Jim Thome,Cleveland Indians,,
+base,258,Albert Belle HRC,Cleveland Indians,,
+base,259,Barry Bonds HRC,San Francisco Giants,,
+base,260,Ron Gant HRC,Atlanta Braves,,
+base,261,Juan Gonzalez HRC,Texas Rangers,,
+base,262,Ken Griffey Jr. HRC,Seattle Mariners,,
+base,263,David Justice HRC,Atlanta Braves,,
+base,264,Fred McGriff HRC,Atlanta Braves,,
+base,265,Rafael Palmeiro HRC,Texas Rangers,,
+base,266,Mike Piazza HRC,Los Angeles Dodgers,,
+base,267,Frank Thomas HRC,Chicago White Sox,,
+base,268,Matt Williams HRC,San Francisco Giants,,
+base,269a,Checklist: 1-135 CL,,,
+base,269b,Checklist: 271-408 CL,,,
+base,270a,Checklist: 136-270 CL,,,
+base,270b,Checklist: 409-540 CL,,,
+base,271,Mike Stanley,New York Yankees,,
+base,272,Tony Tarasco,Atlanta Braves,,
+base,273,Teddy Higuera,Milwaukee Brewers,,
+base,274,Ryan Thompson,New York Mets,,
+base,275,Rick Aguilera,Minnesota Twins,,
+base,276,Ramon Martinez,Los Angeles Dodgers,,
+base,277,Orlando Merced,Pittsburgh Pirates,,
+base,278,Guillermo Velasquez,San Diego Padres,,
+base,279,Mark Hutton,New York Yankees,,
+base,280,Larry Walker,Montreal Expos,,
+base,281,Kevin Gross,Los Angeles Dodgers,,
+base,282,Jose Offerman,Los Angeles Dodgers,,
+base,283,Jim Leyritz,New York Yankees,,
+base,284,Jamie Moyer,Baltimore Orioles,,
+base,285,Frank Thomas AW,Chicago White Sox,,
+base,286,Derek Bell,San Diego Padres,,
+base,287,Derrick May,Chicago Cubs,,
+base,288,Dave Winfield,Minnesota Twins,,
+base,289,Curt Schilling,Philadelphia Phillies,,
+base,290,Carlos Quintana,Boston Red Sox,,
+base,291,Bob Natal,Florida Marlins,,
+base,292,David Cone,Kansas City Royals,,
+base,293,Al Osuna,Houston Astros,,
+base,294,Bob Hamelin,Kansas City Royals,,
+base,295,Chad Curtis,California Angels,,
+base,296,Danny Jackson,Philadelphia Phillies,,
+base,297,Bob Welch,Oakland Athletics,,
+base,298,Felix Jose,Kansas City Royals,,
+base,299,Jay Buhner,Seattle Mariners,,
+base,300,Joe Carter,Toronto Blue Jays,,
+base,301,Kenny Lofton,Cleveland Indians,,
+base,302,Kirk Rueter,Montreal Expos,,
+base,303,Kim Batiste,Philadelphia Phillies,,
+base,304,Mike Morgan,Chicago Cubs,,
+base,305,Pat Borders,Toronto Blue Jays,,
+base,306,Rene Arocha,St. Louis Cardinals,,
+base,307,Ruben Sierra,Oakland Athletics,,
+base,308,Steve Finley,Houston Astros,,
+base,309,Travis Fryman,Detroit Tigers,,
+base,310,Zane Smith,Pittsburgh Pirates,,
+base,311,Willie Wilson,Chicago Cubs,,
+base,312,Trevor Hoffman,San Diego Padres,,
+base,313,Terry Pendleton,Atlanta Braves,,
+base,314,Salomon Torres,San Francisco Giants,,
+base,315,Robin Ventura,Chicago White Sox,,
+base,316,Randy Tomlin,Pittsburgh Pirates,,
+base,317,Dave Stewart,Toronto Blue Jays,,
+base,318,Mike Benjamin,San Francisco Giants,,
+base,319,Matt Turner,Florida Marlins,,
+base,320,Manny Ramirez,Cleveland Indians,,
+base,321,Kevin Young,Pittsburgh Pirates,,
+base,322,Ken Caminiti,Houston Astros,,
+base,323,Joe Girardi,Colorado Rockies,,
+base,324,Jeff McKnight,New York Mets,,
+base,325,Gene Harris,San Diego Padres,,
+base,326,Devon White,Toronto Blue Jays,,
+base,327,Darryl Kile,Houston Astros,,
+base,328,Craig Paquette,Oakland Athletics,,
+base,329,Cal Eldred,Milwaukee Brewers,,
+base,330,Bill Swift,San Francisco Giants,,
+base,331,Alan Trammell,Detroit Tigers,,
+base,332,Armando Reynoso,Colorado Rockies,,
+base,333,Brent Mayne,Kansas City Royals,,
+base,334,Chris Donnels,Houston Astros,,
+base,335,Darryl Strawberry,Los Angeles Dodgers,,
+base,336,Dean Palmer,Texas Rangers,,
+base,337,Frank Castillo,Chicago Cubs,,
+base,338,Jeff King,Pittsburgh Pirates,,
+base,339,John Franco,New York Mets,,
+base,340,Kevin Appier,Kansas City Royals,,
+base,341,Lance Blankenship,Oakland Athletics,,
+base,342,Mark McLemore,Baltimore Orioles,,
+base,343,Pedro Astacio,Los Angeles Dodgers,,
+base,344,Rich Batchelor,St. Louis Cardinals,,
+base,345,Ryan Bowen,Florida Marlins,,
+base,346,Terry Steinbach,Oakland Athletics,,
+base,347,Troy O'Leary,Milwaukee Brewers,,
+base,348,Willie Blair,Colorado Rockies,,
+base,349,Wade Boggs,New York Yankees,,
+base,350,Tim Raines,Chicago White Sox,,
+base,351,Scott Livingstone,Detroit Tigers,,
+base,352,Rod Correia,California Angels,,
+base,353,Ray Lankford,St. Louis Cardinals,,
+base,354,Pat Listach,Milwaukee Brewers,,
+base,355,Milt Thompson,Philadelphia Phillies,,
+base,356,Miguel Jimenez,Oakland Athletics,,
+base,357,Marc Newfield,Seattle Mariners,,
+base,358,Mark McGwire,Oakland Athletics,,
+base,359,Kirby Puckett,Minnesota Twins,,
+base,360,Kent Mercker,Atlanta Braves,,
+base,361,John Kruk,Philadelphia Phillies,,
+base,362,Jeff Kent,New York Mets,,
+base,363,Hal Morris,Cincinnati Reds,,
+base,364,Edgar Martinez,Seattle Mariners,,
+base,365,Dave Magadan,Florida Marlins,,
+base,366,Dante Bichette,Colorado Rockies,,
+base,367,Chris Hammond,Florida Marlins,,
+base,368,Bret Saberhagen,New York Mets,,
+base,369,Billy Ripken,Texas Rangers,,
+base,370,Bill Gullickson,Detroit Tigers,,
+base,371,Andre Dawson,Boston Red Sox,,
+base,372,Roberto Kelly,Cincinnati Reds,,
+base,373,Cal Ripken,Baltimore Orioles,,
+base,374,Craig Biggio,Houston Astros,,
+base,375,Dan Pasqua,Chicago White Sox,,
+base,376,Dave Nilsson,Milwaukee Brewers,,
+base,377,Duane Ward,Toronto Blue Jays,,
+base,378,Greg Vaughn,Milwaukee Brewers,,
+base,379,Jeff Fassero,Montreal Expos,,
+base,380,Jerry DiPoto,Cleveland Indians,,
+base,381,John Patterson,San Francisco Giants,,
+base,382,Kevin Brown,Texas Rangers,,
+base,383,Kevin Roberson,Chicago Cubs,,
+base,384,Joe Orsulak,New York Mets,,
+base,385,Hilly Hathaway,California Angels,,
+base,386,Mike Greenwell,Boston Red Sox,,
+base,387,Orestes Destrade,Florida Marlins,,
+base,388,Mike Gallego,New York Yankees,,
+base,389,Ozzie Guillen,Chicago White Sox,,
+base,390,Raul Mondesi,Los Angeles Dodgers,,
+base,391,Scott Lydy,Oakland Athletics,,
+base,392,Tom Urbani,St. Louis Cardinals,,
+base,393,Wil Cordero,Montreal Expos,,
+base,394,Tony Longmire,Philadelphia Phillies,,
+base,395,Todd Zeile,St. Louis Cardinals,,
+base,396,Scott Cooper,Boston Red Sox,,
+base,397,Ryne Sandberg,Chicago Cubs,,
+base,398,Ricky Bones,Milwaukee Brewers,,
+base,399,Phil Clark,San Diego Padres,,
+base,400,Orel Hershiser,Los Angeles Dodgers,,
+base,401,Mike Henneman,Detroit Tigers,,
+base,402,Mark Lemke,Atlanta Braves,,
+base,403,Mark Grace,Chicago Cubs,,
+base,404,Ken Ryan,Boston Red Sox,,
+base,405,John Smoltz,Atlanta Braves,,
+base,406,Jeff Conine,Florida Marlins,,
+base,407,Greg Harris,Boston Red Sox,,
+base,408,Doug Drabek,Houston Astros,,
+base,409,Dave Fleming,Seattle Mariners,,
+base,410,Danny Tartabull,New York Yankees,,
+base,411,Chad Kreuter,Detroit Tigers,,
+base,412,Brad Ausmus,San Diego Padres,,
+base,413,Ben McDonald,Baltimore Orioles,,
+base,414,Barry Larkin,Cincinnati Reds,,
+base,415,Bret Barberie,Florida Marlins,,
+base,416,Chuck Knoblauch,Minnesota Twins,,
+base,417,Ozzie Smith,St. Louis Cardinals,,
+base,418,Ed Sprague,Toronto Blue Jays,,
+base,419,Matt Williams,San Francisco Giants,,
+base,420,Jeremy Hernandez,Cleveland Indians,,
+base,421,Jose Bautista,Chicago Cubs,,
+base,422,Kevin Mitchell,Cincinnati Reds,,
+base,423,Manuel Lee,Texas Rangers,,
+base,424,Mike Devereaux,Baltimore Orioles,,
+base,425,Omar Olivares,St. Louis Cardinals,,
+base,426,Rafael Belliard,Atlanta Braves,,
+base,427,Richie Lewis,Florida Marlins,,
+base,428,Ron Darling,Oakland Athletics,,
+base,429,Shane Mack,Minnesota Twins,,
+base,430,Tim Hulett,Baltimore Orioles,,
+base,431,Wally Joyner,Kansas City Royals,,
+base,432,Wes Chamberlain,Philadelphia Phillies,,
+base,433,Tom Browning,Cincinnati Reds,,
+base,434,Scott Radinsky,Chicago White Sox,,
+base,435,Rondell White,Montreal Expos,,
+base,436,Rod Beck,San Francisco Giants,,
+base,437,Rheal Cormier,St. Louis Cardinals,,
+base,438,Randy Johnson,Seattle Mariners,,
+base,439,Pete Schourek,New York Mets,,
+base,440,Mo Vaughn,Boston Red Sox,,
+base,441,Mike Timlin,Toronto Blue Jays,,
+base,442,Mark Langston,California Angels,,
+base,443,Lou Whitaker,Detroit Tigers,,
+base,444,Kevin Stocker,Philadelphia Phillies,,
+base,445,Ken Hill,Montreal Expos,,
+base,446,John Wetteland,Montreal Expos,,
+base,447,J.T. Snow,California Angels,,
+base,448,Erik Pappas,St. Louis Cardinals,,
+base,449,David Hulse,Texas Rangers,,
+base,450,Darren Daulton,Philadelphia Phillies,,
+base,451,Chris Hoiles,Baltimore Orioles,,
+base,452,Bryan Harvey,Florida Marlins,,
+base,453,Darren Lewis,San Francisco Giants,,
+base,454,Andres Galarraga AW,Colorado Rockies,,
+base,455,Joe Hesketh,Boston Red Sox,,
+base,456,Jose Valentin,Milwaukee Brewers,,
+base,457,Dan Peltier,Texas Rangers,,
+base,458,Joe Boever,Detroit Tigers,,
+base,459,Kevin Rogers,San Francisco Giants,,
+base,460,Craig Shipley,San Diego Padres,,
+base,461,Alvaro Espinoza,Cleveland Indians,,
+base,462,Wilson Alvarez,Chicago White Sox,,
+base,463,Cory Snyder,Los Angeles Dodgers,,
+base,464,Candy Maldonado,Cleveland Indians,,
+base,465,Blas Minor,Pittsburgh Pirates,,
+base,466,Rod Bolton,Chicago White Sox,,
+base,467,Kenny Rogers,Texas Rangers,,
+base,468,Greg Myers,California Angels,,
+base,469,Jimmy Key,New York Yankees,,
+base,470,Tony Castillo,Toronto Blue Jays,,
+base,471,Mike Stanton,Atlanta Braves,,
+base,472,Deion Sanders,Atlanta Braves,,
+base,473,Tito Navarro,New York Mets,,
+base,474,Mike Gardiner,Detroit Tigers,,
+base,475,Steve Reed,Colorado Rockies,,
+base,476,John Roper,Cincinnati Reds,,
+base,477,Mike Trombley,Minnesota Twins,,
+base,478,Charles Nagy,Cleveland Indians,,
+base,479,Larry Casian,Minnesota Twins,,
+base,480,Eric Hillman,New York Mets,,
+base,481,Bill Wertz,Cleveland Indians,,
+base,482,Jeff Schwarz,Chicago White Sox,,
+base,483,John Valentin,Boston Red Sox,,
+base,484,Carl Willis,Minnesota Twins,,
+base,485,Gary Gaetti,Kansas City Royals,,
+base,486,Bill Pecota,Atlanta Braves,,
+base,487,John Smiley,Cincinnati Reds,,
+base,488,Mike Mussina,Baltimore Orioles,,
+base,489,Mike Ignasiak,Milwaukee Brewers,,
+base,490,Billy Brewer,Kansas City Royals,,
+base,491,Jack Voigt,Baltimore Orioles,,
+base,492,Mike Munoz,Colorado Rockies,,
+base,493,Lee Tinsley,Seattle Mariners,,
+base,494,Bob Wickman,New York Yankees,,
+base,495,Roger Salkeld,Seattle Mariners,,
+base,496,Thomas Howard,Cincinnati Reds,,
+base,497,Mark Davis,San Diego Padres,,
+base,498,Dave Clark,Pittsburgh Pirates,,
+base,499,Turk Wendell,Chicago Cubs,,
+base,500,Rafael Bournigal,Los Angeles Dodgers,,
+base,501,Chip Hale,Minnesota Twins,,
+base,502,Matt Whiteside,Texas Rangers,,
+base,503,Brian Koelling,Cincinnati Reds,,
+base,504,Jeff Reed,San Francisco Giants,,
+base,505,Paul Wagner,Pittsburgh Pirates,,
+base,506,Torey Lovullo,California Angels,,
+base,507,Curtis Leskanic,Colorado Rockies,,
+base,508,Derek Lilliquist,Cleveland Indians,,
+base,509,Joe Magrane,California Angels,,
+base,510,Mackey Sasser,Seattle Mariners,,
+base,511,Lloyd McClendon,Pittsburgh Pirates,,
+base,512,Jayhawk Owens,Colorado Rockies,,
+base,513,Woody Williams,Toronto Blue Jays,,
+base,514,Gary Redus,Texas Rangers,,
+base,515,Tim Spehr,Montreal Expos,,
+base,516,Jim Abbott,New York Yankees,,
+base,517,Lou Frazier,Montreal Expos,,
+base,518,Erik Plantenberg RC,Seattle Mariners,,
+base,519,Tim Worrell,San Diego Padres,,
+base,520,Brian McRae,Kansas City Royals,,
+base,521,Chan Ho Park RC,Los Angeles Dodgers,,
+base,522,Mark Wohlers,Atlanta Braves,,
+base,523,Geronimo Pena,St. Louis Cardinals,,
+base,524,Andy Ashby,San Diego Padres,,
+base,525,Andre Dawson / Tim Raines TALE,Boston Red Sox / Chicago White Sox,,
+base,526,Paul Molitor / Dave Winfield TALE,Toronto Blue Jays / Minnesota Twins,,
+base,527,Joe Carter DL,Toronto Blue Jays,,
+base,528,Frank Thomas DL,Chicago White Sox,,
+base,529,Ken Griffey Jr. DL,Seattle Mariners,,
+base,530,David Justice DL,Atlanta Braves,,
+base,531,Gregg Jefferies DL,St. Louis Cardinals,,
+base,532,Barry Bonds DL,San Francisco Giants,,
+base,533,John Kruk QS,Philadelphia Phillies,,
+base,534,Roger Clemens QS,Boston Red Sox,,
+base,535,Cecil Fielder QS,Detroit Tigers,,
+base,536,Ruben Sierra QS,Oakland Athletics,,
+base,537,Tony Gwynn QS,San Diego Padres,,
+base,538,Tom Glavine QS,Atlanta Braves,,
+base,541,Ozzie Smith ATL,St. Louis Cardinals,,
+base,542,Eddie Murray ATL,Cleveland Indians,,
+base,543a,Lee Smith ATL,Baltimore Orioles,,
+base,543b,Lonnie Smith,Baltimore Orioles,,
+base,544,Greg Maddux AW,Atlanta Braves,,
+base,545,Denis Boucher,Montreal Expos,,
+base,546,Mark Gardner,Florida Marlins,,
+base,547,Bo Jackson,California Angels,,
+base,548,Eric Anthony,Seattle Mariners,,
+base,549,Delino DeShields,Los Angeles Dodgers,,
+base,550,Turner Ward,Milwaukee Brewers,,
+base,551,Scott Sanderson,Chicago White Sox,,
+base,552,Hector Carrasco,Cincinnati Reds,,
+base,553,Tony Phillips,Detroit Tigers,,
+base,554,Melido Perez,New York Yankees,,
+base,555,Mike Felder,Houston Astros,,
+base,556,Jack Morris,Cleveland Indians,,
+base,557,Rafael Palmeiro,Baltimore Orioles,,
+base,558,Shane Reynolds,Houston Astros,,
+base,559,Pete Incaviglia,Philadelphia Phillies,,
+base,560,Greg Harris,Colorado Rockies,,
+base,561,Matt Walbeck,Minnesota Twins,,
+base,562,Todd Van Poppel,Oakland Athletics,,
+base,563,Todd Stottlemyre,Toronto Blue Jays,,
+base,564,Ricky Bones,Milwaukee Brewers,,
+base,565,Mike Jackson,San Francisco Giants,,
+base,566,Kevin McReynolds,New York Mets,,
+base,567,Melvin Nieves,San Diego Padres,,
+base,568,Juan Gonzalez,Texas Rangers,,
+base,569,Frank Viola,Boston Red Sox,,
+base,570,Vince Coleman,Kansas City Royals,,
+base,571,Brian Anderson RC,California Angels,,
+base,572,Omar Vizquel,Cleveland Indians,,
+base,573,Bernie Williams,New York Yankees,,
+base,574,Tom Glavine,Atlanta Braves,,
+base,575,Mitch Williams,Houston Astros,,
+base,576,Shawon Dunston,Chicago Cubs,,
+base,577,Mike Lansing,Montreal Expos,,
+base,578,Greg Pirkl,Seattle Mariners,,
+base,579,Sid Fernandez,Baltimore Orioles,,
+base,580,Doug Jones,Philadelphia Phillies,,
+base,581,Walt Weiss,Colorado Rockies,,
+base,582,Tim Belcher,Detroit Tigers,,
+base,583,Alex Fernandez,Chicago White Sox,,
+base,584,Alex Cole,Minnesota Twins,,
+base,585,Greg Cadaret,Toronto Blue Jays,,
+base,586,Bob Tewksbury,St. Louis Cardinals,,
+base,587,Dave Hansen,Los Angeles Dodgers,,
+base,588,Kurt Abbott RC,Florida Marlins,,
+base,589,Rick White RC,Pittsburgh Pirates,,
+base,590,Kevin Bass,Houston Astros,,
+base,591,Geronimo Berroa,Oakland Athletics,,
+base,592,Jaime Navarro,Milwaukee Brewers,,
+base,593,Steve Farr,Cleveland Indians,,
+base,594,Jack Armstrong,Texas Rangers,,
+base,595,Steve Howe,New York Yankees,,
+base,596,Jose Rijo,Cincinnati Reds,,
+base,597,Otis Nixon,Boston Red Sox,,
+base,598,Robby Thompson,San Francisco Giants,,
+base,599,Kelly Stinnett RC,New York Mets,,
+base,600,Carlos Delgado,Toronto Blue Jays,,
+base,601,Brian Johnson RC,San Diego Padres,,
+base,602,Gregg Olson,Atlanta Braves,,
+base,603,Jim Edmonds,California Angels,,
+base,604,Mike Blowers,Seattle Mariners,,
+base,605,Lee Smith,Baltimore Orioles,,
+base,606,Pat Rapp,Florida Marlins,,
+base,607,Mike Magnante,Kansas City Royals,,
+base,608,Karl Rhodes,Chicago Cubs,,
+base,609,Jeff Juden,Philadelphia Phillies,,
+base,610,Rusty Meacham,Kansas City Royals,,
+base,611,Pedro Martinez,Montreal Expos,,
+base,612,Todd Worrell,Los Angeles Dodgers,,
+base,613,Stan Javier,Oakland Athletics,,
+base,614,Mike Hampton,Houston Astros,,
+base,615,Jose Guzman,Chicago Cubs,,
+base,616,Xavier Hernandez,New York Yankees,,
+base,617,David Wells,Detroit Tigers,,
+base,618,John Habyan,St. Louis Cardinals,,
+base,619,Chris Nabholz,Cleveland Indians,,
+base,620,Bobby Jones,New York Mets,,
+base,621,Chris James,Texas Rangers,,
+base,622,Ellis Burks,Colorado Rockies,,
+base,623,Erik Hanson,Cincinnati Reds,,
+base,624,Pat Meares,Minnesota Twins,,
+base,625,Harold Reynolds,California Angels,,
+base,626,Bob Hamelin RR,Kansas City Royals,,
+base,627,Manny Ramirez RR,Cleveland Indians,,
+base,628,Ryan Klesko RR,Atlanta Braves,,
+base,629,Carlos Delgado RR,Toronto Blue Jays,,
+base,630,Javy Lopez RR,Atlanta Braves,,
+base,631,Steve Karsay RR,Oakland Athletics,,
+base,632,Rick Helling RR,Texas Rangers,,
+base,633,Steve Trachsel RR,Chicago Cubs,,
+base,634,Hector Carrasco RR,Cincinnati Reds,,
+base,635,Andy Stankiewicz,Houston Astros,,
+base,636,Paul Sorrento,Cleveland Indians,,
+base,637,Scott Erickson,Minnesota Twins,,
+base,638,Chipper Jones,Atlanta Braves,,
+base,639,Luis Polonia,New York Yankees,,
+base,640,Howard Johnson,Colorado Rockies,,
+base,641,John Dopson,California Angels,,
+base,642,Jody Reed,Milwaukee Brewers,,
+base,644,Mark Portugal,San Francisco Giants,,
+base,645,Paul Molitor,Toronto Blue Jays,,
+base,646,Paul Assenmacher,Chicago White Sox,,
+base,647,Hubie Brooks,Kansas City Royals,,
+base,648,Gary Wayne,Los Angeles Dodgers,,
+base,649,Sean Berry,Montreal Expos,,
+base,650,Roger Clemens,Boston Red Sox,,
+base,651,Brian Hunter,Pittsburgh Pirates,,
+base,652,Wally Whitehurst,San Diego Padres,,
+base,653,Allen Watson,St. Louis Cardinals,,
+base,654,Rickey Henderson,Oakland Athletics,,
+base,655,Sid Bream,Houston Astros,,
+base,656,Dan Wilson,Seattle Mariners,,
+base,657,Ricky Jordan,Philadelphia Phillies,,
+base,658,Sterling Hitchcock,New York Yankees,,
+base,659,Darrin Jackson,Chicago White Sox,,
+base,660,Junior Felix,Detroit Tigers,,
+base,661,Tom Brunansky,Milwaukee Brewers,,
+base,662,Jose Vizcaino,New York Mets,,
+base,663,Mark Leiter,California Angels,,
+base,664,Gil Heredia,Montreal Expos,,
+base,665,Fred McGriff,Atlanta Braves,,
+base,666,Will Clark,Texas Rangers,,
+base,667,Al Leiter,Toronto Blue Jays,,
+base,668,James Mouton,Houston Astros,,
+base,669,Billy Bean,San Diego Padres,,
+base,670,Scott Leius,Minnesota Twins,,
+base,671,Bret Boone,Cincinnati Reds,,
+base,672,Darren Holmes,Colorado Rockies,,
+base,673,Dave Weathers,Florida Marlins,,
+base,674,Eddie Murray,Cleveland Indians,,
+base,675,Felix Fermin,Seattle Mariners,,
+base,676,Chris Sabo,Baltimore Orioles,,
+base,677,Billy Spiers,Milwaukee Brewers,,
+base,678,Aaron Sele,Boston Red Sox,,
+base,679,Juan Samuel,Detroit Tigers,,
+base,680,Julio Franco,Chicago White Sox,,
+base,681,Heathcliff Slocumb,Philadelphia Phillies,,
+base,682,Denny Martinez,Cleveland Indians,,
+base,683,Jerry Browne,Florida Marlins,,
+base,684,Pedro Martinez RC,San Diego Padres,,
+base,685,Rex Hudler,California Angels,,
+base,686,Willie McGee,San Francisco Giants,,
+base,687,Andy Van Slyke,Pittsburgh Pirates,,
+base,688,Pat Mahomes,Minnesota Twins,,
+base,689,Dave Henderson,Kansas City Royals,,
+base,690,Tony Eusebio,Houston Astros,,
+base,691,Rick Sutcliffe,St. Louis Cardinals,,
+base,692,Willie Banks,Chicago Cubs,,
+base,693,Alan Mills,Baltimore Orioles,,
+base,694,Jeff Treadway,Los Angeles Dodgers,,
+base,695,Alex Gonzalez,Toronto Blue Jays,,
+base,696,David Segui,New York Mets,,
+base,697,Rick Helling,Texas Rangers,,
+base,698,Bip Roberts,San Diego Padres,,
+base,699,Jeff Cirillo RC,Milwaukee Brewers,,
+base,700,Terry Mulholland,New York Yankees,,
+base,701,Marvin Freeman,Colorado Rockies,,
+base,702,Jason Bere,Chicago White Sox,,
+base,703,Javy Lopez,Atlanta Braves,,
+base,704,Greg Hibbard,Seattle Mariners,,
+base,705,Tommy Greene,Philadelphia Phillies,,
+base,706,Marquis Grissom,Montreal Expos,,
+base,707,Brian Harper,Milwaukee Brewers,,
+base,708,Steve Karsay,Oakland Athletics,,
+base,709,Jeff Brantley,Cincinnati Reds,,
+base,710,Jeff Russell,Boston Red Sox,,
+base,711,Bryan Hickerson,San Francisco Giants,,
+base,712,Jim Pittsley RC,Kansas City Royals,,
+base,713,Bobby Ayala,Seattle Mariners,,
+base,714,John Smoltz FAN,Atlanta Braves,,
+base,715,Jose Rijo FAN,Cincinnati Reds,,
+base,716,Greg Maddux FAN,Atlanta Braves,,
+base,717,Matt Williams FAN,San Francisco Giants,,
+base,718,Frank Thomas FAN,Chicago White Sox,,
+base,719,Ryne Sandberg FAN,Chicago Cubs,,
+base,720,Checklist: 541-720 CL,,,
+first-day-issue,1,Robin Yount,Milwaukee Brewers,,First Day Issue
+first-day-issue,2,Rick Wilkins,Chicago Cubs,,First Day Issue
+first-day-issue,3,Steve Scarsone,San Francisco Giants,,First Day Issue
+first-day-issue,4,Gary Sheffield,Florida Marlins,,First Day Issue
+first-day-issue,5,George Brett,Kansas City Royals,,First Day Issue
+first-day-issue,6,Al Martin,Pittsburgh Pirates,,First Day Issue
+first-day-issue,7,Joe Oliver,Cincinnati Reds,,First Day Issue
+first-day-issue,8,Stan Belinda,Kansas City Royals,,First Day Issue
+first-day-issue,9,Denny Hocking,Minnesota Twins,,First Day Issue
+first-day-issue,10,Roberto Alomar,Toronto Blue Jays,,First Day Issue
+first-day-issue,11,Luis Polonia,California Angels,,First Day Issue
+first-day-issue,12,Scott Hemond,Oakland Athletics,,First Day Issue
+first-day-issue,13,Jody Reed,Los Angeles Dodgers,,First Day Issue
+first-day-issue,14,Mel Rojas,Montreal Expos,,First Day Issue
+first-day-issue,15,Junior Ortiz,Cleveland Indians,,First Day Issue
+first-day-issue,16,Harold Baines,Baltimore Orioles,,First Day Issue
+first-day-issue,17,Brad Pennington,Baltimore Orioles,,First Day Issue
+first-day-issue,18,Jay Bell,Pittsburgh Pirates,,First Day Issue
+first-day-issue,19,Tom Henke,Texas Rangers,,First Day Issue
+first-day-issue,20,Jeff Branson,Cincinnati Reds,,First Day Issue
+first-day-issue,21,Roberto Mejia,Colorado Rockies,,First Day Issue
+first-day-issue,22,Pedro Munoz,Minnesota Twins,,First Day Issue
+first-day-issue,23,Matt Nokes,New York Yankees,,First Day Issue
+first-day-issue,24,Jack McDowell AW,Chicago White Sox,,First Day Issue
+first-day-issue,25,Cecil Fielder,Detroit Tigers,,First Day Issue
+first-day-issue,26,Tony Fossas,Boston Red Sox,,First Day Issue
+first-day-issue,27,Jim Eisenreich,Philadelphia Phillies,,First Day Issue
+first-day-issue,28,Anthony Young,New York Mets,,First Day Issue
+first-day-issue,29,Chuck Carr,Florida Marlins,,First Day Issue
+first-day-issue,30,Jeff Treadway,Cleveland Indians,,First Day Issue
+first-day-issue,31,Chris Nabholz,Montreal Expos,,First Day Issue
+first-day-issue,32,Tom Candiotti,Los Angeles Dodgers,,First Day Issue
+first-day-issue,33,Mike Maddux,New York Mets,,First Day Issue
+first-day-issue,34,Nolan Ryan,Texas Rangers,,First Day Issue
+first-day-issue,35,Luis Gonzalez,Houston Astros,,First Day Issue
+first-day-issue,36,Tim Salmon AW,California Angels,,First Day Issue
+first-day-issue,37,Mark Whiten,St. Louis Cardinals,,First Day Issue
+first-day-issue,38,Roger McDowell,Los Angeles Dodgers,,First Day Issue
+first-day-issue,39,Royce Clayton,San Francisco Giants,,First Day Issue
+first-day-issue,40,Troy Neel,Oakland Athletics,,First Day Issue
+first-day-issue,41,Mike Harkey,Chicago Cubs,,First Day Issue
+first-day-issue,42,Darrin Fletcher,Montreal Expos,,First Day Issue
+first-day-issue,43,Wayne Kirby,Cleveland Indians,,First Day Issue
+first-day-issue,44,Rich Amaral,Seattle Mariners,,First Day Issue
+first-day-issue,45,Robb Nen,Florida Marlins,,First Day Issue
+first-day-issue,46,Tim Teufel,San Diego Padres,,First Day Issue
+first-day-issue,47,Steve Cooke,Pittsburgh Pirates,,First Day Issue
+first-day-issue,48,Jeffrey McNeely,Boston Red Sox,,First Day Issue
+first-day-issue,49,Jeff Montgomery AW,Kansas City Royals,,First Day Issue
+first-day-issue,50,Skeeter Barnes,Detroit Tigers,,First Day Issue
+first-day-issue,51,Scott Stahoviak,Minnesota Twins,,First Day Issue
+first-day-issue,52,Pat Kelly,New York Yankees,,First Day Issue
+first-day-issue,53,Brady Anderson,Baltimore Orioles,,First Day Issue
+first-day-issue,54,Mariano Duncan,Philadelphia Phillies,,First Day Issue
+first-day-issue,55,Brian Bohanon,Texas Rangers,,First Day Issue
+first-day-issue,56,Jerry Spradlin,Cincinnati Reds,,First Day Issue
+first-day-issue,57,Ron Karkovice,Chicago White Sox,,First Day Issue
+first-day-issue,58,Jeff Gardner,San Diego Padres,,First Day Issue
+first-day-issue,59,Bobby Bonilla,New York Mets,,First Day Issue
+first-day-issue,60,Tino Martinez,Seattle Mariners,,First Day Issue
+first-day-issue,61,Todd Benzinger,San Francisco Giants,,First Day Issue
+first-day-issue,62,Steve Trachsel,Chicago Cubs,,First Day Issue
+first-day-issue,63,Brian Jordan,St. Louis Cardinals,,First Day Issue
+first-day-issue,64,Steve Bedrosian,Atlanta Braves,,First Day Issue
+first-day-issue,65,Brent Gates,Oakland Athletics,,First Day Issue
+first-day-issue,66,Shawn Green,Toronto Blue Jays,,First Day Issue
+first-day-issue,67,Sean Berry,Montreal Expos,,First Day Issue
+first-day-issue,68,Joe Klink,Florida Marlins,,First Day Issue
+first-day-issue,69,Fernando Valenzuela,Baltimore Orioles,,First Day Issue
+first-day-issue,70,Andy Tomberlin,Pittsburgh Pirates,,First Day Issue
+first-day-issue,71,Tony Pena,Boston Red Sox,,First Day Issue
+first-day-issue,72,Eric Young,Colorado Rockies,,First Day Issue
+first-day-issue,73,Chris Gomez,Detroit Tigers,,First Day Issue
+first-day-issue,74,Paul O'Neill,New York Yankees,,First Day Issue
+first-day-issue,75,Ricky Gutierrez,San Diego Padres,,First Day Issue
+first-day-issue,76,Brad Holman,Seattle Mariners,,First Day Issue
+first-day-issue,77,Lance Painter,Colorado Rockies,,First Day Issue
+first-day-issue,78,Mike Butcher,California Angels,,First Day Issue
+first-day-issue,79,Sid Bream,Atlanta Braves,,First Day Issue
+first-day-issue,80,Sammy Sosa,Chicago Cubs,,First Day Issue
+first-day-issue,81,Felix Fermin,Cleveland Indians,,First Day Issue
+first-day-issue,82,Todd Hundley,New York Mets,,First Day Issue
+first-day-issue,83,Kevin Higgins,San Diego Padres,,First Day Issue
+first-day-issue,84,Todd Pratt,Philadelphia Phillies,,First Day Issue
+first-day-issue,85,"Ken Griffey, Jr.",Seattle Mariners,,First Day Issue
+first-day-issue,86,John O'Donoghue,Baltimore Orioles,,First Day Issue
+first-day-issue,87,Rick Renteria,Florida Marlins,,First Day Issue
+first-day-issue,88,John Burkett,San Francisco Giants,,First Day Issue
+first-day-issue,89,Jose Vizcaino,Chicago Cubs,,First Day Issue
+first-day-issue,90,Kevin Seitzer,Milwaukee Brewers,,First Day Issue
+first-day-issue,91,Bobby Witt,Oakland Athletics,,First Day Issue
+first-day-issue,92,Chris Turner,California Angels,,First Day Issue
+first-day-issue,93,Omar Vizquel,Seattle Mariners,,First Day Issue
+first-day-issue,94,David Justice,Atlanta Braves,,First Day Issue
+first-day-issue,95,David Segui,Baltimore Orioles,,First Day Issue
+first-day-issue,96,Dave Hollins,Philadelphia Phillies,,First Day Issue
+first-day-issue,97,Doug Strange,Texas Rangers,,First Day Issue
+first-day-issue,98,Jerald Clark,Colorado Rockies,,First Day Issue
+first-day-issue,99,Mike Moore,Detroit Tigers,,First Day Issue
+first-day-issue,100,Joey Cora,Chicago White Sox,,First Day Issue
+first-day-issue,101,Scott Kamieniecki,New York Yankees,,First Day Issue
+first-day-issue,102,Andy Benes,San Diego Padres,,First Day Issue
+first-day-issue,103,Chris Bosio,Seattle Mariners,,First Day Issue
+first-day-issue,104,Rey Sanchez,Chicago Cubs,,First Day Issue
+first-day-issue,105,John Jaha,Milwaukee Brewers,,First Day Issue
+first-day-issue,106,Otis Nixon,Atlanta Braves,,First Day Issue
+first-day-issue,107,Rickey Henderson,Toronto Blue Jays,,First Day Issue
+first-day-issue,108,Jeff Bagwell,Houston Astros,,First Day Issue
+first-day-issue,109,Gregg Jefferies,St. Louis Cardinals,,First Day Issue
+first-day-issue,110,Paul Molitor / John Olerud / Roberto Alomar TRI,Toronto Blue Jays,,First Day Issue
+first-day-issue,111,Ron Gant / David Justice / Fred McGriff TRI,Atlanta Braves,,First Day Issue
+first-day-issue,112,Rafael Palmeiro / Juan Gonzalez / Dean Palmer TRI,Texas Rangers,,First Day Issue
+first-day-issue,113,Greg Swindell,Houston Astros,,First Day Issue
+first-day-issue,114,Bill Haselman,Seattle Mariners,,First Day Issue
+first-day-issue,115,Phil Plantier,San Diego Padres,,First Day Issue
+first-day-issue,116,Ivan Rodriguez,Texas Rangers,,First Day Issue
+first-day-issue,117,Kevin Tapani,Minnesota Twins,,First Day Issue
+first-day-issue,118,Mike LaValliere,Chicago White Sox,,First Day Issue
+first-day-issue,119,Tim Costo,Cincinnati Reds,,First Day Issue
+first-day-issue,120,Mickey Morandini,Philadelphia Phillies,,First Day Issue
+first-day-issue,121,Brett Butler,Los Angeles Dodgers,,First Day Issue
+first-day-issue,122,Tom Pagnozzi,St. Louis Cardinals,,First Day Issue
+first-day-issue,123,Ron Gant,Atlanta Braves,,First Day Issue
+first-day-issue,124,Damion Easley,California Angels,,First Day Issue
+first-day-issue,125,Dennis Eckersley,Oakland Athletics,,First Day Issue
+first-day-issue,126,Matt Mieske,Milwaukee Brewers,,First Day Issue
+first-day-issue,127,Cliff Floyd,Montreal Expos,,First Day Issue
+first-day-issue,128,Julian Tavarez,Cleveland Indians,,First Day Issue
+first-day-issue,129,Arthur Rhodes,Baltimore Orioles,,First Day Issue
+first-day-issue,130,Dave West,Philadelphia Phillies,,First Day Issue
+first-day-issue,131,Tim Naehring,Boston Red Sox,,First Day Issue
+first-day-issue,132,Freddie Benavides,Colorado Rockies,,First Day Issue
+first-day-issue,133,Paul Assenmacher,New York Yankees,,First Day Issue
+first-day-issue,134,David McCarty,Minnesota Twins,,First Day Issue
+first-day-issue,135,Jose Lind,Kansas City Royals,,First Day Issue
+first-day-issue,136,Reggie Sanders,Cincinnati Reds,,First Day Issue
+first-day-issue,137,Don Slaught,Pittsburgh Pirates,,First Day Issue
+first-day-issue,138,Andujar Cedeno,Houston Astros,,First Day Issue
+first-day-issue,139,Rob Deer,Boston Red Sox,,First Day Issue
+first-day-issue,140,Mike Piazza AW,Los Angeles Dodgers,,First Day Issue
+first-day-issue,141,Moises Alou,Montreal Expos,,First Day Issue
+first-day-issue,142,Tom Foley,Pittsburgh Pirates,,First Day Issue
+first-day-issue,143,Benny Santiago,Florida Marlins,,First Day Issue
+first-day-issue,144,Sandy Alomar,Cleveland Indians,,First Day Issue
+first-day-issue,145,Carlos Hernandez,Los Angeles Dodgers,,First Day Issue
+first-day-issue,146,Luis Alicea,St. Louis Cardinals,,First Day Issue
+first-day-issue,147,Tom Lampkin,Milwaukee Brewers,,First Day Issue
+first-day-issue,148,Ryan Klesko,Atlanta Braves,,First Day Issue
+first-day-issue,149,Juan Guzman,Toronto Blue Jays,,First Day Issue
+first-day-issue,150,Scott Servais,Houston Astros,,First Day Issue
+first-day-issue,151,Tony Gwynn,San Diego Padres,,First Day Issue
+first-day-issue,152,Tim Wakefield,Pittsburgh Pirates,,First Day Issue
+first-day-issue,153,David Nied,Colorado Rockies,,First Day Issue
+first-day-issue,154,Chris Haney,Kansas City Royals,,First Day Issue
+first-day-issue,155,Danny Bautista,Detroit Tigers,,First Day Issue
+first-day-issue,156,Randy Velarde,New York Yankees,,First Day Issue
+first-day-issue,157,Darrin Jackson,New York Mets,,First Day Issue
+first-day-issue,158,J.R. Phillips,San Francisco Giants,,First Day Issue
+first-day-issue,159,Greg Gagne,Kansas City Royals,,First Day Issue
+first-day-issue,160,Luis Aquino,Florida Marlins,,First Day Issue
+first-day-issue,161,John Vander Wal,Montreal Expos,,First Day Issue
+first-day-issue,162,Randy Myers AW,Chicago Cubs,,First Day Issue
+first-day-issue,163,Ted Power,Seattle Mariners,,First Day Issue
+first-day-issue,164,Scott Brosius,Oakland Athletics,,First Day Issue
+first-day-issue,165,Len Dykstra,Philadelphia Phillies,,First Day Issue
+first-day-issue,166,Jacob Brumfield,Cincinnati Reds,,First Day Issue
+first-day-issue,167,Bo Jackson,Chicago White Sox,,First Day Issue
+first-day-issue,168,Eddie Taubensee,Houston Astros,,First Day Issue
+first-day-issue,169,Carlos Baerga,Cleveland Indians,,First Day Issue
+first-day-issue,170,Tim Bogar,New York Mets,,First Day Issue
+first-day-issue,171,Jose Canseco,Texas Rangers,,First Day Issue
+first-day-issue,172,Greg Blosser,Boston Red Sox,,First Day Issue
+first-day-issue,173,Chili Davis,California Angels,,First Day Issue
+first-day-issue,174,Randy Knorr,Toronto Blue Jays,,First Day Issue
+first-day-issue,175,Mike Perez,St. Louis Cardinals,,First Day Issue
+first-day-issue,176,Henry Rodriguez,Los Angeles Dodgers,,First Day Issue
+first-day-issue,177,Brian Turang,Seattle Mariners,,First Day Issue
+first-day-issue,178,Roger Pavlik,Texas Rangers,,First Day Issue
+first-day-issue,179,Aaron Sele,Boston Red Sox,,First Day Issue
+first-day-issue,180,Gary Sheffield / Fred McGriff TALE,Florida Marlins / Atlanta Braves,,First Day Issue
+first-day-issue,181,J.T. Snow / Tim Salmon TALE,California Angels,,First Day Issue
+first-day-issue,182,Roberto Hernandez,Chicago White Sox,,First Day Issue
+first-day-issue,183,Jeff Reboulet,Minnesota Twins,,First Day Issue
+first-day-issue,184,John Doherty,Detroit Tigers,,First Day Issue
+first-day-issue,185,Danny Sheaffer,Colorado Rockies,,First Day Issue
+first-day-issue,186,Bip Roberts,Cincinnati Reds,,First Day Issue
+first-day-issue,187,Denny Martinez,Montreal Expos,,First Day Issue
+first-day-issue,188,Darryl Hamilton,Milwaukee Brewers,,First Day Issue
+first-day-issue,189,Eduardo Perez,California Angels,,First Day Issue
+first-day-issue,190,Pete Harnisch,Houston Astros,,First Day Issue
+first-day-issue,191,Rich Gossage,Oakland Athletics,,First Day Issue
+first-day-issue,192,Mickey Tettleton,Detroit Tigers,,First Day Issue
+first-day-issue,193,Lenny Webster,Minnesota Twins,,First Day Issue
+first-day-issue,194,Lance Johnson,Chicago White Sox,,First Day Issue
+first-day-issue,195,Don Mattingly,New York Yankees,,First Day Issue
+first-day-issue,196,Gregg Olson,Baltimore Orioles,,First Day Issue
+first-day-issue,197,Mark Gubicza,Kansas City Royals,,First Day Issue
+first-day-issue,198,Scott Fletcher,Boston Red Sox,,First Day Issue
+first-day-issue,199,Jon Shave,Texas Rangers,,First Day Issue
+first-day-issue,200,Tim Mauser,San Diego Padres,,First Day Issue
+first-day-issue,201,Jeromy Burnitz,New York Mets,,First Day Issue
+first-day-issue,202,Rob Dibble,Cincinnati Reds,,First Day Issue
+first-day-issue,203,Will Clark,San Francisco Giants,,First Day Issue
+first-day-issue,204,Steve Buechele,Chicago Cubs,,First Day Issue
+first-day-issue,205,Brian Williams,Houston Astros,,First Day Issue
+first-day-issue,206,Carlos Garcia,Pittsburgh Pirates,,First Day Issue
+first-day-issue,207,Mark Clark,Cleveland Indians,,First Day Issue
+first-day-issue,208,Rafael Palmeiro,Texas Rangers,,First Day Issue
+first-day-issue,209,Eric Davis,Detroit Tigers,,First Day Issue
+first-day-issue,210,Pat Meares,Minnesota Twins,,First Day Issue
+first-day-issue,211,Chuck Finley,California Angels,,First Day Issue
+first-day-issue,212,Jason Bere,Chicago White Sox,,First Day Issue
+first-day-issue,213,Gary DiSarcina,California Angels,,First Day Issue
+first-day-issue,214,Tony Fernandez,Toronto Blue Jays,,First Day Issue
+first-day-issue,215,B.J. Surhoff,Milwaukee Brewers,,First Day Issue
+first-day-issue,216,Lee Guetterman,St. Louis Cardinals,,First Day Issue
+first-day-issue,217,Tim Wallach,Los Angeles Dodgers,,First Day Issue
+first-day-issue,218,Kirt Manwaring,San Francisco Giants,,First Day Issue
+first-day-issue,219,Albert Belle,Cleveland Indians,,First Day Issue
+first-day-issue,220,Doc Gooden,New York Mets,,First Day Issue
+first-day-issue,221,Archi Cianfrocco,San Diego Padres,,First Day Issue
+first-day-issue,222,Terry Mulholland,Philadelphia Phillies,,First Day Issue
+first-day-issue,223,Hipolito Pichardo,Kansas City Royals,,First Day Issue
+first-day-issue,224,Kent Hrbek,Minnesota Twins,,First Day Issue
+first-day-issue,225,Craig Grebeck,Chicago White Sox,,First Day Issue
+first-day-issue,226,Todd Jones,Houston Astros,,First Day Issue
+first-day-issue,227,Mike Bordick,Oakland Athletics,,First Day Issue
+first-day-issue,228,John Olerud AW,Toronto Blue Jays,,First Day Issue
+first-day-issue,229,Jeff Blauser,Atlanta Braves,,First Day Issue
+first-day-issue,230,Alex Arias,Florida Marlins,,First Day Issue
+first-day-issue,231,Bernard Gilkey,St. Louis Cardinals,,First Day Issue
+first-day-issue,232,Denny Neagle,Pittsburgh Pirates,,First Day Issue
+first-day-issue,233,Pedro Borbon,Atlanta Braves,,First Day Issue
+first-day-issue,234,Dick Schofield,Toronto Blue Jays,,First Day Issue
+first-day-issue,235,Matias Carrillo,Florida Marlins,,First Day Issue
+first-day-issue,236,Juan Bell,Milwaukee Brewers,,First Day Issue
+first-day-issue,237,Mike Hampton,Seattle Mariners,,First Day Issue
+first-day-issue,238,Barry Bonds AW,San Francisco Giants,,First Day Issue
+first-day-issue,239,Cris Carpenter,Texas Rangers,,First Day Issue
+first-day-issue,240,Eric Karros,Los Angeles Dodgers,,First Day Issue
+first-day-issue,241,Greg McMichael,Atlanta Braves,,First Day Issue
+first-day-issue,242,Pat Hentgen,Toronto Blue Jays,,First Day Issue
+first-day-issue,243,Tim Pugh,Cincinnati Reds,,First Day Issue
+first-day-issue,244,Vinny Castilla,Colorado Rockies,,First Day Issue
+first-day-issue,245,Charlie Hough,Florida Marlins,,First Day Issue
+first-day-issue,246,Bobby Munoz,New York Yankees,,First Day Issue
+first-day-issue,247,Kevin Baez,New York Mets,,First Day Issue
+first-day-issue,248,Todd Frohwirth,Baltimore Orioles,,First Day Issue
+first-day-issue,249,Charlie Hayes,Colorado Rockies,,First Day Issue
+first-day-issue,250,Mike Macfarlane,Kansas City Royals,,First Day Issue
+first-day-issue,251,Danny Darwin,Boston Red Sox,,First Day Issue
+first-day-issue,252,Ben Rivera,Philadelphia Phillies,,First Day Issue
+first-day-issue,253,Dave Henderson,Oakland Athletics,,First Day Issue
+first-day-issue,254,Steve Avery,Atlanta Braves,,First Day Issue
+first-day-issue,255,Tim Belcher,Chicago White Sox,,First Day Issue
+first-day-issue,256,Dan Plesac,Chicago Cubs,,First Day Issue
+first-day-issue,257,Jim Thome,Cleveland Indians,,First Day Issue
+first-day-issue,258,Albert Belle HRC,Cleveland Indians,,First Day Issue
+first-day-issue,259,Barry Bonds HRC,San Francisco Giants,,First Day Issue
+first-day-issue,260,Ron Gant HRC,Atlanta Braves,,First Day Issue
+first-day-issue,261,Juan Gonzalez HRC,Texas Rangers,,First Day Issue
+first-day-issue,262,Ken Griffey Jr. HRC,Seattle Mariners,,First Day Issue
+first-day-issue,263,David Justice HRC,Atlanta Braves,,First Day Issue
+first-day-issue,264,Fred McGriff HRC,Atlanta Braves,,First Day Issue
+first-day-issue,265,Rafael Palmeiro HRC,Texas Rangers,,First Day Issue
+first-day-issue,266,Mike Piazza HRC,Los Angeles Dodgers,,First Day Issue
+first-day-issue,267,Frank Thomas HRC,Chicago White Sox,,First Day Issue
+first-day-issue,268,Matt Williams HRC,San Francisco Giants,,First Day Issue
+first-day-issue,269a,Checklist: 1-135 CL,,,First Day Issue
+first-day-issue,269b,Checklist: 271-408 CL,,,First Day Issue
+first-day-issue,270a,Checklist: 136-270 CL,,,First Day Issue
+first-day-issue,270b,Checklist: 409-540 CL,,,First Day Issue
+first-day-issue,271,Mike Stanley,New York Yankees,,First Day Issue
+first-day-issue,272,Tony Tarasco,Atlanta Braves,,First Day Issue
+first-day-issue,273,Teddy Higuera,Milwaukee Brewers,,First Day Issue
+first-day-issue,274,Ryan Thompson,New York Mets,,First Day Issue
+first-day-issue,275,Rick Aguilera,Minnesota Twins,,First Day Issue
+first-day-issue,276,Ramon Martinez,Los Angeles Dodgers,,First Day Issue
+first-day-issue,277,Orlando Merced,Pittsburgh Pirates,,First Day Issue
+first-day-issue,278,Guillermo Velasquez,San Diego Padres,,First Day Issue
+first-day-issue,279,Mark Hutton,New York Yankees,,First Day Issue
+first-day-issue,280,Larry Walker,Montreal Expos,,First Day Issue
+first-day-issue,281,Kevin Gross,Los Angeles Dodgers,,First Day Issue
+first-day-issue,282,Jose Offerman,Los Angeles Dodgers,,First Day Issue
+first-day-issue,283,Jim Leyritz,New York Yankees,,First Day Issue
+first-day-issue,284,Jamie Moyer,Baltimore Orioles,,First Day Issue
+first-day-issue,285,Frank Thomas AW,Chicago White Sox,,First Day Issue
+first-day-issue,286,Derek Bell,San Diego Padres,,First Day Issue
+first-day-issue,287,Derrick May,Chicago Cubs,,First Day Issue
+first-day-issue,288,Dave Winfield,Minnesota Twins,,First Day Issue
+first-day-issue,289,Curt Schilling,Philadelphia Phillies,,First Day Issue
+first-day-issue,290,Carlos Quintana,Boston Red Sox,,First Day Issue
+first-day-issue,291,Bob Natal,Florida Marlins,,First Day Issue
+first-day-issue,292,David Cone,Kansas City Royals,,First Day Issue
+first-day-issue,293,Al Osuna,Houston Astros,,First Day Issue
+first-day-issue,294,Bob Hamelin,Kansas City Royals,,First Day Issue
+first-day-issue,295,Chad Curtis,California Angels,,First Day Issue
+first-day-issue,296,Danny Jackson,Philadelphia Phillies,,First Day Issue
+first-day-issue,297,Bob Welch,Oakland Athletics,,First Day Issue
+first-day-issue,298,Felix Jose,Kansas City Royals,,First Day Issue
+first-day-issue,299,Jay Buhner,Seattle Mariners,,First Day Issue
+first-day-issue,300,Joe Carter,Toronto Blue Jays,,First Day Issue
+first-day-issue,301,Kenny Lofton,Cleveland Indians,,First Day Issue
+first-day-issue,302,Kirk Rueter,Montreal Expos,,First Day Issue
+first-day-issue,303,Kim Batiste,Philadelphia Phillies,,First Day Issue
+first-day-issue,304,Mike Morgan,Chicago Cubs,,First Day Issue
+first-day-issue,305,Pat Borders,Toronto Blue Jays,,First Day Issue
+first-day-issue,306,Rene Arocha,St. Louis Cardinals,,First Day Issue
+first-day-issue,307,Ruben Sierra,Oakland Athletics,,First Day Issue
+first-day-issue,308,Steve Finley,Houston Astros,,First Day Issue
+first-day-issue,309,Travis Fryman,Detroit Tigers,,First Day Issue
+first-day-issue,310,Zane Smith,Pittsburgh Pirates,,First Day Issue
+first-day-issue,311,Willie Wilson,Chicago Cubs,,First Day Issue
+first-day-issue,312,Trevor Hoffman,San Diego Padres,,First Day Issue
+first-day-issue,313,Terry Pendleton,Atlanta Braves,,First Day Issue
+first-day-issue,314,Salomon Torres,San Francisco Giants,,First Day Issue
+first-day-issue,315,Robin Ventura,Chicago White Sox,,First Day Issue
+first-day-issue,316,Randy Tomlin,Pittsburgh Pirates,,First Day Issue
+first-day-issue,317,Dave Stewart,Toronto Blue Jays,,First Day Issue
+first-day-issue,318,Mike Benjamin,San Francisco Giants,,First Day Issue
+first-day-issue,319,Matt Turner,Florida Marlins,,First Day Issue
+first-day-issue,320,Manny Ramirez,Cleveland Indians,,First Day Issue
+first-day-issue,321,Kevin Young,Pittsburgh Pirates,,First Day Issue
+first-day-issue,322,Ken Caminiti,Houston Astros,,First Day Issue
+first-day-issue,323,Joe Girardi,Colorado Rockies,,First Day Issue
+first-day-issue,324,Jeff McKnight,New York Mets,,First Day Issue
+first-day-issue,325,Gene Harris,San Diego Padres,,First Day Issue
+first-day-issue,326,Devon White,Toronto Blue Jays,,First Day Issue
+first-day-issue,327,Darryl Kile,Houston Astros,,First Day Issue
+first-day-issue,328,Craig Paquette,Oakland Athletics,,First Day Issue
+first-day-issue,329,Cal Eldred,Milwaukee Brewers,,First Day Issue
+first-day-issue,330,Bill Swift,San Francisco Giants,,First Day Issue
+first-day-issue,331,Alan Trammell,Detroit Tigers,,First Day Issue
+first-day-issue,332,Armando Reynoso,Colorado Rockies,,First Day Issue
+first-day-issue,333,Brent Mayne,Kansas City Royals,,First Day Issue
+first-day-issue,334,Chris Donnels,Houston Astros,,First Day Issue
+first-day-issue,335,Darryl Strawberry,Los Angeles Dodgers,,First Day Issue
+first-day-issue,336,Dean Palmer,Texas Rangers,,First Day Issue
+first-day-issue,337,Frank Castillo,Chicago Cubs,,First Day Issue
+first-day-issue,338,Jeff King,Pittsburgh Pirates,,First Day Issue
+first-day-issue,339,John Franco,New York Mets,,First Day Issue
+first-day-issue,340,Kevin Appier,Kansas City Royals,,First Day Issue
+first-day-issue,341,Lance Blankenship,Oakland Athletics,,First Day Issue
+first-day-issue,342,Mark McLemore,Baltimore Orioles,,First Day Issue
+first-day-issue,343,Pedro Astacio,Los Angeles Dodgers,,First Day Issue
+first-day-issue,344,Rich Batchelor,St. Louis Cardinals,,First Day Issue
+first-day-issue,345,Ryan Bowen,Florida Marlins,,First Day Issue
+first-day-issue,346,Terry Steinbach,Oakland Athletics,,First Day Issue
+first-day-issue,347,Troy O'Leary,Milwaukee Brewers,,First Day Issue
+first-day-issue,348,Willie Blair,Colorado Rockies,,First Day Issue
+first-day-issue,349,Wade Boggs,New York Yankees,,First Day Issue
+first-day-issue,350,Tim Raines,Chicago White Sox,,First Day Issue
+first-day-issue,351,Scott Livingstone,Detroit Tigers,,First Day Issue
+first-day-issue,352,Rod Correia,California Angels,,First Day Issue
+first-day-issue,353,Ray Lankford,St. Louis Cardinals,,First Day Issue
+first-day-issue,354,Pat Listach,Milwaukee Brewers,,First Day Issue
+first-day-issue,355,Milt Thompson,Philadelphia Phillies,,First Day Issue
+first-day-issue,356,Miguel Jimenez,Oakland Athletics,,First Day Issue
+first-day-issue,357,Marc Newfield,Seattle Mariners,,First Day Issue
+first-day-issue,358,Mark McGwire,Oakland Athletics,,First Day Issue
+first-day-issue,359,Kirby Puckett,Minnesota Twins,,First Day Issue
+first-day-issue,360,Kent Mercker,Atlanta Braves,,First Day Issue
+first-day-issue,361,John Kruk,Philadelphia Phillies,,First Day Issue
+first-day-issue,362,Jeff Kent,New York Mets,,First Day Issue
+first-day-issue,363,Hal Morris,Cincinnati Reds,,First Day Issue
+first-day-issue,364,Edgar Martinez,Seattle Mariners,,First Day Issue
+first-day-issue,365,Dave Magadan,Florida Marlins,,First Day Issue
+first-day-issue,366,Dante Bichette,Colorado Rockies,,First Day Issue
+first-day-issue,367,Chris Hammond,Florida Marlins,,First Day Issue
+first-day-issue,368,Bret Saberhagen,New York Mets,,First Day Issue
+first-day-issue,369,Billy Ripken,Texas Rangers,,First Day Issue
+first-day-issue,370,Bill Gullickson,Detroit Tigers,,First Day Issue
+first-day-issue,371,Andre Dawson,Boston Red Sox,,First Day Issue
+first-day-issue,372,Roberto Kelly,Cincinnati Reds,,First Day Issue
+first-day-issue,373,Cal Ripken,Baltimore Orioles,,First Day Issue
+first-day-issue,374,Craig Biggio,Houston Astros,,First Day Issue
+first-day-issue,375,Dan Pasqua,Chicago White Sox,,First Day Issue
+first-day-issue,376,Dave Nilsson,Milwaukee Brewers,,First Day Issue
+first-day-issue,377,Duane Ward,Toronto Blue Jays,,First Day Issue
+first-day-issue,378,Greg Vaughn,Milwaukee Brewers,,First Day Issue
+first-day-issue,379,Jeff Fassero,Montreal Expos,,First Day Issue
+first-day-issue,380,Jerry DiPoto,Cleveland Indians,,First Day Issue
+first-day-issue,381,John Patterson,San Francisco Giants,,First Day Issue
+first-day-issue,382,Kevin Brown,Texas Rangers,,First Day Issue
+first-day-issue,383,Kevin Roberson,Chicago Cubs,,First Day Issue
+first-day-issue,384,Joe Orsulak,New York Mets,,First Day Issue
+first-day-issue,385,Hilly Hathaway,California Angels,,First Day Issue
+first-day-issue,386,Mike Greenwell,Boston Red Sox,,First Day Issue
+first-day-issue,387,Orestes Destrade,Florida Marlins,,First Day Issue
+first-day-issue,388,Mike Gallego,New York Yankees,,First Day Issue
+first-day-issue,389,Ozzie Guillen,Chicago White Sox,,First Day Issue
+first-day-issue,390,Raul Mondesi,Los Angeles Dodgers,,First Day Issue
+first-day-issue,391,Scott Lydy,Oakland Athletics,,First Day Issue
+first-day-issue,392,Tom Urbani,St. Louis Cardinals,,First Day Issue
+first-day-issue,393,Wil Cordero,Montreal Expos,,First Day Issue
+first-day-issue,394,Tony Longmire,Philadelphia Phillies,,First Day Issue
+first-day-issue,395,Todd Zeile,St. Louis Cardinals,,First Day Issue
+first-day-issue,396,Scott Cooper,Boston Red Sox,,First Day Issue
+first-day-issue,397,Ryne Sandberg,Chicago Cubs,,First Day Issue
+first-day-issue,398,Ricky Bones,Milwaukee Brewers,,First Day Issue
+first-day-issue,399,Phil Clark,San Diego Padres,,First Day Issue
+first-day-issue,400,Orel Hershiser,Los Angeles Dodgers,,First Day Issue
+first-day-issue,401,Mike Henneman,Detroit Tigers,,First Day Issue
+first-day-issue,402,Mark Lemke,Atlanta Braves,,First Day Issue
+first-day-issue,403,Mark Grace,Chicago Cubs,,First Day Issue
+first-day-issue,404,Ken Ryan,Boston Red Sox,,First Day Issue
+first-day-issue,405,John Smoltz,Atlanta Braves,,First Day Issue
+first-day-issue,406,Jeff Conine,Florida Marlins,,First Day Issue
+first-day-issue,407,Greg Harris,Boston Red Sox,,First Day Issue
+first-day-issue,408,Doug Drabek,Houston Astros,,First Day Issue
+first-day-issue,409,Dave Fleming,Seattle Mariners,,First Day Issue
+first-day-issue,410,Danny Tartabull,New York Yankees,,First Day Issue
+first-day-issue,411,Chad Kreuter,Detroit Tigers,,First Day Issue
+first-day-issue,412,Brad Ausmus,San Diego Padres,,First Day Issue
+first-day-issue,413,Ben McDonald,Baltimore Orioles,,First Day Issue
+first-day-issue,414,Barry Larkin,Cincinnati Reds,,First Day Issue
+first-day-issue,415,Bret Barberie,Florida Marlins,,First Day Issue
+first-day-issue,416,Chuck Knoblauch,Minnesota Twins,,First Day Issue
+first-day-issue,417,Ozzie Smith,St. Louis Cardinals,,First Day Issue
+first-day-issue,418,Ed Sprague,Toronto Blue Jays,,First Day Issue
+first-day-issue,419,Matt Williams,San Francisco Giants,,First Day Issue
+first-day-issue,420,Jeremy Hernandez,Cleveland Indians,,First Day Issue
+first-day-issue,421,Jose Bautista,Chicago Cubs,,First Day Issue
+first-day-issue,422,Kevin Mitchell,Cincinnati Reds,,First Day Issue
+first-day-issue,423,Manuel Lee,Texas Rangers,,First Day Issue
+first-day-issue,424,Mike Devereaux,Baltimore Orioles,,First Day Issue
+first-day-issue,425,Omar Olivares,St. Louis Cardinals,,First Day Issue
+first-day-issue,426,Rafael Belliard,Atlanta Braves,,First Day Issue
+first-day-issue,427,Richie Lewis,Florida Marlins,,First Day Issue
+first-day-issue,428,Ron Darling,Oakland Athletics,,First Day Issue
+first-day-issue,429,Shane Mack,Minnesota Twins,,First Day Issue
+first-day-issue,430,Tim Hulett,Baltimore Orioles,,First Day Issue
+first-day-issue,431,Wally Joyner,Kansas City Royals,,First Day Issue
+first-day-issue,432,Wes Chamberlain,Philadelphia Phillies,,First Day Issue
+first-day-issue,433,Tom Browning,Cincinnati Reds,,First Day Issue
+first-day-issue,434,Scott Radinsky,Chicago White Sox,,First Day Issue
+first-day-issue,435,Rondell White,Montreal Expos,,First Day Issue
+first-day-issue,436,Rod Beck,San Francisco Giants,,First Day Issue
+first-day-issue,437,Rheal Cormier,St. Louis Cardinals,,First Day Issue
+first-day-issue,438,Randy Johnson,Seattle Mariners,,First Day Issue
+first-day-issue,439,Pete Schourek,New York Mets,,First Day Issue
+first-day-issue,440,Mo Vaughn,Boston Red Sox,,First Day Issue
+first-day-issue,441,Mike Timlin,Toronto Blue Jays,,First Day Issue
+first-day-issue,442,Mark Langston,California Angels,,First Day Issue
+first-day-issue,443,Lou Whitaker,Detroit Tigers,,First Day Issue
+first-day-issue,444,Kevin Stocker,Philadelphia Phillies,,First Day Issue
+first-day-issue,445,Ken Hill,Montreal Expos,,First Day Issue
+first-day-issue,446,John Wetteland,Montreal Expos,,First Day Issue
+first-day-issue,447,J.T. Snow,California Angels,,First Day Issue
+first-day-issue,448,Erik Pappas,St. Louis Cardinals,,First Day Issue
+first-day-issue,449,David Hulse,Texas Rangers,,First Day Issue
+first-day-issue,450,Darren Daulton,Philadelphia Phillies,,First Day Issue
+first-day-issue,451,Chris Hoiles,Baltimore Orioles,,First Day Issue
+first-day-issue,452,Bryan Harvey,Florida Marlins,,First Day Issue
+first-day-issue,453,Darren Lewis,San Francisco Giants,,First Day Issue
+first-day-issue,454,Andres Galarraga AW,Colorado Rockies,,First Day Issue
+first-day-issue,455,Joe Hesketh,Boston Red Sox,,First Day Issue
+first-day-issue,456,Jose Valentin,Milwaukee Brewers,,First Day Issue
+first-day-issue,457,Dan Peltier,Texas Rangers,,First Day Issue
+first-day-issue,458,Joe Boever,Detroit Tigers,,First Day Issue
+first-day-issue,459,Kevin Rogers,San Francisco Giants,,First Day Issue
+first-day-issue,460,Craig Shipley,San Diego Padres,,First Day Issue
+first-day-issue,461,Alvaro Espinoza,Cleveland Indians,,First Day Issue
+first-day-issue,462,Wilson Alvarez,Chicago White Sox,,First Day Issue
+first-day-issue,463,Cory Snyder,Los Angeles Dodgers,,First Day Issue
+first-day-issue,464,Candy Maldonado,Cleveland Indians,,First Day Issue
+first-day-issue,465,Blas Minor,Pittsburgh Pirates,,First Day Issue
+first-day-issue,466,Rod Bolton,Chicago White Sox,,First Day Issue
+first-day-issue,467,Kenny Rogers,Texas Rangers,,First Day Issue
+first-day-issue,468,Greg Myers,California Angels,,First Day Issue
+first-day-issue,469,Jimmy Key,New York Yankees,,First Day Issue
+first-day-issue,470,Tony Castillo,Toronto Blue Jays,,First Day Issue
+first-day-issue,471,Mike Stanton,Atlanta Braves,,First Day Issue
+first-day-issue,472,Deion Sanders,Atlanta Braves,,First Day Issue
+first-day-issue,473,Tito Navarro,New York Mets,,First Day Issue
+first-day-issue,474,Mike Gardiner,Detroit Tigers,,First Day Issue
+first-day-issue,475,Steve Reed,Colorado Rockies,,First Day Issue
+first-day-issue,476,John Roper,Cincinnati Reds,,First Day Issue
+first-day-issue,477,Mike Trombley,Minnesota Twins,,First Day Issue
+first-day-issue,478,Charles Nagy,Cleveland Indians,,First Day Issue
+first-day-issue,479,Larry Casian,Minnesota Twins,,First Day Issue
+first-day-issue,480,Eric Hillman,New York Mets,,First Day Issue
+first-day-issue,481,Bill Wertz,Cleveland Indians,,First Day Issue
+first-day-issue,482,Jeff Schwarz,Chicago White Sox,,First Day Issue
+first-day-issue,483,John Valentin,Boston Red Sox,,First Day Issue
+first-day-issue,484,Carl Willis,Minnesota Twins,,First Day Issue
+first-day-issue,485,Gary Gaetti,Kansas City Royals,,First Day Issue
+first-day-issue,486,Bill Pecota,Atlanta Braves,,First Day Issue
+first-day-issue,487,John Smiley,Cincinnati Reds,,First Day Issue
+first-day-issue,488,Mike Mussina,Baltimore Orioles,,First Day Issue
+first-day-issue,489,Mike Ignasiak,Milwaukee Brewers,,First Day Issue
+first-day-issue,490,Billy Brewer,Kansas City Royals,,First Day Issue
+first-day-issue,491,Jack Voigt,Baltimore Orioles,,First Day Issue
+first-day-issue,492,Mike Munoz,Colorado Rockies,,First Day Issue
+first-day-issue,493,Lee Tinsley,Seattle Mariners,,First Day Issue
+first-day-issue,494,Bob Wickman,New York Yankees,,First Day Issue
+first-day-issue,495,Roger Salkeld,Seattle Mariners,,First Day Issue
+first-day-issue,496,Thomas Howard,Cincinnati Reds,,First Day Issue
+first-day-issue,497,Mark Davis,San Diego Padres,,First Day Issue
+first-day-issue,498,Dave Clark,Pittsburgh Pirates,,First Day Issue
+first-day-issue,499,Turk Wendell,Chicago Cubs,,First Day Issue
+first-day-issue,500,Rafael Bournigal,Los Angeles Dodgers,,First Day Issue
+first-day-issue,501,Chip Hale,Minnesota Twins,,First Day Issue
+first-day-issue,502,Matt Whiteside,Texas Rangers,,First Day Issue
+first-day-issue,503,Brian Koelling,Cincinnati Reds,,First Day Issue
+first-day-issue,504,Jeff Reed,San Francisco Giants,,First Day Issue
+first-day-issue,505,Paul Wagner,Pittsburgh Pirates,,First Day Issue
+first-day-issue,506,Torey Lovullo,California Angels,,First Day Issue
+first-day-issue,507,Curtis Leskanic,Colorado Rockies,,First Day Issue
+first-day-issue,508,Derek Lilliquist,Cleveland Indians,,First Day Issue
+first-day-issue,509,Joe Magrane,California Angels,,First Day Issue
+first-day-issue,510,Mackey Sasser,Seattle Mariners,,First Day Issue
+first-day-issue,511,Lloyd McClendon,Pittsburgh Pirates,,First Day Issue
+first-day-issue,512,Jayhawk Owens,Colorado Rockies,,First Day Issue
+first-day-issue,513,Woody Williams,Toronto Blue Jays,,First Day Issue
+first-day-issue,514,Gary Redus,Texas Rangers,,First Day Issue
+first-day-issue,515,Tim Spehr,Montreal Expos,,First Day Issue
+first-day-issue,516,Jim Abbott,New York Yankees,,First Day Issue
+first-day-issue,517,Lou Frazier,Montreal Expos,,First Day Issue
+first-day-issue,518,Erik Plantenberg,Seattle Mariners,,First Day Issue
+first-day-issue,519,Tim Worrell,San Diego Padres,,First Day Issue
+first-day-issue,520,Brian McRae,Kansas City Royals,,First Day Issue
+first-day-issue,521,Chan Ho Park,Los Angeles Dodgers,,First Day Issue
+first-day-issue,522,Mark Wohlers,Atlanta Braves,,First Day Issue
+first-day-issue,523,Geronimo Pena,St. Louis Cardinals,,First Day Issue
+first-day-issue,524,Andy Ashby,San Diego Padres,,First Day Issue
+first-day-issue,525,Andre Dawson / Tim Raines TALE,Boston Red Sox / Chicago White Sox,,First Day Issue
+first-day-issue,526,Paul Molitor / Dave Winfield TALE,Toronto Blue Jays / Minnesota Twins,,First Day Issue
+first-day-issue,527,Joe Carter DL,Toronto Blue Jays,,First Day Issue
+first-day-issue,528,Frank Thomas DL,Chicago White Sox,,First Day Issue
+first-day-issue,529,Ken Griffey Jr. DL,Seattle Mariners,,First Day Issue
+first-day-issue,530,David Justice DL,Atlanta Braves,,First Day Issue
+first-day-issue,531,Gregg Jefferies DL,St. Louis Cardinals,,First Day Issue
+first-day-issue,532,Barry Bonds DL,San Francisco Giants,,First Day Issue
+first-day-issue,533,John Kruk QS,Philadelphia Phillies,,First Day Issue
+first-day-issue,534,Roger Clemens QS,Boston Red Sox,,First Day Issue
+first-day-issue,535,Cecil Fielder QS,Detroit Tigers,,First Day Issue
+first-day-issue,536,Ruben Sierra QS,Oakland Athletics,,First Day Issue
+first-day-issue,537,Tony Gwynn QS,San Diego Padres,,First Day Issue
+first-day-issue,538,Tom Glavine QS,Atlanta Braves,,First Day Issue
+first-day-issue,541,Ozzie Smith ATL,St. Louis Cardinals,,First Day Issue
+first-day-issue,542,Eddie Murray ATL,Cleveland Indians,,First Day Issue
+first-day-issue,543a,Lee Smith ATL,Baltimore Orioles,,First Day Issue
+first-day-issue,543b,Lonnie Smith,Baltimore Orioles,,First Day Issue
+first-day-issue,544,Greg Maddux AW,Atlanta Braves,,First Day Issue
+first-day-issue,545,Denis Boucher,Montreal Expos,,First Day Issue
+first-day-issue,546,Mark Gardner,Florida Marlins,,First Day Issue
+first-day-issue,547,Bo Jackson,California Angels,,First Day Issue
+first-day-issue,548,Eric Anthony,Seattle Mariners,,First Day Issue
+first-day-issue,549,Delino DeShields,Los Angeles Dodgers,,First Day Issue
+first-day-issue,550,Turner Ward,Milwaukee Brewers,,First Day Issue
+first-day-issue,551,Scott Sanderson,Chicago White Sox,,First Day Issue
+first-day-issue,552,Hector Carrasco,Cincinnati Reds,,First Day Issue
+first-day-issue,553,Tony Phillips,Detroit Tigers,,First Day Issue
+first-day-issue,554,Melido Perez,New York Yankees,,First Day Issue
+first-day-issue,555,Mike Felder,Houston Astros,,First Day Issue
+first-day-issue,556,Jack Morris,Cleveland Indians,,First Day Issue
+first-day-issue,557,Rafael Palmeiro,Baltimore Orioles,,First Day Issue
+first-day-issue,558,Shane Reynolds,Houston Astros,,First Day Issue
+first-day-issue,559,Pete Incaviglia,Philadelphia Phillies,,First Day Issue
+first-day-issue,560,Greg Harris,Colorado Rockies,,First Day Issue
+first-day-issue,561,Matt Walbeck,Minnesota Twins,,First Day Issue
+first-day-issue,562,Todd Van Poppel,Oakland Athletics,,First Day Issue
+first-day-issue,563,Todd Stottlemyre,Toronto Blue Jays,,First Day Issue
+first-day-issue,564,Ricky Bones,Milwaukee Brewers,,First Day Issue
+first-day-issue,565,Mike Jackson,San Francisco Giants,,First Day Issue
+first-day-issue,566,Kevin McReynolds,New York Mets,,First Day Issue
+first-day-issue,567,Melvin Nieves,San Diego Padres,,First Day Issue
+first-day-issue,568,Juan Gonzalez,Texas Rangers,,First Day Issue
+first-day-issue,569,Frank Viola,Boston Red Sox,,First Day Issue
+first-day-issue,570,Vince Coleman,Kansas City Royals,,First Day Issue
+first-day-issue,571,Brian Anderson,California Angels,,First Day Issue
+first-day-issue,572,Omar Vizquel,Cleveland Indians,,First Day Issue
+first-day-issue,573,Bernie Williams,New York Yankees,,First Day Issue
+first-day-issue,574,Tom Glavine,Atlanta Braves,,First Day Issue
+first-day-issue,575,Mitch Williams,Houston Astros,,First Day Issue
+first-day-issue,576,Shawon Dunston,Chicago Cubs,,First Day Issue
+first-day-issue,577,Mike Lansing,Montreal Expos,,First Day Issue
+first-day-issue,578,Greg Pirkl,Seattle Mariners,,First Day Issue
+first-day-issue,579,Sid Fernandez,Baltimore Orioles,,First Day Issue
+first-day-issue,580,Doug Jones,Philadelphia Phillies,,First Day Issue
+first-day-issue,581,Walt Weiss,Colorado Rockies,,First Day Issue
+first-day-issue,582,Tim Belcher,Detroit Tigers,,First Day Issue
+first-day-issue,583,Alex Fernandez,Chicago White Sox,,First Day Issue
+first-day-issue,584,Alex Cole,Minnesota Twins,,First Day Issue
+first-day-issue,585,Greg Cadaret,Toronto Blue Jays,,First Day Issue
+first-day-issue,586,Bob Tewksbury,St. Louis Cardinals,,First Day Issue
+first-day-issue,587,Dave Hansen,Los Angeles Dodgers,,First Day Issue
+first-day-issue,588,Kurt Abbott,Florida Marlins,,First Day Issue
+first-day-issue,589,Rick White,Pittsburgh Pirates,,First Day Issue
+first-day-issue,590,Kevin Bass,Houston Astros,,First Day Issue
+first-day-issue,591,Geronimo Berroa,Oakland Athletics,,First Day Issue
+first-day-issue,592,Jaime Navarro,Milwaukee Brewers,,First Day Issue
+first-day-issue,593,Steve Farr,Cleveland Indians,,First Day Issue
+first-day-issue,594,Jack Armstrong,Texas Rangers,,First Day Issue
+first-day-issue,595,Steve Howe,New York Yankees,,First Day Issue
+first-day-issue,596,Jose Rijo,Cincinnati Reds,,First Day Issue
+first-day-issue,597,Otis Nixon,Boston Red Sox,,First Day Issue
+first-day-issue,598,Robby Thompson,San Francisco Giants,,First Day Issue
+first-day-issue,599,Kelly Stinnett,New York Mets,,First Day Issue
+first-day-issue,600,Carlos Delgado,Toronto Blue Jays,,First Day Issue
+first-day-issue,601,Brian Johnson,San Diego Padres,,First Day Issue
+first-day-issue,602,Gregg Olson,Atlanta Braves,,First Day Issue
+first-day-issue,603,Jim Edmonds,California Angels,,First Day Issue
+first-day-issue,604,Mike Blowers,Seattle Mariners,,First Day Issue
+first-day-issue,605,Lee Smith,Baltimore Orioles,,First Day Issue
+first-day-issue,606,Pat Rapp,Florida Marlins,,First Day Issue
+first-day-issue,607,Mike Magnante,Kansas City Royals,,First Day Issue
+first-day-issue,608,Karl Rhodes,Chicago Cubs,,First Day Issue
+first-day-issue,609,Jeff Juden,Philadelphia Phillies,,First Day Issue
+first-day-issue,610,Rusty Meacham,Kansas City Royals,,First Day Issue
+first-day-issue,611,Pedro Martinez,Montreal Expos,,First Day Issue
+first-day-issue,612,Todd Worrell,Los Angeles Dodgers,,First Day Issue
+first-day-issue,613,Stan Javier,Oakland Athletics,,First Day Issue
+first-day-issue,614,Mike Hampton,Houston Astros,,First Day Issue
+first-day-issue,615,Jose Guzman,Chicago Cubs,,First Day Issue
+first-day-issue,616,Xavier Hernandez,New York Yankees,,First Day Issue
+first-day-issue,617,David Wells,Detroit Tigers,,First Day Issue
+first-day-issue,618,John Habyan,St. Louis Cardinals,,First Day Issue
+first-day-issue,619,Chris Nabholz,Cleveland Indians,,First Day Issue
+first-day-issue,620,Bobby Jones,New York Mets,,First Day Issue
+first-day-issue,621,Chris James,Texas Rangers,,First Day Issue
+first-day-issue,622,Ellis Burks,Colorado Rockies,,First Day Issue
+first-day-issue,623,Erik Hanson,Cincinnati Reds,,First Day Issue
+first-day-issue,624,Pat Meares,Minnesota Twins,,First Day Issue
+first-day-issue,625,Harold Reynolds,California Angels,,First Day Issue
+first-day-issue,626,Bob Hamelin RR,Kansas City Royals,,First Day Issue
+first-day-issue,627,Manny Ramirez RR,Cleveland Indians,,First Day Issue
+first-day-issue,628,Ryan Klesko RR,Atlanta Braves,,First Day Issue
+first-day-issue,629,Carlos Delgado RR,Toronto Blue Jays,,First Day Issue
+first-day-issue,630,Javy Lopez RR,Atlanta Braves,,First Day Issue
+first-day-issue,631,Steve Karsay RR,Oakland Athletics,,First Day Issue
+first-day-issue,632,Rick Helling RR,Texas Rangers,,First Day Issue
+first-day-issue,633,Steve Trachsel RR,Chicago Cubs,,First Day Issue
+first-day-issue,634,Hector Carrasco RR,Cincinnati Reds,,First Day Issue
+first-day-issue,635,Andy Stankiewicz,Houston Astros,,First Day Issue
+first-day-issue,636,Paul Sorrento,Cleveland Indians,,First Day Issue
+first-day-issue,637,Scott Erickson,Minnesota Twins,,First Day Issue
+first-day-issue,638,Chipper Jones,Atlanta Braves,,First Day Issue
+first-day-issue,639,Luis Polonia,New York Yankees,,First Day Issue
+first-day-issue,640,Howard Johnson,Colorado Rockies,,First Day Issue
+first-day-issue,641,John Dopson,California Angels,,First Day Issue
+first-day-issue,642,Jody Reed,Milwaukee Brewers,,First Day Issue
+first-day-issue,644,Mark Portugal,San Francisco Giants,,First Day Issue
+first-day-issue,645,Paul Molitor,Toronto Blue Jays,,First Day Issue
+first-day-issue,646,Paul Assenmacher,Chicago White Sox,,First Day Issue
+first-day-issue,647,Hubie Brooks,Kansas City Royals,,First Day Issue
+first-day-issue,648,Gary Wayne,Los Angeles Dodgers,,First Day Issue
+first-day-issue,649,Sean Berry,Montreal Expos,,First Day Issue
+first-day-issue,650,Roger Clemens,Boston Red Sox,,First Day Issue
+first-day-issue,651,Brian Hunter,Pittsburgh Pirates,,First Day Issue
+first-day-issue,652,Wally Whitehurst,San Diego Padres,,First Day Issue
+first-day-issue,653,Allen Watson,St. Louis Cardinals,,First Day Issue
+first-day-issue,654,Rickey Henderson,Oakland Athletics,,First Day Issue
+first-day-issue,655,Sid Bream,Houston Astros,,First Day Issue
+first-day-issue,656,Dan Wilson,Seattle Mariners,,First Day Issue
+first-day-issue,657,Ricky Jordan,Philadelphia Phillies,,First Day Issue
+first-day-issue,658,Sterling Hitchcock,New York Yankees,,First Day Issue
+first-day-issue,659,Darrin Jackson,Chicago White Sox,,First Day Issue
+first-day-issue,660,Junior Felix,Detroit Tigers,,First Day Issue
+first-day-issue,661,Tom Brunansky,Milwaukee Brewers,,First Day Issue
+first-day-issue,662,Jose Vizcaino,New York Mets,,First Day Issue
+first-day-issue,663,Mark Leiter,California Angels,,First Day Issue
+first-day-issue,664,Gil Heredia,Montreal Expos,,First Day Issue
+first-day-issue,665,Fred McGriff,Atlanta Braves,,First Day Issue
+first-day-issue,666,Will Clark,Texas Rangers,,First Day Issue
+first-day-issue,667,Al Leiter,Toronto Blue Jays,,First Day Issue
+first-day-issue,668,James Mouton,Houston Astros,,First Day Issue
+first-day-issue,669,Billy Bean,San Diego Padres,,First Day Issue
+first-day-issue,670,Scott Leius,Minnesota Twins,,First Day Issue
+first-day-issue,671,Bret Boone,Cincinnati Reds,,First Day Issue
+first-day-issue,672,Darren Holmes,Colorado Rockies,,First Day Issue
+first-day-issue,673,Dave Weathers,Florida Marlins,,First Day Issue
+first-day-issue,674,Eddie Murray,Cleveland Indians,,First Day Issue
+first-day-issue,675,Felix Fermin,Seattle Mariners,,First Day Issue
+first-day-issue,676,Chris Sabo,Baltimore Orioles,,First Day Issue
+first-day-issue,677,Billy Spiers,Milwaukee Brewers,,First Day Issue
+first-day-issue,678,Aaron Sele,Boston Red Sox,,First Day Issue
+first-day-issue,679,Juan Samuel,Detroit Tigers,,First Day Issue
+first-day-issue,680,Julio Franco,Chicago White Sox,,First Day Issue
+first-day-issue,681,Heathcliff Slocumb,Philadelphia Phillies,,First Day Issue
+first-day-issue,682,Denny Martinez,Cleveland Indians,,First Day Issue
+first-day-issue,683,Jerry Browne,Florida Marlins,,First Day Issue
+first-day-issue,684,Pedro Martinez,San Diego Padres,,First Day Issue
+first-day-issue,685,Rex Hudler,California Angels,,First Day Issue
+first-day-issue,686,Willie McGee,San Francisco Giants,,First Day Issue
+first-day-issue,687,Andy Van Slyke,Pittsburgh Pirates,,First Day Issue
+first-day-issue,688,Pat Mahomes,Minnesota Twins,,First Day Issue
+first-day-issue,689,Dave Henderson,Kansas City Royals,,First Day Issue
+first-day-issue,690,Tony Eusebio,Houston Astros,,First Day Issue
+first-day-issue,691,Rick Sutcliffe,St. Louis Cardinals,,First Day Issue
+first-day-issue,692,Willie Banks,Chicago Cubs,,First Day Issue
+first-day-issue,693,Alan Mills,Baltimore Orioles,,First Day Issue
+first-day-issue,694,Jeff Treadway,Los Angeles Dodgers,,First Day Issue
+first-day-issue,695,Alex Gonzalez,Toronto Blue Jays,,First Day Issue
+first-day-issue,696,David Segui,New York Mets,,First Day Issue
+first-day-issue,697,Rick Helling,Texas Rangers,,First Day Issue
+first-day-issue,698,Bip Roberts,San Diego Padres,,First Day Issue
+first-day-issue,699,Jeff Cirillo,Milwaukee Brewers,,First Day Issue
+first-day-issue,700,Terry Mulholland,New York Yankees,,First Day Issue
+first-day-issue,701,Marvin Freeman,Colorado Rockies,,First Day Issue
+first-day-issue,702,Jason Bere,Chicago White Sox,,First Day Issue
+first-day-issue,703,Javy Lopez,Atlanta Braves,,First Day Issue
+first-day-issue,704,Greg Hibbard,Seattle Mariners,,First Day Issue
+first-day-issue,705,Tommy Greene,Philadelphia Phillies,,First Day Issue
+first-day-issue,706,Marquis Grissom,Montreal Expos,,First Day Issue
+first-day-issue,707,Brian Harper,Milwaukee Brewers,,First Day Issue
+first-day-issue,708,Steve Karsay,Oakland Athletics,,First Day Issue
+first-day-issue,709,Jeff Brantley,Cincinnati Reds,,First Day Issue
+first-day-issue,710,Jeff Russell,Boston Red Sox,,First Day Issue
+first-day-issue,711,Bryan Hickerson,San Francisco Giants,,First Day Issue
+first-day-issue,712,Jim Pittsley,Kansas City Royals,,First Day Issue
+first-day-issue,713,Bobby Ayala,Seattle Mariners,,First Day Issue
+first-day-issue,714,John Smoltz FAN,Atlanta Braves,,First Day Issue
+first-day-issue,715,Jose Rijo FAN,Cincinnati Reds,,First Day Issue
+first-day-issue,716,Greg Maddux FAN,Atlanta Braves,,First Day Issue
+first-day-issue,717,Matt Williams FAN,San Francisco Giants,,First Day Issue
+first-day-issue,718,Frank Thomas FAN,Chicago White Sox,,First Day Issue
+first-day-issue,719,Ryne Sandberg FAN,Chicago Cubs,,First Day Issue
+first-day-issue,720,Checklist: 541-720 CL,,,First Day Issue
+golden-rainbow,1,Robin Yount,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,2,Rick Wilkins,Chicago Cubs,,Golden Rainbow
+golden-rainbow,3,Steve Scarsone,San Francisco Giants,,Golden Rainbow
+golden-rainbow,4,Gary Sheffield,Florida Marlins,,Golden Rainbow
+golden-rainbow,5,George Brett,Kansas City Royals,,Golden Rainbow
+golden-rainbow,6,Al Martin,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,7,Joe Oliver,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,8,Stan Belinda,Kansas City Royals,,Golden Rainbow
+golden-rainbow,9,Denny Hocking,Minnesota Twins,,Golden Rainbow
+golden-rainbow,10,Roberto Alomar,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,11,Luis Polonia,California Angels,,Golden Rainbow
+golden-rainbow,12,Scott Hemond,Oakland Athletics,,Golden Rainbow
+golden-rainbow,13,Jody Reed,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,14,Mel Rojas,Montreal Expos,,Golden Rainbow
+golden-rainbow,15,Junior Ortiz,Cleveland Indians,,Golden Rainbow
+golden-rainbow,16,Harold Baines,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,17,Brad Pennington,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,18,Jay Bell,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,19,Tom Henke,Texas Rangers,,Golden Rainbow
+golden-rainbow,20,Jeff Branson,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,21,Roberto Mejia,Colorado Rockies,,Golden Rainbow
+golden-rainbow,22,Pedro Munoz,Minnesota Twins,,Golden Rainbow
+golden-rainbow,23,Matt Nokes,New York Yankees,,Golden Rainbow
+golden-rainbow,24,Jack McDowell AW,Chicago White Sox,,Golden Rainbow
+golden-rainbow,25,Cecil Fielder,Detroit Tigers,,Golden Rainbow
+golden-rainbow,26,Tony Fossas,Boston Red Sox,,Golden Rainbow
+golden-rainbow,27,Jim Eisenreich,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,28,Anthony Young,New York Mets,,Golden Rainbow
+golden-rainbow,29,Chuck Carr,Florida Marlins,,Golden Rainbow
+golden-rainbow,30,Jeff Treadway,Cleveland Indians,,Golden Rainbow
+golden-rainbow,31,Chris Nabholz,Montreal Expos,,Golden Rainbow
+golden-rainbow,32,Tom Candiotti,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,33,Mike Maddux,New York Mets,,Golden Rainbow
+golden-rainbow,34,Nolan Ryan,Texas Rangers,,Golden Rainbow
+golden-rainbow,35,Luis Gonzalez,Houston Astros,,Golden Rainbow
+golden-rainbow,36,Tim Salmon AW,California Angels,,Golden Rainbow
+golden-rainbow,37,Mark Whiten,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,38,Roger McDowell,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,39,Royce Clayton,San Francisco Giants,,Golden Rainbow
+golden-rainbow,40,Troy Neel,Oakland Athletics,,Golden Rainbow
+golden-rainbow,41,Mike Harkey,Chicago Cubs,,Golden Rainbow
+golden-rainbow,42,Darrin Fletcher,Montreal Expos,,Golden Rainbow
+golden-rainbow,43,Wayne Kirby,Cleveland Indians,,Golden Rainbow
+golden-rainbow,44,Rich Amaral,Seattle Mariners,,Golden Rainbow
+golden-rainbow,45,Robb Nen,Florida Marlins,,Golden Rainbow
+golden-rainbow,46,Tim Teufel,San Diego Padres,,Golden Rainbow
+golden-rainbow,47,Steve Cooke,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,48,Jeffrey McNeely,Boston Red Sox,,Golden Rainbow
+golden-rainbow,49,Jeff Montgomery AW,Kansas City Royals,,Golden Rainbow
+golden-rainbow,50,Skeeter Barnes,Detroit Tigers,,Golden Rainbow
+golden-rainbow,51,Scott Stahoviak,Minnesota Twins,,Golden Rainbow
+golden-rainbow,52,Pat Kelly,New York Yankees,,Golden Rainbow
+golden-rainbow,53,Brady Anderson,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,54,Mariano Duncan,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,55,Brian Bohanon,Texas Rangers,,Golden Rainbow
+golden-rainbow,56,Jerry Spradlin,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,57,Ron Karkovice,Chicago White Sox,,Golden Rainbow
+golden-rainbow,58,Jeff Gardner,San Diego Padres,,Golden Rainbow
+golden-rainbow,59,Bobby Bonilla,New York Mets,,Golden Rainbow
+golden-rainbow,60,Tino Martinez,Seattle Mariners,,Golden Rainbow
+golden-rainbow,61,Todd Benzinger,San Francisco Giants,,Golden Rainbow
+golden-rainbow,62,Steve Trachsel,Chicago Cubs,,Golden Rainbow
+golden-rainbow,63,Brian Jordan,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,64,Steve Bedrosian,Atlanta Braves,,Golden Rainbow
+golden-rainbow,65,Brent Gates,Oakland Athletics,,Golden Rainbow
+golden-rainbow,66,Shawn Green,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,67,Sean Berry,Montreal Expos,,Golden Rainbow
+golden-rainbow,68,Joe Klink,Florida Marlins,,Golden Rainbow
+golden-rainbow,69,Fernando Valenzuela,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,70,Andy Tomberlin,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,71,Tony Pena,Boston Red Sox,,Golden Rainbow
+golden-rainbow,72,Eric Young,Colorado Rockies,,Golden Rainbow
+golden-rainbow,73,Chris Gomez,Detroit Tigers,,Golden Rainbow
+golden-rainbow,74,Paul O'Neill,New York Yankees,,Golden Rainbow
+golden-rainbow,75,Ricky Gutierrez,San Diego Padres,,Golden Rainbow
+golden-rainbow,76,Brad Holman,Seattle Mariners,,Golden Rainbow
+golden-rainbow,77,Lance Painter,Colorado Rockies,,Golden Rainbow
+golden-rainbow,78,Mike Butcher,California Angels,,Golden Rainbow
+golden-rainbow,79,Sid Bream,Atlanta Braves,,Golden Rainbow
+golden-rainbow,80,Sammy Sosa,Chicago Cubs,,Golden Rainbow
+golden-rainbow,81,Felix Fermin,Cleveland Indians,,Golden Rainbow
+golden-rainbow,82,Todd Hundley,New York Mets,,Golden Rainbow
+golden-rainbow,83,Kevin Higgins,San Diego Padres,,Golden Rainbow
+golden-rainbow,84,Todd Pratt,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,85,"Ken Griffey, Jr.",Seattle Mariners,,Golden Rainbow
+golden-rainbow,86,John O'Donoghue,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,87,Rick Renteria,Florida Marlins,,Golden Rainbow
+golden-rainbow,88,John Burkett,San Francisco Giants,,Golden Rainbow
+golden-rainbow,89,Jose Vizcaino,Chicago Cubs,,Golden Rainbow
+golden-rainbow,90,Kevin Seitzer,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,91,Bobby Witt,Oakland Athletics,,Golden Rainbow
+golden-rainbow,92,Chris Turner,California Angels,,Golden Rainbow
+golden-rainbow,93,Omar Vizquel,Seattle Mariners,,Golden Rainbow
+golden-rainbow,94,David Justice,Atlanta Braves,,Golden Rainbow
+golden-rainbow,95,David Segui,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,96,Dave Hollins,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,97,Doug Strange,Texas Rangers,,Golden Rainbow
+golden-rainbow,98,Jerald Clark,Colorado Rockies,,Golden Rainbow
+golden-rainbow,99,Mike Moore,Detroit Tigers,,Golden Rainbow
+golden-rainbow,100,Joey Cora,Chicago White Sox,,Golden Rainbow
+golden-rainbow,101,Scott Kamieniecki,New York Yankees,,Golden Rainbow
+golden-rainbow,102,Andy Benes,San Diego Padres,,Golden Rainbow
+golden-rainbow,103,Chris Bosio,Seattle Mariners,,Golden Rainbow
+golden-rainbow,104,Rey Sanchez,Chicago Cubs,,Golden Rainbow
+golden-rainbow,105,John Jaha,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,106,Otis Nixon,Atlanta Braves,,Golden Rainbow
+golden-rainbow,107,Rickey Henderson,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,108,Jeff Bagwell,Houston Astros,,Golden Rainbow
+golden-rainbow,109,Gregg Jefferies,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,110,Paul Molitor / John Olerud / Roberto Alomar TRI,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,111,Ron Gant / David Justice / Fred McGriff TRI,Atlanta Braves,,Golden Rainbow
+golden-rainbow,112,Rafael Palmeiro / Juan Gonzalez / Dean Palmer TRI,Texas Rangers,,Golden Rainbow
+golden-rainbow,113,Greg Swindell,Houston Astros,,Golden Rainbow
+golden-rainbow,114,Bill Haselman,Seattle Mariners,,Golden Rainbow
+golden-rainbow,115,Phil Plantier,San Diego Padres,,Golden Rainbow
+golden-rainbow,116,Ivan Rodriguez,Texas Rangers,,Golden Rainbow
+golden-rainbow,117,Kevin Tapani,Minnesota Twins,,Golden Rainbow
+golden-rainbow,118,Mike LaValliere,Chicago White Sox,,Golden Rainbow
+golden-rainbow,119,Tim Costo,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,120,Mickey Morandini,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,121,Brett Butler,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,122,Tom Pagnozzi,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,123,Ron Gant,Atlanta Braves,,Golden Rainbow
+golden-rainbow,124,Damion Easley,California Angels,,Golden Rainbow
+golden-rainbow,125,Dennis Eckersley,Oakland Athletics,,Golden Rainbow
+golden-rainbow,126,Matt Mieske,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,127,Cliff Floyd,Montreal Expos,,Golden Rainbow
+golden-rainbow,128,Julian Tavarez,Cleveland Indians,,Golden Rainbow
+golden-rainbow,129,Arthur Rhodes,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,130,Dave West,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,131,Tim Naehring,Boston Red Sox,,Golden Rainbow
+golden-rainbow,132,Freddie Benavides,Colorado Rockies,,Golden Rainbow
+golden-rainbow,133,Paul Assenmacher,New York Yankees,,Golden Rainbow
+golden-rainbow,134,David McCarty,Minnesota Twins,,Golden Rainbow
+golden-rainbow,135,Jose Lind,Kansas City Royals,,Golden Rainbow
+golden-rainbow,136,Reggie Sanders,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,137,Don Slaught,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,138,Andujar Cedeno,Houston Astros,,Golden Rainbow
+golden-rainbow,139,Rob Deer,Boston Red Sox,,Golden Rainbow
+golden-rainbow,140,Mike Piazza AW,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,141,Moises Alou,Montreal Expos,,Golden Rainbow
+golden-rainbow,142,Tom Foley,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,143,Benny Santiago,Florida Marlins,,Golden Rainbow
+golden-rainbow,144,Sandy Alomar,Cleveland Indians,,Golden Rainbow
+golden-rainbow,145,Carlos Hernandez,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,146,Luis Alicea,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,147,Tom Lampkin,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,148,Ryan Klesko,Atlanta Braves,,Golden Rainbow
+golden-rainbow,149,Juan Guzman,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,150,Scott Servais,Houston Astros,,Golden Rainbow
+golden-rainbow,151,Tony Gwynn,San Diego Padres,,Golden Rainbow
+golden-rainbow,152,Tim Wakefield,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,153,David Nied,Colorado Rockies,,Golden Rainbow
+golden-rainbow,154,Chris Haney,Kansas City Royals,,Golden Rainbow
+golden-rainbow,155,Danny Bautista,Detroit Tigers,,Golden Rainbow
+golden-rainbow,156,Randy Velarde,New York Yankees,,Golden Rainbow
+golden-rainbow,157,Darrin Jackson,New York Mets,,Golden Rainbow
+golden-rainbow,158,J.R. Phillips,San Francisco Giants,,Golden Rainbow
+golden-rainbow,159,Greg Gagne,Kansas City Royals,,Golden Rainbow
+golden-rainbow,160,Luis Aquino,Florida Marlins,,Golden Rainbow
+golden-rainbow,161,John Vander Wal,Montreal Expos,,Golden Rainbow
+golden-rainbow,162,Randy Myers AW,Chicago Cubs,,Golden Rainbow
+golden-rainbow,163,Ted Power,Seattle Mariners,,Golden Rainbow
+golden-rainbow,164,Scott Brosius,Oakland Athletics,,Golden Rainbow
+golden-rainbow,165,Len Dykstra,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,166,Jacob Brumfield,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,167,Bo Jackson,Chicago White Sox,,Golden Rainbow
+golden-rainbow,168,Eddie Taubensee,Houston Astros,,Golden Rainbow
+golden-rainbow,169,Carlos Baerga,Cleveland Indians,,Golden Rainbow
+golden-rainbow,170,Tim Bogar,New York Mets,,Golden Rainbow
+golden-rainbow,171,Jose Canseco,Texas Rangers,,Golden Rainbow
+golden-rainbow,172,Greg Blosser,Boston Red Sox,,Golden Rainbow
+golden-rainbow,173,Chili Davis,California Angels,,Golden Rainbow
+golden-rainbow,174,Randy Knorr,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,175,Mike Perez,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,176,Henry Rodriguez,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,177,Brian Turang,Seattle Mariners,,Golden Rainbow
+golden-rainbow,178,Roger Pavlik,Texas Rangers,,Golden Rainbow
+golden-rainbow,179,Aaron Sele,Boston Red Sox,,Golden Rainbow
+golden-rainbow,180,Gary Sheffield / Fred McGriff TALE,Florida Marlins / Atlanta Braves,,Golden Rainbow
+golden-rainbow,181,J.T. Snow / Tim Salmon TALE,California Angels,,Golden Rainbow
+golden-rainbow,182,Roberto Hernandez,Chicago White Sox,,Golden Rainbow
+golden-rainbow,183,Jeff Reboulet,Minnesota Twins,,Golden Rainbow
+golden-rainbow,184,John Doherty,Detroit Tigers,,Golden Rainbow
+golden-rainbow,185,Danny Sheaffer,Colorado Rockies,,Golden Rainbow
+golden-rainbow,186,Bip Roberts,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,187,Denny Martinez,Montreal Expos,,Golden Rainbow
+golden-rainbow,188,Darryl Hamilton,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,189,Eduardo Perez,California Angels,,Golden Rainbow
+golden-rainbow,190,Pete Harnisch,Houston Astros,,Golden Rainbow
+golden-rainbow,191,Rich Gossage,Oakland Athletics,,Golden Rainbow
+golden-rainbow,192,Mickey Tettleton,Detroit Tigers,,Golden Rainbow
+golden-rainbow,193,Lenny Webster,Minnesota Twins,,Golden Rainbow
+golden-rainbow,194,Lance Johnson,Chicago White Sox,,Golden Rainbow
+golden-rainbow,195,Don Mattingly,New York Yankees,,Golden Rainbow
+golden-rainbow,196,Gregg Olson,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,197,Mark Gubicza,Kansas City Royals,,Golden Rainbow
+golden-rainbow,198,Scott Fletcher,Boston Red Sox,,Golden Rainbow
+golden-rainbow,199,Jon Shave,Texas Rangers,,Golden Rainbow
+golden-rainbow,200,Tim Mauser,San Diego Padres,,Golden Rainbow
+golden-rainbow,201,Jeromy Burnitz,New York Mets,,Golden Rainbow
+golden-rainbow,202,Rob Dibble,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,203,Will Clark,San Francisco Giants,,Golden Rainbow
+golden-rainbow,204,Steve Buechele,Chicago Cubs,,Golden Rainbow
+golden-rainbow,205,Brian Williams,Houston Astros,,Golden Rainbow
+golden-rainbow,206,Carlos Garcia,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,207,Mark Clark,Cleveland Indians,,Golden Rainbow
+golden-rainbow,208,Rafael Palmeiro,Texas Rangers,,Golden Rainbow
+golden-rainbow,209,Eric Davis,Detroit Tigers,,Golden Rainbow
+golden-rainbow,210,Pat Meares,Minnesota Twins,,Golden Rainbow
+golden-rainbow,211,Chuck Finley,California Angels,,Golden Rainbow
+golden-rainbow,212,Jason Bere,Chicago White Sox,,Golden Rainbow
+golden-rainbow,213,Gary DiSarcina,California Angels,,Golden Rainbow
+golden-rainbow,214,Tony Fernandez,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,215,B.J. Surhoff,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,216,Lee Guetterman,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,217,Tim Wallach,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,218,Kirt Manwaring,San Francisco Giants,,Golden Rainbow
+golden-rainbow,219,Albert Belle,Cleveland Indians,,Golden Rainbow
+golden-rainbow,220,Doc Gooden,New York Mets,,Golden Rainbow
+golden-rainbow,221,Archi Cianfrocco,San Diego Padres,,Golden Rainbow
+golden-rainbow,222,Terry Mulholland,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,223,Hipolito Pichardo,Kansas City Royals,,Golden Rainbow
+golden-rainbow,224,Kent Hrbek,Minnesota Twins,,Golden Rainbow
+golden-rainbow,225,Craig Grebeck,Chicago White Sox,,Golden Rainbow
+golden-rainbow,226,Todd Jones,Houston Astros,,Golden Rainbow
+golden-rainbow,227,Mike Bordick,Oakland Athletics,,Golden Rainbow
+golden-rainbow,228,John Olerud AW,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,229,Jeff Blauser,Atlanta Braves,,Golden Rainbow
+golden-rainbow,230,Alex Arias,Florida Marlins,,Golden Rainbow
+golden-rainbow,231,Bernard Gilkey,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,232,Denny Neagle,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,233,Pedro Borbon,Atlanta Braves,,Golden Rainbow
+golden-rainbow,234,Dick Schofield,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,235,Matias Carrillo,Florida Marlins,,Golden Rainbow
+golden-rainbow,236,Juan Bell,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,237,Mike Hampton,Seattle Mariners,,Golden Rainbow
+golden-rainbow,238,Barry Bonds AW,San Francisco Giants,,Golden Rainbow
+golden-rainbow,239,Cris Carpenter,Texas Rangers,,Golden Rainbow
+golden-rainbow,240,Eric Karros,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,241,Greg McMichael,Atlanta Braves,,Golden Rainbow
+golden-rainbow,242,Pat Hentgen,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,243,Tim Pugh,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,244,Vinny Castilla,Colorado Rockies,,Golden Rainbow
+golden-rainbow,245,Charlie Hough,Florida Marlins,,Golden Rainbow
+golden-rainbow,246,Bobby Munoz,New York Yankees,,Golden Rainbow
+golden-rainbow,247,Kevin Baez,New York Mets,,Golden Rainbow
+golden-rainbow,248,Todd Frohwirth,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,249,Charlie Hayes,Colorado Rockies,,Golden Rainbow
+golden-rainbow,250,Mike Macfarlane,Kansas City Royals,,Golden Rainbow
+golden-rainbow,251,Danny Darwin,Boston Red Sox,,Golden Rainbow
+golden-rainbow,252,Ben Rivera,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,253,Dave Henderson,Oakland Athletics,,Golden Rainbow
+golden-rainbow,254,Steve Avery,Atlanta Braves,,Golden Rainbow
+golden-rainbow,255,Tim Belcher,Chicago White Sox,,Golden Rainbow
+golden-rainbow,256,Dan Plesac,Chicago Cubs,,Golden Rainbow
+golden-rainbow,257,Jim Thome,Cleveland Indians,,Golden Rainbow
+golden-rainbow,258,Albert Belle HRC,Cleveland Indians,,Golden Rainbow
+golden-rainbow,259,Barry Bonds HRC,San Francisco Giants,,Golden Rainbow
+golden-rainbow,260,Ron Gant HRC,Atlanta Braves,,Golden Rainbow
+golden-rainbow,261,Juan Gonzalez HRC,Texas Rangers,,Golden Rainbow
+golden-rainbow,262,Ken Griffey Jr. HRC,Seattle Mariners,,Golden Rainbow
+golden-rainbow,263,David Justice HRC,Atlanta Braves,,Golden Rainbow
+golden-rainbow,264,Fred McGriff HRC,Atlanta Braves,,Golden Rainbow
+golden-rainbow,265,Rafael Palmeiro HRC,Texas Rangers,,Golden Rainbow
+golden-rainbow,266,Mike Piazza HRC,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,267,Frank Thomas HRC,Chicago White Sox,,Golden Rainbow
+golden-rainbow,268,Matt Williams HRC,San Francisco Giants,,Golden Rainbow
+golden-rainbow,269a,Checklist: 1-135 CL,,,Golden Rainbow
+golden-rainbow,269b,Checklist: 271-408 CL,,,Golden Rainbow
+golden-rainbow,270a,Checklist: 136-270 CL,,,Golden Rainbow
+golden-rainbow,270b,Checklist: 409-540 CL,,,Golden Rainbow
+golden-rainbow,271,Mike Stanley,New York Yankees,,Golden Rainbow
+golden-rainbow,272,Tony Tarasco,Atlanta Braves,,Golden Rainbow
+golden-rainbow,273,Teddy Higuera,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,274,Ryan Thompson,New York Mets,,Golden Rainbow
+golden-rainbow,275,Rick Aguilera,Minnesota Twins,,Golden Rainbow
+golden-rainbow,276,Ramon Martinez,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,277,Orlando Merced,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,278,Guillermo Velasquez,San Diego Padres,,Golden Rainbow
+golden-rainbow,279,Mark Hutton,New York Yankees,,Golden Rainbow
+golden-rainbow,280,Larry Walker,Montreal Expos,,Golden Rainbow
+golden-rainbow,281,Kevin Gross,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,282,Jose Offerman,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,283,Jim Leyritz,New York Yankees,,Golden Rainbow
+golden-rainbow,284,Jamie Moyer,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,285,Frank Thomas AW,Chicago White Sox,,Golden Rainbow
+golden-rainbow,286,Derek Bell,San Diego Padres,,Golden Rainbow
+golden-rainbow,287,Derrick May,Chicago Cubs,,Golden Rainbow
+golden-rainbow,288,Dave Winfield,Minnesota Twins,,Golden Rainbow
+golden-rainbow,289,Curt Schilling,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,290,Carlos Quintana,Boston Red Sox,,Golden Rainbow
+golden-rainbow,291,Bob Natal,Florida Marlins,,Golden Rainbow
+golden-rainbow,292,David Cone,Kansas City Royals,,Golden Rainbow
+golden-rainbow,293,Al Osuna,Houston Astros,,Golden Rainbow
+golden-rainbow,294,Bob Hamelin,Kansas City Royals,,Golden Rainbow
+golden-rainbow,295,Chad Curtis,California Angels,,Golden Rainbow
+golden-rainbow,296,Danny Jackson,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,297,Bob Welch,Oakland Athletics,,Golden Rainbow
+golden-rainbow,298,Felix Jose,Kansas City Royals,,Golden Rainbow
+golden-rainbow,299,Jay Buhner,Seattle Mariners,,Golden Rainbow
+golden-rainbow,300,Joe Carter,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,301,Kenny Lofton,Cleveland Indians,,Golden Rainbow
+golden-rainbow,302,Kirk Rueter,Montreal Expos,,Golden Rainbow
+golden-rainbow,303,Kim Batiste,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,304,Mike Morgan,Chicago Cubs,,Golden Rainbow
+golden-rainbow,305,Pat Borders,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,306,Rene Arocha,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,307,Ruben Sierra,Oakland Athletics,,Golden Rainbow
+golden-rainbow,308,Steve Finley,Houston Astros,,Golden Rainbow
+golden-rainbow,309,Travis Fryman,Detroit Tigers,,Golden Rainbow
+golden-rainbow,310,Zane Smith,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,311,Willie Wilson,Chicago Cubs,,Golden Rainbow
+golden-rainbow,312,Trevor Hoffman,San Diego Padres,,Golden Rainbow
+golden-rainbow,313,Terry Pendleton,Atlanta Braves,,Golden Rainbow
+golden-rainbow,314,Salomon Torres,San Francisco Giants,,Golden Rainbow
+golden-rainbow,315,Robin Ventura,Chicago White Sox,,Golden Rainbow
+golden-rainbow,316,Randy Tomlin,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,317,Dave Stewart,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,318,Mike Benjamin,San Francisco Giants,,Golden Rainbow
+golden-rainbow,319,Matt Turner,Florida Marlins,,Golden Rainbow
+golden-rainbow,320,Manny Ramirez,Cleveland Indians,,Golden Rainbow
+golden-rainbow,321,Kevin Young,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,322,Ken Caminiti,Houston Astros,,Golden Rainbow
+golden-rainbow,323,Joe Girardi,Colorado Rockies,,Golden Rainbow
+golden-rainbow,324,Jeff McKnight,New York Mets,,Golden Rainbow
+golden-rainbow,325,Gene Harris,San Diego Padres,,Golden Rainbow
+golden-rainbow,326,Devon White,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,327,Darryl Kile,Houston Astros,,Golden Rainbow
+golden-rainbow,328,Craig Paquette,Oakland Athletics,,Golden Rainbow
+golden-rainbow,329,Cal Eldred,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,330,Bill Swift,San Francisco Giants,,Golden Rainbow
+golden-rainbow,331,Alan Trammell,Detroit Tigers,,Golden Rainbow
+golden-rainbow,332,Armando Reynoso,Colorado Rockies,,Golden Rainbow
+golden-rainbow,333,Brent Mayne,Kansas City Royals,,Golden Rainbow
+golden-rainbow,334,Chris Donnels,Houston Astros,,Golden Rainbow
+golden-rainbow,335,Darryl Strawberry,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,336,Dean Palmer,Texas Rangers,,Golden Rainbow
+golden-rainbow,337,Frank Castillo,Chicago Cubs,,Golden Rainbow
+golden-rainbow,338,Jeff King,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,339,John Franco,New York Mets,,Golden Rainbow
+golden-rainbow,340,Kevin Appier,Kansas City Royals,,Golden Rainbow
+golden-rainbow,341,Lance Blankenship,Oakland Athletics,,Golden Rainbow
+golden-rainbow,342,Mark McLemore,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,343,Pedro Astacio,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,344,Rich Batchelor,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,345,Ryan Bowen,Florida Marlins,,Golden Rainbow
+golden-rainbow,346,Terry Steinbach,Oakland Athletics,,Golden Rainbow
+golden-rainbow,347,Troy O'Leary,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,348,Willie Blair,Colorado Rockies,,Golden Rainbow
+golden-rainbow,349,Wade Boggs,New York Yankees,,Golden Rainbow
+golden-rainbow,350,Tim Raines,Chicago White Sox,,Golden Rainbow
+golden-rainbow,351,Scott Livingstone,Detroit Tigers,,Golden Rainbow
+golden-rainbow,352,Rod Correia,California Angels,,Golden Rainbow
+golden-rainbow,353,Ray Lankford,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,354,Pat Listach,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,355,Milt Thompson,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,356,Miguel Jimenez,Oakland Athletics,,Golden Rainbow
+golden-rainbow,357,Marc Newfield,Seattle Mariners,,Golden Rainbow
+golden-rainbow,358,Mark McGwire,Oakland Athletics,,Golden Rainbow
+golden-rainbow,359,Kirby Puckett,Minnesota Twins,,Golden Rainbow
+golden-rainbow,360,Kent Mercker,Atlanta Braves,,Golden Rainbow
+golden-rainbow,361,John Kruk,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,362,Jeff Kent,New York Mets,,Golden Rainbow
+golden-rainbow,363,Hal Morris,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,364,Edgar Martinez,Seattle Mariners,,Golden Rainbow
+golden-rainbow,365,Dave Magadan,Florida Marlins,,Golden Rainbow
+golden-rainbow,366,Dante Bichette,Colorado Rockies,,Golden Rainbow
+golden-rainbow,367,Chris Hammond,Florida Marlins,,Golden Rainbow
+golden-rainbow,368,Bret Saberhagen,New York Mets,,Golden Rainbow
+golden-rainbow,369,Billy Ripken,Texas Rangers,,Golden Rainbow
+golden-rainbow,370,Bill Gullickson,Detroit Tigers,,Golden Rainbow
+golden-rainbow,371,Andre Dawson,Boston Red Sox,,Golden Rainbow
+golden-rainbow,372,Roberto Kelly,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,373,Cal Ripken,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,374,Craig Biggio,Houston Astros,,Golden Rainbow
+golden-rainbow,375,Dan Pasqua,Chicago White Sox,,Golden Rainbow
+golden-rainbow,376,Dave Nilsson,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,377,Duane Ward,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,378,Greg Vaughn,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,379,Jeff Fassero,Montreal Expos,,Golden Rainbow
+golden-rainbow,380,Jerry DiPoto,Cleveland Indians,,Golden Rainbow
+golden-rainbow,381,John Patterson,San Francisco Giants,,Golden Rainbow
+golden-rainbow,382,Kevin Brown,Texas Rangers,,Golden Rainbow
+golden-rainbow,383,Kevin Roberson,Chicago Cubs,,Golden Rainbow
+golden-rainbow,384,Joe Orsulak,New York Mets,,Golden Rainbow
+golden-rainbow,385,Hilly Hathaway,California Angels,,Golden Rainbow
+golden-rainbow,386,Mike Greenwell,Boston Red Sox,,Golden Rainbow
+golden-rainbow,387,Orestes Destrade,Florida Marlins,,Golden Rainbow
+golden-rainbow,388,Mike Gallego,New York Yankees,,Golden Rainbow
+golden-rainbow,389,Ozzie Guillen,Chicago White Sox,,Golden Rainbow
+golden-rainbow,390,Raul Mondesi,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,391,Scott Lydy,Oakland Athletics,,Golden Rainbow
+golden-rainbow,392,Tom Urbani,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,393,Wil Cordero,Montreal Expos,,Golden Rainbow
+golden-rainbow,394,Tony Longmire,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,395,Todd Zeile,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,396,Scott Cooper,Boston Red Sox,,Golden Rainbow
+golden-rainbow,397,Ryne Sandberg,Chicago Cubs,,Golden Rainbow
+golden-rainbow,398,Ricky Bones,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,399,Phil Clark,San Diego Padres,,Golden Rainbow
+golden-rainbow,400,Orel Hershiser,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,401,Mike Henneman,Detroit Tigers,,Golden Rainbow
+golden-rainbow,402,Mark Lemke,Atlanta Braves,,Golden Rainbow
+golden-rainbow,403,Mark Grace,Chicago Cubs,,Golden Rainbow
+golden-rainbow,404,Ken Ryan,Boston Red Sox,,Golden Rainbow
+golden-rainbow,405,John Smoltz,Atlanta Braves,,Golden Rainbow
+golden-rainbow,406,Jeff Conine,Florida Marlins,,Golden Rainbow
+golden-rainbow,407,Greg Harris,Boston Red Sox,,Golden Rainbow
+golden-rainbow,408,Doug Drabek,Houston Astros,,Golden Rainbow
+golden-rainbow,409,Dave Fleming,Seattle Mariners,,Golden Rainbow
+golden-rainbow,410,Danny Tartabull,New York Yankees,,Golden Rainbow
+golden-rainbow,411,Chad Kreuter,Detroit Tigers,,Golden Rainbow
+golden-rainbow,412,Brad Ausmus,San Diego Padres,,Golden Rainbow
+golden-rainbow,413,Ben McDonald,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,414,Barry Larkin,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,415,Bret Barberie,Florida Marlins,,Golden Rainbow
+golden-rainbow,416,Chuck Knoblauch,Minnesota Twins,,Golden Rainbow
+golden-rainbow,417,Ozzie Smith,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,418,Ed Sprague,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,419,Matt Williams,San Francisco Giants,,Golden Rainbow
+golden-rainbow,420,Jeremy Hernandez,Cleveland Indians,,Golden Rainbow
+golden-rainbow,421,Jose Bautista,Chicago Cubs,,Golden Rainbow
+golden-rainbow,422,Kevin Mitchell,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,423,Manuel Lee,Texas Rangers,,Golden Rainbow
+golden-rainbow,424,Mike Devereaux,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,425,Omar Olivares,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,426,Rafael Belliard,Atlanta Braves,,Golden Rainbow
+golden-rainbow,427,Richie Lewis,Florida Marlins,,Golden Rainbow
+golden-rainbow,428,Ron Darling,Oakland Athletics,,Golden Rainbow
+golden-rainbow,429,Shane Mack,Minnesota Twins,,Golden Rainbow
+golden-rainbow,430,Tim Hulett,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,431,Wally Joyner,Kansas City Royals,,Golden Rainbow
+golden-rainbow,432,Wes Chamberlain,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,433,Tom Browning,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,434,Scott Radinsky,Chicago White Sox,,Golden Rainbow
+golden-rainbow,435,Rondell White,Montreal Expos,,Golden Rainbow
+golden-rainbow,436,Rod Beck,San Francisco Giants,,Golden Rainbow
+golden-rainbow,437,Rheal Cormier,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,438,Randy Johnson,Seattle Mariners,,Golden Rainbow
+golden-rainbow,439,Pete Schourek,New York Mets,,Golden Rainbow
+golden-rainbow,440,Mo Vaughn,Boston Red Sox,,Golden Rainbow
+golden-rainbow,441,Mike Timlin,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,442,Mark Langston,California Angels,,Golden Rainbow
+golden-rainbow,443,Lou Whitaker,Detroit Tigers,,Golden Rainbow
+golden-rainbow,444,Kevin Stocker,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,445,Ken Hill,Montreal Expos,,Golden Rainbow
+golden-rainbow,446,John Wetteland,Montreal Expos,,Golden Rainbow
+golden-rainbow,447,J.T. Snow,California Angels,,Golden Rainbow
+golden-rainbow,448,Erik Pappas,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,449,David Hulse,Texas Rangers,,Golden Rainbow
+golden-rainbow,450,Darren Daulton,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,451,Chris Hoiles,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,452,Bryan Harvey,Florida Marlins,,Golden Rainbow
+golden-rainbow,453,Darren Lewis,San Francisco Giants,,Golden Rainbow
+golden-rainbow,454,Andres Galarraga AW,Colorado Rockies,,Golden Rainbow
+golden-rainbow,455,Joe Hesketh,Boston Red Sox,,Golden Rainbow
+golden-rainbow,456,Jose Valentin,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,457,Dan Peltier,Texas Rangers,,Golden Rainbow
+golden-rainbow,458,Joe Boever,Detroit Tigers,,Golden Rainbow
+golden-rainbow,459,Kevin Rogers,San Francisco Giants,,Golden Rainbow
+golden-rainbow,460,Craig Shipley,San Diego Padres,,Golden Rainbow
+golden-rainbow,461,Alvaro Espinoza,Cleveland Indians,,Golden Rainbow
+golden-rainbow,462,Wilson Alvarez,Chicago White Sox,,Golden Rainbow
+golden-rainbow,463,Cory Snyder,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,464,Candy Maldonado,Cleveland Indians,,Golden Rainbow
+golden-rainbow,465,Blas Minor,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,466,Rod Bolton,Chicago White Sox,,Golden Rainbow
+golden-rainbow,467,Kenny Rogers,Texas Rangers,,Golden Rainbow
+golden-rainbow,468,Greg Myers,California Angels,,Golden Rainbow
+golden-rainbow,469,Jimmy Key,New York Yankees,,Golden Rainbow
+golden-rainbow,470,Tony Castillo,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,471,Mike Stanton,Atlanta Braves,,Golden Rainbow
+golden-rainbow,472,Deion Sanders,Atlanta Braves,,Golden Rainbow
+golden-rainbow,473,Tito Navarro,New York Mets,,Golden Rainbow
+golden-rainbow,474,Mike Gardiner,Detroit Tigers,,Golden Rainbow
+golden-rainbow,475,Steve Reed,Colorado Rockies,,Golden Rainbow
+golden-rainbow,476,John Roper,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,477,Mike Trombley,Minnesota Twins,,Golden Rainbow
+golden-rainbow,478,Charles Nagy,Cleveland Indians,,Golden Rainbow
+golden-rainbow,479,Larry Casian,Minnesota Twins,,Golden Rainbow
+golden-rainbow,480,Eric Hillman,New York Mets,,Golden Rainbow
+golden-rainbow,481,Bill Wertz,Cleveland Indians,,Golden Rainbow
+golden-rainbow,482,Jeff Schwarz,Chicago White Sox,,Golden Rainbow
+golden-rainbow,483,John Valentin,Boston Red Sox,,Golden Rainbow
+golden-rainbow,484,Carl Willis,Minnesota Twins,,Golden Rainbow
+golden-rainbow,485,Gary Gaetti,Kansas City Royals,,Golden Rainbow
+golden-rainbow,486,Bill Pecota,Atlanta Braves,,Golden Rainbow
+golden-rainbow,487,John Smiley,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,488,Mike Mussina,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,489,Mike Ignasiak,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,490,Billy Brewer,Kansas City Royals,,Golden Rainbow
+golden-rainbow,491,Jack Voigt,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,492,Mike Munoz,Colorado Rockies,,Golden Rainbow
+golden-rainbow,493,Lee Tinsley,Seattle Mariners,,Golden Rainbow
+golden-rainbow,494,Bob Wickman,New York Yankees,,Golden Rainbow
+golden-rainbow,495,Roger Salkeld,Seattle Mariners,,Golden Rainbow
+golden-rainbow,496,Thomas Howard,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,497,Mark Davis,San Diego Padres,,Golden Rainbow
+golden-rainbow,498,Dave Clark,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,499,Turk Wendell,Chicago Cubs,,Golden Rainbow
+golden-rainbow,500,Rafael Bournigal,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,501,Chip Hale,Minnesota Twins,,Golden Rainbow
+golden-rainbow,502,Matt Whiteside,Texas Rangers,,Golden Rainbow
+golden-rainbow,503,Brian Koelling,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,504,Jeff Reed,San Francisco Giants,,Golden Rainbow
+golden-rainbow,505,Paul Wagner,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,506,Torey Lovullo,California Angels,,Golden Rainbow
+golden-rainbow,507,Curtis Leskanic,Colorado Rockies,,Golden Rainbow
+golden-rainbow,508,Derek Lilliquist,Cleveland Indians,,Golden Rainbow
+golden-rainbow,509,Joe Magrane,California Angels,,Golden Rainbow
+golden-rainbow,510,Mackey Sasser,Seattle Mariners,,Golden Rainbow
+golden-rainbow,511,Lloyd McClendon,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,512,Jayhawk Owens,Colorado Rockies,,Golden Rainbow
+golden-rainbow,513,Woody Williams,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,514,Gary Redus,Texas Rangers,,Golden Rainbow
+golden-rainbow,515,Tim Spehr,Montreal Expos,,Golden Rainbow
+golden-rainbow,516,Jim Abbott,New York Yankees,,Golden Rainbow
+golden-rainbow,517,Lou Frazier,Montreal Expos,,Golden Rainbow
+golden-rainbow,518,Erik Plantenberg,Seattle Mariners,,Golden Rainbow
+golden-rainbow,519,Tim Worrell,San Diego Padres,,Golden Rainbow
+golden-rainbow,520,Brian McRae,Kansas City Royals,,Golden Rainbow
+golden-rainbow,521,Chan Ho Park,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,522,Mark Wohlers,Atlanta Braves,,Golden Rainbow
+golden-rainbow,523,Geronimo Pena,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,524,Andy Ashby,San Diego Padres,,Golden Rainbow
+golden-rainbow,525,Andre Dawson / Tim Raines TALE,Boston Red Sox / Chicago White Sox,,Golden Rainbow
+golden-rainbow,526,Paul Molitor / Dave Winfield TALE,Toronto Blue Jays / Minnesota Twins,,Golden Rainbow
+golden-rainbow,527,Joe Carter DL,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,528,Frank Thomas DL,Chicago White Sox,,Golden Rainbow
+golden-rainbow,529,Ken Griffey Jr. DL,Seattle Mariners,,Golden Rainbow
+golden-rainbow,530,David Justice DL,Atlanta Braves,,Golden Rainbow
+golden-rainbow,531,Gregg Jefferies DL,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,532,Barry Bonds DL,San Francisco Giants,,Golden Rainbow
+golden-rainbow,533,John Kruk QS,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,534,Roger Clemens QS,Boston Red Sox,,Golden Rainbow
+golden-rainbow,535,Cecil Fielder QS,Detroit Tigers,,Golden Rainbow
+golden-rainbow,536,Ruben Sierra QS,Oakland Athletics,,Golden Rainbow
+golden-rainbow,537,Tony Gwynn QS,San Diego Padres,,Golden Rainbow
+golden-rainbow,538,Tom Glavine QS,Atlanta Braves,,Golden Rainbow
+golden-rainbow,541,Ozzie Smith ATL,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,542,Eddie Murray ATL,Cleveland Indians,,Golden Rainbow
+golden-rainbow,543a,Lee Smith ATL,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,543b,Lonnie Smith,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,544,Greg Maddux AW,Atlanta Braves,,Golden Rainbow
+golden-rainbow,545,Denis Boucher,Montreal Expos,,Golden Rainbow
+golden-rainbow,546,Mark Gardner,Florida Marlins,,Golden Rainbow
+golden-rainbow,547,Bo Jackson,California Angels,,Golden Rainbow
+golden-rainbow,548,Eric Anthony,Seattle Mariners,,Golden Rainbow
+golden-rainbow,549,Delino DeShields,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,550,Turner Ward,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,551,Scott Sanderson,Chicago White Sox,,Golden Rainbow
+golden-rainbow,552,Hector Carrasco,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,553,Tony Phillips,Detroit Tigers,,Golden Rainbow
+golden-rainbow,554,Melido Perez,New York Yankees,,Golden Rainbow
+golden-rainbow,555,Mike Felder,Houston Astros,,Golden Rainbow
+golden-rainbow,556,Jack Morris,Cleveland Indians,,Golden Rainbow
+golden-rainbow,557,Rafael Palmeiro,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,558,Shane Reynolds,Houston Astros,,Golden Rainbow
+golden-rainbow,559,Pete Incaviglia,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,560,Greg Harris,Colorado Rockies,,Golden Rainbow
+golden-rainbow,561,Matt Walbeck,Minnesota Twins,,Golden Rainbow
+golden-rainbow,562,Todd Van Poppel,Oakland Athletics,,Golden Rainbow
+golden-rainbow,563,Todd Stottlemyre,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,564,Ricky Bones,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,565,Mike Jackson,San Francisco Giants,,Golden Rainbow
+golden-rainbow,566,Kevin McReynolds,New York Mets,,Golden Rainbow
+golden-rainbow,567,Melvin Nieves,San Diego Padres,,Golden Rainbow
+golden-rainbow,568,Juan Gonzalez,Texas Rangers,,Golden Rainbow
+golden-rainbow,569,Frank Viola,Boston Red Sox,,Golden Rainbow
+golden-rainbow,570,Vince Coleman,Kansas City Royals,,Golden Rainbow
+golden-rainbow,571,Brian Anderson,California Angels,,Golden Rainbow
+golden-rainbow,572,Omar Vizquel,Cleveland Indians,,Golden Rainbow
+golden-rainbow,573,Bernie Williams,New York Yankees,,Golden Rainbow
+golden-rainbow,574,Tom Glavine,Atlanta Braves,,Golden Rainbow
+golden-rainbow,575,Mitch Williams,Houston Astros,,Golden Rainbow
+golden-rainbow,576,Shawon Dunston,Chicago Cubs,,Golden Rainbow
+golden-rainbow,577,Mike Lansing,Montreal Expos,,Golden Rainbow
+golden-rainbow,578,Greg Pirkl,Seattle Mariners,,Golden Rainbow
+golden-rainbow,579,Sid Fernandez,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,580,Doug Jones,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,581,Walt Weiss,Colorado Rockies,,Golden Rainbow
+golden-rainbow,582,Tim Belcher,Detroit Tigers,,Golden Rainbow
+golden-rainbow,583,Alex Fernandez,Chicago White Sox,,Golden Rainbow
+golden-rainbow,584,Alex Cole,Minnesota Twins,,Golden Rainbow
+golden-rainbow,585,Greg Cadaret,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,586,Bob Tewksbury,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,587,Dave Hansen,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,588,Kurt Abbott,Florida Marlins,,Golden Rainbow
+golden-rainbow,589,Rick White,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,590,Kevin Bass,Houston Astros,,Golden Rainbow
+golden-rainbow,591,Geronimo Berroa,Oakland Athletics,,Golden Rainbow
+golden-rainbow,592,Jaime Navarro,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,593,Steve Farr,Cleveland Indians,,Golden Rainbow
+golden-rainbow,594,Jack Armstrong,Texas Rangers,,Golden Rainbow
+golden-rainbow,595,Steve Howe,New York Yankees,,Golden Rainbow
+golden-rainbow,596,Jose Rijo,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,597,Otis Nixon,Boston Red Sox,,Golden Rainbow
+golden-rainbow,598,Robby Thompson,San Francisco Giants,,Golden Rainbow
+golden-rainbow,599,Kelly Stinnett,New York Mets,,Golden Rainbow
+golden-rainbow,600,Carlos Delgado,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,601,Brian Johnson,San Diego Padres,,Golden Rainbow
+golden-rainbow,602,Gregg Olson,Atlanta Braves,,Golden Rainbow
+golden-rainbow,603,Jim Edmonds,California Angels,,Golden Rainbow
+golden-rainbow,604,Mike Blowers,Seattle Mariners,,Golden Rainbow
+golden-rainbow,605,Lee Smith,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,606,Pat Rapp,Florida Marlins,,Golden Rainbow
+golden-rainbow,607,Mike Magnante,Kansas City Royals,,Golden Rainbow
+golden-rainbow,608,Karl Rhodes,Chicago Cubs,,Golden Rainbow
+golden-rainbow,609,Jeff Juden,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,610,Rusty Meacham,Kansas City Royals,,Golden Rainbow
+golden-rainbow,611,Pedro Martinez,Montreal Expos,,Golden Rainbow
+golden-rainbow,612,Todd Worrell,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,613,Stan Javier,Oakland Athletics,,Golden Rainbow
+golden-rainbow,614,Mike Hampton,Houston Astros,,Golden Rainbow
+golden-rainbow,615,Jose Guzman,Chicago Cubs,,Golden Rainbow
+golden-rainbow,616,Xavier Hernandez,New York Yankees,,Golden Rainbow
+golden-rainbow,617,David Wells,Detroit Tigers,,Golden Rainbow
+golden-rainbow,618,John Habyan,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,619,Chris Nabholz,Cleveland Indians,,Golden Rainbow
+golden-rainbow,620,Bobby Jones,New York Mets,,Golden Rainbow
+golden-rainbow,621,Chris James,Texas Rangers,,Golden Rainbow
+golden-rainbow,622,Ellis Burks,Colorado Rockies,,Golden Rainbow
+golden-rainbow,623,Erik Hanson,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,624,Pat Meares,Minnesota Twins,,Golden Rainbow
+golden-rainbow,625,Harold Reynolds,California Angels,,Golden Rainbow
+golden-rainbow,626,Bob Hamelin RR,Kansas City Royals,,Golden Rainbow
+golden-rainbow,627,Manny Ramirez RR,Cleveland Indians,,Golden Rainbow
+golden-rainbow,628,Ryan Klesko RR,Atlanta Braves,,Golden Rainbow
+golden-rainbow,629,Carlos Delgado RR,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,630,Javy Lopez RR,Atlanta Braves,,Golden Rainbow
+golden-rainbow,631,Steve Karsay RR,Oakland Athletics,,Golden Rainbow
+golden-rainbow,632,Rick Helling RR,Texas Rangers,,Golden Rainbow
+golden-rainbow,633,Steve Trachsel RR,Chicago Cubs,,Golden Rainbow
+golden-rainbow,634,Hector Carrasco RR,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,635,Andy Stankiewicz,Houston Astros,,Golden Rainbow
+golden-rainbow,636,Paul Sorrento,Cleveland Indians,,Golden Rainbow
+golden-rainbow,637,Scott Erickson,Minnesota Twins,,Golden Rainbow
+golden-rainbow,638,Chipper Jones,Atlanta Braves,,Golden Rainbow
+golden-rainbow,639,Luis Polonia,New York Yankees,,Golden Rainbow
+golden-rainbow,640,Howard Johnson,Colorado Rockies,,Golden Rainbow
+golden-rainbow,641,John Dopson,California Angels,,Golden Rainbow
+golden-rainbow,642,Jody Reed,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,644,Mark Portugal,San Francisco Giants,,Golden Rainbow
+golden-rainbow,645,Paul Molitor,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,646,Paul Assenmacher,Chicago White Sox,,Golden Rainbow
+golden-rainbow,647,Hubie Brooks,Kansas City Royals,,Golden Rainbow
+golden-rainbow,648,Gary Wayne,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,649,Sean Berry,Montreal Expos,,Golden Rainbow
+golden-rainbow,650,Roger Clemens,Boston Red Sox,,Golden Rainbow
+golden-rainbow,651,Brian Hunter,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,652,Wally Whitehurst,San Diego Padres,,Golden Rainbow
+golden-rainbow,653,Allen Watson,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,654,Rickey Henderson,Oakland Athletics,,Golden Rainbow
+golden-rainbow,655,Sid Bream,Houston Astros,,Golden Rainbow
+golden-rainbow,656,Dan Wilson,Seattle Mariners,,Golden Rainbow
+golden-rainbow,657,Ricky Jordan,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,658,Sterling Hitchcock,New York Yankees,,Golden Rainbow
+golden-rainbow,659,Darrin Jackson,Chicago White Sox,,Golden Rainbow
+golden-rainbow,660,Junior Felix,Detroit Tigers,,Golden Rainbow
+golden-rainbow,661,Tom Brunansky,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,662,Jose Vizcaino,New York Mets,,Golden Rainbow
+golden-rainbow,663,Mark Leiter,California Angels,,Golden Rainbow
+golden-rainbow,664,Gil Heredia,Montreal Expos,,Golden Rainbow
+golden-rainbow,665,Fred McGriff,Atlanta Braves,,Golden Rainbow
+golden-rainbow,666,Will Clark,Texas Rangers,,Golden Rainbow
+golden-rainbow,667,Al Leiter,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,668,James Mouton,Houston Astros,,Golden Rainbow
+golden-rainbow,669,Billy Bean,San Diego Padres,,Golden Rainbow
+golden-rainbow,670,Scott Leius,Minnesota Twins,,Golden Rainbow
+golden-rainbow,671,Bret Boone,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,672,Darren Holmes,Colorado Rockies,,Golden Rainbow
+golden-rainbow,673,Dave Weathers,Florida Marlins,,Golden Rainbow
+golden-rainbow,674,Eddie Murray,Cleveland Indians,,Golden Rainbow
+golden-rainbow,675,Felix Fermin,Seattle Mariners,,Golden Rainbow
+golden-rainbow,676,Chris Sabo,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,677,Billy Spiers,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,678,Aaron Sele,Boston Red Sox,,Golden Rainbow
+golden-rainbow,679,Juan Samuel,Detroit Tigers,,Golden Rainbow
+golden-rainbow,680,Julio Franco,Chicago White Sox,,Golden Rainbow
+golden-rainbow,681,Heathcliff Slocumb,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,682,Denny Martinez,Cleveland Indians,,Golden Rainbow
+golden-rainbow,683,Jerry Browne,Florida Marlins,,Golden Rainbow
+golden-rainbow,684,Pedro Martinez,San Diego Padres,,Golden Rainbow
+golden-rainbow,685,Rex Hudler,California Angels,,Golden Rainbow
+golden-rainbow,686,Willie McGee,San Francisco Giants,,Golden Rainbow
+golden-rainbow,687,Andy Van Slyke,Pittsburgh Pirates,,Golden Rainbow
+golden-rainbow,688,Pat Mahomes,Minnesota Twins,,Golden Rainbow
+golden-rainbow,689,Dave Henderson,Kansas City Royals,,Golden Rainbow
+golden-rainbow,690,Tony Eusebio,Houston Astros,,Golden Rainbow
+golden-rainbow,691,Rick Sutcliffe,St. Louis Cardinals,,Golden Rainbow
+golden-rainbow,692,Willie Banks,Chicago Cubs,,Golden Rainbow
+golden-rainbow,693,Alan Mills,Baltimore Orioles,,Golden Rainbow
+golden-rainbow,694,Jeff Treadway,Los Angeles Dodgers,,Golden Rainbow
+golden-rainbow,695,Alex Gonzalez,Toronto Blue Jays,,Golden Rainbow
+golden-rainbow,696,David Segui,New York Mets,,Golden Rainbow
+golden-rainbow,697,Rick Helling,Texas Rangers,,Golden Rainbow
+golden-rainbow,698,Bip Roberts,San Diego Padres,,Golden Rainbow
+golden-rainbow,699,Jeff Cirillo,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,700,Terry Mulholland,New York Yankees,,Golden Rainbow
+golden-rainbow,701,Marvin Freeman,Colorado Rockies,,Golden Rainbow
+golden-rainbow,702,Jason Bere,Chicago White Sox,,Golden Rainbow
+golden-rainbow,703,Javy Lopez,Atlanta Braves,,Golden Rainbow
+golden-rainbow,704,Greg Hibbard,Seattle Mariners,,Golden Rainbow
+golden-rainbow,705,Tommy Greene,Philadelphia Phillies,,Golden Rainbow
+golden-rainbow,706,Marquis Grissom,Montreal Expos,,Golden Rainbow
+golden-rainbow,707,Brian Harper,Milwaukee Brewers,,Golden Rainbow
+golden-rainbow,708,Steve Karsay,Oakland Athletics,,Golden Rainbow
+golden-rainbow,709,Jeff Brantley,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,710,Jeff Russell,Boston Red Sox,,Golden Rainbow
+golden-rainbow,711,Bryan Hickerson,San Francisco Giants,,Golden Rainbow
+golden-rainbow,712,Jim Pittsley,Kansas City Royals,,Golden Rainbow
+golden-rainbow,713,Bobby Ayala,Seattle Mariners,,Golden Rainbow
+golden-rainbow,714,John Smoltz FAN,Atlanta Braves,,Golden Rainbow
+golden-rainbow,715,Jose Rijo FAN,Cincinnati Reds,,Golden Rainbow
+golden-rainbow,716,Greg Maddux FAN,Atlanta Braves,,Golden Rainbow
+golden-rainbow,717,Matt Williams FAN,San Francisco Giants,,Golden Rainbow
+golden-rainbow,718,Frank Thomas FAN,Chicago White Sox,,Golden Rainbow
+golden-rainbow,719,Ryne Sandberg FAN,Chicago Cubs,,Golden Rainbow
+golden-rainbow,720,Checklist: 541-720 CL,,,Golden Rainbow
+bowman-previews,1,Frank Thomas,Chicago White Sox,,1994 Bowman Previews
+bowman-previews,2,Mike Piazza,Los Angeles Dodgers,,1994 Bowman Previews
+bowman-previews,3,Albert Belle,Cleveland Indians,,1994 Bowman Previews
+bowman-previews,4,Javy Lopez,Atlanta Braves,,1994 Bowman Previews
+bowman-previews,5,Cliff Floyd,Montreal Expos,,1994 Bowman Previews
+bowman-previews,6,Alex Gonzalez,Toronto Blue Jays,,1994 Bowman Previews
+bowman-previews,7,Ricky Bottalico,Philadelphia Phillies,,1994 Bowman Previews
+bowman-previews,8,Tony Clark,Detroit Tigers,,1994 Bowman Previews
+bowman-previews,9,Mac Suzuki,Seattle Mariners,,1994 Bowman Previews
+bowman-previews,10,James Mouton,Houston Astros,,1994 Bowman Previews
+dugout-dirt,1,Mike Piazza,Los Angeles Dodgers,,Dugout Dirt
+dugout-dirt,2,Dave Winfield,Minnesota Twins,,Dugout Dirt
+dugout-dirt,3,John Kruk,Philadelphia Phillies,,Dugout Dirt
+dugout-dirt,4,Cal Ripken,Baltimore Orioles,,Dugout Dirt
+dugout-dirt,5,Jack McDowell,Chicago White Sox,,Dugout Dirt
+dugout-dirt,6,Barry Bonds,San Francisco Giants,,Dugout Dirt
+dugout-dirt,7,"Ken Griffey, Jr.",Seattle Mariners,,Dugout Dirt
+dugout-dirt,8,Tim Salmon,California Angels,,Dugout Dirt
+dugout-dirt,9,Frank Thomas,Chicago White Sox,,Dugout Dirt
+dugout-dirt,10,Jeff Kent,New York Mets,,Dugout Dirt
+dugout-dirt,11,Randy Johnson,Seattle Mariners,,Dugout Dirt
+dugout-dirt,12,Darren Daulton,Philadelphia Phillies,,Dugout Dirt
+finest,1,Jeff Bagwell,Houston Astros,,Finest
+finest,2,Albert Belle,Cleveland Indians,,Finest
+finest,3,Barry Bonds,San Francisco Giants,,Finest
+finest,4,Juan Gonzalez,Texas Rangers,,Finest
+finest,5,"Ken Griffey, Jr.",Seattle Mariners,,Finest
+finest,6,Marquis Grissom,Montreal Expos,,Finest
+finest,7,David Justice,Atlanta Braves,,Finest
+finest,8,Mike Piazza,Los Angeles Dodgers,,Finest
+finest,9,Tim Salmon,California Angels,,Finest
+finest,10,Frank Thomas,Chicago White Sox,,Finest
+super-teams,1,Atlanta Braves,Atlanta Braves,,Super Teams
+super-teams,2,Chicago Cubs,,,Super Teams
+super-teams,3,Cincinnati Reds,Cincinnati Reds,,Super Teams
+super-teams,4,Colorado Rockies,,,Super Teams
+super-teams,5,Florida Marlins,,,Super Teams
+super-teams,6,Houston Astros,,,Super Teams
+super-teams,7,Los Angeles Dodgers,Los Angeles Dodgers,,Super Teams
+super-teams,8,Montreal Expos,,,Super Teams
+super-teams,9,New York Mets,,,Super Teams
+super-teams,10,Philadelphia Phillies,,,Super Teams
+super-teams,11,Pittsburgh Pirates,,,Super Teams
+super-teams,12,St. Louis Cardinals,,,Super Teams
+super-teams,13,San Diego Padres,,,Super Teams
+super-teams,14,San Francisco Giants,,,Super Teams
+super-teams,15,Baltimore Orioles,,,Super Teams
+super-teams,16,Boston Red Sox,Boston Red Sox,,Super Teams
+super-teams,17,California Angels,,,Super Teams
+super-teams,18,Chicago White Sox,,,Super Teams
+super-teams,19,Cleveland Indians,Cleveland Indians,,Super Teams
+super-teams,20,Detroit Tigers,,,Super Teams
+super-teams,21,Kansas City Royals,,,Super Teams
+super-teams,22,Milwaukee Brewers,,,Super Teams
+super-teams,23,Minnesota Twins,,,Super Teams
+super-teams,24,New York Yankees,,,Super Teams
+super-teams,25,Oakland Athletics,,,Super Teams
+super-teams,26,Seattle Mariners,Seattle Mariners,,Super Teams
+super-teams,27,Texas Rangers,,,Super Teams
+super-teams,28,Toronto Blue Jays,,,Super Teams
+info-series-1,1,1st Day Issue,,,Info Cards Series 1
+info-series-1,2,Infocard: Tale of 2 Players,,,Info Cards Series 1
+info-series-1,3,Atlanta Braves: Topps 3 Trios,,,Info Cards Series 1
+info-series-1,4,Superteam Cards,,,Info Cards Series 1
+info-series-1,5,Mike Piazza: Dugout Dirt,,,Info Cards Series 1
+info-series-1,6,HR Club,,,Info Cards Series 1
+info-series-1,NNO,Award Winners 93,,,Info Cards Series 1
+info-series-1,8,4/10/93: ML Debut,,,Info Cards Series 1
+info-series-1,9,Nolan Ryan: A Final Tribute,,,Info Cards Series 1
+info-series-1,10,New MLB Division Alignments,,,Info Cards Series 1
+info-series-2,1,Rookie Rockers & Rookie Rockets,,,Info Cards Series 2
+info-series-2,2,Fantastic Finishers,,,Info Cards Series 2
+info-series-2,3,Active All-Time Career Leaders,,,Info Cards Series 2
+info-series-2,4,4/8/94: MLB Debut,,,Info Cards Series 2
+info-series-2,5,Jeff Kent: Dugout Dirt,,,Info Cards Series 2
+info-series-2,6,Stadium Club Finest,,,Info Cards Series 2
+info-series-3,1,1st Day Issue,,,Info Cards Series 3
+info-series-3,2,Tale of 2 Players,,,Info Cards Series 3
+info-series-3,3,The Red Zone,,,Info Cards Series 3
+info-series-3,4,Ken Griffey: Dugout Dirt,,,Info Cards Series 3
+info-series-3,5,Award Winners 93,,,Info Cards Series 3
+info-series-3,6,4/10/93: ML Debut,,,Info Cards Series 3
+info-series-3,7,New MLB Division Alignments,,,Info Cards Series 3
