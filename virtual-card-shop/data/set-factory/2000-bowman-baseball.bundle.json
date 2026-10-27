@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1371/2000-Bowman",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1371/2000-Bowman",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/1371/2000-Bowman"
+  },
+  "decisions": {
+    "base": "440-card checklist equally likely; 114 true base rookies from TCDB rookie index.",
+    "parallels": "Retro / Future 440 (one per original pack), Gold 440 (1:64 standard packs). Parallel subjects/numbers must match base.",
+    "autographs": "40 pack-issued autographs; preserve foil variants Blue 1:144, Silver 1:312, Gold 1:604, standard Hobby/Retail. These are mutually exclusive foil tiers, not an all-cards parallel.",
+    "inserts": "Bowman's Best Previews 10 1:18; Early Indications 10 1:24; Major Power 10 1:24; Tool Time 20 1:8.",
+    "excluded": "Pre-Production promotional set excluded. One unnumbered generic checklist listed at the parent set's inserts page is excluded pending confirmed pack-issued identity/unique number.",
+    "pack": "VCS four cards/pack, 24 packs/box. Odds represent standard Hobby/Retail, Jumbo varies and needs review.",
+    "release": "Unreleased until card images, pricing, odds and final team QA."
+  },
+  "product": {
+    "id": "2000_Bowman_Baseball",
+    "year": 2000,
+    "brand": "Bowman",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "2000-bowman-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2000_Bowman_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 440,
+      "sourceSetId": 1371,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1371/2000-Bowman",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "retro-future",
+      "id": "2000_Bowman_Baseball_retro_future",
+      "name": "Retro / Future",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "expectedCards": 440,
+      "sourceSetId": 9720,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9720/2000-Bowman",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "gold",
+      "id": "2000_Bowman_Baseball_gold",
+      "name": "Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": 64,
+      "expectedCards": 440,
+      "sourceSetId": 11948,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11948/2000-Bowman",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "autographs",
+      "id": "2000_Bowman_Baseball_autographs",
+      "name": "Autographs (Blue, Silver, Gold)",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 40,
+      "sourceSetId": 11943,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11943/2000-Bowman",
+      "defaultGradeability": "COMMON",
+      "notes": "Each card tagged Blue/Silver/Gold; group odds not represented by one number"
+    },
+    {
+      "key": "bowmans-best-previews",
+      "id": "2000_Bowman_Baseball_bowmans_best_previews",
+      "name": "Bowman's Best Previews",
+      "kind": "INSERT",
+      "oddsPerPack": 18,
+      "expectedCards": 10,
+      "sourceSetId": 11944,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11944/2000-Bowman",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "early-indications",
+      "id": "2000_Bowman_Baseball_early_indications",
+      "name": "Early Indications",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "expectedCards": 10,
+      "sourceSetId": 11947,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11947/2000-Bowman",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "major-power",
+      "id": "2000_Bowman_Baseball_major_power",
+      "name": "Major Power",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "expectedCards": 10,
+      "sourceSetId": 11949,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11949/2000-Bowman",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "tool-time",
+      "id": "2000_Bowman_Baseball_tool_time",
+      "name": "Tool Time",
+      "kind": "INSERT",
+      "oddsPerPack": 8,
+      "expectedCards": 20,
+      "sourceSetId": 11950,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11950/2000-Bowman",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    }
+  ]
+}
