@@ -27,7 +27,7 @@ def clean(s):
  s=" ".join(s.split()).strip()
  # TCDB sometimes concatenates VAR and its explanatory annotation.
  # Restrict this repair to documented VAR+word forms, not player names.
- s=re.sub(r"(?:,\s*|\s+)VAR(?=Randomly|Random\s)", " VAR", s, flags=re.I)
+ s=re.sub(r"(?:,\s*|\s+)VAR(?:VAR)?(?=Randomly|Random\s|:)", " VAR", s, flags=re.I)
  m=TOKEN.search(s)
  return s[:m.start()].strip(" ,;") if m else s
 def get(url):
@@ -125,6 +125,7 @@ def tests():
  assert clean("Steve Kline / Herb Perry OD, RCRC for Kline only")=="Steve Kline / Herb Perry OD"
  assert clean("Eddy Diaz / Desi Relaford OD, RCRC for Diaz only")=="Eddy Diaz / Desi Relaford OD"
  assert clean("Roger Cedeno / Ron Coomer OD,RCRC for Coomer only.")=="Roger Cedeno / Ron Coomer OD"
+ assert clean("Win the World\u0027s Most Valuable Card Official Entry Card VARVAR: Orange on upper front")=="Win the World\u0027s Most Valuable Card Official Entry Card"
  assert clean("Win the World\u0027s Most Valuable Card Official Entry Card VARRandom stock detail")=="Win the World\u0027s Most Valuable Card Official Entry Card"
  print("1995 Topps offline self-tests passed")
 if __name__=="__main__":
