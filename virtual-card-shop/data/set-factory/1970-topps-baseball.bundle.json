@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/70/1970-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/70/1970-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/70/1970-Topps"
+  },
+  "decisions": {
+    "base": "720-card Base checklist, seven original release series; one card per number; do not multiply uncorrected errors.",
+    "rookies": "TCDB identifies 85 unique Base rookie numbers, including multi-player Rookie Stars; preserve full subject/team identities.",
+    "inserts": "Three pack-issued 24-piece inserts: Booklets, Posters, Scratch-Offs.",
+    "series": "Seven original series; High Number series #634-720. Keep as a single Base product set, then review distribution before release.",
+    "pack": "Original wax packs were 10 cards for $0.10; VCS standard 4 cards per pack and 24 packs per box; pack-insert frequencies unverified and intentionally null.",
+    "release": "UNRELEASED. Require card images, price, series-aware odds, team QA."
+  },
+  "product": {
+    "id": "1970_Topps_Baseball",
+    "year": 1970,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1970-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1970_Topps_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "sourceSetId": 70,
+      "expectedCards": 720,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/70/1970-Topps",
+      "defaultGradeability": "COMMON",
+      "notes": "Seven original series, #1-720"
+    },
+    {
+      "key": "booklets",
+      "id": "1970_Topps_Baseball_booklets",
+      "name": "Booklets",
+      "kind": "INSERT",
+      "sourceSetId": 9133,
+      "expectedCards": 24,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9133/1970-Topps",
+      "defaultGradeability": "COMMON",
+      "notes": "Folded six-page story booklets included in wax packs"
+    },
+    {
+      "key": "posters",
+      "id": "1970_Topps_Baseball_posters",
+      "name": "Posters",
+      "kind": "INSERT",
+      "sourceSetId": 9956,
+      "expectedCards": 24,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9956/1970-Topps",
+      "defaultGradeability": "COMMON",
+      "notes": "Folded oversized player posters included in wax packs"
+    },
+    {
+      "key": "scratch-offs",
+      "id": "1970_Topps_Baseball_scratch_offs",
+      "name": "Scratch-Offs",
+      "kind": "INSERT",
+      "sourceSetId": 9957,
+      "expectedCards": 24,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9957/1970-Topps",
+      "defaultGradeability": "COMMON",
+      "notes": "Game scratch-off cards included in wax packs"
+    }
+  ]
+}
