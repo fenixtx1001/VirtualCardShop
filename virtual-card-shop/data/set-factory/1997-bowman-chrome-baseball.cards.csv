@@ -1,0 +1,1261 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Derek Jeter,New York Yankees,,
+base,2,Chipper Jones,Atlanta Braves,,
+base,3,Hideo Nomo,Los Angeles Dodgers,,
+base,4,Tim Salmon,Anaheim Angels,,
+base,5,Robin Ventura,Chicago White Sox,,
+base,6,Tony Clark,Detroit Tigers,,
+base,7,Barry Larkin,Cincinnati Reds,,
+base,8,Paul Molitor,Minnesota Twins,,
+base,9,Andy Benes,St. Louis Cardinals,,
+base,10,Ryan Klesko,Atlanta Braves,,
+base,11,Mark McGwire,Oakland Athletics,,
+base,12,Ken Griffey Jr.,Seattle Mariners,,
+base,13,Robb Nen,Florida Marlins,,
+base,14,Cal Ripken,Baltimore Orioles,,
+base,15,John Valentin,Boston Red Sox,,
+base,16,Ricky Bottalico,Philadelphia Phillies,,
+base,17,Mike Lansing,Montreal Expos,,
+base,18,Ryne Sandberg,Chicago Cubs,,
+base,19,Carlos Delgado,Toronto Blue Jays,,
+base,20,Craig Biggio,Houston Astros,,
+base,21,Eric Karros,Los Angeles Dodgers,,
+base,22,Kevin Appier,Kansas City Royals,,
+base,23,Mariano Rivera,New York Yankees,,
+base,24,Vinny Castilla,Colorado Rockies,,
+base,25,Juan Gonzalez,Texas Rangers,,
+base,26,Al Martin,Pittsburgh Pirates,,
+base,27,Jeff Cirillo,Milwaukee Brewers,,
+base,28,Ray Lankford,St. Louis Cardinals,,
+base,29,Manny Ramirez,Cleveland Indians,,
+base,30,Roberto Alomar,Baltimore Orioles,,
+base,31,Will Clark,Texas Rangers,,
+base,32,Chuck Knoblauch,Minnesota Twins,,
+base,33,Harold Baines,Chicago White Sox,,
+base,34,Edgar Martinez,Seattle Mariners,,
+base,35,Mike Mussina,Baltimore Orioles,,
+base,36,Kevin Brown,Florida Marlins,,
+base,37,Dennis Eckersley,St. Louis Cardinals,,
+base,38,Tino Martinez,New York Yankees,,
+base,39,Raul Mondesi,Los Angeles Dodgers,,
+base,40,Sammy Sosa,Chicago Cubs,,
+base,41,John Smoltz,Atlanta Braves,,
+base,42,Billy Wagner,Houston Astros,,
+base,43,Ken Caminiti,San Diego Padres,,
+base,44,Wade Boggs,New York Yankees,,
+base,45,Andres Galarraga,Colorado Rockies,,
+base,46,Roger Clemens,Toronto Blue Jays,,
+base,47,Matt Williams,Cleveland Indians,,
+base,48,Albert Belle,Chicago White Sox,,
+base,49,Jeff King,Kansas City Royals,,
+base,50,John Wetteland,Texas Rangers,,
+base,51,Deion Sanders,Cincinnati Reds,,
+base,52,Ellis Burks,Colorado Rockies,,
+base,53,Pedro Martinez,Montreal Expos,,
+base,54,Kenny Lofton,Atlanta Braves,,
+base,55,Randy Johnson,Seattle Mariners,,
+base,56,Bernie Williams,New York Yankees,,
+base,57,Marquis Grissom,Cleveland Indians,,
+base,58,Gary Sheffield,Florida Marlins,,
+base,59,Curt Schilling,Philadelphia Phillies,,
+base,60,Reggie Sanders,Cincinnati Reds,,
+base,61,Bobby Higginson,Detroit Tigers,,
+base,62,Moises Alou,Florida Marlins,,
+base,63,Tom Glavine,Atlanta Braves,,
+base,64,Mark Grace,Chicago Cubs,,
+base,65,Rafael Palmeiro,Baltimore Orioles,,
+base,66,John Olerud,New York Mets,,
+base,67,Dante Bichette,Colorado Rockies,,
+base,68,Jeff Bagwell,Houston Astros,,
+base,69,Barry Bonds,San Francisco Giants,,
+base,70,Pat Hentgen,Toronto Blue Jays,,
+base,71,Jim Thome,Cleveland Indians,,
+base,72,Andy Pettitte,New York Yankees,,
+base,73,Jay Bell,Kansas City Royals,,
+base,74,Jim Edmonds,Anaheim Angels,,
+base,75,Ron Gant,St. Louis Cardinals,,
+base,76,David Cone,New York Yankees,,
+base,77,Jose Canseco,Oakland Athletics,,
+base,78,Jay Buhner,Seattle Mariners,,
+base,79,Greg Maddux,Atlanta Braves,,
+base,80,Lance Johnson,New York Mets,,
+base,81,Travis Fryman,Detroit Tigers,,
+base,82,Paul O'Neill,New York Yankees,,
+base,83,Ivan Rodriguez,Texas Rangers,,
+base,84,Fred McGriff,Atlanta Braves,,
+base,85,Mike Piazza,Los Angeles Dodgers,,
+base,86,Brady Anderson,Baltimore Orioles,,
+base,87,Marty Cordova,Minnesota Twins,,
+base,88,Joe Carter,Toronto Blue Jays,,
+base,89,Brian Jordan,St. Louis Cardinals,,
+base,90,David Justice,Cleveland Indians,,
+base,91,Tony Gwynn,San Diego Padres,,
+base,92,Larry Walker,Colorado Rockies,,
+base,93,Mo Vaughn,Boston Red Sox,,
+base,94,Sandy Alomar,Cleveland Indians,,
+base,95,Rusty Greer,Texas Rangers,,
+base,96,Roberto Hernandez,Chicago White Sox,,
+base,97,Hal Morris,Cincinnati Reds,,
+base,98,Todd Hundley,New York Mets,,
+base,99,Rondell White,Montreal Expos,,
+base,100,Frank Thomas,Chicago White Sox,,
+base,101,Bubba Trammell RC,Detroit Tigers,,
+base,102,Sidney Ponson RC,Baltimore Orioles,,
+base,103,Ricky Ledee RC,New York Yankees,,
+base,104,Brett Tomko,Cincinnati Reds,,
+base,105,Braden Looper RC,St. Louis Cardinals,,
+base,106,Jason Dickson,Anaheim Angels,,
+base,107,Chad Green RC,Milwaukee Brewers,,
+base,108,R.A. Dickey RC,Texas Rangers,,
+base,109,Jeff Liefer,Chicago White Sox,,
+base,110,Richard Hidalgo,Houston Astros,,
+base,111,Chad Hermansen RC,Pittsburgh Pirates,,
+base,112,Felix Martinez,Kansas City Royals,,
+base,113,J.J. Johnson,Minnesota Twins,,
+base,114,Todd Dunwoody,Florida Marlins,,
+base,115,Katsuhiro Maeda,New York Yankees,,
+base,116,Darin Erstad,Anaheim Angels,,
+base,117,Elieser Marrero,St. Louis Cardinals,,
+base,118,Bartolo Colon,Cleveland Indians,,
+base,119,Ugueth Urbina,Montreal Expos,,
+base,120,Jaime Bluma,Kansas City Royals,,
+base,121,Seth Greisinger RC,Detroit Tigers,,
+base,122,Jose Cruz Jr. RC,Seattle Mariners,,
+base,123,Todd Dunn,Milwaukee Brewers,,
+base,124,Justin Towle RC,Cincinnati Reds,,
+base,125,Brian Rose,Boston Red Sox,,
+base,126,Jose Guillen,Pittsburgh Pirates,,
+base,127,Andruw Jones,Atlanta Braves,,
+base,128,Mark Kotsay RC,Florida Marlins,,
+base,129,Wilton Guerrero,Los Angeles Dodgers,,
+base,130,Jacob Cruz,San Francisco Giants,,
+base,131,Mike Sweeney,Kansas City Royals,,
+base,132,Matt Morris,St. Louis Cardinals,,
+base,133,John Thomson,Colorado Rockies,,
+base,134,Javier Valentin,Minnesota Twins,,
+base,135,Mike Drumright RC,Detroit Tigers,,
+base,136,Michael Barrett,Montreal Expos,,
+base,137,Tony Saunders RC,Florida Marlins,,
+base,138,Kevin Brown,Texas Rangers,,
+base,139,Anthony Sanders RC,Toronto Blue Jays,,
+base,140,Jeff Abbott,Chicago White Sox,,
+base,141,Eugene Kingsale,Baltimore Orioles,,
+base,142,Paul Konerko,Los Angeles Dodgers,,
+base,143,Randall Simon RC,Atlanta Braves,,
+base,144,Freddy Garcia,Pittsburgh Pirates,,
+base,145,Karim Garcia,Los Angeles Dodgers,,
+base,146,Carlos Guillen,Houston Astros,,
+base,147,Aaron Boone,Cincinnati Reds,,
+base,148,Donnie Sadler,Boston Red Sox,,
+base,149,Brooks Kieschnick,Chicago Cubs,,
+base,150,Scott Spiezio,Oakland Athletics,,
+base,151,Kevin Orie,Chicago Cubs,,
+base,152,Russ Johnson,Houston Astros,,
+base,153,Livan Hernandez,Florida Marlins,,
+base,154,Vladimir Nunez RC,Arizona Diamondbacks,,
+base,155,Calvin Reese,Cincinnati Reds,,
+base,156,Chris Carpenter,Toronto Blue Jays,,
+base,157,Eric Milton RC,New York Yankees,,
+base,158,Richie Sexson,Cleveland Indians,,
+base,159,Carl Pavano,Boston Red Sox,,
+base,160,Pat Cline,Chicago Cubs,,
+base,161,Ron Wright,Pittsburgh Pirates,,
+base,162,Dante Powell,San Francisco Giants,,
+base,163,Mark Bellhorn,Oakland Athletics,,
+base,164,George Lombard,Atlanta Braves,,
+base,165,Paul Wilder RC,Tampa Bay Devil Rays,,
+base,166,Brad Fullmer,Montreal Expos,,
+base,167,Kris Benson RC,Pittsburgh Pirates,,
+base,168,Torii Hunter,Minnesota Twins,,
+base,169,D.T. Cromer RC,Oakland Athletics,,
+base,170,Nelson Figueroa RC,New York Mets,,
+base,171,Hiram Bocachica RC,Montreal Expos,,
+base,172,Shane Monahan,Seattle Mariners,,
+base,173,Juan Melo,San Diego Padres,,
+base,174,Calvin Pickering RC,Baltimore Orioles,,
+base,175,Reggie Taylor,Philadelphia Phillies,,
+base,176,Geoff Jenkins,Milwaukee Brewers,,
+base,177,Steve Rain RC,Chicago Cubs,,
+base,178,Nerio Rodriguez RC,Baltimore Orioles,,
+base,179,Derrick Gibson,Colorado Rockies,,
+base,180,Darin Blood,San Francisco Giants,,
+base,181,Ben Davis,San Diego Padres,,
+base,182,Adrian Beltre RC,Los Angeles Dodgers,,
+base,183,Kerry Wood RC,Chicago Cubs,,
+base,184,Nate Rolison RC,Florida Marlins,,
+base,185,Fernando Tatis RC,Texas Rangers,,
+base,186,Jake Westbrook RC,Colorado Rockies,,
+base,187,Edwin Diaz,Texas Rangers,,
+base,188,Joe Fontenot RC,San Francisco Giants,,
+base,189,Matt Halloran RC,San Diego Padres,,
+base,190,Matt Clement RC,San Diego Padres,,
+base,191,Todd Greene,Anaheim Angels,,
+base,192,Eric Chavez RC,Oakland Athletics,,
+base,193,Edgard Velazquez,Colorado Rockies,,
+base,194,Bruce Chen RC,Atlanta Braves,,
+base,195,Jason Brester,San Francisco Giants,,
+base,196,Chris Reitsma RC,Boston Red Sox,,
+base,197,Neifi Perez,Colorado Rockies,,
+base,198,Hideki Irabu RC,New York Yankees,,
+base,199,Don Denbow RC,San Francisco Giants,,
+base,200,Derrek Lee,San Diego Padres,,
+base,201,Todd Walker,Minnesota Twins,,
+base,202,Scott Rolen,Philadelphia Phillies,,
+base,203,Wes Helms,Atlanta Braves,,
+base,204,Bob Abreu,Houston Astros,,
+base,205,John Patterson RC,Arizona Diamondbacks,,
+base,206,Alex Gonzalez RC,Florida Marlins,,
+base,207,Grant Roberts RC,New York Mets,,
+base,208,Jeff Suppan,Boston Red Sox,,
+base,209,Luke Wilcox,New York Yankees,,
+base,210,Marlon Anderson,Philadelphia Phillies,,
+base,211,Mike Caruso RC,San Francisco Giants,,
+base,212,Roy Halladay RC,Toronto Blue Jays,,
+base,213,Jeremi Gonzalez RC,Chicago Cubs,,
+base,214,Aramis Ramirez RC,Pittsburgh Pirates,,
+base,215,Dermal Brown RC,Kansas City Royals,,
+base,216,Justin Thompson,Detroit Tigers,,
+base,217,Danny Clyburn,Baltimore Orioles,,
+base,218,Bruce Aven,Cleveland Indians,,
+base,219,Keith Foulke RC,San Francisco Giants,,
+base,220,Shannon Stewart,Toronto Blue Jays,,
+base,221,Larry Barnes RC,Anaheim Angels,,
+base,222,Mark Johnson RC,Houston Astros,,
+base,223,Randy Winn,Florida Marlins,,
+base,224,Nomar Garciaparra,Boston Red Sox,,
+base,225,Jacque Jones RC,Minnesota Twins,,
+base,226,Chris Clemons,Chicago White Sox,,
+base,227,Todd Helton,Colorado Rockies,,
+base,228,Ryan Brannan RC,Philadelphia Phillies,,
+base,229,Alex Sanchez RC,Tampa Bay Devil Rays,,
+base,230,Russell Branyan,Cleveland Indians,,
+base,231,Daryle Ward,Houston Astros,,
+base,232,Kevin Witt,Toronto Blue Jays,,
+base,233,Gabby Martinez,New York Yankees,,
+base,234,Preston Wilson,New York Mets,,
+base,235,Donzell McDonald RC,New York Yankees,,
+base,236,Orlando Cabrera RC,Montreal Expos,,
+base,237,Brian Banks,Milwaukee Brewers,,
+base,238,Robbie Bell,Atlanta Braves,,
+base,239,Brad Rigby,Oakland Athletics,,
+base,240,Scott Elarton,Houston Astros,,
+base,241,Donny Leon RC,New York Yankees,,
+base,242,Abraham Nunez RC,Pittsburgh Pirates,,
+base,243,Adam Eaton RC,Philadelphia Phillies,,
+base,244,Octavio Dotel RC,New York Mets,,
+base,245,Sean Casey,Cleveland Indians,,
+base,246,Joe Lawrence RC,Toronto Blue Jays,,
+base,247,Adam Johnson RC,Atlanta Braves,,
+base,248,Ronnie Belliard RC,Milwaukee Brewers,,
+base,249,Bobby Estalella,Philadelphia Phillies,,
+base,250,Corey Lee RC,Texas Rangers,,
+base,251,Mike Cameron,Chicago White Sox,,
+base,252,Kerry Robinson RC,St. Louis Cardinals,,
+base,253,A.J. Zapp RC,Atlanta Braves,,
+base,254,Jarrod Washburn,Anaheim Angels,,
+base,255,Ben Grieve,Oakland Athletics,,
+base,256,Javier Vazquez RC,Montreal Expos,,
+base,257,Travis Lee RC,Arizona Diamondbacks,,
+base,258,Dennis Reyes RC,Los Angeles Dodgers,,
+base,259,Danny Buxbaum,Anaheim Angels,,
+base,260,Kelvim Escobar RC,Toronto Blue Jays,,
+base,261,Danny Klassen,Milwaukee Brewers,,
+base,262,Ken Cloude RC,Seattle Mariners,,
+base,263,Gabe Alvarez,San Diego Padres,,
+base,264,Clayton Bruner RC,Detroit Tigers,,
+base,265,Jason Marquis RC,Atlanta Braves,,
+base,266,Jamey Wright,Colorado Rockies,,
+base,267,Matt Snyder RC,Baltimore Orioles,,
+base,268,Josh Garrett RC,Boston Red Sox,,
+base,269,Juan Encarnacion,Detroit Tigers,,
+base,270,Heath Murray,San Diego Padres,,
+base,271,Brent Butler RC,St. Louis Cardinals,,
+base,272,Danny Peoples RC,Cleveland Indians,,
+base,273,Miguel Tejada RC,Oakland Athletics,,
+base,274,Jim Pittsley,Kansas City Royals,,
+base,275,Dmitri Young,St. Louis Cardinals,,
+base,276,Vladimir Guerrero,Montreal Expos,,
+base,277,Cole Liniak RC,Boston Red Sox,,
+base,278,Ramon Hernandez,Oakland Athletics,,
+base,279,Cliff Politte RC,St. Louis Cardinals,,
+base,280,Mel Rosario RC,Baltimore Orioles,,
+base,281,Jorge Carrion RC,Texas Rangers,,
+base,282,John Barnes RC,Boston Red Sox,,
+base,283,Chris Stowe RC,Montreal Expos,,
+base,284,Vernon Wells RC,Toronto Blue Jays,,
+base,285,Brett Caradonna RC,Chicago White Sox,,
+base,286,Scott Hodges RC,Montreal Expos,,
+base,287,Jon Garland RC,Chicago Cubs,,
+base,288,Nathan Haynes RC,Oakland Athletics,,
+base,289,Geoff Goetz RC,New York Mets,,
+base,290,Adam Kennedy RC,St. Louis Cardinals,,
+base,291,T.J. Tucker RC,Montreal Expos,,
+base,292,Aaron Akin RC,Florida Marlins,,
+base,293,Jayson Werth RC,Baltimore Orioles,,
+base,294,Glenn Davis RC,Los Angeles Dodgers,,
+base,295,Mark Mangum RC,Colorado Rockies,,
+base,296,Troy Cameron RC,Atlanta Braves,,
+base,297,J.J. Davis RC,Pittsburgh Pirates,,
+base,298,Lance Berkman RC,Houston Astros,,
+base,299,Jason Standridge RC,Tampa Bay Devil Rays,,
+base,300,Jason Dellaero RC,Chicago White Sox,,
+international,1,Derek Jeter,New York Yankees,,International
+international,2,Chipper Jones,Atlanta Braves,,International
+international,3,Hideo Nomo,Los Angeles Dodgers,,International
+international,4,Tim Salmon,Anaheim Angels,,International
+international,5,Robin Ventura,Chicago White Sox,,International
+international,6,Tony Clark,Detroit Tigers,,International
+international,7,Barry Larkin,Cincinnati Reds,,International
+international,8,Paul Molitor,Minnesota Twins,,International
+international,9,Andy Benes,St. Louis Cardinals,,International
+international,10,Ryan Klesko,Atlanta Braves,,International
+international,11,Mark McGwire,Oakland Athletics,,International
+international,12,Ken Griffey Jr.,Seattle Mariners,,International
+international,13,Robb Nen,Florida Marlins,,International
+international,14,Cal Ripken,Baltimore Orioles,,International
+international,15,John Valentin,Boston Red Sox,,International
+international,16,Ricky Bottalico,Philadelphia Phillies,,International
+international,17,Mike Lansing,Montreal Expos,,International
+international,18,Ryne Sandberg,Chicago Cubs,,International
+international,19,Carlos Delgado,Toronto Blue Jays,,International
+international,20,Craig Biggio,Houston Astros,,International
+international,21,Eric Karros,Los Angeles Dodgers,,International
+international,22,Kevin Appier,Kansas City Royals,,International
+international,23,Mariano Rivera,New York Yankees,,International
+international,24,Vinny Castilla,Colorado Rockies,,International
+international,25,Juan Gonzalez,Texas Rangers,,International
+international,26,Al Martin,Pittsburgh Pirates,,International
+international,27,Jeff Cirillo,Milwaukee Brewers,,International
+international,28,Ray Lankford,St. Louis Cardinals,,International
+international,29,Manny Ramirez,Cleveland Indians,,International
+international,30,Roberto Alomar,Baltimore Orioles,,International
+international,31,Will Clark,Texas Rangers,,International
+international,32,Chuck Knoblauch,Minnesota Twins,,International
+international,33,Harold Baines,Chicago White Sox,,International
+international,34,Edgar Martinez,Seattle Mariners,,International
+international,35,Mike Mussina,Baltimore Orioles,,International
+international,36,Kevin Brown,Florida Marlins,,International
+international,37,Dennis Eckersley,St. Louis Cardinals,,International
+international,38,Tino Martinez,New York Yankees,,International
+international,39,Raul Mondesi,Los Angeles Dodgers,,International
+international,40,Sammy Sosa,Chicago Cubs,,International
+international,41,John Smoltz,Atlanta Braves,,International
+international,42,Billy Wagner,Houston Astros,,International
+international,43,Ken Caminiti,San Diego Padres,,International
+international,44,Wade Boggs,New York Yankees,,International
+international,45,Andres Galarraga,Colorado Rockies,,International
+international,46,Roger Clemens,Toronto Blue Jays,,International
+international,47,Matt Williams,Cleveland Indians,,International
+international,48,Albert Belle,Chicago White Sox,,International
+international,49,Jeff King,Kansas City Royals,,International
+international,50,John Wetteland,Texas Rangers,,International
+international,51,Deion Sanders,Cincinnati Reds,,International
+international,52,Ellis Burks,Colorado Rockies,,International
+international,53,Pedro Martinez,Montreal Expos,,International
+international,54,Kenny Lofton,Atlanta Braves,,International
+international,55,Randy Johnson,Seattle Mariners,,International
+international,56,Bernie Williams,New York Yankees,,International
+international,57,Marquis Grissom,Cleveland Indians,,International
+international,58,Gary Sheffield,Florida Marlins,,International
+international,59,Curt Schilling,Philadelphia Phillies,,International
+international,60,Reggie Sanders,Cincinnati Reds,,International
+international,61,Bobby Higginson,Detroit Tigers,,International
+international,62,Moises Alou,Florida Marlins,,International
+international,63,Tom Glavine,Atlanta Braves,,International
+international,64,Mark Grace,Chicago Cubs,,International
+international,65,Rafael Palmeiro,Baltimore Orioles,,International
+international,66,John Olerud,New York Mets,,International
+international,67,Dante Bichette,Colorado Rockies,,International
+international,68,Jeff Bagwell,Houston Astros,,International
+international,69,Barry Bonds,San Francisco Giants,,International
+international,70,Pat Hentgen,Toronto Blue Jays,,International
+international,71,Jim Thome,Cleveland Indians,,International
+international,72,Andy Pettitte,New York Yankees,,International
+international,73,Jay Bell,Kansas City Royals,,International
+international,74,Jim Edmonds,Anaheim Angels,,International
+international,75,Ron Gant,St. Louis Cardinals,,International
+international,76,David Cone,New York Yankees,,International
+international,77,Jose Canseco,Oakland Athletics,,International
+international,78,Jay Buhner,Seattle Mariners,,International
+international,79,Greg Maddux,Atlanta Braves,,International
+international,80,Lance Johnson,New York Mets,,International
+international,81,Travis Fryman,Detroit Tigers,,International
+international,82,Paul O'Neill,New York Yankees,,International
+international,83,Ivan Rodriguez,Texas Rangers,,International
+international,84,Fred McGriff,Atlanta Braves,,International
+international,85,Mike Piazza,Los Angeles Dodgers,,International
+international,86,Brady Anderson,Baltimore Orioles,,International
+international,87,Marty Cordova,Minnesota Twins,,International
+international,88,Joe Carter,Toronto Blue Jays,,International
+international,89,Brian Jordan,St. Louis Cardinals,,International
+international,90,David Justice,Cleveland Indians,,International
+international,91,Tony Gwynn,San Diego Padres,,International
+international,92,Larry Walker,Colorado Rockies,,International
+international,93,Mo Vaughn,Boston Red Sox,,International
+international,94,Sandy Alomar,Cleveland Indians,,International
+international,95,Rusty Greer,Texas Rangers,,International
+international,96,Roberto Hernandez,Chicago White Sox,,International
+international,97,Hal Morris,Cincinnati Reds,,International
+international,98,Todd Hundley,New York Mets,,International
+international,99,Rondell White,Montreal Expos,,International
+international,100,Frank Thomas,Chicago White Sox,,International
+international,101,Bubba Trammell,Detroit Tigers,,International
+international,102,Sidney Ponson,Baltimore Orioles,,International
+international,103,Ricky Ledee,New York Yankees,,International
+international,104,Brett Tomko,Cincinnati Reds,,International
+international,105,Braden Looper,St. Louis Cardinals,,International
+international,106,Jason Dickson,Anaheim Angels,,International
+international,107,Chad Green,Milwaukee Brewers,,International
+international,108,R.A. Dickey,Texas Rangers,,International
+international,109,Jeff Liefer,Chicago White Sox,,International
+international,110,Richard Hidalgo,Houston Astros,,International
+international,111,Chad Hermansen,Pittsburgh Pirates,,International
+international,112,Felix Martinez,Kansas City Royals,,International
+international,113,J.J. Johnson,Minnesota Twins,,International
+international,114,Todd Dunwoody,Florida Marlins,,International
+international,115,Katsuhiro Maeda,New York Yankees,,International
+international,116,Darin Erstad,Anaheim Angels,,International
+international,117,Elieser Marrero,St. Louis Cardinals,,International
+international,118,Bartolo Colon,Cleveland Indians,,International
+international,119,Ugueth Urbina,Montreal Expos,,International
+international,120,Jaime Bluma,Kansas City Royals,,International
+international,121,Seth Greisinger,Detroit Tigers,,International
+international,122,Jose Cruz Jr.,Seattle Mariners,,International
+international,123,Todd Dunn,Milwaukee Brewers,,International
+international,124,Justin Towle,Cincinnati Reds,,International
+international,125,Brian Rose,Boston Red Sox,,International
+international,126,Jose Guillen,Pittsburgh Pirates,,International
+international,127,Andruw Jones,Atlanta Braves,,International
+international,128,Mark Kotsay,Florida Marlins,,International
+international,129,Wilton Guerrero,Los Angeles Dodgers,,International
+international,130,Jacob Cruz,San Francisco Giants,,International
+international,131,Mike Sweeney,Kansas City Royals,,International
+international,132,Matt Morris,St. Louis Cardinals,,International
+international,133,John Thomson,Colorado Rockies,,International
+international,134,Javier Valentin,Minnesota Twins,,International
+international,135,Mike Drumright,Detroit Tigers,,International
+international,136,Michael Barrett,Montreal Expos,,International
+international,137,Tony Saunders,Florida Marlins,,International
+international,138,Kevin Brown,Texas Rangers,,International
+international,139,Anthony Sanders,Toronto Blue Jays,,International
+international,140,Jeff Abbott,Chicago White Sox,,International
+international,141,Eugene Kingsale,Baltimore Orioles,,International
+international,142,Paul Konerko,Los Angeles Dodgers,,International
+international,143,Randall Simon,Atlanta Braves,,International
+international,144,Freddy Garcia,Pittsburgh Pirates,,International
+international,145,Karim Garcia,Los Angeles Dodgers,,International
+international,146,Carlos Guillen,Houston Astros,,International
+international,147,Aaron Boone,Cincinnati Reds,,International
+international,148,Donnie Sadler,Boston Red Sox,,International
+international,149,Brooks Kieschnick,Chicago Cubs,,International
+international,150,Scott Spiezio,Oakland Athletics,,International
+international,151,Kevin Orie,Chicago Cubs,,International
+international,152,Russ Johnson,Houston Astros,,International
+international,153,Livan Hernandez,Florida Marlins,,International
+international,154,Vladimir Nunez,Arizona Diamondbacks,,International
+international,155,Calvin Reese,Cincinnati Reds,,International
+international,156,Chris Carpenter,Toronto Blue Jays,,International
+international,157,Eric Milton,New York Yankees,,International
+international,158,Richie Sexson,Cleveland Indians,,International
+international,159,Carl Pavano,Boston Red Sox,,International
+international,160,Pat Cline,Chicago Cubs,,International
+international,161,Ron Wright,Pittsburgh Pirates,,International
+international,162,Dante Powell,San Francisco Giants,,International
+international,163,Mark Bellhorn,Oakland Athletics,,International
+international,164,George Lombard,Atlanta Braves,,International
+international,165,Paul Wilder,Tampa Bay Devil Rays,,International
+international,166,Brad Fullmer,Montreal Expos,,International
+international,167,Kris Benson,Pittsburgh Pirates,,International
+international,168,Torii Hunter,Minnesota Twins,,International
+international,169,D.T. Cromer,Oakland Athletics,,International
+international,170,Nelson Figueroa,New York Mets,,International
+international,171,Hiram Bocachica,Montreal Expos,,International
+international,172,Shane Monahan,Seattle Mariners,,International
+international,173,Juan Melo,San Diego Padres,,International
+international,174,Calvin Pickering,Baltimore Orioles,,International
+international,175,Reggie Taylor,Philadelphia Phillies,,International
+international,176,Geoff Jenkins,Milwaukee Brewers,,International
+international,177,Steve Rain,Chicago Cubs,,International
+international,178,Nerio Rodriguez,Baltimore Orioles,,International
+international,179,Derrick Gibson,Colorado Rockies,,International
+international,180,Darin Blood,San Francisco Giants,,International
+international,181,Ben Davis,San Diego Padres,,International
+international,182,Adrian Beltre,Los Angeles Dodgers,,International
+international,183,Kerry Wood,Chicago Cubs,,International
+international,184,Nate Rolison,Florida Marlins,,International
+international,185,Fernando Tatis,Texas Rangers,,International
+international,186,Jake Westbrook,Colorado Rockies,,International
+international,187,Edwin Diaz,Texas Rangers,,International
+international,188,Joe Fontenot,San Francisco Giants,,International
+international,189,Matt Halloran,San Diego Padres,,International
+international,190,Matt Clement,San Diego Padres,,International
+international,191,Todd Greene,Anaheim Angels,,International
+international,192,Eric Chavez,Oakland Athletics,,International
+international,193,Edgard Velazquez,Colorado Rockies,,International
+international,194,Bruce Chen,Atlanta Braves,,International
+international,195,Jason Brester,San Francisco Giants,,International
+international,196,Chris Reitsma,Boston Red Sox,,International
+international,197,Neifi Perez,Colorado Rockies,,International
+international,198,Hideki Irabu,New York Yankees,,International
+international,199,Don Denbow,San Francisco Giants,,International
+international,200,Derrek Lee,San Diego Padres,,International
+international,201,Todd Walker,Minnesota Twins,,International
+international,202,Scott Rolen,Philadelphia Phillies,,International
+international,203,Wes Helms,Atlanta Braves,,International
+international,204,Bob Abreu,Houston Astros,,International
+international,205,John Patterson,Arizona Diamondbacks,,International
+international,206,Alex Gonzalez,Florida Marlins,,International
+international,207,Grant Roberts,New York Mets,,International
+international,208,Jeff Suppan,Boston Red Sox,,International
+international,209,Luke Wilcox,New York Yankees,,International
+international,210,Marlon Anderson,Philadelphia Phillies,,International
+international,211,Mike Caruso,San Francisco Giants,,International
+international,212,Roy Halladay,Toronto Blue Jays,,International
+international,213,Jeremi Gonzalez,Chicago Cubs,,International
+international,214,Aramis Ramirez,Pittsburgh Pirates,,International
+international,215,Dermal Brown,Kansas City Royals,,International
+international,216,Justin Thompson,Detroit Tigers,,International
+international,217,Danny Clyburn,Baltimore Orioles,,International
+international,218,Bruce Aven,Cleveland Indians,,International
+international,219,Keith Foulke,San Francisco Giants,,International
+international,220,Shannon Stewart,Toronto Blue Jays,,International
+international,221,Larry Barnes,Anaheim Angels,,International
+international,222,Mark Johnson,Houston Astros,,International
+international,223,Randy Winn,Florida Marlins,,International
+international,224,Nomar Garciaparra,Boston Red Sox,,International
+international,225,Jacque Jones,Minnesota Twins,,International
+international,226,Chris Clemons,Chicago White Sox,,International
+international,227,Todd Helton,Colorado Rockies,,International
+international,228,Ryan Brannan,Philadelphia Phillies,,International
+international,229,Alex Sanchez,Tampa Bay Devil Rays,,International
+international,230,Russell Branyan,Cleveland Indians,,International
+international,231,Daryle Ward,Houston Astros,,International
+international,232,Kevin Witt,Toronto Blue Jays,,International
+international,233,Gabby Martinez,New York Yankees,,International
+international,234,Preston Wilson,New York Mets,,International
+international,235,Donzell McDonald,New York Yankees,,International
+international,236,Orlando Cabrera,Montreal Expos,,International
+international,237,Brian Banks,Milwaukee Brewers,,International
+international,238,Robbie Bell,Atlanta Braves,,International
+international,239,Brad Rigby,Oakland Athletics,,International
+international,240,Scott Elarton,Houston Astros,,International
+international,241,Donny Leon,New York Yankees,,International
+international,242,Abraham Nunez,Pittsburgh Pirates,,International
+international,243,Adam Eaton,Philadelphia Phillies,,International
+international,244,Octavio Dotel,New York Mets,,International
+international,245,Sean Casey,Cleveland Indians,,International
+international,246,Joe Lawrence,Toronto Blue Jays,,International
+international,247,Adam Johnson,Atlanta Braves,,International
+international,248,Ronnie Belliard,Milwaukee Brewers,,International
+international,249,Bobby Estalella,Philadelphia Phillies,,International
+international,250,Corey Lee,Texas Rangers,,International
+international,251,Mike Cameron,Chicago White Sox,,International
+international,252,Kerry Robinson,St. Louis Cardinals,,International
+international,253,A.J. Zapp,Atlanta Braves,,International
+international,254,Jarrod Washburn,Anaheim Angels,,International
+international,255,Ben Grieve,Oakland Athletics,,International
+international,256,Javier Vazquez,Montreal Expos,,International
+international,257,Travis Lee,Arizona Diamondbacks,,International
+international,258,Dennis Reyes,Los Angeles Dodgers,,International
+international,259,Danny Buxbaum,Anaheim Angels,,International
+international,260,Kelvim Escobar,Toronto Blue Jays,,International
+international,261,Danny Klassen,Milwaukee Brewers,,International
+international,262,Ken Cloude,Seattle Mariners,,International
+international,263,Gabe Alvarez,San Diego Padres,,International
+international,264,Clayton Bruner,Detroit Tigers,,International
+international,265,Jason Marquis,Atlanta Braves,,International
+international,266,Jamey Wright,Colorado Rockies,,International
+international,267,Matt Snyder,Baltimore Orioles,,International
+international,268,Josh Garrett,Boston Red Sox,,International
+international,269,Juan Encarnacion,Detroit Tigers,,International
+international,270,Heath Murray,San Diego Padres,,International
+international,271,Brent Butler,St. Louis Cardinals,,International
+international,272,Danny Peoples,Cleveland Indians,,International
+international,273,Miguel Tejada,Oakland Athletics,,International
+international,274,Jim Pittsley,Kansas City Royals,,International
+international,275,Dmitri Young,St. Louis Cardinals,,International
+international,276,Vladimir Guerrero,Montreal Expos,,International
+international,277,Cole Liniak,Boston Red Sox,,International
+international,278,Ramon Hernandez,Oakland Athletics,,International
+international,279,Cliff Politte,St. Louis Cardinals,,International
+international,280,Mel Rosario,Baltimore Orioles,,International
+international,281,Jorge Carrion,Texas Rangers,,International
+international,282,John Barnes,Boston Red Sox,,International
+international,283,Chris Stowe,Montreal Expos,,International
+international,284,Vernon Wells,Toronto Blue Jays,,International
+international,285,Brett Caradonna,Chicago White Sox,,International
+international,286,Scott Hodges,Montreal Expos,,International
+international,287,Jon Garland,Chicago Cubs,,International
+international,288,Nathan Haynes,Oakland Athletics,,International
+international,289,Geoff Goetz,New York Mets,,International
+international,290,Adam Kennedy,St. Louis Cardinals,,International
+international,291,T.J. Tucker,Montreal Expos,,International
+international,292,Aaron Akin,Florida Marlins,,International
+international,293,Jayson Werth,Baltimore Orioles,,International
+international,294,Glenn Davis,Los Angeles Dodgers,,International
+international,295,Mark Mangum,Colorado Rockies,,International
+international,296,Troy Cameron,Atlanta Braves,,International
+international,297,J.J. Davis,Pittsburgh Pirates,,International
+international,298,Lance Berkman,Houston Astros,,International
+international,299,Jason Standridge,Tampa Bay Devil Rays,,International
+international,300,Jason Dellaero,Chicago White Sox,,International
+international-refractors,1,Derek Jeter,New York Yankees,,International Refractors
+international-refractors,2,Chipper Jones,Atlanta Braves,,International Refractors
+international-refractors,3,Hideo Nomo,Los Angeles Dodgers,,International Refractors
+international-refractors,4,Tim Salmon,Anaheim Angels,,International Refractors
+international-refractors,5,Robin Ventura,Chicago White Sox,,International Refractors
+international-refractors,6,Tony Clark,Detroit Tigers,,International Refractors
+international-refractors,7,Barry Larkin,Cincinnati Reds,,International Refractors
+international-refractors,8,Paul Molitor,Minnesota Twins,,International Refractors
+international-refractors,9,Andy Benes,St. Louis Cardinals,,International Refractors
+international-refractors,10,Ryan Klesko,Atlanta Braves,,International Refractors
+international-refractors,11,Mark McGwire,Oakland Athletics,,International Refractors
+international-refractors,12,Ken Griffey Jr.,Seattle Mariners,,International Refractors
+international-refractors,13,Robb Nen,Florida Marlins,,International Refractors
+international-refractors,14,Cal Ripken,Baltimore Orioles,,International Refractors
+international-refractors,15,John Valentin,Boston Red Sox,,International Refractors
+international-refractors,16,Ricky Bottalico,Philadelphia Phillies,,International Refractors
+international-refractors,17,Mike Lansing,Montreal Expos,,International Refractors
+international-refractors,18,Ryne Sandberg,Chicago Cubs,,International Refractors
+international-refractors,19,Carlos Delgado,Toronto Blue Jays,,International Refractors
+international-refractors,20,Craig Biggio,Houston Astros,,International Refractors
+international-refractors,21,Eric Karros,Los Angeles Dodgers,,International Refractors
+international-refractors,22,Kevin Appier,Kansas City Royals,,International Refractors
+international-refractors,23,Mariano Rivera,New York Yankees,,International Refractors
+international-refractors,24,Vinny Castilla,Colorado Rockies,,International Refractors
+international-refractors,25,Juan Gonzalez,Texas Rangers,,International Refractors
+international-refractors,26,Al Martin,Pittsburgh Pirates,,International Refractors
+international-refractors,27,Jeff Cirillo,Milwaukee Brewers,,International Refractors
+international-refractors,28,Ray Lankford,St. Louis Cardinals,,International Refractors
+international-refractors,29,Manny Ramirez,Cleveland Indians,,International Refractors
+international-refractors,30,Roberto Alomar,Baltimore Orioles,,International Refractors
+international-refractors,31,Will Clark,Texas Rangers,,International Refractors
+international-refractors,32,Chuck Knoblauch,Minnesota Twins,,International Refractors
+international-refractors,33,Harold Baines,Chicago White Sox,,International Refractors
+international-refractors,34,Edgar Martinez,Seattle Mariners,,International Refractors
+international-refractors,35,Mike Mussina,Baltimore Orioles,,International Refractors
+international-refractors,36,Kevin Brown,Florida Marlins,,International Refractors
+international-refractors,37,Dennis Eckersley,St. Louis Cardinals,,International Refractors
+international-refractors,38,Tino Martinez,New York Yankees,,International Refractors
+international-refractors,39,Raul Mondesi,Los Angeles Dodgers,,International Refractors
+international-refractors,40,Sammy Sosa,Chicago Cubs,,International Refractors
+international-refractors,41,John Smoltz,Atlanta Braves,,International Refractors
+international-refractors,42,Billy Wagner,Houston Astros,,International Refractors
+international-refractors,43,Ken Caminiti,San Diego Padres,,International Refractors
+international-refractors,44,Wade Boggs,New York Yankees,,International Refractors
+international-refractors,45,Andres Galarraga,Colorado Rockies,,International Refractors
+international-refractors,46,Roger Clemens,Toronto Blue Jays,,International Refractors
+international-refractors,47,Matt Williams,Cleveland Indians,,International Refractors
+international-refractors,48,Albert Belle,Chicago White Sox,,International Refractors
+international-refractors,49,Jeff King,Kansas City Royals,,International Refractors
+international-refractors,50,John Wetteland,Texas Rangers,,International Refractors
+international-refractors,51,Deion Sanders,Cincinnati Reds,,International Refractors
+international-refractors,52,Ellis Burks,Colorado Rockies,,International Refractors
+international-refractors,53,Pedro Martinez,Montreal Expos,,International Refractors
+international-refractors,54,Kenny Lofton,Atlanta Braves,,International Refractors
+international-refractors,55,Randy Johnson,Seattle Mariners,,International Refractors
+international-refractors,56,Bernie Williams,New York Yankees,,International Refractors
+international-refractors,57,Marquis Grissom,Cleveland Indians,,International Refractors
+international-refractors,58,Gary Sheffield,Florida Marlins,,International Refractors
+international-refractors,59,Curt Schilling,Philadelphia Phillies,,International Refractors
+international-refractors,60,Reggie Sanders,Cincinnati Reds,,International Refractors
+international-refractors,61,Bobby Higginson,Detroit Tigers,,International Refractors
+international-refractors,62,Moises Alou,Florida Marlins,,International Refractors
+international-refractors,63,Tom Glavine,Atlanta Braves,,International Refractors
+international-refractors,64,Mark Grace,Chicago Cubs,,International Refractors
+international-refractors,65,Rafael Palmeiro,Baltimore Orioles,,International Refractors
+international-refractors,66,John Olerud,New York Mets,,International Refractors
+international-refractors,67,Dante Bichette,Colorado Rockies,,International Refractors
+international-refractors,68,Jeff Bagwell,Houston Astros,,International Refractors
+international-refractors,69,Barry Bonds,San Francisco Giants,,International Refractors
+international-refractors,70,Pat Hentgen,Toronto Blue Jays,,International Refractors
+international-refractors,71,Jim Thome,Cleveland Indians,,International Refractors
+international-refractors,72,Andy Pettitte,New York Yankees,,International Refractors
+international-refractors,73,Jay Bell,Kansas City Royals,,International Refractors
+international-refractors,74,Jim Edmonds,Anaheim Angels,,International Refractors
+international-refractors,75,Ron Gant,St. Louis Cardinals,,International Refractors
+international-refractors,76,David Cone,New York Yankees,,International Refractors
+international-refractors,77,Jose Canseco,Oakland Athletics,,International Refractors
+international-refractors,78,Jay Buhner,Seattle Mariners,,International Refractors
+international-refractors,79,Greg Maddux,Atlanta Braves,,International Refractors
+international-refractors,80,Lance Johnson,New York Mets,,International Refractors
+international-refractors,81,Travis Fryman,Detroit Tigers,,International Refractors
+international-refractors,82,Paul O'Neill,New York Yankees,,International Refractors
+international-refractors,83,Ivan Rodriguez,Texas Rangers,,International Refractors
+international-refractors,84,Fred McGriff,Atlanta Braves,,International Refractors
+international-refractors,85,Mike Piazza,Los Angeles Dodgers,,International Refractors
+international-refractors,86,Brady Anderson,Baltimore Orioles,,International Refractors
+international-refractors,87,Marty Cordova,Minnesota Twins,,International Refractors
+international-refractors,88,Joe Carter,Toronto Blue Jays,,International Refractors
+international-refractors,89,Brian Jordan,St. Louis Cardinals,,International Refractors
+international-refractors,90,David Justice,Cleveland Indians,,International Refractors
+international-refractors,91,Tony Gwynn,San Diego Padres,,International Refractors
+international-refractors,92,Larry Walker,Colorado Rockies,,International Refractors
+international-refractors,93,Mo Vaughn,Boston Red Sox,,International Refractors
+international-refractors,94,Sandy Alomar,Cleveland Indians,,International Refractors
+international-refractors,95,Rusty Greer,Texas Rangers,,International Refractors
+international-refractors,96,Roberto Hernandez,Chicago White Sox,,International Refractors
+international-refractors,97,Hal Morris,Cincinnati Reds,,International Refractors
+international-refractors,98,Todd Hundley,New York Mets,,International Refractors
+international-refractors,99,Rondell White,Montreal Expos,,International Refractors
+international-refractors,100,Frank Thomas,Chicago White Sox,,International Refractors
+international-refractors,101,Bubba Trammell,Detroit Tigers,,International Refractors
+international-refractors,102,Sidney Ponson,Baltimore Orioles,,International Refractors
+international-refractors,103,Ricky Ledee,New York Yankees,,International Refractors
+international-refractors,104,Brett Tomko,Cincinnati Reds,,International Refractors
+international-refractors,105,Braden Looper,St. Louis Cardinals,,International Refractors
+international-refractors,106,Jason Dickson,Anaheim Angels,,International Refractors
+international-refractors,107,Chad Green,Milwaukee Brewers,,International Refractors
+international-refractors,108,R.A. Dickey,Texas Rangers,,International Refractors
+international-refractors,109,Jeff Liefer,Chicago White Sox,,International Refractors
+international-refractors,110,Richard Hidalgo,Houston Astros,,International Refractors
+international-refractors,111,Chad Hermansen,Pittsburgh Pirates,,International Refractors
+international-refractors,112,Felix Martinez,Kansas City Royals,,International Refractors
+international-refractors,113,J.J. Johnson,Minnesota Twins,,International Refractors
+international-refractors,114,Todd Dunwoody,Florida Marlins,,International Refractors
+international-refractors,115,Katsuhiro Maeda,New York Yankees,,International Refractors
+international-refractors,116,Darin Erstad,Anaheim Angels,,International Refractors
+international-refractors,117,Elieser Marrero,St. Louis Cardinals,,International Refractors
+international-refractors,118,Bartolo Colon,Cleveland Indians,,International Refractors
+international-refractors,119,Ugueth Urbina,Montreal Expos,,International Refractors
+international-refractors,120,Jaime Bluma,Kansas City Royals,,International Refractors
+international-refractors,121,Seth Greisinger,Detroit Tigers,,International Refractors
+international-refractors,122,Jose Cruz Jr.,Seattle Mariners,,International Refractors
+international-refractors,123,Todd Dunn,Milwaukee Brewers,,International Refractors
+international-refractors,124,Justin Towle,Cincinnati Reds,,International Refractors
+international-refractors,125,Brian Rose,Boston Red Sox,,International Refractors
+international-refractors,126,Jose Guillen,Pittsburgh Pirates,,International Refractors
+international-refractors,127,Andruw Jones,Atlanta Braves,,International Refractors
+international-refractors,128,Mark Kotsay,Florida Marlins,,International Refractors
+international-refractors,129,Wilton Guerrero,Los Angeles Dodgers,,International Refractors
+international-refractors,130,Jacob Cruz,San Francisco Giants,,International Refractors
+international-refractors,131,Mike Sweeney,Kansas City Royals,,International Refractors
+international-refractors,132,Matt Morris,St. Louis Cardinals,,International Refractors
+international-refractors,133,John Thomson,Colorado Rockies,,International Refractors
+international-refractors,134,Javier Valentin,Minnesota Twins,,International Refractors
+international-refractors,135,Mike Drumright,Detroit Tigers,,International Refractors
+international-refractors,136,Michael Barrett,Montreal Expos,,International Refractors
+international-refractors,137,Tony Saunders,Florida Marlins,,International Refractors
+international-refractors,138,Kevin Brown,Texas Rangers,,International Refractors
+international-refractors,139,Anthony Sanders,Toronto Blue Jays,,International Refractors
+international-refractors,140,Jeff Abbott,Chicago White Sox,,International Refractors
+international-refractors,141,Eugene Kingsale,Baltimore Orioles,,International Refractors
+international-refractors,142,Paul Konerko,Los Angeles Dodgers,,International Refractors
+international-refractors,143,Randall Simon,Atlanta Braves,,International Refractors
+international-refractors,144,Freddy Garcia,Pittsburgh Pirates,,International Refractors
+international-refractors,145,Karim Garcia,Los Angeles Dodgers,,International Refractors
+international-refractors,146,Carlos Guillen,Houston Astros,,International Refractors
+international-refractors,147,Aaron Boone,Cincinnati Reds,,International Refractors
+international-refractors,148,Donnie Sadler,Boston Red Sox,,International Refractors
+international-refractors,149,Brooks Kieschnick,Chicago Cubs,,International Refractors
+international-refractors,150,Scott Spiezio,Oakland Athletics,,International Refractors
+international-refractors,151,Kevin Orie,Chicago Cubs,,International Refractors
+international-refractors,152,Russ Johnson,Houston Astros,,International Refractors
+international-refractors,153,Livan Hernandez,Florida Marlins,,International Refractors
+international-refractors,154,Vladimir Nunez,Arizona Diamondbacks,,International Refractors
+international-refractors,155,Calvin Reese,Cincinnati Reds,,International Refractors
+international-refractors,156,Chris Carpenter,Toronto Blue Jays,,International Refractors
+international-refractors,157,Eric Milton,New York Yankees,,International Refractors
+international-refractors,158,Richie Sexson,Cleveland Indians,,International Refractors
+international-refractors,159,Carl Pavano,Boston Red Sox,,International Refractors
+international-refractors,160,Pat Cline,Chicago Cubs,,International Refractors
+international-refractors,161,Ron Wright,Pittsburgh Pirates,,International Refractors
+international-refractors,162,Dante Powell,San Francisco Giants,,International Refractors
+international-refractors,163,Mark Bellhorn,Oakland Athletics,,International Refractors
+international-refractors,164,George Lombard,Atlanta Braves,,International Refractors
+international-refractors,165,Paul Wilder,Tampa Bay Devil Rays,,International Refractors
+international-refractors,166,Brad Fullmer,Montreal Expos,,International Refractors
+international-refractors,167,Kris Benson,Pittsburgh Pirates,,International Refractors
+international-refractors,168,Torii Hunter,Minnesota Twins,,International Refractors
+international-refractors,169,D.T. Cromer,Oakland Athletics,,International Refractors
+international-refractors,170,Nelson Figueroa,New York Mets,,International Refractors
+international-refractors,171,Hiram Bocachica,Montreal Expos,,International Refractors
+international-refractors,172,Shane Monahan,Seattle Mariners,,International Refractors
+international-refractors,173,Juan Melo,San Diego Padres,,International Refractors
+international-refractors,174,Calvin Pickering,Baltimore Orioles,,International Refractors
+international-refractors,175,Reggie Taylor,Philadelphia Phillies,,International Refractors
+international-refractors,176,Geoff Jenkins,Milwaukee Brewers,,International Refractors
+international-refractors,177,Steve Rain,Chicago Cubs,,International Refractors
+international-refractors,178,Nerio Rodriguez,Baltimore Orioles,,International Refractors
+international-refractors,179,Derrick Gibson,Colorado Rockies,,International Refractors
+international-refractors,180,Darin Blood,San Francisco Giants,,International Refractors
+international-refractors,181,Ben Davis,San Diego Padres,,International Refractors
+international-refractors,182,Adrian Beltre,Los Angeles Dodgers,,International Refractors
+international-refractors,183,Kerry Wood,Chicago Cubs,,International Refractors
+international-refractors,184,Nate Rolison,Florida Marlins,,International Refractors
+international-refractors,185,Fernando Tatis,Texas Rangers,,International Refractors
+international-refractors,186,Jake Westbrook,Colorado Rockies,,International Refractors
+international-refractors,187,Edwin Diaz,Texas Rangers,,International Refractors
+international-refractors,188,Joe Fontenot,San Francisco Giants,,International Refractors
+international-refractors,189,Matt Halloran,San Diego Padres,,International Refractors
+international-refractors,190,Matt Clement,San Diego Padres,,International Refractors
+international-refractors,191,Todd Greene,Anaheim Angels,,International Refractors
+international-refractors,192,Eric Chavez,Oakland Athletics,,International Refractors
+international-refractors,193,Edgard Velazquez,Colorado Rockies,,International Refractors
+international-refractors,194,Bruce Chen,Atlanta Braves,,International Refractors
+international-refractors,195,Jason Brester,San Francisco Giants,,International Refractors
+international-refractors,196,Chris Reitsma,Boston Red Sox,,International Refractors
+international-refractors,197,Neifi Perez,Colorado Rockies,,International Refractors
+international-refractors,198,Hideki Irabu,New York Yankees,,International Refractors
+international-refractors,199,Don Denbow,San Francisco Giants,,International Refractors
+international-refractors,200,Derrek Lee,San Diego Padres,,International Refractors
+international-refractors,201,Todd Walker,Minnesota Twins,,International Refractors
+international-refractors,202,Scott Rolen,Philadelphia Phillies,,International Refractors
+international-refractors,203,Wes Helms,Atlanta Braves,,International Refractors
+international-refractors,204,Bob Abreu,Houston Astros,,International Refractors
+international-refractors,205,John Patterson,Arizona Diamondbacks,,International Refractors
+international-refractors,206,Alex Gonzalez,Florida Marlins,,International Refractors
+international-refractors,207,Grant Roberts,New York Mets,,International Refractors
+international-refractors,208,Jeff Suppan,Boston Red Sox,,International Refractors
+international-refractors,209,Luke Wilcox,New York Yankees,,International Refractors
+international-refractors,210,Marlon Anderson,Philadelphia Phillies,,International Refractors
+international-refractors,211,Mike Caruso,San Francisco Giants,,International Refractors
+international-refractors,212,Roy Halladay,Toronto Blue Jays,,International Refractors
+international-refractors,213,Jeremi Gonzalez,Chicago Cubs,,International Refractors
+international-refractors,214,Aramis Ramirez,Pittsburgh Pirates,,International Refractors
+international-refractors,215,Dermal Brown,Kansas City Royals,,International Refractors
+international-refractors,216,Justin Thompson,Detroit Tigers,,International Refractors
+international-refractors,217,Danny Clyburn,Baltimore Orioles,,International Refractors
+international-refractors,218,Bruce Aven,Cleveland Indians,,International Refractors
+international-refractors,219,Keith Foulke,San Francisco Giants,,International Refractors
+international-refractors,220,Shannon Stewart,Toronto Blue Jays,,International Refractors
+international-refractors,221,Larry Barnes,Anaheim Angels,,International Refractors
+international-refractors,222,Mark Johnson,Houston Astros,,International Refractors
+international-refractors,223,Randy Winn,Florida Marlins,,International Refractors
+international-refractors,224,Nomar Garciaparra,Boston Red Sox,,International Refractors
+international-refractors,225,Jacque Jones,Minnesota Twins,,International Refractors
+international-refractors,226,Chris Clemons,Chicago White Sox,,International Refractors
+international-refractors,227,Todd Helton,Colorado Rockies,,International Refractors
+international-refractors,228,Ryan Brannan,Philadelphia Phillies,,International Refractors
+international-refractors,229,Alex Sanchez,Tampa Bay Devil Rays,,International Refractors
+international-refractors,230,Russell Branyan,Cleveland Indians,,International Refractors
+international-refractors,231,Daryle Ward,Houston Astros,,International Refractors
+international-refractors,232,Kevin Witt,Toronto Blue Jays,,International Refractors
+international-refractors,233,Gabby Martinez,New York Yankees,,International Refractors
+international-refractors,234,Preston Wilson,New York Mets,,International Refractors
+international-refractors,235,Donzell McDonald,New York Yankees,,International Refractors
+international-refractors,236,Orlando Cabrera,Montreal Expos,,International Refractors
+international-refractors,237,Brian Banks,Milwaukee Brewers,,International Refractors
+international-refractors,238,Robbie Bell,Atlanta Braves,,International Refractors
+international-refractors,239,Brad Rigby,Oakland Athletics,,International Refractors
+international-refractors,240,Scott Elarton,Houston Astros,,International Refractors
+international-refractors,241,Donny Leon,New York Yankees,,International Refractors
+international-refractors,242,Abraham Nunez,Pittsburgh Pirates,,International Refractors
+international-refractors,243,Adam Eaton,Philadelphia Phillies,,International Refractors
+international-refractors,244,Octavio Dotel,New York Mets,,International Refractors
+international-refractors,245,Sean Casey,Cleveland Indians,,International Refractors
+international-refractors,246,Joe Lawrence,Toronto Blue Jays,,International Refractors
+international-refractors,247,Adam Johnson,Atlanta Braves,,International Refractors
+international-refractors,248,Ronnie Belliard,Milwaukee Brewers,,International Refractors
+international-refractors,249,Bobby Estalella,Philadelphia Phillies,,International Refractors
+international-refractors,250,Corey Lee,Texas Rangers,,International Refractors
+international-refractors,251,Mike Cameron,Chicago White Sox,,International Refractors
+international-refractors,252,Kerry Robinson,St. Louis Cardinals,,International Refractors
+international-refractors,253,A.J. Zapp,Atlanta Braves,,International Refractors
+international-refractors,254,Jarrod Washburn,Anaheim Angels,,International Refractors
+international-refractors,255,Ben Grieve,Oakland Athletics,,International Refractors
+international-refractors,256,Javier Vazquez,Montreal Expos,,International Refractors
+international-refractors,257,Travis Lee,Arizona Diamondbacks,,International Refractors
+international-refractors,258,Dennis Reyes,Los Angeles Dodgers,,International Refractors
+international-refractors,259,Danny Buxbaum,Anaheim Angels,,International Refractors
+international-refractors,260,Kelvim Escobar,Toronto Blue Jays,,International Refractors
+international-refractors,261,Danny Klassen,Milwaukee Brewers,,International Refractors
+international-refractors,262,Ken Cloude,Seattle Mariners,,International Refractors
+international-refractors,263,Gabe Alvarez,San Diego Padres,,International Refractors
+international-refractors,264,Clayton Bruner,Detroit Tigers,,International Refractors
+international-refractors,265,Jason Marquis,Atlanta Braves,,International Refractors
+international-refractors,266,Jamey Wright,Colorado Rockies,,International Refractors
+international-refractors,267,Matt Snyder,Baltimore Orioles,,International Refractors
+international-refractors,268,Josh Garrett,Boston Red Sox,,International Refractors
+international-refractors,269,Juan Encarnacion,Detroit Tigers,,International Refractors
+international-refractors,270,Heath Murray,San Diego Padres,,International Refractors
+international-refractors,271,Brent Butler,St. Louis Cardinals,,International Refractors
+international-refractors,272,Danny Peoples,Cleveland Indians,,International Refractors
+international-refractors,273,Miguel Tejada,Oakland Athletics,,International Refractors
+international-refractors,274,Jim Pittsley,Kansas City Royals,,International Refractors
+international-refractors,275,Dmitri Young,St. Louis Cardinals,,International Refractors
+international-refractors,276,Vladimir Guerrero,Montreal Expos,,International Refractors
+international-refractors,277,Cole Liniak,Boston Red Sox,,International Refractors
+international-refractors,278,Ramon Hernandez,Oakland Athletics,,International Refractors
+international-refractors,279,Cliff Politte,St. Louis Cardinals,,International Refractors
+international-refractors,280,Mel Rosario,Baltimore Orioles,,International Refractors
+international-refractors,281,Jorge Carrion,Texas Rangers,,International Refractors
+international-refractors,282,John Barnes,Boston Red Sox,,International Refractors
+international-refractors,283,Chris Stowe,Montreal Expos,,International Refractors
+international-refractors,284,Vernon Wells,Toronto Blue Jays,,International Refractors
+international-refractors,285,Brett Caradonna,Chicago White Sox,,International Refractors
+international-refractors,286,Scott Hodges,Montreal Expos,,International Refractors
+international-refractors,287,Jon Garland,Chicago Cubs,,International Refractors
+international-refractors,288,Nathan Haynes,Oakland Athletics,,International Refractors
+international-refractors,289,Geoff Goetz,New York Mets,,International Refractors
+international-refractors,290,Adam Kennedy,St. Louis Cardinals,,International Refractors
+international-refractors,291,T.J. Tucker,Montreal Expos,,International Refractors
+international-refractors,292,Aaron Akin,Florida Marlins,,International Refractors
+international-refractors,293,Jayson Werth,Baltimore Orioles,,International Refractors
+international-refractors,294,Glenn Davis,Los Angeles Dodgers,,International Refractors
+international-refractors,295,Mark Mangum,Colorado Rockies,,International Refractors
+international-refractors,296,Troy Cameron,Atlanta Braves,,International Refractors
+international-refractors,297,J.J. Davis,Pittsburgh Pirates,,International Refractors
+international-refractors,298,Lance Berkman,Houston Astros,,International Refractors
+international-refractors,299,Jason Standridge,Tampa Bay Devil Rays,,International Refractors
+international-refractors,300,Jason Dellaero,Chicago White Sox,,International Refractors
+refractors,1,Derek Jeter,New York Yankees,,Refractors
+refractors,2,Chipper Jones,Atlanta Braves,,Refractors
+refractors,3,Hideo Nomo,Los Angeles Dodgers,,Refractors
+refractors,4,Tim Salmon,Anaheim Angels,,Refractors
+refractors,5,Robin Ventura,Chicago White Sox,,Refractors
+refractors,6,Tony Clark,Detroit Tigers,,Refractors
+refractors,7,Barry Larkin,Cincinnati Reds,,Refractors
+refractors,8,Paul Molitor,Minnesota Twins,,Refractors
+refractors,9,Andy Benes,St. Louis Cardinals,,Refractors
+refractors,10,Ryan Klesko,Atlanta Braves,,Refractors
+refractors,11,Mark McGwire,Oakland Athletics,,Refractors
+refractors,12,Ken Griffey Jr.,Seattle Mariners,,Refractors
+refractors,13,Robb Nen,Florida Marlins,,Refractors
+refractors,14,Cal Ripken,Baltimore Orioles,,Refractors
+refractors,15,John Valentin,Boston Red Sox,,Refractors
+refractors,16,Ricky Bottalico,Philadelphia Phillies,,Refractors
+refractors,17,Mike Lansing,Montreal Expos,,Refractors
+refractors,18,Ryne Sandberg,Chicago Cubs,,Refractors
+refractors,19,Carlos Delgado,Toronto Blue Jays,,Refractors
+refractors,20,Craig Biggio,Houston Astros,,Refractors
+refractors,21,Eric Karros,Los Angeles Dodgers,,Refractors
+refractors,22,Kevin Appier,Kansas City Royals,,Refractors
+refractors,23,Mariano Rivera,New York Yankees,,Refractors
+refractors,24,Vinny Castilla,Colorado Rockies,,Refractors
+refractors,25,Juan Gonzalez,Texas Rangers,,Refractors
+refractors,26,Al Martin,Pittsburgh Pirates,,Refractors
+refractors,27,Jeff Cirillo,Milwaukee Brewers,,Refractors
+refractors,28,Ray Lankford,St. Louis Cardinals,,Refractors
+refractors,29,Manny Ramirez,Cleveland Indians,,Refractors
+refractors,30,Roberto Alomar,Baltimore Orioles,,Refractors
+refractors,31,Will Clark,Texas Rangers,,Refractors
+refractors,32,Chuck Knoblauch,Minnesota Twins,,Refractors
+refractors,33,Harold Baines,Chicago White Sox,,Refractors
+refractors,34,Edgar Martinez,Seattle Mariners,,Refractors
+refractors,35,Mike Mussina,Baltimore Orioles,,Refractors
+refractors,36,Kevin Brown,Florida Marlins,,Refractors
+refractors,37,Dennis Eckersley,St. Louis Cardinals,,Refractors
+refractors,38,Tino Martinez,New York Yankees,,Refractors
+refractors,39,Raul Mondesi,Los Angeles Dodgers,,Refractors
+refractors,40,Sammy Sosa,Chicago Cubs,,Refractors
+refractors,41,John Smoltz,Atlanta Braves,,Refractors
+refractors,42,Billy Wagner,Houston Astros,,Refractors
+refractors,43,Ken Caminiti,San Diego Padres,,Refractors
+refractors,44,Wade Boggs,New York Yankees,,Refractors
+refractors,45,Andres Galarraga,Colorado Rockies,,Refractors
+refractors,46,Roger Clemens,Toronto Blue Jays,,Refractors
+refractors,47,Matt Williams,Cleveland Indians,,Refractors
+refractors,48,Albert Belle,Chicago White Sox,,Refractors
+refractors,49,Jeff King,Kansas City Royals,,Refractors
+refractors,50,John Wetteland,Texas Rangers,,Refractors
+refractors,51,Deion Sanders,Cincinnati Reds,,Refractors
+refractors,52,Ellis Burks,Colorado Rockies,,Refractors
+refractors,53,Pedro Martinez,Montreal Expos,,Refractors
+refractors,54,Kenny Lofton,Atlanta Braves,,Refractors
+refractors,55,Randy Johnson,Seattle Mariners,,Refractors
+refractors,56,Bernie Williams,New York Yankees,,Refractors
+refractors,57,Marquis Grissom,Cleveland Indians,,Refractors
+refractors,58,Gary Sheffield,Florida Marlins,,Refractors
+refractors,59,Curt Schilling,Philadelphia Phillies,,Refractors
+refractors,60,Reggie Sanders,Cincinnati Reds,,Refractors
+refractors,61,Bobby Higginson,Detroit Tigers,,Refractors
+refractors,62,Moises Alou,Florida Marlins,,Refractors
+refractors,63,Tom Glavine,Atlanta Braves,,Refractors
+refractors,64,Mark Grace,Chicago Cubs,,Refractors
+refractors,65,Rafael Palmeiro,Baltimore Orioles,,Refractors
+refractors,66,John Olerud,New York Mets,,Refractors
+refractors,67,Dante Bichette,Colorado Rockies,,Refractors
+refractors,68,Jeff Bagwell,Houston Astros,,Refractors
+refractors,69,Barry Bonds,San Francisco Giants,,Refractors
+refractors,70,Pat Hentgen,Toronto Blue Jays,,Refractors
+refractors,71,Jim Thome,Cleveland Indians,,Refractors
+refractors,72,Andy Pettitte,New York Yankees,,Refractors
+refractors,73,Jay Bell,Kansas City Royals,,Refractors
+refractors,74,Jim Edmonds,Anaheim Angels,,Refractors
+refractors,75,Ron Gant,St. Louis Cardinals,,Refractors
+refractors,76,David Cone,New York Yankees,,Refractors
+refractors,77,Jose Canseco,Oakland Athletics,,Refractors
+refractors,78,Jay Buhner,Seattle Mariners,,Refractors
+refractors,79,Greg Maddux,Atlanta Braves,,Refractors
+refractors,80,Lance Johnson,New York Mets,,Refractors
+refractors,81,Travis Fryman,Detroit Tigers,,Refractors
+refractors,82,Paul O'Neill,New York Yankees,,Refractors
+refractors,83,Ivan Rodriguez,Texas Rangers,,Refractors
+refractors,84,Fred McGriff,Atlanta Braves,,Refractors
+refractors,85,Mike Piazza,Los Angeles Dodgers,,Refractors
+refractors,86,Brady Anderson,Baltimore Orioles,,Refractors
+refractors,87,Marty Cordova,Minnesota Twins,,Refractors
+refractors,88,Joe Carter,Toronto Blue Jays,,Refractors
+refractors,89,Brian Jordan,St. Louis Cardinals,,Refractors
+refractors,90,David Justice,Cleveland Indians,,Refractors
+refractors,91,Tony Gwynn,San Diego Padres,,Refractors
+refractors,92,Larry Walker,Colorado Rockies,,Refractors
+refractors,93,Mo Vaughn,Boston Red Sox,,Refractors
+refractors,94,Sandy Alomar,Cleveland Indians,,Refractors
+refractors,95,Rusty Greer,Texas Rangers,,Refractors
+refractors,96,Roberto Hernandez,Chicago White Sox,,Refractors
+refractors,97,Hal Morris,Cincinnati Reds,,Refractors
+refractors,98,Todd Hundley,New York Mets,,Refractors
+refractors,99,Rondell White,Montreal Expos,,Refractors
+refractors,100,Frank Thomas,Chicago White Sox,,Refractors
+refractors,101,Bubba Trammell,Detroit Tigers,,Refractors
+refractors,102,Sidney Ponson,Baltimore Orioles,,Refractors
+refractors,103,Ricky Ledee,New York Yankees,,Refractors
+refractors,104,Brett Tomko,Cincinnati Reds,,Refractors
+refractors,105,Braden Looper,St. Louis Cardinals,,Refractors
+refractors,106,Jason Dickson,Anaheim Angels,,Refractors
+refractors,107,Chad Green,Milwaukee Brewers,,Refractors
+refractors,108,R.A. Dickey,Texas Rangers,,Refractors
+refractors,109,Jeff Liefer,Chicago White Sox,,Refractors
+refractors,110,Richard Hidalgo,Houston Astros,,Refractors
+refractors,111,Chad Hermansen,Pittsburgh Pirates,,Refractors
+refractors,112,Felix Martinez,Kansas City Royals,,Refractors
+refractors,113,J.J. Johnson,Minnesota Twins,,Refractors
+refractors,114,Todd Dunwoody,Florida Marlins,,Refractors
+refractors,115,Katsuhiro Maeda,New York Yankees,,Refractors
+refractors,116,Darin Erstad,Anaheim Angels,,Refractors
+refractors,117,Elieser Marrero,St. Louis Cardinals,,Refractors
+refractors,118,Bartolo Colon,Cleveland Indians,,Refractors
+refractors,119,Ugueth Urbina,Montreal Expos,,Refractors
+refractors,120,Jaime Bluma,Kansas City Royals,,Refractors
+refractors,121,Seth Greisinger,Detroit Tigers,,Refractors
+refractors,122,Jose Cruz Jr.,Seattle Mariners,,Refractors
+refractors,123,Todd Dunn,Milwaukee Brewers,,Refractors
+refractors,124,Justin Towle,Cincinnati Reds,,Refractors
+refractors,125,Brian Rose,Boston Red Sox,,Refractors
+refractors,126,Jose Guillen,Pittsburgh Pirates,,Refractors
+refractors,127,Andruw Jones,Atlanta Braves,,Refractors
+refractors,128,Mark Kotsay,Florida Marlins,,Refractors
+refractors,129,Wilton Guerrero,Los Angeles Dodgers,,Refractors
+refractors,130,Jacob Cruz,San Francisco Giants,,Refractors
+refractors,131,Mike Sweeney,Kansas City Royals,,Refractors
+refractors,132,Matt Morris,St. Louis Cardinals,,Refractors
+refractors,133,John Thomson,Colorado Rockies,,Refractors
+refractors,134,Javier Valentin,Minnesota Twins,,Refractors
+refractors,135,Mike Drumright,Detroit Tigers,,Refractors
+refractors,136,Michael Barrett,Montreal Expos,,Refractors
+refractors,137,Tony Saunders,Florida Marlins,,Refractors
+refractors,138,Kevin Brown,Texas Rangers,,Refractors
+refractors,139,Anthony Sanders,Toronto Blue Jays,,Refractors
+refractors,140,Jeff Abbott,Chicago White Sox,,Refractors
+refractors,141,Eugene Kingsale,Baltimore Orioles,,Refractors
+refractors,142,Paul Konerko,Los Angeles Dodgers,,Refractors
+refractors,143,Randall Simon,Atlanta Braves,,Refractors
+refractors,144,Freddy Garcia,Pittsburgh Pirates,,Refractors
+refractors,145,Karim Garcia,Los Angeles Dodgers,,Refractors
+refractors,146,Carlos Guillen,Houston Astros,,Refractors
+refractors,147,Aaron Boone,Cincinnati Reds,,Refractors
+refractors,148,Donnie Sadler,Boston Red Sox,,Refractors
+refractors,149,Brooks Kieschnick,Chicago Cubs,,Refractors
+refractors,150,Scott Spiezio,Oakland Athletics,,Refractors
+refractors,151,Kevin Orie,Chicago Cubs,,Refractors
+refractors,152,Russ Johnson,Houston Astros,,Refractors
+refractors,153,Livan Hernandez,Florida Marlins,,Refractors
+refractors,154,Vladimir Nunez,Arizona Diamondbacks,,Refractors
+refractors,155,Calvin Reese,Cincinnati Reds,,Refractors
+refractors,156,Chris Carpenter,Toronto Blue Jays,,Refractors
+refractors,157,Eric Milton,New York Yankees,,Refractors
+refractors,158,Richie Sexson,Cleveland Indians,,Refractors
+refractors,159,Carl Pavano,Boston Red Sox,,Refractors
+refractors,160,Pat Cline,Chicago Cubs,,Refractors
+refractors,161,Ron Wright,Pittsburgh Pirates,,Refractors
+refractors,162,Dante Powell,San Francisco Giants,,Refractors
+refractors,163,Mark Bellhorn,Oakland Athletics,,Refractors
+refractors,164,George Lombard,Atlanta Braves,,Refractors
+refractors,165,Paul Wilder,Tampa Bay Devil Rays,,Refractors
+refractors,166,Brad Fullmer,Montreal Expos,,Refractors
+refractors,167,Kris Benson,Pittsburgh Pirates,,Refractors
+refractors,168,Torii Hunter,Minnesota Twins,,Refractors
+refractors,169,D.T. Cromer,Oakland Athletics,,Refractors
+refractors,170,Nelson Figueroa,New York Mets,,Refractors
+refractors,171,Hiram Bocachica,Montreal Expos,,Refractors
+refractors,172,Shane Monahan,Seattle Mariners,,Refractors
+refractors,173,Juan Melo,San Diego Padres,,Refractors
+refractors,174,Calvin Pickering,Baltimore Orioles,,Refractors
+refractors,175,Reggie Taylor,Philadelphia Phillies,,Refractors
+refractors,176,Geoff Jenkins,Milwaukee Brewers,,Refractors
+refractors,177,Steve Rain,Chicago Cubs,,Refractors
+refractors,178,Nerio Rodriguez,Baltimore Orioles,,Refractors
+refractors,179,Derrick Gibson,Colorado Rockies,,Refractors
+refractors,180,Darin Blood,San Francisco Giants,,Refractors
+refractors,181,Ben Davis,San Diego Padres,,Refractors
+refractors,182,Adrian Beltre,Los Angeles Dodgers,,Refractors
+refractors,183,Kerry Wood,Chicago Cubs,,Refractors
+refractors,184,Nate Rolison,Florida Marlins,,Refractors
+refractors,185,Fernando Tatis,Texas Rangers,,Refractors
+refractors,186,Jake Westbrook,Colorado Rockies,,Refractors
+refractors,187,Edwin Diaz,Texas Rangers,,Refractors
+refractors,188,Joe Fontenot,San Francisco Giants,,Refractors
+refractors,189,Matt Halloran,San Diego Padres,,Refractors
+refractors,190,Matt Clement,San Diego Padres,,Refractors
+refractors,191,Todd Greene,Anaheim Angels,,Refractors
+refractors,192,Eric Chavez,Oakland Athletics,,Refractors
+refractors,193,Edgard Velazquez,Colorado Rockies,,Refractors
+refractors,194,Bruce Chen,Atlanta Braves,,Refractors
+refractors,195,Jason Brester,San Francisco Giants,,Refractors
+refractors,196,Chris Reitsma,Boston Red Sox,,Refractors
+refractors,197,Neifi Perez,Colorado Rockies,,Refractors
+refractors,198,Hideki Irabu,New York Yankees,,Refractors
+refractors,199,Don Denbow,San Francisco Giants,,Refractors
+refractors,200,Derrek Lee,San Diego Padres,,Refractors
+refractors,201,Todd Walker,Minnesota Twins,,Refractors
+refractors,202,Scott Rolen,Philadelphia Phillies,,Refractors
+refractors,203,Wes Helms,Atlanta Braves,,Refractors
+refractors,204,Bob Abreu,Houston Astros,,Refractors
+refractors,205,John Patterson,Arizona Diamondbacks,,Refractors
+refractors,206,Alex Gonzalez,Florida Marlins,,Refractors
+refractors,207,Grant Roberts,New York Mets,,Refractors
+refractors,208,Jeff Suppan,Boston Red Sox,,Refractors
+refractors,209,Luke Wilcox,New York Yankees,,Refractors
+refractors,210,Marlon Anderson,Philadelphia Phillies,,Refractors
+refractors,211,Mike Caruso,San Francisco Giants,,Refractors
+refractors,212,Roy Halladay,Toronto Blue Jays,,Refractors
+refractors,213,Jeremi Gonzalez,Chicago Cubs,,Refractors
+refractors,214,Aramis Ramirez,Pittsburgh Pirates,,Refractors
+refractors,215,Dermal Brown,Kansas City Royals,,Refractors
+refractors,216,Justin Thompson,Detroit Tigers,,Refractors
+refractors,217,Danny Clyburn,Baltimore Orioles,,Refractors
+refractors,218,Bruce Aven,Cleveland Indians,,Refractors
+refractors,219,Keith Foulke,San Francisco Giants,,Refractors
+refractors,220,Shannon Stewart,Toronto Blue Jays,,Refractors
+refractors,221,Larry Barnes,Anaheim Angels,,Refractors
+refractors,222,Mark Johnson,Houston Astros,,Refractors
+refractors,223,Randy Winn,Florida Marlins,,Refractors
+refractors,224,Nomar Garciaparra,Boston Red Sox,,Refractors
+refractors,225,Jacque Jones,Minnesota Twins,,Refractors
+refractors,226,Chris Clemons,Chicago White Sox,,Refractors
+refractors,227,Todd Helton,Colorado Rockies,,Refractors
+refractors,228,Ryan Brannan,Philadelphia Phillies,,Refractors
+refractors,229,Alex Sanchez,Tampa Bay Devil Rays,,Refractors
+refractors,230,Russell Branyan,Cleveland Indians,,Refractors
+refractors,231,Daryle Ward,Houston Astros,,Refractors
+refractors,232,Kevin Witt,Toronto Blue Jays,,Refractors
+refractors,233,Gabby Martinez,New York Yankees,,Refractors
+refractors,234,Preston Wilson,New York Mets,,Refractors
+refractors,235,Donzell McDonald,New York Yankees,,Refractors
+refractors,236,Orlando Cabrera,Montreal Expos,,Refractors
+refractors,237,Brian Banks,Milwaukee Brewers,,Refractors
+refractors,238,Robbie Bell,Atlanta Braves,,Refractors
+refractors,239,Brad Rigby,Oakland Athletics,,Refractors
+refractors,240,Scott Elarton,Houston Astros,,Refractors
+refractors,241,Donny Leon,New York Yankees,,Refractors
+refractors,242,Abraham Nunez,Pittsburgh Pirates,,Refractors
+refractors,243,Adam Eaton,Philadelphia Phillies,,Refractors
+refractors,244,Octavio Dotel,New York Mets,,Refractors
+refractors,245,Sean Casey,Cleveland Indians,,Refractors
+refractors,246,Joe Lawrence,Toronto Blue Jays,,Refractors
+refractors,247,Adam Johnson,Atlanta Braves,,Refractors
+refractors,248,Ronnie Belliard,Milwaukee Brewers,,Refractors
+refractors,249,Bobby Estalella,Philadelphia Phillies,,Refractors
+refractors,250,Corey Lee,Texas Rangers,,Refractors
+refractors,251,Mike Cameron,Chicago White Sox,,Refractors
+refractors,252,Kerry Robinson,St. Louis Cardinals,,Refractors
+refractors,253,A.J. Zapp,Atlanta Braves,,Refractors
+refractors,254,Jarrod Washburn,Anaheim Angels,,Refractors
+refractors,255,Ben Grieve,Oakland Athletics,,Refractors
+refractors,256,Javier Vazquez,Montreal Expos,,Refractors
+refractors,257,Travis Lee,Arizona Diamondbacks,,Refractors
+refractors,258,Dennis Reyes,Los Angeles Dodgers,,Refractors
+refractors,259,Danny Buxbaum,Anaheim Angels,,Refractors
+refractors,260,Kelvim Escobar,Toronto Blue Jays,,Refractors
+refractors,261,Danny Klassen,Milwaukee Brewers,,Refractors
+refractors,262,Ken Cloude,Seattle Mariners,,Refractors
+refractors,263,Gabe Alvarez,San Diego Padres,,Refractors
+refractors,264,Clayton Bruner,Detroit Tigers,,Refractors
+refractors,265,Jason Marquis,Atlanta Braves,,Refractors
+refractors,266,Jamey Wright,Colorado Rockies,,Refractors
+refractors,267,Matt Snyder,Baltimore Orioles,,Refractors
+refractors,268,Josh Garrett,Boston Red Sox,,Refractors
+refractors,269,Juan Encarnacion,Detroit Tigers,,Refractors
+refractors,270,Heath Murray,San Diego Padres,,Refractors
+refractors,271,Brent Butler,St. Louis Cardinals,,Refractors
+refractors,272,Danny Peoples,Cleveland Indians,,Refractors
+refractors,273,Miguel Tejada,Oakland Athletics,,Refractors
+refractors,274,Jim Pittsley,Kansas City Royals,,Refractors
+refractors,275,Dmitri Young,St. Louis Cardinals,,Refractors
+refractors,276,Vladimir Guerrero,Montreal Expos,,Refractors
+refractors,277,Cole Liniak,Boston Red Sox,,Refractors
+refractors,278,Ramon Hernandez,Oakland Athletics,,Refractors
+refractors,279,Cliff Politte,St. Louis Cardinals,,Refractors
+refractors,280,Mel Rosario,Baltimore Orioles,,Refractors
+refractors,281,Jorge Carrion,Texas Rangers,,Refractors
+refractors,282,John Barnes,Boston Red Sox,,Refractors
+refractors,283,Chris Stowe,Montreal Expos,,Refractors
+refractors,284,Vernon Wells,Toronto Blue Jays,,Refractors
+refractors,285,Brett Caradonna,Chicago White Sox,,Refractors
+refractors,286,Scott Hodges,Montreal Expos,,Refractors
+refractors,287,Jon Garland,Chicago Cubs,,Refractors
+refractors,288,Nathan Haynes,Oakland Athletics,,Refractors
+refractors,289,Geoff Goetz,New York Mets,,Refractors
+refractors,290,Adam Kennedy,St. Louis Cardinals,,Refractors
+refractors,291,T.J. Tucker,Montreal Expos,,Refractors
+refractors,292,Aaron Akin,Florida Marlins,,Refractors
+refractors,293,Jayson Werth,Baltimore Orioles,,Refractors
+refractors,294,Glenn Davis,Los Angeles Dodgers,,Refractors
+refractors,295,Mark Mangum,Colorado Rockies,,Refractors
+refractors,296,Troy Cameron,Atlanta Braves,,Refractors
+refractors,297,J.J. Davis,Pittsburgh Pirates,,Refractors
+refractors,298,Lance Berkman,Houston Astros,,Refractors
+refractors,299,Jason Standridge,Tampa Bay Devil Rays,,Refractors
+refractors,300,Jason Dellaero,Chicago White Sox,,Refractors
+rookie-of-the-year-favorites,ROY1,Jeff Abbott,Chicago White Sox,,1998 Rookie of the Year Favorites
+rookie-of-the-year-favorites,ROY2,Karim Garcia,Los Angeles Dodgers,,1998 Rookie of the Year Favorites
+rookie-of-the-year-favorites,ROY3,Todd Helton,Colorado Rockies,,1998 Rookie of the Year Favorites
+rookie-of-the-year-favorites,ROY4,Richard Hidalgo,Houston Astros,,1998 Rookie of the Year Favorites
+rookie-of-the-year-favorites,ROY5,Geoff Jenkins,Milwaukee Brewers,,1998 Rookie of the Year Favorites
+rookie-of-the-year-favorites,ROY6,Russ Johnson,Houston Astros,,1998 Rookie of the Year Favorites
+rookie-of-the-year-favorites,ROY7,Paul Konerko,Los Angeles Dodgers,,1998 Rookie of the Year Favorites
+rookie-of-the-year-favorites,ROY8,Mark Kotsay,Florida Marlins,,1998 Rookie of the Year Favorites
+rookie-of-the-year-favorites,ROY9,Ricky Ledee,New York Yankees,,1998 Rookie of the Year Favorites
+rookie-of-the-year-favorites,ROY10,Travis Lee,Arizona Diamondbacks,,1998 Rookie of the Year Favorites
+rookie-of-the-year-favorites,ROY11,Derrek Lee,San Diego Padres,,1998 Rookie of the Year Favorites
+rookie-of-the-year-favorites,ROY12,Elieser Marrero,St. Louis Cardinals,,1998 Rookie of the Year Favorites
+rookie-of-the-year-favorites,ROY13,Juan Melo,San Diego Padres,,1998 Rookie of the Year Favorites
+rookie-of-the-year-favorites,ROY14,Brian Rose,Boston Red Sox,,1998 Rookie of the Year Favorites
+rookie-of-the-year-favorites,ROY15,Fernando Tatis,Texas Rangers,,1998 Rookie of the Year Favorites
+rookie-of-the-year-favorites-refractors,ROY1,Jeff Abbott,Chicago White Sox,,1998 Rookie of the Year Favorites Refractors
+rookie-of-the-year-favorites-refractors,ROY2,Karim Garcia,Los Angeles Dodgers,,1998 Rookie of the Year Favorites Refractors
+rookie-of-the-year-favorites-refractors,ROY3,Todd Helton,Colorado Rockies,,1998 Rookie of the Year Favorites Refractors
+rookie-of-the-year-favorites-refractors,ROY4,Richard Hidalgo,Houston Astros,,1998 Rookie of the Year Favorites Refractors
+rookie-of-the-year-favorites-refractors,ROY5,Geoff Jenkins,Milwaukee Brewers,,1998 Rookie of the Year Favorites Refractors
+rookie-of-the-year-favorites-refractors,ROY6,Russ Johnson,Houston Astros,,1998 Rookie of the Year Favorites Refractors
+rookie-of-the-year-favorites-refractors,ROY7,Paul Konerko,Los Angeles Dodgers,,1998 Rookie of the Year Favorites Refractors
+rookie-of-the-year-favorites-refractors,ROY8,Mark Kotsay,Florida Marlins,,1998 Rookie of the Year Favorites Refractors
+rookie-of-the-year-favorites-refractors,ROY9,Ricky Ledee,New York Yankees,,1998 Rookie of the Year Favorites Refractors
+rookie-of-the-year-favorites-refractors,ROY10,Travis Lee,Arizona Diamondbacks,,1998 Rookie of the Year Favorites Refractors
+rookie-of-the-year-favorites-refractors,ROY11,Derrek Lee,San Diego Padres,,1998 Rookie of the Year Favorites Refractors
+rookie-of-the-year-favorites-refractors,ROY12,Elieser Marrero,St. Louis Cardinals,,1998 Rookie of the Year Favorites Refractors
+rookie-of-the-year-favorites-refractors,ROY13,Juan Melo,San Diego Padres,,1998 Rookie of the Year Favorites Refractors
+rookie-of-the-year-favorites-refractors,ROY14,Brian Rose,Boston Red Sox,,1998 Rookie of the Year Favorites Refractors
+rookie-of-the-year-favorites-refractors,ROY15,Fernando Tatis,Texas Rangers,,1998 Rookie of the Year Favorites Refractors
+scouts-honor-roll,SHR1,Dmitri Young,St. Louis Cardinals,,Scout's Honor Roll
+scouts-honor-roll,SHR2,Bob Abreu,Houston Astros,,Scout's Honor Roll
+scouts-honor-roll,SHR3,Vladimir Guerrero,Montreal Expos,,Scout's Honor Roll
+scouts-honor-roll,SHR4,Paul Konerko,Los Angeles Dodgers,,Scout's Honor Roll
+scouts-honor-roll,SHR5,Kevin Orie,Chicago Cubs,,Scout's Honor Roll
+scouts-honor-roll,SHR6,Todd Walker,Minnesota Twins,,Scout's Honor Roll
+scouts-honor-roll,SHR7,Ben Grieve,Oakland Athletics,,Scout's Honor Roll
+scouts-honor-roll,SHR8,Darin Erstad,Anaheim Angels,,Scout's Honor Roll
+scouts-honor-roll,SHR9,Derrek Lee,San Diego Padres,,Scout's Honor Roll
+scouts-honor-roll,SHR10,Jose Cruz Jr.,Seattle Mariners,,Scout's Honor Roll
+scouts-honor-roll,SHR11,Scott Rolen,Philadelphia Phillies,,Scout's Honor Roll
+scouts-honor-roll,SHR12,Travis Lee,Arizona Diamondbacks,,Scout's Honor Roll
+scouts-honor-roll,SHR13,Andruw Jones,Atlanta Braves,,Scout's Honor Roll
+scouts-honor-roll,SHR14,Wilton Guerrero,Los Angeles Dodgers,,Scout's Honor Roll
+scouts-honor-roll,SHR15,Nomar Garciaparra,Boston Red Sox,,Scout's Honor Roll
+scouts-honor-roll-refractors,SHR1,Dmitri Young,St. Louis Cardinals,,Scout's Honor Roll Refractors
+scouts-honor-roll-refractors,SHR2,Bob Abreu,Houston Astros,,Scout's Honor Roll Refractors
+scouts-honor-roll-refractors,SHR3,Vladimir Guerrero,Montreal Expos,,Scout's Honor Roll Refractors
+scouts-honor-roll-refractors,SHR4,Paul Konerko,Los Angeles Dodgers,,Scout's Honor Roll Refractors
+scouts-honor-roll-refractors,SHR5,Kevin Orie,Chicago Cubs,,Scout's Honor Roll Refractors
+scouts-honor-roll-refractors,SHR6,Todd Walker,Minnesota Twins,,Scout's Honor Roll Refractors
+scouts-honor-roll-refractors,SHR7,Ben Grieve,Oakland Athletics,,Scout's Honor Roll Refractors
+scouts-honor-roll-refractors,SHR8,Darin Erstad,Anaheim Angels,,Scout's Honor Roll Refractors
+scouts-honor-roll-refractors,SHR9,Derrek Lee,San Diego Padres,,Scout's Honor Roll Refractors
+scouts-honor-roll-refractors,SHR10,Jose Cruz Jr.,Seattle Mariners,,Scout's Honor Roll Refractors
+scouts-honor-roll-refractors,SHR11,Scott Rolen,Philadelphia Phillies,,Scout's Honor Roll Refractors
+scouts-honor-roll-refractors,SHR12,Travis Lee,Arizona Diamondbacks,,Scout's Honor Roll Refractors
+scouts-honor-roll-refractors,SHR13,Andruw Jones,Atlanta Braves,,Scout's Honor Roll Refractors
+scouts-honor-roll-refractors,SHR14,Wilton Guerrero,Los Angeles Dodgers,,Scout's Honor Roll Refractors
+scouts-honor-roll-refractors,SHR15,Nomar Garciaparra,Boston Red Sox,,Scout's Honor Roll Refractors
