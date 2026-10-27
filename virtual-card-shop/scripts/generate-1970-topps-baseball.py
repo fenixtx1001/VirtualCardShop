@@ -30,6 +30,13 @@ def clean(value):
  value=re.sub(r"(?<=\s)RCUER(?=:|\s|,|$)", "RC UER", value, flags=re.I)
  m=ANNOT.search(value)
  return value[:m.start()].strip(" ,;") if m else value
+def normalize_known_variation(key, number, player):
+ # TCDB concatenates variation markers without whitespace on these cards.
+ if key=="base" and number in ("128","588"):
+  player=re.split(r"\s+CL,\s*(?:ERR|COR)",player,maxsplit=1)[0]
+ if key=="base" and number=="303":
+  player=re.split(r"\s+VARVAR:",player,maxsplit=1)[0]
+ return player
 def fetch(url):
  for attempt in range(4):
   try:
@@ -57,7 +64,7 @@ def collect(key,sid,expected,rookies=False):
     if number.upper()=="NNO":
      unnumbered+=1;number=f"NNO-{unnumbered:02d}"
     else:number=str(int(re.match(r"\d+",number).group()))
-    player=clean(cells[i+1])
+    player=normalize_known_variation(key,number,clean(cells[i+1]))
     if not player:continue
     team=cells[-1] if i+2<len(cells) else ""
     if team==cells[i+1]:team=""
@@ -106,6 +113,11 @@ def selftest():
  assert clean("Mike Nagy ASR, RC")=="Mike Nagy"
  assert clean("Jose Martinez RC")=="Jose Martinez"
  assert clean("Willie Mays")=="Willie Mays"
+ assert normalize_known_variation("base","128","2nd Series Checklist 133-263 CL, ERR2nd Series")=="2nd Series Checklist 133-263"
+ assert normalize_known_variation("base","128","2nd Series Checklist 133-263 CL, COR2nd Series")=="2nd Series Checklist 133-263"
+ assert normalize_known_variation("base","303","Brant Alyea VARVAR: Cartoon on back has a baseball")=="Brant Alyea"
+ assert normalize_known_variation("base","303","Brant Alyea VARVAR: Cartoon on back does not have a baseball")=="Brant Alyea"
+ assert normalize_known_variation("base","588","7th Series Checklist 634-720 CL, COR7th Series")=="7th Series Checklist 634-720"
  assert clean("Buck Martinez RCUER: Circle on backis white.")=="Buck Martinez"
  assert NUMBER.fullmatch("NNO") and NUMBER.fullmatch("101a")
  assert NUMBER.fullmatch("720") and NUMBER.fullmatch("1")
