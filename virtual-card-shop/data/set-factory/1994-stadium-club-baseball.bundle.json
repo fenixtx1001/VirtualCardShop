@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/416/1994-Stadium-Club",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/416/1994-Stadium-Club",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/416/1994-Stadium-Club"
+  },
+  "decisions": {
+    "base": "720 physical Base cards across three original series (270/270/180). TCDB reports duplicate printed numbers 269, 270 and 543 from misnumbered 539, 540, 643. Retain both subjects under deterministic a/b suffixed internal card numbers; no fictional corrected variants.",
+    "rookies": "16 TCDB Base rookies, identify by physical card subject and number after validation.",
+    "parallels": "720 First Day Issue (/2000 per card) and 720 Golden Rainbow. Source duplicates and identity must match Base.",
+    "inserts": "Original-pack sets: Bowman Previews 10; Dugout Dirt 12; Finest 10; Super Teams 28; Info Cards Series 1 10, Series 2 6, Series 3 7.",
+    "excluded": "Members Only factory cards, mail-in sets, promotional Pre-Production Samples, and Finest 5x7 retail-repack exclusives are outside the original wax-pack model; membership form excluded as non-card administrative insert.",
+    "pack": "Original 12-card foil and 20-card jumbo packs. VCS uses four-card packs, 24 per box. Historic wax odds preserved only where verified; Series-specific collation and odds pending QA.",
+    "release": "Draft remains unreleased pending scans, pricing, historical series collation, and final QA."
+  },
+  "product": {
+    "id": "1994_Stadium_Club_Baseball",
+    "year": 1994,
+    "brand": "Stadium Club",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1994-stadium-club-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1994_Stadium_Club_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "sourceSetId": 416,
+      "expectedCards": 720,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/416/1994-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "first-day-issue",
+      "id": "1994_Stadium_Club_Baseball_first_day_issue",
+      "name": "First Day Issue",
+      "kind": "PARALLEL",
+      "sourceSetId": 419,
+      "expectedCards": 720,
+      "oddsPerPack": 24,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/419/1994-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": "Limited /2000, 1:24 wax"
+    },
+    {
+      "key": "golden-rainbow",
+      "id": "1994_Stadium_Club_Baseball_golden_rainbow",
+      "name": "Golden Rainbow",
+      "kind": "PARALLEL",
+      "sourceSetId": 420,
+      "expectedCards": 720,
+      "oddsPerPack": 1,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/420/1994-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": "One per wax pack"
+    },
+    {
+      "key": "bowman-previews",
+      "id": "1994_Stadium_Club_Baseball_bowman_previews",
+      "name": "1994 Bowman Previews",
+      "kind": "INSERT",
+      "sourceSetId": 87790,
+      "expectedCards": 10,
+      "oddsPerPack": 24,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/87790/1994-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "dugout-dirt",
+      "id": "1994_Stadium_Club_Baseball_dugout_dirt",
+      "name": "Dugout Dirt",
+      "kind": "INSERT",
+      "sourceSetId": 417,
+      "expectedCards": 12,
+      "oddsPerPack": 6,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/417/1994-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "finest",
+      "id": "1994_Stadium_Club_Baseball_finest",
+      "name": "Finest",
+      "kind": "INSERT",
+      "sourceSetId": 418,
+      "expectedCards": 10,
+      "oddsPerPack": 24,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/418/1994-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "super-teams",
+      "id": "1994_Stadium_Club_Baseball_super_teams",
+      "name": "Super Teams",
+      "kind": "INSERT",
+      "sourceSetId": 10197,
+      "expectedCards": 28,
+      "oddsPerPack": 24,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10197/1994-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "info-series-1",
+      "id": "1994_Stadium_Club_Baseball_info_series_1",
+      "name": "Info Cards Series 1",
+      "kind": "INSERT",
+      "sourceSetId": 86232,
+      "expectedCards": 10,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/86232/1994-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "info-series-2",
+      "id": "1994_Stadium_Club_Baseball_info_series_2",
+      "name": "Info Cards Series 2",
+      "kind": "INSERT",
+      "sourceSetId": 102775,
+      "expectedCards": 6,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/102775/1994-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "info-series-3",
+      "id": "1994_Stadium_Club_Baseball_info_series_3",
+      "name": "Info Cards Series 3",
+      "kind": "INSERT",
+      "sourceSetId": 102774,
+      "expectedCards": 7,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/102774/1994-Stadium-Club",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    }
+  ]
+}
