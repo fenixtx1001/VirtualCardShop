@@ -8,7 +8,7 @@ ROOT=Path(__file__).resolve().parents[1]
 BUNDLE=ROOT/"data/set-factory/2000-bowman-baseball.bundle.json"
 OUT=ROOT/"data/set-factory/2000-bowman-baseball.cards.csv"
 HEADERS={"User-Agent":"Mozilla/5.0 (compatible; VCS Set Factory source validator)","Accept":"text/html,application/xhtml+xml"}
-TAG=re.compile(r"(?:,\s*|\s+)(?:RC|UER(?:UER)?|ERR(?:ERR)?|COR(?:COR)?|VAR(?:VAR)?|AU|BLUE|SIL|GOLD|SP|PR\d+)(?=\s|,|:|$)",re.I)
+TAG=re.compile(r"(?:,\s*|\s+)(?:RC|UER(?:UER)?|ERR(?:ERR)?|COR(?:COR)?|VAR(?:VAR)?|AU|BLUE|SIL|GOLD|SP|PR\d+|SN\d+)(?=\s|,|:|$)",re.I)
 NO=re.compile(r"^(?:\d{1,3}|[A-Z]{1,4}\d{1,3}|[A-Z]{2,3})$",re.I)
 RC_TOTAL=114
 class Rows(HTMLParser):
@@ -109,6 +109,8 @@ def tests():
  assert clean("Cal Ripken Jr.")=="Cal Ripken Jr."
  assert clean("Bobby Bradley RC, UER")=="Bobby Bradley"
  assert clean("Ben Sheets AU, BLUE")=="Ben Sheets"
+ assert clean("Vladimir Guerrero SN99")=="Vladimir Guerrero"
+ assert clean("J.T. Snow Jr. SN99")=="J.T. Snow Jr."
  assert clean("Carlos Zambrano RC")=="Carlos Zambrano"
  assert NO.fullmatch("BBP10") and NO.fullmatch("KJW") and NO.fullmatch("MP1")
  print("2000 Bowman offline self-tests passed")
