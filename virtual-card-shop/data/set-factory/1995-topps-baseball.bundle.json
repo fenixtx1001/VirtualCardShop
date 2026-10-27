@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/594/1995-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/594/1995-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/594/1995-Topps"
+  },
+  "decisions": {
+    "base": "Combine #1-396 Series 1 with #397-660 Series 2, equal base probability.",
+    "rookies": "TCDB rookie index contains 38 records. Treat RC only when independently verified by number and source subject/team.",
+    "cyberstats": "396-card partial parallel, one card per standard original pack; not every Base number has a CyberStats parallel.",
+    "inserts": "League Leaders 50, Own the Game instant winners 30, Stadium Club First Day Issue 270, Total Bases 15, Walmart pack-issued sweepstakes entry one card.",
+    "excluded": "Seven CyberStats Season in Review and ten Opening Day cards are factory-set exclusives, not pack issued. Do not include them in normal VCS packs.",
+    "variants": "Printing variations are one collectible per physical card number, with no fabricated subjects. Preserve source-specific independent insert identities.",
+    "odds": "Historical original-series and channel-dependent odds retained as reference, require unified VCS pack QA. CyberStats 1:1, League Leaders retail 1:6 / jumbo 1:3, First Day Issue series 2 hobby 1:4 (DP series 1 hobby 1:36), Total Bases series 2 1:36, Own the Game 1:120.",
+    "names": "Whole-delimiter token cleanup only, never truncate legitimate surnames.",
+    "pack": "Four VCS cards per pack, 24 packs per box; product unreleased.",
+    "release": "Blocked on checklist QA, authentic art, pricing and odds normalization."
+  },
+  "product": {
+    "id": "1995_Topps_Baseball",
+    "year": 1995,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1995-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1995_Topps_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 660,
+      "sourceSetId": 594,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/594/1995-Topps",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "cyberstats",
+      "id": "1995_Topps_Baseball_cyberstats",
+      "name": "CyberStats (Spectralight)",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "expectedCards": 396,
+      "sourceSetId": 595,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/595/1995-Topps",
+      "defaultGradeability": "COMMON",
+      "notes": "Partial parallel, one per historical pack"
+    },
+    {
+      "key": "league-leaders",
+      "id": "1995_Topps_Baseball_league_leaders",
+      "name": "League Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "expectedCards": 50,
+      "sourceSetId": 596,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/596/1995-Topps",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "own-the-game-instant-winners",
+      "id": "1995_Topps_Baseball_own_the_game_instant_winners",
+      "name": "Own the Game Instant Winners",
+      "kind": "INSERT",
+      "oddsPerPack": 120,
+      "expectedCards": 30,
+      "sourceSetId": 243246,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/243246/1995-Topps",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "stadium-club-first-day-issue",
+      "id": "1995_Topps_Baseball_stadium_club_first_day_issue",
+      "name": "Stadium Club First Day Issue",
+      "kind": "INSERT",
+      "oddsPerPack": 4,
+      "expectedCards": 270,
+      "sourceSetId": 10661,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10661/1995-Topps",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "total-bases-finest",
+      "id": "1995_Topps_Baseball_total_bases_finest",
+      "name": "Total Bases (Finest)",
+      "kind": "INSERT",
+      "oddsPerPack": 36,
+      "expectedCards": 15,
+      "sourceSetId": 10664,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10664/1995-Topps",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "walmart-sweepstakes-entry",
+      "id": "1995_Topps_Baseball_walmart_sweepstakes_entry",
+      "name": "Win the World's Most Valuable Card Official Entry Card",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 1,
+      "sourceSetId": 326917,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/326917/1995-Topps",
+      "defaultGradeability": "COMMON",
+      "notes": "Walmart-pack sweepstakes entry; redemption not the prize card"
+    }
+  ]
+}
