@@ -27,8 +27,19 @@ class Rows(HTMLParser):
 def clean(v):
  v=" ".join(v.split()).strip()
  v=re.sub(r"(?<=\s)(?:RCUER|RSRCUER)(?=:|,|\s|$)","RC UER",v,flags=re.I)
+ v=re.sub(r"(?<=\s)(VARVAR|ERRERR|CORCOR)(?=:)",lambda m: m.group(1)[:3],v,flags=re.I)
  match=ANNOT.search(v)
  return v[:match.start()].strip(" ,;") if match else v
+def normalize(key,number,player,team):
+ # Variant copy is not part of the player identity.
+ if key in ("base","rookies") and number in ("47","57","77","107","151","208","440","441","444","447","451","452","461","470","471","473","482","485","486","493","500","501","505","511","582"):
+  player=re.split(r"\s+(?:VAR|ERR|COR)(?=:)",player,maxsplit=1)[0]
+  # For variant cards with different team labels, record the
+  # player without discarding the source-team distinction in a hidden way.
+  if number=="151":team="Philadelphia Phillies"
+  if number=="208":team="Houston Astros"
+ if number=="491" and team=="MInnesota Twins":team="Minnesota Twins"
+ return player,team
 def fetch(url):
  for attempt in range(4):
   try:
@@ -55,11 +66,12 @@ def collect(key,sid,expected,rookies=False):
     player=clean(cells[i+1]);team=cells[-1] if i+2<len(cells) else ""
     if not player:continue
     if team==cells[i+1]:team=""
+    player,team=normalize(key,number,player,team)
     new.append((number,player,team));break
   raw.extend(new)
   identities=set(n for n,_,_ in raw)
   print(f"{key} page {page}: {len(new)} rows; {len(identities)} numbered positions / {expected}",flush=True)
-  if len(identities)>=expected and not rookies:break
+  if (len(identities)>=expected and not rookies) or (key=="magic-rub-offs" and len(raw)>=expected):break
   if rookies and len(raw)>=98:break
   if page>1 and not new:break
  if rookies and len(raw)!=98:raise SystemExit(f"Rookie source rows {len(raw)} != 98; NO CSV WRITTEN")
@@ -110,6 +122,8 @@ def test():
  assert clean("Reggie Jackson RC")=="Reggie Jackson"
  assert clean("Rookie Stars (A / B) RS, RC")=="Rookie Stars (A / B)"
  assert NUMBER.fullmatch("11a") and NUMBER.fullmatch("NNO")
+ assert normalize("base","500","Mickey Mantle VAR: Last name in yellow","New York Yankees")==("Mickey Mantle","New York Yankees")
+ assert normalize("base","151","Clay Dalrymple VAR: Portrait, Orioles on front (2nd version)","Baltimore Orioles")==("Clay Dalrymple","Philadelphia Phillies")
  assert len({str(n) for n in range(1,34) if n not in (11,22)}|{"11a","11b","22a","22b"})==35
  print("1969 Topps offline self-tests passed")
 if __name__=="__main__":
