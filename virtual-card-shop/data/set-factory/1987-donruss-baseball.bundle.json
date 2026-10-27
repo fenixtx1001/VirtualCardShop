@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/112/1987-Donruss",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/112/1987-Donruss",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/112/1987-Donruss"
+  },
+  "decisions": {
+    "base": "All 660 Base cards equally likely, including Diamond Kings and Rated Rookies subsets.",
+    "puzzle": "21 distinct Roberto Clemente Puzzle three-piece panels, each inserted one per original wax pack.",
+    "excluded": "Wax box-bottom panel/singles and mail-in Super Diamond Kings 5x7 were not ordinary pack-issued cards.",
+    "variationPolicy": "Collapse wax/factory back orientations and error/correction variations to one collectible per number; preserve printed subjects.",
+    "rookiePolicy": "Independently verify TCDB Rookie Cards list (250 variant entries, deduplicated by card number), mark only verified true rookie subjects RC.",
+    "pack": "VCS four-card packs, 24 packs per box; puzzle historical 1:1 per wax pack (pending VCS odds review).",
+    "release": "Unreleased pending card images, packaging, pricing, team/rookie and rarity QA."
+  },
+  "product": {
+    "id": "1987_Donruss_Baseball",
+    "year": 1987,
+    "brand": "Donruss",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1987-donruss-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1987_Donruss_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 660,
+      "sourceSetId": 112,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/112/1987-Donruss",
+      "defaultGradeability": "COMMON",
+      "notes": "Includes Diamond Kings and Rated Rookies; back orientation varieties collapse."
+    },
+    {
+      "key": "roberto-clemente-puzzle",
+      "id": "1987_Donruss_Baseball_roberto_clemente_puzzle",
+      "name": "Roberto Clemente Puzzle",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "expectedCards": 21,
+      "sourceSetId": 76308,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/76308/1987-Donruss",
+      "defaultGradeability": "COMMON",
+      "notes": "Three-piece puzzle panels, #1-3 through #61-63, one panel per physical wax pack."
+    }
+  ]
+}
