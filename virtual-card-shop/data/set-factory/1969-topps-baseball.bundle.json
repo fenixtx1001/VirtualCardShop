@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/69/1969-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/69/1969-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/69/1969-Topps"
+  },
+  "decisions": {
+    "base": "664 numbered Base cards, seven original series; common error/correction and photo variants share one number, subject and team.",
+    "rookies": "TCDB 98 rookie source rows, with duplicated variations. Deduplicate by printed card number and verify Base subject identities; exact unique count reported by generator.",
+    "deckle": "33 physical Deckle cards, with different subjects carrying 11a/11b and 22a/22b; retain letter suffixes as separate real collectibles.",
+    "decals": "48 unnumbered Magic Rub-Off decals, use deterministic NNO-01 through NNO-48 based on source checklist order.",
+    "pack": "Original five-card nickel wax and ten-card dime wax; VCS four-card packs and 24 packs/box. Deckle in specially marked packs, Rub-Offs across seven series; no unverified odds.",
+    "release": "Unreleased pending images, pricing, series collation, odds and team QA."
+  },
+  "product": {
+    "id": "1969_Topps_Baseball",
+    "year": 1969,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1969-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1969_Topps_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "sourceSetId": 69,
+      "expectedCards": 664,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/69/1969-Topps",
+      "notes": "Seven series"
+    },
+    {
+      "key": "deckle",
+      "id": "1969_Topps_Baseball_deckle",
+      "name": "Deckle",
+      "kind": "INSERT",
+      "sourceSetId": 9955,
+      "expectedCards": 33,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9955/1969-Topps",
+      "notes": "Scalloped edge, specially marked packs"
+    },
+    {
+      "key": "magic-rub-offs",
+      "id": "1969_Topps_Baseball_magic_rub_offs",
+      "name": "Magic Rub-Offs (Decals)",
+      "kind": "INSERT",
+      "sourceSetId": 9954,
+      "expectedCards": 48,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9954/1969-Topps",
+      "notes": "Unnumbered transferable decals in all seven series"
+    }
+  ]
+}
