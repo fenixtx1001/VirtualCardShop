@@ -30,6 +30,24 @@ def clean(value):
  value=" ".join(value.split()).strip()
  m=ANNOT.search(value)
  return value[:m.start()].strip(" ,;") if m else value
+def canonical_identity(key,number,player):
+ # Known TCDB subject aliases across Base/First Day/Golden Rainbow.
+ aliases={
+  "24":{"Jack McDowell":"Jack McDowell AW"},
+  "48":{"Jeff McNeely":"Jeffrey McNeely"},
+  "85":{"Ken Griffey Jr.":"Ken Griffey, Jr."},
+  "187":{"Dennis Martinez":"Denny Martinez"},
+  "373":{"Cal Ripken Jr.":"Cal Ripken"},
+  "608":{"Tuffy Rhodes":"Karl Rhodes"},
+  "677":{"Bill Spiers":"Billy Spiers"},
+  "682":{"Dennis Martinez":"Denny Martinez"},
+ }
+ if key in ("base","first-day-issue","golden-rainbow"):
+  player=aliases.get(number,{}).get(player,player)
+  # Source attaches print-error descriptions after the identity.
+  if number in ("269","270","543","544"):
+   player=re.split(r",\s*UERUER:",player,maxsplit=1)[0]
+ return player
 def fetch(url):
  for attempt in range(4):
   try:
@@ -55,7 +73,7 @@ def collect(key,sid,expected,rookies=False):
      m=re.fullmatch(r"(\d{1,3})([a-z]?)",raw,re.I)
      if not m or not 1<=int(m.group(1))<=720:continue
     number=raw.upper() if raw.upper()=="NNO" else str(int(re.match(r"\d+",raw).group()))
-    player=clean(cells[i+1])
+    player=canonical_identity(key,number,clean(cells[i+1]))
     if not player:continue
     team=cells[-1] if i+2<len(cells) else ""
     if team==cells[i+1]:team=""
@@ -121,6 +139,12 @@ def run():
 def tests():
  assert clean("Chan Ho Park MLD, RC")=="Chan Ho Park"
  assert clean("Ken Griffey, Jr.")=="Ken Griffey, Jr."
+ assert canonical_identity("first-day-issue","24","Jack McDowell")=="Jack McDowell AW"
+ assert canonical_identity("golden-rainbow","48","Jeff McNeely")=="Jeffrey McNeely"
+ assert canonical_identity("first-day-issue","85","Ken Griffey Jr.")=="Ken Griffey, Jr."
+ assert canonical_identity("first-day-issue","269","Checklist: 271-408 CL, UERUER: #269on back, was supposed to be #539")=="Checklist: 271-408 CL"
+ assert canonical_identity("base","544","Greg Maddux AW, UERUER: Missing 93 Award Winner logo")=="Greg Maddux AW"
+ assert canonical_identity("first-day-issue","608","Tuffy Rhodes")=="Karl Rhodes"
  a,e=numbered([("269","A","T"),("269","B","T")],"base")
  assert not e and set(a)=={"269a","269b"}
  assert NUMBER.fullmatch("NNO") and NUMBER.fullmatch("543a")
