@@ -9,7 +9,7 @@ BUNDLE=ROOT/"data/set-factory/1999-pacific-invincible-baseball.bundle.json"
 CSV=ROOT/"data/set-factory/1999-pacific-invincible-baseball.cards.csv"
 HEAD={"User-Agent":"Mozilla/5.0 (compatible; VCS checklist audit)","Accept":"text/html,application/xhtml+xml"}
 NUMBER=re.compile(r"^(?:\d{1,3}[a-z]?)$",re.I)
-NOTE=re.compile(r"(?:,\s*|\s+)(?:RC|UER|ERR|COR|VAR|RDM|SN\d+)(?=:|,|\s|$)",re.I)
+NOTE=re.compile(r"(?:,\s*|\s+)(?:RC|ROO|UER|ERR|COR|VAR|RDM|SN\d+)(?=:|,|\s|$)",re.I)
 class Rows(HTMLParser):
  def __init__(self):super().__init__();self.rows=[];self.row=None;self.cell=None;self.has_card=False
  def handle_starttag(self,tag,attrs):
@@ -50,6 +50,7 @@ def collect(key,sid,expected):
     number=c.lower() if key in ("sandlot-heroes","seismic-force") else str(int(re.match(r"\d+",c).group()))
     player=clean(cells[i+1]);team=cells[-1] if i+2<len(cells) else ""
     if team==cells[i+1]:team=""
+    if team=="Toronto BlueJays":team="Toronto Blue Jays"
     if not player:continue
     pair=(player,team);n+=1
     if number in cards and cards[number]!=pair:errors.append(f"{key} #{number}: {cards[number]!r} vs {pair!r}")
@@ -65,6 +66,8 @@ def self_test():
  assert clean("Cal Ripken Jr. RDM, SN10")=="Cal Ripken Jr."
  assert clean("Mo Vaughn VAR: Running")=="Mo Vaughn"
  assert NUMBER.fullmatch("20b")
+ assert clean("Torii Hunter ROO")=="Torii Hunter"
+ assert clean("Roy Halladay ROO")=="Roy Halladay"
  print("1999 Pacific Invincible offline self-tests passed")
 def run():
  bundle=json.loads(BUNDLE.read_text())
