@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/149/1990-Upper-Deck",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/149/1990-Upper-Deck",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/149/1990-Upper-Deck"
+  },
+  "decisions": {
+    "base": "One 800-card complete Base checklist. First Series #1-700 and High Series #701-800; original High Series packs also contained low numbers.",
+    "rookies": "TCDB 107 rookie-source records, with six duplicated error/correction numbers; expected 101 unique Base rookie identities, subject to live validation.",
+    "holograms": "26 separately collectible, unnumbered 2x2 team-logo holograms. Assign stable NNO-01 to NNO-26 in original TCDB checklist order; one hologram per original pack.",
+    "heroes": "10 Baseball Heroes cards (#1-9 plus NNO Header), High Series pack exclusive.",
+    "autograph": "One separately collectible Reggie Jackson signed #9 checklist, hand-numbered /2500, High Series pack-issued.",
+    "excluded": "Base Set Aftermarket is not an original pack-inserted product family. Printing variants not extra collectibles.",
+    "pack": "VCS four-card packs and 24 packs/box; original was 15-card foil packs. High-series-only Heroes and autograph require explicit pack-odds review before release.",
+    "release": "Product remains unreleased until card scans, pack odds, pricing and final QA."
+  },
+  "product": {
+    "id": "1990_Upper_Deck_Baseball",
+    "year": 1990,
+    "brand": "Upper Deck",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1990-upper-deck-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1990_Upper_Deck_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "sourceSetId": 149,
+      "expectedCards": 800,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/149/1990-Upper-Deck",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "baseball-heroes-reggie-jackson",
+      "id": "1990_Upper_Deck_Baseball_baseball_heroes_reggie_jackson",
+      "name": "Baseball Heroes: Reggie Jackson",
+      "kind": "INSERT",
+      "sourceSetId": 150,
+      "expectedCards": 10,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/150/1990-Upper-Deck",
+      "defaultGradeability": "COMMON",
+      "notes": "High Series only, #1-9 and unnumbered header"
+    },
+    {
+      "key": "baseball-heroes-reggie-jackson-autograph",
+      "id": "1990_Upper_Deck_Baseball_baseball_heroes_reggie_jackson_autograph",
+      "name": "Baseball Heroes: Reggie Jackson Autograph",
+      "kind": "INSERT",
+      "sourceSetId": 336737,
+      "expectedCards": 1,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/336737/1990-Upper-Deck",
+      "defaultGradeability": "COMMON",
+      "notes": "Reggie Jackson #9, hand-numbered /2500, High Series"
+    },
+    {
+      "key": "team-logo-holograms",
+      "id": "1990_Upper_Deck_Baseball_team_logo_holograms",
+      "name": "Team Logo Holograms",
+      "kind": "INSERT",
+      "sourceSetId": 79984,
+      "expectedCards": 26,
+      "oddsPerPack": 1,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/79984/1990-Upper-Deck",
+      "defaultGradeability": "COMMON",
+      "notes": "26 NNO team logo holograms; one per physical pack"
+    }
+  ]
+}
