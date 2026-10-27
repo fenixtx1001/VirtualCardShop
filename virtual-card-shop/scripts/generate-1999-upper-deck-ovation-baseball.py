@@ -69,6 +69,7 @@ def test():
  assert clean("Ken Griffey Jr. SS")=="Ken Griffey Jr."
  assert clean("Kerry Wood AU, MEM, SN25")=="Kerry Wood"
  assert NUMBER.fullmatch("R20") and NUMBER.fullmatch("MM15")
+ assert {f"R{i}" for i in range(1,16)}==set(["R"+str(i) for i in range(1,16)])
  print("1999 Upper Deck Ovation offline self-tests passed")
 def run():
  bundle=json.loads(BUNDLE.read_text(encoding="utf-8"))
@@ -80,7 +81,7 @@ def run():
  if set(base)!={str(i) for i in range(1,91)}:issues.append("Base numbering must be 1-90")
  for n,identity in source[11908].items():
   if identity!=base.get(n):issues.append(f"Standing Ovation #{n} differs from Base: {identity} != {base.get(n)}")
- for sid,nums in [(11905,{f"R{i}" for i in range(1,21)}),(11906,{f"S{i}" for i in range(1,21)}),(11907,{f"MM{i}" for i in range(1,16)})]:
+ for sid,nums in [(11905,{f"R{i}" for i in range(1,21)}),(11906,{f"S{i}" for i in range(1,21)}),(11907,{f"R{i}" for i in range(1,16)})]:
   if set(source[sid])!=nums:issues.append(f"sid {sid} numbering mismatch: {set(source[sid])^nums}")
  if set(source[263198])!={"NNO-01","NNO-02"}:issues.append("Mickey Mantle two unnumbered physical cards missing")
  if set(source[11904])!={"AR","BB","BG","BGAU","BW","CJ","CR","DJ","JG","KGJ","KWAU","MP","NG","SS","TG","VG"}:issues.append("A Piece of History 16 physical checklist numbers mismatch")
@@ -92,7 +93,7 @@ def run():
  for spec in bundle["productSets"]:
   key=spec["key"];sid=spec["sourceSetId"]
   for n,(player,team) in source[sid].items():
-   if key=="remarkable-silver" and not 1<=int(n.removeprefix("MM"))<=5:continue
+   if key=="remarkable-silver" and not 1<=int(n.removeprefix("R"))<=5:continue
    if key=="remarkable-gold" and not 6<=int(n.removeprefix("MM"))<=10:continue
    if key=="remarkable-holofoil" and not 11<=int(n.removeprefix("MM"))<=15:continue
    subset=("World Premiere" if key=="base" and 61<=int(n)<=80 else "Superstar Spotlight" if key=="base" and 81<=int(n)<=90 else "")
