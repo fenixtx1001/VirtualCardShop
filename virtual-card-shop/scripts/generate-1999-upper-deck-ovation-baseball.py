@@ -8,7 +8,7 @@ ROOT=Path(__file__).resolve().parents[1]
 BUNDLE=ROOT/"data/set-factory/1999-upper-deck-ovation-baseball.bundle.json"
 OUT=ROOT/"data/set-factory/1999-upper-deck-ovation-baseball.cards.csv"
 HEAD={"User-Agent":"Mozilla/5.0 (compatible; VCS Set Factory checklist validator)","Accept":"text/html,application/xhtml+xml"}
-NUMBER=re.compile(r"^(?:\d{1,3}|R\d{1,2}|S\d{1,2}|MM\d{1,2}|[A-Z]{2,5}|NNO)$",re.I)
+NUMBER=re.compile(r"^(?:\d{1,3}|R\d{1,2}|S\d{1,2}|M\d{1,2}|MM\d{1,2}|[A-Z]{2,5}|NNO)$",re.I)
 ANNOT=re.compile(r"(?:,\s*|\s+)(?:RC|WP|SS|AU|MEM|CUT|SN\d+|PR\d+|UER|ERR|COR|VAR)(?=:|,|\s|$)",re.I)
 class Rows(HTMLParser):
  def __init__(self):super().__init__();self.rows=[];self.row=None;self.cell=None;self.has_card=False
@@ -68,7 +68,8 @@ def test():
  assert clean("J.D. Drew WP")=="J.D. Drew"
  assert clean("Ken Griffey Jr. SS")=="Ken Griffey Jr."
  assert clean("Kerry Wood AU, MEM, SN25")=="Kerry Wood"
- assert NUMBER.fullmatch("R20") and NUMBER.fullmatch("MM15")
+ assert NUMBER.fullmatch("R20") and NUMBER.fullmatch("MM15") and NUMBER.fullmatch("M15")
+ assert {f"M{i}" for i in range(1,16)}==set(["M"+str(i) for i in range(1,16)])
  assert {f"R{i}" for i in range(1,16)}==set(["R"+str(i) for i in range(1,16)])
  print("1999 Upper Deck Ovation offline self-tests passed")
 def run():
@@ -81,7 +82,7 @@ def run():
  if set(base)!={str(i) for i in range(1,91)}:issues.append("Base numbering must be 1-90")
  for n,identity in source[11908].items():
   if identity!=base.get(n):issues.append(f"Standing Ovation #{n} differs from Base: {identity} != {base.get(n)}")
- for sid,nums in [(11905,{f"R{i}" for i in range(1,21)}),(11906,{f"S{i}" for i in range(1,21)}),(11907,{f"R{i}" for i in range(1,16)})]:
+ for sid,nums in [(11905,{f"R{i}" for i in range(1,21)}),(11906,{f"S{i}" for i in range(1,21)}),(11907,{f"M{i}" for i in range(1,16)})]:
   if set(source[sid])!=nums:issues.append(f"sid {sid} numbering mismatch: {set(source[sid])^nums}")
  if set(source[263198])!={"NNO-01","NNO-02"}:issues.append("Mickey Mantle two unnumbered physical cards missing")
  if set(source[11904])!={"AR","BB","BG","BGAU","BW","CJ","CR","DJ","JG","KGJ","KWAU","MP","NG","SS","TG","VG"}:issues.append("A Piece of History 16 physical checklist numbers mismatch")
@@ -93,7 +94,7 @@ def run():
  for spec in bundle["productSets"]:
   key=spec["key"];sid=spec["sourceSetId"]
   for n,(player,team) in source[sid].items():
-   if key=="remarkable-silver" and not 1<=int(n.removeprefix("R"))<=5:continue
+   if key=="remarkable-silver" and not 1<=int(n.removeprefix("M"))<=5:continue
    if key=="remarkable-gold" and not 6<=int(n.removeprefix("MM"))<=10:continue
    if key=="remarkable-holofoil" and not 11<=int(n.removeprefix("MM"))<=15:continue
    subset=("World Premiere" if key=="base" and 61<=int(n)<=80 else "Superstar Spotlight" if key=="base" and 81<=int(n)<=90 else "")
