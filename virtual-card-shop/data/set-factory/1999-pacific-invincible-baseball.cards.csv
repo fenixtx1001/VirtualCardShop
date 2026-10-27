@@ -1,0 +1,741 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Jim Edmonds,Anaheim Angels,,
+base,2,Darin Erstad,Anaheim Angels,,
+base,3,Troy Glaus,Anaheim Angels,,
+base,4,Tim Salmon,Anaheim Angels,,
+base,5,Mo Vaughn,Anaheim Angels,,
+base,6,Steve Finley,Arizona Diamondbacks,,
+base,7,Randy Johnson,Arizona Diamondbacks,,
+base,8,Travis Lee,Arizona Diamondbacks,,
+base,9,Dante Powell,Arizona Diamondbacks,,
+base,10,Matt Williams,Arizona Diamondbacks,,
+base,11,Bret Boone,Atlanta Braves,,
+base,12,Andruw Jones,Atlanta Braves,,
+base,13,Chipper Jones,Atlanta Braves,,
+base,14,Brian Jordan,Atlanta Braves,,
+base,15,Ryan Klesko,Atlanta Braves,,
+base,16,Javy Lopez,Atlanta Braves,,
+base,17,Greg Maddux,Atlanta Braves,,
+base,18,Brady Anderson,Baltimore Orioles,,
+base,19,Albert Belle,Baltimore Orioles,,
+base,20,Will Clark,Baltimore Orioles,,
+base,21,Mike Mussina,Baltimore Orioles,,
+base,22,Cal Ripken Jr.,Baltimore Orioles,,
+base,23,Nomar Garciaparra,Boston Red Sox,,
+base,24,Pedro Martinez,Boston Red Sox,,
+base,25,Trot Nixon,Boston Red Sox,,
+base,26,Jose Offerman,Boston Red Sox,,
+base,27,Donnie Sadler,Boston Red Sox,,
+base,28,John Valentin,Boston Red Sox,,
+base,29,Mark Grace,Chicago Cubs,,
+base,30,Lance Johnson,Chicago Cubs,,
+base,31,Henry Rodriguez,Chicago Cubs,,
+base,32,Sammy Sosa,Chicago Cubs,,
+base,33,Kerry Wood,Chicago Cubs,,
+base,34,McKay Christensen,Chicago White Sox,,
+base,35,Ray Durham,Chicago White Sox,,
+base,36,Jeff Liefer,Chicago White Sox,,
+base,37,Frank Thomas,Chicago White Sox,,
+base,38,Mike Cameron,Cincinnati Reds,,
+base,39,Barry Larkin,Cincinnati Reds,,
+base,40,Greg Vaughn,Cincinnati Reds,,
+base,41,Dmitri Young,Cincinnati Reds,,
+base,42,Roberto Alomar,Cleveland Indians,,
+base,43,Sandy Alomar Jr.,Cleveland Indians,,
+base,44,David Justice,Cleveland Indians,,
+base,45,Kenny Lofton,Cleveland Indians,,
+base,46,Manny Ramirez,Cleveland Indians,,
+base,47,Jim Thome,Cleveland Indians,,
+base,48,Dante Bichette,Colorado Rockies,,
+base,49,Vinny Castilla,Colorado Rockies,,
+base,50,Darryl Hamilton,Colorado Rockies,,
+base,51,Todd Helton,Colorado Rockies,,
+base,52,Neifi Perez,Colorado Rockies,,
+base,53,Larry Walker,Colorado Rockies,,
+base,54,Tony Clark,Detroit Tigers,,
+base,55,Damion Easley,Detroit Tigers,,
+base,56,Bobby Higginson,Detroit Tigers,,
+base,57,Brian Hunter,Detroit Tigers,,
+base,58,Gabe Kapler,Detroit Tigers,,
+base,59,Cliff Floyd,Florida Marlins,,
+base,60,Alex Gonzalez,Florida Marlins,,
+base,61,Mark Kotsay,Florida Marlins,,
+base,62,Derrek Lee,Florida Marlins,,
+base,63,Braden Looper,Florida Marlins,,
+base,64,Moises Alou,Houston Astros,,
+base,65,Jeff Bagwell,Houston Astros,,
+base,66,Craig Biggio,Houston Astros,,
+base,67,Ken Caminiti,Houston Astros,,
+base,68,Scott Elarton,Houston Astros,,
+base,69,Mitch Meluskey,Houston Astros,,
+base,70,Carlos Beltran,Kansas City Royals,,
+base,71,Johnny Damon,Kansas City Royals,,
+base,72,Carlos Febles,Kansas City Royals,,
+base,73,Jeremy Giambi,Kansas City Royals,,
+base,74,Kevin Brown,Los Angeles Dodgers,,
+base,75,Todd Hundley,Los Angeles Dodgers,,
+base,76,Paul Lo Duca,Los Angeles Dodgers,,
+base,77,Raul Mondesi,Los Angeles Dodgers,,
+base,78,Gary Sheffield,Los Angeles Dodgers,,
+base,79,Geoff Jenkins,Milwaukee Brewers,,
+base,80,Jeromy Burnitz,Milwaukee Brewers,,
+base,81,Marquis Grissom,Milwaukee Brewers,,
+base,82,Jose Valentin,Milwaukee Brewers,,
+base,83,Fernando Vina,Milwaukee Brewers,,
+base,84,Corey Koskie,Minnesota Twins,,
+base,85,Matt Lawton,Minnesota Twins,,
+base,86,Cristian Guzman,Minnesota Twins,,
+base,87,Torii Hunter,Minnesota Twins,,
+base,88,Doug Mientkiewicz RC,Minnesota Twins,,
+base,89,Michael Barrett,Montreal Expos,,
+base,90,Brad Fullmer,Montreal Expos,,
+base,91,Vladimir Guerrero,Montreal Expos,,
+base,92,Fernando Seguignol,Montreal Expos,,
+base,93,Ugueth Urbina,Montreal Expos,,
+base,94,Bobby Bonilla,New York Mets,,
+base,95,Rickey Henderson,New York Mets,,
+base,96,Rey Ordonez,New York Mets,,
+base,97,Mike Piazza,New York Mets,,
+base,98,Robin Ventura,New York Mets,,
+base,99,Roger Clemens,New York Yankees,,
+base,100,Derek Jeter,New York Yankees,,
+base,101,Chuck Knoblauch,New York Yankees,,
+base,102,Tino Martinez,New York Yankees,,
+base,103,Paul O'Neill,New York Yankees,,
+base,104,Bernie Williams,New York Yankees,,
+base,105,Eric Chavez,Oakland Athletics,,
+base,106,Ryan Christenson,Oakland Athletics,,
+base,107,Jason Giambi,Oakland Athletics,,
+base,108,Ben Grieve,Oakland Athletics,,
+base,109,Miguel Tejada,Oakland Athletics,,
+base,110,Marlon Anderson,Philadelphia Phillies,,
+base,111,Doug Glanville,Philadelphia Phillies,,
+base,112,Scott Rolen,Philadelphia Phillies,,
+base,113,Curt Schilling,Philadelphia Phillies,,
+base,114,Brian Giles,Pittsburgh Pirates,,
+base,115,Warren Morris,Pittsburgh Pirates,,
+base,116,Jason Kendall,Pittsburgh Pirates,,
+base,117,Kris Benson,Pittsburgh Pirates,,
+base,118,J.D. Drew,St. Louis Cardinals,,
+base,119,Ray Lankford,St. Louis Cardinals,,
+base,120,Mark McGwire,St. Louis Cardinals,,
+base,121,Matt Clement,San Diego Padres,,
+base,122,Tony Gwynn,San Diego Padres,,
+base,123,Trevor Hoffman,San Diego Padres,,
+base,124,Wally Joyner,San Diego Padres,,
+base,125,Reggie Sanders,San Diego Padres,,
+base,126,Barry Bonds,San Francisco Giants,,
+base,127,Ellis Burks,San Francisco Giants,,
+base,128,Jeff Kent,San Francisco Giants,,
+base,129,Stan Javier,San Francisco Giants,,
+base,130,J.T. Snow,San Francisco Giants,,
+base,131,Jay Buhner,Seattle Mariners,,
+base,132,Freddy Garcia RC,Seattle Mariners,,
+base,133,Ken Griffey Jr.,Seattle Mariners,,
+base,134,Russ Davis,Seattle Mariners,,
+base,135,Edgar Martinez,Seattle Mariners,,
+base,136,Alex Rodriguez,Seattle Mariners,,
+base,137,David Segui,Seattle Mariners,,
+base,138,Rolando Arrojo,Tampa Bay Devil Rays,,
+base,139,Wade Boggs,Tampa Bay Devil Rays,,
+base,140,Jose Canseco,Tampa Bay Devil Rays,,
+base,141,Quinton McCracken,Tampa Bay Devil Rays,,
+base,142,Fred McGriff,Tampa Bay Devil Rays,,
+base,143,Juan Gonzalez,Texas Rangers,,
+base,144,Tom Goodwin,Texas Rangers,,
+base,145,Rusty Greer,Texas Rangers,,
+base,146,Ivan Rodriguez,Texas Rangers,,
+base,147,Jose Cruz Jr.,Toronto Blue Jays,,
+base,148,Carlos Delgado,Toronto Blue Jays,,
+base,149,Shawn Green,Toronto Blue Jays,,
+base,150,Roy Halladay,Toronto Blue Jays,,
+opening-day,1,Jim Edmonds,Anaheim Angels,,Opening Day
+opening-day,2,Darin Erstad,Anaheim Angels,,Opening Day
+opening-day,3,Troy Glaus,Anaheim Angels,,Opening Day
+opening-day,4,Tim Salmon,Anaheim Angels,,Opening Day
+opening-day,5,Mo Vaughn,Anaheim Angels,,Opening Day
+opening-day,6,Steve Finley,Arizona Diamondbacks,,Opening Day
+opening-day,7,Randy Johnson,Arizona Diamondbacks,,Opening Day
+opening-day,8,Travis Lee,Arizona Diamondbacks,,Opening Day
+opening-day,9,Dante Powell,Arizona Diamondbacks,,Opening Day
+opening-day,10,Matt Williams,Arizona Diamondbacks,,Opening Day
+opening-day,11,Bret Boone,Atlanta Braves,,Opening Day
+opening-day,12,Andruw Jones,Atlanta Braves,,Opening Day
+opening-day,13,Chipper Jones,Atlanta Braves,,Opening Day
+opening-day,14,Brian Jordan,Atlanta Braves,,Opening Day
+opening-day,15,Ryan Klesko,Atlanta Braves,,Opening Day
+opening-day,16,Javy Lopez,Atlanta Braves,,Opening Day
+opening-day,17,Greg Maddux,Atlanta Braves,,Opening Day
+opening-day,18,Brady Anderson,Baltimore Orioles,,Opening Day
+opening-day,19,Albert Belle,Baltimore Orioles,,Opening Day
+opening-day,20,Will Clark,Baltimore Orioles,,Opening Day
+opening-day,21,Mike Mussina,Baltimore Orioles,,Opening Day
+opening-day,22,Cal Ripken Jr.,Baltimore Orioles,,Opening Day
+opening-day,23,Nomar Garciaparra,Boston Red Sox,,Opening Day
+opening-day,24,Pedro Martinez,Boston Red Sox,,Opening Day
+opening-day,25,Trot Nixon,Boston Red Sox,,Opening Day
+opening-day,26,Jose Offerman,Boston Red Sox,,Opening Day
+opening-day,27,Donnie Sadler,Boston Red Sox,,Opening Day
+opening-day,28,John Valentin,Boston Red Sox,,Opening Day
+opening-day,29,Mark Grace,Chicago Cubs,,Opening Day
+opening-day,30,Lance Johnson,Chicago Cubs,,Opening Day
+opening-day,31,Henry Rodriguez,Chicago Cubs,,Opening Day
+opening-day,32,Sammy Sosa,Chicago Cubs,,Opening Day
+opening-day,33,Kerry Wood,Chicago Cubs,,Opening Day
+opening-day,34,McKay Christensen,Chicago White Sox,,Opening Day
+opening-day,35,Ray Durham,Chicago White Sox,,Opening Day
+opening-day,36,Jeff Liefer,Chicago White Sox,,Opening Day
+opening-day,37,Frank Thomas,Chicago White Sox,,Opening Day
+opening-day,38,Mike Cameron,Cincinnati Reds,,Opening Day
+opening-day,39,Barry Larkin,Cincinnati Reds,,Opening Day
+opening-day,40,Greg Vaughn,Cincinnati Reds,,Opening Day
+opening-day,41,Dmitri Young,Cincinnati Reds,,Opening Day
+opening-day,42,Roberto Alomar,Cleveland Indians,,Opening Day
+opening-day,43,Sandy Alomar Jr.,Cleveland Indians,,Opening Day
+opening-day,44,David Justice,Cleveland Indians,,Opening Day
+opening-day,45,Kenny Lofton,Cleveland Indians,,Opening Day
+opening-day,46,Manny Ramirez,Cleveland Indians,,Opening Day
+opening-day,47,Jim Thome,Cleveland Indians,,Opening Day
+opening-day,48,Dante Bichette,Colorado Rockies,,Opening Day
+opening-day,49,Vinny Castilla,Colorado Rockies,,Opening Day
+opening-day,50,Darryl Hamilton,Colorado Rockies,,Opening Day
+opening-day,51,Todd Helton,Colorado Rockies,,Opening Day
+opening-day,52,Neifi Perez,Colorado Rockies,,Opening Day
+opening-day,53,Larry Walker,Colorado Rockies,,Opening Day
+opening-day,54,Tony Clark,Detroit Tigers,,Opening Day
+opening-day,55,Damion Easley,Detroit Tigers,,Opening Day
+opening-day,56,Bobby Higginson,Detroit Tigers,,Opening Day
+opening-day,57,Brian Hunter,Detroit Tigers,,Opening Day
+opening-day,58,Gabe Kapler,Detroit Tigers,,Opening Day
+opening-day,59,Cliff Floyd,Florida Marlins,,Opening Day
+opening-day,60,Alex Gonzalez,Florida Marlins,,Opening Day
+opening-day,61,Mark Kotsay,Florida Marlins,,Opening Day
+opening-day,62,Derrek Lee,Florida Marlins,,Opening Day
+opening-day,63,Braden Looper,Florida Marlins,,Opening Day
+opening-day,64,Moises Alou,Houston Astros,,Opening Day
+opening-day,65,Jeff Bagwell,Houston Astros,,Opening Day
+opening-day,66,Craig Biggio,Houston Astros,,Opening Day
+opening-day,67,Ken Caminiti,Houston Astros,,Opening Day
+opening-day,68,Scott Elarton,Houston Astros,,Opening Day
+opening-day,69,Mitch Meluskey,Houston Astros,,Opening Day
+opening-day,70,Carlos Beltran,Kansas City Royals,,Opening Day
+opening-day,71,Johnny Damon,Kansas City Royals,,Opening Day
+opening-day,72,Carlos Febles,Kansas City Royals,,Opening Day
+opening-day,73,Jeremy Giambi,Kansas City Royals,,Opening Day
+opening-day,74,Kevin Brown,Los Angeles Dodgers,,Opening Day
+opening-day,75,Todd Hundley,Los Angeles Dodgers,,Opening Day
+opening-day,76,Paul Lo Duca,Los Angeles Dodgers,,Opening Day
+opening-day,77,Raul Mondesi,Los Angeles Dodgers,,Opening Day
+opening-day,78,Gary Sheffield,Los Angeles Dodgers,,Opening Day
+opening-day,79,Geoff Jenkins,Milwaukee Brewers,,Opening Day
+opening-day,80,Jeromy Burnitz,Milwaukee Brewers,,Opening Day
+opening-day,81,Marquis Grissom,Milwaukee Brewers,,Opening Day
+opening-day,82,Jose Valentin,Milwaukee Brewers,,Opening Day
+opening-day,83,Fernando Vina,Milwaukee Brewers,,Opening Day
+opening-day,84,Corey Koskie,Minnesota Twins,,Opening Day
+opening-day,85,Matt Lawton,Minnesota Twins,,Opening Day
+opening-day,86,Cristian Guzman,Minnesota Twins,,Opening Day
+opening-day,87,Torii Hunter,Minnesota Twins,,Opening Day
+opening-day,88,Doug Mientkiewicz,Minnesota Twins,,Opening Day
+opening-day,89,Michael Barrett,Montreal Expos,,Opening Day
+opening-day,90,Brad Fullmer,Montreal Expos,,Opening Day
+opening-day,91,Vladimir Guerrero,Montreal Expos,,Opening Day
+opening-day,92,Fernando Seguignol,Montreal Expos,,Opening Day
+opening-day,93,Ugueth Urbina,Montreal Expos,,Opening Day
+opening-day,94,Bobby Bonilla,New York Mets,,Opening Day
+opening-day,95,Rickey Henderson,New York Mets,,Opening Day
+opening-day,96,Rey Ordonez,New York Mets,,Opening Day
+opening-day,97,Mike Piazza,New York Mets,,Opening Day
+opening-day,98,Robin Ventura,New York Mets,,Opening Day
+opening-day,99,Roger Clemens,New York Yankees,,Opening Day
+opening-day,100,Derek Jeter,New York Yankees,,Opening Day
+opening-day,101,Chuck Knoblauch,New York Yankees,,Opening Day
+opening-day,102,Tino Martinez,New York Yankees,,Opening Day
+opening-day,103,Paul O'Neill,New York Yankees,,Opening Day
+opening-day,104,Bernie Williams,New York Yankees,,Opening Day
+opening-day,105,Eric Chavez,Oakland Athletics,,Opening Day
+opening-day,106,Ryan Christenson,Oakland Athletics,,Opening Day
+opening-day,107,Jason Giambi,Oakland Athletics,,Opening Day
+opening-day,108,Ben Grieve,Oakland Athletics,,Opening Day
+opening-day,109,Miguel Tejada,Oakland Athletics,,Opening Day
+opening-day,110,Marlon Anderson,Philadelphia Phillies,,Opening Day
+opening-day,111,Doug Glanville,Philadelphia Phillies,,Opening Day
+opening-day,112,Scott Rolen,Philadelphia Phillies,,Opening Day
+opening-day,113,Curt Schilling,Philadelphia Phillies,,Opening Day
+opening-day,114,Brian Giles,Pittsburgh Pirates,,Opening Day
+opening-day,115,Warren Morris,Pittsburgh Pirates,,Opening Day
+opening-day,116,Jason Kendall,Pittsburgh Pirates,,Opening Day
+opening-day,117,Kris Benson,Pittsburgh Pirates,,Opening Day
+opening-day,118,J.D. Drew,St. Louis Cardinals,,Opening Day
+opening-day,119,Ray Lankford,St. Louis Cardinals,,Opening Day
+opening-day,120,Mark McGwire,St. Louis Cardinals,,Opening Day
+opening-day,121,Matt Clement,San Diego Padres,,Opening Day
+opening-day,122,Tony Gwynn,San Diego Padres,,Opening Day
+opening-day,123,Trevor Hoffman,San Diego Padres,,Opening Day
+opening-day,124,Wally Joyner,San Diego Padres,,Opening Day
+opening-day,125,Reggie Sanders,San Diego Padres,,Opening Day
+opening-day,126,Barry Bonds,San Francisco Giants,,Opening Day
+opening-day,127,Ellis Burks,San Francisco Giants,,Opening Day
+opening-day,128,Jeff Kent,San Francisco Giants,,Opening Day
+opening-day,129,Stan Javier,San Francisco Giants,,Opening Day
+opening-day,130,J.T. Snow,San Francisco Giants,,Opening Day
+opening-day,131,Jay Buhner,Seattle Mariners,,Opening Day
+opening-day,132,Freddy Garcia,Seattle Mariners,,Opening Day
+opening-day,133,Ken Griffey Jr.,Seattle Mariners,,Opening Day
+opening-day,134,Russ Davis,Seattle Mariners,,Opening Day
+opening-day,135,Edgar Martinez,Seattle Mariners,,Opening Day
+opening-day,136,Alex Rodriguez,Seattle Mariners,,Opening Day
+opening-day,137,David Segui,Seattle Mariners,,Opening Day
+opening-day,138,Rolando Arrojo,Tampa Bay Devil Rays,,Opening Day
+opening-day,139,Wade Boggs,Tampa Bay Devil Rays,,Opening Day
+opening-day,140,Jose Canseco,Tampa Bay Devil Rays,,Opening Day
+opening-day,141,Quinton McCracken,Tampa Bay Devil Rays,,Opening Day
+opening-day,142,Fred McGriff,Tampa Bay Devil Rays,,Opening Day
+opening-day,143,Juan Gonzalez,Texas Rangers,,Opening Day
+opening-day,144,Tom Goodwin,Texas Rangers,,Opening Day
+opening-day,145,Rusty Greer,Texas Rangers,,Opening Day
+opening-day,146,Ivan Rodriguez,Texas Rangers,,Opening Day
+opening-day,147,Jose Cruz Jr.,Toronto Blue Jays,,Opening Day
+opening-day,148,Carlos Delgado,Toronto Blue Jays,,Opening Day
+opening-day,149,Shawn Green,Toronto Blue Jays,,Opening Day
+opening-day,150,Roy Halladay,Toronto Blue Jays,,Opening Day
+platinum-blue,1,Jim Edmonds,Anaheim Angels,,Platinum Blue
+platinum-blue,2,Darin Erstad,Anaheim Angels,,Platinum Blue
+platinum-blue,3,Troy Glaus,Anaheim Angels,,Platinum Blue
+platinum-blue,4,Tim Salmon,Anaheim Angels,,Platinum Blue
+platinum-blue,5,Mo Vaughn,Anaheim Angels,,Platinum Blue
+platinum-blue,6,Steve Finley,Arizona Diamondbacks,,Platinum Blue
+platinum-blue,7,Randy Johnson,Arizona Diamondbacks,,Platinum Blue
+platinum-blue,8,Travis Lee,Arizona Diamondbacks,,Platinum Blue
+platinum-blue,9,Dante Powell,Arizona Diamondbacks,,Platinum Blue
+platinum-blue,10,Matt Williams,Arizona Diamondbacks,,Platinum Blue
+platinum-blue,11,Bret Boone,Atlanta Braves,,Platinum Blue
+platinum-blue,12,Andruw Jones,Atlanta Braves,,Platinum Blue
+platinum-blue,13,Chipper Jones,Atlanta Braves,,Platinum Blue
+platinum-blue,14,Brian Jordan,Atlanta Braves,,Platinum Blue
+platinum-blue,15,Ryan Klesko,Atlanta Braves,,Platinum Blue
+platinum-blue,16,Javy Lopez,Atlanta Braves,,Platinum Blue
+platinum-blue,17,Greg Maddux,Atlanta Braves,,Platinum Blue
+platinum-blue,18,Brady Anderson,Baltimore Orioles,,Platinum Blue
+platinum-blue,19,Albert Belle,Baltimore Orioles,,Platinum Blue
+platinum-blue,20,Will Clark,Baltimore Orioles,,Platinum Blue
+platinum-blue,21,Mike Mussina,Baltimore Orioles,,Platinum Blue
+platinum-blue,22,Cal Ripken Jr.,Baltimore Orioles,,Platinum Blue
+platinum-blue,23,Nomar Garciaparra,Boston Red Sox,,Platinum Blue
+platinum-blue,24,Pedro Martinez,Boston Red Sox,,Platinum Blue
+platinum-blue,25,Trot Nixon,Boston Red Sox,,Platinum Blue
+platinum-blue,26,Jose Offerman,Boston Red Sox,,Platinum Blue
+platinum-blue,27,Donnie Sadler,Boston Red Sox,,Platinum Blue
+platinum-blue,28,John Valentin,Boston Red Sox,,Platinum Blue
+platinum-blue,29,Mark Grace,Chicago Cubs,,Platinum Blue
+platinum-blue,30,Lance Johnson,Chicago Cubs,,Platinum Blue
+platinum-blue,31,Henry Rodriguez,Chicago Cubs,,Platinum Blue
+platinum-blue,32,Sammy Sosa,Chicago Cubs,,Platinum Blue
+platinum-blue,33,Kerry Wood,Chicago Cubs,,Platinum Blue
+platinum-blue,34,McKay Christensen,Chicago White Sox,,Platinum Blue
+platinum-blue,35,Ray Durham,Chicago White Sox,,Platinum Blue
+platinum-blue,36,Jeff Liefer,Chicago White Sox,,Platinum Blue
+platinum-blue,37,Frank Thomas,Chicago White Sox,,Platinum Blue
+platinum-blue,38,Mike Cameron,Cincinnati Reds,,Platinum Blue
+platinum-blue,39,Barry Larkin,Cincinnati Reds,,Platinum Blue
+platinum-blue,40,Greg Vaughn,Cincinnati Reds,,Platinum Blue
+platinum-blue,41,Dmitri Young,Cincinnati Reds,,Platinum Blue
+platinum-blue,42,Roberto Alomar,Cleveland Indians,,Platinum Blue
+platinum-blue,43,Sandy Alomar Jr.,Cleveland Indians,,Platinum Blue
+platinum-blue,44,David Justice,Cleveland Indians,,Platinum Blue
+platinum-blue,45,Kenny Lofton,Cleveland Indians,,Platinum Blue
+platinum-blue,46,Manny Ramirez,Cleveland Indians,,Platinum Blue
+platinum-blue,47,Jim Thome,Cleveland Indians,,Platinum Blue
+platinum-blue,48,Dante Bichette,Colorado Rockies,,Platinum Blue
+platinum-blue,49,Vinny Castilla,Colorado Rockies,,Platinum Blue
+platinum-blue,50,Darryl Hamilton,Colorado Rockies,,Platinum Blue
+platinum-blue,51,Todd Helton,Colorado Rockies,,Platinum Blue
+platinum-blue,52,Neifi Perez,Colorado Rockies,,Platinum Blue
+platinum-blue,53,Larry Walker,Colorado Rockies,,Platinum Blue
+platinum-blue,54,Tony Clark,Detroit Tigers,,Platinum Blue
+platinum-blue,55,Damion Easley,Detroit Tigers,,Platinum Blue
+platinum-blue,56,Bobby Higginson,Detroit Tigers,,Platinum Blue
+platinum-blue,57,Brian Hunter,Detroit Tigers,,Platinum Blue
+platinum-blue,58,Gabe Kapler,Detroit Tigers,,Platinum Blue
+platinum-blue,59,Cliff Floyd,Florida Marlins,,Platinum Blue
+platinum-blue,60,Alex Gonzalez,Florida Marlins,,Platinum Blue
+platinum-blue,61,Mark Kotsay,Florida Marlins,,Platinum Blue
+platinum-blue,62,Derrek Lee,Florida Marlins,,Platinum Blue
+platinum-blue,63,Braden Looper,Florida Marlins,,Platinum Blue
+platinum-blue,64,Moises Alou,Houston Astros,,Platinum Blue
+platinum-blue,65,Jeff Bagwell,Houston Astros,,Platinum Blue
+platinum-blue,66,Craig Biggio,Houston Astros,,Platinum Blue
+platinum-blue,67,Ken Caminiti,Houston Astros,,Platinum Blue
+platinum-blue,68,Scott Elarton,Houston Astros,,Platinum Blue
+platinum-blue,69,Mitch Meluskey,Houston Astros,,Platinum Blue
+platinum-blue,70,Carlos Beltran,Kansas City Royals,,Platinum Blue
+platinum-blue,71,Johnny Damon,Kansas City Royals,,Platinum Blue
+platinum-blue,72,Carlos Febles,Kansas City Royals,,Platinum Blue
+platinum-blue,73,Jeremy Giambi,Kansas City Royals,,Platinum Blue
+platinum-blue,74,Kevin Brown,Los Angeles Dodgers,,Platinum Blue
+platinum-blue,75,Todd Hundley,Los Angeles Dodgers,,Platinum Blue
+platinum-blue,76,Paul Lo Duca,Los Angeles Dodgers,,Platinum Blue
+platinum-blue,77,Raul Mondesi,Los Angeles Dodgers,,Platinum Blue
+platinum-blue,78,Gary Sheffield,Los Angeles Dodgers,,Platinum Blue
+platinum-blue,79,Geoff Jenkins,Milwaukee Brewers,,Platinum Blue
+platinum-blue,80,Jeromy Burnitz,Milwaukee Brewers,,Platinum Blue
+platinum-blue,81,Marquis Grissom,Milwaukee Brewers,,Platinum Blue
+platinum-blue,82,Jose Valentin,Milwaukee Brewers,,Platinum Blue
+platinum-blue,83,Fernando Vina,Milwaukee Brewers,,Platinum Blue
+platinum-blue,84,Corey Koskie,Minnesota Twins,,Platinum Blue
+platinum-blue,85,Matt Lawton,Minnesota Twins,,Platinum Blue
+platinum-blue,86,Cristian Guzman,Minnesota Twins,,Platinum Blue
+platinum-blue,87,Torii Hunter,Minnesota Twins,,Platinum Blue
+platinum-blue,88,Doug Mientkiewicz,Minnesota Twins,,Platinum Blue
+platinum-blue,89,Michael Barrett,Montreal Expos,,Platinum Blue
+platinum-blue,90,Brad Fullmer,Montreal Expos,,Platinum Blue
+platinum-blue,91,Vladimir Guerrero,Montreal Expos,,Platinum Blue
+platinum-blue,92,Fernando Seguignol,Montreal Expos,,Platinum Blue
+platinum-blue,93,Ugueth Urbina,Montreal Expos,,Platinum Blue
+platinum-blue,94,Bobby Bonilla,New York Mets,,Platinum Blue
+platinum-blue,95,Rickey Henderson,New York Mets,,Platinum Blue
+platinum-blue,96,Rey Ordonez,New York Mets,,Platinum Blue
+platinum-blue,97,Mike Piazza,New York Mets,,Platinum Blue
+platinum-blue,98,Robin Ventura,New York Mets,,Platinum Blue
+platinum-blue,99,Roger Clemens,New York Yankees,,Platinum Blue
+platinum-blue,100,Derek Jeter,New York Yankees,,Platinum Blue
+platinum-blue,101,Chuck Knoblauch,New York Yankees,,Platinum Blue
+platinum-blue,102,Tino Martinez,New York Yankees,,Platinum Blue
+platinum-blue,103,Paul O'Neill,New York Yankees,,Platinum Blue
+platinum-blue,104,Bernie Williams,New York Yankees,,Platinum Blue
+platinum-blue,105,Eric Chavez,Oakland Athletics,,Platinum Blue
+platinum-blue,106,Ryan Christenson,Oakland Athletics,,Platinum Blue
+platinum-blue,107,Jason Giambi,Oakland Athletics,,Platinum Blue
+platinum-blue,108,Ben Grieve,Oakland Athletics,,Platinum Blue
+platinum-blue,109,Miguel Tejada,Oakland Athletics,,Platinum Blue
+platinum-blue,110,Marlon Anderson,Philadelphia Phillies,,Platinum Blue
+platinum-blue,111,Doug Glanville,Philadelphia Phillies,,Platinum Blue
+platinum-blue,112,Scott Rolen,Philadelphia Phillies,,Platinum Blue
+platinum-blue,113,Curt Schilling,Philadelphia Phillies,,Platinum Blue
+platinum-blue,114,Brian Giles,Pittsburgh Pirates,,Platinum Blue
+platinum-blue,115,Warren Morris,Pittsburgh Pirates,,Platinum Blue
+platinum-blue,116,Jason Kendall,Pittsburgh Pirates,,Platinum Blue
+platinum-blue,117,Kris Benson,Pittsburgh Pirates,,Platinum Blue
+platinum-blue,118,J.D. Drew,St. Louis Cardinals,,Platinum Blue
+platinum-blue,119,Ray Lankford,St. Louis Cardinals,,Platinum Blue
+platinum-blue,120,Mark McGwire,St. Louis Cardinals,,Platinum Blue
+platinum-blue,121,Matt Clement,San Diego Padres,,Platinum Blue
+platinum-blue,122,Tony Gwynn,San Diego Padres,,Platinum Blue
+platinum-blue,123,Trevor Hoffman,San Diego Padres,,Platinum Blue
+platinum-blue,124,Wally Joyner,San Diego Padres,,Platinum Blue
+platinum-blue,125,Reggie Sanders,San Diego Padres,,Platinum Blue
+platinum-blue,126,Barry Bonds,San Francisco Giants,,Platinum Blue
+platinum-blue,127,Ellis Burks,San Francisco Giants,,Platinum Blue
+platinum-blue,128,Jeff Kent,San Francisco Giants,,Platinum Blue
+platinum-blue,129,Stan Javier,San Francisco Giants,,Platinum Blue
+platinum-blue,130,J.T. Snow,San Francisco Giants,,Platinum Blue
+platinum-blue,131,Jay Buhner,Seattle Mariners,,Platinum Blue
+platinum-blue,132,Freddy Garcia,Seattle Mariners,,Platinum Blue
+platinum-blue,133,Ken Griffey Jr.,Seattle Mariners,,Platinum Blue
+platinum-blue,134,Russ Davis,Seattle Mariners,,Platinum Blue
+platinum-blue,135,Edgar Martinez,Seattle Mariners,,Platinum Blue
+platinum-blue,136,Alex Rodriguez,Seattle Mariners,,Platinum Blue
+platinum-blue,137,David Segui,Seattle Mariners,,Platinum Blue
+platinum-blue,138,Rolando Arrojo,Tampa Bay Devil Rays,,Platinum Blue
+platinum-blue,139,Wade Boggs,Tampa Bay Devil Rays,,Platinum Blue
+platinum-blue,140,Jose Canseco,Tampa Bay Devil Rays,,Platinum Blue
+platinum-blue,141,Quinton McCracken,Tampa Bay Devil Rays,,Platinum Blue
+platinum-blue,142,Fred McGriff,Tampa Bay Devil Rays,,Platinum Blue
+platinum-blue,143,Juan Gonzalez,Texas Rangers,,Platinum Blue
+platinum-blue,144,Tom Goodwin,Texas Rangers,,Platinum Blue
+platinum-blue,145,Rusty Greer,Texas Rangers,,Platinum Blue
+platinum-blue,146,Ivan Rodriguez,Texas Rangers,,Platinum Blue
+platinum-blue,147,Jose Cruz Jr.,Toronto Blue Jays,,Platinum Blue
+platinum-blue,148,Carlos Delgado,Toronto Blue Jays,,Platinum Blue
+platinum-blue,149,Shawn Green,Toronto Blue Jays,,Platinum Blue
+platinum-blue,150,Roy Halladay,Toronto Blue Jays,,Platinum Blue
+red,1,Jim Edmonds,Anaheim Angels,,Red
+red,2,Darin Erstad,Anaheim Angels,,Red
+red,3,Troy Glaus,Anaheim Angels,,Red
+red,4,Tim Salmon,Anaheim Angels,,Red
+red,5,Mo Vaughn,Anaheim Angels,,Red
+red,6,Steve Finley,Arizona Diamondbacks,,Red
+red,7,Randy Johnson,Arizona Diamondbacks,,Red
+red,8,Travis Lee,Arizona Diamondbacks,,Red
+red,9,Dante Powell,Arizona Diamondbacks,,Red
+red,10,Matt Williams,Arizona Diamondbacks,,Red
+red,11,Bret Boone,Atlanta Braves,,Red
+red,12,Andruw Jones,Atlanta Braves,,Red
+red,13,Chipper Jones,Atlanta Braves,,Red
+red,14,Brian Jordan,Atlanta Braves,,Red
+red,15,Ryan Klesko,Atlanta Braves,,Red
+red,16,Javy Lopez,Atlanta Braves,,Red
+red,17,Greg Maddux,Atlanta Braves,,Red
+red,18,Brady Anderson,Baltimore Orioles,,Red
+red,19,Albert Belle,Baltimore Orioles,,Red
+red,20,Will Clark,Baltimore Orioles,,Red
+red,21,Mike Mussina,Baltimore Orioles,,Red
+red,22,Cal Ripken Jr.,Baltimore Orioles,,Red
+red,23,Nomar Garciaparra,Boston Red Sox,,Red
+red,24,Pedro Martinez,Boston Red Sox,,Red
+red,25,Trot Nixon,Boston Red Sox,,Red
+red,26,Jose Offerman,Boston Red Sox,,Red
+red,27,Donnie Sadler,Boston Red Sox,,Red
+red,28,John Valentin,Boston Red Sox,,Red
+red,29,Mark Grace,Chicago Cubs,,Red
+red,30,Lance Johnson,Chicago Cubs,,Red
+red,31,Henry Rodriguez,Chicago Cubs,,Red
+red,32,Sammy Sosa,Chicago Cubs,,Red
+red,33,Kerry Wood,Chicago Cubs,,Red
+red,34,McKay Christensen,Chicago White Sox,,Red
+red,35,Ray Durham,Chicago White Sox,,Red
+red,36,Jeff Liefer,Chicago White Sox,,Red
+red,37,Frank Thomas,Chicago White Sox,,Red
+red,38,Mike Cameron,Cincinnati Reds,,Red
+red,39,Barry Larkin,Cincinnati Reds,,Red
+red,40,Greg Vaughn,Cincinnati Reds,,Red
+red,41,Dmitri Young,Cincinnati Reds,,Red
+red,42,Roberto Alomar,Cleveland Indians,,Red
+red,43,Sandy Alomar Jr.,Cleveland Indians,,Red
+red,44,David Justice,Cleveland Indians,,Red
+red,45,Kenny Lofton,Cleveland Indians,,Red
+red,46,Manny Ramirez,Cleveland Indians,,Red
+red,47,Jim Thome,Cleveland Indians,,Red
+red,48,Dante Bichette,Colorado Rockies,,Red
+red,49,Vinny Castilla,Colorado Rockies,,Red
+red,50,Darryl Hamilton,Colorado Rockies,,Red
+red,51,Todd Helton,Colorado Rockies,,Red
+red,52,Neifi Perez,Colorado Rockies,,Red
+red,53,Larry Walker,Colorado Rockies,,Red
+red,54,Tony Clark,Detroit Tigers,,Red
+red,55,Damion Easley,Detroit Tigers,,Red
+red,56,Bobby Higginson,Detroit Tigers,,Red
+red,57,Brian Hunter,Detroit Tigers,,Red
+red,58,Gabe Kapler,Detroit Tigers,,Red
+red,59,Cliff Floyd,Florida Marlins,,Red
+red,60,Alex Gonzalez,Florida Marlins,,Red
+red,61,Mark Kotsay,Florida Marlins,,Red
+red,62,Derrek Lee,Florida Marlins,,Red
+red,63,Braden Looper,Florida Marlins,,Red
+red,64,Moises Alou,Houston Astros,,Red
+red,65,Jeff Bagwell,Houston Astros,,Red
+red,66,Craig Biggio,Houston Astros,,Red
+red,67,Ken Caminiti,Houston Astros,,Red
+red,68,Scott Elarton,Houston Astros,,Red
+red,69,Mitch Meluskey,Houston Astros,,Red
+red,70,Carlos Beltran,Kansas City Royals,,Red
+red,71,Johnny Damon,Kansas City Royals,,Red
+red,72,Carlos Febles,Kansas City Royals,,Red
+red,73,Jeremy Giambi,Kansas City Royals,,Red
+red,74,Kevin Brown,Los Angeles Dodgers,,Red
+red,75,Todd Hundley,Los Angeles Dodgers,,Red
+red,76,Paul Lo Duca,Los Angeles Dodgers,,Red
+red,77,Raul Mondesi,Los Angeles Dodgers,,Red
+red,78,Gary Sheffield,Los Angeles Dodgers,,Red
+red,79,Geoff Jenkins,Milwaukee Brewers,,Red
+red,80,Jeromy Burnitz,Milwaukee Brewers,,Red
+red,81,Marquis Grissom,Milwaukee Brewers,,Red
+red,82,Jose Valentin,Milwaukee Brewers,,Red
+red,83,Fernando Vina,Milwaukee Brewers,,Red
+red,84,Corey Koskie,Minnesota Twins,,Red
+red,85,Matt Lawton,Minnesota Twins,,Red
+red,86,Cristian Guzman,Minnesota Twins,,Red
+red,87,Torii Hunter,Minnesota Twins,,Red
+red,88,Doug Mientkiewicz,Minnesota Twins,,Red
+red,89,Michael Barrett,Montreal Expos,,Red
+red,90,Brad Fullmer,Montreal Expos,,Red
+red,91,Vladimir Guerrero,Montreal Expos,,Red
+red,92,Fernando Seguignol,Montreal Expos,,Red
+red,93,Ugueth Urbina,Montreal Expos,,Red
+red,94,Bobby Bonilla,New York Mets,,Red
+red,95,Rickey Henderson,New York Mets,,Red
+red,96,Rey Ordonez,New York Mets,,Red
+red,97,Mike Piazza,New York Mets,,Red
+red,98,Robin Ventura,New York Mets,,Red
+red,99,Roger Clemens,New York Yankees,,Red
+red,100,Derek Jeter,New York Yankees,,Red
+red,101,Chuck Knoblauch,New York Yankees,,Red
+red,102,Tino Martinez,New York Yankees,,Red
+red,103,Paul O'Neill,New York Yankees,,Red
+red,104,Bernie Williams,New York Yankees,,Red
+red,105,Eric Chavez,Oakland Athletics,,Red
+red,106,Ryan Christenson,Oakland Athletics,,Red
+red,107,Jason Giambi,Oakland Athletics,,Red
+red,108,Ben Grieve,Oakland Athletics,,Red
+red,109,Miguel Tejada,Oakland Athletics,,Red
+red,110,Marlon Anderson,Philadelphia Phillies,,Red
+red,111,Doug Glanville,Philadelphia Phillies,,Red
+red,112,Scott Rolen,Philadelphia Phillies,,Red
+red,113,Curt Schilling,Philadelphia Phillies,,Red
+red,114,Brian Giles,Pittsburgh Pirates,,Red
+red,115,Warren Morris,Pittsburgh Pirates,,Red
+red,116,Jason Kendall,Pittsburgh Pirates,,Red
+red,117,Kris Benson,Pittsburgh Pirates,,Red
+red,118,J.D. Drew,St. Louis Cardinals,,Red
+red,119,Ray Lankford,St. Louis Cardinals,,Red
+red,120,Mark McGwire,St. Louis Cardinals,,Red
+red,121,Matt Clement,San Diego Padres,,Red
+red,122,Tony Gwynn,San Diego Padres,,Red
+red,123,Trevor Hoffman,San Diego Padres,,Red
+red,124,Wally Joyner,San Diego Padres,,Red
+red,125,Reggie Sanders,San Diego Padres,,Red
+red,126,Barry Bonds,San Francisco Giants,,Red
+red,127,Ellis Burks,San Francisco Giants,,Red
+red,128,Jeff Kent,San Francisco Giants,,Red
+red,129,Stan Javier,San Francisco Giants,,Red
+red,130,J.T. Snow,San Francisco Giants,,Red
+red,131,Jay Buhner,Seattle Mariners,,Red
+red,132,Freddy Garcia,Seattle Mariners,,Red
+red,133,Ken Griffey Jr.,Seattle Mariners,,Red
+red,134,Russ Davis,Seattle Mariners,,Red
+red,135,Edgar Martinez,Seattle Mariners,,Red
+red,136,Alex Rodriguez,Seattle Mariners,,Red
+red,137,David Segui,Seattle Mariners,,Red
+red,138,Rolando Arrojo,Tampa Bay Devil Rays,,Red
+red,139,Wade Boggs,Tampa Bay Devil Rays,,Red
+red,140,Jose Canseco,Tampa Bay Devil Rays,,Red
+red,141,Quinton McCracken,Tampa Bay Devil Rays,,Red
+red,142,Fred McGriff,Tampa Bay Devil Rays,,Red
+red,143,Juan Gonzalez,Texas Rangers,,Red
+red,144,Tom Goodwin,Texas Rangers,,Red
+red,145,Rusty Greer,Texas Rangers,,Red
+red,146,Ivan Rodriguez,Texas Rangers,,Red
+red,147,Jose Cruz Jr.,Toronto Blue Jays,,Red
+red,148,Carlos Delgado,Toronto Blue Jays,,Red
+red,149,Shawn Green,Toronto Blue Jays,,Red
+red,150,Roy Halladay,Toronto Blue Jays,,Red
+diamond-magic,1,Cal Ripken Jr.,Baltimore Orioles,,Diamond Magic
+diamond-magic,2,Nomar Garciaparra,Boston Red Sox,,Diamond Magic
+diamond-magic,3,Sammy Sosa,Chicago Cubs,,Diamond Magic
+diamond-magic,4,Frank Thomas,Chicago White Sox,,Diamond Magic
+diamond-magic,5,Mike Piazza,New York Mets,,Diamond Magic
+diamond-magic,6,J.D. Drew,St. Louis Cardinals,,Diamond Magic
+diamond-magic,7,Mark McGwire,St. Louis Cardinals,,Diamond Magic
+diamond-magic,8,Tony Gwynn,San Diego Padres,,Diamond Magic
+diamond-magic,9,Ken Griffey Jr.,Seattle Mariners,,Diamond Magic
+diamond-magic,10,Alex Rodriguez,Seattle Mariners,,Diamond Magic
+flash-point,1,Mo Vaughn,Anaheim Angels,,Flash Point
+flash-point,2,Chipper Jones,Atlanta Braves,,Flash Point
+flash-point,3,Greg Maddux,Atlanta Braves,,Flash Point
+flash-point,4,Cal Ripken Jr.,Baltimore Orioles,,Flash Point
+flash-point,5,Nomar Garciaparra,Boston Red Sox,,Flash Point
+flash-point,6,Sammy Sosa,Chicago Cubs,,Flash Point
+flash-point,7,Frank Thomas,Chicago White Sox,,Flash Point
+flash-point,8,Manny Ramirez,Cleveland Indians,,Flash Point
+flash-point,9,Vladimir Guerrero,Montreal Expos,,Flash Point
+flash-point,10,Mike Piazza,New York Mets,,Flash Point
+flash-point,11,Roger Clemens,New York Yankees,,Flash Point
+flash-point,12,Derek Jeter,New York Yankees,,Flash Point
+flash-point,13,Ben Grieve,Oakland Athletics,,Flash Point
+flash-point,14,Scott Rolen,Philadelphia Phillies,,Flash Point
+flash-point,15,J.D. Drew,St. Louis Cardinals,,Flash Point
+flash-point,16,Mark McGwire,St. Louis Cardinals,,Flash Point
+flash-point,17,Tony Gwynn,San Diego Padres,,Flash Point
+flash-point,18,Ken Griffey Jr.,Seattle Mariners,,Flash Point
+flash-point,19,Alex Rodriguez,Seattle Mariners,,Flash Point
+flash-point,20,Juan Gonzalez,Texas Rangers,,Flash Point
+giants-of-the-game-redemptions,1,Cal Ripken Jr.,Baltimore Orioles,,Giants of the Game Redemptions
+giants-of-the-game-redemptions,2,Nomar Garciaparra,Boston Red Sox,,Giants of the Game Redemptions
+giants-of-the-game-redemptions,3,Sammy Sosa,Chicago Cubs,,Giants of the Game Redemptions
+giants-of-the-game-redemptions,4,Frank Thomas,Chicago White Sox,,Giants of the Game Redemptions
+giants-of-the-game-redemptions,5,Mike Piazza,New York Mets,,Giants of the Game Redemptions
+giants-of-the-game-redemptions,6,J.D. Drew,St. Louis Cardinals,,Giants of the Game Redemptions
+giants-of-the-game-redemptions,7,Mark McGwire,St. Louis Cardinals,,Giants of the Game Redemptions
+giants-of-the-game-redemptions,8,Tony Gwynn,San Diego Padres,,Giants of the Game Redemptions
+giants-of-the-game-redemptions,9,Ken Griffey Jr.,Seattle Mariners,,Giants of the Game Redemptions
+giants-of-the-game-redemptions,10,Alex Rodriguez,Seattle Mariners,,Giants of the Game Redemptions
+sandlot-heroes,1a,Mo Vaughn VARVAR: Running,Anaheim Angels,,Sandlot Heroes
+sandlot-heroes,1b,Mo Vaughn VARVAR: Hitting,Anaheim Angels,,Sandlot Heroes
+sandlot-heroes,2a,Chipper Jones VARVAR: Fielding,Atlanta Braves,,Sandlot Heroes
+sandlot-heroes,2b,Chipper Jones VARVAR: Wearing Helmet,Atlanta Braves,,Sandlot Heroes
+sandlot-heroes,3a,Greg Maddux VARVAR: Ball Up,Atlanta Braves,,Sandlot Heroes
+sandlot-heroes,3b,Greg Maddux VARVAR: Ball Down,Atlanta Braves,,Sandlot Heroes
+sandlot-heroes,4a,Cal Ripken Jr. VARVAR: Fielding,Baltimore Orioles,,Sandlot Heroes
+sandlot-heroes,4b,Cal Ripken Jr. VARVAR: Batting,Baltimore Orioles,,Sandlot Heroes
+sandlot-heroes,5a,Nomar Garciaparra VARVAR: Fielding,Boston Red Sox,,Sandlot Heroes
+sandlot-heroes,5b,Nomar Garciaparra VARVAR: Batting,Boston Red Sox,,Sandlot Heroes
+sandlot-heroes,6a,Sammy Sosa VARVAR: Fielding,Chicago Cubs,,Sandlot Heroes
+sandlot-heroes,6b,Sammy Sosa VARVAR: Hitting,Chicago Cubs,,Sandlot Heroes
+sandlot-heroes,7a,Frank Thomas VARVAR: Standing,Chicago White Sox,,Sandlot Heroes
+sandlot-heroes,7b,Frank Thomas VARVAR: Running,Chicago White Sox,,Sandlot Heroes
+sandlot-heroes,8a,Manny Ramirez VARVAR: Running,Cleveland Indians,,Sandlot Heroes
+sandlot-heroes,8b,Manny Ramirez VARVAR: Batting,Cleveland Indians,,Sandlot Heroes
+sandlot-heroes,9a,Vladimir Guerrero VARVAR: Fielding,Montreal Expos,,Sandlot Heroes
+sandlot-heroes,9b,Vladimir Guerrero VARVAR: Batting,Montreal Expos,,Sandlot Heroes
+sandlot-heroes,10a,Mike Piazza VARVAR: No Bat,New York Mets,,Sandlot Heroes
+sandlot-heroes,10b,Mike Piazza VARVAR: w / Bat,New York Mets,,Sandlot Heroes
+sandlot-heroes,11a,Roger Clemens VARVAR: No logo visible on uniform top,New York Yankees,,Sandlot Heroes
+sandlot-heroes,11b,Roger Clemens VARVAR: NY visible on uniform top,New York Yankees,,Sandlot Heroes
+sandlot-heroes,12a,Derek Jeter VARVAR: Fielding,New York Yankees,,Sandlot Heroes
+sandlot-heroes,12b,Derek Jeter VARVAR: Swinging,New York Yankees,,Sandlot Heroes
+sandlot-heroes,13a,Eric Chavez VARVAR: Throwing,Oakland Athletics,,Sandlot Heroes
+sandlot-heroes,13b,Eric Chavez VARVAR: Batting,Oakland Athletics,,Sandlot Heroes
+sandlot-heroes,14a,Ben Grieve VARVAR: Running,Oakland Athletics,,Sandlot Heroes
+sandlot-heroes,14b,Ben Grieve VARVAR: Hitting,Oakland Athletics,,Sandlot Heroes
+sandlot-heroes,15a,J.D. Drew VARVAR: Running,St. Louis Cardinals,,Sandlot Heroes
+sandlot-heroes,15b,J.D. Drew VARVAR: w / Bat,St. Louis Cardinals,,Sandlot Heroes
+sandlot-heroes,16a,Mark McGwire VARVAR: Fielding,St. Louis Cardinals,,Sandlot Heroes
+sandlot-heroes,16b,Mark McGwire VARVAR: Batting,St. Louis Cardinals,,Sandlot Heroes
+sandlot-heroes,17a,Tony Gwynn VARVAR: No Bat,San Diego Padres,,Sandlot Heroes
+sandlot-heroes,17b,Tony Gwynn VARVAR: w / Bat,San Diego Padres,,Sandlot Heroes
+sandlot-heroes,18a,Ken Griffey Jr. VARVAR: Running,Seattle Mariners,,Sandlot Heroes
+sandlot-heroes,18b,Ken Griffey Jr. VARVAR: Hitting,Seattle Mariners,,Sandlot Heroes
+sandlot-heroes,19a,Alex Rodriguez VARVAR: Wearing Helmet,Seattle Mariners,,Sandlot Heroes
+sandlot-heroes,19b,Alex Rodriguez VARVAR: Wearing Fldg Glove,Seattle Mariners,,Sandlot Heroes
+sandlot-heroes,20a,Juan Gonzalez VARVAR: Swinging,Texas Rangers,,Sandlot Heroes
+sandlot-heroes,20b,Juan Gonzalez VARVAR: Blue Jersey,Texas Rangers,,Sandlot Heroes
+seismic-force,1a,Mo Vaughn VARVAR: Portrait,Anaheim Angels,,Seismic Force
+seismic-force,1b,Mo Vaughn VARVAR: Action,Anaheim Angels,,Seismic Force
+seismic-force,2a,Chipper Jones VARVAR: Portrait,Atlanta Braves,,Seismic Force
+seismic-force,2b,Chipper Jones VARVAR: Action,Atlanta Braves,,Seismic Force
+seismic-force,3a,Greg Maddux VARVAR: Portrait,Atlanta Braves,,Seismic Force
+seismic-force,3b,Greg Maddux VARVAR: Action,Atlanta Braves,,Seismic Force
+seismic-force,4a,Cal Ripken Jr. VARVAR: Portrait,Baltimore Orioles,,Seismic Force
+seismic-force,4b,Cal Ripken Jr. VARVAR: Action,Baltimore Orioles,,Seismic Force
+seismic-force,5a,Nomar Garciaparra VARVAR: Portrait,Boston Red Sox,,Seismic Force
+seismic-force,5b,Nomar Garciaparra VARVAR: Action,Boston Red Sox,,Seismic Force
+seismic-force,6a,Sammy Sosa VARVAR: Portrait,Chicago Cubs,,Seismic Force
+seismic-force,6b,Sammy Sosa VARVAR: Action,Chicago Cubs,,Seismic Force
+seismic-force,7a,Frank Thomas VARVAR: Portrait,Chicago White Sox,,Seismic Force
+seismic-force,7b,Frank Thomas VARVAR: Action,Chicago White Sox,,Seismic Force
+seismic-force,8a,Manny Ramirez VARVAR: Portrait,Cleveland Indians,,Seismic Force
+seismic-force,8b,Manny Ramirez VARVAR: Action,Cleveland Indians,,Seismic Force
+seismic-force,9a,Vladimir Guerrero VARVAR: Portrait,Montreal Expos,,Seismic Force
+seismic-force,9b,Vladimir Guerrero VARVAR: Action,Montreal Expos,,Seismic Force
+seismic-force,10a,Mike Piazza VARVAR: Portrait,New York Mets,,Seismic Force
+seismic-force,10b,Mike Piazza VARVAR: Action,New York Mets,,Seismic Force
+seismic-force,11a,Bernie Williams VARVAR: Portrait,New York Yankees,,Seismic Force
+seismic-force,11b,Bernie Williams VARVAR: Action,New York Yankees,,Seismic Force
+seismic-force,12a,Derek Jeter VARVAR: Portrait,New York Yankees,,Seismic Force
+seismic-force,12b,Derek Jeter VARVAR: Action,New York Yankees,,Seismic Force
+seismic-force,13a,Ben Grieve VARVAR: Portrait,Oakland Athletics,,Seismic Force
+seismic-force,13b,Ben Grieve VARVAR: Action,Oakland Athletics,,Seismic Force
+seismic-force,14a,J.D. Drew VARVAR: Portrait,St. Louis Cardinals,,Seismic Force
+seismic-force,14b,J.D. Drew VARVAR: Action,St. Louis Cardinals,,Seismic Force
+seismic-force,15a,Mark McGwire VARVAR: Portrait,St. Louis Cardinals,,Seismic Force
+seismic-force,15b,Mark McGwire VARVAR: Action,St. Louis Cardinals,,Seismic Force
+seismic-force,16a,Tony Gwynn VARVAR: Portrait,San Diego Padres,,Seismic Force
+seismic-force,16b,Tony Gwynn VARVAR: Action,San Diego Padres,,Seismic Force
+seismic-force,17a,Ken Griffey Jr. VARVAR: Portrait,Seattle Mariners,,Seismic Force
+seismic-force,17b,Ken Griffey Jr. VARVAR: Action,Seattle Mariners,,Seismic Force
+seismic-force,18a,Alex Rodriguez VARVAR: Portrait,Seattle Mariners,,Seismic Force
+seismic-force,18b,Alex Rodriguez VARVAR: Action,Seattle Mariners,,Seismic Force
+seismic-force,19a,Juan Gonzalez VARVAR: Portrait,Texas Rangers,,Seismic Force
+seismic-force,19b,Juan Gonzalez VARVAR: Action,Texas Rangers,,Seismic Force
+seismic-force,20a,Ivan Rodriguez VARVAR: Portrait,Texas Rangers,,Seismic Force
+seismic-force,20b,Ivan Rodriguez VARVAR: Action,Texas Rangers,,Seismic Force
+thunder-alley,1,Mo Vaughn,Anaheim Angels,,Thunder Alley
+thunder-alley,2,Chipper Jones,Atlanta Braves,,Thunder Alley
+thunder-alley,3,Cal Ripken Jr.,Baltimore Orioles,,Thunder Alley
+thunder-alley,4,Nomar Garciaparra,Boston Red Sox,,Thunder Alley
+thunder-alley,5,Sammy Sosa,Chicago Cubs,,Thunder Alley
+thunder-alley,6,Frank Thomas,Chicago White Sox,,Thunder Alley
+thunder-alley,7,Manny Ramirez,Cleveland Indians,,Thunder Alley
+thunder-alley,8,Todd Helton,Colorado Rockies,,Thunder Alley
+thunder-alley,9,Vladimir Guerrero,Montreal Expos,,Thunder Alley
+thunder-alley,10,Mike Piazza,New York Mets,,Thunder Alley
+thunder-alley,11,Derek Jeter,New York Yankees,,Thunder Alley
+thunder-alley,12,Ben Grieve,Oakland Athletics,,Thunder Alley
+thunder-alley,13,Scott Rolen,Philadelphia Phillies,,Thunder Alley
+thunder-alley,14,J.D. Drew,St. Louis Cardinals,,Thunder Alley
+thunder-alley,15,Mark McGwire,St. Louis Cardinals,,Thunder Alley
+thunder-alley,16,Tony Gwynn,San Diego Padres,,Thunder Alley
+thunder-alley,17,Ken Griffey Jr.,Seattle Mariners,,Thunder Alley
+thunder-alley,18,Alex Rodriguez,Seattle Mariners,,Thunder Alley
+thunder-alley,19,Juan Gonzalez,Texas Rangers,,Thunder Alley
+thunder-alley,20,Ivan Rodriguez,Texas Rangers,,Thunder Alley
