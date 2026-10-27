@@ -46,7 +46,7 @@ def canonical_identity(key,number,player):
   player=aliases.get(number,{}).get(player,player)
   # Source attaches print-error descriptions after the identity.
   if number in ("269","270","543","544"):
-   player=re.split(r",\s*UERUER:",player,maxsplit=1)[0]
+   player=re.split(r"(?:,\s*|\s+)UERUER:",player,maxsplit=1)[0]
  return player
 def fetch(url):
  for attempt in range(4):
@@ -145,6 +145,7 @@ def tests():
  assert canonical_identity("first-day-issue","269","Checklist: 271-408 CL, UERUER: #269on back, was supposed to be #539")=="Checklist: 271-408 CL"
  assert canonical_identity("base","544","Greg Maddux AW, UERUER: Missing 93 Award Winner logo")=="Greg Maddux AW"
  assert canonical_identity("first-day-issue","608","Tuffy Rhodes")=="Karl Rhodes"
+ assert canonical_identity("base","543","Lonnie Smith UERUER: #543 on back, was supposed to be #643")=="Lonnie Smith"
  a,e=numbered([("269","A","T"),("269","B","T")],"base")
  assert not e and set(a)=={"269a","269b"}
  assert NUMBER.fullmatch("NNO") and NUMBER.fullmatch("543a")
