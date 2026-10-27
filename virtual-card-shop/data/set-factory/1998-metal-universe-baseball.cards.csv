@@ -1,0 +1,512 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,"Jose Cruz, Jr.",Toronto Blue Jays,,
+base,2,Jeff Abbott,Chicago White Sox,,
+base,3,Rafael Palmeiro,Baltimore Orioles,,
+base,4,Ivan Rodriguez,Texas Rangers,,
+base,5,Jaret Wright,Cleveland Indians,,
+base,6,Derek Bell,Houston Astros,,
+base,7,Chuck Finley,Anaheim Angels,,
+base,8,Travis Fryman,Cleveland Indians,,
+base,9,Randy Johnson,Seattle Mariners,,
+base,10,Derrek Lee,Florida Marlins,,
+base,11,Bernie Williams,New York Yankees,,
+base,12,Carlos Baerga,New York Mets,,
+base,13,Ricky Bottalico,Philadelphia Phillies,,
+base,14,Ellis Burks,Colorado Rockies,,
+base,15,Russ Davis,Seattle Mariners,,
+base,16,Nomar Garciaparra,Boston Red Sox,,
+base,17,Joey Hamilton,San Diego Padres,,
+base,18,Jason Kendall,Pittsburgh Pirates,,
+base,19,Darryl Kile,Colorado Rockies,,
+base,20,Edgardo Alfonzo,New York Mets,,
+base,21,Moises Alou,Houston Astros,,
+base,22,Bobby Bonilla,Florida Marlins,,
+base,23,Jim Edmonds,Anaheim Angels,,
+base,24,Jose Guillen,Pittsburgh Pirates,,
+base,25,Chuck Knoblauch,Minnesota Twins,,
+base,26,Javy Lopez,Atlanta Braves,,
+base,27,Billy Wagner,Houston Astros,,
+base,28,Kevin Appier,Kansas City Royals,,
+base,29,Joe Carter,Baltimore Orioles,,
+base,30,Todd Dunwoody,Florida Marlins,,
+base,31,Gary Gaetti,St. Louis Cardinals,,
+base,32,Juan Gonzalez,Texas Rangers,,
+base,33,Jeffrey Hammonds,Baltimore Orioles,,
+base,34,Roberto Hernandez,Tampa Bay Devil Rays,,
+base,35,Dave Nilsson,Milwaukee Brewers,,
+base,36,Manny Ramirez,Cleveland Indians,,
+base,37,Robin Ventura,Chicago White Sox,,
+base,38,Rondell White,Montreal Expos,,
+base,39,Vinny Castilla,Colorado Rockies,,
+base,40,Will Clark,Texas Rangers,,
+base,41,Scott Hatteberg,Boston Red Sox,,
+base,42,Russ Johnson,Houston Astros,,
+base,43,Ricky Ledee,New York Yankees,,
+base,44,Kenny Lofton,Cleveland Indians,,
+base,45,Paul Molitor,Minnesota Twins,,
+base,46,Justin Thompson,Detroit Tigers,,
+base,47,Craig Biggio,Houston Astros,,
+base,48,Damion Easley,Detroit Tigers,,
+base,49,Brad Radke,Minnesota Twins,,
+base,50,Ben Grieve,Oakland Athletics,,
+base,51,Mark Bellhorn,Oakland Athletics,,
+base,52,Henry Blanco RC,Los Angeles Dodgers,,
+base,53,Mariano Rivera,New York Yankees,,
+base,54,Reggie Sanders,Cincinnati Reds,,
+base,55,Paul Sorrento,Seattle Mariners,,
+base,56,Terry Steinbach,Minnesota Twins,,
+base,57,Mo Vaughn,Boston Red Sox,,
+base,58,Brady Anderson,Baltimore Orioles,,
+base,59,Tom Glavine,Atlanta Braves,,
+base,60,Sammy Sosa,Chicago Cubs,,
+base,61,Larry Walker,Colorado Rockies,,
+base,62,Rod Beck,San Francisco Giants,,
+base,63,Jose Canseco,Oakland Athletics,,
+base,64,Steve Finley,San Diego Padres,,
+base,65,Pedro Martinez,Boston Red Sox,,
+base,66,John Olerud,New York Mets,,
+base,67,Scott Rolen,Philadelphia Phillies,,
+base,68,Ismael Valdes,Los Angeles Dodgers,,
+base,69,Andrew Vessel,Texas Rangers,,
+base,70,Mark Grudzielanek,Montreal Expos,,
+base,71,Eric Karros,Los Angeles Dodgers,,
+base,72,Jeff Shaw,Cincinnati Reds,,
+base,73,Lou Collier,Pittsburgh Pirates,,
+base,74,Edgar Martinez,Seattle Mariners,,
+base,75,Vladimir Guerrero,Montreal Expos,,
+base,76,Paul Konerko,Los Angeles Dodgers,,
+base,77,Kevin Orie,Chicago Cubs,,
+base,78,Kevin Polcovich,Pittsburgh Pirates,,
+base,79,Brett Tomko,Cincinnati Reds,,
+base,80,Jeff Bagwell,Houston Astros,,
+base,81,Barry Bonds,San Francisco Giants,,
+base,82,David Justice,Cleveland Indians,,
+base,83,Hideo Nomo,Los Angeles Dodgers,,
+base,84,Ryne Sandberg,Chicago Cubs,,
+base,85,Shannon Stewart,Toronto Blue Jays,,
+base,86,Derek Wallace,New York Mets,,
+base,87,Tony Womack,Pittsburgh Pirates,,
+base,88,Jason Giambi,Oakland Athletics,,
+base,89,Mark Grace,Chicago Cubs,,
+base,90,Pat Hentgen,Toronto Blue Jays,,
+base,91,Raul Mondesi,Los Angeles Dodgers,,
+base,92,Matt Morris,St. Louis Cardinals,,
+base,93,Matt Perisho,Texas Rangers,,
+base,94,Tim Salmon,Anaheim Angels,,
+base,95,Jeremi Gonzalez,Chicago Cubs,,
+base,96,Shawn Green,Toronto Blue Jays,,
+base,97,Todd Greene,Anaheim Angels,,
+base,98,Ruben Rivera,San Diego Padres,,
+base,99,Deion Sanders,Cincinnati Reds,,
+base,100,Alex Rodriguez,Seattle Mariners,,
+base,101,Will Cunnane,San Diego Padres,,
+base,102,Ray Lankford,St. Louis Cardinals,,
+base,103,Ryan McGuire,Montreal Expos,,
+base,104,Charles Nagy,Cleveland Indians,,
+base,105,Rey Ordonez,New York Mets,,
+base,106,Mike Piazza,Los Angeles Dodgers,,
+base,107,Tony Saunders,Tampa Bay Devil Rays,,
+base,108,Curt Schilling,Philadelphia Phillies,,
+base,109,Fernando Tatis,Texas Rangers,,
+base,110,Mark McGwire,St. Louis Cardinals,,
+base,111,Dave Dellucci RC,Arizona Diamondbacks,,
+base,112,Garret Anderson,Anaheim Angels,,
+base,113,Shane Bowers RC,Minnesota Twins,,
+base,114,David Cone,New York Yankees,,
+base,115,Jeff King,Kansas City Royals,,
+base,116,Matt Williams,Arizona Diamondbacks,,
+base,117,Aaron Boone,Cincinnati Reds,,
+base,118,Dennis Eckersley,Boston Red Sox,,
+base,119,Livan Hernandez,Florida Marlins,,
+base,120,Richard Hidalgo,Houston Astros,,
+base,121,Bobby Higginson,Detroit Tigers,,
+base,122,Tino Martinez,New York Yankees,,
+base,123,Tim Naehring,Boston Red Sox,,
+base,124,Jose Vidro,Montreal Expos,,
+base,125,John Wetteland,Texas Rangers,,
+base,126,Jay Bell,Arizona Diamondbacks,,
+base,127,Albert Belle,Chicago White Sox,,
+base,128,Marty Cordova,Minnesota Twins,,
+base,129,Chili Davis,New York Yankees,,
+base,130,Jason Dickson,Anaheim Angels,,
+base,131,Rusty Greer,Texas Rangers,,
+base,132,Hideki Irabu,New York Yankees,,
+base,133,Greg Maddux,Atlanta Braves,,
+base,134,Billy Taylor,Oakland Athletics,,
+base,135,Jim Thome,Cleveland Indians,,
+base,136,Gerald Williams,Atlanta Braves,,
+base,137,Jeff Cirillo,Milwaukee Brewers,,
+base,138,Delino DeShields,St. Louis Cardinals,,
+base,139,Andres Galarraga,Atlanta Braves,,
+base,140,Willie Greene,Cincinnati Reds,,
+base,141,John Jaha,Milwaukee Brewers,,
+base,142,Charles Johnson,Florida Marlins,,
+base,143,Ryan Klesko,Atlanta Braves,,
+base,144,Paul O'Neill,New York Yankees,,
+base,145,Robinson Checo,Boston Red Sox,,
+base,146,Roberto Alomar,Baltimore Orioles,,
+base,147,Wilson Alvarez,Tampa Bay Devil Rays,,
+base,148,Bobby Jones,New York Mets,,
+base,149,Raul Casanova,Detroit Tigers,,
+base,150,Andruw Jones,Atlanta Braves,,
+base,151,Mike Lansing,Colorado Rockies,,
+base,152,Mickey Morandini,Chicago Cubs,,
+base,153,Neifi Perez,Colorado Rockies,,
+base,154,Pokey Reese,Cincinnati Reds,,
+base,155,Edgar Renteria,Florida Marlins,,
+base,156,Eric Young,Los Angeles Dodgers,,
+base,157,Darin Erstad,Anaheim Angels,,
+base,158,Kelvim Escobar,Toronto Blue Jays,,
+base,159,Carl Everett,Houston Astros,,
+base,160,Tom Gordon,Boston Red Sox,,
+base,161,"Ken Griffey, Jr.",Seattle Mariners,,
+base,162,Al Martin,Pittsburgh Pirates,,
+base,163,Bubba Trammell,Tampa Bay Devil Rays,,
+base,164,Carlos Delgado,Toronto Blue Jays,,
+base,165,Kevin Brown,San Diego Padres,,
+base,166,Ken Caminiti,San Diego Padres,,
+base,167,Roger Clemens,Toronto Blue Jays,,
+base,168,Ron Gant,St. Louis Cardinals,,
+base,169,Jeff Kent,San Francisco Giants,,
+base,170,Mike Mussina,Baltimore Orioles,,
+base,171,Dean Palmer,Kansas City Royals,,
+base,172,Henry Rodriguez,Chicago Cubs,,
+base,173,Matt Stairs,Oakland Athletics,,
+base,174,Jay Buhner,Seattle Mariners,,
+base,175,Frank Thomas,Chicago White Sox,,
+base,176,Mike Cameron,Chicago White Sox,,
+base,177,Johnny Damon,Kansas City Royals,,
+base,178,Tony Gwynn,San Diego Padres,,
+base,179,John Smoltz,Atlanta Braves,,
+base,180,B.J. Surhoff,Baltimore Orioles,,
+base,181,Antone Williamson,Milwaukee Brewers,,
+base,182,Alan Benes,St. Louis Cardinals,,
+base,183,Jeromy Burnitz,Milwaukee Brewers,,
+base,184,Tony Clark,Detroit Tigers,,
+base,185,Shawn Estes,San Francisco Giants,,
+base,186,Todd Helton,Colorado Rockies,,
+base,187,Todd Hundley,New York Mets,,
+base,188,Chipper Jones,Atlanta Braves,,
+base,189,Mark Kotsay,Florida Marlins,,
+base,190,Barry Larkin,Cincinnati Reds,,
+base,191,Mike Lieberthal,Philadelphia Phillies,,
+base,192,Andy Pettitte,New York Yankees,,
+base,193,Gary Sheffield,Florida Marlins,,
+base,194,Jeff Suppan,Arizona Diamondbacks,,
+base,195,Mark Wohlers,Atlanta Braves,,
+base,196,Dante Bichette,Colorado Rockies,,
+base,197,Trevor Hoffman,San Diego Padres,,
+base,198,J.T. Snow,San Francisco Giants,,
+base,199,Derek Jeter,New York Yankees,,
+base,200,Cal Ripken Jr.,Baltimore Orioles,,
+base,201,Steve Woodard,Milwaukee Brewers,,
+base,202,Ray Durham,Chicago White Sox,,
+base,203,Barry Bonds HG,San Francisco Giants,,
+base,204,Tony Clark HG,Detroit Tigers,,
+base,205,Roger Clemens HG,Toronto Blue Jays,,
+base,206,Ken Griffey Jr. HG,Seattle Mariners,,
+base,207,Deion Sanders HG,Cincinnati Reds,,
+base,208,Derek Jeter HG,New York Yankees,,
+base,209,Randy Johnson HG,Seattle Mariners,,
+base,210,Brady Anderson HG,Baltimore Orioles,,
+base,211,Hideo Nomo HG,Los Angeles Dodgers,,
+base,212,Mike Piazza HG,Los Angeles Dodgers,,
+base,213,"Cal Ripken, Jr. HG",Baltimore Orioles,,
+base,214,Alex Rodriguez HG,Seattle Mariners,,
+base,215,Frank Thomas HG,Chicago White Sox,,
+base,216,Mo Vaughn HG,Boston Red Sox,,
+base,217,Larry Walker HG,Colorado Rockies,,
+base,218,Ken Griffey Jr.,Seattle Mariners,,
+base,219,Alex Rodriguez,Seattle Mariners,,
+base,220,Frank Thomas,Chicago White Sox,,
+precious-metal-gems,1,"Jose Cruz, Jr.",Toronto Blue Jays,,Precious Metal Gems
+precious-metal-gems,2,Jeff Abbott,Chicago White Sox,,Precious Metal Gems
+precious-metal-gems,3,Rafael Palmeiro,Baltimore Orioles,,Precious Metal Gems
+precious-metal-gems,4,Ivan Rodriguez,Texas Rangers,,Precious Metal Gems
+precious-metal-gems,5,Jaret Wright,Cleveland Indians,,Precious Metal Gems
+precious-metal-gems,6,Derek Bell,Houston Astros,,Precious Metal Gems
+precious-metal-gems,7,Chuck Finley,Anaheim Angels,,Precious Metal Gems
+precious-metal-gems,8,Travis Fryman,Cleveland Indians,,Precious Metal Gems
+precious-metal-gems,9,Randy Johnson,Seattle Mariners,,Precious Metal Gems
+precious-metal-gems,10,Derrek Lee,Florida Marlins,,Precious Metal Gems
+precious-metal-gems,11,Bernie Williams,New York Yankees,,Precious Metal Gems
+precious-metal-gems,12,Carlos Baerga,New York Mets,,Precious Metal Gems
+precious-metal-gems,13,Ricky Bottalico,Philadelphia Phillies,,Precious Metal Gems
+precious-metal-gems,14,Ellis Burks,Colorado Rockies,,Precious Metal Gems
+precious-metal-gems,15,Russ Davis,Seattle Mariners,,Precious Metal Gems
+precious-metal-gems,16,Nomar Garciaparra,Boston Red Sox,,Precious Metal Gems
+precious-metal-gems,17,Joey Hamilton,San Diego Padres,,Precious Metal Gems
+precious-metal-gems,18,Jason Kendall,Pittsburgh Pirates,,Precious Metal Gems
+precious-metal-gems,19,Darryl Kile,Colorado Rockies,,Precious Metal Gems
+precious-metal-gems,20,Edgardo Alfonzo,New York Mets,,Precious Metal Gems
+precious-metal-gems,21,Moises Alou,Houston Astros,,Precious Metal Gems
+precious-metal-gems,22,Bobby Bonilla,Florida Marlins,,Precious Metal Gems
+precious-metal-gems,23,Jim Edmonds,Anaheim Angels,,Precious Metal Gems
+precious-metal-gems,24,Jose Guillen,Pittsburgh Pirates,,Precious Metal Gems
+precious-metal-gems,25,Chuck Knoblauch,Minnesota Twins,,Precious Metal Gems
+precious-metal-gems,26,Javy Lopez,Atlanta Braves,,Precious Metal Gems
+precious-metal-gems,27,Billy Wagner,Houston Astros,,Precious Metal Gems
+precious-metal-gems,28,Kevin Appier,Kansas City Royals,,Precious Metal Gems
+precious-metal-gems,29,Joe Carter,Baltimore Orioles,,Precious Metal Gems
+precious-metal-gems,30,Todd Dunwoody,Florida Marlins,,Precious Metal Gems
+precious-metal-gems,31,Gary Gaetti,St. Louis Cardinals,,Precious Metal Gems
+precious-metal-gems,32,Juan Gonzalez,Texas Rangers,,Precious Metal Gems
+precious-metal-gems,33,Jeffrey Hammonds,Baltimore Orioles,,Precious Metal Gems
+precious-metal-gems,34,Roberto Hernandez,Tampa Bay Devil Rays,,Precious Metal Gems
+precious-metal-gems,35,Dave Nilsson,Milwaukee Brewers,,Precious Metal Gems
+precious-metal-gems,36,Manny Ramirez,Cleveland Indians,,Precious Metal Gems
+precious-metal-gems,37,Robin Ventura,Chicago White Sox,,Precious Metal Gems
+precious-metal-gems,38,Rondell White,Montreal Expos,,Precious Metal Gems
+precious-metal-gems,39,Vinny Castilla,Colorado Rockies,,Precious Metal Gems
+precious-metal-gems,40,Will Clark,Texas Rangers,,Precious Metal Gems
+precious-metal-gems,41,Scott Hatteberg,Boston Red Sox,,Precious Metal Gems
+precious-metal-gems,42,Russ Johnson,Houston Astros,,Precious Metal Gems
+precious-metal-gems,43,Ricky Ledee,New York Yankees,,Precious Metal Gems
+precious-metal-gems,44,Kenny Lofton,Cleveland Indians,,Precious Metal Gems
+precious-metal-gems,45,Paul Molitor,Minnesota Twins,,Precious Metal Gems
+precious-metal-gems,46,Justin Thompson,Detroit Tigers,,Precious Metal Gems
+precious-metal-gems,47,Craig Biggio,Houston Astros,,Precious Metal Gems
+precious-metal-gems,48,Damion Easley,Detroit Tigers,,Precious Metal Gems
+precious-metal-gems,49,Brad Radke,Minnesota Twins,,Precious Metal Gems
+precious-metal-gems,50,Ben Grieve,Oakland Athletics,,Precious Metal Gems
+precious-metal-gems,51,Mark Bellhorn,Oakland Athletics,,Precious Metal Gems
+precious-metal-gems,52,Henry Blanco,Los Angeles Dodgers,,Precious Metal Gems
+precious-metal-gems,53,Mariano Rivera,New York Yankees,,Precious Metal Gems
+precious-metal-gems,54,Reggie Sanders,Cincinnati Reds,,Precious Metal Gems
+precious-metal-gems,55,Paul Sorrento,Seattle Mariners,,Precious Metal Gems
+precious-metal-gems,56,Terry Steinbach,Minnesota Twins,,Precious Metal Gems
+precious-metal-gems,57,Mo Vaughn,Boston Red Sox,,Precious Metal Gems
+precious-metal-gems,58,Brady Anderson,Baltimore Orioles,,Precious Metal Gems
+precious-metal-gems,59,Tom Glavine,Atlanta Braves,,Precious Metal Gems
+precious-metal-gems,60,Sammy Sosa,Chicago Cubs,,Precious Metal Gems
+precious-metal-gems,61,Larry Walker,Colorado Rockies,,Precious Metal Gems
+precious-metal-gems,62,Rod Beck,San Francisco Giants,,Precious Metal Gems
+precious-metal-gems,63,Jose Canseco,Oakland Athletics,,Precious Metal Gems
+precious-metal-gems,64,Steve Finley,San Diego Padres,,Precious Metal Gems
+precious-metal-gems,65,Pedro Martinez,Boston Red Sox,,Precious Metal Gems
+precious-metal-gems,66,John Olerud,New York Mets,,Precious Metal Gems
+precious-metal-gems,67,Scott Rolen,Philadelphia Phillies,,Precious Metal Gems
+precious-metal-gems,68,Ismael Valdes,Los Angeles Dodgers,,Precious Metal Gems
+precious-metal-gems,69,Andrew Vessel,Texas Rangers,,Precious Metal Gems
+precious-metal-gems,70,Mark Grudzielanek,Montreal Expos,,Precious Metal Gems
+precious-metal-gems,71,Eric Karros,Los Angeles Dodgers,,Precious Metal Gems
+precious-metal-gems,72,Jeff Shaw,Cincinnati Reds,,Precious Metal Gems
+precious-metal-gems,73,Lou Collier,Pittsburgh Pirates,,Precious Metal Gems
+precious-metal-gems,74,Edgar Martinez,Seattle Mariners,,Precious Metal Gems
+precious-metal-gems,75,Vladimir Guerrero,Montreal Expos,,Precious Metal Gems
+precious-metal-gems,76,Paul Konerko,Los Angeles Dodgers,,Precious Metal Gems
+precious-metal-gems,77,Kevin Orie,Chicago Cubs,,Precious Metal Gems
+precious-metal-gems,78,Kevin Polcovich,Pittsburgh Pirates,,Precious Metal Gems
+precious-metal-gems,79,Brett Tomko,Cincinnati Reds,,Precious Metal Gems
+precious-metal-gems,80,Jeff Bagwell,Houston Astros,,Precious Metal Gems
+precious-metal-gems,81,Barry Bonds,San Francisco Giants,,Precious Metal Gems
+precious-metal-gems,82,David Justice,Cleveland Indians,,Precious Metal Gems
+precious-metal-gems,83,Hideo Nomo,Los Angeles Dodgers,,Precious Metal Gems
+precious-metal-gems,84,Ryne Sandberg,Chicago Cubs,,Precious Metal Gems
+precious-metal-gems,85,Shannon Stewart,Toronto Blue Jays,,Precious Metal Gems
+precious-metal-gems,86,Derek Wallace,New York Mets,,Precious Metal Gems
+precious-metal-gems,87,Tony Womack,Pittsburgh Pirates,,Precious Metal Gems
+precious-metal-gems,88,Jason Giambi,Oakland Athletics,,Precious Metal Gems
+precious-metal-gems,89,Mark Grace,Chicago Cubs,,Precious Metal Gems
+precious-metal-gems,90,Pat Hentgen,Toronto Blue Jays,,Precious Metal Gems
+precious-metal-gems,91,Raul Mondesi,Los Angeles Dodgers,,Precious Metal Gems
+precious-metal-gems,92,Matt Morris,St. Louis Cardinals,,Precious Metal Gems
+precious-metal-gems,93,Matt Perisho,Texas Rangers,,Precious Metal Gems
+precious-metal-gems,94,Tim Salmon,Anaheim Angels,,Precious Metal Gems
+precious-metal-gems,95,Jeremi Gonzalez,Chicago Cubs,,Precious Metal Gems
+precious-metal-gems,96,Shawn Green,Toronto Blue Jays,,Precious Metal Gems
+precious-metal-gems,97,Todd Greene,Anaheim Angels,,Precious Metal Gems
+precious-metal-gems,98,Ruben Rivera,San Diego Padres,,Precious Metal Gems
+precious-metal-gems,99,Deion Sanders,Cincinnati Reds,,Precious Metal Gems
+precious-metal-gems,100,Alex Rodriguez,Seattle Mariners,,Precious Metal Gems
+precious-metal-gems,101,Will Cunnane,San Diego Padres,,Precious Metal Gems
+precious-metal-gems,102,Ray Lankford,St. Louis Cardinals,,Precious Metal Gems
+precious-metal-gems,103,Ryan McGuire,Montreal Expos,,Precious Metal Gems
+precious-metal-gems,104,Charles Nagy,Cleveland Indians,,Precious Metal Gems
+precious-metal-gems,105,Rey Ordonez,New York Mets,,Precious Metal Gems
+precious-metal-gems,106,Mike Piazza,Los Angeles Dodgers,,Precious Metal Gems
+precious-metal-gems,107,Tony Saunders,Tampa Bay Devil Rays,,Precious Metal Gems
+precious-metal-gems,108,Curt Schilling,Philadelphia Phillies,,Precious Metal Gems
+precious-metal-gems,109,Fernando Tatis,Texas Rangers,,Precious Metal Gems
+precious-metal-gems,110,Mark McGwire,St. Louis Cardinals,,Precious Metal Gems
+precious-metal-gems,111,Dave Dellucci,Arizona Diamondbacks,,Precious Metal Gems
+precious-metal-gems,112,Garret Anderson,Anaheim Angels,,Precious Metal Gems
+precious-metal-gems,113,Shane Bowers,Minnesota Twins,,Precious Metal Gems
+precious-metal-gems,114,David Cone,New York Yankees,,Precious Metal Gems
+precious-metal-gems,115,Jeff King,Kansas City Royals,,Precious Metal Gems
+precious-metal-gems,116,Matt Williams,Arizona Diamondbacks,,Precious Metal Gems
+precious-metal-gems,117,Aaron Boone,Cincinnati Reds,,Precious Metal Gems
+precious-metal-gems,118,Dennis Eckersley,Boston Red Sox,,Precious Metal Gems
+precious-metal-gems,119,Livan Hernandez,Florida Marlins,,Precious Metal Gems
+precious-metal-gems,120,Richard Hidalgo,Houston Astros,,Precious Metal Gems
+precious-metal-gems,121,Bobby Higginson,Detroit Tigers,,Precious Metal Gems
+precious-metal-gems,122,Tino Martinez,New York Yankees,,Precious Metal Gems
+precious-metal-gems,123,Tim Naehring,Boston Red Sox,,Precious Metal Gems
+precious-metal-gems,124,Jose Vidro,Montreal Expos,,Precious Metal Gems
+precious-metal-gems,125,John Wetteland,Texas Rangers,,Precious Metal Gems
+precious-metal-gems,126,Jay Bell,Arizona Diamondbacks,,Precious Metal Gems
+precious-metal-gems,127,Albert Belle,Chicago White Sox,,Precious Metal Gems
+precious-metal-gems,128,Marty Cordova,Minnesota Twins,,Precious Metal Gems
+precious-metal-gems,129,Chili Davis,New York Yankees,,Precious Metal Gems
+precious-metal-gems,130,Jason Dickson,Anaheim Angels,,Precious Metal Gems
+precious-metal-gems,131,Rusty Greer,Texas Rangers,,Precious Metal Gems
+precious-metal-gems,132,Hideki Irabu,New York Yankees,,Precious Metal Gems
+precious-metal-gems,133,Greg Maddux,Atlanta Braves,,Precious Metal Gems
+precious-metal-gems,134,Billy Taylor,Oakland Athletics,,Precious Metal Gems
+precious-metal-gems,135,Jim Thome,Cleveland Indians,,Precious Metal Gems
+precious-metal-gems,136,Gerald Williams,Atlanta Braves,,Precious Metal Gems
+precious-metal-gems,137,Jeff Cirillo,Milwaukee Brewers,,Precious Metal Gems
+precious-metal-gems,138,Delino DeShields,St. Louis Cardinals,,Precious Metal Gems
+precious-metal-gems,139,Andres Galarraga,Atlanta Braves,,Precious Metal Gems
+precious-metal-gems,140,Willie Greene,Cincinnati Reds,,Precious Metal Gems
+precious-metal-gems,141,John Jaha,Milwaukee Brewers,,Precious Metal Gems
+precious-metal-gems,142,Charles Johnson,Florida Marlins,,Precious Metal Gems
+precious-metal-gems,143,Ryan Klesko,Atlanta Braves,,Precious Metal Gems
+precious-metal-gems,144,Paul O'Neill,New York Yankees,,Precious Metal Gems
+precious-metal-gems,145,Robinson Checo,Boston Red Sox,,Precious Metal Gems
+precious-metal-gems,146,Roberto Alomar,Baltimore Orioles,,Precious Metal Gems
+precious-metal-gems,147,Wilson Alvarez,Tampa Bay Devil Rays,,Precious Metal Gems
+precious-metal-gems,148,Bobby Jones,New York Mets,,Precious Metal Gems
+precious-metal-gems,149,Raul Casanova,Detroit Tigers,,Precious Metal Gems
+precious-metal-gems,150,Andruw Jones,Atlanta Braves,,Precious Metal Gems
+precious-metal-gems,151,Mike Lansing,Colorado Rockies,,Precious Metal Gems
+precious-metal-gems,152,Mickey Morandini,Chicago Cubs,,Precious Metal Gems
+precious-metal-gems,153,Neifi Perez,Colorado Rockies,,Precious Metal Gems
+precious-metal-gems,154,Pokey Reese,Cincinnati Reds,,Precious Metal Gems
+precious-metal-gems,155,Edgar Renteria,Florida Marlins,,Precious Metal Gems
+precious-metal-gems,156,Eric Young,Los Angeles Dodgers,,Precious Metal Gems
+precious-metal-gems,157,Darin Erstad,Anaheim Angels,,Precious Metal Gems
+precious-metal-gems,158,Kelvim Escobar,Toronto Blue Jays,,Precious Metal Gems
+precious-metal-gems,159,Carl Everett,Houston Astros,,Precious Metal Gems
+precious-metal-gems,160,Tom Gordon,Boston Red Sox,,Precious Metal Gems
+precious-metal-gems,161,"Ken Griffey, Jr.",Seattle Mariners,,Precious Metal Gems
+precious-metal-gems,162,Al Martin,Pittsburgh Pirates,,Precious Metal Gems
+precious-metal-gems,163,Bubba Trammell,Tampa Bay Devil Rays,,Precious Metal Gems
+precious-metal-gems,164,Carlos Delgado,Toronto Blue Jays,,Precious Metal Gems
+precious-metal-gems,165,Kevin Brown,San Diego Padres,,Precious Metal Gems
+precious-metal-gems,166,Ken Caminiti,San Diego Padres,,Precious Metal Gems
+precious-metal-gems,167,Roger Clemens,Toronto Blue Jays,,Precious Metal Gems
+precious-metal-gems,168,Ron Gant,St. Louis Cardinals,,Precious Metal Gems
+precious-metal-gems,169,Jeff Kent,San Francisco Giants,,Precious Metal Gems
+precious-metal-gems,170,Mike Mussina,Baltimore Orioles,,Precious Metal Gems
+precious-metal-gems,171,Dean Palmer,Kansas City Royals,,Precious Metal Gems
+precious-metal-gems,172,Henry Rodriguez,Chicago Cubs,,Precious Metal Gems
+precious-metal-gems,173,Matt Stairs,Oakland Athletics,,Precious Metal Gems
+precious-metal-gems,174,Jay Buhner,Seattle Mariners,,Precious Metal Gems
+precious-metal-gems,175,Frank Thomas,Chicago White Sox,,Precious Metal Gems
+precious-metal-gems,176,Mike Cameron,Chicago White Sox,,Precious Metal Gems
+precious-metal-gems,177,Johnny Damon,Kansas City Royals,,Precious Metal Gems
+precious-metal-gems,178,Tony Gwynn,San Diego Padres,,Precious Metal Gems
+precious-metal-gems,179,John Smoltz,Atlanta Braves,,Precious Metal Gems
+precious-metal-gems,180,B.J. Surhoff,Baltimore Orioles,,Precious Metal Gems
+precious-metal-gems,181,Antone Williamson,Milwaukee Brewers,,Precious Metal Gems
+precious-metal-gems,182,Alan Benes,St. Louis Cardinals,,Precious Metal Gems
+precious-metal-gems,183,Jeromy Burnitz,Milwaukee Brewers,,Precious Metal Gems
+precious-metal-gems,184,Tony Clark,Detroit Tigers,,Precious Metal Gems
+precious-metal-gems,185,Shawn Estes,San Francisco Giants,,Precious Metal Gems
+precious-metal-gems,186,Todd Helton,Colorado Rockies,,Precious Metal Gems
+precious-metal-gems,187,Todd Hundley,New York Mets,,Precious Metal Gems
+precious-metal-gems,188,Chipper Jones,Atlanta Braves,,Precious Metal Gems
+precious-metal-gems,189,Mark Kotsay,Florida Marlins,,Precious Metal Gems
+precious-metal-gems,190,Barry Larkin,Cincinnati Reds,,Precious Metal Gems
+precious-metal-gems,191,Mike Lieberthal,Philadelphia Phillies,,Precious Metal Gems
+precious-metal-gems,192,Andy Pettitte,New York Yankees,,Precious Metal Gems
+precious-metal-gems,193,Gary Sheffield,Florida Marlins,,Precious Metal Gems
+precious-metal-gems,194,Jeff Suppan,Arizona Diamondbacks,,Precious Metal Gems
+precious-metal-gems,195,Mark Wohlers,Atlanta Braves,,Precious Metal Gems
+precious-metal-gems,196,Dante Bichette,Colorado Rockies,,Precious Metal Gems
+precious-metal-gems,197,Trevor Hoffman,San Diego Padres,,Precious Metal Gems
+precious-metal-gems,198,J.T. Snow,San Francisco Giants,,Precious Metal Gems
+precious-metal-gems,199,Derek Jeter,New York Yankees,,Precious Metal Gems
+precious-metal-gems,200,Cal Ripken Jr.,Baltimore Orioles,,Precious Metal Gems
+precious-metal-gems,201,Steve Woodard,Milwaukee Brewers,,Precious Metal Gems
+precious-metal-gems,202,Ray Durham,Chicago White Sox,,Precious Metal Gems
+precious-metal-gems,203,Barry Bonds HG,San Francisco Giants,,Precious Metal Gems
+precious-metal-gems,204,Tony Clark HG,Detroit Tigers,,Precious Metal Gems
+precious-metal-gems,205,Roger Clemens HG,Toronto Blue Jays,,Precious Metal Gems
+precious-metal-gems,206,Ken Griffey Jr. HG,Seattle Mariners,,Precious Metal Gems
+precious-metal-gems,207,Deion Sanders HG,Cincinnati Reds,,Precious Metal Gems
+precious-metal-gems,208,Derek Jeter HG,New York Yankees,,Precious Metal Gems
+precious-metal-gems,209,Randy Johnson HG,Seattle Mariners,,Precious Metal Gems
+precious-metal-gems,210,Brady Anderson HG,Baltimore Orioles,,Precious Metal Gems
+precious-metal-gems,211,Hideo Nomo HG,Los Angeles Dodgers,,Precious Metal Gems
+precious-metal-gems,212,Mike Piazza HG,Los Angeles Dodgers,,Precious Metal Gems
+precious-metal-gems,213,"Cal Ripken, Jr. HG",Baltimore Orioles,,Precious Metal Gems
+precious-metal-gems,214,Alex Rodriguez HG,Seattle Mariners,,Precious Metal Gems
+precious-metal-gems,215,Frank Thomas HG,Chicago White Sox,,Precious Metal Gems
+precious-metal-gems,216,Mo Vaughn HG,Boston Red Sox,,Precious Metal Gems
+precious-metal-gems,217,Larry Walker HG,Colorado Rockies,,Precious Metal Gems
+precious-metal-gems,218,Ken Griffey Jr.,Seattle Mariners,,Precious Metal Gems
+precious-metal-gems,219,Alex Rodriguez,Seattle Mariners,,Precious Metal Gems
+precious-metal-gems,220,Frank Thomas,Chicago White Sox,,Precious Metal Gems
+all-galactic-team,1,"Ken Griffey, Jr.",Seattle Mariners,,All-Galactic Team
+all-galactic-team,2,Frank Thomas,Chicago White Sox,,All-Galactic Team
+all-galactic-team,3,Chipper Jones,Atlanta Braves,,All-Galactic Team
+all-galactic-team,4,Albert Belle,Chicago White Sox,,All-Galactic Team
+all-galactic-team,5,Juan Gonzalez,Texas Rangers,,All-Galactic Team
+all-galactic-team,6,Jeff Bagwell,Houston Astros,,All-Galactic Team
+all-galactic-team,7,Andruw Jones,Atlanta Braves,,All-Galactic Team
+all-galactic-team,8,"Cal Ripken, Jr.",Baltimore Orioles,,All-Galactic Team
+all-galactic-team,9,Derek Jeter,New York Yankees,,All-Galactic Team
+all-galactic-team,10,Nomar Garciaparra,Boston Red Sox,,All-Galactic Team
+all-galactic-team,11,Darin Erstad,Anaheim Angels,,All-Galactic Team
+all-galactic-team,12,Greg Maddux,Atlanta Braves,,All-Galactic Team
+all-galactic-team,13,Alex Rodriguez,Seattle Mariners,,All-Galactic Team
+all-galactic-team,14,Mike Piazza,Los Angeles Dodgers,,All-Galactic Team
+all-galactic-team,15,Vladimir Guerrero,Montreal Expos,,All-Galactic Team
+all-galactic-team,16,"Jose Cruz, Jr.",Toronto Blue Jays,,All-Galactic Team
+all-galactic-team,17,Mark McGwire,St. Louis Cardinals,,All-Galactic Team
+all-galactic-team,18,Scott Rolen,Philadelphia Phillies,,All-Galactic Team
+diamond-heroes,1,"Ken Griffey, Jr.",Seattle Mariners,,Diamond Heroes
+diamond-heroes,2,Frank Thomas,Chicago White Sox,,Diamond Heroes
+diamond-heroes,3,Andruw Jones,Atlanta Braves,,Diamond Heroes
+diamond-heroes,4,Alex Rodriguez,Seattle Mariners,,Diamond Heroes
+diamond-heroes,5,"Jose Cruz, Jr.",Toronto Blue Jays,,Diamond Heroes
+diamond-heroes,6,"Cal Ripken, Jr.",Baltimore Orioles,,Diamond Heroes
+platinum-portraits,1,"Ken Griffey, Jr.",Seattle Mariners,,Platinum Portraits
+platinum-portraits,2,Frank Thomas,Chicago White Sox,,Platinum Portraits
+platinum-portraits,3,Chipper Jones,Atlanta Braves,,Platinum Portraits
+platinum-portraits,4,"Jose Cruz, Jr.",Toronto Blue Jays,,Platinum Portraits
+platinum-portraits,5,Andruw Jones,Atlanta Braves,,Platinum Portraits
+platinum-portraits,6,"Cal Ripken, Jr.",Baltimore Orioles,,Platinum Portraits
+platinum-portraits,7,Derek Jeter,New York Yankees,,Platinum Portraits
+platinum-portraits,8,Darin Erstad,Anaheim Angels,,Platinum Portraits
+platinum-portraits,9,Greg Maddux,Atlanta Braves,,Platinum Portraits
+platinum-portraits,10,Alex Rodriguez,Seattle Mariners,,Platinum Portraits
+platinum-portraits,11,Mike Piazza,Los Angeles Dodgers,,Platinum Portraits
+platinum-portraits,12,Vladimir Guerrero,Montreal Expos,,Platinum Portraits
+titanium,1,"Ken Griffey, Jr.",Seattle Mariners,,Titanium
+titanium,2,Frank Thomas,Chicago White Sox,,Titanium
+titanium,3,Chipper Jones,Atlanta Braves,,Titanium
+titanium,4,"Jose Cruz, Jr.",Toronto Blue Jays,,Titanium
+titanium,5,Juan Gonzalez,Texas Rangers,,Titanium
+titanium,6,Scott Rolen,Philadelphia Phillies,,Titanium
+titanium,7,Andruw Jones,Atlanta Braves,,Titanium
+titanium,8,"Cal Ripken, Jr.",Baltimore Orioles,,Titanium
+titanium,9,Derek Jeter,New York Yankees,,Titanium
+titanium,10,Nomar Garciaparra,Boston Red Sox,,Titanium
+titanium,11,Darin Erstad,Anaheim Angels,,Titanium
+titanium,12,Greg Maddux,Atlanta Braves,,Titanium
+titanium,13,Alex Rodriguez,Seattle Mariners,,Titanium
+titanium,14,Mike Piazza,Los Angeles Dodgers,,Titanium
+titanium,15,Vladimir Guerrero,Montreal Expos,,Titanium
+universal-language,1,"Ken Griffey, Jr.",Seattle Mariners,,Universal Language
+universal-language,2,Frank Thomas,Chicago White Sox,,Universal Language
+universal-language,3,Chipper Jones,Atlanta Braves,,Universal Language
+universal-language,4,Albert Belle,Chicago White Sox,,Universal Language
+universal-language,5,Juan Gonzalez,Texas Rangers,,Universal Language
+universal-language,6,Jeff Bagwell,Houston Astros,,Universal Language
+universal-language,7,Andruw Jones,Atlanta Braves,,Universal Language
+universal-language,8,"Cal Ripken, Jr.",Baltimore Orioles,,Universal Language
+universal-language,9,Derek Jeter,New York Yankees,,Universal Language
+universal-language,10,Nomar Garciaparra,Boston Red Sox,,Universal Language
+universal-language,11,Darin Erstad,Anaheim Angels,,Universal Language
+universal-language,12,Greg Maddux,Atlanta Braves,,Universal Language
+universal-language,13,Alex Rodriguez,Seattle Mariners,,Universal Language
+universal-language,14,Mike Piazza,Los Angeles Dodgers,,Universal Language
+universal-language,15,Vladimir Guerrero,Montreal Expos,,Universal Language
+universal-language,16,"Jose Cruz, Jr.",Toronto Blue Jays,,Universal Language
+universal-language,17,Hideo Nomo,Los Angeles Dodgers,,Universal Language
+universal-language,18,Kenny Lofton,Cleveland Indians,,Universal Language
+universal-language,19,Tony Gwynn,San Diego Padres,,Universal Language
+universal-language,20,Scott Rolen,Philadelphia Phillies,,Universal Language
