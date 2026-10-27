@@ -51,7 +51,7 @@ def collect(key,sid,expected=None,rookies=False):
    cells=[v.strip() for v in raw if v.strip()]
    for i,no in enumerate(cells):
     if not NO.fullmatch(no) or i+1>=len(cells):continue
-    if key!="puzzle" and (not no.isdecimal() or not 1<=int(no)<=660):continue
+    if key!="roberto-clemente-puzzle" and (not no.isdecimal() or not 1<=int(no)<=660):continue
     name=clean(cells[i+1]);team=cells[-1] if i+2<len(cells) else ""
     if not name:continue
     if team==cells[i+1]:team=""
@@ -79,8 +79,8 @@ def run():
  if set(data["base"])!=expected_base:
   issues.append(f"Base numbering mismatch, missing: {sorted(expected_base-set(data['base']),key=int)[:30]}")
  expected_puzzle={f"{n}-{n+2}" for n in range(1,64,3)}
- if set(data["puzzle"])!=expected_puzzle:
-  issues.append(f"Puzzle numbering mismatch: {sorted(expected_puzzle-set(data['puzzle']))}")
+ if set(data["roberto-clemente-puzzle"])!=expected_puzzle:
+  issues.append(f"Puzzle numbering mismatch: {sorted(expected_puzzle-set(data['roberto-clemente-puzzle']))}")
  for no,identity in rookies.items():
   if data["base"].get(no)!=identity:issues.append(f"Rookie #{no}: {identity!r} differs from Base {data['base'].get(no)!r}")
  if issues:
