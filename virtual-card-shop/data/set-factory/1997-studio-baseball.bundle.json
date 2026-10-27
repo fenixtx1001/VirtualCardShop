@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1043/1997-Studio",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1043/1997-Studio",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/1043/1997-Studio"
+  },
+  "decisions": {
+    "base": "One-series 165 Base cards #1-165.",
+    "rookies": "One TCDB true Base rookie: Brian Giles #145.",
+    "parallels": "Both 165-card Press Proofs parallels: Silver print run /1500; Gold /500.",
+    "inserts": "Hard Hats 24 die-cut /5000; Master Strokes 24 /2000; Oversized Master Strokes 24 /5000; Oversized Portraits 24 one per pack; autographed oversized portraits #12 Todd Walker /1250, #21 Vladimir Guerrero /500, #24 Scott Rolen /1000.",
+    "excluded": "Oversized Portrait SAMPLE 8x10 is promotional, excluded from pack-issued collectibles.",
+    "pack": "VCS 4-card pack convention; historical one oversized portrait per physical pack requires final QA; unknown insert odds left null.",
+    "release": "Unreleased draft pending scans, pricing, odds, and team validation."
+  },
+  "product": {
+    "id": "1997_Studio_Baseball",
+    "year": 1997,
+    "brand": "Studio",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1997-studio-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1997_Studio_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "sourceSetId": 1043,
+      "expectedCards": 165,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1043/1997-Studio",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "press-proofs-silver",
+      "id": "1997_Studio_Baseball_press_proofs_silver",
+      "name": "Press Proofs Silver",
+      "kind": "PARALLEL",
+      "sourceSetId": 10969,
+      "expectedCards": 165,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10969/1997-Studio",
+      "defaultGradeability": "COMMON",
+      "notes": "Print run 1500"
+    },
+    {
+      "key": "press-proofs-gold",
+      "id": "1997_Studio_Baseball_press_proofs_gold",
+      "name": "Press Proofs Gold",
+      "kind": "PARALLEL",
+      "sourceSetId": 10968,
+      "expectedCards": 165,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10968/1997-Studio",
+      "defaultGradeability": "COMMON",
+      "notes": "Print run 500"
+    },
+    {
+      "key": "hard-hats",
+      "id": "1997_Studio_Baseball_hard_hats",
+      "name": "Hard Hats",
+      "kind": "INSERT",
+      "sourceSetId": 1044,
+      "expectedCards": 24,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1044/1997-Studio",
+      "defaultGradeability": "COMMON",
+      "notes": "Die-cut /5000"
+    },
+    {
+      "key": "master-strokes",
+      "id": "1997_Studio_Baseball_master_strokes",
+      "name": "Master Strokes",
+      "kind": "INSERT",
+      "sourceSetId": 1045,
+      "expectedCards": 24,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1045/1997-Studio",
+      "defaultGradeability": "COMMON",
+      "notes": "Serial numbered /2000"
+    },
+    {
+      "key": "oversized-master-strokes",
+      "id": "1997_Studio_Baseball_oversized_master_strokes",
+      "name": "Oversized Master Strokes 8x10",
+      "kind": "INSERT",
+      "sourceSetId": 1046,
+      "expectedCards": 24,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1046/1997-Studio",
+      "defaultGradeability": "COMMON",
+      "notes": "8x10, serial numbered /5000"
+    },
+    {
+      "key": "oversized-portraits",
+      "id": "1997_Studio_Baseball_oversized_portraits",
+      "name": "Oversized Portraits 8x10",
+      "kind": "INSERT",
+      "sourceSetId": 1047,
+      "expectedCards": 24,
+      "oddsPerPack": 1,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1047/1997-Studio",
+      "defaultGradeability": "COMMON",
+      "notes": "8x10, one per original pack"
+    },
+    {
+      "key": "oversized-portraits-autographs",
+      "id": "1997_Studio_Baseball_oversized_portraits_autographs",
+      "name": "Oversized Portraits Autographs 8x10",
+      "kind": "INSERT",
+      "sourceSetId": 10967,
+      "expectedCards": 3,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10967/1997-Studio",
+      "defaultGradeability": "COMMON",
+      "notes": "8x10, three signed cards with differing print runs"
+    }
+  ]
+}
