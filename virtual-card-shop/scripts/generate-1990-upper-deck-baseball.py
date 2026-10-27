@@ -9,7 +9,7 @@ BUNDLE=ROOT/"data/set-factory/1990-upper-deck-baseball.bundle.json"
 OUT=ROOT/"data/set-factory/1990-upper-deck-baseball.cards.csv"
 HEADERS={"User-Agent":"Mozilla/5.0 (compatible; VCS Set Factory source validator)","Accept":"text/html,application/xhtml+xml"}
 TAG=re.compile(r"(?:,\s*|\s+)(?:SR|RC|CL|HDR|AU|UER(?:UER)?|ERR(?:ERR)?|COR(?:COR)?|VAR(?:VAR)?|SP|SN\d+)(?=\s|,|:|$)",re.I)
-CARDNO=re.compile(r"^(?:\d{1,3}|NNO)$",re.I)
+CARDNO=re.compile(r"^(?:\d{1,3}[ab]?|NNO)$",re.I)
 RC_COUNT=101
 class CardRows(HTMLParser):
  def __init__(self):super().__init__();self.rows=[];self.row=None;self.cell=None;self.link=False
@@ -41,7 +41,7 @@ def fetch(url):
  raise SystemExit(f"TCDB blocked after bounded retries: {url}; NO CSV WRITTEN")
 def collect(key,sid,expected,rookies=False):
  found={};issues=[];unnumbered=0
- for page in range(1,14):
+ for page in range(1,31):
   endpoint="Rookies" if rookies else "Checklist"
   parser=CardRows()
   parser.feed(fetch(f"https://www.tcdb.com/{endpoint}.cfm/sid/{sid}/1990-Upper-Deck?PageIndex={page}"))
@@ -51,10 +51,12 @@ def collect(key,sid,expected,rookies=False):
    for i,number in enumerate(cells):
     if not CARDNO.fullmatch(number) or i+1>=len(cells):continue
     if key=="base" or rookies:
-     if not number.isdecimal() or not 1<=int(number)<=800:continue
+     match=re.fullmatch(r"(\d{1,3})(?:[ab])?",number,re.I)
+     if not match or not 1<=int(match.group(1))<=800:continue
     if number.upper()=="NNO":
      unnumbered+=1;number=f"NNO-{unnumbered:02d}"
-    elif number.isdecimal():number=str(int(number))
+    elif re.fullmatch(r"\d{1,3}[ab]?",number,re.I):
+     number=str(int(re.match(r"\d+",number).group()))
     player=clean(cells[i+1])
     if not player:continue
     team=cells[-1] if i+2<len(cells) else ""
@@ -109,6 +111,9 @@ def self_test():
  assert clean("Reggie Jackson CL, AU, SN2500")=="Reggie Jackson"
  assert clean("Header Card HDR")=="Header Card"
  assert CARDNO.fullmatch("NNO") and CARDNO.fullmatch("800")
+ assert CARDNO.fullmatch("101a") and CARDNO.fullmatch("101b")
+ assert clean("Gerald Perry ERR ERR: No copyright date on back")=="Gerald Perry"
+ assert clean("Gerald Perry COR COR: Copyright date on back")=="Gerald Perry"
  print("1990 Upper Deck offline self-tests passed")
 if __name__=="__main__":
  p=argparse.ArgumentParser();p.add_argument("--self-test",action="store_true");args=p.parse_args()
