@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1167/1998-Metal-Universe",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1167/1998-Metal-Universe",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/1167/1998-Metal-Universe"
+  },
+  "decisions": {
+    "base": "220-card one-series Base checklist, all Base numbers equally likely.",
+    "rookies": "Only three true Base RCs per TCDB: Henry Blanco #52, Dave Dellucci #111, Shane Bowers #113.",
+    "parallel": "220-card Precious Metal Gems, serial numbered /50, no invented pack odds.",
+    "inserts": "Five pack-issued insert families; Platinum Portraits card and its removable outer frame are one collectible sharing a number.",
+    "excluded": "Alex Rodriguez dealer sample and All-Star Baseball '99 sweepstakes promo excluded from pack-issued model.",
+    "pack": "Four VCS cards per pack, 24 packs per box. Historical insert odds preserved pending publication QA.",
+    "release": "Draft remains unreleased pending images, pricing, odds, team and card identity QA."
+  },
+  "product": {
+    "id": "1998_Metal_Universe_Baseball",
+    "year": 1998,
+    "brand": "Metal Universe",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1998-metal-universe-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1998_Metal_Universe_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 220,
+      "sourceSetId": 1167,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1167/1998-Metal-Universe",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "precious-metal-gems",
+      "id": "1998_Metal_Universe_Baseball_precious_metal_gems",
+      "name": "Precious Metal Gems",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "expectedCards": 220,
+      "sourceSetId": 11133,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11133/1998-Metal-Universe",
+      "defaultGradeability": "COMMON",
+      "notes": "Serial numbered /50"
+    },
+    {
+      "key": "all-galactic-team",
+      "id": "1998_Metal_Universe_Baseball_all_galactic_team",
+      "name": "All-Galactic Team",
+      "kind": "INSERT",
+      "oddsPerPack": 192,
+      "expectedCards": 18,
+      "sourceSetId": 1168,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1168/1998-Metal-Universe",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "diamond-heroes",
+      "id": "1998_Metal_Universe_Baseball_diamond_heroes",
+      "name": "Diamond Heroes",
+      "kind": "INSERT",
+      "oddsPerPack": 18,
+      "expectedCards": 6,
+      "sourceSetId": 1169,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1169/1998-Metal-Universe",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "platinum-portraits",
+      "id": "1998_Metal_Universe_Baseball_platinum_portraits",
+      "name": "Platinum Portraits",
+      "kind": "INSERT",
+      "oddsPerPack": 360,
+      "expectedCards": 12,
+      "sourceSetId": 1170,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1170/1998-Metal-Universe",
+      "defaultGradeability": "COMMON",
+      "notes": "White die-cut frame and card counted together"
+    },
+    {
+      "key": "titanium",
+      "id": "1998_Metal_Universe_Baseball_titanium",
+      "name": "Titanium",
+      "kind": "INSERT",
+      "oddsPerPack": 96,
+      "expectedCards": 15,
+      "sourceSetId": 1171,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1171/1998-Metal-Universe",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "universal-language",
+      "id": "1998_Metal_Universe_Baseball_universal_language",
+      "name": "Universal Language",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "expectedCards": 20,
+      "sourceSetId": 1172,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1172/1998-Metal-Universe",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    }
+  ]
+}
