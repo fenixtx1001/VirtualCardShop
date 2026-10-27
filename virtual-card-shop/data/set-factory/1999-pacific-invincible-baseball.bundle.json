@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1321/1999-Pacific-Invincible",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1321/1999-Pacific-Invincible",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/1321/1999-Pacific-Invincible"
+  },
+  "decisions": {
+    "release": "Unreleased until card art, pricing, insert odds, team assignments and pack QA.",
+    "base": "150 translucent-window Base cards.",
+    "rookies": "TCDB explicitly indexes two RCs: Doug Mientkiewicz #88, Freddy Garcia #132.",
+    "parallel": "Opening Day /69 at 1:25; Platinum Blue /67; Red unnumbered, unidentified exact odds.",
+    "inserts": "Sandlot Heroes and Seismic Force 40 physical cards each: 20 subjects with 2 different image versions (a,b). Giants of the Game represents pack-pulled redemption cards /10, not redeemed giant-format objects.",
+    "exclusions": "MLBPA Players Choice Awards and SportsFest-only wrapper redemption promotional sets excluded from ordinary packs.",
+    "collation": "Historical pack: three base cards plus one Sandlot Heroes and one Seismic Force, 24 packs/box. VCS config requires later pack slot implementation review."
+  },
+  "product": {
+    "id": "1999_Pacific_Invincible_Baseball",
+    "year": 1999,
+    "brand": "Pacific",
+    "sport": "Baseball",
+    "cardsPerPack": 5,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "packCollation": "PENDING",
+    "images": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1999-pacific-invincible-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1999_Pacific_Invincible_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "sourceSetId": 1321,
+      "expectedCards": 150,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1321/1999-Pacific-Invincible",
+      "notes": null
+    },
+    {
+      "key": "opening-day",
+      "id": "1999_Pacific_Invincible_Baseball_opening_day",
+      "name": "Opening Day",
+      "kind": "PARALLEL",
+      "sourceSetId": 11581,
+      "expectedCards": 150,
+      "oddsPerPack": 25,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11581/1999-Pacific-Invincible",
+      "notes": "Serial /69"
+    },
+    {
+      "key": "platinum-blue",
+      "id": "1999_Pacific_Invincible_Baseball_platinum_blue",
+      "name": "Platinum Blue",
+      "kind": "PARALLEL",
+      "sourceSetId": 11582,
+      "expectedCards": 150,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11582/1999-Pacific-Invincible",
+      "notes": "Serial /67"
+    },
+    {
+      "key": "red",
+      "id": "1999_Pacific_Invincible_Baseball_red",
+      "name": "Red",
+      "kind": "PARALLEL",
+      "sourceSetId": 56726,
+      "expectedCards": 150,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/56726/1999-Pacific-Invincible",
+      "notes": null
+    },
+    {
+      "key": "diamond-magic",
+      "id": "1999_Pacific_Invincible_Baseball_diamond_magic",
+      "name": "Diamond Magic",
+      "kind": "INSERT",
+      "sourceSetId": 11578,
+      "expectedCards": 10,
+      "oddsPerPack": 49,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11578/1999-Pacific-Invincible",
+      "notes": null
+    },
+    {
+      "key": "flash-point",
+      "id": "1999_Pacific_Invincible_Baseball_flash_point",
+      "name": "Flash Point",
+      "kind": "INSERT",
+      "sourceSetId": 11579,
+      "expectedCards": 20,
+      "oddsPerPack": 25,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11579/1999-Pacific-Invincible",
+      "notes": null
+    },
+    {
+      "key": "giants-of-the-game-redemptions",
+      "id": "1999_Pacific_Invincible_Baseball_giants_of_the_game_redemptions",
+      "name": "Giants of the Game Redemptions",
+      "kind": "INSERT",
+      "sourceSetId": 11580,
+      "expectedCards": 10,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11580/1999-Pacific-Invincible",
+      "notes": "Pack redemption /10; redeemed oversized item excluded"
+    },
+    {
+      "key": "sandlot-heroes",
+      "id": "1999_Pacific_Invincible_Baseball_sandlot_heroes",
+      "name": "Sandlot Heroes",
+      "kind": "INSERT",
+      "sourceSetId": 1322,
+      "expectedCards": 40,
+      "oddsPerPack": 1,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1322/1999-Pacific-Invincible",
+      "notes": null
+    },
+    {
+      "key": "seismic-force",
+      "id": "1999_Pacific_Invincible_Baseball_seismic_force",
+      "name": "Seismic Force",
+      "kind": "INSERT",
+      "sourceSetId": 11584,
+      "expectedCards": 40,
+      "oddsPerPack": 1,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11584/1999-Pacific-Invincible",
+      "notes": null
+    },
+    {
+      "key": "thunder-alley",
+      "id": "1999_Pacific_Invincible_Baseball_thunder_alley",
+      "name": "Thunder Alley",
+      "kind": "INSERT",
+      "sourceSetId": 11585,
+      "expectedCards": 20,
+      "oddsPerPack": 121,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11585/1999-Pacific-Invincible",
+      "notes": null
+    }
+  ]
+}
