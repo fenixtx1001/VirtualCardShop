@@ -28,6 +28,17 @@ def clean(value):
  value=" ".join(value.split()).strip()
  match=TAG.search(value)
  return value[:match.start()].strip(" ,;") if match else value
+def normalize_known_identity(key,number,player):
+ # The PMG version uses a comma in Griffey's suffix; same player/card.
+ if key in ("base","precious-metal-gems") and number in ("206","218"):
+  player=player.replace("Ken Griffey, Jr.","Ken Griffey Jr.")
+ # On #218-220, TCDB embeds serial numbering and the checklist
+ # range in the player field, with different punctuation in PMG.
+ # These cards are checklist subjects, not separate card variants.
+ if key in ("base","precious-metal-gems") and number in ("218","219","220"):
+  player=re.split(r"\s+CL(?:,?\s*SN50)?Checklist:",player,maxsplit=1)[0]
+  player=re.split(r"\s+CL(?:,?\s*SN50)?",player,maxsplit=1)[0]
+ return player
 def fetch(url):
  for attempt in range(4):
   try:
@@ -52,7 +63,7 @@ def collect(key,sid,expected,rookies=False):
     if not match or i+1>=len(cells):continue
     number=str(int(match.group(1)))
     if (key in ("base","precious-metal-gems","rookies")) and not 1<=int(number)<=220:continue
-    player=clean(cells[i+1]);team=cells[-1] if i+2<len(cells) else ""
+    player=normalize_known_identity(key,number,clean(cells[i+1]));team=cells[-1] if i+2<len(cells) else ""
     if not player:continue
     if team==cells[i+1]:team=""
     identity=(player,team)
@@ -110,6 +121,11 @@ def tests():
  assert NUMBER.fullmatch("1 AGT") and NUMBER.fullmatch("18 AGT")
  assert NUMBER.fullmatch("1 DH") and NUMBER.fullmatch("1 PP")
  assert NUMBER.fullmatch("1 T") and NUMBER.fullmatch("1 UL")
+ assert normalize_known_identity("precious-metal-gems","206","Ken Griffey, Jr. HG")=="Ken Griffey Jr. HG"
+ assert normalize_known_identity("precious-metal-gems","218","Ken Griffey Jr. CL, SN50Checklist: Anaheim - L.A. Dodgers")=="Ken Griffey Jr."
+ assert normalize_known_identity("base","218","Ken Griffey, Jr. CLChecklist: Anaheim - L.A. Dodgers")=="Ken Griffey Jr."
+ assert normalize_known_identity("precious-metal-gems","219","Alex Rodriguez CL, SN50Checklist: L.A. Dodgers - Texas")=="Alex Rodriguez"
+ assert normalize_known_identity("base","220","Frank Thomas CLChecklist: Toronto, 203-220 and Inserts")=="Frank Thomas"
  assert len(ROOKIE_NUMBERS)==3
  print("1998 Metal Universe offline self-tests passed")
 if __name__=="__main__":
