@@ -9,7 +9,7 @@
   "decisions": {
     "base": "664 numbered Base cards, seven original series; common error/correction and photo variants share one number, subject and team.",
     "rookies": "TCDB 98 rookie source rows, with duplicated variations. Deduplicate by printed card number and verify Base subject identities; exact unique count reported by generator.",
-    "deckle": "33 physical Deckle cards, with different subjects carrying 11a/11b and 22a/22b; retain letter suffixes as separate real collectibles.",
+    "deckle": "TCDB labels 33 printed numbers but lists 35 physical cards: both distinct subjects at 11a/11b and 22a/22b retained.",
     "decals": "48 unnumbered Magic Rub-Off decals, use deterministic NNO-01 through NNO-48 based on source checklist order.",
     "pack": "Original five-card nickel wax and ten-card dime wax; VCS four-card packs and 24 packs/box. Deckle in specially marked packs, Rub-Offs across seven series; no unverified odds.",
     "release": "Unreleased pending images, pricing, series collation, odds and team QA."
@@ -54,7 +54,7 @@
       "name": "Deckle",
       "kind": "INSERT",
       "sourceSetId": 9955,
-      "expectedCards": 33,
+      "expectedCards": 35,
       "oddsPerPack": null,
       "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9955/1969-Topps",
       "notes": "Scalloped edge, specially marked packs"
