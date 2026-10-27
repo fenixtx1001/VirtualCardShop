@@ -26,6 +26,8 @@ class CardRows(HTMLParser):
    self.row=None
 def clean(value):
  value=" ".join(value.split()).strip()
+ # TCDB concatenates RC and UER annotations on card #447.
+ value=re.sub(r"(?<=\s)RCUER(?=:|\s|,|$)", "RC UER", value, flags=re.I)
  m=TAG.search(value)
  return value[:m.start()].strip(" ,;") if m else value
 def fetch(url):
@@ -108,6 +110,7 @@ def self_test():
  assert clean("Ken Griffey Jr.")=="Ken Griffey Jr."
  assert clean("Sammy Sosa SR, RC")=="Sammy Sosa"
  assert clean("Kevin Appier ERR, RC")=="Kevin Appier"
+ assert clean('Ed Whited RCUER: Asheville misspelled "Ashville"')=="Ed Whited"
  assert clean("Reggie Jackson CL, AU, SN2500")=="Reggie Jackson"
  assert clean("Header Card HDR")=="Header Card"
  assert CARDNO.fullmatch("NNO") and CARDNO.fullmatch("800")
