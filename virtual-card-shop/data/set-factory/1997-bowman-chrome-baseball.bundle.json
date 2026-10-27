@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/864/1997-Bowman-Chrome",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/864/1997-Bowman-Chrome",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/864/1997-Bowman-Chrome"
+  },
+  "decisions": {
+    "base": "One 300-card Base series, #1-300",
+    "rookies": "99 TCDB-indexed Base rookies, including Adrian Beltre #182 and Roy Halladay #212; validate against Base identities.",
+    "parallels": "Three complete 300-card variants: International (flags), International Refractors, Refractors.",
+    "inserts": "15 Rookie of the Year Favorites (ROY1-ROY15), 15 ROY Refractors, 15 Scout's Honor Roll (SHR 1-15), 15 SHR Refractors.",
+    "pack": "VCS four-card packs, 24 per box. Preserve historical insert odds: 1:4, 1:24, 1:12, 1:36. No separate serialization inferred.",
+    "release": "Remain unreleased for image, pricing, pack-odds and team QA."
+  },
+  "product": {
+    "id": "1997_Bowman_Chrome_Baseball",
+    "year": 1997,
+    "brand": "Bowman Chrome",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1997-bowman-chrome-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1997_Bowman_Chrome_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "sourceSetId": 864,
+      "expectedCards": 300,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/864/1997-Bowman-Chrome",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "international",
+      "id": "1997_Bowman_Chrome_Baseball_international",
+      "name": "International",
+      "kind": "PARALLEL",
+      "sourceSetId": 10853,
+      "expectedCards": 300,
+      "oddsPerPack": 4,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10853/1997-Bowman-Chrome",
+      "defaultGradeability": "COMMON",
+      "notes": "Country flag backgrounds"
+    },
+    {
+      "key": "international-refractors",
+      "id": "1997_Bowman_Chrome_Baseball_international_refractors",
+      "name": "International Refractors",
+      "kind": "PARALLEL",
+      "sourceSetId": 10854,
+      "expectedCards": 300,
+      "oddsPerPack": 24,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10854/1997-Bowman-Chrome",
+      "defaultGradeability": "COMMON",
+      "notes": "Refractor finish"
+    },
+    {
+      "key": "refractors",
+      "id": "1997_Bowman_Chrome_Baseball_refractors",
+      "name": "Refractors",
+      "kind": "PARALLEL",
+      "sourceSetId": 10855,
+      "expectedCards": 300,
+      "oddsPerPack": 12,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10855/1997-Bowman-Chrome",
+      "defaultGradeability": "COMMON",
+      "notes": "Refractor finish"
+    },
+    {
+      "key": "rookie-of-the-year-favorites",
+      "id": "1997_Bowman_Chrome_Baseball_rookie_of_the_year_favorites",
+      "name": "1998 Rookie of the Year Favorites",
+      "kind": "INSERT",
+      "sourceSetId": 865,
+      "expectedCards": 15,
+      "oddsPerPack": 24,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/865/1997-Bowman-Chrome",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "rookie-of-the-year-favorites-refractors",
+      "id": "1997_Bowman_Chrome_Baseball_rookie_of_the_year_favorites_refractors",
+      "name": "1998 Rookie of the Year Favorites Refractors",
+      "kind": "INSERT",
+      "sourceSetId": 10856,
+      "expectedCards": 15,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10856/1997-Bowman-Chrome",
+      "defaultGradeability": "COMMON",
+      "notes": "Refractor finish"
+    },
+    {
+      "key": "scouts-honor-roll",
+      "id": "1997_Bowman_Chrome_Baseball_scouts_honor_roll",
+      "name": "Scout's Honor Roll",
+      "kind": "INSERT",
+      "sourceSetId": 866,
+      "expectedCards": 15,
+      "oddsPerPack": 12,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/866/1997-Bowman-Chrome",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "scouts-honor-roll-refractors",
+      "id": "1997_Bowman_Chrome_Baseball_scouts_honor_roll_refractors",
+      "name": "Scout's Honor Roll Refractors",
+      "kind": "INSERT",
+      "sourceSetId": 10857,
+      "expectedCards": 15,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10857/1997-Bowman-Chrome",
+      "defaultGradeability": "COMMON",
+      "notes": "Refractor finish"
+    }
+  ]
+}
