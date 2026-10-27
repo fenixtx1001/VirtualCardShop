@@ -8,7 +8,7 @@ ROOT=Path(__file__).resolve().parents[1]
 BUNDLE=ROOT/"data/set-factory/1995-topps-baseball.bundle.json"
 CSV=ROOT/"data/set-factory/1995-topps-baseball.cards.csv"
 HEADERS={"User-Agent":"Mozilla/5.0 (compatible; VCS Set Factory checklist verifier)","Accept":"text/html,application/xhtml+xml"}
-TOKEN=re.compile(r"(?:,\s*|\s+)(?:DPK|DP|PROS|ST|CL|RC|UER(?:UER)?|ERR(?:ERR)?|COR(?:COR)?|VAR|SP|SN\d+)(?=\s|,|:|$)",re.I)
+TOKEN=re.compile(r"(?:,\s*|\s+)(?:DPK|DP|PROS|ST|CL|RC(?:RC)?|UER(?:UER)?|ERR(?:ERR)?|COR(?:COR)?|VAR(?:VAR)?|SP|SN\d+)(?=\s|,|:|$)",re.I)
 NUMBER=re.compile(r"^(?:\d{1,3}[a-z]?|[A-Z]{1,5}\d{1,3}[a-z]?|NNO)$",re.I)
 class Rows(HTMLParser):
  def __init__(self):super().__init__();self.rows=[];self.row=None;self.cell=None;self.link=False
@@ -46,6 +46,7 @@ def normalize_number(s,key):
  return s.upper()
 def collect(key,sid,count,rookie=False):
  found={};issues=[];numberless=0
+ sweepstakes_variations=0
  for page in range(1,12):
   route="Rookies" if rookie else "Checklist"
   p=Rows();p.feed(get(f"https://www.tcdb.com/{route}.cfm/sid/{sid}/1995-Topps?PageIndex={page}"))
@@ -59,18 +60,27 @@ def collect(key,sid,count,rookie=False):
      if not m or not 1<=int(m.group(1))<=660:continue
     no=normalize_number(raw_no,key)
     if no=="NNO":
-     numberless+=1;no=f"NNO-{numberless:02d}"
+     if key=="walmart-sweepstakes-entry":
+      sweepstakes_variations+=1
+      no="NNO"
+     else:
+      numberless+=1;no=f"NNO-{numberless:02d}"
     subject=clean(parts[pos+1])
     if not subject:continue
     team=parts[-1] if pos+2<len(parts) else ""
     if team==parts[pos+1]:team=""
     identity=(subject,team);parsed+=1
-    if no in found and found[no]!=identity:issues.append(f"{key} #{no}: conflicting source identities {found[no]!r} vs {identity!r}")
+    if no in found and found[no]!=identity:
+     if key=="stadium-club-first-day-issue" and no=="79" and team=="Kansas City Royals" and found[no][1]==team and subject in ("Bob Hamelin","Bob Hamelin ROY") and found[no][0] in ("Bob Hamelin","Bob Hamelin ROY"):
+      print("First Day #79: collapsed verified Series 1/2 Bob Hamelin ROY wording variation",flush=True)
+     else:issues.append(f"{key} #{no}: conflicting source identities {found[no]!r} vs {identity!r}")
     if no not in found:found[no]=identity;added+=1
     break
   print(f"{key} page {page}: {parsed} source rows, +{added}; {len(found)}/{count}",flush=True)
   if len(found)>=count:break
   if page>1 and parsed==0:break
+ if key=="walmart-sweepstakes-entry" and sweepstakes_variations!=5:
+  issues.append(f"Expected five documented Walmart entry-card stock/color variations, found {sweepstakes_variations}")
  if len(found)!=count:issues.append(f"{key}: expected {count}, found {len(found)}")
  return found,issues
 def run():
@@ -107,6 +117,12 @@ def tests():
  assert clean("Babe Ruth ERRERR: No Topps logo")=="Babe Ruth"
  assert normalize_number("3b","base")=="3"
  assert normalize_number("001","cyberstats")=="1"
+ assert clean("Bob Hamelin VARRandomly inserted into Series 1 Hobby packs, does not mention Rookie of the Year award")=="Bob Hamelin"
+ assert clean("Bob Hamelin ROY, VARRandomly inserted into Series 2 Hobby packs, mentions Rookie of the Year award")=="Bob Hamelin ROY"
+ assert clean("Steve Kline / Herb Perry OD, RCRC for Kline only")=="Steve Kline / Herb Perry OD"
+ assert clean("Eddy Diaz / Desi Relaford OD, RCRC for Diaz only")=="Eddy Diaz / Desi Relaford OD"
+ assert clean("Roger Cedeno / Ron Coomer OD,RCRC for Coomer only.")=="Roger Cedeno / Ron Coomer OD"
+ assert clean("Win the World\u0027s Most Valuable Card Official Entry Card VARRandom stock detail")=="Win the World\u0027s Most Valuable Card Official Entry Card"
  print("1995 Topps offline self-tests passed")
 if __name__=="__main__":
  p=argparse.ArgumentParser();p.add_argument("--self-test",action="store_true");a=p.parse_args();tests()
