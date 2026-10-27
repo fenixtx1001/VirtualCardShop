@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/626/1995-Zenith",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/626/1995-Zenith",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/626/1995-Zenith"
+  },
+  "decisions": {
+    "base": "Complete 150-card single-series checklist with equal Base odds.",
+    "rookies": "TCDB lists six true Base RC cards: #112 Armando Benitez, #122 Mark Grudzielanek, #124 Carlos Perez, #129 Juan Acevedo, #131 Bob Higginson, #149 Hideo Nomo.",
+    "inserts": "All-Star Salute 18 (1:6); Rookie Roll Call 18 (1:24); Z-Team 18 (1:72); two unnumbered random pack checklists as separate inserts.",
+    "excluded": "Nine dealer/media Samples excluded as not regular pack-issued collectibles.",
+    "unnumbered": "Checklist 1-150 and Checklist Inserts assigned deterministic NNO-01/NNO-02 VCS card numbers.",
+    "metadata": "Preserve multi-player subjects and strip only trailing whole-token TCDB annotation blocks.",
+    "pack": "VCS four-card packs and 24-pack boxes; insertion odds pending final QA.",
+    "release": "Unreleased awaiting artwork, pricing, teams, QA."
+  },
+  "product": {
+    "id": "1995_Zenith_Baseball",
+    "year": 1995,
+    "brand": "Zenith",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieData": "SOURCE_VALIDATED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1995-zenith-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1995_Zenith_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 150,
+      "sourceSetId": 626,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/626/1995-Zenith",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "all-star-salute",
+      "id": "1995_Zenith_Baseball_all_star_salute",
+      "name": "All-Star Salute",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "expectedCards": 18,
+      "sourceSetId": 627,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/627/1995-Zenith",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "checklists",
+      "id": "1995_Zenith_Baseball_checklists",
+      "name": "Checklists",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 2,
+      "sourceSetId": 339494,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/339494/1995-Zenith",
+      "defaultGradeability": "COMMON",
+      "notes": "Two NNO pack-issued checklists; odds undocumented"
+    },
+    {
+      "key": "rookie-roll-call",
+      "id": "1995_Zenith_Baseball_rookie_roll_call",
+      "name": "Rookie Roll Call",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "expectedCards": 18,
+      "sourceSetId": 628,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/628/1995-Zenith",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    },
+    {
+      "key": "z-team",
+      "id": "1995_Zenith_Baseball_z_team",
+      "name": "Z-Team",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "expectedCards": 18,
+      "sourceSetId": 629,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/629/1995-Zenith",
+      "defaultGradeability": "COMMON",
+      "notes": ""
+    }
+  ]
+}
