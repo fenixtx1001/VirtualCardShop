@@ -26,6 +26,10 @@ class Rows(HTMLParser):
    self.row=None
 def clean(s):
  s=" ".join(s.split()).strip()
+ # TCDB appends detailed RC notes after PROS on multi-player cards.
+ s=re.sub(r",?\s*RCRC for [^,]+(?: only\.)?$","",s,flags=re.I)
+ s=re.sub(r"(?<=\w)(PROS)(?=,|$)",r" PROS",s) if not re.search(r"\sPROS(?:,|$)",s) else s
+ for before,after in (("AdamRiggs","Adam Riggs"),("RayRicken","Ray Ricken")):s=s.replace(before,after)
  m=ANNO.search(s)
  return s[:m.start()].strip(" ,;") if m else s
 def fetch(url):
@@ -53,6 +57,7 @@ def collect(key,sid,expected,rookies=False):
     number=raw.upper() if not raw.isdigit() else str(int(raw))
     player=clean(cells[i+1])
     team=cells[-1] if i+2<len(cells) else ""
+    for before,after in (("OaklandAthletics","Oakland Athletics"),("St. LouisCardinals","St. Louis Cardinals"),("SanFrancisco","San Francisco"),("Los AngelesDodgers","Los Angeles Dodgers")):team=team.replace(before,after)
     if team==cells[i+1]:team=""
     if not player:continue
     rows_seen+=1;new+=1
@@ -69,6 +74,8 @@ def collect(key,sid,expected,rookies=False):
 def check():
  assert clean("Tony Gwynn STP")=="Tony Gwynn"
  assert clean("Sean Casey DPK, RC")=="Sean Casey"
+ assert clean("Matt Drews / Rich Hunter / Matt Ruebel / Bret Wagner PROS, RCRC for Hunter and Ruebel only.")=="Matt Drews / Rich Hunter / Matt Ruebel / Bret Wagner PROS"
+ assert clean("Kevin Jordan / Bobby Morris / Desi Relaford / AdamRiggs PROS, RCRC for Morris and Riggs only")=="Kevin Jordan / Bobby Morris / Desi Relaford / Adam Riggs PROS"
  assert NUMBER.fullmatch("NL-20") and NUMBER.fullmatch("CC15") and NUMBER.fullmatch("NNO")
  print("1996 Topps offline self-tests passed")
 def run():
