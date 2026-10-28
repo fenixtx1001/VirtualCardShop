@@ -59,17 +59,27 @@ def collect(key,sid,expected,rookies=False):
   print(f"{key} page {page}: {len(new)} source rows; {len(raw)}/{expected}",flush=True)
   if len(raw)>=expected:break
   if page>1 and not new:break
- if len(raw)!=expected:raise SystemExit(f"{key}: {len(raw)} source rows, expected {expected}; NO CSV WRITTEN")
+ if len(raw)!=(expected+2 if key=="base" else expected):raise SystemExit(f"{key}: {len(raw)} source rows, expected {expected+2 if key=='base' else expected}; NO CSV WRITTEN")
  return raw
 def collapse(key,raw):
  out={};problems=[]
  if key=="base":
   duplicates=defaultdict(list)
-  for number,player,team in raw:duplicates[number].append((player,team))
+  for number,player,team in raw:
+   # Error/correction variations #101 and #102 appear twice in TCDB.
+   # They are one checklist identity each, unlike the two distinct
+   # subjects printed as #61 and #276.
+   normalized=number
+   if re.fullmatch(r"10[12][AB]",number,re.I):normalized=number[:-1]
+   duplicates[normalized].append((player,team))
   for number,entries in duplicates.items():
    if len(entries)==1:out[number]=entries[0]
    elif number in ("61","276") and len(entries)==2 and entries[0]!=entries[1]:
     for suffix,entry in zip("ab",entries):out[number+suffix]=entry
+   elif number in ("101","102") and len(entries)==2:
+    if entries[0]!=entries[1]:
+     problems.append(f"Unexpected identity difference in #{number} ERR/COR: {entries!r}")
+    else:out[number]=entries[0]
    else:problems.append(f"Unexpected duplicate Base #{number}: {entries!r}")
  else:
   nno=0
@@ -84,6 +94,8 @@ def self_test():
  assert NUMBER.fullmatch("AS22") and NUMBER.fullmatch("HM1")
  a,e=collapse("base",[("61","Kevin Elster","New York Mets"),("61","Mike Fetters","Milwaukee Brewers"),("276","Checklist",""),("276","Chipper Jones","Atlanta Braves")])
  assert not e and set(a)=={"61a","61b","276a","276b"}
+ b,e=collapse("base",[("101","Al Leiter SH","Florida Marlins"),("101","Al Leiter SH","Florida Marlins"),("102","John Mabry SH","St. Louis Cardinals"),("102","John Mabry SH","St. Louis Cardinals")])
+ assert not e and set(b)=={"101","102"}
  print("1997 Topps offline self-tests passed")
 def main():
  bundle=json.loads(BUNDLE.read_text(encoding="utf-8"))
