@@ -1,0 +1,838 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Barry Bonds,San Francisco Giants,Series 1,
+base,2,Tom Pagnozzi,St. Louis Cardinals,Series 1,
+base,3,Terrell Wade,Atlanta Braves,Series 1,
+base,4,Jose Valentin,Milwaukee Brewers,Series 1,
+base,5,Mark Clark,New York Mets,Series 1,
+base,6,Brady Anderson,Baltimore Orioles,Series 1,
+base,8,Wade Boggs,New York Yankees,Series 1,
+base,9,Scott Stahoviak,Minnesota Twins,Series 1,
+base,10,Andres Galarraga,Colorado Rockies,Series 1,
+base,11,Steve Avery,Atlanta Braves,Series 1,
+base,12,Rusty Greer,Texas Rangers,Series 1,
+base,13,Derek Jeter ASR,New York Yankees,Series 1,
+base,14,Ricky Bottalico,Philadelphia Phillies,Series 1,
+base,15,Andy Ashby,San Diego Padres,Series 1,
+base,16,Paul Shuey,Cleveland Indians,Series 1,
+base,17,F.P. Santangelo ASR,Montreal Expos,Series 1,
+base,18,Royce Clayton,St. Louis Cardinals,Series 1,
+base,19,Mike Mohler,Oakland Athletics,Series 1,
+base,20,Mike Piazza,Los Angeles Dodgers,Series 1,
+base,21,Jaime Navarro,Chicago Cubs,Series 1,
+base,22,Billy Wagner ASR,Houston Astros,Series 1,
+base,23,Mike Timlin,Toronto Blue Jays,Series 1,
+base,24,Garret Anderson,California Angels,Series 1,
+base,25,Ben McDonald,Milwaukee Brewers,Series 1,
+base,26,Mel Rojas,Montreal Expos,Series 1,
+base,27,John Burkett,Texas Rangers,Series 1,
+base,28,Jeff King,Pittsburgh Pirates,Series 1,
+base,29,Reggie Jefferson,Boston Red Sox,Series 1,
+base,30,Kevin Appier,Kansas City Royals,Series 1,
+base,31,Felipe Lira,Detroit Tigers,Series 1,
+base,32,Kevin Tapani,Chicago White Sox,Series 1,
+base,33,Mark Portugal,Cincinnati Reds,Series 1,
+base,34,Carlos Garcia,Pittsburgh Pirates,Series 1,
+base,35,Joey Cora,Seattle Mariners,Series 1,
+base,36,David Segui,Montreal Expos,Series 1,
+base,37,Mark Grace,Chicago Cubs,Series 1,
+base,38,Erik Hanson,Toronto Blue Jays,Series 1,
+base,39,Jeff D'Amico,Milwaukee Brewers,Series 1,
+base,40,Jay Buhner,Seattle Mariners,Series 1,
+base,41,B.J. Surhoff,Baltimore Orioles,Series 1,
+base,42,Jackie Robinson TRIB,Brooklyn Dodgers,Series 1,
+base,43,Roger Pavlik,Texas Rangers,Series 1,
+base,44,Hal Morris,Cincinnati Reds,Series 1,
+base,45,Mariano Duncan,New York Yankees,Series 1,
+base,46,Harold Baines,Chicago White Sox,Series 1,
+base,47,Jorge Fabregas,California Angels,Series 1,
+base,48,Jose Herrera,Oakland Athletics,Series 1,
+base,49,Jeff Cirillo,Milwaukee Brewers,Series 1,
+base,50,Tom Glavine,Atlanta Braves,Series 1,
+base,51,Pedro Astacio,Los Angeles Dodgers,Series 1,
+base,52,Mark Gardner,San Francisco Giants,Series 1,
+base,53,Arthur Rhodes,Baltimore Orioles,Series 1,
+base,54,Troy O'Leary,Boston Red Sox,Series 1,
+base,55,Bip Roberts,Kansas City Royals,Series 1,
+base,56,Mike Lieberthal,Philadelphia Phillies,Series 1,
+base,57,Shane Andrews,Montreal Expos,Series 1,
+base,58,Scott Karl,Milwaukee Brewers,Series 1,
+base,59,Gary DiSarcina,California Angels,Series 1,
+base,60,Andy Pettitte,New York Yankees,Series 1,
+base,61a,Kevin Elster,Texas Rangers,Series 1,
+base,61b,Mike Fetters UERUER: supposed to be card #84,Milwaukee Brewers,Series 1,
+base,62,Mark McGwire,Oakland Athletics,Series 1,
+base,63,Dan Wilson,Seattle Mariners,Series 1,
+base,64,Mickey Morandini,Philadelphia Phillies,Series 1,
+base,65,Chuck Knoblauch,Minnesota Twins,Series 1,
+base,66,Tim Wakefield,Boston Red Sox,Series 1,
+base,67,Raul Mondesi,Los Angeles Dodgers,Series 1,
+base,68,Todd Jones,Houston Astros,Series 1,
+base,69,Albert Belle,Cleveland Indians,Series 1,
+base,70,Trevor Hoffman,San Diego Padres,Series 1,
+base,71,Eric Young,Colorado Rockies,Series 1,
+base,72,Robert Perez,Toronto Blue Jays,Series 1,
+base,73,Butch Huskey,New York Mets,Series 1,
+base,74,Brian McRae,Chicago Cubs,Series 1,
+base,75,Jim Edmonds,California Angels,Series 1,
+base,76,Mike Henneman,Texas Rangers,Series 1,
+base,77,Frank Rodriguez,Minnesota Twins,Series 1,
+base,78,Danny Tartabull,Chicago White Sox,Series 1,
+base,79,Robb Nen,Florida Marlins,Series 1,
+base,80,Reggie Sanders,Cincinnati Reds,Series 1,
+base,81,Ron Karkovice,Chicago White Sox,Series 1,
+base,82,Benito Santiago,Philadelphia Phillies,Series 1,
+base,83,Mike Lansing,Montreal Expos,Series 1,
+base,85,Craig Biggio,Houston Astros,Series 1,
+base,86,Mike Bordick,Oakland Athletics,Series 1,
+base,87,Ray Lankford,St. Louis Cardinals,Series 1,
+base,88,Charles Nagy,Cleveland Indians,Series 1,
+base,89,Paul Wilson,New York Mets,Series 1,
+base,90,John Wetteland,New York Yankees,Series 1,
+base,91,Tom Candiotti,Los Angeles Dodgers,Series 1,
+base,92,Carlos Delgado,Toronto Blue Jays,Series 1,
+base,93,Derek Bell,Houston Astros,Series 1,
+base,94,Mark Lemke,Atlanta Braves,Series 1,
+base,95,Edgar Martinez,Seattle Mariners,Series 1,
+base,96,Rickey Henderson,San Diego Padres,Series 1,
+base,97,Greg Myers,Minnesota Twins,Series 1,
+base,98,Jim Leyritz,New York Yankees,Series 1,
+base,99,Mark Johnson,Pittsburgh Pirates,Series 1,
+base,100,Dwight Gooden SH,New York Yankees,Series 1,
+base,101,Al Leiter SH,Florida Marlins,Series 1,
+base,102,John Mabry SH,St. Louis Cardinals,Series 1,
+base,103,Alex Ochoa SH,New York Mets,Series 1,
+base,104,Mike Piazza SH,Los Angeles Dodgers,Series 1,
+base,105,Jim Thome,Cleveland Indians,Series 1,
+base,106,Ricky Otero,Philadelphia Phillies,Series 1,
+base,107,Jamey Wright,Colorado Rockies,Series 1,
+base,108,Frank Thomas,Chicago White Sox,Series 1,
+base,109,Jody Reed,San Diego Padres,Series 1,
+base,110,Orel Hershiser,Cleveland Indians,Series 1,
+base,111,Terry Steinbach,Oakland Athletics,Series 1,
+base,112,Mark Loretta,Milwaukee Brewers,Series 1,
+base,113,Turk Wendell,Chicago Cubs,Series 1,
+base,114,Marvin Benard,San Francisco Giants,Series 1,
+base,115,Kevin Brown,Florida Marlins,Series 1,
+base,116,Robert Person,New York Mets,Series 1,
+base,117,Joey Hamilton,San Diego Padres,Series 1,
+base,118,Francisco Cordova,Pittsburgh Pirates,Series 1,
+base,119,John Smiley,Cincinnati Reds,Series 1,
+base,120,Travis Fryman,Detroit Tigers,Series 1,
+base,121,Jimmy Key,New York Yankees,Series 1,
+base,122,Tom Goodwin,Kansas City Royals,Series 1,
+base,123,Mike Greenwell,Boston Red Sox,Series 1,
+base,124,Juan Gonzalez,Texas Rangers,Series 1,
+base,125,Pete Harnisch,New York Mets,Series 1,
+base,126,Roger Cedeno,Los Angeles Dodgers,Series 1,
+base,127,Ron Gant,St. Louis Cardinals,Series 1,
+base,128,Mark Langston,California Angels,Series 1,
+base,129,Tim Crabtree,Toronto Blue Jays,Series 1,
+base,130,Greg Maddux,Atlanta Braves,Series 1,
+base,131,William Van Landingham,San Francisco Giants,Series 1,
+base,132,Wally Joyner,San Diego Padres,Series 1,
+base,133,Randy Myers,Baltimore Orioles,Series 1,
+base,134,John Valentin,Boston Red Sox,Series 1,
+base,135,Bret Boone,Cincinnati Reds,Series 1,
+base,136,Bruce Ruffin,Colorado Rockies,Series 1,
+base,137,Chris Snopek,Chicago White Sox,Series 1,
+base,138,Paul Molitor,Minnesota Twins,Series 1,
+base,139,Mark McLemore,Texas Rangers,Series 1,
+base,140,Rafael Palmeiro,Baltimore Orioles,Series 1,
+base,141,Herb Perry,Cleveland Indians,Series 1,
+base,142,Luis Gonzalez,Chicago Cubs,Series 1,
+base,143,Doug Drabek,Houston Astros,Series 1,
+base,144,Ken Ryan,Philadelphia Phillies,Series 1,
+base,145,Todd Hundley,New York Mets,Series 1,
+base,146,Ellis Burks,Colorado Rockies,Series 1,
+base,147,Ozzie Guillen,Chicago White Sox,Series 1,
+base,148,Rich Becker,Minnesota Twins,Series 1,
+base,149,Sterling Hitchcock,Seattle Mariners,Series 1,
+base,150,Bernie Williams,New York Yankees,Series 1,
+base,151,Mike Stanley,Boston Red Sox,Series 1,
+base,152,Roberto Alomar,Baltimore Orioles,Series 1,
+base,153,Jose Mesa,Cleveland Indians,Series 1,
+base,154,Steve Trachsel,Chicago Cubs,Series 1,
+base,155,Alex Gonzalez,Toronto Blue Jays,Series 1,
+base,156,Troy Percival,California Angels,Series 1,
+base,157,John Smoltz,Atlanta Braves,Series 1,
+base,158,Pedro Martinez,Montreal Expos,Series 1,
+base,159,Jeff Conine,Florida Marlins,Series 1,
+base,160,Bernard Gilkey,New York Mets,Series 1,
+base,161,Jim Eisenreich,Philadelphia Phillies,Series 1,
+base,162,Mickey Tettleton,Texas Rangers,Series 1,
+base,163,Justin Thompson,Detroit Tigers,Series 1,
+base,164,Jose Offerman,Kansas City Royals,Series 1,
+base,165,Tony Phillips,Chicago White Sox,Series 1,
+base,166,Ismael Valdes,Los Angeles Dodgers,Series 1,
+base,167,Ryne Sandberg,Chicago Cubs,Series 1,
+base,168,Matt Mieske,Milwaukee Brewers,Series 1,
+base,169,Geronimo Berroa,Oakland Athletics,Series 1,
+base,170,Otis Nixon,Toronto Blue Jays,Series 1,
+base,171,John Mabry,St. Louis Cardinals,Series 1,
+base,172,Shawon Dunston,San Francisco Giants,Series 1,
+base,173,Omar Vizquel,Cleveland Indians,Series 1,
+base,174,Chris Hoiles,Baltimore Orioles,Series 1,
+base,175,Dwight Gooden,New York Yankees,Series 1,
+base,176,Wilson Alvarez,Chicago White Sox,Series 1,
+base,177,Todd Hollandsworth ASR,Los Angeles Dodgers,Series 1,
+base,178,Roger Salkeld,Cincinnati Reds,Series 1,
+base,179,Rey Sanchez,Chicago Cubs,Series 1,
+base,180,Rey Ordonez,New York Mets,Series 1,
+base,181,Denny Martinez,Cleveland Indians,Series 1,
+base,182,Ramon Martinez,Los Angeles Dodgers,Series 1,
+base,183,Dave Nilsson,Milwaukee Brewers,Series 1,
+base,184,Marquis Grissom,Atlanta Braves,Series 1,
+base,185,Randy Velarde,California Angels,Series 1,
+base,186,Ron Coomer,Minnesota Twins,Series 1,
+base,187,Tino Martinez,New York Yankees,Series 1,
+base,188,Jeff Brantley,Cincinnati Reds,Series 1,
+base,189,Steve Finley,San Diego Padres,Series 1,
+base,190,Andy Benes,St. Louis Cardinals,Series 1,
+base,191,Terry Adams,Chicago Cubs,Series 1,
+base,192,Mike Blowers,Los Angeles Dodgers,Series 1,
+base,193,Russ Davis,Seattle Mariners,Series 1,
+base,194,Darryl Hamilton,Texas Rangers,Series 1,
+base,195,Jason Kendall ASR,Pittsburgh Pirates,Series 1,
+base,196,Johnny Damon,Kansas City Royals,Series 1,
+base,197,Dave Martinez,Chicago White Sox,Series 1,
+base,198,Mike Macfarlane,Kansas City Royals,Series 1,
+base,199,Norm Charlton,Seattle Mariners,Series 1,
+base,200,Doug Million / Damian Moss / Bobby Rodgers RC,Colorado Rockies / Atlanta Braves / Boston Red Sox,Series 1,
+base,201,Mike Cameron / Raul Ibanez / Geoff Jenkins PROSNot an,Chicago White Sox / Seattle Mariners / Milwaukee Brewers,Series 1,
+base,202,Jim Bonnici / Sean Casey / Dmitri Young PROSNot an,Seattle Mariners / Cleveland Indians / St. Louis Cardinals,Series 1,
+base,203,Homer Bush / Felipe Crespo / Jed Hansen PROSNot an,San Diego Padres / Toronto Blue Jays / Kansas City Royals,Series 1,
+base,204,Gabe Alvarez / Aaron Boone / Kevin Orie PROSNot an,San Diego Padres / Cincinnati Reds / Chicago Cubs,Series 1,
+base,205,Kevin Brown / Ben Davis / Bobby Estalella PROSNot an,Texas Rangers / San Diego Padres / Philadelphia Phillies,Series 1,
+base,206,Dante Powell / Billy McMillon / Bubba Trammell RC,San Francisco Giants / Florida Marlins / Detroit Tigers,Series 1,
+base,207,Glendon Rusch / Jarrod Washburn / Marc Wilkins RC,Kansas City Royals / California Angels / Pittsburgh Pirates,Series 1,
+base,208,Brian Hunter,Houston Astros,Series 1,
+base,209,Jason Giambi,Oakland Athletics,Series 1,
+base,210,Henry Rodriguez,Montreal Expos,Series 1,
+base,211,Edgar Renteria,Florida Marlins,Series 1,
+base,212,Edgardo Alfonzo,New York Mets,Series 1,
+base,213,Fernando Vina,Milwaukee Brewers,Series 1,
+base,214,Shawn Green,Toronto Blue Jays,Series 1,
+base,215,Ray Durham,Chicago White Sox,Series 1,
+base,216,Joe Randa ASR,Kansas City Royals,Series 1,
+base,217,Armando Reynoso,Colorado Rockies,Series 1,
+base,218,Eric Davis,Cincinnati Reds,Series 1,
+base,219,Bob Tewksbury,San Diego Padres,Series 1,
+base,220,Jacob Cruz,San Francisco Giants,Series 1,
+base,221,Glenallen Hill,San Francisco Giants,Series 1,
+base,222,Gary Gaetti,St. Louis Cardinals,Series 1,
+base,223,Donne Wall,Houston Astros,Series 1,
+base,224,Brad Clontz,Atlanta Braves,Series 1,
+base,225,Marty Janzen,Toronto Blue Jays,Series 1,
+base,226,Todd Worrell,Los Angeles Dodgers,Series 1,
+base,227,John Franco,New York Mets,Series 1,
+base,228,David Wells,Baltimore Orioles,Series 1,
+base,229,Gregg Jefferies,Philadelphia Phillies,Series 1,
+base,230,Tim Naehring,Boston Red Sox,Series 1,
+base,231,Thomas Howard,Cincinnati Reds,Series 1,
+base,232,Roberto Hernandez,Chicago White Sox,Series 1,
+base,233,Kevin Ritz,Colorado Rockies,Series 1,
+base,234,Julian Tavarez,Cleveland Indians,Series 1,
+base,235,Ken Hill,Texas Rangers,Series 1,
+base,236,Greg Gagne,Los Angeles Dodgers,Series 1,
+base,237,Bobby Chouinard,Oakland Athletics,Series 1,
+base,238,Joe Carter,Toronto Blue Jays,Series 1,
+base,239,Jermaine Dye ASR,Atlanta Braves,Series 1,
+base,240,Antonio Osuna,Los Angeles Dodgers,Series 1,
+base,241,Julio Franco,Cleveland Indians,Series 1,
+base,242,Mike Grace,Philadelphia Phillies,Series 1,
+base,243,Aaron Sele,Boston Red Sox,Series 1,
+base,244,David Justice,Atlanta Braves,Series 1,
+base,245,Sandy Alomar,Cleveland Indians,Series 1,
+base,246,Jose Canseco,Boston Red Sox,Series 1,
+base,247,Paul O'Neill,New York Yankees,Series 1,
+base,248,Sean Berry,Houston Astros,Series 1,
+base,249,Nick Bierbrodt / Kevin Sweeney RC,Arizona Diamondbacks,Series 1,
+base,250,Vladimir Nunez / Larry Rodriguez RC,Arizona Diamondbacks,Series 1,
+base,251,David Hayman / Ron Hartman RC,Arizona Diamondbacks,Series 1,
+base,252,Matt Quatraro / Alex Sanchez RC,Tampa Bay Devil Rays,Series 1,
+base,253,Pablo Ortega / Ronni Seberino RC,Tampa Bay Devil Rays,Series 1,
+base,254,Rex Hudler,California Angels,Series 1,
+base,255,Orlando Miller,Houston Astros,Series 1,
+base,256,Mariano Rivera,New York Yankees,Series 1,
+base,257,Brad Radke,Minnesota Twins,Series 1,
+base,258,Bobby Higginson,Detroit Tigers,Series 1,
+base,259,Jay Bell,Pittsburgh Pirates,Series 1,
+base,260,Mark Grudzielanek,Montreal Expos,Series 1,
+base,261,Lance Johnson,New York Mets,Series 1,
+base,262,Ken Caminiti,San Diego Padres,Series 1,
+base,263,J.T. Snow Jr.,California Angels,Series 1,
+base,264,Gary Sheffield,Florida Marlins,Series 1,
+base,265,Darrin Fletcher,Montreal Expos,Series 1,
+base,266,Eric Owens,Cincinnati Reds,Series 1,
+base,267,Luis Castillo,Florida Marlins,Series 1,
+base,268,Scott Rolen,Philadelphia Phillies,Series 1,
+base,269,Todd Noel / John Oliver RC,Chicago Cubs / Cincinnati Reds,Series 1,
+base,270,Corey Lee / Robert Stratton RC,Texas Rangers / New York Mets,Series 1,
+base,271,Matt Halloran / Gil Meche RC,Seattle Mariners / San Diego Padres,Series 1,
+base,272,Dermal Brown / Eric Milton RC,Kansas City Royals / New York Yankees,Series 1,
+base,273,Josh Garrett / Chris Reitsma RC,Boston Red Sox,Series 1,
+base,274,Jason Marquis / A.J. Zapp RC,Atlanta Braves,Series 1,
+base,275,Checklist: 1-158 CL,,Series 1,
+base,276a,Checklist: 159-276 CL,,Series 1,
+base,276b,Chipper Jones UERUER: supposed to be card #277,Atlanta Braves,Series 2,
+base,278,Orlando Merced,Pittsburgh Pirates,Series 2,
+base,279,Ariel Prieto,Oakland Athletics,Series 2,
+base,280,Al Leiter,Florida Marlins,Series 2,
+base,281,Pat Meares,Minnesota Twins,Series 2,
+base,282,Darryl Strawberry,New York Yankees,Series 2,
+base,283,Jamie Moyer,Seattle Mariners,Series 2,
+base,284,Scott Servais,Chicago Cubs,Series 2,
+base,285,Delino DeShields,Los Angeles Dodgers,Series 2,
+base,286,Danny Graves,Cleveland Indians,Series 2,
+base,287,Gerald Williams,Milwaukee Brewers,Series 2,
+base,288,Todd Greene,California Angels,Series 2,
+base,289,Rico Brogna,New York Mets,Series 2,
+base,290,Derrick Gibson,Colorado Rockies,Series 2,
+base,291,Joe Girardi,New York Yankees,Series 2,
+base,292,Darren Lewis,Chicago White Sox,Series 2,
+base,293,Nomar Garciaparra,Boston Red Sox,Series 2,
+base,294,Greg Colbrunn,Florida Marlins,Series 2,
+base,295,Jeff Bagwell,Houston Astros,Series 2,
+base,296,Brent Gates,Oakland Athletics,Series 2,
+base,297,Jose Vizcaino,Cleveland Indians,Series 2,
+base,298,Alex Ochoa,New York Mets,Series 2,
+base,299,Sid Fernandez,Philadelphia Phillies,Series 2,
+base,300,Ken Griffey Jr.,Seattle Mariners,Series 2,
+base,301,Chris Gomez,San Diego Padres,Series 2,
+base,302,Wendell Magee Jr.,Philadelphia Phillies,Series 2,
+base,303,Darren Oliver,Texas Rangers,Series 2,
+base,304,Mel Nieves,Detroit Tigers,Series 2,
+base,305,Sammy Sosa,Chicago Cubs,Series 2,
+base,306,George Arias,California Angels,Series 2,
+base,307,Jack McDowell,Cleveland Indians,Series 2,
+base,308,Stan Javier,San Francisco Giants,Series 2,
+base,309,Kimera Bartee,Detroit Tigers,Series 2,
+base,310,James Baldwin,Chicago White Sox,Series 2,
+base,311,Rocky Coppinger,Baltimore Orioles,Series 2,
+base,312,Keith Lockhart,Kansas City Royals,Series 2,
+base,313,C.J. Nitkowski,Detroit Tigers,Series 2,
+base,314,Allen Watson,San Francisco Giants,Series 2,
+base,315,Darryl Kile,Houston Astros,Series 2,
+base,316,Amaury Telemaco,Chicago Cubs,Series 2,
+base,317,Jason Isringhausen,New York Mets,Series 2,
+base,318,Manny Ramirez,Cleveland Indians,Series 2,
+base,319,Terry Pendleton,Atlanta Braves,Series 2,
+base,320,Tim Salmon,California Angels,Series 2,
+base,321,Eric Karros,Los Angeles Dodgers,Series 2,
+base,322,Mark Whiten,Seattle Mariners,Series 2,
+base,323,Rick Krivda,Baltimore Orioles,Series 2,
+base,324,Brett Butler,Los Angeles Dodgers,Series 2,
+base,325,Randy Johnson,Seattle Mariners,Series 2,
+base,326,Eddie Taubensee,Cincinnati Reds,Series 2,
+base,327,Mark Leiter,Montreal Expos,Series 2,
+base,328,Kevin Gross,Texas Rangers,Series 2,
+base,329,Ernie Young,Oakland Athletics,Series 2,
+base,330,Pat Hentgen,Toronto Blue Jays,Series 2,
+base,331,Rondell White,Montreal Expos,Series 2,
+base,332,Bobby Witt,Texas Rangers,Series 2,
+base,333,Eddie Murray,Baltimore Orioles,Series 2,
+base,334,Tim Raines,New York Yankees,Series 2,
+base,335,Jeff Fassero,Montreal Expos,Series 2,
+base,336,Chuck Finley,California Angels,Series 2,
+base,337,Willie Adams,Oakland Athletics,Series 2,
+base,338,Chan Ho Park,Los Angeles Dodgers,Series 2,
+base,339,Jay Powell,Florida Marlins,Series 2,
+base,340,Ivan Rodriguez,Texas Rangers,Series 2,
+base,341,Jermaine Allensworth,Pittsburgh Pirates,Series 2,
+base,342,Jay Payton,New York Mets,Series 2,
+base,343,T.J. Mathews,St. Louis Cardinals,Series 2,
+base,344,Tony Batista ASR,Oakland Athletics,Series 2,
+base,345,Ed Sprague,Toronto Blue Jays,Series 2,
+base,346,Jeff Kent,Cleveland Indians,Series 2,
+base,347,Scott Erickson,Baltimore Orioles,Series 2,
+base,348,Jeff Suppan,Boston Red Sox,Series 2,
+base,349,Pete Schourek,Cincinnati Reds,Series 2,
+base,350,Kenny Lofton,Cleveland Indians,Series 2,
+base,351,Alan Benes ASR,St. Louis Cardinals,Series 2,
+base,352,Fred McGriff,Atlanta Braves,Series 2,
+base,353,Charlie O'Brien,Toronto Blue Jays,Series 2,
+base,354,Darren Bragg,Boston Red Sox,Series 2,
+base,355,Alex Fernandez,Chicago White Sox,Series 2,
+base,356,Al Martin,Pittsburgh Pirates,Series 2,
+base,357,Bob Wells,Seattle Mariners,Series 2,
+base,358,Chad Mottola,Cincinnati Reds,Series 2,
+base,359,Devon White,Florida Marlins,Series 2,
+base,360,David Cone,New York Yankees,Series 2,
+base,361,Bobby Jones,New York Mets,Series 2,
+base,362,Scott Sanders,San Diego Padres,Series 2,
+base,363,Karim Garcia,Los Angeles Dodgers,Series 2,
+base,364,Kirt Manwaring,Houston Astros,Series 2,
+base,365,Chili Davis,California Angels,Series 2,
+base,366,Mike Hampton,Houston Astros,Series 2,
+base,367,Chad Ogea,Cleveland Indians,Series 2,
+base,368,Curt Schilling,Philadelphia Phillies,Series 2,
+base,369,Phil Nevin,Detroit Tigers,Series 2,
+base,370,Roger Clemens,Boston Red Sox,Series 2,
+base,371,Willie Greene,Cincinnati Reds,Series 2,
+base,372,Kenny Rogers,New York Yankees,Series 2,
+base,373,Jose Rijo,Cincinnati Reds,Series 2,
+base,374,Bobby Bonilla,Baltimore Orioles,Series 2,
+base,375,Mike Mussina,Baltimore Orioles,Series 2,
+base,376,Curtis Pride,Detroit Tigers,Series 2,
+base,377,Todd Walker,Minnesota Twins,Series 2,
+base,378,Jason Bere,Chicago White Sox,Series 2,
+base,379,Heathcliff Slocumb,Boston Red Sox,Series 2,
+base,380,Dante Bichette,Colorado Rockies,Series 2,
+base,381,Carlos Baerga,New York Mets,Series 2,
+base,382,Livan Hernandez,Florida Marlins,Series 2,
+base,383,Jason Schmidt,Pittsburgh Pirates,Series 2,
+base,384,Kevin Stocker,Philadelphia Phillies,Series 2,
+base,385,Matt Williams,San Francisco Giants,Series 2,
+base,386,Bartolo Colon,Cleveland Indians,Series 2,
+base,387,Will Clark,Texas Rangers,Series 2,
+base,388,Dennis Eckersley,St. Louis Cardinals,Series 2,
+base,389,Brooks Kieschnick,Chicago Cubs,Series 2,
+base,390,Ryan Klesko,Atlanta Braves,Series 2,
+base,391,Mark Carreon,Cleveland Indians,Series 2,
+base,392,Tim Worrell,San Diego Padres,Series 2,
+base,393,Dean Palmer,Texas Rangers,Series 2,
+base,394,Wil Cordero,Boston Red Sox,Series 2,
+base,395,Javy Lopez,Atlanta Braves,Series 2,
+base,396,Rich Aurilia,San Francisco Giants,Series 2,
+base,397,Greg Vaughn,San Diego Padres,Series 2,
+base,398,Vinny Castilla,Colorado Rockies,Series 2,
+base,399,Jeff Montgomery,Kansas City Royals,Series 2,
+base,400,Cal Ripken,Baltimore Orioles,Series 2,
+base,401,Walt Weiss,Colorado Rockies,Series 2,
+base,402,Brad Ausmus,Detroit Tigers,Series 2,
+base,403,Ruben Rivera,New York Yankees,Series 2,
+base,404,Mark Wohlers,Atlanta Braves,Series 2,
+base,405,Rick Aguilera,Minnesota Twins,Series 2,
+base,406,Tony Clark ASR,Detroit Tigers,Series 2,
+base,407,Lyle Mouton,Chicago White Sox,Series 2,
+base,408,Bill Pulsipher,New York Mets,Series 2,
+base,409,Jose Rosado,Kansas City Royals,Series 2,
+base,410,Tony Gwynn,San Diego Padres,Series 2,
+base,411,Cecil Fielder,New York Yankees,Series 2,
+base,412,John Flaherty,San Diego Padres,Series 2,
+base,413,Len Dykstra,Philadelphia Phillies,Series 2,
+base,414,Ugueth Urbina,Montreal Expos,Series 2,
+base,415,Brian Jordan,St. Louis Cardinals,Series 2,
+base,416,Bob Abreu,Houston Astros,Series 2,
+base,417,Craig Paquette,Kansas City Royals,Series 2,
+base,418,Sandy Martinez,Toronto Blue Jays,Series 2,
+base,419,Jeff Blauser,Atlanta Braves,Series 2,
+base,420,Barry Larkin,Cincinnati Reds,Series 2,
+base,421,Kevin Seitzer,Cleveland Indians,Series 2,
+base,422,Tim Belcher,Kansas City Royals,Series 2,
+base,423,Paul Sorrento,Seattle Mariners,Series 2,
+base,424,Cal Eldred,Milwaukee Brewers,Series 2,
+base,425,Robin Ventura,Chicago White Sox,Series 2,
+base,426,John Olerud,Toronto Blue Jays,Series 2,
+base,427,Bob Wolcott,Seattle Mariners,Series 2,
+base,428,Matt Lawton,Minnesota Twins,Series 2,
+base,429,Rod Beck,San Francisco Giants,Series 2,
+base,430,Shane Reynolds,Houston Astros,Series 2,
+base,431,Mike James,California Angels,Series 2,
+base,432,Steve Wojciechowski,Oakland Athletics,Series 2,
+base,433,Vladimir Guerrero,Montreal Expos,Series 2,
+base,434,Dustin Hermanson,San Diego Padres,Series 2,
+base,435,Marty Cordova,Minnesota Twins,Series 2,
+base,436,Marc Newfield,Milwaukee Brewers,Series 2,
+base,437,Todd Stottlemyre,St. Louis Cardinals,Series 2,
+base,438,Jeffrey Hammonds,Baltimore Orioles,Series 2,
+base,439,Dave Stevens,Minnesota Twins,Series 2,
+base,440,Hideo Nomo,Los Angeles Dodgers,Series 2,
+base,441,Mark Thompson,Colorado Rockies,Series 2,
+base,442,Mark Lewis,Detroit Tigers,Series 2,
+base,443,Quinton McCracken,Colorado Rockies,Series 2,
+base,444,Cliff Floyd,Montreal Expos,Series 2,
+base,445,Denny Neagle,Atlanta Braves,Series 2,
+base,446,John Jaha,Milwaukee Brewers,Series 2,
+base,447,Mike Sweeney,Kansas City Royals,Series 2,
+base,448,John Wasdin,Oakland Athletics,Series 2,
+base,449,Chad Curtis,Los Angeles Dodgers,Series 2,
+base,450,Mo Vaughn,Boston Red Sox,Series 2,
+base,451,Donovan Osborne,St. Louis Cardinals,Series 2,
+base,452,Ruben Sierra,Detroit Tigers,Series 2,
+base,453,Michael Tucker,Kansas City Royals,Series 2,
+base,454,Kurt Abbott,Florida Marlins,Series 2,
+base,455,Andruw Jones,Atlanta Braves,Series 2,
+base,456,Shannon Stewart,Toronto Blue Jays,Series 2,
+base,457,Scott Brosius,Oakland Athletics,Series 2,
+base,458,Juan Guzman,Toronto Blue Jays,Series 2,
+base,459,Ron Villone,Milwaukee Brewers,Series 2,
+base,460,Moises Alou,Montreal Expos,Series 2,
+base,461,Larry Walker,Colorado Rockies,Series 2,
+base,462,Eddie Murray SH,Baltimore Orioles,Series 2,
+base,463,Paul Molitor SH,Minnesota Twins,Series 2,
+base,464,Hideo Nomo SH,Los Angeles Dodgers,Series 2,
+base,465,Barry Bonds SH,San Francisco Giants,Series 2,
+base,466,Todd Hundley SH,New York Mets,Series 2,
+base,467,Rheal Cormier,Montreal Expos,Series 2,
+base,468,Jason Conti / Jhensy Sandoval RC,Arizona Diamondbacks,Series 2,
+base,469,Rod Barajas / Jackie Rexrode RC,Arizona Diamondbacks,Series 2,
+base,470,Cedrick Bowers / Jared Sandberg RC,Tampa Bay Devil Rays,Series 2,
+base,471,Chie Gunner / Paul Wilder RC,Tampa Bay Devil Rays,Series 2,
+base,472,Mike DeCelle / Marcus McCain RC,Tampa Bay Devil Rays,Series 2,
+base,473,Todd Zeile,Baltimore Orioles,Series 2,
+base,474,Neifi Perez,Colorado Rockies,Series 2,
+base,475,Jeromy Burnitz,Milwaukee Brewers,Series 2,
+base,476,Trey Beamon,Pittsburgh Pirates,Series 2,
+base,477,Braden Looper / John Patterson RC,St. Louis Cardinals / Arizona Diamondbacks,Series 2,
+base,478,Danny Peoples / Jake Westbrook RC,Cleveland Indians / Colorado Rockies,Series 2,
+base,479,Eric Chavez / Adam Eaton RC,Oakland Athletics / Philadelphia Phillies,Series 2,
+base,480,Joe Lawrence / Pete Tucci RC,Toronto Blue Jays,Series 2,
+base,481,Kris Benson / Billy Koch RC,Pittsburgh Pirates / Toronto Blue Jays,Series 2,
+base,482,John Nicholson / Andy Prater RC,Colorado Rockies / Pittsburgh Pirates,Series 2,
+base,483,Mark Johnson / Mark Kotsay RC,Houston Astros / Florida Marlins,Series 2,
+base,484,Armando Benitez,Baltimore Orioles,Series 2,
+base,485,Mike Matheny,Milwaukee Brewers,Series 2,
+base,486,Jeff Reed,Colorado Rockies,Series 2,
+base,487,Mark Bellhorn / Russ Johnson / Enrique Wilson PROSNot an,Oakland Athletics / Houston Astros / Cleveland Indians,Series 2,
+base,488,Ben Grieve / Richard Hidalgo / Scott Morgan RC,Oakland Athletics / Houston Astros / Cleveland Indians,Series 2,
+base,489,Paul Konerko / Derrek Lee / Ron Wright,Los Angeles Dodgers / San Diego Padres / Pittsburgh Pirates,Series 2,
+base,490,Wes Helms / Bill Mueller / Brad Seitzer RC,Atlanta Braves / San Francisco Giants / Milwaukee Brewers,Series 2,
+base,491,Jeff Abbott / Shane Monahan / Edgard Velazquez PROSNot an,Chicago White Sox / Seattle Mariners / Colorado Rockies,Series 2,
+base,492,Jimmy Anderson / Ron Blazier / Gerald Witasick Jr. RC,Pittsburgh Pirates / Philadelphia Phillies / Oakland Athletics,Series 2,
+base,493,Darin Blood / Heath Murray / Carl Pavano,San Francisco Giants / San Diego Padres / Boston Red Sox,Series 2,
+base,494,Nelson Figueroa / Mark Redman / Mike Villano RC,New York Mets / Minnesota Twins / San Francisco Giants,Series 2,
+base,495,Checklist: 277-400 CL,,Series 2,
+base,496,Checklist: 401-496 CL,,Series 2,
+all-stars-96,AS1,Ivan Rodriguez,Texas Rangers,,All-Stars '96
+all-stars-96,AS2,Todd Hundley,New York Mets,,All-Stars '96
+all-stars-96,AS3,Frank Thomas,Chicago White Sox,,All-Stars '96
+all-stars-96,AS4,Andres Galarraga,Colorado Rockies,,All-Stars '96
+all-stars-96,AS5,Chuck Knoblauch,Minnesota Twins,,All-Stars '96
+all-stars-96,AS6,Eric Young,Colorado Rockies,,All-Stars '96
+all-stars-96,AS7,Jim Thome,Cleveland Indians,,All-Stars '96
+all-stars-96,AS8,Chipper Jones,Atlanta Braves,,All-Stars '96
+all-stars-96,AS9,Cal Ripken,Baltimore Orioles,,All-Stars '96
+all-stars-96,AS10,Barry Larkin,Cincinnati Reds,,All-Stars '96
+all-stars-96,AS11,Albert Belle,Cleveland Indians,,All-Stars '96
+all-stars-96,AS12,Barry Bonds,San Francisco Giants,,All-Stars '96
+all-stars-96,AS13,Ken Griffey Jr.,Seattle Mariners,,All-Stars '96
+all-stars-96,AS14,Ellis Burks,Colorado Rockies,,All-Stars '96
+all-stars-96,AS15,Juan Gonzalez,Texas Rangers,,All-Stars '96
+all-stars-96,AS16,Gary Sheffield,Florida Marlins,,All-Stars '96
+all-stars-96,AS17,Andy Pettitte,New York Yankees,,All-Stars '96
+all-stars-96,AS18,Tom Glavine,Atlanta Braves,,All-Stars '96
+all-stars-96,AS19,Pat Hentgen,Toronto Blue Jays,,All-Stars '96
+all-stars-96,AS20,John Smoltz,Atlanta Braves,,All-Stars '96
+all-stars-96,AS21,Roberto Hernandez,Chicago White Sox,,All-Stars '96
+all-stars-96,AS22,Mark Wohlers,Atlanta Braves,,All-Stars '96
+awesome-impact,AI1,Jaime Bluma,Kansas City Royals,,Awesome Impact
+awesome-impact,AI2,Tony Clark,Detroit Tigers,,Awesome Impact
+awesome-impact,AI3,Jermaine Dye,Atlanta Braves,,Awesome Impact
+awesome-impact,AI4,Nomar Garciaparra,Boston Red Sox,,Awesome Impact
+awesome-impact,AI5,Vladimir Guerrero,Montreal Expos,,Awesome Impact
+awesome-impact,AI6,Todd Hollandsworth,Los Angeles Dodgers,,Awesome Impact
+awesome-impact,AI7,Derek Jeter,New York Yankees,,Awesome Impact
+awesome-impact,AI8,Andruw Jones,Atlanta Braves,,Awesome Impact
+awesome-impact,AI9,Chipper Jones,Atlanta Braves,,Awesome Impact
+awesome-impact,AI10,Jason Kendall,Pittsburgh Pirates,,Awesome Impact
+awesome-impact,AI11,Brooks Kieschnick,Chicago Cubs,,Awesome Impact
+awesome-impact,AI12,Alex Ochoa,New York Mets,,Awesome Impact
+awesome-impact,AI13,Rey Ordonez,New York Mets,,Awesome Impact
+awesome-impact,AI14,Neifi Perez,Colorado Rockies,,Awesome Impact
+awesome-impact,AI15,Edgar Renteria,Florida Marlins,,Awesome Impact
+awesome-impact,AI16,Mariano Rivera,New York Yankees,,Awesome Impact
+awesome-impact,AI17,Ruben Rivera,New York Yankees,,Awesome Impact
+awesome-impact,AI18,Scott Rolen,Philadelphia Phillies,,Awesome Impact
+awesome-impact,AI19,Billy Wagner,Houston Astros,,Awesome Impact
+awesome-impact,AI20,Todd Walker,Minnesota Twins,,Awesome Impact
+jeter-roty-autograph,NNO-01,Derek Jeter,New York Yankees,,Derek Jeter Rookie of the Year Autograph
+hobby-masters,HM1,Ken Griffey Jr.,Seattle Mariners,,Hobby Masters
+hobby-masters,HM2,Cal Ripken,Baltimore Orioles,,Hobby Masters
+hobby-masters,HM3,Greg Maddux,Atlanta Braves,,Hobby Masters
+hobby-masters,HM4,Albert Belle,Cleveland Indians,,Hobby Masters
+hobby-masters,HM5,Tony Gwynn,San Diego Padres,,Hobby Masters
+hobby-masters,HM6,Jeff Bagwell,Houston Astros,,Hobby Masters
+hobby-masters,HM7,Randy Johnson,Seattle Mariners,,Hobby Masters
+hobby-masters,HM8,Raul Mondesi,Los Angeles Dodgers,,Hobby Masters
+hobby-masters,HM9,Juan Gonzalez,Texas Rangers,,Hobby Masters
+hobby-masters,HM10,Kenny Lofton,Cleveland Indians,,Hobby Masters
+hobby-masters,HM11,Frank Thomas,Chicago White Sox,,Hobby Masters
+hobby-masters,HM12,Mike Piazza,Los Angeles Dodgers,,Hobby Masters
+hobby-masters,HM13,Chipper Jones,Atlanta Braves,,Hobby Masters
+hobby-masters,HM14,Brady Anderson,Baltimore Orioles,,Hobby Masters
+hobby-masters,HM15,Ken Caminiti,San Diego Padres,,Hobby Masters
+hobby-masters,HM16,Barry Bonds,San Francisco Giants,,Hobby Masters
+hobby-masters,HM17,Mo Vaughn,Boston Red Sox,,Hobby Masters
+hobby-masters,HM18,Derek Jeter,New York Yankees,,Hobby Masters
+hobby-masters,HM19,Sammy Sosa,Chicago Cubs,,Hobby Masters
+hobby-masters,HM20,Andres Galarraga,Colorado Rockies,,Hobby Masters
+inter-league-finest,ILM1,Barry Bonds / Mark McGwire,San Francisco Giants / Oakland Athletics,,Inter-League Match-Up Finest
+inter-league-finest,ILM2,Mike Piazza / Tim Salmon,Los Angeles Dodgers / California Angels,,Inter-League Match-Up Finest
+inter-league-finest,ILM3,Dante Bichette / Ken Griffey Jr.,Colorado Rockies / Seattle Mariners,,Inter-League Match-Up Finest
+inter-league-finest,ILM4,Tony Gwynn / Juan Gonzalez,San Diego Padres / Texas Rangers,,Inter-League Match-Up Finest
+inter-league-finest,ILM5,Sammy Sosa / Frank Thomas,Chicago Cubs / Chicago White Sox,,Inter-League Match-Up Finest
+inter-league-finest,ILM6,Barry Larkin / Albert Belle,Cincinnati Reds / Cleveland Indians,,Inter-League Match-Up Finest
+inter-league-finest,ILM7,Brian Jordan / Johnny Damon,St. Louis Cardinals / Kansas City Royals,,Inter-League Match-Up Finest
+inter-league-finest,ILM8,Jeff King / Paul Molitor,Pittsburgh Pirates / Minnesota Twins,,Inter-League Match-Up Finest
+inter-league-finest,ILM9,Jeff Bagwell / John Jaha,Houston Astros / Milwaukee Brewers,,Inter-League Match-Up Finest
+inter-league-finest,ILM10,Todd Hundley / Bernie Williams,New York Mets / New York Yankees,,Inter-League Match-Up Finest
+inter-league-finest,ILM11,Henry Rodriguez / Joe Carter,Montreal Expos / Toronto Blue Jays,,Inter-League Match-Up Finest
+inter-league-finest,ILM12,Gregg Jefferies / Cal Ripken,Philadelphia Phillies / Baltimore Orioles,,Inter-League Match-Up Finest
+inter-league-finest,ILM13,Chipper Jones / Mo Vaughn,Atlanta Braves / Boston Red Sox,,Inter-League Match-Up Finest
+inter-league-finest,ILM14,Gary Sheffield / Travis Fryman,Florida Marlins / Detroit Tigers,,Inter-League Match-Up Finest
+inter-league-refractors,ILM1,Barry Bonds / Mark McGwire,San Francisco Giants / Oakland Athletics,,Inter-League Match-Up Finest Refractors
+inter-league-refractors,ILM2,Mike Piazza / Tim Salmon,Los Angeles Dodgers / California Angels,,Inter-League Match-Up Finest Refractors
+inter-league-refractors,ILM3,Dante Bichette / Ken Griffey Jr.,Colorado Rockies / Seattle Mariners,,Inter-League Match-Up Finest Refractors
+inter-league-refractors,ILM4,Tony Gwynn / Juan Gonzalez,San Diego Padres / Texas Rangers,,Inter-League Match-Up Finest Refractors
+inter-league-refractors,ILM5,Sammy Sosa / Frank Thomas,Chicago Cubs / Chicago White Sox,,Inter-League Match-Up Finest Refractors
+inter-league-refractors,ILM6,Barry Larkin / Albert Belle,Cincinnati Reds / Cleveland Indians,,Inter-League Match-Up Finest Refractors
+inter-league-refractors,ILM7,Brian Jordan / Johnny Damon,St. Louis Cardinals / Kansas City Royals,,Inter-League Match-Up Finest Refractors
+inter-league-refractors,ILM8,Jeff King / Paul Molitor,Pittsburgh Pirates / Minnesota Twins,,Inter-League Match-Up Finest Refractors
+inter-league-refractors,ILM9,Jeff Bagwell / John Jaha,Houston Astros / Milwaukee Brewers,,Inter-League Match-Up Finest Refractors
+inter-league-refractors,ILM10,Todd Hundley / Bernie Williams,New York Mets / New York Yankees,,Inter-League Match-Up Finest Refractors
+inter-league-refractors,ILM11,Henry Rodriguez / Joe Carter,Montreal Expos / Toronto Blue Jays,,Inter-League Match-Up Finest Refractors
+inter-league-refractors,ILM12,Gregg Jefferies / Cal Ripken,Philadelphia Phillies / Baltimore Orioles,,Inter-League Match-Up Finest Refractors
+inter-league-refractors,ILM13,Chipper Jones / Mo Vaughn,Atlanta Braves / Boston Red Sox,,Inter-League Match-Up Finest Refractors
+inter-league-refractors,ILM14,Gary Sheffield / Travis Fryman,Florida Marlins / Detroit Tigers,,Inter-League Match-Up Finest Refractors
+mantle-reprints,21,Hank Bauer / Yogi Berra / Mickey Mantle CPC1953 Bowman Color #44,New York Yankees,,Mickey Mantle Commemorative Reprints
+mantle-reprints,22,Mickey Mantle 1953 Bowman Color #59,New York Yankees,,Mickey Mantle Commemorative Reprints
+mantle-reprints,23,Yankees' Power Hitters (Mickey Mantle / Yogi Berra) CPC1957 Topps #407,New York Yankees,,Mickey Mantle Commemorative Reprints
+mantle-reprints,24,World Series Batting Foes (Mickey Mantle / Hank Aaron) CPC1958 Topps #418,New York Yankees / Milwaukee Braves,,Mickey Mantle Commemorative Reprints
+mantle-reprints,25,"Mickey Mantle AS1958 Topps ""Sport Magazine '58 All-Star Selection"" #487",New York Yankees,,Mickey Mantle Commemorative Reprints
+mantle-reprints,26,"Mantle Hits 42nd Homer for Crown BT1959 Topps ""Baseball Thrills"" #461",New York Yankees,,Mickey Mantle Commemorative Reprints
+mantle-reprints,27,"Mickey Mantle AS1959 Topps ""The Sporting News '59 All-Star Selection"" #564",New York Yankees,,Mickey Mantle Commemorative Reprints
+mantle-reprints,28,Rival All Stars (Mickey Mantle / Ken Boyer) CPC1960 Topps #160,New York Yankees / St. Louis Cardinals,,Mickey Mantle Commemorative Reprints
+mantle-reprints,29,"Mickey Mantle AS1960 Topps ""Sport Magazine '60 All-Star Selection"" #563",New York Yankees,,Mickey Mantle Commemorative Reprints
+mantle-reprints,30,"Mantle Blasts 565 ft. Home Run BT1961 Topps ""Baseball Thrills"" #406",New York Yankees,,Mickey Mantle Commemorative Reprints
+mantle-reprints,31,"Mickey Mantle MVP1961 Topps ""MVP 1956-'57 American League"" #475",New York Yankees,,Mickey Mantle Commemorative Reprints
+mantle-reprints,32,"Mickey Mantle AS1961 Topps ""A. L. Sporting News All-Star"" #578",New York Yankees,,Mickey Mantle Commemorative Reprints
+mantle-reprints,33,Managers' Dream (Mickey Mantle / Willie Mays) CPC1962 Topps #18,New York Yankees / San Francisco Giants,,Mickey Mantle Commemorative Reprints
+mantle-reprints,34,"The Switch Hitter Connects IA1962 Topps ""In Action"" #318",New York Yankees,,Mickey Mantle Commemorative Reprints
+mantle-reprints,35,"Mickey Mantle AS1962 Topps ""The Sporting News American League All-Star"" #471",New York Yankees,,Mickey Mantle Commemorative Reprints
+mantle-reprints,36,A.L. Bombers (Roger Maris / Norm Cash / Mickey Mantle / Al Kaline) CPC1964 Topps #331,New York Yankees / Detroit Tigers,,Mickey Mantle Commemorative Reprints
+mantle-finest,21,Hank Bauer / Yogi Berra / Mickey Mantle 1953 Bowman Color #44,New York Yankees,,Mickey Mantle Commemorative Reprints Finest
+mantle-finest,22,Mickey Mantle 1953 Bowman Color #59,New York Yankees,,Mickey Mantle Commemorative Reprints Finest
+mantle-finest,23,Yankees' Power Hitters (Mickey Mantle / Yogi Berra) CPC1957 Topps #407,New York Yankees,,Mickey Mantle Commemorative Reprints Finest
+mantle-finest,24,World Series Batting Foes (Mickey Mantle / Hank Aaron) CPC1958 Topps #418,New York Yankees / Milwaukee Braves,,Mickey Mantle Commemorative Reprints Finest
+mantle-finest,25,"Mickey Mantle AS1958 Topps ""Sport Magazine '58 All-Star Selection"" #487",New York Yankees,,Mickey Mantle Commemorative Reprints Finest
+mantle-finest,26,"Mantle Hits 42nd Homer for Crown BT1959 Topps ""Baseball Thrills"" #461",New York Yankees,,Mickey Mantle Commemorative Reprints Finest
+mantle-finest,27,"Mickey Mantle AS1959 Topps ""The Sporting News '59 All-Star Selection"" #564",New York Yankees,,Mickey Mantle Commemorative Reprints Finest
+mantle-finest,28,Rival All Stars (Mickey Mantle / Ken Boyer) CPC1960 Topps #160,New York Yankees / St. Louis Cardinals,,Mickey Mantle Commemorative Reprints Finest
+mantle-finest,29,"Mickey Mantle AS1960 Topps ""Sport Magazine '60 All-Star Selection"" #563",New York Yankees,,Mickey Mantle Commemorative Reprints Finest
+mantle-finest,30,"Mantle Blasts 565 ft. Home Run BT1961 Topps ""Baseball Thrills"" #406",New York Yankees,,Mickey Mantle Commemorative Reprints Finest
+mantle-finest,31,"Mickey Mantle MVP1961 Topps ""MVP 1956-'57 American League"" #475",New York Yankees,,Mickey Mantle Commemorative Reprints Finest
+mantle-finest,32,"Mickey Mantle AS1961 Topps ""A. L. Sporting News All-Star"" #578",New York Yankees,,Mickey Mantle Commemorative Reprints Finest
+mantle-finest,33,Managers' Dream (Mickey Mantle / Willie Mays) CPC1962 Topps #18,New York Yankees / San Francisco Giants,,Mickey Mantle Commemorative Reprints Finest
+mantle-finest,34,"The Switch Hitter Connects IA1962 Topps ""In Action"" #318",New York Yankees,,Mickey Mantle Commemorative Reprints Finest
+mantle-finest,35,"Mickey Mantle AS1962 Topps ""The Sporting News American League All-Star"" #471",New York Yankees,,Mickey Mantle Commemorative Reprints Finest
+mantle-finest,36,A.L. Bombers (Roger Maris / Norm Cash / Mickey Mantle / Al Kaline) CPC1964 Topps #331,New York Yankees / Detroit Tigers,,Mickey Mantle Commemorative Reprints Finest
+mantle-refractors,21,Hank Bauer / Yogi Berra / Mickey Mantle 1953 Bowman Color #44,New York Yankees,,Mickey Mantle Commemorative Reprints Finest Refractors
+mantle-refractors,22,Mickey Mantle 1953 Bowman Color #59,New York Yankees,,Mickey Mantle Commemorative Reprints Finest Refractors
+mantle-refractors,23,Yankees' Power Hitters (Mickey Mantle / Yogi Berra) CPC1957 Topps #407,New York Yankees,,Mickey Mantle Commemorative Reprints Finest Refractors
+mantle-refractors,24,World Series Batting Foes (Mickey Mantle / Hank Aaron) CPC1958 Topps #418,New York Yankees / Milwaukee Braves,,Mickey Mantle Commemorative Reprints Finest Refractors
+mantle-refractors,25,"Mickey Mantle AS1958 Topps ""Sport Magazine '58 All-Star Selection"" #487",New York Yankees,,Mickey Mantle Commemorative Reprints Finest Refractors
+mantle-refractors,26,"Mantle Hits 42nd Homer for Crown BT1959 Topps ""Baseball Thrills"" #461",New York Yankees,,Mickey Mantle Commemorative Reprints Finest Refractors
+mantle-refractors,27,"Mickey Mantle AS1959 Topps ""The Sporting News '59 All-Star Selection"" #564",New York Yankees,,Mickey Mantle Commemorative Reprints Finest Refractors
+mantle-refractors,28,Rival All Stars (Mickey Mantle / Ken Boyer) CPC1960 Topps #160,New York Yankees / St. Louis Cardinals,,Mickey Mantle Commemorative Reprints Finest Refractors
+mantle-refractors,29,"Mickey Mantle AS1960 Topps ""Sport Magazine '60 All-Star Selection"" #563",New York Yankees,,Mickey Mantle Commemorative Reprints Finest Refractors
+mantle-refractors,30,"Mantle Blasts 565 ft. Home Run BT1961 Topps ""Baseball Thrills"" #406",New York Yankees,,Mickey Mantle Commemorative Reprints Finest Refractors
+mantle-refractors,31,"Mickey Mantle MVP1961 Topps ""MVP 1956-'57 American League"" #475",New York Yankees,,Mickey Mantle Commemorative Reprints Finest Refractors
+mantle-refractors,32,"Mickey Mantle AS1961 Topps ""A. L. Sporting News All-Star"" #578",New York Yankees,,Mickey Mantle Commemorative Reprints Finest Refractors
+mantle-refractors,33,Managers' Dream (Mickey Mantle / Willie Mays) CPC1962 Topps #18,New York Yankees / San Francisco Giants,,Mickey Mantle Commemorative Reprints Finest Refractors
+mantle-refractors,34,"The Switch Hitter Connects IA1962 Topps ""In Action"" #318",New York Yankees,,Mickey Mantle Commemorative Reprints Finest Refractors
+mantle-refractors,35,"Mickey Mantle AS1962 Topps ""The Sporting News American League All-Star"" #471",New York Yankees,,Mickey Mantle Commemorative Reprints Finest Refractors
+mantle-refractors,36,A.L. Bombers (Roger Maris / Norm Cash / Mickey Mantle / Al Kaline) CPC1964 Topps #331,New York Yankees / Detroit Tigers,,Mickey Mantle Commemorative Reprints Finest Refractors
+mantle-sealed,21,Hank Bauer / Yogi Berra / Mickey Mantle CPC1953 Bowman Color #44,New York Yankees,,Mickey Mantle Commemorative Reprints Sealed
+mantle-sealed,22,Mickey Mantle 1953 Bowman Color #59,New York Yankees,,Mickey Mantle Commemorative Reprints Sealed
+mantle-sealed,23,Yankees' Power Hitters (Mickey Mantle / Yogi Berra) CPC1957 Topps #407,New York Yankees,,Mickey Mantle Commemorative Reprints Sealed
+mantle-sealed,24,World Series Batting Foes (Mickey Mantle / Hank Aaron) CPC1958 Topps #418,New York Yankees / Milwaukee Braves,,Mickey Mantle Commemorative Reprints Sealed
+mantle-sealed,25,"Mickey Mantle AS1958 Topps ""Sport Magazine '58 All-Star Selection"" #487",New York Yankees,,Mickey Mantle Commemorative Reprints Sealed
+mantle-sealed,26,"Mantle Hits 42nd Homer for Crown BT1959 Topps ""Baseball Thrills"" #461",New York Yankees,,Mickey Mantle Commemorative Reprints Sealed
+mantle-sealed,27,"Mickey Mantle AS1959 Topps ""The Sporting News '59 All-Star Selection"" #564",New York Yankees,,Mickey Mantle Commemorative Reprints Sealed
+mantle-sealed,28,Rival All Stars (Mickey Mantle / Ken Boyer) CPC1960 Topps #160,New York Yankees / St. Louis Cardinals,,Mickey Mantle Commemorative Reprints Sealed
+mantle-sealed,29,"Mickey Mantle AS1960 Topps ""Sport Magazine '60 All-Star Selection"" #563",New York Yankees,,Mickey Mantle Commemorative Reprints Sealed
+mantle-sealed,30,"Mantle Blasts 565 ft. Home Run BT1961 Topps ""Baseball Thrills"" #406",New York Yankees,,Mickey Mantle Commemorative Reprints Sealed
+mantle-sealed,31,"Mickey Mantle MVP1961 Topps ""MVP 1956-'57 American League"" #475",New York Yankees,,Mickey Mantle Commemorative Reprints Sealed
+mantle-sealed,32,"Mickey Mantle AS1961 Topps ""A. L. Sporting News All-Star"" #578",New York Yankees,,Mickey Mantle Commemorative Reprints Sealed
+mantle-sealed,33,Managers' Dream (Mickey Mantle / Willie Mays) CPC1962 Topps #18,New York Yankees / San Francisco Giants,,Mickey Mantle Commemorative Reprints Sealed
+mantle-sealed,34,"The Switch Hitter Connects IA1962 Topps ""In Action"" #318",New York Yankees,,Mickey Mantle Commemorative Reprints Sealed
+mantle-sealed,35,"Mickey Mantle AS1962 Topps ""The Sporting News American League All-Star"" #471",New York Yankees,,Mickey Mantle Commemorative Reprints Sealed
+mantle-sealed,36,A.L. Bombers (Roger Maris / Norm Cash / Mickey Mantle / Al Kaline) CPC1964 Topps #331,New York Yankees / Detroit Tigers,,Mickey Mantle Commemorative Reprints Sealed
+oversized-4x6,1,Chipper Jones,Atlanta Braves,,Oversized 4x6
+oversized-4x6,2,Ken Griffey Jr.,Seattle Mariners,,Oversized 4x6
+oversized-4x6,3,Cal Ripken,Baltimore Orioles,,Oversized 4x6
+oversized-mays-4x6,2,Willie Mays 1952 Topps #261,San Francisco Giants,,Oversized Willie Mays Commemorative Reprint 4x6
+seasons-best,SB1,Tony Gwynn NC,San Diego Padres,,Season's Best
+seasons-best,SB2,Frank Thomas NC,Chicago White Sox,,Season's Best
+seasons-best,SB3,Ellis Burks NC,Colorado Rockies,,Season's Best
+seasons-best,SB4,Paul Molitor NC,Minnesota Twins,,Season's Best
+seasons-best,SB5,Chuck Knoblauch NC,Minnesota Twins,,Season's Best
+seasons-best,SB6,Mark McGwire BR,Oakland Athletics,,Season's Best
+seasons-best,SB7,Brady Anderson BR,Baltimore Orioles,,Season's Best
+seasons-best,SB8,Ken Griffey Jr. BR,Seattle Mariners,,Season's Best
+seasons-best,SB9,Albert Belle BR,Cleveland Indians,,Season's Best
+seasons-best,SB10,Andres Galarraga BR,Colorado Rockies,,Season's Best
+seasons-best,SB11,Andres Galarraga KOS,Colorado Rockies,,Season's Best
+seasons-best,SB12,Albert Belle KOS,Cleveland Indians,,Season's Best
+seasons-best,SB13,Juan Gonzalez KOS,Texas Rangers,,Season's Best
+seasons-best,SB14,Mo Vaughn KOS,Boston Red Sox,,Season's Best
+seasons-best,SB15,Rafael Palmeiro KOS,Baltimore Orioles,,Season's Best
+seasons-best,SB16,John Smoltz HT,Atlanta Braves,,Season's Best
+seasons-best,SB17,Andy Pettitte HT,New York Yankees,,Season's Best
+seasons-best,SB18,Pat Hentgen HT,Toronto Blue Jays,,Season's Best
+seasons-best,SB19,Mike Mussina HT,Baltimore Orioles,,Season's Best
+seasons-best,SB20,Andy Benes HT,St. Louis Cardinals,,Season's Best
+seasons-best,SB21,Kenny Lofton LLO,Cleveland Indians,,Season's Best
+seasons-best,SB22,Tom Goodwin LLO,Kansas City Royals,,Season's Best
+seasons-best,SB23,Otis Nixon LLO,Toronto Blue Jays,,Season's Best
+seasons-best,SB24,Eric Young LLO,Colorado Rockies,,Season's Best
+seasons-best,SB25,Lance Johnson LLO,New York Mets,,Season's Best
+sweet-strokes,SS1,Roberto Alomar,Baltimore Orioles,,Sweet Strokes
+sweet-strokes,SS2,Jeff Bagwell,Houston Astros,,Sweet Strokes
+sweet-strokes,SS3,Albert Belle,Cleveland Indians,,Sweet Strokes
+sweet-strokes,SS4,Barry Bonds,San Francisco Giants,,Sweet Strokes
+sweet-strokes,SS5,Mark Grace,Chicago Cubs,,Sweet Strokes
+sweet-strokes,SS6,Ken Griffey Jr.,Seattle Mariners,,Sweet Strokes
+sweet-strokes,SS7,Tony Gwynn,San Diego Padres,,Sweet Strokes
+sweet-strokes,SS8,Chipper Jones,Atlanta Braves,,Sweet Strokes
+sweet-strokes,SS9,Edgar Martinez,Seattle Mariners,,Sweet Strokes
+sweet-strokes,SS10,Mark McGwire,Oakland Athletics,,Sweet Strokes
+sweet-strokes,SS11,Rafael Palmeiro,Baltimore Orioles,,Sweet Strokes
+sweet-strokes,SS12,Mike Piazza,Los Angeles Dodgers,,Sweet Strokes
+sweet-strokes,SS13,Gary Sheffield,Florida Marlins,,Sweet Strokes
+sweet-strokes,SS14,Frank Thomas,Chicago White Sox,,Sweet Strokes
+sweet-strokes,SS15,Mo Vaughn,Boston Red Sox,,Sweet Strokes
+team-timber,TT1,Ken Griffey Jr.,Seattle Mariners,,Team Timber
+team-timber,TT2,Ken Caminiti,San Diego Padres,,Team Timber
+team-timber,TT3,Bernie Williams,New York Yankees,,Team Timber
+team-timber,TT4,Jeff Bagwell,Houston Astros,,Team Timber
+team-timber,TT5,Frank Thomas,Chicago White Sox,,Team Timber
+team-timber,TT6,Andres Galarraga,Colorado Rockies,,Team Timber
+team-timber,TT7,Barry Bonds,San Francisco Giants,,Team Timber
+team-timber,TT8,Rafael Palmeiro,Baltimore Orioles,,Team Timber
+team-timber,TT9,Brady Anderson,Baltimore Orioles,,Team Timber
+team-timber,TT10,Juan Gonzalez,Texas Rangers,,Team Timber
+team-timber,TT11,Mo Vaughn,Boston Red Sox,,Team Timber
+team-timber,TT12,Mark McGwire,Oakland Athletics,,Team Timber
+team-timber,TT13,Gary Sheffield,Florida Marlins,,Team Timber
+team-timber,TT14,Albert Belle,Cleveland Indians,,Team Timber
+team-timber,TT15,Chipper Jones,Atlanta Braves,,Team Timber
+team-timber,TT16,Mike Piazza,Los Angeles Dodgers,,Team Timber
+mays-reprints,1,Willie Mays 1951 Bowman #305,New York Giants,,Willie Mays Commemorative Reprints
+mays-reprints,2,Willie Mays 1952 Topps #261,New York Giants,,Willie Mays Commemorative Reprints
+mays-reprints,3,Willie Mays 1953 Topps #244,New York Giants,,Willie Mays Commemorative Reprints
+mays-reprints,4,Willie Mays 1954 Bowman #89,New York Giants,,Willie Mays Commemorative Reprints
+mays-reprints,5,Willie Mays 1954 Topps #90,New York Giants,,Willie Mays Commemorative Reprints
+mays-reprints,6,Willie Mays 1955 Bowman #184,New York Giants,,Willie Mays Commemorative Reprints
+mays-reprints,7,Willie Mays 1955 Topps #194,New York Giants,,Willie Mays Commemorative Reprints
+mays-reprints,8,Willie Mays 1956 Topps #130,New York Giants,,Willie Mays Commemorative Reprints
+mays-reprints,9,Willie Mays 1957 Topps #10,New York Giants,,Willie Mays Commemorative Reprints
+mays-reprints,10,Willie Mays 1958 Topps #5,San Francisco Giants,,Willie Mays Commemorative Reprints
+mays-reprints,11,Willie Mays 1959 Topps #50,San Francisco Giants,,Willie Mays Commemorative Reprints
+mays-reprints,12,Willie Mays 1960 Topps #200,San Francisco Giants,,Willie Mays Commemorative Reprints
+mays-reprints,13,"Willie Mays AS1960 Topps ""Sport Magazine '60 All-Star Selection"" #564",San Francisco Giants,,Willie Mays Commemorative Reprints
+mays-reprints,14,Willie Mays 1961 Topps #150,San Francisco Giants,,Willie Mays Commemorative Reprints
+mays-reprints,15,"Willie Mays AS1961 Topps ""N. L. Sporting News All-Star"" #579",San Francisco Giants,,Willie Mays Commemorative Reprints
+mays-reprints,16,Willie Mays 1962 Topps #300,San Francisco Giants,,Willie Mays Commemorative Reprints
+mays-reprints,17,Willie Mays 1963 Topps #300,San Francisco Giants,,Willie Mays Commemorative Reprints
+mays-reprints,18,Willie Mays 1964 Topps #150,San Francisco Giants,,Willie Mays Commemorative Reprints
+mays-reprints,19,Willie Mays 1965 Topps #250,San Francisco Giants,,Willie Mays Commemorative Reprints
+mays-reprints,20,Willie Mays 1966 Topps #1,San Francisco Giants,,Willie Mays Commemorative Reprints
+mays-reprints,21,Willie Mays 1967 Topps #200,San Francisco Giants,,Willie Mays Commemorative Reprints
+mays-reprints,22,Willie Mays 1968 Topps #50,San Francisco Giants,,Willie Mays Commemorative Reprints
+mays-reprints,23,Willie Mays 1969 Topps #190,San Francisco Giants,,Willie Mays Commemorative Reprints
+mays-reprints,24,Willie Mays 1970 Topps #600,San Francisco Giants,,Willie Mays Commemorative Reprints
+mays-reprints,25,Willie Mays 1971 Topps #600,San Francisco Giants,,Willie Mays Commemorative Reprints
+mays-reprints,26,Willie Mays 1972 Topps #49,San Francisco Giants,,Willie Mays Commemorative Reprints
+mays-reprints,27,Willie Mays 1973 Topps #305,New York Mets,,Willie Mays Commemorative Reprints
+mays-autographs,1,Willie Mays AU1951 Bowman #305,New York Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,2,Willie Mays AU1952 Topps #261,New York Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,3,Willie Mays AU1953 Topps #244,New York Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,6,Willie Mays AU1955 Bowman #184,New York Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,7,Willie Mays AU1955 Topps #194,New York Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,9,Willie Mays AU1957 Topps #10,New York Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,10,Willie Mays AU1958 Topps #5,San Francisco Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,12,Willie Mays AU1960 Topps #200,San Francisco Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,13,"Willie Mays AS, AU1960 Topps ""Sport Magazine '60 All-Star Selection"" #564",San Francisco Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,14,Willie Mays AU1961 Topps #150,San Francisco Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,15,"Willie Mays AS, AU1961 Topps ""N. L. Sporting News All-Star"" #579",San Francisco Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,17,Willie Mays AU1963 Topps #300,San Francisco Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,18,Willie Mays AU1964 Topps #150,San Francisco Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,19,Willie Mays AU1965 Topps #250,San Francisco Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,20,Willie Mays AU1966 Topps #1,San Francisco Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,23,Willie Mays AU1969 Topps #190,San Francisco Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,24,Willie Mays AU1970 Topps #600,San Francisco Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,26,Willie Mays AU1972 Topps #49,San Francisco Giants,,Willie Mays Commemorative Reprints Autographs
+mays-autographs,27,Willie Mays AU1973 Topps #305,New York Mets,,Willie Mays Commemorative Reprints Autographs
+mays-finest,1,Willie Mays 1951 Bowman #305,New York Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,2,Willie Mays 1952 Topps #261,New York Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,3,Willie Mays 1953 Topps #244,New York Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,4,Willie Mays 1954 Bowman #89,New York Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,5,Willie Mays 1954 Topps #90,New York Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,6,Willie Mays 1955 Bowman #184,New York Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,7,Willie Mays 1955 Topps #194,New York Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,8,Willie Mays 1956 Topps #130,New York Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,9,Willie Mays 1957 Topps #10,New York Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,10,Willie Mays 1958 Topps #5,San Francisco Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,11,Willie Mays 1959 Topps #50,San Francisco Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,12,Willie Mays 1960 Topps #200,San Francisco Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,13,"Willie Mays AS1960 Topps ""Sport Magazine '60 All-Star Selection"" #564",San Francisco Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,14,Willie Mays 1961 Topps #150,San Francisco Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,15,"Willie Mays AS1961 Topps ""N. L. Sporting News All-Star"" #579",San Francisco Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,16,Willie Mays 1962 Topps #300,San Francisco Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,17,Willie Mays 1963 Topps #300,San Francisco Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,18,Willie Mays 1964 Topps #150,San Francisco Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,19,Willie Mays 1965 Topps #250,San Francisco Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,20,Willie Mays 1966 Topps #1,San Francisco Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,21,Willie Mays 1967 Topps #200,San Francisco Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,22,Willie Mays 1968 Topps #50,San Francisco Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,23,Willie Mays 1969 Topps #190,San Francisco Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,24,Willie Mays 1970 Topps #600,San Francisco Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,25,Willie Mays 1971 Topps #600,San Francisco Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,26,Willie Mays 1972 Topps #49,San Francisco Giants,,Willie Mays Commemorative Reprints Finest
+mays-finest,27,Willie Mays 1973 Topps #305,New York Mets,,Willie Mays Commemorative Reprints Finest
+mays-refractors,1,Willie Mays 1951 Bowman #305,New York Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,2,Willie Mays 1952 Topps #261,New York Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,3,Willie Mays 1953 Topps #244,New York Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,4,Willie Mays 1954 Bowman #89,New York Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,5,Willie Mays 1954 Topps #90,New York Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,6,Willie Mays 1955 Bowman #184,New York Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,7,Willie Mays 1955 Topps #194,New York Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,8,Willie Mays 1956 Topps #130,New York Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,9,Willie Mays 1957 Topps #10,New York Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,10,Willie Mays 1958 Topps #5,San Francisco Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,11,Willie Mays 1959 Topps #50,San Francisco Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,12,Willie Mays 1960 Topps #200,San Francisco Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,13,"Willie Mays AS1960 Topps ""Sport Magazine '60 All-Star Selection"" #564",San Francisco Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,14,Willie Mays 1961 Topps #150,San Francisco Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,15,"Willie Mays AS1961 Topps ""N. L. Sporting News All-Star"" #579",San Francisco Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,16,Willie Mays 1962 Topps #300,San Francisco Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,17,Willie Mays 1963 Topps #300,San Francisco Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,18,Willie Mays 1964 Topps #150,San Francisco Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,19,Willie Mays 1965 Topps #250,San Francisco Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,20,Willie Mays 1966 Topps #1,San Francisco Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,21,Willie Mays 1967 Topps #200,San Francisco Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,22,Willie Mays 1968 Topps #50,San Francisco Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,23,Willie Mays 1969 Topps #190,San Francisco Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,24,Willie Mays 1970 Topps #600,San Francisco Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,25,Willie Mays 1971 Topps #600,San Francisco Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,26,Willie Mays 1972 Topps #49,San Francisco Giants,,Willie Mays Commemorative Reprints Finest Refractors
+mays-refractors,27,Willie Mays 1973 Topps #305,New York Mets,,Willie Mays Commemorative Reprints Finest Refractors
+mays-sealed,1,Willie Mays 1951 Bowman #305,New York Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,2,Willie Mays 1952 Topps #261,New York Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,3,Willie Mays 1953 Topps #244,New York Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,4,Willie Mays 1954 Bowman #89,New York Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,5,Willie Mays 1954 Topps #90,New York Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,6,Willie Mays 1955 Bowman #184,New York Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,7,Willie Mays 1955 Topps #194,New York Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,8,Willie Mays 1956 Topps #130,New York Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,9,Willie Mays 1957 Topps #10,New York Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,10,Willie Mays 1958 Topps #5,San Francisco Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,11,Willie Mays 1959 Topps #50,San Francisco Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,12,Willie Mays 1960 Topps #200,San Francisco Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,13,"Willie Mays AS1960 Topps ""Sport Magazine '60 All-Star Selection"" #564",San Francisco Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,14,Willie Mays 1961 Topps #150,San Francisco Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,15,"Willie Mays AS1961 Topps ""N. L. Sporting News All-Star"" #579",San Francisco Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,16,Willie Mays 1962 Topps #300,San Francisco Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,17,Willie Mays 1963 Topps #300,San Francisco Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,18,Willie Mays 1964 Topps #150,San Francisco Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,19,Willie Mays 1965 Topps #250,San Francisco Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,20,Willie Mays 1966 Topps #1,San Francisco Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,21,Willie Mays 1967 Topps #200,San Francisco Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,22,Willie Mays 1968 Topps #50,San Francisco Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,23,Willie Mays 1969 Topps #190,San Francisco Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,24,Willie Mays 1970 Topps #600,San Francisco Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,25,Willie Mays 1971 Topps #600,San Francisco Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,26,Willie Mays 1972 Topps #49,San Francisco Giants,,Willie Mays Commemorative Reprints Sealed
+mays-sealed,27,Willie Mays 1973 Topps #305,New York Mets,,Willie Mays Commemorative Reprints Sealed
