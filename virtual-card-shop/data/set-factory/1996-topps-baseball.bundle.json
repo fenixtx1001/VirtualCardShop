@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/803/1996-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/803/1996-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/803/1996-Topps"
+  },
+  "decisions": {
+    "release": "Unreleased; artwork, values, pack odds and series-specific distribution pending.",
+    "rookies": "TCDB rookie index 34 records; generator cross-checks unique numbered Base subjects and marks RC.",
+    "series": "Series 1 base 1–220; Series 2 base 221–440; inserts exclusive to series/channel require QA.",
+    "mantle": "Factory-sealed Mantle reprints and Last Day Production are separate collectible variants but excluded from wax-pack rotation pending alternate acquisition mechanism.",
+    "sweepstakes": "Physical pack-issued entries indexed but redemption mechanics not implemented.",
+    "power": "Number 7 intentionally absent in the 25-card Power Boosters set.",
+    "exclusions": "Topps Vault retrospective proof cards, pre-production promotional release, extra-year 1996 Bowman and 1997 Topps inserts omitted."
+  },
+  "product": {
+    "id": "1996_Topps_Baseball",
+    "year": 1996,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 12,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "seriesCollation": "PENDING",
+    "images": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1996-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1996_Topps_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "sourceSetId": 803,
+      "expectedCards": 440,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/803/1996-Topps",
+      "notes": null
+    },
+    {
+      "key": "classic-confrontations",
+      "id": "1996_Topps_Baseball_classic_confrontations",
+      "name": "Classic Confrontations",
+      "kind": "INSERT",
+      "sourceSetId": 805,
+      "expectedCards": 15,
+      "oddsPerPack": 1,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/805/1996-Topps",
+      "notes": null
+    },
+    {
+      "key": "master-of-the-game",
+      "id": "1996_Topps_Baseball_master_of_the_game",
+      "name": "Master of the Game",
+      "kind": "INSERT",
+      "sourceSetId": 806,
+      "expectedCards": 20,
+      "oddsPerPack": 18,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/806/1996-Topps",
+      "notes": null
+    },
+    {
+      "key": "mantle-last-day-production",
+      "id": "1996_Topps_Baseball_mantle_last_day_production",
+      "name": "Mickey Mantle Last Day Production",
+      "kind": "INSERT",
+      "sourceSetId": 307427,
+      "expectedCards": 1,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/307427/1996-Topps",
+      "notes": "Factory/case distribution; not ordinary packs"
+    },
+    {
+      "key": "mantle-reprints",
+      "id": "1996_Topps_Baseball_mantle_reprints",
+      "name": "Mickey Mantle Commemorative Reprints",
+      "kind": "INSERT",
+      "sourceSetId": 809,
+      "expectedCards": 19,
+      "oddsPerPack": 9,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/809/1996-Topps",
+      "notes": null
+    },
+    {
+      "key": "mantle-finest",
+      "id": "1996_Topps_Baseball_mantle_finest",
+      "name": "Mickey Mantle Reprints Finest",
+      "kind": "INSERT",
+      "sourceSetId": 10804,
+      "expectedCards": 19,
+      "oddsPerPack": 18,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10804/1996-Topps",
+      "notes": null
+    },
+    {
+      "key": "mantle-finest-refractors",
+      "id": "1996_Topps_Baseball_mantle_finest_refractors",
+      "name": "Mickey Mantle Reprints Finest Refractors",
+      "kind": "INSERT",
+      "sourceSetId": 9115,
+      "expectedCards": 19,
+      "oddsPerPack": 96,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9115/1996-Topps",
+      "notes": null
+    },
+    {
+      "key": "mantle-sealed",
+      "id": "1996_Topps_Baseball_mantle_sealed",
+      "name": "Mickey Mantle Reprints Factory Sealed",
+      "kind": "INSERT",
+      "sourceSetId": 807,
+      "expectedCards": 19,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/807/1996-Topps",
+      "notes": "Factory/case distribution; not ordinary packs"
+    },
+    {
+      "key": "mantle-sweepstakes",
+      "id": "1996_Topps_Baseball_mantle_sweepstakes",
+      "name": "Mickey Mantle Sweepstakes Entries",
+      "kind": "INSERT",
+      "sourceSetId": 808,
+      "expectedCards": 19,
+      "oddsPerPack": 108,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/808/1996-Topps",
+      "notes": null
+    },
+    {
+      "key": "mystery-finest",
+      "id": "1996_Topps_Baseball_mystery_finest",
+      "name": "Mystery Finest",
+      "kind": "INSERT",
+      "sourceSetId": 810,
+      "expectedCards": 26,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/810/1996-Topps",
+      "notes": null
+    },
+    {
+      "key": "mystery-finest-refractors",
+      "id": "1996_Topps_Baseball_mystery_finest_refractors",
+      "name": "Mystery Finest Refractors",
+      "kind": "INSERT",
+      "sourceSetId": 10805,
+      "expectedCards": 26,
+      "oddsPerPack": 216,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10805/1996-Topps",
+      "notes": null
+    },
+    {
+      "key": "power-boosters",
+      "id": "1996_Topps_Baseball_power_boosters",
+      "name": "Power Boosters",
+      "kind": "INSERT",
+      "sourceSetId": 811,
+      "expectedCards": 25,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/811/1996-Topps",
+      "notes": null
+    },
+    {
+      "key": "profiles-al",
+      "id": "1996_Topps_Baseball_profiles_al",
+      "name": "ProFiles by Kirby Puckett (AL)",
+      "kind": "INSERT",
+      "sourceSetId": 812,
+      "expectedCards": 20,
+      "oddsPerPack": 12,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/812/1996-Topps",
+      "notes": null
+    },
+    {
+      "key": "profiles-nl",
+      "id": "1996_Topps_Baseball_profiles_nl",
+      "name": "ProFiles by Tony Gwynn (NL)",
+      "kind": "INSERT",
+      "sourceSetId": 813,
+      "expectedCards": 20,
+      "oddsPerPack": 12,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/813/1996-Topps",
+      "notes": null
+    },
+    {
+      "key": "road-warriors",
+      "id": "1996_Topps_Baseball_road_warriors",
+      "name": "Road Warriors",
+      "kind": "INSERT",
+      "sourceSetId": 10806,
+      "expectedCards": 20,
+      "oddsPerPack": 1,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10806/1996-Topps",
+      "notes": null
+    },
+    {
+      "key": "wrecking-crew",
+      "id": "1996_Topps_Baseball_wrecking_crew",
+      "name": "Wrecking Crew",
+      "kind": "INSERT",
+      "sourceSetId": 814,
+      "expectedCards": 15,
+      "oddsPerPack": 18,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/814/1996-Topps",
+      "notes": null
+    }
+  ]
+}
