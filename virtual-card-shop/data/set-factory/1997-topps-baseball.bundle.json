@@ -1,0 +1,273 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1048/1997-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1048/1997-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/1048/1997-Topps"
+  },
+  "decisions": {
+    "base": "495 physically distinct Base cards. #7 retired; missing #84 and #277; two cards each numbered 61 and 276 recorded as 61a/b and 276a/b.",
+    "rookies": "30 TCDB rookie card records; deduplicate only exact same card identities.",
+    "series": "Series 1 through #276a (checklist), Series 2 begins #276b (Chipper Jones) and runs through #496.",
+    "variants": "Upside-down back Prospects 200–207 are collector variations within Base and not separate numbered ProductSets.",
+    "distribution": "Mantle/Mays sealed inserts are case-distributed, oversized cards retail repack items; not regular wax.",
+    "promos": "Pre-production PP promo excluded; 20 TCDB insert families retained.",
+    "release": "Unreleased until pack collation, photo assets, pricing, authenticity and odds QA."
+  },
+  "product": {
+    "id": "1997_Topps_Baseball",
+    "year": 1997,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 11,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "seriesCollation": "PENDING",
+    "caseOnlyDistribution": "PENDING",
+    "images": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1997-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1997_Topps_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "sourceSetId": 1048,
+      "expectedCards": 495,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1048/1997-Topps",
+      "notes": null
+    },
+    {
+      "key": "all-stars-96",
+      "id": "1997_Topps_Baseball_all_stars_96",
+      "name": "All-Stars '96",
+      "kind": "INSERT",
+      "sourceSetId": 1049,
+      "expectedCards": 22,
+      "oddsPerPack": 18,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1049/1997-Topps",
+      "notes": null
+    },
+    {
+      "key": "awesome-impact",
+      "id": "1997_Topps_Baseball_awesome_impact",
+      "name": "Awesome Impact",
+      "kind": "INSERT",
+      "sourceSetId": 1050,
+      "expectedCards": 20,
+      "oddsPerPack": 18,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1050/1997-Topps",
+      "notes": null
+    },
+    {
+      "key": "jeter-roty-autograph",
+      "id": "1997_Topps_Baseball_jeter_roty_autograph",
+      "name": "Derek Jeter Rookie of the Year Autograph",
+      "kind": "INSERT",
+      "sourceSetId": 308478,
+      "expectedCards": 1,
+      "oddsPerPack": 576,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/308478/1997-Topps",
+      "notes": null
+    },
+    {
+      "key": "hobby-masters",
+      "id": "1997_Topps_Baseball_hobby_masters",
+      "name": "Hobby Masters",
+      "kind": "INSERT",
+      "sourceSetId": 1051,
+      "expectedCards": 20,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1051/1997-Topps",
+      "notes": null
+    },
+    {
+      "key": "inter-league-finest",
+      "id": "1997_Topps_Baseball_inter_league_finest",
+      "name": "Inter-League Match-Up Finest",
+      "kind": "INSERT",
+      "sourceSetId": 1052,
+      "expectedCards": 14,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1052/1997-Topps",
+      "notes": null
+    },
+    {
+      "key": "inter-league-refractors",
+      "id": "1997_Topps_Baseball_inter_league_refractors",
+      "name": "Inter-League Match-Up Finest Refractors",
+      "kind": "INSERT",
+      "sourceSetId": 10970,
+      "expectedCards": 14,
+      "oddsPerPack": 216,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10970/1997-Topps",
+      "notes": null
+    },
+    {
+      "key": "mantle-reprints",
+      "id": "1997_Topps_Baseball_mantle_reprints",
+      "name": "Mickey Mantle Commemorative Reprints",
+      "kind": "INSERT",
+      "sourceSetId": 1055,
+      "expectedCards": 16,
+      "oddsPerPack": 12,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1055/1997-Topps",
+      "notes": null
+    },
+    {
+      "key": "mantle-finest",
+      "id": "1997_Topps_Baseball_mantle_finest",
+      "name": "Mickey Mantle Commemorative Reprints Finest",
+      "kind": "INSERT",
+      "sourceSetId": 1053,
+      "expectedCards": 16,
+      "oddsPerPack": 24,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1053/1997-Topps",
+      "notes": null
+    },
+    {
+      "key": "mantle-refractors",
+      "id": "1997_Topps_Baseball_mantle_refractors",
+      "name": "Mickey Mantle Commemorative Reprints Finest Refractors",
+      "kind": "INSERT",
+      "sourceSetId": 1054,
+      "expectedCards": 16,
+      "oddsPerPack": 216,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1054/1997-Topps",
+      "notes": null
+    },
+    {
+      "key": "mantle-sealed",
+      "id": "1997_Topps_Baseball_mantle_sealed",
+      "name": "Mickey Mantle Commemorative Reprints Sealed",
+      "kind": "INSERT",
+      "sourceSetId": 560736,
+      "expectedCards": 16,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/560736/1997-Topps",
+      "notes": "Case-only; NOT ordinary wax"
+    },
+    {
+      "key": "oversized-4x6",
+      "id": "1997_Topps_Baseball_oversized_4x6",
+      "name": "Oversized 4x6",
+      "kind": "INSERT",
+      "sourceSetId": 232420,
+      "expectedCards": 3,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/232420/1997-Topps",
+      "notes": "Walmart repack only; NOT ordinary wax"
+    },
+    {
+      "key": "oversized-mays-4x6",
+      "id": "1997_Topps_Baseball_oversized_mays_4x6",
+      "name": "Oversized Willie Mays Commemorative Reprint 4x6",
+      "kind": "INSERT",
+      "sourceSetId": 308479,
+      "expectedCards": 1,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/308479/1997-Topps",
+      "notes": "Walmart repack only; NOT ordinary wax"
+    },
+    {
+      "key": "seasons-best",
+      "id": "1997_Topps_Baseball_seasons_best",
+      "name": "Season's Best",
+      "kind": "INSERT",
+      "sourceSetId": 1058,
+      "expectedCards": 25,
+      "oddsPerPack": 6,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1058/1997-Topps",
+      "notes": null
+    },
+    {
+      "key": "sweet-strokes",
+      "id": "1997_Topps_Baseball_sweet_strokes",
+      "name": "Sweet Strokes",
+      "kind": "INSERT",
+      "sourceSetId": 1064,
+      "expectedCards": 15,
+      "oddsPerPack": 12,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1064/1997-Topps",
+      "notes": null
+    },
+    {
+      "key": "team-timber",
+      "id": "1997_Topps_Baseball_team_timber",
+      "name": "Team Timber",
+      "kind": "INSERT",
+      "sourceSetId": 1065,
+      "expectedCards": 16,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1065/1997-Topps",
+      "notes": null
+    },
+    {
+      "key": "mays-reprints",
+      "id": "1997_Topps_Baseball_mays_reprints",
+      "name": "Willie Mays Commemorative Reprints",
+      "kind": "INSERT",
+      "sourceSetId": 1068,
+      "expectedCards": 27,
+      "oddsPerPack": 8,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1068/1997-Topps",
+      "notes": null
+    },
+    {
+      "key": "mays-autographs",
+      "id": "1997_Topps_Baseball_mays_autographs",
+      "name": "Willie Mays Commemorative Reprints Autographs",
+      "kind": "INSERT",
+      "sourceSetId": 10971,
+      "expectedCards": 19,
+      "oddsPerPack": 2400,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10971/1997-Topps",
+      "notes": null
+    },
+    {
+      "key": "mays-finest",
+      "id": "1997_Topps_Baseball_mays_finest",
+      "name": "Willie Mays Commemorative Reprints Finest",
+      "kind": "INSERT",
+      "sourceSetId": 1066,
+      "expectedCards": 27,
+      "oddsPerPack": 20,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1066/1997-Topps",
+      "notes": null
+    },
+    {
+      "key": "mays-refractors",
+      "id": "1997_Topps_Baseball_mays_refractors",
+      "name": "Willie Mays Commemorative Reprints Finest Refractors",
+      "kind": "INSERT",
+      "sourceSetId": 1067,
+      "expectedCards": 27,
+      "oddsPerPack": 180,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1067/1997-Topps",
+      "notes": null
+    },
+    {
+      "key": "mays-sealed",
+      "id": "1997_Topps_Baseball_mays_sealed",
+      "name": "Willie Mays Commemorative Reprints Sealed",
+      "kind": "INSERT",
+      "sourceSetId": 560737,
+      "expectedCards": 27,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/560737/1997-Topps",
+      "notes": "Case-only; NOT ordinary wax"
+    }
+  ]
+}
