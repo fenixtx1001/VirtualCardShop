@@ -26,6 +26,7 @@ class Rows(HTMLParser):
    self.row=None
 def clean(s):
  s=" ".join(s.split()).strip()
+ s=re.sub(r",?\s*(?:ERRERR|CORCOR):.*$","",s,flags=re.I)
  m=ANNO.search(s)
  return s[:m.start()].strip(" ,;") if m else s
 def fetch(url):
@@ -50,7 +51,7 @@ def collect(key,sid,expected,rookies=False):
    for i,n in enumerate(cells):
     if not NUMBER.fullmatch(n) or i+1>=len(cells):continue
     if rookies and not n.isdigit():continue
-    cardno=str(int(n)) if n.isdigit() else n.upper()
+    cardno=str(int(n)) if n.isdigit() else (n[:-1]+n[-1].lower() if re.fullmatch(r"\d+[a-z]",n,re.I) else n.upper())
     player=clean(cells[i+1]);team=cells[-1] if i+2<len(cells) else ""
     if team==cells[i+1]:team=""
     if player:new.append((cardno,player,team))
@@ -70,7 +71,7 @@ def collapse(key,raw):
    # They are one checklist identity each, unlike the two distinct
    # subjects printed as #61 and #276.
    normalized=number
-   if re.fullmatch(r"10[12][AB]",number,re.I):normalized=number[:-1]
+   if re.fullmatch(r"10[12][ab]",number,re.I):normalized=number[:-1]
    duplicates[normalized].append((player,team))
   for number,entries in duplicates.items():
    if len(entries)==1:out[number]=entries[0]
@@ -96,6 +97,8 @@ def self_test():
  assert not e and set(a)=={"61a","61b","276a","276b"}
  b,e=collapse("base",[("101","Al Leiter SH","Florida Marlins"),("101","Al Leiter SH","Florida Marlins"),("102","John Mabry SH","St. Louis Cardinals"),("102","John Mabry SH","St. Louis Cardinals")])
  assert not e and set(b)=={"101","102"}
+ assert clean('Al Leiter SH, ERRERR: Last word in write up is "Charles"')=="Al Leiter SH"
+ assert clean('John Mabry SH, CORCOR: Last sentence is complete')=="John Mabry SH"
  print("1997 Topps offline self-tests passed")
 def main():
  bundle=json.loads(BUNDLE.read_text(encoding="utf-8"))
