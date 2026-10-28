@@ -27,7 +27,7 @@ class Rows(HTMLParser):
 def clean(s):
  s=" ".join(s.split()).strip()
  # TCDB appends detailed RC notes after PROS on multi-player cards.
- s=re.sub(r",?\s*RCRC for [^,]+(?: only\.)?$","",s,flags=re.I)
+ s=re.sub(r",?\s*RCRC for .*? only\.?$","",s,flags=re.I)
  s=re.sub(r"(?<=\w)(PROS)(?=,|$)",r" PROS",s) if not re.search(r"\sPROS(?:,|$)",s) else s
  for before,after in (("AdamRiggs","Adam Riggs"),("RayRicken","Ray Ricken")):s=s.replace(before,after)
  m=ANNO.search(s)
@@ -76,6 +76,7 @@ def check():
  assert clean("Sean Casey DPK, RC")=="Sean Casey"
  assert clean("Matt Drews / Rich Hunter / Matt Ruebel / Bret Wagner PROS, RCRC for Hunter and Ruebel only.")=="Matt Drews / Rich Hunter / Matt Ruebel / Bret Wagner PROS"
  assert clean("Kevin Jordan / Bobby Morris / Desi Relaford / AdamRiggs PROS, RCRC for Morris and Riggs only")=="Kevin Jordan / Bobby Morris / Desi Relaford / Adam Riggs PROS"
+ assert clean("Anton French / Demond Smith / Darond Stovall / Keith Williams PROS, RCRC for French, Smith and Stovall only.")=="Anton French / Demond Smith / Darond Stovall / Keith Williams PROS"
  assert NUMBER.fullmatch("NL-20") and NUMBER.fullmatch("CC15") and NUMBER.fullmatch("NNO")
  print("1996 Topps offline self-tests passed")
 def run():
