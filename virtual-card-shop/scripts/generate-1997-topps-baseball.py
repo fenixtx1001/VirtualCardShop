@@ -71,7 +71,7 @@ def collapse(key,raw):
    # They are one checklist identity each, unlike the two distinct
    # subjects printed as #61 and #276.
    normalized=number
-   if re.fullmatch(r"10[12][ab]",number,re.I):normalized=number[:-1]
+   if re.fullmatch(r"(?:61|276|101|102)[ab]",number,re.I):normalized=re.match(r"\d+",number).group()
    duplicates[normalized].append((player,team))
   for number,entries in duplicates.items():
    if len(entries)==1:out[number]=entries[0]
@@ -97,6 +97,8 @@ def self_test():
  assert not e and set(a)=={"61a","61b","276a","276b"}
  b,e=collapse("base",[("101","Al Leiter SH","Florida Marlins"),("101","Al Leiter SH","Florida Marlins"),("102","John Mabry SH","St. Louis Cardinals"),("102","John Mabry SH","St. Louis Cardinals")])
  assert not e and set(b)=={"101","102"}
+ c,e=collapse("base",[("61","Player One","Team A"),("61b","Player Two","Team B"),("276","Checklist",""),("276b","Chipper Jones","Atlanta Braves")])
+ assert not e and set(c)=={"61a","61b","276a","276b"}
  assert clean('Al Leiter SH, ERRERR: Last word in write up is "Charles"')=="Al Leiter SH"
  assert clean('John Mabry SH, CORCOR: Last sentence is complete')=="John Mabry SH"
  print("1997 Topps offline self-tests passed")
