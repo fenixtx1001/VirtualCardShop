@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1115/1997-Zenith",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1115/1997-Zenith",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/1115/1997-Zenith"
+  },
+  "decisions": {
+    "base": "50 Base standard-size cards. TCDB indexes only two true RC: Hideki Irabu #45 and Jose Cruz Jr. #47.",
+    "oversized": "24 glossy oversized 8x10 and 24 Dufex oversized 8x10, distinct checklists with numbered subjects not aligned to base numbers.",
+    "collation": "Historical packs contain five regular Base plus one glossy oversized and one Dufex oversized; 10 packs per box; two additional insert families V2 1:47 and Z-Team 1:99.",
+    "rarity": "Z-Team numbered /1000. Oversized 8x10 parallels cannot be modeled as equivalent base-number parallel because their numbering and subjects differ.",
+    "exclusions": "Oversized Dufex Samples, The Big Picture previews and standard Samples are promos, excluded from wax.",
+    "release": "Unreleased pending oversized image display, 7-card pack slot and odds implementation, pricing and QA."
+  },
+  "product": {
+    "id": "1997_Zenith_Baseball",
+    "year": 1997,
+    "brand": "Zenith",
+    "sport": "Baseball",
+    "cardsPerPack": 7,
+    "packsPerBox": 10,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "packCollation": "PENDING",
+    "oversizedUX": "PENDING",
+    "images": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1997-zenith-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1997_Zenith_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "sourceSetId": 1115,
+      "expectedCards": 50,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1115/1997-Zenith",
+      "notes": "Standard-size; 5 per original pack"
+    },
+    {
+      "key": "oversized-8x10",
+      "id": "1997_Zenith_Baseball_oversized_8x10",
+      "name": "Oversized 8x10",
+      "kind": "INSERT",
+      "sourceSetId": 1116,
+      "expectedCards": 24,
+      "oddsPerPack": 1,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1116/1997-Zenith",
+      "notes": "8x10 guaranteed one per pack of each type"
+    },
+    {
+      "key": "oversized-dufex-8x10",
+      "id": "1997_Zenith_Baseball_oversized_dufex_8x10",
+      "name": "Oversized Dufex 8x10",
+      "kind": "INSERT",
+      "sourceSetId": 10991,
+      "expectedCards": 24,
+      "oddsPerPack": 1,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10991/1997-Zenith",
+      "notes": "8x10 guaranteed one per pack of each type"
+    },
+    {
+      "key": "oversized-v2-8x10",
+      "id": "1997_Zenith_Baseball_oversized_v2_8x10",
+      "name": "Oversized V2 8x10",
+      "kind": "INSERT",
+      "sourceSetId": 1117,
+      "expectedCards": 8,
+      "oddsPerPack": 47,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1117/1997-Zenith",
+      "notes": null
+    },
+    {
+      "key": "oversized-z-team-8x10",
+      "id": "1997_Zenith_Baseball_oversized_z_team_8x10",
+      "name": "Oversized Z-Team 8x10",
+      "kind": "INSERT",
+      "sourceSetId": 1118,
+      "expectedCards": 9,
+      "oddsPerPack": 99,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1118/1997-Zenith",
+      "notes": "8x10 /1000"
+    }
+  ]
+}
