@@ -27,7 +27,7 @@ class TableRows(HTMLParser):
 def clean(s):
  s=" ".join(s.split()).strip()
  s=re.sub(r",?\s*(?:RCRC|ERRERR|CORCOR|VARVAR|UERUER)(?::|\s).*?$","",s,flags=re.I)
- s=re.sub(r"\s*(?:ASR|SH|ILP|IPV|CL)(?=\s|,|$)","",s,flags=re.I)
+ s=re.sub(r"\s*(?:ASR|SH|ILP|IPL|IPV|CL)(?=\s|,|$)","",s,flags=re.I)
  s=re.sub(r"\s+(?:WS|FOIL)(?=\s|,|$)","",s,flags=re.I)
  s=re.sub(r"\s*,\s*$","",s)
  s=s.replace("card hasthe trophy","card has the trophy").replace("thetrophy","the trophy")
@@ -93,6 +93,8 @@ def test():
  assert clean("Checklist: 1-195 CL, UERUER: Card number missing")=="Checklist: 1-195"
  assert clean("Pedro Martinez UERUER: Born 7/25, should be 10/25")=="Pedro Martinez"
  assert clean("Chuck Knoblauch ILP")=="Chuck Knoblauch"
+ assert clean("Chuck Knoblauch IPL")=="Chuck Knoblauch"
+ assert clean("Pedro Martinez IPL")=="Pedro Martinez"
  assert clean("Moises Alou WS, FOIL")=="Moises Alou"
  assert identity_equivalent("256",("Kerry Wood / Carl Pavano / Gil Meche","Team"),("Carl Pavano / Gil Meche / Kerry Wood","Team"))
  assert not identity_equivalent("256",("Kerry Wood / Carl Pavano / Gil Meche","Team"),("Other Players","Team"))
