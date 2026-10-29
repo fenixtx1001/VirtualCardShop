@@ -26,7 +26,12 @@ class TableRows(HTMLParser):
    self.row=None
 def clean(s):
  s=" ".join(s.split()).strip()
- s=re.sub(r",?\s*(?:RCRC|ERRERR|CORCOR|VARVAR):.*$","",s,flags=re.I)
+ s=re.sub(r",?\s*(?:RCRC|ERRERR|CORCOR|VARVAR|UERUER)(?::|\s).*?$","",s,flags=re.I)
+ s=re.sub(r"\s*(?:ASR|SH|ILP|IPV|CL)(?=\s|,|$)","",s,flags=re.I)
+ s=re.sub(r"\s+(?:WS|FOIL)(?=\s|,|$)","",s,flags=re.I)
+ s=re.sub(r"\s*,\s*$","",s)
+ s=s.replace("card hasthe trophy","card has the trophy").replace("thetrophy","the trophy")
+ s=s.replace("Player not a Topps All-Star Rookie but card has the trophy","").strip(" ,")
  m=NOTES.search(s)
  return s[:m.start()].strip(" ,;") if m else s
 def fetch(url):
@@ -56,7 +61,13 @@ def collect(key,sid,expected,rookies=False):
     if team==cells[i+1]:team=""
     if not player:continue
     new+=1;rows_seen+=1
-    if num=="NNO":nno+=1;num=f"NNO-{nno:02d}"
+    if num=="NNO":
+     nno+=1
+     if key in ("base","inaugural-devil-rays","inaugural-diamondbacks","minted-cooperstown"):
+      if nno>2:errors.append(f"{key}: unexpected third unnumbered checklist")
+      num=str(274+nno)
+      if "Checklist" not in player:errors.append(f"{key}: unnumbered #{num} is not a checklist: {player!r}")
+     else:num=f"NNO-{nno:02d}"
     value=(player,team)
     if num in found and found[num]!=value:errors.append(f"{key} #{num}: {found[num]!r} conflicts with {value!r}")
     elif num in found:errors.append(f"{key} #{num}: duplicate source row")
@@ -70,6 +81,11 @@ def collect(key,sid,expected,rookies=False):
 def test():
  assert clean("Rich Loiselle RC")=="Rich Loiselle"
  assert clean("A.J. Hinch / Mark Osborne / Robert Fick PROS, RC")=="A.J. Hinch / Mark Osborne / Robert Fick"
+ assert clean("Randy Johnson SH")=="Randy Johnson"
+ assert clean("Checklist: 1-195 CL, UERUER: Card number missing")=="Checklist: 1-195"
+ assert clean("Pedro Martinez UERUER: Born 7/25, should be 10/25")=="Pedro Martinez"
+ assert clean("Chuck Knoblauch ILP")=="Chuck Knoblauch"
+ assert clean("Moises Alou WS, FOIL")=="Moises Alou"
  assert NUMBER.fullmatch("ILM20") and NUMBER.fullmatch("RC5") and NUMBER.fullmatch("NNO")
  print("1998 Topps offline self-tests passed")
 def main():
@@ -86,7 +102,7 @@ def main():
   for n,value in source[key].items():
    if value!=base.get(n):errors.append(f"{key} #{n}: differs from Base {value!r} != {base.get(n)!r}")
  coop={str(i) for i in range(1,504) if i!=7}
- if set(source["minted-cooperstown"])!=coop:errors.append("Minted in Cooperstown must exclude #7 and #504")
+ if set(source["minted-cooperstown"])!=coop:errors.append(f"Minted in Cooperstown numbering: missing {sorted(coop-set(source['minted-cooperstown']))[:10]}, extra {sorted(set(source['minted-cooperstown'])-coop)[:10]}")
  for n,value in source["minted-cooperstown"].items():
   if value!=base.get(n):errors.append(f"Minted in Cooperstown #{n}: differs from Base")
  if set(rookies)!=set(rookies).intersection(printed):errors.append("Rookies outside Base numbering")
