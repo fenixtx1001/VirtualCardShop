@@ -1,0 +1,2358 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Tony Gwynn,San Diego Padres,Series 1,
+base,2,Larry Walker,Colorado Rockies,Series 1,
+base,3,Billy Wagner,Houston Astros,Series 1,
+base,4,Denny Neagle,Atlanta Braves,Series 1,
+base,5,Vladimir Guerrero,Montreal Expos,Series 1,
+base,6,Kevin Brown,Florida Marlins,Series 1,
+base,8,Mariano Rivera,New York Yankees,Series 1,
+base,9,Tony Clark,Detroit Tigers,Series 1,
+base,10,Deion Sanders,Cincinnati Reds,Series 1,
+base,11,Francisco Cordova,Pittsburgh Pirates,Series 1,
+base,12,Matt Williams,Cleveland Indians,Series 1,
+base,13,Carlos Baerga,New York Mets,Series 1,
+base,14,Mo Vaughn,Boston Red Sox,Series 1,
+base,15,Bobby Witt,Texas Rangers,Series 1,
+base,16,Matt Stairs,Oakland Athletics,Series 1,
+base,17,Chan Ho Park,Los Angeles Dodgers,Series 1,
+base,18,Mike Bordick,Baltimore Orioles,Series 1,
+base,19,Michael Tucker,Atlanta Braves,Series 1,
+base,20,Frank Thomas,Chicago White Sox,Series 1,
+base,21,Roberto Clemente,Pittsburgh Pirates,Series 1,
+base,22,Dmitri Young,St. Louis Cardinals,Series 1,
+base,23,Steve Trachsel,Chicago Cubs,Series 1,
+base,24,Jeff Kent,San Francisco Giants,Series 1,
+base,25,Scott Rolen,Philadelphia Phillies,Series 1,
+base,26,John Thomson,Colorado Rockies,Series 1,
+base,27,Joe Vitiello,Kansas City Royals,Series 1,
+base,28,Eddie Guardado,Minnesota Twins,Series 1,
+base,29,Charlie Hayes,New York Yankees,Series 1,
+base,30,Juan Gonzalez,Texas Rangers,Series 1,
+base,31,Garret Anderson,Anaheim Angels,Series 1,
+base,32,John Jaha,Milwaukee Brewers,Series 1,
+base,33,Omar Vizquel,Cleveland Indians,Series 1,
+base,34,Brian Hunter,Detroit Tigers,Series 1,
+base,35,Jeff Bagwell,Houston Astros,Series 1,
+base,36,Mark Lemke,Atlanta Braves,Series 1,
+base,37,Doug Glanville,Chicago Cubs,Series 1,
+base,38,Dan Wilson,Seattle Mariners,Series 1,
+base,39,Steve Cooke,Pittsburgh Pirates,Series 1,
+base,40,Chili Davis,Kansas City Royals,Series 1,
+base,41,Mike Cameron,Chicago White Sox,Series 1,
+base,42,F.P. Santangelo,Montreal Expos,Series 1,
+base,43,Brad Ausmus,Houston Astros,Series 1,
+base,44,Gary DiSarcina,Anaheim Angels,Series 1,
+base,45,Pat Hentgen,Toronto Blue Jays,Series 1,
+base,46,Wilton Guerrero,Los Angeles Dodgers,Series 1,
+base,47,Devon White,Florida Marlins,Series 1,
+base,48,Danny Patterson,Texas Rangers,Series 1,
+base,49,Pat Meares,Minnesota Twins,Series 1,
+base,50,Rafael Palmeiro,Baltimore Orioles,Series 1,
+base,51,Mark Gardner,San Francisco Giants,Series 1,
+base,52,Jeff Blauser,Atlanta Braves,Series 1,
+base,53,Dave Hollins,Anaheim Angels,Series 1,
+base,54,Carlos Garcia,Toronto Blue Jays,Series 1,
+base,55,Ben McDonald,Milwaukee Brewers,Series 1,
+base,56,John Mabry,St. Louis Cardinals,Series 1,
+base,57,Trevor Hoffman,San Diego Padres,Series 1,
+base,58,Tony Fernandez,Cleveland Indians,Series 1,
+base,59,Rich Loiselle RC,Pittsburgh Pirates,Series 1,
+base,60,Mark Leiter,Philadelphia Phillies,Series 1,
+base,61,Pat Kelly,New York Yankees,Series 1,
+base,62,John Flaherty,San Diego Padres,Series 1,
+base,63,Roger Bailey,Colorado Rockies,Series 1,
+base,64,Tom Gordon,Boston Red Sox,Series 1,
+base,65,Ryan Klesko,Atlanta Braves,Series 1,
+base,66,Darryl Hamilton,San Francisco Giants,Series 1,
+base,67,Jim Eisenreich,Florida Marlins,Series 1,
+base,68,Butch Huskey,New York Mets,Series 1,
+base,69,Mark Grudzielanek,Montreal Expos,Series 1,
+base,70,Marquis Grissom,Cleveland Indians,Series 1,
+base,71,Mark McLemore,Texas Rangers,Series 1,
+base,72,Gary Gaetti,St. Louis Cardinals,Series 1,
+base,73,Greg Gagne,Los Angeles Dodgers,Series 1,
+base,74,Lyle Mouton,Chicago White Sox,Series 1,
+base,75,Jim Edmonds,Anaheim Angels,Series 1,
+base,76,Shawn Green,Toronto Blue Jays,Series 1,
+base,77,Greg Vaughn,San Diego Padres,Series 1,
+base,78,Terry Adams,Chicago Cubs,Series 1,
+base,79,Kevin Polcovich,Pittsburgh Pirates,Series 1,
+base,80,Troy O'Leary,Boston Red Sox,Series 1,
+base,81,Jeff Shaw,Cincinnati Reds,Series 1,
+base,82,Rich Becker,Minnesota Twins,Series 1,
+base,83,David Wells,New York Yankees,Series 1,
+base,84,Steve Karsay,Oakland Athletics,Series 1,
+base,85,Charles Nagy,Cleveland Indians,Series 1,
+base,86,B.J. Surhoff,Baltimore Orioles,Series 1,
+base,87,Jamey Wright,Colorado Rockies,Series 1,
+base,88,James Baldwin,Chicago White Sox,Series 1,
+base,89,Edgardo Alfonzo,New York Mets,Series 1,
+base,90,Jay Buhner,Seattle Mariners,Series 1,
+base,91,Brady Anderson,Baltimore Orioles,Series 1,
+base,92,Scott Servais,Chicago Cubs,Series 1,
+base,93,Edgar Renteria,Florida Marlins,Series 1,
+base,94,Mike Lieberthal,Philadelphia Phillies,Series 1,
+base,95,Rick Aguilera,Minnesota Twins,Series 1,
+base,96,Walt Weiss,Colorado Rockies,Series 1,
+base,97,Deivi Cruz,Detroit Tigers,Series 1,
+base,98,Kurt Abbott,Florida Marlins,Series 1,
+base,99,Henry Rodriguez,Montreal Expos,Series 1,
+base,100,Mike Piazza,Los Angeles Dodgers,Series 1,
+base,101,Bill Taylor,Oakland Athletics,Series 1,
+base,102,Todd Zeile,Los Angeles Dodgers,Series 1,
+base,103,Rey Ordonez,New York Mets,Series 1,
+base,104,Willie Greene,Cincinnati Reds,Series 1,
+base,105,Tony Womack,Pittsburgh Pirates,Series 1,
+base,106,Mike Sweeney,Kansas City Royals,Series 1,
+base,107,Jeffrey Hammonds,Baltimore Orioles,Series 1,
+base,108,Kevin Orie,Chicago Cubs,Series 1,
+base,109,Alex Gonzalez,Toronto Blue Jays,Series 1,
+base,110,Jose Canseco,Oakland Athletics,Series 1,
+base,111,Paul Sorrento,Seattle Mariners,Series 1,
+base,112,Joey Hamilton,San Diego Padres,Series 1,
+base,113,Brad Radke,Minnesota Twins,Series 1,
+base,114,Steve Avery,Boston Red Sox,Series 1,
+base,115,Esteban Loaiza,Pittsburgh Pirates,Series 1,
+base,116,Stan Javier,San Francisco Giants,Series 1,
+base,117,Chris Gomez,San Diego Padres,Series 1,
+base,118,Royce Clayton,St. Louis Cardinals,Series 1,
+base,119,Orlando Merced,Toronto Blue Jays,Series 1,
+base,120,Kevin Appier,Kansas City Royals,Series 1,
+base,121,Mel Nieves,Detroit Tigers,Series 1,
+base,122,Joe Girardi,New York Yankees,Series 1,
+base,123,Rico Brogna,Philadelphia Phillies,Series 1,
+base,124,Kent Mercker,Cincinnati Reds,Series 1,
+base,125,Manny Ramirez,Cleveland Indians,Series 1,
+base,126,Jeromy Burnitz,Milwaukee Brewers,Series 1,
+base,127,Kevin Foster,Chicago Cubs,Series 1,
+base,128,Matt Morris,St. Louis Cardinals,Series 1,
+base,129,Jason Dickson,Anaheim Angels,Series 1,
+base,130,Tom Glavine,Atlanta Braves,Series 1,
+base,131,Wally Joyner,San Diego Padres,Series 1,
+base,132,Rick Reed,New York Mets,Series 1,
+base,133,Todd Jones,Detroit Tigers,Series 1,
+base,134,Dave Martinez,Chicago White Sox,Series 1,
+base,135,Sandy Alomar,Cleveland Indians,Series 1,
+base,136,Mike Lansing,Montreal Expos,Series 1,
+base,137,Sean Berry,Houston Astros,Series 1,
+base,138,Doug Jones,Milwaukee Brewers,Series 1,
+base,139,Todd Stottlemyre,St. Louis Cardinals,Series 1,
+base,140,Jay Bell,Kansas City Royals,Series 1,
+base,141,Jaime Navarro,Chicago White Sox,Series 1,
+base,142,Chris Hoiles,Baltimore Orioles,Series 1,
+base,143,Joey Cora,Seattle Mariners,Series 1,
+base,144,Scott Spiezio,Oakland Athletics,Series 1,
+base,145,Joe Carter,Toronto Blue Jays,Series 1,
+base,146,Jose Guillen,Pittsburgh Pirates,Series 1,
+base,147,Damion Easley,Detroit Tigers,Series 1,
+base,148,Lee Stevens,Texas Rangers,Series 1,
+base,149,Alex Fernandez,Florida Marlins,Series 1,
+base,150,Randy Johnson,Seattle Mariners,Series 1,
+base,151,J.T. Snow,San Francisco Giants,Series 1,
+base,152,Chuck Finley,Anaheim Angels,Series 1,
+base,153,Bernard Gilkey,New York Mets,Series 1,
+base,154,David Segui,Montreal Expos,Series 1,
+base,155,Dante Bichette,Colorado Rockies,Series 1,
+base,156,Kevin Stocker,Philadelphia Phillies,Series 1,
+base,157,Carl Everett,New York Mets,Series 1,
+base,158,Jose Valentin,Milwaukee Brewers,Series 1,
+base,159,Pokey Reese,Cincinnati Reds,Series 1,
+base,160,Derek Jeter,New York Yankees,Series 1,
+base,161,Roger Pavlik,Texas Rangers,Series 1,
+base,162,Mark Wohlers,Atlanta Braves,Series 1,
+base,163,Ricky Bottalico,Philadelphia Phillies,Series 1,
+base,164,Ozzie Guillen,Chicago White Sox,Series 1,
+base,165,Mike Mussina,Baltimore Orioles,Series 1,
+base,166,Gary Sheffield,Florida Marlins,Series 1,
+base,167,Hideo Nomo,Los Angeles Dodgers,Series 1,
+base,168,Mark Grace,Chicago Cubs,Series 1,
+base,169,Aaron Sele,Boston Red Sox,Series 1,
+base,170,Darryl Kile,Houston Astros,Series 1,
+base,171,Shawn Estes,San Francisco Giants,Series 1,
+base,172,Vinny Castilla,Colorado Rockies,Series 1,
+base,173,Ron Coomer,Minnesota Twins,Series 1,
+base,174,Jose Rosado,Kansas City Royals,Series 1,
+base,175,Kenny Lofton,Atlanta Braves,Series 1,
+base,176,Jason Giambi,Oakland Athletics,Series 1,
+base,177,Hal Morris,Cincinnati Reds,Series 1,
+base,178,Darren Bragg,Boston Red Sox,Series 1,
+base,179,Orel Hershiser,Cleveland Indians,Series 1,
+base,180,Ray Lankford,St. Louis Cardinals,Series 1,
+base,181,Hideki Irabu,New York Yankees,Series 1,
+base,182,Kevin Young,Pittsburgh Pirates,Series 1,
+base,183,Javy Lopez,Atlanta Braves,Series 1,
+base,184,Jeff Montgomery,Kansas City Royals,Series 1,
+base,185,Mike Holtz,Anaheim Angels,Series 1,
+base,186,George Williams,Oakland Athletics,Series 1,
+base,187,Cal Eldred,Milwaukee Brewers,Series 1,
+base,188,Tom Candiotti,Los Angeles Dodgers,Series 1,
+base,189,Glenallen Hill,San Francisco Giants,Series 1,
+base,190,Brian Giles,Cleveland Indians,Series 1,
+base,191,Dave Mlicki,New York Mets,Series 1,
+base,192,Garrett Stephenson,Philadelphia Phillies,Series 1,
+base,193,Jeff Frye,Boston Red Sox,Series 1,
+base,194,Joe Oliver,Cincinnati Reds,Series 1,
+base,195,Bob Hamelin,Detroit Tigers,Series 1,
+base,196,Luis Sojo,New York Yankees,Series 1,
+base,197,LaTroy Hawkins,Minnesota Twins,Series 1,
+base,198,Kevin Elster,Pittsburgh Pirates,Series 1,
+base,199,Jeff Reed,Colorado Rockies,Series 1,
+base,200,Dennis Eckersley,St. Louis Cardinals,Series 1,
+base,201,Bill Mueller,San Francisco Giants,Series 1,
+base,202,Russ Davis,Seattle Mariners,Series 1,
+base,203,Armando Benitez,Baltimore Orioles,Series 1,
+base,204,Quilvio Veras,San Diego Padres,Series 1,
+base,205,Tim Naehring,Boston Red Sox,Series 1,
+base,206,Quinton McCracken,Colorado Rockies,Series 1,
+base,207,Raul Casanova,Detroit Tigers,Series 1,
+base,208,Matt Lawton,Minnesota Twins,Series 1,
+base,209,Luis Alicea,Anaheim Angels,Series 1,
+base,210,Luis Gonzalez,Houston Astros,Series 1,
+base,211,Allen Watson,Anaheim Angels,Series 1,
+base,212,Gerald Williams,Milwaukee Brewers,Series 1,
+base,213,David Bell,St. Louis Cardinals,Series 1,
+base,214,Todd Hollandsworth,Los Angeles Dodgers,Series 1,
+base,215,Wade Boggs,New York Yankees,Series 1,
+base,216,Jose Mesa,Cleveland Indians,Series 1,
+base,217,Jamie Moyer,Seattle Mariners,Series 1,
+base,218,Darren Daulton,Florida Marlins,Series 1,
+base,219,Mickey Morandini,Philadelphia Phillies,Series 1,
+base,220,Rusty Greer,Texas Rangers,Series 1,
+base,221,Jim Bullinger,Montreal Expos,Series 1,
+base,222,Jose Offerman,Kansas City Royals,Series 1,
+base,223,Matt Karchner,Chicago White Sox,Series 1,
+base,224,Woody Williams,Toronto Blue Jays,Series 1,
+base,225,Mark Loretta,Milwaukee Brewers,Series 1,
+base,226,Mike Hampton,Houston Astros,Series 1,
+base,227,Willie Adams,Oakland Athletics,Series 1,
+base,228,Scott Hatteberg,Boston Red Sox,Series 1,
+base,229,Rich Amaral,Seattle Mariners,Series 1,
+base,230,Terry Steinbach,Minnesota Twins,Series 1,
+base,231,Glendon Rusch,Kansas City Royals,Series 1,
+base,232,Bret Boone,Cincinnati Reds,Series 1,
+base,233,Robert Person,Toronto Blue Jays,Series 1,
+base,234,Jose Hernandez,Chicago Cubs,Series 1,
+base,235,Doug Drabek,Chicago White Sox,Series 1,
+base,236,Jason McDonald,Oakland Athletics,Series 1,
+base,237,Chris Widger,Montreal Expos,Series 1,
+base,238,Tom Martin RC,Houston Astros,Series 1,
+base,239,Dave Burba,Cincinnati Reds,Series 1,
+base,240,Pete Rose Jr. RC,Cincinnati Reds,Series 1,
+base,241,Bobby Ayala,Seattle Mariners,Series 1,
+base,242,Tim Wakefield,Boston Red Sox,Series 1,
+base,243,Dennis Springer RC,Anaheim Angels,Series 1,
+base,244,Tim Belcher,Kansas City Royals,Series 1,
+base,245,Jon Garland / Geoff Goetz,Chicago Cubs / New York Mets,Series 1,
+base,246,Lance Berkman / Glenn Davis,Houston Astros / Los Angeles Dodgers,Series 1,
+base,247,Vernon Wells / Aaron Akin,Toronto Blue Jays / Florida Marlins,Series 1,
+base,248,Adam Kennedy / Jason Romano,Texas Rangers / St. Louis Cardinals,Series 1,
+base,249,Jason Dellaero / Troy Cameron,Chicago White Sox / Atlanta Braves,Series 1,
+base,250,Jared Sandberg / Alex Sanchez,Tampa Bay Devil Rays,Series 1,
+base,251,Pablo Ortega / James Manias,Tampa Bay Devil Rays,Series 1,
+base,252,Jason Conti / Mike Stoner RC,Arizona Diamondbacks,Series 1,
+base,253,John Patterson / Larry Rodriguez,Arizona Diamondbacks,Series 1,
+base,254,Aaron Boone / Adrian Beltre / Ryan Minor RC,Cincinnati Reds / Los Angeles Dodgers / Baltimore Orioles,Series 1,
+base,255,Ben Grieve / Dermal Brown / Brian Buchanan,Oakland Athletics / Kansas City Royals / New York Yankees,Series 1,
+base,256,Carl Pavano / Gil Meche / Kerry Wood,Boston Red Sox / Seattle Mariners / Chicago Cubs,Series 1,
+base,257,Richie Sexson / Daryle Ward / David Ortiz,Cleveland Indians / Houston Astros / Minnesota Twins,Series 1,
+base,258,Randy Winn / Juan Encarnacion / Andrew Vessel,Florida Marlins / Detroit Tigers / Texas Rangers,Series 1,
+base,259,Travis Smith / Courtney Duncan / Kris Benson RC,Milwaukee Brewers / Chicago Cubs / Pittsburgh Pirates,Series 1,
+base,260,Chad Hermansen / Brent Butler / Warren Morris RC,Pittsburgh Pirates / St. Louis Cardinals / Texas Rangers,Series 1,
+base,261,Elieser Marrero / Ramon Hernandez / Ben Davis,St. Louis Cardinals / Oakland Athletics / San Diego Padres,Series 1,
+base,262,Eric Chavez / Russ Johnson / Russell Branyan,Oakland Athletics / Houston Astros / Cleveland Indians,Series 1,
+base,263,John Barnes / Ryan Jackson / Todd Dunwoody RC,Boston Red Sox / Florida Marlins,Series 1,
+base,264,Brian Fuentes / Matt Clement / Roy Halladay RC,Seattle Mariners / San Diego Padres / Toronto Blue Jays,Series 1,
+base,265,Randy Johnson,Seattle Mariners,Series 1,
+base,266,Kevin Brown,Florida Marlins,Series 1,
+base,267,Francisco Cordova / Ricardo Rincon,Pittsburgh Pirates,Series 1,
+base,268,Nomar Garciaparra,Boston Red Sox,Series 1,
+base,269,Tino Martinez,New York Yankees,Series 1,
+base,270,Chuck Knoblauch,Minnesota Twins,Series 1,
+base,271,Pedro Martinez,Montreal Expos,Series 1,
+base,272,Denny Neagle,Atlanta Braves,Series 1,
+base,273,Juan Gonzalez,Texas Rangers,Series 1,
+base,274,Andres Galarraga,Colorado Rockies,Series 1,
+base,275,Checklist: 1-195,,Series 1,
+base,276,Checklist: 196-283 and Inserts,,Series 1,
+base,277,Moises Alou,Florida Marlins,Series 1,
+base,278,Sandy Alomar,Cleveland Indians,Series 1,
+base,279,Gary Sheffield,Florida Marlins,Series 1,
+base,280,Matt Williams,Cleveland Indians,Series 1,
+base,281,Livan Hernandez,Florida Marlins,Series 1,
+base,282,Chad Ogea,Cleveland Indians,Series 1,
+base,283,Marlins Win World Series,Florida Marlins,Series 1,
+base,284,Tino Martinez,New York Yankees,Series 2,
+base,285,Roberto Alomar,Baltimore Orioles,Series 2,
+base,286,Jeff King,Kansas City Royals,Series 2,
+base,287,Brian Jordan,St. Louis Cardinals,Series 2,
+base,288,Darin Erstad,Anaheim Angels,Series 2,
+base,289,Ken Caminiti,San Diego Padres,Series 2,
+base,290,Jim Thome,Cleveland Indians,Series 2,
+base,291,Paul Molitor,Minnesota Twins,Series 2,
+base,292,Ivan Rodriguez,Texas Rangers,Series 2,
+base,293,Bernie Williams,New York Yankees,Series 2,
+base,294,Todd Hundley,New York Mets,Series 2,
+base,295,Andres Galarraga,Atlanta Braves,Series 2,
+base,296,Greg Maddux,Atlanta Braves,Series 2,
+base,297,Edgar Martinez,Seattle Mariners,Series 2,
+base,298,Ron Gant,St. Louis Cardinals,Series 2,
+base,299,Derek Bell,Houston Astros,Series 2,
+base,300,Roger Clemens,Toronto Blue Jays,Series 2,
+base,301,Rondell White,Montreal Expos,Series 2,
+base,302,Barry Larkin,Cincinnati Reds,Series 2,
+base,303,Robin Ventura,Chicago White Sox,Series 2,
+base,304,Jason Kendall,Pittsburgh Pirates,Series 2,
+base,305,Chipper Jones,Atlanta Braves,Series 2,
+base,306,John Franco,New York Mets,Series 2,
+base,307,Sammy Sosa,Chicago Cubs,Series 2,
+base,308,Troy Percival,Anaheim Angels,Series 2,
+base,309,Chuck Knoblauch,Minnesota Twins,Series 2,
+base,310,Ellis Burks,Colorado Rockies,Series 2,
+base,311,Al Martin,Pittsburgh Pirates,Series 2,
+base,312,Tim Salmon,Anaheim Angels,Series 2,
+base,313,Moises Alou,Houston Astros,Series 2,
+base,314,Lance Johnson,Chicago Cubs,Series 2,
+base,315,Justin Thompson,Detroit Tigers,Series 2,
+base,316,Will Clark,Texas Rangers,Series 2,
+base,317,Barry Bonds,San Francisco Giants,Series 2,
+base,318,Craig Biggio,Houston Astros,Series 2,
+base,319,John Smoltz,Atlanta Braves,Series 2,
+base,320,Cal Ripken,Baltimore Orioles,Series 2,
+base,321,Ken Griffey Jr.,Seattle Mariners,Series 2,
+base,322,Paul O'Neill,New York Yankees,Series 2,
+base,323,Todd Helton,Colorado Rockies,Series 2,
+base,324,John Olerud,New York Mets,Series 2,
+base,325,Mark McGwire,St. Louis Cardinals,Series 2,
+base,326,Jose Cruz Jr.,Toronto Blue Jays,Series 2,
+base,327,Jeff Cirillo,Milwaukee Brewers,Series 2,
+base,328,Dean Palmer,Kansas City Royals,Series 2,
+base,329,John Wetteland,Texas Rangers,Series 2,
+base,330,Steve Finley,San Diego Padres,Series 2,
+base,331,Albert Belle,Chicago White Sox,Series 2,
+base,332,Curt Schilling,Philadelphia Phillies,Series 2,
+base,333,Raul Mondesi,Los Angeles Dodgers,Series 2,
+base,334,Andruw Jones,Atlanta Braves,Series 2,
+base,335,Nomar Garciaparra,Boston Red Sox,Series 2,
+base,336,David Justice,Cleveland Indians,Series 2,
+base,337,Andy Pettitte,New York Yankees,Series 2,
+base,338,Pedro Martinez,Boston Red Sox,Series 2,
+base,339,Travis Miller,Minnesota Twins,Series 2,
+base,340,Chris Stynes,Cincinnati Reds,Series 2,
+base,341,Gregg Jefferies,Philadelphia Phillies,Series 2,
+base,342,Jeff Fassero,Seattle Mariners,Series 2,
+base,343,Craig Counsell,Florida Marlins,Series 2,
+base,344,Wilson Alvarez,Tampa Bay Devil Rays,Series 2,
+base,345,Bip Roberts,Detroit Tigers,Series 2,
+base,346,Kelvim Escobar,Toronto Blue Jays,Series 2,
+base,347,Mark Bellhorn,Oakland Athletics,Series 2,
+base,348,Cory Lidle RC,Arizona Diamondbacks,Series 2,
+base,349,Fred McGriff,Tampa Bay Devil Rays,Series 2,
+base,350,Chuck Carr,Houston Astros,Series 2,
+base,351,Bob Abreu,Philadelphia Phillies,Series 2,
+base,352,Juan Guzman,Toronto Blue Jays,Series 2,
+base,353,Fernando Vina,Milwaukee Brewers,Series 2,
+base,354,Andy Benes,St. Louis Cardinals,Series 2,
+base,355,Dave Nilsson,Milwaukee Brewers,Series 2,
+base,356,Bobby Bonilla,Florida Marlins,Series 2,
+base,357,Ismael Valdes,Los Angeles Dodgers,Series 2,
+base,358,Carlos Perez,Montreal Expos,Series 2,
+base,359,Kirk Rueter,San Francisco Giants,Series 2,
+base,360,Bartolo Colon,Cleveland Indians,Series 2,
+base,361,Mel Rojas,New York Mets,Series 2,
+base,362,Johnny Damon,Kansas City Royals,Series 2,
+base,363,Geronimo Berroa,Baltimore Orioles,Series 2,
+base,364,Reggie Sanders,Cincinnati Reds,Series 2,
+base,365,Jermaine Allensworth,Pittsburgh Pirates,Series 2,
+base,366,Orlando Cabrera,Montreal Expos,Series 2,
+base,367,Jorge Fabregas,Arizona Diamondbacks,Series 2,
+base,368,Scott Stahoviak,Minnesota Twins,Series 2,
+base,369,Ken Cloude,Seattle Mariners,Series 2,
+base,370,Donovan Osborne,St. Louis Cardinals,Series 2,
+base,371,Roger Cedeno,Los Angeles Dodgers,Series 2,
+base,372,Neifi Perez,Colorado Rockies,Series 2,
+base,373,Chris Holt,Houston Astros,Series 2,
+base,374,Cecil Fielder,Anaheim Angels,Series 2,
+base,375,Marty Cordova,Minnesota Twins,Series 2,
+base,376,Tom Goodwin,Texas Rangers,Series 2,
+base,377,Jeff Suppan,Arizona Diamondbacks,Series 2,
+base,378,Jeff Brantley,St. Louis Cardinals,Series 2,
+base,379,Mark Langston,Anaheim Angels,Series 2,
+base,380,Shane Reynolds,Houston Astros,Series 2,
+base,381,Mike Fetters,Milwaukee Brewers,Series 2,
+base,382,Todd Greene,Anaheim Angels,Series 2,
+base,383,Ray Durham,Chicago White Sox,Series 2,
+base,384,Carlos Delgado,Toronto Blue Jays,Series 2,
+base,385,Jeff D'Amico,Milwaukee Brewers,Series 2,
+base,386,Brian McRae,New York Mets,Series 2,
+base,387,Alan Benes,St. Louis Cardinals,Series 2,
+base,388,Heathcliff Slocumb,Seattle Mariners,Series 2,
+base,389,Eric Young,Los Angeles Dodgers,Series 2,
+base,390,Travis Fryman,Cleveland Indians,Series 2,
+base,391,David Cone,New York Yankees,Series 2,
+base,392,Otis Nixon,Los Angeles Dodgers,Series 2,
+base,393,Jeremi Gonzalez,Chicago Cubs,Series 2,
+base,394,Jeff Juden,Cleveland Indians,Series 2,
+base,395,Jose Vizcaino,Los Angeles Dodgers,Series 2,
+base,396,Ugueth Urbina,Montreal Expos,Series 2,
+base,397,Ramon Martinez,Los Angeles Dodgers,Series 2,
+base,398,Robb Nen,San Francisco Giants,Series 2,
+base,399,Harold Baines,Baltimore Orioles,Series 2,
+base,400,Delino DeShields,St. Louis Cardinals,Series 2,
+base,401,John Burkett,Texas Rangers,Series 2,
+base,402,Sterling Hitchcock,San Diego Padres,Series 2,
+base,403,Mark Clark,Chicago Cubs,Series 2,
+base,404,Terrell Wade,Tampa Bay Devil Rays,Series 2,
+base,405,Scott Brosius,New York Yankees,Series 2,
+base,406,Chad Curtis,New York Yankees,Series 2,
+base,407,Brian Johnson,San Francisco Giants,Series 2,
+base,408,Roberto Kelly,Texas Rangers,Series 2,
+base,409,Dave Dellucci RC,Arizona Diamondbacks,Series 2,
+base,410,Michael Tucker,Atlanta Braves,Series 2,
+base,411,Mark Kotsay,Florida Marlins,Series 2,
+base,412,Mark Lewis,San Francisco Giants,Series 2,
+base,413,Ryan McGuire,Montreal Expos,Series 2,
+base,414,Shawon Dunston,Cleveland Indians,Series 2,
+base,415,Brad Rigby,Oakland Athletics,Series 2,
+base,416,Scott Erickson,Baltimore Orioles,Series 2,
+base,417,Bobby Jones,New York Mets,Series 2,
+base,418,Darren Oliver,Texas Rangers,Series 2,
+base,419,John Smiley,Cleveland Indians,Series 2,
+base,420,T.J. Mathews,Oakland Athletics,Series 2,
+base,421,Dustin Hermanson,Montreal Expos,Series 2,
+base,422,Mike Timlin,Seattle Mariners,Series 2,
+base,423,Willie Blair,Arizona Diamondbacks,Series 2,
+base,424,Manny Alexander,Chicago Cubs,Series 2,
+base,425,Bob Tewksbury,Minnesota Twins,Series 2,
+base,426,Pete Schourek,Houston Astros,Series 2,
+base,427,Reggie Jefferson,Boston Red Sox,Series 2,
+base,428,Ed Sprague,Toronto Blue Jays,Series 2,
+base,429,Jeff Conine,Kansas City Royals,Series 2,
+base,430,Roberto Hernandez,Tampa Bay Devil Rays,Series 2,
+base,431,Tom Pagnozzi,St. Louis Cardinals,Series 2,
+base,432,Jaret Wright,Cleveland Indians,Series 2,
+base,433,Livan Hernandez,Florida Marlins,Series 2,
+base,434,Andy Ashby,San Diego Padres,Series 2,
+base,435,Todd Dunn,Milwaukee Brewers,Series 2,
+base,436,Bobby Higginson,Detroit Tigers,Series 2,
+base,437,Rod Beck,Chicago Cubs,Series 2,
+base,438,Jim Leyritz,Boston Red Sox,Series 2,
+base,439,Matt Williams,Arizona Diamondbacks,Series 2,
+base,440,Brett Tomko,Cincinnati Reds,Series 2,
+base,441,Joe Randa,Detroit Tigers,Series 2,
+base,442,Chris Carpenter,Toronto Blue Jays,Series 2,
+base,443,Dennis Reyes,Los Angeles Dodgers,Series 2,
+base,444,Al Leiter,Florida Marlins,Series 2,
+base,445,Jason Schmidt,Pittsburgh Pirates,Series 2,
+base,446,Ken Hill,Anaheim Angels,Series 2,
+base,447,Shannon Stewart,Toronto Blue Jays,Series 2,
+base,448,Enrique Wilson,Cleveland Indians,Series 2,
+base,449,Fernando Tatis,Texas Rangers,Series 2,
+base,450,Jimmy Key,Baltimore Orioles,Series 2,
+base,451,Darrin Fletcher,Toronto Blue Jays,Series 2,
+base,452,John Valentin,Boston Red Sox,Series 2,
+base,453,Kevin Tapani,Chicago Cubs,Series 2,
+base,454,Eric Karros,Los Angeles Dodgers,Series 2,
+base,455,Jay Bell,Arizona Diamondbacks,Series 2,
+base,456,Walt Weiss,Atlanta Braves,Series 2,
+base,457,Devon White,Arizona Diamondbacks,Series 2,
+base,458,Carl Pavano,Montreal Expos,Series 2,
+base,459,Mike Lansing,Colorado Rockies,Series 2,
+base,460,John Flaherty,Tampa Bay Devil Rays,Series 2,
+base,461,Richard Hidalgo,Houston Astros,Series 2,
+base,462,Quinton McCracken,Tampa Bay Devil Rays,Series 2,
+base,463,Karim Garcia,Arizona Diamondbacks,Series 2,
+base,464,Miguel Cairo,Tampa Bay Devil Rays,Series 2,
+base,465,Edwin Diaz,Arizona Diamondbacks,Series 2,
+base,466,Bobby Smith,Tampa Bay Devil Rays,Series 2,
+base,467,Yamil Benitez,Arizona Diamondbacks,Series 2,
+base,468,Rich Butler RC,Tampa Bay Devil Rays,Series 2,
+base,469,Ben Ford RC,Arizona Diamondbacks,Series 2,
+base,470,Bubba Trammell,Tampa Bay Devil Rays,Series 2,
+base,471,Brent Brede,Arizona Diamondbacks,Series 2,
+base,472,Brooks Kieschnick,Tampa Bay Devil Rays,Series 2,
+base,473,Carlos Castillo,Chicago White Sox,Series 2,
+base,474,Brad Radke,Minnesota Twins,Series 2,
+base,475,Roger Clemens,Toronto Blue Jays,Series 2,
+base,476,Curt Schilling,Philadelphia Phillies,Series 2,
+base,477,John Olerud,New York Mets,Series 2,
+base,478,Mark McGwire,St. Louis Cardinals,Series 2,
+base,479,Mike Piazza / Ken Griffey Jr.,Los Angeles Dodgers / Seattle Mariners,Series 2,
+base,480,Jeff Bagwell / Frank Thomas,Houston Astros / Chicago White Sox,Series 2,
+base,481,Chipper Jones / Nomar Garciaparra,Atlanta Braves / Boston Red Sox,Series 2,
+base,482,Larry Walker / Juan Gonzalez,Colorado Rockies / Texas Rangers,Series 2,
+base,483,Gary Sheffield / Tino Martinez,Florida Marlins / New York Yankees,Series 2,
+base,484,Derrick Gibson / Michael Coleman / Norm Hutchins,Colorado Rockies / Boston Red Sox / Anaheim Angels,Series 2,
+base,485,Braden Looper / Cliff Politte / Brian Rose,St. Louis Cardinals / Boston Red Sox,Series 2,
+base,486,Eric Milton / Jason Marquis / Corey Lee,New York Yankees / Atlanta Braves / Texas Rangers,Series 2,
+base,487,A.J. Hinch / Mark Osborne / Robert Fick RC,Oakland Athletics / Arizona Diamondbacks / Detroit Tigers,Series 2,
+base,488,Aramis Ramirez / Alex Gonzalez / Sean Casey,Pittsburgh Pirates / Florida Marlins / Cleveland Indians,Series 2,
+base,489,Tim Drew / Donnie Bridges RC,Cleveland Indians / Montreal Expos,Series 2,
+base,490,Darnell McDonald / Ntema Ndungidi RC,Baltimore Orioles,Series 2,
+base,491,Ryan Anderson / Mark Mangum RC,Seattle Mariners / Colorado Rockies,Series 2,
+base,492,J.J. Davis / Troy Glaus RC,Pittsburgh Pirates / Anaheim Angels,Series 2,
+base,493,Jayson Werth / Dan Reichert RC,Baltimore Orioles / Kansas City Royals,Series 2,
+base,494,John Curtice / Mike Cuddyer RC,Boston Red Sox / Minnesota Twins,Series 2,
+base,495,Jack Cust / Jason Standridge RC,Arizona Diamondbacks / Tampa Bay Devil Rays,Series 2,
+base,496,Brian Anderson,Arizona Diamondbacks,Series 2,
+base,497,Tony Saunders,Tampa Bay Devil Rays,Series 2,
+base,498,Jhensy Sandoval / Vladimir Nunez,Arizona Diamondbacks,Series 2,
+base,499,Brad Penny / Nick Bierbrodt,Arizona Diamondbacks,Series 2,
+base,500,Dustin Carr / Luis Cruz RC,Tampa Bay Devil Rays,Series 2,
+base,501,Cedrick Bowers / Marcus McCain,Tampa Bay Devil Rays,Series 2,
+base,502,Checklist: 284-442,,Series 2,
+base,503,Checklist: 443-503 and Inserts,,Series 2,
+base,504,Alex Rodriguez,Seattle Mariners,Series 2,
+inaugural-devil-rays,1,Tony Gwynn,San Diego Padres,,Inaugural Devil Rays
+inaugural-devil-rays,2,Larry Walker,Colorado Rockies,,Inaugural Devil Rays
+inaugural-devil-rays,3,Billy Wagner,Houston Astros,,Inaugural Devil Rays
+inaugural-devil-rays,4,Denny Neagle,Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,5,Vladimir Guerrero,Montreal Expos,,Inaugural Devil Rays
+inaugural-devil-rays,6,Kevin Brown,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,8,Mariano Rivera,New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,9,Tony Clark,Detroit Tigers,,Inaugural Devil Rays
+inaugural-devil-rays,10,Deion Sanders,Cincinnati Reds,,Inaugural Devil Rays
+inaugural-devil-rays,11,Francisco Cordova,Pittsburgh Pirates,,Inaugural Devil Rays
+inaugural-devil-rays,12,Matt Williams,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,13,Carlos Baerga,New York Mets,,Inaugural Devil Rays
+inaugural-devil-rays,14,Mo Vaughn,Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,15,Bobby Witt,Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,16,Matt Stairs,Oakland Athletics,,Inaugural Devil Rays
+inaugural-devil-rays,17,Chan Ho Park,Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,18,Mike Bordick,Baltimore Orioles,,Inaugural Devil Rays
+inaugural-devil-rays,19,Michael Tucker,Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,20,Frank Thomas,Chicago White Sox,,Inaugural Devil Rays
+inaugural-devil-rays,21,Roberto Clemente,Pittsburgh Pirates,,Inaugural Devil Rays
+inaugural-devil-rays,22,Dmitri Young,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,23,Steve Trachsel,Chicago Cubs,,Inaugural Devil Rays
+inaugural-devil-rays,24,Jeff Kent,San Francisco Giants,,Inaugural Devil Rays
+inaugural-devil-rays,25,Scott Rolen,Philadelphia Phillies,,Inaugural Devil Rays
+inaugural-devil-rays,26,John Thomson,Colorado Rockies,,Inaugural Devil Rays
+inaugural-devil-rays,27,Joe Vitiello,Kansas City Royals,,Inaugural Devil Rays
+inaugural-devil-rays,28,Eddie Guardado,Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,29,Charlie Hayes,New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,30,Juan Gonzalez,Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,31,Garret Anderson,Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,32,John Jaha,Milwaukee Brewers,,Inaugural Devil Rays
+inaugural-devil-rays,33,Omar Vizquel,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,34,Brian Hunter,Detroit Tigers,,Inaugural Devil Rays
+inaugural-devil-rays,35,Jeff Bagwell,Houston Astros,,Inaugural Devil Rays
+inaugural-devil-rays,36,Mark Lemke,Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,37,Doug Glanville,Chicago Cubs,,Inaugural Devil Rays
+inaugural-devil-rays,38,Dan Wilson,Seattle Mariners,,Inaugural Devil Rays
+inaugural-devil-rays,39,Steve Cooke,Pittsburgh Pirates,,Inaugural Devil Rays
+inaugural-devil-rays,40,Chili Davis,Kansas City Royals,,Inaugural Devil Rays
+inaugural-devil-rays,41,Mike Cameron,Chicago White Sox,,Inaugural Devil Rays
+inaugural-devil-rays,42,F.P. Santangelo,Montreal Expos,,Inaugural Devil Rays
+inaugural-devil-rays,43,Brad Ausmus,Houston Astros,,Inaugural Devil Rays
+inaugural-devil-rays,44,Gary DiSarcina,Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,45,Pat Hentgen,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,46,Wilton Guerrero,Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,47,Devon White,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,48,Danny Patterson,Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,49,Pat Meares,Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,50,Rafael Palmeiro,Baltimore Orioles,,Inaugural Devil Rays
+inaugural-devil-rays,51,Mark Gardner,San Francisco Giants,,Inaugural Devil Rays
+inaugural-devil-rays,52,Jeff Blauser,Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,53,Dave Hollins,Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,54,Carlos Garcia,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,55,Ben McDonald,Milwaukee Brewers,,Inaugural Devil Rays
+inaugural-devil-rays,56,John Mabry,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,57,Trevor Hoffman,San Diego Padres,,Inaugural Devil Rays
+inaugural-devil-rays,58,Tony Fernandez,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,59,Rich Loiselle,Pittsburgh Pirates,,Inaugural Devil Rays
+inaugural-devil-rays,60,Mark Leiter,Philadelphia Phillies,,Inaugural Devil Rays
+inaugural-devil-rays,61,Pat Kelly,New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,62,John Flaherty,San Diego Padres,,Inaugural Devil Rays
+inaugural-devil-rays,63,Roger Bailey,Colorado Rockies,,Inaugural Devil Rays
+inaugural-devil-rays,64,Tom Gordon,Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,65,Ryan Klesko,Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,66,Darryl Hamilton,San Francisco Giants,,Inaugural Devil Rays
+inaugural-devil-rays,67,Jim Eisenreich,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,68,Butch Huskey,New York Mets,,Inaugural Devil Rays
+inaugural-devil-rays,69,Mark Grudzielanek,Montreal Expos,,Inaugural Devil Rays
+inaugural-devil-rays,70,Marquis Grissom,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,71,Mark McLemore,Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,72,Gary Gaetti,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,73,Greg Gagne,Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,74,Lyle Mouton,Chicago White Sox,,Inaugural Devil Rays
+inaugural-devil-rays,75,Jim Edmonds,Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,76,Shawn Green,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,77,Greg Vaughn,San Diego Padres,,Inaugural Devil Rays
+inaugural-devil-rays,78,Terry Adams,Chicago Cubs,,Inaugural Devil Rays
+inaugural-devil-rays,79,Kevin Polcovich,Pittsburgh Pirates,,Inaugural Devil Rays
+inaugural-devil-rays,80,Troy O'Leary,Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,81,Jeff Shaw,Cincinnati Reds,,Inaugural Devil Rays
+inaugural-devil-rays,82,Rich Becker,Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,83,David Wells,New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,84,Steve Karsay,Oakland Athletics,,Inaugural Devil Rays
+inaugural-devil-rays,85,Charles Nagy,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,86,B.J. Surhoff,Baltimore Orioles,,Inaugural Devil Rays
+inaugural-devil-rays,87,Jamey Wright,Colorado Rockies,,Inaugural Devil Rays
+inaugural-devil-rays,88,James Baldwin,Chicago White Sox,,Inaugural Devil Rays
+inaugural-devil-rays,89,Edgardo Alfonzo,New York Mets,,Inaugural Devil Rays
+inaugural-devil-rays,90,Jay Buhner,Seattle Mariners,,Inaugural Devil Rays
+inaugural-devil-rays,91,Brady Anderson,Baltimore Orioles,,Inaugural Devil Rays
+inaugural-devil-rays,92,Scott Servais,Chicago Cubs,,Inaugural Devil Rays
+inaugural-devil-rays,93,Edgar Renteria,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,94,Mike Lieberthal,Philadelphia Phillies,,Inaugural Devil Rays
+inaugural-devil-rays,95,Rick Aguilera,Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,96,Walt Weiss,Colorado Rockies,,Inaugural Devil Rays
+inaugural-devil-rays,97,Deivi Cruz,Detroit Tigers,,Inaugural Devil Rays
+inaugural-devil-rays,98,Kurt Abbott,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,99,Henry Rodriguez,Montreal Expos,,Inaugural Devil Rays
+inaugural-devil-rays,100,Mike Piazza,Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,101,Bill Taylor,Oakland Athletics,,Inaugural Devil Rays
+inaugural-devil-rays,102,Todd Zeile,Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,103,Rey Ordonez,New York Mets,,Inaugural Devil Rays
+inaugural-devil-rays,104,Willie Greene,Cincinnati Reds,,Inaugural Devil Rays
+inaugural-devil-rays,105,Tony Womack,Pittsburgh Pirates,,Inaugural Devil Rays
+inaugural-devil-rays,106,Mike Sweeney,Kansas City Royals,,Inaugural Devil Rays
+inaugural-devil-rays,107,Jeffrey Hammonds,Baltimore Orioles,,Inaugural Devil Rays
+inaugural-devil-rays,108,Kevin Orie,Chicago Cubs,,Inaugural Devil Rays
+inaugural-devil-rays,109,Alex Gonzalez,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,110,Jose Canseco,Oakland Athletics,,Inaugural Devil Rays
+inaugural-devil-rays,111,Paul Sorrento,Seattle Mariners,,Inaugural Devil Rays
+inaugural-devil-rays,112,Joey Hamilton,San Diego Padres,,Inaugural Devil Rays
+inaugural-devil-rays,113,Brad Radke,Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,114,Steve Avery,Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,115,Esteban Loaiza,Pittsburgh Pirates,,Inaugural Devil Rays
+inaugural-devil-rays,116,Stan Javier,San Francisco Giants,,Inaugural Devil Rays
+inaugural-devil-rays,117,Chris Gomez,San Diego Padres,,Inaugural Devil Rays
+inaugural-devil-rays,118,Royce Clayton,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,119,Orlando Merced,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,120,Kevin Appier,Kansas City Royals,,Inaugural Devil Rays
+inaugural-devil-rays,121,Mel Nieves,Detroit Tigers,,Inaugural Devil Rays
+inaugural-devil-rays,122,Joe Girardi,New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,123,Rico Brogna,Philadelphia Phillies,,Inaugural Devil Rays
+inaugural-devil-rays,124,Kent Mercker,Cincinnati Reds,,Inaugural Devil Rays
+inaugural-devil-rays,125,Manny Ramirez,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,126,Jeromy Burnitz,Milwaukee Brewers,,Inaugural Devil Rays
+inaugural-devil-rays,127,Kevin Foster,Chicago Cubs,,Inaugural Devil Rays
+inaugural-devil-rays,128,Matt Morris,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,129,Jason Dickson,Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,130,Tom Glavine,Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,131,Wally Joyner,San Diego Padres,,Inaugural Devil Rays
+inaugural-devil-rays,132,Rick Reed,New York Mets,,Inaugural Devil Rays
+inaugural-devil-rays,133,Todd Jones,Detroit Tigers,,Inaugural Devil Rays
+inaugural-devil-rays,134,Dave Martinez,Chicago White Sox,,Inaugural Devil Rays
+inaugural-devil-rays,135,Sandy Alomar,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,136,Mike Lansing,Montreal Expos,,Inaugural Devil Rays
+inaugural-devil-rays,137,Sean Berry,Houston Astros,,Inaugural Devil Rays
+inaugural-devil-rays,138,Doug Jones,Milwaukee Brewers,,Inaugural Devil Rays
+inaugural-devil-rays,139,Todd Stottlemyre,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,140,Jay Bell,Kansas City Royals,,Inaugural Devil Rays
+inaugural-devil-rays,141,Jaime Navarro,Chicago White Sox,,Inaugural Devil Rays
+inaugural-devil-rays,142,Chris Hoiles,Baltimore Orioles,,Inaugural Devil Rays
+inaugural-devil-rays,143,Joey Cora,Seattle Mariners,,Inaugural Devil Rays
+inaugural-devil-rays,144,Scott Spiezio,Oakland Athletics,,Inaugural Devil Rays
+inaugural-devil-rays,145,Joe Carter,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,146,Jose Guillen,Pittsburgh Pirates,,Inaugural Devil Rays
+inaugural-devil-rays,147,Damion Easley,Detroit Tigers,,Inaugural Devil Rays
+inaugural-devil-rays,148,Lee Stevens,Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,149,Alex Fernandez,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,150,Randy Johnson,Seattle Mariners,,Inaugural Devil Rays
+inaugural-devil-rays,151,J.T. Snow,San Francisco Giants,,Inaugural Devil Rays
+inaugural-devil-rays,152,Chuck Finley,Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,153,Bernard Gilkey,New York Mets,,Inaugural Devil Rays
+inaugural-devil-rays,154,David Segui,Montreal Expos,,Inaugural Devil Rays
+inaugural-devil-rays,155,Dante Bichette,Colorado Rockies,,Inaugural Devil Rays
+inaugural-devil-rays,156,Kevin Stocker,Philadelphia Phillies,,Inaugural Devil Rays
+inaugural-devil-rays,157,Carl Everett,New York Mets,,Inaugural Devil Rays
+inaugural-devil-rays,158,Jose Valentin,Milwaukee Brewers,,Inaugural Devil Rays
+inaugural-devil-rays,159,Pokey Reese,Cincinnati Reds,,Inaugural Devil Rays
+inaugural-devil-rays,160,Derek Jeter,New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,161,Roger Pavlik,Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,162,Mark Wohlers,Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,163,Ricky Bottalico,Philadelphia Phillies,,Inaugural Devil Rays
+inaugural-devil-rays,164,Ozzie Guillen,Chicago White Sox,,Inaugural Devil Rays
+inaugural-devil-rays,165,Mike Mussina,Baltimore Orioles,,Inaugural Devil Rays
+inaugural-devil-rays,166,Gary Sheffield,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,167,Hideo Nomo,Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,168,Mark Grace,Chicago Cubs,,Inaugural Devil Rays
+inaugural-devil-rays,169,Aaron Sele,Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,170,Darryl Kile,Houston Astros,,Inaugural Devil Rays
+inaugural-devil-rays,171,Shawn Estes,San Francisco Giants,,Inaugural Devil Rays
+inaugural-devil-rays,172,Vinny Castilla,Colorado Rockies,,Inaugural Devil Rays
+inaugural-devil-rays,173,Ron Coomer,Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,174,Jose Rosado,Kansas City Royals,,Inaugural Devil Rays
+inaugural-devil-rays,175,Kenny Lofton,Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,176,Jason Giambi,Oakland Athletics,,Inaugural Devil Rays
+inaugural-devil-rays,177,Hal Morris,Cincinnati Reds,,Inaugural Devil Rays
+inaugural-devil-rays,178,Darren Bragg,Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,179,Orel Hershiser,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,180,Ray Lankford,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,181,Hideki Irabu,New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,182,Kevin Young,Pittsburgh Pirates,,Inaugural Devil Rays
+inaugural-devil-rays,183,Javy Lopez,Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,184,Jeff Montgomery,Kansas City Royals,,Inaugural Devil Rays
+inaugural-devil-rays,185,Mike Holtz,Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,186,George Williams,Oakland Athletics,,Inaugural Devil Rays
+inaugural-devil-rays,187,Cal Eldred,Milwaukee Brewers,,Inaugural Devil Rays
+inaugural-devil-rays,188,Tom Candiotti,Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,189,Glenallen Hill,San Francisco Giants,,Inaugural Devil Rays
+inaugural-devil-rays,190,Brian Giles,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,191,Dave Mlicki,New York Mets,,Inaugural Devil Rays
+inaugural-devil-rays,192,Garrett Stephenson,Philadelphia Phillies,,Inaugural Devil Rays
+inaugural-devil-rays,193,Jeff Frye,Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,194,Joe Oliver,Cincinnati Reds,,Inaugural Devil Rays
+inaugural-devil-rays,195,Bob Hamelin,Detroit Tigers,,Inaugural Devil Rays
+inaugural-devil-rays,196,Luis Sojo,New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,197,LaTroy Hawkins,Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,198,Kevin Elster,Pittsburgh Pirates,,Inaugural Devil Rays
+inaugural-devil-rays,199,Jeff Reed,Colorado Rockies,,Inaugural Devil Rays
+inaugural-devil-rays,200,Dennis Eckersley,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,201,Bill Mueller,San Francisco Giants,,Inaugural Devil Rays
+inaugural-devil-rays,202,Russ Davis,Seattle Mariners,,Inaugural Devil Rays
+inaugural-devil-rays,203,Armando Benitez,Baltimore Orioles,,Inaugural Devil Rays
+inaugural-devil-rays,204,Quilvio Veras,San Diego Padres,,Inaugural Devil Rays
+inaugural-devil-rays,205,Tim Naehring,Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,206,Quinton McCracken,Colorado Rockies,,Inaugural Devil Rays
+inaugural-devil-rays,207,Raul Casanova,Detroit Tigers,,Inaugural Devil Rays
+inaugural-devil-rays,208,Matt Lawton,Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,209,Luis Alicea,Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,210,Luis Gonzalez,Houston Astros,,Inaugural Devil Rays
+inaugural-devil-rays,211,Allen Watson,Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,212,Gerald Williams,Milwaukee Brewers,,Inaugural Devil Rays
+inaugural-devil-rays,213,David Bell,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,214,Todd Hollandsworth,Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,215,Wade Boggs,New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,216,Jose Mesa,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,217,Jamie Moyer,Seattle Mariners,,Inaugural Devil Rays
+inaugural-devil-rays,218,Darren Daulton,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,219,Mickey Morandini,Philadelphia Phillies,,Inaugural Devil Rays
+inaugural-devil-rays,220,Rusty Greer,Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,221,Jim Bullinger,Montreal Expos,,Inaugural Devil Rays
+inaugural-devil-rays,222,Jose Offerman,Kansas City Royals,,Inaugural Devil Rays
+inaugural-devil-rays,223,Matt Karchner,Chicago White Sox,,Inaugural Devil Rays
+inaugural-devil-rays,224,Woody Williams,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,225,Mark Loretta,Milwaukee Brewers,,Inaugural Devil Rays
+inaugural-devil-rays,226,Mike Hampton,Houston Astros,,Inaugural Devil Rays
+inaugural-devil-rays,227,Willie Adams,Oakland Athletics,,Inaugural Devil Rays
+inaugural-devil-rays,228,Scott Hatteberg,Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,229,Rich Amaral,Seattle Mariners,,Inaugural Devil Rays
+inaugural-devil-rays,230,Terry Steinbach,Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,231,Glendon Rusch,Kansas City Royals,,Inaugural Devil Rays
+inaugural-devil-rays,232,Bret Boone,Cincinnati Reds,,Inaugural Devil Rays
+inaugural-devil-rays,233,Robert Person,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,234,Jose Hernandez,Chicago Cubs,,Inaugural Devil Rays
+inaugural-devil-rays,235,Doug Drabek,Chicago White Sox,,Inaugural Devil Rays
+inaugural-devil-rays,236,Jason McDonald,Oakland Athletics,,Inaugural Devil Rays
+inaugural-devil-rays,237,Chris Widger,Montreal Expos,,Inaugural Devil Rays
+inaugural-devil-rays,238,Tom Martin,Houston Astros,,Inaugural Devil Rays
+inaugural-devil-rays,239,Dave Burba,Cincinnati Reds,,Inaugural Devil Rays
+inaugural-devil-rays,240,Pete Rose Jr.,Cincinnati Reds,,Inaugural Devil Rays
+inaugural-devil-rays,241,Bobby Ayala,Seattle Mariners,,Inaugural Devil Rays
+inaugural-devil-rays,242,Tim Wakefield,Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,243,Dennis Springer,Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,244,Tim Belcher,Kansas City Royals,,Inaugural Devil Rays
+inaugural-devil-rays,245,Jon Garland / Geoff Goetz,Chicago Cubs / New York Mets,,Inaugural Devil Rays
+inaugural-devil-rays,246,Lance Berkman / Glenn Davis,Houston Astros / Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,247,Vernon Wells / Aaron Akin,Toronto Blue Jays / Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,248,Adam Kennedy / Jason Romano,Texas Rangers / St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,249,Jason Dellaero / Troy Cameron,Chicago White Sox / Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,250,Jared Sandberg / Alex Sanchez,Tampa Bay Devil Rays,,Inaugural Devil Rays
+inaugural-devil-rays,251,Pablo Ortega / James Manias,Tampa Bay Devil Rays,,Inaugural Devil Rays
+inaugural-devil-rays,252,Jason Conti / Mike Stoner,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,253,John Patterson / Larry Rodriguez,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,254,Aaron Boone / Adrian Beltre / Ryan Minor,Cincinnati Reds / Los Angeles Dodgers / Baltimore Orioles,,Inaugural Devil Rays
+inaugural-devil-rays,255,Ben Grieve / Dermal Brown / Brian Buchanan,Oakland Athletics / Kansas City Royals / New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,256,Kerry Wood / Carl Pavano / Gil Meche,Boston Red Sox / Seattle Mariners / Chicago Cubs,,Inaugural Devil Rays
+inaugural-devil-rays,257,Richie Sexson / Daryle Ward / David Ortiz,Cleveland Indians / Houston Astros / Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,258,Randy Winn / Juan Encarnacion / Andrew Vessel,Florida Marlins / Detroit Tigers / Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,259,Travis Smith / Courtney Duncan / Kris Benson,Milwaukee Brewers / Chicago Cubs / Pittsburgh Pirates,,Inaugural Devil Rays
+inaugural-devil-rays,260,Chad Hermansen / Brent Butler / Warren Morris,Pittsburgh Pirates / St. Louis Cardinals / Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,261,Elieser Marrero / Ramon Hernandez / Ben Davis,St. Louis Cardinals / Oakland Athletics / San Diego Padres,,Inaugural Devil Rays
+inaugural-devil-rays,262,Eric Chavez / Russ Johnson / Russell Branyan,Oakland Athletics / Houston Astros / Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,263,John Barnes / Ryan Jackson / Todd Dunwoody,Boston Red Sox / Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,264,Brian Fuentes / Matt Clement / Roy Halladay,Seattle Mariners / San Diego Padres / Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,265,Randy Johnson,Seattle Mariners,,Inaugural Devil Rays
+inaugural-devil-rays,266,Kevin Brown,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,267,Francisco Cordova / Ricardo Rincon,Pittsburgh Pirates,,Inaugural Devil Rays
+inaugural-devil-rays,268,Nomar Garciaparra,Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,269,Tino Martinez,New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,270,Chuck Knoblauch,Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,271,Pedro Martinez,Montreal Expos,,Inaugural Devil Rays
+inaugural-devil-rays,272,Denny Neagle,Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,273,Juan Gonzalez,Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,274,Andres Galarraga,Colorado Rockies,,Inaugural Devil Rays
+inaugural-devil-rays,275,Checklist: 1-195,,,Inaugural Devil Rays
+inaugural-devil-rays,276,Checklist: 196-283 and Inserts,,,Inaugural Devil Rays
+inaugural-devil-rays,277,Moises Alou,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,278,Sandy Alomar,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,279,Gary Sheffield,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,280,Matt Williams,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,281,Livan Hernandez,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,282,Chad Ogea,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,283,Marlins Win World Series,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,284,Tino Martinez,New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,285,Roberto Alomar,Baltimore Orioles,,Inaugural Devil Rays
+inaugural-devil-rays,286,Jeff King,Kansas City Royals,,Inaugural Devil Rays
+inaugural-devil-rays,287,Brian Jordan,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,288,Darin Erstad,Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,289,Ken Caminiti,San Diego Padres,,Inaugural Devil Rays
+inaugural-devil-rays,290,Jim Thome,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,291,Paul Molitor,Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,292,Ivan Rodriguez,Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,293,Bernie Williams,New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,294,Todd Hundley,New York Mets,,Inaugural Devil Rays
+inaugural-devil-rays,295,Andres Galarraga,Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,296,Greg Maddux,Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,297,Edgar Martinez,Seattle Mariners,,Inaugural Devil Rays
+inaugural-devil-rays,298,Ron Gant,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,299,Derek Bell,Houston Astros,,Inaugural Devil Rays
+inaugural-devil-rays,300,Roger Clemens,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,301,Rondell White,Montreal Expos,,Inaugural Devil Rays
+inaugural-devil-rays,302,Barry Larkin,Cincinnati Reds,,Inaugural Devil Rays
+inaugural-devil-rays,303,Robin Ventura,Chicago White Sox,,Inaugural Devil Rays
+inaugural-devil-rays,304,Jason Kendall,Pittsburgh Pirates,,Inaugural Devil Rays
+inaugural-devil-rays,305,Chipper Jones,Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,306,John Franco,New York Mets,,Inaugural Devil Rays
+inaugural-devil-rays,307,Sammy Sosa,Chicago Cubs,,Inaugural Devil Rays
+inaugural-devil-rays,308,Troy Percival,Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,309,Chuck Knoblauch,Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,310,Ellis Burks,Colorado Rockies,,Inaugural Devil Rays
+inaugural-devil-rays,311,Al Martin,Pittsburgh Pirates,,Inaugural Devil Rays
+inaugural-devil-rays,312,Tim Salmon,Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,313,Moises Alou,Houston Astros,,Inaugural Devil Rays
+inaugural-devil-rays,314,Lance Johnson,Chicago Cubs,,Inaugural Devil Rays
+inaugural-devil-rays,315,Justin Thompson,Detroit Tigers,,Inaugural Devil Rays
+inaugural-devil-rays,316,Will Clark,Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,317,Barry Bonds,San Francisco Giants,,Inaugural Devil Rays
+inaugural-devil-rays,318,Craig Biggio,Houston Astros,,Inaugural Devil Rays
+inaugural-devil-rays,319,John Smoltz,Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,320,Cal Ripken,Baltimore Orioles,,Inaugural Devil Rays
+inaugural-devil-rays,321,Ken Griffey Jr.,Seattle Mariners,,Inaugural Devil Rays
+inaugural-devil-rays,322,Paul O'Neill,New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,323,Todd Helton,Colorado Rockies,,Inaugural Devil Rays
+inaugural-devil-rays,324,John Olerud,New York Mets,,Inaugural Devil Rays
+inaugural-devil-rays,325,Mark McGwire,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,326,Jose Cruz Jr.,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,327,Jeff Cirillo,Milwaukee Brewers,,Inaugural Devil Rays
+inaugural-devil-rays,328,Dean Palmer,Kansas City Royals,,Inaugural Devil Rays
+inaugural-devil-rays,329,John Wetteland,Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,330,Steve Finley,San Diego Padres,,Inaugural Devil Rays
+inaugural-devil-rays,331,Albert Belle,Chicago White Sox,,Inaugural Devil Rays
+inaugural-devil-rays,332,Curt Schilling,Philadelphia Phillies,,Inaugural Devil Rays
+inaugural-devil-rays,333,Raul Mondesi,Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,334,Andruw Jones,Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,335,Nomar Garciaparra,Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,336,David Justice,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,337,Andy Pettitte,New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,338,Pedro Martinez,Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,339,Travis Miller,Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,340,Chris Stynes,Cincinnati Reds,,Inaugural Devil Rays
+inaugural-devil-rays,341,Gregg Jefferies,Philadelphia Phillies,,Inaugural Devil Rays
+inaugural-devil-rays,342,Jeff Fassero,Seattle Mariners,,Inaugural Devil Rays
+inaugural-devil-rays,343,Craig Counsell,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,344,Wilson Alvarez,Tampa Bay Devil Rays,,Inaugural Devil Rays
+inaugural-devil-rays,345,Bip Roberts,Detroit Tigers,,Inaugural Devil Rays
+inaugural-devil-rays,346,Kelvim Escobar,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,347,Mark Bellhorn,Oakland Athletics,,Inaugural Devil Rays
+inaugural-devil-rays,348,Cory Lidle,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,349,Fred McGriff,Tampa Bay Devil Rays,,Inaugural Devil Rays
+inaugural-devil-rays,350,Chuck Carr,Houston Astros,,Inaugural Devil Rays
+inaugural-devil-rays,351,Bob Abreu,Philadelphia Phillies,,Inaugural Devil Rays
+inaugural-devil-rays,352,Juan Guzman,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,353,Fernando Vina,Milwaukee Brewers,,Inaugural Devil Rays
+inaugural-devil-rays,354,Andy Benes,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,355,Dave Nilsson,Milwaukee Brewers,,Inaugural Devil Rays
+inaugural-devil-rays,356,Bobby Bonilla,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,357,Ismael Valdes,Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,358,Carlos Perez,Montreal Expos,,Inaugural Devil Rays
+inaugural-devil-rays,359,Kirk Rueter,San Francisco Giants,,Inaugural Devil Rays
+inaugural-devil-rays,360,Bartolo Colon,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,361,Mel Rojas,New York Mets,,Inaugural Devil Rays
+inaugural-devil-rays,362,Johnny Damon,Kansas City Royals,,Inaugural Devil Rays
+inaugural-devil-rays,363,Geronimo Berroa,Baltimore Orioles,,Inaugural Devil Rays
+inaugural-devil-rays,364,Reggie Sanders,Cincinnati Reds,,Inaugural Devil Rays
+inaugural-devil-rays,365,Jermaine Allensworth,Pittsburgh Pirates,,Inaugural Devil Rays
+inaugural-devil-rays,366,Orlando Cabrera,Montreal Expos,,Inaugural Devil Rays
+inaugural-devil-rays,367,Jorge Fabregas,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,368,Scott Stahoviak,Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,369,Ken Cloude,Seattle Mariners,,Inaugural Devil Rays
+inaugural-devil-rays,370,Donovan Osborne,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,371,Roger Cedeno,Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,372,Neifi Perez,Colorado Rockies,,Inaugural Devil Rays
+inaugural-devil-rays,373,Chris Holt,Houston Astros,,Inaugural Devil Rays
+inaugural-devil-rays,374,Cecil Fielder,Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,375,Marty Cordova,Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,376,Tom Goodwin,Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,377,Jeff Suppan,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,378,Jeff Brantley,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,379,Mark Langston,Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,380,Shane Reynolds,Houston Astros,,Inaugural Devil Rays
+inaugural-devil-rays,381,Mike Fetters,Milwaukee Brewers,,Inaugural Devil Rays
+inaugural-devil-rays,382,Todd Greene,Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,383,Ray Durham,Chicago White Sox,,Inaugural Devil Rays
+inaugural-devil-rays,384,Carlos Delgado,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,385,Jeff D'Amico,Milwaukee Brewers,,Inaugural Devil Rays
+inaugural-devil-rays,386,Brian McRae,New York Mets,,Inaugural Devil Rays
+inaugural-devil-rays,387,Alan Benes,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,388,Heathcliff Slocumb,Seattle Mariners,,Inaugural Devil Rays
+inaugural-devil-rays,389,Eric Young,Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,390,Travis Fryman,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,391,David Cone,New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,392,Otis Nixon,Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,393,Jeremi Gonzalez,Chicago Cubs,,Inaugural Devil Rays
+inaugural-devil-rays,394,Jeff Juden,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,395,Jose Vizcaino,Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,396,Ugueth Urbina,Montreal Expos,,Inaugural Devil Rays
+inaugural-devil-rays,397,Ramon Martinez,Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,398,Robb Nen,San Francisco Giants,,Inaugural Devil Rays
+inaugural-devil-rays,399,Harold Baines,Baltimore Orioles,,Inaugural Devil Rays
+inaugural-devil-rays,400,Delino DeShields,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,401,John Burkett,Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,402,Sterling Hitchcock,San Diego Padres,,Inaugural Devil Rays
+inaugural-devil-rays,403,Mark Clark,Chicago Cubs,,Inaugural Devil Rays
+inaugural-devil-rays,404,Terrell Wade,Tampa Bay Devil Rays,,Inaugural Devil Rays
+inaugural-devil-rays,405,Scott Brosius,New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,406,Chad Curtis,New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,407,Brian Johnson,San Francisco Giants,,Inaugural Devil Rays
+inaugural-devil-rays,408,Roberto Kelly,Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,409,Dave Dellucci,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,410,Michael Tucker,Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,411,Mark Kotsay,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,412,Mark Lewis,San Francisco Giants,,Inaugural Devil Rays
+inaugural-devil-rays,413,Ryan McGuire,Montreal Expos,,Inaugural Devil Rays
+inaugural-devil-rays,414,Shawon Dunston,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,415,Brad Rigby,Oakland Athletics,,Inaugural Devil Rays
+inaugural-devil-rays,416,Scott Erickson,Baltimore Orioles,,Inaugural Devil Rays
+inaugural-devil-rays,417,Bobby Jones,New York Mets,,Inaugural Devil Rays
+inaugural-devil-rays,418,Darren Oliver,Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,419,John Smiley,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,420,T.J. Mathews,Oakland Athletics,,Inaugural Devil Rays
+inaugural-devil-rays,421,Dustin Hermanson,Montreal Expos,,Inaugural Devil Rays
+inaugural-devil-rays,422,Mike Timlin,Seattle Mariners,,Inaugural Devil Rays
+inaugural-devil-rays,423,Willie Blair,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,424,Manny Alexander,Chicago Cubs,,Inaugural Devil Rays
+inaugural-devil-rays,425,Bob Tewksbury,Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,426,Pete Schourek,Houston Astros,,Inaugural Devil Rays
+inaugural-devil-rays,427,Reggie Jefferson,Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,428,Ed Sprague,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,429,Jeff Conine,Kansas City Royals,,Inaugural Devil Rays
+inaugural-devil-rays,430,Roberto Hernandez,Tampa Bay Devil Rays,,Inaugural Devil Rays
+inaugural-devil-rays,431,Tom Pagnozzi,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,432,Jaret Wright,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,433,Livan Hernandez,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,434,Andy Ashby,San Diego Padres,,Inaugural Devil Rays
+inaugural-devil-rays,435,Todd Dunn,Milwaukee Brewers,,Inaugural Devil Rays
+inaugural-devil-rays,436,Bobby Higginson,Detroit Tigers,,Inaugural Devil Rays
+inaugural-devil-rays,437,Rod Beck,Chicago Cubs,,Inaugural Devil Rays
+inaugural-devil-rays,438,Jim Leyritz,Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,439,Matt Williams,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,440,Brett Tomko,Cincinnati Reds,,Inaugural Devil Rays
+inaugural-devil-rays,441,Joe Randa,Detroit Tigers,,Inaugural Devil Rays
+inaugural-devil-rays,442,Chris Carpenter,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,443,Dennis Reyes,Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,444,Al Leiter,Florida Marlins,,Inaugural Devil Rays
+inaugural-devil-rays,445,Jason Schmidt,Pittsburgh Pirates,,Inaugural Devil Rays
+inaugural-devil-rays,446,Ken Hill,Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,447,Shannon Stewart,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,448,Enrique Wilson,Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,449,Fernando Tatis,Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,450,Jimmy Key,Baltimore Orioles,,Inaugural Devil Rays
+inaugural-devil-rays,451,Darrin Fletcher,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,452,John Valentin,Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,453,Kevin Tapani,Chicago Cubs,,Inaugural Devil Rays
+inaugural-devil-rays,454,Eric Karros,Los Angeles Dodgers,,Inaugural Devil Rays
+inaugural-devil-rays,455,Jay Bell,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,456,Walt Weiss,Atlanta Braves,,Inaugural Devil Rays
+inaugural-devil-rays,457,Devon White,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,458,Carl Pavano,Montreal Expos,,Inaugural Devil Rays
+inaugural-devil-rays,459,Mike Lansing,Colorado Rockies,,Inaugural Devil Rays
+inaugural-devil-rays,460,John Flaherty,Tampa Bay Devil Rays,,Inaugural Devil Rays
+inaugural-devil-rays,461,Richard Hidalgo,Houston Astros,,Inaugural Devil Rays
+inaugural-devil-rays,462,Quinton McCracken,Tampa Bay Devil Rays,,Inaugural Devil Rays
+inaugural-devil-rays,463,Karim Garcia,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,464,Miguel Cairo,Tampa Bay Devil Rays,,Inaugural Devil Rays
+inaugural-devil-rays,465,Edwin Diaz,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,466,Bobby Smith,Tampa Bay Devil Rays,,Inaugural Devil Rays
+inaugural-devil-rays,467,Yamil Benitez,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,468,Rich Butler,Tampa Bay Devil Rays,,Inaugural Devil Rays
+inaugural-devil-rays,469,Ben Ford,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,470,Bubba Trammell,Tampa Bay Devil Rays,,Inaugural Devil Rays
+inaugural-devil-rays,471,Brent Brede,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,472,Brooks Kieschnick,Tampa Bay Devil Rays,,Inaugural Devil Rays
+inaugural-devil-rays,473,Carlos Castillo,Chicago White Sox,,Inaugural Devil Rays
+inaugural-devil-rays,474,Brad Radke,Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,475,Roger Clemens,Toronto Blue Jays,,Inaugural Devil Rays
+inaugural-devil-rays,476,Curt Schilling,Philadelphia Phillies,,Inaugural Devil Rays
+inaugural-devil-rays,477,John Olerud,New York Mets,,Inaugural Devil Rays
+inaugural-devil-rays,478,Mark McGwire,St. Louis Cardinals,,Inaugural Devil Rays
+inaugural-devil-rays,479,Mike Piazza / Ken Griffey Jr.,Los Angeles Dodgers / Seattle Mariners,,Inaugural Devil Rays
+inaugural-devil-rays,480,Jeff Bagwell / Frank Thomas,Houston Astros / Chicago White Sox,,Inaugural Devil Rays
+inaugural-devil-rays,481,Chipper Jones / Nomar Garciaparra,Atlanta Braves / Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,482,Larry Walker / Juan Gonzalez,Colorado Rockies / Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,483,Gary Sheffield / Tino Martinez,Florida Marlins / New York Yankees,,Inaugural Devil Rays
+inaugural-devil-rays,484,Derrick Gibson / Michael Coleman / Norm Hutchins,Colorado Rockies / Boston Red Sox / Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,485,Braden Looper / Cliff Politte / Brian Rose,St. Louis Cardinals / Boston Red Sox,,Inaugural Devil Rays
+inaugural-devil-rays,486,Eric Milton / Jason Marquis / Corey Lee,New York Yankees / Atlanta Braves / Texas Rangers,,Inaugural Devil Rays
+inaugural-devil-rays,487,A.J. Hinch / Mark Osborne / Robert Fick,Oakland Athletics / Arizona Diamondbacks / Detroit Tigers,,Inaugural Devil Rays
+inaugural-devil-rays,488,Aramis Ramirez / Alex Gonzalez / Sean Casey,Pittsburgh Pirates / Florida Marlins / Cleveland Indians,,Inaugural Devil Rays
+inaugural-devil-rays,489,Tim Drew / Donnie Bridges,Cleveland Indians / Montreal Expos,,Inaugural Devil Rays
+inaugural-devil-rays,490,Darnell McDonald / Ntema Ndungidi,Baltimore Orioles,,Inaugural Devil Rays
+inaugural-devil-rays,491,Ryan Anderson / Mark Mangum,Seattle Mariners / Colorado Rockies,,Inaugural Devil Rays
+inaugural-devil-rays,492,J.J. Davis / Troy Glaus,Pittsburgh Pirates / Anaheim Angels,,Inaugural Devil Rays
+inaugural-devil-rays,493,Jayson Werth / Dan Reichert,Baltimore Orioles / Kansas City Royals,,Inaugural Devil Rays
+inaugural-devil-rays,494,John Curtice / Mike Cuddyer,Boston Red Sox / Minnesota Twins,,Inaugural Devil Rays
+inaugural-devil-rays,495,Jack Cust / Jason Standridge,Arizona Diamondbacks / Tampa Bay Devil Rays,,Inaugural Devil Rays
+inaugural-devil-rays,496,Brian Anderson,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,497,Tony Saunders,Tampa Bay Devil Rays,,Inaugural Devil Rays
+inaugural-devil-rays,498,Jhensy Sandoval / Vladimir Nunez,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,499,Brad Penny / Nick Bierbrodt,Arizona Diamondbacks,,Inaugural Devil Rays
+inaugural-devil-rays,500,Dustin Carr / Luis Cruz,Tampa Bay Devil Rays,,Inaugural Devil Rays
+inaugural-devil-rays,501,Cedrick Bowers / Marcus McCain,Tampa Bay Devil Rays,,Inaugural Devil Rays
+inaugural-devil-rays,502,Checklist: 284-442,,,Inaugural Devil Rays
+inaugural-devil-rays,503,Checklist: 443-503 and Inserts,,,Inaugural Devil Rays
+inaugural-devil-rays,504,Alex Rodriguez,Seattle Mariners,,Inaugural Devil Rays
+inaugural-diamondbacks,1,Tony Gwynn,San Diego Padres,,Inaugural Diamondbacks
+inaugural-diamondbacks,2,Larry Walker,Colorado Rockies,,Inaugural Diamondbacks
+inaugural-diamondbacks,3,Billy Wagner,Houston Astros,,Inaugural Diamondbacks
+inaugural-diamondbacks,4,Denny Neagle,Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,5,Vladimir Guerrero,Montreal Expos,,Inaugural Diamondbacks
+inaugural-diamondbacks,6,Kevin Brown,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,8,Mariano Rivera,New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,9,Tony Clark,Detroit Tigers,,Inaugural Diamondbacks
+inaugural-diamondbacks,10,Deion Sanders,Cincinnati Reds,,Inaugural Diamondbacks
+inaugural-diamondbacks,11,Francisco Cordova,Pittsburgh Pirates,,Inaugural Diamondbacks
+inaugural-diamondbacks,12,Matt Williams,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,13,Carlos Baerga,New York Mets,,Inaugural Diamondbacks
+inaugural-diamondbacks,14,Mo Vaughn,Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,15,Bobby Witt,Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,16,Matt Stairs,Oakland Athletics,,Inaugural Diamondbacks
+inaugural-diamondbacks,17,Chan Ho Park,Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,18,Mike Bordick,Baltimore Orioles,,Inaugural Diamondbacks
+inaugural-diamondbacks,19,Michael Tucker,Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,20,Frank Thomas,Chicago White Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,21,Roberto Clemente,Pittsburgh Pirates,,Inaugural Diamondbacks
+inaugural-diamondbacks,22,Dmitri Young,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,23,Steve Trachsel,Chicago Cubs,,Inaugural Diamondbacks
+inaugural-diamondbacks,24,Jeff Kent,San Francisco Giants,,Inaugural Diamondbacks
+inaugural-diamondbacks,25,Scott Rolen,Philadelphia Phillies,,Inaugural Diamondbacks
+inaugural-diamondbacks,26,John Thomson,Colorado Rockies,,Inaugural Diamondbacks
+inaugural-diamondbacks,27,Joe Vitiello,Kansas City Royals,,Inaugural Diamondbacks
+inaugural-diamondbacks,28,Eddie Guardado,Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,29,Charlie Hayes,New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,30,Juan Gonzalez,Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,31,Garret Anderson,Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,32,John Jaha,Milwaukee Brewers,,Inaugural Diamondbacks
+inaugural-diamondbacks,33,Omar Vizquel,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,34,Brian Hunter,Detroit Tigers,,Inaugural Diamondbacks
+inaugural-diamondbacks,35,Jeff Bagwell,Houston Astros,,Inaugural Diamondbacks
+inaugural-diamondbacks,36,Mark Lemke,Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,37,Doug Glanville,Chicago Cubs,,Inaugural Diamondbacks
+inaugural-diamondbacks,38,Dan Wilson,Seattle Mariners,,Inaugural Diamondbacks
+inaugural-diamondbacks,39,Steve Cooke,Pittsburgh Pirates,,Inaugural Diamondbacks
+inaugural-diamondbacks,40,Chili Davis,Kansas City Royals,,Inaugural Diamondbacks
+inaugural-diamondbacks,41,Mike Cameron,Chicago White Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,42,F.P. Santangelo,Montreal Expos,,Inaugural Diamondbacks
+inaugural-diamondbacks,43,Brad Ausmus,Houston Astros,,Inaugural Diamondbacks
+inaugural-diamondbacks,44,Gary DiSarcina,Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,45,Pat Hentgen,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,46,Wilton Guerrero,Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,47,Devon White,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,48,Danny Patterson,Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,49,Pat Meares,Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,50,Rafael Palmeiro,Baltimore Orioles,,Inaugural Diamondbacks
+inaugural-diamondbacks,51,Mark Gardner,San Francisco Giants,,Inaugural Diamondbacks
+inaugural-diamondbacks,52,Jeff Blauser,Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,53,Dave Hollins,Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,54,Carlos Garcia,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,55,Ben McDonald,Milwaukee Brewers,,Inaugural Diamondbacks
+inaugural-diamondbacks,56,John Mabry,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,57,Trevor Hoffman,San Diego Padres,,Inaugural Diamondbacks
+inaugural-diamondbacks,58,Tony Fernandez,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,59,Rich Loiselle,Pittsburgh Pirates,,Inaugural Diamondbacks
+inaugural-diamondbacks,60,Mark Leiter,Philadelphia Phillies,,Inaugural Diamondbacks
+inaugural-diamondbacks,61,Pat Kelly,New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,62,John Flaherty,San Diego Padres,,Inaugural Diamondbacks
+inaugural-diamondbacks,63,Roger Bailey,Colorado Rockies,,Inaugural Diamondbacks
+inaugural-diamondbacks,64,Tom Gordon,Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,65,Ryan Klesko,Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,66,Darryl Hamilton,San Francisco Giants,,Inaugural Diamondbacks
+inaugural-diamondbacks,67,Jim Eisenreich,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,68,Butch Huskey,New York Mets,,Inaugural Diamondbacks
+inaugural-diamondbacks,69,Mark Grudzielanek,Montreal Expos,,Inaugural Diamondbacks
+inaugural-diamondbacks,70,Marquis Grissom,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,71,Mark McLemore,Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,72,Gary Gaetti,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,73,Greg Gagne,Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,74,Lyle Mouton,Chicago White Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,75,Jim Edmonds,Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,76,Shawn Green,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,77,Greg Vaughn,San Diego Padres,,Inaugural Diamondbacks
+inaugural-diamondbacks,78,Terry Adams,Chicago Cubs,,Inaugural Diamondbacks
+inaugural-diamondbacks,79,Kevin Polcovich,Pittsburgh Pirates,,Inaugural Diamondbacks
+inaugural-diamondbacks,80,Troy O'Leary,Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,81,Jeff Shaw,Cincinnati Reds,,Inaugural Diamondbacks
+inaugural-diamondbacks,82,Rich Becker,Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,83,David Wells,New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,84,Steve Karsay,Oakland Athletics,,Inaugural Diamondbacks
+inaugural-diamondbacks,85,Charles Nagy,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,86,B.J. Surhoff,Baltimore Orioles,,Inaugural Diamondbacks
+inaugural-diamondbacks,87,Jamey Wright,Colorado Rockies,,Inaugural Diamondbacks
+inaugural-diamondbacks,88,James Baldwin,Chicago White Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,89,Edgardo Alfonzo,New York Mets,,Inaugural Diamondbacks
+inaugural-diamondbacks,90,Jay Buhner,Seattle Mariners,,Inaugural Diamondbacks
+inaugural-diamondbacks,91,Brady Anderson,Baltimore Orioles,,Inaugural Diamondbacks
+inaugural-diamondbacks,92,Scott Servais,Chicago Cubs,,Inaugural Diamondbacks
+inaugural-diamondbacks,93,Edgar Renteria,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,94,Mike Lieberthal,Philadelphia Phillies,,Inaugural Diamondbacks
+inaugural-diamondbacks,95,Rick Aguilera,Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,96,Walt Weiss,Colorado Rockies,,Inaugural Diamondbacks
+inaugural-diamondbacks,97,Deivi Cruz,Detroit Tigers,,Inaugural Diamondbacks
+inaugural-diamondbacks,98,Kurt Abbott,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,99,Henry Rodriguez,Montreal Expos,,Inaugural Diamondbacks
+inaugural-diamondbacks,100,Mike Piazza,Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,101,Bill Taylor,Oakland Athletics,,Inaugural Diamondbacks
+inaugural-diamondbacks,102,Todd Zeile,Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,103,Rey Ordonez,New York Mets,,Inaugural Diamondbacks
+inaugural-diamondbacks,104,Willie Greene,Cincinnati Reds,,Inaugural Diamondbacks
+inaugural-diamondbacks,105,Tony Womack,Pittsburgh Pirates,,Inaugural Diamondbacks
+inaugural-diamondbacks,106,Mike Sweeney,Kansas City Royals,,Inaugural Diamondbacks
+inaugural-diamondbacks,107,Jeffrey Hammonds,Baltimore Orioles,,Inaugural Diamondbacks
+inaugural-diamondbacks,108,Kevin Orie,Chicago Cubs,,Inaugural Diamondbacks
+inaugural-diamondbacks,109,Alex Gonzalez,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,110,Jose Canseco,Oakland Athletics,,Inaugural Diamondbacks
+inaugural-diamondbacks,111,Paul Sorrento,Seattle Mariners,,Inaugural Diamondbacks
+inaugural-diamondbacks,112,Joey Hamilton,San Diego Padres,,Inaugural Diamondbacks
+inaugural-diamondbacks,113,Brad Radke,Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,114,Steve Avery,Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,115,Esteban Loaiza,Pittsburgh Pirates,,Inaugural Diamondbacks
+inaugural-diamondbacks,116,Stan Javier,San Francisco Giants,,Inaugural Diamondbacks
+inaugural-diamondbacks,117,Chris Gomez,San Diego Padres,,Inaugural Diamondbacks
+inaugural-diamondbacks,118,Royce Clayton,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,119,Orlando Merced,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,120,Kevin Appier,Kansas City Royals,,Inaugural Diamondbacks
+inaugural-diamondbacks,121,Mel Nieves,Detroit Tigers,,Inaugural Diamondbacks
+inaugural-diamondbacks,122,Joe Girardi,New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,123,Rico Brogna,Philadelphia Phillies,,Inaugural Diamondbacks
+inaugural-diamondbacks,124,Kent Mercker,Cincinnati Reds,,Inaugural Diamondbacks
+inaugural-diamondbacks,125,Manny Ramirez,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,126,Jeromy Burnitz,Milwaukee Brewers,,Inaugural Diamondbacks
+inaugural-diamondbacks,127,Kevin Foster,Chicago Cubs,,Inaugural Diamondbacks
+inaugural-diamondbacks,128,Matt Morris,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,129,Jason Dickson,Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,130,Tom Glavine,Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,131,Wally Joyner,San Diego Padres,,Inaugural Diamondbacks
+inaugural-diamondbacks,132,Rick Reed,New York Mets,,Inaugural Diamondbacks
+inaugural-diamondbacks,133,Todd Jones,Detroit Tigers,,Inaugural Diamondbacks
+inaugural-diamondbacks,134,Dave Martinez,Chicago White Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,135,Sandy Alomar,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,136,Mike Lansing,Montreal Expos,,Inaugural Diamondbacks
+inaugural-diamondbacks,137,Sean Berry,Houston Astros,,Inaugural Diamondbacks
+inaugural-diamondbacks,138,Doug Jones,Milwaukee Brewers,,Inaugural Diamondbacks
+inaugural-diamondbacks,139,Todd Stottlemyre,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,140,Jay Bell,Kansas City Royals,,Inaugural Diamondbacks
+inaugural-diamondbacks,141,Jaime Navarro,Chicago White Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,142,Chris Hoiles,Baltimore Orioles,,Inaugural Diamondbacks
+inaugural-diamondbacks,143,Joey Cora,Seattle Mariners,,Inaugural Diamondbacks
+inaugural-diamondbacks,144,Scott Spiezio,Oakland Athletics,,Inaugural Diamondbacks
+inaugural-diamondbacks,145,Joe Carter,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,146,Jose Guillen,Pittsburgh Pirates,,Inaugural Diamondbacks
+inaugural-diamondbacks,147,Damion Easley,Detroit Tigers,,Inaugural Diamondbacks
+inaugural-diamondbacks,148,Lee Stevens,Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,149,Alex Fernandez,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,150,Randy Johnson,Seattle Mariners,,Inaugural Diamondbacks
+inaugural-diamondbacks,151,J.T. Snow,San Francisco Giants,,Inaugural Diamondbacks
+inaugural-diamondbacks,152,Chuck Finley,Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,153,Bernard Gilkey,New York Mets,,Inaugural Diamondbacks
+inaugural-diamondbacks,154,David Segui,Montreal Expos,,Inaugural Diamondbacks
+inaugural-diamondbacks,155,Dante Bichette,Colorado Rockies,,Inaugural Diamondbacks
+inaugural-diamondbacks,156,Kevin Stocker,Philadelphia Phillies,,Inaugural Diamondbacks
+inaugural-diamondbacks,157,Carl Everett,New York Mets,,Inaugural Diamondbacks
+inaugural-diamondbacks,158,Jose Valentin,Milwaukee Brewers,,Inaugural Diamondbacks
+inaugural-diamondbacks,159,Pokey Reese,Cincinnati Reds,,Inaugural Diamondbacks
+inaugural-diamondbacks,160,Derek Jeter,New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,161,Roger Pavlik,Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,162,Mark Wohlers,Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,163,Ricky Bottalico,Philadelphia Phillies,,Inaugural Diamondbacks
+inaugural-diamondbacks,164,Ozzie Guillen,Chicago White Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,165,Mike Mussina,Baltimore Orioles,,Inaugural Diamondbacks
+inaugural-diamondbacks,166,Gary Sheffield,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,167,Hideo Nomo,Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,168,Mark Grace,Chicago Cubs,,Inaugural Diamondbacks
+inaugural-diamondbacks,169,Aaron Sele,Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,170,Darryl Kile,Houston Astros,,Inaugural Diamondbacks
+inaugural-diamondbacks,171,Shawn Estes,San Francisco Giants,,Inaugural Diamondbacks
+inaugural-diamondbacks,172,Vinny Castilla,Colorado Rockies,,Inaugural Diamondbacks
+inaugural-diamondbacks,173,Ron Coomer,Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,174,Jose Rosado,Kansas City Royals,,Inaugural Diamondbacks
+inaugural-diamondbacks,175,Kenny Lofton,Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,176,Jason Giambi,Oakland Athletics,,Inaugural Diamondbacks
+inaugural-diamondbacks,177,Hal Morris,Cincinnati Reds,,Inaugural Diamondbacks
+inaugural-diamondbacks,178,Darren Bragg,Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,179,Orel Hershiser,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,180,Ray Lankford,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,181,Hideki Irabu,New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,182,Kevin Young,Pittsburgh Pirates,,Inaugural Diamondbacks
+inaugural-diamondbacks,183,Javy Lopez,Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,184,Jeff Montgomery,Kansas City Royals,,Inaugural Diamondbacks
+inaugural-diamondbacks,185,Mike Holtz,Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,186,George Williams,Oakland Athletics,,Inaugural Diamondbacks
+inaugural-diamondbacks,187,Cal Eldred,Milwaukee Brewers,,Inaugural Diamondbacks
+inaugural-diamondbacks,188,Tom Candiotti,Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,189,Glenallen Hill,San Francisco Giants,,Inaugural Diamondbacks
+inaugural-diamondbacks,190,Brian Giles,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,191,Dave Mlicki,New York Mets,,Inaugural Diamondbacks
+inaugural-diamondbacks,192,Garrett Stephenson,Philadelphia Phillies,,Inaugural Diamondbacks
+inaugural-diamondbacks,193,Jeff Frye,Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,194,Joe Oliver,Cincinnati Reds,,Inaugural Diamondbacks
+inaugural-diamondbacks,195,Bob Hamelin,Detroit Tigers,,Inaugural Diamondbacks
+inaugural-diamondbacks,196,Luis Sojo,New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,197,LaTroy Hawkins,Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,198,Kevin Elster,Pittsburgh Pirates,,Inaugural Diamondbacks
+inaugural-diamondbacks,199,Jeff Reed,Colorado Rockies,,Inaugural Diamondbacks
+inaugural-diamondbacks,200,Dennis Eckersley,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,201,Bill Mueller,San Francisco Giants,,Inaugural Diamondbacks
+inaugural-diamondbacks,202,Russ Davis,Seattle Mariners,,Inaugural Diamondbacks
+inaugural-diamondbacks,203,Armando Benitez,Baltimore Orioles,,Inaugural Diamondbacks
+inaugural-diamondbacks,204,Quilvio Veras,San Diego Padres,,Inaugural Diamondbacks
+inaugural-diamondbacks,205,Tim Naehring,Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,206,Quinton McCracken,Colorado Rockies,,Inaugural Diamondbacks
+inaugural-diamondbacks,207,Raul Casanova,Detroit Tigers,,Inaugural Diamondbacks
+inaugural-diamondbacks,208,Matt Lawton,Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,209,Luis Alicea,Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,210,Luis Gonzalez,Houston Astros,,Inaugural Diamondbacks
+inaugural-diamondbacks,211,Allen Watson,Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,212,Gerald Williams,Milwaukee Brewers,,Inaugural Diamondbacks
+inaugural-diamondbacks,213,David Bell,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,214,Todd Hollandsworth,Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,215,Wade Boggs,New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,216,Jose Mesa,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,217,Jamie Moyer,Seattle Mariners,,Inaugural Diamondbacks
+inaugural-diamondbacks,218,Darren Daulton,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,219,Mickey Morandini,Philadelphia Phillies,,Inaugural Diamondbacks
+inaugural-diamondbacks,220,Rusty Greer,Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,221,Jim Bullinger,Montreal Expos,,Inaugural Diamondbacks
+inaugural-diamondbacks,222,Jose Offerman,Kansas City Royals,,Inaugural Diamondbacks
+inaugural-diamondbacks,223,Matt Karchner,Chicago White Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,224,Woody Williams,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,225,Mark Loretta,Milwaukee Brewers,,Inaugural Diamondbacks
+inaugural-diamondbacks,226,Mike Hampton,Houston Astros,,Inaugural Diamondbacks
+inaugural-diamondbacks,227,Willie Adams,Oakland Athletics,,Inaugural Diamondbacks
+inaugural-diamondbacks,228,Scott Hatteberg,Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,229,Rich Amaral,Seattle Mariners,,Inaugural Diamondbacks
+inaugural-diamondbacks,230,Terry Steinbach,Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,231,Glendon Rusch,Kansas City Royals,,Inaugural Diamondbacks
+inaugural-diamondbacks,232,Bret Boone,Cincinnati Reds,,Inaugural Diamondbacks
+inaugural-diamondbacks,233,Robert Person,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,234,Jose Hernandez,Chicago Cubs,,Inaugural Diamondbacks
+inaugural-diamondbacks,235,Doug Drabek,Chicago White Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,236,Jason McDonald,Oakland Athletics,,Inaugural Diamondbacks
+inaugural-diamondbacks,237,Chris Widger,Montreal Expos,,Inaugural Diamondbacks
+inaugural-diamondbacks,238,Tom Martin,Houston Astros,,Inaugural Diamondbacks
+inaugural-diamondbacks,239,Dave Burba,Cincinnati Reds,,Inaugural Diamondbacks
+inaugural-diamondbacks,240,Pete Rose Jr.,Cincinnati Reds,,Inaugural Diamondbacks
+inaugural-diamondbacks,241,Bobby Ayala,Seattle Mariners,,Inaugural Diamondbacks
+inaugural-diamondbacks,242,Tim Wakefield,Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,243,Dennis Springer,Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,244,Tim Belcher,Kansas City Royals,,Inaugural Diamondbacks
+inaugural-diamondbacks,245,Jon Garland / Geoff Goetz,Chicago Cubs / New York Mets,,Inaugural Diamondbacks
+inaugural-diamondbacks,246,Lance Berkman / Glenn Davis,Houston Astros / Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,247,Vernon Wells / Aaron Akin,Toronto Blue Jays / Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,248,Adam Kennedy / Jason Romano,Texas Rangers / St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,249,Jason Dellaero / Troy Cameron,Chicago White Sox / Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,250,Jared Sandberg / Alex Sanchez,Tampa Bay Devil Rays,,Inaugural Diamondbacks
+inaugural-diamondbacks,251,Pablo Ortega / James Manias,Tampa Bay Devil Rays,,Inaugural Diamondbacks
+inaugural-diamondbacks,252,Jason Conti / Mike Stoner,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,253,John Patterson / Larry Rodriguez,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,254,Aaron Boone / Adrian Beltre / Ryan Minor,Cincinnati Reds / Los Angeles Dodgers / Baltimore Orioles,,Inaugural Diamondbacks
+inaugural-diamondbacks,255,Ben Grieve / Dermal Brown,Oakland Athletics / Kansas City Royals / New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,256,Kerry Wood / Carl Pavano / Gil Meche,Boston Red Sox / Seattle Mariners / Chicago Cubs,,Inaugural Diamondbacks
+inaugural-diamondbacks,257,Richie Sexson / Daryle Ward / David Ortiz,Cleveland Indians / Houston Astros / Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,258,Randy Winn / Juan Encarnacion / Andrew Vessel,Florida Marlins / Detroit Tigers / Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,259,Travis Smith / Courtney Duncan / Kris Benson,Milwaukee Brewers / Chicago Cubs / Pittsburgh Pirates,,Inaugural Diamondbacks
+inaugural-diamondbacks,260,Chad Hermansen / Brent Butler / Warren Morris,Pittsburgh Pirates / St. Louis Cardinals / Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,261,Elieser Marrero / Ramon Hernandez / Ben Davis,St. Louis Cardinals / Oakland Athletics / San Diego Padres,,Inaugural Diamondbacks
+inaugural-diamondbacks,262,Eric Chavez / Russ Johnson / Russell Branyan,Oakland Athletics / Houston Astros / Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,263,John Barnes / Ryan Jackson / Todd Dunwoody,Boston Red Sox / Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,264,Brian Fuentes / Matt Clement / Roy Halladay,Seattle Mariners / San Diego Padres / Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,265,Randy Johnson,Seattle Mariners,,Inaugural Diamondbacks
+inaugural-diamondbacks,266,Kevin Brown,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,267,Francisco Cordova / Ricardo Rincon,Pittsburgh Pirates,,Inaugural Diamondbacks
+inaugural-diamondbacks,268,Nomar Garciaparra,Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,269,Tino Martinez,New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,270,Chuck Knoblauch,Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,271,Pedro Martinez,Montreal Expos,,Inaugural Diamondbacks
+inaugural-diamondbacks,272,Denny Neagle,Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,273,Juan Gonzalez,Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,274,Andres Galarraga,Colorado Rockies,,Inaugural Diamondbacks
+inaugural-diamondbacks,275,Checklist: 1-195,,,Inaugural Diamondbacks
+inaugural-diamondbacks,276,Checklist: 196-283 and Inserts,,,Inaugural Diamondbacks
+inaugural-diamondbacks,277,Moises Alou,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,278,Sandy Alomar,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,279,Gary Sheffield,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,280,Matt Williams,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,281,Livan Hernandez,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,282,Chad Ogea,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,283,Marlins Win World Series,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,284,Tino Martinez,New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,285,Roberto Alomar,Baltimore Orioles,,Inaugural Diamondbacks
+inaugural-diamondbacks,286,Jeff King,Kansas City Royals,,Inaugural Diamondbacks
+inaugural-diamondbacks,287,Brian Jordan,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,288,Darin Erstad,Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,289,Ken Caminiti,San Diego Padres,,Inaugural Diamondbacks
+inaugural-diamondbacks,290,Jim Thome,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,291,Paul Molitor,Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,292,Ivan Rodriguez,Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,293,Bernie Williams,New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,294,Todd Hundley,New York Mets,,Inaugural Diamondbacks
+inaugural-diamondbacks,295,Andres Galarraga,Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,296,Greg Maddux,Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,297,Edgar Martinez,Seattle Mariners,,Inaugural Diamondbacks
+inaugural-diamondbacks,298,Ron Gant,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,299,Derek Bell,Houston Astros,,Inaugural Diamondbacks
+inaugural-diamondbacks,300,Roger Clemens,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,301,Rondell White,Montreal Expos,,Inaugural Diamondbacks
+inaugural-diamondbacks,302,Barry Larkin,Cincinnati Reds,,Inaugural Diamondbacks
+inaugural-diamondbacks,303,Robin Ventura,Chicago White Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,304,Jason Kendall,Pittsburgh Pirates,,Inaugural Diamondbacks
+inaugural-diamondbacks,305,Chipper Jones,Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,306,John Franco,New York Mets,,Inaugural Diamondbacks
+inaugural-diamondbacks,307,Sammy Sosa,Chicago Cubs,,Inaugural Diamondbacks
+inaugural-diamondbacks,308,Troy Percival,Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,309,Chuck Knoblauch,Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,310,Ellis Burks,Colorado Rockies,,Inaugural Diamondbacks
+inaugural-diamondbacks,311,Al Martin,Pittsburgh Pirates,,Inaugural Diamondbacks
+inaugural-diamondbacks,312,Tim Salmon,Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,313,Moises Alou,Houston Astros,,Inaugural Diamondbacks
+inaugural-diamondbacks,314,Lance Johnson,Chicago Cubs,,Inaugural Diamondbacks
+inaugural-diamondbacks,315,Justin Thompson,Detroit Tigers,,Inaugural Diamondbacks
+inaugural-diamondbacks,316,Will Clark,Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,317,Barry Bonds,San Francisco Giants,,Inaugural Diamondbacks
+inaugural-diamondbacks,318,Craig Biggio,Houston Astros,,Inaugural Diamondbacks
+inaugural-diamondbacks,319,John Smoltz,Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,320,Cal Ripken,Baltimore Orioles,,Inaugural Diamondbacks
+inaugural-diamondbacks,321,Ken Griffey Jr.,Seattle Mariners,,Inaugural Diamondbacks
+inaugural-diamondbacks,322,Paul O'Neill,New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,323,Todd Helton,Colorado Rockies,,Inaugural Diamondbacks
+inaugural-diamondbacks,324,John Olerud,New York Mets,,Inaugural Diamondbacks
+inaugural-diamondbacks,325,Mark McGwire,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,326,Jose Cruz Jr.,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,327,Jeff Cirillo,Milwaukee Brewers,,Inaugural Diamondbacks
+inaugural-diamondbacks,328,Dean Palmer,Kansas City Royals,,Inaugural Diamondbacks
+inaugural-diamondbacks,329,John Wetteland,Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,330,Steve Finley,San Diego Padres,,Inaugural Diamondbacks
+inaugural-diamondbacks,331,Albert Belle,Chicago White Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,332,Curt Schilling,Philadelphia Phillies,,Inaugural Diamondbacks
+inaugural-diamondbacks,333,Raul Mondesi,Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,334,Andruw Jones,Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,335,Nomar Garciaparra,Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,336,David Justice,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,337,Andy Pettitte,New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,338,Pedro Martinez,Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,339,Travis Miller,Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,340,Chris Stynes,Cincinnati Reds,,Inaugural Diamondbacks
+inaugural-diamondbacks,341,Gregg Jefferies,Philadelphia Phillies,,Inaugural Diamondbacks
+inaugural-diamondbacks,342,Jeff Fassero,Seattle Mariners,,Inaugural Diamondbacks
+inaugural-diamondbacks,343,Craig Counsell,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,344,Wilson Alvarez,Tampa Bay Devil Rays,,Inaugural Diamondbacks
+inaugural-diamondbacks,345,Bip Roberts,Detroit Tigers,,Inaugural Diamondbacks
+inaugural-diamondbacks,346,Kelvim Escobar,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,347,Mark Bellhorn,Oakland Athletics,,Inaugural Diamondbacks
+inaugural-diamondbacks,348,Cory Lidle,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,349,Fred McGriff,Tampa Bay Devil Rays,,Inaugural Diamondbacks
+inaugural-diamondbacks,350,Chuck Carr,Houston Astros,,Inaugural Diamondbacks
+inaugural-diamondbacks,351,Bob Abreu,Philadelphia Phillies,,Inaugural Diamondbacks
+inaugural-diamondbacks,352,Juan Guzman,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,353,Fernando Vina,Milwaukee Brewers,,Inaugural Diamondbacks
+inaugural-diamondbacks,354,Andy Benes,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,355,Dave Nilsson,Milwaukee Brewers,,Inaugural Diamondbacks
+inaugural-diamondbacks,356,Bobby Bonilla,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,357,Ismael Valdes,Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,358,Carlos Perez,Montreal Expos,,Inaugural Diamondbacks
+inaugural-diamondbacks,359,Kirk Rueter,San Francisco Giants,,Inaugural Diamondbacks
+inaugural-diamondbacks,360,Bartolo Colon,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,361,Mel Rojas,New York Mets,,Inaugural Diamondbacks
+inaugural-diamondbacks,362,Johnny Damon,Kansas City Royals,,Inaugural Diamondbacks
+inaugural-diamondbacks,363,Geronimo Berroa,Baltimore Orioles,,Inaugural Diamondbacks
+inaugural-diamondbacks,364,Reggie Sanders,Cincinnati Reds,,Inaugural Diamondbacks
+inaugural-diamondbacks,365,Jermaine Allensworth,Pittsburgh Pirates,,Inaugural Diamondbacks
+inaugural-diamondbacks,366,Orlando Cabrera,Montreal Expos,,Inaugural Diamondbacks
+inaugural-diamondbacks,367,Jorge Fabregas,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,368,Scott Stahoviak,Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,369,Ken Cloude,Seattle Mariners,,Inaugural Diamondbacks
+inaugural-diamondbacks,370,Donovan Osborne,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,371,Roger Cedeno,Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,372,Neifi Perez,Colorado Rockies,,Inaugural Diamondbacks
+inaugural-diamondbacks,373,Chris Holt,Houston Astros,,Inaugural Diamondbacks
+inaugural-diamondbacks,374,Cecil Fielder,Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,375,Marty Cordova,Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,376,Tom Goodwin,Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,377,Jeff Suppan,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,378,Jeff Brantley,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,379,Mark Langston,Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,380,Shane Reynolds,Houston Astros,,Inaugural Diamondbacks
+inaugural-diamondbacks,381,Mike Fetters,Milwaukee Brewers,,Inaugural Diamondbacks
+inaugural-diamondbacks,382,Todd Greene,Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,383,Ray Durham,Chicago White Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,384,Carlos Delgado,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,385,Jeff D'Amico,Milwaukee Brewers,,Inaugural Diamondbacks
+inaugural-diamondbacks,386,Brian McRae,New York Mets,,Inaugural Diamondbacks
+inaugural-diamondbacks,387,Alan Benes,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,388,Heathcliff Slocumb,Seattle Mariners,,Inaugural Diamondbacks
+inaugural-diamondbacks,389,Eric Young,Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,390,Travis Fryman,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,391,David Cone,New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,392,Otis Nixon,Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,393,Jeremi Gonzalez,Chicago Cubs,,Inaugural Diamondbacks
+inaugural-diamondbacks,394,Jeff Juden,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,395,Jose Vizcaino,Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,396,Ugueth Urbina,Montreal Expos,,Inaugural Diamondbacks
+inaugural-diamondbacks,397,Ramon Martinez,Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,398,Robb Nen,San Francisco Giants,,Inaugural Diamondbacks
+inaugural-diamondbacks,399,Harold Baines,Baltimore Orioles,,Inaugural Diamondbacks
+inaugural-diamondbacks,400,Delino DeShields,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,401,John Burkett,Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,402,Sterling Hitchcock,San Diego Padres,,Inaugural Diamondbacks
+inaugural-diamondbacks,403,Mark Clark,Chicago Cubs,,Inaugural Diamondbacks
+inaugural-diamondbacks,404,Terrell Wade,Tampa Bay Devil Rays,,Inaugural Diamondbacks
+inaugural-diamondbacks,405,Scott Brosius,New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,406,Chad Curtis,New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,407,Brian Johnson,San Francisco Giants,,Inaugural Diamondbacks
+inaugural-diamondbacks,408,Roberto Kelly,Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,409,Dave Dellucci,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,410,Michael Tucker,Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,411,Mark Kotsay,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,412,Mark Lewis,San Francisco Giants,,Inaugural Diamondbacks
+inaugural-diamondbacks,413,Ryan McGuire,Montreal Expos,,Inaugural Diamondbacks
+inaugural-diamondbacks,414,Shawon Dunston,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,415,Brad Rigby,Oakland Athletics,,Inaugural Diamondbacks
+inaugural-diamondbacks,416,Scott Erickson,Baltimore Orioles,,Inaugural Diamondbacks
+inaugural-diamondbacks,417,Bobby Jones,New York Mets,,Inaugural Diamondbacks
+inaugural-diamondbacks,418,Darren Oliver,Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,419,John Smiley,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,420,T.J. Mathews,Oakland Athletics,,Inaugural Diamondbacks
+inaugural-diamondbacks,421,Dustin Hermanson,Montreal Expos,,Inaugural Diamondbacks
+inaugural-diamondbacks,422,Mike Timlin,Seattle Mariners,,Inaugural Diamondbacks
+inaugural-diamondbacks,423,Willie Blair,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,424,Manny Alexander,Chicago Cubs,,Inaugural Diamondbacks
+inaugural-diamondbacks,425,Bob Tewksbury,Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,426,Pete Schourek,Houston Astros,,Inaugural Diamondbacks
+inaugural-diamondbacks,427,Reggie Jefferson,Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,428,Ed Sprague,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,429,Jeff Conine,Kansas City Royals,,Inaugural Diamondbacks
+inaugural-diamondbacks,430,Roberto Hernandez,Tampa Bay Devil Rays,,Inaugural Diamondbacks
+inaugural-diamondbacks,431,Tom Pagnozzi,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,432,Jaret Wright,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,433,Livan Hernandez,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,434,Andy Ashby,San Diego Padres,,Inaugural Diamondbacks
+inaugural-diamondbacks,435,Todd Dunn,Milwaukee Brewers,,Inaugural Diamondbacks
+inaugural-diamondbacks,436,Bobby Higginson,Detroit Tigers,,Inaugural Diamondbacks
+inaugural-diamondbacks,437,Rod Beck,Chicago Cubs,,Inaugural Diamondbacks
+inaugural-diamondbacks,438,Jim Leyritz,Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,439,Matt Williams,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,440,Brett Tomko,Cincinnati Reds,,Inaugural Diamondbacks
+inaugural-diamondbacks,441,Joe Randa,Detroit Tigers,,Inaugural Diamondbacks
+inaugural-diamondbacks,442,Chris Carpenter,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,443,Dennis Reyes,Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,444,Al Leiter,Florida Marlins,,Inaugural Diamondbacks
+inaugural-diamondbacks,445,Jason Schmidt,Pittsburgh Pirates,,Inaugural Diamondbacks
+inaugural-diamondbacks,446,Ken Hill,Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,447,Shannon Stewart,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,448,Enrique Wilson,Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,449,Fernando Tatis,Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,450,Jimmy Key,Baltimore Orioles,,Inaugural Diamondbacks
+inaugural-diamondbacks,451,Darrin Fletcher,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,452,John Valentin,Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,453,Kevin Tapani,Chicago Cubs,,Inaugural Diamondbacks
+inaugural-diamondbacks,454,Eric Karros,Los Angeles Dodgers,,Inaugural Diamondbacks
+inaugural-diamondbacks,455,Jay Bell,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,456,Walt Weiss,Atlanta Braves,,Inaugural Diamondbacks
+inaugural-diamondbacks,457,Devon White,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,458,Carl Pavano,Montreal Expos,,Inaugural Diamondbacks
+inaugural-diamondbacks,459,Mike Lansing,Colorado Rockies,,Inaugural Diamondbacks
+inaugural-diamondbacks,460,John Flaherty,Tampa Bay Devil Rays,,Inaugural Diamondbacks
+inaugural-diamondbacks,461,Richard Hidalgo,Houston Astros,,Inaugural Diamondbacks
+inaugural-diamondbacks,462,Quinton McCracken,Tampa Bay Devil Rays,,Inaugural Diamondbacks
+inaugural-diamondbacks,463,Karim Garcia,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,464,Miguel Cairo,Tampa Bay Devil Rays,,Inaugural Diamondbacks
+inaugural-diamondbacks,465,Edwin Diaz,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,466,Bobby Smith,Tampa Bay Devil Rays,,Inaugural Diamondbacks
+inaugural-diamondbacks,467,Yamil Benitez,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,468,Rich Butler,Tampa Bay Devil Rays,,Inaugural Diamondbacks
+inaugural-diamondbacks,469,Ben Ford,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,470,Bubba Trammell,Tampa Bay Devil Rays,,Inaugural Diamondbacks
+inaugural-diamondbacks,471,Brent Brede,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,472,Brooks Kieschnick,Tampa Bay Devil Rays,,Inaugural Diamondbacks
+inaugural-diamondbacks,473,Carlos Castillo,Chicago White Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,474,Brad Radke,Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,475,Roger Clemens,Toronto Blue Jays,,Inaugural Diamondbacks
+inaugural-diamondbacks,476,Curt Schilling,Philadelphia Phillies,,Inaugural Diamondbacks
+inaugural-diamondbacks,477,John Olerud,New York Mets,,Inaugural Diamondbacks
+inaugural-diamondbacks,478,Mark McGwire,St. Louis Cardinals,,Inaugural Diamondbacks
+inaugural-diamondbacks,479,Mike Piazza / Ken Griffey Jr.,Los Angeles Dodgers / Seattle Mariners,,Inaugural Diamondbacks
+inaugural-diamondbacks,480,Jeff Bagwell / Frank Thomas,Houston Astros / Chicago White Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,481,Chipper Jones / Nomar Garciaparra,Atlanta Braves / Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,482,Larry Walker / Juan Gonzalez,Colorado Rockies / Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,483,Gary Sheffield / Tino Martinez,Florida Marlins / New York Yankees,,Inaugural Diamondbacks
+inaugural-diamondbacks,484,Derrick Gibson / Michael Coleman / Norm Hutchins,Colorado Rockies / Boston Red Sox / Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,485,Braden Looper / Cliff Politte / Brian Rose,St. Louis Cardinals / Boston Red Sox,,Inaugural Diamondbacks
+inaugural-diamondbacks,486,Eric Milton / Jason Marquis / Corey Lee,New York Yankees / Atlanta Braves / Texas Rangers,,Inaugural Diamondbacks
+inaugural-diamondbacks,487,A.J. Hinch / Mark Osborne / Robert Fick,Oakland Athletics / Arizona Diamondbacks / Detroit Tigers,,Inaugural Diamondbacks
+inaugural-diamondbacks,488,Aramis Ramirez / Alex Gonzalez / Sean Casey,Pittsburgh Pirates / Florida Marlins / Cleveland Indians,,Inaugural Diamondbacks
+inaugural-diamondbacks,489,Tim Drew / Donnie Bridges,Cleveland Indians / Montreal Expos,,Inaugural Diamondbacks
+inaugural-diamondbacks,490,Darnell McDonald / Ntema Ndungidi,Baltimore Orioles,,Inaugural Diamondbacks
+inaugural-diamondbacks,491,Ryan Anderson / Mark Mangum,Seattle Mariners / Colorado Rockies,,Inaugural Diamondbacks
+inaugural-diamondbacks,492,J.J. Davis / Troy Glaus,Pittsburgh Pirates / Anaheim Angels,,Inaugural Diamondbacks
+inaugural-diamondbacks,493,Jayson Werth / Dan Reichert,Baltimore Orioles / Kansas City Royals,,Inaugural Diamondbacks
+inaugural-diamondbacks,494,John Curtice / Mike Cuddyer,Boston Red Sox / Minnesota Twins,,Inaugural Diamondbacks
+inaugural-diamondbacks,495,Jack Cust / Jason Standridge,Arizona Diamondbacks / Tampa Bay Devil Rays,,Inaugural Diamondbacks
+inaugural-diamondbacks,496,Brian Anderson,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,497,Tony Saunders,Tampa Bay Devil Rays,,Inaugural Diamondbacks
+inaugural-diamondbacks,498,Jhensy Sandoval / Vladimir Nunez,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,499,Brad Penny / Nick Bierbrodt,Arizona Diamondbacks,,Inaugural Diamondbacks
+inaugural-diamondbacks,500,Dustin Carr / Luis Cruz,Tampa Bay Devil Rays,,Inaugural Diamondbacks
+inaugural-diamondbacks,501,Cedrick Bowers / Marcus McCain,Tampa Bay Devil Rays,,Inaugural Diamondbacks
+inaugural-diamondbacks,502,Checklist: 284-442,,,Inaugural Diamondbacks
+inaugural-diamondbacks,503,Checklist: 443-503 and Inserts,,,Inaugural Diamondbacks
+inaugural-diamondbacks,504,Alex Rodriguez,Seattle Mariners,,Inaugural Diamondbacks
+minted-cooperstown,1,Tony Gwynn,San Diego Padres,,Minted in Cooperstown
+minted-cooperstown,2,Larry Walker,Colorado Rockies,,Minted in Cooperstown
+minted-cooperstown,3,Billy Wagner,Houston Astros,,Minted in Cooperstown
+minted-cooperstown,4,Denny Neagle,Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,5,Vladimir Guerrero,Montreal Expos,,Minted in Cooperstown
+minted-cooperstown,6,Kevin Brown,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,8,Mariano Rivera,New York Yankees,,Minted in Cooperstown
+minted-cooperstown,9,Tony Clark,Detroit Tigers,,Minted in Cooperstown
+minted-cooperstown,10,Deion Sanders,Cincinnati Reds,,Minted in Cooperstown
+minted-cooperstown,11,Francisco Cordova,Pittsburgh Pirates,,Minted in Cooperstown
+minted-cooperstown,12,Matt Williams,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,13,Carlos Baerga,New York Mets,,Minted in Cooperstown
+minted-cooperstown,14,Mo Vaughn,Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,15,Bobby Witt,Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,16,Matt Stairs,Oakland Athletics,,Minted in Cooperstown
+minted-cooperstown,17,Chan Ho Park,Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,18,Mike Bordick,Baltimore Orioles,,Minted in Cooperstown
+minted-cooperstown,19,Michael Tucker,Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,20,Frank Thomas,Chicago White Sox,,Minted in Cooperstown
+minted-cooperstown,21,Roberto Clemente,Pittsburgh Pirates,,Minted in Cooperstown
+minted-cooperstown,22,Dmitri Young,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,23,Steve Trachsel,Chicago Cubs,,Minted in Cooperstown
+minted-cooperstown,24,Jeff Kent,San Francisco Giants,,Minted in Cooperstown
+minted-cooperstown,25,Scott Rolen,Philadelphia Phillies,,Minted in Cooperstown
+minted-cooperstown,26,John Thomson,Colorado Rockies,,Minted in Cooperstown
+minted-cooperstown,27,Joe Vitiello,Kansas City Royals,,Minted in Cooperstown
+minted-cooperstown,28,Eddie Guardado,Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,29,Charlie Hayes,New York Yankees,,Minted in Cooperstown
+minted-cooperstown,30,Juan Gonzalez,Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,31,Garret Anderson,Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,32,John Jaha,Milwaukee Brewers,,Minted in Cooperstown
+minted-cooperstown,33,Omar Vizquel,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,34,Brian Hunter,Detroit Tigers,,Minted in Cooperstown
+minted-cooperstown,35,Jeff Bagwell,Houston Astros,,Minted in Cooperstown
+minted-cooperstown,36,Mark Lemke,Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,37,Doug Glanville,Chicago Cubs,,Minted in Cooperstown
+minted-cooperstown,38,Dan Wilson,Seattle Mariners,,Minted in Cooperstown
+minted-cooperstown,39,Steve Cooke,Pittsburgh Pirates,,Minted in Cooperstown
+minted-cooperstown,40,Chili Davis,Kansas City Royals,,Minted in Cooperstown
+minted-cooperstown,41,Mike Cameron,Chicago White Sox,,Minted in Cooperstown
+minted-cooperstown,42,F.P. Santangelo,Montreal Expos,,Minted in Cooperstown
+minted-cooperstown,43,Brad Ausmus,Houston Astros,,Minted in Cooperstown
+minted-cooperstown,44,Gary DiSarcina,Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,45,Pat Hentgen,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,46,Wilton Guerrero,Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,47,Devon White,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,48,Danny Patterson,Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,49,Pat Meares,Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,50,Rafael Palmeiro,Baltimore Orioles,,Minted in Cooperstown
+minted-cooperstown,51,Mark Gardner,San Francisco Giants,,Minted in Cooperstown
+minted-cooperstown,52,Jeff Blauser,Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,53,Dave Hollins,Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,54,Carlos Garcia,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,55,Ben McDonald,Milwaukee Brewers,,Minted in Cooperstown
+minted-cooperstown,56,John Mabry,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,57,Trevor Hoffman,San Diego Padres,,Minted in Cooperstown
+minted-cooperstown,58,Tony Fernandez,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,59,Rich Loiselle,Pittsburgh Pirates,,Minted in Cooperstown
+minted-cooperstown,60,Mark Leiter,Philadelphia Phillies,,Minted in Cooperstown
+minted-cooperstown,61,Pat Kelly,New York Yankees,,Minted in Cooperstown
+minted-cooperstown,62,John Flaherty,San Diego Padres,,Minted in Cooperstown
+minted-cooperstown,63,Roger Bailey,Colorado Rockies,,Minted in Cooperstown
+minted-cooperstown,64,Tom Gordon,Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,65,Ryan Klesko,Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,66,Darryl Hamilton,San Francisco Giants,,Minted in Cooperstown
+minted-cooperstown,67,Jim Eisenreich,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,68,Butch Huskey,New York Mets,,Minted in Cooperstown
+minted-cooperstown,69,Mark Grudzielanek,Montreal Expos,,Minted in Cooperstown
+minted-cooperstown,70,Marquis Grissom,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,71,Mark McLemore,Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,72,Gary Gaetti,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,73,Greg Gagne,Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,74,Lyle Mouton,Chicago White Sox,,Minted in Cooperstown
+minted-cooperstown,75,Jim Edmonds,Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,76,Shawn Green,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,77,Greg Vaughn,San Diego Padres,,Minted in Cooperstown
+minted-cooperstown,78,Terry Adams,Chicago Cubs,,Minted in Cooperstown
+minted-cooperstown,79,Kevin Polcovich,Pittsburgh Pirates,,Minted in Cooperstown
+minted-cooperstown,80,Troy O'Leary,Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,81,Jeff Shaw,Cincinnati Reds,,Minted in Cooperstown
+minted-cooperstown,82,Rich Becker,Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,83,David Wells,New York Yankees,,Minted in Cooperstown
+minted-cooperstown,84,Steve Karsay,Oakland Athletics,,Minted in Cooperstown
+minted-cooperstown,85,Charles Nagy,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,86,B.J. Surhoff,Baltimore Orioles,,Minted in Cooperstown
+minted-cooperstown,87,Jamey Wright,Colorado Rockies,,Minted in Cooperstown
+minted-cooperstown,88,James Baldwin,Chicago White Sox,,Minted in Cooperstown
+minted-cooperstown,89,Edgardo Alfonzo,New York Mets,,Minted in Cooperstown
+minted-cooperstown,90,Jay Buhner,Seattle Mariners,,Minted in Cooperstown
+minted-cooperstown,91,Brady Anderson,Baltimore Orioles,,Minted in Cooperstown
+minted-cooperstown,92,Scott Servais,Chicago Cubs,,Minted in Cooperstown
+minted-cooperstown,93,Edgar Renteria,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,94,Mike Lieberthal,Philadelphia Phillies,,Minted in Cooperstown
+minted-cooperstown,95,Rick Aguilera,Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,96,Walt Weiss,Colorado Rockies,,Minted in Cooperstown
+minted-cooperstown,97,Deivi Cruz,Detroit Tigers,,Minted in Cooperstown
+minted-cooperstown,98,Kurt Abbott,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,99,Henry Rodriguez,Montreal Expos,,Minted in Cooperstown
+minted-cooperstown,100,Mike Piazza,Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,101,Bill Taylor,Oakland Athletics,,Minted in Cooperstown
+minted-cooperstown,102,Todd Zeile,Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,103,Rey Ordonez,New York Mets,,Minted in Cooperstown
+minted-cooperstown,104,Willie Greene,Cincinnati Reds,,Minted in Cooperstown
+minted-cooperstown,105,Tony Womack,Pittsburgh Pirates,,Minted in Cooperstown
+minted-cooperstown,106,Mike Sweeney,Kansas City Royals,,Minted in Cooperstown
+minted-cooperstown,107,Jeffrey Hammonds,Baltimore Orioles,,Minted in Cooperstown
+minted-cooperstown,108,Kevin Orie,Chicago Cubs,,Minted in Cooperstown
+minted-cooperstown,109,Alex Gonzalez,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,110,Jose Canseco,Oakland Athletics,,Minted in Cooperstown
+minted-cooperstown,111,Paul Sorrento,Seattle Mariners,,Minted in Cooperstown
+minted-cooperstown,112,Joey Hamilton,San Diego Padres,,Minted in Cooperstown
+minted-cooperstown,113,Brad Radke,Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,114,Steve Avery,Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,115,Esteban Loaiza,Pittsburgh Pirates,,Minted in Cooperstown
+minted-cooperstown,116,Stan Javier,San Francisco Giants,,Minted in Cooperstown
+minted-cooperstown,117,Chris Gomez,San Diego Padres,,Minted in Cooperstown
+minted-cooperstown,118,Royce Clayton,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,119,Orlando Merced,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,120,Kevin Appier,Kansas City Royals,,Minted in Cooperstown
+minted-cooperstown,121,Mel Nieves,Detroit Tigers,,Minted in Cooperstown
+minted-cooperstown,122,Joe Girardi,New York Yankees,,Minted in Cooperstown
+minted-cooperstown,123,Rico Brogna,Philadelphia Phillies,,Minted in Cooperstown
+minted-cooperstown,124,Kent Mercker,Cincinnati Reds,,Minted in Cooperstown
+minted-cooperstown,125,Manny Ramirez,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,126,Jeromy Burnitz,Milwaukee Brewers,,Minted in Cooperstown
+minted-cooperstown,127,Kevin Foster,Chicago Cubs,,Minted in Cooperstown
+minted-cooperstown,128,Matt Morris,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,129,Jason Dickson,Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,130,Tom Glavine,Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,131,Wally Joyner,San Diego Padres,,Minted in Cooperstown
+minted-cooperstown,132,Rick Reed,New York Mets,,Minted in Cooperstown
+minted-cooperstown,133,Todd Jones,Detroit Tigers,,Minted in Cooperstown
+minted-cooperstown,134,Dave Martinez,Chicago White Sox,,Minted in Cooperstown
+minted-cooperstown,135,Sandy Alomar,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,136,Mike Lansing,Montreal Expos,,Minted in Cooperstown
+minted-cooperstown,137,Sean Berry,Houston Astros,,Minted in Cooperstown
+minted-cooperstown,138,Doug Jones,Milwaukee Brewers,,Minted in Cooperstown
+minted-cooperstown,139,Todd Stottlemyre,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,140,Jay Bell,Kansas City Royals,,Minted in Cooperstown
+minted-cooperstown,141,Jaime Navarro,Chicago White Sox,,Minted in Cooperstown
+minted-cooperstown,142,Chris Hoiles,Baltimore Orioles,,Minted in Cooperstown
+minted-cooperstown,143,Joey Cora,Seattle Mariners,,Minted in Cooperstown
+minted-cooperstown,144,Scott Spiezio,Oakland Athletics,,Minted in Cooperstown
+minted-cooperstown,145,Joe Carter,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,146,Jose Guillen,Pittsburgh Pirates,,Minted in Cooperstown
+minted-cooperstown,147,Damion Easley,Detroit Tigers,,Minted in Cooperstown
+minted-cooperstown,148,Lee Stevens,Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,149,Alex Fernandez,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,150,Randy Johnson,Seattle Mariners,,Minted in Cooperstown
+minted-cooperstown,151,J.T. Snow,San Francisco Giants,,Minted in Cooperstown
+minted-cooperstown,152,Chuck Finley,Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,153,Bernard Gilkey,New York Mets,,Minted in Cooperstown
+minted-cooperstown,154,David Segui,Montreal Expos,,Minted in Cooperstown
+minted-cooperstown,155,Dante Bichette,Colorado Rockies,,Minted in Cooperstown
+minted-cooperstown,156,Kevin Stocker,Philadelphia Phillies,,Minted in Cooperstown
+minted-cooperstown,157,Carl Everett,New York Mets,,Minted in Cooperstown
+minted-cooperstown,158,Jose Valentin,Milwaukee Brewers,,Minted in Cooperstown
+minted-cooperstown,159,Pokey Reese,Cincinnati Reds,,Minted in Cooperstown
+minted-cooperstown,160,Derek Jeter,New York Yankees,,Minted in Cooperstown
+minted-cooperstown,161,Roger Pavlik,Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,162,Mark Wohlers,Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,163,Ricky Bottalico,Philadelphia Phillies,,Minted in Cooperstown
+minted-cooperstown,164,Ozzie Guillen,Chicago White Sox,,Minted in Cooperstown
+minted-cooperstown,165,Mike Mussina,Baltimore Orioles,,Minted in Cooperstown
+minted-cooperstown,166,Gary Sheffield,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,167,Hideo Nomo,Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,168,Mark Grace,Chicago Cubs,,Minted in Cooperstown
+minted-cooperstown,169,Aaron Sele,Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,170,Darryl Kile,Houston Astros,,Minted in Cooperstown
+minted-cooperstown,171,Shawn Estes,San Francisco Giants,,Minted in Cooperstown
+minted-cooperstown,172,Vinny Castilla,Colorado Rockies,,Minted in Cooperstown
+minted-cooperstown,173,Ron Coomer,Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,174,Jose Rosado,Kansas City Royals,,Minted in Cooperstown
+minted-cooperstown,175,Kenny Lofton,Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,176,Jason Giambi,Oakland Athletics,,Minted in Cooperstown
+minted-cooperstown,177,Hal Morris,Cincinnati Reds,,Minted in Cooperstown
+minted-cooperstown,178,Darren Bragg,Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,179,Orel Hershiser,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,180,Ray Lankford,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,181,Hideki Irabu,New York Yankees,,Minted in Cooperstown
+minted-cooperstown,182,Kevin Young,Pittsburgh Pirates,,Minted in Cooperstown
+minted-cooperstown,183,Javy Lopez,Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,184,Jeff Montgomery,Kansas City Royals,,Minted in Cooperstown
+minted-cooperstown,185,Mike Holtz,Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,186,George Williams,Oakland Athletics,,Minted in Cooperstown
+minted-cooperstown,187,Cal Eldred,Milwaukee Brewers,,Minted in Cooperstown
+minted-cooperstown,188,Tom Candiotti,Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,189,Glenallen Hill,San Francisco Giants,,Minted in Cooperstown
+minted-cooperstown,190,Brian Giles,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,191,Dave Mlicki,New York Mets,,Minted in Cooperstown
+minted-cooperstown,192,Garrett Stephenson,Philadelphia Phillies,,Minted in Cooperstown
+minted-cooperstown,193,Jeff Frye,Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,194,Joe Oliver,Cincinnati Reds,,Minted in Cooperstown
+minted-cooperstown,195,Bob Hamelin,Detroit Tigers,,Minted in Cooperstown
+minted-cooperstown,196,Luis Sojo,New York Yankees,,Minted in Cooperstown
+minted-cooperstown,197,LaTroy Hawkins,Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,198,Kevin Elster,Pittsburgh Pirates,,Minted in Cooperstown
+minted-cooperstown,199,Jeff Reed,Colorado Rockies,,Minted in Cooperstown
+minted-cooperstown,200,Dennis Eckersley,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,201,Bill Mueller,San Francisco Giants,,Minted in Cooperstown
+minted-cooperstown,202,Russ Davis,Seattle Mariners,,Minted in Cooperstown
+minted-cooperstown,203,Armando Benitez,Baltimore Orioles,,Minted in Cooperstown
+minted-cooperstown,204,Quilvio Veras,San Diego Padres,,Minted in Cooperstown
+minted-cooperstown,205,Tim Naehring,Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,206,Quinton McCracken,Colorado Rockies,,Minted in Cooperstown
+minted-cooperstown,207,Raul Casanova,Detroit Tigers,,Minted in Cooperstown
+minted-cooperstown,208,Matt Lawton,Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,209,Luis Alicea,Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,210,Luis Gonzalez,Houston Astros,,Minted in Cooperstown
+minted-cooperstown,211,Allen Watson,Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,212,Gerald Williams,Milwaukee Brewers,,Minted in Cooperstown
+minted-cooperstown,213,David Bell,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,214,Todd Hollandsworth,Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,215,Wade Boggs,New York Yankees,,Minted in Cooperstown
+minted-cooperstown,216,Jose Mesa,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,217,Jamie Moyer,Seattle Mariners,,Minted in Cooperstown
+minted-cooperstown,218,Darren Daulton,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,219,Mickey Morandini,Philadelphia Phillies,,Minted in Cooperstown
+minted-cooperstown,220,Rusty Greer,Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,221,Jim Bullinger,Montreal Expos,,Minted in Cooperstown
+minted-cooperstown,222,Jose Offerman,Kansas City Royals,,Minted in Cooperstown
+minted-cooperstown,223,Matt Karchner,Chicago White Sox,,Minted in Cooperstown
+minted-cooperstown,224,Woody Williams,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,225,Mark Loretta,Milwaukee Brewers,,Minted in Cooperstown
+minted-cooperstown,226,Mike Hampton,Houston Astros,,Minted in Cooperstown
+minted-cooperstown,227,Willie Adams,Oakland Athletics,,Minted in Cooperstown
+minted-cooperstown,228,Scott Hatteberg,Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,229,Rich Amaral,Seattle Mariners,,Minted in Cooperstown
+minted-cooperstown,230,Terry Steinbach,Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,231,Glendon Rusch,Kansas City Royals,,Minted in Cooperstown
+minted-cooperstown,232,Bret Boone,Cincinnati Reds,,Minted in Cooperstown
+minted-cooperstown,233,Robert Person,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,234,Jose Hernandez,Chicago Cubs,,Minted in Cooperstown
+minted-cooperstown,235,Doug Drabek,Chicago White Sox,,Minted in Cooperstown
+minted-cooperstown,236,Jason McDonald,Oakland Athletics,,Minted in Cooperstown
+minted-cooperstown,237,Chris Widger,Montreal Expos,,Minted in Cooperstown
+minted-cooperstown,238,Tom Martin,Houston Astros,,Minted in Cooperstown
+minted-cooperstown,239,Dave Burba,Cincinnati Reds,,Minted in Cooperstown
+minted-cooperstown,240,Pete Rose Jr.,Cincinnati Reds,,Minted in Cooperstown
+minted-cooperstown,241,Bobby Ayala,Seattle Mariners,,Minted in Cooperstown
+minted-cooperstown,242,Tim Wakefield,Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,243,Dennis Springer,Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,244,Tim Belcher,Kansas City Royals,,Minted in Cooperstown
+minted-cooperstown,245,Jon Garland / Geoff Goetz,Chicago Cubs / New York Mets,,Minted in Cooperstown
+minted-cooperstown,246,Lance Berkman / Glenn Davis,Houston Astros / Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,247,Vernon Wells / Aaron Akin,Toronto Blue Jays / Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,248,Adam Kennedy / Jason Romano,Texas Rangers / St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,249,Jason Dellaero / Troy Cameron,Chicago White Sox / Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,250,Jared Sandberg / Alex Sanchez,Tampa Bay Devil Rays,,Minted in Cooperstown
+minted-cooperstown,251,Pablo Ortega / James Manias,Tampa Bay Devil Rays,,Minted in Cooperstown
+minted-cooperstown,252,Jason Conti / Mike Stoner,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,253,John Patterson / Larry Rodriguez,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,254,Aaron Boone / Adrian Beltre / Ryan Minor,Cincinnati Reds / Los Angeles Dodgers / Baltimore Orioles,,Minted in Cooperstown
+minted-cooperstown,255,Ben Grieve / Dermal Brown / Brian Buchanan,Oakland Athletics / Kansas City Royals / New York Yankees,,Minted in Cooperstown
+minted-cooperstown,256,Kerry Wood / Carl Pavano / Gil Meche,Boston Red Sox / Seattle Mariners / Chicago Cubs,,Minted in Cooperstown
+minted-cooperstown,257,Richie Sexson / Daryle Ward / David Ortiz,Cleveland Indians / Houston Astros / Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,258,Randy Winn / Juan Encarnacion / Andrew Vessel,Florida Marlins / Detroit Tigers / Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,259,Travis Smith / Courtney Duncan / Kris Benson,Milwaukee Brewers / Chicago Cubs / Pittsburgh Pirates,,Minted in Cooperstown
+minted-cooperstown,260,Chad Hermansen / Brent Butler / Warren Morris,Pittsburgh Pirates / St. Louis Cardinals / Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,261,Elieser Marrero / Ramon Hernandez / Ben Davis,St. Louis Cardinals / Oakland Athletics / San Diego Padres,,Minted in Cooperstown
+minted-cooperstown,262,Eric Chavez / Russ Johnson / Russell Branyan,Oakland Athletics / Houston Astros / Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,263,John Barnes / Ryan Jackson / Todd Dunwoody,Boston Red Sox / Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,264,Brian Fuentes / Matt Clement / Roy Halladay,Seattle Mariners / San Diego Padres / Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,265,Randy Johnson,Seattle Mariners,,Minted in Cooperstown
+minted-cooperstown,266,Kevin Brown,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,267,Francisco Cordova / Ricardo Rincon,Pittsburgh Pirates,,Minted in Cooperstown
+minted-cooperstown,268,Nomar Garciaparra,Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,269,Tino Martinez,New York Yankees,,Minted in Cooperstown
+minted-cooperstown,270,Chuck Knoblauch,Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,271,Pedro Martinez,Montreal Expos,,Minted in Cooperstown
+minted-cooperstown,272,Denny Neagle,Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,273,Juan Gonzalez,Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,274,Andres Galarraga,Colorado Rockies,,Minted in Cooperstown
+minted-cooperstown,275,Checklist: 1-195,,,Minted in Cooperstown
+minted-cooperstown,276,Checklist: 196-283 and Inserts,,,Minted in Cooperstown
+minted-cooperstown,277,Moises Alou,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,278,Sandy Alomar,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,279,Gary Sheffield,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,280,Matt Williams,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,281,Livan Hernandez,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,282,Chad Ogea,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,283,Marlins Win World Series,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,284,Tino Martinez,New York Yankees,,Minted in Cooperstown
+minted-cooperstown,285,Roberto Alomar,Baltimore Orioles,,Minted in Cooperstown
+minted-cooperstown,286,Jeff King,Kansas City Royals,,Minted in Cooperstown
+minted-cooperstown,287,Brian Jordan,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,288,Darin Erstad,Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,289,Ken Caminiti,San Diego Padres,,Minted in Cooperstown
+minted-cooperstown,290,Jim Thome,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,291,Paul Molitor,Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,292,Ivan Rodriguez,Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,293,Bernie Williams,New York Yankees,,Minted in Cooperstown
+minted-cooperstown,294,Todd Hundley,New York Mets,,Minted in Cooperstown
+minted-cooperstown,295,Andres Galarraga,Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,296,Greg Maddux,Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,297,Edgar Martinez,Seattle Mariners,,Minted in Cooperstown
+minted-cooperstown,298,Ron Gant,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,299,Derek Bell,Houston Astros,,Minted in Cooperstown
+minted-cooperstown,300,Roger Clemens,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,301,Rondell White,Montreal Expos,,Minted in Cooperstown
+minted-cooperstown,302,Barry Larkin,Cincinnati Reds,,Minted in Cooperstown
+minted-cooperstown,303,Robin Ventura,Chicago White Sox,,Minted in Cooperstown
+minted-cooperstown,304,Jason Kendall,Pittsburgh Pirates,,Minted in Cooperstown
+minted-cooperstown,305,Chipper Jones,Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,306,John Franco,New York Mets,,Minted in Cooperstown
+minted-cooperstown,307,Sammy Sosa,Chicago Cubs,,Minted in Cooperstown
+minted-cooperstown,308,Troy Percival,Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,309,Chuck Knoblauch,Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,310,Ellis Burks,Colorado Rockies,,Minted in Cooperstown
+minted-cooperstown,311,Al Martin,Pittsburgh Pirates,,Minted in Cooperstown
+minted-cooperstown,312,Tim Salmon,Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,313,Moises Alou,Houston Astros,,Minted in Cooperstown
+minted-cooperstown,314,Lance Johnson,Chicago Cubs,,Minted in Cooperstown
+minted-cooperstown,315,Justin Thompson,Detroit Tigers,,Minted in Cooperstown
+minted-cooperstown,316,Will Clark,Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,317,Barry Bonds,San Francisco Giants,,Minted in Cooperstown
+minted-cooperstown,318,Craig Biggio,Houston Astros,,Minted in Cooperstown
+minted-cooperstown,319,John Smoltz,Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,320,Cal Ripken,Baltimore Orioles,,Minted in Cooperstown
+minted-cooperstown,321,Ken Griffey Jr.,Seattle Mariners,,Minted in Cooperstown
+minted-cooperstown,322,Paul O'Neill,New York Yankees,,Minted in Cooperstown
+minted-cooperstown,323,Todd Helton,Colorado Rockies,,Minted in Cooperstown
+minted-cooperstown,324,John Olerud,New York Mets,,Minted in Cooperstown
+minted-cooperstown,325,Mark McGwire,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,326,Jose Cruz Jr.,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,327,Jeff Cirillo,Milwaukee Brewers,,Minted in Cooperstown
+minted-cooperstown,328,Dean Palmer,Kansas City Royals,,Minted in Cooperstown
+minted-cooperstown,329,John Wetteland,Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,330,Steve Finley,San Diego Padres,,Minted in Cooperstown
+minted-cooperstown,331,Albert Belle,Chicago White Sox,,Minted in Cooperstown
+minted-cooperstown,332,Curt Schilling,Philadelphia Phillies,,Minted in Cooperstown
+minted-cooperstown,333,Raul Mondesi,Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,334,Andruw Jones,Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,335,Nomar Garciaparra,Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,336,David Justice,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,337,Andy Pettitte,New York Yankees,,Minted in Cooperstown
+minted-cooperstown,338,Pedro Martinez,Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,339,Travis Miller,Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,340,Chris Stynes,Cincinnati Reds,,Minted in Cooperstown
+minted-cooperstown,341,Gregg Jefferies,Philadelphia Phillies,,Minted in Cooperstown
+minted-cooperstown,342,Jeff Fassero,Seattle Mariners,,Minted in Cooperstown
+minted-cooperstown,343,Craig Counsell,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,344,Wilson Alvarez,Tampa Bay Devil Rays,,Minted in Cooperstown
+minted-cooperstown,345,Bip Roberts,Detroit Tigers,,Minted in Cooperstown
+minted-cooperstown,346,Kelvim Escobar,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,347,Mark Bellhorn,Oakland Athletics,,Minted in Cooperstown
+minted-cooperstown,348,Cory Lidle,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,349,Fred McGriff,Tampa Bay Devil Rays,,Minted in Cooperstown
+minted-cooperstown,350,Chuck Carr,Houston Astros,,Minted in Cooperstown
+minted-cooperstown,351,Bob Abreu,Philadelphia Phillies,,Minted in Cooperstown
+minted-cooperstown,352,Juan Guzman,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,353,Fernando Vina,Milwaukee Brewers,,Minted in Cooperstown
+minted-cooperstown,354,Andy Benes,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,355,Dave Nilsson,Milwaukee Brewers,,Minted in Cooperstown
+minted-cooperstown,356,Bobby Bonilla,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,357,Ismael Valdes,Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,358,Carlos Perez,Montreal Expos,,Minted in Cooperstown
+minted-cooperstown,359,Kirk Rueter,San Francisco Giants,,Minted in Cooperstown
+minted-cooperstown,360,Bartolo Colon,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,361,Mel Rojas,New York Mets,,Minted in Cooperstown
+minted-cooperstown,362,Johnny Damon,Kansas City Royals,,Minted in Cooperstown
+minted-cooperstown,363,Geronimo Berroa,Baltimore Orioles,,Minted in Cooperstown
+minted-cooperstown,364,Reggie Sanders,Cincinnati Reds,,Minted in Cooperstown
+minted-cooperstown,365,Jermaine Allensworth,Pittsburgh Pirates,,Minted in Cooperstown
+minted-cooperstown,366,Orlando Cabrera,Montreal Expos,,Minted in Cooperstown
+minted-cooperstown,367,Jorge Fabregas,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,368,Scott Stahoviak,Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,369,Ken Cloude,Seattle Mariners,,Minted in Cooperstown
+minted-cooperstown,370,Donovan Osborne,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,371,Roger Cedeno,Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,372,Neifi Perez,Colorado Rockies,,Minted in Cooperstown
+minted-cooperstown,373,Chris Holt,Houston Astros,,Minted in Cooperstown
+minted-cooperstown,374,Cecil Fielder,Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,375,Marty Cordova,Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,376,Tom Goodwin,Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,377,Jeff Suppan,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,378,Jeff Brantley,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,379,Mark Langston,Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,380,Shane Reynolds,Houston Astros,,Minted in Cooperstown
+minted-cooperstown,381,Mike Fetters,Milwaukee Brewers,,Minted in Cooperstown
+minted-cooperstown,382,Todd Greene,Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,383,Ray Durham,Chicago White Sox,,Minted in Cooperstown
+minted-cooperstown,384,Carlos Delgado,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,385,Jeff D'Amico,Milwaukee Brewers,,Minted in Cooperstown
+minted-cooperstown,386,Brian McRae,New York Mets,,Minted in Cooperstown
+minted-cooperstown,387,Alan Benes,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,388,Heathcliff Slocumb,Seattle Mariners,,Minted in Cooperstown
+minted-cooperstown,389,Eric Young,Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,390,Travis Fryman,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,391,David Cone,New York Yankees,,Minted in Cooperstown
+minted-cooperstown,392,Otis Nixon,Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,393,Jeremi Gonzalez,Chicago Cubs,,Minted in Cooperstown
+minted-cooperstown,394,Jeff Juden,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,395,Jose Vizcaino,Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,396,Ugueth Urbina,Montreal Expos,,Minted in Cooperstown
+minted-cooperstown,397,Ramon Martinez,Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,398,Robb Nen,San Francisco Giants,,Minted in Cooperstown
+minted-cooperstown,399,Harold Baines,Baltimore Orioles,,Minted in Cooperstown
+minted-cooperstown,400,Delino DeShields,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,401,John Burkett,Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,402,Sterling Hitchcock,San Diego Padres,,Minted in Cooperstown
+minted-cooperstown,403,Mark Clark,Chicago Cubs,,Minted in Cooperstown
+minted-cooperstown,404,Terrell Wade,Tampa Bay Devil Rays,,Minted in Cooperstown
+minted-cooperstown,405,Scott Brosius,New York Yankees,,Minted in Cooperstown
+minted-cooperstown,406,Chad Curtis,New York Yankees,,Minted in Cooperstown
+minted-cooperstown,407,Brian Johnson,San Francisco Giants,,Minted in Cooperstown
+minted-cooperstown,408,Roberto Kelly,Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,409,Dave Dellucci,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,410,Michael Tucker,Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,411,Mark Kotsay,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,412,Mark Lewis,San Francisco Giants,,Minted in Cooperstown
+minted-cooperstown,413,Ryan McGuire,Montreal Expos,,Minted in Cooperstown
+minted-cooperstown,414,Shawon Dunston,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,415,Brad Rigby,Oakland Athletics,,Minted in Cooperstown
+minted-cooperstown,416,Scott Erickson,Baltimore Orioles,,Minted in Cooperstown
+minted-cooperstown,417,Bobby Jones,New York Mets,,Minted in Cooperstown
+minted-cooperstown,418,Darren Oliver,Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,419,John Smiley,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,420,T.J. Mathews,Oakland Athletics,,Minted in Cooperstown
+minted-cooperstown,421,Dustin Hermanson,Montreal Expos,,Minted in Cooperstown
+minted-cooperstown,422,Mike Timlin,Seattle Mariners,,Minted in Cooperstown
+minted-cooperstown,423,Willie Blair,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,424,Manny Alexander,Chicago Cubs,,Minted in Cooperstown
+minted-cooperstown,425,Bob Tewksbury,Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,426,Pete Schourek,Houston Astros,,Minted in Cooperstown
+minted-cooperstown,427,Reggie Jefferson,Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,428,Ed Sprague,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,429,Jeff Conine,Kansas City Royals,,Minted in Cooperstown
+minted-cooperstown,430,Roberto Hernandez,Tampa Bay Devil Rays,,Minted in Cooperstown
+minted-cooperstown,431,Tom Pagnozzi,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,432,Jaret Wright,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,433,Livan Hernandez,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,434,Andy Ashby,San Diego Padres,,Minted in Cooperstown
+minted-cooperstown,435,Todd Dunn,Milwaukee Brewers,,Minted in Cooperstown
+minted-cooperstown,436,Bobby Higginson,Detroit Tigers,,Minted in Cooperstown
+minted-cooperstown,437,Rod Beck,Chicago Cubs,,Minted in Cooperstown
+minted-cooperstown,438,Jim Leyritz,Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,439,Matt Williams,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,440,Brett Tomko,Cincinnati Reds,,Minted in Cooperstown
+minted-cooperstown,441,Joe Randa,Detroit Tigers,,Minted in Cooperstown
+minted-cooperstown,442,Chris Carpenter,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,443,Dennis Reyes,Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,444,Al Leiter,Florida Marlins,,Minted in Cooperstown
+minted-cooperstown,445,Jason Schmidt,Pittsburgh Pirates,,Minted in Cooperstown
+minted-cooperstown,446,Ken Hill,Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,447,Shannon Stewart,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,448,Enrique Wilson,Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,449,Fernando Tatis,Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,450,Jimmy Key,Baltimore Orioles,,Minted in Cooperstown
+minted-cooperstown,451,Darrin Fletcher,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,452,John Valentin,Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,453,Kevin Tapani,Chicago Cubs,,Minted in Cooperstown
+minted-cooperstown,454,Eric Karros,Los Angeles Dodgers,,Minted in Cooperstown
+minted-cooperstown,455,Jay Bell,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,456,Walt Weiss,Atlanta Braves,,Minted in Cooperstown
+minted-cooperstown,457,Devon White,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,458,Carl Pavano,Montreal Expos,,Minted in Cooperstown
+minted-cooperstown,459,Mike Lansing,Colorado Rockies,,Minted in Cooperstown
+minted-cooperstown,460,John Flaherty,Tampa Bay Devil Rays,,Minted in Cooperstown
+minted-cooperstown,461,Richard Hidalgo,Houston Astros,,Minted in Cooperstown
+minted-cooperstown,462,Quinton McCracken,Tampa Bay Devil Rays,,Minted in Cooperstown
+minted-cooperstown,463,Karim Garcia,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,464,Miguel Cairo,Tampa Bay Devil Rays,,Minted in Cooperstown
+minted-cooperstown,465,Edwin Diaz,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,466,Bobby Smith,Tampa Bay Devil Rays,,Minted in Cooperstown
+minted-cooperstown,467,Yamil Benitez,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,468,Rich Butler,Tampa Bay Devil Rays,,Minted in Cooperstown
+minted-cooperstown,469,Ben Ford,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,470,Bubba Trammell,Tampa Bay Devil Rays,,Minted in Cooperstown
+minted-cooperstown,471,Brent Brede,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,472,Brooks Kieschnick,Tampa Bay Devil Rays,,Minted in Cooperstown
+minted-cooperstown,473,Carlos Castillo,Chicago White Sox,,Minted in Cooperstown
+minted-cooperstown,474,Brad Radke,Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,475,Roger Clemens,Toronto Blue Jays,,Minted in Cooperstown
+minted-cooperstown,476,Curt Schilling,Philadelphia Phillies,,Minted in Cooperstown
+minted-cooperstown,477,John Olerud,New York Mets,,Minted in Cooperstown
+minted-cooperstown,478,Mark McGwire,St. Louis Cardinals,,Minted in Cooperstown
+minted-cooperstown,479,Mike Piazza / Ken Griffey Jr.,Los Angeles Dodgers / Seattle Mariners,,Minted in Cooperstown
+minted-cooperstown,480,Jeff Bagwell / Frank Thomas,Houston Astros / Chicago White Sox,,Minted in Cooperstown
+minted-cooperstown,481,Chipper Jones / Nomar Garciaparra,Atlanta Braves / Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,482,Larry Walker / Juan Gonzalez,Colorado Rockies / Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,483,Gary Sheffield / Tino Martinez,Florida Marlins / New York Yankees,,Minted in Cooperstown
+minted-cooperstown,484,Derrick Gibson / Michael Coleman / Norm Hutchins,Colorado Rockies / Boston Red Sox / Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,485,Braden Looper / Cliff Politte / Brian Rose,St. Louis Cardinals / Boston Red Sox,,Minted in Cooperstown
+minted-cooperstown,486,Eric Milton / Jason Marquis / Corey Lee,New York Yankees / Atlanta Braves / Texas Rangers,,Minted in Cooperstown
+minted-cooperstown,487,A.J. Hinch / Mark Osborne / Robert Fick,Oakland Athletics / Arizona Diamondbacks / Detroit Tigers,,Minted in Cooperstown
+minted-cooperstown,488,Aramis Ramirez / Alex Gonzalez / Sean Casey,Pittsburgh Pirates / Florida Marlins / Cleveland Indians,,Minted in Cooperstown
+minted-cooperstown,489,Tim Drew / Donnie Bridges,Cleveland Indians / Montreal Expos,,Minted in Cooperstown
+minted-cooperstown,490,Darnell McDonald / Ntema Ndungidi,Baltimore Orioles,,Minted in Cooperstown
+minted-cooperstown,491,Ryan Anderson / Mark Mangum,Seattle Mariners / Colorado Rockies,,Minted in Cooperstown
+minted-cooperstown,492,J.J. Davis / Troy Glaus,Pittsburgh Pirates / Anaheim Angels,,Minted in Cooperstown
+minted-cooperstown,493,Jayson Werth / Dan Reichert,Baltimore Orioles / Kansas City Royals,,Minted in Cooperstown
+minted-cooperstown,494,John Curtice / Mike Cuddyer,Boston Red Sox / Minnesota Twins,,Minted in Cooperstown
+minted-cooperstown,495,Jack Cust / Jason Standridge,Arizona Diamondbacks / Tampa Bay Devil Rays,,Minted in Cooperstown
+minted-cooperstown,496,Brian Anderson,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,497,Tony Saunders,Tampa Bay Devil Rays,,Minted in Cooperstown
+minted-cooperstown,498,Jhensy Sandoval / Vladimir Nunez,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,499,Brad Penny / Nick Bierbrodt,Arizona Diamondbacks,,Minted in Cooperstown
+minted-cooperstown,500,Dustin Carr / Luis Cruz,Tampa Bay Devil Rays,,Minted in Cooperstown
+minted-cooperstown,501,Cedrick Bowers / Marcus McCain,Tampa Bay Devil Rays,,Minted in Cooperstown
+minted-cooperstown,502,Checklist: 284-442,,,Minted in Cooperstown
+minted-cooperstown,503,Checklist: 443-503 and Inserts,,,Minted in Cooperstown
+tribute-clemente,RC1,Roberto Clemente,Pittsburgh Pirates,,A Tribute to Roberto Clemente
+tribute-clemente,RC2,Roberto Clemente,Pittsburgh Pirates,,A Tribute to Roberto Clemente
+tribute-clemente,RC3,Roberto Clemente,Pittsburgh Pirates,,A Tribute to Roberto Clemente
+tribute-clemente,RC4,Roberto Clemente,Pittsburgh Pirates,,A Tribute to Roberto Clemente
+tribute-clemente,RC5,Roberto Clemente,Pittsburgh Pirates,,A Tribute to Roberto Clemente
+baby-boomers,BB1,Derek Jeter,New York Yankees,,Baby Boomers
+baby-boomers,BB2,Scott Rolen,Philadelphia Phillies,,Baby Boomers
+baby-boomers,BB3,Nomar Garciaparra,Boston Red Sox,,Baby Boomers
+baby-boomers,BB4,Jose Cruz Jr.,Toronto Blue Jays,,Baby Boomers
+baby-boomers,BB5,Darin Erstad,Anaheim Angels,,Baby Boomers
+baby-boomers,BB6,Todd Helton,Colorado Rockies,,Baby Boomers
+baby-boomers,BB7,Tony Clark,Detroit Tigers,,Baby Boomers
+baby-boomers,BB8,Jose Guillen,Pittsburgh Pirates,,Baby Boomers
+baby-boomers,BB9,Andruw Jones,Atlanta Braves,,Baby Boomers
+baby-boomers,BB10,Vladimir Guerrero,Montreal Expos,,Baby Boomers
+baby-boomers,BB11,Mark Kotsay,Florida Marlins,,Baby Boomers
+baby-boomers,BB12,Todd Greene,Anaheim Angels,,Baby Boomers
+baby-boomers,BB13,Andy Pettitte,New York Yankees,,Baby Boomers
+baby-boomers,BB14,Justin Thompson,Detroit Tigers,,Baby Boomers
+baby-boomers,BB15,Alan Benes,St. Louis Cardinals,,Baby Boomers
+clout-nine,C1,Edgar Martinez,Seattle Mariners,,Clout Nine
+clout-nine,C2,Mike Piazza,Los Angeles Dodgers,,Clout Nine
+clout-nine,C3,Frank Thomas,Chicago White Sox,,Clout Nine
+clout-nine,C4,Craig Biggio,Houston Astros,,Clout Nine
+clout-nine,C5,Vinny Castilla,Colorado Rockies,,Clout Nine
+clout-nine,C6,Jeff Blauser,Atlanta Braves,,Clout Nine
+clout-nine,C7,Barry Bonds,San Francisco Giants,,Clout Nine
+clout-nine,C8,Ken Griffey Jr.,Seattle Mariners,,Clout Nine
+clout-nine,C9,Larry Walker,Colorado Rockies,,Clout Nine
+etch-a-sketch,ES1,Albert Belle,Chicago White Sox,,Etch-A-Sketch
+etch-a-sketch,ES2,Barry Bonds,San Francisco Giants,,Etch-A-Sketch
+etch-a-sketch,ES3,Ken Griffey Jr.,Seattle Mariners,,Etch-A-Sketch
+etch-a-sketch,ES4,Greg Maddux,Atlanta Braves,,Etch-A-Sketch
+etch-a-sketch,ES5,Hideo Nomo,Los Angeles Dodgers,,Etch-A-Sketch
+etch-a-sketch,ES6,Mike Piazza,Los Angeles Dodgers,,Etch-A-Sketch
+etch-a-sketch,ES7,Cal Ripken,Baltimore Orioles,,Etch-A-Sketch
+etch-a-sketch,ES8,Frank Thomas,Chicago White Sox,,Etch-A-Sketch
+etch-a-sketch,ES9,Mo Vaughn,Boston Red Sox,,Etch-A-Sketch
+flashbacks,FB1,Barry Bonds,San Francisco Giants / Pittsburgh Pirates,,Flashbacks
+flashbacks,FB2,Ken Griffey Jr.,Seattle Mariners,,Flashbacks
+flashbacks,FB3,Paul Molitor,Minnesota Twins / Milwaukee Brewers,,Flashbacks
+flashbacks,FB4,Randy Johnson,Seattle Mariners / Montreal Expos,,Flashbacks
+flashbacks,FB5,Cal Ripken,Baltimore Orioles,,Flashbacks
+flashbacks,FB6,Tony Gwynn,San Diego Padres,,Flashbacks
+flashbacks,FB7,Kenny Lofton,Atlanta Braves / Houston Astros,,Flashbacks
+flashbacks,FB8,Gary Sheffield,Florida Marlins / Milwaukee Brewers,,Flashbacks
+flashbacks,FB9,Deion Sanders,Cincinnati Reds / New York Yankees,,Flashbacks
+flashbacks,FB10,Brady Anderson,Baltimore Orioles / Boston Red Sox,,Flashbacks
+focal-point,FP1,Juan Gonzalez,Texas Rangers,,Focal Point
+focal-point,FP2,Nomar Garciaparra,Boston Red Sox,,Focal Point
+focal-point,FP3,Jose Cruz Jr.,Toronto Blue Jays,,Focal Point
+focal-point,FP4,Cal Ripken,Baltimore Orioles,,Focal Point
+focal-point,FP5,Ken Griffey Jr.,Seattle Mariners,,Focal Point
+focal-point,FP6,Ivan Rodriguez,Texas Rangers,,Focal Point
+focal-point,FP7,Larry Walker,Colorado Rockies,,Focal Point
+focal-point,FP8,Barry Bonds,San Francisco Giants,,Focal Point
+focal-point,FP9,Roger Clemens,Toronto Blue Jays,,Focal Point
+focal-point,FP10,Frank Thomas,Chicago White Sox,,Focal Point
+focal-point,FP11,Chuck Knoblauch,Minnesota Twins,,Focal Point
+focal-point,FP12,Mike Piazza,Los Angeles Dodgers,,Focal Point
+focal-point,FP13,Greg Maddux,Atlanta Braves,,Focal Point
+focal-point,FP14,Vladimir Guerrero,Montreal Expos,,Focal Point
+focal-point,FP15,Andruw Jones,Atlanta Braves,,Focal Point
+hall-bound,HB1,Paul Molitor,Minnesota Twins,,Hall Bound
+hall-bound,HB2,Tony Gwynn,San Diego Padres,,Hall Bound
+hall-bound,HB3,Wade Boggs,New York Yankees,,Hall Bound
+hall-bound,HB4,Roger Clemens,Toronto Blue Jays,,Hall Bound
+hall-bound,HB5,Dennis Eckersley,St. Louis Cardinals,,Hall Bound
+hall-bound,HB6,Cal Ripken,Baltimore Orioles,,Hall Bound
+hall-bound,HB7,Greg Maddux,Atlanta Braves,,Hall Bound
+hall-bound,HB8,Rickey Henderson,Anaheim Angels,,Hall Bound
+hall-bound,HB9,Ken Griffey Jr.,Seattle Mariners,,Hall Bound
+hall-bound,HB10,Frank Thomas,Chicago White Sox,,Hall Bound
+hall-bound,HB11,Mark McGwire,St. Louis Cardinals,,Hall Bound
+hall-bound,HB12,Barry Bonds,San Francisco Giants,,Hall Bound
+hall-bound,HB13,Mike Piazza,Los Angeles Dodgers,,Hall Bound
+hall-bound,HB14,Juan Gonzalez,Texas Rangers,,Hall Bound
+hall-bound,HB15,Randy Johnson,Seattle Mariners,,Hall Bound
+interleague-finest,ILM1,Chipper Jones,Atlanta Braves,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM2,Cal Ripken,Baltimore Orioles,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM3,Greg Maddux,Atlanta Braves,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM4,Rafael Palmeiro,Baltimore Orioles,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM5,Todd Hundley,New York Mets,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM6,Derek Jeter,New York Yankees,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM7,John Olerud,New York Mets,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM8,Tino Martinez,New York Yankees,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM9,Larry Walker,Colorado Rockies,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM10,Ken Griffey Jr.,Seattle Mariners,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM11,Andres Galarraga,Colorado Rockies,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM12,Randy Johnson,Seattle Mariners,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM13,Mike Piazza,Los Angeles Dodgers,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM14,Jim Edmonds,Anaheim Angels,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM15,Eric Karros,Los Angeles Dodgers,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM16,Tim Salmon,Anaheim Angels,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM17,Sammy Sosa,Chicago Cubs,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM18,Frank Thomas,Chicago White Sox,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM19,Mark Grace,Chicago Cubs,,Interleague Match-Up Mystery Finest
+interleague-finest,ILM20,Albert Belle,Chicago White Sox,,Interleague Match-Up Mystery Finest
+interleague-finest-refractors,ILM1,Chipper Jones,Atlanta Braves,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM2,Cal Ripken,Baltimore Orioles,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM3,Greg Maddux,Atlanta Braves,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM4,Rafael Palmeiro,Baltimore Orioles,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM5,Todd Hundley,New York Mets,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM6,Derek Jeter,New York Yankees,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM7,John Olerud,New York Mets,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM8,Tino Martinez,New York Yankees,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM9,Larry Walker,Colorado Rockies,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM10,Ken Griffey Jr.,Seattle Mariners,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM11,Andres Galarraga,Colorado Rockies,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM12,Randy Johnson,Seattle Mariners,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM13,Mike Piazza,Los Angeles Dodgers,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM14,Jim Edmonds,Anaheim Angels,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM15,Eric Karros,Los Angeles Dodgers,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM16,Tim Salmon,Anaheim Angels,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM17,Sammy Sosa,Chicago Cubs,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM18,Frank Thomas,Chicago White Sox,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM19,Mark Grace,Chicago Cubs,,Interleague Match-Up Mystery Finest Refractors
+interleague-finest-refractors,ILM20,Albert Belle,Chicago White Sox,,Interleague Match-Up Mystery Finest Refractors
+milestone,MS1,Barry Bonds,San Francisco Giants,,Milestone
+milestone,MS2,Roger Clemens,Toronto Blue Jays,,Milestone
+milestone,MS3,Dennis Eckersley,St. Louis Cardinals,,Milestone
+milestone,MS4,Juan Gonzalez,Texas Rangers,,Milestone
+milestone,MS5,Ken Griffey Jr.,Seattle Mariners,,Milestone
+milestone,MS6,Tony Gwynn,San Diego Padres,,Milestone
+milestone,MS7,Greg Maddux,Atlanta Braves,,Milestone
+milestone,MS8,Mark McGwire,St. Louis Cardinals,,Milestone
+milestone,MS9,Cal Ripken,Baltimore Orioles,,Milestone
+milestone,MS10,Frank Thomas,Chicago White Sox,,Milestone
+mystery-bordered,M1,Nomar Garciaparra,Boston Red Sox,,Mystery Finest Bordered
+mystery-bordered,M2,Chipper Jones,Atlanta Braves,,Mystery Finest Bordered
+mystery-bordered,M3,Scott Rolen,Philadelphia Phillies,,Mystery Finest Bordered
+mystery-bordered,M4,Albert Belle,Chicago White Sox,,Mystery Finest Bordered
+mystery-bordered,M5,Mo Vaughn,Boston Red Sox,,Mystery Finest Bordered
+mystery-bordered,M6,Jose Cruz Jr.,Toronto Blue Jays,,Mystery Finest Bordered
+mystery-bordered,M7,Mark McGwire,St. Louis Cardinals,,Mystery Finest Bordered
+mystery-bordered,M8,Derek Jeter,New York Yankees,,Mystery Finest Bordered
+mystery-bordered,M9,Tony Gwynn,San Diego Padres,,Mystery Finest Bordered
+mystery-bordered,M10,Frank Thomas,Chicago White Sox,,Mystery Finest Bordered
+mystery-bordered,M11,Tino Martinez,New York Yankees,,Mystery Finest Bordered
+mystery-bordered,M12,Greg Maddux,Atlanta Braves,,Mystery Finest Bordered
+mystery-bordered,M13,Juan Gonzalez,Texas Rangers,,Mystery Finest Bordered
+mystery-bordered,M14,Larry Walker,Colorado Rockies,,Mystery Finest Bordered
+mystery-bordered,M15,Mike Piazza,Los Angeles Dodgers,,Mystery Finest Bordered
+mystery-bordered,M16,Cal Ripken,Baltimore Orioles,,Mystery Finest Bordered
+mystery-bordered,M17,Jeff Bagwell,Houston Astros,,Mystery Finest Bordered
+mystery-bordered,M18,Andruw Jones,Atlanta Braves,,Mystery Finest Bordered
+mystery-bordered,M19,Barry Bonds,San Francisco Giants,,Mystery Finest Bordered
+mystery-bordered,M20,Ken Griffey Jr.,Seattle Mariners,,Mystery Finest Bordered
+mystery-bordered-refractors,M1,Nomar Garciaparra,Boston Red Sox,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M2,Chipper Jones,Atlanta Braves,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M3,Scott Rolen,Philadelphia Phillies,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M4,Albert Belle,Chicago White Sox,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M5,Mo Vaughn,Boston Red Sox,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M6,Jose Cruz Jr.,Toronto Blue Jays,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M7,Mark McGwire,St. Louis Cardinals,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M8,Derek Jeter,New York Yankees,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M9,Tony Gwynn,San Diego Padres,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M10,Frank Thomas,Chicago White Sox,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M11,Tino Martinez,New York Yankees,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M12,Greg Maddux,Atlanta Braves,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M13,Juan Gonzalez,Texas Rangers,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M14,Larry Walker,Colorado Rockies,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M15,Mike Piazza,Los Angeles Dodgers,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M16,Cal Ripken,Baltimore Orioles,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M17,Jeff Bagwell,Houston Astros,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M18,Andruw Jones,Atlanta Braves,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M19,Barry Bonds,San Francisco Giants,,Mystery Finest Bordered Refractors
+mystery-bordered-refractors,M20,Ken Griffey Jr.,Seattle Mariners,,Mystery Finest Bordered Refractors
+mystery-borderless,M1,Nomar Garciaparra,Boston Red Sox,,Mystery Finest Borderless
+mystery-borderless,M2,Chipper Jones,Atlanta Braves,,Mystery Finest Borderless
+mystery-borderless,M3,Scott Rolen,Philadelphia Phillies,,Mystery Finest Borderless
+mystery-borderless,M4,Albert Belle,Chicago White Sox,,Mystery Finest Borderless
+mystery-borderless,M5,Mo Vaughn,Boston Red Sox,,Mystery Finest Borderless
+mystery-borderless,M6,Jose Cruz Jr.,Toronto Blue Jays,,Mystery Finest Borderless
+mystery-borderless,M7,Mark McGwire,St. Louis Cardinals,,Mystery Finest Borderless
+mystery-borderless,M8,Derek Jeter,New York Yankees,,Mystery Finest Borderless
+mystery-borderless,M9,Tony Gwynn,San Diego Padres,,Mystery Finest Borderless
+mystery-borderless,M10,Frank Thomas,Chicago White Sox,,Mystery Finest Borderless
+mystery-borderless,M11,Tino Martinez,New York Yankees,,Mystery Finest Borderless
+mystery-borderless,M12,Greg Maddux,Atlanta Braves,,Mystery Finest Borderless
+mystery-borderless,M13,Juan Gonzalez,Texas Rangers,,Mystery Finest Borderless
+mystery-borderless,M14,Larry Walker,Colorado Rockies,,Mystery Finest Borderless
+mystery-borderless,M15,Mike Piazza,Los Angeles Dodgers,,Mystery Finest Borderless
+mystery-borderless,M16,Cal Ripken,Baltimore Orioles,,Mystery Finest Borderless
+mystery-borderless,M17,Jeff Bagwell,Houston Astros,,Mystery Finest Borderless
+mystery-borderless,M18,Andruw Jones,Atlanta Braves,,Mystery Finest Borderless
+mystery-borderless,M19,Barry Bonds,San Francisco Giants,,Mystery Finest Borderless
+mystery-borderless,M20,Ken Griffey Jr.,Seattle Mariners,,Mystery Finest Borderless
+mystery-borderless-refractors,M1,Nomar Garciaparra,Boston Red Sox,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M2,Chipper Jones,Atlanta Braves,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M3,Scott Rolen,Philadelphia Phillies,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M4,Albert Belle,Chicago White Sox,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M5,Mo Vaughn,Boston Red Sox,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M6,Jose Cruz Jr.,Toronto Blue Jays,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M7,Mark McGwire,St. Louis Cardinals,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M8,Derek Jeter,New York Yankees,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M9,Tony Gwynn,San Diego Padres,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M10,Frank Thomas,Chicago White Sox,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M11,Tino Martinez,New York Yankees,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M12,Greg Maddux,Atlanta Braves,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M13,Juan Gonzalez,Texas Rangers,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M14,Larry Walker,Colorado Rockies,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M15,Mike Piazza,Los Angeles Dodgers,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M16,Cal Ripken,Baltimore Orioles,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M17,Jeff Bagwell,Houston Astros,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M18,Andruw Jones,Atlanta Braves,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M19,Barry Bonds,San Francisco Giants,,Mystery Finest Borderless Refractors
+mystery-borderless-refractors,M20,Ken Griffey Jr.,Seattle Mariners,,Mystery Finest Borderless Refractors
+clemente-reprints,1,Roberto Clemente 1955 Topps #164,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,2,Roberto Clemente 1956 Topps #33,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,3,Bob Clemente 1957 Topps #76,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,4,Bob Clemente 1958 Topps #52,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,5,Bob Clemente 1959 Topps #478,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,6,Bob Clemente 1960 Topps #326,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,7,Bob Clemente 1961 Topps #388,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,8,Bob Clemente 1962 Topps #10,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,9,Bob Clemente 1963 Topps #540,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,10,Bob Clemente 1964 Topps #440,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,11,Bob Clemente 1965 Topps #160,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,12,Bob Clemente 1966 Topps #300,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,13,Bob Clemente 1967 Topps #400,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,14,Bob Clemente 1968 Topps #150,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,15,Bob Clemente 1969 Topps #50,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,16,Roberto Clemente 1970 Topps #350,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,17,Roberto Clemente 1971 Topps #630,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,18,Roberto Clemente 1972 Topps #309,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-reprints,19,Roberto Clemente 1973 Topps #50,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints
+clemente-finest,1,Roberto Clemente 1955 Topps #164,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,2,Roberto Clemente 1956 Topps #33,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,3,Bob Clemente 1957 Topps #76,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,4,Bob Clemente 1958 Topps #52,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,5,Bob Clemente 1959 Topps #478,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,6,Bob Clemente 1960 Topps #326,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,7,Bob Clemente 1961 Topps #388,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,8,Bob Clemente 1962 Topps #10,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,9,Bob Clemente 1963 Topps #540,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,10,Bob Clemente 1964 Topps #440,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,11,Bob Clemente 1965 Topps #160,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,12,Bob Clemente 1966 Topps #300,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,13,Bob Clemente 1967 Topps #400,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,14,Bob Clemente 1968 Topps #150,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,15,Bob Clemente 1969 Topps #50,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,16,Roberto Clemente 1970 Topps #350,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,17,Roberto Clemente 1971 Topps #630,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,18,Roberto Clemente 1972 Topps #309,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-finest,19,Roberto Clemente 1973 Topps #50,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest
+clemente-refractors,1,Roberto Clemente 1955 Topps #164,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,2,Roberto Clemente 1956 Topps #33,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,3,Bob Clemente 1957 Topps #76,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,4,Bob Clemente 1958 Topps #52,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,5,Bob Clemente 1959 Topps #478,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,6,Bob Clemente 1960 Topps #326,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,7,Bob Clemente 1961 Topps #388,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,8,Bob Clemente 1962 Topps #10,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,9,Bob Clemente 1963 Topps #540,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,10,Bob Clemente 1964 Topps #440,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,11,Bob Clemente 1965 Topps #160,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,12,Bob Clemente 1966 Topps #300,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,13,Bob Clemente 1967 Topps #400,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,14,Bob Clemente 1968 Topps #150,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,15,Bob Clemente 1969 Topps #50,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,16,Roberto Clemente 1970 Topps #350,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,17,Roberto Clemente 1971 Topps #630,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,18,Roberto Clemente 1972 Topps #309,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-refractors,19,Roberto Clemente 1973 Topps #50,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Finest Refractors
+clemente-sealed,1,Roberto Clemente 1955 Topps #164,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,2,Roberto Clemente 1956 Topps #33,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,3,Bob Clemente 1957 Topps #76,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,4,Bob Clemente 1958 Topps #52,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,5,Bob Clemente 1959 Topps #478,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,6,Bob Clemente 1960 Topps #326,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,7,Bob Clemente 1961 Topps #388,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,8,Bob Clemente 1962 Topps #10,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,9,Bob Clemente 1963 Topps #540,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,10,Bob Clemente 1964 Topps #440,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,11,Bob Clemente 1965 Topps #160,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,12,Bob Clemente 1966 Topps #300,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,13,Bob Clemente 1967 Topps #400,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,14,Bob Clemente 1968 Topps #150,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,15,Bob Clemente 1969 Topps #50,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,16,Roberto Clemente 1970 Topps #350,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,17,Roberto Clemente 1971 Topps #630,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,18,Roberto Clemente 1972 Topps #309,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-sealed,19,Roberto Clemente 1973 Topps #50,Pittsburgh Pirates,,Roberto Clemente Commemorative Reprints Sealed
+clemente-redemptions,1,"Roberto Clemente RDM, PR3Card could be redeemed for 1955 Topps #164",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,2,"Roberto Clemente RDM, PR8Card could be redeemed for 1956 Topps #33",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,3,"Roberto Clemente RDM, PR1Card could be redeemed for autographed 1956 Topps #33",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,4,"Roberto Clemente RDM, PR6Card could be redeemed for 1957 Topps #76",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,5,"Roberto Clemente RDM, PR6Card could be redeemed for 1958 Topps #52",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,6,"Roberto Clemente RDM, PR1Card could be redeemed for a 1959 game-used home jersey",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,7,"Roberto Clemente RDM, PR8Card could be redeemed for 1959 Topps #478",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,8,"Roberto Clemente RDM, PR1Card could be redeemed for a 1960 autographed NL All-Star baseball",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,9,"Roberto Clemente RDM, PR1Card could be redeemed for a 1960 autographed Pirates team baseball",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,10,"Roberto Clemente RDM, PR8Card could be redeemed for 1960 Topps #326",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,11,"Roberto Clemente RDM, PR1Card could be redeemed for autographed 1960 Topps #326",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,12,"Roberto Clemente RDM, PR10Card could be redeemed for 1961 Topps #388",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,13,"Roberto Clemente RDM, PR1Card could be redeemed for autographed 1961 Topps #388",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,14,"Roberto Clemente RDM, PR8Card could be redeemed for 1962 Topps #10",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,15,"Roberto Clemente RDM, PR1Card could be redeemed for autographed 1962 Topps #10",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,16,"Roberto Clemente RDM, PR5Card could be redeemed for 1963 Topps #540",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,17,"Roberto Clemente RDM, PR1Card could be redeemed for autographed 1963 Topps #540",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,18,"Roberto Clemente RDM, PR8Card could be redeemed for 1964 Topps #440",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,19,"Roberto Clemente RDM, PR10Card could be redeemed for 1965 Topps #160",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,20,"Roberto Clemente RDM, PR1Card could be redeemed for autographed 1965 Topps #160",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,21,"Roberto Clemente RDM, PR10Card could be redeemed for 1966 Topps #300",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,22,"Roberto Clemente RDM, PR20Card could be redeemed for 1967 Topps #400",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,23,"Roberto Clemente RDM, PR1Card could be redeemed for autographed 1967 Topps #400",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,24,"Roberto Clemente RDM, PR20Card could be redeemed for 1968 Topps #150",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,25,"Roberto Clemente RDM, PR1Card could be redeemed for autographed 1968 Topps #150",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,26,"Roberto Clemente RDM, PR20Card could be redeemed for 1969 Topps #50",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,27,"Roberto Clemente RDM, PR1Card could be redeemed for autographed 1969 Topps #50",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,28,"Roberto Clemente RDM, PR20Card could be redeemed for 1970 Topps #350",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,29,"Roberto Clemente RDM, PR1Card could be redeemed for autographed 1970 Topps #350",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,30,"Roberto Clemente RDM, PR1Card could be redeemed for a 1971 autographed Pirates team baseball",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,31,"Roberto Clemente RDM, PR20Card could be redeemed for 1971 Topps #630",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,32,"Roberto Clemente RDM, PR20Card could be redeemed for 1972 Topps #309",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,33,"Roberto Clemente RDM, PR20Card could be redeemed for 1973 Topps #50",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,34,"Roberto Clemente RDM, PR500Card could be redeemed for an uncut 1998 Topps Minted in Cooperstown sheet",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,35,"Roberto Clemente RDM, PR4Card could be redeemed for a Roberto Clemente canceled check",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,36,"Roberto Clemente RDM, PR1Card could be redeemed for a Roberto Clemente game-used bat (#21 on knob)",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,37,"Roberto Clemente RDM, PR1Card could be redeemed for a Roberto Clemente game-used bat (#21 on top and bottom)",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,38,"Roberto Clemente RDM, PR1Card could be redeemed for a Roberto Clemente game-used bat (1961-67 era)",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,39,"Roberto Clemente RDM, PR1Card could be redeemed for a Roberto Clemente autographed game-used bat",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,40,"Roberto Clemente RDM, PR1Card could be redeemed for a multi-signature Hall of Fame baseball",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,41,"Roberto Clemente RDM, PR1Card could be redeemed for a Roberto Clemente autographed 4"" x 5"" black & white photo",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,42,"Roberto Clemente RDM, PR1Card could be redeemed for an autographed Roberto Clemente Night poster",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,43,"Roberto Clemente RDM, PR1Card could be redeemed for a Roberto Clemente cut signature and framed photo",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,44,"Roberto Clemente RDM, PR1Card could be redeemed for an autographed baseball",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,45,"Roberto Clemente RDM, PR1Card could be redeemed for a 43"" x 60"" Topps Fantasy card",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,46,"Roberto Clemente RDM, PR99Card could be redeemed for a Roberto Clemente jersey relic card",Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,NNO-01,Wild Card RDM,,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-redemptions,NNO-02,Wild Card RDM,Pittsburgh Pirates,,Roberto Clemente Memorabilia & Collectible Madness Redemptions
+clemente-tins,1,Roberto Clemente 1955 Topps #164,Pittsburgh Pirates,,Roberto Clemente Tins
+clemente-tins,2,Roberto Clemente 1956 Topps #33,Pittsburgh Pirates,,Roberto Clemente Tins
+clemente-tins,3,Bob Clemente 1965 Topps #160,Pittsburgh Pirates,,Roberto Clemente Tins
+clemente-tins,4,Roberto Clemente 1971 Topps #630,Pittsburgh Pirates,,Roberto Clemente Tins
+rookie-class,R1,Travis Lee,Arizona Diamondbacks,,Rookie Class
+rookie-class,R2,Richard Hidalgo,Houston Astros,,Rookie Class
+rookie-class,R3,Todd Helton,Colorado Rockies,,Rookie Class
+rookie-class,R4,Paul Konerko,Los Angeles Dodgers,,Rookie Class
+rookie-class,R5,Mark Kotsay,Florida Marlins,,Rookie Class
+rookie-class,R6,Derrek Lee,San Diego Padres,,Rookie Class
+rookie-class,R7,Eli Marrero,St. Louis Cardinals,,Rookie Class
+rookie-class,R8,Fernando Tatis,Texas Rangers,,Rookie Class
+rookie-class,R9,Juan Encarnacion,Detroit Tigers,,Rookie Class
+rookie-class,R10,Ben Grieve,Oakland Athletics,,Rookie Class
