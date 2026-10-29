@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1238/1998-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1238/1998-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/1238/1998-Topps"
+  },
+  "decisions": {
+    "base": "503 physical numbered cards 1-504, with #7 permanently retired. Series 1 numbers 1-283 (282 cards), Series 2 284-504 (221 cards).",
+    "rookies": "TCDB indexes 23 Base rookie cards; multi-player rookie cards marked once as individual collectibles. Verify by printed number and subject.",
+    "parallels": "Factory-only 503-card Inaugural Devil Rays and Inaugural Diamondbacks parallels, /5000, retained as collectibles but not included in wax packs. Minted in Cooperstown consists of 502 cards: excludes #7 and Alex Rodriguez #504.",
+    "inserts": "21 TCDB-listed insert families including four Minted/Mystery Finest treatments, Clemente memorabilia redemption cards and four collectible tins.",
+    "distribution": "Factory sealed Clemente reprints, retail tins and inaugural sets excluded from normal wax-pack collation. Some insert families are hobby- or retail-only, and divided by series.",
+    "release": "UNRELEASED; images, pricing, pack collation, odds, redemption handling, sealed cards and team QA pending."
+  },
+  "product": {
+    "id": "1998_Topps_Baseball",
+    "year": 1998,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 11,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "seriesAndChannelCollation": "PENDING",
+    "factoryAndRedemptions": "PENDING",
+    "images": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1998-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1998_Topps_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "sourceSetId": 1238,
+      "expectedCards": 503,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1238/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "inaugural-devil-rays",
+      "id": "1998_Topps_Baseball_inaugural_devil_rays",
+      "name": "Inaugural Devil Rays",
+      "kind": "PARALLEL",
+      "sourceSetId": 48217,
+      "expectedCards": 503,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/48217/1998-Topps",
+      "notes": "Factory-only regional distribution, /5000"
+    },
+    {
+      "key": "inaugural-diamondbacks",
+      "id": "1998_Topps_Baseball_inaugural_diamondbacks",
+      "name": "Inaugural Diamondbacks",
+      "kind": "PARALLEL",
+      "sourceSetId": 48218,
+      "expectedCards": 503,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/48218/1998-Topps",
+      "notes": "Factory-only regional distribution, /5000"
+    },
+    {
+      "key": "minted-cooperstown",
+      "id": "1998_Topps_Baseball_minted_cooperstown",
+      "name": "Minted in Cooperstown",
+      "kind": "PARALLEL",
+      "sourceSetId": 11363,
+      "expectedCards": 502,
+      "oddsPerPack": 8,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11363/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "tribute-clemente",
+      "id": "1998_Topps_Baseball_tribute_clemente",
+      "name": "A Tribute to Roberto Clemente",
+      "kind": "INSERT",
+      "sourceSetId": 1264,
+      "expectedCards": 5,
+      "oddsPerPack": 12,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1264/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "baby-boomers",
+      "id": "1998_Topps_Baseball_baby_boomers",
+      "name": "Baby Boomers",
+      "kind": "INSERT",
+      "sourceSetId": 1241,
+      "expectedCards": 15,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1241/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "clout-nine",
+      "id": "1998_Topps_Baseball_clout_nine",
+      "name": "Clout Nine",
+      "kind": "INSERT",
+      "sourceSetId": 1247,
+      "expectedCards": 9,
+      "oddsPerPack": 72,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1247/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "etch-a-sketch",
+      "id": "1998_Topps_Baseball_etch_a_sketch",
+      "name": "Etch-A-Sketch",
+      "kind": "INSERT",
+      "sourceSetId": 1248,
+      "expectedCards": 9,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1248/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "flashbacks",
+      "id": "1998_Topps_Baseball_flashbacks",
+      "name": "Flashbacks",
+      "kind": "INSERT",
+      "sourceSetId": 1249,
+      "expectedCards": 10,
+      "oddsPerPack": 72,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1249/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "focal-point",
+      "id": "1998_Topps_Baseball_focal_point",
+      "name": "Focal Point",
+      "kind": "INSERT",
+      "sourceSetId": 1250,
+      "expectedCards": 15,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1250/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "hall-bound",
+      "id": "1998_Topps_Baseball_hall_bound",
+      "name": "Hall Bound",
+      "kind": "INSERT",
+      "sourceSetId": 1255,
+      "expectedCards": 15,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1255/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "interleague-finest",
+      "id": "1998_Topps_Baseball_interleague_finest",
+      "name": "Interleague Match-Up Mystery Finest",
+      "kind": "INSERT",
+      "sourceSetId": 1257,
+      "expectedCards": 20,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1257/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "interleague-finest-refractors",
+      "id": "1998_Topps_Baseball_interleague_finest_refractors",
+      "name": "Interleague Match-Up Mystery Finest Refractors",
+      "kind": "INSERT",
+      "sourceSetId": 11361,
+      "expectedCards": 20,
+      "oddsPerPack": 144,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11361/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "milestone",
+      "id": "1998_Topps_Baseball_milestone",
+      "name": "Milestone",
+      "kind": "INSERT",
+      "sourceSetId": 11362,
+      "expectedCards": 10,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11362/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "mystery-bordered",
+      "id": "1998_Topps_Baseball_mystery_bordered",
+      "name": "Mystery Finest Bordered",
+      "kind": "INSERT",
+      "sourceSetId": 1256,
+      "expectedCards": 20,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1256/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "mystery-bordered-refractors",
+      "id": "1998_Topps_Baseball_mystery_bordered_refractors",
+      "name": "Mystery Finest Bordered Refractors",
+      "kind": "INSERT",
+      "sourceSetId": 11358,
+      "expectedCards": 20,
+      "oddsPerPack": 108,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11358/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "mystery-borderless",
+      "id": "1998_Topps_Baseball_mystery_borderless",
+      "name": "Mystery Finest Borderless",
+      "kind": "INSERT",
+      "sourceSetId": 11359,
+      "expectedCards": 20,
+      "oddsPerPack": 72,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11359/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "mystery-borderless-refractors",
+      "id": "1998_Topps_Baseball_mystery_borderless_refractors",
+      "name": "Mystery Finest Borderless Refractors",
+      "kind": "INSERT",
+      "sourceSetId": 11360,
+      "expectedCards": 20,
+      "oddsPerPack": 288,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11360/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "clemente-reprints",
+      "id": "1998_Topps_Baseball_clemente_reprints",
+      "name": "Roberto Clemente Commemorative Reprints",
+      "kind": "INSERT",
+      "sourceSetId": 1263,
+      "expectedCards": 19,
+      "oddsPerPack": 18,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1263/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "clemente-finest",
+      "id": "1998_Topps_Baseball_clemente_finest",
+      "name": "Roberto Clemente Commemorative Reprints Finest",
+      "kind": "INSERT",
+      "sourceSetId": 1260,
+      "expectedCards": 19,
+      "oddsPerPack": 72,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1260/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "clemente-refractors",
+      "id": "1998_Topps_Baseball_clemente_refractors",
+      "name": "Roberto Clemente Commemorative Reprints Finest Refractors",
+      "kind": "INSERT",
+      "sourceSetId": 11354,
+      "expectedCards": 19,
+      "oddsPerPack": 288,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11354/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "clemente-sealed",
+      "id": "1998_Topps_Baseball_clemente_sealed",
+      "name": "Roberto Clemente Commemorative Reprints Sealed",
+      "kind": "INSERT",
+      "sourceSetId": 11356,
+      "expectedCards": 19,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11356/1998-Topps",
+      "notes": "Factory-only and retail tins: not ordinary wax"
+    },
+    {
+      "key": "clemente-redemptions",
+      "id": "1998_Topps_Baseball_clemente_redemptions",
+      "name": "Roberto Clemente Memorabilia & Collectible Madness Redemptions",
+      "kind": "INSERT",
+      "sourceSetId": 11355,
+      "expectedCards": 48,
+      "oddsPerPack": 3708,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11355/1998-Topps",
+      "notes": null
+    },
+    {
+      "key": "clemente-tins",
+      "id": "1998_Topps_Baseball_clemente_tins",
+      "name": "Roberto Clemente Tins",
+      "kind": "INSERT",
+      "sourceSetId": 11357,
+      "expectedCards": 4,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11357/1998-Topps",
+      "notes": "Retail packaging collectible, not a pack-pulled card"
+    },
+    {
+      "key": "rookie-class",
+      "id": "1998_Topps_Baseball_rookie_class",
+      "name": "Rookie Class",
+      "kind": "INSERT",
+      "sourceSetId": 1240,
+      "expectedCards": 10,
+      "oddsPerPack": 12,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1240/1998-Topps",
+      "notes": null
+    }
+  ]
+}
