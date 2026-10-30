@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/123/1988-Score",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/123/1988-Score",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1988_Score"
+  },
+  "decisions": {
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "Universal wax/rack abstraction",
+    "physicalWaxFormat": "17 baseball cards plus 1 Magic Motion trivia card; 36 packs per box.",
+    "vcsPackFormat": "18 total slots so the guaranteed Magic Motion card leaves 17 base slots. A Young Superstars hit replaces another base slot.",
+    "rackExclusiveConversion": "Young Superstars Series I: one per rack pack. VCS models a rack as three wax-equivalent packs (three trivia cards per rack), converting to 1:3 VCS packs. This is an intentional channel abstraction, not historical wax odds. Physical rack packs contained 54 baseball cards plus three trivia cards.",
+    "subsets": "Reggie Jackson Tribute 500-504; Rookie Prospects 623-647; All-Stars 648-651; 1987 Season Highlights 652-660. All remain in complete Base.",
+    "variations": "Eight corrected source error states replace their errors; no separate completion requirement.",
+    "exclusions": "Factory-only 5000-set Glossy parallel, promos, box-bottom panels/singles and separately sold Rookie/Traded and Young Superstars Series II products excluded.",
+    "magicMotion": "Complete 56-card checklist with historical event teams/dates and titles, no inferred RC labels."
+  },
+  "product": {
+    "id": "1988_Score_Baseball",
+    "year": 1988,
+    "brand": "Score",
+    "sport": "Baseball",
+    "cardsPerPack": 18,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1988-score-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1988_Score_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/123/1988-Score",
+      "expectedCards": 660
+    },
+    {
+      "key": "magic",
+      "id": "1988_Score_Baseball_Magic_Motion",
+      "name": "Magic Motion: Great Moments in Baseball",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/75713/1988-Score-Magic-Motion-Great-Moments-in-Baseball",
+      "expectedCards": 56
+    },
+    {
+      "key": "young",
+      "id": "1988_Score_Baseball_Young_Superstars_Series_I",
+      "name": "Young Superstars (Series I)",
+      "kind": "INSERT",
+      "oddsPerPack": 3,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10150/1988-Score-Young-Superstars-Series-I-",
+      "expectedCards": 40
+    }
+  ]
+}
