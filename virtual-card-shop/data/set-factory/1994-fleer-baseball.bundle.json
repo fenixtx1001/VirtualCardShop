@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/342/1994-Fleer",
+    "checklistReference": "https://www.tcdb.com/Checklist.cfm/sid/342/1994-Fleer",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/342/1994-Fleer",
+    "insertReference": "https://www.tcdb.com/Inserts.cfm/sid/342/1994-Fleer",
+    "independentReference": "https://baseballcardpedia.com/index.php/1994_Fleer"
+  },
+  "decisions": {
+    "collectorChecklist": "One Base collector checklist of 720; no series split. Retain complete 15-card Tim Salmon checklist, explicitly flattening availability of mail-in-only #13-15 in VCS rather than fragmenting a single collector set.",
+    "scope": "940 standard-size cards across 14 collector sets. Include all 12 Tim Salmon autograph numbers, the physical All-Rookie redemption, and genuine jumbo-channel inserts. Exclude separate Fleer Update, Sunoco, Ultra, promotional samples/sheet, oversized Golden Moments 3x5 and the separately mailed All-Rookie Team M1-M9 set. No verified base parallel issue.",
+    "rookies": "Only explicit base RC tags, matched to the separately retrieved TCDB rookie index, receive RC. Rookie Sensations, Major League Prospects, awards and exchange titles are not true-RC evidence. #669 Pedro Martinez is the Padres pitcher, distinct from Dodgers #515.",
+    "teamData": "Keep source-confirmed historical teams, including composite teams and teams printed on base checklists. Base checklist #720 and the generic All-Rookie redemption have no team. Only redemption is a non-checklist blank; review.teamData PENDING requires --allow-pending-teams, never an invented MLB team.",
+    "pack": "15 total cards per standard foil pack, 36 packs/box. Physical one-insert-per-pack collation cannot be guaranteed by current VCS independent ProductSet rolls. Retain verified family ratios; do not merge separate collector checklists to force a guaranteed slot. Pack/release QA remains pending.",
+    "channelOdds": "Golden Moments was one per blue retail jumbo; Lumber Company one per 5 hobby jumbo; Rookie Sensations one per 4 hobby jumbo. Unknown channel shares cannot be inferred from card counts or pack sizes: odds remain null in this standard product. Autograph odds likewise unknown. Null families import for pricing/images but cannot be pulled until Admin configures odds.",
+    "autographPrintRun": "Tim Salmon signed 2000 cards total across twelve card numbers. Do not assign SN2000 or PR2000 to each individual card; authenticity embossing is the card-specific distinction.",
+    "leagueLeaders11": "Tom Glavine is checklist position 11 of 12 but the number is missing from the printed card; retain collector ID 11 with UER metadata.",
+    "release": "Product created unreleased. Pricing, pack/card images, insert/pack collation QA and release pending."
+  },
+  "product": {
+    "id": "1994_Fleer_Baseball",
+    "year": 1994,
+    "brand": "Fleer",
+    "sport": "Baseball",
+    "cardsPerPack": 15,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "packCollation": "PENDING",
+    "insertOdds": "PENDING",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1994-fleer-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1994_Fleer_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 720,
+      "sourceSetId": 342,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/342/1994-Fleer",
+      "notes": "Complete numbered collector checklist: 1-705 players, 706-713 Superstar Specials, 714-720 checklists."
+    },
+    {
+      "key": "all-stars",
+      "id": "1994_Fleer_Baseball_All_Stars",
+      "name": "All-Stars",
+      "kind": "INSERT",
+      "oddsPerPack": 2,
+      "expectedCards": 50,
+      "sourceSetId": 344,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/344/1994-Fleer",
+      "notes": "Published source family insertion ratio retained for the standard 15-card product. VCS rolls families independently; historical one-insert collation is not reproduced exactly."
+    },
+    {
+      "key": "award-winners",
+      "id": "1994_Fleer_Baseball_Award_Winners",
+      "name": "Award Winners",
+      "kind": "INSERT",
+      "oddsPerPack": 37,
+      "expectedCards": 6,
+      "sourceSetId": 345,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/345/1994-Fleer",
+      "notes": "Published source family insertion ratio retained for the standard 15-card product. VCS rolls families independently; historical one-insert collation is not reproduced exactly."
+    },
+    {
+      "key": "golden-moments",
+      "id": "1994_Fleer_Baseball_Golden_Moments",
+      "name": "Golden Moments",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 10,
+      "sourceSetId": 346,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/346/1994-Fleer",
+      "notes": "One per blue-wrapper 23-card retail jumbo. Standard-size only; oversized case premium excluded. No verified standard-foil/channel-share ratio; odds null."
+    },
+    {
+      "key": "league-leaders",
+      "id": "1994_Fleer_Baseball_League_Leaders",
+      "name": "League Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": 17,
+      "expectedCards": 12,
+      "sourceSetId": 347,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/347/1994-Fleer",
+      "notes": "Published source family insertion ratio retained for the standard 15-card product. VCS rolls families independently; historical one-insert collation is not reproduced exactly."
+    },
+    {
+      "key": "lumber-company",
+      "id": "1994_Fleer_Baseball_Lumber_Company",
+      "name": "Lumber Company",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 10,
+      "sourceSetId": 348,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/348/1994-Fleer",
+      "notes": "One per 5 hobby 21-card jumbo packs; no verified combined-channel share, so standard product odds null."
+    },
+    {
+      "key": "prospects",
+      "id": "1994_Fleer_Baseball_Prospects",
+      "name": "Major League Prospects",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "expectedCards": 35,
+      "sourceSetId": 349,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/349/1994-Fleer",
+      "notes": "Published source family insertion ratio retained for the standard 15-card product. VCS rolls families independently; historical one-insert collation is not reproduced exactly."
+    },
+    {
+      "key": "pro-visions",
+      "id": "1994_Fleer_Baseball_Pro_Visions",
+      "name": "Pro-Visions",
+      "kind": "INSERT",
+      "oddsPerPack": 12,
+      "expectedCards": 9,
+      "sourceSetId": 350,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/350/1994-Fleer",
+      "notes": "Published source family insertion ratio retained for the standard 15-card product. VCS rolls families independently; historical one-insert collation is not reproduced exactly."
+    },
+    {
+      "key": "rookie-sensations",
+      "id": "1994_Fleer_Baseball_Rookie_Sensations",
+      "name": "Rookie Sensations",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 20,
+      "sourceSetId": 351,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/351/1994-Fleer",
+      "notes": "One per 4 hobby 21-card jumbo packs; no verified combined-channel share, so standard product odds null."
+    },
+    {
+      "key": "smoke-heat",
+      "id": "1994_Fleer_Baseball_Smoke_Heat",
+      "name": "Smoke 'N Heat",
+      "kind": "INSERT",
+      "oddsPerPack": 30,
+      "expectedCards": 12,
+      "sourceSetId": 352,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/352/1994-Fleer",
+      "notes": "Published source family insertion ratio retained for the standard 15-card product. VCS rolls families independently; historical one-insert collation is not reproduced exactly."
+    },
+    {
+      "key": "team-leaders",
+      "id": "1994_Fleer_Baseball_Team_Leaders",
+      "name": "Team Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "expectedCards": 28,
+      "sourceSetId": 353,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/353/1994-Fleer",
+      "notes": "Published source family insertion ratio retained for the standard 15-card product. VCS rolls families independently; historical one-insert collation is not reproduced exactly."
+    },
+    {
+      "key": "tim-salmon",
+      "id": "1994_Fleer_Baseball_Tim_Salmon",
+      "name": "Tim Salmon: A.L. Rookie of the Year",
+      "kind": "INSERT",
+      "oddsPerPack": 30,
+      "expectedCards": 15,
+      "sourceSetId": 354,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/354/1994-Fleer",
+      "notes": "Unified 15-card collector checklist. Historically 1-12 pack-issued, 13-15 wrapper-mail-in only. VCS flattens availability within the complete set; family pack odds 1:30 retained. This is an explicit VCS collector-completion abstraction."
+    },
+    {
+      "key": "tim-salmon-auto",
+      "id": "1994_Fleer_Baseball_Tim_Salmon_Auto",
+      "name": "Tim Salmon: A.L. Rookie of the Year Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 12,
+      "sourceSetId": 307796,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/307796/1994-Fleer",
+      "notes": "12 autograph subjects/card numbers; 2000 total signed across the entire issue, not 2000 per card. No verified serial numbering or pack insertion ratio; odds null."
+    },
+    {
+      "key": "redemption",
+      "id": "1994_Fleer_Baseball_Redemption",
+      "name": "All-Rookie Team Redemption",
+      "kind": "INSERT",
+      "oddsPerPack": 200,
+      "expectedCards": 1,
+      "sourceSetId": 274464,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/274464/1994-Fleer",
+      "notes": "Physical unnumbered exchange card, historically 1:200 packs. Returned nine-card M1-M9 mail-in set excluded. Generic subject intentionally has no team; stage draft with pending-team override. No automated redemption feature."
+    }
+  ]
+}
