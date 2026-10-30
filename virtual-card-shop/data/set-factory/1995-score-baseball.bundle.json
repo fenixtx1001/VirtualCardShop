@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/541/1995-Score",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/541/1995-Score",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1995_Score"
+  },
+  "decisions": {
+    "combinePhysicalSeries": true,
+    "physicalSeriesRanges": [
+      "1-330",
+      "331-605"
+    ],
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "Universal hobby/retail/jumbo abstraction",
+    "physicalWaxFormat": "12 total cards, 36 packs per box, includes one Gold Rush.",
+    "seriesWeighting": "S1=330/605=6/11; S2=275/605=5/11. All series-exclusive ratios below are converted using these weights and rounded to integer denominators.",
+    "channelAbstraction": "Channel-exclusive inserts are included at their source per-pack ratio before series weighting. No speculative channel market-share weighting. Standard pack has one Gold Rush; physical jumbos had two.",
+    "hallOfGold": "Complete 110-card set, HG1-55 S1 and HG56-110 S2. Source checklist corrects ambiguous 110-per-series table text. Keep one full checklist at 1:6 standard packs.",
+    "goldRush": "Full 605-card base parallel, derived without resetting card-specific metadata.",
+    "redemptions": "Only physical in-pack redemption cards included. Exchanged Platinum, stamped Gold Rush, exchange base/Hall of Gold, certificates and contest prizes are not directly pack-distributed. No automated redemption functionality is introduced.",
+    "pendingOdds": "You Trade em base and Hall of Gold redemption cards have null odds pending verified ratios or deliberate admin simulation choice. They will not pull until configured.",
+    "exclusions": "Retail Collector Kit oversized Score Rules 7x10, all mail-in exchange cards, promo samples/title cards and separate Summit/Rookie-Traded products excluded."
+  },
+  "product": {
+    "id": "1995_Score_Baseball",
+    "year": 1995,
+    "brand": "Score",
+    "sport": "Baseball",
+    "cardsPerPack": 12,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED",
+    "insertOdds": "PENDING"
+  },
+  "cardsFile": "1995-score-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1995_Score_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/541/1995-Score",
+      "expectedCards": 605
+    },
+    {
+      "key": "draft",
+      "id": "1995_Score_Baseball_94_Draft_Picks",
+      "name": "'94 Draft Picks",
+      "kind": "INSERT",
+      "oddsPerPack": 66,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/544/1995-Score-94-Draft-Picks",
+      "expectedCards": 18,
+      "notes": "S1 Hobby 1:36 / (6/11) = 1:66"
+    },
+    {
+      "key": "airmail",
+      "id": "1995_Score_Baseball_Airmail",
+      "name": "Airmail",
+      "kind": "INSERT",
+      "oddsPerPack": 53,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/542/1995-Score-Airmail",
+      "expectedCards": 18,
+      "notes": "S2 Jumbo 1:24 / (5/11) = 1:52.8 rounded 53"
+    },
+    {
+      "key": "double",
+      "id": "1995_Score_Baseball_Double_Gold_Champs",
+      "name": "Double Gold Champs",
+      "kind": "INSERT",
+      "oddsPerPack": 79,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/543/1995-Score-Double-Gold-Champs",
+      "expectedCards": 12,
+      "notes": "S2 Hobby 1:36 / (5/11) = 1:79.2 rounded 79"
+    },
+    {
+      "key": "dream",
+      "id": "1995_Score_Baseball_Dream_Team_Gold",
+      "name": "Dream Team Gold",
+      "kind": "INSERT",
+      "oddsPerPack": 132,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/545/1995-Score-Dream-Team-Gold",
+      "expectedCards": 12,
+      "notes": "S1 standard 1:72 / (6/11) = 1:132"
+    },
+    {
+      "key": "hall",
+      "id": "1995_Score_Baseball_Hall_of_Gold",
+      "name": "Hall of Gold",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/546/1995-Score-Hall-of-Gold",
+      "expectedCards": 110,
+      "notes": "1:6 standard packs in both series; full collector checklist kept intact"
+    },
+    {
+      "key": "platinum-redemption",
+      "id": "1995_Score_Baseball_Platinum_Team_Set_Redemption",
+      "name": "Platinum Team Set Redemption",
+      "kind": "INSERT",
+      "oddsPerPack": 36,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/449088/1995-Score-Platinum-Team-Set-Redemption",
+      "expectedCards": 1,
+      "notes": "Published 1:36 packs; physical redemption token only"
+    },
+    {
+      "key": "rookie-dream",
+      "id": "1995_Score_Baseball_Rookie_Dream_Team",
+      "name": "Rookie Dream Team",
+      "kind": "INSERT",
+      "oddsPerPack": 158,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/547/1995-Score-Rookie-Dream-Team",
+      "expectedCards": 12,
+      "notes": "S2 standard 1:72 / (5/11) = 1:158.4 rounded 158"
+    },
+    {
+      "key": "rookie-greatness",
+      "id": "1995_Score_Baseball_Rookie_Greatness",
+      "name": "Rookie Greatness",
+      "kind": "INSERT",
+      "oddsPerPack": 1320,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/449086/1995-Score-Rookie-Greatness",
+      "expectedCards": 1,
+      "notes": "S1 Retail 1:720 / (6/11) = 1:1320"
+    },
+    {
+      "key": "rules",
+      "id": "1995_Score_Baseball_Score_Rules",
+      "name": "Score Rules",
+      "kind": "INSERT",
+      "oddsPerPack": 15,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/548/1995-Score-Score-Rules",
+      "expectedCards": 30,
+      "notes": "S1 Jumbo 1:8 / (6/11) = 1:14.667 rounded 15"
+    },
+    {
+      "key": "signed",
+      "id": "1995_Score_Baseball_Signed_Greatness",
+      "name": "Signed Greatness",
+      "kind": "INSERT",
+      "oddsPerPack": 1320,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/449087/1995-Score-Signed-Greatness",
+      "expectedCards": 1,
+      "notes": "S1 Hobby 1:720 / (6/11) = 1:1320"
+    },
+    {
+      "key": "hall-redemption",
+      "id": "1995_Score_Baseball_You_Trade_em_Hall_of_Gold_Redemption",
+      "name": "You Trade 'em Hall of Gold Redemption",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/449090/1995-Score-You-Trade-em-Hall-of-Gold-Redemption",
+      "expectedCards": 1,
+      "notes": "Unverified pack odds; pending, no automated redemption"
+    },
+    {
+      "key": "trade-redemption",
+      "id": "1995_Score_Baseball_You_Trade_em_Redemption",
+      "name": "You Trade 'em Redemption",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/449089/1995-Score-You-Trade-em-Redemption",
+      "expectedCards": 1,
+      "notes": "Unverified pack odds; pending, no automated redemption"
+    },
+    {
+      "key": "gold-rush",
+      "id": "1995_Score_Baseball_Gold_Rush",
+      "name": "Gold Rush",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10646/1995-Score-Gold-Rush",
+      "expectedCards": 605,
+      "deriveCardsFrom": "base"
+    }
+  ]
+}
