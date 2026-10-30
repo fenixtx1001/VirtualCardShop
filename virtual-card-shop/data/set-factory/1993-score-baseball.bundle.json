@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/265/1993-Score",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/265/1993-Score",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1993_Score"
+  },
+  "decisions": {
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "Universal wax/jumbo abstraction",
+    "physicalWaxFormat": "16 total cards per pack; 36 packs per box; includes one Select Stat Leader.",
+    "subsets": "Award Winners, Draft Picks, All-Star Caricatures, Highlights, World Series Highlights and Dream Team remain in the full 660-card Base checklist.",
+    "insertOdds": "Select Stat Leaders 1:1 regular/jumbo; Franchise 1:24 foil; Boys of Summer 1:4 jumbo.",
+    "channelAbstraction": "Boys of Summer is jumbo-exclusive physically; retain published 1:4 per-pack ratio in the universal VCS pack. Franchise retains published 1:24 foil ratio. No adjustment for jumbo card count or assumed channel market share. Inserts replace base slots.",
+    "jumboSizeDiscrepancy": "BaseballCardPedia lists 27-card Superpacks; Beckett lists 35-card jumbo packs. Canonical VCS format uses verified 16-card foil packs, so no disputed jumbo-size conversion is used.",
+    "exclusions": "Gold Dream Team is a wrapper mail-in set, not a pack parallel. Promos and separate Select, Select Rookie/Traded and other boxed products excluded."
+  },
+  "product": {
+    "id": "1993_Score_Baseball",
+    "year": 1993,
+    "brand": "Score",
+    "sport": "Baseball",
+    "cardsPerPack": 16,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1993-score-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1993_Score_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/265/1993-Score",
+      "expectedCards": 660
+    },
+    {
+      "key": "leaders",
+      "id": "1993_Score_Baseball_Select_Stat_Leaders",
+      "name": "Select Stat Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/276/1993-Score-Select-Stat-Leaders",
+      "expectedCards": 90
+    },
+    {
+      "key": "franchise",
+      "id": "1993_Score_Baseball_The_Franchise",
+      "name": "The Franchise",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/268/1993-Score-The-Franchise",
+      "expectedCards": 28
+    },
+    {
+      "key": "boys",
+      "id": "1993_Score_Baseball_Boys_of_Summer",
+      "name": "Boys of Summer",
+      "kind": "INSERT",
+      "oddsPerPack": 4,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/266/1993-Score-Boys-of-Summer",
+      "expectedCards": 30
+    }
+  ]
+}
