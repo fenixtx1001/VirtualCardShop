@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/91/1983-Donruss",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1983_Donruss"
+  },
+  "decisions": {
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "Wax",
+    "collectorChecklist": "660 base cards: 1-653 plus seven unnumbered checklists.",
+    "checklistNumbering": "CL-DK and CL1-CL6 are stable VCS identifiers for physically unnumbered checklists.",
+    "subsets": "Diamond Kings 1-26; six back-designated Rated Rookies at 52,126,547,574,579,649. All retained in base.",
+    "variations": "One canonical checklist position per number. Prefer corrected and later source states; CL-DK uses Check List reverse. #639 uses corrected Angels glove with green border.",
+    "exclusions": "Ty Cobb three-piece puzzle panels are non-card accompaniments, not extra checklist positions. Ty Cobb #653 puzzle-picture baseball card retained. Separate oversized Action All-Stars product excluded.",
+    "mascotTeam": "#645 The Chicken has no team affiliation; intentionally blank. Current importer requires --allow-pending-teams for this known exception."
+  },
+  "product": {
+    "id": "1983_Donruss_Baseball",
+    "year": 1983,
+    "brand": "Donruss",
+    "sport": "Baseball",
+    "cardsPerPack": 15,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1983-donruss-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1983_Donruss_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/91/1983-Donruss",
+      "expectedCards": 660
+    }
+  ]
+}
