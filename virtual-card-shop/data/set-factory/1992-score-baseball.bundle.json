@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/200/1992-Score",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/200/1992-Score",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1992_Score"
+  },
+  "decisions": {
+    "combinePhysicalSeries": true,
+    "physicalSeriesRanges": [
+      "1-442",
+      "443-893"
+    ],
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "16-card wax format with channel abstractions pending",
+    "physicalWaxFormat": "16 cards; 36 packs/box. No Magic Motion inserts in 1992.",
+    "hotRookiesConversion": "One per 100-base-card blister. 100/16=6.25 wax equivalents rounded to 1:6 VCS packs. Derived channel approximation, not historical wax odds.",
+    "impactPlayers": "90 total: 1-45 Series One and 46-90 Series Two. Five per 45-card Superpack. VCS can pull only one card per insert family per pack, so odds remain null pending a deliberate engine/abstraction decision.",
+    "rareOdds": "DiMaggio, DiMaggio autographs, Franchise, Franchise autographs and Knoblauch autograph print runs/distribution verified, but pack odds unverified. oddsPerPack=null prevents invented pull rates. All remain unavailable in packs until Admin odds are set.",
+    "oddsReview": "PENDING; release blocked until all intended insert availability is configured.",
+    "variations": "48 extra error/print rows collapse to 893 canonical base cards. Prefer explicit Pack version when source distinguishes factory states; otherwise corrected/later b state.",
+    "exclusions": "Factory Bonus Cards, promos, promo panels, Rookie/Traded, Pinnacle and other separate products excluded.",
+    "autographs": "Five DiMaggio subjects share an aggregate SN2500 series, with five cards reserved for sweepstakes. Knoblauch is a gold-ink signed 1990 Score #672 SN3000, with 11 cards reserved. Franchise #1-3 SN2000 blue ink and #4 triple SN500 gold ink remain one complete four-card checklist."
+  },
+  "product": {
+    "id": "1992_Score_Baseball",
+    "year": 1992,
+    "brand": "Score",
+    "sport": "Baseball",
+    "cardsPerPack": 16,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED",
+    "insertOdds": "PENDING"
+  },
+  "cardsFile": "1992-score-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1992_Score_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/200/1992-Score",
+      "expectedCards": 893
+    },
+    {
+      "key": "impact",
+      "id": "1992_Score_Baseball_90s_Impact_Players",
+      "name": "90's Impact Players",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/202/1992-Score-90-s-Impact-Players",
+      "expectedCards": 90
+    },
+    {
+      "key": "knoblauch",
+      "id": "1992_Score_Baseball_Chuck_Knoblauch_Autograph",
+      "name": "Chuck Knoblauch 1991 Rookie of the Year Autograph",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/158634/1992-Score-Chuck-Knoblauch-1991-Rookie-of-the-Year-Autograph",
+      "expectedCards": 1
+    },
+    {
+      "key": "hot",
+      "id": "1992_Score_Baseball_Hot_Rookies",
+      "name": "Hot Rookies",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/201/1992-Score-Hot-Rookies",
+      "expectedCards": 10
+    },
+    {
+      "key": "dimaggio",
+      "id": "1992_Score_Baseball_Joe_DiMaggio",
+      "name": "Joe DiMaggio: Yankee Clipper",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/203/1992-Score-Joe-DiMaggio-Yankee-Clipper",
+      "expectedCards": 5
+    },
+    {
+      "key": "dimaggio-auto",
+      "id": "1992_Score_Baseball_Joe_DiMaggio_Autographs",
+      "name": "Joe DiMaggio: Yankee Clipper Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/282104/1992-Score-Joe-DiMaggio-Yankee-Clipper-Autographs",
+      "expectedCards": 5
+    },
+    {
+      "key": "franchise",
+      "id": "1992_Score_Baseball_The_Franchise",
+      "name": "The Franchise",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/205/1992-Score-The-Franchise",
+      "expectedCards": 4
+    },
+    {
+      "key": "franchise-auto",
+      "id": "1992_Score_Baseball_The_Franchise_Autographs",
+      "name": "The Franchise Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10271/1992-Score-The-Franchise-Autographs",
+      "expectedCards": 4
+    }
+  ]
+}
