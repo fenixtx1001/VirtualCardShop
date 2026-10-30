@@ -18,3 +18,38 @@ Status: RESEARCH / NOT IMPORTABLE / UNRELEASED
 
 ## Safety
 This research intake deliberately does not contain a guessed checklist or importable manifest. No database, shop, images, or release state has been changed.
+
+## Completed checklist and validation
+
+The bundle now contains 660 cards in one complete Base Product Set: numbered 1-653,
+plus CL-DK and CL1-CL6. Unique CL identifiers preserve the printed checklist numbering
+in metadata. Diamond Kings, Rated Rookies and King of Kings remain base subsets.
+
+Sources: TCDB checklist pages 1-7 (sid 105), including teams and explicit RC flags;
+BaseballCardPedia 1986 Donruss for checklist structure and wax distribution
+(15 cards plus a puzzle panel, 36 packs per box). The normalized source snapshot is
+checked in for reproducible offline generation. Secondary-source errors are not
+copied: notably Bill Buckner #151 is not marked RC. Multi-subject cards #645 and
+#651 use clean player names; #651 does not mark either player as an RC.
+
+Eight extra error/variation rows in TCDB are collapsed into the canonical 660-card
+checklist, preferring corrected or later b states. Checklist source notes are metadata.
+Seven checklist cards intentionally have blank teams. All other 653 cards have teams.
+
+Oversized wrapper-redemption Super Diamond Kings, box-bottom packaging cards and
+non-card puzzle panels are excluded from this wax-card checklist. Separate Leaf,
+All-Stars, Highlights and The Rookies releases are outside this product.
+
+Validation: generator and --self-test pass; importer passed bundle/CSV/team checks,
+then stopped at the first database read because this terminal lacks DATABASE_URL.
+No database import or release has occurred. Images and pricing remain pending.
+
+## Import in the configured VCS terminal
+
+From virtual-card-shop on this branch:
+
+```bash
+python3 scripts/generate-1986-donruss-baseball.py --self-test
+npm run import:set-bundle -- data/set-factory/1986-donruss-baseball.bundle.json
+npm run import:set-bundle -- data/set-factory/1986-donruss-baseball.bundle.json --apply
+```
