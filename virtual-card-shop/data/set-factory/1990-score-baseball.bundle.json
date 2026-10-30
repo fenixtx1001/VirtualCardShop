@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/144/1990-Score",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/144/1990-Score",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1990_Score"
+  },
+  "decisions": {
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "Universal wax/rack abstraction",
+    "physicalWaxFormat": "16 baseball cards plus 1 Magic Motion trivia card; 36 packs per box.",
+    "vcsPackFormat": "17 total slots; guaranteed Magic Motion leaves 16 base cards normally. Young Superstars replaces another base slot on a hit.",
+    "rackExclusiveConversion": "One Young Superstars Set 1 per rack containing 48 base cards plus that bonus (49 baseball cards) and 3 trivia cards. 48/16=3 wax-equivalent packs gives 1:3 VCS odds. Deliberate channel approximation, not historical wax odds.",
+    "subsets": "1990 Rookies 580-657, Draft Picks 661-682, Dream Team 683-695, selected highlights and World Series cards remain in complete Base.",
+    "boJackson697": "Canonical name Bo Jackson; baseball team Kansas City Royals derived from other Bo Jackson cards in this checklist. Normal base availability, not short printed.",
+    "variations": "18 additional source error/variation rows collapse into corrected/later b states.",
+    "exclusions": "Ten Rookie Dream Team cards are Hobby factory-set exclusives. Young Superstars Set 2 is a separate mail-in/boxed set. Promos, Rookie/Traded, McDonalds and other boxed products excluded.",
+    "magicMotion": "All 56 MVP trivia subjects retain historical team and award league/year metadata; no inferred RC labels."
+  },
+  "product": {
+    "id": "1990_Score_Baseball",
+    "year": 1990,
+    "brand": "Score",
+    "sport": "Baseball",
+    "cardsPerPack": 17,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1990-score-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1990_Score_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/144/1990-Score",
+      "expectedCards": 704
+    },
+    {
+      "key": "magic",
+      "id": "1990_Score_Baseball_Magic_Motion",
+      "name": "Magic Motion: The MVPs",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/48378/1990-Score-Magic-Motion-The-MVPs",
+      "expectedCards": 56
+    },
+    {
+      "key": "young",
+      "id": "1990_Score_Baseball_Young_Superstars_Series_I",
+      "name": "Young Superstars (Set 1)",
+      "kind": "INSERT",
+      "oddsPerPack": 3,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10172/1990-Score-Young-Superstars-Set-1-",
+      "expectedCards": 42
+    }
+  ]
+}
