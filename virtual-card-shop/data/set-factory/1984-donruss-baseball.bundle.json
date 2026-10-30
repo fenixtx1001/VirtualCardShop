@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/95/1984-Donruss",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1984_Donruss"
+  },
+  "decisions": {
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "Wax",
+    "collectorChecklist": "660-card wax checklist: 658 TCDB base positions plus A/B Living Legends, kept together because these were printed at the same rate as base. Factory sets omit A/B.",
+    "checklistNumbering": "1-651 plus CL-DK, CL1-CL6 and A/B. Checklist printed numbering preserved as metadata.",
+    "variations": "Collapse error/correction states; use corrected numbered #29/#30 and corrected Perez-Steele backs. No extra completion requirements for print states.",
+    "exclusions": "Oversized mail-order Super Diamond Kings and non-card Duke Snider puzzle panels excluded. Duke Snider #648 puzzle-image baseball card retained.",
+    "mascotTeam": "#651 Famous Chicken is independent, intentionally blank team. Importer only exempts checklists; use --allow-pending-teams until mascot exception is supported."
+  },
+  "product": {
+    "id": "1984_Donruss_Baseball",
+    "year": 1984,
+    "brand": "Donruss",
+    "sport": "Baseball",
+    "cardsPerPack": 15,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1984-donruss-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1984_Donruss_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/95/1984-Donruss",
+      "expectedCards": 660
+    }
+  ]
+}
