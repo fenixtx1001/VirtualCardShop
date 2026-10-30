@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/160/1991-Score",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/160/1991-Score",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1991_Score"
+  },
+  "decisions": {
+    "combinePhysicalSeries": true,
+    "physicalSeriesRanges": [
+      "1-441",
+      "442-893"
+    ],
+    "equalBasePullProbability": true,
+    "seriesBoundaryEvidence": "TCDB, Beckett set info and DA Card World agree 441/452; BaseballCardPedia prose says 442/451. Use 441/452.",
+    "canonicalPackFormat": "Universal wax/blister abstraction",
+    "physicalWaxFormat": "16 baseball cards plus 1 World Series Magic Motion trivia card; 36 packs per box.",
+    "vcsPackFormat": "17 total slots so guaranteed trivia leaves 16 base slots normally. Other insert hits replace another base slot.",
+    "hotRookiesConversion": "One per 100-base-card blister pack. 100/16=6.25 wax equivalents; rounded to 1:6 VCS packs. Intentional channel approximation, not historical wax odds.",
+    "mantleOdds": "Published estimated Series Two ratios 1:1942 unsigned and 1:30000 autograph; combine using 452/893 Series Two weight: round(1942*893/452)=3837 and round(30000*893/452)=59270. These are derived approximations, not guaranteed manufacturer box odds.",
+    "variations": "Four extra source variation/error rows collapse to canonical corrected/later b states.",
+    "exclusions": "Cooperstown factory-set bonus, Mickey Mantle Glossy dealer/media promo, base promos and separate boxed/Rookie-Traded products excluded.",
+    "teamExceptions": "American Flag #737 and 16 World Series Q&A trivia cards have no team. Intentionally blank; current importer requires --allow-pending-teams.",
+    "autographPrintRun": "Signed checklist has seven subjects with 356 per subject/2500 aggregate numbering. Preserve as metadata without claiming 2500 copies of each subject."
+  },
+  "product": {
+    "id": "1991_Score_Baseball",
+    "year": 1991,
+    "brand": "Score",
+    "sport": "Baseball",
+    "cardsPerPack": 17,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1991-score-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1991_Score_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/160/1991-Score",
+      "expectedCards": 893
+    },
+    {
+      "key": "magic",
+      "id": "1991_Score_Baseball_Magic_Motion",
+      "name": "Magic Motion: World Series Trivia",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/75494/1991-Score-Magic-Motion-World-Series-Trivia",
+      "expectedCards": 72
+    },
+    {
+      "key": "hot",
+      "id": "1991_Score_Baseball_Hot_Rookies",
+      "name": "Hot Rookies",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/162/1991-Score-Hot-Rookies",
+      "expectedCards": 10
+    },
+    {
+      "key": "mantle",
+      "id": "1991_Score_Baseball_Mickey_Mantle",
+      "name": "Mickey Mantle",
+      "kind": "INSERT",
+      "oddsPerPack": 3837,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/163/1991-Score-Mickey-Mantle",
+      "expectedCards": 7
+    },
+    {
+      "key": "auto",
+      "id": "1991_Score_Baseball_Mickey_Mantle_Autographs",
+      "name": "Mickey Mantle Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": 59270,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/204835/1991-Score-Mickey-Mantle-Autographs",
+      "expectedCards": 7
+    }
+  ]
+}
