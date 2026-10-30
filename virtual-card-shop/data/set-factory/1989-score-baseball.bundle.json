@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/132/1989-Score",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/132/1989-Score",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1989_Score"
+  },
+  "decisions": {
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "Universal wax/rack abstraction",
+    "physicalWaxFormat": "16 baseball cards plus 1 Magic Motion trivia card; 36 packs per box.",
+    "vcsPackFormat": "17 total slots; guaranteed Magic Motion leaves 16 base cards normally. Young Superstars hits replace another base slot.",
+    "rackExclusiveConversion": "One Young Superstars card per 48-base-card rack pack. Convert 48/16=3 wax-equivalent packs to 1:3 VCS packs. This is an intentional approximation, not historical wax odds.",
+    "subsets": "Rookie Prospects 621-651 and 1988 Season Highlights 652-660 remain in complete Base.",
+    "variations": "Seven extra error/variation rows collapse to corrected/later b states, including airbrushed Paul Gibson.",
+    "exclusions": "Promos and separate Rookie/Traded, Scoremasters, Hottest 100 and Young Superstars Set 2 boxed products excluded. Griffey Jr. is not in the flagship base checklist.",
+    "magicMotion": "56 annual trivia cards span 1932-1987; historical teams and event captions are source data. #50 Player Strike (1981) intentionally has no team; apply requires --allow-pending-teams."
+  },
+  "product": {
+    "id": "1989_Score_Baseball",
+    "year": 1989,
+    "brand": "Score",
+    "sport": "Baseball",
+    "cardsPerPack": 17,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1989-score-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1989_Score_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/132/1989-Score",
+      "expectedCards": 660
+    },
+    {
+      "key": "magic",
+      "id": "1989_Score_Baseball_Magic_Motion",
+      "name": "Magic Motion: A Year to Remember",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/76821/1989-Score-Magic-Motion-A-Year-to-Remember",
+      "expectedCards": 56
+    },
+    {
+      "key": "young",
+      "id": "1989_Score_Baseball_Young_Superstars_Series_I",
+      "name": "Young Superstars (Set 1)",
+      "kind": "INSERT",
+      "oddsPerPack": 3,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10161/1989-Score-Young-Superstars-Set-1-",
+      "expectedCards": 42
+    }
+  ]
+}
