@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/389/1994-Score",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/389/1994-Score",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1994_Score"
+  },
+  "decisions": {
+    "combinePhysicalSeries": true,
+    "physicalSeriesRanges": [
+      "1-330",
+      "331-660"
+    ],
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "Universal hobby/retail/superpack abstraction",
+    "physicalWaxFormat": "14 total cards, 36 packs per box, one guaranteed Gold Rush.",
+    "goldRush": "Full 660-card parallel derived from complete base, guaranteed 1:1. Superpacks physically had two Gold Rush; VCS uses standard 14-card format with one. Preserve base card-specific metadata in derived cards.",
+    "seriesOdds": "Equal 330/330 weighting: Dream Team Series One 1:72 becomes 1:144 combined; Cycle Series Two 1:72 becomes 1:144 combined. Gold Stars and Boys of Summer have equal published ratios in both series.",
+    "channelAbstraction": "Gold Stars is hobby-only 1:18; Boys of Summer superpack-only 1:4. Both are included in the universal VCS pack at their published per-pack ratios, without invented channel market shares. Other inserts replace base slots.",
+    "subsets": "Keep all 660 Base and all 660 Gold Rush together. AL/NL stadium team checklists are base subsets.",
+    "exclusions": "Sample base/Gold Rush/Dream Team promos, header cards, separate Rookie/Traded and other products excluded."
+  },
+  "product": {
+    "id": "1994_Score_Baseball",
+    "year": 1994,
+    "brand": "Score",
+    "sport": "Baseball",
+    "cardsPerPack": 14,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1994-score-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1994_Score_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/389/1994-Score",
+      "expectedCards": 660
+    },
+    {
+      "key": "boys",
+      "id": "1994_Score_Baseball_Boys_of_Summer",
+      "name": "Boys of Summer",
+      "kind": "INSERT",
+      "oddsPerPack": 4,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/390/1994-Score-Boys-of-Summer",
+      "expectedCards": 60
+    },
+    {
+      "key": "dream",
+      "id": "1994_Score_Baseball_Dream_Team",
+      "name": "Dream Team",
+      "kind": "INSERT",
+      "oddsPerPack": 144,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/391/1994-Score-Dream-Team",
+      "expectedCards": 10
+    },
+    {
+      "key": "stars",
+      "id": "1994_Score_Baseball_Gold_Stars",
+      "name": "Gold Stars",
+      "kind": "INSERT",
+      "oddsPerPack": 18,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/393/1994-Score-Gold-Stars",
+      "expectedCards": 60
+    },
+    {
+      "key": "cycle",
+      "id": "1994_Score_Baseball_The_Cycle",
+      "name": "The Cycle",
+      "kind": "INSERT",
+      "oddsPerPack": 144,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/397/1994-Score-The-Cycle",
+      "expectedCards": 20
+    },
+    {
+      "key": "gold-rush",
+      "id": "1994_Score_Baseball_Gold_Rush",
+      "name": "Gold Rush",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/389/1994-Score",
+      "expectedCards": 660,
+      "deriveCardsFrom": "base",
+      "notes": "Full foilboard base parallel; Gold Rush logos front/back; preserve base card-specific notes."
+    }
+  ]
+}
