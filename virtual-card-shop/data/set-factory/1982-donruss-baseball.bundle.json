@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/87/1982-Donruss",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1982_Donruss"
+  },
+  "decisions": {
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "Wax",
+    "collectorChecklist": "660 base positions: 1-653 plus seven unnumbered checklists. Stable CL-DK, CL1-CL6 VCS IDs.",
+    "subsets": "First Diamond Kings 1-26 remain base. No Rated Rookie subset in 1982. Four combo titles retained as subset metadata.",
+    "variations": "Collapse eight extra source variation rows. Prefer corrected/later b state, including Trammell, Rawley, Eichelberger, Garner, Lerch and DK checklist. Chicken uses trademark version.",
+    "exclusions": "Babe Ruth three-piece puzzle panels are non-card pack accompaniments. Autographed Chicken redemption is a mail-in item; not a pack insert. Great Moments promotional posters excluded.",
+    "mascotTeam": "#531 The Chicken is an independent mascot, intentionally blank team. Current importer requires --allow-pending-teams for this verified exception."
+  },
+  "product": {
+    "id": "1982_Donruss_Baseball",
+    "year": 1982,
+    "brand": "Donruss",
+    "sport": "Baseball",
+    "cardsPerPack": 15,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1982-donruss-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1982_Donruss_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/87/1982-Donruss",
+      "expectedCards": 660
+    }
+  ]
+}

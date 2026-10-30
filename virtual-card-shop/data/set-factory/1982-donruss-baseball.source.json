@@ -1,0 +1,4016 @@
+{
+  "sources": [
+    "https://www.tcdb.com/Checklist.cfm/sid/87/1982-Donruss",
+    "https://baseballcardpedia.com/index.php/1982_Donruss"
+  ],
+  "rows": [
+    {
+      "number": "1",
+      "label": "Pete Rose DK",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "2",
+      "label": "Gary Carter DK",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "3",
+      "label": "Steve Garvey DK",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "4",
+      "label": "Vida Blue DK",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "5a",
+      "label": "Alan Trammel DK, ERR",
+      "team": "Detroit Tigers",
+      "note": "ERR: Last name misspelled \"Trammel\" on front and back"
+    },
+    {
+      "number": "5b",
+      "label": "Alan Trammell DK, COR",
+      "team": "Detroit Tigers",
+      "note": "COR: Last name spelled \"Trammell\" on front and back"
+    },
+    {
+      "number": "6",
+      "label": "Len Barker DK",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "7",
+      "label": "Dwight Evans DK",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "8",
+      "label": "Rod Carew DK",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "9",
+      "label": "George Hendrick DK",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "10",
+      "label": "Phil Niekro DK",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "11",
+      "label": "Richie Zisk DK",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "12",
+      "label": "Dave Parker DK",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "13",
+      "label": "Nolan Ryan DK",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "14",
+      "label": "Ivan De Jesus DK",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "15",
+      "label": "George Brett DK",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "16",
+      "label": "Tom Seaver DK",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "17",
+      "label": "Dave Kingman DK",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "18",
+      "label": "Dave Winfield DK",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "19",
+      "label": "Mike Norris DK",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "20",
+      "label": "Carlton Fisk DK",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "21",
+      "label": "Ozzie Smith DK",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "22",
+      "label": "Roy Smalley DK",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "23",
+      "label": "Buddy Bell DK",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "24",
+      "label": "Ken Singleton DK",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "25",
+      "label": "John Mayberry DK",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "26",
+      "label": "Gorman Thomas DK",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "27",
+      "label": "Earl Weaver MGR",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "28",
+      "label": "Rollie Fingers",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "29",
+      "label": "Sparky Anderson MGR",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "30",
+      "label": "Dennis Eckersley",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "31",
+      "label": "Dave Winfield",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "32",
+      "label": "Burt Hooton",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "33",
+      "label": "Rick Waits",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "34",
+      "label": "George Brett",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "35",
+      "label": "Steve McCatty",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "36",
+      "label": "Steve Rogers",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "37",
+      "label": "Bill Stein",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "38",
+      "label": "Steve Renko",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "39",
+      "label": "Mike Squires",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "40",
+      "label": "George Hendrick",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "41",
+      "label": "Bob Knepper",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "42",
+      "label": "Steve Carlton",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "43",
+      "label": "Larry Biittner",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "44",
+      "label": "Chris Welsh RC",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "45",
+      "label": "Steve Nicosia",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "46",
+      "label": "Jack Clark",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "47",
+      "label": "Chris Chambliss",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "48",
+      "label": "Ivan DeJesus",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "49",
+      "label": "Lee Mazzilli",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "50",
+      "label": "Julio Cruz",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "51",
+      "label": "Pete Redfern",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "52",
+      "label": "Dave Stieb",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "53",
+      "label": "Doug Corbett",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "54",
+      "label": "Jorge Bell RC",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "55",
+      "label": "Joe Simpson",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "56",
+      "label": "Rusty Staub",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "57",
+      "label": "Hector Cruz",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "58",
+      "label": "Claudell Washington",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "59",
+      "label": "Enrique Romo",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "60",
+      "label": "Gary Lavelle",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "61",
+      "label": "Tim Flannery",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "62",
+      "label": "Joe Nolan",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "63",
+      "label": "Larry Bowa",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "64",
+      "label": "Sixto Lezcano",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "65",
+      "label": "Joe Sambito",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "66",
+      "label": "Bruce Kison",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "67",
+      "label": "Wayne Nordhagen",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "68",
+      "label": "Woodie Fryman",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "69",
+      "label": "Billy Sample",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "70",
+      "label": "Amos Otis",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "71",
+      "label": "Matt Keough",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "72",
+      "label": "Toby Harrah",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "73",
+      "label": "Dave Righetti RC",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "74",
+      "label": "Carl Yastrzemski",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "75",
+      "label": "Bob Welch",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "76a",
+      "label": "Alan Trammel ERR",
+      "team": "Detroit Tigers",
+      "note": "ERR: Last name misspelled \"Trammel\" on front"
+    },
+    {
+      "number": "76b",
+      "label": "Alan Trammell COR",
+      "team": "Detroit Tigers",
+      "note": "COR: Last name spelled \"Trammell\" on front"
+    },
+    {
+      "number": "77",
+      "label": "Rick Dempsey",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "78",
+      "label": "Paul Molitor",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "79",
+      "label": "Dennis Martinez",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "80",
+      "label": "Jim Slaton",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "81",
+      "label": "Champ Summers",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "82",
+      "label": "Carney Lansford",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "83",
+      "label": "Barry Foote",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "84",
+      "label": "Steve Garvey",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "85",
+      "label": "Rick Manning",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "86",
+      "label": "John Wathan",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "87",
+      "label": "Brian Kingman",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "88",
+      "label": "Andre Dawson UER",
+      "team": "Montreal Expos",
+      "note": "UER: middle name is Nolan, not Fernando"
+    },
+    {
+      "number": "89",
+      "label": "Jim Kern",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "90",
+      "label": "Bobby Grich",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "91",
+      "label": "Bob Forsch",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "92",
+      "label": "Art Howe",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "93",
+      "label": "Marty Bystrom",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "94",
+      "label": "Ozzie Smith",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "95",
+      "label": "Dave Parker",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "96",
+      "label": "Doyle Alexander",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "97",
+      "label": "Al Hrabosky",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "98",
+      "label": "Frank Taveras",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "99",
+      "label": "Tim Blackwell",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "100",
+      "label": "Floyd Bannister",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "101",
+      "label": "Alfredo Griffin",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "102",
+      "label": "Dave Engle",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "103",
+      "label": "Mario Soto",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "104",
+      "label": "Ross Baumgarten",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "105",
+      "label": "Ken Singleton",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "106",
+      "label": "Ted Simmons",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "107",
+      "label": "Jack Morris",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "108",
+      "label": "Bob Watson",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "109",
+      "label": "Dwight Evans",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "110",
+      "label": "Tom Lasorda MGR",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "111",
+      "label": "Bert Blyleven",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "112",
+      "label": "Dan Quisenberry",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "113",
+      "label": "Rickey Henderson",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "114",
+      "label": "Gary Carter",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "115",
+      "label": "Brian Downing",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "116",
+      "label": "Al Oliver",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "117",
+      "label": "LaMarr Hoyt",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "118",
+      "label": "Cesar Cedeno",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "119",
+      "label": "Keith Moreland",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "120",
+      "label": "Bob Shirley",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "121",
+      "label": "Terry Kennedy",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "122",
+      "label": "Frank Pastore",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "123",
+      "label": "Gene Garber",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "124",
+      "label": "Tony Pena",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "125",
+      "label": "Allen Ripley",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "126",
+      "label": "Randy Martz",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "127",
+      "label": "Richie Zisk",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "128",
+      "label": "Mike Scott",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "129",
+      "label": "Lloyd Moseby",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "130",
+      "label": "Rob Wilfong",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "131",
+      "label": "Tim Stoddard",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "132",
+      "label": "Gorman Thomas",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "133",
+      "label": "Dan Petry",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "134",
+      "label": "Bob Stanley",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "135",
+      "label": "Lou Piniella",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "136",
+      "label": "Pedro Guerrero",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "137",
+      "label": "Len Barker",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "138",
+      "label": "Richard Gale",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "139",
+      "label": "Wayne Gross",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "140",
+      "label": "Tim Wallach RC",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "141",
+      "label": "Gene Mauch MGR",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "142",
+      "label": "Doc Medich",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "143",
+      "label": "Tony Bernazard",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "144",
+      "label": "Bill Virdon MGR",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "145",
+      "label": "John Littlefield",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "146",
+      "label": "Dave Bergman",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "147",
+      "label": "Dick Davis",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "148",
+      "label": "Tom Seaver",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "149",
+      "label": "Matt Sinatro RC",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "150",
+      "label": "Chuck Tanner MGR, UER",
+      "team": "Pittsburgh Pirates",
+      "note": "UER: Stats read \"Brewers\" instead of \"Braves\""
+    },
+    {
+      "number": "151",
+      "label": "Leon Durham",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "152",
+      "label": "Gene Tenace",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "153",
+      "label": "Al Bumbry",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "154",
+      "label": "Mark Brouhard RC",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "155",
+      "label": "Rick Peters",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "156",
+      "label": "Jerry Remy",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "157",
+      "label": "Rick Reuschel",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "158",
+      "label": "Steve Howe",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "159",
+      "label": "Alan Bannister",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "160",
+      "label": "U.L. Washington",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "161",
+      "label": "Rick Langford",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "162",
+      "label": "Bill Gullickson",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "163",
+      "label": "Mark Wagner",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "164",
+      "label": "Geoff Zahn",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "165",
+      "label": "Ron LeFlore",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "166",
+      "label": "Dane Iorg",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "167",
+      "label": "Joe Niekro",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "168",
+      "label": "Pete Rose",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "169",
+      "label": "Dave Collins",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "170",
+      "label": "Rick Wise",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "171",
+      "label": "Jim Bibby",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "172",
+      "label": "Larry Herndon",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "173",
+      "label": "Bob Horner",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "174",
+      "label": "Steve Dillard",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "175",
+      "label": "Mookie Wilson",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "176",
+      "label": "Dan Meyer",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "177",
+      "label": "Fernando Arroyo",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "178",
+      "label": "Jackson Todd",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "179",
+      "label": "Darrell Jackson",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "180",
+      "label": "Al Woods",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "181",
+      "label": "Jim Anderson",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "182",
+      "label": "Dave Kingman",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "183",
+      "label": "Steve Henderson",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "184",
+      "label": "Brian Asselstine",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "185",
+      "label": "Rod Scurry",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "186",
+      "label": "Fred Breining RC",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "187",
+      "label": "Danny Boone RC",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "188",
+      "label": "Junior Kennedy",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "189",
+      "label": "Sparky Lyle",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "190",
+      "label": "Whitey Herzog MGR",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "191",
+      "label": "Dave Smith",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "192",
+      "label": "Ed Ott",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "193",
+      "label": "Greg Luzinski",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "194",
+      "label": "Bill Lee",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "195",
+      "label": "Don Zimmer MGR",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "196",
+      "label": "Hal McRae",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "197",
+      "label": "Mike Norris",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "198",
+      "label": "Duane Kuiper",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "199",
+      "label": "Rick Cerone",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "200",
+      "label": "Jim Rice",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "201",
+      "label": "Steve Yeager",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "202",
+      "label": "Tom Brookens",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "203",
+      "label": "Jose Morales",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "204",
+      "label": "Roy Howell",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "205",
+      "label": "Tippy Martinez",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "206",
+      "label": "Moose Haas",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "207",
+      "label": "Al Cowens",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "208",
+      "label": "Dave Stapleton",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "209",
+      "label": "Bucky Dent",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "210",
+      "label": "Ron Cey",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "211",
+      "label": "Jorge Orta",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "212",
+      "label": "Jamie Quirk",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "213",
+      "label": "Jeff Jones",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "214",
+      "label": "Tim Raines",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "215",
+      "label": "Jon Matlack",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "216",
+      "label": "Rod Carew",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "217",
+      "label": "Jim Kaat",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "218",
+      "label": "Joe Pittman RC",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "219",
+      "label": "Larry Christenson",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "220",
+      "label": "Juan Bonilla RC",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "221",
+      "label": "Mike Easler",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "222",
+      "label": "Vida Blue",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "223",
+      "label": "Rick Camp",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "224",
+      "label": "Mike Jorgensen",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "225",
+      "label": "Jody Davis RC",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "226",
+      "label": "Mike Parrott",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "227",
+      "label": "Jim Clancy",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "228",
+      "label": "Hosken Powell",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "229",
+      "label": "Tom Hume",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "230",
+      "label": "Britt Burns",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "231",
+      "label": "Jim Palmer",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "232",
+      "label": "Bob Rodgers MGR",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "233",
+      "label": "Milt Wilcox",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "234",
+      "label": "Dave Revering",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "235",
+      "label": "Mike Torrez",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "236",
+      "label": "Robert Castillo",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "237",
+      "label": "Von Hayes RC",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "238",
+      "label": "Renie Martin",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "239",
+      "label": "Dwayne Murphy",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "240",
+      "label": "Rodney Scott",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "241",
+      "label": "Fred Patek",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "242",
+      "label": "Mickey Rivers",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "243",
+      "label": "Steve Trout",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "244",
+      "label": "Jose Cruz",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "245",
+      "label": "Manny Trillo",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "246",
+      "label": "Lary Sorensen",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "247",
+      "label": "Dave Edwards",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "248",
+      "label": "Dan Driessen",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "249",
+      "label": "Tommy Boggs",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "250",
+      "label": "Dale Berra",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "251",
+      "label": "Ed Whitson",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "252",
+      "label": "Lee Smith RC",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "253",
+      "label": "Tom Paciorek",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "254",
+      "label": "Pat Zachry",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "255",
+      "label": "Luis Leal",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "256",
+      "label": "John Castino",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "257",
+      "label": "Rich Dauer",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "258",
+      "label": "Cecil Cooper",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "259",
+      "label": "Dave Rozema",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "260",
+      "label": "John Tudor",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "261",
+      "label": "Jerry Mumphrey",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "262",
+      "label": "Jay Johnstone UER",
+      "team": "Los Angeles Dodgers",
+      "note": "UER: Born 1946, should be 1945"
+    },
+    {
+      "number": "263",
+      "label": "Bo Diaz",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "264",
+      "label": "Dennis Leonard",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "265",
+      "label": "Jim Spencer",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "266",
+      "label": "John Milner",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "267",
+      "label": "Don Aase",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "268",
+      "label": "Jim Sundberg",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "269",
+      "label": "Lamar Johnson",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "270",
+      "label": "Frank LaCorte",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "271",
+      "label": "Barry Evans",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "272",
+      "label": "Enos Cabell",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "273",
+      "label": "Del Unser",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "274",
+      "label": "George Foster",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "275",
+      "label": "Brett Butler RC",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "276",
+      "label": "Lee Lacy",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "277",
+      "label": "Ken Reitz",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "278",
+      "label": "Keith Hernandez",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "279",
+      "label": "Doug DeCinces",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "280",
+      "label": "Charlie Moore",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "281",
+      "label": "Lance Parrish",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "282",
+      "label": "Ralph Houk MGR",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "283",
+      "label": "Rich Gossage",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "284",
+      "label": "Jerry Reuss",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "285",
+      "label": "Mike Stanton",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "286",
+      "label": "Frank White",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "287",
+      "label": "Bob Owchinko",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "288",
+      "label": "Scott Sanderson",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "289",
+      "label": "Bump Wills",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "290",
+      "label": "Dave Frost",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "291",
+      "label": "Chet Lemon",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "292",
+      "label": "Tito Landrum",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "293",
+      "label": "Vern Ruhle",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "294",
+      "label": "Mike Schmidt",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "295",
+      "label": "Sam Mejias",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "296",
+      "label": "Gary Lucas",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "297",
+      "label": "John Candelaria",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "298",
+      "label": "Jerry Martin",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "299",
+      "label": "Dale Murphy",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "300",
+      "label": "Mike Lum",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "301",
+      "label": "Tom Hausman",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "302",
+      "label": "Glenn Abbott",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "303",
+      "label": "Roger Erickson",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "304",
+      "label": "Otto Velez",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "305",
+      "label": "Danny Goodwin",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "306",
+      "label": "John Mayberry",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "307",
+      "label": "Lenny Randle",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "308",
+      "label": "Bob Bailor",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "309",
+      "label": "Jerry Morales",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "310",
+      "label": "Rufino Linares RC",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "311",
+      "label": "Kent Tekulve",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "312",
+      "label": "Joe Morgan",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "313",
+      "label": "John Urrea",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "314",
+      "label": "Paul Householder",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "315",
+      "label": "Garry Maddox",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "316",
+      "label": "Mike Ramsey",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "317",
+      "label": "Alan Ashby",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "318",
+      "label": "Bob Clark",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "319",
+      "label": "Tony LaRussa MGR",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "320",
+      "label": "Charlie Lea",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "321",
+      "label": "Danny Darwin",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "322",
+      "label": "Cesar Geronimo",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "323",
+      "label": "Tom Underwood",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "324",
+      "label": "Andre Thornton",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "325",
+      "label": "Rudy May",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "326",
+      "label": "Frank Tanana",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "327",
+      "label": "Davey Lopes",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "328",
+      "label": "Richie Hebner",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "329",
+      "label": "Mike Flanagan",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "330",
+      "label": "Mike Caldwell",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "331",
+      "label": "Scott McGregor",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "332",
+      "label": "Jerry Augustine",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "333",
+      "label": "Stan Papi",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "334",
+      "label": "Rick Miller",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "335",
+      "label": "Graig Nettles",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "336",
+      "label": "Dusty Baker",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "337",
+      "label": "Dave Garcia MGR",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "338",
+      "label": "Larry Gura",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "339",
+      "label": "Cliff Johnson",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "340",
+      "label": "Warren Cromartie",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "341",
+      "label": "Steve Comer",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "342",
+      "label": "Rick Burleson",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "343",
+      "label": "John Martin RC",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "344",
+      "label": "Craig Reynolds",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "345",
+      "label": "Mike Proly",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "346",
+      "label": "Ruppert Jones",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "347",
+      "label": "Omar Moreno",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "348",
+      "label": "Greg Minton",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "349",
+      "label": "Rick Mahler RC",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "350",
+      "label": "Alex Trevino",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "351",
+      "label": "Mike Krukow",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "352a",
+      "label": "Shane Rawley ERR",
+      "team": "Seattle Mariners",
+      "note": "ERR: Photo actually Jim Anderson (high five)"
+    },
+    {
+      "number": "352b",
+      "label": "Shane Rawley COR",
+      "team": "Seattle Mariners",
+      "note": "COR: Corrected photo (kneeling)"
+    },
+    {
+      "number": "353",
+      "label": "Garth Iorg",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "354",
+      "label": "Pete Mackanin",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "355",
+      "label": "Paul Moskau",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "356",
+      "label": "Richard Dotson",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "357",
+      "label": "Steve Stone",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "358",
+      "label": "Larry Hisle",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "359",
+      "label": "Aurelio Lopez",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "360",
+      "label": "Oscar Gamble",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "361",
+      "label": "Tom Burgmeier",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "362",
+      "label": "Terry Forster",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "363",
+      "label": "Joe Charboneau",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "364",
+      "label": "Ken Brett",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "365",
+      "label": "Tony Armas",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "366",
+      "label": "Chris Speier",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "367",
+      "label": "Fred Lynn",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "368",
+      "label": "Buddy Bell",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "369",
+      "label": "Jim Essian",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "370",
+      "label": "Terry Puhl",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "371",
+      "label": "Greg Gross",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "372",
+      "label": "Bruce Sutter",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "373",
+      "label": "Joe Lefebvre",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "374",
+      "label": "Ray Knight",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "375",
+      "label": "Bruce Benedict",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "376",
+      "label": "Tim Foli",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "377",
+      "label": "Al Holland",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "378",
+      "label": "Ken Kravec",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "379",
+      "label": "Jeff Burroughs",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "380",
+      "label": "Pete Falcone",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "381",
+      "label": "Ernie Whitt",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "382",
+      "label": "Brad Havens RC",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "383",
+      "label": "Terry Crowley",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "384",
+      "label": "Don Money",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "385",
+      "label": "Dan Schatzeder",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "386",
+      "label": "Gary Allenson",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "387",
+      "label": "Yogi Berra CO",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "388",
+      "label": "Ken Landreaux",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "389",
+      "label": "Mike Hargrove",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "390",
+      "label": "Darryl Motley RC",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "391",
+      "label": "Dave McKay",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "392",
+      "label": "Stan Bahnsen",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "393",
+      "label": "Ken Forsch",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "394",
+      "label": "Mario Mendoza",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "395",
+      "label": "Jim Morrison",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "396",
+      "label": "Mike Ivie",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "397",
+      "label": "Broderick Perkins",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "398",
+      "label": "Darrell Evans",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "399",
+      "label": "Ron Reed",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "400",
+      "label": "Johnny Bench",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "401",
+      "label": "Steve Bedrosian RC",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "402",
+      "label": "Bill Robinson",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "403",
+      "label": "Bill Buckner",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "404",
+      "label": "Ken Oberkfell",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "405",
+      "label": "Cal Ripken, Jr. RC",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "406",
+      "label": "Jim Gantner",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "407",
+      "label": "Kirk Gibson",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "408",
+      "label": "Tony Perez",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "409",
+      "label": "Tommy John UER",
+      "team": "New York Yankees",
+      "note": "UER: First line of highlights has 52-56 record as a Yankee, should be 52-26"
+    },
+    {
+      "number": "410",
+      "label": "Dave Stewart RC",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "411",
+      "label": "Dan Spillner",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "412",
+      "label": "Willie Aikens",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "413",
+      "label": "Mike Heath",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "414",
+      "label": "Ray Burris",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "415",
+      "label": "Leon Roberts",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "416",
+      "label": "Mike Witt RC",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "417",
+      "label": "Bobby Molinaro",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "418",
+      "label": "Steve Braun",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "419",
+      "label": "Nolan Ryan",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "420",
+      "label": "Tug McGraw",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "421",
+      "label": "Dave Concepcion",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "422a",
+      "label": "Juan Eichelberger ERR",
+      "team": "San Diego Padres",
+      "note": "ERR: Photo actually Gary Lucas (pitching)"
+    },
+    {
+      "number": "422b",
+      "label": "Juan Eichelberger COR",
+      "team": "San Diego Padres",
+      "note": "COR: Corrected photo (kneeling)"
+    },
+    {
+      "number": "423",
+      "label": "Rick Rhoden",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "424",
+      "label": "Frank Robinson MGR",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "425",
+      "label": "Eddie Miller",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "426",
+      "label": "Bill Caudill",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "427",
+      "label": "Doug Flynn",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "428",
+      "label": "Larry Andersen UER",
+      "team": "Seattle Mariners",
+      "note": "UER: Last name misspelled \"Anderson\" on front"
+    },
+    {
+      "number": "429",
+      "label": "Al Williams",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "430",
+      "label": "Jerry Garvin",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "431",
+      "label": "Glenn Adams",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "432",
+      "label": "Barry Bonnell",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "433",
+      "label": "Jerry Narron",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "434",
+      "label": "John Stearns",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "435",
+      "label": "Mike Tyson",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "436",
+      "label": "Glenn Hubbard",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "437",
+      "label": "Eddie Solomon",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "438",
+      "label": "Jeff Leonard",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "439",
+      "label": "Randy Bass",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "440",
+      "label": "Mike LaCoss",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "441",
+      "label": "Gary Matthews",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "442",
+      "label": "Mark Littell",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "443",
+      "label": "Don Sutton",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "444",
+      "label": "John Harris",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "445",
+      "label": "Vada Pinson CO",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "446",
+      "label": "Elias Sosa",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "447",
+      "label": "Charlie Hough",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "448",
+      "label": "Willie Wilson",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "449",
+      "label": "Fred Stanley",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "450",
+      "label": "Tom Veryzer",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "451",
+      "label": "Ron Davis",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "452",
+      "label": "Mark Clear",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "453",
+      "label": "Bill Russell",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "454",
+      "label": "Lou Whitaker",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "455",
+      "label": "Dan Graham",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "456",
+      "label": "Reggie Cleveland",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "457",
+      "label": "Sammy Stewart",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "458",
+      "label": "Pete Vuckovich",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "459",
+      "label": "John Wockenfuss",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "460",
+      "label": "Glenn Hoffman",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "461",
+      "label": "Willie Randolph",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "462",
+      "label": "Fernando Valenzuela",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "463",
+      "label": "Ron Hassey",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "464",
+      "label": "Paul Splittorff",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "465",
+      "label": "Rob Picciolo",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "466",
+      "label": "Larry Parrish",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "467",
+      "label": "Johnny Grubb",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "468",
+      "label": "Dan Ford",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "469",
+      "label": "Silvio Martinez",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "470",
+      "label": "Kiko Garcia",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "471",
+      "label": "Bob Boone",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "472",
+      "label": "Luis Salazar",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "473",
+      "label": "Randy Niemann",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "474",
+      "label": "Tom Griffin",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "475",
+      "label": "Phil Niekro",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "476",
+      "label": "Hubie Brooks",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "477",
+      "label": "Dick Tidrow",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "478",
+      "label": "Jim Beattie",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "479",
+      "label": "Damaso Garcia",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "480",
+      "label": "Mickey Hatcher",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "481",
+      "label": "Joe Price",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "482",
+      "label": "Ed Farmer",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "483",
+      "label": "Eddie Murray",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "484",
+      "label": "Ben Oglivie",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "485",
+      "label": "Kevin Saucier",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "486",
+      "label": "Bobby Murcer",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "487",
+      "label": "Bill Campbell",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "488",
+      "label": "Reggie Smith",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "489",
+      "label": "Wayne Garland",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "490",
+      "label": "Jim Wright",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "491",
+      "label": "Billy Martin MGR",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "492",
+      "label": "Jim Fanning MGR",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "493",
+      "label": "Don Baylor",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "494",
+      "label": "Rick Honeycutt",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "495",
+      "label": "Carlton Fisk",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "496",
+      "label": "Denny Walling",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "497",
+      "label": "Bake McBride",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "498",
+      "label": "Darrell Porter",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "499",
+      "label": "Gene Richards",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "500",
+      "label": "Ron Oester",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "501",
+      "label": "Ken Dayley RC",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "502",
+      "label": "Jason Thompson",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "503",
+      "label": "Milt May",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "504",
+      "label": "Doug Bird",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "505",
+      "label": "Bruce Bochte",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "506",
+      "label": "Neil Allen",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "507",
+      "label": "Joey McLaughlin",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "508",
+      "label": "Butch Wynegar",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "509",
+      "label": "Gary Roenicke",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "510",
+      "label": "Robin Yount",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "511",
+      "label": "Dave Tobik",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "512",
+      "label": "Rich Gedman RC",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "513",
+      "label": "Gene Nelson RC",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "514",
+      "label": "Rick Monday",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "515",
+      "label": "Miguel Dilone",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "516",
+      "label": "Clint Hurdle",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "517",
+      "label": "Jeff Newman",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "518",
+      "label": "Grant Jackson",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "519",
+      "label": "Andy Hassler",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "520",
+      "label": "Pat Putnam",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "521",
+      "label": "Greg Pryor",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "522",
+      "label": "Tony Scott",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "523",
+      "label": "Steve Mura",
+      "team": "San Diego Padres",
+      "note": ""
+    },
+    {
+      "number": "524",
+      "label": "Johnnie LeMaster",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "525",
+      "label": "Dick Ruthven",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "526",
+      "label": "John McNamara MGR",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "527",
+      "label": "Larry McWilliams",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "528",
+      "label": "Johnny Ray RC",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "529",
+      "label": "Pat Tabler RC",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "530",
+      "label": "Tom Herr",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "531a",
+      "label": "The Chicken MAS, VAR",
+      "team": "",
+      "note": "VAR: No \"TM\" next to \"The Chicken\" logo on front"
+    },
+    {
+      "number": "531b",
+      "label": "The Chicken MAS, VAR",
+      "team": "",
+      "note": "VAR: \"TM\" next to \"The Chicken\" logo on front"
+    },
+    {
+      "number": "532",
+      "label": "Sal Butera",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "533",
+      "label": "Mike Griffin",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "534",
+      "label": "Kelvin Moore RC",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "535",
+      "label": "Reggie Jackson",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "536",
+      "label": "Ed Romero",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "537",
+      "label": "Derrel Thomas",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "538",
+      "label": "Mike O'Berry",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "539",
+      "label": "Jack O'Connor RC",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "540",
+      "label": "Bob Ojeda RC",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "541",
+      "label": "Roy Lee Jackson",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "542",
+      "label": "Lynn Jones",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "543",
+      "label": "Gaylord Perry",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "544a",
+      "label": "Phil Garner ERR",
+      "team": "Houston Astros",
+      "note": "ERR: Reversed image; facing left"
+    },
+    {
+      "number": "544b",
+      "label": "Phil Garner COR",
+      "team": "Houston Astros",
+      "note": "COR: Facing right"
+    },
+    {
+      "number": "545",
+      "label": "Garry Templeton",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "546",
+      "label": "Rafael Ramirez",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "547",
+      "label": "Jeff Reardon",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "548",
+      "label": "Ron Guidry",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "549",
+      "label": "Tim Laudner RC",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "550",
+      "label": "John Henry Johnson",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "551",
+      "label": "Chris Bando",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "552",
+      "label": "Bobby Brown",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "553",
+      "label": "Larry Bradford",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "554",
+      "label": "Scott Fletcher RC",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "555",
+      "label": "Jerry Royster",
+      "team": "Atlanta Braves",
+      "note": ""
+    },
+    {
+      "number": "556",
+      "label": "Shooty Babitt RC, UER",
+      "team": "Oakland Athletics",
+      "note": "UER: name misspelled as 'Babbitt' on front"
+    },
+    {
+      "number": "557",
+      "label": "Kent Hrbek RC",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "558",
+      "label": "Yankee Winners CPC",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "559",
+      "label": "Mark Bomback",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "560",
+      "label": "Julio Valdez RC",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "561",
+      "label": "Buck Martinez",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "562",
+      "label": "Mike Marshall RC",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "563",
+      "label": "Rennie Stennett",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "564",
+      "label": "Steve Crawford RC",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "565",
+      "label": "Bob Babcock",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "566",
+      "label": "Johnny Podres CO",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "567",
+      "label": "Paul Serna RC",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "568",
+      "label": "Harold Baines",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "569",
+      "label": "Dave LaRoche",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "570",
+      "label": "Lee May",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "571",
+      "label": "Gary Ward",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "572",
+      "label": "John Denny",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "573",
+      "label": "Roy Smalley",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "574",
+      "label": "Bob Brenly RC",
+      "team": "San Francisco Giants",
+      "note": ""
+    },
+    {
+      "number": "575",
+      "label": "Bronx Bombers CPC",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "576",
+      "label": "Luis Pujols",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "577",
+      "label": "Butch Hobson",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "578",
+      "label": "Harvey Kuenn CO",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "579",
+      "label": "Cal Ripken, Sr. CO",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "580",
+      "label": "Juan Berenguer",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "581",
+      "label": "Benny Ayala",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "582",
+      "label": "Vance Law",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "583",
+      "label": "Rick Leach RC",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "584",
+      "label": "George Frazier",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "585",
+      "label": "Phillies Finest CPC",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "586",
+      "label": "Joe Rudi",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "587",
+      "label": "Juan Beniquez",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "588",
+      "label": "Luis DeLeon RC",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "589",
+      "label": "Craig Swan",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "590",
+      "label": "Dave Chalk",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "591",
+      "label": "Billy Gardner MGR",
+      "team": "Minnesota Twins",
+      "note": ""
+    },
+    {
+      "number": "592",
+      "label": "Sal Bando",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "593",
+      "label": "Bert Campaneris",
+      "team": "California Angels",
+      "note": ""
+    },
+    {
+      "number": "594",
+      "label": "Steve Kemp",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "595a",
+      "label": "Randy Lerch ERR",
+      "team": "Milwaukee Brewers",
+      "note": "ERR: \"Braves\" on front"
+    },
+    {
+      "number": "595b",
+      "label": "Randy Lerch COR",
+      "team": "Milwaukee Brewers",
+      "note": "COR: \"Brewers\" on front"
+    },
+    {
+      "number": "596",
+      "label": "Bryan Clark RC",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "597",
+      "label": "Dave Ford",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "598",
+      "label": "Mike Scioscia",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "599",
+      "label": "John Lowenstein",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "600",
+      "label": "Rene Lachemann MGR, UER",
+      "team": "Seattle Mariners",
+      "note": "UER: Last name misspelled \"Lachmann\" on front"
+    },
+    {
+      "number": "601",
+      "label": "Mick Kelleher",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "602",
+      "label": "Ron Jackson",
+      "team": "Detroit Tigers",
+      "note": ""
+    },
+    {
+      "number": "603",
+      "label": "Jerry Koosman",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "604",
+      "label": "Dave Goltz",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "605",
+      "label": "Ellis Valentine",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "606",
+      "label": "Lonnie Smith",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "607",
+      "label": "Joaquin Andujar",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "608",
+      "label": "Garry Hancock",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "609",
+      "label": "Jerry Turner",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "610",
+      "label": "Bob Bonner RC",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "611",
+      "label": "Jim Dwyer",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "612",
+      "label": "Terry Bulling",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "613",
+      "label": "Joel Youngblood",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "614",
+      "label": "Larry Milbourne",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "615",
+      "label": "Gene Roof RC, UER",
+      "team": "St. Louis Cardinals",
+      "note": "UER: Listed as \"Phil\" on front"
+    },
+    {
+      "number": "616",
+      "label": "Keith Drumright RC",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "617",
+      "label": "Dave Rosello",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "618",
+      "label": "Rickey Keeton RC",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "619",
+      "label": "Dennis Lamp",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "620",
+      "label": "Sid Monge",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "621",
+      "label": "Jerry White",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "622",
+      "label": "Luis Aguayo RC",
+      "team": "Philadelphia Phillies",
+      "note": ""
+    },
+    {
+      "number": "623",
+      "label": "Jamie Easterly",
+      "team": "Milwaukee Brewers",
+      "note": ""
+    },
+    {
+      "number": "624",
+      "label": "Steve Sax RC",
+      "team": "Los Angeles Dodgers",
+      "note": ""
+    },
+    {
+      "number": "625",
+      "label": "Dave Roberts",
+      "team": "Houston Astros",
+      "note": ""
+    },
+    {
+      "number": "626",
+      "label": "Rick Bosetti",
+      "team": "Oakland Athletics",
+      "note": ""
+    },
+    {
+      "number": "627",
+      "label": "Terry Francona RC",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "628",
+      "label": "Pride of the Reds CPC",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "629",
+      "label": "Paul Mirabella",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "630",
+      "label": "Rance Mulliniks",
+      "team": "Kansas City Royals",
+      "note": ""
+    },
+    {
+      "number": "631",
+      "label": "Kevin Hickey RC",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "632",
+      "label": "Reid Nichols",
+      "team": "Boston Red Sox",
+      "note": ""
+    },
+    {
+      "number": "633",
+      "label": "Dave Geisel",
+      "team": "Chicago Cubs",
+      "note": ""
+    },
+    {
+      "number": "634",
+      "label": "Ken Griffey",
+      "team": "Cincinnati Reds",
+      "note": ""
+    },
+    {
+      "number": "635",
+      "label": "Bob Lemon MGR",
+      "team": "New York Yankees",
+      "note": ""
+    },
+    {
+      "number": "636",
+      "label": "Orlando Sanchez RC",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "637",
+      "label": "Bill Almon",
+      "team": "Chicago White Sox",
+      "note": ""
+    },
+    {
+      "number": "638",
+      "label": "Danny Ainge",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "639",
+      "label": "Willie Stargell",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "640",
+      "label": "Bob Sykes",
+      "team": "St. Louis Cardinals",
+      "note": ""
+    },
+    {
+      "number": "641",
+      "label": "Ed Lynch RC",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "642",
+      "label": "John Ellis",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "643",
+      "label": "Fergie Jenkins",
+      "team": "Texas Rangers",
+      "note": ""
+    },
+    {
+      "number": "644",
+      "label": "Lenn Sakata",
+      "team": "Baltimore Orioles",
+      "note": ""
+    },
+    {
+      "number": "645",
+      "label": "Julio Gonzalez UER",
+      "team": "St. Louis Cardinals",
+      "note": "UER: Last name misspelled \"Gonzales\" on front; Born 1953, should be 1952"
+    },
+    {
+      "number": "646",
+      "label": "Jesse Orosco",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "647",
+      "label": "Jerry Dybzinski",
+      "team": "Cleveland Indians",
+      "note": ""
+    },
+    {
+      "number": "648",
+      "label": "Tommy Davis CO",
+      "team": "Seattle Mariners",
+      "note": ""
+    },
+    {
+      "number": "649",
+      "label": "Ron Gardenhire RC",
+      "team": "New York Mets",
+      "note": ""
+    },
+    {
+      "number": "650",
+      "label": "Felipe Alou CO",
+      "team": "Montreal Expos",
+      "note": ""
+    },
+    {
+      "number": "651",
+      "label": "Harvey Haddix CO",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "652",
+      "label": "Willie Upshaw",
+      "team": "Toronto Blue Jays",
+      "note": ""
+    },
+    {
+      "number": "653",
+      "label": "Bill Madlock",
+      "team": "Pittsburgh Pirates",
+      "note": ""
+    },
+    {
+      "number": "NNOa",
+      "label": "Diamond Kings Checklist 1-26 DK, ERR, UER, CL",
+      "team": "",
+      "note": "ERR: #5 \"Trammel\", UER: #22 \"Smally\""
+    },
+    {
+      "number": "NNOb",
+      "label": "Diamond Kings Checklist 1-26 DK, COR, UER, CL",
+      "team": "",
+      "note": "COR: #5 \"Trammell\", UER: #22 \"Smally\""
+    },
+    {
+      "number": "NNO",
+      "label": "Checklist: 27-130 CL",
+      "team": "",
+      "note": ""
+    },
+    {
+      "number": "NNO",
+      "label": "Checklist: 131-234 CL",
+      "team": "",
+      "note": ""
+    },
+    {
+      "number": "NNO",
+      "label": "Checklist: 235-338 CL",
+      "team": "",
+      "note": ""
+    },
+    {
+      "number": "NNO",
+      "label": "Checklist: 339-442 CL",
+      "team": "",
+      "note": ""
+    },
+    {
+      "number": "NNO",
+      "label": "Checklist: 443-544 CL",
+      "team": "",
+      "note": ""
+    },
+    {
+      "number": "NNO",
+      "label": "Checklist: 545-653 CL",
+      "team": "",
+      "note": ""
+    }
+  ]
+}
