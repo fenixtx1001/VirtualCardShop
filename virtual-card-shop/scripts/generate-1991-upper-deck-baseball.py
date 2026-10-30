@@ -1,22 +1,24 @@
 #!/usr/bin/env python3
-"""1991 Upper Deck Baseball: full-checklist, fail-closed Set Factory generator.
+"""Generate and audit the complete 1991 Upper Deck Baseball draft, offline by default.
 
-Creates the CSV for the 11-set draft manifest. No network is used with --self-test.
-Regular runs fetch canonical checklist pages at TCDB (not image content) and
-validate counts, numbering, source identities, team names and rookie markers.
-NO CSV is written when any source is blocked, partial or inconsistent.
+The committed source snapshot contains the retrieved TCDB rows and independent
+BCP/Cardboard Connection checklists. --refresh-sources retrieves all sources;
+any retrieval, identity, numbering, rookie or metadata failure prevents writes.
+--check verifies the committed CSV without changing it. --self-test also runs
+negative tests against the full dataset. No database access occurs here.
 """
 from __future__ import annotations
-
 import argparse
+import copy
 import csv
+import hashlib
+import html
+import io
 import json
 import re
 import sys
-import time
-import urllib.error
 import urllib.request
-from collections import Counter
+from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -24,11 +26,10 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "set-factory"
 STEM = "1991-upper-deck-baseball"
 BUNDLE = DATA / (STEM + ".bundle.json")
+SOURCE = DATA / (STEM + ".source.json")
 OUT = DATA / (STEM + ".cards.csv")
-BASE_SID = 171
-TOTAL = 878
 HEADER = ["setKey", "cardNumber", "player", "team", "subset", "variant"]
-
+TOTAL = 878
 KNOWN_CLUBS = {
     "Atlanta Braves", "Baltimore Orioles", "Boston Red Sox",
     "California Angels", "Chicago Cubs", "Chicago White Sox",
@@ -41,383 +42,501 @@ KNOWN_CLUBS = {
     "Texas Rangers", "Toronto Blue Jays", "Milwaukee Braves",
     "American League", "National League",
 }
-NUMBER = re.compile(r"^(?:\d{1,3}|SS\d{1,2}|H\d|SP[12]|HH1|NNO)$", re.I)
-ANNOTATION = re.compile(
-    r"(?:\s+|,\s*)(?:RC|SR|TP|TC|CL|CPC|HDR|SP|VAR|UER|ERR|COR|AU|SN\d+)"
-    r"(?=\s|,|;|:|$)", re.I
-)
-BAD_NAME = re.compile(r"\b(?:UER|ERR|COR|VAR|AU|SN\d+)\b", re.I)
-KEY_CARDS = {
-    2: "Phil Plantier",
-    24: "Eric Karros",
-    55: "Chipper Jones",
-    65: "Mike Mussina",
-    132: "Ryne Sandberg",
-    345: "Nolan Ryan",
-    525: "George Brett",
-    567: "Luis Gonzalez",
-    700: "Checklist",
-    755: "Jeff Bagwell",
-    800: "Checklist",
-}
-MISSING_TEAM_OK = {
-    ("base", "1"), ("base", "50"), ("base", "100"),
-    ("base", "200"), ("base", "300"), ("base", "400"),
-    ("base", "500"), ("base", "600"), ("base", "700"),
-    ("base", "800"),
-}
+class Rows(HTMLParser):
+    """Retain captions separately, including when source markup omits spaces."""
 
-class CardRows(HTMLParser):
     def __init__(self):
         super().__init__()
         self.rows = []
         self.row = None
         self.cell = None
-        self.linked_card = False
+        self.caption = False
+        self.link = False
 
     def handle_starttag(self, tag, attrs):
-        if tag == "tr":
+        if tag == 'tr':
             self.row = []
-            self.linked_card = False
-        elif tag == "td" and self.row is not None:
-            self.cell = []
-        elif tag == "a" and self.row is not None:
-            if any(k == "href" and "ViewCard.cfm" in (v or "") for k, v in attrs):
-                self.linked_card = True
+            self.link = False
+        elif tag == 'td' and self.row is not None:
+            self.cell = {'label': [], 'note': []}
+        elif tag == 'figcaption' and self.cell is not None:
+            self.caption = True
+        elif tag == 'br' and self.cell is not None:
+            self.cell['note' if self.caption else 'label'].append(' ')
+        elif tag == 'a' and self.row is not None:
+            if 'ViewCard.cfm' in dict(attrs).get('href', ''):
+                self.link = True
 
     def handle_data(self, data):
         if self.cell is not None:
-            self.cell.append(data)
+            self.cell['note' if self.caption else 'label'].append(data)
 
     def handle_endtag(self, tag):
-        if tag == "td" and self.cell is not None:
-            self.row.append(" ".join("".join(self.cell).split()))
+        if tag == 'figcaption':
+            self.caption = False
+        elif tag == 'td' and self.cell is not None:
+            self.row.append({k: ' '.join(''.join(v).split()) for k, v in self.cell.items()})
             self.cell = None
-        elif tag == "tr" and self.row is not None:
-            if self.linked_card and self.row:
+            self.caption = False
+        elif tag == 'tr' and self.row is not None:
+            if self.link:
                 self.rows.append(self.row)
             self.row = None
 
 
-def is_team(value):
-    if not value:
-        return False
-    return all(part.strip() in KNOWN_CLUBS for part in value.split(" / "))
+NUM = re.compile(r'^(?:\d{1,3}[a-z]?|SS\d{1,2}|H\d|SP[12]|HH1|NNO)$', re.I)
 
 
-def parse(html):
-    parser = CardRows()
-    parser.feed(html)
-    found = []
+def parse(raw):
+    parser = Rows()
+    parser.feed(raw)
+    out = []
     for row in parser.rows:
-        cells = [v for v in row if v.strip()]
-        for i, number in enumerate(cells):
-            if not NUMBER.fullmatch(number) or i + 1 >= len(cells):
-                continue
-            player = cells[i + 1]
-            if player.lower() in {"options", "edit", "add"}:
-                continue
-            rest = cells[i + 2:]
-            team = rest[-1] if rest and is_team(rest[-1]) else ""
-            notes = " ".join(rest[:-1] if team else rest).strip()
-            found.append((number.upper(), player, team, notes))
-            break
-    return found
+        cells = [c for c in row if c['label']]
+        for i, cell in enumerate(cells):
+            if NUM.fullmatch(cell['label']) and i + 1 < len(cells):
+                label = cells[i + 1]
+                rest = cells[i + 2:]
+                if len(rest) > 1:
+                    raise ValueError(f'Unexpected checklist columns: {rest}')
+                out.append([cell['label'].upper(), label['label'],
+                            rest[0]['label'] if rest else '', label['note']])
+                break
+    return out
+
+# Only a complete trailing token is removed; names such as Boswell/Hall survive.
+TAGS = r"(?:RC|SR|TP|TC|CL|CPC|HDR|SP|VAR|UER|ERR|COR|AU|SN\d+)"
+TRAILING = re.compile(r"\s+(" + TAGS + r"(?:,?\s+" + TAGS + r")*)$", re.I)
+
+def require(condition, message):
+    if not condition:
+        raise ValueError(message)
 
 
-def fetch(url):
-    request = urllib.request.Request(
-        url, headers={"User-Agent": "Mozilla/5.0 (compatible; VCS checklist audit)",
-                      "Accept": "text/html,application/xhtml+xml"}
-    )
-    try:
-        with urllib.request.urlopen(request, timeout=35) as response:
-            return response.read().decode("utf-8", "replace")
-    except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as exc:
-        raise RuntimeError(f"Checklist source unavailable ({url}): {exc}. NO CSV WRITTEN") from exc
+def split_label(label):
+    label = " ".join(label.split())
+    match = TRAILING.search(label)
+    if not match:
+        return label, set()
+    return label[:match.start()], set(re.split(r",?\s+", match[1].upper()))
+
+
+def clean_name(label):
+    return split_label(label)[0]
+
+
+def is_checklist(player, subset=""):
+    return "checklist" in (player + " " + subset).lower()
+
+
+def is_team(value):
+    return bool(value) and all(x in KNOWN_CLUBS for x in value.split(" / "))
 
 
 def source_url(sid, page=1, rookie=False):
     kind = "Rookies" if rookie else "Checklist"
-    extra = "&BasicID=17" if sid == BASE_SID and not rookie else ""
+    extra = "&BasicID=17" if sid == 171 and not rookie else ""
     return f"https://www.tcdb.com/{kind}.cfm/sid/{sid}/1991-Upper-Deck?PageIndex={page}{extra}"
 
 
-def get_records(sid, expected, key):
-    seen = {}
-    result = []
-    for page in range(1, 13):
-        parsed = parse(fetch(source_url(sid, page)))
-        added = 0
-        for item in parsed:
-            number, label, team, notes = item
-            if key == "team-holograms" and number == "NNO":
-                if any(previous[1] == label for previous in result):
-                    continue
-                result.append(item)
-                added += 1
-                continue
-            if number in seen:
-                if seen[number] != item:
-                    raise RuntimeError(f"{key}: conflicting #{number}: {seen[number]} vs {item}")
-                continue
-            seen[number] = item
-            result.append(item)
-            added += 1
-        print(f"{key} source page {page}: {len(parsed)} rows, +{added}, {len(result)}/{expected}", flush=True)
-        if len(result) >= expected:
-            break
-        if page > 1 and not added:
-            break
-        time.sleep(0.2)
-    if len(result) != expected:
-        raise RuntimeError(f"{key}: required {expected} records, found {len(result)}. NO CSV WRITTEN")
-    return result
+def fetch(url):
+    request = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; VCS checklist audit)"})
+    try:
+        with urllib.request.urlopen(request, timeout=35) as response:
+            return response.read().decode("utf-8", "replace")
+    except Exception as exc:
+        raise RuntimeError(f"Source unavailable: {url}: {exc}; no output written") from exc
 
 
-def recognized_rookies():
-    rookies = {}
-    for page in range(1, 8):
-        rows = parse(fetch(source_url(BASE_SID, page, rookie=True)))
-        added = 0
-        for number, raw, _team, _notes in rows:
-            if number.isdigit() and 1 <= int(number) <= 800:
-                normalized = str(int(number))
-                name = clean_name(raw)
-                if normalized in rookies and rookies[normalized] != name:
-                    raise RuntimeError(f"RC source conflict #{normalized}")
-                if normalized not in rookies:
-                    added += 1
-                rookies[normalized] = name
-        print(f"RC index page {page}: +{added}, {len(rookies)} unique", flush=True)
-        if page > 1 and not added:
-            break
-        time.sleep(0.2)
-    required = {"24", "55", "65", "567", "755"}
-    if not required.issubset(rookies) or not 20 <= len(rookies) <= 150:
-        raise RuntimeError(f"RC source incomplete or inconsistent: {len(rookies)} rows; missing {required - set(rookies)}")
-    return rookies
+def independent_base(raw, site):
+    if site == "bcp":
+        part = raw[raw.index('id="Low-Series"'):raw.index('id="Variations"')]
+        return [html.unescape(re.sub('<[^>]+>', '', x)).strip()
+                for x in re.findall(r'<li>(.*?)</li>', part, re.S)]
+    part = raw[raw.index('>1 Star Rookie Checklist'):]
+    part = part[:part.index('800 Checklist') + len('800 Checklist')]
+    lines = [html.unescape(re.sub('<[^>]+>', '', x)).strip('> \n')
+             for x in re.split(r'<br\s*/?>|</div>', part)]
+    return [x for x in lines if re.match(r'^\d{1,3} ', x)]
 
 
-def clean_name(name):
-    value = " ".join(name.split())
-    match = ANNOTATION.search(value)
-    if match:
-        value = value[:match.start()]
-    return value.strip(" ,;:-")
+BCP_SECTIONS = {
+    "special-prints": "SP", "ryan-heroes": "Nolan_Ryan_Baseball_Heroes",
+    "aaron-heroes": "Hank_Aaron_Baseball_Heroes", "aaron-hologram": "Heroes_of_Baseball_Hologram",
+    "silver-sluggers": "Silver_Sluggers", "heroes-event": "Heroes_of_Baseball",
+    "heroes-event-autos": "Heroes_of_Baseball_Autograph", "autos": "Ryan/Aaron_Autographed_Baseball_Heroes",
+}
+
+
+def refresh_sources(bundle):
+    urls = {f"base-{i}": source_url(171, i) for i in range(1, 10)}
+    urls.update({f"rookies-{i}": source_url(171, i, True) for i in range(1, 4)})
+    urls.update({s["key"]: source_url(s["sourceSetId"]) for s in bundle["productSets"]
+                 if s["key"] not in ("base", "special-prints", "aaron-hologram")})
+    urls["singles"] = "https://www.tcdb.com/Inserts.cfm/sid/171/1991-Upper-Deck"
+    sources = {}
+    for key, url in urls.items():
+        raw = fetch(url)
+        sources[key] = {"url": url, "sha256": hashlib.sha256(raw.encode()).hexdigest(), "records": parse(raw)}
+        print(f"Retrieved {key}: {len(sources[key]['records'])} rows", flush=True)
+    for site, url in [("bcp", "https://baseballcardpedia.com/index.php/1991_Upper_Deck"),
+                      ("ccc", "https://www.cardboardconnection.com/1991-upper-deck-baseball-cards")]:
+        raw = fetch(url)
+        digest = hashlib.sha256(raw.encode()).hexdigest()
+        sources[site + "-base"] = {"url": url, "sha256": digest, "records": independent_base(raw, site)}
+        if site == "bcp":
+            for key, heading in BCP_SECTIONS.items():
+                part = raw[raw.index('id="' + heading + '"'):]
+                boundary = re.search(r'<h[234]', part)
+                if boundary:
+                    part = part[:boundary.start()]
+                rows = [html.unescape(re.sub('<[^>]+>', '', x)).strip()
+                        for x in re.findall(r'<li>(.*?)</li>', part, re.S)]
+                sources['bcp-' + key] = {"url": url + '#' + heading, "sha256": digest, "records": rows}
+    return {"schemaVersion": 1, "retrievedAt": datetime.now(timezone.utc).date().isoformat(), "sources": sources}
+
+
+def source_records(snapshot, key):
+    entry = snapshot["sources"][key]
+    require(entry["url"].startswith("https://"), f"Missing source URL: {key}")
+    return entry["records"]
+
+
+def canonical_base(snapshot):
+    # TCDB BasicID=17 still contains 231a/b and 636a/b. Preserve printed
+    # numbering; choose corrected 231b and dated 636a, not a missing-row patch.
+    raw = [row for i in range(1, 10) for row in source_records(snapshot, f"base-{i}")]
+    require(len(raw) == 802, f"TCDB base retrieval incomplete/unexpected: {len(raw)}")
+    result = {}
+    for number, label, team, note in raw:
+        if number in ("231A", "636B"):
+            continue
+        number = {"231B": "231", "636A": "636"}.get(number, number)
+        require(number.isdigit(), f"Unreviewed base variation: {number}")
+        require(number not in result, f"Duplicate base number {number}")
+        result[number] = (number, label, team, note)
+    require(set(result) == {str(i) for i in range(1, 801)}, "Base must contain each printed number 1..800")
+    return [result[str(i)] for i in range(1, 801)]
+
+
+def recognized_rookies(snapshot, base):
+    index = {}
+    for page in range(1, 4):
+        for number, label, team, _ in source_records(snapshot, f"rookies-{page}"):
+            require(number.isdigit() and 1 <= int(number) <= 800, f"Bad RC index number: {number}")
+            name, tags = split_label(label)
+            require("RC" in tags, f"RC index row lacks explicit RC: {label}")
+            require(number not in index or index[number] == (name, team), f"RC identity conflict: {number}")
+            index[number] = (name, team)
+    require(not source_records(snapshot, "rookies-3"), "RC pagination grew; review required")
+    require(len(index) == 70, f"RC index incomplete/unreviewed: {len(index)}")
+    # TCDB erroneously labels only Chuck Carr's hologram variations RC. His
+    # recognized RC is 1990 Fleer Update U-34 (TCDB + Beckett), not 1991 UD.
+    require(index.pop("514") == ("Chuck Carr", "New York Mets"), "Chuck Carr RC exception changed")
+    canonical = {n: (clean_name(label), team) for n, label, team, _ in base if "RC" in split_label(label)[1]}
+    require(index == canonical, "Base RC tags differ from independently retrieved rookie index (after reviewed #514 exclusion)")
+    return index
 
 
 def row_for(key, number, label, team, note="", rookie=False):
-    player = clean_name(label)
-    if not player:
-        raise RuntimeError(f"{key} #{number}: empty player/subject")
-    if key == "ryan-heroes" and number == "NNO":
-        player, team = "Nolan Ryan Baseball Heroes Header", "MLB"
-        note = "; ".join(filter(None, [note, "Unnumbered short-printed header"]))
-    elif key == "aaron-heroes" and number == "NNO":
-        player, team = "Hank Aaron Baseball Heroes Header", "MLB"
-        note = "; ".join(filter(None, [note, "Unnumbered short-printed header"]))
+    player, tags = split_label(label)
+    subset, notes = "", [note] if note else []
+    if key == "base":
+        n = int(number)
+        if n in (1, 50):
+            subset = "Star Rookies Checklist" if n == 1 else "Top Prospects Checklist"
+        elif 2 <= n <= 27:
+            subset = "Star Rookies"
+        elif 51 <= n <= 76:
+            subset = "Top Prospects"
+        elif n in list(range(28, 35)) + list(range(43, 50)) + list(range(77, 83)) + list(range(94, 100)):
+            subset = "Team Checklist"
+        elif n % 100 == 0:
+            subset = "Checklist"
+            notes.append(player.removeprefix("Checklist: "))
+            player = "Checklist"
+        elif n == 617:
+            subset = "Team Card"
+        # TCDB titles these cards by caption. BCP and Cardboard Connection
+        # independently identify their pictured subjects.
+        if n in (93, 656, 677):
+            notes.append(player.strip('"'))
+            player = {93: "Bobby Thigpen", 656: "Mark McGwire", 677: "Carlton Fisk / Robin Ventura"}[n]
+        if n == 83:
+            notes = ["Fielder's Feat"]
+        if n == 572:
+            notes.append("Also pictured: Ken Griffey Jr.")
+        if n == 309:
+            notes.append("Known printing variation: bullseye over 1986 statistics")
+        if n in (636, 702, 725):
+            match = re.fullmatch(r"(.+) \((.+)\)", player)
+            require(bool(match), f"Unrecognized composite card: {label}")
+            subset, player = match.groups()
+        if n == 231:
+            notes = ["Corrected: DH position on front; error version omits position"]
+        elif n == 636:
+            notes = ["Dated May 1, 1991 version; undated printing variation also exists"]
+    elif key in ("ryan-heroes", "aaron-heroes"):
+        if number == "NNO":
+            player = ("Nolan Ryan" if key == "ryan-heroes" else "Hank Aaron") + " Baseball Heroes Header"
+            subset = "Header"
+            notes.append("Unnumbered short-printed header; no team affiliation shown")
+        else:
+            name = "Nolan Ryan" if key == "ryan-heroes" else "Hank Aaron"
+            require(player.startswith(name), f"Unexpected Heroes subject: {player}")
+            caption = player[len(name):].strip()
+            player = name
+            if caption:
+                notes.append(caption)
+            if "CL" in tags:
+                subset = "Checklist"
     elif key == "heroes-event" and number == "H4":
-        player = "Upper Deck Heroes of Baseball Header"
-        team = team or "MLB"
-    elif key == "base" and number == "617":
-        team = team or "MLB"
+        player = "Harmon Killebrew / Gaylord Perry / Ferguson Jenkins"
+        subset = "Header"
+        notes.append("Heroes of Baseball header artwork")
     elif key == "team-holograms":
-        team = team or player
-        note = "; ".join(filter(None, [note, "Unnumbered team/league logo hologram"]))
+        # League logos have an actual league subject, not an invented filler team.
+        if player in ("American League", "National League"):
+            team = player
+        notes.append("Unnumbered logo hologram; NNO identifier is VCS-only")
+    elif key in ("ryan-auto", "aaron-auto", "heroes-event-autos"):
+        require("AU" in tags and ("SN3000" if key == "heroes-event-autos" else "SN2500") in tags, f"Unverified autograph numbering: {label}")
+        subset = "Checklist" if "CL" in tags else ""
+        notes.append("Autograph; hand-numbered /" + ("3000" if key == "heroes-event-autos" else "2500"))
+    elif key == "aaron-hologram":
+        notes.append("Hologram")
+    elif key == "special-prints" and number == "SP2":
+        notes.append("A Day to Remember")
+    # Set-wide odds and distribution text do not belong in individual variants.
+    if key in ("special-prints", "aaron-hologram"):
+        notes = [n for n in notes if not re.search(r"(?:Inserted|Issued in)", n, re.I)]
+        if number == "SP2":
+            notes = ["A Day to Remember"]
+    require(player and not re.search(r"\b(?:UER|ERR|COR|VAR|AU|SN\d+)\b", player), f"Dirty subject: {player}")
     if rookie:
         player += " RC"
-    if key in ("ryan-auto", "aaron-auto"):
-        note = "; ".join(filter(None, [note, "Autograph; hand-numbered /2500"]))
-    elif key == "heroes-event-autos":
-        note = "; ".join(filter(None, [note, "Autograph; numbered /3000; event pack only"]))
-    elif key == "special-prints" and number == "SP1":
-        player, team = "Michael Jordan", "Chicago White Sox"
-    elif key == "special-prints" and number == "SP2":
-        player, team = "Nolan Ryan / Rickey Henderson", "Texas Rangers / Oakland Athletics"
-        note = "; ".join(filter(None, [note, "A Day to Remember"]))
-    elif key == "aaron-hologram":
-        player, team = "Hank Aaron", "Atlanta Braves"
-        note = "; ".join(filter(None, [note, "Hologram"]))
-    if key == "base" and number in ("231", "309", "636"):
-        variation = {
-            "231": "Known variations: Brian Downing with/without DH on front",
-            "309": "Known variations: Milt Thompson back stat printing",
-            "636": "Known variations: Rickey Henderson / Lou Brock with/without May 1, 1991 date",
-        }[number]
-        note = "; ".join(filter(None, [note, variation]))
-    if BAD_NAME.search(player):
-        raise RuntimeError(f"{key} #{number}: annotation leaked into player: {player}")
-    if not team and (key, number) not in MISSING_TEAM_OK:
-        raise RuntimeError(f"{key} #{number}: missing team for {player}")
-    return [key, number, player, team, "", note]
+    require(not team or is_team(team), f"Unrecognized team: {key} #{number} {team}")
+    allowed_header = key in ("ryan-heroes", "aaron-heroes") and number == "NNO"
+    require(team or is_checklist(player, subset) or allowed_header, f"Missing team: {key} #{number} {player}")
+    return [key, number, player, team, subset, "; ".join(dict.fromkeys(n for n in notes if n))]
 
 
-def assemble(bundle, source, rookies):
+def assemble(bundle, snapshot):
+    require(snapshot["schemaVersion"] == 1, "Unexpected source snapshot schema")
+    base = canonical_base(snapshot)
+    rookies = recognized_rookies(snapshot, base)
+    singles = {r[0]: r for r in source_records(snapshot, "singles") if r[0] in ("SP1", "SP2", "HH1")}
+    require(set(singles) == {"SP1", "SP2", "HH1"}, "Incomplete singles checklist")
     cards = []
-    by_key = {}
     for spec in bundle["productSets"]:
         key = spec["key"]
-        records = list(source[key])
+        if key == "base":
+            records = base
+        elif key == "special-prints":
+            records = [singles["SP1"], singles["SP2"]]
+        elif key == "aaron-hologram":
+            records = [singles["HH1"]]
+        else:
+            records = source_records(snapshot, key)
         if key == "team-holograms":
-            records.sort(key=lambda record: clean_name(record[1]).casefold())
+            records = sorted(records, key=lambda r: r[1].casefold())
+            require({r[1] for r in records} == KNOWN_CLUBS - {"Milwaukee Braves"}, "Incomplete team/league logo subjects")
         out = []
         for i, (number, label, team, note) in enumerate(records, 1):
             if key == "team-holograms":
+                require(number == "NNO", "Unexpected printed logo number")
                 number = f"NNO-{i:02d}"
-            n = str(int(number)) if number.isdigit() else number
-            if key == "base":
-                name = clean_name(label)
-                if n in rookies and name != rookies[n]:
-                    raise RuntimeError(f"Base #{n} RC identity differs from rookie index: {name} / {rookies[n]}")
-                rookie = n in rookies
-            else:
-                rookie = False
-            line = row_for(key, n, label, team, note, rookie)
-            if key == "base":
-                if n == "1" or 2 <= int(n) <= 27:
-                    line[4] = "Star Rookies"
-                elif n == "50" or 51 <= int(n) <= 76:
-                    line[4] = "Top Prospects"
-                elif "Team Checklist" in label or bool(re.search(r"\bTC\b", label)):
-                    line[4] = "Team Checklist"
-                elif "Checklist" in name:
-                    line[4] = "Checklist"
-                elif n == "702":
-                    line[4] = "Rookie Threats"
-                elif n == "725":
-                    line[4] = "MVP Lineup"
-            out.append(line)
-        by_key[key] = out
+            out.append(row_for(key, number, label, team, note, key == "base" and number in rookies))
+        require(len(out) == spec["expectedCards"], f"{key}: wrong count {len(out)}")
         cards.extend(out)
-    validate(bundle, by_key, cards, rookies)
+    validate(bundle, cards)
+    verify_independent(snapshot, cards)
     return cards
 
 
-def validate(bundle, by_key, cards, rookies):
-    for spec in bundle["productSets"]:
-        key = spec["key"]
-        out = by_key[key]
-        actual = len(out)
-        if actual != spec["expectedCards"]:
-            raise RuntimeError(f"{key}: {actual} != {spec['expectedCards']}")
-        numbers = [row[1] for row in out]
-        if len(numbers) != len(set(numbers)):
-            raise RuntimeError(f"{key}: duplicate checklist number")
-    if {int(r[1]) for r in by_key["base"]} != set(range(1, 801)):
-        raise RuntimeError("Base checklist MUST contain every number from 1 through 800")
-    base = {int(r[1]): r for r in by_key["base"]}
-    for number, player in KEY_CARDS.items():
-        if base[number][2].removesuffix(" RC") != player:
-            raise RuntimeError(f"Base anchor #{number}: {base[number][2]!r} != {player!r}")
-    required = {"24", "55", "65", "567", "755"}
-    if not required.issubset(rookies):
-        raise RuntimeError("Incomplete verified rookie set")
-    assert base[55][2] == "Chipper Jones RC"
-    assert base[65][2] == "Mike Mussina RC"
-    assert base[755][2] == "Jeff Bagwell RC"
+def validate(bundle, cards):
+    require(bundle["schemaVersion"] == 2 and bundle["status"] == "DRAFT" and bundle["product"]["released"] is False, "Must remain an unreleased draft")
+    require(bundle["product"]["cardsPerPack"] == 16 and bundle["product"]["packsPerBox"] == 36, "Pack configuration changed; review required")
+    expected_odds = {"special-prints": 72, "ryan-heroes": 12, "aaron-heroes": 12, "team-holograms": 1}
+    require(sum(s['kind'] == 'BASE' for s in bundle['productSets']) == 1, "Exactly one BASE checklist required")
+    for spec in bundle['productSets']:
+        require(spec.get('oddsPerPack') == expected_odds.get(spec['key']), f"Unreviewed odds: {spec['key']}")
+        require(spec['kind'] == ('BASE' if spec['key'] == 'base' else 'INSERT'), 'Incorrect set kind')
     expected = {
-        "special-prints": {"SP1", "SP2"},
-        "aaron-hologram": {"HH1"},
-        "ryan-heroes": set(map(str, range(10, 19))) | {"NNO"},
-        "aaron-heroes": set(map(str, range(19, 28))) | {"NNO"},
-        "silver-sluggers": {"SS" + str(i) for i in range(1, 19)},
-        "team-holograms": {"NNO-" + str(i).zfill(2) for i in range(1, 29)},
-        "heroes-event": {"H1", "H2", "H3", "H4"},
-        "ryan-auto": {"18"},
-        "aaron-auto": {"27"},
-        "heroes-event-autos": {"H1", "H2", "H3"},
+        "base": {str(i) for i in range(1, 801)}, "special-prints": {"SP1", "SP2"},
+        "aaron-hologram": {"HH1"}, "ryan-heroes": {str(i) for i in range(10, 19)} | {"NNO"},
+        "aaron-heroes": {str(i) for i in range(19, 28)} | {"NNO"},
+        "silver-sluggers": {f"SS{i}" for i in range(1, 19)},
+        "team-holograms": {f"NNO-{i:02d}" for i in range(1, 29)},
+        "heroes-event": {f"H{i}" for i in range(1, 5)}, "ryan-auto": {"18"},
+        "aaron-auto": {"27"}, "heroes-event-autos": {"H1", "H2", "H3"},
     }
-    for key, numbers in expected.items():
-        present = {row[1] for row in by_key[key]}
-        if present != numbers:
-            raise RuntimeError(f"{key}: unexpected IDs missing={numbers-present}; extra={present-numbers}")
-    if len(cards) != TOTAL or len({(r[0], r[1]) for r in cards}) != TOTAL:
-        raise RuntimeError("Total must equal 878 unique (setKey, cardNumber) rows")
+    require({s["key"] for s in bundle["productSets"]} == set(expected), "Unreviewed Product Set inventory")
+    require(len({s['id'] for s in bundle['productSets']}) == 11, "Duplicate set IDs")
+    require(len(cards) == len({(r[0], r[1]) for r in cards}) == TOTAL, "Expected 878 unique card identities")
+    for spec in bundle["productSets"]:
+        require({r[1] for r in cards if r[0] == spec["key"]} == expected[spec["key"]], f"Wrong IDs in {spec['key']}")
+        odds = spec.get("oddsPerPack")
+        require(odds is None or type(odds) is int and odds > 0, "Invalid odds")
+    base = {int(r[1]): r for r in cards if r[0] == "base"}
+    for n, name in {2: "Phil Plantier RC", 24: "Eric Karros RC", 55: "Chipper Jones RC", 65: "Mike Mussina RC", 514: "Chuck Carr", 567: "Luis Gonzalez RC", 755: "Jeff Bagwell RC"}.items():
+        require(base[n][2] == name, f"Base identity/RC anchor #{n}")
+    require(sum(r[2].endswith(" RC") for r in cards) == 69, "Expected 69 verified true RCs")
+    blanks = {(r[0], r[1]) for r in cards if not r[3] and not is_checklist(r[2], r[4])}
+    require(blanks == {("ryan-heroes", "NNO"), ("aaron-heroes", "NNO")}, "Unexpected non-team subjects")
+    require(bundle['review']['teamData'] == 'PENDING', "Generic headers require explicit pending-team import")
     for row in cards:
-        if re.search(r"\b1\s*:\s*\d+", row[5]):
-            raise RuntimeError(f"{row[0]} #{row[1]}: odds leaked into Variant")
-    if any(row[2].endswith(" RC") and row[0] != "base" for row in cards):
-        raise RuntimeError("Inserts incorrectly marked RC")
+        require(len(row) == 6 and all(isinstance(v, str) for v in row), "Invalid CSV row")
+        require(not re.search(r"\b1\s*:\s*\d+", row[5]), "Set odds leaked into variant")
+        require(row[0] == "base" or not row[2].endswith(" RC"), "Insert incorrectly marked RC")
+        require(not row[3] or is_team(row[3]), "Invalid team")
+        require(row[3] != "MLB", "Invented team")
 
 
-def self_test():
-    fixture = (
-        "<table><tr><td><a href='ViewCard.cfm/sid/171'>55</a></td>"
-        "<td><a href='ViewCard.cfm/sid/171'>Chipper Jones TP, RC</a></td>"
-        "<td>Atlanta Braves</td></tr>"
-        "<tr><td><a href='ViewCard.cfm/sid/94496'>NNO</a></td>"
-        "<td>American League</td><td></td></tr></table>"
-    )
-    parsed = parse(fixture)
-    assert parsed == [
-        ("55", "Chipper Jones TP, RC", "Atlanta Braves", ""),
-        ("NNO", "American League", "", ""),
-    ], parsed
-    assert clean_name("Chipper Jones TP, RC") == "Chipper Jones"
-    assert clean_name("Harmon Killebrew AU, SN3000") == "Harmon Killebrew"
-    assert clean_name("Ken Boswell") == "Ken Boswell"
-    assert row_for("team-holograms", "NNO-01", "American League", "")[3] == "American League"
-    assert row_for("ryan-heroes", "NNO", "Header Card HDR, SP", "")[2] == "Nolan Ryan Baseball Heroes Header"
-    assert row_for("special-prints", "SP1", "Michael Jordan SP", "Chicago White Sox")[2] == "Michael Jordan"
-    bundle = json.loads(BUNDLE.read_text(encoding="utf-8"))
-    assert bundle["schemaVersion"] == 2 and bundle["product"]["released"] is False
-    assert len(bundle["productSets"]) == 11
-    assert sum(s["expectedCards"] for s in bundle["productSets"]) == TOTAL
-    assert len({s["key"] for s in bundle["productSets"]}) == 11
-    assert len({s["id"] for s in bundle["productSets"]}) == 11
-    print("PASS: offline source parser, cleaning, manifest and 878-card expectations")
+def independent_subject(label):
+    # The independent checklist has achievement captions and uncorrected-error
+    # descriptions inline. This is comparison-only; output uses TCDB cell fields.
+    label = re.split(r'\s+(?:UER|ERR|COR|NPOF|SR|TP|RC|CL|3X)\b|\s+["“]|\s+-\s+|\s+Team\s+CL\b|\s+\(w/', label, maxsplit=1)[0]
+    return label.strip()
+
+
+def normalized(name):
+    aliases = {
+        "Mo Vaughn": "Maurice Vaughn", "Wil Cordero": "Wilfredo Cordero", "Manuel Lee": "Manny Lee", "Mike A. Marshall": "Mike Marshall", "Teddy Higuera": "Ted Higuera",
+        "David Justice": "Dave Justice", "David West": "Dave West",
+        "Oil Can Boyd": "Dennis Boyd", "Dennis Oil Can Boyd": "Dennis Boyd",
+        "Bud Black": "Buddy Black", "Ken Dayley": "Ken Dayley",
+    }
+    name = aliases.get(name, name)
+    return re.sub(r'[^a-z0-9]', '', name.lower())
+
+
+def verify_independent(snapshot, cards):
+    base = {int(r[1]): r for r in cards if r[0] == 'base'}
+    for source in ('bcp-base', 'ccc-base'):
+        seen = set()
+        for line in source_records(snapshot, source):
+            match = re.match(r'^(\d{1,3})[ab]?\s+(.+)$', line, re.I)
+            require(bool(match), f"Unparsed independent row: {line}")
+            n, label = int(match[1]), match[2]
+            seen.add(n)
+            actual = base[n][2].removesuffix(' RC')
+            candidate = independent_subject(label)
+            # Reviewed source formatting: checklist ranges are metadata; composite
+            # cards list the same people in a different order or as a caption.
+            if n in (1, 50) or n % 100 == 0:
+                require('checklist' in candidate.lower() and 'checklist' in actual.lower(), f'Checklist mismatch #{n}')
+            elif n in (636, 702, 725):
+                expected = {636: ('Lou Brock', 'Rickey Henderson'), 702: ('Jeff Bagwell', 'Luis Gonzalez', 'Karl Rhodes'), 725: ('Andre Dawson', 'George Bell', 'Ryne Sandberg')}[n]
+                require(all(x in label and x in actual for x in expected), f'Composite mismatch #{n}: {label}')
+            elif n == 617:
+                require('1917' in label or 'Chicago White Sox' in label, 'Missing 1917 Revisited card')
+                require(base[n][3] == 'Chicago White Sox', 'Incorrect #617 team')
+            else:
+                require(normalized(candidate) == normalized(actual), f'{source} name mismatch #{n}: {candidate!r} vs {actual!r}')
+        require(seen == set(range(1, 801)), f'Independent checklist incomplete: {source}')
+    # Explicit independent support for every non-base numbered subject. Teams
+    # are retained from TCDB; BCP does not publish team assignments in its list.
+    for key in BCP_SECTIONS:
+        if key == 'autos':
+            rows = [r for r in cards if r[0] in ('ryan-auto', 'aaron-auto')]
+        else:
+            rows = [r for r in cards if r[0] == key]
+        source = [x for x in source_records(snapshot, 'bcp-' + key) if re.match(r'^(?:NNO|HH1|SP\d|SS\d+|H\d|\d+)\s+', x)]
+        expected = {r[1]: r for r in rows}
+        require(len(source) == len(expected), f'Independent insert count mismatch: {key}')
+        for line in source:
+            number, label = line.split(' ', 1)
+            require(number in expected, f'Independent insert ID mismatch: {line}')
+            actual = expected[number][2]
+            if number == 'NNO':
+                require('Header' in label and 'Header' in actual, 'Header mismatch')
+            elif key == 'heroes-event' and number == 'H4':
+                require(all(x in label and x in actual for x in ('Harmon Killebrew', 'Gaylord Perry', 'Ferguson Jenkin')), 'Event header mismatch')
+            elif key in ('ryan-heroes', 'aaron-heroes'):
+                require(label.startswith(actual), f'Heroes subject mismatch: {line}')
+            else:
+                require(normalized(label) == normalized(actual), f'Independent insert subject mismatch: {line} vs {actual}')
+    # BCP omits seven RC labels. CCC confirms the five high-series RCs; #538
+    # and #629 are explicitly RC in both the TCDB checklist and rookie index.
+    bcp_rc = {int(re.match(r'\d+', x)[0]) for x in source_records(snapshot, 'bcp-base') if re.search(r'\bRC\b', x)}
+    ccc_rc = {int(re.match(r'\d+', x)[0]) for x in source_records(snapshot, 'ccc-base') if re.search(r'\bRC\b', x)}
+    actual_rc = {n for n, r in base.items() if r[2].endswith(' RC')}
+    require(actual_rc - bcp_rc == {538, 629, 761, 767, 771, 777, 797} and not bcp_rc - actual_rc, 'BCP RC discrepancy changed')
+    require(actual_rc - ccc_rc == {538, 629} and not ccc_rc - actual_rc, 'CCC RC discrepancy changed')
+
+
+def self_test(bundle, snapshot):
+    fixture = "<table><tr><td><a href='ViewCard.cfm/sid/171'>231b</a></td><td>Brian Downing COR<br><figcaption>COR: DH on front</figcaption></td><td>California Angels</td></tr></table>"
+    require(parse(fixture) == [['231B', 'Brian Downing COR', 'California Angels', 'COR: DH on front']], 'HTML parser regression')
+    for raw, expected in [('Ken Boswell', 'Ken Boswell'), ('Marshall', 'Marshall'), ('Jim Hall', 'Jim Hall'), ('John Marshall CL', 'John Marshall'), ('Jim Hall CL', 'Jim Hall'), ('Chipper Jones TP, RC', 'Chipper Jones'), ('Harmon Killebrew AU, SN3000', 'Harmon Killebrew')]:
+        require(clean_name(raw) == expected, f'Trailing-token regression: {raw}')
+    cards = assemble(bundle, snapshot)
+    # Negative tests prove that a count-correct but corrupted source fails.
+    for label, mutate in [
+        ('missing source row', lambda s: s['sources']['base-1']['records'].pop()),
+        ('wrong player', lambda s: s['sources']['base-2']['records'][30].__setitem__(1, 'Wrong Player')),
+        ('invalid team', lambda s: s['sources']['base-2']['records'][30].__setitem__(2, 'MLB')),
+        ('missing team', lambda s: s['sources']['base-2']['records'][30].__setitem__(2, '')),
+        ('false RC', lambda s: s['sources']['base-1']['records'][4].__setitem__(1, 'Maurice Vaughn SR, RC')),
+        ('changed independent source', lambda s: s['sources']['bcp-base']['records'].__setitem__(130, '131 Wrong Player')),
+    ]:
+        changed = copy.deepcopy(snapshot)
+        mutate(changed)
+        try:
+            assemble(bundle, changed)
+        except (ValueError, KeyError):
+            pass
+        else:
+            raise ValueError(f'Negative test did not fail: {label}')
+    require(len([r for r in cards if r[4] == 'Team Checklist']) == 26, 'Team checklist subset count')
+    require(sum(r[4] == 'Star Rookies' for r in cards) == 26, 'Star Rookies subset count')
+    require(sum(r[4] == 'Top Prospects' for r in cards) == 26, 'Top Prospects subset count')
+    print('PASS: parser, token boundaries, full source comparisons, RC audit, subset audit and six negative tests')
+
+
+def csv_text(cards):
+    stream = io.StringIO(newline='')
+    writer = csv.writer(stream, lineterminator='\n')
+    writer.writerow(HEADER)
+    writer.writerows(cards)
+    return stream.getvalue()
+
+
+def atomic_write(path, text):
+    temporary = path.with_suffix(path.suffix + '.tmp')
+    try:
+        temporary.write_text(text, encoding='utf-8')
+        temporary.replace(path)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--self-test", action="store_true")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--self-test', action='store_true')
+    parser.add_argument('--check', action='store_true')
+    parser.add_argument('--refresh-sources', action='store_true')
     args = parser.parse_args()
-    self_test()
-    if args.self_test:
-        return
-    bundle = json.loads(BUNDLE.read_text(encoding="utf-8"))
-    sources = {}
-    try:
-        rookies = recognized_rookies()
-        for spec in bundle["productSets"]:
-            key = spec["key"]
-            if key == "special-prints":
-                # TCDB indexes the SP cards with HH1 and a magazine, not as a separate set.
-                continue
-            if key == "aaron-hologram":
-                continue
-            sources[key] = get_records(spec["sourceSetId"], spec["expectedCards"], key)
-        special_rows = parse(fetch("https://www.tcdb.com/Inserts.cfm/sid/171/1991-Upper-Deck"))
-        # The short-print singles are in the TCDB insert table, not the numbered base checklist.
-        singles = {}
-        for n, player, team, notes in special_rows:
-            if n in ("SP1", "SP2", "HH1"):
-                singles[n] = (n, player, team, notes)
-        if set(singles) != {"SP1", "SP2", "HH1"}:
-            raise RuntimeError(f"Unverified singles in inserts page: {sorted(singles)}")
-        sources["special-prints"] = [singles["SP1"], singles["SP2"]]
-        sources["aaron-hologram"] = [singles["HH1"]]
-        cards = assemble(bundle, sources, rookies)
-    except Exception as exc:
-        print(f"FAIL CLOSED: {exc}\nNo output checklist was written.", file=sys.stderr)
-        sys.exit(1)
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    temporary = OUT.with_suffix(".csv.tmp")
-    try:
-        with temporary.open("w", newline="", encoding="utf-8") as fh:
-            writer = csv.writer(fh, lineterminator="\n")
-            writer.writerow(HEADER)
-            writer.writerows(cards)
-        temporary.replace(OUT)
-    finally:
-        temporary.unlink(missing_ok=True)
-    print(f"PASS: {TOTAL} verified checklist records across 11 collector sets.")
-    for spec in bundle["productSets"]:
+    bundle = json.loads(BUNDLE.read_text())
+    snapshot = refresh_sources(bundle) if args.refresh_sources else json.loads(SOURCE.read_text())
+    self_test(bundle, snapshot)
+    cards = assemble(bundle, snapshot)
+    text = csv_text(cards)
+    if args.check:
+        require(OUT.read_text() == text, 'Committed CSV differs from fully validated generation')
+    elif not args.self_test:
+        if args.refresh_sources:
+            atomic_write(SOURCE, json.dumps(snapshot, indent=2, ensure_ascii=False) + '\n')
+        atomic_write(OUT, text)
+    print(f'PASS: {len(cards)} verified records / {len(bundle["productSets"])} checklists / 69 true RCs; released=false')
+    for spec in bundle['productSets']:
         print(f"  {spec['key']}: {spec['expectedCards']}")
-    print(f"  True Base RCs: {len(rookies)}")
-    print(f"  CSV written: {OUT}")
 
 
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    try:
+        main()
+    except Exception as exc:
+        print(f'FAIL CLOSED: {exc}; no partial checklist written', file=sys.stderr)
+        sys.exit(1)
