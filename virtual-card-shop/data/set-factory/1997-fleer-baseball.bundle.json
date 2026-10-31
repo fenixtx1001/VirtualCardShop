@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/929/1997-Fleer",
+    "checklistReference": "https://www.tcdb.com/Checklist.cfm/sid/929/1997-Fleer",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/929/1997-Fleer",
+    "insertReference": "https://www.tcdb.com/Inserts.cfm/sid/929/1997-Fleer",
+    "independentReference": "https://baseballcardpedia.com/index.php/1997_Fleer"
+  },
+  "product": {
+    "id": "1997_Fleer_Baseball",
+    "year": 1997,
+    "brand": "Fleer",
+    "sport": "Baseball",
+    "cardsPerPack": 11,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieDesignation": "VERIFIED_45_BASE_RCS_BCP_OMISSIONS_REVIEWED",
+    "packCollation": "PENDING",
+    "insertOdds": "PENDING_SERIES_CHANNEL_VARIANT_QA",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1997-fleer-baseball.cards.csv",
+  "decisions": {
+    "collectorChecklist": "1851 explicit cards across 21 complete collector families. Base 1-761 and Tiffany 1-761 remain unified; do not split by series or short-print range. Includes all 18 catalogued insert/variant families plus ten physical autograph redemption cards.",
+    "rookies": "45 base RCs agree between canonical TCDB and separate rookie index. BCP confirms 42, omitting #285 Dave Swartzbaugh, #288 Pedro Valdes and #437 Marc Wilkins; these are retained per matching TCDB sources. ROO and Rookie Sensations are not evidence of true RC. No RC suffix inferred for Tiffany or inserts. Printed David Arias #512 is David Ortiz, noted in variant for image matching.",
+    "scope": "Exclude #489 Matt Williams Promotional Sample, Roy Firestone promo, redeemed Andruw Jones Circa autograph, Circa six-card Emerald autograph prizes, Million Dollar Moments Exchange and blank-front/instant-win prize tokens without a fully verified card inventory. Ten genuine numbered Emerald redemption cards inserted in Fleer S2 are included; no automated redemption or payouts.",
+    "parallels": "Five separate full parallel/variant collector checklists: Tiffany, Rare Traditions, Goudey Gold Foil, Soaring Glowing, Team Leaders Tabs. Two star-pattern foil stocks are grouped within regular Soaring Stars. Tabs and Glowing have unknown production shares and null odds; do not double the parent family frequency.",
+    "pack": "Unified draft defaults to Hobby, 36 packs per box and 11 slots (documented S2 size). Physical S1 has 10 slots. A declared 50/50 S1/S2 design mix doubles each single-series denominator; this is a VCS modeling assumption, not a historical production claim. Tiffany stays 20 because present in both series. MDM becomes 2. Independent insert rolls replace base slots and cannot reproduce correlated physical packs, variable pack sizes, or exact short-print weighting. Release QA required.",
+    "channels": "Retail-only Lumber Company (S1 18) and Bleacher Blasters (S2 36) are staged with null odds under Hobby default. No invented retail share. Goudey regular Hobby treatment agrees with both sources; BCP regular Retail prose conflicts with its table and TCDB, irrelevant to this Hobby draft.",
+    "rarity": "Base high numbers 751-761, MDM 46-50, and autograph-redemption #7 are short printed; preserve complete collector sets and card notes. Exact per-card weights unavailable in current importer. All cards within each active family are equally available in this draft. Never substitute returned MDM Exchange copies for rare game cards.",
+    "autograph": "Actual numbered 1-10 physical redemption cards, not ten player autographs. TCDB Circa namespace 877 supplies identical card identities; Fleer scope/rate supported by BCP and TCDB Fleer returned-card note. Returned Jones auto has only 200 copies and is excluded as mail-in-only. No pack-issued autograph card family verified.",
+    "teamData": "All baseball subjects have historical source teams; generic Bonus Checklist base/Tiffany #761 and MDM #1 intentionally blank. Ten generic redemption cards have no franchise and require pending-team staging, not an invented MLB team.",
+    "release": "Unreleased draft only, ready for Admin pricing and image harvesting. Team review for generic tokens, physical pack/series/channel/variant odds and rarity modeling, pack art/card images, and pricing remain pending before release.",
+    "catalogCorrections": "Front/back scans resolve source errors: base #427 Carlos Garcia is printed Pittsburgh Pirates (trade to Blue Jays is a separate notice); Tiffany #37 Chili Davis is printed California Angels (traded to Royals). Front badges confirm base #397 Todd Hundley All-Star, Tiffany #13 Ripken All-Star and #263/264 Maddux/McGriff All-Star + World Series, not League Leaders. Tiffany mirrors base subset metadata including 39 missing ROO annotations; no inferred true RC. Raw source records remain unchanged, corrections explicit and tested; reviewed scan URLs/hashes retained in source snapshot."
+  },
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1997_Fleer_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 929,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/929/1997-Fleer?PageIndex=1",
+      "expectedCards": 761,
+      "notes": "Complete 1-761, including 25 Encore, 41 checklists/team checklists and high numbers 751-761. No series/range split."
+    },
+    {
+      "key": "tiffany",
+      "id": "1997_Fleer_Baseball_Tiffany",
+      "name": "Tiffany",
+      "kind": "PARALLEL",
+      "oddsPerPack": 20,
+      "sourceSetId": 10909,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10909/1997-Fleer-Tiffany?PageIndex=1",
+      "expectedCards": 761,
+      "notes": "All 761 identities/teams independently checked against base. Glossy blue holofoil; back Tiffany logo. Both series have rate 20. No inferred true RCs."
+    },
+    {
+      "key": "bleacher-blasters",
+      "id": "1997_Fleer_Baseball_Bleacher_Blasters",
+      "name": "Bleacher Blasters",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 930,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/930/1997-Fleer-Bleacher-Blasters",
+      "expectedCards": 10,
+      "notes": "Retail only; full checklist staged for pricing/images with null Hobby odds. Physical retail denominator 36."
+    },
+    {
+      "key": "decade-of-excellence",
+      "id": "1997_Fleer_Baseball_Decade_of_Excellence",
+      "name": "Decade of Excellence",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "sourceSetId": 931,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/931/1997-Fleer-Decade-of-Excellence",
+      "expectedCards": 12,
+      "notes": "Full collector checklist; single-series Hobby denominator doubled under explicit 50/50 series model. See decisions.pack."
+    },
+    {
+      "key": "decade-rare-traditions",
+      "id": "1997_Fleer_Baseball_Decade_of_Excellence_Rare_Traditions",
+      "name": "Decade of Excellence Rare Traditions",
+      "kind": "PARALLEL",
+      "oddsPerPack": 720,
+      "sourceSetId": 10905,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10905/1997-Fleer-Decade-of-Excellence-Rare-Traditions",
+      "expectedCards": 12,
+      "notes": "Full collector checklist; single-series Hobby denominator doubled under explicit 50/50 series model. See decisions.pack."
+    },
+    {
+      "key": "diamond-tribute",
+      "id": "1997_Fleer_Baseball_Diamond_Tribute",
+      "name": "Diamond Tribute",
+      "kind": "INSERT",
+      "oddsPerPack": 576,
+      "sourceSetId": 932,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/932/1997-Fleer-Diamond-Tribute",
+      "expectedCards": 12,
+      "notes": "Full collector checklist; single-series Hobby denominator doubled under explicit 50/50 series model. See decisions.pack."
+    },
+    {
+      "key": "golden-memories",
+      "id": "1997_Fleer_Baseball_Golden_Memories",
+      "name": "Golden Memories",
+      "kind": "INSERT",
+      "oddsPerPack": 32,
+      "sourceSetId": 933,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/933/1997-Fleer-Golden-Memories",
+      "expectedCards": 10,
+      "notes": "Full collector checklist; single-series Hobby denominator doubled under explicit 50/50 series model. See decisions.pack."
+    },
+    {
+      "key": "goudey-greats",
+      "id": "1997_Fleer_Baseball_Goudey_Greats",
+      "name": "Goudey Greats",
+      "kind": "INSERT",
+      "oddsPerPack": 16,
+      "sourceSetId": 934,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/934/1997-Fleer-Goudey-Greats",
+      "expectedCards": 15,
+      "notes": "Full collector checklist; single-series Hobby denominator doubled under explicit 50/50 series model. See decisions.pack."
+    },
+    {
+      "key": "goudey-gold",
+      "id": "1997_Fleer_Baseball_Goudey_Greats_Gold_Foil",
+      "name": "Goudey Greats Gold Foil",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1600,
+      "sourceSetId": 10906,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10906/1997-Fleer-Goudey-Greats-Gold-Foil",
+      "expectedCards": 15,
+      "notes": "Full collector checklist; single-series Hobby denominator doubled under explicit 50/50 series model. See decisions.pack."
+    },
+    {
+      "key": "headliners",
+      "id": "1997_Fleer_Baseball_Headliners",
+      "name": "Headliners",
+      "kind": "INSERT",
+      "oddsPerPack": 4,
+      "sourceSetId": 10907,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10907/1997-Fleer-Headliners",
+      "expectedCards": 20,
+      "notes": "Full collector checklist; single-series Hobby denominator doubled under explicit 50/50 series model. See decisions.pack."
+    },
+    {
+      "key": "lumber-company",
+      "id": "1997_Fleer_Baseball_Lumber_Company",
+      "name": "Lumber Company",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 935,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/935/1997-Fleer-Lumber-Company",
+      "expectedCards": 18,
+      "notes": "Retail only; full checklist staged for pricing/images with null Hobby odds. Physical retail denominator 18."
+    },
+    {
+      "key": "new-horizon",
+      "id": "1997_Fleer_Baseball_New_Horizon",
+      "name": "New Horizon",
+      "kind": "INSERT",
+      "oddsPerPack": 8,
+      "sourceSetId": 936,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/936/1997-Fleer-New-Horizon",
+      "expectedCards": 15,
+      "notes": "Full collector checklist; single-series Hobby denominator doubled under explicit 50/50 series model. See decisions.pack."
+    },
+    {
+      "key": "night-day",
+      "id": "1997_Fleer_Baseball_Night_Day",
+      "name": "Night & Day",
+      "kind": "INSERT",
+      "oddsPerPack": 480,
+      "sourceSetId": 937,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/937/1997-Fleer-Night-Day",
+      "expectedCards": 10,
+      "notes": "Full collector checklist; single-series Hobby denominator doubled under explicit 50/50 series model. See decisions.pack."
+    },
+    {
+      "key": "rookie-sensations",
+      "id": "1997_Fleer_Baseball_Rookie_Sensations",
+      "name": "Rookie Sensations",
+      "kind": "INSERT",
+      "oddsPerPack": 12,
+      "sourceSetId": 938,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/938/1997-Fleer-Rookie-Sensations",
+      "expectedCards": 20,
+      "notes": "Full collector checklist; single-series Hobby denominator doubled under explicit 50/50 series model. See decisions.pack."
+    },
+    {
+      "key": "soaring-stars",
+      "id": "1997_Fleer_Baseball_Soaring_Stars",
+      "name": "Soaring Stars",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "sourceSetId": 939,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/939/1997-Fleer-Soaring-Stars",
+      "expectedCards": 12,
+      "notes": "Full collector checklist; single-series Hobby denominator doubled under explicit 50/50 series model. See decisions.pack. Canonical family model assigns family-level rate to this version; alternate variant disabled until relative shares verified. Not a verified variant-specific rate."
+    },
+    {
+      "key": "soaring-glowing",
+      "id": "1997_Fleer_Baseball_Soaring_Stars_Glowing",
+      "name": "Soaring Stars Glowing",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 10908,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10908/1997-Fleer-Soaring-Stars-Glowing",
+      "expectedCards": 12,
+      "notes": "Complete separately catalogued production variation. Parent family rate covers all stock versions; relative share unverified. Null odds prevents duplicate full-frequency pulls."
+    },
+    {
+      "key": "team-leaders",
+      "id": "1997_Fleer_Baseball_Team_Leaders",
+      "name": "Team Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": 40,
+      "sourceSetId": 944,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/944/1997-Fleer-Team-Leaders",
+      "expectedCards": 28,
+      "notes": "Full collector checklist; single-series Hobby denominator doubled under explicit 50/50 series model. See decisions.pack. Canonical family model assigns family-level rate to this version; alternate variant disabled until relative shares verified. Not a verified variant-specific rate."
+    },
+    {
+      "key": "team-leaders-tabs",
+      "id": "1997_Fleer_Baseball_Team_Leaders_Tabs",
+      "name": "Team Leaders Tabs",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 165014,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/165014/1997-Fleer-Team-Leaders-Tabs",
+      "expectedCards": 28,
+      "notes": "Complete separately catalogued production variation. Parent family rate covers all stock versions; relative share unverified. Null odds prevents duplicate full-frequency pulls."
+    },
+    {
+      "key": "zone",
+      "id": "1997_Fleer_Baseball_Zone",
+      "name": "Zone",
+      "kind": "INSERT",
+      "oddsPerPack": 160,
+      "sourceSetId": 945,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/945/1997-Fleer-Zone",
+      "expectedCards": 20,
+      "notes": "Full collector checklist; single-series Hobby denominator doubled under explicit 50/50 series model. See decisions.pack."
+    },
+    {
+      "key": "million-dollar-moments",
+      "id": "1997_Fleer_Baseball_Million_Dollar_Moments",
+      "name": "Million Dollar Moments",
+      "kind": "INSERT",
+      "oddsPerPack": 2,
+      "sourceSetId": 59564,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/59564/1997-98-Fleer-Million-Dollar-Moments",
+      "expectedCards": 50,
+      "notes": "Full collector checklist; single-series Hobby denominator doubled under explicit 50/50 series model. See decisions.pack."
+    },
+    {
+      "key": "autograph-redemption",
+      "id": "1997_Fleer_Baseball_Emerald_Autograph_Redemptions",
+      "name": "Emerald Autograph Redemptions",
+      "kind": "INSERT",
+      "oddsPerPack": 8,
+      "sourceSetId": 877,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/877/1997-Circa-Emerald-Autographs-Redemptions",
+      "expectedCards": 10,
+      "notes": "Ten numbered generic physical cards 1-10, identical to Circa Emerald redemption tokens. Fleer S2 rate 4, modeled combined rate 8; #7 short printed. No autograph prizes or redemption engine."
+    }
+  ]
+}
