@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/677/1996-Fleer",
+    "checklistReference": "https://www.tcdb.com/Checklist.cfm/sid/677/1996-Fleer",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/677/1996-Fleer",
+    "insertReference": "https://www.tcdb.com/Inserts.cfm/sid/677/1996-Fleer",
+    "independentReference": "https://baseballcardpedia.com/index.php/1996_Fleer"
+  },
+  "decisions": {
+    "collectorChecklist": "Full 600-card base and full 600-card Tiffany collector sets stay intact, with twelve distinct insert/game checklists. All 1333 resolved cards are explicitly present in CSV, not an untested generator or derived count.",
+    "rookies": "18 base RCs confirmed by canonical TCDB and its separate rookie index. BCP omits four of those and marks #120 Clint Sodowsky RC, unlike TCDB and Keyman. Leave #120 without an RC suffix and flag its disputed designation for review; do not claim the absence of a source tag proves it is not a rookie. Tiffany is a parallel and receives no inferred true-RC suffix. Rookie Sensations/Prospects/Legends titles alone do not confer RC status.",
+    "parallel": "Verified Tiffany: glossy coating and silver holographic foil, not matte silver-foil printing variants, glossy non-holographic Team Sets, or isolated gold-foil printing variants. Exclude documented Tiffany #267B Roberto Alomar Gold Foil as a manufacturing variation; retain one canonical Tiffany card per printed number 1-600. No invented complete gold/silver variants.",
+    "scope": "Include base, genuine full Tiffany, eleven regular insert families and Thanks a Million physical game card. Exclude separate Update, nine Team Sets, promotional P20 Cal Ripken, and unverified printing-error parallel checklists. No pack-issued autograph family established.",
+    "pack": "Default to documented Hobby configuration: 11 trading cards plus the separate Thanks a Million token = 12 total VCS items, 36 packs/box. Tiffany and game-card have odds 1, so two guaranteed non-base pulls leave ten trading/base slots before other insert replacements. Physical nine-base/one-Tiffany/one-insert collation is not guaranteed by independent family rolls; pack/release QA pending.",
+    "channels": "Team Leaders 1:9 Hobby enabled. Lumber Company is 1:9 Retail only and remains null under the Hobby default; checklist still staged for pricing/images. No unverified market-share normalization. Admin may choose a different channel model before release.",
+    "game": "Preserve the single documented physical Thanks a Million game card. Do not fabricate six separate scratch-letter cards or implement prize payouts, real-money games or automated redemption.",
+    "teamData": "All player teams populated from verified source rows. Only the generic NNO game card has no franchise; leave blank, review.teamData PENDING and use --allow-pending-teams when staging. No invented MLB team.",
+    "release": "Unreleased draft only. Pricing, card/pack art, pack-collation/channel QA and the explicitly disputed #120 RC designation require Admin review."
+  },
+  "product": {
+    "id": "1996_Fleer_Baseball",
+    "year": 1996,
+    "brand": "Fleer",
+    "sport": "Baseball",
+    "cardsPerPack": 12,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieDesignation": "PENDING_120_SOURCE_DISAGREEMENT",
+    "packCollation": "PENDING",
+    "insertOdds": "PENDING_CHANNEL_QA",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1996-fleer-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1996_Fleer_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 677,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/677/1996-Fleer",
+      "expectedCards": 600,
+      "notes": "Complete collector checklist. Source-published Hobby insertion rate retained; VCS rolls insert families independently."
+    },
+    {
+      "key": "tiffany",
+      "id": "1996_Fleer_Baseball_Tiffany",
+      "name": "Tiffany",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "sourceSetId": 10763,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10763/1996-Fleer",
+      "expectedCards": 600,
+      "notes": "Full 600-card glossy/silver-holofoil parallel, one per pack. Explicitly verified against its own 601-row source (exclude isolated 267B Gold Foil printing variant) and all base identities/teams. No RC suffix inferred from the base issue."
+    },
+    {
+      "key": "checklists",
+      "id": "1996_Fleer_Baseball_Checklists",
+      "name": "Checklists",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "sourceSetId": 678,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/678/1996-Fleer",
+      "expectedCards": 10,
+      "notes": "Complete collector checklist. Source-published Hobby insertion rate retained; VCS rolls insert families independently."
+    },
+    {
+      "key": "golden-memories",
+      "id": "1996_Fleer_Baseball_Golden_Memories",
+      "name": "Golden Memories",
+      "kind": "INSERT",
+      "oddsPerPack": 10,
+      "sourceSetId": 679,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/679/1996-Fleer",
+      "expectedCards": 10,
+      "notes": "Complete collector checklist. Source-published Hobby insertion rate retained; VCS rolls insert families independently."
+    },
+    {
+      "key": "lumber-company",
+      "id": "1996_Fleer_Baseball_Lumber_Company",
+      "name": "Lumber Company",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 680,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/680/1996-Fleer",
+      "expectedCards": 12,
+      "notes": "Retail-exclusive, 1:9 retail packs. This product defaults to documented Hobby odds, so retail family is staged with null odds; no invented hobby/retail mix."
+    },
+    {
+      "key": "postseason-glory",
+      "id": "1996_Fleer_Baseball_Postseason_Glory",
+      "name": "Post-Season Glory",
+      "kind": "INSERT",
+      "oddsPerPack": 5,
+      "sourceSetId": 681,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/681/1996-Fleer",
+      "expectedCards": 5,
+      "notes": "Complete collector checklist. Source-published Hobby insertion rate retained; VCS rolls insert families independently."
+    },
+    {
+      "key": "prospects",
+      "id": "1996_Fleer_Baseball_Prospects",
+      "name": "Prospects",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "sourceSetId": 682,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/682/1996-Fleer",
+      "expectedCards": 10,
+      "notes": "Complete collector checklist. Source-published Hobby insertion rate retained; VCS rolls insert families independently."
+    },
+    {
+      "key": "road-warriors",
+      "id": "1996_Fleer_Baseball_Road_Warriors",
+      "name": "Road Warriors",
+      "kind": "INSERT",
+      "oddsPerPack": 13,
+      "sourceSetId": 683,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/683/1996-Fleer",
+      "expectedCards": 10,
+      "notes": "Complete collector checklist. Source-published Hobby insertion rate retained; VCS rolls insert families independently."
+    },
+    {
+      "key": "rookie-sensations",
+      "id": "1996_Fleer_Baseball_Rookie_Sensations",
+      "name": "Rookie Sensations",
+      "kind": "INSERT",
+      "oddsPerPack": 11,
+      "sourceSetId": 684,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/684/1996-Fleer",
+      "expectedCards": 15,
+      "notes": "Complete collector checklist. Source-published Hobby insertion rate retained; VCS rolls insert families independently."
+    },
+    {
+      "key": "smoke-heat",
+      "id": "1996_Fleer_Baseball_Smoke_Heat",
+      "name": "Smoke 'N Heat",
+      "kind": "INSERT",
+      "oddsPerPack": 9,
+      "sourceSetId": 685,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/685/1996-Fleer",
+      "expectedCards": 10,
+      "notes": "Complete collector checklist. Source-published Hobby insertion rate retained; VCS rolls insert families independently."
+    },
+    {
+      "key": "team-leaders",
+      "id": "1996_Fleer_Baseball_Team_Leaders",
+      "name": "Team Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": 9,
+      "sourceSetId": 686,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/686/1996-Fleer",
+      "expectedCards": 28,
+      "notes": "Hobby-exclusive, 1:9 Hobby packs. Product uses Hobby pack configuration."
+    },
+    {
+      "key": "game-card",
+      "id": "1996_Fleer_Baseball_Game_Card",
+      "name": "Thanks a Million Game Card",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "sourceSetId": 222696,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/222696/1996-Fleer",
+      "expectedCards": 1,
+      "notes": "One physical unnumbered game token per pack, in addition to 11 trading cards in this VCS item model. Generic subject has no team; requires pending-team staging. No real/VCS prize or scratch-off mechanic implemented."
+    },
+    {
+      "key": "tomorrows-legends",
+      "id": "1996_Fleer_Baseball_Tomorrows_Legends",
+      "name": "Tomorrow's Legends",
+      "kind": "INSERT",
+      "oddsPerPack": 13,
+      "sourceSetId": 687,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/687/1996-Fleer",
+      "expectedCards": 10,
+      "notes": "Complete collector checklist. Source-published Hobby insertion rate retained; VCS rolls insert families independently."
+    },
+    {
+      "key": "zone",
+      "id": "1996_Fleer_Baseball_Zone",
+      "name": "Zone",
+      "kind": "INSERT",
+      "oddsPerPack": 90,
+      "sourceSetId": 694,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/694/1996-Fleer",
+      "expectedCards": 12,
+      "notes": "12-card complete collector checklist, 1:90 packs. BCP insertion table incorrectly says 10; its enumerated checklist and TCDB agree on 12."
+    }
+  ]
+}
