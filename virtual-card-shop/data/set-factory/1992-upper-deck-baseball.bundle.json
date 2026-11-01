@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/217/1992-Upper-Deck",
+    "checklistReference": "https://www.tcdb.com/Checklist.cfm/sid/217/1992-Upper-Deck",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/217/1992-Upper-Deck",
+    "insertReference": "https://www.tcdb.com/Inserts.cfm/sid/217/1992-Upper-Deck",
+    "independentReference": "https://baseballcardpedia.com/index.php/1992_Upper_Deck",
+    "secondaryReference": "https://www.cardboardconnection.com/1992-upper-deck-baseball-cards"
+  },
+  "decisions": {
+    "collectorChecklist": "1774 explicit rows in 17 collector families. Complete base 1-800 and Gold Hologram 1-800 remain unified, without series/range splits. Every insert, sticker, event and autograph checklist independently enumerated.",
+    "goldHologram": "Verified genuine full 800-card factory-set parallel, not an ordinary-pack pull. Include for Admin pricing/images with null odds. Do not infer RC suffixes from the base issue or manufacture isolated hologram-stock parallel checklists.",
+    "pack": "Standard foil model: 15 total cards, 36 packs/box. Unlike 1991, no guaranteed extra hologram sticker in every pack. Physical Jumbo was 27 cards/20 packs, not this product. Base availability flattened across low/high series according to Set Factory conventions.",
+    "odds": "Published sources do not establish exact rates for ordinary-pack SP, Heroes, Williams hologram, College holograms, Williams Best or autographs. SP estimate one per three/four boxes and sticker estimate five/six per low-series box are ranges, not verified exact denominators. All insert odds remain null until Admin chooses/validates a model. No invented carryover from 1991 or default equal-series mix. Null families are collector checklists available for pricing/images but disabled for pulls.",
+    "channels": "Home Run Heroes is low-series Jumbo-only and Scouting Report high-series Jumbo-only, each one per matching Jumbo pack; both null under standard-foil default. Heroes of Baseball, its three autographs and Heroes Highlights are special event-pack issues with null ordinary-pack odds. Keep their genuine distinct collector checklists.",
+    "rarity": "Keep complete Heroes checklists including short-printed generic NNO headers and complete 30-card gold Team Logo family including short-printed expansion logos. Engine chooses uniformly within a family; exact historical per-card weights are not modeled. No silent split or fabricated print counts.",
+    "rookies": "Canonical TCDB and separate index both report 45 candidates, not 45 verified true RCs. Exclude #12 Ted Wood (1989 Topps Big 308), #45 Mo Sanford (1991 Fleer Update U-86), #57 Dave Nilsson (1991 UD Final 25F), #58 Dmitri Young (Final 7F), #526 Frank Castillo (Final 27F), #566 Jose Melendez (1991 Donruss The Rookies 23), #621 Warren Newson (1991 Ultra Update U-17) and #625 Juan Guzman (Ultra U-60) because earlier major releases exist. Add #52 Eduardo Perez per BCP, CCC and indexed Beckett catalog. Hold #54 David Zancanaro and #69 Jon Farrell (TCDB/BCP RC/RC* vs indexed Beckett TP), and #796 Butch Henry (BCP/CCC RC vs canonical omission) without a true-RC suffix pending designation review. 36 retained source-supported suffixes in this conservative draft. No RC inferred from Rookie/Prospect/College subset labels, Gold Hologram or inserts.",
+    "catalogCorrections": "Expand caption-only Bloodlines/composite checklist subjects from independent checklists and card scans. #80 depicts Keith Mitchell, not BCP Brian Mitchell. Gold #69 is Pittsburgh Pirates on the card, not the source Welland Pirates. #84 depicts Dwight Gooden and Gary Sheffield: use Mets/Brewers, corroborating affiliations with individual base cards #135/#234; Gold source blank corrected. Align player/team order on #1/#51/#81/#83. SP4 depicts Tom Selleck and Frank Thomas as fictional Yankees; no Chicago White Sox affiliation inferred.",
+    "autographs": "Ted Williams #36 and Bench/Morgan #45 are each hand-numbered /2500; Bench AND Morgan both signed. Event H5/H6/H7 each /3000, no invented signed H8. BCP AU4/AU5/AU6/AU7 are catalog identifiers, not substituted for printed card numbers. Genuine pack-issued signatures have diamond reverse hologram, unsigned versions fan-shaped.",
+    "holograms": "Separate 28 silver Heroes of Baseball Pennant Holograms from 30 gold Team Logo Holograms (28 franchises plus American/National League). Unnumbered logos get stable alphabetical NNO-01..NNO-28/30 VCS identifiers, not purported printed numbers. Three College holograms retain verified college/pro-team affiliations.",
+    "scope": "Exclude sixteen oversized box-bottom panels (eight Williams and eight Bench/Morgan), wrapper/mail-in lithographs, promotional sheets and unverified autograph/printing variants. Factory Gold Hologram is deliberately included as a complete non-pullable collector parallel.",
+    "teams": "All player, college, franchise and cross-sport subjects have explicit verified affiliations. Two genuine league logo subjects use American League/National League. Eight base and eight Gold generic checklists intentionally blank. Two generic Heroes header cards have no franchise and require pending-team staging. No invented MLB team.",
+    "release": "Unreleased draft only. Pricing, images, generic-header team review, all exact insert odds/pack QA and three disputed rookie designations pending. No production database modification or deployment.",
+    "rookieBlocker": "Beckett indexed set metadata reports 31 RCs, while TCDB has 45 candidates. Direct Beckett set/marketplace retrieval redirects to maintenance rather than card data; a full authoritative card-by-card reconciliation could not be completed. Do not claim that 36 retained suffixes are a resolved Beckett-standard count. Earlier-release exclusions and three explicit disputed cards are documented; rookie review remains PENDING before release."
+  },
+  "product": {
+    "id": "1992_Upper_Deck_Baseball",
+    "year": 1992,
+    "brand": "Upper Deck",
+    "sport": "Baseball",
+    "cardsPerPack": 15,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieDesignation": "PENDING_CATALOG_RECONCILIATION_54_69_796",
+    "packCollation": "PENDING",
+    "insertOdds": "PENDING_UNPUBLISHED_RATES",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1992-upper-deck-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1992_Upper_Deck_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 217,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/217/1992-Upper-Deck?PageIndex=1",
+      "expectedCards": 800,
+      "notes": "Full 800 cards; low 1-700, high 701-800. Availability flattened."
+    },
+    {
+      "key": "gold-hologram",
+      "id": "1992_Upper_Deck_Baseball_Gold_Hologram",
+      "name": "Gold Hologram",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 10281,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10281/1992-Upper-Deck-Gold-Hologram?PageIndex=1",
+      "expectedCards": 800,
+      "notes": "Full 800-card factory-set-only parallel; null odds prevents ordinary-pack pulls. Explicit rows individually retrieved and compared with base."
+    },
+    {
+      "key": "special-prints",
+      "id": "1992_Upper_Deck_Baseball_Special_Prints",
+      "name": "Special Prints",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 217,
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/217/1992-Upper-Deck",
+      "expectedCards": 2,
+      "notes": "Complete collector checklist. Verified exact standard-foil frequency unavailable: null odds pending Admin QA."
+    },
+    {
+      "key": "williams-hologram",
+      "id": "1992_Upper_Deck_Baseball_Ted_Williams_Hologram",
+      "name": "Ted Williams Hologram",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 217,
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/217/1992-Upper-Deck",
+      "expectedCards": 1,
+      "notes": "Complete collector checklist. Verified exact standard-foil frequency unavailable: null odds pending Admin QA."
+    },
+    {
+      "key": "bench-morgan-heroes",
+      "id": "1992_Upper_Deck_Baseball_Baseball_Heroes_Johnny_Bench_and_Joe_Morgan",
+      "name": "Baseball Heroes - Johnny Bench and Joe Morgan",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 218,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/218/1992-Upper-Deck-Baseball-Heroes-Johnny-Bench-and-Joe-Morgan",
+      "expectedCards": 10,
+      "notes": "Complete collector checklist. Verified exact standard-foil frequency unavailable: null odds pending Admin QA."
+    },
+    {
+      "key": "bench-morgan-auto",
+      "id": "1992_Upper_Deck_Baseball_Johnny_Bench_and_Joe_Morgan_Autograph",
+      "name": "Johnny Bench and Joe Morgan Autograph",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 355927,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/355927/1992-Upper-Deck-Baseball-Heroes-Johnny-Bench-and-Joe-Morgan-Autographs",
+      "expectedCards": 1,
+      "notes": "Complete collector checklist. Verified exact standard-foil frequency unavailable: null odds pending Admin QA."
+    },
+    {
+      "key": "williams-heroes",
+      "id": "1992_Upper_Deck_Baseball_Baseball_Heroes_Ted_Williams",
+      "name": "Baseball Heroes - Ted Williams",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 223,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/223/1992-Upper-Deck-Baseball-Heroes-Ted-Williams",
+      "expectedCards": 10,
+      "notes": "Complete collector checklist. Verified exact standard-foil frequency unavailable: null odds pending Admin QA."
+    },
+    {
+      "key": "williams-auto",
+      "id": "1992_Upper_Deck_Baseball_Ted_Williams_Autograph",
+      "name": "Ted Williams Autograph",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 355928,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/355928/1992-Upper-Deck-Baseball-Heroes-Ted-Williams-Autograph",
+      "expectedCards": 1,
+      "notes": "Complete collector checklist. Verified exact standard-foil frequency unavailable: null odds pending Admin QA."
+    },
+    {
+      "key": "college-holograms",
+      "id": "1992_Upper_Deck_Baseball_College_Player_of_the_Year_Holograms",
+      "name": "College Player of the Year Holograms",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 219,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/219/1992-Upper-Deck-College-Player-of-the-Year-Holograms",
+      "expectedCards": 3,
+      "notes": "Complete collector checklist. Verified exact standard-foil frequency unavailable: null odds pending Admin QA."
+    },
+    {
+      "key": "heroes-highlights",
+      "id": "1992_Upper_Deck_Baseball_Heroes_Highlights",
+      "name": "Heroes Highlights",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 73794,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/73794/1992-Upper-Deck-Heroes-Highlights",
+      "expectedCards": 10,
+      "notes": "Special Heroes of Baseball event-pack issue, not standard packs. Null ordinary-pack odds."
+    },
+    {
+      "key": "heroes-event",
+      "id": "1992_Upper_Deck_Baseball_Heroes_of_Baseball",
+      "name": "Heroes of Baseball",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 10282,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10282/1992-Upper-Deck-Heroes-of-Baseball",
+      "expectedCards": 4,
+      "notes": "Special Heroes of Baseball event-pack issue, not standard packs. Null ordinary-pack odds."
+    },
+    {
+      "key": "heroes-event-autos",
+      "id": "1992_Upper_Deck_Baseball_Heroes_of_Baseball_Autographs",
+      "name": "Heroes of Baseball Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 106857,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/106857/1992-Upper-Deck-Heroes-of-Baseball-Autographs",
+      "expectedCards": 3,
+      "notes": "Special Heroes of Baseball event-pack issue, not standard packs. Null ordinary-pack odds."
+    },
+    {
+      "key": "pennant-holograms",
+      "id": "1992_Upper_Deck_Baseball_Heroes_of_Baseball_Pennant_Holograms",
+      "name": "Heroes of Baseball Pennant Holograms",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 100646,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/100646/1992-Upper-Deck-Heroes-of-Baseball-Pennant-Holograms",
+      "expectedCards": 28,
+      "notes": "Complete collector checklist. Verified exact standard-foil frequency unavailable: null odds pending Admin QA."
+    },
+    {
+      "key": "homerun-heroes",
+      "id": "1992_Upper_Deck_Baseball_Homerun_Heroes",
+      "name": "Homerun Heroes",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 220,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/220/1992-Upper-Deck-Homerun-Heroes",
+      "expectedCards": 26,
+      "notes": "One per matching Low Series Jumbo pack. Standard foil default: null odds."
+    },
+    {
+      "key": "scouting-report",
+      "id": "1992_Upper_Deck_Baseball_Scouting_Report",
+      "name": "Scouting Report",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 221,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/221/1992-Upper-Deck-Scouting-Report",
+      "expectedCards": 25,
+      "notes": "One per matching High Series Jumbo pack. Standard foil default: null odds."
+    },
+    {
+      "key": "team-holograms",
+      "id": "1992_Upper_Deck_Baseball_Team_Logo_Holograms",
+      "name": "Team Logo Holograms",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 116218,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/116218/1992-Upper-Deck-Team-Logo-Holograms",
+      "expectedCards": 30,
+      "notes": "Complete collector checklist. Verified exact standard-foil frequency unavailable: null odds pending Admin QA."
+    },
+    {
+      "key": "williams-best",
+      "id": "1992_Upper_Deck_Baseball_Ted_Williams_Best",
+      "name": "Ted Williams' Best",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 222,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/222/1992-Upper-Deck-Ted-Williams-Best",
+      "expectedCards": 20,
+      "notes": "Complete collector checklist. Verified exact standard-foil frequency unavailable: null odds pending Admin QA."
+    }
+  ]
+}

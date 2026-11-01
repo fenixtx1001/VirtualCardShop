@@ -1,0 +1,1775 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Jim Thome / Ryan Klesko,Cleveland Indians / Atlanta Braves,Star Rookies Checklist,Star Rookie Checklist: 2-27
+base,2,Royce Clayton,San Francisco Giants,Star Rookies,
+base,3,Brian Jordan RC,St. Louis Cardinals,Star Rookies,
+base,4,Dave Fleming,Seattle Mariners,Star Rookies,
+base,5,Jim Thome,Cleveland Indians,Star Rookies,
+base,6,Jeff Juden,Houston Astros,Star Rookies,
+base,7,Roberto Hernandez,Chicago White Sox,Star Rookies,
+base,8,Kyle Abbott,California Angels,Star Rookies,"UER: Birthplace ""Newbury Port"", should be ""Newburyport"""
+base,9,Chris George,Milwaukee Brewers,Star Rookies,
+base,10,Rob Maurer RC,Texas Rangers,Star Rookies,
+base,11,Donald Harris,Texas Rangers,Star Rookies,
+base,12,Ted Wood,San Francisco Giants,Star Rookies,Earlier major issue: 1989 Topps Big #308; current source RC suffix not retained
+base,13,Patrick Lennon,Seattle Mariners,Star Rookies,
+base,14,Willie Banks,Minnesota Twins,Star Rookies,
+base,15,Roger Salkeld,Seattle Mariners,Star Rookies,"UER: 2nd line, Bill was his grandfather"
+base,16,Wilfredo Cordero,Montreal Expos,Star Rookies,
+base,17,Arthur Rhodes,Baltimore Orioles,Star Rookies,
+base,18,Pedro Martinez,Los Angeles Dodgers,Star Rookies,"UER: Born 7/25, should be 10/25"
+base,19,Andy Ashby,Philadelphia Phillies,Star Rookies,
+base,20,Tom Goodwin,Los Angeles Dodgers,Star Rookies,
+base,21,Braulio Castillo RC,Philadelphia Phillies,Star Rookies,
+base,22,Todd Van Poppel,Oakland Athletics,Star Rookies,
+base,23,Brian Williams RC,Houston Astros,Star Rookies,
+base,24,Ryan Klesko,Atlanta Braves,Star Rookies,
+base,25,Kenny Lofton,Houston Astros,Star Rookies,
+base,26,Derek Bell,Toronto Blue Jays,Star Rookies,
+base,27,Reggie Sanders,Cincinnati Reds,Star Rookies,
+base,28,Dave Winfield,San Diego Padres / New York Yankees / California Angels,400 Home Run Club,"""Winfield's 400th"""
+base,29,David Justice,Atlanta Braves,Team Checklist,
+base,30,Rob Dibble,Cincinnati Reds,Team Checklist,
+base,31,Craig Biggio,Houston Astros,Team Checklist,
+base,32,Eddie Murray,Los Angeles Dodgers,Team Checklist,
+base,33,Fred McGriff,San Diego Padres,Team Checklist,
+base,34,Willie McGee,San Francisco Giants,Team Checklist,
+base,35,Shawon Dunston,Chicago Cubs,Team Checklist,
+base,36,Delino DeShields,Montreal Expos,Team Checklist,
+base,37,Howard Johnson,New York Mets,Team Checklist,
+base,38,John Kruk,Philadelphia Phillies,Team Checklist,
+base,39,Doug Drabek,Pittsburgh Pirates,Team Checklist,
+base,40,Todd Zeile,St. Louis Cardinals,Team Checklist,
+base,41,Steve Avery,Atlanta Braves,Playoff Perfection,Playoff Perfection
+base,42,Jeremy Hernandez RC,San Diego Padres,,
+base,43,Doug Henry RC,Milwaukee Brewers,,
+base,44,Chris Donnels,New York Mets,,
+base,45,Mo Sanford,Cincinnati Reds,,Earlier major issue: 1991 Fleer Update #U-86; current source RC suffix not retained
+base,46,Scott Kamieniecki,New York Yankees,,
+base,47,Mark Lemke,Atlanta Braves,,
+base,48,Steve Farr,New York Yankees,,
+base,49,Francisco Oliveras,San Francisco Giants,,
+base,50,Ced Landrum,Chicago Cubs,,
+base,51,Rondell White / Marc Newfield,Montreal Expos / Seattle Mariners,Top Prospects Checklist,Top Prospect Checklist: 52-77
+base,52,Eduardo Perez RC,California Angels,Top Prospects,
+base,53,Tom Nevers,Houston Astros,Top Prospects,
+base,54,David Zancanaro,Oakland Athletics,Top Prospects,True RC designation disputed; pending catalog review
+base,55,Shawn Green RC,Toronto Blue Jays,Top Prospects,
+base,56,Mark Wohlers,Atlanta Braves,Top Prospects,
+base,57,Dave Nilsson,Milwaukee Brewers,Top Prospects,Earlier major issue: 1991 Upper Deck Final Edition #25F; current source RC suffix not retained
+base,58,Dmitri Young,St. Louis Cardinals,Top Prospects,Earlier major issue: 1991 Upper Deck Final Edition #7F; current source RC suffix not retained
+base,59,Ryan Hawblitzel RC,Chicago Cubs,Top Prospects,
+base,60,Raul Mondesi,Los Angeles Dodgers,Top Prospects,
+base,61,Rondell White,Montreal Expos,Top Prospects,
+base,62,Steve Hosey,San Francisco Giants,Top Prospects,
+base,63,Manny Ramirez RC,Cleveland Indians,Top Prospects,
+base,64,Marc Newfield,Seattle Mariners,Top Prospects,
+base,65,Jeromy Burnitz,New York Mets,Top Prospects,
+base,66,Mark Smith RC,Baltimore Orioles,Top Prospects,
+base,67,Joey Hamilton RC,San Diego Padres,Top Prospects,
+base,68,Tyler Green RC,Philadelphia Phillies,Top Prospects,
+base,69,Jon Farrell,Pittsburgh Pirates,Top Prospects,True RC designation disputed; pending catalog review
+base,70,Kurt Miller,Texas Rangers,Top Prospects,
+base,71,Jeff Plympton RC,Boston Red Sox,Top Prospects,
+base,72,Dan Wilson,Cincinnati Reds,Top Prospects,
+base,73,Joe Vitiello RC,Kansas City Royals,Top Prospects,
+base,74,Rico Brogna,Detroit Tigers,Top Prospects,
+base,75,David McCarty RC,Minnesota Twins,Top Prospects,
+base,76,Bob Wickman,Chicago White Sox,Top Prospects,
+base,77,Carlos Rodriguez,New York Yankees,Top Prospects,
+base,78,Jim Abbott,California Angels,Stay in School,
+base,79,Pedro Martinez / Ramon Martinez,Los Angeles Dodgers,Bloodlines,
+base,80,Keith Mitchell / Kevin Mitchell,Atlanta Braves / San Francisco Giants,Bloodlines,
+base,81,Sandy Alomar Jr. / Roberto Alomar,Cleveland Indians / Toronto Blue Jays,Bloodlines,
+base,82,Cal Ripken Jr. / Billy Ripken,Baltimore Orioles,Bloodlines,
+base,83,Tony Gwynn / Chris Gwynn,San Diego Padres / Los Angeles Dodgers,Bloodlines,
+base,84,Dwight Gooden / Gary Sheffield,New York Mets / Milwaukee Brewers,Bloodlines,Bloodlines cousins Dwight Gooden / Gary Sheffield; affiliations corroborated by individual base cards 135/234
+base,85,Ken Griffey Jr. / Ken Griffey Sr. / Craig Griffey,Seattle Mariners,Bloodlines,
+base,86,Jim Abbott,California Angels,Team Checklist,
+base,87,Frank Thomas,Chicago White Sox,Team Checklist,
+base,88,Danny Tartabull,Kansas City Royals,Team Checklist,
+base,89,Scott Erickson,Minnesota Twins,Team Checklist,
+base,90,Rickey Henderson,Oakland Athletics,Team Checklist,
+base,91,Edgar Martinez,Seattle Mariners,Team Checklist,
+base,92,Nolan Ryan,Texas Rangers,Team Checklist,
+base,93,Ben McDonald,Baltimore Orioles,Team Checklist,
+base,94,Ellis Burks,Boston Red Sox,Team Checklist,
+base,95,Greg Swindell,Cleveland Indians,Team Checklist,
+base,96,Cecil Fielder,Detroit Tigers,Team Checklist,
+base,97,Greg Vaughn,Milwaukee Brewers,Team Checklist,
+base,98,Kevin Maas,New York Yankees,Team Checklist,
+base,99,Dave Stieb,Toronto Blue Jays,Team Checklist,
+base,100,Checklist,,Checklist,Checklist: 1-100
+base,101,Joe Oliver,Cincinnati Reds,,
+base,102,Hector Villanueva,Chicago Cubs,,
+base,103,Ed Whitson,San Diego Padres,,
+base,104,Danny Jackson,Chicago Cubs,,
+base,105,Chris Hammond,Cincinnati Reds,,
+base,106,Ricky Jordan,Philadelphia Phillies,,
+base,107,Kevin Bass,San Francisco Giants,,
+base,108,Darrin Fletcher,Philadelphia Phillies,,
+base,109,Junior Ortiz,Minnesota Twins,,
+base,110,Tom Bolton,Boston Red Sox,,
+base,111,Jeff King,Pittsburgh Pirates,,
+base,112,Dave Magadan,New York Mets,,
+base,113,Mike LaValliere,Pittsburgh Pirates,,
+base,114,Hubie Brooks,New York Mets,,
+base,115,Jay Bell,Pittsburgh Pirates,,
+base,116,David Wells,Toronto Blue Jays,,
+base,117,Jim Leyritz,New York Yankees,,
+base,118,Manuel Lee,Toronto Blue Jays,,
+base,119,Alvaro Espinoza,New York Yankees,,
+base,120,B.J. Surhoff,Milwaukee Brewers,,
+base,121,Hal Morris,Cincinnati Reds,,
+base,122,Shawon Dunston,Chicago Cubs,,
+base,123,Chris Sabo,Cincinnati Reds,,
+base,124,Andre Dawson,Chicago Cubs,,
+base,125,Eric Davis,Cincinnati Reds,,
+base,126,Chili Davis,Minnesota Twins,,
+base,127,Dale Murphy,Philadelphia Phillies,,
+base,128,Kirk McCaskill,California Angels,,
+base,129,Terry Mulholland,Philadelphia Phillies,,
+base,130,Rick Aguilera,Minnesota Twins,,
+base,131,Vince Coleman,New York Mets,,
+base,132,Andy Van Slyke,Pittsburgh Pirates,,
+base,133,Gregg Jefferies,New York Mets,,
+base,134,Barry Bonds,Pittsburgh Pirates,,
+base,135,Dwight Gooden,New York Mets,,
+base,136,Dave Stieb,Toronto Blue Jays,,
+base,137,Albert Belle,Cleveland Indians,,
+base,138,Teddy Higuera,Milwaukee Brewers,,
+base,139,Jesse Barfield,New York Yankees,,
+base,140,Pat Borders,Toronto Blue Jays,,
+base,141,Bip Roberts,San Diego Padres,,
+base,142,Rob Dibble,Cincinnati Reds,,
+base,143,Mark Grace,Chicago Cubs,,
+base,144,Barry Larkin,Cincinnati Reds,,
+base,145,Ryne Sandberg,Chicago Cubs,,
+base,146,Scott Erickson,Minnesota Twins,,
+base,147,Luis Polonia,California Angels,,
+base,148,John Burkett,San Francisco Giants,,
+base,149,Luis Sojo,California Angels,,
+base,150,Dickie Thon,Philadelphia Phillies,,
+base,151,Walt Weiss,Oakland Athletics,,
+base,152,Mike Scioscia,Los Angeles Dodgers,,
+base,153,Mark McGwire,Oakland Athletics,,
+base,154,Matt Williams,San Francisco Giants,,
+base,155,Rickey Henderson,Oakland Athletics,,
+base,156,Sandy Alomar Jr.,Cleveland Indians,,
+base,157,Brian McRae,Kansas City Royals,,
+base,158,Harold Baines,Oakland Athletics,,
+base,159,Kevin Appier,Kansas City Royals,,
+base,160,Felix Fermin,Cleveland Indians,,
+base,161,Leo Gomez,Baltimore Orioles,,
+base,162,Craig Biggio,Houston Astros,,
+base,163,Ben McDonald,Baltimore Orioles,,
+base,164,Randy Johnson,Seattle Mariners,,
+base,165,Cal Ripken Jr.,Baltimore Orioles,,
+base,166,Frank Thomas,Chicago White Sox,,
+base,167,Delino DeShields,Montreal Expos,,
+base,168,Greg Gagne,Minnesota Twins,,
+base,169,Ron Karkovice,Chicago White Sox,,
+base,170,Charlie Leibrandt,Atlanta Braves,,
+base,171,Dave Righetti,San Francisco Giants,,
+base,172,Dave Henderson,Oakland Athletics,,
+base,173,Steve Decker,San Francisco Giants,,
+base,174,Darryl Strawberry,Los Angeles Dodgers,,
+base,175,Will Clark,San Francisco Giants,,
+base,176,Ruben Sierra,Texas Rangers,,
+base,177,Ozzie Smith,St. Louis Cardinals,,
+base,178,Charles Nagy,Cleveland Indians,,"UER: Born in Fairfield, CT should be born in Bridgeport, CT"
+base,179,Gary Pettis,Texas Rangers,,
+base,180,Kirk Gibson,Kansas City Royals,,
+base,181,Randy Milligan,Baltimore Orioles,,
+base,182,Dave Valle,Seattle Mariners,,
+base,183,Chris Hoiles,Baltimore Orioles,,
+base,184,Tony Phillips,Detroit Tigers,,
+base,185,Brady Anderson,Baltimore Orioles,,
+base,186,Scott Fletcher,Chicago White Sox,,
+base,187,Gene Larkin,Minnesota Twins,,
+base,188,Lance Johnson,Chicago White Sox,,
+base,189,Greg Olson,Atlanta Braves,,
+base,190,Melido Perez,Chicago White Sox,,
+base,191,Lenny Harris,Los Angeles Dodgers,,
+base,192,Terry Kennedy,San Francisco Giants,,
+base,193,Mike Gallego,Oakland Athletics,,
+base,194,Willie McGee,San Francisco Giants,,
+base,195,Juan Samuel,Los Angeles Dodgers,,
+base,196,Jeff Huson,Texas Rangers,,
+base,197,Alex Cole,Cleveland Indians,,
+base,198,Ron Robinson,Milwaukee Brewers,,
+base,199,Joel Skinner,Cleveland Indians,,
+base,200,Checklist,,Checklist,Checklist: 101-200
+base,201,Kevin Reimer,Texas Rangers,,
+base,202,Stan Belinda,Pittsburgh Pirates,,
+base,203,Pat Tabler,Toronto Blue Jays,,
+base,204,Jose Guzman,Texas Rangers,,
+base,205,Jose Lind,Pittsburgh Pirates,,
+base,206,Spike Owen,Montreal Expos,,
+base,207,Joe Orsulak,Baltimore Orioles,,
+base,208,Charlie Hayes,Philadelphia Phillies,,
+base,209,Mike Devereaux,Baltimore Orioles,,
+base,210,Mike Fitzgerald,Montreal Expos,,
+base,211,Willie Randolph,Milwaukee Brewers,,
+base,212,Rod Nichols,Cleveland Indians,,
+base,213,Mike Boddicker,Kansas City Royals,,
+base,214,Bill Spiers,Milwaukee Brewers,,
+base,215,Steve Olin,Cleveland Indians,,
+base,216,David Howard,Kansas City Royals,,
+base,217,Gary Varsho,Pittsburgh Pirates,,
+base,218,Mike Harkey,Chicago Cubs,,
+base,219,Luis Aquino,Kansas City Royals,,
+base,220,Chuck McElroy,Chicago Cubs,,
+base,221,Doug Drabek,Pittsburgh Pirates,,
+base,222,Dave Winfield,California Angels,,
+base,223,Rafael Palmeiro,Texas Rangers,,
+base,224,Joe Carter,Toronto Blue Jays,,
+base,225,Bobby Bonilla,Pittsburgh Pirates,,
+base,226,Ivan Calderon,Montreal Expos,,
+base,227,Gregg Olson,Baltimore Orioles,,
+base,228,Tim Wallach,Montreal Expos,,
+base,229,Terry Pendleton,Atlanta Braves,,
+base,230,Gilberto Reyes,Montreal Expos,,
+base,231,Carlos Baerga,Cleveland Indians,,
+base,232,Greg Vaughn,Milwaukee Brewers,,
+base,233,Bret Saberhagen,Kansas City Royals,,
+base,234,Gary Sheffield,Milwaukee Brewers,,
+base,235,Mark Lewis,Cleveland Indians,,
+base,236,George Bell,Chicago Cubs,,
+base,237,Danny Tartabull,Kansas City Royals,,"UER: Actually born in San Juan, PR"
+base,238,Willie Wilson,Oakland Athletics,,
+base,239,Doug Dascenzo,Chicago Cubs,,
+base,240,Bill Pecota,Kansas City Royals,,
+base,241,Julio Franco,Texas Rangers,,
+base,242,Ed Sprague,Toronto Blue Jays,,
+base,243,Juan Gonzalez,Texas Rangers,,
+base,244,Chuck Finley,California Angels,,
+base,245,Ivan Rodriguez,Texas Rangers,,
+base,246,Lenny Dykstra,Philadelphia Phillies,,
+base,247,Deion Sanders,Atlanta Braves,,
+base,248,Dwight Evans,Baltimore Orioles,,
+base,249,Larry Walker,Montreal Expos,,
+base,250,Billy Ripken,Baltimore Orioles,,
+base,251,Mickey Tettleton,Detroit Tigers,,
+base,252,Tony Pena,Boston Red Sox,,
+base,253,Benito Santiago,San Diego Padres,,
+base,254,Kirby Puckett,Minnesota Twins,,
+base,255,Cecil Fielder,Detroit Tigers,,
+base,256,Howard Johnson,New York Mets,,
+base,257,Andujar Cedeno,Houston Astros,,
+base,258,Jose Rijo,Cincinnati Reds,,
+base,259,Al Osuna,Houston Astros,,
+base,260,Todd Hundley,New York Mets,,
+base,261,Orel Hershiser,Los Angeles Dodgers,,
+base,262,Ray Lankford,St. Louis Cardinals,,
+base,263,Robin Ventura,Chicago White Sox,,
+base,264,Felix Jose,St. Louis Cardinals,,
+base,265,Eddie Murray,Los Angeles Dodgers,,
+base,266,Kevin Mitchell,San Francisco Giants,,
+base,267,Gary Carter,Los Angeles Dodgers,,
+base,268,Mike Benjamin,San Francisco Giants,,
+base,269,Dick Schofield,California Angels,,
+base,270,Jose Uribe,San Francisco Giants,,"UER: Born 1960, should be 1959"
+base,271,Pete Incaviglia,Detroit Tigers,,
+base,272,Tony Fernandez,San Diego Padres,,
+base,273,Alan Trammell,Detroit Tigers,,
+base,274,Tony Gwynn,San Diego Padres,,
+base,275,Mike Greenwell,Boston Red Sox,,
+base,276,Jeff Bagwell,Houston Astros,,
+base,277,Frank Viola,New York Mets,,
+base,278,Randy Myers,Cincinnati Reds,,
+base,279,Ken Caminiti,Houston Astros,,
+base,280,Bill Doran,Cincinnati Reds,,
+base,281,Dan Pasqua,Chicago White Sox,,
+base,282,Alfredo Griffin,Los Angeles Dodgers,,
+base,283,Jose Oquendo,St. Louis Cardinals,,
+base,284,Kal Daniels,Los Angeles Dodgers,,
+base,285,Bobby Thigpen,Chicago White Sox,,
+base,286,Robby Thompson,San Francisco Giants,,
+base,287,Mark Eichhorn,California Angels,,
+base,288,Mike Felder,San Francisco Giants,,
+base,289,Dave Gallagher,California Angels,,
+base,290,Dave Anderson,San Francisco Giants,,
+base,291,Mel Hall,New York Yankees,,
+base,292,Jerald Clark,San Diego Padres,,
+base,293,Al Newman,Minnesota Twins,,
+base,294,Rob Deer,Detroit Tigers,,
+base,295,Matt Nokes,New York Yankees,,
+base,296,Jack Armstrong,Cincinnati Reds,,
+base,297,Jim Deshaies,Houston Astros,,
+base,298,Jeff Innis,New York Mets,,
+base,299,Jeff Reed,Cincinnati Reds,,
+base,300,Checklist,,Checklist,Checklist: 201-300
+base,301,Lonnie Smith,Atlanta Braves,,
+base,302,Jimmy Key,Toronto Blue Jays,,
+base,303,Junior Felix,California Angels,,
+base,304,Mike Heath,Atlanta Braves,,
+base,305,Mark Langston,California Angels,,
+base,306,Greg W. Harris,San Diego Padres,,
+base,307,Brett Butler,Los Angeles Dodgers,,
+base,308,Luis Rivera,Boston Red Sox,,
+base,309,Bruce Ruffin,Philadelphia Phillies,,
+base,310,Paul Faries,San Diego Padres,,
+base,311,Terry Leach,Minnesota Twins,,
+base,312,Scott Brosius RC,Oakland Athletics,,
+base,313,Scott Leius,Minnesota Twins,,
+base,314,Harold Reynolds,Seattle Mariners,,
+base,315,Jack Morris,Minnesota Twins,,
+base,316,David Segui,Baltimore Orioles,,
+base,317,Bill Gullickson,Detroit Tigers,,
+base,318,Todd Frohwirth,Baltimore Orioles,,
+base,319,Mark Leiter,Detroit Tigers,,
+base,320,Jeff M. Robinson,Baltimore Orioles,,
+base,321,Gary Gaetti,California Angels,,
+base,322,John Smoltz,Atlanta Braves,,
+base,323,Andy Benes,San Diego Padres,,
+base,324,Kelly Gruber,Toronto Blue Jays,,
+base,325,Jim Abbott,California Angels,,
+base,326,John Kruk,Philadelphia Phillies,,
+base,327,Kevin Seitzer,Kansas City Royals,,
+base,328,Darrin Jackson,San Diego Padres,,
+base,329,Kurt Stillwell,Kansas City Royals,,
+base,330,Mike Maddux,San Diego Padres,,
+base,331,Dennis Eckersley,Oakland Athletics,,
+base,332,Dan Gladden,Minnesota Twins,,
+base,333,Jose Canseco,Oakland Athletics,,
+base,334,Kent Hrbek,Minnesota Twins,,
+base,335,Ken Griffey Sr.,Seattle Mariners,,
+base,336,Greg Swindell,Cleveland Indians,,
+base,337,Trevor Wilson,San Francisco Giants,,
+base,338,Sam Horn,Baltimore Orioles,,
+base,339,Mike Henneman,Detroit Tigers,,
+base,340,Jerry Browne,Cleveland Indians,,
+base,341,Glenn Braggs,Cincinnati Reds,,
+base,342,Tom Glavine,Atlanta Braves,,
+base,343,Wally Joyner,California Angels,,
+base,344,Fred McGriff,San Diego Padres,,
+base,345,Ron Gant,Atlanta Braves,,
+base,346,Ramon Martinez,Los Angeles Dodgers,,
+base,347,Wes Chamberlain,Philadelphia Phillies,,
+base,348,Terry Shumpert,Kansas City Royals,,
+base,349,Tim Teufel,San Diego Padres,,
+base,350,Wally Backman,Philadelphia Phillies,,
+base,351,Joe Girardi,Chicago Cubs,,
+base,352,Devon White,Toronto Blue Jays,,
+base,353,Greg Maddux,Chicago Cubs,,
+base,354,Ryan Bowen,Houston Astros,,
+base,355,Roberto Alomar,Toronto Blue Jays,,
+base,356,Don Mattingly,New York Yankees,,
+base,357,Pedro Guerrero,St. Louis Cardinals,,
+base,358,Steve Sax,New York Yankees,,
+base,359,Joey Cora,Chicago White Sox,,
+base,360,Jim Gantner,Milwaukee Brewers,,
+base,361,Brian Barnes,Montreal Expos,,
+base,362,Kevin McReynolds,New York Mets,,
+base,363,Bret Barberie,Montreal Expos,,
+base,364,David Cone,New York Mets,,
+base,365,Dennis Martinez,Montreal Expos,,
+base,366,Brian Hunter,Atlanta Braves,,
+base,367,Edgar Martinez,Seattle Mariners,,
+base,368,Steve Finley,Houston Astros,,
+base,369,Greg Briley,Seattle Mariners,,
+base,370,Jeff Blauser,Atlanta Braves,,
+base,371,Todd Stottlemyre,Toronto Blue Jays,,
+base,372,Luis Gonzalez,Houston Astros,,
+base,373,Rick Wilkins,Chicago Cubs,,
+base,374,Darryl Kile,Houston Astros,,
+base,375,John Olerud,Toronto Blue Jays,,
+base,376,Lee Smith,St. Louis Cardinals,,
+base,377,Kevin Maas,New York Yankees,,
+base,378,Dante Bichette,Milwaukee Brewers,,
+base,379,Tom Pagnozzi,St. Louis Cardinals,,
+base,380,Mike Flanagan,Baltimore Orioles,,
+base,381,Charlie O'Brien,New York Mets,,
+base,382,Dave Martinez,Montreal Expos,,
+base,383,Keith Miller,New York Mets,,
+base,384,Scott Ruskin,Montreal Expos,,
+base,385,Kevin Elster,New York Mets,,
+base,386,Alvin Davis,Seattle Mariners,,
+base,387,Casey Candaele,Houston Astros,,
+base,388,Pete O'Brien,Seattle Mariners,,
+base,389,Jeff Treadway,Atlanta Braves,,
+base,390,Scott Bradley,Seattle Mariners,,
+base,391,Mookie Wilson,Toronto Blue Jays,,
+base,392,Jimmy Jones,Houston Astros,,
+base,393,Candy Maldonado,Toronto Blue Jays,,
+base,394,Eric Yelding,Houston Astros,,
+base,395,Tom Henke,Toronto Blue Jays,,
+base,396,Franklin Stubbs,Milwaukee Brewers,,
+base,397,Milt Thompson,St. Louis Cardinals,,
+base,398,Mark Carreon,New York Mets,,
+base,399,Randy Velarde,New York Yankees,,
+base,400,Checklist,,Checklist,Checklist: 301-400
+base,401,Omar Vizquel,Seattle Mariners,,
+base,402,Joe Boever,Philadelphia Phillies,,
+base,403,Bill Krueger,Seattle Mariners,,
+base,404,Jody Reed,Boston Red Sox,,
+base,405,Mike Schooler,Seattle Mariners,,
+base,406,Jason Grimsley,Philadelphia Phillies,,
+base,407,Greg Myers,Toronto Blue Jays,,
+base,408,Randy Ready,Philadelphia Phillies,,
+base,409,Mike Timlin,Toronto Blue Jays,,
+base,410,Mitch Williams,Philadelphia Phillies,,
+base,411,Garry Templeton,New York Mets,,
+base,412,Greg Cadaret,New York Yankees,,
+base,413,Donnie Hill,California Angels,,
+base,414,Wally Whitehurst,New York Mets,,
+base,415,Scott Sanderson,New York Yankees,,
+base,416,Thomas Howard,San Diego Padres,,
+base,417,Neal Heaton,Pittsburgh Pirates,,
+base,418,Charlie Hough,Chicago White Sox,,
+base,419,Jack Howell,San Diego Padres,,
+base,420,Greg Hibbard,Chicago White Sox,,
+base,421,Carlos Quintana,Boston Red Sox,,
+base,422,Kim Batiste,Philadelphia Phillies,,
+base,423,Paul Molitor,Milwaukee Brewers,,
+base,424,Ken Griffey Jr.,Seattle Mariners,,
+base,425,Phil Plantier,Boston Red Sox,,
+base,426,Denny Neagle,Minnesota Twins,,
+base,427,Von Hayes,Philadelphia Phillies,,
+base,428,Shane Mack,Minnesota Twins,,
+base,429,Darren Daulton,Philadelphia Phillies,,
+base,430,Dwayne Henry,Houston Astros,,
+base,431,Lance Parrish,California Angels,,
+base,432,Mike Humphreys,New York Yankees,,
+base,433,Tim Burke,New York Mets,,
+base,434,Bryan Harvey,California Angels,,
+base,435,Pat Kelly,New York Yankees,,
+base,436,Ozzie Guillen,Chicago White Sox,,
+base,437,Bruce Hurst,San Diego Padres,,
+base,438,Sammy Sosa,Chicago White Sox,,
+base,439,Dennis Rasmussen,San Diego Padres,,
+base,440,Ken Patterson,Chicago White Sox,,
+base,441,Jay Buhner,Seattle Mariners,,
+base,442,Pat Combs,Philadelphia Phillies,,
+base,443,Wade Boggs,Boston Red Sox,,
+base,444,George Brett,Kansas City Royals,,
+base,445,Mo Vaughn,Boston Red Sox,,
+base,446,Chuck Knoblauch,Minnesota Twins,,
+base,447,Tom Candiotti,Toronto Blue Jays,,
+base,448,Mark Portugal,Houston Astros,,
+base,449,Mickey Morandini,Philadelphia Phillies,,
+base,450,Duane Ward,Toronto Blue Jays,,
+base,451,Otis Nixon,Atlanta Braves,,
+base,452,Bob Welch,Oakland Athletics,,
+base,453,Rusty Meacham,Detroit Tigers,,
+base,454,Keith Mitchell,Atlanta Braves,,
+base,455,Marquis Grissom,Montreal Expos,,
+base,456,Robin Yount,Milwaukee Brewers,,
+base,457,Harvey Pulliam,Kansas City Royals,,
+base,458,Jose DeLeon,St. Louis Cardinals,,
+base,459,Mark Gubicza,Kansas City Royals,,
+base,460,Darryl Hamilton,Milwaukee Brewers,,
+base,461,Tom Browning,Cincinnati Reds,,
+base,462,Monty Fariss,Texas Rangers,,
+base,463,Jerome Walton,Chicago Cubs,,
+base,464,Paul O'Neill,Cincinnati Reds,,
+base,465,Dean Palmer,Texas Rangers,,
+base,466,Travis Fryman,Detroit Tigers,,
+base,467,John Smiley,Pittsburgh Pirates,,
+base,468,Lloyd Moseby,Detroit Tigers,,
+base,469,John Wehner,Pittsburgh Pirates,,
+base,470,Skeeter Barnes,Detroit Tigers,,
+base,471,Steve Chitren,Oakland Athletics,,
+base,472,Kent Mercker,Atlanta Braves,,
+base,473,Terry Steinbach,Oakland Athletics,,
+base,474,Andres Galarraga,Montreal Expos,,
+base,475,Steve Avery,Atlanta Braves,,
+base,476,Tom Gordon,Kansas City Royals,,
+base,477,Cal Eldred,Milwaukee Brewers,,
+base,478,Omar Olivares,St. Louis Cardinals,,
+base,479,Julio Machado,Milwaukee Brewers,,
+base,480,Bob Milacki,Baltimore Orioles,,
+base,481,Les Lancaster,Chicago Cubs,,
+base,482,John Candelaria,Los Angeles Dodgers,,
+base,483,Brian Downing,Texas Rangers,,
+base,484,Roger McDowell,Los Angeles Dodgers,,
+base,485,Scott Scudder,Cincinnati Reds,,
+base,486,Zane Smith,Pittsburgh Pirates,,
+base,487,John Cerutti,Detroit Tigers,,
+base,488,Steve Buechele,Pittsburgh Pirates,,
+base,489,Paul Gibson,Detroit Tigers,,
+base,490,Curtis Wilkerson,Pittsburgh Pirates,,
+base,491,Marvin Freeman,Atlanta Braves,,
+base,492,Tom Foley,Montreal Expos,,
+base,493,Juan Berenguer,Atlanta Braves,,
+base,494,Ernest Riles,Oakland Athletics,,
+base,495,Sid Bream,Atlanta Braves,,
+base,496,Chuck Crim,Milwaukee Brewers,,
+base,497,Mike Macfarlane,Kansas City Royals,,
+base,498,Dale Sveum,Milwaukee Brewers,,
+base,499,Storm Davis,Kansas City Royals,,
+base,500,Checklist,,Checklist,Checklist: 401-500
+base,501,Jeff Reardon,Boston Red Sox,,
+base,502,Shawn Abner,California Angels,,
+base,503,Tony Fossas,Boston Red Sox,,
+base,504,Cory Snyder,Toronto Blue Jays,,
+base,505,Matt Young,Boston Red Sox,,
+base,506,Allan Anderson,Minnesota Twins,,
+base,507,Mark Lee,Milwaukee Brewers,,
+base,508,Gene Nelson,Oakland Athletics,,
+base,509,Mike Pagliarulo,Minnesota Twins,,
+base,510,Rafael Belliard,Atlanta Braves,,
+base,511,Jay Howell,Los Angeles Dodgers,,
+base,512,Bob Tewksbury,St. Louis Cardinals,,
+base,513,Mike Morgan,Los Angeles Dodgers,,
+base,514,John Franco,New York Mets,,
+base,515,Kevin Gross,Los Angeles Dodgers,,
+base,516,Lou Whitaker,Detroit Tigers,,
+base,517,Orlando Merced,Pittsburgh Pirates,,
+base,518,Todd Benzinger,Kansas City Royals,,
+base,519,Gary Redus,Pittsburgh Pirates,,
+base,520,Walt Terrell,Detroit Tigers,,
+base,521,Jack Clark,Boston Red Sox,,
+base,522,Dave Parker,Toronto Blue Jays,,
+base,523,Tim Naehring,Boston Red Sox,,
+base,524,Mark Whiten,Cleveland Indians,,
+base,525,Ellis Burks,Boston Red Sox,,
+base,526,Frank Castillo,Chicago Cubs,,Earlier major issue: 1991 Upper Deck Final Edition #27F; current source RC suffix not retained
+base,527,Brian Harper,Minnesota Twins,,
+base,528,Brook Jacoby,Oakland Athletics,,
+base,529,Rick Sutcliffe,Chicago Cubs,,
+base,530,Joe Klink,Oakland Athletics,,
+base,531,Terry Bross,New York Mets,,
+base,532,Jose Offerman,Los Angeles Dodgers,,
+base,533,Todd Zeile,St. Louis Cardinals,,
+base,534,Eric Karros,Los Angeles Dodgers,,
+base,535,Anthony Young,New York Mets,,
+base,536,Milt Cuyler,Detroit Tigers,,
+base,537,Randy Tomlin,Pittsburgh Pirates,,
+base,538,Scott Livingstone,Detroit Tigers,,
+base,539,Jim Eisenreich,Kansas City Royals,,
+base,540,Don Slaught,Pittsburgh Pirates,,
+base,541,Scott Cooper,Boston Red Sox,,
+base,542,Joe Grahe,California Angels,,
+base,543,Tom Brunansky,Boston Red Sox,,
+base,544,Eddie Zosky,Toronto Blue Jays,,
+base,545,Roger Clemens,Boston Red Sox,,
+base,546,David Justice,Atlanta Braves,,
+base,547,Dave Stewart,Oakland Athletics,,
+base,548,David West,Minnesota Twins,,
+base,549,Dave Smith,Chicago Cubs,,
+base,550,Dan Plesac,Milwaukee Brewers,,
+base,551,Alex Fernandez,Chicago White Sox,,
+base,552,Bernard Gilkey,St. Louis Cardinals,,
+base,553,Jack McDowell,Chicago White Sox,,
+base,554,Tino Martinez,Seattle Mariners,,
+base,555,Bo Jackson,Chicago White Sox,,
+base,556,Bernie Williams,New York Yankees,,
+base,557,Mark Gardner,Montreal Expos,,
+base,558,Glenallen Hill,Cleveland Indians,,
+base,559,Oil Can Boyd,Texas Rangers,,
+base,560,Chris James,Cleveland Indians,,
+base,561,Scott Servais,Houston Astros,,
+base,562,Rey Sanchez RC,Chicago Cubs,,
+base,563,Paul McClellan,San Francisco Giants,,
+base,564,Andy Mota,Houston Astros,,
+base,565,Darren Lewis,San Francisco Giants,,
+base,566,Jose Melendez,San Diego Padres,,Earlier major issue: 1991 Donruss The Rookies #23; current source RC suffix not retained
+base,567,Tommy Greene,Philadelphia Phillies,,
+base,568,Rich Rodriguez,San Diego Padres,,
+base,569,Heathcliff Slocumb,Chicago Cubs,,
+base,570,Joe Hesketh,Boston Red Sox,,
+base,571,Carlton Fisk,Chicago White Sox,,
+base,572,Erik Hanson,Seattle Mariners,,
+base,573,Wilson Alvarez,Chicago White Sox,,
+base,574,Rheal Cormier,St. Louis Cardinals,,
+base,575,Tim Raines,Chicago White Sox,,
+base,576,Bobby Witt,Texas Rangers,,
+base,577,Roberto Kelly,New York Yankees,,
+base,578,Kevin Brown,Texas Rangers,,
+base,579,Chris Nabholz,Montreal Expos,,
+base,580,Jesse Orosco,Cleveland Indians,,
+base,581,Jeff Brantley,San Francisco Giants,,
+base,582,Rafael Ramirez,Houston Astros,,
+base,583,Kelly Downs,San Francisco Giants,,
+base,584,Mike Simms,Houston Astros,,
+base,585,Mike Remlinger,San Francisco Giants,,
+base,586,Dave Hollins,Philadelphia Phillies,,
+base,587,Larry Andersen,San Diego Padres,,
+base,588,Mike Gardiner,Boston Red Sox,,
+base,589,Craig Lefferts,San Diego Padres,,
+base,590,Paul Assenmacher,Chicago Cubs,,
+base,591,Bryn Smith,St. Louis Cardinals,,
+base,592,Donn Pall,Chicago White Sox,,
+base,593,Mike Jackson,Seattle Mariners,,
+base,594,Scott Radinsky,Chicago White Sox,,
+base,595,Brian Holman,Seattle Mariners,,
+base,596,Geronimo Pena,St. Louis Cardinals,,
+base,597,Mike Jeffcoat,Texas Rangers,,
+base,598,Carlos Martinez,Cleveland Indians,,
+base,599,Geno Petralli,Texas Rangers,,
+base,600,Checklist,,Checklist,Checklist: 501-600
+base,601,Jerry Don Gleaton,Detroit Tigers,,
+base,602,Adam Peterson,San Diego Padres,,
+base,603,Craig Grebeck,Chicago White Sox,,
+base,604,Mark Guthrie,Minnesota Twins,,
+base,605,Frank Tanana,Detroit Tigers,,
+base,606,Hensley Meulens,New York Yankees,,
+base,607,Mark Davis,Kansas City Royals,,
+base,608,Eric Plunk,New York Yankees,,
+base,609,Mark Williamson,Baltimore Orioles,,
+base,610,Lee Guetterman,New York Yankees,,
+base,611,Bobby Rose,California Angels,,
+base,612,Bill Wegman,Milwaukee Brewers,,
+base,613,Mike Hartley,Philadelphia Phillies,,
+base,614,Chris Beasley RC,California Angels,,
+base,615,Chris Bosio,Milwaukee Brewers,,
+base,616,Henry Cotto,Seattle Mariners,,
+base,617,Chico Walker,Chicago Cubs,,
+base,618,Russ Swan,Seattle Mariners,,
+base,619,Bob Walk,Pittsburgh Pirates,,
+base,620,Bill Swift,Seattle Mariners,,
+base,621,Warren Newson,Chicago White Sox,,Earlier major issue: 1991 Ultra Update #U-17; current source RC suffix not retained
+base,622,Steve Bedrosian,Minnesota Twins,,
+base,623,Ricky Bones,San Diego Padres,,
+base,624,Kevin Tapani,Minnesota Twins,,
+base,625,Juan Guzman,Toronto Blue Jays,,Earlier major issue: 1991 Ultra Update #U-60; current source RC suffix not retained
+base,626,Jeff Johnson,New York Yankees,,
+base,627,Jeff Montgomery,Kansas City Royals,,
+base,628,Ken Hill,St. Louis Cardinals,,
+base,629,Gary Thurman,Kansas City Royals,,
+base,630,Steve Howe,New York Yankees,,
+base,631,Jose DeJesus,Philadelphia Phillies,,
+base,632,Kirk Dressendorfer,Oakland Athletics,,
+base,633,Jaime Navarro,Milwaukee Brewers,,
+base,634,Lee Stevens,California Angels,,
+base,635,Pete Harnisch,Houston Astros,,
+base,636,Bill Landrum,Pittsburgh Pirates,,
+base,637,Rich DeLucia,Seattle Mariners,,
+base,638,Luis Salazar,Chicago Cubs,,
+base,639,Rob Murphy,Seattle Mariners,,
+base,640,Jose Canseco / Rickey Henderson,Oakland Athletics,Diamond Skills Checklist,Diamond Skills Checklist: 641-650
+base,641,Roger Clemens,Boston Red Sox,Diamond Skills,
+base,642,Jim Abbott,California Angels,Diamond Skills,
+base,643,Travis Fryman,Detroit Tigers,Diamond Skills,
+base,644,Jesse Barfield,New York Yankees,Diamond Skills,
+base,645,Cal Ripken Jr.,Baltimore Orioles,Diamond Skills,
+base,646,Wade Boggs,Boston Red Sox,Diamond Skills,
+base,647,Cecil Fielder,Detroit Tigers,Diamond Skills,
+base,648,Rickey Henderson,Oakland Athletics,Diamond Skills,
+base,649,Jose Canseco,Oakland Athletics,Diamond Skills,
+base,650,Ken Griffey Jr.,Seattle Mariners,Diamond Skills,
+base,651,Kenny Rogers,Texas Rangers,,
+base,652,Luis Mercedes,Baltimore Orioles,,
+base,653,Mike Stanton,Atlanta Braves,,
+base,654,Glenn Davis,Baltimore Orioles,,
+base,655,Nolan Ryan,Texas Rangers,,
+base,656,Reggie Jefferson,Cleveland Indians,,
+base,657,Javier Ortiz,Houston Astros,,
+base,658,Greg A. Harris,Boston Red Sox,,
+base,659,Mariano Duncan,Cincinnati Reds,,
+base,660,Jeff Shaw,Cleveland Indians,,
+base,661,Mike Moore,Oakland Athletics,,
+base,662,Chris Haney,Montreal Expos,,
+base,663,Joe Slusarski,Oakland Athletics,,
+base,664,Wayne Housie RC,Boston Red Sox,,
+base,665,Carlos Garcia,Pittsburgh Pirates,,
+base,666,Bob Ojeda,Los Angeles Dodgers,,
+base,667,Bryan Hickerson RC,San Francisco Giants,,
+base,668,Tim Belcher,Los Angeles Dodgers,,
+base,669,Ron Darling,Oakland Athletics,,
+base,670,Rex Hudler,St. Louis Cardinals,,
+base,671,Sid Fernandez,New York Mets,,
+base,672,Chito Martinez,Baltimore Orioles,,
+base,673,Pete Schourek,New York Mets,,
+base,674,Armando Reynoso RC,Atlanta Braves,,
+base,675,Mike Mussina,Baltimore Orioles,,
+base,676,Kevin Morton,Boston Red Sox,,
+base,677,Norm Charlton,Cincinnati Reds,,
+base,678,Danny Darwin,Boston Red Sox,,
+base,679,Eric King,Cleveland Indians,,
+base,680,Ted Power,Cincinnati Reds,,
+base,681,Barry Jones,Montreal Expos,,
+base,682,Carney Lansford,Oakland Athletics,,
+base,683,Mel Rojas,Montreal Expos,,
+base,684,Rick Honeycutt,Oakland Athletics,,
+base,685,Jeff Fassero,Montreal Expos,,
+base,686,Cris Carpenter,St. Louis Cardinals,,
+base,687,Tim Crews,Los Angeles Dodgers,,
+base,688,Scott Terry,St. Louis Cardinals,,
+base,689,Chris Gwynn,Los Angeles Dodgers,,
+base,690,Gerald Perry,St. Louis Cardinals,,
+base,691,John Barfield,Texas Rangers,,
+base,692,Bob Melvin,Baltimore Orioles,,
+base,693,Juan Agosto,St. Louis Cardinals,,
+base,694,Alejandro Pena,Atlanta Braves,,
+base,695,Jeff Russell,Texas Rangers,,
+base,696,Carmelo Martinez,Cincinnati Reds,,
+base,697,Bud Black,San Francisco Giants,,
+base,698,Dave Otto,Cleveland Indians,,
+base,699,Billy Hatcher,Cincinnati Reds,,
+base,700,Checklist,,Checklist,Checklist: 601-700
+base,701,Clemente Nunez RC,Florida Marlins,,
+base,702,Mark Clark / Brian Jordan / Donovan Osborne,St. Louis Cardinals,Rookie Threats,Rookie Threats
+base,703,Mike Morgan,Chicago Cubs,,
+base,704,Keith Miller,Kansas City Royals,,
+base,705,Kurt Stillwell,San Diego Padres,,
+base,706,Damon Berryhill,Atlanta Braves,,
+base,707,Von Hayes,California Angels,,
+base,708,Rick Sutcliffe,Baltimore Orioles,,
+base,709,Hubie Brooks,California Angels,,
+base,710,Ryan Turner RC,Colorado Rockies,,
+base,711,Barry Bonds / Andy Van Slyke,Pittsburgh Pirates,Diamond Skills Checklist,Diamond Skills Checklist: 712-721
+base,712,Jose Rijo,Cincinnati Reds,Diamond Skills,
+base,713,Tom Glavine,Atlanta Braves,Diamond Skills,
+base,714,Shawon Dunston,Chicago Cubs,Diamond Skills,
+base,715,Andy Van Slyke,Pittsburgh Pirates,Diamond Skills,
+base,716,Ozzie Smith,St. Louis Cardinals,Diamond Skills,
+base,717,Tony Gwynn,San Diego Padres,Diamond Skills,
+base,718,Will Clark,San Francisco Giants,Diamond Skills,
+base,719,Marquis Grissom,Montreal Expos,Diamond Skills,
+base,720,Howard Johnson,New York Mets,Diamond Skills,
+base,721,Barry Bonds,Pittsburgh Pirates,Diamond Skills,
+base,722,Kirk McCaskill,Chicago White Sox,,
+base,723,Sammy Sosa,Chicago Cubs,,
+base,724,George Bell,Chicago White Sox,,
+base,725,Gregg Jefferies,Kansas City Royals,,
+base,726,Gary DiSarcina,California Angels,,
+base,727,Mike Bordick,Oakland Athletics,,
+base,728,Eddie Murray,New York Mets,400 Home Run Club,400 Home Run Club
+base,729,Rene Gonzales,California Angels,,
+base,730,Mike Bielecki,Atlanta Braves,,
+base,731,Calvin Jones RC,Seattle Mariners,,
+base,732,Jack Morris,Toronto Blue Jays,,
+base,733,Frank Viola,Boston Red Sox,,
+base,734,Dave Winfield,Toronto Blue Jays,,
+base,735,Kevin Mitchell,Seattle Mariners,,
+base,736,Bill Swift,San Francisco Giants,,
+base,737,Dan Gladden,Detroit Tigers,,
+base,738,Mike Jackson,San Francisco Giants,,
+base,739,Mark Carreon,Detroit Tigers,,
+base,740,Kirt Manwaring,San Francisco Giants,,
+base,741,Randy Myers,San Diego Padres,,
+base,742,Kevin McReynolds,Kansas City Royals,,
+base,743,Steve Sax,Chicago White Sox,,
+base,744,Wally Joyner,Kansas City Royals,,
+base,745,Gary Sheffield,San Diego Padres,,
+base,746,Danny Tartabull,New York Yankees,,"UER: Actually born in San Juan, PR"
+base,747,Julio Valera,California Angels,,
+base,748,Denny Neagle,Pittsburgh Pirates,,
+base,749,Lance Blankenship,Oakland Athletics,,
+base,750,Mike Gallego,New York Yankees,,
+base,751,Bret Saberhagen,New York Mets,,
+base,752,Ruben Amaro Jr.,Philadelphia Phillies,,
+base,753,Eddie Murray,New York Mets,,
+base,754,Kyle Abbott,Philadelphia Phillies,,
+base,755,Bobby Bonilla,New York Mets,,
+base,756,Eric Davis,Los Angeles Dodgers,,
+base,757,Eddie Taubensee RC,Houston Astros,,
+base,758,Andres Galarraga,St. Louis Cardinals,,
+base,759,Pete Incaviglia,Houston Astros,,
+base,760,Tom Candiotti,Los Angeles Dodgers,,
+base,761,Tim Belcher,Cincinnati Reds,,
+base,762,Ricky Bones,Milwaukee Brewers,,
+base,763,Bip Roberts,Cincinnati Reds,,
+base,764,Pedro Munoz,Minnesota Twins,,
+base,765,Greg Swindell,Cincinnati Reds,,
+base,766,Kenny Lofton,Cleveland Indians,,
+base,767,Gary Carter,Montreal Expos,,
+base,768,Charlie Hayes,New York Yankees,,
+base,769,Dickie Thon,Texas Rangers,,
+base,770,Donovan Osborne,St. Louis Cardinals,Diamond Debuts Checklist,Diamond Debuts Checklist: 771-780
+base,771,Bret Boone,Seattle Mariners,Diamond Debuts,
+base,772,Archi Cianfrocco RC,Montreal Expos,Diamond Debuts,
+base,773,Mark Clark RC,St. Louis Cardinals,Diamond Debuts,
+base,774,Chad Curtis RC,California Angels,Diamond Debuts,
+base,775,Pat Listach RC,Milwaukee Brewers,Diamond Debuts,
+base,776,Pat Mahomes RC,Minnesota Twins,Diamond Debuts,
+base,777,Donovan Osborne,St. Louis Cardinals,Diamond Debuts,
+base,778,John Patterson RC,San Francisco Giants,Diamond Debuts,
+base,779,Andy Stankiewicz RC,New York Yankees,Diamond Debuts,
+base,780,Turk Wendell RC,Chicago Cubs,Diamond Debuts,
+base,781,Bill Krueger,Minnesota Twins,,
+base,782,Rickey Henderson,Oakland Athletics,Grand Theft,Grand Theft
+base,783,Kevin Seitzer,Milwaukee Brewers,,
+base,784,Dave Martinez,Cincinnati Reds,,
+base,785,John Smiley,Minnesota Twins,,
+base,786,Matt Stairs RC,Montreal Expos,,
+base,787,Scott Scudder,Cleveland Indians,,
+base,788,John Wetteland,Montreal Expos,,
+base,789,Jack Armstrong,Cleveland Indians,,
+base,790,Ken Hill,Montreal Expos,,
+base,791,Dick Schofield,New York Mets,,
+base,792,Mariano Duncan,Philadelphia Phillies,,
+base,793,Bill Pecota,New York Mets,,
+base,794,Mike Kelly RC,Atlanta Braves,,
+base,795,Willie Randolph,New York Mets,,
+base,796,Butch Henry,Houston Astros,,True RC designation disputed; pending catalog review
+base,797,Carlos Hernandez,Los Angeles Dodgers,,
+base,798,Doug Jones,Houston Astros,,
+base,799,Melido Perez,New York Yankees,,
+base,800,Checklist,,Checklist,Checklist: 701-800
+gold-hologram,1,Jim Thome / Ryan Klesko,Cleveland Indians / Atlanta Braves,Star Rookies Checklist,Star Rookie Checklist: 2-27; Gold reverse authentication hologram; factory-set issue
+gold-hologram,2,Royce Clayton,San Francisco Giants,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,3,Brian Jordan,St. Louis Cardinals,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,4,Dave Fleming,Seattle Mariners,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,5,Jim Thome,Cleveland Indians,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,6,Jeff Juden,Houston Astros,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,7,Roberto Hernandez,Chicago White Sox,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,8,Kyle Abbott,California Angels,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,9,Chris George,Milwaukee Brewers,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,10,Rob Maurer,Texas Rangers,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,11,Donald Harris,Texas Rangers,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,12,Ted Wood,San Francisco Giants,Star Rookies,Earlier major issue: 1989 Topps Big #308; current source RC suffix not retained; Gold reverse authentication hologram; factory-set issue
+gold-hologram,13,Patrick Lennon,Seattle Mariners,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,14,Willie Banks,Minnesota Twins,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,15,Roger Salkeld,Seattle Mariners,Star Rookies,UER: Bill was his grandfather; Gold reverse authentication hologram; factory-set issue
+gold-hologram,16,Wilfredo Cordero,Montreal Expos,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,17,Arthur Rhodes,Baltimore Orioles,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,18,Pedro Martinez,Los Angeles Dodgers,Star Rookies,"UER: Born 7/25, should be 10/25; Gold reverse authentication hologram; factory-set issue"
+gold-hologram,19,Andy Ashby,Philadelphia Phillies,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,20,Tom Goodwin,Los Angeles Dodgers,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,21,Braulio Castillo,Philadelphia Phillies,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,22,Todd Van Poppel,Oakland Athletics,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,23,Brian Williams,Houston Astros,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,24,Ryan Klesko,Atlanta Braves,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,25,Kenny Lofton,Houston Astros,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,26,Derek Bell,Toronto Blue Jays,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,27,Reggie Sanders,Cincinnati Reds,Star Rookies,Gold reverse authentication hologram; factory-set issue
+gold-hologram,28,Dave Winfield,San Diego Padres / New York Yankees / California Angels,400 Home Run Club,Winfield's 400th; Gold reverse authentication hologram; factory-set issue
+gold-hologram,29,David Justice,Atlanta Braves,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,30,Rob Dibble,Cincinnati Reds,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,31,Craig Biggio,Houston Astros,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,32,Eddie Murray,Los Angeles Dodgers,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,33,Fred McGriff,San Diego Padres,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,34,Willie McGee,San Francisco Giants,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,35,Shawon Dunston,Chicago Cubs,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,36,Delino DeShields,Montreal Expos,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,37,Howard Johnson,New York Mets,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,38,John Kruk,Philadelphia Phillies,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,39,Doug Drabek,Pittsburgh Pirates,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,40,Todd Zeile,St. Louis Cardinals,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,41,Steve Avery,Atlanta Braves,Playoff Perfection,Playoff Perfection; Gold reverse authentication hologram; factory-set issue
+gold-hologram,42,Jeremy Hernandez,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,43,Doug Henry,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,44,Chris Donnels,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,45,Mo Sanford,Cincinnati Reds,,Earlier major issue: 1991 Fleer Update #U-86; current source RC suffix not retained; Gold reverse authentication hologram; factory-set issue
+gold-hologram,46,Scott Kamieniecki,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,47,Mark Lemke,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,48,Steve Farr,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,49,Francisco Oliveras,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,50,Ced Landrum,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,51,Rondell White / Marc Newfield,Montreal Expos / Seattle Mariners,Top Prospects Checklist,Top Prospect Checklist: 52-77; Gold reverse authentication hologram; factory-set issue
+gold-hologram,52,Eduardo Perez,California Angels,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,53,Tom Nevers,Houston Astros,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,54,David Zancanaro,Oakland Athletics,Top Prospects,True RC designation disputed; pending catalog review; Gold reverse authentication hologram; factory-set issue
+gold-hologram,55,Shawn Green,Toronto Blue Jays,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,56,Mark Wohlers,Atlanta Braves,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,57,Dave Nilsson,Milwaukee Brewers,Top Prospects,Earlier major issue: 1991 Upper Deck Final Edition #25F; current source RC suffix not retained; Gold reverse authentication hologram; factory-set issue
+gold-hologram,58,Dmitri Young,St. Louis Cardinals,Top Prospects,Earlier major issue: 1991 Upper Deck Final Edition #7F; current source RC suffix not retained; Gold reverse authentication hologram; factory-set issue
+gold-hologram,59,Ryan Hawblitzel,Chicago Cubs,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,60,Raul Mondesi,Los Angeles Dodgers,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,61,Rondell White,Montreal Expos,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,62,Steve Hosey,San Francisco Giants,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,63,Manny Ramirez,Cleveland Indians,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,64,Marc Newfield,Seattle Mariners,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,65,Jeromy Burnitz,New York Mets,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,66,Mark Smith,Baltimore Orioles,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,67,Joey Hamilton,San Diego Padres,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,68,Tyler Green,Philadelphia Phillies,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,69,Jon Farrell,Pittsburgh Pirates,Top Prospects,Printed Pittsburgh Pirates affiliation; catalog Welland Pirates team corrected from reverse scan; True RC designation disputed; pending catalog review; Gold reverse authentication hologram; factory-set issue
+gold-hologram,70,Kurt Miller,Texas Rangers,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,71,Jeff Plympton,Boston Red Sox,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,72,Dan Wilson,Cincinnati Reds,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,73,Joe Vitiello,Kansas City Royals,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,74,Rico Brogna,Detroit Tigers,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,75,David McCarty,Minnesota Twins,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,76,Bob Wickman,Chicago White Sox,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,77,Carlos Rodriguez,New York Yankees,Top Prospects,Gold reverse authentication hologram; factory-set issue
+gold-hologram,78,Jim Abbott,California Angels,Stay in School,Gold reverse authentication hologram; factory-set issue
+gold-hologram,79,Pedro Martinez / Ramon Martinez,Los Angeles Dodgers,Bloodlines,Gold reverse authentication hologram; factory-set issue
+gold-hologram,80,Keith Mitchell / Kevin Mitchell,Atlanta Braves / San Francisco Giants,Bloodlines,Gold reverse authentication hologram; factory-set issue
+gold-hologram,81,Sandy Alomar Jr. / Roberto Alomar,Cleveland Indians / Toronto Blue Jays,Bloodlines,Gold reverse authentication hologram; factory-set issue
+gold-hologram,82,Cal Ripken Jr. / Billy Ripken,Baltimore Orioles,Bloodlines,Gold reverse authentication hologram; factory-set issue
+gold-hologram,83,Tony Gwynn / Chris Gwynn,San Diego Padres / Los Angeles Dodgers,Bloodlines,Gold reverse authentication hologram; factory-set issue
+gold-hologram,84,Dwight Gooden / Gary Sheffield,New York Mets / Milwaukee Brewers,Bloodlines,Bloodlines cousins Dwight Gooden / Gary Sheffield; affiliations corroborated by individual base cards 135/234; Gold reverse authentication hologram; factory-set issue
+gold-hologram,85,Ken Griffey Jr. / Ken Griffey Sr. / Craig Griffey,Seattle Mariners,Bloodlines,Gold reverse authentication hologram; factory-set issue
+gold-hologram,86,Jim Abbott,California Angels,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,87,Frank Thomas,Chicago White Sox,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,88,Danny Tartabull,Kansas City Royals,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,89,Scott Erickson,Minnesota Twins,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,90,Rickey Henderson,Oakland Athletics,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,91,Edgar Martinez,Seattle Mariners,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,92,Nolan Ryan,Texas Rangers,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,93,Ben McDonald,Baltimore Orioles,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,94,Ellis Burks,Boston Red Sox,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,95,Greg Swindell,Cleveland Indians,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,96,Cecil Fielder,Detroit Tigers,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,97,Greg Vaughn,Milwaukee Brewers,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,98,Kevin Maas,New York Yankees,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,99,Dave Stieb,Toronto Blue Jays,Team Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,100,Checklist,,Checklist,Checklist: 1-100; Gold reverse authentication hologram; factory-set issue
+gold-hologram,101,Joe Oliver,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,102,Hector Villanueva,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,103,Ed Whitson,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,104,Danny Jackson,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,105,Chris Hammond,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,106,Ricky Jordan,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,107,Kevin Bass,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,108,Darrin Fletcher,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,109,Junior Ortiz,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,110,Tom Bolton,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,111,Jeff King,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,112,Dave Magadan,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,113,Mike LaValliere,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,114,Hubie Brooks,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,115,Jay Bell,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,116,David Wells,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,117,Jim Leyritz,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,118,Manuel Lee,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,119,Alvaro Espinoza,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,120,B.J. Surhoff,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,121,Hal Morris,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,122,Shawon Dunston,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,123,Chris Sabo,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,124,Andre Dawson,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,125,Eric Davis,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,126,Chili Davis,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,127,Dale Murphy,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,128,Kirk McCaskill,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,129,Terry Mulholland,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,130,Rick Aguilera,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,131,Vince Coleman,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,132,Andy Van Slyke,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,133,Gregg Jefferies,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,134,Barry Bonds,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,135,Dwight Gooden,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,136,Dave Stieb,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,137,Albert Belle,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,138,Teddy Higuera,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,139,Jesse Barfield,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,140,Pat Borders,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,141,Bip Roberts,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,142,Rob Dibble,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,143,Mark Grace,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,144,Barry Larkin,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,145,Ryne Sandberg,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,146,Scott Erickson,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,147,Luis Polonia,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,148,John Burkett,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,149,Luis Sojo,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,150,Dickie Thon,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,151,Walt Weiss,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,152,Mike Scioscia,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,153,Mark McGwire,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,154,Matt Williams,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,155,Rickey Henderson,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,156,Sandy Alomar Jr.,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,157,Brian McRae,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,158,Harold Baines,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,159,Kevin Appier,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,160,Felix Fermin,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,161,Leo Gomez,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,162,Craig Biggio,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,163,Ben McDonald,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,164,Randy Johnson,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,165,Cal Ripken Jr.,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,166,Frank Thomas,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,167,Delino DeShields,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,168,Greg Gagne,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,169,Ron Karkovice,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,170,Charlie Leibrandt,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,171,Dave Righetti,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,172,Dave Henderson,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,173,Steve Decker,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,174,Darryl Strawberry,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,175,Will Clark,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,176,Ruben Sierra,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,177,Ozzie Smith,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,178,Charles Nagy,Cleveland Indians,,"UER: Born in Fairfield, CT should be born in Bridgeport, CT; Gold reverse authentication hologram; factory-set issue"
+gold-hologram,179,Gary Pettis,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,180,Kirk Gibson,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,181,Randy Milligan,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,182,Dave Valle,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,183,Chris Hoiles,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,184,Tony Phillips,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,185,Brady Anderson,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,186,Scott Fletcher,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,187,Gene Larkin,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,188,Lance Johnson,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,189,Greg Olson,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,190,Melido Perez,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,191,Lenny Harris,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,192,Terry Kennedy,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,193,Mike Gallego,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,194,Willie McGee,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,195,Juan Samuel,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,196,Jeff Huson,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,197,Alex Cole,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,198,Ron Robinson,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,199,Joel Skinner,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,200,Checklist,,Checklist,Checklist: 101-200; Gold reverse authentication hologram; factory-set issue
+gold-hologram,201,Kevin Reimer,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,202,Stan Belinda,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,203,Pat Tabler,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,204,Jose Guzman,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,205,Jose Lind,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,206,Spike Owen,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,207,Joe Orsulak,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,208,Charlie Hayes,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,209,Mike Devereaux,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,210,Mike Fitzgerald,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,211,Willie Randolph,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,212,Rod Nichols,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,213,Mike Boddicker,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,214,Bill Spiers,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,215,Steve Olin,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,216,David Howard,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,217,Gary Varsho,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,218,Mike Harkey,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,219,Luis Aquino,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,220,Chuck McElroy,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,221,Doug Drabek,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,222,Dave Winfield,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,223,Rafael Palmeiro,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,224,Joe Carter,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,225,Bobby Bonilla,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,226,Ivan Calderon,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,227,Gregg Olson,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,228,Tim Wallach,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,229,Terry Pendleton,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,230,Gilberto Reyes,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,231,Carlos Baerga,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,232,Greg Vaughn,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,233,Bret Saberhagen,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,234,Gary Sheffield,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,235,Mark Lewis,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,236,George Bell,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,237,Danny Tartabull,Kansas City Royals,,"UER: Actually born in San Juan, PR; Gold reverse authentication hologram; factory-set issue"
+gold-hologram,238,Willie Wilson,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,239,Doug Dascenzo,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,240,Bill Pecota,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,241,Julio Franco,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,242,Ed Sprague,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,243,Juan Gonzalez,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,244,Chuck Finley,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,245,Ivan Rodriguez,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,246,Lenny Dykstra,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,247,Deion Sanders,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,248,Dwight Evans,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,249,Larry Walker,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,250,Billy Ripken,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,251,Mickey Tettleton,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,252,Tony Pena,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,253,Benito Santiago,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,254,Kirby Puckett,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,255,Cecil Fielder,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,256,Howard Johnson,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,257,Andujar Cedeno,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,258,Jose Rijo,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,259,Al Osuna,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,260,Todd Hundley,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,261,Orel Hershiser,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,262,Ray Lankford,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,263,Robin Ventura,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,264,Felix Jose,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,265,Eddie Murray,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,266,Kevin Mitchell,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,267,Gary Carter,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,268,Mike Benjamin,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,269,Dick Schofield,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,270,Jose Uribe,San Francisco Giants,,"UER: Born 1960, should be 1959; Gold reverse authentication hologram; factory-set issue"
+gold-hologram,271,Pete Incaviglia,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,272,Tony Fernandez,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,273,Alan Trammell,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,274,Tony Gwynn,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,275,Mike Greenwell,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,276,Jeff Bagwell,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,277,Frank Viola,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,278,Randy Myers,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,279,Ken Caminiti,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,280,Bill Doran,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,281,Dan Pasqua,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,282,Alfredo Griffin,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,283,Jose Oquendo,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,284,Kal Daniels,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,285,Bobby Thigpen,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,286,Robby Thompson,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,287,Mark Eichhorn,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,288,Mike Felder,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,289,Dave Gallagher,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,290,Dave Anderson,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,291,Mel Hall,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,292,Jerald Clark,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,293,Al Newman,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,294,Rob Deer,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,295,Matt Nokes,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,296,Jack Armstrong,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,297,Jim Deshaies,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,298,Jeff Innis,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,299,Jeff Reed,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,300,Checklist,,Checklist,Checklist: 201-300; Gold reverse authentication hologram; factory-set issue
+gold-hologram,301,Lonnie Smith,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,302,Jimmy Key,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,303,Junior Felix,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,304,Mike Heath,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,305,Mark Langston,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,306,Greg W. Harris,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,307,Brett Butler,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,308,Luis Rivera,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,309,Bruce Ruffin,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,310,Paul Faries,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,311,Terry Leach,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,312,Scott Brosius,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,313,Scott Leius,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,314,Harold Reynolds,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,315,Jack Morris,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,316,David Segui,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,317,Bill Gullickson,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,318,Todd Frohwirth,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,319,Mark Leiter,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,320,Jeff M. Robinson,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,321,Gary Gaetti,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,322,John Smoltz,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,323,Andy Benes,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,324,Kelly Gruber,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,325,Jim Abbott,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,326,John Kruk,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,327,Kevin Seitzer,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,328,Darrin Jackson,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,329,Kurt Stillwell,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,330,Mike Maddux,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,331,Dennis Eckersley,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,332,Dan Gladden,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,333,Jose Canseco,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,334,Kent Hrbek,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,335,Ken Griffey Sr.,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,336,Greg Swindell,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,337,Trevor Wilson,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,338,Sam Horn,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,339,Mike Henneman,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,340,Jerry Browne,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,341,Glenn Braggs,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,342,Tom Glavine,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,343,Wally Joyner,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,344,Fred McGriff,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,345,Ron Gant,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,346,Ramon Martinez,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,347,Wes Chamberlain,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,348,Terry Shumpert,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,349,Tim Teufel,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,350,Wally Backman,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,351,Joe Girardi,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,352,Devon White,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,353,Greg Maddux,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,354,Ryan Bowen,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,355,Roberto Alomar,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,356,Don Mattingly,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,357,Pedro Guerrero,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,358,Steve Sax,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,359,Joey Cora,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,360,Jim Gantner,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,361,Brian Barnes,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,362,Kevin McReynolds,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,363,Bret Barberie,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,364,David Cone,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,365,Dennis Martinez,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,366,Brian Hunter,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,367,Edgar Martinez,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,368,Steve Finley,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,369,Greg Briley,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,370,Jeff Blauser,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,371,Todd Stottlemyre,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,372,Luis Gonzalez,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,373,Rick Wilkins,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,374,Darryl Kile,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,375,John Olerud,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,376,Lee Smith,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,377,Kevin Maas,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,378,Dante Bichette,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,379,Tom Pagnozzi,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,380,Mike Flanagan,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,381,Charlie O'Brien,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,382,Dave Martinez,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,383,Keith Miller,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,384,Scott Ruskin,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,385,Kevin Elster,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,386,Alvin Davis,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,387,Casey Candaele,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,388,Pete O'Brien,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,389,Jeff Treadway,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,390,Scott Bradley,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,391,Mookie Wilson,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,392,Jimmy Jones,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,393,Candy Maldonado,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,394,Eric Yelding,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,395,Tom Henke,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,396,Franklin Stubbs,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,397,Milt Thompson,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,398,Mark Carreon,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,399,Randy Velarde,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,400,Checklist,,Checklist,Checklist: 301-400; Gold reverse authentication hologram; factory-set issue
+gold-hologram,401,Omar Vizquel,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,402,Joe Boever,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,403,Bill Krueger,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,404,Jody Reed,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,405,Mike Schooler,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,406,Jason Grimsley,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,407,Greg Myers,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,408,Randy Ready,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,409,Mike Timlin,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,410,Mitch Williams,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,411,Garry Templeton,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,412,Greg Cadaret,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,413,Donnie Hill,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,414,Wally Whitehurst,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,415,Scott Sanderson,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,416,Thomas Howard,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,417,Neal Heaton,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,418,Charlie Hough,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,419,Jack Howell,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,420,Greg Hibbard,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,421,Carlos Quintana,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,422,Kim Batiste,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,423,Paul Molitor,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,424,Ken Griffey Jr.,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,425,Phil Plantier,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,426,Denny Neagle,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,427,Von Hayes,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,428,Shane Mack,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,429,Darren Daulton,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,430,Dwayne Henry,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,431,Lance Parrish,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,432,Mike Humphreys,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,433,Tim Burke,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,434,Bryan Harvey,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,435,Pat Kelly,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,436,Ozzie Guillen,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,437,Bruce Hurst,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,438,Sammy Sosa,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,439,Dennis Rasmussen,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,440,Ken Patterson,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,441,Jay Buhner,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,442,Pat Combs,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,443,Wade Boggs,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,444,George Brett,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,445,Mo Vaughn,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,446,Chuck Knoblauch,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,447,Tom Candiotti,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,448,Mark Portugal,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,449,Mickey Morandini,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,450,Duane Ward,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,451,Otis Nixon,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,452,Bob Welch,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,453,Rusty Meacham,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,454,Keith Mitchell,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,455,Marquis Grissom,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,456,Robin Yount,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,457,Harvey Pulliam,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,458,Jose DeLeon,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,459,Mark Gubicza,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,460,Darryl Hamilton,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,461,Tom Browning,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,462,Monty Fariss,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,463,Jerome Walton,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,464,Paul O'Neill,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,465,Dean Palmer,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,466,Travis Fryman,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,467,John Smiley,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,468,Lloyd Moseby,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,469,John Wehner,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,470,Skeeter Barnes,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,471,Steve Chitren,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,472,Kent Mercker,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,473,Terry Steinbach,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,474,Andres Galarraga,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,475,Steve Avery,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,476,Tom Gordon,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,477,Cal Eldred,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,478,Omar Olivares,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,479,Julio Machado,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,480,Bob Milacki,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,481,Les Lancaster,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,482,John Candelaria,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,483,Brian Downing,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,484,Roger McDowell,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,485,Scott Scudder,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,486,Zane Smith,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,487,John Cerutti,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,488,Steve Buechele,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,489,Paul Gibson,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,490,Curtis Wilkerson,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,491,Marvin Freeman,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,492,Tom Foley,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,493,Juan Berenguer,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,494,Ernest Riles,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,495,Sid Bream,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,496,Chuck Crim,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,497,Mike Macfarlane,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,498,Dale Sveum,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,499,Storm Davis,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,500,Checklist,,Checklist,Checklist: 401-500; Gold reverse authentication hologram; factory-set issue
+gold-hologram,501,Jeff Reardon,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,502,Shawn Abner,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,503,Tony Fossas,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,504,Cory Snyder,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,505,Matt Young,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,506,Allan Anderson,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,507,Mark Lee,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,508,Gene Nelson,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,509,Mike Pagliarulo,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,510,Rafael Belliard,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,511,Jay Howell,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,512,Bob Tewksbury,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,513,Mike Morgan,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,514,John Franco,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,515,Kevin Gross,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,516,Lou Whitaker,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,517,Orlando Merced,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,518,Todd Benzinger,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,519,Gary Redus,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,520,Walt Terrell,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,521,Jack Clark,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,522,Dave Parker,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,523,Tim Naehring,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,524,Mark Whiten,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,525,Ellis Burks,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,526,Frank Castillo,Chicago Cubs,,Earlier major issue: 1991 Upper Deck Final Edition #27F; current source RC suffix not retained; Gold reverse authentication hologram; factory-set issue
+gold-hologram,527,Brian Harper,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,528,Brook Jacoby,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,529,Rick Sutcliffe,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,530,Joe Klink,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,531,Terry Bross,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,532,Jose Offerman,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,533,Todd Zeile,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,534,Eric Karros,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,535,Anthony Young,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,536,Milt Cuyler,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,537,Randy Tomlin,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,538,Scott Livingstone,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,539,Jim Eisenreich,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,540,Don Slaught,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,541,Scott Cooper,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,542,Joe Grahe,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,543,Tom Brunansky,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,544,Eddie Zosky,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,545,Roger Clemens,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,546,David Justice,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,547,Dave Stewart,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,548,David West,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,549,Dave Smith,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,550,Dan Plesac,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,551,Alex Fernandez,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,552,Bernard Gilkey,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,553,Jack McDowell,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,554,Tino Martinez,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,555,Bo Jackson,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,556,Bernie Williams,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,557,Mark Gardner,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,558,Glenallen Hill,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,559,Oil Can Boyd,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,560,Chris James,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,561,Scott Servais,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,562,Rey Sanchez,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,563,Paul McClellan,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,564,Andy Mota,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,565,Darren Lewis,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,566,Jose Melendez,San Diego Padres,,Earlier major issue: 1991 Donruss The Rookies #23; current source RC suffix not retained; Gold reverse authentication hologram; factory-set issue
+gold-hologram,567,Tommy Greene,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,568,Rich Rodriguez,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,569,Heathcliff Slocumb,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,570,Joe Hesketh,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,571,Carlton Fisk,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,572,Erik Hanson,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,573,Wilson Alvarez,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,574,Rheal Cormier,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,575,Tim Raines,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,576,Bobby Witt,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,577,Roberto Kelly,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,578,Kevin Brown,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,579,Chris Nabholz,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,580,Jesse Orosco,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,581,Jeff Brantley,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,582,Rafael Ramirez,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,583,Kelly Downs,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,584,Mike Simms,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,585,Mike Remlinger,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,586,Dave Hollins,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,587,Larry Andersen,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,588,Mike Gardiner,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,589,Craig Lefferts,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,590,Paul Assenmacher,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,591,Bryn Smith,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,592,Donn Pall,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,593,Mike Jackson,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,594,Scott Radinsky,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,595,Brian Holman,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,596,Geronimo Pena,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,597,Mike Jeffcoat,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,598,Carlos Martinez,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,599,Geno Petralli,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,600,Checklist,,Checklist,Checklist: 501-600; Gold reverse authentication hologram; factory-set issue
+gold-hologram,601,Jerry Don Gleaton,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,602,Adam Peterson,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,603,Craig Grebeck,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,604,Mark Guthrie,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,605,Frank Tanana,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,606,Hensley Meulens,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,607,Mark Davis,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,608,Eric Plunk,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,609,Mark Williamson,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,610,Lee Guetterman,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,611,Bobby Rose,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,612,Bill Wegman,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,613,Mike Hartley,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,614,Chris Beasley,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,615,Chris Bosio,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,616,Henry Cotto,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,617,Chico Walker,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,618,Russ Swan,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,619,Bob Walk,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,620,Bill Swift,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,621,Warren Newson,Chicago White Sox,,Earlier major issue: 1991 Ultra Update #U-17; current source RC suffix not retained; Gold reverse authentication hologram; factory-set issue
+gold-hologram,622,Steve Bedrosian,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,623,Ricky Bones,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,624,Kevin Tapani,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,625,Juan Guzman,Toronto Blue Jays,,Earlier major issue: 1991 Ultra Update #U-60; current source RC suffix not retained; Gold reverse authentication hologram; factory-set issue
+gold-hologram,626,Jeff Johnson,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,627,Jeff Montgomery,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,628,Ken Hill,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,629,Gary Thurman,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,630,Steve Howe,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,631,Jose DeJesus,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,632,Kirk Dressendorfer,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,633,Jaime Navarro,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,634,Lee Stevens,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,635,Pete Harnisch,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,636,Bill Landrum,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,637,Rich DeLucia,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,638,Luis Salazar,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,639,Rob Murphy,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,640,Jose Canseco / Rickey Henderson,Oakland Athletics,Diamond Skills Checklist,Diamond Skills Checklist: 641-650; Gold reverse authentication hologram; factory-set issue
+gold-hologram,641,Roger Clemens,Boston Red Sox,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,642,Jim Abbott,California Angels,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,643,Travis Fryman,Detroit Tigers,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,644,Jesse Barfield,New York Yankees,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,645,Cal Ripken Jr.,Baltimore Orioles,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,646,Wade Boggs,Boston Red Sox,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,647,Cecil Fielder,Detroit Tigers,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,648,Rickey Henderson,Oakland Athletics,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,649,Jose Canseco,Oakland Athletics,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,650,Ken Griffey Jr.,Seattle Mariners,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,651,Kenny Rogers,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,652,Luis Mercedes,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,653,Mike Stanton,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,654,Glenn Davis,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,655,Nolan Ryan,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,656,Reggie Jefferson,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,657,Javier Ortiz,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,658,Greg A. Harris,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,659,Mariano Duncan,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,660,Jeff Shaw,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,661,Mike Moore,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,662,Chris Haney,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,663,Joe Slusarski,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,664,Wayne Housie,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,665,Carlos Garcia,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,666,Bob Ojeda,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,667,Bryan Hickerson,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,668,Tim Belcher,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,669,Ron Darling,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,670,Rex Hudler,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,671,Sid Fernandez,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,672,Chito Martinez,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,673,Pete Schourek,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,674,Armando Reynoso,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,675,Mike Mussina,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,676,Kevin Morton,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,677,Norm Charlton,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,678,Danny Darwin,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,679,Eric King,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,680,Ted Power,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,681,Barry Jones,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,682,Carney Lansford,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,683,Mel Rojas,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,684,Rick Honeycutt,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,685,Jeff Fassero,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,686,Cris Carpenter,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,687,Tim Crews,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,688,Scott Terry,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,689,Chris Gwynn,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,690,Gerald Perry,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,691,John Barfield,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,692,Bob Melvin,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,693,Juan Agosto,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,694,Alejandro Pena,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,695,Jeff Russell,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,696,Carmelo Martinez,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,697,Bud Black,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,698,Dave Otto,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,699,Billy Hatcher,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,700,Checklist,,Checklist,Checklist: 601-700; Gold reverse authentication hologram; factory-set issue
+gold-hologram,701,Clemente Nunez,Florida Marlins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,702,Mark Clark / Brian Jordan / Donovan Osborne,St. Louis Cardinals,Rookie Threats,Rookie Threats; Gold reverse authentication hologram; factory-set issue
+gold-hologram,703,Mike Morgan,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,704,Keith Miller,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,705,Kurt Stillwell,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,706,Damon Berryhill,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,707,Von Hayes,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,708,Rick Sutcliffe,Baltimore Orioles,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,709,Hubie Brooks,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,710,Ryan Turner,Colorado Rockies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,711,Barry Bonds / Andy Van Slyke,Pittsburgh Pirates,Diamond Skills Checklist,Diamond Skills Checklist: 712-721; Gold reverse authentication hologram; factory-set issue
+gold-hologram,712,Jose Rijo,Cincinnati Reds,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,713,Tom Glavine,Atlanta Braves,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,714,Shawon Dunston,Chicago Cubs,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,715,Andy Van Slyke,Pittsburgh Pirates,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,716,Ozzie Smith,St. Louis Cardinals,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,717,Tony Gwynn,San Diego Padres,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,718,Will Clark,San Francisco Giants,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,719,Marquis Grissom,Montreal Expos,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,720,Howard Johnson,New York Mets,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,721,Barry Bonds,Pittsburgh Pirates,Diamond Skills,Gold reverse authentication hologram; factory-set issue
+gold-hologram,722,Kirk McCaskill,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,723,Sammy Sosa,Chicago Cubs,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,724,George Bell,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,725,Gregg Jefferies,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,726,Gary DiSarcina,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,727,Mike Bordick,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,728,Eddie Murray,New York Mets,400 Home Run Club,400 Home Run Club; Gold reverse authentication hologram; factory-set issue
+gold-hologram,729,Rene Gonzales,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,730,Mike Bielecki,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,731,Calvin Jones,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,732,Jack Morris,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,733,Frank Viola,Boston Red Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,734,Dave Winfield,Toronto Blue Jays,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,735,Kevin Mitchell,Seattle Mariners,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,736,Bill Swift,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,737,Dan Gladden,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,738,Mike Jackson,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,739,Mark Carreon,Detroit Tigers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,740,Kirt Manwaring,San Francisco Giants,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,741,Randy Myers,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,742,Kevin McReynolds,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,743,Steve Sax,Chicago White Sox,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,744,Wally Joyner,Kansas City Royals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,745,Gary Sheffield,San Diego Padres,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,746,Danny Tartabull,New York Yankees,,"UER: Actually born in San Juan, PR; Gold reverse authentication hologram; factory-set issue"
+gold-hologram,747,Julio Valera,California Angels,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,748,Denny Neagle,Pittsburgh Pirates,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,749,Lance Blankenship,Oakland Athletics,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,750,Mike Gallego,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,751,Bret Saberhagen,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,752,Ruben Amaro Jr.,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,753,Eddie Murray,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,754,Kyle Abbott,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,755,Bobby Bonilla,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,756,Eric Davis,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,757,Eddie Taubensee,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,758,Andres Galarraga,St. Louis Cardinals,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,759,Pete Incaviglia,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,760,Tom Candiotti,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,761,Tim Belcher,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,762,Ricky Bones,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,763,Bip Roberts,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,764,Pedro Munoz,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,765,Greg Swindell,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,766,Kenny Lofton,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,767,Gary Carter,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,768,Charlie Hayes,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,769,Dickie Thon,Texas Rangers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,770,Donovan Osborne,St. Louis Cardinals,Diamond Debuts Checklist,Gold reverse authentication hologram; factory-set issue
+gold-hologram,771,Bret Boone,Seattle Mariners,Diamond Debuts,Gold reverse authentication hologram; factory-set issue
+gold-hologram,772,Archi Cianfrocco,Montreal Expos,Diamond Debuts,Gold reverse authentication hologram; factory-set issue
+gold-hologram,773,Mark Clark,St. Louis Cardinals,Diamond Debuts,Gold reverse authentication hologram; factory-set issue
+gold-hologram,774,Chad Curtis,California Angels,Diamond Debuts,Gold reverse authentication hologram; factory-set issue
+gold-hologram,775,Pat Listach,Milwaukee Brewers,Diamond Debuts,Gold reverse authentication hologram; factory-set issue
+gold-hologram,776,Pat Mahomes,Minnesota Twins,Diamond Debuts,Gold reverse authentication hologram; factory-set issue
+gold-hologram,777,Donovan Osborne,St. Louis Cardinals,Diamond Debuts,Gold reverse authentication hologram; factory-set issue
+gold-hologram,778,John Patterson,San Francisco Giants,Diamond Debuts,Gold reverse authentication hologram; factory-set issue
+gold-hologram,779,Andy Stankiewicz,New York Yankees,Diamond Debuts,Gold reverse authentication hologram; factory-set issue
+gold-hologram,780,Turk Wendell,Chicago Cubs,Diamond Debuts,Gold reverse authentication hologram; factory-set issue
+gold-hologram,781,Bill Krueger,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,782,Rickey Henderson,Oakland Athletics,Grand Theft,Grand Theft; Gold reverse authentication hologram; factory-set issue
+gold-hologram,783,Kevin Seitzer,Milwaukee Brewers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,784,Dave Martinez,Cincinnati Reds,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,785,John Smiley,Minnesota Twins,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,786,Matt Stairs,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,787,Scott Scudder,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,788,John Wetteland,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,789,Jack Armstrong,Cleveland Indians,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,790,Ken Hill,Montreal Expos,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,791,Dick Schofield,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,792,Mariano Duncan,Philadelphia Phillies,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,793,Bill Pecota,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,794,Mike Kelly,Atlanta Braves,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,795,Willie Randolph,New York Mets,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,796,Butch Henry,Houston Astros,,True RC designation disputed; pending catalog review; Gold reverse authentication hologram; factory-set issue
+gold-hologram,797,Carlos Hernandez,Los Angeles Dodgers,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,798,Doug Jones,Houston Astros,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,799,Melido Perez,New York Yankees,,Gold reverse authentication hologram; factory-set issue
+gold-hologram,800,Checklist,,Checklist,Checklist: 701-800; Gold reverse authentication hologram; factory-set issue
+special-prints,SP3,Deion Sanders,Atlanta Braves / Atlanta Falcons,,"""Prime Time's Two""; Short print"
+special-prints,SP4,Tom Selleck / Frank Thomas,New York Yankees,,"""Mr. Baseball""; Short print"
+williams-hologram,HH2,Ted Williams,Boston Red Sox,,Hologram; Short print
+bench-morgan-heroes,37,Johnny Bench,Cincinnati Reds,,1968 Rookie of the Year
+bench-morgan-heroes,38,Johnny Bench,Cincinnati Reds,,1968-77 Ten Straight Gold Gloves
+bench-morgan-heroes,39,Johnny Bench,Cincinnati Reds,,1970 & 1972 MVP
+bench-morgan-heroes,40,Joe Morgan,Houston Astros,,1965 Rookie Year
+bench-morgan-heroes,41,Joe Morgan,Cincinnati Reds,,1975-76 Back-to-Back MVP
+bench-morgan-heroes,42,Joe Morgan,Philadelphia Phillies,,1980-83 The Golden Years
+bench-morgan-heroes,43,Johnny Bench / Joe Morgan,Cincinnati Reds,,1972-79 Big Red Machine
+bench-morgan-heroes,44,Johnny Bench / Joe Morgan,Cincinnati Reds,,1989 & 1990 Hall of Fame
+bench-morgan-heroes,45,Johnny Bench / Joe Morgan,Cincinnati Reds,Checklist,
+bench-morgan-heroes,NNO,Johnny Bench and Joe Morgan Baseball Heroes Header,,Header,Short print
+bench-morgan-auto,45,Johnny Bench / Joe Morgan,Cincinnati Reds,Checklist,Autograph; hand-numbered /2500; diamond reverse hologram
+williams-heroes,28,Ted Williams,Boston Red Sox,,1939 Rookie Year
+williams-heroes,29,Ted Williams,Boston Red Sox,,1941 .406!
+williams-heroes,30,Ted Williams,Boston Red Sox,,1942 Triple Crown Year
+williams-heroes,31,Ted Williams,Boston Red Sox,,1946 & 1949 MVP
+williams-heroes,32,Ted Williams,Boston Red Sox,,1947 Second Triple Crown
+williams-heroes,33,Ted Williams,Boston Red Sox,,1950s Player of the Decade
+williams-heroes,34,Ted Williams,Boston Red Sox,,1960 500 Home Run Club
+williams-heroes,35,Ted Williams,Boston Red Sox,,1966 Hall of Fame
+williams-heroes,36,Ted Williams,Boston Red Sox,Checklist,
+williams-heroes,NNO,Ted Williams Baseball Heroes Header,,Header,Short print
+williams-auto,36,Ted Williams,Boston Red Sox,Checklist,Autograph; hand-numbered /2500; diamond reverse hologram
+college-holograms,CP1,David McCarty,Stanford Cardinal / Minnesota Twins,,
+college-holograms,CP2,Mike Kelly,Arizona State Sun Devils / Atlanta Braves,,
+college-holograms,CP3,Ben McDonald,LSU Tigers / Baltimore Orioles,,
+heroes-highlights,HI1,Bobby Bonds,San Francisco Giants,,
+heroes-highlights,HI2,Lou Brock,St. Louis Cardinals,,
+heroes-highlights,HI3,Rollie Fingers,Milwaukee Brewers,,
+heroes-highlights,HI4,Bob Gibson,St. Louis Cardinals,,
+heroes-highlights,HI5,Reggie Jackson,New York Yankees,,
+heroes-highlights,HI6,Gaylord Perry,Seattle Mariners,,
+heroes-highlights,HI7,Robin Roberts,Philadelphia Phillies,,
+heroes-highlights,HI8,Brooks Robinson,Baltimore Orioles,,
+heroes-highlights,HI9,Billy Williams,Chicago Cubs,,
+heroes-highlights,HI10,Ted Williams,Boston Red Sox,,
+heroes-event,H5,Vida Blue,Oakland Athletics,,
+heroes-event,H6,Lou Brock,St. Louis Cardinals,,
+heroes-event,H7,Rollie Fingers,Oakland Athletics,,
+heroes-event,H8,Vida Blue / Lou Brock / Rollie Fingers,Oakland Athletics / St. Louis Cardinals,Header,
+heroes-event-autos,H5,Vida Blue,Oakland Athletics,,Autograph; hand-numbered /3000; diamond reverse hologram
+heroes-event-autos,H6,Lou Brock,St. Louis Cardinals,,Autograph; hand-numbered /3000; diamond reverse hologram
+heroes-event-autos,H7,Rollie Fingers,Oakland Athletics,,Autograph; hand-numbered /3000; diamond reverse hologram
+pennant-holograms,NNO-01,Atlanta Braves,Atlanta Braves,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-02,Baltimore Orioles,Baltimore Orioles,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-03,Boston Red Sox,Boston Red Sox,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-04,California Angels,California Angels,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-05,Chicago Cubs,Chicago Cubs,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-06,Chicago White Sox,Chicago White Sox,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-07,Cincinnati Reds,Cincinnati Reds,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-08,Cleveland Indians,Cleveland Indians,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-09,Colorado Rockies,Colorado Rockies,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-10,Detroit Tigers,Detroit Tigers,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-11,Florida Marlins,Florida Marlins,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-12,Houston Astros,Houston Astros,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-13,Kansas City Royals,Kansas City Royals,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-14,Los Angeles Dodgers,Los Angeles Dodgers,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-15,Milwaukee Brewers,Milwaukee Brewers,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-16,Minnesota Twins,Minnesota Twins,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-17,Montreal Expos,Montreal Expos,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-18,New York Mets,New York Mets,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-19,New York Yankees,New York Yankees,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-20,Oakland Athletics,Oakland Athletics,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-21,Philadelphia Phillies,Philadelphia Phillies,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-22,Pittsburgh Pirates,Pittsburgh Pirates,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-23,San Diego Padres,San Diego Padres,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-24,San Francisco Giants,San Francisco Giants,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-25,Seattle Mariners,Seattle Mariners,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-26,St. Louis Cardinals,St. Louis Cardinals,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-27,Texas Rangers,Texas Rangers,,Unnumbered hologram; NNO identifier is VCS-only
+pennant-holograms,NNO-28,Toronto Blue Jays,Toronto Blue Jays,,Unnumbered hologram; NNO identifier is VCS-only
+homerun-heroes,HR1,Jose Canseco,Oakland Athletics,,
+homerun-heroes,HR2,Cecil Fielder,Detroit Tigers,,
+homerun-heroes,HR3,Howard Johnson,New York Mets,,
+homerun-heroes,HR4,Cal Ripken Jr.,Baltimore Orioles,,
+homerun-heroes,HR5,Matt Williams,San Francisco Giants,,
+homerun-heroes,HR6,Joe Carter,Toronto Blue Jays,,
+homerun-heroes,HR7,Ron Gant,Atlanta Braves,,
+homerun-heroes,HR8,Frank Thomas,Chicago White Sox,,
+homerun-heroes,HR9,Andre Dawson,Chicago Cubs,,
+homerun-heroes,HR10,Fred McGriff,San Diego Padres,,
+homerun-heroes,HR11,Danny Tartabull,Kansas City Royals,,
+homerun-heroes,HR12,Chili Davis,Minnesota Twins,,
+homerun-heroes,HR13,Albert Belle,Cleveland Indians,,
+homerun-heroes,HR14,Jack Clark,Boston Red Sox,,
+homerun-heroes,HR15,Paul O'Neill,Cincinnati Reds,,
+homerun-heroes,HR16,Darryl Strawberry,Los Angeles Dodgers,,
+homerun-heroes,HR17,Dave Winfield,California Angels,,
+homerun-heroes,HR18,Jay Buhner,Seattle Mariners,,
+homerun-heroes,HR19,Juan Gonzalez,Texas Rangers,,
+homerun-heroes,HR20,Greg Vaughn,Milwaukee Brewers,,
+homerun-heroes,HR21,Barry Bonds,Pittsburgh Pirates,,
+homerun-heroes,HR22,Matt Nokes,New York Yankees,,
+homerun-heroes,HR23,John Kruk,Philadelphia Phillies,,
+homerun-heroes,HR24,Ivan Calderon,Montreal Expos,,
+homerun-heroes,HR25,Jeff Bagwell,Houston Astros,,
+homerun-heroes,HR26,Todd Zeile,St. Louis Cardinals,,
+scouting-report,SR1,Andy Ashby,Philadelphia Phillies,,
+scouting-report,SR2,Willie Banks,Minnesota Twins,,
+scouting-report,SR3,Kim Batiste,Philadelphia Phillies,,
+scouting-report,SR4,Derek Bell,Toronto Blue Jays,,
+scouting-report,SR5,Archi Cianfrocco,Montreal Expos,,
+scouting-report,SR6,Royce Clayton,San Francisco Giants,,
+scouting-report,SR7,Gary DiSarcina,California Angels,,
+scouting-report,SR8,Dave Fleming,Seattle Mariners,,
+scouting-report,SR9,Butch Henry,Houston Astros,,
+scouting-report,SR10,Todd Hundley,New York Mets,,
+scouting-report,SR11,Brian Jordan,St. Louis Cardinals,,
+scouting-report,SR12,Eric Karros,Los Angeles Dodgers,,
+scouting-report,SR13,Pat Listach,Milwaukee Brewers,,
+scouting-report,SR14,Scott Livingstone,Detroit Tigers,,
+scouting-report,SR15,Kenny Lofton,Cleveland Indians,,
+scouting-report,SR16,Pat Mahomes,Minnesota Twins,,
+scouting-report,SR17,Denny Neagle,Pittsburgh Pirates,,
+scouting-report,SR18,Dave Nilsson,Milwaukee Brewers,,
+scouting-report,SR19,Donovan Osborne,St. Louis Cardinals,,
+scouting-report,SR20,Reggie Sanders,Cincinnati Reds,,
+scouting-report,SR21,Andy Stankiewicz,New York Yankees,,
+scouting-report,SR22,Jim Thome,Cleveland Indians,,
+scouting-report,SR23,Julio Valera,California Angels,,
+scouting-report,SR24,Mark Wohlers,Atlanta Braves,,
+scouting-report,SR25,Anthony Young,New York Mets,,
+team-holograms,NNO-01,American League,American League,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-02,Atlanta Braves,Atlanta Braves,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-03,Baltimore Orioles,Baltimore Orioles,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-04,Boston Red Sox,Boston Red Sox,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-05,California Angels,California Angels,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-06,Chicago Cubs,Chicago Cubs,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-07,Chicago White Sox,Chicago White Sox,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-08,Cincinnati Reds,Cincinnati Reds,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-09,Cleveland Indians,Cleveland Indians,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-10,Colorado Rockies,Colorado Rockies,,Unnumbered hologram; NNO identifier is VCS-only; Short print
+team-holograms,NNO-11,Detroit Tigers,Detroit Tigers,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-12,Florida Marlins,Florida Marlins,,Unnumbered hologram; NNO identifier is VCS-only; Short print
+team-holograms,NNO-13,Houston Astros,Houston Astros,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-14,Kansas City Royals,Kansas City Royals,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-15,Los Angeles Dodgers,Los Angeles Dodgers,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-16,Milwaukee Brewers,Milwaukee Brewers,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-17,Minnesota Twins,Minnesota Twins,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-18,Montreal Expos,Montreal Expos,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-19,National League,National League,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-20,New York Mets,New York Mets,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-21,New York Yankees,New York Yankees,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-22,Oakland Athletics,Oakland Athletics,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-23,Philadelphia Phillies,Philadelphia Phillies,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-24,Pittsburgh Pirates,Pittsburgh Pirates,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-25,San Diego Padres,San Diego Padres,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-26,San Francisco Giants,San Francisco Giants,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-27,Seattle Mariners,Seattle Mariners,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-28,St. Louis Cardinals,St. Louis Cardinals,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-29,Texas Rangers,Texas Rangers,,Unnumbered hologram; NNO identifier is VCS-only
+team-holograms,NNO-30,Toronto Blue Jays,Toronto Blue Jays,,Unnumbered hologram; NNO identifier is VCS-only
+williams-best,T1,Wade Boggs,Boston Red Sox,,
+williams-best,T2,Barry Bonds,Pittsburgh Pirates,,
+williams-best,T3,Jose Canseco,Oakland Athletics,,
+williams-best,T4,Will Clark,San Francisco Giants,,
+williams-best,T5,Cecil Fielder,Detroit Tigers,,
+williams-best,T6,Tony Gwynn,San Diego Padres,,
+williams-best,T7,Rickey Henderson,Oakland Athletics,,
+williams-best,T8,Fred McGriff,San Diego Padres,,
+williams-best,T9,Kirby Puckett,Minnesota Twins,,
+williams-best,T10,Ruben Sierra,Texas Rangers,,
+williams-best,T11,Roberto Alomar,Toronto Blue Jays,,
+williams-best,T12,Jeff Bagwell,Houston Astros,,
+williams-best,T13,Albert Belle,Cleveland Indians,,
+williams-best,T14,Juan Gonzalez,Texas Rangers,,
+williams-best,T15,Ken Griffey Jr.,Seattle Mariners,,
+williams-best,T16,Chris Hoiles,Baltimore Orioles,,
+williams-best,T17,David Justice,Atlanta Braves,,
+williams-best,T18,Phil Plantier,Boston Red Sox,,
+williams-best,T19,Frank Thomas,Chicago White Sox,,
+williams-best,T20,Robin Ventura,Chicago White Sox,,
