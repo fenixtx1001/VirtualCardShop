@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/291/1993-Topps",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/291/1993-Topps",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/291/1993-Topps",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/291/1993-Topps",
+    "researchReferences": [
+      "https://baseballcardpedia.com/index.php/1993_Topps",
+      "https://keymancollectibles.com/baseballcards/1993toppsbaseballcardchecklist.htm",
+      "https://www.laststicker.com/cards/topps_major_league_baseball_1993/"
+    ],
+    "note": "Offline source fixture; no automated TCDB extraction or image copying."
+  },
+  "decisions": {
+    "baseStructure": "One complete 825-card Base checklist. Both physical series are flattened into one equal-availability VCS ProductSet.",
+    "canonicalPackFormat": "Four VCS cards per pack; 36 packs per box follows original standard wax distribution.",
+    "goldHandling": "Gold is one complete 825-card parallel at 1:1 standard-pack odds, with six checklist substitutions.",
+    "blackGoldHandling": "One 44-card Black Gold checklist at the standard 1:72 Hobby/Retail pack odds; series-specific ranges are combined.",
+    "rookieNaming": "RC is appended to independently rookie-indexed individual cards. Multi-player RC subjects are pending player-by-player confirmation and have no blanket RC suffix.",
+    "teamReconciliation": "LastSticker's later-player clubs were reconciled with the offline 1992 Ultra checklist for Series One and spot-checked against individual 1993 Topps listings. Multi-subject and draft-pick teams are explicitly curated. Final on-card team audit remains a release gate.",
+    "excludedRelatedItems": "Inaugural Rockies/Marlins factory-only parallels, promotional samples, redeemed prizes, and expired Black Gold winner instruments are not pack-issued card checklists in this VCS draft.",
+    "variationHandling": "Russ Swan #96 has its double-printed back text noted on Base. Print-code-only Terry Pendleton #650 is not split into a second completion card.",
+    "releaseSafety": "Images, team spot checks, multi-player rookie labels, and pricing require review before release."
+  },
+  "product": {
+    "id": "1993_Topps_Baseball",
+    "year": 1993,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1993-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1993_Topps_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/291",
+      "expectedCards": 825,
+      "notes": "Full #1-825 base checklist, Series One #1-396 and Series Two #397-825. One combined VCS checklist."
+    },
+    {
+      "key": "gold",
+      "id": "1993_Topps_Baseball_Gold",
+      "name": "Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10327",
+      "expectedCards": 825,
+      "notes": "One per standard wax pack. Six numbered checklists are replaced by six player cards."
+    },
+    {
+      "key": "black-gold",
+      "id": "1993_Topps_Baseball_Black_Gold",
+      "name": "Black Gold",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/292",
+      "expectedCards": 44,
+      "notes": "One per 72 standard Hobby/Retail packs; #1-22 Series One and #23-44 Series Two."
+    }
+  ]
+}
