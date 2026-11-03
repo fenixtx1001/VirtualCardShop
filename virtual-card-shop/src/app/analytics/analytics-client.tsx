@@ -139,7 +139,7 @@ export default function AnalyticsClient() {
   const [view, setView] = useState<ViewMode>("summary");
   const [scope, setScope] = useState<ScopeMode>("me");
   const [universe, setUniverse] = useState<UniverseMode>("owned");
-  const [groupBy, setGroupBy] = useState<GroupByMode>("player");
+  const [groupBy, setGroupBy] = useState<GroupByMode>("product");
 
   const [compareMode, setCompareMode] = useState(false);
   const [compareUserAId, setCompareUserAId] = useState("");
@@ -728,9 +728,9 @@ export default function AnalyticsClient() {
         <AnalyticsTabs />
         <header className="analyticsHeader">
           <div>
-            <h1 className="analyticsTitle">Collection Analytics</h1>
+            <h1 className="analyticsTitle">Collection Strategy</h1>
             <div className="analyticsSubtitle">
-              Explore your cards by player, team, set, brand, year, or sport and compare ownership across collectors.
+              Start with the sets worth chasing. Dig deeper by player, team, brand, and rival only when you want to.
             </div>
           </div>
         </header>
