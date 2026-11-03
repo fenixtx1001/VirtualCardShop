@@ -257,6 +257,12 @@ export async function GET(req: Request) {
         new Set(cards.map((card) => String(card.player ?? "").trim()))
       );
 
+      // Warm the ignore-token cache before concurrent normalization. Without
+      // this, thousands of players can each trigger the same token DB lookup.
+      if (uniquePlayers.length > 0) {
+        await cleanCanonicalPlayerName(uniquePlayers[0]);
+      }
+
       const resolvedPlayers = await Promise.all(
         uniquePlayers.map(async (rawPlayer) => {
           const canonicalName = await cleanCanonicalPlayerName(rawPlayer);
