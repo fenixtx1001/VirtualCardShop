@@ -284,7 +284,7 @@ export async function GET(req: Request) {
       const ownedQty =
         scope === "all_users"
           ? c.ownerships.reduce((sum, o) => sum + (o.quantity ?? 0), 0)
-          : c.ownerships[0]?.quantity ?? 0;
+          : c.ownerships.reduce((sum, o) => sum + (o.quantity ?? 0), 0);
 
       const bookValue = Number(c.bookValue ?? 0);
       const ownedValue = ownedQty * bookValue;
