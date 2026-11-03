@@ -16,7 +16,8 @@ type SubmitForGradingButtonProps = {
   bookValue: number | null | undefined;
   player?: string | null;
   cardNumber?: string | null;
-  onSubmitted?: () => void | Promise<void>;
+  onSubmitted?: (quantity: number) => void | Promise<void>;
+  onSubmittingChange?: (submitting: boolean) => void;
 };
 
 function safeNum(value: unknown, fallback = 0) {
@@ -51,6 +52,7 @@ export default function SubmitForGradingButton({
   player,
   cardNumber,
   onSubmitted,
+  onSubmittingChange,
 }: SubmitForGradingButtonProps) {
   const maxQty = Math.max(0, Math.floor(safeNum(rawQuantity, 0)));
   const [quantity, setQuantity] = useState(1);
@@ -119,6 +121,7 @@ export default function SubmitForGradingButton({
     if (!confirmed) return;
 
     setSubmitting(true);
+    onSubmittingChange?.(true);
     setMessage(null);
     setIsError(false);
 
@@ -157,12 +160,13 @@ export default function SubmitForGradingButton({
       setIsError(false);
       if (json.creditsUsed) setGradingCredits(current => Math.max(0, current - json.creditsUsed));
 
-      await onSubmitted?.();
+      await onSubmitted?.(clampedQuantity);
     } catch (e: any) {
       setMessage(e?.message ?? "Failed to submit for grading");
       setIsError(true);
     } finally {
       setSubmitting(false);
+      onSubmittingChange?.(false);
     }
   }
 
