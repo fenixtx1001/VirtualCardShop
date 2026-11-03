@@ -96,6 +96,9 @@ export default function AnalyticsOverviewClient() {
   const [finance, setFinance] = useState<FinanceResponse | null>(null);
   const [climb, setClimb] = useState<ClimbResponse | null>(null);
   const [error, setError] = useState("");
+  const [reloadVersion, setReloadVersion] = useState(0);
+  const [refreshBusy, setRefreshBusy] = useState(false);
+  const [refreshNotice, setRefreshNotice] = useState("");
 
   useEffect(() => {
     let cancelled = false;
@@ -105,7 +108,7 @@ export default function AnalyticsOverviewClient() {
 
       try {
         const [financeRes, climbRes] = await Promise.all([
-          fetch("/api/analytics/finances?range=7D", { cache: "no-store" }),
+          fetch("/api/analytics/finances?range=7D&view=overview", { cache: "no-store" }),
           fetch("/api/analytics/daily-climb", { cache: "no-store" }),
         ]);
 
@@ -134,9 +137,39 @@ export default function AnalyticsOverviewClient() {
 
     void load();
     return () => { cancelled = true; };
-  }, []);
+  }, [reloadVersion]);
+
+  async function refreshMyPortfolio() {
+    setRefreshBusy(true);
+    setRefreshNotice("");
+    try {
+      const res = await fetch("/api/analytics/refresh", {
+        method: "POST",
+        cache: "no-store",
+      });
+      const json = await res.json();
+      if (!res.ok || !json?.ok) {
+        throw new Error(json?.error ?? "Unable to refresh portfolio.");
+      }
+      setRefreshNotice(
+        json.refreshed
+          ? "Your portfolio has been revalued."
+          : "Your values were updated less than a minute ago."
+      );
+      setReloadVersion((version) => version + 1);
+    } catch (err) {
+      setRefreshNotice(err instanceof Error ? err.message : "Unable to refresh portfolio.");
+    } finally {
+      setRefreshBusy(false);
+    }
+  }
 
   const me = climb?.rows.find((row) => row.isMe) ?? null;
+  const nextRival = me && climb ? climb.rows.find((row) => row.rank === me.rank - 1) : null;
+  const pointsToPass = me && nextRival
+    ? Math.max(1, nextRival.gainCents - me.gainCents + 1)
+    : 0;
+  const currentLeader = climb?.rows[0] ?? null;
   const trend = useMemo(
     () => (finance?.snapshots ?? []).map((snapshot) => ({
       dateKey: snapshot.dateKey,
@@ -152,10 +185,22 @@ export default function AnalyticsOverviewClient() {
 
         <header className="analytics-masthead">
           <div>
-            <div className="analytics-eyebrow">Portfolio Intelligence</div>
-            <h1 className="analytics-heading">Analytics</h1>
+            <div className="analytics-eyebrow">Your collecting season</div>
+            <h1 className="analytics-heading">Collector Pulse</h1>
             <div className="analytics-subtitle">
-              Your VCS portfolio, competition, collection analysis, finances, and box performance in one place.
+              Watch your collection grow, chase today's leaderboard, and pick your next move.
+              Numbers follow your in-game activity; refresh your valuation only when you need it.
+            </div>
+            <div className="analytics-refresh-controls">
+              <button
+                type="button"
+                className="analytics-refresh-button"
+                onClick={() => void refreshMyPortfolio()}
+                disabled={refreshBusy}
+              >
+                {refreshBusy ? "Revaluing…" : "Revalue my collection"}
+              </button>
+              {refreshNotice && <span role="status" className="analytics-refresh-notice">{refreshNotice}</span>}
             </div>
           </div>
         </header>
@@ -192,8 +237,8 @@ export default function AnalyticsOverviewClient() {
               <div className="analytics-panel">
                 <div className="analytics-climb-head">
                   <div className="analytics-eyebrow">Today's Climb</div>
-                  <div className="analytics-section-title" style={{ marginTop: 4 }}>Daily Net Worth Challenge</div>
-                  <div className="analytics-section-copy">Midnight to midnight · Central Time</div>
+                  <div className="analytics-section-title" style={{ marginTop: 4 }}>The Daily Climb</div>
+                  <div className="analytics-section-copy">Your score is today's net worth gain · Central Time</div>
                 </div>
 
                 <div className="analytics-climb-list">
@@ -222,6 +267,41 @@ export default function AnalyticsOverviewClient() {
               </div>
             </section>
 
+            <section className="analytics-section analytics-pulse-grid" aria-label="Your collecting challenges">
+              <div className="analytics-panel analytics-pulse-card">
+                <div className="analytics-eyebrow">Your position</div>
+                <div className="analytics-pulse-value">
+                  {me ? `#${me.rank}` : "—"}
+                  <span> / {climb.rows.length} collectors</span>
+                </div>
+                <div className="analytics-section-copy">
+                  {me?.rank === 1
+                    ? "You're leading today's climb. Hold the top spot!"
+                    : nextRival
+                      ? `Gain ${money(pointsToPass)} more today to pass ${nextRival.label}.`
+                      : "Your first move is waiting for you."}
+                </div>
+              </div>
+              <div className="analytics-panel analytics-pulse-card">
+                <div className="analytics-eyebrow">Win streak</div>
+                <div className="analytics-pulse-value">{me?.winStreak ?? 0} <span>days</span></div>
+                <div className="analytics-section-copy">
+                  {me?.winStreak
+                    ? "Keep the streak alive with another big collecting day."
+                    : "Win a daily climb to start your streak."}
+                </div>
+              </div>
+              <div className="analytics-panel analytics-pulse-card">
+                <div className="analytics-eyebrow">Collector to beat</div>
+                <div className="analytics-pulse-rival">{currentLeader?.label ?? "No leader yet"}</div>
+                <div className="analytics-section-copy">
+                  {currentLeader
+                    ? `${signedMoney(currentLeader.gainCents)} today · ${currentLeader.monthlyWins} monthly wins`
+                    : "The leaderboard is ready for its first contender."}
+                </div>
+              </div>
+            </section>
+
             <section className="analytics-section analytics-panel">
               <div className="analytics-section-head" style={{ padding: "13px 15px 0" }}>
                 <div>
@@ -238,16 +318,16 @@ export default function AnalyticsOverviewClient() {
             <section className="analytics-section">
               <div className="analytics-link-grid">
                 <Link href="/analytics/collection" className="analytics-link-card">
-                  <div className="analytics-link-title">Collection Analytics →</div>
-                  <div className="analytics-link-copy">Explore value and ownership by player, team, set, brand, year, or sport and compare collectors.</div>
+                  <div className="analytics-link-title">Hunt the collection →</div>
+                  <div className="analytics-link-copy">Find your strongest players, sets, and cards. Compare a rival when you're ready.</div>
                 </Link>
                 <Link href="/analytics/finances" className="analytics-link-card">
-                  <div className="analytics-link-title">Finances →</div>
-                  <div className="analytics-link-copy">Follow portfolio growth, cash flow, spending categories, and transaction activity.</div>
+                  <div className="analytics-link-title">Follow your fortune →</div>
+                  <div className="analytics-link-copy">See how your portfolio and cash flow evolve without guessing where the value went.</div>
                 </Link>
                 <Link href="/analytics/boxes" className="analytics-link-card">
-                  <div className="analytics-link-title">Box Portfolio →</div>
-                  <div className="analytics-link-copy">Track active rips, completed box ROI, profit, and product performance.</div>
+                  <div className="analytics-link-title">Relive your best boxes →</div>
+                  <div className="analytics-link-copy">Track wins, losses, and the cards that made a rip memorable.</div>
                 </Link>
               </div>
             </section>
