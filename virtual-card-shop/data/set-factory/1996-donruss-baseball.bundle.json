@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/654/1996-Donruss",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/654/1996-Donruss",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/654/1996-Donruss",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1996_Donruss",
+    "supportingChecklist": "https://keymancollectibles.com/baseballcards/donruss/1996donrussbaseballcardchecklist.htm",
+    "note": "550 numbered base cards in two series; nine insert checklists, Press Proofs, and die-cut Power Alley. Promos excluded."
+  },
+  "decisions": {
+    "baseStructure": "Series 1 #1-330 and Series 2 #331-550 combined into one 550-card base ProductSet, equal base probability.",
+    "canonicalPackFormat": "VCS one standard four-card pack; 36 packs per box follows Series 1 hobby distribution. Series 2 boxes had 18 packs.",
+    "packChannelAbstraction": "Original hobby/retail and two-series insert channels are represented in one VCS pack; historical single-channel odds are recorded where verifiable, mixed-series odds left null.",
+    "parallelStructure": "550 Press Proofs derived from Base; 10 Power Alley Die Cuts derived from the Power Alley insert.",
+    "trueRookieNaming": "Only the 13 TCDB rookie-indexed base card numbers receive RC. Rated Rookie RR alone is not treated as a true RC.",
+    "checklistHandling": "Seven numbered base checklists and Diamond Kings DK-31 use a clean Checklist subject, empty team, and featured subject in Variant where appropriate.",
+    "teamHandling": "Team names checked against contemporary sets and manually resolved for trades and missing names. #399 Kevin Brown uses the 1996 Marlins club instead of an apparent Orioles reference error; images pending review.",
+    "excludedRelatedItems": "Pre-release/promotional sets are omitted; pack-issued inserts and the two relevant parallels are included.",
+    "releaseSafety": "Images and pricing remain pending; historical mixed-series odds require review before release."
+  },
+  "product": {
+    "id": "1996_Donruss_Baseball",
+    "year": 1996,
+    "brand": "Donruss",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED_AFTER_GENERATION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1996-donruss-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1996_Donruss_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/654/1996-Donruss",
+      "expectedCards": 550,
+      "notes": "Complete Series 1 #1-330 and Series 2 #331-550 combined equally in one base pool."
+    },
+    {
+      "key": "press-proofs",
+      "id": "1996_Donruss_Baseball_Press_Proofs",
+      "name": "Press Proofs",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/56657/1996-Donruss---Press-Proofs",
+      "expectedCards": 550,
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Press Proof",
+      "notes": "Full parallel, serial numbered /2000. Series 1 1:12 packs; Series 2 1:10; combined-pack odds require review."
+    },
+    {
+      "key": "diamond-kings",
+      "id": "1996_Donruss_Baseball_Diamond_Kings",
+      "name": "Diamond Kings",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/654/1996-Donruss",
+      "expectedCards": 31,
+      "notes": "DK-1 to DK-31; numbered to 10,000. First 14 were Series 1, last 17 Series 2; published Series 2 odds conflict."
+    },
+    {
+      "key": "elite-series",
+      "id": "1996_Donruss_Baseball_Elite_Series",
+      "name": "Elite Series",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/654/1996-Donruss",
+      "expectedCards": 12,
+      "notes": "#61-72; numbered to 10,000. Series 1 and 2 had different odds (1:75 and 1:40)."
+    },
+    {
+      "key": "freeze-frame",
+      "id": "1996_Donruss_Baseball_Freeze_Frame",
+      "name": "Freeze Frame",
+      "kind": "INSERT",
+      "oddsPerPack": 60,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/654/1996-Donruss",
+      "expectedCards": 8,
+      "notes": "Series 2; numbered to 5,000; historically 1:60 packs."
+    },
+    {
+      "key": "hit-list",
+      "id": "1996_Donruss_Baseball_Hit_List",
+      "name": "Hit List",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/654/1996-Donruss",
+      "expectedCards": 16,
+      "notes": "Series 1 #1-8 and Series 2 #9-16; numbered to 10,000; odds differ by series."
+    },
+    {
+      "key": "long-ball-leaders",
+      "id": "1996_Donruss_Baseball_Long_Ball_Leaders",
+      "name": "Long Ball Leaders",
+      "kind": "INSERT",
+      "oddsPerPack": 96,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/654/1996-Donruss",
+      "expectedCards": 8,
+      "notes": "Series 1 retail exclusive, historically 1:96 packs."
+    },
+    {
+      "key": "power-alley",
+      "id": "1996_Donruss_Baseball_Power_Alley",
+      "name": "Power Alley",
+      "kind": "INSERT",
+      "oddsPerPack": 92,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/654/1996-Donruss",
+      "expectedCards": 10,
+      "notes": "Series 1 hobby exclusive, numbered to 5,000; historically 1:92 packs."
+    },
+    {
+      "key": "power-alley-die-cuts",
+      "id": "1996_Donruss_Baseball_Power_Alley_Die_Cuts",
+      "name": "Power Alley Die Cuts",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/654/1996-Donruss",
+      "expectedCards": 10,
+      "deriveCardsFrom": "power-alley",
+      "derivedVariant": "Die Cut",
+      "notes": "Die-cut copies of the Power Alley checklist; first 500 of each player's 5,000 copies. Independent pack odds unverified."
+    },
+    {
+      "key": "pure-power",
+      "id": "1996_Donruss_Baseball_Pure_Power",
+      "name": "Pure Power",
+      "kind": "INSERT",
+      "oddsPerPack": 80,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/654/1996-Donruss",
+      "expectedCards": 8,
+      "notes": "Series 2 retail exclusive, historically 1:80 packs."
+    },
+    {
+      "key": "round-trippers",
+      "id": "1996_Donruss_Baseball_Round_Trippers",
+      "name": "Round Trippers",
+      "kind": "INSERT",
+      "oddsPerPack": 55,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/654/1996-Donruss",
+      "expectedCards": 10,
+      "notes": "Series 2 hobby exclusive, historically 1:55 packs."
+    },
+    {
+      "key": "showdown",
+      "id": "1996_Donruss_Baseball_Showdown",
+      "name": "Showdown",
+      "kind": "INSERT",
+      "oddsPerPack": 105,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/654/1996-Donruss",
+      "expectedCards": 8,
+      "notes": "Series 1; two players per card, historically 1:105 packs."
+    }
+  ]
+}
