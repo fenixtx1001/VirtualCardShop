@@ -7,7 +7,6 @@ import {
   getPctChange,
   shiftDateKey,
 } from "@/lib/analytics-math";
-import { syncDailyPortfolioSnapshot } from "@/lib/portfolio";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -35,12 +34,8 @@ export async function GET() {
       orderBy: [{ name: "asc" }, { email: "asc" }],
     });
 
-    const todaySnapshots = new Map<string, Awaited<ReturnType<typeof syncDailyPortfolioSnapshot>>>();
-
-    for (const user of users) {
-      todaySnapshots.set(user.id, await syncDailyPortfolioSnapshot(prisma, user.id));
-    }
-
+    // Gameplay mutations maintain these snapshots. Reading the competition must
+    // never revalue every collector's entire card collection.
     const historyStart = shiftDateKey(todayKey, -62);
 
     const history = await prisma.financialDailySnapshot.findMany({
@@ -49,6 +44,7 @@ export async function GET() {
         dateKey: { gte: historyStart, lte: todayKey },
         valuationVersion: { gte: 2 },
       },
+      orderBy: { dateKey: "asc" },
       select: {
         userId: true,
         dateKey: true,
@@ -58,8 +54,10 @@ export async function GET() {
     });
 
     const byUserDate = new Map<string, SnapshotLite>();
+    const latestByUser = new Map<string, SnapshotLite>();
     for (const snapshot of history) {
       byUserDate.set(`${snapshot.userId}:${snapshot.dateKey}`, snapshot);
+      latestByUser.set(snapshot.userId, snapshot);
     }
 
     function uniqueWinner(dateKey: string) {
@@ -107,18 +105,24 @@ export async function GET() {
 
     const rows = users
       .map((user) => {
-        const snapshot = todaySnapshots.get(user.id)!;
-        const gainCents = snapshot.closingNetWorthCents - snapshot.openingNetWorthCents;
+        const snapshot = byUserDate.get(`${user.id}:${todayKey}`) ?? null;
+        // No activity today means a zero daily climb, not a portfolio re-scan.
+        const lastSaved = latestByUser.get(user.id) ?? null;
+        const netWorthCents =
+          snapshot?.closingNetWorthCents ?? lastSaved?.closingNetWorthCents ?? 0;
+        const openingNetWorthCents = snapshot?.openingNetWorthCents ?? netWorthCents;
+        const gainCents = snapshot ? delta(snapshot) : 0;
 
         return {
           userId: user.id,
           label: user.name?.trim() || user.email?.trim() || "Collector",
           image: user.image,
           isMe: user.id === me.id,
-          openingNetWorthCents: snapshot.openingNetWorthCents,
-          netWorthCents: snapshot.closingNetWorthCents,
+          openingNetWorthCents,
+          netWorthCents,
           gainCents,
-          gainPct: getPctChange(snapshot.openingNetWorthCents, snapshot.closingNetWorthCents),
+          gainPct: lastSaved ? getPctChange(openingNetWorthCents, netWorthCents) : null,
+          lastUpdatedDateKey: lastSaved?.dateKey ?? null,
           monthlyWins: monthlyWins.get(user.id) ?? 0,
           winStreak: winStreaks.get(user.id) ?? 0,
         };
