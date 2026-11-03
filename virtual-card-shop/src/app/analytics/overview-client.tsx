@@ -185,16 +185,9 @@ export default function AnalyticsOverviewClient() {
   }
 
   const me = climb?.rows.find((row) => row.isMe) ?? null;
-  const nextRival = me && climb ? climb.rows.find((row) => row.rank === me.rank - 1) : null;
-  const pointsToPass = me && nextRival
-    ? Math.max(1, nextRival.gainCents - me.gainCents + 1)
+  const selfTargetCents = climb && me
+    ? Math.max(1, climb.personalBestCents - me.gainCents + 1)
     : 0;
-  const firstPlace = climb?.rows[0] ?? null;
-  const secondPlace = climb?.rows[1] ?? null;
-  const currentLeader = firstPlace && firstPlace.gainCents > 0 &&
-    (!secondPlace || firstPlace.gainCents > secondPlace.gainCents)
-      ? firstPlace
-      : null;
   const trend = useMemo(
     () => (finance?.snapshots ?? []).map((snapshot) => ({
       dateKey: snapshot.dateKey,
@@ -213,8 +206,8 @@ export default function AnalyticsOverviewClient() {
             <div className="analytics-eyebrow">Your collecting season</div>
             <h1 className="analytics-heading">Collector Pulse</h1>
             <div className="analytics-subtitle">
-              Watch your collection grow, chase today's leaderboard, and pick your next move.
-              Numbers follow your in-game activity; refresh your valuation only when you need it.
+              Chase your own best day, then see who won tomorrow. Rival scores and rankings
+              remain hidden until the contest ends so nobody can snipe a known target.
             </div>
             <div className="analytics-refresh-controls">
               <button
@@ -263,25 +256,31 @@ export default function AnalyticsOverviewClient() {
                 <div className="analytics-climb-head">
                   <div className="analytics-eyebrow">Today's Climb</div>
                   <div className="analytics-section-title" style={{ marginTop: 4 }}>The Daily Climb</div>
-                  <div className="analytics-section-copy">Your score is today's net worth gain · Central Time</div>
+                  <div className="analytics-section-copy">Blind competition · Midnight to midnight Central Time</div>
                 </div>
 
                 <div className="analytics-climb-list">
-                  {climb.rows.map((row) => (
-                    <div className="analytics-climb-row" data-me={row.isMe} key={row.userId}>
-                      <div className="analytics-rank">{row.rank}</div>
-                      <div>
-                        <div className="analytics-climb-name">{row.label}{row.isMe ? " · You" : ""}</div>
-                        <div className="analytics-climb-meta">
-                          {row.monthlyWins} win{row.monthlyWins === 1 ? "" : "s"} this month{row.winStreak > 0 ? ` · ${row.winStreak}-day streak` : ""}
-                        </div>
-                      </div>
-                      <div className="analytics-climb-value">
-                        <div className={row.gainCents >= 0 ? "analytics-positive" : "analytics-negative"}>{signedMoney(row.gainCents)}</div>
-                        <div className="analytics-climb-pct">{pct(row.gainPct)}</div>
-                      </div>
+                  <div className="analytics-climb-row" data-me="true">
+                    <div className="analytics-rank">YOU</div>
+                    <div>
+                      <div className="analytics-climb-name">Your daily score</div>
+                      <div className="analytics-climb-meta">Only you can see this until the contest closes</div>
                     </div>
-                  ))}
+                    <div className="analytics-climb-value">
+                      <div className={(me?.gainCents ?? 0) >= 0 ? "analytics-positive" : "analytics-negative"}>
+                        {signedMoney(me?.gainCents ?? 0)}
+                      </div>
+                      <div className="analytics-climb-pct">{pct(me?.gainPct ?? null)}</div>
+                    </div>
+                  </div>
+                  <div className="analytics-climb-row">
+                    <div className="analytics-rank">?</div>
+                    <div>
+                      <div className="analytics-climb-name">Rival scores hidden</div>
+                      <div className="analytics-climb-meta">No live totals, ranking, or amount to pass</div>
+                    </div>
+                    <div className="analytics-climb-value">Sealed</div>
+                  </div>
                 </div>
 
                 <div style={{ padding: "9px 14px", borderTop: "1px solid var(--border-2)", color: "var(--muted)", fontSize: 10, fontWeight: 750 }}>
@@ -294,35 +293,24 @@ export default function AnalyticsOverviewClient() {
 
             <section className="analytics-section analytics-pulse-grid" aria-label="Your collecting challenges">
               <div className="analytics-panel analytics-pulse-card">
-                <div className="analytics-eyebrow">Your position</div>
-                <div className="analytics-pulse-value">
-                  {me ? `#${me.rank}` : "—"}
-                  <span> / {climb.rows.length} collectors</span>
-                </div>
+                <div className="analytics-eyebrow">Beat your best week</div>
+                <div className="analytics-pulse-value">{money(selfTargetCents)} <span>to go</span></div>
                 <div className="analytics-section-copy">
-                  {me?.rank === 1
-                    ? "You're leading today's climb. Hold the top spot!"
-                    : nextRival
-                      ? `Gain ${money(pointsToPass)} more today to pass ${nextRival.label}.`
-                      : "Your first move is waiting for you."}
+                  Your best completed day from the past week was {money(climb.personalBestCents)}.
                 </div>
               </div>
               <div className="analytics-panel analytics-pulse-card">
                 <div className="analytics-eyebrow">Win streak</div>
                 <div className="analytics-pulse-value">{me?.winStreak ?? 0} <span>days</span></div>
                 <div className="analytics-section-copy">
-                  {me?.winStreak
-                    ? "Keep the streak alive with another big collecting day."
-                    : "Win a daily climb to start your streak."}
+                  {me?.monthlyWins ?? 0} completed wins this month.
                 </div>
               </div>
               <div className="analytics-panel analytics-pulse-card">
-                <div className="analytics-eyebrow">Collector to beat</div>
-                <div className="analytics-pulse-rival">{currentLeader?.label ?? "No leader yet"}</div>
+                <div className="analytics-eyebrow">Daily score reveal</div>
+                <div className="analytics-pulse-rival">Midnight Central</div>
                 <div className="analytics-section-copy">
-                  {currentLeader
-                    ? `${signedMoney(currentLeader.gainCents)} today · ${currentLeader.monthlyWins} monthly wins`
-                    : "The leaderboard is ready for its first contender."}
+                  1 a.m. Eastern. Everyone's score stays sealed until the same deadline.
                 </div>
               </div>
             </section>
