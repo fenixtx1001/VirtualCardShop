@@ -99,8 +99,9 @@ export async function GET(req: Request) {
         ? rawRange
         : "TODAY";
 
-    const today = await syncDailyPortfolioSnapshot(prisma, user.id);
-
+    const overviewOnly = url.searchParams.get("view") === "overview";
+    // The overview reads snapshots maintained by gameplay mutations rather
+    // than re-valuing every owned card whenever somebody opens Analytics.
     const allSnapshots = await prisma.financialDailySnapshot.findMany({
       where: { userId: user.id },
       orderBy: { dateKey: "asc" },
@@ -119,6 +120,17 @@ export async function GET(req: Request) {
     const todayKey = getChicagoDateKey();
     const days = rangeDays(range);
     const comparable = allSnapshots.filter((snapshot) => snapshot.valuationVersion >= 2);
+    const latest = comparable.at(-1) ?? null;
+    // An inactive collector has no new daily event, so carry forward the
+    // previous closing balance with zero gain. New accounts are initialized once.
+    const today = comparable.find((snapshot) => snapshot.dateKey === todayKey) ??
+      (latest ? {
+        ...latest,
+        dateKey: todayKey,
+        openingNetWorthCents: latest.closingNetWorthCents,
+        closingNetWorthCents: latest.closingNetWorthCents,
+        netWorthCents: latest.closingNetWorthCents,
+      } : await syncDailyPortfolioSnapshot(prisma, user.id));
 
     const requestedDateKeys =
       range === "ALL"
@@ -143,6 +155,22 @@ export async function GET(req: Request) {
     const startingNetWorthCents = firstSnapshot.openingNetWorthCents;
     const endingNetWorthCents = lastSnapshot.closingNetWorthCents;
     const netWorthChangeCents = endingNetWorthCents - startingNetWorthCents;
+
+    if (overviewOnly) {
+      return NextResponse.json({
+        ok: true,
+        range,
+        summary: {
+          balanceCents: today.balanceCents,
+          collectionValueCents: today.collectionValueCents,
+          sealedValueCents: today.sealedValueCents,
+          netWorthCents: today.closingNetWorthCents,
+          netWorthChangeCents,
+          netWorthChangePct: getPctChange(startingNetWorthCents, endingNetWorthCents),
+        },
+        snapshots: visibleSnapshots,
+      }, { headers: { "Cache-Control": "private, no-store" } });
+    }
 
     const transactions = await prisma.financialTransaction.findMany({
       where: {

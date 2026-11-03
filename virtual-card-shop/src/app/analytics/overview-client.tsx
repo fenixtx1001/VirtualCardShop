@@ -25,6 +25,8 @@ type ClimbResponse = {
   ok: boolean;
   dateKey: string;
   yesterdayWinner: null | { userId: string; label: string; gainCents: number };
+  personalBestCents: number;
+  collectorCount: number;
   rows: {
     rank: number;
     userId: string;
@@ -96,6 +98,9 @@ export default function AnalyticsOverviewClient() {
   const [finance, setFinance] = useState<FinanceResponse | null>(null);
   const [climb, setClimb] = useState<ClimbResponse | null>(null);
   const [error, setError] = useState("");
+  const [reloadVersion, setReloadVersion] = useState(0);
+  const [refreshBusy, setRefreshBusy] = useState(false);
+  const [refreshNotice, setRefreshNotice] = useState("");
 
   useEffect(() => {
     let cancelled = false;
@@ -104,23 +109,42 @@ export default function AnalyticsOverviewClient() {
       setError("");
 
       try {
-        const [financeRes, climbRes] = await Promise.all([
-          fetch("/api/analytics/finances?range=7D", { cache: "no-store" }),
-          fetch("/api/analytics/daily-climb", { cache: "no-store" }),
-        ]);
-
-        const [financeJson, climbJson] = await Promise.all([
-          financeRes.json(),
-          climbRes.json(),
-        ]);
-
-        if (!financeRes.ok || !financeJson?.ok) {
-          throw new Error(financeJson?.error ?? "Couldn't load portfolio analytics.");
+        const res = await fetch("/api/analytics/pulse", { cache: "no-store" });
+        const pulse = await res.json();
+        if (!res.ok || !pulse?.ok) {
+          throw new Error(pulse?.error ?? "Couldn't load Collector Pulse.");
         }
-
-        if (!climbRes.ok || !climbJson?.ok) {
-          throw new Error(climbJson?.error ?? "Couldn't load Daily Climb.");
-        }
+        const p = pulse.portfolio;
+        const c = pulse.challenge;
+        const financeJson = {
+          ok: true,
+          summary: {
+            balanceCents: p.balanceCents,
+            collectionValueCents: p.collectionValueCents,
+            sealedValueCents: p.sealedValueCents,
+            netWorthCents: p.netWorthCents,
+            netWorthChangeCents: p.sevenDayChangeCents,
+            netWorthChangePct: p.sevenDayChangePct,
+          },
+          snapshots: pulse.trend.map((point: { dateKey: string; value: number }) => ({
+            dateKey: point.dateKey,
+            netWorthCents: point.value,
+            closingNetWorthCents: point.value,
+          })),
+        };
+        const climbJson = {
+          ok: true,
+          dateKey: pulse.dateKey,
+          rows: [{
+            userId: "self", label: "You", rank: 0, isMe: true,
+            netWorthCents: p.netWorthCents,
+            gainCents: c.myGainCents, gainPct: c.myGainPct,
+            monthlyWins: c.myMonthlyWins, winStreak: c.myWinStreak,
+          }],
+          personalBestCents: c.personalBestCents,
+          collectorCount: c.collectorCount,
+          yesterdayWinner: c.yesterdayWinner,
+        };
 
         if (cancelled) return;
         setFinance(financeJson);
@@ -134,9 +158,37 @@ export default function AnalyticsOverviewClient() {
 
     void load();
     return () => { cancelled = true; };
-  }, []);
+  }, [reloadVersion]);
+
+  async function refreshMyPortfolio() {
+    setRefreshBusy(true);
+    setRefreshNotice("");
+    try {
+      const res = await fetch("/api/analytics/refresh", {
+        method: "POST",
+        cache: "no-store",
+      });
+      const json = await res.json();
+      if (!res.ok || !json?.ok) {
+        throw new Error(json?.error ?? "Unable to refresh portfolio.");
+      }
+      setRefreshNotice(
+        json.refreshed
+          ? "Your portfolio has been revalued."
+          : "Your values were updated less than a minute ago."
+      );
+      setReloadVersion((version) => version + 1);
+    } catch (err) {
+      setRefreshNotice(err instanceof Error ? err.message : "Unable to refresh portfolio.");
+    } finally {
+      setRefreshBusy(false);
+    }
+  }
 
   const me = climb?.rows.find((row) => row.isMe) ?? null;
+  const selfTargetCents = climb && me
+    ? Math.max(1, climb.personalBestCents - me.gainCents + 1)
+    : 0;
   const trend = useMemo(
     () => (finance?.snapshots ?? []).map((snapshot) => ({
       dateKey: snapshot.dateKey,
@@ -152,10 +204,22 @@ export default function AnalyticsOverviewClient() {
 
         <header className="analytics-masthead">
           <div>
-            <div className="analytics-eyebrow">Portfolio Intelligence</div>
-            <h1 className="analytics-heading">Analytics</h1>
+            <div className="analytics-eyebrow">Your collecting season</div>
+            <h1 className="analytics-heading">Collector Pulse</h1>
             <div className="analytics-subtitle">
-              Your VCS portfolio, competition, collection analysis, finances, and box performance in one place.
+              Chase your own best day, then see who won tomorrow. Rival scores and rankings
+              remain hidden until the contest ends so nobody can snipe a known target.
+            </div>
+            <div className="analytics-refresh-controls">
+              <button
+                type="button"
+                className="analytics-refresh-button"
+                onClick={() => void refreshMyPortfolio()}
+                disabled={refreshBusy}
+              >
+                {refreshBusy ? "Revaluing…" : "Revalue my collection"}
+              </button>
+              {refreshNotice && <span role="status" className="analytics-refresh-notice">{refreshNotice}</span>}
             </div>
           </div>
         </header>
@@ -192,32 +256,62 @@ export default function AnalyticsOverviewClient() {
               <div className="analytics-panel">
                 <div className="analytics-climb-head">
                   <div className="analytics-eyebrow">Today's Climb</div>
-                  <div className="analytics-section-title" style={{ marginTop: 4 }}>Daily Net Worth Challenge</div>
-                  <div className="analytics-section-copy">Midnight to midnight · Central Time</div>
+                  <div className="analytics-section-title" style={{ marginTop: 4 }}>The Daily Climb</div>
+                  <div className="analytics-section-copy">Blind competition · Midnight to midnight Central Time</div>
                 </div>
 
                 <div className="analytics-climb-list">
-                  {climb.rows.map((row) => (
-                    <div className="analytics-climb-row" data-me={row.isMe} key={row.userId}>
-                      <div className="analytics-rank">{row.rank}</div>
-                      <div>
-                        <div className="analytics-climb-name">{row.label}{row.isMe ? " · You" : ""}</div>
-                        <div className="analytics-climb-meta">
-                          {row.monthlyWins} win{row.monthlyWins === 1 ? "" : "s"} this month{row.winStreak > 0 ? ` · ${row.winStreak}-day streak` : ""}
-                        </div>
-                      </div>
-                      <div className="analytics-climb-value">
-                        <div className={row.gainCents >= 0 ? "analytics-positive" : "analytics-negative"}>{signedMoney(row.gainCents)}</div>
-                        <div className="analytics-climb-pct">{pct(row.gainPct)}</div>
-                      </div>
+                  <div className="analytics-climb-row" data-me="true">
+                    <div className="analytics-rank">YOU</div>
+                    <div>
+                      <div className="analytics-climb-name">Your daily score</div>
+                      <div className="analytics-climb-meta">Only you can see this until the contest closes</div>
                     </div>
-                  ))}
+                    <div className="analytics-climb-value">
+                      <div className={(me?.gainCents ?? 0) >= 0 ? "analytics-positive" : "analytics-negative"}>
+                        {signedMoney(me?.gainCents ?? 0)}
+                      </div>
+                      <div className="analytics-climb-pct">{pct(me?.gainPct ?? null)}</div>
+                    </div>
+                  </div>
+                  <div className="analytics-climb-row">
+                    <div className="analytics-rank">?</div>
+                    <div>
+                      <div className="analytics-climb-name">Rival scores hidden</div>
+                      <div className="analytics-climb-meta">No live totals, ranking, or amount to pass</div>
+                    </div>
+                    <div className="analytics-climb-value">Sealed</div>
+                  </div>
                 </div>
 
                 <div style={{ padding: "9px 14px", borderTop: "1px solid var(--border-2)", color: "var(--muted)", fontSize: 10, fontWeight: 750 }}>
                   {climb.yesterdayWinner
                     ? `Yesterday: ${climb.yesterdayWinner.label} won with ${signedMoney(climb.yesterdayWinner.gainCents)}.`
                     : "No positive winner was recorded yesterday."}
+                </div>
+              </div>
+            </section>
+
+            <section className="analytics-section analytics-pulse-grid" aria-label="Your collecting challenges">
+              <div className="analytics-panel analytics-pulse-card">
+                <div className="analytics-eyebrow">Beat your best week</div>
+                <div className="analytics-pulse-value">{money(selfTargetCents)} <span>to go</span></div>
+                <div className="analytics-section-copy">
+                  Your best completed day from the past week was {money(climb.personalBestCents)}.
+                </div>
+              </div>
+              <div className="analytics-panel analytics-pulse-card">
+                <div className="analytics-eyebrow">Win streak</div>
+                <div className="analytics-pulse-value">{me?.winStreak ?? 0} <span>days</span></div>
+                <div className="analytics-section-copy">
+                  {me?.monthlyWins ?? 0} completed wins this month.
+                </div>
+              </div>
+              <div className="analytics-panel analytics-pulse-card">
+                <div className="analytics-eyebrow">Daily score reveal</div>
+                <div className="analytics-pulse-rival">Midnight Central</div>
+                <div className="analytics-section-copy">
+                  1 a.m. Eastern. Everyone's score stays sealed until the same deadline.
                 </div>
               </div>
             </section>
@@ -238,16 +332,16 @@ export default function AnalyticsOverviewClient() {
             <section className="analytics-section">
               <div className="analytics-link-grid">
                 <Link href="/analytics/collection" className="analytics-link-card">
-                  <div className="analytics-link-title">Collection Analytics →</div>
-                  <div className="analytics-link-copy">Explore value and ownership by player, team, set, brand, year, or sport and compare collectors.</div>
+                  <div className="analytics-link-title">Hunt the collection →</div>
+                  <div className="analytics-link-copy">Find your strongest players, sets, and cards. Compare a rival when you're ready.</div>
                 </Link>
                 <Link href="/analytics/finances" className="analytics-link-card">
-                  <div className="analytics-link-title">Finances →</div>
-                  <div className="analytics-link-copy">Follow portfolio growth, cash flow, spending categories, and transaction activity.</div>
+                  <div className="analytics-link-title">Follow your fortune →</div>
+                  <div className="analytics-link-copy">See how your portfolio and cash flow evolve without guessing where the value went.</div>
                 </Link>
                 <Link href="/analytics/boxes" className="analytics-link-card">
-                  <div className="analytics-link-title">Box Portfolio →</div>
-                  <div className="analytics-link-copy">Track active rips, completed box ROI, profit, and product performance.</div>
+                  <div className="analytics-link-title">Relive your best boxes →</div>
+                  <div className="analytics-link-copy">Track wins, losses, and the cards that made a rip memorable.</div>
                 </Link>
               </div>
             </section>
