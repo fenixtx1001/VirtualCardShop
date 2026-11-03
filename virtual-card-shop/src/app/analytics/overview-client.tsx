@@ -134,6 +134,7 @@ export default function AnalyticsOverviewClient() {
         };
         const climbJson = {
           ok: true,
+          dateKey: pulse.dateKey,
           rows: [{
             userId: "self", label: "You", rank: 0, isMe: true,
             netWorthCents: p.netWorthCents,
