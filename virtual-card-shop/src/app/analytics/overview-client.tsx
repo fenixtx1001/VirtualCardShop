@@ -169,7 +169,12 @@ export default function AnalyticsOverviewClient() {
   const pointsToPass = me && nextRival
     ? Math.max(1, nextRival.gainCents - me.gainCents + 1)
     : 0;
-  const currentLeader = climb?.rows[0] ?? null;
+  const firstPlace = climb?.rows[0] ?? null;
+  const secondPlace = climb?.rows[1] ?? null;
+  const currentLeader = firstPlace && firstPlace.gainCents > 0 &&
+    (!secondPlace || firstPlace.gainCents > secondPlace.gainCents)
+      ? firstPlace
+      : null;
   const trend = useMemo(
     () => (finance?.snapshots ?? []).map((snapshot) => ({
       dateKey: snapshot.dateKey,
