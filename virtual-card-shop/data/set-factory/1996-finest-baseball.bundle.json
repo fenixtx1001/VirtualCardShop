@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/670/1996-Finest",
+    "baseChecklistReference": "https://www.radicards.com/baseball/1996-finest-baseball-cards/",
+    "subsetReference": "https://www.midwestcards.com/content/Checklists/Topps/Baseball/Older/1996%20Finest%20Baseball%20-%20Checklist.pdf.pdf",
+    "rookiesReference": "https://www.tcdb.com/Rookies.cfm/sid/670/1996-Finest",
+    "insertsReference": "https://www.tcdb.com/Inserts.cfm/sid/670/1996-Finest",
+    "note": "The generator fetches Radicards once for card numbers, names and printed color tier. It does not extract TCDB data or images. Teams are reconciled from local 1996 VCS datasets with manually researched card-specific overrides."
+  },
+  "decisions": {
+    "combinePhysicalSeries": true,
+    "physicalSeriesRanges": [
+      "1-191",
+      "192-359"
+    ],
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "One universal VCS pack based on Series 1",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "historicalDistribution": "Original hobby boxes had 24 six-card packs; base bronze, silver, and gold were distributed at different frequencies. VCS flattens all 359 base cards for set completion.",
+    "baseColorCounts": {
+      "Bronze": 220,
+      "Silver": 91,
+      "Gold": 48
+    },
+    "trueRookieHandling": "RC is appended only to the nine numbers independently identified as true rookie cards.",
+    "refractorOdds": "Bronze 1:12, silver 1:48, gold 1:288 historically. One 359-card collector checklist cannot express three color-specific rates with a single integer oddsPerPack; leave odds null pending review.",
+    "excludeSeparatelyIssuedMaterial": "Landmark and Landmark Medallions were limited direct-to-consumer collectibles, not standard pack insertions."
+  },
+  "product": {
+    "id": "1996_Finest_Baseball",
+    "year": 1996,
+    "brand": "Finest",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1996-finest-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1996_Finest_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 359,
+      "sourceUrl": "https://www.radicards.com/baseball/1996-finest-baseball-cards/",
+      "notes": "One equally weighted 1-359 checklist, including two teamless checklists. Color tier and thematic subset are retained on each card."
+    },
+    {
+      "key": "refractors",
+      "id": "1996_Finest_Baseball_refractors",
+      "name": "Refractors",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "expectedCards": 359,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/671/1996-Finest-Refractors",
+      "notes": "Complete 359-card Refractor checklist; historical color rates were bronze 1:12, silver 1:48, gold 1:288. Effective VCS pool odds pending review."
+    }
+  ]
+}
