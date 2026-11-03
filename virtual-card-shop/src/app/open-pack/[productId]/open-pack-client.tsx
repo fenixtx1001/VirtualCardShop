@@ -217,6 +217,7 @@ export default function OpenPackClient({
   const summaryBusyRef = useRef(false);
   const [gradingCardId, setGradingCardId] = useState<number | null>(null);
   const [gradingAvailable, setGradingAvailable] = useState<number | null>(null);
+  const [gradingBookValue, setGradingBookValue] = useState<number | null>(null);
   const [gradingLoading, setGradingLoading] = useState(false);
   const [gradingError, setGradingError] = useState("");
   const [gradingSubmitting, setGradingSubmitting] = useState(false);
@@ -410,6 +411,7 @@ export default function OpenPackClient({
     gradingFetchRef.current?.abort();
     setGradingCardId(null);
     setGradingAvailable(null);
+    setGradingBookValue(null);
     setGradingLoading(false);
     setGradingError("");
   }
@@ -423,6 +425,7 @@ export default function OpenPackClient({
     gradingFetchRef.current = controller;
     setGradingCardId(cardId);
     setGradingAvailable(null);
+    setGradingBookValue(null);
     setGradingLoading(true);
     setGradingError("");
     try {
@@ -433,6 +436,7 @@ export default function OpenPackClient({
       const payload = (await response.json().catch(() => ({}))) as {
         ok?: boolean;
         error?: string;
+        card?: { bookValue?: number };
         myOwnership?: {
           gradeBreakdown?: Array<{
             grade: number;
@@ -450,7 +454,12 @@ export default function OpenPackClient({
         raw?.availableQuantity ??
         Math.max(0, (raw?.quantity ?? 0) - (raw?.auctionLockedQuantity ?? 0))
       ));
-      if (!controller.signal.aborted) setGradingAvailable(available);
+      if (!controller.signal.aborted) {
+        setGradingAvailable(available);
+        setGradingBookValue(
+          typeof payload.card?.bookValue === "number" ? payload.card.bookValue : null
+        );
+      }
     } catch (error) {
       if (!controller.signal.aborted) {
         setGradingError(error instanceof Error ? error.message : "Unable to load raw copies.");
@@ -475,6 +484,7 @@ export default function OpenPackClient({
     window.dispatchEvent(new Event("vcs:collection-changed"));
     setGradingCardId(null);
     setGradingAvailable(null);
+    setGradingBookValue(null);
     setGradingError("");
   }
 
@@ -536,6 +546,7 @@ export default function OpenPackClient({
     gradingFetchRef.current?.abort();
     setGradingCardId(null);
     setGradingAvailable(null);
+    setGradingBookValue(null);
     setGradingLoading(false);
     setGradingError("");
     setLoading(true);
@@ -5207,7 +5218,7 @@ export default function OpenPackClient({
                                   key={c.id}
                                   cardId={c.id}
                                   rawQuantity={gradingAvailable}
-                                  bookValue={c.bookValue}
+                                  bookValue={gradingBookValue ?? c.bookValue}
                                   player={c.player}
                                   cardNumber={c.cardNumber}
                                   onSubmittingChange={setGradingSubmitting}
