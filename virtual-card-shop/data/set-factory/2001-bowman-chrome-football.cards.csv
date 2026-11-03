@@ -1,0 +1,361 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Emmitt Smith,Dallas Cowboys,Base,
+base,2,James Stewart,Detroit Lions,Base,
+base,3,Jeff Graham,San Diego Chargers,Base,
+base,4,Keyshawn Johnson,Tampa Bay Buccaneers,Base,
+base,5,Stephen Davis,Washington Redskins,Base,
+base,6,Chad Lewis,Philadelphia Eagles,Base,
+base,7,Drew Bledsoe,New England Patriots,Base,
+base,8,Fred Taylor,Jacksonville Jaguars,Base,
+base,9,Mike Anderson,Denver Broncos,Base,
+base,10,Tony Gonzalez,Kansas City Chiefs,Base,
+base,11,Aaron Brooks,New Orleans Saints,Base,
+base,12,Vinny Testaverde,New York Jets,Base,
+base,13,Jerome Bettis,Pittsburgh Steelers,Base,
+base,14,Marshall Faulk,St. Louis Rams,Base,
+base,15,Jeff Garcia,San Francisco 49ers,Base,
+base,16,Terry Glenn,New England Patriots,Base,
+base,17,Jay Fiedler,Miami Dolphins,Base,
+base,18,Ahman Green,Green Bay Packers,Base,
+base,19,Cade McNown,Chicago Bears,Base,
+base,20,Rob Johnson,Buffalo Bills,Base,
+base,21,Jamal Anderson,Atlanta Falcons,Base,
+base,22,Corey Dillon,Cincinnati Bengals,Base,
+base,23,Jake Plummer,Arizona Cardinals,Base,
+base,24,Rod Smith,Denver Broncos,Base,
+base,25,Trent Green,Kansas City Chiefs,Base,
+base,26,Ricky Williams,New Orleans Saints,Base,
+base,27,Charlie Garner,Oakland Raiders,Base,
+base,28,Shaun Alexander,Seattle Seahawks,Base,
+base,29,Jeff George,Washington Redskins,Base,
+base,30,Torry Holt,St. Louis Rams,Base,
+base,31,James Thrash,Philadelphia Eagles,Base,
+base,32,Rich Gannon,Oakland Raiders,Base,
+base,33,Ron Dayne,New York Giants,Base,
+base,34,Dedric Ward,Miami Dolphins,Base,
+base,35,Edgerrin James,Indianapolis Colts,Base,
+base,36,Cris Carter,Minnesota Vikings,Base,
+base,37,Derrick Mason,Tennessee Titans,Base,
+base,38,Brad Johnson,Tampa Bay Buccaneers,Base,
+base,39,Charlie Batch,Detroit Lions,Base,
+base,40,Joey Galloway,Dallas Cowboys,Base,
+base,41,James Allen,Chicago Bears,Base,
+base,42,Tim Biakabutuka,Carolina Panthers,Base,
+base,43,Ray Lewis,Baltimore Ravens,Base,
+base,44,David Boston,Arizona Cardinals,Base,
+base,45,Kevin Johnson,Cleveland Browns,Base,
+base,46,Jimmy Smith,Jacksonville Jaguars,Base,
+base,47,Joe Horn,New Orleans Saints,Base,
+base,48,Terrell Owens,San Francisco 49ers,Base,
+base,49,Eddie George,Tennessee Titans,Base,
+base,50,Brett Favre,Green Bay Packers,Base,
+base,51,Wayne Chrebet,New York Jets,Base,
+base,52,Hines Ward,Pittsburgh Steelers,Base,
+base,53,Warrick Dunn,Tampa Bay Buccaneers,Base,
+base,54,Matt Hasselbeck,Seattle Seahawks,Base,
+base,55,Tiki Barber,New York Giants,Base,
+base,56,Lamar Smith,Miami Dolphins,Base,
+base,57,Tim Couch,Cleveland Browns,Base,
+base,58,Eric Moulds,Buffalo Bills,Base,
+base,59,Shawn Jefferson,Atlanta Falcons,Base,
+base,60,Donald Hayes,Carolina Panthers,Base,
+base,61,Brian Urlacher,Chicago Bears,Base,
+base,62,Steve McNair,Tennessee Titans,Base,
+base,63,Kurt Warner,St. Louis Rams,Base,
+base,64,Tim Brown,Oakland Raiders,Base,
+base,65,Troy Brown,New England Patriots,Base,
+base,66,Albert Connell,New Orleans Saints,Base,
+base,67,Peyton Manning,Indianapolis Colts,Base,
+base,68,Peter Warrick,Cincinnati Bengals,Base,
+base,69,Elvis Grbac,Baltimore Ravens,Base,
+base,70,Chris Chandler,Atlanta Falcons,Base,
+base,71,Akili Smith,Cincinnati Bengals,Base,
+base,72,Keenan McCardell,Jacksonville Jaguars,Base,
+base,73,Kerry Collins,New York Giants,Base,
+base,74,Junior Seau,San Diego Chargers,Base,
+base,75,Donovan McNabb,Philadelphia Eagles,Base,
+base,76,Tony Banks,Dallas Cowboys,Base,
+base,77,Steve Beuerlein,Denver Broncos,Base,
+base,78,Daunte Culpepper,Minnesota Vikings,Base,
+base,79,Darrell Jackson,Seattle Seahawks,Base,
+base,80,Isaac Bruce,St. Louis Rams,Base,
+base,81,Tyrone Wheatley,Oakland Raiders,Base,
+base,82,Derrick Alexander,Kansas City Chiefs,Base,
+base,83,Germane Crowell,Detroit Lions,Base,
+base,84,Jon Kitna,Cincinnati Bengals,Base,
+base,85,Jamal Lewis,Baltimore Ravens,Base,
+base,86,Ed McCaffrey,Denver Broncos,Base,
+base,87,Mark Brunell,Jacksonville Jaguars,Base,
+base,88,Jeff Blake,New Orleans Saints,Base,
+base,89,Duce Staley,Philadelphia Eagles,Base,
+base,90,Doug Flutie,San Diego Chargers,Base,
+base,91,Kordell Stewart,Pittsburgh Steelers,Base,
+base,92,Randy Moss,Minnesota Vikings,Base,
+base,93,Marvin Harrison,Indianapolis Colts,Base,
+base,94,Muhsin Muhammad,Carolina Panthers,Base,
+base,95,Brian Griese,Denver Broncos,Base,
+base,96,Antonio Freeman,Green Bay Packers,Base,
+base,97,Amani Toomer,New York Giants,Base,
+base,98,Oronde Gadsden,Miami Dolphins,Base,
+base,99,Curtis Martin,New York Jets,Base,
+base,100,Jerry Rice,Oakland Raiders,Base,
+base,101,Michael Pittman,Arizona Cardinals,Base,
+base,102,Shannon Sharpe,Baltimore Ravens,Base,
+base,103,Peerless Price,Buffalo Bills,Base,
+base,104,Bill Schroeder,Green Bay Packers,Base,
+base,105,Ike Hilliard,New York Giants,Base,
+base,106,Freddie Jones,San Diego Chargers,Base,
+base,107,Tai Streets,San Francisco 49ers,Base,
+base,108,Ricky Watters,Seattle Seahawks,Base,
+base,109,Az-Zahir Hakim,St. Louis Rams,Base,
+base,110,Jacquez Green,Tampa Bay Buccaneers,Base,
+base,111,George Layne RC,Kansas City Chiefs,Rookie Refractors,Refractor; SN1999
+base,112,Correll Buckhalter RC,Philadelphia Eagles,Rookie Refractors,Refractor; SN1999
+base,113,Tony Stewart RC,Philadelphia Eagles,Rookie Refractors,Refractor; SN1999
+base,114,Chris Barnes RC,Baltimore Ravens,Rookie Refractors,Refractor; SN1999
+base,115,A.J. Feeley RC,Philadelphia Eagles,Rookie Refractors,Refractor; SN1999
+base,116,Margin Hooks RC,Tampa Bay Buccaneers,Rookie Refractors,Refractor; SN1999
+base,117,Anthony Henry RC,Cleveland Browns,Rookie Refractors,Refractor; SN1999
+base,118,Dwight Smith RC,Tampa Bay Buccaneers,Rookie Refractors,Refractor; SN1999
+base,119,Torrance Marshall RC,Green Bay Packers,Rookie Refractors,Refractor; SN1999
+base,120,Gary Baxter RC,Baltimore Ravens,Rookie Refractors,Refractor; SN1999
+base,121,Derek Combs RC,Oakland Raiders,Rookie Refractors,Refractor; SN1999
+base,122,Marcus Bell RC,Arizona Cardinals,Rookie Refractors,Refractor; SN1999
+base,123,DeLawrence Grant RC,Oakland Raiders,Rookie Refractors,Refractor; SN1999
+base,124,Jameel Cook RC,Tampa Bay Buccaneers,Rookie Refractors,Refractor; SN1999
+base,125,Eric Downing RC,Kansas City Chiefs,Rookie Refractors,Refractor; SN1999
+base,126,Marlon McCree RC,Jacksonville Jaguars,Rookie Refractors,Refractor; SN1999
+base,127,Tay Cody RC,San Diego Chargers,Rookie Refractors,Refractor; SN1999
+base,128,Mario Monds RC,Washington Redskins,Rookie Refractors,Refractor; SN1999
+base,129,Kenny Smith RC,New Orleans Saints,Rookie Refractors,Refractor; SN1999
+base,130,Sedrick Hodge RC,New Orleans Saints,Rookie Refractors,Refractor; SN1999
+base,131,Marcus Stroud RC,Jacksonville Jaguars,Rookie Refractors,Refractor; SN1999
+base,132,Steve Smith RC,Carolina Panthers,Rookie Refractors,Refractor; SN1999
+base,133,Tyrone Robertson RC,Buffalo Bills,Rookie Refractors,Refractor; SN1999
+base,134,James Reed RC,New York Jets,Rookie Refractors,Refractor; SN1999
+base,135,Kris Kocurek RC,Seattle Seahawks,Rookie Refractors,Refractor; SN1999
+base,136,Dan O'Leary RC,Buffalo Bills,Rookie Refractors,Refractor; SN1999
+base,137,Harold Blackmon RC,Seattle Seahawks,Rookie Refractors,Refractor; SN1999
+base,138,Fred Smoot RC,Washington Redskins,Rookie Refractors,Refractor; SN1999
+base,139,Billy Baber RC,Kansas City Chiefs,Rookie Refractors,Refractor; SN1999
+base,140,Jarrod Cooper RC,Carolina Panthers,Rookie Refractors,Refractor; SN1999
+base,141,Travis Henry RC,Buffalo Bills,Rookie Refractors,Refractor; SN1999
+base,142,David Terrell RC,Chicago Bears,Rookie Refractors,Refractor; SN1999
+base,143,Josh Heupel RC,Miami Dolphins,Rookie Refractors,Refractor; SN1999
+base,144,Drew Brees RC,San Diego Chargers,Rookie Refractors,Refractor; SN1999
+base,145,T.J. Houshmandzadeh RC,Cincinnati Bengals,Rookie Refractors,Refractor; SN1999
+base,146,Rod Gardner RC,Washington Redskins,Rookie Refractors,Refractor; SN1999
+base,147,Richard Seymour RC,New England Patriots,Rookie Refractors,Refractor; SN1999
+base,148,Koren Robinson RC,Seattle Seahawks,Rookie Refractors,Refractor; SN1999
+base,149,Scotty Anderson RC,Detroit Lions,Rookie Refractors,Refractor; SN1999
+base,150,Marques Tuiasosopo RC,Oakland Raiders,Rookie Refractors,Refractor; SN1999
+base,151,John Capel RC,Chicago Bears,Rookie Refractors,Refractor; SN1999
+base,152,LaMont Jordan RC,New York Jets,Rookie Refractors,Refractor; SN1999
+base,153,James Jackson RC,Cleveland Browns,Rookie Refractors,Refractor; SN1999
+base,154,Bobby Newcombe RC,Arizona Cardinals,Rookie Refractors,Refractor; SN1999
+base,155,Anthony Thomas RC,Chicago Bears,Rookie Refractors,Refractor; SN1999
+base,156,Dan Alexander RC,Tennessee Titans,Rookie Refractors,Refractor; SN1999
+base,157,Quincy Carter RC,Dallas Cowboys,Rookie Refractors,Refractor; SN1999
+base,158,Morlon Greenwood RC,Miami Dolphins,Rookie Refractors,Refractor; SN1999
+base,159,Robert Ferguson RC,Green Bay Packers,Rookie Refractors,Refractor; SN1999
+base,160,Sage Rosenfels RC,Washington Redskins,Rookie Refractors,Refractor; SN1999
+base,161,Michael Stone RC,Arizona Cardinals,Rookie Refractors,Refractor; SN1999
+base,162,Chris Weinke RC,Carolina Panthers,Rookie Refractors,Refractor; SN1999
+base,163,Travis Minor RC,Miami Dolphins,Rookie Refractors,Refractor; SN1999
+base,164,Gerard Warren RC,Cleveland Browns,Rookie Refractors,Refractor; SN1999
+base,165,Jamar Fletcher RC,Miami Dolphins,Rookie Refractors,Refractor; SN1999
+base,166,Andre Carter RC,San Francisco 49ers,Rookie Refractors,Refractor; SN1999
+base,167,Deuce McAllister RC,New Orleans Saints,Rookie Refractors,Refractor; SN1999
+base,168,Dan Morgan RC,Carolina Panthers,Rookie Refractors,Refractor; SN1999
+base,169,Todd Heap RC,Baltimore Ravens,Rookie Refractors,Refractor; SN1999
+base,170,Marvin Minnis RC,Kansas City Chiefs,Rookie Refractors,Refractor; SN1999
+base,171,Will Allen RC,New York Giants,Rookie Refractors,Refractor; SN1999
+base,172,Freddie Mitchell RC,Philadelphia Eagles,Rookie Refractors,Refractor; SN1999
+base,173,Rudi Johnson RC,Cincinnati Bengals,Rookie Refractors,Refractor; SN1999
+base,174,Kevan Barlow RC,San Francisco 49ers,Rookie Refractors,Refractor; SN1999
+base,175,Jamie Winborn RC,San Francisco 49ers,Rookie Refractors,Refractor; SN1999
+base,176,Onome Ojo RC,New Orleans Saints,Rookie Refractors,Refractor; SN1999
+base,177,Leonard Davis RC,Arizona Cardinals,Rookie Refractors,Refractor; SN1999
+base,178,Santana Moss RC,New York Jets,Rookie Refractors,Refractor; SN1999
+base,179,Chris Chambers RC,Miami Dolphins,Rookie Refractors,Refractor; SN1999
+base,180,Michael Vick RC,Atlanta Falcons,Rookie Refractors,Refractor; SN1999
+base,181,Michael Bennett RC,Minnesota Vikings,Rookie Refractors,Refractor; SN1999
+base,182,Mike McMahon RC,Detroit Lions,Rookie Refractors,Refractor; SN1999
+base,183,Jonathan Carter RC,New York Giants,Rookie Refractors,Refractor; SN1999
+base,184,Jamal Reynolds RC,Green Bay Packers,Rookie Refractors,Refractor; SN1999
+base,185,Justin Smith RC,Cincinnati Bengals,Rookie Refractors,Refractor; SN1999
+base,186,Quincy Morgan RC,Cleveland Browns,Rookie Refractors,Refractor; SN1999
+base,187,Chad Johnson RC,Cincinnati Bengals,Rookie Refractors,Refractor; SN1999
+base,188,Jesse Palmer RC,New York Giants,Rookie Refractors,Refractor; SN1999
+base,189,Reggie Wayne RC,Indianapolis Colts,Rookie Refractors,Refractor; SN1999
+base,190,LaDainian Tomlinson RC,San Diego Chargers,Rookie Refractors,Refractor; SN1999
+base,191,Andre King RC,Cleveland Browns,Rookie Refractors,Refractor; SN1999
+base,192,Richmond Flowers RC,Jacksonville Jaguars,Rookie Refractors,Refractor; SN1999
+base,193,Derrick Blaylock RC,Kansas City Chiefs,Rookie Refractors,Refractor; SN1999
+base,194,Cedrick Wilson RC,San Francisco 49ers,Rookie Refractors,Refractor; SN1999
+base,195,Zeke Moreno RC,San Diego Chargers,Rookie Refractors,Refractor; SN1999
+base,196,Tommy Polley RC,St. Louis Rams,Rookie Refractors,Refractor; SN1999
+base,197,Damione Lewis RC,St. Louis Rams,Rookie Refractors,Refractor; SN1999
+base,198,Aaron Schobel RC,Buffalo Bills,Rookie Refractors,Refractor; SN1999
+base,199,Alge Crumpler RC,Atlanta Falcons,Rookie Refractors,Refractor; SN1999
+base,200,Nate Clements RC,Buffalo Bills,Rookie Refractors,Refractor; SN1999
+base,201,Quentin McCord RC,Atlanta Falcons,Rookie Refractors,Refractor; SN1999
+base,202,Ken-Yon Rambo RC,Oakland Raiders,Rookie Refractors,Refractor; SN1999
+base,203,Milton Wynn RC,St. Louis Rams,Rookie Refractors,Refractor; SN1999
+base,204,Derrick Gibson RC,Oakland Raiders,Rookie Refractors,Refractor; SN1999
+base,205,Chris Taylor RC,Pittsburgh Steelers,Rookie Refractors,Refractor; SN1999
+base,206,Corey Hall RC,Atlanta Falcons,Rookie Refractors,Refractor; SN1999
+base,207,Vinny Sutherland RC,Atlanta Falcons,Rookie Refractors,Refractor; SN1999
+base,208,Kendrell Bell RC,Pittsburgh Steelers,Rookie Refractors,Refractor; SN1999
+base,209,Casey Hampton RC,Pittsburgh Steelers,Rookie Refractors,Refractor; SN1999
+base,210,Demetric Evans RC,Dallas Cowboys,Rookie Refractors,Refractor; SN1999
+base,211,Brian Allen RC,St. Louis Rams,Rookie Refractors,Refractor; SN1999
+base,212,Rodney Bailey RC,Pittsburgh Steelers,Rookie Refractors,Refractor; SN1999
+base,213,Otis Leverette RC,Miami Dolphins,Rookie Refractors,Refractor; SN1999
+base,214,Ron Edwards RC,Buffalo Bills,Rookie Refractors,Refractor; SN1999
+base,215,Michael Jameson RC,Cleveland Browns,Rookie Refractors,Refractor; SN1999
+base,216,Markus Steele RC,Dallas Cowboys,Rookie Refractors,Refractor; SN1999
+base,217,Jimmy Williams RC,Buffalo Bills,Rookie Refractors,Refractor; SN1999
+base,218,Roger Knight RC,Pittsburgh Steelers,Rookie Refractors,Refractor; SN1999
+base,219,Randy Garner RC,Atlanta Falcons,Rookie Refractors,Refractor; SN1999
+base,220,Raymond Perryman RC,Oakland Raiders,Rookie Refractors,Refractor; SN1999
+base,221,Karon Riley RC,Chicago Bears,Rookie Refractors,Refractor; SN1999
+base,222,Adam Archuleta RC,St. Louis Rams,Rookie Refractors,Refractor; SN1999
+base,223,Arnold Jackson RC,Arizona Cardinals,Rookie Refractors,Refractor; SN1999
+base,224,Ryan Pickett RC,St. Louis Rams,Rookie Refractors,Refractor; SN1999
+base,225,Shad Meier RC,Tennessee Titans,Rookie Refractors,Refractor; SN1999
+base,226,Reggie Germany RC,Buffalo Bills,Rookie Refractors,Refractor; SN1999
+base,227,Justin McCareins RC,Tennessee Titans,Rookie Refractors,Refractor; SN1999
+base,228,Idrees Bashir RC,Indianapolis Colts,Rookie Refractors,Refractor; SN1999
+base,229,Josh Booty RC,Seattle Seahawks,Rookie Refractors,Refractor; SN1999
+base,230,Eddie Berlin RC,Tennessee Titans,Rookie Refractors,Refractor; SN1999
+base,231,Heath Evans RC,Seattle Seahawks,Rookie Refractors,Refractor; SN1999
+base,232,Alex Bannister RC,Seattle Seahawks,Rookie Refractors,Refractor; SN1999
+base,233,Corey Alston RC,New York Jets,Rookie Refractors,Refractor; SN1999
+base,234,Reggie White RC,New York Jets,Rookie Refractors,Refractor; SN1999
+base,235,Orlando Huff RC,Seattle Seahawks,Rookie Refractors,Refractor; SN1999
+base,236,Ken Lucas RC,Seattle Seahawks,Rookie Refractors,Refractor; SN1999
+base,237,Matt Stewart RC,Atlanta Falcons,Rookie Refractors,Refractor; SN1999
+base,238,Cedric Scott RC,New York Giants,Rookie Refractors,Refractor; SN1999
+base,239,Ronney Daniels RC,New England Patriots,Rookie Refractors,Refractor; SN1999
+base,240,Kevin Kasper RC,Denver Broncos,Rookie Refractors,Refractor; SN1999
+base,241,Tony Driver RC,Buffalo Bills,Rookie Refractors,Refractor; SN1999
+base,242,Kyle Vanden Bosch RC,Arizona Cardinals,Rookie Refractors,Refractor; SN1999
+base,243,T.J. Turner RC,New England Patriots,Rookie Refractors,Refractor; SN1999
+base,244,Eric Westmoreland RC,Jacksonville Jaguars,Rookie Refractors,Refractor; SN1999
+base,245,Ronald Flemons RC,Atlanta Falcons,Rookie Refractors,Refractor; SN1999
+base,246,Eric Kelly RC,Minnesota Vikings,Rookie Refractors,Refractor; SN1999
+base,247,Moran Norris RC,New Orleans Saints,Rookie Refractors,Refractor; SN1999
+base,248,Darnerien McCants RC,Washington Redskins,Rookie Refractors,Refractor; SN1999
+base,249,James Boyd RC,Jacksonville Jaguars,Rookie Refractors,Refractor; SN1999
+base,250,Keith Adams RC,Tennessee Titans,Rookie Refractors,Refractor; SN1999
+base,251,Brandon Manumaleuna RC,St. Louis Rams,Rookie Refractors,Refractor; SN1999
+base,252,Dee Brown RC,Carolina Panthers,Rookie Refractors,Refractor; SN1999
+base,253,Ross Kolodziej RC,New York Giants,Rookie Refractors,Refractor; SN1999
+base,254,"Eddie ""Boo"" Williams RC",New Orleans Saints,Rookie Refractors,Refractor; SN1999
+base,255,Patrick Chukwurah RC,Minnesota Vikings,Rookie Refractors,Refractor; SN1999
+1996-rookies,BRC1,Eric Moulds,Buffalo Bills,1996 Rookies Refractor,Refractor
+1996-rookies,BRC2,Ray Lewis,Baltimore Ravens,1996 Rookies Refractor,Refractor
+1996-rookies,BRC3,Tim Biakabutuka,Carolina Panthers,1996 Rookies Refractor,Refractor
+1996-rookies,BRC4,Eddie George,Houston Oilers,1996 Rookies Refractor,Refractor
+1996-rookies,BRC5,Marvin Harrison,Indianapolis Colts,1996 Rookies Refractor,Refractor
+1996-rookies,BRC6,Joe Horn,Kansas City Chiefs,1996 Rookies Refractor,Refractor
+1996-rookies,BRC7,Muhsin Muhammad,Carolina Panthers,1996 Rookies Refractor,Refractor
+1996-rookies,BRC8,Mike Alstott,Tampa Bay Buccaneers,1996 Rookies Refractor,Refractor
+1996-rookies,BRC9,Amani Toomer,New York Giants,1996 Rookies Refractor,Refractor
+1996-rookies,BRC10,Terrell Owens,San Francisco 49ers,1996 Rookies Refractor,Refractor
+1996-rookies,BRC11,Keyshawn Johnson,New York Jets,1996 Rookies Refractor,Refractor
+1996-rookies,BRC12,Terry Glenn,New England Patriots,1996 Rookies Refractor,Refractor
+1996-rookies,BRC13,Zach Thomas,Miami Dolphins,1996 Rookies Refractor,Refractor
+1996-rookies,BRC14,Stephen Davis,Washington Redskins,1996 Rookies Refractor,Refractor
+1996-rookies,BRC15,La'Roi Glover,Oakland Raiders,1996 Rookies Refractor,Refractor
+autographs,BC-AT,Anthony Thomas,Chicago Bears,Autographs,Autograph
+autographs,BC-BN,Bobby Newcombe,Arizona Cardinals,Autographs,Autograph
+autographs,BC-CC,Chris Chambers,Miami Dolphins,Autographs,Autograph
+autographs,BC-CJ,Chad Johnson,Cincinnati Bengals,Autographs,Autograph
+autographs,BC-CW,Chris Weinke,Carolina Panthers,Autographs,Autograph
+autographs,BC-DA,Dan Alexander,Tennessee Titans,Autographs,Autograph
+autographs,BC-DB,Drew Brees,San Diego Chargers,Autographs,Autograph
+autographs,BC-DBO,David Boston,Arizona Cardinals,Autographs,Autograph
+autographs,BC-DM,Derrick Mason,Tennessee Titans,Autographs,Autograph
+autographs,BC-DM3,Dan Morgan,Carolina Panthers,Autographs,Autograph
+autographs,BC-DT,David Terrell,Chicago Bears,Autographs,Autograph
+autographs,BC-JH,Josh Heupel,Miami Dolphins,Autographs,Autograph
+autographs,BC-JHO,Joe Horn,New Orleans Saints,Autographs,Autograph
+autographs,BC-JJ,James Jackson,Cleveland Browns,Autographs,Autograph
+autographs,BC-JP,Jesse Palmer,New York Giants,Autographs,Autograph
+autographs,BC-KB,Kevan Barlow,San Francisco 49ers,Autographs,Autograph
+autographs,BC-LJ,LaMont Jordan,New York Jets,Autographs,Autograph
+autographs,BC-LT,LaDainian Tomlinson,San Diego Chargers,Autographs,Autograph
+autographs,BC-MB,Michael Bennett,Minnesota Vikings,Autographs,Autograph
+autographs,BC-MV,Michael Vick,Atlanta Falcons,Autographs,Autograph
+autographs,BC-QC,Quincy Carter,Dallas Cowboys,Autographs,Autograph
+autographs,BC-QM,Quincy Morgan,Cleveland Browns,Autographs,Autograph
+autographs,BC-RG,Rod Gardner,Washington Redskins,Autographs,Autograph
+autographs,BC-RGE,Reggie Germany,Buffalo Bills,Autographs,Autograph
+autographs,BC-RW,Reggie Wayne,Indianapolis Colts,Autographs,Autograph
+autographs,BC-SM,Santana Moss,New York Jets,Autographs,Autograph
+autographs,BC-TH,Travis Henry,Buffalo Bills,Autographs,Autograph
+autographs,BC-TM,Travis Minor,Miami Dolphins,Autographs,Autograph
+draft-day-relics,DH-DT,David Terrell,Chicago Bears,Draft Day Relics,Draft day worn hat
+draft-day-relics,DH-JS,Justin Smith,Cincinnati Bengals,Draft Day Relics,Draft day worn hat
+draft-day-relics,DH-KW,Kenyatta Walker,Tampa Bay Buccaneers,Draft Day Relics,Draft day worn hat
+draft-day-relics,DH-LD,Leonard Davis,Arizona Cardinals,Draft Day Relics,Draft day worn hat
+draft-day-relics,DH-LT,LaDainian Tomlinson,San Diego Chargers,Draft Day Relics,Draft day worn hat
+draft-day-relics,DH-MV,Michael Vick,Atlanta Falcons,Draft Day Relics,Draft day worn hat
+draft-day-relics,DJ-DT,David Terrell,Chicago Bears,Draft Day Relics,Draft day worn jersey
+draft-day-relics,DJ-JS,Justin Smith,Cincinnati Bengals,Draft Day Relics,Draft day worn jersey
+draft-day-relics,DJ-KW,Kenyatta Walker,Tampa Bay Buccaneers,Draft Day Relics,Draft day worn jersey
+draft-day-relics,DJ-LD,Leonard Davis,Arizona Cardinals,Draft Day Relics,Draft day worn jersey
+draft-day-relics,DJ-LT,LaDainian Tomlinson,San Diego Chargers,Draft Day Relics,Draft day worn jersey
+draft-day-relics,DJ-MV,Michael Vick,Atlanta Falcons,Draft Day Relics,Draft day worn jersey
+mini-helmet-redemptions,1,Champ Bailey,Washington Redskins,Mini Helmet Autographs Redemption,Expired redemption for autographed mini helmet
+mini-helmet-redemptions,2,Derrick Brooks,Tampa Bay Buccaneers,Mini Helmet Autographs Redemption,Expired redemption for autographed mini helmet
+mini-helmet-redemptions,3,Daunte Culpepper,Minnesota Vikings,Mini Helmet Autographs Redemption,Expired redemption for autographed mini helmet
+mini-helmet-redemptions,4,Sam Cowart,Buffalo Bills,Mini Helmet Autographs Redemption,Expired redemption for autographed mini helmet
+mini-helmet-redemptions,5,Jeff Garcia,San Francisco 49ers,Mini Helmet Autographs Redemption,Expired redemption for autographed mini helmet
+mini-helmet-redemptions,6,La'Roi Glover,New Orleans Saints,Mini Helmet Autographs Redemption,Expired redemption for autographed mini helmet
+mini-helmet-redemptions,7,Martin Gramatica,Tampa Bay Buccaneers,Mini Helmet Autographs Redemption,Expired redemption for autographed mini helmet
+mini-helmet-redemptions,8,Jevon Kearse,Tennessee Titans,Mini Helmet Autographs Redemption,Expired redemption for autographed mini helmet
+mini-helmet-redemptions,9,Brian Urlacher,Chicago Bears,Mini Helmet Autographs Redemption,Expired redemption for autographed mini helmet
+mini-helmet-redemptions,10,Ricky Williams,New Orleans Saints,Mini Helmet Autographs Redemption,Expired redemption for autographed mini helmet
+rookie-relics,BCR-BA,Brian Allen,Florida State Seminoles,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-BJ,Bhawoh Jue,Penn State Nittany Lions,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-DB,Drew Brees,Purdue Boilermakers,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-DBU,Derrick Burgess,Ole Miss Rebels,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-EW,Eric Westmoreland,Tennessee Volunteers,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-JB,Jeff Backus,Michigan Wolverines,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-JC,Jarrod Cooper,Kansas State Wildcats,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-JH,Jabari Holloway,Notre Dame Fighting Irish,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-JHE,Jamie Henderson,Georgia Bulldogs,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-JJ,Jonas Jennings,Georgia Bulldogs,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-JP,Jesse Palmer,Florida Gators,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-KK,Kevin Kasper,Iowa Hawkeyes,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-LJ,LaMont Jordan,Maryland Terrapins,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-LM,Leonard Myers,Miami Hurricanes,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-MF,Mario Fatafehi,Kansas State Wildcats,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-MS,Michael Stone,Memphis Tigers,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-RG,Reggie Germany,Ohio State Buckeyes,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-RW,Reggie Wayne,Miami Hurricanes,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-SH,Steve Hutchinson,Michigan Wolverines,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-SS,Steve Smith,Utah Utes,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-TD,Tony Dixon,Alabama Crimson Tide,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-TS,Tony Stewart,Penn State Nittany Lions,Rookie Relics,Event-worn jersey
+rookie-relics,BCR-ZM,Zeke Moreno,USC Trojans,Rookie Relics,Event-worn jersey
+rookie-reprints,4,Norman Van Brocklin,Los Angeles Rams,Rookie Reprints,Historical rookie-card reprint
+rookie-reprints,5,Y.A. Tittle,Baltimore Colts,Rookie Reprints,Historical rookie-card reprint
+rookie-reprints,6,Lou Groza,Cleveland Browns,Rookie Reprints,Historical rookie-card reprint
+rookie-reprints,8,Alan Ameche,Baltimore Colts,Rookie Reprints,Historical rookie-card reprint
+rookie-reprints,12,Charles Conerly,New York Giants,Rookie Reprints,Historical rookie-card reprint
+rookie-reprints,16,Frank Gifford,New York Giants,Rookie Reprints,Historical rookie-card reprint
+rookie-reprints,21,Bill Howton,Green Bay Packers,Rookie Reprints,Historical rookie-card reprint
+rookie-reprints,22,Sammy Baugh,Washington Redskins,Rookie Reprints,Historical rookie-card reprint
+rookie-reprints,23,Gino Marchetti,Dallas Texans,Rookie Reprints,Historical rookie-card reprint
+rookie-reprints,36,Clyde Turner,Chicago Bears,Rookie Reprints,Historical rookie-card reprint
+rookie-reprints,45,Otto Graham,Cleveland Browns,Rookie Reprints,Historical rookie-card reprint
+rookie-reprints,46,Art Donovan,Dallas Texans,Rookie Reprints,Historical rookie-card reprint
+rookie-reprints,51,Tom Fears,Los Angeles Rams,Rookie Reprints,Historical rookie-card reprint
+rookie-reprints,52,Elroy Hirsch,Los Angeles Rams,Rookie Reprints,Historical rookie-card reprint
+rookie-reprints,91,Emlen Tunnell,New York Giants,Rookie Reprints,Historical rookie-card reprint
+rookie-reprints,107,Sid Luckman,Chicago Bears,Rookie Reprints,Historical rookie-card reprint
+pack-checklist,NNO,Checklist,,Checklist,
