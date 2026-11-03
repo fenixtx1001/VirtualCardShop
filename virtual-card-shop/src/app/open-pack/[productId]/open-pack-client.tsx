@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import { binderHref } from "@/lib/collection/set-view-links";
+import SubmitForGradingButton from "@/components/grading/SubmitForGradingButton";
 import {
   PointerEvent as ReactPointerEvent,
   useEffect,
@@ -49,7 +50,13 @@ type PackMeta = {
 };
 
 type SummaryAction = "auction" | "offer";
-type SummaryActionFeedback = { auctions: number; offerActive: boolean; message: string; error: boolean };
+type SummaryActionFeedback = {
+  auctions: number;
+  gradingSubmitted: number;
+  offerActive: boolean;
+  message: string;
+  error: boolean;
+};
 type CardMotion = "next" | "prev" | null;
 type SwipeCommit = "next" | "prev" | null;
 
@@ -208,6 +215,13 @@ export default function OpenPackClient({
   const [summaryBusy, setSummaryBusy] = useState<{ cardId: number; action: SummaryAction } | null>(null);
   const [summaryFeedback, setSummaryFeedback] = useState<Record<number, SummaryActionFeedback>>({});
   const summaryBusyRef = useRef(false);
+  const [gradingCardId, setGradingCardId] = useState<number | null>(null);
+  const [gradingAvailable, setGradingAvailable] = useState<number | null>(null);
+  const [gradingLoading, setGradingLoading] = useState(false);
+  const [gradingError, setGradingError] = useState("");
+  const [gradingSubmitting, setGradingSubmitting] = useState(false);
+  const gradingFetchRef = useRef<AbortController | null>(null);
+  useEffect(() => () => gradingFetchRef.current?.abort(), []);
 
   const [opened, setOpened] = useState(false);
   const [idx, setIdx] = useState(0);
@@ -391,9 +405,83 @@ export default function OpenPackClient({
     return "neutral";
   }, [opened, packDelta]);
 
+  function closeGradingPanel() {
+    if (gradingSubmitting) return;
+    gradingFetchRef.current?.abort();
+    setGradingCardId(null);
+    setGradingAvailable(null);
+    setGradingLoading(false);
+    setGradingError("");
+  }
+
+  // The rip-time "Own" count includes copies no longer available.
+  // Look up the current raw, unlocked balance before opening the grading form.
+  async function openGradingPanel(cardId: number) {
+    if (gradingSubmitting || summaryBusyRef.current) return;
+    gradingFetchRef.current?.abort();
+    const controller = new AbortController();
+    gradingFetchRef.current = controller;
+    setGradingCardId(cardId);
+    setGradingAvailable(null);
+    setGradingLoading(true);
+    setGradingError("");
+    try {
+      const response = await fetch(
+        "/api/cards/" + encodeURIComponent(String(cardId)) + "/population",
+        { signal: controller.signal, cache: "no-store" }
+      );
+      const payload = (await response.json().catch(() => ({}))) as {
+        ok?: boolean;
+        error?: string;
+        myOwnership?: {
+          gradeBreakdown?: Array<{
+            grade: number;
+            quantity?: number;
+            auctionLockedQuantity?: number;
+            availableQuantity?: number;
+          }>;
+        };
+      };
+      if (!response.ok || !payload.ok) {
+        throw new Error(payload.error || "Unable to check available raw copies.");
+      }
+      const raw = payload.myOwnership?.gradeBreakdown?.find(row => row.grade === 0);
+      const available = Math.max(0, Math.floor(
+        raw?.availableQuantity ??
+        Math.max(0, (raw?.quantity ?? 0) - (raw?.auctionLockedQuantity ?? 0))
+      ));
+      if (!controller.signal.aborted) setGradingAvailable(available);
+    } catch (error) {
+      if (!controller.signal.aborted) {
+        setGradingError(error instanceof Error ? error.message : "Unable to load raw copies.");
+      }
+    } finally {
+      if (!controller.signal.aborted) setGradingLoading(false);
+    }
+  }
+
+  function handleGradingSubmitted(cardId: number, quantity: number) {
+    setSummaryFeedback(previous => ({
+      ...previous,
+      [cardId]: {
+        auctions: previous[cardId]?.auctions ?? 0,
+        gradingSubmitted: (previous[cardId]?.gradingSubmitted ?? 0) + quantity,
+        offerActive: previous[cardId]?.offerActive ?? false,
+        message: "Sent " + quantity + " to grading.",
+        error: false,
+      },
+    }));
+    window.dispatchEvent(new Event("vcs:economy-changed"));
+    window.dispatchEvent(new Event("vcs:collection-changed"));
+    setGradingCardId(null);
+    setGradingAvailable(null);
+    setGradingError("");
+  }
+
   // Work directly on the result screen without navigating away from this pack.
   async function runSummaryAction(cardId: number, action: SummaryAction) {
-    if (summaryBusyRef.current) return;
+    if (summaryBusyRef.current || gradingSubmitting) return;
+    closeGradingPanel();
     summaryBusyRef.current = true;
     setSummaryBusy({ cardId, action });
     try {
@@ -416,6 +504,7 @@ export default function OpenPackClient({
           ...previous,
           [cardId]: {
             auctions,
+            gradingSubmitted: existing?.gradingSubmitted ?? 0,
             offerActive: action === "offer" ? true : (existing?.offerActive ?? false),
             message: action === "auction"
               ? "Auction created. One raw copy is reserved."
@@ -430,6 +519,7 @@ export default function OpenPackClient({
         ...previous,
         [cardId]: {
           auctions: previous[cardId]?.auctions ?? 0,
+          gradingSubmitted: previous[cardId]?.gradingSubmitted ?? 0,
           offerActive: previous[cardId]?.offerActive ?? false,
           message: error instanceof Error ? error.message : "Action failed.",
           error: true,
@@ -442,6 +532,12 @@ export default function OpenPackClient({
   }
 
   async function openPack() {
+    if (gradingSubmitting || summaryBusyRef.current) return;
+    gradingFetchRef.current?.abort();
+    setGradingCardId(null);
+    setGradingAvailable(null);
+    setGradingLoading(false);
+    setGradingError("");
     setLoading(true);
     setError(null);
     setData(null);
@@ -1860,6 +1956,46 @@ export default function OpenPackClient({
           color: #b6d8ad;
         }
         .summary-card-feedback.error { color: #f0b3a4; }
+        .summary-grading-panel {
+          margin: 7px 0 10px;
+          padding: 10px;
+          background: #1e241f;
+          color: #eeeae1;
+          border: 1px solid #52604e;
+          border-radius: 10px;
+        }
+        .summary-grading-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 9px;
+          margin-bottom: 9px;
+        }
+        .summary-grading-top strong {
+          font-size: 12px;
+          color: #e6d3a4;
+          line-height: 1.4;
+        }
+        .summary-grading-close,
+        .summary-grading-retry {
+          min-height: 36px;
+          padding: 6px 11px;
+          border-radius: 7px;
+          border: 1px solid #55614f;
+          background: #30382e;
+          color: #f1eee6;
+          font: inherit;
+          font-size: 12px;
+          cursor: pointer;
+        }
+        .summary-grading-close:disabled { opacity: .5; cursor: not-allowed; }
+        .summary-grading-status {
+          margin: 4px 0;
+          color: #d4d7ca;
+          font-size: 12px;
+          line-height: 1.5;
+        }
+        .summary-grading-status.error { color: #f0b3a4; }
         @media (max-width: 560px) {
           .summary-card-menu { top: 43px; right: 9px; }
           .summary-card-item .summary-card-value { padding-bottom: 20px; }
@@ -4355,7 +4491,7 @@ export default function OpenPackClient({
                     <button
                       className="btn primary"
                       onClick={openPack}
-                      disabled={loading || !!summaryBusy || !productId}
+                      disabled={loading || !!summaryBusy || gradingSubmitting || !productId}
                     >
                       {loading ? "Opening…" : "Open 1 Pack"}
                     </button>
@@ -4993,7 +5129,7 @@ export default function OpenPackClient({
                               <Link href={"/cards/" + c.id}>Card Details</Link>
                               <button
                                 type="button"
-                                disabled={!!summaryBusy || !!summaryFeedback[c.id]?.offerActive}
+                                disabled={!!summaryBusy || gradingSubmitting || !!summaryFeedback[c.id]?.offerActive}
                                 onClick={(event) => {
                                   event.currentTarget.closest("details")?.removeAttribute("open");
                                   void runSummaryAction(c.id, "offer");
@@ -5007,7 +5143,7 @@ export default function OpenPackClient({
                               </button>
                               <button
                                 type="button"
-                                disabled={!!summaryBusy}
+                                disabled={!!summaryBusy || gradingSubmitting}
                                 onClick={(event) => {
                                   event.currentTarget.closest("details")?.removeAttribute("open");
                                   void runSummaryAction(c.id, "auction");
@@ -5017,8 +5153,69 @@ export default function OpenPackClient({
                                   ? "Creating Auction…"
                                   : "Create Auction"}
                               </button>
+                              <button
+                                type="button"
+                                disabled={!!summaryBusy || gradingSubmitting}
+                                onClick={event => {
+                                  event.currentTarget.closest("details")?.removeAttribute("open");
+                                  void openGradingPanel(c.id);
+                                }}
+                              >
+                                Submit to Grading
+                              </button>
                             </div>
                           </details>
+                          {gradingCardId === c.id ? (
+                            <section
+                              className="summary-grading-panel"
+                              aria-label={"Grade " + c.player + " from pack summary"}
+                            >
+                              <div className="summary-grading-top">
+                                <strong>Grade #{c.cardNumber} — {c.player}</strong>
+                                <button
+                                  className="summary-grading-close"
+                                  type="button"
+                                  disabled={gradingSubmitting}
+                                  onClick={closeGradingPanel}
+                                >
+                                  Close ×
+                                </button>
+                              </div>
+                              {gradingLoading ? (
+                                <p className="summary-grading-status" role="status">
+                                  Checking available raw copies…
+                                </p>
+                              ) : gradingError ? (
+                                <div>
+                                  <p className="summary-grading-status error" role="alert">
+                                    {gradingError}
+                                  </p>
+                                  <button
+                                    className="summary-grading-retry"
+                                    type="button"
+                                    onClick={() => void openGradingPanel(c.id)}
+                                  >
+                                    Retry
+                                  </button>
+                                </div>
+                              ) : gradingAvailable === 0 ? (
+                                <p className="summary-grading-status">
+                                  No raw copies available to grade. Auction-listed copies are reserved.
+                                </p>
+                              ) : gradingAvailable !== null ? (
+                                <SubmitForGradingButton
+                                  key={c.id}
+                                  cardId={c.id}
+                                  rawQuantity={gradingAvailable}
+                                  bookValue={c.bookValue}
+                                  player={c.player}
+                                  cardNumber={c.cardNumber}
+                                  onSubmittingChange={setGradingSubmitting}
+                                  onSubmitted={quantity => handleGradingSubmitted(c.id, quantity)}
+                                />
+                              ) : null}
+                            </section>
+                          ) : null}
                           {summaryFeedback[c.id]?.message ? (
                             <div
                               className={cx("summary-card-feedback", summaryFeedback[c.id].error && "error")}
@@ -5032,6 +5229,9 @@ export default function OpenPackClient({
                                         + (summaryFeedback[c.id].auctions === 1 ? " copy" : " copies")
                                       : null,
                                     summaryFeedback[c.id].offerActive ? "Offer active" : null,
+                                    summaryFeedback[c.id].gradingSubmitted > 0
+                                      ? "Sent " + summaryFeedback[c.id].gradingSubmitted + " to grading"
+                                      : null,
                                   ].filter(Boolean).join(" · ") || summaryFeedback[c.id].message}
                             </div>
                           ) : null}
@@ -5044,7 +5244,7 @@ export default function OpenPackClient({
                     <button
                       className="btn primary"
                       onClick={openPack}
-                      disabled={loading || !!summaryBusy || !productId}
+                      disabled={loading || !!summaryBusy || gradingSubmitting || !productId}
                     >
                       {loading ? "Opening…" : "Open Another"}
                     </button>
