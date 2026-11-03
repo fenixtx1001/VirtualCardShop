@@ -25,6 +25,8 @@ type ClimbResponse = {
   ok: boolean;
   dateKey: string;
   yesterdayWinner: null | { userId: string; label: string; gainCents: number };
+  personalBestCents: number;
+  collectorCount: number;
   rows: {
     rank: number;
     userId: string;
@@ -107,23 +109,41 @@ export default function AnalyticsOverviewClient() {
       setError("");
 
       try {
-        const [financeRes, climbRes] = await Promise.all([
-          fetch("/api/analytics/finances?range=7D&view=overview", { cache: "no-store" }),
-          fetch("/api/analytics/daily-climb", { cache: "no-store" }),
-        ]);
-
-        const [financeJson, climbJson] = await Promise.all([
-          financeRes.json(),
-          climbRes.json(),
-        ]);
-
-        if (!financeRes.ok || !financeJson?.ok) {
-          throw new Error(financeJson?.error ?? "Couldn't load portfolio analytics.");
+        const res = await fetch("/api/analytics/pulse", { cache: "no-store" });
+        const pulse = await res.json();
+        if (!res.ok || !pulse?.ok) {
+          throw new Error(pulse?.error ?? "Couldn't load Collector Pulse.");
         }
-
-        if (!climbRes.ok || !climbJson?.ok) {
-          throw new Error(climbJson?.error ?? "Couldn't load Daily Climb.");
-        }
+        const p = pulse.portfolio;
+        const c = pulse.challenge;
+        const financeJson = {
+          ok: true,
+          summary: {
+            balanceCents: p.balanceCents,
+            collectionValueCents: p.collectionValueCents,
+            sealedValueCents: p.sealedValueCents,
+            netWorthCents: p.netWorthCents,
+            netWorthChangeCents: p.sevenDayChangeCents,
+            netWorthChangePct: p.sevenDayChangePct,
+          },
+          snapshots: pulse.trend.map((point: { dateKey: string; value: number }) => ({
+            dateKey: point.dateKey,
+            netWorthCents: point.value,
+            closingNetWorthCents: point.value,
+          })),
+        };
+        const climbJson = {
+          ok: true,
+          rows: [{
+            userId: "self", label: "You", rank: 0, isMe: true,
+            netWorthCents: p.netWorthCents,
+            gainCents: c.myGainCents, gainPct: c.myGainPct,
+            monthlyWins: c.myMonthlyWins, winStreak: c.myWinStreak,
+          }],
+          personalBestCents: c.personalBestCents,
+          collectorCount: c.collectorCount,
+          yesterdayWinner: c.yesterdayWinner,
+        };
 
         if (cancelled) return;
         setFinance(financeJson);
