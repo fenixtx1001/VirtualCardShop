@@ -313,12 +313,12 @@ export async function GET(req: Request) {
       if (compareMode) {
         const aQty =
           compareUserAId
-            ? c.ownerships.find((o) => o.userId === compareUserAId)?.quantity ?? 0
+            ? c.ownerships.filter((o) => o.userId === compareUserAId).reduce((sum, o) => sum + (o.quantity ?? 0), 0)
             : 0;
 
         const bQty =
           compareUserBId
-            ? c.ownerships.find((o) => o.userId === compareUserBId)?.quantity ?? 0
+            ? c.ownerships.filter((o) => o.userId === compareUserBId).reduce((sum, o) => sum + (o.quantity ?? 0), 0)
             : 0;
 
         const aValue = aQty * bookValue;
@@ -355,7 +355,7 @@ export async function GET(req: Request) {
       const ownedQty =
         scope === "all_users"
           ? c.ownerships.reduce((sum, o) => sum + (o.quantity ?? 0), 0)
-          : c.ownerships[0]?.quantity ?? 0;
+          : c.ownerships.reduce((sum, o) => sum + (o.quantity ?? 0), 0);
 
       const ownedValue = ownedQty * bookValue;
 
