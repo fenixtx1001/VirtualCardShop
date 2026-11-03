@@ -48,6 +48,8 @@ type PackMeta = {
   packImageUrl: string | null;
 };
 
+type SummaryAction = "auction" | "offer";
+type SummaryActionFeedback = { auctions: number; offerActive: boolean; message: string; error: boolean };
 type CardMotion = "next" | "prev" | null;
 type SwipeCommit = "next" | "prev" | null;
 
@@ -203,6 +205,9 @@ export default function OpenPackClient({
 
   const [meta, setMeta] = useState<PackMeta | null>(null);
   const [data, setData] = useState<OpenResult | null>(null);
+  const [summaryBusy, setSummaryBusy] = useState<{ cardId: number; action: SummaryAction } | null>(null);
+  const [summaryFeedback, setSummaryFeedback] = useState<Record<number, SummaryActionFeedback>>({});
+  const summaryBusyRef = useRef(false);
 
   const [opened, setOpened] = useState(false);
   const [idx, setIdx] = useState(0);
@@ -386,10 +391,62 @@ export default function OpenPackClient({
     return "neutral";
   }, [opened, packDelta]);
 
+  // Work directly on the result screen without navigating away from this pack.
+  async function runSummaryAction(cardId: number, action: SummaryAction) {
+    if (summaryBusyRef.current) return;
+    summaryBusyRef.current = true;
+    setSummaryBusy({ cardId, action });
+    try {
+      const response = await fetch(
+        action === "auction" ? "/api/auctions/create" : "/api/shop/singles/offers",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(action === "auction" ? { cardId, grade: 0 } : { cardId }),
+        }
+      );
+      const result = (await response.json().catch(() => ({}))) as { error?: string; reused?: boolean };
+      if (!response.ok) {
+        throw new Error(result.error || (action === "auction" ? "Auction creation failed." : "Offer request failed."));
+      }
+      setSummaryFeedback((previous) => {
+        const existing = previous[cardId];
+        const auctions = (existing?.auctions ?? 0) + (action === "auction" ? 1 : 0);
+        return {
+          ...previous,
+          [cardId]: {
+            auctions,
+            offerActive: action === "offer" ? true : (existing?.offerActive ?? false),
+            message: action === "auction"
+              ? "Auction created. One raw copy is reserved."
+              : result.reused ? "Shop offer already active." : "Shop offer requested.",
+            error: false,
+          },
+        };
+      });
+      window.dispatchEvent(new CustomEvent("vcs:economy-changed"));
+    } catch (error) {
+      setSummaryFeedback((previous) => ({
+        ...previous,
+        [cardId]: {
+          auctions: previous[cardId]?.auctions ?? 0,
+          offerActive: previous[cardId]?.offerActive ?? false,
+          message: error instanceof Error ? error.message : "Action failed.",
+          error: true,
+        },
+      }));
+    } finally {
+      summaryBusyRef.current = false;
+      setSummaryBusy(null);
+    }
+  }
+
   async function openPack() {
     setLoading(true);
     setError(null);
     setData(null);
+    setSummaryFeedback({});
+    setSummaryBusy(null);
     setOpened(false);
     setIdx(0);
     setFlipped(false);
@@ -1715,6 +1772,97 @@ export default function OpenPackClient({
 
         .summary-total-value.negative {
           color: #a73b2f;
+        }
+
+        /* Summary actions sit beside the row link, not inside it. */
+        .summary-card-item { position: relative; min-width: 0; }
+        .summary-card-item:has(.summary-card-menu[open]) { z-index: 30; }
+        .summary-card-item .summary-card-value { padding-bottom: 24px; }
+        .summary-card-menu {
+          position: absolute;
+          right: 12px;
+          top: 58px;
+          z-index: 5;
+        }
+        .summary-card-menu[open] { z-index: 31; }
+        .summary-card-menu > summary {
+          list-style: none;
+          cursor: pointer;
+          display: grid;
+          place-items: center;
+          width: 36px;
+          height: 32px;
+          border: 1px solid transparent;
+          border-radius: 7px;
+          background: transparent;
+          color: #d7bb7e;
+          font-size: 18px;
+          font-weight: 850;
+          line-height: 1;
+          user-select: none;
+        }
+        .summary-card-menu > summary::-webkit-details-marker { display: none; }
+        .summary-card-menu > summary:hover,
+        .summary-card-menu[open] > summary,
+        .summary-card-menu > summary:focus-visible {
+          background: #343c33;
+          border-color: #526050;
+          outline-offset: 2px;
+        }
+        .summary-card-menu-options {
+          position: absolute;
+          right: 0;
+          top: calc(100% + 4px);
+          min-width: 190px;
+          padding: 5px;
+          border-radius: 10px;
+          border: 1px solid #546050;
+          background: #283028;
+          box-shadow: 0 12px 28px rgba(0, 0, 0, .48);
+          display: grid;
+          z-index: 32;
+        }
+        .summary-card-menu.align-up .summary-card-menu-options {
+          top: auto;
+          bottom: calc(100% + 4px);
+        }
+        .summary-card-menu-options a,
+        .summary-card-menu-options button {
+          display: block;
+          box-sizing: border-box;
+          width: 100%;
+          padding: 12px 10px;
+          min-height: 42px;
+          border: 0;
+          border-radius: 6px;
+          background: transparent;
+          color: #f1eee5;
+          font: inherit;
+          font-size: 13px;
+          font-weight: 600;
+          text-align: left;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        .summary-card-menu-options a:hover,
+        .summary-card-menu-options button:not(:disabled):hover,
+        .summary-card-menu-options a:focus-visible,
+        .summary-card-menu-options button:focus-visible { background: #3b4639; }
+        .summary-card-menu-options button:disabled {
+          opacity: .50;
+          cursor: not-allowed;
+        }
+        .summary-card-feedback {
+          margin: 5px 4px 0;
+          padding: 0 6px;
+          font-size: 11px;
+          font-weight: 650;
+          color: #b6d8ad;
+        }
+        .summary-card-feedback.error { color: #f0b3a4; }
+        @media (max-width: 560px) {
+          .summary-card-menu { top: 43px; right: 9px; }
+          .summary-card-item .summary-card-value { padding-bottom: 20px; }
         }
 
         .summary-list {
@@ -4207,7 +4355,7 @@ export default function OpenPackClient({
                     <button
                       className="btn primary"
                       onClick={openPack}
-                      disabled={loading || !productId}
+                      disabled={loading || !!summaryBusy || !productId}
                     >
                       {loading ? "Opening…" : "Open 1 Pack"}
                     </button>
@@ -4743,7 +4891,7 @@ export default function OpenPackClient({
                   </div>
 
                   <ol className="summary-list">
-                    {cards.map((c) => {
+                    {cards.map((c, rowIndex) => {
                       const insertLabel = getInsertLabel(c);
                       const insertOddsLabel =
                         getInsertOddsLabel(c);
@@ -4759,7 +4907,7 @@ export default function OpenPackClient({
                       ].filter(Boolean);
 
                       return (
-                        <li key={c.id}>
+                        <li className="summary-card-item" key={String(c.id) + "-" + rowIndex}>
                           <Link
                             href={`/cards/${c.id}`}
                             className="summary-card-link"
@@ -4828,12 +4976,65 @@ export default function OpenPackClient({
                                   Own {c.ownedAfter}
                                 </div>
 
-                                <div className="summary-card-chevron">
-                                  Details →
-                                </div>
+                                {/* Tap the row for Card Details, or use the action menu. */}
                               </div>
                             </div>
                           </Link>
+                          <details
+                            className={cx("summary-card-menu", rowIndex >= cards.length - 2 && "align-up")}
+                          >
+                            <summary
+                              aria-label={"Actions for " + c.player + ", card " + c.cardNumber}
+                              title="Card actions"
+                            >
+                              •••
+                            </summary>
+                            <div className="summary-card-menu-options">
+                              <Link href={"/cards/" + c.id}>Card Details</Link>
+                              <button
+                                type="button"
+                                disabled={!!summaryBusy || !!summaryFeedback[c.id]?.offerActive}
+                                onClick={(event) => {
+                                  event.currentTarget.closest("details")?.removeAttribute("open");
+                                  void runSummaryAction(c.id, "offer");
+                                }}
+                              >
+                                {summaryBusy?.cardId === c.id && summaryBusy.action === "offer"
+                                  ? "Requesting…"
+                                  : summaryFeedback[c.id]?.offerActive
+                                    ? "Offer Active"
+                                    : "Request Offer"}
+                              </button>
+                              <button
+                                type="button"
+                                disabled={!!summaryBusy}
+                                onClick={(event) => {
+                                  event.currentTarget.closest("details")?.removeAttribute("open");
+                                  void runSummaryAction(c.id, "auction");
+                                }}
+                              >
+                                {summaryBusy?.cardId === c.id && summaryBusy.action === "auction"
+                                  ? "Creating Auction…"
+                                  : "Create Auction"}
+                              </button>
+                            </div>
+                          </details>
+                          {summaryFeedback[c.id]?.message ? (
+                            <div
+                              className={cx("summary-card-feedback", summaryFeedback[c.id].error && "error")}
+                              role="status"
+                            >
+                              {summaryFeedback[c.id].error
+                                ? summaryFeedback[c.id].message
+                                : [
+                                    summaryFeedback[c.id].auctions > 0
+                                      ? "Auctioned " + summaryFeedback[c.id].auctions
+                                        + (summaryFeedback[c.id].auctions === 1 ? " copy" : " copies")
+                                      : null,
+                                    summaryFeedback[c.id].offerActive ? "Offer active" : null,
+                                  ].filter(Boolean).join(" · ") || summaryFeedback[c.id].message}
+                            </div>
+                          ) : null}
                         </li>
                       );
                     })}
@@ -4843,7 +5044,7 @@ export default function OpenPackClient({
                     <button
                       className="btn primary"
                       onClick={openPack}
-                      disabled={loading || !productId}
+                      disabled={loading || !!summaryBusy || !productId}
                     >
                       {loading ? "Opening…" : "Open Another"}
                     </button>
