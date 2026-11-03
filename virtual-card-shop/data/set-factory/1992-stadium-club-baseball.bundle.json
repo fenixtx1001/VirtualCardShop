@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/206/1992-Stadium-Club",
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/206/1992-Stadium-Club",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/206/1992-Stadium-Club",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/206/1992-Stadium-Club",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1992_Stadium_Club",
+    "note": "1992 Stadium Club Baseball's 900 intended base subjects across three physical series and the three-card Series Three draft-pick insert. Frozen source rows are in 1992-stadium-club-baseball.source.csv. No card or packaging images are imported."
+  },
+  "decisions": {
+    "collectorChecklistIntegrity": "All 900 intended numbers belong to one Base ProductSet with equal VCS base-card availability. The physical 300-card series divisions are retained in documentation, and the 20 Members' Choice subjects are identified in Subset.",
+    "numberingError": "The Jose Canseco Members' Choice card intended as #597 was printed #370; the regular Jose Canseco #370 is a different card. VCS uses the intended #597 as its distinct completion key and records Printed #370 in Variant. The physical card has two recorded copyright-letter versions; these are collapsed into this one collector slot.",
+    "printerVariations": "Minor letter-in-copyright variations are collapsed to one subject per intended base number. Specific documented uncorrected errors are preserved in Variant and removed from Player.",
+    "rookieNaming": "The TCDB rookie index lists 132 variation records corresponding to 67 unique numbered true rookie cards. Exactly those 67 Base subjects receive RC in Player; the three draft-pick inserts are not inferred to be rookie cards.",
+    "packFormat": "VCS uses the established four-card virtual pack and 36-pack box. Original poly packs contained 15 cards, jumbo packs 23, and each physical series covered a different 300-card range. The one universal VCS pack flattens series availability.",
+    "insertOdds": "The #1 Draft Picks of the '90s three-card set was inserted 1:72 Series Three packs. VCS stores 72 only at the Insert ProductSet level and allows it in its universal pack; the original rate was Series Three specific.",
+    "excludedRelatedItems": "Membership application and BARS explanation are administrative/informational cards. Master Photos 5x7 were mailed to members or included in specially marked Walmart retail boxes. Convention and promotional stamped issues were event distribution, so none are modeled as ordinary VCS pack outcomes.",
+    "releaseSafety": "Product remains unreleased until pack art, card images and prices are reviewed."
+  },
+  "product": {
+    "id": "1992_Stadium_Club_Baseball",
+    "year": 1992,
+    "brand": "Stadium Club",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1992-stadium-club-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1992_Stadium_Club_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/206/1992-Stadium-Club",
+      "expectedCards": 900,
+      "notes": "One #1-900 collector checklist across physical Series 1 (#1-300), 2 (#301-600), and 3 (#601-900). #597 is a synthetic completion key for the Members' Choice card physically printed #370. Nine checklist cards and 67 verified true RCs are included."
+    },
+    {
+      "key": "draft-picks",
+      "id": "1992_Stadium_Club_Baseball_Draft_Picks_90s",
+      "name": "#1 Draft Picks of the '90s",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/207/1992-Stadium-Club-1-Draft-Picks-of-the-90s",
+      "expectedCards": 3,
+      "notes": "Chipper Jones, Brien Taylor, and Phil Nevin. Physical insertion rate 1:72 Series Three packs."
+    }
+  ]
+}
