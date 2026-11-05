@@ -1,0 +1,748 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Mark McGwire,St. Louis Cardinals,,
+base,2,Derek Jeter,New York Yankees,,
+base,3,Nomar Garciaparra,Boston Red Sox,,
+base,4,Travis Lee,Arizona Diamondbacks,,
+base,5,Jeff Bagwell,Houston Astros,,
+base,6,Andres Galarraga,Atlanta Braves,,
+base,7,Pedro Martinez,Boston Red Sox,,
+base,8,"Cal Ripken, Jr.",Baltimore Orioles,,
+base,9,Vladimir Guerrero,Montreal Expos,,
+base,10,Chipper Jones,Atlanta Braves,,
+base,11,Rusty Greer,Texas Rangers,,
+base,12,Omar Vizquel,Cleveland Indians,,
+base,13,Quinton McCracken,Tampa Bay Devil Rays,,
+base,14,Jaret Wright,Cleveland Indians,,
+base,15,Mike Mussina,Baltimore Orioles,,
+base,16,Jason Giambi,Oakland Athletics,,
+base,17,Tony Clark,Detroit Tigers,,
+base,18,Troy O'Leary,Boston Red Sox,,
+base,19,Troy Percival,Anaheim Angels,,
+base,20,Kerry Wood,Chicago Cubs,,
+base,21,Vinny Castilla,Colorado Rockies,,
+base,22,Chris Carpenter,Toronto Blue Jays,,
+base,23,Richie Sexson,Cleveland Indians,,
+base,24,"Ken Griffey, Jr.",Seattle Mariners,,
+base,25,Barry Bonds,San Francisco Giants,,
+base,26,Carlos Delgado,Toronto Blue Jays,,
+base,27,Frank Thomas,Chicago White Sox,,
+base,28,Manny Ramirez,Cleveland Indians,,
+base,29,Shawn Green,Toronto Blue Jays,,
+base,30,Mike Piazza,New York Mets,,
+base,31,Tino Martinez,New York Yankees,,
+base,32,Dante Bichette,Colorado Rockies,,
+base,33,Scott Rolen,Philadelphia Phillies,,
+base,34,Gabe Alvarez,Detroit Tigers,,
+base,35,Raul Mondesi,Los Angeles Dodgers,,
+base,36,Damion Easley,Detroit Tigers,,
+base,37,Jeff Kent,San Francisco Giants,,
+base,38,Al Leiter,New York Mets,,
+base,39,Alex Rodriguez,Seattle Mariners,,
+base,40,Jeff King,Kansas City Royals,,
+base,41,Mark Grace,Chicago Cubs,,
+base,42,Larry Walker,Colorado Rockies,,
+base,43,Moises Alou,Houston Astros,,
+base,44,Juan Gonzalez,Texas Rangers,,
+base,45,Rolando Arrojo,Tampa Bay Devil Rays,,
+base,46,Tom Glavine,Atlanta Braves,,
+base,47,Johnny Damon,Kansas City Royals,,
+base,48,Livan Hernandez,Florida Marlins,,
+base,49,Craig Biggio,Houston Astros,,
+base,50,Dmitri Young,Cincinnati Reds,,
+base,51,Chan Ho Park,Los Angeles Dodgers,,
+base,52,Todd Walker,Minnesota Twins,,
+base,53,Derrek Lee,Florida Marlins,,
+base,54,Todd Helton,Colorado Rockies,,
+base,55,Ray Lankford,St. Louis Cardinals,,
+base,56,Jim Thome,Cleveland Indians,,
+base,57,Matt Lawton,Minnesota Twins,,
+base,58,Matt Anderson,Detroit Tigers,,
+base,59,Jose Offerman,Boston Red Sox,,
+base,60,Eric Karros,Los Angeles Dodgers,,
+base,61,Orlando Hernandez,New York Yankees,,
+base,62,Ben Grieve,Oakland Athletics,,
+base,63,Bobby Abreu,Philadelphia Phillies,,
+base,64,Kevin Young,Pittsburgh Pirates,,
+base,65,John Olerud,New York Mets,,
+base,66,Sammy Sosa,Chicago Cubs,,
+base,67,Andy Ashby,San Diego Padres,,
+base,68,Juan Encarnacion,Detroit Tigers,,
+base,69,Shane Reynolds,Houston Astros,,
+base,70,Bernie Williams,New York Yankees,,
+base,71,Mike Cameron,Cincinnati Reds,,
+base,72,Troy Glaus,Anaheim Angels,,
+base,73,Gary Sheffield,Los Angeles Dodgers,,
+base,74,Jeromy Burnitz,Milwaukee Brewers,,
+base,75,Mike Caruso,Chicago White Sox,,
+base,76,Chuck Knoblauch,New York Yankees,,
+base,77,Kenny Rogers,Oakland Athletics,,
+base,78,David Cone,New York Yankees,,
+base,79,Tony Gwynn,San Diego Padres,,
+base,80,Jay Buhner,Seattle Mariners,,
+base,81,Paul O'Neill,New York Yankees,,
+base,82,Charles Nagy,Cleveland Indians,,
+base,83,Javy Lopez,Atlanta Braves,,
+base,84,Scott Erickson,Baltimore Orioles,,
+base,85,Trevor Hoffman,San Diego Padres,,
+base,86,Andruw Jones,Atlanta Braves,,
+base,87,Ray Durham,Chicago White Sox,,
+base,88,Jorge Posada,New York Yankees,,
+base,89,Edgar Martinez,Seattle Mariners,,
+base,90,Tim Salmon,Anaheim Angels,,
+base,91,Bobby Higginson,Detroit Tigers,,
+base,92,Adrian Beltre,Los Angeles Dodgers,,
+base,93,Jason Kendall,Pittsburgh Pirates,,
+base,94,Henry Rodriguez,Chicago Cubs,,
+base,95,Greg Maddux,Atlanta Braves,,
+base,96,David Justice,Cleveland Indians,,
+base,97,Ivan Rodriguez,Texas Rangers,,
+base,98,Curt Schilling,Philadelphia Phillies,,
+base,99,Matt Williams,Arizona Diamondbacks,,
+base,100,Darin Erstad,Anaheim Angels,,
+base,101,Rafael Palmeiro,Texas Rangers,,
+base,102,David Wells,Toronto Blue Jays,,
+base,103,Barry Larkin,Cincinnati Reds,,
+base,104,Robin Ventura,New York Mets,,
+base,105,Edgar Renteria,St. Louis Cardinals,,
+base,106,Andy Pettitte,New York Yankees,,
+base,107,Albert Belle,Baltimore Orioles,,
+base,108,Steve Finley,Arizona Diamondbacks,,
+base,109,Fernando Vina,Milwaukee Brewers,,
+base,110,Rondell White,Montreal Expos,,
+base,111,Kevin Brown,Los Angeles Dodgers,,
+base,112,Jose Canseco,Tampa Bay Devil Rays,,
+base,113,Roger Clemens,New York Yankees,,
+base,114,Todd Hundley,Los Angeles Dodgers,,
+base,115,Will Clark,Baltimore Orioles,,
+base,116,Jim Edmonds,Anaheim Angels,,
+base,117,Randy Johnson,Arizona Diamondbacks,,
+base,118,Denny Neagle,Cincinnati Reds,,
+base,119,Brian Jordan,Atlanta Braves,,
+base,120,Dean Palmer,Detroit Tigers,,
+base,121,Roberto Alomar,Cleveland Indians,,
+base,122,Ken Caminiti,Houston Astros,,
+base,123,Brian Giles,Pittsburgh Pirates,,
+base,124,Todd Stottlemyre,Arizona Diamondbacks,,
+base,125,Mo Vaughn,Anaheim Angels,,
+base,126,J.D. Drew,St. Louis Cardinals,Rookie,Short-printed Rookie subset
+base,127,Ryan Minor,Baltimore Orioles,Rookie,Short-printed Rookie subset
+base,128,Gabe Kapler,Detroit Tigers,Rookie,Short-printed Rookie subset; UER: Born 8/31/75 on back; actual birth date 7/31/1975
+base,129,Jeremy Giambi,Kansas City Royals,Rookie,Short-printed Rookie subset
+base,130,Eric Chavez,Oakland Athletics,Rookie,Short-printed Rookie subset
+base,131,Ben Davis,San Diego Padres,Rookie,Short-printed Rookie subset
+base,132,Robert Fick,Detroit Tigers,Rookie,Short-printed Rookie subset
+base,133,George Lombard,Atlanta Braves,Rookie,Short-printed Rookie subset
+base,134,Calvin Pickering,Baltimore Orioles,Rookie,Short-printed Rookie subset
+base,135,Preston Wilson,Florida Marlins,Rookie,Short-printed Rookie subset
+base,136,Corey Koskie,Minnesota Twins,Rookie,Short-printed Rookie subset
+base,137,Russell Branyan,Cleveland Indians,Rookie,Short-printed Rookie subset
+base,138,Bruce Chen,Atlanta Braves,Rookie,Short-printed Rookie subset
+base,139,Matt Clement,San Diego Padres,Rookie,Short-printed Rookie subset
+base,140,Pat Burrell RC,Philadelphia Phillies,Rookie,Short-printed Rookie subset
+base,141,Freddy Garcia RC,Seattle Mariners,Rookie,Short-printed Rookie subset
+base,142,Brian Simmons,Chicago White Sox,Rookie,Short-printed Rookie subset
+base,143,Carlos Febles,Kansas City Royals,Rookie,Short-printed Rookie subset
+base,144,Carlos Guillen,Seattle Mariners,Rookie,Short-printed Rookie subset
+base,145,Fernando Seguignol,Montreal Expos,Rookie,Short-printed Rookie subset
+base,146,Carlos Beltran,Kansas City Royals,Rookie,Short-printed Rookie subset
+base,147,Edgard Clemente,Colorado Rockies,Rookie,Short-printed Rookie subset
+base,148,Mitch Meluskey,Houston Astros,Rookie,Short-printed Rookie subset
+base,149,Ryan Bradley,New York Yankees,Rookie,Short-printed Rookie subset
+base,150,Marlon Anderson,Philadelphia Phillies,Rookie,Short-printed Rookie subset
+base,151,A.J. Burnett RC,Florida Marlins,Rookie,Short-printed Rookie subset
+base,152,Scott Hunter RC,New York Mets,Rookie,Short-printed Rookie subset
+base,153,Mark L. Johnson,Chicago White Sox,Rookie,Short-printed Rookie subset
+base,154,Angel Pena,Los Angeles Dodgers,Rookie,Short-printed Rookie subset
+base,155,Roy Halladay,Toronto Blue Jays,Rookie,Short-printed Rookie subset
+base,156,Chad Allen RC,Minnesota Twins,Rookie,Short-printed Rookie subset
+base,157,Trot Nixon,Boston Red Sox,Rookie,Short-printed Rookie subset
+base,158,Ricky Ledee,New York Yankees,Rookie,Short-printed Rookie subset
+base,159,Gary Bennett RC,Philadelphia Phillies,Rookie,Short-printed Rookie subset
+base,160,Micah Bowie RC,Atlanta Braves,Rookie,Short-printed Rookie subset
+base,161,Doug Mientkiewicz RC,Minnesota Twins,Rookie,Short-printed Rookie subset
+base,162,Danny Klassen,Arizona Diamondbacks,Rookie,Short-printed Rookie subset
+base,163,Willis Otanez,Baltimore Orioles,Rookie,Short-printed Rookie subset
+base,164,Jin Ho Cho,Boston Red Sox,Rookie,Short-printed Rookie subset
+base,165,Mike Lowell,Florida Marlins,Rookie,Short-printed Rookie subset
+base,166,Armando Rios,San Francisco Giants,Rookie,Short-printed Rookie subset
+base,167,Warren Morris,Pittsburgh Pirates,Rookie,Short-printed Rookie subset
+base,168,Michael Barrett,Montreal Expos,Rookie,Short-printed Rookie subset
+base,169,Alex Gonzalez,Florida Marlins,Rookie,Short-printed Rookie subset
+base,170,Masao Kida RC,Detroit Tigers,Rookie,Short-printed Rookie subset
+base,171,Peter Tucci,San Diego Padres,Rookie,Short-printed Rookie subset
+base,172,Luis Saturria RC,St. Louis Cardinals,Rookie,Short-printed Rookie subset
+base,173,Kris Benson,Pittsburgh Pirates,Rookie,Short-printed Rookie subset
+base,174,Mario Encarnacion RC,Oakland Athletics,Rookie,Short-printed Rookie subset
+base,175,Roosevelt Brown RC,Chicago Cubs,Rookie,Short-printed Rookie subset
+blue,1B,Mark McGwire,St. Louis Cardinals,,Blue parallel
+blue,2B,Derek Jeter,New York Yankees,,Blue parallel
+blue,3B,Nomar Garciaparra,Boston Red Sox,,Blue parallel
+blue,4B,Travis Lee,Arizona Diamondbacks,,Blue parallel
+blue,5B,Jeff Bagwell,Houston Astros,,Blue parallel
+blue,6B,Andres Galarraga,Atlanta Braves,,Blue parallel
+blue,7B,Pedro Martinez,Boston Red Sox,,Blue parallel
+blue,8B,"Cal Ripken, Jr.",Baltimore Orioles,,Blue parallel
+blue,9B,Vladimir Guerrero,Montreal Expos,,Blue parallel
+blue,10B,Chipper Jones,Atlanta Braves,,Blue parallel
+blue,11B,Rusty Greer,Texas Rangers,,Blue parallel
+blue,12B,Omar Vizquel,Cleveland Indians,,Blue parallel
+blue,13B,Quinton McCracken,Tampa Bay Devil Rays,,Blue parallel
+blue,14B,Jaret Wright,Cleveland Indians,,Blue parallel
+blue,15B,Mike Mussina,Baltimore Orioles,,Blue parallel
+blue,16B,Jason Giambi,Oakland Athletics,,Blue parallel
+blue,17B,Tony Clark,Detroit Tigers,,Blue parallel
+blue,18B,Troy O'Leary,Boston Red Sox,,Blue parallel
+blue,19B,Troy Percival,Anaheim Angels,,Blue parallel
+blue,20B,Kerry Wood,Chicago Cubs,,Blue parallel
+blue,21B,Vinny Castilla,Colorado Rockies,,Blue parallel
+blue,22B,Chris Carpenter,Toronto Blue Jays,,Blue parallel
+blue,23B,Richie Sexson,Cleveland Indians,,Blue parallel
+blue,24B,"Ken Griffey, Jr.",Seattle Mariners,,Blue parallel
+blue,25B,Barry Bonds,San Francisco Giants,,Blue parallel
+blue,26B,Carlos Delgado,Toronto Blue Jays,,Blue parallel
+blue,27B,Frank Thomas,Chicago White Sox,,Blue parallel
+blue,28B,Manny Ramirez,Cleveland Indians,,Blue parallel
+blue,29B,Shawn Green,Toronto Blue Jays,,Blue parallel
+blue,30B,Mike Piazza,New York Mets,,Blue parallel
+blue,31B,Tino Martinez,New York Yankees,,Blue parallel
+blue,32B,Dante Bichette,Colorado Rockies,,Blue parallel
+blue,33B,Scott Rolen,Philadelphia Phillies,,Blue parallel
+blue,34B,Gabe Alvarez,Detroit Tigers,,Blue parallel
+blue,35B,Raul Mondesi,Los Angeles Dodgers,,Blue parallel
+blue,36B,Damion Easley,Detroit Tigers,,Blue parallel
+blue,37B,Jeff Kent,San Francisco Giants,,Blue parallel
+blue,38B,Al Leiter,New York Mets,,Blue parallel
+blue,39B,Alex Rodriguez,Seattle Mariners,,Blue parallel
+blue,40B,Jeff King,Kansas City Royals,,Blue parallel
+blue,41B,Mark Grace,Chicago Cubs,,Blue parallel
+blue,42B,Larry Walker,Colorado Rockies,,Blue parallel
+blue,43B,Moises Alou,Houston Astros,,Blue parallel
+blue,44B,Juan Gonzalez,Texas Rangers,,Blue parallel
+blue,45B,Rolando Arrojo,Tampa Bay Devil Rays,,Blue parallel
+blue,46B,Tom Glavine,Atlanta Braves,,Blue parallel
+blue,47B,Johnny Damon,Kansas City Royals,,Blue parallel
+blue,48B,Livan Hernandez,Florida Marlins,,Blue parallel
+blue,49B,Craig Biggio,Houston Astros,,Blue parallel
+blue,50B,Dmitri Young,Cincinnati Reds,,Blue parallel
+blue,51B,Chan Ho Park,Los Angeles Dodgers,,Blue parallel
+blue,52B,Todd Walker,Minnesota Twins,,Blue parallel
+blue,53B,Derrek Lee,Florida Marlins,,Blue parallel
+blue,54B,Todd Helton,Colorado Rockies,,Blue parallel
+blue,55B,Ray Lankford,St. Louis Cardinals,,Blue parallel
+blue,56B,Jim Thome,Cleveland Indians,,Blue parallel
+blue,57B,Matt Lawton,Minnesota Twins,,Blue parallel
+blue,58B,Matt Anderson,Detroit Tigers,,Blue parallel
+blue,59B,Jose Offerman,Boston Red Sox,,Blue parallel
+blue,60B,Eric Karros,Los Angeles Dodgers,,Blue parallel
+blue,61B,Orlando Hernandez,New York Yankees,,Blue parallel
+blue,62B,Ben Grieve,Oakland Athletics,,Blue parallel
+blue,63B,Bobby Abreu,Philadelphia Phillies,,Blue parallel
+blue,64B,Kevin Young,Pittsburgh Pirates,,Blue parallel
+blue,65B,John Olerud,New York Mets,,Blue parallel
+blue,66B,Sammy Sosa,Chicago Cubs,,Blue parallel
+blue,67B,Andy Ashby,San Diego Padres,,Blue parallel
+blue,68B,Juan Encarnacion,Detroit Tigers,,Blue parallel
+blue,69B,Shane Reynolds,Houston Astros,,Blue parallel
+blue,70B,Bernie Williams,New York Yankees,,Blue parallel
+blue,71B,Mike Cameron,Cincinnati Reds,,Blue parallel
+blue,72B,Troy Glaus,Anaheim Angels,,Blue parallel
+blue,73B,Gary Sheffield,Los Angeles Dodgers,,Blue parallel
+blue,74B,Jeromy Burnitz,Milwaukee Brewers,,Blue parallel
+blue,75B,Mike Caruso,Chicago White Sox,,Blue parallel
+blue,76B,Chuck Knoblauch,New York Yankees,,Blue parallel
+blue,77B,Kenny Rogers,Oakland Athletics,,Blue parallel
+blue,78B,David Cone,New York Yankees,,Blue parallel
+blue,79B,Tony Gwynn,San Diego Padres,,Blue parallel
+blue,80B,Jay Buhner,Seattle Mariners,,Blue parallel
+blue,81B,Paul O'Neill,New York Yankees,,Blue parallel
+blue,82B,Charles Nagy,Cleveland Indians,,Blue parallel
+blue,83B,Javy Lopez,Atlanta Braves,,Blue parallel
+blue,84B,Scott Erickson,Baltimore Orioles,,Blue parallel
+blue,85B,Trevor Hoffman,San Diego Padres,,Blue parallel
+blue,86B,Andruw Jones,Atlanta Braves,,Blue parallel
+blue,87B,Ray Durham,Chicago White Sox,,Blue parallel
+blue,88B,Jorge Posada,New York Yankees,,Blue parallel
+blue,89B,Edgar Martinez,Seattle Mariners,,Blue parallel
+blue,90B,Tim Salmon,Anaheim Angels,,Blue parallel
+blue,91B,Bobby Higginson,Detroit Tigers,,Blue parallel
+blue,92B,Adrian Beltre,Los Angeles Dodgers,,Blue parallel
+blue,93B,Jason Kendall,Pittsburgh Pirates,,Blue parallel
+blue,94B,Henry Rodriguez,Chicago Cubs,,Blue parallel
+blue,95B,Greg Maddux,Atlanta Braves,,Blue parallel
+blue,96B,David Justice,Cleveland Indians,,Blue parallel
+blue,97B,Ivan Rodriguez,Texas Rangers,,Blue parallel
+blue,98B,Curt Schilling,Philadelphia Phillies,,Blue parallel
+blue,99B,Matt Williams,Arizona Diamondbacks,,Blue parallel
+blue,100B,Darin Erstad,Anaheim Angels,,Blue parallel
+blue,101B,Rafael Palmeiro,Texas Rangers,,Blue parallel
+blue,102B,David Wells,Toronto Blue Jays,,Blue parallel
+blue,103B,Barry Larkin,Cincinnati Reds,,Blue parallel
+blue,104B,Robin Ventura,New York Mets,,Blue parallel
+blue,105B,Edgar Renteria,St. Louis Cardinals,,Blue parallel
+blue,106B,Andy Pettitte,New York Yankees,,Blue parallel
+blue,107B,Albert Belle,Baltimore Orioles,,Blue parallel
+blue,108B,Steve Finley,Arizona Diamondbacks,,Blue parallel
+blue,109B,Fernando Vina,Milwaukee Brewers,,Blue parallel
+blue,110B,Rondell White,Montreal Expos,,Blue parallel
+blue,111B,Kevin Brown,Los Angeles Dodgers,,Blue parallel
+blue,112B,Jose Canseco,Tampa Bay Devil Rays,,Blue parallel
+blue,113B,Roger Clemens,New York Yankees,,Blue parallel
+blue,114B,Todd Hundley,Los Angeles Dodgers,,Blue parallel
+blue,115B,Will Clark,Baltimore Orioles,,Blue parallel
+blue,116B,Jim Edmonds,Anaheim Angels,,Blue parallel
+blue,117B,Randy Johnson,Arizona Diamondbacks,,Blue parallel
+blue,118B,Denny Neagle,Cincinnati Reds,,Blue parallel
+blue,119B,Brian Jordan,Atlanta Braves,,Blue parallel
+blue,120B,Dean Palmer,Detroit Tigers,,Blue parallel
+blue,121B,Roberto Alomar,Cleveland Indians,,Blue parallel
+blue,122B,Ken Caminiti,Houston Astros,,Blue parallel
+blue,123B,Brian Giles,Pittsburgh Pirates,,Blue parallel
+blue,124B,Todd Stottlemyre,Arizona Diamondbacks,,Blue parallel
+blue,125B,Mo Vaughn,Anaheim Angels,,Blue parallel
+blue,126B,J.D. Drew,St. Louis Cardinals,Rookie,Blue parallel
+blue,127B,Ryan Minor,Baltimore Orioles,Rookie,Blue parallel
+blue,128B,Gabe Kapler,Detroit Tigers,Rookie,Blue parallel
+blue,129B,Jeremy Giambi,Kansas City Royals,Rookie,Blue parallel
+blue,130B,Eric Chavez,Oakland Athletics,Rookie,Blue parallel
+blue,131B,Ben Davis,San Diego Padres,Rookie,Blue parallel
+blue,132B,Robert Fick,Detroit Tigers,Rookie,Blue parallel
+blue,133B,George Lombard,Atlanta Braves,Rookie,Blue parallel
+blue,134B,Calvin Pickering,Baltimore Orioles,Rookie,Blue parallel
+blue,135B,Preston Wilson,Florida Marlins,Rookie,Blue parallel
+blue,136B,Corey Koskie,Minnesota Twins,Rookie,Blue parallel
+blue,137B,Russell Branyan,Cleveland Indians,Rookie,Blue parallel
+blue,138B,Bruce Chen,Atlanta Braves,Rookie,Blue parallel
+blue,139B,Matt Clement,San Diego Padres,Rookie,Blue parallel
+blue,140B,Pat Burrell,Philadelphia Phillies,Rookie,Blue parallel
+blue,141B,Freddy Garcia,Seattle Mariners,Rookie,Blue parallel
+blue,142B,Brian Simmons,Chicago White Sox,Rookie,Blue parallel
+blue,143B,Carlos Febles,Kansas City Royals,Rookie,Blue parallel
+blue,144B,Carlos Guillen,Seattle Mariners,Rookie,Blue parallel
+blue,145B,Fernando Seguignol,Montreal Expos,Rookie,Blue parallel
+blue,146B,Carlos Beltran,Kansas City Royals,Rookie,Blue parallel
+blue,147B,Edgard Clemente,Colorado Rockies,Rookie,Blue parallel
+blue,148B,Mitch Meluskey,Houston Astros,Rookie,Blue parallel
+blue,149B,Ryan Bradley,New York Yankees,Rookie,Blue parallel
+blue,150B,Marlon Anderson,Philadelphia Phillies,Rookie,Blue parallel
+blue,151B,A.J. Burnett,Florida Marlins,Rookie,Blue parallel
+blue,152B,Scott Hunter,New York Mets,Rookie,Blue parallel
+blue,153B,Mark L. Johnson,Chicago White Sox,Rookie,Blue parallel
+blue,154B,Angel Pena,Los Angeles Dodgers,Rookie,Blue parallel
+blue,155B,Roy Halladay,Toronto Blue Jays,Rookie,Blue parallel
+blue,156B,Chad Allen,Minnesota Twins,Rookie,Blue parallel
+blue,157B,Trot Nixon,Boston Red Sox,Rookie,Blue parallel
+blue,158B,Ricky Ledee,New York Yankees,Rookie,Blue parallel
+blue,159B,Gary Bennett,Philadelphia Phillies,Rookie,Blue parallel
+blue,160B,Micah Bowie,Atlanta Braves,Rookie,Blue parallel
+blue,161B,Doug Mientkiewicz,Minnesota Twins,Rookie,Blue parallel
+blue,162B,Danny Klassen,Arizona Diamondbacks,Rookie,Blue parallel
+blue,163B,Willis Otanez,Baltimore Orioles,Rookie,Blue parallel
+blue,164B,Jin Ho Cho,Boston Red Sox,Rookie,Blue parallel
+blue,165B,Mike Lowell,Florida Marlins,Rookie,Blue parallel
+blue,166B,Armando Rios,San Francisco Giants,Rookie,Blue parallel
+blue,167B,Warren Morris,Pittsburgh Pirates,Rookie,Blue parallel
+blue,168B,Michael Barrett,Montreal Expos,Rookie,Blue parallel
+blue,169B,Alex Gonzalez,Florida Marlins,Rookie,Blue parallel
+blue,170B,Masao Kida,Detroit Tigers,Rookie,Blue parallel
+blue,171B,Peter Tucci,San Diego Padres,Rookie,Blue parallel
+blue,172B,Luis Saturria,St. Louis Cardinals,Rookie,Blue parallel
+blue,173B,Kris Benson,Pittsburgh Pirates,Rookie,Blue parallel
+blue,174B,Mario Encarnacion,Oakland Athletics,Rookie,Blue parallel
+blue,175B,Roosevelt Brown,Chicago Cubs,Rookie,Blue parallel
+gold,1G,Mark McGwire,St. Louis Cardinals,,Serial numbered /99
+gold,2G,Derek Jeter,New York Yankees,,Serial numbered /99
+gold,3G,Nomar Garciaparra,Boston Red Sox,,Serial numbered /99
+gold,4G,Travis Lee,Arizona Diamondbacks,,Serial numbered /99
+gold,5G,Jeff Bagwell,Houston Astros,,Serial numbered /99
+gold,6G,Andres Galarraga,Atlanta Braves,,Serial numbered /99
+gold,7G,Pedro Martinez,Boston Red Sox,,Serial numbered /99
+gold,8G,"Cal Ripken, Jr.",Baltimore Orioles,,Serial numbered /99
+gold,9G,Vladimir Guerrero,Montreal Expos,,Serial numbered /99
+gold,10G,Chipper Jones,Atlanta Braves,,Serial numbered /99
+gold,11G,Rusty Greer,Texas Rangers,,Serial numbered /99
+gold,12G,Omar Vizquel,Cleveland Indians,,Serial numbered /99
+gold,13G,Quinton McCracken,Tampa Bay Devil Rays,,Serial numbered /99
+gold,14G,Jaret Wright,Cleveland Indians,,Serial numbered /99
+gold,15G,Mike Mussina,Baltimore Orioles,,Serial numbered /99
+gold,16G,Jason Giambi,Oakland Athletics,,Serial numbered /99
+gold,17G,Tony Clark,Detroit Tigers,,Serial numbered /99
+gold,18G,Troy O'Leary,Boston Red Sox,,Serial numbered /99
+gold,19G,Troy Percival,Anaheim Angels,,Serial numbered /99
+gold,20G,Kerry Wood,Chicago Cubs,,Serial numbered /99
+gold,21G,Vinny Castilla,Colorado Rockies,,Serial numbered /99
+gold,22G,Chris Carpenter,Toronto Blue Jays,,Serial numbered /99
+gold,23G,Richie Sexson,Cleveland Indians,,Serial numbered /99
+gold,24G,"Ken Griffey, Jr.",Seattle Mariners,,Serial numbered /99
+gold,25G,Barry Bonds,San Francisco Giants,,Serial numbered /99
+gold,26G,Carlos Delgado,Toronto Blue Jays,,Serial numbered /99
+gold,27G,Frank Thomas,Chicago White Sox,,Serial numbered /99
+gold,28G,Manny Ramirez,Cleveland Indians,,Serial numbered /99
+gold,29G,Shawn Green,Toronto Blue Jays,,Serial numbered /99
+gold,30G,Mike Piazza,New York Mets,,Serial numbered /99
+gold,31G,Tino Martinez,New York Yankees,,Serial numbered /99
+gold,32G,Dante Bichette,Colorado Rockies,,Serial numbered /99
+gold,33G,Scott Rolen,Philadelphia Phillies,,Serial numbered /99
+gold,34G,Gabe Alvarez,Detroit Tigers,,Serial numbered /99
+gold,35G,Raul Mondesi,Los Angeles Dodgers,,Serial numbered /99
+gold,36G,Damion Easley,Detroit Tigers,,Serial numbered /99
+gold,37G,Jeff Kent,San Francisco Giants,,Serial numbered /99
+gold,38G,Al Leiter,New York Mets,,Serial numbered /99
+gold,39G,Alex Rodriguez,Seattle Mariners,,Serial numbered /99
+gold,40G,Jeff King,Kansas City Royals,,Serial numbered /99
+gold,41G,Mark Grace,Chicago Cubs,,Serial numbered /99
+gold,42G,Larry Walker,Colorado Rockies,,Serial numbered /99
+gold,43G,Moises Alou,Houston Astros,,Serial numbered /99
+gold,44G,Juan Gonzalez,Texas Rangers,,Serial numbered /99
+gold,45G,Rolando Arrojo,Tampa Bay Devil Rays,,Serial numbered /99
+gold,46G,Tom Glavine,Atlanta Braves,,Serial numbered /99
+gold,47G,Johnny Damon,Kansas City Royals,,Serial numbered /99
+gold,48G,Livan Hernandez,Florida Marlins,,Serial numbered /99
+gold,49G,Craig Biggio,Houston Astros,,Serial numbered /99
+gold,50G,Dmitri Young,Cincinnati Reds,,Serial numbered /99
+gold,51G,Chan Ho Park,Los Angeles Dodgers,,Serial numbered /99
+gold,52G,Todd Walker,Minnesota Twins,,Serial numbered /99
+gold,53G,Derrek Lee,Florida Marlins,,Serial numbered /99
+gold,54G,Todd Helton,Colorado Rockies,,Serial numbered /99
+gold,55G,Ray Lankford,St. Louis Cardinals,,Serial numbered /99
+gold,56G,Jim Thome,Cleveland Indians,,Serial numbered /99
+gold,57G,Matt Lawton,Minnesota Twins,,Serial numbered /99
+gold,58G,Matt Anderson,Detroit Tigers,,Serial numbered /99
+gold,59G,Jose Offerman,Boston Red Sox,,Serial numbered /99
+gold,60G,Eric Karros,Los Angeles Dodgers,,Serial numbered /99
+gold,61G,Orlando Hernandez,New York Yankees,,Serial numbered /99
+gold,62G,Ben Grieve,Oakland Athletics,,Serial numbered /99
+gold,63G,Bobby Abreu,Philadelphia Phillies,,Serial numbered /99
+gold,64G,Kevin Young,Pittsburgh Pirates,,Serial numbered /99
+gold,65G,John Olerud,New York Mets,,Serial numbered /99
+gold,66G,Sammy Sosa,Chicago Cubs,,Serial numbered /99
+gold,67G,Andy Ashby,San Diego Padres,,Serial numbered /99
+gold,68G,Juan Encarnacion,Detroit Tigers,,Serial numbered /99
+gold,69G,Shane Reynolds,Houston Astros,,Serial numbered /99
+gold,70G,Bernie Williams,New York Yankees,,Serial numbered /99
+gold,71G,Mike Cameron,Cincinnati Reds,,Serial numbered /99
+gold,72G,Troy Glaus,Anaheim Angels,,Serial numbered /99
+gold,73G,Gary Sheffield,Los Angeles Dodgers,,Serial numbered /99
+gold,74G,Jeromy Burnitz,Milwaukee Brewers,,Serial numbered /99
+gold,75G,Mike Caruso,Chicago White Sox,,Serial numbered /99
+gold,76G,Chuck Knoblauch,New York Yankees,,Serial numbered /99
+gold,77G,Kenny Rogers,Oakland Athletics,,Serial numbered /99
+gold,78G,David Cone,New York Yankees,,Serial numbered /99
+gold,79G,Tony Gwynn,San Diego Padres,,Serial numbered /99
+gold,80G,Jay Buhner,Seattle Mariners,,Serial numbered /99
+gold,81G,Paul O'Neill,New York Yankees,,Serial numbered /99
+gold,82G,Charles Nagy,Cleveland Indians,,Serial numbered /99
+gold,83G,Javy Lopez,Atlanta Braves,,Serial numbered /99
+gold,84G,Scott Erickson,Baltimore Orioles,,Serial numbered /99
+gold,85G,Trevor Hoffman,San Diego Padres,,Serial numbered /99
+gold,86G,Andruw Jones,Atlanta Braves,,Serial numbered /99
+gold,87G,Ray Durham,Chicago White Sox,,Serial numbered /99
+gold,88G,Jorge Posada,New York Yankees,,Serial numbered /99
+gold,89G,Edgar Martinez,Seattle Mariners,,Serial numbered /99
+gold,90G,Tim Salmon,Anaheim Angels,,Serial numbered /99
+gold,91G,Bobby Higginson,Detroit Tigers,,Serial numbered /99
+gold,92G,Adrian Beltre,Los Angeles Dodgers,,Serial numbered /99
+gold,93G,Jason Kendall,Pittsburgh Pirates,,Serial numbered /99
+gold,94G,Henry Rodriguez,Chicago Cubs,,Serial numbered /99
+gold,95G,Greg Maddux,Atlanta Braves,,Serial numbered /99
+gold,96G,David Justice,Cleveland Indians,,Serial numbered /99
+gold,97G,Ivan Rodriguez,Texas Rangers,,Serial numbered /99
+gold,98G,Curt Schilling,Philadelphia Phillies,,Serial numbered /99
+gold,99G,Matt Williams,Arizona Diamondbacks,,Serial numbered /99
+gold,100G,Darin Erstad,Anaheim Angels,,Serial numbered /99
+gold,101G,Rafael Palmeiro,Texas Rangers,,Serial numbered /99
+gold,102G,David Wells,Toronto Blue Jays,,Serial numbered /99
+gold,103G,Barry Larkin,Cincinnati Reds,,Serial numbered /99
+gold,104G,Robin Ventura,New York Mets,,Serial numbered /99
+gold,105G,Edgar Renteria,St. Louis Cardinals,,Serial numbered /99
+gold,106G,Andy Pettitte,New York Yankees,,Serial numbered /99
+gold,107G,Albert Belle,Baltimore Orioles,,Serial numbered /99
+gold,108G,Steve Finley,Arizona Diamondbacks,,Serial numbered /99
+gold,109G,Fernando Vina,Milwaukee Brewers,,Serial numbered /99
+gold,110G,Rondell White,Montreal Expos,,Serial numbered /99
+gold,111G,Kevin Brown,Los Angeles Dodgers,,Serial numbered /99
+gold,112G,Jose Canseco,Tampa Bay Devil Rays,,Serial numbered /99
+gold,113G,Roger Clemens,New York Yankees,,Serial numbered /99
+gold,114G,Todd Hundley,Los Angeles Dodgers,,Serial numbered /99
+gold,115G,Will Clark,Baltimore Orioles,,Serial numbered /99
+gold,116G,Jim Edmonds,Anaheim Angels,,Serial numbered /99
+gold,117G,Randy Johnson,Arizona Diamondbacks,,Serial numbered /99
+gold,118G,Denny Neagle,Cincinnati Reds,,Serial numbered /99
+gold,119G,Brian Jordan,Atlanta Braves,,Serial numbered /99
+gold,120G,Dean Palmer,Detroit Tigers,,Serial numbered /99
+gold,121G,Roberto Alomar,Cleveland Indians,,Serial numbered /99
+gold,122G,Ken Caminiti,Houston Astros,,Serial numbered /99
+gold,123G,Brian Giles,Pittsburgh Pirates,,Serial numbered /99
+gold,124G,Todd Stottlemyre,Arizona Diamondbacks,,Serial numbered /99
+gold,125G,Mo Vaughn,Anaheim Angels,,Serial numbered /99
+gold,126G,J.D. Drew,St. Louis Cardinals,Rookie,Serial numbered /99
+gold,127G,Ryan Minor,Baltimore Orioles,Rookie,Serial numbered /99
+gold,128G,Gabe Kapler,Detroit Tigers,Rookie,Serial numbered /99
+gold,129G,Jeremy Giambi,Kansas City Royals,Rookie,Serial numbered /99
+gold,130G,Eric Chavez,Oakland Athletics,Rookie,Serial numbered /99
+gold,131G,Ben Davis,San Diego Padres,Rookie,Serial numbered /99
+gold,132G,Robert Fick,Detroit Tigers,Rookie,Serial numbered /99
+gold,133G,George Lombard,Atlanta Braves,Rookie,Serial numbered /99
+gold,134G,Calvin Pickering,Baltimore Orioles,Rookie,Serial numbered /99
+gold,135G,Preston Wilson,Florida Marlins,Rookie,Serial numbered /99
+gold,136G,Corey Koskie,Minnesota Twins,Rookie,Serial numbered /99
+gold,137G,Russell Branyan,Cleveland Indians,Rookie,Serial numbered /99
+gold,138G,Bruce Chen,Atlanta Braves,Rookie,Serial numbered /99
+gold,139G,Matt Clement,San Diego Padres,Rookie,Serial numbered /99
+gold,140G,Pat Burrell,Philadelphia Phillies,Rookie,Serial numbered /99
+gold,141G,Freddy Garcia,Seattle Mariners,Rookie,Serial numbered /99
+gold,142G,Brian Simmons,Chicago White Sox,Rookie,Serial numbered /99
+gold,143G,Carlos Febles,Kansas City Royals,Rookie,Serial numbered /99
+gold,144G,Carlos Guillen,Seattle Mariners,Rookie,Serial numbered /99
+gold,145G,Fernando Seguignol,Montreal Expos,Rookie,Serial numbered /99
+gold,146G,Carlos Beltran,Kansas City Royals,Rookie,Serial numbered /99
+gold,147G,Edgard Clemente,Colorado Rockies,Rookie,Serial numbered /99
+gold,148G,Mitch Meluskey,Houston Astros,Rookie,Serial numbered /99
+gold,149G,Ryan Bradley,New York Yankees,Rookie,Serial numbered /99
+gold,150G,Marlon Anderson,Philadelphia Phillies,Rookie,Serial numbered /99
+gold,151G,A.J. Burnett,Florida Marlins,Rookie,Serial numbered /99
+gold,152G,Scott Hunter,New York Mets,Rookie,Serial numbered /99
+gold,153G,Mark L. Johnson,Chicago White Sox,Rookie,Serial numbered /99
+gold,154G,Angel Pena,Los Angeles Dodgers,Rookie,Serial numbered /99
+gold,155G,Roy Halladay,Toronto Blue Jays,Rookie,Serial numbered /99
+gold,156G,Chad Allen,Minnesota Twins,Rookie,Serial numbered /99
+gold,157G,Trot Nixon,Boston Red Sox,Rookie,Serial numbered /99
+gold,158G,Ricky Ledee,New York Yankees,Rookie,Serial numbered /99
+gold,159G,Gary Bennett,Philadelphia Phillies,Rookie,Serial numbered /99
+gold,160G,Micah Bowie,Atlanta Braves,Rookie,Serial numbered /99
+gold,161G,Doug Mientkiewicz,Minnesota Twins,Rookie,Serial numbered /99
+gold,162G,Danny Klassen,Arizona Diamondbacks,Rookie,Serial numbered /99
+gold,163G,Willis Otanez,Baltimore Orioles,Rookie,Serial numbered /99
+gold,164G,Jin Ho Cho,Boston Red Sox,Rookie,Serial numbered /99
+gold,165G,Mike Lowell,Florida Marlins,Rookie,Serial numbered /99
+gold,166G,Armando Rios,San Francisco Giants,Rookie,Serial numbered /99
+gold,167G,Warren Morris,Pittsburgh Pirates,Rookie,Serial numbered /99
+gold,168G,Michael Barrett,Montreal Expos,Rookie,Serial numbered /99
+gold,169G,Alex Gonzalez,Florida Marlins,Rookie,Serial numbered /99
+gold,170G,Masao Kida,Detroit Tigers,Rookie,Serial numbered /99
+gold,171G,Peter Tucci,San Diego Padres,Rookie,Serial numbered /99
+gold,172G,Luis Saturria,St. Louis Cardinals,Rookie,Serial numbered /99
+gold,173G,Kris Benson,Pittsburgh Pirates,Rookie,Serial numbered /99
+gold,174G,Mario Encarnacion,Oakland Athletics,Rookie,Serial numbered /99
+gold,175G,Roosevelt Brown,Chicago Cubs,Rookie,Serial numbered /99
+24kt-gold,1TG,Mark McGwire,St. Louis Cardinals,,Serial numbered /24
+24kt-gold,2TG,Derek Jeter,New York Yankees,,Serial numbered /24
+24kt-gold,3TG,Nomar Garciaparra,Boston Red Sox,,Serial numbered /24
+24kt-gold,4TG,Travis Lee,Arizona Diamondbacks,,Serial numbered /24
+24kt-gold,5TG,Jeff Bagwell,Houston Astros,,Serial numbered /24
+24kt-gold,6TG,Andres Galarraga,Atlanta Braves,,Serial numbered /24
+24kt-gold,7TG,Pedro Martinez,Boston Red Sox,,Serial numbered /24
+24kt-gold,8TG,"Cal Ripken, Jr.",Baltimore Orioles,,Serial numbered /24
+24kt-gold,9TG,Vladimir Guerrero,Montreal Expos,,Serial numbered /24
+24kt-gold,10TG,Chipper Jones,Atlanta Braves,,Serial numbered /24
+24kt-gold,11TG,Rusty Greer,Texas Rangers,,Serial numbered /24
+24kt-gold,12TG,Omar Vizquel,Cleveland Indians,,Serial numbered /24
+24kt-gold,13TG,Quinton McCracken,Tampa Bay Devil Rays,,Serial numbered /24
+24kt-gold,14TG,Jaret Wright,Cleveland Indians,,Serial numbered /24
+24kt-gold,15TG,Mike Mussina,Baltimore Orioles,,Serial numbered /24
+24kt-gold,16TG,Jason Giambi,Oakland Athletics,,Serial numbered /24
+24kt-gold,17TG,Tony Clark,Detroit Tigers,,Serial numbered /24
+24kt-gold,18TG,Troy O'Leary,Boston Red Sox,,Serial numbered /24
+24kt-gold,19TG,Troy Percival,Anaheim Angels,,Serial numbered /24
+24kt-gold,20TG,Kerry Wood,Chicago Cubs,,Serial numbered /24
+24kt-gold,21TG,Vinny Castilla,Colorado Rockies,,Serial numbered /24
+24kt-gold,22TG,Chris Carpenter,Toronto Blue Jays,,Serial numbered /24
+24kt-gold,23TG,Richie Sexson,Cleveland Indians,,Serial numbered /24
+24kt-gold,24TG,"Ken Griffey, Jr.",Seattle Mariners,,Serial numbered /24
+24kt-gold,25TG,Barry Bonds,San Francisco Giants,,Serial numbered /24
+24kt-gold,26TG,Carlos Delgado,Toronto Blue Jays,,Serial numbered /24
+24kt-gold,27TG,Frank Thomas,Chicago White Sox,,Serial numbered /24
+24kt-gold,28TG,Manny Ramirez,Cleveland Indians,,Serial numbered /24
+24kt-gold,29TG,Shawn Green,Toronto Blue Jays,,Serial numbered /24
+24kt-gold,30TG,Mike Piazza,New York Mets,,Serial numbered /24
+24kt-gold,31TG,Tino Martinez,New York Yankees,,Serial numbered /24
+24kt-gold,32TG,Dante Bichette,Colorado Rockies,,Serial numbered /24
+24kt-gold,33TG,Scott Rolen,Philadelphia Phillies,,Serial numbered /24
+24kt-gold,34TG,Gabe Alvarez,Detroit Tigers,,Serial numbered /24
+24kt-gold,35TG,Raul Mondesi,Los Angeles Dodgers,,Serial numbered /24
+24kt-gold,36TG,Damion Easley,Detroit Tigers,,Serial numbered /24
+24kt-gold,37TG,Jeff Kent,San Francisco Giants,,Serial numbered /24
+24kt-gold,38TG,Al Leiter,New York Mets,,Serial numbered /24
+24kt-gold,39TG,Alex Rodriguez,Seattle Mariners,,Serial numbered /24
+24kt-gold,40TG,Jeff King,Kansas City Royals,,Serial numbered /24
+24kt-gold,41TG,Mark Grace,Chicago Cubs,,Serial numbered /24
+24kt-gold,42TG,Larry Walker,Colorado Rockies,,Serial numbered /24
+24kt-gold,43TG,Moises Alou,Houston Astros,,Serial numbered /24
+24kt-gold,44TG,Juan Gonzalez,Texas Rangers,,Serial numbered /24
+24kt-gold,45TG,Rolando Arrojo,Tampa Bay Devil Rays,,Serial numbered /24
+24kt-gold,46TG,Tom Glavine,Atlanta Braves,,Serial numbered /24
+24kt-gold,47TG,Johnny Damon,Kansas City Royals,,Serial numbered /24
+24kt-gold,48TG,Livan Hernandez,Florida Marlins,,Serial numbered /24
+24kt-gold,49TG,Craig Biggio,Houston Astros,,Serial numbered /24
+24kt-gold,50TG,Dmitri Young,Cincinnati Reds,,Serial numbered /24
+24kt-gold,51TG,Chan Ho Park,Los Angeles Dodgers,,Serial numbered /24
+24kt-gold,52TG,Todd Walker,Minnesota Twins,,Serial numbered /24
+24kt-gold,53TG,Derrek Lee,Florida Marlins,,Serial numbered /24
+24kt-gold,54TG,Todd Helton,Colorado Rockies,,Serial numbered /24
+24kt-gold,55TG,Ray Lankford,St. Louis Cardinals,,Serial numbered /24
+24kt-gold,56TG,Jim Thome,Cleveland Indians,,Serial numbered /24
+24kt-gold,57TG,Matt Lawton,Minnesota Twins,,Serial numbered /24
+24kt-gold,58TG,Matt Anderson,Detroit Tigers,,Serial numbered /24
+24kt-gold,59TG,Jose Offerman,Boston Red Sox,,Serial numbered /24
+24kt-gold,60TG,Eric Karros,Los Angeles Dodgers,,Serial numbered /24
+24kt-gold,61TG,Orlando Hernandez,New York Yankees,,Serial numbered /24
+24kt-gold,62TG,Ben Grieve,Oakland Athletics,,Serial numbered /24
+24kt-gold,63TG,Bobby Abreu,Philadelphia Phillies,,Serial numbered /24
+24kt-gold,64TG,Kevin Young,Pittsburgh Pirates,,Serial numbered /24
+24kt-gold,65TG,John Olerud,New York Mets,,Serial numbered /24
+24kt-gold,66TG,Sammy Sosa,Chicago Cubs,,Serial numbered /24
+24kt-gold,67TG,Andy Ashby,San Diego Padres,,Serial numbered /24
+24kt-gold,68TG,Juan Encarnacion,Detroit Tigers,,Serial numbered /24
+24kt-gold,69TG,Shane Reynolds,Houston Astros,,Serial numbered /24
+24kt-gold,70TG,Bernie Williams,New York Yankees,,Serial numbered /24
+24kt-gold,71TG,Mike Cameron,Cincinnati Reds,,Serial numbered /24
+24kt-gold,72TG,Troy Glaus,Anaheim Angels,,Serial numbered /24
+24kt-gold,73TG,Gary Sheffield,Los Angeles Dodgers,,Serial numbered /24
+24kt-gold,74TG,Jeromy Burnitz,Milwaukee Brewers,,Serial numbered /24
+24kt-gold,75TG,Mike Caruso,Chicago White Sox,,Serial numbered /24
+24kt-gold,76TG,Chuck Knoblauch,New York Yankees,,Serial numbered /24
+24kt-gold,77TG,Kenny Rogers,Oakland Athletics,,Serial numbered /24
+24kt-gold,78TG,David Cone,New York Yankees,,Serial numbered /24
+24kt-gold,79TG,Tony Gwynn,San Diego Padres,,Serial numbered /24
+24kt-gold,80TG,Jay Buhner,Seattle Mariners,,Serial numbered /24
+24kt-gold,81TG,Paul O'Neill,New York Yankees,,Serial numbered /24
+24kt-gold,82TG,Charles Nagy,Cleveland Indians,,Serial numbered /24
+24kt-gold,83TG,Javy Lopez,Atlanta Braves,,Serial numbered /24
+24kt-gold,84TG,Scott Erickson,Baltimore Orioles,,Serial numbered /24
+24kt-gold,85TG,Trevor Hoffman,San Diego Padres,,Serial numbered /24
+24kt-gold,86TG,Andruw Jones,Atlanta Braves,,Serial numbered /24
+24kt-gold,87TG,Ray Durham,Chicago White Sox,,Serial numbered /24
+24kt-gold,88TG,Jorge Posada,New York Yankees,,Serial numbered /24
+24kt-gold,89TG,Edgar Martinez,Seattle Mariners,,Serial numbered /24
+24kt-gold,90TG,Tim Salmon,Anaheim Angels,,Serial numbered /24
+24kt-gold,91TG,Bobby Higginson,Detroit Tigers,,Serial numbered /24
+24kt-gold,92TG,Adrian Beltre,Los Angeles Dodgers,,Serial numbered /24
+24kt-gold,93TG,Jason Kendall,Pittsburgh Pirates,,Serial numbered /24
+24kt-gold,94TG,Henry Rodriguez,Chicago Cubs,,Serial numbered /24
+24kt-gold,95TG,Greg Maddux,Atlanta Braves,,Serial numbered /24
+24kt-gold,96TG,David Justice,Cleveland Indians,,Serial numbered /24
+24kt-gold,97TG,Ivan Rodriguez,Texas Rangers,,Serial numbered /24
+24kt-gold,98TG,Curt Schilling,Philadelphia Phillies,,Serial numbered /24
+24kt-gold,99TG,Matt Williams,Arizona Diamondbacks,,Serial numbered /24
+24kt-gold,100TG,Darin Erstad,Anaheim Angels,,Serial numbered /24
+24kt-gold,101TG,Rafael Palmeiro,Texas Rangers,,Serial numbered /24
+24kt-gold,102TG,David Wells,Toronto Blue Jays,,Serial numbered /24
+24kt-gold,103TG,Barry Larkin,Cincinnati Reds,,Serial numbered /24
+24kt-gold,104TG,Robin Ventura,New York Mets,,Serial numbered /24
+24kt-gold,105TG,Edgar Renteria,St. Louis Cardinals,,Serial numbered /24
+24kt-gold,106TG,Andy Pettitte,New York Yankees,,Serial numbered /24
+24kt-gold,107TG,Albert Belle,Baltimore Orioles,,Serial numbered /24
+24kt-gold,108TG,Steve Finley,Arizona Diamondbacks,,Serial numbered /24
+24kt-gold,109TG,Fernando Vina,Milwaukee Brewers,,Serial numbered /24
+24kt-gold,110TG,Rondell White,Montreal Expos,,Serial numbered /24
+24kt-gold,111TG,Kevin Brown,Los Angeles Dodgers,,Serial numbered /24
+24kt-gold,112TG,Jose Canseco,Tampa Bay Devil Rays,,Serial numbered /24
+24kt-gold,113TG,Roger Clemens,New York Yankees,,Serial numbered /24
+24kt-gold,114TG,Todd Hundley,Los Angeles Dodgers,,Serial numbered /24
+24kt-gold,115TG,Will Clark,Baltimore Orioles,,Serial numbered /24
+24kt-gold,116TG,Jim Edmonds,Anaheim Angels,,Serial numbered /24
+24kt-gold,117TG,Randy Johnson,Arizona Diamondbacks,,Serial numbered /24
+24kt-gold,118TG,Denny Neagle,Cincinnati Reds,,Serial numbered /24
+24kt-gold,119TG,Brian Jordan,Atlanta Braves,,Serial numbered /24
+24kt-gold,120TG,Dean Palmer,Detroit Tigers,,Serial numbered /24
+24kt-gold,121TG,Roberto Alomar,Cleveland Indians,,Serial numbered /24
+24kt-gold,122TG,Ken Caminiti,Houston Astros,,Serial numbered /24
+24kt-gold,123TG,Brian Giles,Pittsburgh Pirates,,Serial numbered /24
+24kt-gold,124TG,Todd Stottlemyre,Arizona Diamondbacks,,Serial numbered /24
+24kt-gold,125TG,Mo Vaughn,Anaheim Angels,,Serial numbered /24
+24kt-gold,126TG,J.D. Drew,St. Louis Cardinals,Rookie,Serial numbered /24
+24kt-gold,127TG,Ryan Minor,Baltimore Orioles,Rookie,Serial numbered /24
+24kt-gold,128TG,Gabe Kapler,Detroit Tigers,Rookie,Serial numbered /24
+24kt-gold,129TG,Jeremy Giambi,Kansas City Royals,Rookie,Serial numbered /24
+24kt-gold,130TG,Eric Chavez,Oakland Athletics,Rookie,Serial numbered /24
+24kt-gold,131TG,Ben Davis,San Diego Padres,Rookie,Serial numbered /24
+24kt-gold,132TG,Robert Fick,Detroit Tigers,Rookie,Serial numbered /24
+24kt-gold,133TG,George Lombard,Atlanta Braves,Rookie,Serial numbered /24
+24kt-gold,134TG,Calvin Pickering,Baltimore Orioles,Rookie,Serial numbered /24
+24kt-gold,135TG,Preston Wilson,Florida Marlins,Rookie,Serial numbered /24
+24kt-gold,136TG,Corey Koskie,Minnesota Twins,Rookie,Serial numbered /24
+24kt-gold,137TG,Russell Branyan,Cleveland Indians,Rookie,Serial numbered /24
+24kt-gold,138TG,Bruce Chen,Atlanta Braves,Rookie,Serial numbered /24
+24kt-gold,139TG,Matt Clement,San Diego Padres,Rookie,Serial numbered /24
+24kt-gold,140TG,Pat Burrell,Philadelphia Phillies,Rookie,Serial numbered /24
+24kt-gold,141TG,Freddy Garcia,Seattle Mariners,Rookie,Serial numbered /24
+24kt-gold,142TG,Brian Simmons,Chicago White Sox,Rookie,Serial numbered /24
+24kt-gold,143TG,Carlos Febles,Kansas City Royals,Rookie,Serial numbered /24
+24kt-gold,144TG,Carlos Guillen,Seattle Mariners,Rookie,Serial numbered /24
+24kt-gold,145TG,Fernando Seguignol,Montreal Expos,Rookie,Serial numbered /24
+24kt-gold,146TG,Carlos Beltran,Kansas City Royals,Rookie,Serial numbered /24
+24kt-gold,147TG,Edgard Clemente,Colorado Rockies,Rookie,Serial numbered /24
+24kt-gold,148TG,Mitch Meluskey,Houston Astros,Rookie,Serial numbered /24
+24kt-gold,149TG,Ryan Bradley,New York Yankees,Rookie,Serial numbered /24
+24kt-gold,150TG,Marlon Anderson,Philadelphia Phillies,Rookie,Serial numbered /24
+24kt-gold,151TG,A.J. Burnett,Florida Marlins,Rookie,Serial numbered /24
+24kt-gold,152TG,Scott Hunter,New York Mets,Rookie,Serial numbered /24
+24kt-gold,153TG,Mark L. Johnson,Chicago White Sox,Rookie,Serial numbered /24
+24kt-gold,154TG,Angel Pena,Los Angeles Dodgers,Rookie,Serial numbered /24
+24kt-gold,155TG,Roy Halladay,Toronto Blue Jays,Rookie,Serial numbered /24
+24kt-gold,156TG,Chad Allen,Minnesota Twins,Rookie,Serial numbered /24
+24kt-gold,157TG,Trot Nixon,Boston Red Sox,Rookie,Serial numbered /24
+24kt-gold,158TG,Ricky Ledee,New York Yankees,Rookie,Serial numbered /24
+24kt-gold,159TG,Gary Bennett,Philadelphia Phillies,Rookie,Serial numbered /24
+24kt-gold,160TG,Micah Bowie,Atlanta Braves,Rookie,Serial numbered /24
+24kt-gold,161TG,Doug Mientkiewicz,Minnesota Twins,Rookie,Serial numbered /24
+24kt-gold,162TG,Danny Klassen,Arizona Diamondbacks,Rookie,Serial numbered /24
+24kt-gold,163TG,Willis Otanez,Baltimore Orioles,Rookie,Serial numbered /24
+24kt-gold,164TG,Jin Ho Cho,Boston Red Sox,Rookie,Serial numbered /24
+24kt-gold,165TG,Mike Lowell,Florida Marlins,Rookie,Serial numbered /24
+24kt-gold,166TG,Armando Rios,San Francisco Giants,Rookie,Serial numbered /24
+24kt-gold,167TG,Warren Morris,Pittsburgh Pirates,Rookie,Serial numbered /24
+24kt-gold,168TG,Michael Barrett,Montreal Expos,Rookie,Serial numbered /24
+24kt-gold,169TG,Alex Gonzalez,Florida Marlins,Rookie,Serial numbered /24
+24kt-gold,170TG,Masao Kida,Detroit Tigers,Rookie,Serial numbered /24
+24kt-gold,171TG,Peter Tucci,San Diego Padres,Rookie,Serial numbered /24
+24kt-gold,172TG,Luis Saturria,St. Louis Cardinals,Rookie,Serial numbered /24
+24kt-gold,173TG,Kris Benson,Pittsburgh Pirates,Rookie,Serial numbered /24
+24kt-gold,174TG,Mario Encarnacion,Oakland Athletics,Rookie,Serial numbered /24
+24kt-gold,175TG,Roosevelt Brown,Chicago Cubs,Rookie,Serial numbered /24
+illuminators,1 I,Kerry Wood,Chicago Cubs,,
+illuminators,2 I,Ben Grieve,Oakland Athletics,,
+illuminators,3 I,J.D. Drew,St. Louis Cardinals,,
+illuminators,4 I,Juan Encarnacion,Detroit Tigers,,
+illuminators,5 I,Travis Lee,Arizona Diamondbacks,,
+illuminators,6 I,Todd Helton,Colorado Rockies,,
+illuminators,7 I,Troy Glaus,Anaheim Angels,,
+illuminators,8 I,Ricky Ledee,New York Yankees,,
+illuminators,9 I,Eric Chavez,Oakland Athletics,,
+illuminators,10 I,Ben Davis,San Diego Padres,,
+illuminators,11 I,George Lombard,Atlanta Braves,,
+illuminators,12 I,Jeremy Giambi,Kansas City Royals,,
+illuminators,13 I,Richie Sexson,Cleveland Indians,,
+illuminators,14 I,Corey Koskie,Minnesota Twins,,
+illuminators,15 I,Russell Branyan,Cleveland Indians,,
+shining-stars,1 SS,"Ken Griffey, Jr.",Seattle Mariners,,
+shining-stars,2 SS,Mark McGwire,St. Louis Cardinals,,
+shining-stars,3 SS,Sammy Sosa,Chicago Cubs,,
+shining-stars,4 SS,Derek Jeter,New York Yankees,,
+shining-stars,5 SS,Nomar Garciaparra,Boston Red Sox,,
+shining-stars,6 SS,Alex Rodriguez,Seattle Mariners,,
+shining-stars,7 SS,Mike Piazza,New York Mets,,
+shining-stars,8 SS,Juan Gonzalez,Texas Rangers,,
+shining-stars,9 SS,Chipper Jones,Atlanta Braves,,
+shining-stars,10 SS,"Cal Ripken, Jr.",Baltimore Orioles,,
+shining-stars,11 SS,Frank Thomas,Chicago White Sox,,
+shining-stars,12 SS,Greg Maddux,Atlanta Braves,,
+shining-stars,13 SS,Roger Clemens,New York Yankees,,
+shining-stars,14 SS,Vladimir Guerrero,Montreal Expos,,
+shining-stars,15 SS,Manny Ramirez,Cleveland Indians,,
+shining-stars-pulsars,1 P,"Ken Griffey, Jr.",Seattle Mariners,,Pulsars parallel
+shining-stars-pulsars,2 P,Mark McGwire,St. Louis Cardinals,,Pulsars parallel
+shining-stars-pulsars,3 P,Sammy Sosa,Chicago Cubs,,Pulsars parallel
+shining-stars-pulsars,4 P,Derek Jeter,New York Yankees,,Pulsars parallel
+shining-stars-pulsars,5 P,Nomar Garciaparra,Boston Red Sox,,Pulsars parallel
+shining-stars-pulsars,6 P,Alex Rodriguez,Seattle Mariners,,Pulsars parallel
+shining-stars-pulsars,7 P,Mike Piazza,New York Mets,,Pulsars parallel
+shining-stars-pulsars,8 P,Juan Gonzalez,Texas Rangers,,Pulsars parallel
+shining-stars-pulsars,9 P,Chipper Jones,Atlanta Braves,,Pulsars parallel
+shining-stars-pulsars,10 P,"Cal Ripken, Jr.",Baltimore Orioles,,Pulsars parallel
+shining-stars-pulsars,11 P,Frank Thomas,Chicago White Sox,,Pulsars parallel
+shining-stars-pulsars,12 P,Greg Maddux,Atlanta Braves,,Pulsars parallel
+shining-stars-pulsars,13 P,Roger Clemens,New York Yankees,,Pulsars parallel
+shining-stars-pulsars,14 P,Vladimir Guerrero,Montreal Expos,,Pulsars parallel
+shining-stars-pulsars,15 P,Manny Ramirez,Cleveland Indians,,Pulsars parallel
+checklists,NNO-A,Checklist,,Checklist,Checklist: 1-106
+checklists,NNO-B,Checklist,,Checklist,Checklist: 107-175 and Inserts

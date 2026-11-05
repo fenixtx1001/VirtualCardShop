@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1309/1999-Fleer-Brilliants",
+    "checklistReference": "https://www.tcdb.com/Checklist.cfm/sid/1309/1999-Fleer-Brilliants?PageIndex=1",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/1309/1999-Fleer-Brilliants",
+    "insertReference": "https://www.tcdb.com/Inserts.cfm/sid/1309/1999-Fleer-Brilliants",
+    "independentReference": "https://baseballcardpedia.com/index.php/1999_Fleer_Brilliants"
+  },
+  "decisions": {
+    "checklist": "747 explicit cards in eight full collector families. Independently retrieve every base/parallel/insert namespace. Include both unnumbered checklist cards, each verified from front/back scans. Exclude dealer/media J.D. Drew SAMPLE promo; no pack-issued autograph or memorabilia family verified. Beckett summary displays 176 entries while its description specifies 175; follow verified numbered #1–175 and exclude the documented SAMPLE promo instead of inventing #176.",
+    "rookies": "Only 12 verified true base RCs, agreeing exactly across TCDB base, separately retrieved rookie index and BCP. Rookie subset #126-175 has 50 cards and is not itself proof of true RC. Do not infer RC suffixes on parallels or inserts. Scott Hunter RC* is a recognized rookie of a player who did not reach MLB.",
+    "names": "Preserve clean TCDB player names and historical on-card teams. BCP nickname differences are explicitly normalized; Mark Johnson #153 is White Sox catcher Mark L. Johnson, not the other Mark Johnson. J.D. Drew, Roy Halladay, Carlos Beltran and Mike Lowell Rookie-subset cards do not get true RC tags. Canonical base/BCP Robert Fick #132 and parallel-source Rob Fick refer to the same Detroit player; normalize the three parallel names to Robert Fick.",
+    "numbering": "Keep B/G/TG base-parallel suffixes and space-separated I/SS/P insert collector numbers. Do not renumber Pulsars as SS. Give unnumbered checklists stable NNO-A/NNO-B identifiers and move printed ranges to variant.",
+    "teams": "Every player card has a verified historical franchise. Only two generic checklists have intentionally blank teams; no invented MLB/League/Multiple team. Team data complete under the checklist exception.",
+    "error": "Base #128 Gabe Kapler prints birth date 8/31/75; actual 7/31/1975 verified via official profile and source trivia. Preserve UER in variant, not player. Do not extrapolate error annotation to unreviewed parallel backs.",
+    "pack": "Five cards per pack, 24 packs per box, verified by original pack and box scans and BCP. Single series. Existing engine uses independent ProductSet hit rolls replacing base slots; historical card positions, within-family Rookie scarcity and pack correlations are not reproduced. Keep complete collector families rather than split ranges. Pack QA pending before release.",
+    "blueOdds": "Physical Blue veterans #1B–125B: 1:3 packs; Rookie subset #126B–175B: 1:6. Aggregate expected frequency 1/3+1/6=1/2 Blue card per pack. VCS denominator 2 represents that expectation with one uniform complete Blue pool, not exact physical range weighting or co-occurrence. No odds in card variants.",
+    "unknownOdds": "Gold /99, 24KT Gold /24 and the two checklist cards lack verified insertion denominators. Leave null, stage all cards for pricing/images, and require odds review. Do not fabricate rates from serial print runs.",
+    "release": "Unreleased draft for Admin pricing and image harvesting; no production database changes or deployment. Pack/unknown odds, images and pricing pending release QA."
+  },
+  "product": {
+    "id": "1999_Fleer_Brilliants_Baseball",
+    "year": 1999,
+    "brand": "Fleer Brilliants",
+    "sport": "Baseball",
+    "cardsPerPack": 5,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "checklist": "VERIFIED_747_CARDS_8_FAMILIES",
+    "rookieDesignation": "VERIFIED_12_BASE_RCS",
+    "packCollation": "PENDING",
+    "insertOdds": "PENDING_UNKNOWN_RARE_AND_CHECKLIST_ODDS",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1999-fleer-brilliants-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1999_Fleer_Brilliants_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 1309,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1309/1999-Fleer-Brilliants?PageIndex=1",
+      "expectedCards": 175,
+      "notes": "One complete 175-card collector checklist. Rookie subset #126-175 historically short printed; availability flattened within family, not split into another VCS set."
+    },
+    {
+      "key": "blue",
+      "id": "1999_Fleer_Brilliants_Baseball_Blue",
+      "name": "Blue",
+      "kind": "PARALLEL",
+      "oddsPerPack": 2,
+      "sourceSetId": 11486,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11486/1999-Fleer-Brilliants-Blue?PageIndex=1",
+      "expectedCards": 175,
+      "notes": "Full 175-card parallel with B suffix. Historic 1:3 veteran and 1:6 Rookie-subset rates produce 1/2 expected Blue card per pack; use aggregate denominator 2 with uniform card availability. This is an explicit VCS approximation, not exact range weighting or a claim about co-occurrence."
+    },
+    {
+      "key": "gold",
+      "id": "1999_Fleer_Brilliants_Baseball_Gold",
+      "name": "Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 11487,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11487/1999-Fleer-Brilliants-Gold?PageIndex=1",
+      "expectedCards": 175,
+      "notes": "Full G-suffix parallel, serial numbered /99. Published insertion rate unknown; odds null pending QA."
+    },
+    {
+      "key": "24kt-gold",
+      "id": "1999_Fleer_Brilliants_Baseball_24KT_Gold",
+      "name": "24KT Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 11485,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11485/1999-Fleer-Brilliants-24KT-Gold?PageIndex=1",
+      "expectedCards": 175,
+      "notes": "Full TG-suffix parallel, serial numbered /24. Published insertion rate unknown; odds null pending QA."
+    },
+    {
+      "key": "illuminators",
+      "id": "1999_Fleer_Brilliants_Baseball_Illuminators",
+      "name": "Illuminators",
+      "kind": "INSERT",
+      "oddsPerPack": 10,
+      "sourceSetId": 11488,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11488/1999-Fleer-Brilliants-Illuminators",
+      "expectedCards": 15,
+      "notes": "Complete 1 I–15 I insert checklist, verified 1:10 packs."
+    },
+    {
+      "key": "shining-stars",
+      "id": "1999_Fleer_Brilliants_Baseball_Shining_Stars",
+      "name": "Shining Stars",
+      "kind": "INSERT",
+      "oddsPerPack": 20,
+      "sourceSetId": 11489,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11489/1999-Fleer-Brilliants-Shining-Stars",
+      "expectedCards": 15,
+      "notes": "Complete 1 SS–15 SS insert checklist, verified 1:20 packs."
+    },
+    {
+      "key": "shining-stars-pulsars",
+      "id": "1999_Fleer_Brilliants_Baseball_Shining_Stars_Pulsars",
+      "name": "Shining Stars Pulsars",
+      "kind": "PARALLEL",
+      "oddsPerPack": 400,
+      "sourceSetId": 11490,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11490/1999-Fleer-Brilliants-Shining-Stars-Pulsars",
+      "expectedCards": 15,
+      "notes": "Complete 1 P–15 P parallel of Shining Stars, marked PULSARS on back; verified 1:400 packs."
+    },
+    {
+      "key": "checklists",
+      "id": "1999_Fleer_Brilliants_Baseball_Checklists",
+      "name": "Checklists",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 437446,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/437446/1999-Fleer-Brilliants-Checklists",
+      "expectedCards": 2,
+      "notes": "Two separate physical unnumbered checklist cards. NNO-A covers #1–106; NNO-B covers #107–175 and inserts. VCS identifiers, not printed numbers. No verified pack odds: null."
+    }
+  ]
+}
