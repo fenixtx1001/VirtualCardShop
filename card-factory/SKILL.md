@@ -29,3 +29,21 @@ Find the genuine card scan first. If genuinely unavailable, create the closest e
 - A saved ChatGPT image reference is a visual aid, not a deterministic design constraint or model training.
 - Reuse repository records when accessible; if not accessible, disclose limitation and ask for the approved template or use verifiable web sources.
 - Be explicit about whether an image was actually generated and whether references were actually retrieved.
+
+
+## HARD GATE: Reference-first, no speculative image generation (v1.1)
+**This section overrides any softer instruction above.**
+
+When the user invokes Card Factory, DO NOT call an image-generation tool merely because the request is to create an image. Complete the following before any generation:
+- [ ] Verify the exact card identity and checklist number with a trustworthy source.
+- [ ] Obtain and actually VISUALLY INSPECT a genuine front image of the exact card OR (for a missing parallel) the exact player's correct base card PLUS at least one genuine front of the exact parallel from the same product and year. A search snippet, thumbnail query, or inaccessible URL is not visual inspection.
+- [ ] Verify the layout: photo(s), framing, borders, logos, nameplate, typography, card numbering, and variation-specific treatment. Explicitly note unresolved design elements.
+- [ ] For parallel conversion, preserve the actual player's source photograph(s), original crop, exact layout, and printed text. Use deterministic image manipulation or masked editing as the default; do not reimagine a player in a new pose or uniform.
+- [ ] If a card's exact genuine scan is available, prefer using that scan within usage rights rather than recreating it.
+- [ ] Only after the checklist is complete may image generation proceed. If any required evidence is unavailable, STOP, report precisely what is missing, and request the minimum needed reference or offer to continue research.
+- [ ] After generation, compare output with inspected references. If the template, photograph, text, or layout differs substantially, label the attempt FAILED and do not present it as a successful Card Factory result.
+
+**Do not use image-search queries alone as the reference material for image generation.** Tool-produced plausible artwork is not evidence of authenticity.
+
+## Regression test: 2000 Bowman Chrome Chad Pennington #173
+The initial attempt invented an unrelated chrome border, player photograph, and nameplate without inspecting authentic 2000 Bowman Chrome references. Treat this as a known failure. Before retrying, inspect an authentic 2000 Bowman Chad Pennington #173 base and a genuine 2000 Bowman Chrome football card from the same product. Preserve the original composition and derive only evidence-backed Chrome treatment. Never reuse the failed generated card as a design reference.
