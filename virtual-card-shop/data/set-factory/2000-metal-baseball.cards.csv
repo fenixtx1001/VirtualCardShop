@@ -1,0 +1,675 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Tony Gwynn,San Diego Padres,,
+base,2,Derek Jeter,New York Yankees,,
+base,3,Johnny Damon,Kansas City Royals,,
+base,4,Javy Lopez,Atlanta Braves,,
+base,5,Preston Wilson,Florida Marlins,,
+base,6,Derek Bell,New York Mets,,
+base,7,Richie Sexson,Cleveland Indians,,
+base,8,Vinny Castilla,Tampa Bay Devil Rays,,
+base,9,Billy Wagner,Houston Astros,,
+base,10,Carlos Beltran,Kansas City Royals,,
+base,11,Chris Singleton,Chicago White Sox,,
+base,12,Nomar Garciaparra,Boston Red Sox,,
+base,13,Carlos Febles,Kansas City Royals,,
+base,14,Jason Varitek,Boston Red Sox,,
+base,15,Luis Gonzalez,Arizona Diamondbacks,,
+base,16,Jon Lieber,Chicago Cubs,,
+base,17,Mo Vaughn,Anaheim Angels,,
+base,18,Dave Burba,Cleveland Indians,,
+base,19,Brady Anderson,Baltimore Orioles,,
+base,20,Carlos Lee,Chicago White Sox,,
+base,21,Chuck Finley,Cleveland Indians,,
+base,22,Alex Gonzalez,Florida Marlins,,
+base,23,Matt Williams,Arizona Diamondbacks,,
+base,24,Chipper Jones,Atlanta Braves,,
+base,25,Pokey Reese,Cincinnati Reds,,
+base,26,Todd Helton,Colorado Rockies,,
+base,27,Mike Mussina,Baltimore Orioles,,
+base,28,Butch Huskey,Boston Red Sox,,
+base,29,Jeff Bagwell,Houston Astros,,
+base,30,Juan Encarnacion,Detroit Tigers,,
+base,31,A.J. Burnett,Florida Marlins,,
+base,32,Micah Bowie,Chicago Cubs,,
+base,33,Brian Jordan,Atlanta Braves,,
+base,34,Scott Erickson,Baltimore Orioles,,
+base,35,Sean Casey,Cincinnati Reds,,
+base,36,John Smoltz,Atlanta Braves,,
+base,37,Edgard Clemente,Colorado Rockies,,
+base,38,Mike Hampton,New York Mets,,
+base,39,Tom Glavine,Atlanta Braves,,
+base,40,Albert Belle,Baltimore Orioles,,
+base,41,Jim Thome,Cleveland Indians,,
+base,42,Jermaine Dye,Kansas City Royals,,
+base,43,Sammy Sosa,Chicago Cubs,,
+base,44,Pedro Martinez,Boston Red Sox,,
+base,45,Paul Konerko,Chicago White Sox,,
+base,46,Damion Easley,Detroit Tigers,,
+base,47,Cal Ripken Jr.,Baltimore Orioles,,
+base,48,Jose Lima,Houston Astros,,
+base,49,Mike Lowell,Florida Marlins,,
+base,50,Randy Johnson,Arizona Diamondbacks,,
+base,51,Dean Palmer,Detroit Tigers,,
+base,52,Tim Salmon,Anaheim Angels,,
+base,53,Kevin Millwood,Atlanta Braves,,
+base,54,Mark Grace,Chicago Cubs,,
+base,55,Aaron Boone,Cincinnati Reds,,
+base,56,Omar Vizquel,Cleveland Indians,,
+base,57,Moises Alou,Houston Astros,,
+base,58,Travis Fryman,Cleveland Indians,,
+base,59,Erubiel Durazo,Arizona Diamondbacks,,
+base,60,Carl Everett,Boston Red Sox,,
+base,61,Charles Johnson,Baltimore Orioles,,
+base,62,Trot Nixon,Boston Red Sox,,
+base,63,Andres Galarraga,Atlanta Braves,,
+base,64,Magglio Ordonez,Chicago White Sox,,
+base,65,Pedro Astacio,Colorado Rockies,,
+base,66,Roberto Alomar,Cleveland Indians,,
+base,67,Pete Harnisch,Cincinnati Reds,,
+base,68,Scott Williamson,Cincinnati Reds,,
+base,69,Alex Fernandez,Florida Marlins,,
+base,70,Robin Ventura,New York Mets,,
+base,71,Chad Allen,Minnesota Twins,,
+base,72,Darin Erstad,Anaheim Angels,,
+base,73,Ron Coomer,Minnesota Twins,,
+base,74,Ellis Burks,San Francisco Giants,,
+base,75,Kent Bottenfield,St. Louis Cardinals,,
+base,76,Ken Griffey Jr.,Cincinnati Reds,,Seattle Mariners uniform; Cincinnati Reds affiliation
+base,77,Mike Piazza,New York Mets,,
+base,78,Jorge Posada,New York Yankees,,
+base,79,Dante Bichette,Cincinnati Reds,,
+base,80,Adrian Beltre,Los Angeles Dodgers,,
+base,81,Andruw Jones,Atlanta Braves,,
+base,82,Wilson Alvarez,Tampa Bay Devil Rays,,
+base,83,Edgardo Alfonzo,New York Mets,,
+base,84,Brian Giles,Pittsburgh Pirates,,
+base,85,Gary Sheffield,Los Angeles Dodgers,,
+base,86,Matt Stairs,Oakland Athletics,,
+base,87,Bret Boone,San Diego Padres,,
+base,88,Kenny Rogers,Texas Rangers,,New York Mets uniform; Texas Rangers affiliation
+base,89,Barry Bonds,San Francisco Giants,,
+base,90,Scott Rolen,Philadelphia Phillies,,
+base,91,Edgar Renteria,St. Louis Cardinals,,
+base,92,Larry Walker,Colorado Rockies,,
+base,93,Roger Cedeno,Houston Astros,,
+base,94,Kevin Brown,Los Angeles Dodgers,,
+base,95,Lee Stevens,Texas Rangers,,
+base,96,Brad Radke,Minnesota Twins,,
+base,97,Andy Pettitte,New York Yankees,,
+base,98,Bobby Higginson,Detroit Tigers,,
+base,99,Eric Chavez,Oakland Athletics,,
+base,100,Alex Rodriguez,Seattle Mariners,,
+base,101,Shannon Stewart,Toronto Blue Jays,,
+base,102,Ryan Rupe,Tampa Bay Devil Rays,,
+base,103,Freddy Garcia,Seattle Mariners,,
+base,104,John Jaha,Oakland Athletics,,
+base,105,Greg Maddux,Atlanta Braves,,
+base,106,Hideki Irabu,Montreal Expos,,
+base,107,Rey Ordonez,New York Mets,,
+base,108,Troy O'Leary,Boston Red Sox,,
+base,109,Frank Thomas,Chicago White Sox,,
+base,110,Corey Koskie,Minnesota Twins,,
+base,111,Bernie Williams,New York Yankees,,
+base,112,Barry Larkin,Cincinnati Reds,,
+base,113,Kevin Appier,Oakland Athletics,,
+base,114,Curt Schilling,Philadelphia Phillies,,
+base,115,Bartolo Colon,Cleveland Indians,,
+base,116,Edgar Martinez,Seattle Mariners,,
+base,117,Ray Lankford,St. Louis Cardinals,,
+base,118,Todd Walker,Minnesota Twins,,
+base,119,John Wetteland,Texas Rangers,,
+base,120,Dave Nilsson,Milwaukee Brewers,,
+base,121,Tino Martinez,New York Yankees,,
+base,122,Phil Nevin,San Diego Padres,,
+base,123,Ben Grieve,Oakland Athletics,,
+base,124,Ron Gant,Philadelphia Phillies,,
+base,125,Jeff Kent,San Francisco Giants,,
+base,126,Rick Helling,Texas Rangers,,
+base,127,Russ Ortiz,San Francisco Giants,,
+base,128,Troy Glaus,Anaheim Angels,,
+base,129,Chan Ho Park,Los Angeles Dodgers,,
+base,130,Jeromy Burnitz,Milwaukee Brewers,,
+base,131,Aaron Sele,Seattle Mariners,,
+base,132,Mike Sirotka,Chicago White Sox,,
+base,133,Brad Ausmus,Detroit Tigers,,
+base,134,Jose Rosado,Kansas City Royals,,
+base,135,Mariano Rivera,New York Yankees,,
+base,136,Jason Giambi,Oakland Athletics,,
+base,137,Mike Lieberthal,Philadelphia Phillies,,
+base,138,Chris Carpenter,Toronto Blue Jays,,
+base,139,Henry Rodriguez,Chicago Cubs,,
+base,140,Mike Sweeney,Kansas City Royals,,
+base,141,Vladimir Guerrero,Montreal Expos,,
+base,142,Charles Nagy,Cleveland Indians,,
+base,143,Jason Kendall,Pittsburgh Pirates,,
+base,144,Matt Lawton,Minnesota Twins,,
+base,145,Michael Barrett,Montreal Expos,,
+base,146,David Cone,New York Yankees,,
+base,147,Bobby Abreu,Philadelphia Phillies,,
+base,148,Fernando Tatis,St. Louis Cardinals,,
+base,149,Jose Canseco,Tampa Bay Devil Rays,,
+base,150,Craig Biggio,Houston Astros,,
+base,151,Matt Mantei,Arizona Diamondbacks,,
+base,152,Jacque Jones,Minnesota Twins,,
+base,153,John Halama,Seattle Mariners,,
+base,154,Trevor Hoffman,San Diego Padres,,
+base,155,Rondell White,Montreal Expos,,
+base,156,Reggie Sanders,Atlanta Braves,,
+base,157,Steve Finley,Arizona Diamondbacks,,
+base,158,Roberto Hernandez,Tampa Bay Devil Rays,,
+base,159,Geoff Jenkins,Milwaukee Brewers,,
+base,160,Chris Widger,Montreal Expos,,
+base,161,Orel Hershiser,Los Angeles Dodgers,,
+base,162,Tim Hudson,Oakland Athletics,,
+base,163,Kris Benson,Pittsburgh Pirates,,
+base,164,Kevin Young,Pittsburgh Pirates,,
+base,165,Rafael Palmeiro,Texas Rangers,,
+base,166,David Wells,Toronto Blue Jays,,
+base,167,Ben Davis,San Diego Padres,,
+base,168,Jamie Moyer,Seattle Mariners,,
+base,169,Randy Wolf,Philadelphia Phillies,,
+base,170,Jeff Cirillo,Colorado Rockies,,
+base,171,Warren Morris,Pittsburgh Pirates,,
+base,172,Billy Koch,Toronto Blue Jays,,
+base,173,Marquis Grissom,Milwaukee Brewers,,
+base,174,Geoff Blum,Montreal Expos,,
+base,175,Octavio Dotel,Houston Astros,,
+base,176,Orlando Hernandez,New York Yankees,,
+base,177,J.D. Drew,St. Louis Cardinals,,
+base,178,Carlos Delgado,Toronto Blue Jays,,
+base,179,Sterling Hitchcock,San Diego Padres,,
+base,180,Shawn Green,Los Angeles Dodgers,,
+base,181,Tony Clark,Detroit Tigers,,
+base,182,Joe McEwing,St. Louis Cardinals,,
+base,183,Fred McGriff,Tampa Bay Devil Rays,,
+base,184,Tony Batista,Toronto Blue Jays,,
+base,185,Al Leiter,New York Mets,,
+base,186,Roger Clemens,New York Yankees,,
+base,187,Al Martin,Pittsburgh Pirates,,
+base,188,Eric Milton,Minnesota Twins,,
+base,189,Bobby Smith,Tampa Bay Devil Rays,,
+base,190,Rusty Greer,Texas Rangers,,
+base,191,Shawn Estes,San Francisco Giants,,
+base,192,Ken Caminiti,Houston Astros,,
+base,193,Eric Karros,Los Angeles Dodgers,,
+base,194,Manny Ramirez,Cleveland Indians,,
+base,195,Jim Edmonds,Anaheim Angels,,
+base,196,Paul O'Neill,New York Yankees,,
+base,197,Rico Brogna,Philadelphia Phillies,,
+base,198,Ivan Rodriguez,Texas Rangers,,
+base,199,Doug Glanville,Philadelphia Phillies,,
+base,200,Mark McGwire,St. Louis Cardinals,,
+base,201,Mark Quinn,Kansas City Royals,Prospects,
+base,202,Norm Hutchins,Anaheim Angels,Prospects,
+base,203,Ramon Ortiz,Anaheim Angels,Prospects,
+base,204,Brett Laxton,Oakland Athletics,Prospects,
+base,205,Jimmy Anderson,Pittsburgh Pirates,Prospects,
+base,206,Calvin Murray,San Francisco Giants,Prospects,
+base,207,Wilton Veras,Boston Red Sox,Prospects,
+base,208,Chad Hermansen,Pittsburgh Pirates,Prospects,
+base,209,Nick Johnson,New York Yankees,Prospects,
+base,210,Kevin Barker,Milwaukee Brewers,Prospects,
+base,211,Casey Blake,Toronto Blue Jays,Prospects,
+base,212,Chad Meyers,Chicago Cubs,Prospects,
+base,213,Kip Wells,Chicago White Sox,Prospects,
+base,214,Eric Munson,Detroit Tigers,Prospects,
+base,215,Lance Berkman,Houston Astros,Prospects,
+base,216,Wily Mo Pena,New York Yankees,Prospects,
+base,217,"Gary Matthews, Jr.",San Diego Padres,Prospects,
+base,218,Travis Dawkins,Cincinnati Reds,Prospects,
+base,219,Josh Beckett,Florida Marlins,Prospects,
+base,220,"Tony Armas, Jr.",Montreal Expos,Prospects,
+base,221,Alfonso Soriano,New York Yankees,Prospects,
+base,222,Pat Burrell,Philadelphia Phillies,Prospects,
+base,223,Danys Baez RC,Cleveland Indians,Prospects,
+base,224,Adam Kennedy,St. Louis Cardinals,Prospects,
+base,225,Ruben Mateo,Texas Rangers,Prospects,
+base,226,Vernon Wells,Toronto Blue Jays,Prospects,
+base,227,Brian Cooper,Anaheim Angels,Prospects,
+base,228,Jeff DaVanon RC,Anaheim Angels,Prospects,
+base,229,Glen Barker,Houston Astros,Prospects,
+base,230,Robinson Cancel,Milwaukee Brewers,Prospects,
+base,231,D'Angelo Jimenez,New York Yankees,Prospects,
+base,232,Adam Piatt,Oakland Athletics,Prospects,
+base,233,Buddy Carlyle,San Diego Padres,Prospects,
+base,234,Chad Hutchinson,St. Louis Cardinals,Prospects,
+base,235,Matt Riley,Baltimore Orioles,Prospects,
+base,236,Cole Liniak,Chicago Cubs,Prospects,
+base,237,Ben Petrick,Colorado Rockies,Prospects,
+base,238,Peter Bergeron,Montreal Expos,Prospects,
+base,239,Cesar King,Texas Rangers,Prospects,
+base,240,Aaron Myette,Chicago White Sox,Prospects,
+base,241,Eric Gagne,Los Angeles Dodgers,Prospects,
+base,242,Joe Nathan,San Francisco Giants,Prospects,
+base,243,Bruce Chen,Atlanta Braves,Prospects,
+base,244,Rob Bell,Cincinnati Reds,Prospects,
+base,245,Juan Sosa RC,Colorado Rockies,Prospects,
+base,246,Julio Ramirez,Florida Marlins,Prospects,
+base,247,Wade Miller,Houston Astros,Prospects,
+base,248,Trace Coquillette RC,Montreal Expos,Prospects,
+base,249,Rob Ramsay,Seattle Mariners,Prospects,Earlier true RC: 1999 Fleer Tradition Update U-92
+base,250,Rick Ankiel,St. Louis Cardinals,Prospects,
+emerald,1,Tony Gwynn,San Diego Padres,,Emerald foil; circled E on back
+emerald,2,Derek Jeter,New York Yankees,,Emerald foil; circled E on back
+emerald,3,Johnny Damon,Kansas City Royals,,Emerald foil; circled E on back
+emerald,4,Javy Lopez,Atlanta Braves,,Emerald foil; circled E on back
+emerald,5,Preston Wilson,Florida Marlins,,Emerald foil; circled E on back
+emerald,6,Derek Bell,New York Mets,,Emerald foil; circled E on back
+emerald,7,Richie Sexson,Cleveland Indians,,Emerald foil; circled E on back
+emerald,8,Vinny Castilla,Tampa Bay Devil Rays,,Emerald foil; circled E on back
+emerald,9,Billy Wagner,Houston Astros,,Emerald foil; circled E on back
+emerald,10,Carlos Beltran,Kansas City Royals,,Emerald foil; circled E on back
+emerald,11,Chris Singleton,Chicago White Sox,,Emerald foil; circled E on back
+emerald,12,Nomar Garciaparra,Boston Red Sox,,Emerald foil; circled E on back
+emerald,13,Carlos Febles,Kansas City Royals,,Emerald foil; circled E on back
+emerald,14,Jason Varitek,Boston Red Sox,,Emerald foil; circled E on back
+emerald,15,Luis Gonzalez,Arizona Diamondbacks,,Emerald foil; circled E on back
+emerald,16,Jon Lieber,Chicago Cubs,,Emerald foil; circled E on back
+emerald,17,Mo Vaughn,Anaheim Angels,,Emerald foil; circled E on back
+emerald,18,Dave Burba,Cleveland Indians,,Emerald foil; circled E on back
+emerald,19,Brady Anderson,Baltimore Orioles,,Emerald foil; circled E on back
+emerald,20,Carlos Lee,Chicago White Sox,,Emerald foil; circled E on back
+emerald,21,Chuck Finley,Cleveland Indians,,Emerald foil; circled E on back
+emerald,22,Alex Gonzalez,Florida Marlins,,Emerald foil; circled E on back
+emerald,23,Matt Williams,Arizona Diamondbacks,,Emerald foil; circled E on back
+emerald,24,Chipper Jones,Atlanta Braves,,Emerald foil; circled E on back
+emerald,25,Pokey Reese,Cincinnati Reds,,Emerald foil; circled E on back
+emerald,26,Todd Helton,Colorado Rockies,,Emerald foil; circled E on back
+emerald,27,Mike Mussina,Baltimore Orioles,,Emerald foil; circled E on back
+emerald,28,Butch Huskey,Boston Red Sox,,Emerald foil; circled E on back
+emerald,29,Jeff Bagwell,Houston Astros,,Emerald foil; circled E on back
+emerald,30,Juan Encarnacion,Detroit Tigers,,Emerald foil; circled E on back
+emerald,31,A.J. Burnett,Florida Marlins,,Emerald foil; circled E on back
+emerald,32,Micah Bowie,Chicago Cubs,,Emerald foil; circled E on back
+emerald,33,Brian Jordan,Atlanta Braves,,Emerald foil; circled E on back
+emerald,34,Scott Erickson,Baltimore Orioles,,Emerald foil; circled E on back
+emerald,35,Sean Casey,Cincinnati Reds,,Emerald foil; circled E on back
+emerald,36,John Smoltz,Atlanta Braves,,Emerald foil; circled E on back
+emerald,37,Edgard Clemente,Colorado Rockies,,Emerald foil; circled E on back
+emerald,38,Mike Hampton,New York Mets,,Emerald foil; circled E on back
+emerald,39,Tom Glavine,Atlanta Braves,,Emerald foil; circled E on back
+emerald,40,Albert Belle,Baltimore Orioles,,Emerald foil; circled E on back
+emerald,41,Jim Thome,Cleveland Indians,,Emerald foil; circled E on back
+emerald,42,Jermaine Dye,Kansas City Royals,,Emerald foil; circled E on back
+emerald,43,Sammy Sosa,Chicago Cubs,,Emerald foil; circled E on back
+emerald,44,Pedro Martinez,Boston Red Sox,,Emerald foil; circled E on back
+emerald,45,Paul Konerko,Chicago White Sox,,Emerald foil; circled E on back
+emerald,46,Damion Easley,Detroit Tigers,,Emerald foil; circled E on back
+emerald,47,Cal Ripken Jr.,Baltimore Orioles,,Emerald foil; circled E on back
+emerald,48,Jose Lima,Houston Astros,,Emerald foil; circled E on back
+emerald,49,Mike Lowell,Florida Marlins,,Emerald foil; circled E on back
+emerald,50,Randy Johnson,Arizona Diamondbacks,,Emerald foil; circled E on back
+emerald,51,Dean Palmer,Detroit Tigers,,Emerald foil; circled E on back
+emerald,52,Tim Salmon,Anaheim Angels,,Emerald foil; circled E on back
+emerald,53,Kevin Millwood,Atlanta Braves,,Emerald foil; circled E on back
+emerald,54,Mark Grace,Chicago Cubs,,Emerald foil; circled E on back
+emerald,55,Aaron Boone,Cincinnati Reds,,Emerald foil; circled E on back
+emerald,56,Omar Vizquel,Cleveland Indians,,Emerald foil; circled E on back
+emerald,57,Moises Alou,Houston Astros,,Emerald foil; circled E on back
+emerald,58,Travis Fryman,Cleveland Indians,,Emerald foil; circled E on back
+emerald,59,Erubiel Durazo,Arizona Diamondbacks,,Emerald foil; circled E on back
+emerald,60,Carl Everett,Boston Red Sox,,Emerald foil; circled E on back
+emerald,61,Charles Johnson,Baltimore Orioles,,Emerald foil; circled E on back
+emerald,62,Trot Nixon,Boston Red Sox,,Emerald foil; circled E on back
+emerald,63,Andres Galarraga,Atlanta Braves,,Emerald foil; circled E on back
+emerald,64,Magglio Ordonez,Chicago White Sox,,Emerald foil; circled E on back
+emerald,65,Pedro Astacio,Colorado Rockies,,Emerald foil; circled E on back
+emerald,66,Roberto Alomar,Cleveland Indians,,Emerald foil; circled E on back
+emerald,67,Pete Harnisch,Cincinnati Reds,,Emerald foil; circled E on back
+emerald,68,Scott Williamson,Cincinnati Reds,,Emerald foil; circled E on back
+emerald,69,Alex Fernandez,Florida Marlins,,Emerald foil; circled E on back
+emerald,70,Robin Ventura,New York Mets,,Emerald foil; circled E on back
+emerald,71,Chad Allen,Minnesota Twins,,Emerald foil; circled E on back
+emerald,72,Darin Erstad,Anaheim Angels,,Emerald foil; circled E on back
+emerald,73,Ron Coomer,Minnesota Twins,,Emerald foil; circled E on back
+emerald,74,Ellis Burks,San Francisco Giants,,Emerald foil; circled E on back
+emerald,75,Kent Bottenfield,St. Louis Cardinals,,Emerald foil; circled E on back
+emerald,76,Ken Griffey Jr.,Cincinnati Reds,,Emerald foil; circled E on back; Seattle Mariners uniform; Cincinnati Reds affiliation
+emerald,77,Mike Piazza,New York Mets,,Emerald foil; circled E on back
+emerald,78,Jorge Posada,New York Yankees,,Emerald foil; circled E on back
+emerald,79,Dante Bichette,Cincinnati Reds,,Emerald foil; circled E on back
+emerald,80,Adrian Beltre,Los Angeles Dodgers,,Emerald foil; circled E on back
+emerald,81,Andruw Jones,Atlanta Braves,,Emerald foil; circled E on back
+emerald,82,Wilson Alvarez,Tampa Bay Devil Rays,,Emerald foil; circled E on back
+emerald,83,Edgardo Alfonzo,New York Mets,,Emerald foil; circled E on back
+emerald,84,Brian Giles,Pittsburgh Pirates,,Emerald foil; circled E on back
+emerald,85,Gary Sheffield,Los Angeles Dodgers,,Emerald foil; circled E on back
+emerald,86,Matt Stairs,Oakland Athletics,,Emerald foil; circled E on back
+emerald,87,Bret Boone,San Diego Padres,,Emerald foil; circled E on back
+emerald,88,Kenny Rogers,Texas Rangers,,Emerald foil; circled E on back; New York Mets uniform; Texas Rangers affiliation
+emerald,89,Barry Bonds,San Francisco Giants,,Emerald foil; circled E on back
+emerald,90,Scott Rolen,Philadelphia Phillies,,Emerald foil; circled E on back
+emerald,91,Edgar Renteria,St. Louis Cardinals,,Emerald foil; circled E on back
+emerald,92,Larry Walker,Colorado Rockies,,Emerald foil; circled E on back
+emerald,93,Roger Cedeno,Houston Astros,,Emerald foil; circled E on back
+emerald,94,Kevin Brown,Los Angeles Dodgers,,Emerald foil; circled E on back
+emerald,95,Lee Stevens,Texas Rangers,,Emerald foil; circled E on back
+emerald,96,Brad Radke,Minnesota Twins,,Emerald foil; circled E on back
+emerald,97,Andy Pettitte,New York Yankees,,Emerald foil; circled E on back
+emerald,98,Bobby Higginson,Detroit Tigers,,Emerald foil; circled E on back
+emerald,99,Eric Chavez,Oakland Athletics,,Emerald foil; circled E on back
+emerald,100,Alex Rodriguez,Seattle Mariners,,Emerald foil; circled E on back
+emerald,101,Shannon Stewart,Toronto Blue Jays,,Emerald foil; circled E on back
+emerald,102,Ryan Rupe,Tampa Bay Devil Rays,,Emerald foil; circled E on back
+emerald,103,Freddy Garcia,Seattle Mariners,,Emerald foil; circled E on back
+emerald,104,John Jaha,Oakland Athletics,,Emerald foil; circled E on back
+emerald,105,Greg Maddux,Atlanta Braves,,Emerald foil; circled E on back
+emerald,106,Hideki Irabu,Montreal Expos,,Emerald foil; circled E on back
+emerald,107,Rey Ordonez,New York Mets,,Emerald foil; circled E on back
+emerald,108,Troy O'Leary,Boston Red Sox,,Emerald foil; circled E on back
+emerald,109,Frank Thomas,Chicago White Sox,,Emerald foil; circled E on back
+emerald,110,Corey Koskie,Minnesota Twins,,Emerald foil; circled E on back
+emerald,111,Bernie Williams,New York Yankees,,Emerald foil; circled E on back
+emerald,112,Barry Larkin,Cincinnati Reds,,Emerald foil; circled E on back
+emerald,113,Kevin Appier,Oakland Athletics,,Emerald foil; circled E on back
+emerald,114,Curt Schilling,Philadelphia Phillies,,Emerald foil; circled E on back
+emerald,115,Bartolo Colon,Cleveland Indians,,Emerald foil; circled E on back
+emerald,116,Edgar Martinez,Seattle Mariners,,Emerald foil; circled E on back
+emerald,117,Ray Lankford,St. Louis Cardinals,,Emerald foil; circled E on back
+emerald,118,Todd Walker,Minnesota Twins,,Emerald foil; circled E on back
+emerald,119,John Wetteland,Texas Rangers,,Emerald foil; circled E on back
+emerald,120,Dave Nilsson,Milwaukee Brewers,,Emerald foil; circled E on back
+emerald,121,Tino Martinez,New York Yankees,,Emerald foil; circled E on back
+emerald,122,Phil Nevin,San Diego Padres,,Emerald foil; circled E on back
+emerald,123,Ben Grieve,Oakland Athletics,,Emerald foil; circled E on back
+emerald,124,Ron Gant,Philadelphia Phillies,,Emerald foil; circled E on back
+emerald,125,Jeff Kent,San Francisco Giants,,Emerald foil; circled E on back
+emerald,126,Rick Helling,Texas Rangers,,Emerald foil; circled E on back
+emerald,127,Russ Ortiz,San Francisco Giants,,Emerald foil; circled E on back
+emerald,128,Troy Glaus,Anaheim Angels,,Emerald foil; circled E on back
+emerald,129,Chan Ho Park,Los Angeles Dodgers,,Emerald foil; circled E on back
+emerald,130,Jeromy Burnitz,Milwaukee Brewers,,Emerald foil; circled E on back
+emerald,131,Aaron Sele,Seattle Mariners,,Emerald foil; circled E on back
+emerald,132,Mike Sirotka,Chicago White Sox,,Emerald foil; circled E on back
+emerald,133,Brad Ausmus,Detroit Tigers,,Emerald foil; circled E on back
+emerald,134,Jose Rosado,Kansas City Royals,,Emerald foil; circled E on back
+emerald,135,Mariano Rivera,New York Yankees,,Emerald foil; circled E on back
+emerald,136,Jason Giambi,Oakland Athletics,,Emerald foil; circled E on back
+emerald,137,Mike Lieberthal,Philadelphia Phillies,,Emerald foil; circled E on back
+emerald,138,Chris Carpenter,Toronto Blue Jays,,Emerald foil; circled E on back
+emerald,139,Henry Rodriguez,Chicago Cubs,,Emerald foil; circled E on back
+emerald,140,Mike Sweeney,Kansas City Royals,,Emerald foil; circled E on back
+emerald,141,Vladimir Guerrero,Montreal Expos,,Emerald foil; circled E on back
+emerald,142,Charles Nagy,Cleveland Indians,,Emerald foil; circled E on back
+emerald,143,Jason Kendall,Pittsburgh Pirates,,Emerald foil; circled E on back
+emerald,144,Matt Lawton,Minnesota Twins,,Emerald foil; circled E on back
+emerald,145,Michael Barrett,Montreal Expos,,Emerald foil; circled E on back
+emerald,146,David Cone,New York Yankees,,Emerald foil; circled E on back
+emerald,147,Bobby Abreu,Philadelphia Phillies,,Emerald foil; circled E on back
+emerald,148,Fernando Tatis,St. Louis Cardinals,,Emerald foil; circled E on back
+emerald,149,Jose Canseco,Tampa Bay Devil Rays,,Emerald foil; circled E on back
+emerald,150,Craig Biggio,Houston Astros,,Emerald foil; circled E on back
+emerald,151,Matt Mantei,Arizona Diamondbacks,,Emerald foil; circled E on back
+emerald,152,Jacque Jones,Minnesota Twins,,Emerald foil; circled E on back
+emerald,153,John Halama,Seattle Mariners,,Emerald foil; circled E on back
+emerald,154,Trevor Hoffman,San Diego Padres,,Emerald foil; circled E on back
+emerald,155,Rondell White,Montreal Expos,,Emerald foil; circled E on back
+emerald,156,Reggie Sanders,Atlanta Braves,,Emerald foil; circled E on back
+emerald,157,Steve Finley,Arizona Diamondbacks,,Emerald foil; circled E on back
+emerald,158,Roberto Hernandez,Tampa Bay Devil Rays,,Emerald foil; circled E on back
+emerald,159,Geoff Jenkins,Milwaukee Brewers,,Emerald foil; circled E on back
+emerald,160,Chris Widger,Montreal Expos,,Emerald foil; circled E on back
+emerald,161,Orel Hershiser,Los Angeles Dodgers,,Emerald foil; circled E on back
+emerald,162,Tim Hudson,Oakland Athletics,,Emerald foil; circled E on back
+emerald,163,Kris Benson,Pittsburgh Pirates,,Emerald foil; circled E on back
+emerald,164,Kevin Young,Pittsburgh Pirates,,Emerald foil; circled E on back
+emerald,165,Rafael Palmeiro,Texas Rangers,,Emerald foil; circled E on back
+emerald,166,David Wells,Toronto Blue Jays,,Emerald foil; circled E on back
+emerald,167,Ben Davis,San Diego Padres,,Emerald foil; circled E on back
+emerald,168,Jamie Moyer,Seattle Mariners,,Emerald foil; circled E on back
+emerald,169,Randy Wolf,Philadelphia Phillies,,Emerald foil; circled E on back
+emerald,170,Jeff Cirillo,Colorado Rockies,,Emerald foil; circled E on back
+emerald,171,Warren Morris,Pittsburgh Pirates,,Emerald foil; circled E on back
+emerald,172,Billy Koch,Toronto Blue Jays,,Emerald foil; circled E on back
+emerald,173,Marquis Grissom,Milwaukee Brewers,,Emerald foil; circled E on back
+emerald,174,Geoff Blum,Montreal Expos,,Emerald foil; circled E on back
+emerald,175,Octavio Dotel,Houston Astros,,Emerald foil; circled E on back
+emerald,176,Orlando Hernandez,New York Yankees,,Emerald foil; circled E on back
+emerald,177,J.D. Drew,St. Louis Cardinals,,Emerald foil; circled E on back
+emerald,178,Carlos Delgado,Toronto Blue Jays,,Emerald foil; circled E on back
+emerald,179,Sterling Hitchcock,San Diego Padres,,Emerald foil; circled E on back
+emerald,180,Shawn Green,Los Angeles Dodgers,,Emerald foil; circled E on back
+emerald,181,Tony Clark,Detroit Tigers,,Emerald foil; circled E on back
+emerald,182,Joe McEwing,St. Louis Cardinals,,Emerald foil; circled E on back
+emerald,183,Fred McGriff,Tampa Bay Devil Rays,,Emerald foil; circled E on back
+emerald,184,Tony Batista,Toronto Blue Jays,,Emerald foil; circled E on back
+emerald,185,Al Leiter,New York Mets,,Emerald foil; circled E on back
+emerald,186,Roger Clemens,New York Yankees,,Emerald foil; circled E on back
+emerald,187,Al Martin,Pittsburgh Pirates,,Emerald foil; circled E on back
+emerald,188,Eric Milton,Minnesota Twins,,Emerald foil; circled E on back
+emerald,189,Bobby Smith,Tampa Bay Devil Rays,,Emerald foil; circled E on back
+emerald,190,Rusty Greer,Texas Rangers,,Emerald foil; circled E on back
+emerald,191,Shawn Estes,San Francisco Giants,,Emerald foil; circled E on back
+emerald,192,Ken Caminiti,Houston Astros,,Emerald foil; circled E on back
+emerald,193,Eric Karros,Los Angeles Dodgers,,Emerald foil; circled E on back
+emerald,194,Manny Ramirez,Cleveland Indians,,Emerald foil; circled E on back
+emerald,195,Jim Edmonds,Anaheim Angels,,Emerald foil; circled E on back
+emerald,196,Paul O'Neill,New York Yankees,,Emerald foil; circled E on back
+emerald,197,Rico Brogna,Philadelphia Phillies,,Emerald foil; circled E on back
+emerald,198,Ivan Rodriguez,Texas Rangers,,Emerald foil; circled E on back
+emerald,199,Doug Glanville,Philadelphia Phillies,,Emerald foil; circled E on back
+emerald,200,Mark McGwire,St. Louis Cardinals,,Emerald foil; circled E on back
+emerald,201,Mark Quinn,Kansas City Royals,Prospects,Emerald foil; circled E on back
+emerald,202,Norm Hutchins,Anaheim Angels,Prospects,Emerald foil; circled E on back
+emerald,203,Ramon Ortiz,Anaheim Angels,Prospects,Emerald foil; circled E on back
+emerald,204,Brett Laxton,Oakland Athletics,Prospects,Emerald foil; circled E on back
+emerald,205,Jimmy Anderson,Pittsburgh Pirates,Prospects,Emerald foil; circled E on back
+emerald,206,Calvin Murray,San Francisco Giants,Prospects,Emerald foil; circled E on back
+emerald,207,Wilton Veras,Boston Red Sox,Prospects,Emerald foil; circled E on back
+emerald,208,Chad Hermansen,Pittsburgh Pirates,Prospects,Emerald foil; circled E on back
+emerald,209,Nick Johnson,New York Yankees,Prospects,Emerald foil; circled E on back
+emerald,210,Kevin Barker,Milwaukee Brewers,Prospects,Emerald foil; circled E on back
+emerald,211,Casey Blake,Toronto Blue Jays,Prospects,Emerald foil; circled E on back
+emerald,212,Chad Meyers,Chicago Cubs,Prospects,Emerald foil; circled E on back
+emerald,213,Kip Wells,Chicago White Sox,Prospects,Emerald foil; circled E on back
+emerald,214,Eric Munson,Detroit Tigers,Prospects,Emerald foil; circled E on back
+emerald,215,Lance Berkman,Houston Astros,Prospects,Emerald foil; circled E on back
+emerald,216,Wily Mo Pena,New York Yankees,Prospects,Emerald foil; circled E on back
+emerald,217,"Gary Matthews, Jr.",San Diego Padres,Prospects,Emerald foil; circled E on back
+emerald,218,Travis Dawkins,Cincinnati Reds,Prospects,Emerald foil; circled E on back
+emerald,219,Josh Beckett,Florida Marlins,Prospects,Emerald foil; circled E on back
+emerald,220,"Tony Armas, Jr.",Montreal Expos,Prospects,Emerald foil; circled E on back
+emerald,221,Alfonso Soriano,New York Yankees,Prospects,Emerald foil; circled E on back
+emerald,222,Pat Burrell,Philadelphia Phillies,Prospects,Emerald foil; circled E on back
+emerald,223,Danys Baez,Cleveland Indians,Prospects,Emerald foil; circled E on back
+emerald,224,Adam Kennedy,St. Louis Cardinals,Prospects,Emerald foil; circled E on back
+emerald,225,Ruben Mateo,Texas Rangers,Prospects,Emerald foil; circled E on back
+emerald,226,Vernon Wells,Toronto Blue Jays,Prospects,Emerald foil; circled E on back
+emerald,227,Brian Cooper,Anaheim Angels,Prospects,Emerald foil; circled E on back
+emerald,228,Jeff DaVanon,Anaheim Angels,Prospects,Emerald foil; circled E on back
+emerald,229,Glen Barker,Houston Astros,Prospects,Emerald foil; circled E on back
+emerald,230,Robinson Cancel,Milwaukee Brewers,Prospects,Emerald foil; circled E on back
+emerald,231,D'Angelo Jimenez,New York Yankees,Prospects,Emerald foil; circled E on back
+emerald,232,Adam Piatt,Oakland Athletics,Prospects,Emerald foil; circled E on back
+emerald,233,Buddy Carlyle,San Diego Padres,Prospects,Emerald foil; circled E on back
+emerald,234,Chad Hutchinson,St. Louis Cardinals,Prospects,Emerald foil; circled E on back
+emerald,235,Matt Riley,Baltimore Orioles,Prospects,Emerald foil; circled E on back
+emerald,236,Cole Liniak,Chicago Cubs,Prospects,Emerald foil; circled E on back
+emerald,237,Ben Petrick,Colorado Rockies,Prospects,Emerald foil; circled E on back
+emerald,238,Peter Bergeron,Montreal Expos,Prospects,Emerald foil; circled E on back
+emerald,239,Cesar King,Texas Rangers,Prospects,Emerald foil; circled E on back
+emerald,240,Aaron Myette,Chicago White Sox,Prospects,Emerald foil; circled E on back
+emerald,241,Eric Gagne,Los Angeles Dodgers,Prospects,Emerald foil; circled E on back
+emerald,242,Joe Nathan,San Francisco Giants,Prospects,Emerald foil; circled E on back
+emerald,243,Bruce Chen,Atlanta Braves,Prospects,Emerald foil; circled E on back
+emerald,244,Rob Bell,Cincinnati Reds,Prospects,Emerald foil; circled E on back
+emerald,245,Juan Sosa,Colorado Rockies,Prospects,Emerald foil; circled E on back
+emerald,246,Julio Ramirez,Florida Marlins,Prospects,Emerald foil; circled E on back
+emerald,247,Wade Miller,Houston Astros,Prospects,Emerald foil; circled E on back
+emerald,248,Trace Coquillette,Montreal Expos,Prospects,Emerald foil; circled E on back
+emerald,249,Rob Ramsay,Seattle Mariners,Prospects,Emerald foil; circled E on back
+emerald,250,Rick Ankiel,St. Louis Cardinals,Prospects,Emerald foil; circled E on back
+fusion,1 F,"Alex Rodriguez / Ken Griffey, Jr.",Seattle Mariners,,
+fusion,2 F,Mark McGwire / Rick Ankiel,St. Louis Cardinals,,
+fusion,3 F,Scott Rolen / Curt Schilling,Philadelphia Phillies,,
+fusion,4 F,Nomar Garciaparra / Pedro Martinez,Boston Red Sox,,
+fusion,5 F,Carlos Beltran / Carlos Febles,Kansas City Royals,,
+fusion,6 F,Mark Grace / Sammy Sosa,Chicago Cubs,,
+fusion,7 F,Ugueth Urbina / Vladimir Guerrero,Montreal Expos,,
+fusion,8 F,Roger Clemens / Derek Jeter,New York Yankees,,
+fusion,9 F,Craig Biggio / Jeff Bagwell,Houston Astros,,
+fusion,10 F,Chipper Jones / Andruw Jones,Atlanta Braves,,
+fusion,11 F,"Cal Ripken, Jr. / Mike Mussina",Baltimore Orioles,,
+fusion,12 F,Roberto Alomar / Manny Ramirez,Cleveland Indians,,
+fusion,13 F,Sean Casey / Barry Larkin,Cincinnati Reds,,
+fusion,14 F,Rafael Palmeiro / Ivan Rodriguez,Texas Rangers,,
+fusion,15 F,Mike Piazza / Robin Ventura,New York Mets,,
+heavy-metal,1 HM,Sammy Sosa,Chicago Cubs,,
+heavy-metal,2 HM,Mark McGwire,St. Louis Cardinals,,
+heavy-metal,3 HM,"Ken Griffey, Jr.",Seattle Mariners,,
+heavy-metal,4 HM,Mike Piazza,New York Mets,,
+heavy-metal,5 HM,Nomar Garciaparra,Boston Red Sox,,
+heavy-metal,6 HM,Alex Rodriguez,Seattle Mariners,,
+heavy-metal,7 HM,Manny Ramirez,Cleveland Indians,,
+heavy-metal,8 HM,Jeff Bagwell,Houston Astros,,
+heavy-metal,9 HM,Chipper Jones,Atlanta Braves,,
+heavy-metal,10 HM,Vladimir Guerrero,Montreal Expos,,
+hit-machines,1 H,"Ken Griffey, Jr.",Seattle Mariners,,
+hit-machines,2 H,Mark McGwire,St. Louis Cardinals,,
+hit-machines,3 H,Frank Thomas,Chicago White Sox,,
+hit-machines,4 H,Tony Gwynn,San Diego Padres,,
+hit-machines,5 H,Rafael Palmeiro,Texas Rangers,,
+hit-machines,6 H,Bernie Williams,New York Yankees,,
+hit-machines,7 H,Derek Jeter,New York Yankees,,
+hit-machines,8 H,Sammy Sosa,Chicago Cubs,,
+hit-machines,9 H,Mike Piazza,New York Mets,,
+hit-machines,10 H,Chipper Jones,Atlanta Braves,,
+platinum-portraits,1 PP,Carlos Beltran,Kansas City Royals,,
+platinum-portraits,2 PP,Vladimir Guerrero,Montreal Expos,,
+platinum-portraits,3 PP,Manny Ramirez,Cleveland Indians,,
+platinum-portraits,4 PP,Ivan Rodriguez,Texas Rangers,,
+platinum-portraits,5 PP,Sean Casey,Cincinnati Reds,,
+platinum-portraits,6 PP,Alex Rodriguez,Seattle Mariners,,
+platinum-portraits,7 PP,Derek Jeter,New York Yankees,,
+platinum-portraits,8 PP,Nomar Garciaparra,Boston Red Sox,,
+platinum-portraits,9 PP,Vernon Wells,Toronto Blue Jays,,
+platinum-portraits,10 PP,Shawn Green,Los Angeles Dodgers,,
+talent-show,1 TS,Rick Ankiel,St. Louis Cardinals,,
+talent-show,2 TS,Matt Riley,Baltimore Orioles,,
+talent-show,3 TS,Chad Hermansen,Pittsburgh Pirates,,
+talent-show,4 TS,Ruben Mateo,Texas Rangers,,
+talent-show,5 TS,Eric Munson,Detroit Tigers,,
+talent-show,6 TS,Alfonso Soriano,New York Yankees,,
+talent-show,7 TS,Wilton Veras,Boston Red Sox,,
+talent-show,8 TS,Vernon Wells,Toronto Blue Jays,,
+talent-show,9 TS,Erubiel Durazo,Arizona Diamondbacks,,
+talent-show,10 TS,Pat Burrell,Philadelphia Phillies,,
+talent-show,11 TS,Ben Davis,San Diego Padres,,
+talent-show,12 TS,A.J. Burnett,Florida Marlins,,
+talent-show,13 TS,Peter Bergeron,Montreal Expos,,
+talent-show,14 TS,Mark Quinn,Kansas City Royals,,
+talent-show,15 TS,Ben Petrick,Colorado Rockies,,
+autographics,NNO-CHAD-ALLEN,Chad Allen,Minnesota Twins,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-MARLON-ANDERSON,Marlon Anderson,Philadelphia Phillies,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-RICK-ANKIEL,Rick Ankiel,St. Louis Cardinals,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-GLEN-BARKER,Glen Barker,Houston Astros,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-ROB-BELL,Rob Bell,Cincinnati Reds,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-PETER-BERGERON,Peter Bergeron,Montreal Expos,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-LANCE-BERKMAN,Lance Berkman,Houston Astros,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-WADE-BOGGS,Wade Boggs,Tampa Bay Devil Rays,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-BARRY-BONDS,Barry Bonds,San Francisco Giants,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-KENT-BOTTENFIELD,Kent Bottenfield,St. Louis Cardinals,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-PAT-BURRELL,Pat Burrell,Philadelphia Phillies,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-MIGUEL-CAIRO,Miguel Cairo,Tampa Bay Devil Rays,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-MIKE-CAMERON,Mike Cameron,Cincinnati Reds,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-CHRIS-CARPENTER,Chris Carpenter,Toronto Blue Jays,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-ROGER-CEDENO,Roger Cedeno,New York Mets,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-EINAR-DIAZ,Einar Diaz,Cleveland Indians,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-J-D-DREW,J.D. Drew,St. Louis Cardinals,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-ERUBIEL-DURAZO,Erubiel Durazo,Arizona Diamondbacks,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-RAY-DURHAM,Ray Durham,Chicago White Sox,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-DAMION-EASLEY,Damion Easley,Detroit Tigers,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-SCOTT-ELARTON,Scott Elarton,Houston Astros,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-JEREMY-GIAMBI,Jeremy Giambi,Kansas City Royals,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-DOUG-GLANVILLE,Doug Glanville,Philadelphia Phillies,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-SHAWN-GREEN,Shawn Green,Toronto Blue Jays,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-BOBBY-HOWRY,Bobby Howry,Chicago White Sox,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-NORM-HUTCHINS,Norm Hutchins,Anaheim Angels,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-RANDY-JOHNSON,Randy Johnson,Arizona Diamondbacks,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-JACQUE-JONES,Jacque Jones,Minnesota Twins,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-GABE-KAPLER,Gabe Kapler,Detroit Tigers,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-CESAR-KING,Cesar King,Texas Rangers,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-MARK-KOTSAY,Mark Kotsay,Florida Marlins,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-COLE-LINIAK,Cole Liniak,Chicago Cubs,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-GREG-MADDUX,Greg Maddux,Atlanta Braves,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-PEDRO-MARTINEZ,Pedro Martinez,Boston Red Sox,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-RUBEN-MATEO,Ruben Mateo,Texas Rangers,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-WARREN-MORRIS,Warren Morris,Pittsburgh Pirates,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-JOE-NATHAN,Joe Nathan,San Francisco Giants,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-ANGEL-PENA,Angel Pena,Los Angeles Dodgers,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-CAL-RIPKEN-JR,"Cal Ripken, Jr.",Baltimore Orioles,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-ALEX-RODRIGUEZ,Alex Rodriguez,Seattle Mariners,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-RYAN-RUPE,Ryan Rupe,Tampa Bay Devil Rays,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-RANDALL-SIMON,Randall Simon,Atlanta Braves,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-CHRIS-SINGLETON,Chris Singleton,Chicago White Sox,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-MIKE-SWEENEY,Mike Sweeney,Kansas City Royals,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-WILTON-VERAS,Wilton Veras,Boston Red Sox,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-RANDY-WOLF,Randy Wolf,Philadelphia Phillies,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics,NNO-TONY-WOMACK,Tony Womack,Arizona Diamondbacks,,Autograph; Metal-issued shared 2000 SkyBox program
+autographics-purple,NNO-CHAD-ALLEN,Chad Allen,Minnesota Twins,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-MARLON-ANDERSON,Marlon Anderson,Philadelphia Phillies,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-RICK-ANKIEL,Rick Ankiel,St. Louis Cardinals,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-GLEN-BARKER,Glen Barker,Houston Astros,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-ROB-BELL,Rob Bell,Cincinnati Reds,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-PETER-BERGERON,Peter Bergeron,Montreal Expos,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-LANCE-BERKMAN,Lance Berkman,Houston Astros,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-WADE-BOGGS,Wade Boggs,Tampa Bay Devil Rays,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-BARRY-BONDS,Barry Bonds,San Francisco Giants,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-KENT-BOTTENFIELD,Kent Bottenfield,St. Louis Cardinals,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-PAT-BURRELL,Pat Burrell,Philadelphia Phillies,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-MIGUEL-CAIRO,Miguel Cairo,Tampa Bay Devil Rays,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-MIKE-CAMERON,Mike Cameron,Cincinnati Reds,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-CHRIS-CARPENTER,Chris Carpenter,Toronto Blue Jays,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-ROGER-CEDENO,Roger Cedeno,Houston Astros,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50; Team affiliation pending scan verification; catalogue differs from regular Autographics
+autographics-purple,NNO-EINAR-DIAZ,Einar Diaz,Cleveland Indians,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-J-D-DREW,J.D. Drew,St. Louis Cardinals,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-ERUBIEL-DURAZO,Erubiel Durazo,Arizona Diamondbacks,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-RAY-DURHAM,Ray Durham,Chicago White Sox,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-DAMION-EASLEY,Damion Easley,Detroit Tigers,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-SCOTT-ELARTON,Scott Elarton,Houston Astros,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-JEREMY-GIAMBI,Jeremy Giambi,Kansas City Royals,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-DOUG-GLANVILLE,Doug Glanville,Philadelphia Phillies,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-SHAWN-GREEN,Shawn Green,Toronto Blue Jays,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-BOBBY-HOWRY,Bobby Howry,Chicago White Sox,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-NORM-HUTCHINS,Norm Hutchins,Anaheim Angels,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-RANDY-JOHNSON,Randy Johnson,Arizona Diamondbacks,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-JACQUE-JONES,Jacque Jones,Minnesota Twins,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-GABE-KAPLER,Gabe Kapler,Texas Rangers,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50; Team affiliation pending scan verification; catalogue differs from regular Autographics
+autographics-purple,NNO-CESAR-KING,Cesar King,Texas Rangers,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-MARK-KOTSAY,Mark Kotsay,Florida Marlins,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-COLE-LINIAK,Cole Liniak,Chicago Cubs,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-GREG-MADDUX,Greg Maddux,Atlanta Braves,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-PEDRO-MARTINEZ,Pedro Martinez,Boston Red Sox,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-RUBEN-MATEO,Ruben Mateo,Texas Rangers,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-WARREN-MORRIS,Warren Morris,Pittsburgh Pirates,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-JOE-NATHAN,Joe Nathan,San Francisco Giants,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-ANGEL-PENA,Angel Pena,Los Angeles Dodgers,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-CAL-RIPKEN-JR,"Cal Ripken, Jr.",Baltimore Orioles,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-ALEX-RODRIGUEZ,Alex Rodriguez,Seattle Mariners,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-RYAN-RUPE,Ryan Rupe,Tampa Bay Devil Rays,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-RANDALL-SIMON,Randall Simon,Atlanta Braves,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-CHRIS-SINGLETON,Chris Singleton,Chicago White Sox,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-MIKE-SWEENEY,Mike Sweeney,Kansas City Royals,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-WILTON-VERAS,Wilton Veras,Boston Red Sox,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-RANDY-WOLF,Randy Wolf,Philadelphia Phillies,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+autographics-purple,NNO-TONY-WOMACK,Tony Womack,Arizona Diamondbacks,,Autograph; Metal-issued shared 2000 SkyBox program; Purple foil; serial numbered /50
+base-shredders,NNO-ROBERTO-ALOMAR,Roberto Alomar,Cleveland Indians,,Game-used base memorabilia
+base-shredders,NNO-MICHAEL-BARRETT,Michael Barrett,Montreal Expos,,Game-used base memorabilia
+base-shredders,NNO-TONY-CLARK,Tony Clark,Detroit Tigers,,Game-used base memorabilia
+base-shredders,NNO-BEN-DAVIS,Ben Davis,San Diego Padres,,Game-used base memorabilia
+base-shredders,NNO-ERUBIEL-DURAZO,Erubiel Durazo,Arizona Diamondbacks,,Game-used base memorabilia
+base-shredders,NNO-TROY-GLAUS,Troy Glaus,Anaheim Angels,,Game-used base memorabilia
+base-shredders,NNO-BEN-GRIEVE,Ben Grieve,Oakland Athletics,,Game-used base memorabilia
+base-shredders,NNO-VLADIMIR-GUERRERO,Vladimir Guerrero,Montreal Expos,,Game-used base memorabilia
+base-shredders,NNO-TONY-GWYNN,Tony Gwynn,San Diego Padres,,Game-used base memorabilia
+base-shredders,NNO-TODD-HELTON,Todd Helton,Colorado Rockies,,Game-used base memorabilia
+base-shredders,NNO-ERIC-MUNSON,Eric Munson,Detroit Tigers,,Game-used base memorabilia
+base-shredders,NNO-RAFAEL-PALMEIRO,Rafael Palmeiro,Texas Rangers,,Game-used base memorabilia
+base-shredders,NNO-MANNY-RAMIREZ,Manny Ramirez,Cleveland Indians,,Game-used base memorabilia
+base-shredders,NNO-IVAN-RODRIGUEZ,Ivan Rodriguez,Texas Rangers,,Game-used base memorabilia
+base-shredders,NNO-MIGUEL-TEJADA,Miguel Tejada,Oakland Athletics,,Game-used base memorabilia
+base-shredders,NNO-MO-VAUGHN,Mo Vaughn,Anaheim Angels,,Game-used base memorabilia
+base-shredders,NNO-LARRY-WALKER,Larry Walker,Colorado Rockies,,Game-used base memorabilia
+base-shredders,NNO-MATT-WILLIAMS,Matt Williams,Arizona Diamondbacks,,Game-used base memorabilia
+checklists,NNO-A,Checklist,,Checklist,Checklist: 1-192
+checklists,NNO-B,Checklist,,Checklist,Checklist: 193-250 and Inserts
