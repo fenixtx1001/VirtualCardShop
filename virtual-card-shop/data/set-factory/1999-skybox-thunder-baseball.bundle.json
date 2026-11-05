@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1332/1999-SkyBox-Thunder",
+    "checklistReference": "https://www.tcdb.com/Checklist.cfm/sid/1332/1999-SkyBox-Thunder?PageIndex=1",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/1332/1999-SkyBox-Thunder",
+    "insertReference": "https://www.tcdb.com/Inserts.cfm/sid/1332/1999-SkyBox-Thunder",
+    "independentReference": "https://baseballcardpedia.com/index.php/1999_Skybox_Thunder",
+    "supplementaryTeamReference": "https://mycardbatch.com/checklists/skybox-thunder-1999-baseball"
+  },
+  "decisions": {
+    "inventory": "1272 explicit cards across eleven complete collector families: full base and three full 300-card parallels; six named insert lists totaling 70; two unnumbered physical checklist cards. Every parallel is independently fetched from its own source namespace, not extrapolated from base.",
+    "tiers": "Tier 1 #1–140 (regular players; historically 4–5 per pack), Tier 2 #141–240 (veteran stars; two per pack), Tier 3 #241–300 (superstars; one per pack). Preserve tier ranges as subset metadata across the base/parallel designs. Do not split one collector set into three VCS completion lists or imply every Tier 3 subject is a true RC. Uniform within-family availability flattens physical tier weighting under existing VCS convention.",
+    "rookies": "Exactly three verified true base RCs: #80 Rafael Roque, #138 Doug Mientkiewicz, #218 Guillermo Garcia. All agree across base, separately fetched rookie index and BCP; indexed Beckett count also three. No inferred RCs on parallels/inserts or from tiers/Unleashed marketing.",
+    "namesTeams": "Clean canonical subjects and actual historical team affiliations. Source teams agree across all four numbered families and with a supplementary full 300-row team listing. Will Clark #30 identifies Baltimore Orioles despite Texas Rangers uniform; preserve Baltimore and put uniform detail in base variant. Roger Clemens remains Toronto; Randy Johnson Arizona; David Wells New York Yankees.",
+    "numbering": "Preserve parenthesized collector IDs such as 1 (U), 1 (WB), 1 (ID), 1 (H), 1 (TC), 1 (D). Assign stable NNO-A/NNO-B only to actual unnumbered checklist cards; printed ranges go in variant, clean player remains Checklist.",
+    "teams": "All 1270 player-card rows have actual historical franchises. Only two generic checklists have blank teams; allowed by standard checklist-card exception. Team data COMPLETE, no invented MLB/League/Multiple affiliations and no pending-team override needed.",
+    "parallels": "Rant purple foil, retail 1:2; Rave sparkling silver /150 and Super Rave sparkling gold /25, Hobby only. Original back scans confirm identifying markings and serial runs. No autograph/memorabilia/hologram family invented from foil design; no unrelated basketball or 1998 Circa Thunder rows.",
+    "pack": "Hobby default: eight cards per pack, 36 packs per box, single series. Original Hobby wrapper/box and catalog descriptions agree. Retail box counts differ across descriptions; current TCDB says 20 while BCP says 36. Retail box also advertises five insert families and omits Hip-No-Tized despite BCP retail column; do not claim exact retail simulation.",
+    "odds": "Use verified Hobby denominators only: Unleashed 6, batterz 18, In Depth 24, Hip-No-Tized 36, Turbo Charged 72, Dial 1 300. Rant null because retail-only in this Hobby model; Rave, Super Rave and Checklists null because exact insertion odds unverified. No invented rates from serial runs; no per-card odds text. Existing independent hit rolls replace base slots and do not reproduce physical positions/tier collation.",
+    "exclusions": "Exclude Ben Grieve #247 Promotional Sample distributed to dealers/media; no pack-issued autograph or memorabilia issue verified. Beckett summary 301 vs numbered 300 does not justify an invented #301. Base #247 is retained as the actual regular Ben Grieve card. Printed N64/video-game sweepstakes packaging is not evidence of an additional trading-card checklist.",
+    "release": "Unreleased draft for pricing and image harvesting; pricing, images, unknown odds and pack QA pending before release. No production DB access or deployment."
+  },
+  "product": {
+    "id": "1999_SkyBox_Thunder_Baseball",
+    "year": 1999,
+    "brand": "SkyBox Thunder",
+    "sport": "Baseball",
+    "cardsPerPack": 8,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "checklist": "VERIFIED_1272_CARDS_11_FAMILIES",
+    "rookieDesignation": "VERIFIED_3_BASE_RCS",
+    "packCollation": "PENDING",
+    "insertOdds": "PENDING_UNKNOWN_RAVE_SUPER_RAVE_CHECKLIST_ODDS",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1999-skybox-thunder-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1999_SkyBox_Thunder_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 1332,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1332/1999-SkyBox-Thunder?PageIndex=1",
+      "expectedCards": 300,
+      "notes": "Full #1–300 collector checklist. Keep historical Tier 1 #1–140, Tier 2 #141–240 and Tier 3 #241–300 within one base ProductSet; flatten availability per Set Factory convention."
+    },
+    {
+      "key": "rant",
+      "id": "1999_SkyBox_Thunder_Baseball_Rant",
+      "name": "Rant",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 11661,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11661/1999-SkyBox-Thunder-Rant?PageIndex=1",
+      "expectedCards": 300,
+      "notes": "Full 300-card purple foil parallel, retail only at 1:2. Hobby default odds null; staged for pricing/images, not mixed into Hobby packs."
+    },
+    {
+      "key": "rave",
+      "id": "1999_SkyBox_Thunder_Baseball_Rave",
+      "name": "Rave",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 11662,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11662/1999-SkyBox-Thunder-Rave?PageIndex=1",
+      "expectedCards": 300,
+      "notes": "Full 300-card sparkling silver foil parallel, all /150, Hobby only. No verified insertion denominator: null pending review."
+    },
+    {
+      "key": "super-rave",
+      "id": "1999_SkyBox_Thunder_Baseball_Super_Rave",
+      "name": "Super Rave",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 11663,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11663/1999-SkyBox-Thunder-Super-Rave?PageIndex=1",
+      "expectedCards": 300,
+      "notes": "Full 300-card sparkling gold foil parallel, all /25, Hobby only. No verified insertion denominator: null pending review."
+    },
+    {
+      "key": "unleashed",
+      "id": "1999_SkyBox_Thunder_Baseball_Unleashed",
+      "name": "Unleashed",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "sourceSetId": 11665,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11665/1999-SkyBox-Thunder-Unleashed",
+      "expectedCards": 15,
+      "notes": "Complete 15-card collector checklist; Hobby 1:6."
+    },
+    {
+      "key": "www-batterz-com",
+      "id": "1999_SkyBox_Thunder_Baseball_www_batterz_com",
+      "name": "www.batterz.com",
+      "kind": "INSERT",
+      "oddsPerPack": 18,
+      "sourceSetId": 11666,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11666/1999-SkyBox-Thunder-www-batterz-com",
+      "expectedCards": 10,
+      "notes": "Complete ten-card collector checklist; Hobby 1:18."
+    },
+    {
+      "key": "in-depth",
+      "id": "1999_SkyBox_Thunder_Baseball_In_Depth",
+      "name": "In Depth",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "sourceSetId": 11660,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11660/1999-SkyBox-Thunder-In-Depth",
+      "expectedCards": 10,
+      "notes": "Complete ten-card collector checklist; Hobby 1:24."
+    },
+    {
+      "key": "hip-no-tized",
+      "id": "1999_SkyBox_Thunder_Baseball_Hip_No_Tized",
+      "name": "Hip-No-Tized",
+      "kind": "INSERT",
+      "oddsPerPack": 36,
+      "sourceSetId": 11659,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11659/1999-SkyBox-Thunder-Hip-No-Tized",
+      "expectedCards": 15,
+      "notes": "Complete fifteen-card collector checklist; Hobby 1:36. Retail packaging omits this family despite BCP retail column; no definitive retail claim made."
+    },
+    {
+      "key": "turbo-charged",
+      "id": "1999_SkyBox_Thunder_Baseball_Turbo_Charged",
+      "name": "Turbo Charged",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "sourceSetId": 11664,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11664/1999-SkyBox-Thunder-Turbo-Charged",
+      "expectedCards": 10,
+      "notes": "Complete ten-card collector checklist; Hobby 1:72."
+    },
+    {
+      "key": "dial-1",
+      "id": "1999_SkyBox_Thunder_Baseball_Dial_1",
+      "name": "Dial 1",
+      "kind": "INSERT",
+      "oddsPerPack": 300,
+      "sourceSetId": 11658,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11658/1999-SkyBox-Thunder-Dial-1",
+      "expectedCards": 10,
+      "notes": "Complete ten-card die-cut plastic cellphone insert checklist; Hobby 1:300."
+    },
+    {
+      "key": "checklists",
+      "id": "1999_SkyBox_Thunder_Baseball_Checklists",
+      "name": "Checklists",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 125536,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/125536/1999-SkyBox-Thunder-Checklists",
+      "expectedCards": 2,
+      "notes": "Two distinct unnumbered checklist cards #1–230 and #231–300 plus inserts. Local IDs NNO-A/NNO-B are VCS identifiers, not printed numbers. Both front/back scans verified. Randomly packed out, but exact denominator unverified: null."
+    }
+  ]
+}

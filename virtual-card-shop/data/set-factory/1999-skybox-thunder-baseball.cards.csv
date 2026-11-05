@@ -1,0 +1,1273 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,John Smoltz,Atlanta Braves,Tier 1,
+base,2,Garret Anderson,Anaheim Angels,Tier 1,
+base,3,Matt Williams,Arizona Diamondbacks,Tier 1,
+base,4,Daryle Ward,Houston Astros,Tier 1,
+base,5,Andy Ashby,San Diego Padres,Tier 1,
+base,6,Miguel Tejada,Oakland Athletics,Tier 1,
+base,7,Dmitri Young,Cincinnati Reds,Tier 1,
+base,8,Roberto Alomar,Cleveland Indians,Tier 1,
+base,9,Kevin Brown,Los Angeles Dodgers,Tier 1,
+base,10,Eric Young,Los Angeles Dodgers,Tier 1,
+base,11,Odalis Perez,Atlanta Braves,Tier 1,
+base,12,Preston Wilson,Florida Marlins,Tier 1,
+base,13,Jeff Abbott,Chicago White Sox,Tier 1,
+base,14,Bret Boone,Atlanta Braves,Tier 1,
+base,15,Mendy Lopez,Kansas City Royals,Tier 1,
+base,16,B.J. Surhoff,Baltimore Orioles,Tier 1,
+base,17,Steve Woodard,Milwaukee Brewers,Tier 1,
+base,18,Ron Coomer,Minnesota Twins,Tier 1,
+base,19,Rondell White,Montreal Expos,Tier 1,
+base,20,Edgardo Alfonzo,New York Mets,Tier 1,
+base,21,Kevin Millwood,Atlanta Braves,Tier 1,
+base,22,Jose Canseco,Tampa Bay Devil Rays,Tier 1,
+base,23,Blake Stein,Oakland Athletics,Tier 1,
+base,24,Quilvio Veras,San Diego Padres,Tier 1,
+base,25,Chuck Knoblauch,New York Yankees,Tier 1,
+base,26,David Segui,Seattle Mariners,Tier 1,
+base,27,Eric Davis,St. Louis Cardinals,Tier 1,
+base,28,Francisco Cordova,Pittsburgh Pirates,Tier 1,
+base,29,Randy Winn,Tampa Bay Devil Rays,Tier 1,
+base,30,Will Clark,Baltimore Orioles,Tier 1,Texas Rangers uniform; Baltimore Orioles affiliation
+base,31,Billy Wagner,Houston Astros,Tier 1,
+base,32,Kevin Witt,Toronto Blue Jays,Tier 1,
+base,33,Jim Edmonds,Anaheim Angels,Tier 1,
+base,34,Todd Stottlemyre,Arizona Diamondbacks,Tier 1,
+base,35,Shane Andrews,Montreal Expos,Tier 1,
+base,36,Michael Tucker,Cincinnati Reds,Tier 1,
+base,37,"Sandy Alomar, Jr.",Cleveland Indians,Tier 1,
+base,38,Neifi Perez,Colorado Rockies,Tier 1,
+base,39,Jaret Wright,Cleveland Indians,Tier 1,
+base,40,Devon White,Los Angeles Dodgers,Tier 1,
+base,41,Edgar Renteria,St. Louis Cardinals,Tier 1,
+base,42,Shane Reynolds,Houston Astros,Tier 1,
+base,43,Jeff King,Kansas City Royals,Tier 1,
+base,44,Darren Dreifort,Los Angeles Dodgers,Tier 1,
+base,45,Fernando Vina,Milwaukee Brewers,Tier 1,
+base,46,Marty Cordova,Minnesota Twins,Tier 1,
+base,47,Ugueth Urbina,Montreal Expos,Tier 1,
+base,48,Bobby Bonilla,New York Mets,Tier 1,
+base,49,Omar Vizquel,Cleveland Indians,Tier 1,
+base,50,Tom Gordon,Boston Red Sox,Tier 1,
+base,51,Ryan Christenson,Oakland Athletics,Tier 1,
+base,52,Aaron Boone,Cincinnati Reds,Tier 1,
+base,53,Jamie Moyer,Seattle Mariners,Tier 1,
+base,54,Brian Giles,Pittsburgh Pirates,Tier 1,
+base,55,Kevin Tapani,Chicago Cubs,Tier 1,
+base,56,Scott Brosius,New York Yankees,Tier 1,
+base,57,Ellis Burks,San Francisco Giants,Tier 1,
+base,58,Al Leiter,New York Mets,Tier 1,
+base,59,Royce Clayton,Texas Rangers,Tier 1,
+base,60,Chris Carpenter,Toronto Blue Jays,Tier 1,
+base,61,Bubba Trammell,Tampa Bay Devil Rays,Tier 1,
+base,62,Tom Glavine,Atlanta Braves,Tier 1,
+base,63,Shannon Stewart,Toronto Blue Jays,Tier 1,
+base,64,Todd Zeile,Texas Rangers,Tier 1,
+base,65,J.T. Snow,San Francisco Giants,Tier 1,
+base,66,Matt Clement,San Diego Padres,Tier 1,
+base,67,Matt Stairs,Oakland Athletics,Tier 1,
+base,68,Ismael Valdes,Los Angeles Dodgers,Tier 1,
+base,69,Todd Walker,Minnesota Twins,Tier 1,
+base,70,Jose Lima,Houston Astros,Tier 1,
+base,71,Mike Caruso,Chicago White Sox,Tier 1,
+base,72,Brett Tomko,Cincinnati Reds,Tier 1,
+base,73,Mike Lansing,Colorado Rockies,Tier 1,
+base,74,Justin Thompson,Detroit Tigers,Tier 1,
+base,75,Damion Easley,Detroit Tigers,Tier 1,
+base,76,Derrek Lee,Florida Marlins,Tier 1,
+base,77,Derek Bell,Houston Astros,Tier 1,
+base,78,Brady Anderson,Baltimore Orioles,Tier 1,
+base,79,Charles Johnson,Baltimore Orioles,Tier 1,
+base,80,Rafael Roque RC,Milwaukee Brewers,Tier 1,
+base,81,Corey Koskie,Minnesota Twins,Tier 1,
+base,82,Fernando Seguignol,Montreal Expos,Tier 1,
+base,83,Jay Tessmer,New York Yankees,Tier 1,
+base,84,Jason Giambi,Oakland Athletics,Tier 1,
+base,85,Mike Lieberthal,Philadelphia Phillies,Tier 1,
+base,86,Jose Guillen,Pittsburgh Pirates,Tier 1,
+base,87,Jim Leyritz,San Diego Padres,Tier 1,
+base,88,Shawn Estes,San Francisco Giants,Tier 1,
+base,89,Ray Lankford,St. Louis Cardinals,Tier 1,
+base,90,Paul Sorrento,Tampa Bay Devil Rays,Tier 1,
+base,91,Javy Lopez,Atlanta Braves,Tier 1,
+base,92,John Wetteland,Texas Rangers,Tier 1,
+base,93,Sean Casey,Cincinnati Reds,Tier 1,
+base,94,Chuck Finley,Anaheim Angels,Tier 1,
+base,95,Trot Nixon,Boston Red Sox,Tier 1,
+base,96,Ray Durham,Chicago White Sox,Tier 1,
+base,97,Reggie Sanders,Cincinnati Reds,Tier 1,
+base,98,Bartolo Colon,Cleveland Indians,Tier 1,
+base,99,Henry Rodriguez,Chicago Cubs,Tier 1,
+base,100,Rolando Arrojo,Tampa Bay Devil Rays,Tier 1,
+base,101,Geoff Jenkins,Milwaukee Brewers,Tier 1,
+base,102,Darryl Kile,Colorado Rockies,Tier 1,
+base,103,Mark Kotsay,Florida Marlins,Tier 1,
+base,104,Craig Biggio,Houston Astros,Tier 1,
+base,105,Omar Daal,Arizona Diamondbacks,Tier 1,
+base,106,Carlos Febles,Kansas City Royals,Tier 1,
+base,107,Eric Karros,Los Angeles Dodgers,Tier 1,
+base,108,Matt Lawton,Minnesota Twins,Tier 1,
+base,109,Carl Pavano,Montreal Expos,Tier 1,
+base,110,Brian McRae,New York Mets,Tier 1,
+base,111,Mariano Rivera,New York Yankees,Tier 1,
+base,112,Jay Buhner,Seattle Mariners,Tier 1,
+base,113,Doug Glanville,Philadelphia Phillies,Tier 1,
+base,114,Jason Kendall,Pittsburgh Pirates,Tier 1,
+base,115,Wally Joyner,San Diego Padres,Tier 1,
+base,116,Jeff Kent,San Francisco Giants,Tier 1,
+base,117,Shane Monahan,Seattle Mariners,Tier 1,
+base,118,Eli Marrero,St. Louis Cardinals,Tier 1,
+base,119,Bobby Smith,Tampa Bay Devil Rays,Tier 1,
+base,120,Shawn Green,Toronto Blue Jays,Tier 1,
+base,121,Kirk Rueter,San Francisco Giants,Tier 1,
+base,122,Tom Goodwin,Texas Rangers,Tier 1,
+base,123,Andy Benes,Arizona Diamondbacks,Tier 1,
+base,124,Ed Sprague,Pittsburgh Pirates,Tier 1,
+base,125,Mike Mussina,Baltimore Orioles,Tier 1,
+base,126,Jose Offerman,Boston Red Sox,Tier 1,
+base,127,Mickey Morandini,Chicago Cubs,Tier 1,
+base,128,Paul Konerko,Chicago White Sox,Tier 1,
+base,129,Denny Neagle,Cincinnati Reds,Tier 1,
+base,130,Travis Fryman,Cleveland Indians,Tier 1,
+base,131,John Rocker,Atlanta Braves,Tier 1,
+base,132,Robert Fick,Detroit Tigers,Tier 1,
+base,133,Livan Hernandez,Florida Marlins,Tier 1,
+base,134,Ken Caminiti,Houston Astros,Tier 1,
+base,135,Johnny Damon,Kansas City Royals,Tier 1,
+base,136,Jeff Kubenka,Los Angeles Dodgers,Tier 1,
+base,137,Marquis Grissom,Milwaukee Brewers,Tier 1,
+base,138,Doug Mientkiewicz RC,Minnesota Twins,Tier 1,
+base,139,Dustin Hermanson,Montreal Expos,Tier 1,
+base,140,Carl Everett,Houston Astros,Tier 1,
+base,141,Hideo Nomo,New York Mets,Tier 2,
+base,142,Jorge Posada,New York Yankees,Tier 2,
+base,143,Rickey Henderson,New York Mets,Tier 2,
+base,144,Robb Nen,San Francisco Giants,Tier 2,
+base,145,Ron Gant,Philadelphia Phillies,Tier 2,
+base,146,Aramis Ramirez,Pittsburgh Pirates,Tier 2,
+base,147,Trevor Hoffman,San Diego Padres,Tier 2,
+base,148,Bill Mueller,San Francisco Giants,Tier 2,
+base,149,Edgar Martinez,Seattle Mariners,Tier 2,
+base,150,Fred McGriff,Tampa Bay Devil Rays,Tier 2,
+base,151,Rusty Greer,Texas Rangers,Tier 2,
+base,152,Tom Evans,Toronto Blue Jays,Tier 2,
+base,153,Todd Greene,Anaheim Angels,Tier 2,
+base,154,Jay Bell,Arizona Diamondbacks,Tier 2,
+base,155,Mike Lowell,New York Yankees,Tier 2,
+base,156,Orlando Cabrera,Montreal Expos,Tier 2,
+base,157,Troy O'Leary,Boston Red Sox,Tier 2,
+base,158,Jose Hernandez,Chicago Cubs,Tier 2,
+base,159,Magglio Ordonez,Chicago White Sox,Tier 2,
+base,160,Barry Larkin,Cincinnati Reds,Tier 2,
+base,161,David Justice,Cleveland Indians,Tier 2,
+base,162,Derrick Gibson,Colorado Rockies,Tier 2,
+base,163,Luis Gonzalez,Arizona Diamondbacks,Tier 2,
+base,164,Alex Gonzalez,Florida Marlins,Tier 2,
+base,165,Scott Elarton,Houston Astros,Tier 2,
+base,166,Dermal Brown,Kansas City Royals,Tier 2,
+base,167,Eric Milton,Minnesota Twins,Tier 2,
+base,168,Raul Mondesi,Los Angeles Dodgers,Tier 2,
+base,169,Jeff Cirillo,Milwaukee Brewers,Tier 2,
+base,170,Benj Sampson,Minnesota Twins,Tier 2,
+base,171,John Olerud,New York Mets,Tier 2,
+base,172,Andy Pettitte,New York Yankees,Tier 2,
+base,173,A.J. Hinch,Oakland Athletics,Tier 2,
+base,174,Rico Brogna,Philadelphia Phillies,Tier 2,
+base,175,Jason Schmidt,Pittsburgh Pirates,Tier 2,
+base,176,Dean Palmer,Detroit Tigers,Tier 2,
+base,177,Matt Morris,St. Louis Cardinals,Tier 2,
+base,178,Quinton McCracken,Tampa Bay Devil Rays,Tier 2,
+base,179,Rick Helling,Texas Rangers,Tier 2,
+base,180,Walt Weiss,Atlanta Braves,Tier 2,
+base,181,Troy Percival,Anaheim Angels,Tier 2,
+base,182,Tony Batista,Arizona Diamondbacks,Tier 2,
+base,183,Brian Jordan,Atlanta Braves,Tier 2,
+base,184,"Jerry Hairston, Jr.",Baltimore Orioles,Tier 2,
+base,185,Bret Saberhagen,Boston Red Sox,Tier 2,
+base,186,Mark Grace,Chicago Cubs,Tier 2,
+base,187,Brian Simmons,Chicago White Sox,Tier 2,
+base,188,Pete Harnisch,Cincinnati Reds,Tier 2,
+base,189,Kenny Lofton,Cleveland Indians,Tier 2,
+base,190,Vinny Castilla,Colorado Rockies,Tier 2,
+base,191,Bobby Higginson,Detroit Tigers,Tier 2,
+base,192,Joey Hamilton,Toronto Blue Jays,Tier 2,
+base,193,Cliff Floyd,Florida Marlins,Tier 2,
+base,194,Andres Galarraga,Atlanta Braves,Tier 2,
+base,195,Chan Ho Park,Los Angeles Dodgers,Tier 2,
+base,196,Jeromy Burnitz,Milwaukee Brewers,Tier 2,
+base,197,David Ortiz,Minnesota Twins,Tier 2,
+base,198,Wilton Guerrero,Montreal Expos,Tier 2,
+base,199,Rey Ordonez,New York Mets,Tier 2,
+base,200,Paul O'Neill,New York Yankees,Tier 2,
+base,201,Kenny Rogers,Oakland Athletics,Tier 2,
+base,202,Marlon Anderson,Philadelphia Phillies,Tier 2,
+base,203,Tony Womack,Pittsburgh Pirates,Tier 2,
+base,204,Robin Ventura,New York Mets,Tier 2,
+base,205,Russ Ortiz,San Francisco Giants,Tier 2,
+base,206,Mike Frank,Cincinnati Reds,Tier 2,
+base,207,Fernando Tatis,St. Louis Cardinals,Tier 2,
+base,208,Miguel Cairo,Tampa Bay Devil Rays,Tier 2,
+base,209,Ivan Rodriguez,Texas Rangers,Tier 2,
+base,210,Carlos Delgado,Toronto Blue Jays,Tier 2,
+base,211,Tim Salmon,Anaheim Angels,Tier 2,
+base,212,Brian Anderson,Arizona Diamondbacks,Tier 2,
+base,213,Ryan Klesko,Atlanta Braves,Tier 2,
+base,214,Scott Erickson,Baltimore Orioles,Tier 2,
+base,215,Mike Stanley,Boston Red Sox,Tier 2,
+base,216,Brant Brown,Pittsburgh Pirates,Tier 2,
+base,217,Rod Beck,Chicago Cubs,Tier 2,
+base,218,Guillermo Garcia RC,Florida Marlins,Tier 2,
+base,219,David Wells,New York Yankees,Tier 2,
+base,220,Dante Bichette,Colorado Rockies,Tier 2,
+base,221,Armando Benitez,New York Mets,Tier 2,
+base,222,Todd Dunwoody,Florida Marlins,Tier 2,
+base,223,Kelvim Escobar,Toronto Blue Jays,Tier 2,
+base,224,Richard Hidalgo,Houston Astros,Tier 2,
+base,225,Angel Pena,Los Angeles Dodgers,Tier 2,
+base,226,Ronnie Belliard,Milwaukee Brewers,Tier 2,
+base,227,Brad Radke,Minnesota Twins,Tier 2,
+base,228,Brad Fullmer,Montreal Expos,Tier 2,
+base,229,Jay Payton,New York Mets,Tier 2,
+base,230,Tino Martinez,New York Yankees,Tier 2,
+base,231,Scott Spiezio,Oakland Athletics,Tier 2,
+base,232,Bobby Abreu,Philadelphia Phillies,Tier 2,
+base,233,John Valentin,Boston Red Sox,Tier 2,
+base,234,Kevin Young,Pittsburgh Pirates,Tier 2,
+base,235,Steve Finley,Arizona Diamondbacks,Tier 2,
+base,236,David Cone,New York Yankees,Tier 2,
+base,237,Armando Rios,San Francisco Giants,Tier 2,
+base,238,Russ Davis,Seattle Mariners,Tier 2,
+base,239,Wade Boggs,Tampa Bay Devil Rays,Tier 2,
+base,240,Aaron Sele,Texas Rangers,Tier 2,
+base,241,"Jose Cruz, Jr.",Toronto Blue Jays,Tier 3,
+base,242,George Lombard,Atlanta Braves,Tier 3,
+base,243,Todd Helton,Colorado Rockies,Tier 3,
+base,244,Andruw Jones,Atlanta Braves,Tier 3,
+base,245,Troy Glaus,Anaheim Angels,Tier 3,
+base,246,Manny Ramirez,Cleveland Indians,Tier 3,
+base,247,Ben Grieve,Oakland Athletics,Tier 3,
+base,248,Richie Sexson,Cleveland Indians,Tier 3,
+base,249,Juan Encarnacion,Detroit Tigers,Tier 3,
+base,250,Randy Johnson,Arizona Diamondbacks,Tier 3,
+base,251,Gary Sheffield,Los Angeles Dodgers,Tier 3,
+base,252,Rafael Palmeiro,Texas Rangers,Tier 3,
+base,253,Roy Halladay,Toronto Blue Jays,Tier 3,
+base,254,Mike Piazza,New York Mets,Tier 3,
+base,255,Tony Gwynn,San Diego Padres,Tier 3,
+base,256,Juan Gonzalez,Texas Rangers,Tier 3,
+base,257,Jeremy Giambi,Kansas City Royals,Tier 3,
+base,258,Ben Davis,San Diego Padres,Tier 3,
+base,259,Russell Branyan,Cleveland Indians,Tier 3,
+base,260,Pedro Martinez,Boston Red Sox,Tier 3,
+base,261,Frank Thomas,Chicago White Sox,Tier 3,
+base,262,Calvin Pickering,Baltimore Orioles,Tier 3,
+base,263,Chipper Jones,Atlanta Braves,Tier 3,
+base,264,Ryan Minor,Baltimore Orioles,Tier 3,
+base,265,Roger Clemens,Toronto Blue Jays,Tier 3,
+base,266,Sammy Sosa,Chicago Cubs,Tier 3,
+base,267,Mo Vaughn,Anaheim Angels,Tier 3,
+base,268,Carlos Beltran,Kansas City Royals,Tier 3,
+base,269,Jim Thome,Cleveland Indians,Tier 3,
+base,270,Mark McGwire,St. Louis Cardinals,Tier 3,
+base,271,Travis Lee,Arizona Diamondbacks,Tier 3,
+base,272,Darin Erstad,Anaheim Angels,Tier 3,
+base,273,Derek Jeter,New York Yankees,Tier 3,
+base,274,Greg Maddux,Atlanta Braves,Tier 3,
+base,275,Ricky Ledee,New York Yankees,Tier 3,
+base,276,Alex Rodriguez,Seattle Mariners,Tier 3,
+base,277,Vladimir Guerrero,Montreal Expos,Tier 3,
+base,278,Greg Vaughn,San Diego Padres,Tier 3,
+base,279,Scott Rolen,Philadelphia Phillies,Tier 3,
+base,280,Carlos Guillen,Seattle Mariners,Tier 3,
+base,281,Jeff Bagwell,Houston Astros,Tier 3,
+base,282,Bruce Chen,Atlanta Braves,Tier 3,
+base,283,Tony Clark,Detroit Tigers,Tier 3,
+base,284,Albert Belle,Baltimore Orioles,Tier 3,
+base,285,"Cal Ripken, Jr.",Baltimore Orioles,Tier 3,
+base,286,Barry Bonds,San Francisco Giants,Tier 3,
+base,287,Curt Schilling,Philadelphia Phillies,Tier 3,
+base,288,Eric Chavez,Oakland Athletics,Tier 3,
+base,289,Larry Walker,Colorado Rockies,Tier 3,
+base,290,Orlando Hernandez,New York Yankees,Tier 3,
+base,291,Moises Alou,Houston Astros,Tier 3,
+base,292,"Ken Griffey, Jr.",Seattle Mariners,Tier 3,
+base,293,Kerry Wood,Chicago Cubs,Tier 3,
+base,294,Nomar Garciaparra,Boston Red Sox,Tier 3,
+base,295,Gabe Kapler,Detroit Tigers,Tier 3,
+base,296,Bernie Williams,New York Yankees,Tier 3,
+base,297,Matt Anderson,Detroit Tigers,Tier 3,
+base,298,Adrian Beltre,Los Angeles Dodgers,Tier 3,
+base,299,J.D. Drew,St. Louis Cardinals,Tier 3,
+base,300,Ryan Bradley,New York Yankees,Tier 3,
+rant,1,John Smoltz,Atlanta Braves,Tier 1,Rant; purple foil
+rant,2,Garret Anderson,Anaheim Angels,Tier 1,Rant; purple foil
+rant,3,Matt Williams,Arizona Diamondbacks,Tier 1,Rant; purple foil
+rant,4,Daryle Ward,Houston Astros,Tier 1,Rant; purple foil
+rant,5,Andy Ashby,San Diego Padres,Tier 1,Rant; purple foil
+rant,6,Miguel Tejada,Oakland Athletics,Tier 1,Rant; purple foil
+rant,7,Dmitri Young,Cincinnati Reds,Tier 1,Rant; purple foil
+rant,8,Roberto Alomar,Cleveland Indians,Tier 1,Rant; purple foil
+rant,9,Kevin Brown,Los Angeles Dodgers,Tier 1,Rant; purple foil
+rant,10,Eric Young,Los Angeles Dodgers,Tier 1,Rant; purple foil
+rant,11,Odalis Perez,Atlanta Braves,Tier 1,Rant; purple foil
+rant,12,Preston Wilson,Florida Marlins,Tier 1,Rant; purple foil
+rant,13,Jeff Abbott,Chicago White Sox,Tier 1,Rant; purple foil
+rant,14,Bret Boone,Atlanta Braves,Tier 1,Rant; purple foil
+rant,15,Mendy Lopez,Kansas City Royals,Tier 1,Rant; purple foil
+rant,16,B.J. Surhoff,Baltimore Orioles,Tier 1,Rant; purple foil
+rant,17,Steve Woodard,Milwaukee Brewers,Tier 1,Rant; purple foil
+rant,18,Ron Coomer,Minnesota Twins,Tier 1,Rant; purple foil
+rant,19,Rondell White,Montreal Expos,Tier 1,Rant; purple foil
+rant,20,Edgardo Alfonzo,New York Mets,Tier 1,Rant; purple foil
+rant,21,Kevin Millwood,Atlanta Braves,Tier 1,Rant; purple foil
+rant,22,Jose Canseco,Tampa Bay Devil Rays,Tier 1,Rant; purple foil
+rant,23,Blake Stein,Oakland Athletics,Tier 1,Rant; purple foil
+rant,24,Quilvio Veras,San Diego Padres,Tier 1,Rant; purple foil
+rant,25,Chuck Knoblauch,New York Yankees,Tier 1,Rant; purple foil
+rant,26,David Segui,Seattle Mariners,Tier 1,Rant; purple foil
+rant,27,Eric Davis,St. Louis Cardinals,Tier 1,Rant; purple foil
+rant,28,Francisco Cordova,Pittsburgh Pirates,Tier 1,Rant; purple foil
+rant,29,Randy Winn,Tampa Bay Devil Rays,Tier 1,Rant; purple foil
+rant,30,Will Clark,Baltimore Orioles,Tier 1,Rant; purple foil
+rant,31,Billy Wagner,Houston Astros,Tier 1,Rant; purple foil
+rant,32,Kevin Witt,Toronto Blue Jays,Tier 1,Rant; purple foil
+rant,33,Jim Edmonds,Anaheim Angels,Tier 1,Rant; purple foil
+rant,34,Todd Stottlemyre,Arizona Diamondbacks,Tier 1,Rant; purple foil
+rant,35,Shane Andrews,Montreal Expos,Tier 1,Rant; purple foil
+rant,36,Michael Tucker,Cincinnati Reds,Tier 1,Rant; purple foil
+rant,37,"Sandy Alomar, Jr.",Cleveland Indians,Tier 1,Rant; purple foil
+rant,38,Neifi Perez,Colorado Rockies,Tier 1,Rant; purple foil
+rant,39,Jaret Wright,Cleveland Indians,Tier 1,Rant; purple foil
+rant,40,Devon White,Los Angeles Dodgers,Tier 1,Rant; purple foil
+rant,41,Edgar Renteria,St. Louis Cardinals,Tier 1,Rant; purple foil
+rant,42,Shane Reynolds,Houston Astros,Tier 1,Rant; purple foil
+rant,43,Jeff King,Kansas City Royals,Tier 1,Rant; purple foil
+rant,44,Darren Dreifort,Los Angeles Dodgers,Tier 1,Rant; purple foil
+rant,45,Fernando Vina,Milwaukee Brewers,Tier 1,Rant; purple foil
+rant,46,Marty Cordova,Minnesota Twins,Tier 1,Rant; purple foil
+rant,47,Ugueth Urbina,Montreal Expos,Tier 1,Rant; purple foil
+rant,48,Bobby Bonilla,New York Mets,Tier 1,Rant; purple foil
+rant,49,Omar Vizquel,Cleveland Indians,Tier 1,Rant; purple foil
+rant,50,Tom Gordon,Boston Red Sox,Tier 1,Rant; purple foil
+rant,51,Ryan Christenson,Oakland Athletics,Tier 1,Rant; purple foil
+rant,52,Aaron Boone,Cincinnati Reds,Tier 1,Rant; purple foil
+rant,53,Jamie Moyer,Seattle Mariners,Tier 1,Rant; purple foil
+rant,54,Brian Giles,Pittsburgh Pirates,Tier 1,Rant; purple foil
+rant,55,Kevin Tapani,Chicago Cubs,Tier 1,Rant; purple foil
+rant,56,Scott Brosius,New York Yankees,Tier 1,Rant; purple foil
+rant,57,Ellis Burks,San Francisco Giants,Tier 1,Rant; purple foil
+rant,58,Al Leiter,New York Mets,Tier 1,Rant; purple foil
+rant,59,Royce Clayton,Texas Rangers,Tier 1,Rant; purple foil
+rant,60,Chris Carpenter,Toronto Blue Jays,Tier 1,Rant; purple foil
+rant,61,Bubba Trammell,Tampa Bay Devil Rays,Tier 1,Rant; purple foil
+rant,62,Tom Glavine,Atlanta Braves,Tier 1,Rant; purple foil
+rant,63,Shannon Stewart,Toronto Blue Jays,Tier 1,Rant; purple foil
+rant,64,Todd Zeile,Texas Rangers,Tier 1,Rant; purple foil
+rant,65,J.T. Snow,San Francisco Giants,Tier 1,Rant; purple foil
+rant,66,Matt Clement,San Diego Padres,Tier 1,Rant; purple foil
+rant,67,Matt Stairs,Oakland Athletics,Tier 1,Rant; purple foil
+rant,68,Ismael Valdes,Los Angeles Dodgers,Tier 1,Rant; purple foil
+rant,69,Todd Walker,Minnesota Twins,Tier 1,Rant; purple foil
+rant,70,Jose Lima,Houston Astros,Tier 1,Rant; purple foil
+rant,71,Mike Caruso,Chicago White Sox,Tier 1,Rant; purple foil
+rant,72,Brett Tomko,Cincinnati Reds,Tier 1,Rant; purple foil
+rant,73,Mike Lansing,Colorado Rockies,Tier 1,Rant; purple foil
+rant,74,Justin Thompson,Detroit Tigers,Tier 1,Rant; purple foil
+rant,75,Damion Easley,Detroit Tigers,Tier 1,Rant; purple foil
+rant,76,Derrek Lee,Florida Marlins,Tier 1,Rant; purple foil
+rant,77,Derek Bell,Houston Astros,Tier 1,Rant; purple foil
+rant,78,Brady Anderson,Baltimore Orioles,Tier 1,Rant; purple foil
+rant,79,Charles Johnson,Baltimore Orioles,Tier 1,Rant; purple foil
+rant,80,Rafael Roque,Milwaukee Brewers,Tier 1,Rant; purple foil
+rant,81,Corey Koskie,Minnesota Twins,Tier 1,Rant; purple foil
+rant,82,Fernando Seguignol,Montreal Expos,Tier 1,Rant; purple foil
+rant,83,Jay Tessmer,New York Yankees,Tier 1,Rant; purple foil
+rant,84,Jason Giambi,Oakland Athletics,Tier 1,Rant; purple foil
+rant,85,Mike Lieberthal,Philadelphia Phillies,Tier 1,Rant; purple foil
+rant,86,Jose Guillen,Pittsburgh Pirates,Tier 1,Rant; purple foil
+rant,87,Jim Leyritz,San Diego Padres,Tier 1,Rant; purple foil
+rant,88,Shawn Estes,San Francisco Giants,Tier 1,Rant; purple foil
+rant,89,Ray Lankford,St. Louis Cardinals,Tier 1,Rant; purple foil
+rant,90,Paul Sorrento,Tampa Bay Devil Rays,Tier 1,Rant; purple foil
+rant,91,Javy Lopez,Atlanta Braves,Tier 1,Rant; purple foil
+rant,92,John Wetteland,Texas Rangers,Tier 1,Rant; purple foil
+rant,93,Sean Casey,Cincinnati Reds,Tier 1,Rant; purple foil
+rant,94,Chuck Finley,Anaheim Angels,Tier 1,Rant; purple foil
+rant,95,Trot Nixon,Boston Red Sox,Tier 1,Rant; purple foil
+rant,96,Ray Durham,Chicago White Sox,Tier 1,Rant; purple foil
+rant,97,Reggie Sanders,Cincinnati Reds,Tier 1,Rant; purple foil
+rant,98,Bartolo Colon,Cleveland Indians,Tier 1,Rant; purple foil
+rant,99,Henry Rodriguez,Chicago Cubs,Tier 1,Rant; purple foil
+rant,100,Rolando Arrojo,Tampa Bay Devil Rays,Tier 1,Rant; purple foil
+rant,101,Geoff Jenkins,Milwaukee Brewers,Tier 1,Rant; purple foil
+rant,102,Darryl Kile,Colorado Rockies,Tier 1,Rant; purple foil
+rant,103,Mark Kotsay,Florida Marlins,Tier 1,Rant; purple foil
+rant,104,Craig Biggio,Houston Astros,Tier 1,Rant; purple foil
+rant,105,Omar Daal,Arizona Diamondbacks,Tier 1,Rant; purple foil
+rant,106,Carlos Febles,Kansas City Royals,Tier 1,Rant; purple foil
+rant,107,Eric Karros,Los Angeles Dodgers,Tier 1,Rant; purple foil
+rant,108,Matt Lawton,Minnesota Twins,Tier 1,Rant; purple foil
+rant,109,Carl Pavano,Montreal Expos,Tier 1,Rant; purple foil
+rant,110,Brian McRae,New York Mets,Tier 1,Rant; purple foil
+rant,111,Mariano Rivera,New York Yankees,Tier 1,Rant; purple foil
+rant,112,Jay Buhner,Seattle Mariners,Tier 1,Rant; purple foil
+rant,113,Doug Glanville,Philadelphia Phillies,Tier 1,Rant; purple foil
+rant,114,Jason Kendall,Pittsburgh Pirates,Tier 1,Rant; purple foil
+rant,115,Wally Joyner,San Diego Padres,Tier 1,Rant; purple foil
+rant,116,Jeff Kent,San Francisco Giants,Tier 1,Rant; purple foil
+rant,117,Shane Monahan,Seattle Mariners,Tier 1,Rant; purple foil
+rant,118,Eli Marrero,St. Louis Cardinals,Tier 1,Rant; purple foil
+rant,119,Bobby Smith,Tampa Bay Devil Rays,Tier 1,Rant; purple foil
+rant,120,Shawn Green,Toronto Blue Jays,Tier 1,Rant; purple foil
+rant,121,Kirk Rueter,San Francisco Giants,Tier 1,Rant; purple foil
+rant,122,Tom Goodwin,Texas Rangers,Tier 1,Rant; purple foil
+rant,123,Andy Benes,Arizona Diamondbacks,Tier 1,Rant; purple foil
+rant,124,Ed Sprague,Pittsburgh Pirates,Tier 1,Rant; purple foil
+rant,125,Mike Mussina,Baltimore Orioles,Tier 1,Rant; purple foil
+rant,126,Jose Offerman,Boston Red Sox,Tier 1,Rant; purple foil
+rant,127,Mickey Morandini,Chicago Cubs,Tier 1,Rant; purple foil
+rant,128,Paul Konerko,Chicago White Sox,Tier 1,Rant; purple foil
+rant,129,Denny Neagle,Cincinnati Reds,Tier 1,Rant; purple foil
+rant,130,Travis Fryman,Cleveland Indians,Tier 1,Rant; purple foil
+rant,131,John Rocker,Atlanta Braves,Tier 1,Rant; purple foil
+rant,132,Robert Fick,Detroit Tigers,Tier 1,Rant; purple foil
+rant,133,Livan Hernandez,Florida Marlins,Tier 1,Rant; purple foil
+rant,134,Ken Caminiti,Houston Astros,Tier 1,Rant; purple foil
+rant,135,Johnny Damon,Kansas City Royals,Tier 1,Rant; purple foil
+rant,136,Jeff Kubenka,Los Angeles Dodgers,Tier 1,Rant; purple foil
+rant,137,Marquis Grissom,Milwaukee Brewers,Tier 1,Rant; purple foil
+rant,138,Doug Mientkiewicz,Minnesota Twins,Tier 1,Rant; purple foil
+rant,139,Dustin Hermanson,Montreal Expos,Tier 1,Rant; purple foil
+rant,140,Carl Everett,Houston Astros,Tier 1,Rant; purple foil
+rant,141,Hideo Nomo,New York Mets,Tier 2,Rant; purple foil
+rant,142,Jorge Posada,New York Yankees,Tier 2,Rant; purple foil
+rant,143,Rickey Henderson,New York Mets,Tier 2,Rant; purple foil
+rant,144,Robb Nen,San Francisco Giants,Tier 2,Rant; purple foil
+rant,145,Ron Gant,Philadelphia Phillies,Tier 2,Rant; purple foil
+rant,146,Aramis Ramirez,Pittsburgh Pirates,Tier 2,Rant; purple foil
+rant,147,Trevor Hoffman,San Diego Padres,Tier 2,Rant; purple foil
+rant,148,Bill Mueller,San Francisco Giants,Tier 2,Rant; purple foil
+rant,149,Edgar Martinez,Seattle Mariners,Tier 2,Rant; purple foil
+rant,150,Fred McGriff,Tampa Bay Devil Rays,Tier 2,Rant; purple foil
+rant,151,Rusty Greer,Texas Rangers,Tier 2,Rant; purple foil
+rant,152,Tom Evans,Toronto Blue Jays,Tier 2,Rant; purple foil
+rant,153,Todd Greene,Anaheim Angels,Tier 2,Rant; purple foil
+rant,154,Jay Bell,Arizona Diamondbacks,Tier 2,Rant; purple foil
+rant,155,Mike Lowell,New York Yankees,Tier 2,Rant; purple foil
+rant,156,Orlando Cabrera,Montreal Expos,Tier 2,Rant; purple foil
+rant,157,Troy O'Leary,Boston Red Sox,Tier 2,Rant; purple foil
+rant,158,Jose Hernandez,Chicago Cubs,Tier 2,Rant; purple foil
+rant,159,Magglio Ordonez,Chicago White Sox,Tier 2,Rant; purple foil
+rant,160,Barry Larkin,Cincinnati Reds,Tier 2,Rant; purple foil
+rant,161,David Justice,Cleveland Indians,Tier 2,Rant; purple foil
+rant,162,Derrick Gibson,Colorado Rockies,Tier 2,Rant; purple foil
+rant,163,Luis Gonzalez,Arizona Diamondbacks,Tier 2,Rant; purple foil
+rant,164,Alex Gonzalez,Florida Marlins,Tier 2,Rant; purple foil
+rant,165,Scott Elarton,Houston Astros,Tier 2,Rant; purple foil
+rant,166,Dermal Brown,Kansas City Royals,Tier 2,Rant; purple foil
+rant,167,Eric Milton,Minnesota Twins,Tier 2,Rant; purple foil
+rant,168,Raul Mondesi,Los Angeles Dodgers,Tier 2,Rant; purple foil
+rant,169,Jeff Cirillo,Milwaukee Brewers,Tier 2,Rant; purple foil
+rant,170,Benj Sampson,Minnesota Twins,Tier 2,Rant; purple foil
+rant,171,John Olerud,New York Mets,Tier 2,Rant; purple foil
+rant,172,Andy Pettitte,New York Yankees,Tier 2,Rant; purple foil
+rant,173,A.J. Hinch,Oakland Athletics,Tier 2,Rant; purple foil
+rant,174,Rico Brogna,Philadelphia Phillies,Tier 2,Rant; purple foil
+rant,175,Jason Schmidt,Pittsburgh Pirates,Tier 2,Rant; purple foil
+rant,176,Dean Palmer,Detroit Tigers,Tier 2,Rant; purple foil
+rant,177,Matt Morris,St. Louis Cardinals,Tier 2,Rant; purple foil
+rant,178,Quinton McCracken,Tampa Bay Devil Rays,Tier 2,Rant; purple foil
+rant,179,Rick Helling,Texas Rangers,Tier 2,Rant; purple foil
+rant,180,Walt Weiss,Atlanta Braves,Tier 2,Rant; purple foil
+rant,181,Troy Percival,Anaheim Angels,Tier 2,Rant; purple foil
+rant,182,Tony Batista,Arizona Diamondbacks,Tier 2,Rant; purple foil
+rant,183,Brian Jordan,Atlanta Braves,Tier 2,Rant; purple foil
+rant,184,"Jerry Hairston, Jr.",Baltimore Orioles,Tier 2,Rant; purple foil
+rant,185,Bret Saberhagen,Boston Red Sox,Tier 2,Rant; purple foil
+rant,186,Mark Grace,Chicago Cubs,Tier 2,Rant; purple foil
+rant,187,Brian Simmons,Chicago White Sox,Tier 2,Rant; purple foil
+rant,188,Pete Harnisch,Cincinnati Reds,Tier 2,Rant; purple foil
+rant,189,Kenny Lofton,Cleveland Indians,Tier 2,Rant; purple foil
+rant,190,Vinny Castilla,Colorado Rockies,Tier 2,Rant; purple foil
+rant,191,Bobby Higginson,Detroit Tigers,Tier 2,Rant; purple foil
+rant,192,Joey Hamilton,Toronto Blue Jays,Tier 2,Rant; purple foil
+rant,193,Cliff Floyd,Florida Marlins,Tier 2,Rant; purple foil
+rant,194,Andres Galarraga,Atlanta Braves,Tier 2,Rant; purple foil
+rant,195,Chan Ho Park,Los Angeles Dodgers,Tier 2,Rant; purple foil
+rant,196,Jeromy Burnitz,Milwaukee Brewers,Tier 2,Rant; purple foil
+rant,197,David Ortiz,Minnesota Twins,Tier 2,Rant; purple foil
+rant,198,Wilton Guerrero,Montreal Expos,Tier 2,Rant; purple foil
+rant,199,Rey Ordonez,New York Mets,Tier 2,Rant; purple foil
+rant,200,Paul O'Neill,New York Yankees,Tier 2,Rant; purple foil
+rant,201,Kenny Rogers,Oakland Athletics,Tier 2,Rant; purple foil
+rant,202,Marlon Anderson,Philadelphia Phillies,Tier 2,Rant; purple foil
+rant,203,Tony Womack,Pittsburgh Pirates,Tier 2,Rant; purple foil
+rant,204,Robin Ventura,New York Mets,Tier 2,Rant; purple foil
+rant,205,Russ Ortiz,San Francisco Giants,Tier 2,Rant; purple foil
+rant,206,Mike Frank,Cincinnati Reds,Tier 2,Rant; purple foil
+rant,207,Fernando Tatis,St. Louis Cardinals,Tier 2,Rant; purple foil
+rant,208,Miguel Cairo,Tampa Bay Devil Rays,Tier 2,Rant; purple foil
+rant,209,Ivan Rodriguez,Texas Rangers,Tier 2,Rant; purple foil
+rant,210,Carlos Delgado,Toronto Blue Jays,Tier 2,Rant; purple foil
+rant,211,Tim Salmon,Anaheim Angels,Tier 2,Rant; purple foil
+rant,212,Brian Anderson,Arizona Diamondbacks,Tier 2,Rant; purple foil
+rant,213,Ryan Klesko,Atlanta Braves,Tier 2,Rant; purple foil
+rant,214,Scott Erickson,Baltimore Orioles,Tier 2,Rant; purple foil
+rant,215,Mike Stanley,Boston Red Sox,Tier 2,Rant; purple foil
+rant,216,Brant Brown,Pittsburgh Pirates,Tier 2,Rant; purple foil
+rant,217,Rod Beck,Chicago Cubs,Tier 2,Rant; purple foil
+rant,218,Guillermo Garcia,Florida Marlins,Tier 2,Rant; purple foil
+rant,219,David Wells,New York Yankees,Tier 2,Rant; purple foil
+rant,220,Dante Bichette,Colorado Rockies,Tier 2,Rant; purple foil
+rant,221,Armando Benitez,New York Mets,Tier 2,Rant; purple foil
+rant,222,Todd Dunwoody,Florida Marlins,Tier 2,Rant; purple foil
+rant,223,Kelvim Escobar,Toronto Blue Jays,Tier 2,Rant; purple foil
+rant,224,Richard Hidalgo,Houston Astros,Tier 2,Rant; purple foil
+rant,225,Angel Pena,Los Angeles Dodgers,Tier 2,Rant; purple foil
+rant,226,Ronnie Belliard,Milwaukee Brewers,Tier 2,Rant; purple foil
+rant,227,Brad Radke,Minnesota Twins,Tier 2,Rant; purple foil
+rant,228,Brad Fullmer,Montreal Expos,Tier 2,Rant; purple foil
+rant,229,Jay Payton,New York Mets,Tier 2,Rant; purple foil
+rant,230,Tino Martinez,New York Yankees,Tier 2,Rant; purple foil
+rant,231,Scott Spiezio,Oakland Athletics,Tier 2,Rant; purple foil
+rant,232,Bobby Abreu,Philadelphia Phillies,Tier 2,Rant; purple foil
+rant,233,John Valentin,Boston Red Sox,Tier 2,Rant; purple foil
+rant,234,Kevin Young,Pittsburgh Pirates,Tier 2,Rant; purple foil
+rant,235,Steve Finley,Arizona Diamondbacks,Tier 2,Rant; purple foil
+rant,236,David Cone,New York Yankees,Tier 2,Rant; purple foil
+rant,237,Armando Rios,San Francisco Giants,Tier 2,Rant; purple foil
+rant,238,Russ Davis,Seattle Mariners,Tier 2,Rant; purple foil
+rant,239,Wade Boggs,Tampa Bay Devil Rays,Tier 2,Rant; purple foil
+rant,240,Aaron Sele,Texas Rangers,Tier 2,Rant; purple foil
+rant,241,"Jose Cruz, Jr.",Toronto Blue Jays,Tier 3,Rant; purple foil
+rant,242,George Lombard,Atlanta Braves,Tier 3,Rant; purple foil
+rant,243,Todd Helton,Colorado Rockies,Tier 3,Rant; purple foil
+rant,244,Andruw Jones,Atlanta Braves,Tier 3,Rant; purple foil
+rant,245,Troy Glaus,Anaheim Angels,Tier 3,Rant; purple foil
+rant,246,Manny Ramirez,Cleveland Indians,Tier 3,Rant; purple foil
+rant,247,Ben Grieve,Oakland Athletics,Tier 3,Rant; purple foil
+rant,248,Richie Sexson,Cleveland Indians,Tier 3,Rant; purple foil
+rant,249,Juan Encarnacion,Detroit Tigers,Tier 3,Rant; purple foil
+rant,250,Randy Johnson,Arizona Diamondbacks,Tier 3,Rant; purple foil
+rant,251,Gary Sheffield,Los Angeles Dodgers,Tier 3,Rant; purple foil
+rant,252,Rafael Palmeiro,Texas Rangers,Tier 3,Rant; purple foil
+rant,253,Roy Halladay,Toronto Blue Jays,Tier 3,Rant; purple foil
+rant,254,Mike Piazza,New York Mets,Tier 3,Rant; purple foil
+rant,255,Tony Gwynn,San Diego Padres,Tier 3,Rant; purple foil
+rant,256,Juan Gonzalez,Texas Rangers,Tier 3,Rant; purple foil
+rant,257,Jeremy Giambi,Kansas City Royals,Tier 3,Rant; purple foil
+rant,258,Ben Davis,San Diego Padres,Tier 3,Rant; purple foil
+rant,259,Russell Branyan,Cleveland Indians,Tier 3,Rant; purple foil
+rant,260,Pedro Martinez,Boston Red Sox,Tier 3,Rant; purple foil
+rant,261,Frank Thomas,Chicago White Sox,Tier 3,Rant; purple foil
+rant,262,Calvin Pickering,Baltimore Orioles,Tier 3,Rant; purple foil
+rant,263,Chipper Jones,Atlanta Braves,Tier 3,Rant; purple foil
+rant,264,Ryan Minor,Baltimore Orioles,Tier 3,Rant; purple foil
+rant,265,Roger Clemens,Toronto Blue Jays,Tier 3,Rant; purple foil
+rant,266,Sammy Sosa,Chicago Cubs,Tier 3,Rant; purple foil
+rant,267,Mo Vaughn,Anaheim Angels,Tier 3,Rant; purple foil
+rant,268,Carlos Beltran,Kansas City Royals,Tier 3,Rant; purple foil
+rant,269,Jim Thome,Cleveland Indians,Tier 3,Rant; purple foil
+rant,270,Mark McGwire,St. Louis Cardinals,Tier 3,Rant; purple foil
+rant,271,Travis Lee,Arizona Diamondbacks,Tier 3,Rant; purple foil
+rant,272,Darin Erstad,Anaheim Angels,Tier 3,Rant; purple foil
+rant,273,Derek Jeter,New York Yankees,Tier 3,Rant; purple foil
+rant,274,Greg Maddux,Atlanta Braves,Tier 3,Rant; purple foil
+rant,275,Ricky Ledee,New York Yankees,Tier 3,Rant; purple foil
+rant,276,Alex Rodriguez,Seattle Mariners,Tier 3,Rant; purple foil
+rant,277,Vladimir Guerrero,Montreal Expos,Tier 3,Rant; purple foil
+rant,278,Greg Vaughn,San Diego Padres,Tier 3,Rant; purple foil
+rant,279,Scott Rolen,Philadelphia Phillies,Tier 3,Rant; purple foil
+rant,280,Carlos Guillen,Seattle Mariners,Tier 3,Rant; purple foil
+rant,281,Jeff Bagwell,Houston Astros,Tier 3,Rant; purple foil
+rant,282,Bruce Chen,Atlanta Braves,Tier 3,Rant; purple foil
+rant,283,Tony Clark,Detroit Tigers,Tier 3,Rant; purple foil
+rant,284,Albert Belle,Baltimore Orioles,Tier 3,Rant; purple foil
+rant,285,"Cal Ripken, Jr.",Baltimore Orioles,Tier 3,Rant; purple foil
+rant,286,Barry Bonds,San Francisco Giants,Tier 3,Rant; purple foil
+rant,287,Curt Schilling,Philadelphia Phillies,Tier 3,Rant; purple foil
+rant,288,Eric Chavez,Oakland Athletics,Tier 3,Rant; purple foil
+rant,289,Larry Walker,Colorado Rockies,Tier 3,Rant; purple foil
+rant,290,Orlando Hernandez,New York Yankees,Tier 3,Rant; purple foil
+rant,291,Moises Alou,Houston Astros,Tier 3,Rant; purple foil
+rant,292,"Ken Griffey, Jr.",Seattle Mariners,Tier 3,Rant; purple foil
+rant,293,Kerry Wood,Chicago Cubs,Tier 3,Rant; purple foil
+rant,294,Nomar Garciaparra,Boston Red Sox,Tier 3,Rant; purple foil
+rant,295,Gabe Kapler,Detroit Tigers,Tier 3,Rant; purple foil
+rant,296,Bernie Williams,New York Yankees,Tier 3,Rant; purple foil
+rant,297,Matt Anderson,Detroit Tigers,Tier 3,Rant; purple foil
+rant,298,Adrian Beltre,Los Angeles Dodgers,Tier 3,Rant; purple foil
+rant,299,J.D. Drew,St. Louis Cardinals,Tier 3,Rant; purple foil
+rant,300,Ryan Bradley,New York Yankees,Tier 3,Rant; purple foil
+rave,1,John Smoltz,Atlanta Braves,Tier 1,Serial numbered /150
+rave,2,Garret Anderson,Anaheim Angels,Tier 1,Serial numbered /150
+rave,3,Matt Williams,Arizona Diamondbacks,Tier 1,Serial numbered /150
+rave,4,Daryle Ward,Houston Astros,Tier 1,Serial numbered /150
+rave,5,Andy Ashby,San Diego Padres,Tier 1,Serial numbered /150
+rave,6,Miguel Tejada,Oakland Athletics,Tier 1,Serial numbered /150
+rave,7,Dmitri Young,Cincinnati Reds,Tier 1,Serial numbered /150
+rave,8,Roberto Alomar,Cleveland Indians,Tier 1,Serial numbered /150
+rave,9,Kevin Brown,Los Angeles Dodgers,Tier 1,Serial numbered /150
+rave,10,Eric Young,Los Angeles Dodgers,Tier 1,Serial numbered /150
+rave,11,Odalis Perez,Atlanta Braves,Tier 1,Serial numbered /150
+rave,12,Preston Wilson,Florida Marlins,Tier 1,Serial numbered /150
+rave,13,Jeff Abbott,Chicago White Sox,Tier 1,Serial numbered /150
+rave,14,Bret Boone,Atlanta Braves,Tier 1,Serial numbered /150
+rave,15,Mendy Lopez,Kansas City Royals,Tier 1,Serial numbered /150
+rave,16,B.J. Surhoff,Baltimore Orioles,Tier 1,Serial numbered /150
+rave,17,Steve Woodard,Milwaukee Brewers,Tier 1,Serial numbered /150
+rave,18,Ron Coomer,Minnesota Twins,Tier 1,Serial numbered /150
+rave,19,Rondell White,Montreal Expos,Tier 1,Serial numbered /150
+rave,20,Edgardo Alfonzo,New York Mets,Tier 1,Serial numbered /150
+rave,21,Kevin Millwood,Atlanta Braves,Tier 1,Serial numbered /150
+rave,22,Jose Canseco,Tampa Bay Devil Rays,Tier 1,Serial numbered /150
+rave,23,Blake Stein,Oakland Athletics,Tier 1,Serial numbered /150
+rave,24,Quilvio Veras,San Diego Padres,Tier 1,Serial numbered /150
+rave,25,Chuck Knoblauch,New York Yankees,Tier 1,Serial numbered /150
+rave,26,David Segui,Seattle Mariners,Tier 1,Serial numbered /150
+rave,27,Eric Davis,St. Louis Cardinals,Tier 1,Serial numbered /150
+rave,28,Francisco Cordova,Pittsburgh Pirates,Tier 1,Serial numbered /150
+rave,29,Randy Winn,Tampa Bay Devil Rays,Tier 1,Serial numbered /150
+rave,30,Will Clark,Baltimore Orioles,Tier 1,Serial numbered /150
+rave,31,Billy Wagner,Houston Astros,Tier 1,Serial numbered /150
+rave,32,Kevin Witt,Toronto Blue Jays,Tier 1,Serial numbered /150
+rave,33,Jim Edmonds,Anaheim Angels,Tier 1,Serial numbered /150
+rave,34,Todd Stottlemyre,Arizona Diamondbacks,Tier 1,Serial numbered /150
+rave,35,Shane Andrews,Montreal Expos,Tier 1,Serial numbered /150
+rave,36,Michael Tucker,Cincinnati Reds,Tier 1,Serial numbered /150
+rave,37,"Sandy Alomar, Jr.",Cleveland Indians,Tier 1,Serial numbered /150
+rave,38,Neifi Perez,Colorado Rockies,Tier 1,Serial numbered /150
+rave,39,Jaret Wright,Cleveland Indians,Tier 1,Serial numbered /150
+rave,40,Devon White,Los Angeles Dodgers,Tier 1,Serial numbered /150
+rave,41,Edgar Renteria,St. Louis Cardinals,Tier 1,Serial numbered /150
+rave,42,Shane Reynolds,Houston Astros,Tier 1,Serial numbered /150
+rave,43,Jeff King,Kansas City Royals,Tier 1,Serial numbered /150
+rave,44,Darren Dreifort,Los Angeles Dodgers,Tier 1,Serial numbered /150
+rave,45,Fernando Vina,Milwaukee Brewers,Tier 1,Serial numbered /150
+rave,46,Marty Cordova,Minnesota Twins,Tier 1,Serial numbered /150
+rave,47,Ugueth Urbina,Montreal Expos,Tier 1,Serial numbered /150
+rave,48,Bobby Bonilla,New York Mets,Tier 1,Serial numbered /150
+rave,49,Omar Vizquel,Cleveland Indians,Tier 1,Serial numbered /150
+rave,50,Tom Gordon,Boston Red Sox,Tier 1,Serial numbered /150
+rave,51,Ryan Christenson,Oakland Athletics,Tier 1,Serial numbered /150
+rave,52,Aaron Boone,Cincinnati Reds,Tier 1,Serial numbered /150
+rave,53,Jamie Moyer,Seattle Mariners,Tier 1,Serial numbered /150
+rave,54,Brian Giles,Pittsburgh Pirates,Tier 1,Serial numbered /150
+rave,55,Kevin Tapani,Chicago Cubs,Tier 1,Serial numbered /150
+rave,56,Scott Brosius,New York Yankees,Tier 1,Serial numbered /150
+rave,57,Ellis Burks,San Francisco Giants,Tier 1,Serial numbered /150
+rave,58,Al Leiter,New York Mets,Tier 1,Serial numbered /150
+rave,59,Royce Clayton,Texas Rangers,Tier 1,Serial numbered /150
+rave,60,Chris Carpenter,Toronto Blue Jays,Tier 1,Serial numbered /150
+rave,61,Bubba Trammell,Tampa Bay Devil Rays,Tier 1,Serial numbered /150
+rave,62,Tom Glavine,Atlanta Braves,Tier 1,Serial numbered /150
+rave,63,Shannon Stewart,Toronto Blue Jays,Tier 1,Serial numbered /150
+rave,64,Todd Zeile,Texas Rangers,Tier 1,Serial numbered /150
+rave,65,J.T. Snow,San Francisco Giants,Tier 1,Serial numbered /150
+rave,66,Matt Clement,San Diego Padres,Tier 1,Serial numbered /150
+rave,67,Matt Stairs,Oakland Athletics,Tier 1,Serial numbered /150
+rave,68,Ismael Valdes,Los Angeles Dodgers,Tier 1,Serial numbered /150
+rave,69,Todd Walker,Minnesota Twins,Tier 1,Serial numbered /150
+rave,70,Jose Lima,Houston Astros,Tier 1,Serial numbered /150
+rave,71,Mike Caruso,Chicago White Sox,Tier 1,Serial numbered /150
+rave,72,Brett Tomko,Cincinnati Reds,Tier 1,Serial numbered /150
+rave,73,Mike Lansing,Colorado Rockies,Tier 1,Serial numbered /150
+rave,74,Justin Thompson,Detroit Tigers,Tier 1,Serial numbered /150
+rave,75,Damion Easley,Detroit Tigers,Tier 1,Serial numbered /150
+rave,76,Derrek Lee,Florida Marlins,Tier 1,Serial numbered /150
+rave,77,Derek Bell,Houston Astros,Tier 1,Serial numbered /150
+rave,78,Brady Anderson,Baltimore Orioles,Tier 1,Serial numbered /150
+rave,79,Charles Johnson,Baltimore Orioles,Tier 1,Serial numbered /150
+rave,80,Rafael Roque,Milwaukee Brewers,Tier 1,Serial numbered /150
+rave,81,Corey Koskie,Minnesota Twins,Tier 1,Serial numbered /150
+rave,82,Fernando Seguignol,Montreal Expos,Tier 1,Serial numbered /150
+rave,83,Jay Tessmer,New York Yankees,Tier 1,Serial numbered /150
+rave,84,Jason Giambi,Oakland Athletics,Tier 1,Serial numbered /150
+rave,85,Mike Lieberthal,Philadelphia Phillies,Tier 1,Serial numbered /150
+rave,86,Jose Guillen,Pittsburgh Pirates,Tier 1,Serial numbered /150
+rave,87,Jim Leyritz,San Diego Padres,Tier 1,Serial numbered /150
+rave,88,Shawn Estes,San Francisco Giants,Tier 1,Serial numbered /150
+rave,89,Ray Lankford,St. Louis Cardinals,Tier 1,Serial numbered /150
+rave,90,Paul Sorrento,Tampa Bay Devil Rays,Tier 1,Serial numbered /150
+rave,91,Javy Lopez,Atlanta Braves,Tier 1,Serial numbered /150
+rave,92,John Wetteland,Texas Rangers,Tier 1,Serial numbered /150
+rave,93,Sean Casey,Cincinnati Reds,Tier 1,Serial numbered /150
+rave,94,Chuck Finley,Anaheim Angels,Tier 1,Serial numbered /150
+rave,95,Trot Nixon,Boston Red Sox,Tier 1,Serial numbered /150
+rave,96,Ray Durham,Chicago White Sox,Tier 1,Serial numbered /150
+rave,97,Reggie Sanders,Cincinnati Reds,Tier 1,Serial numbered /150
+rave,98,Bartolo Colon,Cleveland Indians,Tier 1,Serial numbered /150
+rave,99,Henry Rodriguez,Chicago Cubs,Tier 1,Serial numbered /150
+rave,100,Rolando Arrojo,Tampa Bay Devil Rays,Tier 1,Serial numbered /150
+rave,101,Geoff Jenkins,Milwaukee Brewers,Tier 1,Serial numbered /150
+rave,102,Darryl Kile,Colorado Rockies,Tier 1,Serial numbered /150
+rave,103,Mark Kotsay,Florida Marlins,Tier 1,Serial numbered /150
+rave,104,Craig Biggio,Houston Astros,Tier 1,Serial numbered /150
+rave,105,Omar Daal,Arizona Diamondbacks,Tier 1,Serial numbered /150
+rave,106,Carlos Febles,Kansas City Royals,Tier 1,Serial numbered /150
+rave,107,Eric Karros,Los Angeles Dodgers,Tier 1,Serial numbered /150
+rave,108,Matt Lawton,Minnesota Twins,Tier 1,Serial numbered /150
+rave,109,Carl Pavano,Montreal Expos,Tier 1,Serial numbered /150
+rave,110,Brian McRae,New York Mets,Tier 1,Serial numbered /150
+rave,111,Mariano Rivera,New York Yankees,Tier 1,Serial numbered /150
+rave,112,Jay Buhner,Seattle Mariners,Tier 1,Serial numbered /150
+rave,113,Doug Glanville,Philadelphia Phillies,Tier 1,Serial numbered /150
+rave,114,Jason Kendall,Pittsburgh Pirates,Tier 1,Serial numbered /150
+rave,115,Wally Joyner,San Diego Padres,Tier 1,Serial numbered /150
+rave,116,Jeff Kent,San Francisco Giants,Tier 1,Serial numbered /150
+rave,117,Shane Monahan,Seattle Mariners,Tier 1,Serial numbered /150
+rave,118,Eli Marrero,St. Louis Cardinals,Tier 1,Serial numbered /150
+rave,119,Bobby Smith,Tampa Bay Devil Rays,Tier 1,Serial numbered /150
+rave,120,Shawn Green,Toronto Blue Jays,Tier 1,Serial numbered /150
+rave,121,Kirk Rueter,San Francisco Giants,Tier 1,Serial numbered /150
+rave,122,Tom Goodwin,Texas Rangers,Tier 1,Serial numbered /150
+rave,123,Andy Benes,Arizona Diamondbacks,Tier 1,Serial numbered /150
+rave,124,Ed Sprague,Pittsburgh Pirates,Tier 1,Serial numbered /150
+rave,125,Mike Mussina,Baltimore Orioles,Tier 1,Serial numbered /150
+rave,126,Jose Offerman,Boston Red Sox,Tier 1,Serial numbered /150
+rave,127,Mickey Morandini,Chicago Cubs,Tier 1,Serial numbered /150
+rave,128,Paul Konerko,Chicago White Sox,Tier 1,Serial numbered /150
+rave,129,Denny Neagle,Cincinnati Reds,Tier 1,Serial numbered /150
+rave,130,Travis Fryman,Cleveland Indians,Tier 1,Serial numbered /150
+rave,131,John Rocker,Atlanta Braves,Tier 1,Serial numbered /150
+rave,132,Robert Fick,Detroit Tigers,Tier 1,Serial numbered /150
+rave,133,Livan Hernandez,Florida Marlins,Tier 1,Serial numbered /150
+rave,134,Ken Caminiti,Houston Astros,Tier 1,Serial numbered /150
+rave,135,Johnny Damon,Kansas City Royals,Tier 1,Serial numbered /150
+rave,136,Jeff Kubenka,Los Angeles Dodgers,Tier 1,Serial numbered /150
+rave,137,Marquis Grissom,Milwaukee Brewers,Tier 1,Serial numbered /150
+rave,138,Doug Mientkiewicz,Minnesota Twins,Tier 1,Serial numbered /150
+rave,139,Dustin Hermanson,Montreal Expos,Tier 1,Serial numbered /150
+rave,140,Carl Everett,Houston Astros,Tier 1,Serial numbered /150
+rave,141,Hideo Nomo,New York Mets,Tier 2,Serial numbered /150
+rave,142,Jorge Posada,New York Yankees,Tier 2,Serial numbered /150
+rave,143,Rickey Henderson,New York Mets,Tier 2,Serial numbered /150
+rave,144,Robb Nen,San Francisco Giants,Tier 2,Serial numbered /150
+rave,145,Ron Gant,Philadelphia Phillies,Tier 2,Serial numbered /150
+rave,146,Aramis Ramirez,Pittsburgh Pirates,Tier 2,Serial numbered /150
+rave,147,Trevor Hoffman,San Diego Padres,Tier 2,Serial numbered /150
+rave,148,Bill Mueller,San Francisco Giants,Tier 2,Serial numbered /150
+rave,149,Edgar Martinez,Seattle Mariners,Tier 2,Serial numbered /150
+rave,150,Fred McGriff,Tampa Bay Devil Rays,Tier 2,Serial numbered /150
+rave,151,Rusty Greer,Texas Rangers,Tier 2,Serial numbered /150
+rave,152,Tom Evans,Toronto Blue Jays,Tier 2,Serial numbered /150
+rave,153,Todd Greene,Anaheim Angels,Tier 2,Serial numbered /150
+rave,154,Jay Bell,Arizona Diamondbacks,Tier 2,Serial numbered /150
+rave,155,Mike Lowell,New York Yankees,Tier 2,Serial numbered /150
+rave,156,Orlando Cabrera,Montreal Expos,Tier 2,Serial numbered /150
+rave,157,Troy O'Leary,Boston Red Sox,Tier 2,Serial numbered /150
+rave,158,Jose Hernandez,Chicago Cubs,Tier 2,Serial numbered /150
+rave,159,Magglio Ordonez,Chicago White Sox,Tier 2,Serial numbered /150
+rave,160,Barry Larkin,Cincinnati Reds,Tier 2,Serial numbered /150
+rave,161,David Justice,Cleveland Indians,Tier 2,Serial numbered /150
+rave,162,Derrick Gibson,Colorado Rockies,Tier 2,Serial numbered /150
+rave,163,Luis Gonzalez,Arizona Diamondbacks,Tier 2,Serial numbered /150
+rave,164,Alex Gonzalez,Florida Marlins,Tier 2,Serial numbered /150
+rave,165,Scott Elarton,Houston Astros,Tier 2,Serial numbered /150
+rave,166,Dermal Brown,Kansas City Royals,Tier 2,Serial numbered /150
+rave,167,Eric Milton,Minnesota Twins,Tier 2,Serial numbered /150
+rave,168,Raul Mondesi,Los Angeles Dodgers,Tier 2,Serial numbered /150
+rave,169,Jeff Cirillo,Milwaukee Brewers,Tier 2,Serial numbered /150
+rave,170,Benj Sampson,Minnesota Twins,Tier 2,Serial numbered /150
+rave,171,John Olerud,New York Mets,Tier 2,Serial numbered /150
+rave,172,Andy Pettitte,New York Yankees,Tier 2,Serial numbered /150
+rave,173,A.J. Hinch,Oakland Athletics,Tier 2,Serial numbered /150
+rave,174,Rico Brogna,Philadelphia Phillies,Tier 2,Serial numbered /150
+rave,175,Jason Schmidt,Pittsburgh Pirates,Tier 2,Serial numbered /150
+rave,176,Dean Palmer,Detroit Tigers,Tier 2,Serial numbered /150
+rave,177,Matt Morris,St. Louis Cardinals,Tier 2,Serial numbered /150
+rave,178,Quinton McCracken,Tampa Bay Devil Rays,Tier 2,Serial numbered /150
+rave,179,Rick Helling,Texas Rangers,Tier 2,Serial numbered /150
+rave,180,Walt Weiss,Atlanta Braves,Tier 2,Serial numbered /150
+rave,181,Troy Percival,Anaheim Angels,Tier 2,Serial numbered /150
+rave,182,Tony Batista,Arizona Diamondbacks,Tier 2,Serial numbered /150
+rave,183,Brian Jordan,Atlanta Braves,Tier 2,Serial numbered /150
+rave,184,"Jerry Hairston, Jr.",Baltimore Orioles,Tier 2,Serial numbered /150
+rave,185,Bret Saberhagen,Boston Red Sox,Tier 2,Serial numbered /150
+rave,186,Mark Grace,Chicago Cubs,Tier 2,Serial numbered /150
+rave,187,Brian Simmons,Chicago White Sox,Tier 2,Serial numbered /150
+rave,188,Pete Harnisch,Cincinnati Reds,Tier 2,Serial numbered /150
+rave,189,Kenny Lofton,Cleveland Indians,Tier 2,Serial numbered /150
+rave,190,Vinny Castilla,Colorado Rockies,Tier 2,Serial numbered /150
+rave,191,Bobby Higginson,Detroit Tigers,Tier 2,Serial numbered /150
+rave,192,Joey Hamilton,Toronto Blue Jays,Tier 2,Serial numbered /150
+rave,193,Cliff Floyd,Florida Marlins,Tier 2,Serial numbered /150
+rave,194,Andres Galarraga,Atlanta Braves,Tier 2,Serial numbered /150
+rave,195,Chan Ho Park,Los Angeles Dodgers,Tier 2,Serial numbered /150
+rave,196,Jeromy Burnitz,Milwaukee Brewers,Tier 2,Serial numbered /150
+rave,197,David Ortiz,Minnesota Twins,Tier 2,Serial numbered /150
+rave,198,Wilton Guerrero,Montreal Expos,Tier 2,Serial numbered /150
+rave,199,Rey Ordonez,New York Mets,Tier 2,Serial numbered /150
+rave,200,Paul O'Neill,New York Yankees,Tier 2,Serial numbered /150
+rave,201,Kenny Rogers,Oakland Athletics,Tier 2,Serial numbered /150
+rave,202,Marlon Anderson,Philadelphia Phillies,Tier 2,Serial numbered /150
+rave,203,Tony Womack,Pittsburgh Pirates,Tier 2,Serial numbered /150
+rave,204,Robin Ventura,New York Mets,Tier 2,Serial numbered /150
+rave,205,Russ Ortiz,San Francisco Giants,Tier 2,Serial numbered /150
+rave,206,Mike Frank,Cincinnati Reds,Tier 2,Serial numbered /150
+rave,207,Fernando Tatis,St. Louis Cardinals,Tier 2,Serial numbered /150
+rave,208,Miguel Cairo,Tampa Bay Devil Rays,Tier 2,Serial numbered /150
+rave,209,Ivan Rodriguez,Texas Rangers,Tier 2,Serial numbered /150
+rave,210,Carlos Delgado,Toronto Blue Jays,Tier 2,Serial numbered /150
+rave,211,Tim Salmon,Anaheim Angels,Tier 2,Serial numbered /150
+rave,212,Brian Anderson,Arizona Diamondbacks,Tier 2,Serial numbered /150
+rave,213,Ryan Klesko,Atlanta Braves,Tier 2,Serial numbered /150
+rave,214,Scott Erickson,Baltimore Orioles,Tier 2,Serial numbered /150
+rave,215,Mike Stanley,Boston Red Sox,Tier 2,Serial numbered /150
+rave,216,Brant Brown,Pittsburgh Pirates,Tier 2,Serial numbered /150
+rave,217,Rod Beck,Chicago Cubs,Tier 2,Serial numbered /150
+rave,218,Guillermo Garcia,Florida Marlins,Tier 2,Serial numbered /150
+rave,219,David Wells,New York Yankees,Tier 2,Serial numbered /150
+rave,220,Dante Bichette,Colorado Rockies,Tier 2,Serial numbered /150
+rave,221,Armando Benitez,New York Mets,Tier 2,Serial numbered /150
+rave,222,Todd Dunwoody,Florida Marlins,Tier 2,Serial numbered /150
+rave,223,Kelvim Escobar,Toronto Blue Jays,Tier 2,Serial numbered /150
+rave,224,Richard Hidalgo,Houston Astros,Tier 2,Serial numbered /150
+rave,225,Angel Pena,Los Angeles Dodgers,Tier 2,Serial numbered /150
+rave,226,Ronnie Belliard,Milwaukee Brewers,Tier 2,Serial numbered /150
+rave,227,Brad Radke,Minnesota Twins,Tier 2,Serial numbered /150
+rave,228,Brad Fullmer,Montreal Expos,Tier 2,Serial numbered /150
+rave,229,Jay Payton,New York Mets,Tier 2,Serial numbered /150
+rave,230,Tino Martinez,New York Yankees,Tier 2,Serial numbered /150
+rave,231,Scott Spiezio,Oakland Athletics,Tier 2,Serial numbered /150
+rave,232,Bobby Abreu,Philadelphia Phillies,Tier 2,Serial numbered /150
+rave,233,John Valentin,Boston Red Sox,Tier 2,Serial numbered /150
+rave,234,Kevin Young,Pittsburgh Pirates,Tier 2,Serial numbered /150
+rave,235,Steve Finley,Arizona Diamondbacks,Tier 2,Serial numbered /150
+rave,236,David Cone,New York Yankees,Tier 2,Serial numbered /150
+rave,237,Armando Rios,San Francisco Giants,Tier 2,Serial numbered /150
+rave,238,Russ Davis,Seattle Mariners,Tier 2,Serial numbered /150
+rave,239,Wade Boggs,Tampa Bay Devil Rays,Tier 2,Serial numbered /150
+rave,240,Aaron Sele,Texas Rangers,Tier 2,Serial numbered /150
+rave,241,"Jose Cruz, Jr.",Toronto Blue Jays,Tier 3,Serial numbered /150
+rave,242,George Lombard,Atlanta Braves,Tier 3,Serial numbered /150
+rave,243,Todd Helton,Colorado Rockies,Tier 3,Serial numbered /150
+rave,244,Andruw Jones,Atlanta Braves,Tier 3,Serial numbered /150
+rave,245,Troy Glaus,Anaheim Angels,Tier 3,Serial numbered /150
+rave,246,Manny Ramirez,Cleveland Indians,Tier 3,Serial numbered /150
+rave,247,Ben Grieve,Oakland Athletics,Tier 3,Serial numbered /150
+rave,248,Richie Sexson,Cleveland Indians,Tier 3,Serial numbered /150
+rave,249,Juan Encarnacion,Detroit Tigers,Tier 3,Serial numbered /150
+rave,250,Randy Johnson,Arizona Diamondbacks,Tier 3,Serial numbered /150
+rave,251,Gary Sheffield,Los Angeles Dodgers,Tier 3,Serial numbered /150
+rave,252,Rafael Palmeiro,Texas Rangers,Tier 3,Serial numbered /150
+rave,253,Roy Halladay,Toronto Blue Jays,Tier 3,Serial numbered /150
+rave,254,Mike Piazza,New York Mets,Tier 3,Serial numbered /150
+rave,255,Tony Gwynn,San Diego Padres,Tier 3,Serial numbered /150
+rave,256,Juan Gonzalez,Texas Rangers,Tier 3,Serial numbered /150
+rave,257,Jeremy Giambi,Kansas City Royals,Tier 3,Serial numbered /150
+rave,258,Ben Davis,San Diego Padres,Tier 3,Serial numbered /150
+rave,259,Russell Branyan,Cleveland Indians,Tier 3,Serial numbered /150
+rave,260,Pedro Martinez,Boston Red Sox,Tier 3,Serial numbered /150
+rave,261,Frank Thomas,Chicago White Sox,Tier 3,Serial numbered /150
+rave,262,Calvin Pickering,Baltimore Orioles,Tier 3,Serial numbered /150
+rave,263,Chipper Jones,Atlanta Braves,Tier 3,Serial numbered /150
+rave,264,Ryan Minor,Baltimore Orioles,Tier 3,Serial numbered /150
+rave,265,Roger Clemens,Toronto Blue Jays,Tier 3,Serial numbered /150
+rave,266,Sammy Sosa,Chicago Cubs,Tier 3,Serial numbered /150
+rave,267,Mo Vaughn,Anaheim Angels,Tier 3,Serial numbered /150
+rave,268,Carlos Beltran,Kansas City Royals,Tier 3,Serial numbered /150
+rave,269,Jim Thome,Cleveland Indians,Tier 3,Serial numbered /150
+rave,270,Mark McGwire,St. Louis Cardinals,Tier 3,Serial numbered /150
+rave,271,Travis Lee,Arizona Diamondbacks,Tier 3,Serial numbered /150
+rave,272,Darin Erstad,Anaheim Angels,Tier 3,Serial numbered /150
+rave,273,Derek Jeter,New York Yankees,Tier 3,Serial numbered /150
+rave,274,Greg Maddux,Atlanta Braves,Tier 3,Serial numbered /150
+rave,275,Ricky Ledee,New York Yankees,Tier 3,Serial numbered /150
+rave,276,Alex Rodriguez,Seattle Mariners,Tier 3,Serial numbered /150
+rave,277,Vladimir Guerrero,Montreal Expos,Tier 3,Serial numbered /150
+rave,278,Greg Vaughn,San Diego Padres,Tier 3,Serial numbered /150
+rave,279,Scott Rolen,Philadelphia Phillies,Tier 3,Serial numbered /150
+rave,280,Carlos Guillen,Seattle Mariners,Tier 3,Serial numbered /150
+rave,281,Jeff Bagwell,Houston Astros,Tier 3,Serial numbered /150
+rave,282,Bruce Chen,Atlanta Braves,Tier 3,Serial numbered /150
+rave,283,Tony Clark,Detroit Tigers,Tier 3,Serial numbered /150
+rave,284,Albert Belle,Baltimore Orioles,Tier 3,Serial numbered /150
+rave,285,"Cal Ripken, Jr.",Baltimore Orioles,Tier 3,Serial numbered /150
+rave,286,Barry Bonds,San Francisco Giants,Tier 3,Serial numbered /150
+rave,287,Curt Schilling,Philadelphia Phillies,Tier 3,Serial numbered /150
+rave,288,Eric Chavez,Oakland Athletics,Tier 3,Serial numbered /150
+rave,289,Larry Walker,Colorado Rockies,Tier 3,Serial numbered /150
+rave,290,Orlando Hernandez,New York Yankees,Tier 3,Serial numbered /150
+rave,291,Moises Alou,Houston Astros,Tier 3,Serial numbered /150
+rave,292,"Ken Griffey, Jr.",Seattle Mariners,Tier 3,Serial numbered /150
+rave,293,Kerry Wood,Chicago Cubs,Tier 3,Serial numbered /150
+rave,294,Nomar Garciaparra,Boston Red Sox,Tier 3,Serial numbered /150
+rave,295,Gabe Kapler,Detroit Tigers,Tier 3,Serial numbered /150
+rave,296,Bernie Williams,New York Yankees,Tier 3,Serial numbered /150
+rave,297,Matt Anderson,Detroit Tigers,Tier 3,Serial numbered /150
+rave,298,Adrian Beltre,Los Angeles Dodgers,Tier 3,Serial numbered /150
+rave,299,J.D. Drew,St. Louis Cardinals,Tier 3,Serial numbered /150
+rave,300,Ryan Bradley,New York Yankees,Tier 3,Serial numbered /150
+super-rave,1,John Smoltz,Atlanta Braves,Tier 1,Serial numbered /25
+super-rave,2,Garret Anderson,Anaheim Angels,Tier 1,Serial numbered /25
+super-rave,3,Matt Williams,Arizona Diamondbacks,Tier 1,Serial numbered /25
+super-rave,4,Daryle Ward,Houston Astros,Tier 1,Serial numbered /25
+super-rave,5,Andy Ashby,San Diego Padres,Tier 1,Serial numbered /25
+super-rave,6,Miguel Tejada,Oakland Athletics,Tier 1,Serial numbered /25
+super-rave,7,Dmitri Young,Cincinnati Reds,Tier 1,Serial numbered /25
+super-rave,8,Roberto Alomar,Cleveland Indians,Tier 1,Serial numbered /25
+super-rave,9,Kevin Brown,Los Angeles Dodgers,Tier 1,Serial numbered /25
+super-rave,10,Eric Young,Los Angeles Dodgers,Tier 1,Serial numbered /25
+super-rave,11,Odalis Perez,Atlanta Braves,Tier 1,Serial numbered /25
+super-rave,12,Preston Wilson,Florida Marlins,Tier 1,Serial numbered /25
+super-rave,13,Jeff Abbott,Chicago White Sox,Tier 1,Serial numbered /25
+super-rave,14,Bret Boone,Atlanta Braves,Tier 1,Serial numbered /25
+super-rave,15,Mendy Lopez,Kansas City Royals,Tier 1,Serial numbered /25
+super-rave,16,B.J. Surhoff,Baltimore Orioles,Tier 1,Serial numbered /25
+super-rave,17,Steve Woodard,Milwaukee Brewers,Tier 1,Serial numbered /25
+super-rave,18,Ron Coomer,Minnesota Twins,Tier 1,Serial numbered /25
+super-rave,19,Rondell White,Montreal Expos,Tier 1,Serial numbered /25
+super-rave,20,Edgardo Alfonzo,New York Mets,Tier 1,Serial numbered /25
+super-rave,21,Kevin Millwood,Atlanta Braves,Tier 1,Serial numbered /25
+super-rave,22,Jose Canseco,Tampa Bay Devil Rays,Tier 1,Serial numbered /25
+super-rave,23,Blake Stein,Oakland Athletics,Tier 1,Serial numbered /25
+super-rave,24,Quilvio Veras,San Diego Padres,Tier 1,Serial numbered /25
+super-rave,25,Chuck Knoblauch,New York Yankees,Tier 1,Serial numbered /25
+super-rave,26,David Segui,Seattle Mariners,Tier 1,Serial numbered /25
+super-rave,27,Eric Davis,St. Louis Cardinals,Tier 1,Serial numbered /25
+super-rave,28,Francisco Cordova,Pittsburgh Pirates,Tier 1,Serial numbered /25
+super-rave,29,Randy Winn,Tampa Bay Devil Rays,Tier 1,Serial numbered /25
+super-rave,30,Will Clark,Baltimore Orioles,Tier 1,Serial numbered /25
+super-rave,31,Billy Wagner,Houston Astros,Tier 1,Serial numbered /25
+super-rave,32,Kevin Witt,Toronto Blue Jays,Tier 1,Serial numbered /25
+super-rave,33,Jim Edmonds,Anaheim Angels,Tier 1,Serial numbered /25
+super-rave,34,Todd Stottlemyre,Arizona Diamondbacks,Tier 1,Serial numbered /25
+super-rave,35,Shane Andrews,Montreal Expos,Tier 1,Serial numbered /25
+super-rave,36,Michael Tucker,Cincinnati Reds,Tier 1,Serial numbered /25
+super-rave,37,"Sandy Alomar, Jr.",Cleveland Indians,Tier 1,Serial numbered /25
+super-rave,38,Neifi Perez,Colorado Rockies,Tier 1,Serial numbered /25
+super-rave,39,Jaret Wright,Cleveland Indians,Tier 1,Serial numbered /25
+super-rave,40,Devon White,Los Angeles Dodgers,Tier 1,Serial numbered /25
+super-rave,41,Edgar Renteria,St. Louis Cardinals,Tier 1,Serial numbered /25
+super-rave,42,Shane Reynolds,Houston Astros,Tier 1,Serial numbered /25
+super-rave,43,Jeff King,Kansas City Royals,Tier 1,Serial numbered /25
+super-rave,44,Darren Dreifort,Los Angeles Dodgers,Tier 1,Serial numbered /25
+super-rave,45,Fernando Vina,Milwaukee Brewers,Tier 1,Serial numbered /25
+super-rave,46,Marty Cordova,Minnesota Twins,Tier 1,Serial numbered /25
+super-rave,47,Ugueth Urbina,Montreal Expos,Tier 1,Serial numbered /25
+super-rave,48,Bobby Bonilla,New York Mets,Tier 1,Serial numbered /25
+super-rave,49,Omar Vizquel,Cleveland Indians,Tier 1,Serial numbered /25
+super-rave,50,Tom Gordon,Boston Red Sox,Tier 1,Serial numbered /25
+super-rave,51,Ryan Christenson,Oakland Athletics,Tier 1,Serial numbered /25
+super-rave,52,Aaron Boone,Cincinnati Reds,Tier 1,Serial numbered /25
+super-rave,53,Jamie Moyer,Seattle Mariners,Tier 1,Serial numbered /25
+super-rave,54,Brian Giles,Pittsburgh Pirates,Tier 1,Serial numbered /25
+super-rave,55,Kevin Tapani,Chicago Cubs,Tier 1,Serial numbered /25
+super-rave,56,Scott Brosius,New York Yankees,Tier 1,Serial numbered /25
+super-rave,57,Ellis Burks,San Francisco Giants,Tier 1,Serial numbered /25
+super-rave,58,Al Leiter,New York Mets,Tier 1,Serial numbered /25
+super-rave,59,Royce Clayton,Texas Rangers,Tier 1,Serial numbered /25
+super-rave,60,Chris Carpenter,Toronto Blue Jays,Tier 1,Serial numbered /25
+super-rave,61,Bubba Trammell,Tampa Bay Devil Rays,Tier 1,Serial numbered /25
+super-rave,62,Tom Glavine,Atlanta Braves,Tier 1,Serial numbered /25
+super-rave,63,Shannon Stewart,Toronto Blue Jays,Tier 1,Serial numbered /25
+super-rave,64,Todd Zeile,Texas Rangers,Tier 1,Serial numbered /25
+super-rave,65,J.T. Snow,San Francisco Giants,Tier 1,Serial numbered /25
+super-rave,66,Matt Clement,San Diego Padres,Tier 1,Serial numbered /25
+super-rave,67,Matt Stairs,Oakland Athletics,Tier 1,Serial numbered /25
+super-rave,68,Ismael Valdes,Los Angeles Dodgers,Tier 1,Serial numbered /25
+super-rave,69,Todd Walker,Minnesota Twins,Tier 1,Serial numbered /25
+super-rave,70,Jose Lima,Houston Astros,Tier 1,Serial numbered /25
+super-rave,71,Mike Caruso,Chicago White Sox,Tier 1,Serial numbered /25
+super-rave,72,Brett Tomko,Cincinnati Reds,Tier 1,Serial numbered /25
+super-rave,73,Mike Lansing,Colorado Rockies,Tier 1,Serial numbered /25
+super-rave,74,Justin Thompson,Detroit Tigers,Tier 1,Serial numbered /25
+super-rave,75,Damion Easley,Detroit Tigers,Tier 1,Serial numbered /25
+super-rave,76,Derrek Lee,Florida Marlins,Tier 1,Serial numbered /25
+super-rave,77,Derek Bell,Houston Astros,Tier 1,Serial numbered /25
+super-rave,78,Brady Anderson,Baltimore Orioles,Tier 1,Serial numbered /25
+super-rave,79,Charles Johnson,Baltimore Orioles,Tier 1,Serial numbered /25
+super-rave,80,Rafael Roque,Milwaukee Brewers,Tier 1,Serial numbered /25
+super-rave,81,Corey Koskie,Minnesota Twins,Tier 1,Serial numbered /25
+super-rave,82,Fernando Seguignol,Montreal Expos,Tier 1,Serial numbered /25
+super-rave,83,Jay Tessmer,New York Yankees,Tier 1,Serial numbered /25
+super-rave,84,Jason Giambi,Oakland Athletics,Tier 1,Serial numbered /25
+super-rave,85,Mike Lieberthal,Philadelphia Phillies,Tier 1,Serial numbered /25
+super-rave,86,Jose Guillen,Pittsburgh Pirates,Tier 1,Serial numbered /25
+super-rave,87,Jim Leyritz,San Diego Padres,Tier 1,Serial numbered /25
+super-rave,88,Shawn Estes,San Francisco Giants,Tier 1,Serial numbered /25
+super-rave,89,Ray Lankford,St. Louis Cardinals,Tier 1,Serial numbered /25
+super-rave,90,Paul Sorrento,Tampa Bay Devil Rays,Tier 1,Serial numbered /25
+super-rave,91,Javy Lopez,Atlanta Braves,Tier 1,Serial numbered /25
+super-rave,92,John Wetteland,Texas Rangers,Tier 1,Serial numbered /25
+super-rave,93,Sean Casey,Cincinnati Reds,Tier 1,Serial numbered /25
+super-rave,94,Chuck Finley,Anaheim Angels,Tier 1,Serial numbered /25
+super-rave,95,Trot Nixon,Boston Red Sox,Tier 1,Serial numbered /25
+super-rave,96,Ray Durham,Chicago White Sox,Tier 1,Serial numbered /25
+super-rave,97,Reggie Sanders,Cincinnati Reds,Tier 1,Serial numbered /25
+super-rave,98,Bartolo Colon,Cleveland Indians,Tier 1,Serial numbered /25
+super-rave,99,Henry Rodriguez,Chicago Cubs,Tier 1,Serial numbered /25
+super-rave,100,Rolando Arrojo,Tampa Bay Devil Rays,Tier 1,Serial numbered /25
+super-rave,101,Geoff Jenkins,Milwaukee Brewers,Tier 1,Serial numbered /25
+super-rave,102,Darryl Kile,Colorado Rockies,Tier 1,Serial numbered /25
+super-rave,103,Mark Kotsay,Florida Marlins,Tier 1,Serial numbered /25
+super-rave,104,Craig Biggio,Houston Astros,Tier 1,Serial numbered /25
+super-rave,105,Omar Daal,Arizona Diamondbacks,Tier 1,Serial numbered /25
+super-rave,106,Carlos Febles,Kansas City Royals,Tier 1,Serial numbered /25
+super-rave,107,Eric Karros,Los Angeles Dodgers,Tier 1,Serial numbered /25
+super-rave,108,Matt Lawton,Minnesota Twins,Tier 1,Serial numbered /25
+super-rave,109,Carl Pavano,Montreal Expos,Tier 1,Serial numbered /25
+super-rave,110,Brian McRae,New York Mets,Tier 1,Serial numbered /25
+super-rave,111,Mariano Rivera,New York Yankees,Tier 1,Serial numbered /25
+super-rave,112,Jay Buhner,Seattle Mariners,Tier 1,Serial numbered /25
+super-rave,113,Doug Glanville,Philadelphia Phillies,Tier 1,Serial numbered /25
+super-rave,114,Jason Kendall,Pittsburgh Pirates,Tier 1,Serial numbered /25
+super-rave,115,Wally Joyner,San Diego Padres,Tier 1,Serial numbered /25
+super-rave,116,Jeff Kent,San Francisco Giants,Tier 1,Serial numbered /25
+super-rave,117,Shane Monahan,Seattle Mariners,Tier 1,Serial numbered /25
+super-rave,118,Eli Marrero,St. Louis Cardinals,Tier 1,Serial numbered /25
+super-rave,119,Bobby Smith,Tampa Bay Devil Rays,Tier 1,Serial numbered /25
+super-rave,120,Shawn Green,Toronto Blue Jays,Tier 1,Serial numbered /25
+super-rave,121,Kirk Rueter,San Francisco Giants,Tier 1,Serial numbered /25
+super-rave,122,Tom Goodwin,Texas Rangers,Tier 1,Serial numbered /25
+super-rave,123,Andy Benes,Arizona Diamondbacks,Tier 1,Serial numbered /25
+super-rave,124,Ed Sprague,Pittsburgh Pirates,Tier 1,Serial numbered /25
+super-rave,125,Mike Mussina,Baltimore Orioles,Tier 1,Serial numbered /25
+super-rave,126,Jose Offerman,Boston Red Sox,Tier 1,Serial numbered /25
+super-rave,127,Mickey Morandini,Chicago Cubs,Tier 1,Serial numbered /25
+super-rave,128,Paul Konerko,Chicago White Sox,Tier 1,Serial numbered /25
+super-rave,129,Denny Neagle,Cincinnati Reds,Tier 1,Serial numbered /25
+super-rave,130,Travis Fryman,Cleveland Indians,Tier 1,Serial numbered /25
+super-rave,131,John Rocker,Atlanta Braves,Tier 1,Serial numbered /25
+super-rave,132,Robert Fick,Detroit Tigers,Tier 1,Serial numbered /25
+super-rave,133,Livan Hernandez,Florida Marlins,Tier 1,Serial numbered /25
+super-rave,134,Ken Caminiti,Houston Astros,Tier 1,Serial numbered /25
+super-rave,135,Johnny Damon,Kansas City Royals,Tier 1,Serial numbered /25
+super-rave,136,Jeff Kubenka,Los Angeles Dodgers,Tier 1,Serial numbered /25
+super-rave,137,Marquis Grissom,Milwaukee Brewers,Tier 1,Serial numbered /25
+super-rave,138,Doug Mientkiewicz,Minnesota Twins,Tier 1,Serial numbered /25
+super-rave,139,Dustin Hermanson,Montreal Expos,Tier 1,Serial numbered /25
+super-rave,140,Carl Everett,Houston Astros,Tier 1,Serial numbered /25
+super-rave,141,Hideo Nomo,New York Mets,Tier 2,Serial numbered /25
+super-rave,142,Jorge Posada,New York Yankees,Tier 2,Serial numbered /25
+super-rave,143,Rickey Henderson,New York Mets,Tier 2,Serial numbered /25
+super-rave,144,Robb Nen,San Francisco Giants,Tier 2,Serial numbered /25
+super-rave,145,Ron Gant,Philadelphia Phillies,Tier 2,Serial numbered /25
+super-rave,146,Aramis Ramirez,Pittsburgh Pirates,Tier 2,Serial numbered /25
+super-rave,147,Trevor Hoffman,San Diego Padres,Tier 2,Serial numbered /25
+super-rave,148,Bill Mueller,San Francisco Giants,Tier 2,Serial numbered /25
+super-rave,149,Edgar Martinez,Seattle Mariners,Tier 2,Serial numbered /25
+super-rave,150,Fred McGriff,Tampa Bay Devil Rays,Tier 2,Serial numbered /25
+super-rave,151,Rusty Greer,Texas Rangers,Tier 2,Serial numbered /25
+super-rave,152,Tom Evans,Toronto Blue Jays,Tier 2,Serial numbered /25
+super-rave,153,Todd Greene,Anaheim Angels,Tier 2,Serial numbered /25
+super-rave,154,Jay Bell,Arizona Diamondbacks,Tier 2,Serial numbered /25
+super-rave,155,Mike Lowell,New York Yankees,Tier 2,Serial numbered /25
+super-rave,156,Orlando Cabrera,Montreal Expos,Tier 2,Serial numbered /25
+super-rave,157,Troy O'Leary,Boston Red Sox,Tier 2,Serial numbered /25
+super-rave,158,Jose Hernandez,Chicago Cubs,Tier 2,Serial numbered /25
+super-rave,159,Magglio Ordonez,Chicago White Sox,Tier 2,Serial numbered /25
+super-rave,160,Barry Larkin,Cincinnati Reds,Tier 2,Serial numbered /25
+super-rave,161,David Justice,Cleveland Indians,Tier 2,Serial numbered /25
+super-rave,162,Derrick Gibson,Colorado Rockies,Tier 2,Serial numbered /25
+super-rave,163,Luis Gonzalez,Arizona Diamondbacks,Tier 2,Serial numbered /25
+super-rave,164,Alex Gonzalez,Florida Marlins,Tier 2,Serial numbered /25
+super-rave,165,Scott Elarton,Houston Astros,Tier 2,Serial numbered /25
+super-rave,166,Dermal Brown,Kansas City Royals,Tier 2,Serial numbered /25
+super-rave,167,Eric Milton,Minnesota Twins,Tier 2,Serial numbered /25
+super-rave,168,Raul Mondesi,Los Angeles Dodgers,Tier 2,Serial numbered /25
+super-rave,169,Jeff Cirillo,Milwaukee Brewers,Tier 2,Serial numbered /25
+super-rave,170,Benj Sampson,Minnesota Twins,Tier 2,Serial numbered /25
+super-rave,171,John Olerud,New York Mets,Tier 2,Serial numbered /25
+super-rave,172,Andy Pettitte,New York Yankees,Tier 2,Serial numbered /25
+super-rave,173,A.J. Hinch,Oakland Athletics,Tier 2,Serial numbered /25
+super-rave,174,Rico Brogna,Philadelphia Phillies,Tier 2,Serial numbered /25
+super-rave,175,Jason Schmidt,Pittsburgh Pirates,Tier 2,Serial numbered /25
+super-rave,176,Dean Palmer,Detroit Tigers,Tier 2,Serial numbered /25
+super-rave,177,Matt Morris,St. Louis Cardinals,Tier 2,Serial numbered /25
+super-rave,178,Quinton McCracken,Tampa Bay Devil Rays,Tier 2,Serial numbered /25
+super-rave,179,Rick Helling,Texas Rangers,Tier 2,Serial numbered /25
+super-rave,180,Walt Weiss,Atlanta Braves,Tier 2,Serial numbered /25
+super-rave,181,Troy Percival,Anaheim Angels,Tier 2,Serial numbered /25
+super-rave,182,Tony Batista,Arizona Diamondbacks,Tier 2,Serial numbered /25
+super-rave,183,Brian Jordan,Atlanta Braves,Tier 2,Serial numbered /25
+super-rave,184,"Jerry Hairston, Jr.",Baltimore Orioles,Tier 2,Serial numbered /25
+super-rave,185,Bret Saberhagen,Boston Red Sox,Tier 2,Serial numbered /25
+super-rave,186,Mark Grace,Chicago Cubs,Tier 2,Serial numbered /25
+super-rave,187,Brian Simmons,Chicago White Sox,Tier 2,Serial numbered /25
+super-rave,188,Pete Harnisch,Cincinnati Reds,Tier 2,Serial numbered /25
+super-rave,189,Kenny Lofton,Cleveland Indians,Tier 2,Serial numbered /25
+super-rave,190,Vinny Castilla,Colorado Rockies,Tier 2,Serial numbered /25
+super-rave,191,Bobby Higginson,Detroit Tigers,Tier 2,Serial numbered /25
+super-rave,192,Joey Hamilton,Toronto Blue Jays,Tier 2,Serial numbered /25
+super-rave,193,Cliff Floyd,Florida Marlins,Tier 2,Serial numbered /25
+super-rave,194,Andres Galarraga,Atlanta Braves,Tier 2,Serial numbered /25
+super-rave,195,Chan Ho Park,Los Angeles Dodgers,Tier 2,Serial numbered /25
+super-rave,196,Jeromy Burnitz,Milwaukee Brewers,Tier 2,Serial numbered /25
+super-rave,197,David Ortiz,Minnesota Twins,Tier 2,Serial numbered /25
+super-rave,198,Wilton Guerrero,Montreal Expos,Tier 2,Serial numbered /25
+super-rave,199,Rey Ordonez,New York Mets,Tier 2,Serial numbered /25
+super-rave,200,Paul O'Neill,New York Yankees,Tier 2,Serial numbered /25
+super-rave,201,Kenny Rogers,Oakland Athletics,Tier 2,Serial numbered /25
+super-rave,202,Marlon Anderson,Philadelphia Phillies,Tier 2,Serial numbered /25
+super-rave,203,Tony Womack,Pittsburgh Pirates,Tier 2,Serial numbered /25
+super-rave,204,Robin Ventura,New York Mets,Tier 2,Serial numbered /25
+super-rave,205,Russ Ortiz,San Francisco Giants,Tier 2,Serial numbered /25
+super-rave,206,Mike Frank,Cincinnati Reds,Tier 2,Serial numbered /25
+super-rave,207,Fernando Tatis,St. Louis Cardinals,Tier 2,Serial numbered /25
+super-rave,208,Miguel Cairo,Tampa Bay Devil Rays,Tier 2,Serial numbered /25
+super-rave,209,Ivan Rodriguez,Texas Rangers,Tier 2,Serial numbered /25
+super-rave,210,Carlos Delgado,Toronto Blue Jays,Tier 2,Serial numbered /25
+super-rave,211,Tim Salmon,Anaheim Angels,Tier 2,Serial numbered /25
+super-rave,212,Brian Anderson,Arizona Diamondbacks,Tier 2,Serial numbered /25
+super-rave,213,Ryan Klesko,Atlanta Braves,Tier 2,Serial numbered /25
+super-rave,214,Scott Erickson,Baltimore Orioles,Tier 2,Serial numbered /25
+super-rave,215,Mike Stanley,Boston Red Sox,Tier 2,Serial numbered /25
+super-rave,216,Brant Brown,Pittsburgh Pirates,Tier 2,Serial numbered /25
+super-rave,217,Rod Beck,Chicago Cubs,Tier 2,Serial numbered /25
+super-rave,218,Guillermo Garcia,Florida Marlins,Tier 2,Serial numbered /25
+super-rave,219,David Wells,New York Yankees,Tier 2,Serial numbered /25
+super-rave,220,Dante Bichette,Colorado Rockies,Tier 2,Serial numbered /25
+super-rave,221,Armando Benitez,New York Mets,Tier 2,Serial numbered /25
+super-rave,222,Todd Dunwoody,Florida Marlins,Tier 2,Serial numbered /25
+super-rave,223,Kelvim Escobar,Toronto Blue Jays,Tier 2,Serial numbered /25
+super-rave,224,Richard Hidalgo,Houston Astros,Tier 2,Serial numbered /25
+super-rave,225,Angel Pena,Los Angeles Dodgers,Tier 2,Serial numbered /25
+super-rave,226,Ronnie Belliard,Milwaukee Brewers,Tier 2,Serial numbered /25
+super-rave,227,Brad Radke,Minnesota Twins,Tier 2,Serial numbered /25
+super-rave,228,Brad Fullmer,Montreal Expos,Tier 2,Serial numbered /25
+super-rave,229,Jay Payton,New York Mets,Tier 2,Serial numbered /25
+super-rave,230,Tino Martinez,New York Yankees,Tier 2,Serial numbered /25
+super-rave,231,Scott Spiezio,Oakland Athletics,Tier 2,Serial numbered /25
+super-rave,232,Bobby Abreu,Philadelphia Phillies,Tier 2,Serial numbered /25
+super-rave,233,John Valentin,Boston Red Sox,Tier 2,Serial numbered /25
+super-rave,234,Kevin Young,Pittsburgh Pirates,Tier 2,Serial numbered /25
+super-rave,235,Steve Finley,Arizona Diamondbacks,Tier 2,Serial numbered /25
+super-rave,236,David Cone,New York Yankees,Tier 2,Serial numbered /25
+super-rave,237,Armando Rios,San Francisco Giants,Tier 2,Serial numbered /25
+super-rave,238,Russ Davis,Seattle Mariners,Tier 2,Serial numbered /25
+super-rave,239,Wade Boggs,Tampa Bay Devil Rays,Tier 2,Serial numbered /25
+super-rave,240,Aaron Sele,Texas Rangers,Tier 2,Serial numbered /25
+super-rave,241,"Jose Cruz, Jr.",Toronto Blue Jays,Tier 3,Serial numbered /25
+super-rave,242,George Lombard,Atlanta Braves,Tier 3,Serial numbered /25
+super-rave,243,Todd Helton,Colorado Rockies,Tier 3,Serial numbered /25
+super-rave,244,Andruw Jones,Atlanta Braves,Tier 3,Serial numbered /25
+super-rave,245,Troy Glaus,Anaheim Angels,Tier 3,Serial numbered /25
+super-rave,246,Manny Ramirez,Cleveland Indians,Tier 3,Serial numbered /25
+super-rave,247,Ben Grieve,Oakland Athletics,Tier 3,Serial numbered /25
+super-rave,248,Richie Sexson,Cleveland Indians,Tier 3,Serial numbered /25
+super-rave,249,Juan Encarnacion,Detroit Tigers,Tier 3,Serial numbered /25
+super-rave,250,Randy Johnson,Arizona Diamondbacks,Tier 3,Serial numbered /25
+super-rave,251,Gary Sheffield,Los Angeles Dodgers,Tier 3,Serial numbered /25
+super-rave,252,Rafael Palmeiro,Texas Rangers,Tier 3,Serial numbered /25
+super-rave,253,Roy Halladay,Toronto Blue Jays,Tier 3,Serial numbered /25
+super-rave,254,Mike Piazza,New York Mets,Tier 3,Serial numbered /25
+super-rave,255,Tony Gwynn,San Diego Padres,Tier 3,Serial numbered /25
+super-rave,256,Juan Gonzalez,Texas Rangers,Tier 3,Serial numbered /25
+super-rave,257,Jeremy Giambi,Kansas City Royals,Tier 3,Serial numbered /25
+super-rave,258,Ben Davis,San Diego Padres,Tier 3,Serial numbered /25
+super-rave,259,Russell Branyan,Cleveland Indians,Tier 3,Serial numbered /25
+super-rave,260,Pedro Martinez,Boston Red Sox,Tier 3,Serial numbered /25
+super-rave,261,Frank Thomas,Chicago White Sox,Tier 3,Serial numbered /25
+super-rave,262,Calvin Pickering,Baltimore Orioles,Tier 3,Serial numbered /25
+super-rave,263,Chipper Jones,Atlanta Braves,Tier 3,Serial numbered /25
+super-rave,264,Ryan Minor,Baltimore Orioles,Tier 3,Serial numbered /25
+super-rave,265,Roger Clemens,Toronto Blue Jays,Tier 3,Serial numbered /25
+super-rave,266,Sammy Sosa,Chicago Cubs,Tier 3,Serial numbered /25
+super-rave,267,Mo Vaughn,Anaheim Angels,Tier 3,Serial numbered /25
+super-rave,268,Carlos Beltran,Kansas City Royals,Tier 3,Serial numbered /25
+super-rave,269,Jim Thome,Cleveland Indians,Tier 3,Serial numbered /25
+super-rave,270,Mark McGwire,St. Louis Cardinals,Tier 3,Serial numbered /25
+super-rave,271,Travis Lee,Arizona Diamondbacks,Tier 3,Serial numbered /25
+super-rave,272,Darin Erstad,Anaheim Angels,Tier 3,Serial numbered /25
+super-rave,273,Derek Jeter,New York Yankees,Tier 3,Serial numbered /25
+super-rave,274,Greg Maddux,Atlanta Braves,Tier 3,Serial numbered /25
+super-rave,275,Ricky Ledee,New York Yankees,Tier 3,Serial numbered /25
+super-rave,276,Alex Rodriguez,Seattle Mariners,Tier 3,Serial numbered /25
+super-rave,277,Vladimir Guerrero,Montreal Expos,Tier 3,Serial numbered /25
+super-rave,278,Greg Vaughn,San Diego Padres,Tier 3,Serial numbered /25
+super-rave,279,Scott Rolen,Philadelphia Phillies,Tier 3,Serial numbered /25
+super-rave,280,Carlos Guillen,Seattle Mariners,Tier 3,Serial numbered /25
+super-rave,281,Jeff Bagwell,Houston Astros,Tier 3,Serial numbered /25
+super-rave,282,Bruce Chen,Atlanta Braves,Tier 3,Serial numbered /25
+super-rave,283,Tony Clark,Detroit Tigers,Tier 3,Serial numbered /25
+super-rave,284,Albert Belle,Baltimore Orioles,Tier 3,Serial numbered /25
+super-rave,285,"Cal Ripken, Jr.",Baltimore Orioles,Tier 3,Serial numbered /25
+super-rave,286,Barry Bonds,San Francisco Giants,Tier 3,Serial numbered /25
+super-rave,287,Curt Schilling,Philadelphia Phillies,Tier 3,Serial numbered /25
+super-rave,288,Eric Chavez,Oakland Athletics,Tier 3,Serial numbered /25
+super-rave,289,Larry Walker,Colorado Rockies,Tier 3,Serial numbered /25
+super-rave,290,Orlando Hernandez,New York Yankees,Tier 3,Serial numbered /25
+super-rave,291,Moises Alou,Houston Astros,Tier 3,Serial numbered /25
+super-rave,292,"Ken Griffey, Jr.",Seattle Mariners,Tier 3,Serial numbered /25
+super-rave,293,Kerry Wood,Chicago Cubs,Tier 3,Serial numbered /25
+super-rave,294,Nomar Garciaparra,Boston Red Sox,Tier 3,Serial numbered /25
+super-rave,295,Gabe Kapler,Detroit Tigers,Tier 3,Serial numbered /25
+super-rave,296,Bernie Williams,New York Yankees,Tier 3,Serial numbered /25
+super-rave,297,Matt Anderson,Detroit Tigers,Tier 3,Serial numbered /25
+super-rave,298,Adrian Beltre,Los Angeles Dodgers,Tier 3,Serial numbered /25
+super-rave,299,J.D. Drew,St. Louis Cardinals,Tier 3,Serial numbered /25
+super-rave,300,Ryan Bradley,New York Yankees,Tier 3,Serial numbered /25
+unleashed,1 (U),Carlos Beltran,Kansas City Royals,,
+unleashed,2 (U),Adrian Beltre,Los Angeles Dodgers,,
+unleashed,3 (U),Eric Chavez,Oakland Athletics,,
+unleashed,4 (U),J.D. Drew,St. Louis Cardinals,,
+unleashed,5 (U),Juan Encarnacion,Detroit Tigers,,
+unleashed,6 (U),Jeremy Giambi,Kansas City Royals,,
+unleashed,7 (U),Troy Glaus,Anaheim Angels,,
+unleashed,8 (U),Ben Grieve,Oakland Athletics,,
+unleashed,9 (U),Todd Helton,Colorado Rockies,,
+unleashed,10 (U),Orlando Hernandez,New York Yankees,,
+unleashed,11 (U),Gabe Kapler,Detroit Tigers,,
+unleashed,12 (U),Travis Lee,Arizona Diamondbacks,,
+unleashed,13 (U),Calvin Pickering,Baltimore Orioles,,
+unleashed,14 (U),Richie Sexson,Cleveland Indians,,
+unleashed,15 (U),Kerry Wood,Chicago Cubs,,
+www-batterz-com,1 (WB),J.D. Drew,St. Louis Cardinals,,
+www-batterz-com,2 (WB),Nomar Garciaparra,Boston Red Sox,,
+www-batterz-com,3 (WB),"Ken Griffey, Jr.",Seattle Mariners,,
+www-batterz-com,4 (WB),Tony Gwynn,San Diego Padres,,
+www-batterz-com,5 (WB),Derek Jeter,New York Yankees,,
+www-batterz-com,6 (WB),Mark McGwire,St. Louis Cardinals,,
+www-batterz-com,7 (WB),Alex Rodriguez,Seattle Mariners,,
+www-batterz-com,8 (WB),Scott Rolen,Philadelphia Phillies,,
+www-batterz-com,9 (WB),Sammy Sosa,Chicago Cubs,,
+www-batterz-com,10 (WB),Bernie Williams,New York Yankees,,
+in-depth,1 (ID),Albert Belle,Baltimore Orioles,,
+in-depth,2 (ID),Barry Bonds,San Francisco Giants,,
+in-depth,3 (ID),Roger Clemens,Toronto Blue Jays,,
+in-depth,4 (ID),Juan Gonzalez,Texas Rangers,,
+in-depth,5 (ID),"Ken Griffey, Jr.",Seattle Mariners,,
+in-depth,6 (ID),Mark McGwire,St. Louis Cardinals,,
+in-depth,7 (ID),Mike Piazza,New York Mets,,
+in-depth,8 (ID),Sammy Sosa,Chicago Cubs,,
+in-depth,9 (ID),Mo Vaughn,Anaheim Angels,,
+in-depth,10 (ID),Kerry Wood,Chicago Cubs,,
+hip-no-tized,1 (H),J.D. Drew,St. Louis Cardinals,,
+hip-no-tized,2 (H),Nomar Garciaparra,Boston Red Sox,,
+hip-no-tized,3 (H),Juan Gonzalez,Texas Rangers,,
+hip-no-tized,4 (H),"Ken Griffey, Jr.",Seattle Mariners,,
+hip-no-tized,5 (H),Derek Jeter,New York Yankees,,
+hip-no-tized,6 (H),Randy Johnson,Arizona Diamondbacks,,
+hip-no-tized,7 (H),Chipper Jones,Atlanta Braves,,
+hip-no-tized,8 (H),Mark McGwire,St. Louis Cardinals,,
+hip-no-tized,9 (H),Mike Piazza,New York Mets,,
+hip-no-tized,10 (H),"Cal Ripken, Jr.",Baltimore Orioles,,
+hip-no-tized,11 (H),Alex Rodriguez,Seattle Mariners,,
+hip-no-tized,12 (H),Sammy Sosa,Chicago Cubs,,
+hip-no-tized,13 (H),Frank Thomas,Chicago White Sox,,
+hip-no-tized,14 (H),Jim Thome,Cleveland Indians,,
+hip-no-tized,15 (H),Kerry Wood,Chicago Cubs,,
+turbo-charged,1 (TC),Jose Canseco,Tampa Bay Devil Rays,,
+turbo-charged,2 (TC),Juan Gonzalez,Texas Rangers,,
+turbo-charged,3 (TC),"Ken Griffey, Jr.",Seattle Mariners,,
+turbo-charged,4 (TC),Vladimir Guerrero,Montreal Expos,,
+turbo-charged,5 (TC),Mark McGwire,St. Louis Cardinals,,
+turbo-charged,6 (TC),Mike Piazza,New York Mets,,
+turbo-charged,7 (TC),Manny Ramirez,Cleveland Indians,,
+turbo-charged,8 (TC),Alex Rodriguez,Seattle Mariners,,
+turbo-charged,9 (TC),Sammy Sosa,Chicago Cubs,,
+turbo-charged,10 (TC),Mo Vaughn,Anaheim Angels,,
+dial-1,1 (D),Nomar Garciaparra,Boston Red Sox,,Die-cut plastic; cellphone design
+dial-1,2 (D),Juan Gonzalez,Texas Rangers,,Die-cut plastic; cellphone design
+dial-1,3 (D),"Ken Griffey, Jr.",Seattle Mariners,,Die-cut plastic; cellphone design
+dial-1,4 (D),Chipper Jones,Atlanta Braves,,Die-cut plastic; cellphone design
+dial-1,5 (D),Mark McGwire,St. Louis Cardinals,,Die-cut plastic; cellphone design
+dial-1,6 (D),Mike Piazza,New York Mets,,Die-cut plastic; cellphone design
+dial-1,7 (D),Manny Ramirez,Cleveland Indians,,Die-cut plastic; cellphone design
+dial-1,8 (D),Alex Rodriguez,Seattle Mariners,,Die-cut plastic; cellphone design
+dial-1,9 (D),Sammy Sosa,Chicago Cubs,,Die-cut plastic; cellphone design
+dial-1,10 (D),Mo Vaughn,Anaheim Angels,,Die-cut plastic; cellphone design
+checklists,NNO-A,Checklist,,Checklist,Checklist: 1-230
+checklists,NNO-B,Checklist,,Checklist,Checklist: 231-300 and Inserts
