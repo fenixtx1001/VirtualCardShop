@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1314/1999-Metal-Universe",
+    "checklistReference": "https://www.tcdb.com/Checklist.cfm/sid/1314/1999-Metal-Universe?PageIndex=1",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/1314/1999-Metal-Universe",
+    "insertReference": "https://www.tcdb.com/Inserts.cfm/sid/1314/1999-Metal-Universe",
+    "independentReference": "https://baseballcardpedia.com/index.php/1999_Metal_Universe",
+    "independentTeamReference": "https://www.cardboardconnection.com/comprehensive-precious-metal-gems-card-guide"
+  },
+  "decisions": {
+    "inventory": "968 explicit rows across nine collector families: base 300, directly catalogued PMG 297, Gem Masters 300, five regular insert families totaling 70, and pack-issued Drew /35 autograph. Three disputed PMG checklist cards are not manufactured by copying base rows. Keep unreleased until scope conflict resolved.",
+    "pmgDiscrepancy": "Current TCDB PMG family has 297 cards #1–297. BCP, indexed Beckett and CC describe 300, including checklists, and CC enumerates #298–300. No physical scan or authoritative explanation resolved conflict. Exclude these three disputed rows from import; preserve their exact alternate catalog entries in source/audit. This is an explicit checklist verification gap, not proof they do not exist. Do not claim every possible PMG verified.",
+    "subsets": "Base and parallels retain Caught on the Fly #233–247; Building Blocks #248–272; MLPD #273–297; Checklist #298–300 where actually catalogued. These are parts of the numbered collector checklist, not additional duplicate insert families. MLPD gold foil is a base design, not itself a PMG parallel.",
+    "rookies": "No verified true RC in base: canonical tags, separately retrieved rookie index and full BCP/CC checklists have no RC marks. Building Blocks and Neophytes are thematic labels, not grounds for false RC. No inferred RC tags on parallels or Drew autograph.",
+    "teams": "Complete source teams on all 968 rows, including player-specific checklists. Preserve 1998-era on-card affiliations, not later 1999 rosters: Clemens Toronto, Randy Johnson Houston, Mo Vaughn Boston, Albert Belle Chicago White Sox. Neophytes #7 Konerko says Chicago White Sox while pictured in Reds uniform; base #111 and its parallels retain Cincinnati Reds.",
+    "numbering": "Preserve printed/catalogued card numbers, including mixed insert suffix spacing: NP/BW/PM use a space, DS/LP do not. Drew autograph uses actual SAMPLE identity. Player names retain clean canonical punctuation; remove only whole trailing tokens FLY/BB/MLPD/CL/SN/AU into metadata.",
+    "autograph": "Include the documented pack-issued J.D. Drew autograph /35 from the TCDB Inserts section, independently confirmed by BCP and indexed Beckett. Embossed autograph authentication seal and hand numbering. The unsigned six-card sample sheet and /325 Hawaii Trade Conference signed sheet (and hand-cut singles) are promotional issues and excluded. No /325 autograph family or unsigned SAMPLE cards in this pack pool.",
+    "parallels": "PMG /50 and Gem Masters 1/1 are separate holographic foil parallel families, with every actual source row independently fetched; no extra hologram checklist inferred. Preserve verified runs in variant, not player.",
+    "pack": "Hobby default: eight cards per pack, 24 packs per box, single series, confirmed by original pack/box scans. Retail 20-pack boxes and 8+1 bonus-pack blasters are different formats and not this default. Existing VCS independent hit rolls replace base slots; no promise of historic card position or exact collation.",
+    "odds": "Only verified five regular insert rates enabled: Neophytes 6, Boyz 18, Planet 36, Diamond Soul 72, Linchpins 360. PMG, Gem Masters and Drew /35 insertion denominators unknown, so null; serial print runs do not establish pack rates. Unknown families remain staged for pricing/images but inactive in pack pulls until QA. Odds belong only to ProductSet fields.",
+    "release": "Unreleased draft for pricing/image harvesting. PMG checklist scope, rare odds, pack QA, images and prices pending. No production DB changes or deployment."
+  },
+  "product": {
+    "id": "1999_Metal_Universe_Baseball",
+    "year": 1999,
+    "brand": "Metal Universe",
+    "sport": "Baseball",
+    "cardsPerPack": 8,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "checklistScope": "PENDING_THREE_DISPUTED_PMG_CHECKLIST_CARDS",
+    "rookieDesignation": "VERIFIED_NO_BASE_RCS",
+    "packCollation": "PENDING",
+    "insertOdds": "PENDING_UNKNOWN_PMG_GEM_MASTERS_AUTOGRAPH_ODDS",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1999-metal-universe-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1999_Metal_Universe_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 1314,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1314/1999-Metal-Universe?PageIndex=1",
+      "expectedCards": 300,
+      "notes": "Full collector checklist #1–300, including all subsets and three player-specific checklist cards. No subset/rarity split."
+    },
+    {
+      "key": "precious-metal-gems",
+      "id": "1999_Metal_Universe_Baseball_Precious_Metal_Gems",
+      "name": "Precious Metal Gems",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 11533,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11533/1999-Metal-Universe-Precious-Metal-Gems?PageIndex=1",
+      "expectedCards": 297,
+      "notes": "297 directly catalogued PMGs #1–297, all /50, Hobby exclusive. Guides claim 300 but current TCDB omits checklist cards #298–300. Disputed three excluded pending evidence; not a definitive 297-card completeness claim. Unknown odds null."
+    },
+    {
+      "key": "gem-masters",
+      "id": "1999_Metal_Universe_Baseball_Gem_Masters",
+      "name": "Gem Masters",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 11529,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11529/1999-Metal-Universe-Gem-Masters?PageIndex=1",
+      "expectedCards": 300,
+      "notes": "All 300 source-catalogued one-of-one Gem Masters, including three player checklist cards. Each independently retrieved from own namespace and checked against base. Unknown odds null."
+    },
+    {
+      "key": "neophytes",
+      "id": "1999_Metal_Universe_Baseball_Neophytes",
+      "name": "Neophytes",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "sourceSetId": 11531,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11531/1999-Metal-Universe-Neophytes",
+      "expectedCards": 15,
+      "notes": "Full fifteen-card insert checklist, 1:6. #7 Paul Konerko identifies Chicago White Sox despite Cincinnati uniform; preserve source/on-card affiliation."
+    },
+    {
+      "key": "boyz-with-the-wood",
+      "id": "1999_Metal_Universe_Baseball_Boyz_With_the_Wood",
+      "name": "Boyz With the Wood",
+      "kind": "INSERT",
+      "oddsPerPack": 18,
+      "sourceSetId": 11527,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11527/1999-Metal-Universe-Boyz-With-the-Wood",
+      "expectedCards": 15,
+      "notes": "Full fifteen-card foldable insert checklist, 1:18. Folded display state is not a separate printed parallel."
+    },
+    {
+      "key": "planet-metal",
+      "id": "1999_Metal_Universe_Baseball_Planet_Metal",
+      "name": "Planet Metal",
+      "kind": "INSERT",
+      "oddsPerPack": 36,
+      "sourceSetId": 11532,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11532/1999-Metal-Universe-Planet-Metal",
+      "expectedCards": 15,
+      "notes": "Full fifteen-card holographic foil die-cut insert checklist, 1:36."
+    },
+    {
+      "key": "diamond-soul",
+      "id": "1999_Metal_Universe_Baseball_Diamond_Soul",
+      "name": "Diamond Soul",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "sourceSetId": 11528,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11528/1999-Metal-Universe-Diamond-Soul",
+      "expectedCards": 15,
+      "notes": "Full fifteen-card lenticular insert checklist, 1:72."
+    },
+    {
+      "key": "linchpins",
+      "id": "1999_Metal_Universe_Baseball_Linchpins",
+      "name": "Linchpins",
+      "kind": "INSERT",
+      "oddsPerPack": 360,
+      "sourceSetId": 11530,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11530/1999-Metal-Universe-Linchpins",
+      "expectedCards": 10,
+      "notes": "Full ten-card die-cut insert checklist, 1:360."
+    },
+    {
+      "key": "drew-autograph",
+      "id": "1999_Metal_Universe_Baseball_JD_Drew_Autograph",
+      "name": "J.D. Drew Autograph",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 1314,
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/1314/1999-Metal-Universe",
+      "expectedCards": 1,
+      "notes": "SAMPLE J.D. Drew: authenticated, hand numbered /35, randomly packed out. Distinct from Hawaii promo /325 sheets/hand-cut singles; those excluded. No invented insertion odds."
+    }
+  ]
+}

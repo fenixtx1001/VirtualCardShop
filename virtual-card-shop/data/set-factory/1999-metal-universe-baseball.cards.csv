@@ -1,0 +1,969 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Mark McGwire,St. Louis Cardinals,,
+base,2,Jim Edmonds,Anaheim Angels,,
+base,3,Travis Fryman,Cleveland Indians,,
+base,4,Tom Gordon,Boston Red Sox,,
+base,5,Jeff Bagwell,Houston Astros,,
+base,6,Rico Brogna,Philadelphia Phillies,,
+base,7,Tom Evans,Toronto Blue Jays,,
+base,8,John Franco,New York Mets,,
+base,9,Juan Gonzalez,Texas Rangers,,
+base,10,Paul Molitor,Minnesota Twins,,
+base,11,Roberto Alomar,Baltimore Orioles,,
+base,12,Mike Hampton,Houston Astros,,
+base,13,Orel Hershiser,San Francisco Giants,,
+base,14,Todd Stottlemyre,Texas Rangers,,
+base,15,Robin Ventura,Chicago White Sox,,
+base,16,Todd Walker,Minnesota Twins,,
+base,17,Bernie Williams,New York Yankees,,
+base,18,Shawn Estes,San Francisco Giants,,
+base,19,Richie Sexson,Cleveland Indians,,
+base,20,Kevin Millwood,Atlanta Braves,,
+base,21,David Ortiz,Minnesota Twins,,
+base,22,Mariano Rivera,New York Yankees,,
+base,23,Ivan Rodriguez,Texas Rangers,,
+base,24,Mike Sirotka,Chicago White Sox,,
+base,25,David Justice,Cleveland Indians,,
+base,26,Carl Pavano,Montreal Expos,,
+base,27,Albert Belle,Chicago White Sox,,
+base,28,Will Clark,Texas Rangers,,
+base,29,"Jose Cruz, Jr.",Toronto Blue Jays,,
+base,30,Trevor Hoffman,San Diego Padres,,
+base,31,Dean Palmer,Kansas City Royals,,
+base,32,Edgar Renteria,Florida Marlins,,
+base,33,David Segui,Seattle Mariners,,
+base,34,B.J. Surhoff,Baltimore Orioles,,
+base,35,Miguel Tejada,Oakland Athletics,,
+base,36,Bob Wickman,Milwaukee Brewers,,
+base,37,Charles Johnson,Los Angeles Dodgers,,
+base,38,Andruw Jones,Atlanta Braves,,
+base,39,Mike Lieberthal,Philadelphia Phillies,,
+base,40,Eli Marrero,St. Louis Cardinals,,
+base,41,Neifi Perez,Colorado Rockies,,
+base,42,Jim Thome,Cleveland Indians,,
+base,43,Barry Bonds,San Francisco Giants,,
+base,44,Carlos Delgado,Toronto Blue Jays,,
+base,45,Chuck Finley,Anaheim Angels,,
+base,46,Brian Meadows,Florida Marlins,,
+base,47,Tony Gwynn,San Diego Padres,,
+base,48,Jose Offerman,Kansas City Royals,,
+base,49,"Cal Ripken, Jr.",Baltimore Orioles,,
+base,50,Alex Rodriguez,Seattle Mariners,,
+base,51,Esteban Yan,Tampa Bay Devil Rays,,
+base,52,Matt Stairs,Oakland Athletics,,
+base,53,Fernando Vina,Milwaukee Brewers,,
+base,54,Rondell White,Montreal Expos,,
+base,55,Kerry Wood,Chicago Cubs,,
+base,56,Dmitri Young,Cincinnati Reds,,
+base,57,Ken Caminiti,San Diego Padres,,
+base,58,Alex Gonzalez,Toronto Blue Jays,,
+base,59,Matt Mantei,Florida Marlins,,
+base,60,Tino Martinez,New York Yankees,,
+base,61,Hal Morris,Kansas City Royals,,
+base,62,Rafael Palmeiro,Baltimore Orioles,,
+base,63,Troy Percival,Anaheim Angels,,
+base,64,Bobby Smith,Tampa Bay Devil Rays,,
+base,65,Ed Sprague,Oakland Athletics,,
+base,66,Brett Tomko,Cincinnati Reds,,
+base,67,Steve Trachsel,Chicago Cubs,,
+base,68,Ugueth Urbina,Montreal Expos,,
+base,69,Jose Valentin,Milwaukee Brewers,,
+base,70,Kevin Brown,San Diego Padres,,
+base,71,Shawn Green,Toronto Blue Jays,,
+base,72,Dustin Hermanson,Montreal Expos,,
+base,73,Livan Hernandez,Florida Marlins,,
+base,74,Geoff Jenkins,Milwaukee Brewers,,
+base,75,Jeff King,Kansas City Royals,,
+base,76,Chuck Knoblauch,New York Yankees,,
+base,77,Edgar Martinez,Seattle Mariners,,
+base,78,Fred McGriff,Tampa Bay Devil Rays,,
+base,79,Mike Mussina,Baltimore Orioles,,
+base,80,Dave Nilsson,Milwaukee Brewers,,
+base,81,Kenny Rogers,Oakland Athletics,,
+base,82,Tim Salmon,Anaheim Angels,,
+base,83,Reggie Sanders,Cincinnati Reds,,
+base,84,Wilson Alvarez,Tampa Bay Devil Rays,,
+base,85,Rod Beck,Chicago Cubs,,
+base,86,Jose Guillen,Pittsburgh Pirates,,
+base,87,Bobby Higginson,Detroit Tigers,,
+base,88,Gregg Olson,Arizona Diamondbacks,,
+base,89,Jeff Shaw,Los Angeles Dodgers,,
+base,90,Masato Yoshii,New York Mets,,
+base,91,Todd Helton,Colorado Rockies,,
+base,92,David Dellucci,Arizona Diamondbacks,,
+base,93,Johnny Damon,Kansas City Royals,,
+base,94,Cliff Floyd,Florida Marlins,,
+base,95,"Ken Griffey, Jr.",Seattle Mariners,,
+base,96,Juan Guzman,Baltimore Orioles,,
+base,97,Derek Jeter,New York Yankees,,
+base,98,Barry Larkin,Cincinnati Reds,,
+base,99,Quinton McCracken,Tampa Bay Devil Rays,,
+base,100,Sammy Sosa,Chicago Cubs,,
+base,101,Kevin Young,Pittsburgh Pirates,,
+base,102,Jay Bell,Arizona Diamondbacks,,
+base,103,Jay Buhner,Seattle Mariners,,
+base,104,Jeff Conine,Kansas City Royals,,
+base,105,Ryan Jackson,Florida Marlins,,
+base,106,Sidney Ponson,Baltimore Orioles,,
+base,107,Jeromy Burnitz,Milwaukee Brewers,,
+base,108,Roberto Hernandez,Tampa Bay Devil Rays,,
+base,109,A.J. Hinch,Oakland Athletics,,
+base,110,Hideki Irabu,New York Yankees,,
+base,111,Paul Konerko,Cincinnati Reds,,
+base,112,Henry Rodriguez,Chicago Cubs,,
+base,113,Shannon Stewart,Toronto Blue Jays,,
+base,114,Tony Womack,Pittsburgh Pirates,,
+base,115,Wilton Guerrero,Montreal Expos,,
+base,116,Andy Benes,Arizona Diamondbacks,,
+base,117,Jeff Cirillo,Milwaukee Brewers,,
+base,118,Chili Davis,New York Yankees,,
+base,119,Eric Davis,Baltimore Orioles,,
+base,120,Vladimir Guerrero,Montreal Expos,,
+base,121,Dennis Reyes,Cincinnati Reds,,
+base,122,Rickey Henderson,Oakland Athletics,,
+base,123,Mickey Morandini,Chicago Cubs,,
+base,124,Jason Schmidt,Pittsburgh Pirates,,
+base,125,J.T. Snow,San Francisco Giants,,
+base,126,Justin Thompson,Detroit Tigers,,
+base,127,Billy Wagner,Houston Astros,,
+base,128,Armando Benitez,Baltimore Orioles,,
+base,129,Sean Casey,Cincinnati Reds,,
+base,130,Brad Fullmer,Montreal Expos,,
+base,131,Ben Grieve,Oakland Athletics,,
+base,132,Robb Nen,San Francisco Giants,,
+base,133,Shane Reynolds,Houston Astros,,
+base,134,Todd Zeile,Texas Rangers,,
+base,135,Brady Anderson,Baltimore Orioles,,
+base,136,Aaron Boone,Cincinnati Reds,,
+base,137,Orlando Cabrera,Montreal Expos,,
+base,138,Jason Giambi,Oakland Athletics,,
+base,139,Randy Johnson,Houston Astros,,
+base,140,Jeff Kent,San Francisco Giants,,
+base,141,John Wetteland,Texas Rangers,,
+base,142,Rolando Arrojo,Tampa Bay Devil Rays,,
+base,143,Scott Brosius,New York Yankees,,
+base,144,Mark Grace,Chicago Cubs,,
+base,145,Jason Kendall,Pittsburgh Pirates,,
+base,146,Travis Lee,Arizona Diamondbacks,,
+base,147,Gary Sheffield,Los Angeles Dodgers,,
+base,148,David Cone,New York Yankees,,
+base,149,Jose Hernandez,Chicago Cubs,,
+base,150,Todd Jones,Detroit Tigers,,
+base,151,Al Martin,Pittsburgh Pirates,,
+base,152,Ismael Valdes,Los Angeles Dodgers,,
+base,153,Wade Boggs,Tampa Bay Devil Rays,,
+base,154,Garret Anderson,Anaheim Angels,,
+base,155,Bobby Bonilla,Los Angeles Dodgers,,
+base,156,Darryl Kile,Colorado Rockies,,
+base,157,Ryan Klesko,Atlanta Braves,,
+base,158,Tim Wakefield,Boston Red Sox,,
+base,159,Kenny Lofton,Cleveland Indians,,
+base,160,Jose Canseco,Toronto Blue Jays,,
+base,161,Doug Glanville,Philadelphia Phillies,,
+base,162,Todd Hundley,New York Mets,,
+base,163,Brian Jordan,St. Louis Cardinals,,
+base,164,Steve Finley,San Diego Padres,,
+base,165,Tom Glavine,Atlanta Braves,,
+base,166,Al Leiter,New York Mets,,
+base,167,Raul Mondesi,Los Angeles Dodgers,,
+base,168,Desi Relaford,Philadelphia Phillies,,
+base,169,Bret Saberhagen,Boston Red Sox,,
+base,170,Omar Vizquel,Cleveland Indians,,
+base,171,Larry Walker,Colorado Rockies,,
+base,172,Bobby Abreu,Philadelphia Phillies,,
+base,173,Moises Alou,Houston Astros,,
+base,174,Mike Caruso,Chicago White Sox,,
+base,175,Royce Clayton,Texas Rangers,,
+base,176,Bartolo Colon,Cleveland Indians,,
+base,177,Marty Cordova,Minnesota Twins,,
+base,178,Darin Erstad,Anaheim Angels,,
+base,179,Nomar Garciaparra,Boston Red Sox,,
+base,180,Andy Ashby,San Diego Padres,,
+base,181,Dan Wilson,Seattle Mariners,,
+base,182,Larry Sutton,Kansas City Royals,,
+base,183,Tony Clark,Detroit Tigers,,
+base,184,Andres Galarraga,Atlanta Braves,,
+base,185,Ray Durham,Chicago White Sox,,
+base,186,Hideo Nomo,New York Mets,,
+base,187,Steve Woodard,Milwaukee Brewers,,
+base,188,Scott Rolen,Philadelphia Phillies,,
+base,189,Mike Stanley,Boston Red Sox,,
+base,190,Jaret Wright,Cleveland Indians,,
+base,191,Vinny Castilla,Colorado Rockies,,
+base,192,Jason Christiansen,Pittsburgh Pirates,,
+base,193,Paul Bako,Detroit Tigers,,
+base,194,Carlos Perez,Los Angeles Dodgers,,
+base,195,Mike Piazza,New York Mets,,
+base,196,Fernando Tatis,St. Louis Cardinals,,
+base,197,Mo Vaughn,Boston Red Sox,,
+base,198,Devon White,Arizona Diamondbacks,,
+base,199,Ricky Gutierrez,Houston Astros,,
+base,200,Charlie Hayes,San Francisco Giants,,
+base,201,Brad Radke,Minnesota Twins,,
+base,202,Rick Helling,Texas Rangers,,
+base,203,John Smoltz,Atlanta Braves,,
+base,204,Frank Thomas,Chicago White Sox,,
+base,205,David Wells,New York Yankees,,
+base,206,Roger Clemens,Toronto Blue Jays,,
+base,207,Mark Grudzielanek,Los Angeles Dodgers,,
+base,208,Chipper Jones,Atlanta Braves,,
+base,209,Ray Lankford,St. Louis Cardinals,,
+base,210,Pedro Martinez,Boston Red Sox,,
+base,211,Manny Ramirez,Cleveland Indians,,
+base,212,Greg Vaughn,San Diego Padres,,
+base,213,Craig Biggio,Houston Astros,,
+base,214,Rusty Greer,Texas Rangers,,
+base,215,Greg Maddux,Atlanta Braves,,
+base,216,Rick Aguilera,Minnesota Twins,,
+base,217,Andy Pettitte,New York Yankees,,
+base,218,Dante Bichette,Colorado Rockies,,
+base,219,Damion Easley,Detroit Tigers,,
+base,220,Matt Morris,St. Louis Cardinals,,
+base,221,John Olerud,New York Mets,,
+base,222,Chan Ho Park,Los Angeles Dodgers,,
+base,223,Curt Schilling,Philadelphia Phillies,,
+base,224,John Valentin,Boston Red Sox,,
+base,225,Matt Williams,Arizona Diamondbacks,,
+base,226,Ellis Burks,San Francisco Giants,,
+base,227,Tom Goodwin,Texas Rangers,,
+base,228,Javy Lopez,Atlanta Braves,,
+base,229,Eric Milton,Minnesota Twins,,
+base,230,Paul O'Neill,New York Yankees,,
+base,231,Magglio Ordonez,Chicago White Sox,,
+base,232,Derrek Lee,Florida Marlins,,
+base,233,"Ken Griffey, Jr.",Seattle Mariners,Caught on the Fly,
+base,234,Randy Johnson,Houston Astros,Caught on the Fly,
+base,235,Alex Rodriguez,Seattle Mariners,Caught on the Fly,
+base,236,Darin Erstad,Anaheim Angels,Caught on the Fly,
+base,237,Juan Gonzalez,Texas Rangers,Caught on the Fly,
+base,238,Derek Jeter,New York Yankees,Caught on the Fly,
+base,239,Tony Gwynn,San Diego Padres,Caught on the Fly,
+base,240,Kerry Wood,Chicago Cubs,Caught on the Fly,
+base,241,"Cal Ripken, Jr.",Baltimore Orioles,Caught on the Fly,
+base,242,Sammy Sosa,Chicago Cubs,Caught on the Fly,
+base,243,Greg Maddux,Atlanta Braves,Caught on the Fly,
+base,244,Mark McGwire,St. Louis Cardinals,Caught on the Fly,
+base,245,Chipper Jones,Atlanta Braves,Caught on the Fly,
+base,246,Barry Bonds,San Francisco Giants,Caught on the Fly,
+base,247,Ben Grieve,Oakland Athletics,Caught on the Fly,
+base,248,Ben Davis,San Diego Padres,Building Blocks,
+base,249,Robert Fick,Detroit Tigers,Building Blocks,
+base,250,Carlos Guillen,Seattle Mariners,Building Blocks,
+base,251,Mike Frank,Cincinnati Reds,Building Blocks,
+base,252,Ryan Minor,Baltimore Orioles,Building Blocks,
+base,253,Troy Glaus,Anaheim Angels,Building Blocks,
+base,254,Matt Anderson,Detroit Tigers,Building Blocks,
+base,255,Josh Booty,Florida Marlins,Building Blocks,
+base,256,Gabe Alvarez,Detroit Tigers,Building Blocks,
+base,257,Gabe Kapler,Detroit Tigers,Building Blocks,
+base,258,Enrique Wilson,Cleveland Indians,Building Blocks,
+base,259,Alex Gonzalez,Florida Marlins,Building Blocks,
+base,260,Preston Wilson,Florida Marlins,Building Blocks,
+base,261,Eric Chavez,Oakland Athletics,Building Blocks,
+base,262,Adrian Beltre,Los Angeles Dodgers,Building Blocks,
+base,263,Corey Koskie,Minnesota Twins,Building Blocks,
+base,264,Robert Machado,Chicago White Sox,Building Blocks,
+base,265,Orlando Hernandez,New York Yankees,Building Blocks,
+base,266,Matt Clement,San Diego Padres,Building Blocks,
+base,267,Luis Ordaz,St. Louis Cardinals,Building Blocks,
+base,268,Jeremy Giambi,Kansas City Royals,Building Blocks,
+base,269,J.D. Drew,St. Louis Cardinals,Building Blocks,
+base,270,Cliff Politte,Philadelphia Phillies,Building Blocks,
+base,271,Carlton Loewer,Philadelphia Phillies,Building Blocks,
+base,272,Aramis Ramirez,Pittsburgh Pirates,Building Blocks,
+base,273,"Ken Griffey, Jr.",Seattle Mariners,MLPD,
+base,274,Randy Johnson,Houston Astros,MLPD,
+base,275,Alex Rodriguez,Seattle Mariners,MLPD,
+base,276,Darin Erstad,Anaheim Angels,MLPD,
+base,277,Scott Rolen,Philadelphia Phillies,MLPD,
+base,278,Juan Gonzalez,Texas Rangers,MLPD,
+base,279,Jeff Bagwell,Houston Astros,MLPD,
+base,280,Mike Piazza,New York Mets,MLPD,
+base,281,Derek Jeter,New York Yankees,MLPD,
+base,282,Travis Lee,Arizona Diamondbacks,MLPD,
+base,283,Tony Gwynn,San Diego Padres,MLPD,
+base,284,Kerry Wood,Chicago Cubs,MLPD,
+base,285,Albert Belle,Chicago White Sox,MLPD,
+base,286,Sammy Sosa,Chicago Cubs,MLPD,
+base,287,Mo Vaughn,Boston Red Sox,MLPD,
+base,288,Nomar Garciaparra,Boston Red Sox,MLPD,
+base,289,Frank Thomas,Chicago White Sox,MLPD,
+base,290,"Cal Ripken, Jr.",Baltimore Orioles,MLPD,
+base,291,Greg Maddux,Atlanta Braves,MLPD,
+base,292,Chipper Jones,Atlanta Braves,MLPD,
+base,293,Ben Grieve,Oakland Athletics,MLPD,
+base,294,Andruw Jones,Atlanta Braves,MLPD,
+base,295,Mark McGwire,St. Louis Cardinals,MLPD,
+base,296,Roger Clemens,Toronto Blue Jays,MLPD,
+base,297,Barry Bonds,San Francisco Giants,MLPD,
+base,298,Ken Griffey Jr.,Seattle Mariners,Checklist,
+base,299,Kerry Wood,Chicago Cubs,Checklist,
+base,300,Alex Rodriguez,Seattle Mariners,Checklist,
+precious-metal-gems,1,Mark McGwire,St. Louis Cardinals,,Serial numbered /50
+precious-metal-gems,2,Jim Edmonds,Anaheim Angels,,Serial numbered /50
+precious-metal-gems,3,Travis Fryman,Cleveland Indians,,Serial numbered /50
+precious-metal-gems,4,Tom Gordon,Boston Red Sox,,Serial numbered /50
+precious-metal-gems,5,Jeff Bagwell,Houston Astros,,Serial numbered /50
+precious-metal-gems,6,Rico Brogna,Philadelphia Phillies,,Serial numbered /50
+precious-metal-gems,7,Tom Evans,Toronto Blue Jays,,Serial numbered /50
+precious-metal-gems,8,John Franco,New York Mets,,Serial numbered /50
+precious-metal-gems,9,Juan Gonzalez,Texas Rangers,,Serial numbered /50
+precious-metal-gems,10,Paul Molitor,Minnesota Twins,,Serial numbered /50
+precious-metal-gems,11,Roberto Alomar,Baltimore Orioles,,Serial numbered /50
+precious-metal-gems,12,Mike Hampton,Houston Astros,,Serial numbered /50
+precious-metal-gems,13,Orel Hershiser,San Francisco Giants,,Serial numbered /50
+precious-metal-gems,14,Todd Stottlemyre,Texas Rangers,,Serial numbered /50
+precious-metal-gems,15,Robin Ventura,Chicago White Sox,,Serial numbered /50
+precious-metal-gems,16,Todd Walker,Minnesota Twins,,Serial numbered /50
+precious-metal-gems,17,Bernie Williams,New York Yankees,,Serial numbered /50
+precious-metal-gems,18,Shawn Estes,San Francisco Giants,,Serial numbered /50
+precious-metal-gems,19,Richie Sexson,Cleveland Indians,,Serial numbered /50
+precious-metal-gems,20,Kevin Millwood,Atlanta Braves,,Serial numbered /50
+precious-metal-gems,21,David Ortiz,Minnesota Twins,,Serial numbered /50
+precious-metal-gems,22,Mariano Rivera,New York Yankees,,Serial numbered /50
+precious-metal-gems,23,Ivan Rodriguez,Texas Rangers,,Serial numbered /50
+precious-metal-gems,24,Mike Sirotka,Chicago White Sox,,Serial numbered /50
+precious-metal-gems,25,David Justice,Cleveland Indians,,Serial numbered /50
+precious-metal-gems,26,Carl Pavano,Montreal Expos,,Serial numbered /50
+precious-metal-gems,27,Albert Belle,Chicago White Sox,,Serial numbered /50
+precious-metal-gems,28,Will Clark,Texas Rangers,,Serial numbered /50
+precious-metal-gems,29,Jose Cruz Jr.,Toronto Blue Jays,,Serial numbered /50
+precious-metal-gems,30,Trevor Hoffman,San Diego Padres,,Serial numbered /50
+precious-metal-gems,31,Dean Palmer,Kansas City Royals,,Serial numbered /50
+precious-metal-gems,32,Edgar Renteria,Florida Marlins,,Serial numbered /50
+precious-metal-gems,33,David Segui,Seattle Mariners,,Serial numbered /50
+precious-metal-gems,34,B.J. Surhoff,Baltimore Orioles,,Serial numbered /50
+precious-metal-gems,35,Miguel Tejada,Oakland Athletics,,Serial numbered /50
+precious-metal-gems,36,Bob Wickman,Milwaukee Brewers,,Serial numbered /50
+precious-metal-gems,37,Charles Johnson,Los Angeles Dodgers,,Serial numbered /50
+precious-metal-gems,38,Andruw Jones,Atlanta Braves,,Serial numbered /50
+precious-metal-gems,39,Mike Lieberthal,Philadelphia Phillies,,Serial numbered /50
+precious-metal-gems,40,Eli Marrero,St. Louis Cardinals,,Serial numbered /50
+precious-metal-gems,41,Neifi Perez,Colorado Rockies,,Serial numbered /50
+precious-metal-gems,42,Jim Thome,Cleveland Indians,,Serial numbered /50
+precious-metal-gems,43,Barry Bonds,San Francisco Giants,,Serial numbered /50
+precious-metal-gems,44,Carlos Delgado,Toronto Blue Jays,,Serial numbered /50
+precious-metal-gems,45,Chuck Finley,Anaheim Angels,,Serial numbered /50
+precious-metal-gems,46,Brian Meadows,Florida Marlins,,Serial numbered /50
+precious-metal-gems,47,Tony Gwynn,San Diego Padres,,Serial numbered /50
+precious-metal-gems,48,Jose Offerman,Kansas City Royals,,Serial numbered /50
+precious-metal-gems,49,Cal Ripken Jr.,Baltimore Orioles,,Serial numbered /50
+precious-metal-gems,50,Alex Rodriguez,Seattle Mariners,,Serial numbered /50
+precious-metal-gems,51,Esteban Yan,Tampa Bay Devil Rays,,Serial numbered /50
+precious-metal-gems,52,Matt Stairs,Oakland Athletics,,Serial numbered /50
+precious-metal-gems,53,Fernando Vina,Milwaukee Brewers,,Serial numbered /50
+precious-metal-gems,54,Rondell White,Montreal Expos,,Serial numbered /50
+precious-metal-gems,55,Kerry Wood,Chicago Cubs,,Serial numbered /50
+precious-metal-gems,56,Dmitri Young,Cincinnati Reds,,Serial numbered /50
+precious-metal-gems,57,Ken Caminiti,San Diego Padres,,Serial numbered /50
+precious-metal-gems,58,Alex Gonzalez,Toronto Blue Jays,,Serial numbered /50
+precious-metal-gems,59,Matt Mantei,Florida Marlins,,Serial numbered /50
+precious-metal-gems,60,Tino Martinez,New York Yankees,,Serial numbered /50
+precious-metal-gems,61,Hal Morris,Kansas City Royals,,Serial numbered /50
+precious-metal-gems,62,Rafael Palmeiro,Baltimore Orioles,,Serial numbered /50
+precious-metal-gems,63,Troy Percival,Anaheim Angels,,Serial numbered /50
+precious-metal-gems,64,Bobby Smith,Tampa Bay Devil Rays,,Serial numbered /50
+precious-metal-gems,65,Ed Sprague,Oakland Athletics,,Serial numbered /50
+precious-metal-gems,66,Brett Tomko,Cincinnati Reds,,Serial numbered /50
+precious-metal-gems,67,Steve Trachsel,Chicago Cubs,,Serial numbered /50
+precious-metal-gems,68,Ugueth Urbina,Montreal Expos,,Serial numbered /50
+precious-metal-gems,69,Jose Valentin,Milwaukee Brewers,,Serial numbered /50
+precious-metal-gems,70,Kevin Brown,San Diego Padres,,Serial numbered /50
+precious-metal-gems,71,Shawn Green,Toronto Blue Jays,,Serial numbered /50
+precious-metal-gems,72,Dustin Hermanson,Montreal Expos,,Serial numbered /50
+precious-metal-gems,73,Livan Hernandez,Florida Marlins,,Serial numbered /50
+precious-metal-gems,74,Geoff Jenkins,Milwaukee Brewers,,Serial numbered /50
+precious-metal-gems,75,Jeff King,Kansas City Royals,,Serial numbered /50
+precious-metal-gems,76,Chuck Knoblauch,New York Yankees,,Serial numbered /50
+precious-metal-gems,77,Edgar Martinez,Seattle Mariners,,Serial numbered /50
+precious-metal-gems,78,Fred McGriff,Tampa Bay Devil Rays,,Serial numbered /50
+precious-metal-gems,79,Mike Mussina,Baltimore Orioles,,Serial numbered /50
+precious-metal-gems,80,Dave Nilsson,Milwaukee Brewers,,Serial numbered /50
+precious-metal-gems,81,Kenny Rogers,Oakland Athletics,,Serial numbered /50
+precious-metal-gems,82,Tim Salmon,Anaheim Angels,,Serial numbered /50
+precious-metal-gems,83,Reggie Sanders,Cincinnati Reds,,Serial numbered /50
+precious-metal-gems,84,Wilson Alvarez,Tampa Bay Devil Rays,,Serial numbered /50
+precious-metal-gems,85,Rod Beck,Chicago Cubs,,Serial numbered /50
+precious-metal-gems,86,Jose Guillen,Pittsburgh Pirates,,Serial numbered /50
+precious-metal-gems,87,Bobby Higginson,Detroit Tigers,,Serial numbered /50
+precious-metal-gems,88,Gregg Olson,Arizona Diamondbacks,,Serial numbered /50
+precious-metal-gems,89,Jeff Shaw,Los Angeles Dodgers,,Serial numbered /50
+precious-metal-gems,90,Masato Yoshii,New York Mets,,Serial numbered /50
+precious-metal-gems,91,Todd Helton,Colorado Rockies,,Serial numbered /50
+precious-metal-gems,92,David Dellucci,Arizona Diamondbacks,,Serial numbered /50
+precious-metal-gems,93,Johnny Damon,Kansas City Royals,,Serial numbered /50
+precious-metal-gems,94,Cliff Floyd,Florida Marlins,,Serial numbered /50
+precious-metal-gems,95,Ken Griffey Jr.,Seattle Mariners,,Serial numbered /50
+precious-metal-gems,96,Juan Guzman,Baltimore Orioles,,Serial numbered /50
+precious-metal-gems,97,Derek Jeter,New York Yankees,,Serial numbered /50
+precious-metal-gems,98,Barry Larkin,Cincinnati Reds,,Serial numbered /50
+precious-metal-gems,99,Quinton McCracken,Tampa Bay Devil Rays,,Serial numbered /50
+precious-metal-gems,100,Sammy Sosa,Chicago Cubs,,Serial numbered /50
+precious-metal-gems,101,Kevin Young,Pittsburgh Pirates,,Serial numbered /50
+precious-metal-gems,102,Jay Bell,Arizona Diamondbacks,,Serial numbered /50
+precious-metal-gems,103,Jay Buhner,Seattle Mariners,,Serial numbered /50
+precious-metal-gems,104,Jeff Conine,Kansas City Royals,,Serial numbered /50
+precious-metal-gems,105,Ryan Jackson,Florida Marlins,,Serial numbered /50
+precious-metal-gems,106,Sidney Ponson,Baltimore Orioles,,Serial numbered /50
+precious-metal-gems,107,Jeromy Burnitz,Milwaukee Brewers,,Serial numbered /50
+precious-metal-gems,108,Roberto Hernandez,Tampa Bay Devil Rays,,Serial numbered /50
+precious-metal-gems,109,A.J. Hinch,Oakland Athletics,,Serial numbered /50
+precious-metal-gems,110,Hideki Irabu,New York Yankees,,Serial numbered /50
+precious-metal-gems,111,Paul Konerko,Cincinnati Reds,,Serial numbered /50
+precious-metal-gems,112,Henry Rodriguez,Chicago Cubs,,Serial numbered /50
+precious-metal-gems,113,Shannon Stewart,Toronto Blue Jays,,Serial numbered /50
+precious-metal-gems,114,Tony Womack,Pittsburgh Pirates,,Serial numbered /50
+precious-metal-gems,115,Wilton Guerrero,Montreal Expos,,Serial numbered /50
+precious-metal-gems,116,Andy Benes,Arizona Diamondbacks,,Serial numbered /50
+precious-metal-gems,117,Jeff Cirillo,Milwaukee Brewers,,Serial numbered /50
+precious-metal-gems,118,Chili Davis,New York Yankees,,Serial numbered /50
+precious-metal-gems,119,Eric Davis,Baltimore Orioles,,Serial numbered /50
+precious-metal-gems,120,Vladimir Guerrero,Montreal Expos,,Serial numbered /50
+precious-metal-gems,121,Dennis Reyes,Cincinnati Reds,,Serial numbered /50
+precious-metal-gems,122,Rickey Henderson,Oakland Athletics,,Serial numbered /50
+precious-metal-gems,123,Mickey Morandini,Chicago Cubs,,Serial numbered /50
+precious-metal-gems,124,Jason Schmidt,Pittsburgh Pirates,,Serial numbered /50
+precious-metal-gems,125,J.T. Snow,San Francisco Giants,,Serial numbered /50
+precious-metal-gems,126,Justin Thompson,Detroit Tigers,,Serial numbered /50
+precious-metal-gems,127,Billy Wagner,Houston Astros,,Serial numbered /50
+precious-metal-gems,128,Armando Benitez,Baltimore Orioles,,Serial numbered /50
+precious-metal-gems,129,Sean Casey,Cincinnati Reds,,Serial numbered /50
+precious-metal-gems,130,Brad Fullmer,Montreal Expos,,Serial numbered /50
+precious-metal-gems,131,Ben Grieve,Oakland Athletics,,Serial numbered /50
+precious-metal-gems,132,Robb Nen,San Francisco Giants,,Serial numbered /50
+precious-metal-gems,133,Shane Reynolds,Houston Astros,,Serial numbered /50
+precious-metal-gems,134,Todd Zeile,Texas Rangers,,Serial numbered /50
+precious-metal-gems,135,Brady Anderson,Baltimore Orioles,,Serial numbered /50
+precious-metal-gems,136,Aaron Boone,Cincinnati Reds,,Serial numbered /50
+precious-metal-gems,137,Orlando Cabrera,Montreal Expos,,Serial numbered /50
+precious-metal-gems,138,Jason Giambi,Oakland Athletics,,Serial numbered /50
+precious-metal-gems,139,Randy Johnson,Houston Astros,,Serial numbered /50
+precious-metal-gems,140,Jeff Kent,San Francisco Giants,,Serial numbered /50
+precious-metal-gems,141,John Wetteland,Texas Rangers,,Serial numbered /50
+precious-metal-gems,142,Rolando Arrojo,Tampa Bay Devil Rays,,Serial numbered /50
+precious-metal-gems,143,Scott Brosius,New York Yankees,,Serial numbered /50
+precious-metal-gems,144,Mark Grace,Chicago Cubs,,Serial numbered /50
+precious-metal-gems,145,Jason Kendall,Pittsburgh Pirates,,Serial numbered /50
+precious-metal-gems,146,Travis Lee,Arizona Diamondbacks,,Serial numbered /50
+precious-metal-gems,147,Gary Sheffield,Los Angeles Dodgers,,Serial numbered /50
+precious-metal-gems,148,David Cone,New York Yankees,,Serial numbered /50
+precious-metal-gems,149,Jose Hernandez,Chicago Cubs,,Serial numbered /50
+precious-metal-gems,150,Todd Jones,Detroit Tigers,,Serial numbered /50
+precious-metal-gems,151,Al Martin,Pittsburgh Pirates,,Serial numbered /50
+precious-metal-gems,152,Ismael Valdes,Los Angeles Dodgers,,Serial numbered /50
+precious-metal-gems,153,Wade Boggs,Tampa Bay Devil Rays,,Serial numbered /50
+precious-metal-gems,154,Garret Anderson,Anaheim Angels,,Serial numbered /50
+precious-metal-gems,155,Bobby Bonilla,Los Angeles Dodgers,,Serial numbered /50
+precious-metal-gems,156,Darryl Kile,Colorado Rockies,,Serial numbered /50
+precious-metal-gems,157,Ryan Klesko,Atlanta Braves,,Serial numbered /50
+precious-metal-gems,158,Tim Wakefield,Boston Red Sox,,Serial numbered /50
+precious-metal-gems,159,Kenny Lofton,Cleveland Indians,,Serial numbered /50
+precious-metal-gems,160,Jose Canseco,Toronto Blue Jays,,Serial numbered /50
+precious-metal-gems,161,Doug Glanville,Philadelphia Phillies,,Serial numbered /50
+precious-metal-gems,162,Todd Hundley,New York Mets,,Serial numbered /50
+precious-metal-gems,163,Brian Jordan,St. Louis Cardinals,,Serial numbered /50
+precious-metal-gems,164,Steve Finley,San Diego Padres,,Serial numbered /50
+precious-metal-gems,165,Tom Glavine,Atlanta Braves,,Serial numbered /50
+precious-metal-gems,166,Al Leiter,New York Mets,,Serial numbered /50
+precious-metal-gems,167,Raul Mondesi,Los Angeles Dodgers,,Serial numbered /50
+precious-metal-gems,168,Desi Relaford,Philadelphia Phillies,,Serial numbered /50
+precious-metal-gems,169,Bret Saberhagen,Boston Red Sox,,Serial numbered /50
+precious-metal-gems,170,Omar Vizquel,Cleveland Indians,,Serial numbered /50
+precious-metal-gems,171,Larry Walker,Colorado Rockies,,Serial numbered /50
+precious-metal-gems,172,Bobby Abreu,Philadelphia Phillies,,Serial numbered /50
+precious-metal-gems,173,Moises Alou,Houston Astros,,Serial numbered /50
+precious-metal-gems,174,Mike Caruso,Chicago White Sox,,Serial numbered /50
+precious-metal-gems,175,Royce Clayton,Texas Rangers,,Serial numbered /50
+precious-metal-gems,176,Bartolo Colon,Cleveland Indians,,Serial numbered /50
+precious-metal-gems,177,Marty Cordova,Minnesota Twins,,Serial numbered /50
+precious-metal-gems,178,Darin Erstad,Anaheim Angels,,Serial numbered /50
+precious-metal-gems,179,Nomar Garciaparra,Boston Red Sox,,Serial numbered /50
+precious-metal-gems,180,Andy Ashby,San Diego Padres,,Serial numbered /50
+precious-metal-gems,181,Dan Wilson,Seattle Mariners,,Serial numbered /50
+precious-metal-gems,182,Larry Sutton,Kansas City Royals,,Serial numbered /50
+precious-metal-gems,183,Tony Clark,Detroit Tigers,,Serial numbered /50
+precious-metal-gems,184,Andres Galarraga,Atlanta Braves,,Serial numbered /50
+precious-metal-gems,185,Ray Durham,Chicago White Sox,,Serial numbered /50
+precious-metal-gems,186,Hideo Nomo,New York Mets,,Serial numbered /50
+precious-metal-gems,187,Steve Woodard,Milwaukee Brewers,,Serial numbered /50
+precious-metal-gems,188,Scott Rolen,Philadelphia Phillies,,Serial numbered /50
+precious-metal-gems,189,Mike Stanley,Boston Red Sox,,Serial numbered /50
+precious-metal-gems,190,Jaret Wright,Cleveland Indians,,Serial numbered /50
+precious-metal-gems,191,Vinny Castilla,Colorado Rockies,,Serial numbered /50
+precious-metal-gems,192,Jason Christiansen,Pittsburgh Pirates,,Serial numbered /50
+precious-metal-gems,193,Paul Bako,Detroit Tigers,,Serial numbered /50
+precious-metal-gems,194,Carlos Perez,Los Angeles Dodgers,,Serial numbered /50
+precious-metal-gems,195,Mike Piazza,New York Mets,,Serial numbered /50
+precious-metal-gems,196,Fernando Tatis,St. Louis Cardinals,,Serial numbered /50
+precious-metal-gems,197,Mo Vaughn,Boston Red Sox,,Serial numbered /50
+precious-metal-gems,198,Devon White,Arizona Diamondbacks,,Serial numbered /50
+precious-metal-gems,199,Ricky Gutierrez,Houston Astros,,Serial numbered /50
+precious-metal-gems,200,Charlie Hayes,San Francisco Giants,,Serial numbered /50
+precious-metal-gems,201,Brad Radke,Minnesota Twins,,Serial numbered /50
+precious-metal-gems,202,Rick Helling,Texas Rangers,,Serial numbered /50
+precious-metal-gems,203,John Smoltz,Atlanta Braves,,Serial numbered /50
+precious-metal-gems,204,Frank Thomas,Chicago White Sox,,Serial numbered /50
+precious-metal-gems,205,David Wells,New York Yankees,,Serial numbered /50
+precious-metal-gems,206,Roger Clemens,Toronto Blue Jays,,Serial numbered /50
+precious-metal-gems,207,Mark Grudzielanek,Los Angeles Dodgers,,Serial numbered /50
+precious-metal-gems,208,Chipper Jones,Atlanta Braves,,Serial numbered /50
+precious-metal-gems,209,Ray Lankford,St. Louis Cardinals,,Serial numbered /50
+precious-metal-gems,210,Pedro Martinez,Boston Red Sox,,Serial numbered /50
+precious-metal-gems,211,Manny Ramirez,Cleveland Indians,,Serial numbered /50
+precious-metal-gems,212,Greg Vaughn,San Diego Padres,,Serial numbered /50
+precious-metal-gems,213,Craig Biggio,Houston Astros,,Serial numbered /50
+precious-metal-gems,214,Rusty Greer,Texas Rangers,,Serial numbered /50
+precious-metal-gems,215,Greg Maddux,Atlanta Braves,,Serial numbered /50
+precious-metal-gems,216,Rick Aguilera,Minnesota Twins,,Serial numbered /50
+precious-metal-gems,217,Andy Pettitte,New York Yankees,,Serial numbered /50
+precious-metal-gems,218,Dante Bichette,Colorado Rockies,,Serial numbered /50
+precious-metal-gems,219,Damion Easley,Detroit Tigers,,Serial numbered /50
+precious-metal-gems,220,Matt Morris,St. Louis Cardinals,,Serial numbered /50
+precious-metal-gems,221,John Olerud,New York Mets,,Serial numbered /50
+precious-metal-gems,222,Chan Ho Park,Los Angeles Dodgers,,Serial numbered /50
+precious-metal-gems,223,Curt Schilling,Philadelphia Phillies,,Serial numbered /50
+precious-metal-gems,224,John Valentin,Boston Red Sox,,Serial numbered /50
+precious-metal-gems,225,Matt Williams,Arizona Diamondbacks,,Serial numbered /50
+precious-metal-gems,226,Ellis Burks,San Francisco Giants,,Serial numbered /50
+precious-metal-gems,227,Tom Goodwin,Texas Rangers,,Serial numbered /50
+precious-metal-gems,228,Javy Lopez,Atlanta Braves,,Serial numbered /50
+precious-metal-gems,229,Eric Milton,Minnesota Twins,,Serial numbered /50
+precious-metal-gems,230,Paul O'Neill,New York Yankees,,Serial numbered /50
+precious-metal-gems,231,Magglio Ordonez,Chicago White Sox,,Serial numbered /50
+precious-metal-gems,232,Derrek Lee,Florida Marlins,,Serial numbered /50
+precious-metal-gems,233,Ken Griffey Jr.,Seattle Mariners,Caught on the Fly,Serial numbered /50
+precious-metal-gems,234,Randy Johnson,Houston Astros,Caught on the Fly,Serial numbered /50
+precious-metal-gems,235,Alex Rodriguez,Seattle Mariners,Caught on the Fly,Serial numbered /50
+precious-metal-gems,236,Darin Erstad,Anaheim Angels,Caught on the Fly,Serial numbered /50
+precious-metal-gems,237,Juan Gonzalez,Texas Rangers,Caught on the Fly,Serial numbered /50
+precious-metal-gems,238,Derek Jeter,New York Yankees,Caught on the Fly,Serial numbered /50
+precious-metal-gems,239,Tony Gwynn,San Diego Padres,Caught on the Fly,Serial numbered /50
+precious-metal-gems,240,Kerry Wood,Chicago Cubs,Caught on the Fly,Serial numbered /50
+precious-metal-gems,241,Cal Ripken Jr.,Baltimore Orioles,Caught on the Fly,Serial numbered /50
+precious-metal-gems,242,Sammy Sosa,Chicago Cubs,Caught on the Fly,Serial numbered /50
+precious-metal-gems,243,Greg Maddux,Atlanta Braves,Caught on the Fly,Serial numbered /50
+precious-metal-gems,244,Mark McGwire,St. Louis Cardinals,Caught on the Fly,Serial numbered /50
+precious-metal-gems,245,Chipper Jones,Atlanta Braves,Caught on the Fly,Serial numbered /50
+precious-metal-gems,246,Barry Bonds,San Francisco Giants,Caught on the Fly,Serial numbered /50
+precious-metal-gems,247,Ben Grieve,Oakland Athletics,Caught on the Fly,Serial numbered /50
+precious-metal-gems,248,Ben Davis,San Diego Padres,Building Blocks,Serial numbered /50
+precious-metal-gems,249,Robert Fick,Detroit Tigers,Building Blocks,Serial numbered /50
+precious-metal-gems,250,Carlos Guillen,Seattle Mariners,Building Blocks,Serial numbered /50
+precious-metal-gems,251,Mike Frank,Cincinnati Reds,Building Blocks,Serial numbered /50
+precious-metal-gems,252,Ryan Minor,Baltimore Orioles,Building Blocks,Serial numbered /50
+precious-metal-gems,253,Troy Glaus,Anaheim Angels,Building Blocks,Serial numbered /50
+precious-metal-gems,254,Matt Anderson,Detroit Tigers,Building Blocks,Serial numbered /50
+precious-metal-gems,255,Josh Booty,Florida Marlins,Building Blocks,Serial numbered /50
+precious-metal-gems,256,Gabe Alvarez,Detroit Tigers,Building Blocks,Serial numbered /50
+precious-metal-gems,257,Gabe Kapler,Detroit Tigers,Building Blocks,Serial numbered /50
+precious-metal-gems,258,Enrique Wilson,Cleveland Indians,Building Blocks,Serial numbered /50
+precious-metal-gems,259,Alex Gonzalez,Florida Marlins,Building Blocks,Serial numbered /50
+precious-metal-gems,260,Preston Wilson,Florida Marlins,Building Blocks,Serial numbered /50
+precious-metal-gems,261,Eric Chavez,Oakland Athletics,Building Blocks,Serial numbered /50
+precious-metal-gems,262,Adrian Beltre,Los Angeles Dodgers,Building Blocks,Serial numbered /50
+precious-metal-gems,263,Corey Koskie,Minnesota Twins,Building Blocks,Serial numbered /50
+precious-metal-gems,264,Robert Machado,Chicago White Sox,Building Blocks,Serial numbered /50
+precious-metal-gems,265,Orlando Hernandez,New York Yankees,Building Blocks,Serial numbered /50
+precious-metal-gems,266,Matt Clement,San Diego Padres,Building Blocks,Serial numbered /50
+precious-metal-gems,267,Luis Ordaz,St. Louis Cardinals,Building Blocks,Serial numbered /50
+precious-metal-gems,268,Jeremy Giambi,Kansas City Royals,Building Blocks,Serial numbered /50
+precious-metal-gems,269,J.D. Drew,St. Louis Cardinals,Building Blocks,Serial numbered /50
+precious-metal-gems,270,Cliff Politte,Philadelphia Phillies,Building Blocks,Serial numbered /50
+precious-metal-gems,271,Carlton Loewer,Philadelphia Phillies,Building Blocks,Serial numbered /50
+precious-metal-gems,272,Aramis Ramirez,Pittsburgh Pirates,Building Blocks,Serial numbered /50
+precious-metal-gems,273,Ken Griffey Jr.,Seattle Mariners,MLPD,Serial numbered /50
+precious-metal-gems,274,Randy Johnson,Houston Astros,MLPD,Serial numbered /50
+precious-metal-gems,275,Alex Rodriguez,Seattle Mariners,MLPD,Serial numbered /50
+precious-metal-gems,276,Darin Erstad,Anaheim Angels,MLPD,Serial numbered /50
+precious-metal-gems,277,Scott Rolen,Philadelphia Phillies,MLPD,Serial numbered /50
+precious-metal-gems,278,Juan Gonzalez,Texas Rangers,MLPD,Serial numbered /50
+precious-metal-gems,279,Jeff Bagwell,Houston Astros,MLPD,Serial numbered /50
+precious-metal-gems,280,Mike Piazza,New York Mets,MLPD,Serial numbered /50
+precious-metal-gems,281,Derek Jeter,New York Yankees,MLPD,Serial numbered /50
+precious-metal-gems,282,Travis Lee,Arizona Diamondbacks,MLPD,Serial numbered /50
+precious-metal-gems,283,Tony Gwynn,San Diego Padres,MLPD,Serial numbered /50
+precious-metal-gems,284,Kerry Wood,Chicago Cubs,MLPD,Serial numbered /50
+precious-metal-gems,285,Albert Belle,Chicago White Sox,MLPD,Serial numbered /50
+precious-metal-gems,286,Sammy Sosa,Chicago Cubs,MLPD,Serial numbered /50
+precious-metal-gems,287,Mo Vaughn,Boston Red Sox,MLPD,Serial numbered /50
+precious-metal-gems,288,Nomar Garciaparra,Boston Red Sox,MLPD,Serial numbered /50
+precious-metal-gems,289,Frank Thomas,Chicago White Sox,MLPD,Serial numbered /50
+precious-metal-gems,290,Cal Ripken Jr.,Baltimore Orioles,MLPD,Serial numbered /50
+precious-metal-gems,291,Greg Maddux,Atlanta Braves,MLPD,Serial numbered /50
+precious-metal-gems,292,Chipper Jones,Atlanta Braves,MLPD,Serial numbered /50
+precious-metal-gems,293,Ben Grieve,Oakland Athletics,MLPD,Serial numbered /50
+precious-metal-gems,294,Andruw Jones,Atlanta Braves,MLPD,Serial numbered /50
+precious-metal-gems,295,Mark McGwire,St. Louis Cardinals,MLPD,Serial numbered /50
+precious-metal-gems,296,Roger Clemens,Toronto Blue Jays,MLPD,Serial numbered /50
+precious-metal-gems,297,Barry Bonds,San Francisco Giants,MLPD,Serial numbered /50
+gem-masters,1,Mark McGwire,St. Louis Cardinals,,One of one; Gem Masters
+gem-masters,2,Jim Edmonds,Anaheim Angels,,One of one; Gem Masters
+gem-masters,3,Travis Fryman,Cleveland Indians,,One of one; Gem Masters
+gem-masters,4,Tom Gordon,Boston Red Sox,,One of one; Gem Masters
+gem-masters,5,Jeff Bagwell,Houston Astros,,One of one; Gem Masters
+gem-masters,6,Rico Brogna,Philadelphia Phillies,,One of one; Gem Masters
+gem-masters,7,Tom Evans,Toronto Blue Jays,,One of one; Gem Masters
+gem-masters,8,John Franco,New York Mets,,One of one; Gem Masters
+gem-masters,9,Juan Gonzalez,Texas Rangers,,One of one; Gem Masters
+gem-masters,10,Paul Molitor,Minnesota Twins,,One of one; Gem Masters
+gem-masters,11,Roberto Alomar,Baltimore Orioles,,One of one; Gem Masters
+gem-masters,12,Mike Hampton,Houston Astros,,One of one; Gem Masters
+gem-masters,13,Orel Hershiser,San Francisco Giants,,One of one; Gem Masters
+gem-masters,14,Todd Stottlemyre,Texas Rangers,,One of one; Gem Masters
+gem-masters,15,Robin Ventura,Chicago White Sox,,One of one; Gem Masters
+gem-masters,16,Todd Walker,Minnesota Twins,,One of one; Gem Masters
+gem-masters,17,Bernie Williams,New York Yankees,,One of one; Gem Masters
+gem-masters,18,Shawn Estes,San Francisco Giants,,One of one; Gem Masters
+gem-masters,19,Richie Sexson,Cleveland Indians,,One of one; Gem Masters
+gem-masters,20,Kevin Millwood,Atlanta Braves,,One of one; Gem Masters
+gem-masters,21,David Ortiz,Minnesota Twins,,One of one; Gem Masters
+gem-masters,22,Mariano Rivera,New York Yankees,,One of one; Gem Masters
+gem-masters,23,Ivan Rodriguez,Texas Rangers,,One of one; Gem Masters
+gem-masters,24,Mike Sirotka,Chicago White Sox,,One of one; Gem Masters
+gem-masters,25,David Justice,Cleveland Indians,,One of one; Gem Masters
+gem-masters,26,Carl Pavano,Montreal Expos,,One of one; Gem Masters
+gem-masters,27,Albert Belle,Chicago White Sox,,One of one; Gem Masters
+gem-masters,28,Will Clark,Texas Rangers,,One of one; Gem Masters
+gem-masters,29,Jose Cruz Jr.,Toronto Blue Jays,,One of one; Gem Masters
+gem-masters,30,Trevor Hoffman,San Diego Padres,,One of one; Gem Masters
+gem-masters,31,Dean Palmer,Kansas City Royals,,One of one; Gem Masters
+gem-masters,32,Edgar Renteria,Florida Marlins,,One of one; Gem Masters
+gem-masters,33,David Segui,Seattle Mariners,,One of one; Gem Masters
+gem-masters,34,B.J. Surhoff,Baltimore Orioles,,One of one; Gem Masters
+gem-masters,35,Miguel Tejada,Oakland Athletics,,One of one; Gem Masters
+gem-masters,36,Bob Wickman,Milwaukee Brewers,,One of one; Gem Masters
+gem-masters,37,Charles Johnson,Los Angeles Dodgers,,One of one; Gem Masters
+gem-masters,38,Andruw Jones,Atlanta Braves,,One of one; Gem Masters
+gem-masters,39,Mike Lieberthal,Philadelphia Phillies,,One of one; Gem Masters
+gem-masters,40,Eli Marrero,St. Louis Cardinals,,One of one; Gem Masters
+gem-masters,41,Neifi Perez,Colorado Rockies,,One of one; Gem Masters
+gem-masters,42,Jim Thome,Cleveland Indians,,One of one; Gem Masters
+gem-masters,43,Barry Bonds,San Francisco Giants,,One of one; Gem Masters
+gem-masters,44,Carlos Delgado,Toronto Blue Jays,,One of one; Gem Masters
+gem-masters,45,Chuck Finley,Anaheim Angels,,One of one; Gem Masters
+gem-masters,46,Brian Meadows,Florida Marlins,,One of one; Gem Masters
+gem-masters,47,Tony Gwynn,San Diego Padres,,One of one; Gem Masters
+gem-masters,48,Jose Offerman,Kansas City Royals,,One of one; Gem Masters
+gem-masters,49,Cal Ripken Jr.,Baltimore Orioles,,One of one; Gem Masters
+gem-masters,50,Alex Rodriguez,Seattle Mariners,,One of one; Gem Masters
+gem-masters,51,Esteban Yan,Tampa Bay Devil Rays,,One of one; Gem Masters
+gem-masters,52,Matt Stairs,Oakland Athletics,,One of one; Gem Masters
+gem-masters,53,Fernando Vina,Milwaukee Brewers,,One of one; Gem Masters
+gem-masters,54,Rondell White,Montreal Expos,,One of one; Gem Masters
+gem-masters,55,Kerry Wood,Chicago Cubs,,One of one; Gem Masters
+gem-masters,56,Dmitri Young,Cincinnati Reds,,One of one; Gem Masters
+gem-masters,57,Ken Caminiti,San Diego Padres,,One of one; Gem Masters
+gem-masters,58,Alex Gonzalez,Toronto Blue Jays,,One of one; Gem Masters
+gem-masters,59,Matt Mantei,Florida Marlins,,One of one; Gem Masters
+gem-masters,60,Tino Martinez,New York Yankees,,One of one; Gem Masters
+gem-masters,61,Hal Morris,Kansas City Royals,,One of one; Gem Masters
+gem-masters,62,Rafael Palmeiro,Baltimore Orioles,,One of one; Gem Masters
+gem-masters,63,Troy Percival,Anaheim Angels,,One of one; Gem Masters
+gem-masters,64,Bobby Smith,Tampa Bay Devil Rays,,One of one; Gem Masters
+gem-masters,65,Ed Sprague,Oakland Athletics,,One of one; Gem Masters
+gem-masters,66,Brett Tomko,Cincinnati Reds,,One of one; Gem Masters
+gem-masters,67,Steve Trachsel,Chicago Cubs,,One of one; Gem Masters
+gem-masters,68,Ugueth Urbina,Montreal Expos,,One of one; Gem Masters
+gem-masters,69,Jose Valentin,Milwaukee Brewers,,One of one; Gem Masters
+gem-masters,70,Kevin Brown,San Diego Padres,,One of one; Gem Masters
+gem-masters,71,Shawn Green,Toronto Blue Jays,,One of one; Gem Masters
+gem-masters,72,Dustin Hermanson,Montreal Expos,,One of one; Gem Masters
+gem-masters,73,Livan Hernandez,Florida Marlins,,One of one; Gem Masters
+gem-masters,74,Geoff Jenkins,Milwaukee Brewers,,One of one; Gem Masters
+gem-masters,75,Jeff King,Kansas City Royals,,One of one; Gem Masters
+gem-masters,76,Chuck Knoblauch,New York Yankees,,One of one; Gem Masters
+gem-masters,77,Edgar Martinez,Seattle Mariners,,One of one; Gem Masters
+gem-masters,78,Fred McGriff,Tampa Bay Devil Rays,,One of one; Gem Masters
+gem-masters,79,Mike Mussina,Baltimore Orioles,,One of one; Gem Masters
+gem-masters,80,Dave Nilsson,Milwaukee Brewers,,One of one; Gem Masters
+gem-masters,81,Kenny Rogers,Oakland Athletics,,One of one; Gem Masters
+gem-masters,82,Tim Salmon,Anaheim Angels,,One of one; Gem Masters
+gem-masters,83,Reggie Sanders,Cincinnati Reds,,One of one; Gem Masters
+gem-masters,84,Wilson Alvarez,Tampa Bay Devil Rays,,One of one; Gem Masters
+gem-masters,85,Rod Beck,Chicago Cubs,,One of one; Gem Masters
+gem-masters,86,Jose Guillen,Pittsburgh Pirates,,One of one; Gem Masters
+gem-masters,87,Bobby Higginson,Detroit Tigers,,One of one; Gem Masters
+gem-masters,88,Gregg Olson,Arizona Diamondbacks,,One of one; Gem Masters
+gem-masters,89,Jeff Shaw,Los Angeles Dodgers,,One of one; Gem Masters
+gem-masters,90,Masato Yoshii,New York Mets,,One of one; Gem Masters
+gem-masters,91,Todd Helton,Colorado Rockies,,One of one; Gem Masters
+gem-masters,92,David Dellucci,Arizona Diamondbacks,,One of one; Gem Masters
+gem-masters,93,Johnny Damon,Kansas City Royals,,One of one; Gem Masters
+gem-masters,94,Cliff Floyd,Florida Marlins,,One of one; Gem Masters
+gem-masters,95,Ken Griffey Jr.,Seattle Mariners,,One of one; Gem Masters
+gem-masters,96,Juan Guzman,Baltimore Orioles,,One of one; Gem Masters
+gem-masters,97,Derek Jeter,New York Yankees,,One of one; Gem Masters
+gem-masters,98,Barry Larkin,Cincinnati Reds,,One of one; Gem Masters
+gem-masters,99,Quinton McCracken,Tampa Bay Devil Rays,,One of one; Gem Masters
+gem-masters,100,Sammy Sosa,Chicago Cubs,,One of one; Gem Masters
+gem-masters,101,Kevin Young,Pittsburgh Pirates,,One of one; Gem Masters
+gem-masters,102,Jay Bell,Arizona Diamondbacks,,One of one; Gem Masters
+gem-masters,103,Jay Buhner,Seattle Mariners,,One of one; Gem Masters
+gem-masters,104,Jeff Conine,Kansas City Royals,,One of one; Gem Masters
+gem-masters,105,Ryan Jackson,Florida Marlins,,One of one; Gem Masters
+gem-masters,106,Sidney Ponson,Baltimore Orioles,,One of one; Gem Masters
+gem-masters,107,Jeromy Burnitz,Milwaukee Brewers,,One of one; Gem Masters
+gem-masters,108,Roberto Hernandez,Tampa Bay Devil Rays,,One of one; Gem Masters
+gem-masters,109,A.J. Hinch,Oakland Athletics,,One of one; Gem Masters
+gem-masters,110,Hideki Irabu,New York Yankees,,One of one; Gem Masters
+gem-masters,111,Paul Konerko,Cincinnati Reds,,One of one; Gem Masters
+gem-masters,112,Henry Rodriguez,Chicago Cubs,,One of one; Gem Masters
+gem-masters,113,Shannon Stewart,Toronto Blue Jays,,One of one; Gem Masters
+gem-masters,114,Tony Womack,Pittsburgh Pirates,,One of one; Gem Masters
+gem-masters,115,Wilton Guerrero,Montreal Expos,,One of one; Gem Masters
+gem-masters,116,Andy Benes,Arizona Diamondbacks,,One of one; Gem Masters
+gem-masters,117,Jeff Cirillo,Milwaukee Brewers,,One of one; Gem Masters
+gem-masters,118,Chili Davis,New York Yankees,,One of one; Gem Masters
+gem-masters,119,Eric Davis,Baltimore Orioles,,One of one; Gem Masters
+gem-masters,120,Vladimir Guerrero,Montreal Expos,,One of one; Gem Masters
+gem-masters,121,Dennis Reyes,Cincinnati Reds,,One of one; Gem Masters
+gem-masters,122,Rickey Henderson,Oakland Athletics,,One of one; Gem Masters
+gem-masters,123,Mickey Morandini,Chicago Cubs,,One of one; Gem Masters
+gem-masters,124,Jason Schmidt,Pittsburgh Pirates,,One of one; Gem Masters
+gem-masters,125,J.T. Snow,San Francisco Giants,,One of one; Gem Masters
+gem-masters,126,Justin Thompson,Detroit Tigers,,One of one; Gem Masters
+gem-masters,127,Billy Wagner,Houston Astros,,One of one; Gem Masters
+gem-masters,128,Armando Benitez,Baltimore Orioles,,One of one; Gem Masters
+gem-masters,129,Sean Casey,Cincinnati Reds,,One of one; Gem Masters
+gem-masters,130,Brad Fullmer,Montreal Expos,,One of one; Gem Masters
+gem-masters,131,Ben Grieve,Oakland Athletics,,One of one; Gem Masters
+gem-masters,132,Robb Nen,San Francisco Giants,,One of one; Gem Masters
+gem-masters,133,Shane Reynolds,Houston Astros,,One of one; Gem Masters
+gem-masters,134,Todd Zeile,Texas Rangers,,One of one; Gem Masters
+gem-masters,135,Brady Anderson,Baltimore Orioles,,One of one; Gem Masters
+gem-masters,136,Aaron Boone,Cincinnati Reds,,One of one; Gem Masters
+gem-masters,137,Orlando Cabrera,Montreal Expos,,One of one; Gem Masters
+gem-masters,138,Jason Giambi,Oakland Athletics,,One of one; Gem Masters
+gem-masters,139,Randy Johnson,Houston Astros,,One of one; Gem Masters
+gem-masters,140,Jeff Kent,San Francisco Giants,,One of one; Gem Masters
+gem-masters,141,John Wetteland,Texas Rangers,,One of one; Gem Masters
+gem-masters,142,Rolando Arrojo,Tampa Bay Devil Rays,,One of one; Gem Masters
+gem-masters,143,Scott Brosius,New York Yankees,,One of one; Gem Masters
+gem-masters,144,Mark Grace,Chicago Cubs,,One of one; Gem Masters
+gem-masters,145,Jason Kendall,Pittsburgh Pirates,,One of one; Gem Masters
+gem-masters,146,Travis Lee,Arizona Diamondbacks,,One of one; Gem Masters
+gem-masters,147,Gary Sheffield,Los Angeles Dodgers,,One of one; Gem Masters
+gem-masters,148,David Cone,New York Yankees,,One of one; Gem Masters
+gem-masters,149,Jose Hernandez,Chicago Cubs,,One of one; Gem Masters
+gem-masters,150,Todd Jones,Detroit Tigers,,One of one; Gem Masters
+gem-masters,151,Al Martin,Pittsburgh Pirates,,One of one; Gem Masters
+gem-masters,152,Ismael Valdes,Los Angeles Dodgers,,One of one; Gem Masters
+gem-masters,153,Wade Boggs,Tampa Bay Devil Rays,,One of one; Gem Masters
+gem-masters,154,Garret Anderson,Anaheim Angels,,One of one; Gem Masters
+gem-masters,155,Bobby Bonilla,Los Angeles Dodgers,,One of one; Gem Masters
+gem-masters,156,Darryl Kile,Colorado Rockies,,One of one; Gem Masters
+gem-masters,157,Ryan Klesko,Atlanta Braves,,One of one; Gem Masters
+gem-masters,158,Tim Wakefield,Boston Red Sox,,One of one; Gem Masters
+gem-masters,159,Kenny Lofton,Cleveland Indians,,One of one; Gem Masters
+gem-masters,160,Jose Canseco,Toronto Blue Jays,,One of one; Gem Masters
+gem-masters,161,Doug Glanville,Philadelphia Phillies,,One of one; Gem Masters
+gem-masters,162,Todd Hundley,New York Mets,,One of one; Gem Masters
+gem-masters,163,Brian Jordan,St. Louis Cardinals,,One of one; Gem Masters
+gem-masters,164,Steve Finley,San Diego Padres,,One of one; Gem Masters
+gem-masters,165,Tom Glavine,Atlanta Braves,,One of one; Gem Masters
+gem-masters,166,Al Leiter,New York Mets,,One of one; Gem Masters
+gem-masters,167,Raul Mondesi,Los Angeles Dodgers,,One of one; Gem Masters
+gem-masters,168,Desi Relaford,Philadelphia Phillies,,One of one; Gem Masters
+gem-masters,169,Bret Saberhagen,Boston Red Sox,,One of one; Gem Masters
+gem-masters,170,Omar Vizquel,Cleveland Indians,,One of one; Gem Masters
+gem-masters,171,Larry Walker,Colorado Rockies,,One of one; Gem Masters
+gem-masters,172,Bobby Abreu,Philadelphia Phillies,,One of one; Gem Masters
+gem-masters,173,Moises Alou,Houston Astros,,One of one; Gem Masters
+gem-masters,174,Mike Caruso,Chicago White Sox,,One of one; Gem Masters
+gem-masters,175,Royce Clayton,Texas Rangers,,One of one; Gem Masters
+gem-masters,176,Bartolo Colon,Cleveland Indians,,One of one; Gem Masters
+gem-masters,177,Marty Cordova,Minnesota Twins,,One of one; Gem Masters
+gem-masters,178,Darin Erstad,Anaheim Angels,,One of one; Gem Masters
+gem-masters,179,Nomar Garciaparra,Boston Red Sox,,One of one; Gem Masters
+gem-masters,180,Andy Ashby,San Diego Padres,,One of one; Gem Masters
+gem-masters,181,Dan Wilson,Seattle Mariners,,One of one; Gem Masters
+gem-masters,182,Larry Sutton,Kansas City Royals,,One of one; Gem Masters
+gem-masters,183,Tony Clark,Detroit Tigers,,One of one; Gem Masters
+gem-masters,184,Andres Galarraga,Atlanta Braves,,One of one; Gem Masters
+gem-masters,185,Ray Durham,Chicago White Sox,,One of one; Gem Masters
+gem-masters,186,Hideo Nomo,New York Mets,,One of one; Gem Masters
+gem-masters,187,Steve Woodard,Milwaukee Brewers,,One of one; Gem Masters
+gem-masters,188,Scott Rolen,Philadelphia Phillies,,One of one; Gem Masters
+gem-masters,189,Mike Stanley,Boston Red Sox,,One of one; Gem Masters
+gem-masters,190,Jaret Wright,Cleveland Indians,,One of one; Gem Masters
+gem-masters,191,Vinny Castilla,Colorado Rockies,,One of one; Gem Masters
+gem-masters,192,Jason Christiansen,Pittsburgh Pirates,,One of one; Gem Masters
+gem-masters,193,Paul Bako,Detroit Tigers,,One of one; Gem Masters
+gem-masters,194,Carlos Perez,Los Angeles Dodgers,,One of one; Gem Masters
+gem-masters,195,Mike Piazza,New York Mets,,One of one; Gem Masters
+gem-masters,196,Fernando Tatis,St. Louis Cardinals,,One of one; Gem Masters
+gem-masters,197,Mo Vaughn,Boston Red Sox,,One of one; Gem Masters
+gem-masters,198,Devon White,Arizona Diamondbacks,,One of one; Gem Masters
+gem-masters,199,Ricky Gutierrez,Houston Astros,,One of one; Gem Masters
+gem-masters,200,Charlie Hayes,San Francisco Giants,,One of one; Gem Masters
+gem-masters,201,Brad Radke,Minnesota Twins,,One of one; Gem Masters
+gem-masters,202,Rick Helling,Texas Rangers,,One of one; Gem Masters
+gem-masters,203,John Smoltz,Atlanta Braves,,One of one; Gem Masters
+gem-masters,204,Frank Thomas,Chicago White Sox,,One of one; Gem Masters
+gem-masters,205,David Wells,New York Yankees,,One of one; Gem Masters
+gem-masters,206,Roger Clemens,Toronto Blue Jays,,One of one; Gem Masters
+gem-masters,207,Mark Grudzielanek,Los Angeles Dodgers,,One of one; Gem Masters
+gem-masters,208,Chipper Jones,Atlanta Braves,,One of one; Gem Masters
+gem-masters,209,Ray Lankford,St. Louis Cardinals,,One of one; Gem Masters
+gem-masters,210,Pedro Martinez,Boston Red Sox,,One of one; Gem Masters
+gem-masters,211,Manny Ramirez,Cleveland Indians,,One of one; Gem Masters
+gem-masters,212,Greg Vaughn,San Diego Padres,,One of one; Gem Masters
+gem-masters,213,Craig Biggio,Houston Astros,,One of one; Gem Masters
+gem-masters,214,Rusty Greer,Texas Rangers,,One of one; Gem Masters
+gem-masters,215,Greg Maddux,Atlanta Braves,,One of one; Gem Masters
+gem-masters,216,Rick Aguilera,Minnesota Twins,,One of one; Gem Masters
+gem-masters,217,Andy Pettitte,New York Yankees,,One of one; Gem Masters
+gem-masters,218,Dante Bichette,Colorado Rockies,,One of one; Gem Masters
+gem-masters,219,Damion Easley,Detroit Tigers,,One of one; Gem Masters
+gem-masters,220,Matt Morris,St. Louis Cardinals,,One of one; Gem Masters
+gem-masters,221,John Olerud,New York Mets,,One of one; Gem Masters
+gem-masters,222,Chan Ho Park,Los Angeles Dodgers,,One of one; Gem Masters
+gem-masters,223,Curt Schilling,Philadelphia Phillies,,One of one; Gem Masters
+gem-masters,224,John Valentin,Boston Red Sox,,One of one; Gem Masters
+gem-masters,225,Matt Williams,Arizona Diamondbacks,,One of one; Gem Masters
+gem-masters,226,Ellis Burks,San Francisco Giants,,One of one; Gem Masters
+gem-masters,227,Tom Goodwin,Texas Rangers,,One of one; Gem Masters
+gem-masters,228,Javy Lopez,Atlanta Braves,,One of one; Gem Masters
+gem-masters,229,Eric Milton,Minnesota Twins,,One of one; Gem Masters
+gem-masters,230,Paul O'Neill,New York Yankees,,One of one; Gem Masters
+gem-masters,231,Magglio Ordonez,Chicago White Sox,,One of one; Gem Masters
+gem-masters,232,Derrek Lee,Florida Marlins,,One of one; Gem Masters
+gem-masters,233,Ken Griffey Jr.,Seattle Mariners,Caught on the Fly,One of one; Gem Masters
+gem-masters,234,Randy Johnson,Houston Astros,Caught on the Fly,One of one; Gem Masters
+gem-masters,235,Alex Rodriguez,Seattle Mariners,Caught on the Fly,One of one; Gem Masters
+gem-masters,236,Darin Erstad,Anaheim Angels,Caught on the Fly,One of one; Gem Masters
+gem-masters,237,Juan Gonzalez,Texas Rangers,Caught on the Fly,One of one; Gem Masters
+gem-masters,238,Derek Jeter,New York Yankees,Caught on the Fly,One of one; Gem Masters
+gem-masters,239,Tony Gwynn,San Diego Padres,Caught on the Fly,One of one; Gem Masters
+gem-masters,240,Kerry Wood,Chicago Cubs,Caught on the Fly,One of one; Gem Masters
+gem-masters,241,Cal Ripken Jr.,Baltimore Orioles,Caught on the Fly,One of one; Gem Masters
+gem-masters,242,Sammy Sosa,Chicago Cubs,Caught on the Fly,One of one; Gem Masters
+gem-masters,243,Greg Maddux,Atlanta Braves,Caught on the Fly,One of one; Gem Masters
+gem-masters,244,Mark McGwire,St. Louis Cardinals,Caught on the Fly,One of one; Gem Masters
+gem-masters,245,Chipper Jones,Atlanta Braves,Caught on the Fly,One of one; Gem Masters
+gem-masters,246,Barry Bonds,San Francisco Giants,Caught on the Fly,One of one; Gem Masters
+gem-masters,247,Ben Grieve,Oakland Athletics,Caught on the Fly,One of one; Gem Masters
+gem-masters,248,Ben Davis,San Diego Padres,Building Blocks,One of one; Gem Masters
+gem-masters,249,Robert Fick,Detroit Tigers,Building Blocks,One of one; Gem Masters
+gem-masters,250,Carlos Guillen,Seattle Mariners,Building Blocks,One of one; Gem Masters
+gem-masters,251,Mike Frank,Cincinnati Reds,Building Blocks,One of one; Gem Masters
+gem-masters,252,Ryan Minor,Baltimore Orioles,Building Blocks,One of one; Gem Masters
+gem-masters,253,Troy Glaus,Anaheim Angels,Building Blocks,One of one; Gem Masters
+gem-masters,254,Matt Anderson,Detroit Tigers,Building Blocks,One of one; Gem Masters
+gem-masters,255,Josh Booty,Florida Marlins,Building Blocks,One of one; Gem Masters
+gem-masters,256,Gabe Alvarez,Detroit Tigers,Building Blocks,One of one; Gem Masters
+gem-masters,257,Gabe Kapler,Detroit Tigers,Building Blocks,One of one; Gem Masters
+gem-masters,258,Enrique Wilson,Cleveland Indians,Building Blocks,One of one; Gem Masters
+gem-masters,259,Alex Gonzalez,Florida Marlins,Building Blocks,One of one; Gem Masters
+gem-masters,260,Preston Wilson,Florida Marlins,Building Blocks,One of one; Gem Masters
+gem-masters,261,Eric Chavez,Oakland Athletics,Building Blocks,One of one; Gem Masters
+gem-masters,262,Adrian Beltre,Los Angeles Dodgers,Building Blocks,One of one; Gem Masters
+gem-masters,263,Corey Koskie,Minnesota Twins,Building Blocks,One of one; Gem Masters
+gem-masters,264,Robert Machado,Chicago White Sox,Building Blocks,One of one; Gem Masters
+gem-masters,265,Orlando Hernandez,New York Yankees,Building Blocks,One of one; Gem Masters
+gem-masters,266,Matt Clement,San Diego Padres,Building Blocks,One of one; Gem Masters
+gem-masters,267,Luis Ordaz,St. Louis Cardinals,Building Blocks,One of one; Gem Masters
+gem-masters,268,Jeremy Giambi,Kansas City Royals,Building Blocks,One of one; Gem Masters
+gem-masters,269,J.D. Drew,St. Louis Cardinals,Building Blocks,One of one; Gem Masters
+gem-masters,270,Cliff Politte,Philadelphia Phillies,Building Blocks,One of one; Gem Masters
+gem-masters,271,Carlton Loewer,Philadelphia Phillies,Building Blocks,One of one; Gem Masters
+gem-masters,272,Aramis Ramirez,Pittsburgh Pirates,Building Blocks,One of one; Gem Masters
+gem-masters,273,Ken Griffey Jr.,Seattle Mariners,MLPD,One of one; Gem Masters
+gem-masters,274,Randy Johnson,Houston Astros,MLPD,One of one; Gem Masters
+gem-masters,275,Alex Rodriguez,Seattle Mariners,MLPD,One of one; Gem Masters
+gem-masters,276,Darin Erstad,Anaheim Angels,MLPD,One of one; Gem Masters
+gem-masters,277,Scott Rolen,Philadelphia Phillies,MLPD,One of one; Gem Masters
+gem-masters,278,Juan Gonzalez,Texas Rangers,MLPD,One of one; Gem Masters
+gem-masters,279,Jeff Bagwell,Houston Astros,MLPD,One of one; Gem Masters
+gem-masters,280,Mike Piazza,New York Mets,MLPD,One of one; Gem Masters
+gem-masters,281,Derek Jeter,New York Yankees,MLPD,One of one; Gem Masters
+gem-masters,282,Travis Lee,Arizona Diamondbacks,MLPD,One of one; Gem Masters
+gem-masters,283,Tony Gwynn,San Diego Padres,MLPD,One of one; Gem Masters
+gem-masters,284,Kerry Wood,Chicago Cubs,MLPD,One of one; Gem Masters
+gem-masters,285,Albert Belle,Chicago White Sox,MLPD,One of one; Gem Masters
+gem-masters,286,Sammy Sosa,Chicago Cubs,MLPD,One of one; Gem Masters
+gem-masters,287,Mo Vaughn,Boston Red Sox,MLPD,One of one; Gem Masters
+gem-masters,288,Nomar Garciaparra,Boston Red Sox,MLPD,One of one; Gem Masters
+gem-masters,289,Frank Thomas,Chicago White Sox,MLPD,One of one; Gem Masters
+gem-masters,290,Cal Ripken Jr.,Baltimore Orioles,MLPD,One of one; Gem Masters
+gem-masters,291,Greg Maddux,Atlanta Braves,MLPD,One of one; Gem Masters
+gem-masters,292,Chipper Jones,Atlanta Braves,MLPD,One of one; Gem Masters
+gem-masters,293,Ben Grieve,Oakland Athletics,MLPD,One of one; Gem Masters
+gem-masters,294,Andruw Jones,Atlanta Braves,MLPD,One of one; Gem Masters
+gem-masters,295,Mark McGwire,St. Louis Cardinals,MLPD,One of one; Gem Masters
+gem-masters,296,Roger Clemens,Toronto Blue Jays,MLPD,One of one; Gem Masters
+gem-masters,297,Barry Bonds,San Francisco Giants,MLPD,One of one; Gem Masters
+gem-masters,298,Ken Griffey Jr.,Seattle Mariners,Checklist,One of one; Gem Masters
+gem-masters,299,Kerry Wood,Chicago Cubs,Checklist,One of one; Gem Masters
+gem-masters,300,Alex Rodriguez,Seattle Mariners,Checklist,One of one; Gem Masters
+neophytes,1 NP,Troy Glaus,Anaheim Angels,,
+neophytes,2 NP,Travis Lee,Arizona Diamondbacks,,
+neophytes,3 NP,Scott Elarton,Houston Astros,,
+neophytes,4 NP,Ricky Ledee,New York Yankees,,
+neophytes,5 NP,Richard Hidalgo,Houston Astros,,
+neophytes,6 NP,J.D. Drew,St. Louis Cardinals,,
+neophytes,7 NP,Paul Konerko,Chicago White Sox,,Cincinnati Reds uniform; Chicago White Sox affiliation
+neophytes,8 NP,Orlando Hernandez,New York Yankees,,
+neophytes,9 NP,Mike Caruso,Chicago White Sox,,
+neophytes,10 NP,Mike Frank,Cincinnati Reds,,
+neophytes,11 NP,Miguel Tejada,Oakland Athletics,,
+neophytes,12 NP,Matt Anderson,Detroit Tigers,,
+neophytes,13 NP,Kerry Wood,Chicago Cubs,,
+neophytes,14 NP,Gabe Alvarez,Detroit Tigers,,
+neophytes,15 NP,Adrian Beltre,Los Angeles Dodgers,,
+boyz-with-the-wood,1 BW,Ken Griffey Jr.,Seattle Mariners,,Foldable card; original packed-out form
+boyz-with-the-wood,2 BW,Frank Thomas,Chicago White Sox,,Foldable card; original packed-out form
+boyz-with-the-wood,3 BW,Jeff Bagwell,Houston Astros,,Foldable card; original packed-out form
+boyz-with-the-wood,4 BW,Juan Gonzalez,Texas Rangers,,Foldable card; original packed-out form
+boyz-with-the-wood,5 BW,Mark McGwire,St. Louis Cardinals,,Foldable card; original packed-out form
+boyz-with-the-wood,6 BW,Scott Rolen,Philadelphia Phillies,,Foldable card; original packed-out form
+boyz-with-the-wood,7 BW,Travis Lee,Arizona Diamondbacks,,Foldable card; original packed-out form
+boyz-with-the-wood,8 BW,Tony Gwynn,San Diego Padres,,Foldable card; original packed-out form
+boyz-with-the-wood,9 BW,Mike Piazza,New York Mets,,Foldable card; original packed-out form
+boyz-with-the-wood,10 BW,Chipper Jones,Atlanta Braves,,Foldable card; original packed-out form
+boyz-with-the-wood,11 BW,Nomar Garciaparra,Boston Red Sox,,Foldable card; original packed-out form
+boyz-with-the-wood,12 BW,Derek Jeter,New York Yankees,,Foldable card; original packed-out form
+boyz-with-the-wood,13 BW,Cal Ripken Jr.,Baltimore Orioles,,Foldable card; original packed-out form
+boyz-with-the-wood,14 BW,Andruw Jones,Atlanta Braves,,Foldable card; original packed-out form
+boyz-with-the-wood,15 BW,Alex Rodriguez,Seattle Mariners,,Foldable card; original packed-out form
+planet-metal,1 PM,Alex Rodriguez,Seattle Mariners,,Holographic foil; die-cut
+planet-metal,2 PM,Andruw Jones,Atlanta Braves,,Holographic foil; die-cut
+planet-metal,3 PM,Cal Ripken Jr.,Baltimore Orioles,,Holographic foil; die-cut
+planet-metal,4 PM,Chipper Jones,Atlanta Braves,,Holographic foil; die-cut
+planet-metal,5 PM,Darin Erstad,Anaheim Angels,,Holographic foil; die-cut
+planet-metal,6 PM,Derek Jeter,New York Yankees,,Holographic foil; die-cut
+planet-metal,7 PM,Frank Thomas,Chicago White Sox,,Holographic foil; die-cut
+planet-metal,8 PM,Travis Lee,Arizona Diamondbacks,,Holographic foil; die-cut
+planet-metal,9 PM,Scott Rolen,Philadelphia Phillies,,Holographic foil; die-cut
+planet-metal,10 PM,Nomar Garciaparra,Boston Red Sox,,Holographic foil; die-cut
+planet-metal,11 PM,Mike Piazza,New York Mets,,Holographic foil; die-cut
+planet-metal,12 PM,Mark McGwire,St. Louis Cardinals,,Holographic foil; die-cut
+planet-metal,13 PM,Ken Griffey Jr.,Seattle Mariners,,Holographic foil; die-cut
+planet-metal,14 PM,Juan Gonzalez,Texas Rangers,,Holographic foil; die-cut
+planet-metal,15 PM,Jeff Bagwell,Houston Astros,,Holographic foil; die-cut
+diamond-soul,1DS,Cal Ripken Jr.,Baltimore Orioles,,Lenticular
+diamond-soul,2DS,Alex Rodriguez,Seattle Mariners,,Lenticular
+diamond-soul,3DS,Chipper Jones,Atlanta Braves,,Lenticular
+diamond-soul,4DS,Derek Jeter,New York Yankees,,Lenticular
+diamond-soul,5DS,Frank Thomas,Chicago White Sox,,Lenticular
+diamond-soul,6DS,Greg Maddux,Atlanta Braves,,Lenticular
+diamond-soul,7DS,Juan Gonzalez,Texas Rangers,,Lenticular
+diamond-soul,8DS,Ken Griffey Jr.,Seattle Mariners,,Lenticular
+diamond-soul,9DS,Kerry Wood,Chicago Cubs,,Lenticular
+diamond-soul,10DS,Mark McGwire,St. Louis Cardinals,,Lenticular
+diamond-soul,11DS,Mike Piazza,New York Mets,,Lenticular
+diamond-soul,12DS,Nomar Garciaparra,Boston Red Sox,,Lenticular
+diamond-soul,13DS,Scott Rolen,Philadelphia Phillies,,Lenticular
+diamond-soul,14DS,Tony Gwynn,San Diego Padres,,Lenticular
+diamond-soul,15DS,Travis Lee,Arizona Diamondbacks,,Lenticular
+linchpins,1LP,Mike Piazza,New York Mets,,Die-cut
+linchpins,2LP,Mark McGwire,St. Louis Cardinals,,Die-cut
+linchpins,3LP,Kerry Wood,Chicago Cubs,,Die-cut
+linchpins,4LP,Ken Griffey Jr.,Seattle Mariners,,Die-cut
+linchpins,5LP,Greg Maddux,Atlanta Braves,,Die-cut
+linchpins,6LP,Frank Thomas,Chicago White Sox,,Die-cut
+linchpins,7LP,Derek Jeter,New York Yankees,,Die-cut
+linchpins,8LP,Chipper Jones,Atlanta Braves,,Die-cut
+linchpins,9LP,Cal Ripken Jr.,Baltimore Orioles,,Die-cut
+linchpins,10LP,Alex Rodriguez,Seattle Mariners,,Die-cut
+drew-autograph,SAMPLE,J.D. Drew,St. Louis Cardinals,,Autograph; hand numbered /35; embossed SkyBox authentication seal
