@@ -1,0 +1,273 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1149/1998-Fleer-Tradition",
+    "checklistReference": "https://www.tcdb.com/Checklist.cfm/sid/1149/1998-Fleer-Tradition",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/1149/1998-Fleer-Tradition",
+    "insertReference": "https://www.tcdb.com/Inserts.cfm/sid/1149/1998-Fleer-Tradition",
+    "independentReference": "https://baseballcardpedia.com/index.php/1998_Fleer_Tradition"
+  },
+  "decisions": {
+    "collectorChecklist": "1125 explicit cards across 20 complete catalogued collector families: full base 1-600, full Vintage 128 and Classic 128, and all regular/rare insert and four points-token checklists. Keep true collector lists intact instead of splitting numbered sets to model series/rarity.",
+    "baseSubsets": "Smoke n Heat 301-310, Golden Memories 311-320, Tale of the Tape 321-340, Checklists 341-350 and 571-575, Unforgettable Moments 576-600 are inside the base set, not duplicate insert families. Golden Memories actually has ten cards, despite the BCP insertion table saying twenty. Flatten per-card availability per Set Factory convention, retain SP notes for verified Golden/Tale/Unforgettable ranges. Smoke SP status is inconsistently described; no exact rarity claim or invented odds.",
+    "rookies": "25 base true RC tags match canonical TCDB, its separately retrieved rookie index and all 25 BCP RC marks exactly. Debut, Rookie, Expansion Draft and Rookie Sensations labels alone do not confer true RC. Parallel/insert RC suffixes are not inferred. Source MLD annotation on base #63 Darrin Fletcher is contradicted by his card front: no 1997 Debut badge; remove that erroneous annotation.",
+    "parallels": "Vintage partial parallel has 1-126 and two unnumbered series checklists; no invented full 600-card version. Classic contains 1C-126C plus NNO1C/NNO2C checklist cards, all /63, not only 126 players. Rare Traditions 12 is foil version of Decade; Mantle Gold ten is /51. Explicitly retrieve every parallel row from its own source namespace and compare identities/teams.",
+    "mantle": "Monumental Moments #3 shows Mickey Mantle and Phil Rizzuto, verified by BCP and card scan although TCDB names only Mantle. Include both on regular 3 MM and parallel 3 MMG. No true RC suffix on this historical insert.",
+    "numbering": "Preserve suffix-bearing TCDB collector IDs such as 1 DE and 1C. The two unnumbered Vintage checklists receive NNO-A/NNO-B identifiers based on checklist range, not invented printed numbers. Diamond Ink points cards receive stable NNO-01..NNO-10 alphabetical player IDs separately within each denomination family; these are VCS identifiers, not printed numbers.",
+    "pack": "Draft Hobby model: 12 total slots, 36 packs/box, following BCP and indexed Beckett descriptions. Reviewed Series 2 Hobby wrapper explicitly says 10 Major League Baseball cards, potentially excluding extras; exact total reconciliation is unverified. Retail blasters are separately described as 10-card/14-pack. Do not claim exact physical collation; pack QA is PENDING. Combined-series draft uses explicitly assumed 50/50 S1/S2 design mix, not historical market share: double denominators for single-series families; Vintage stays 1. Independent family rolls replace base slots and do not reproduce physical series correlations or exact base SP weighting.",
+    "odds": "Known Hobby series rates are preserved as normalized design rates. Classic and Mantle Gold exact rates unknown, so null. Retail-only Lumber Company is null under Hobby default. Million Dollar Moments original game cards have one-per-S1-pack rate modeled as 2 under equal series assumption; keep complete 50-card shared checklist, including SP 46-50.",
+    "diamondInk": "Four complete ten-player denomination checklists (1/5/10/25 points). These are unsigned physical redemption tokens toward autographed baseballs, not autograph trading cards. One points card per pack is documented, but relative denominations and player frequencies are not; all four families have null odds pending an aggregate-pool model, not four guaranteed pulls or invented 25 percent shares. Cards show player names with no team affiliation; preserve blank teams with pending staging. No active point accumulation, prize or exchange mechanic.",
+    "flashbackBlocker": "Sources describe 50 hand-numbered Fleer Flashback Exchange cards, but no verified individual card-number/subject inventory or scan was located. Do not fabricate 50 unique rows, thirteen year-specific cards, or an assumed single design. This rare issue is excluded from the 1125 catalogued rows and remains an explicit scope verification blocker before claiming every possible pack issue is complete.",
+    "excluded": "Separate Tradition Update, promotional sample Alex Rodriguez, the 750 A-Rod promo autographs inserted in 1998 Ultra S2, Mantle dealer postcards and SportsFest/NSCC promos, 23KT McGwire, Diamond Skills giveaway sheets/hand-cut singles/competition cards, redeemed autographed baseballs, MDM Exchange backs and unverified Flashback inventory. No pack-issued autograph-card family verified in this product.",
+    "teams": "All 600 base player/team rows and all player insert/parallel affiliations are populated, including Piazza as Florida Marlin in Clutch/Tribute and Mets in late Vintage. Five generic checklist blanks (two Vintage, two Classic, MDM #1) are intentional. Forty Diamond Ink player-name tokens have no franchise on card; require pending-team import rather than invent MLB affiliations.",
+    "release": "Unreleased draft for Admin pricing and image harvesting. Flashback inventory, unknown/aggregate odds, series/rarity/pack QA, points-token team review, pricing and images remain pending before release."
+  },
+  "product": {
+    "id": "1998_Fleer_Tradition_Baseball",
+    "year": 1998,
+    "brand": "Fleer Tradition",
+    "sport": "Baseball",
+    "cardsPerPack": 12,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "rookieDesignation": "VERIFIED_25_BASE_RCS",
+    "checklistScope": "PENDING_FLASHBACK_INVENTORY",
+    "packCollation": "PENDING",
+    "insertOdds": "PENDING_AGGREGATE_AND_RARE_ODDS_QA",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1998-fleer-tradition-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1998_Fleer_Tradition_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 1149,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1149/1998-Fleer-Tradition?PageIndex=1",
+      "expectedCards": 600,
+      "notes": "Full base 1-600, including all thematic SP ranges and checklist cards; no subset/series splits."
+    },
+    {
+      "key": "vintage",
+      "id": "1998_Fleer_Tradition_Baseball_Vintage_63",
+      "name": "Vintage '63",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "sourceSetId": 1157,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1157/1998-Fleer-Tradition-Vintage?PageIndex=1",
+      "expectedCards": 128,
+      "notes": "Complete 126 players plus two checklists, one per Hobby pack in both series. Partial parallel with its own numbering."
+    },
+    {
+      "key": "classic",
+      "id": "1998_Fleer_Tradition_Baseball_Classic_63",
+      "name": "Classic '63",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 11104,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11104/1998-Fleer-Tradition-Vintage-Classic?PageIndex=1",
+      "expectedCards": 128,
+      "notes": "All 128 Classic cards individually verified, including NNO1C/NNO2C, serial numbered /63. Exact insertion rate unknown: null."
+    },
+    {
+      "key": "decade-of-excellence",
+      "id": "1998_Fleer_Tradition_Baseball_Decade_of_Excellence",
+      "name": "Decade of Excellence",
+      "kind": "INSERT",
+      "oddsPerPack": 144,
+      "sourceSetId": 1150,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1150/1998-Fleer-Tradition-Decade-of-Excellence",
+      "expectedCards": 12,
+      "notes": "Complete collector checklist. Single-series Hobby rate doubled under explicit equal-series design model. See pack/odds decisions."
+    },
+    {
+      "key": "decade-rare-traditions",
+      "id": "1998_Fleer_Tradition_Baseball_Decade_of_Excellence_Rare_Traditions",
+      "name": "Decade of Excellence Rare Traditions",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1440,
+      "sourceSetId": 11096,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11096/1998-Fleer-Tradition-Decade-of-Excellence-Rare-Traditions",
+      "expectedCards": 12,
+      "notes": "Complete collector checklist. Single-series Hobby rate doubled under explicit equal-series design model. See pack/odds decisions."
+    },
+    {
+      "key": "diamond-ink-1",
+      "id": "1998_Fleer_Tradition_Baseball_Diamond_Ink_1_Point",
+      "name": "Diamond Ink 1 Point",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 11097,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11097/1998-Fleer-Tradition-Diamond-Ink-1-Point",
+      "expectedCards": 10,
+      "notes": "Complete ten-player physical points-card checklist. No team printed on token. Denomination/player shares unknown; null until aggregate-pool QA. Not a signed trading card."
+    },
+    {
+      "key": "diamond-ink-5",
+      "id": "1998_Fleer_Tradition_Baseball_Diamond_Ink_5_Points",
+      "name": "Diamond Ink 5 Points",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 95552,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/95552/1998-Fleer-Tradition-Diamond-Ink-5-Points",
+      "expectedCards": 10,
+      "notes": "Complete ten-player physical points-card checklist. No team printed on token. Denomination/player shares unknown; null until aggregate-pool QA. Not a signed trading card."
+    },
+    {
+      "key": "diamond-ink-10",
+      "id": "1998_Fleer_Tradition_Baseball_Diamond_Ink_10_Points",
+      "name": "Diamond Ink 10 Points",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 95553,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/95553/1998-Fleer-Tradition-Diamond-Ink-10-Points",
+      "expectedCards": 10,
+      "notes": "Complete ten-player physical points-card checklist. No team printed on token. Denomination/player shares unknown; null until aggregate-pool QA. Not a signed trading card."
+    },
+    {
+      "key": "diamond-ink-25",
+      "id": "1998_Fleer_Tradition_Baseball_Diamond_Ink_25_Points",
+      "name": "Diamond Ink 25 Points",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 282595,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/282595/1998-Fleer-Tradition-Diamond-Ink-25-Points",
+      "expectedCards": 10,
+      "notes": "Complete ten-player physical points-card checklist. No team printed on token. Denomination/player shares unknown; null until aggregate-pool QA. Not a signed trading card."
+    },
+    {
+      "key": "diamond-standouts",
+      "id": "1998_Fleer_Tradition_Baseball_Diamond_Standouts",
+      "name": "Diamond Standouts",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "sourceSetId": 1151,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1151/1998-Fleer-Tradition-Diamond-Standouts",
+      "expectedCards": 20,
+      "notes": "Complete collector checklist. Single-series Hobby rate doubled under explicit equal-series design model. See pack/odds decisions."
+    },
+    {
+      "key": "diamond-tribute",
+      "id": "1998_Fleer_Tradition_Baseball_Diamond_Tribute",
+      "name": "Diamond Tribute",
+      "kind": "INSERT",
+      "oddsPerPack": 600,
+      "sourceSetId": 11098,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11098/1998-Fleer-Tradition-Diamond-Tribute",
+      "expectedCards": 10,
+      "notes": "Complete collector checklist. Single-series Hobby rate doubled under explicit equal-series design model. See pack/odds decisions."
+    },
+    {
+      "key": "in-the-clutch",
+      "id": "1998_Fleer_Tradition_Baseball_In_the_Clutch",
+      "name": "In the Clutch",
+      "kind": "INSERT",
+      "oddsPerPack": 40,
+      "sourceSetId": 11099,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11099/1998-Fleer-Tradition-In-the-Clutch",
+      "expectedCards": 15,
+      "notes": "Complete collector checklist. Single-series Hobby rate doubled under explicit equal-series design model. See pack/odds decisions."
+    },
+    {
+      "key": "lumber-company",
+      "id": "1998_Fleer_Tradition_Baseball_Lumber_Company",
+      "name": "Lumber Company",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 1153,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1153/1998-Fleer-Tradition-Lumber-Company",
+      "expectedCards": 15,
+      "notes": "Retail-only S1 family; physical denominator 36, Hobby default null. Complete checklist staged for pricing/images."
+    },
+    {
+      "key": "mantle-moments",
+      "id": "1998_Fleer_Tradition_Baseball_Mickey_Mantle_Monumental_Moments",
+      "name": "Mickey Mantle Monumental Moments",
+      "kind": "INSERT",
+      "oddsPerPack": 136,
+      "sourceSetId": 11100,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11100/1998-Fleer-Tradition-Mickey-Mantle-Monumental-Moments",
+      "expectedCards": 10,
+      "notes": "Complete collector checklist. Single-series Hobby rate doubled under explicit equal-series design model. See pack/odds decisions."
+    },
+    {
+      "key": "mantle-gold",
+      "id": "1998_Fleer_Tradition_Baseball_Mickey_Mantle_Monumental_Moments_Gold",
+      "name": "Mickey Mantle Monumental Moments Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 11101,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11101/1998-Fleer-Tradition-Mickey-Mantle-Monumental-Moments-Gold",
+      "expectedCards": 10,
+      "notes": "Ten gold-stamped counterparts, each /51. Exact rate unknown: null. #3 depicts Mantle / Phil Rizzuto."
+    },
+    {
+      "key": "promising-forecasts",
+      "id": "1998_Fleer_Tradition_Baseball_Promising_Forecasts",
+      "name": "Promising Forecasts",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "sourceSetId": 11103,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11103/1998-Fleer-Tradition-Promising-Forecasts",
+      "expectedCards": 20,
+      "notes": "Complete collector checklist. Single-series Hobby rate doubled under explicit equal-series design model. See pack/odds decisions."
+    },
+    {
+      "key": "rookie-sensations",
+      "id": "1998_Fleer_Tradition_Baseball_Rookie_Sensations",
+      "name": "Rookie Sensations",
+      "kind": "INSERT",
+      "oddsPerPack": 36,
+      "sourceSetId": 1154,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1154/1998-Fleer-Tradition-Rookie-Sensations",
+      "expectedCards": 20,
+      "notes": "Complete collector checklist. Single-series Hobby rate doubled under explicit equal-series design model. See pack/odds decisions."
+    },
+    {
+      "key": "power-game",
+      "id": "1998_Fleer_Tradition_Baseball_The_Power_Game",
+      "name": "The Power Game",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "sourceSetId": 1155,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1155/1998-Fleer-Tradition-The-Power-Game",
+      "expectedCards": 20,
+      "notes": "Complete collector checklist. Single-series Hobby rate doubled under explicit equal-series design model. See pack/odds decisions."
+    },
+    {
+      "key": "zone",
+      "id": "1998_Fleer_Tradition_Baseball_Zone",
+      "name": "Zone",
+      "kind": "INSERT",
+      "oddsPerPack": 576,
+      "sourceSetId": 1158,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1158/1998-Fleer-Tradition-Zone",
+      "expectedCards": 15,
+      "notes": "Complete collector checklist. Single-series Hobby rate doubled under explicit equal-series design model. See pack/odds decisions."
+    },
+    {
+      "key": "million-dollar-moments",
+      "id": "1998_Fleer_Tradition_Baseball_Million_Dollar_Moments",
+      "name": "Million Dollar Moments",
+      "kind": "INSERT",
+      "oddsPerPack": 2,
+      "sourceSetId": 59564,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/59564/1997-98-Fleer-Million-Dollar-Moments",
+      "expectedCards": 50,
+      "notes": "Complete shared original 1997-98 game-card checklist, not returned Exchange copies. One per S1 pack modeled as 2; SP cards remain in collector family."
+    }
+  ]
+}

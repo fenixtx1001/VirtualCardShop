@@ -1,0 +1,8378 @@
+{
+  "schemaVersion": 1,
+  "retrievedAt": "2026-11-05",
+  "sources": {
+    "base-1": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/1149/1998-Fleer-Tradition?PageIndex=1",
+      "sha256": "e265183b8a7bc2106ba13190b64c47ea2cfdac2e8873ea4643abc7b2a9590472",
+      "records": [
+        [
+          "1",
+          "Ken Griffey, Jr.",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "2",
+          "Derek Jeter",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "3",
+          "Gerald Williams",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "4",
+          "Carlos Delgado",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "5",
+          "Nomar Garciaparra",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "6",
+          "Gary Sheffield",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "7",
+          "Jeff King",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "8",
+          "Cal Ripken, Jr.",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "9",
+          "Matt Williams TR",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "10",
+          "Chipper Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "11",
+          "Chuck Knoblauch",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "12",
+          "Mark Grudzielanek",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "13",
+          "Edgardo Alfonzo",
+          "New York Mets",
+          ""
+        ],
+        [
+          "14",
+          "Andres Galarraga",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "15",
+          "Tim Salmon",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "16",
+          "Reggie Sanders",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "17",
+          "Tony Clark",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "18",
+          "Jason Kendall",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "19",
+          "Juan Gonzalez",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "20",
+          "Ben Grieve MLD",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "21",
+          "Roger Clemens",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "22",
+          "Raul Mondesi",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "23",
+          "Robin Ventura",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "24",
+          "Derrek Lee MLD",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "25",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "26",
+          "Luis Gonzalez",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "27",
+          "Kevin Brown",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "28",
+          "Kirk Rueter",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "29",
+          "Bobby Estalella",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "30",
+          "Shawn Green",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "31",
+          "Greg Maddux",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "32",
+          "Jorge Velandia TR",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "33",
+          "Larry Walker",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "34",
+          "Joey Cora",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "35",
+          "Frank Thomas",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "36",
+          "Curtis King MLD, RC",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "37",
+          "Aaron Boone MLD",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "38",
+          "Curt Schilling",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "39",
+          "Bruce Aven",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "40",
+          "Ben McDonald",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "41",
+          "Andy Ashby",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "42",
+          "Jason McDonald MLD",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "43",
+          "Eric Davis",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "44",
+          "Mark Grace",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "45",
+          "Pedro Martinez TR",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "46",
+          "Lou Collier MLD",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "47",
+          "Chan Ho Park",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "48",
+          "Shane Halter MLD",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "49",
+          "Brian Hunter",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "50",
+          "Jeff Bagwell",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "51",
+          "Bernie Williams",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "52",
+          "J.T. Snow",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "53",
+          "Todd Greene",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "54",
+          "Shannon Stewart",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "55",
+          "Darren Bragg",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "56",
+          "Fernando Tatis MLD",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "57",
+          "Darryl Kile",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "58",
+          "Chris Stynes",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "59",
+          "Javier Valentin MLD",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "60",
+          "Brian McRae",
+          "New York Mets",
+          ""
+        ],
+        [
+          "61",
+          "Tom Evans MLD",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "62",
+          "Randall Simon MLD",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "63",
+          "Darrin Fletcher MLD",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "64",
+          "Jaret Wright MLD",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "65",
+          "Luis Ordaz MLD",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "66",
+          "Jose Canseco",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "67",
+          "Edgar Renteria",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "68",
+          "Jay Buhner",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "69",
+          "Paul Konerko MLD",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "70",
+          "Adrian Brown MLD",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "71",
+          "Chris Carpenter MLD",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "72",
+          "Mike Lieberthal",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "73",
+          "Dean Palmer",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "74",
+          "Jorge Fabregas ED",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "75",
+          "Stan Javier",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "76",
+          "Damion Easley",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "77",
+          "David Cone",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "78",
+          "Aaron Sele TR",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "79",
+          "Antonio Alfonseca MLD",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "80",
+          "Bobby Jones",
+          "New York Mets",
+          ""
+        ],
+        [
+          "81",
+          "David Justice",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "82",
+          "Jeffrey Hammonds",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "83",
+          "Doug Glanville",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "84",
+          "Jason Dickson",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "85",
+          "Brad Radke",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "86",
+          "David Segui",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "87",
+          "Greg Vaughn",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "88",
+          "Mike Cather MLD, RC",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "89",
+          "Alex Fernandez",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "90",
+          "Billy Taylor",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "91",
+          "Jason Schmidt",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "92",
+          "Mike DeJean MLD, RC",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "93",
+          "Domingo Cedeno",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "94",
+          "Jeff Cirillo",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "95",
+          "Manny Aybar MLD, RC",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "96",
+          "Jaime Navarro",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "97",
+          "Dennis Reyes MLD",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "98",
+          "Barry Larkin",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "99",
+          "Troy O'Leary",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "100",
+          "Alex Rodriguez",
+          "Seattle Mariners",
+          ""
+        ]
+      ]
+    },
+    "base-2": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/1149/1998-Fleer-Tradition?PageIndex=2",
+      "sha256": "59b84d80caa3fe6db11c72298afbf91be86894fdc2c635f117674b18edf9eb80",
+      "records": [
+        [
+          "101",
+          "Pat Hentgen",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "102",
+          "Bubba Trammell ED, MLD",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "103",
+          "Glendon Rusch MLD",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "104",
+          "Kenny Lofton",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "105",
+          "Craig Biggio",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "106",
+          "Kelvim Escobar MLD",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "107",
+          "Mark Kotsay MLD",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "108",
+          "Rondell White",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "109",
+          "Darren Oliver",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "110",
+          "Jim Thome",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "111",
+          "Rich Becker",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "112",
+          "Chad Curtis",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "113",
+          "Dave Hollins",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "114",
+          "Bill Mueller",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "115",
+          "Antone Williamson MLD",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "116",
+          "Tony Womack",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "117",
+          "Randy Myers",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "118",
+          "Rico Brogna",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "119",
+          "Pat Watkins MLD",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "120",
+          "Eli Marrero MLD",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "121",
+          "Jay Bell",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "122",
+          "Kevin Tapani",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "123",
+          "Todd Erdos ED, RC",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "124",
+          "Neifi Perez",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "125",
+          "Todd Hundley",
+          "New York Mets",
+          ""
+        ],
+        [
+          "126",
+          "Jeff Abbott MLD",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "127",
+          "Todd Zeile",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "128",
+          "Travis Fryman TR",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "129",
+          "Sandy Alomar, Jr.",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "130",
+          "Fred McGriff ED",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "131",
+          "Richard Hidalgo MLD",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "132",
+          "Scott Spiezio",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "133",
+          "John Valentin",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "134",
+          "Quilvio Veras",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "135",
+          "Mike Lansing TR",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "136",
+          "Paul Molitor",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "137",
+          "Randy Johnson",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "138",
+          "Harold Baines",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "139",
+          "Doug Jones",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "140",
+          "Abraham Nunez MLD",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "141",
+          "Alan Benes",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "142",
+          "Matt Perisho TR, MLD",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "143",
+          "Chris Clemons ED",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "144",
+          "Andy Pettitte",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "145",
+          "Jason Giambi",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "146",
+          "Moises Alou TR",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "147",
+          "Chad Fox MLD, RC",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "148",
+          "Felix Martinez MLD",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "149",
+          "Carlos Mendoza ED, MLD, RC",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "150",
+          "Scott Rolen",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "151",
+          "Jose Cabrera MLD, RC",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "152",
+          "Justin Thompson",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "153",
+          "Ellis Burks",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "154",
+          "Pokey Reese MLD",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "155",
+          "Bartolo Colon MLD",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "156",
+          "Ray Durham",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "157",
+          "Ugueth Urbina",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "158",
+          "Tom Goodwin",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "159",
+          "Dave Dellucci ED, MLD, RC",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "160",
+          "Rod Beck",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "161",
+          "Ramon Martinez",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "162",
+          "Joe Carter",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "163",
+          "Kevin Orie MLD",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "164",
+          "Trevor Hoffman",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "165",
+          "Emil Brown MLD",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "166",
+          "Robb Nen TR",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "167",
+          "Paul O'Neill",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "168",
+          "Ryan Long MLD",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "169",
+          "Ray Lankford",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "170",
+          "Ivan Rodriguez",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "171",
+          "Rick Aguilera",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "172",
+          "Deivi Cruz MLD",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "173",
+          "Ricky Bottalico",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "174",
+          "Garret Anderson",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "175",
+          "Jose Vizcaino",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "176",
+          "Omar Vizquel",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "177",
+          "Jeff Blauser",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "178",
+          "Orlando Cabrera MLD",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "179",
+          "Russ Johnson MLD",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "180",
+          "Matt Stairs",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "181",
+          "Will Cunnane MLD",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "182",
+          "Adam Riggs MLD",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "183",
+          "Matt Morris MLD",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "184",
+          "Mario Valdez MLD",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "185",
+          "Larry Sutton MLD",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "186",
+          "Marc Pisciotta MLD, RC",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "187",
+          "Dan Wilson",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "188",
+          "John Franco",
+          "New York Mets",
+          ""
+        ],
+        [
+          "189",
+          "Darren Daulton",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "190",
+          "Todd Helton MLD",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "191",
+          "Brady Anderson",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "192",
+          "Ricardo Rincon MLD",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "193",
+          "Kevin Stocker TR",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "194",
+          "Jose Valentin",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "195",
+          "Ed Sprague",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "196",
+          "Ryan McGuire MLD",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "197",
+          "Scott Eyre MLD",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "198",
+          "Steve Finley",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "199",
+          "T.J. Mathews",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "200",
+          "Mike Piazza",
+          "Los Angeles Dodgers",
+          ""
+        ]
+      ]
+    },
+    "base-3": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/1149/1998-Fleer-Tradition?PageIndex=3",
+      "sha256": "c2f758e44fb99db03f0ffecae653435bee5ea203f43d176e8e093a786dffcd5c",
+      "records": [
+        [
+          "201",
+          "Mark Wohlers",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "202",
+          "Brian Giles",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "203",
+          "Eduardo Perez",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "204",
+          "Shigetoshi Hasegawa MLD",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "205",
+          "Mariano Rivera",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "206",
+          "Jose Rosado",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "207",
+          "Michael Coleman MLD",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "208",
+          "James Baldwin",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "209",
+          "Russ Davis",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "210",
+          "Billy Wagner",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "211",
+          "Sammy Sosa",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "212",
+          "Frank Catalanotto MLD, RC",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "213",
+          "Delino DeShields",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "214",
+          "John Olerud",
+          "New York Mets",
+          ""
+        ],
+        [
+          "215",
+          "Heath Murray MLD",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "216",
+          "Jose Vidro MLD",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "217",
+          "Jim Edmonds",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "218",
+          "Shawon Dunston",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "219",
+          "Homer Bush MLD",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "220",
+          "Midre Cummings",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "221",
+          "Tony Saunders ED, MLD",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "222",
+          "Jeromy Burnitz",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "223",
+          "Enrique Wilson MLD",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "224",
+          "Chili Davis",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "225",
+          "Jerry DiPoto",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "226",
+          "Dante Powell MLD",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "227",
+          "Javier Lopez",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "228",
+          "Kevin Polcovich MLD",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "229",
+          "Deion Sanders",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "230",
+          "Jimmy Key",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "231",
+          "Rusty Greer",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "232",
+          "Reggie Jefferson",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "233",
+          "Ron Coomer",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "234",
+          "Bobby Higginson",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "235",
+          "Magglio Ordonez MLD, RC",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "236",
+          "Miguel Tejada MLD",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "237",
+          "Rick Gorecki MLD, ED",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "238",
+          "Charles Johnson",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "239",
+          "Lance Johnson",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "240",
+          "Derek Bell",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "241",
+          "Will Clark",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "242",
+          "Brady Raggio MLD",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "243",
+          "Orel Hershiser",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "244",
+          "Vladimir Guerrero",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "245",
+          "John LeRoy ED, MLD",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "246",
+          "Shawn Estes",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "247",
+          "Brett Tomko MLD",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "248",
+          "Dave Nilsson",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "249",
+          "Edgar Martinez",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "250",
+          "Tony Gwynn",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "251",
+          "Mark Bellhorn MLD",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "252",
+          "Jed Hansen MLD",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "253",
+          "Butch Huskey",
+          "New York Mets",
+          ""
+        ],
+        [
+          "254",
+          "Eric Young",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "255",
+          "Vinny Castilla",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "256",
+          "Hideki Irabu MLD",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "257",
+          "Mike Cameron",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "258",
+          "Juan Encarnacion MLD",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "259",
+          "Brian Rose MLD",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "260",
+          "Brad Ausmus",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "261",
+          "Dan Serafini",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "262",
+          "Willie Greene",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "263",
+          "Troy Percival",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "264",
+          "Jeff Wallace MLD",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "265",
+          "Richie Sexson MLD",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "266",
+          "Rafael Palmeiro",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "267",
+          "Brad Fullmer MLD",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "268",
+          "Jeremi Gonzalez MLD",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "269",
+          "Rob Stanifer MLD, RC",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "270",
+          "Mickey Morandini",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "271",
+          "Andruw Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "272",
+          "Royce Clayton",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "273",
+          "Takashi Kashiwada MLD, RC",
+          "New York Mets",
+          ""
+        ],
+        [
+          "274",
+          "Steve Woodard MLD",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "275",
+          "Jose Cruz, Jr. MLD",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "276",
+          "Keith Foulke MLD",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "277",
+          "Brad Rigby MLD",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "278",
+          "Tino Martinez",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "279",
+          "Todd Jones",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "280",
+          "John Wetteland",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "281",
+          "Alex Gonzalez",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "282",
+          "Ken Cloude MLD",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "283",
+          "Jose Guillen MLD",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "284",
+          "Danny Clyburn MLD",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "285",
+          "David Ortiz MLD",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "286",
+          "John Thomson MLD",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "287",
+          "Kevin Appier",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "288",
+          "Ismael Valdes",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "289",
+          "Gary DiSarcina",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "290",
+          "Todd Dunwoody MLD",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "291",
+          "Wally Joyner",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "292",
+          "Charles Nagy",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "293",
+          "Jeff Shaw",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "294",
+          "Kevin Millwood MLD, RC",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "295",
+          "Rigo Beltran MLD, RC",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "296",
+          "Jeff Frye",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "297",
+          "Oscar Henriquez TR",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "298",
+          "Mike Thurman MLD",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "299",
+          "Garrett Stephenson",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "300",
+          "Barry Bonds",
+          "San Francisco Giants",
+          ""
+        ]
+      ]
+    },
+    "base-4": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/1149/1998-Fleer-Tradition?PageIndex=4",
+      "sha256": "28928bf908262c9dfa0c1b13fcbd13866fd22482a1343623b88b0acbe9cab80a",
+      "records": [
+        [
+          "301",
+          "Roger Clemens SH",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "302",
+          "David Cone SH",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "303",
+          "Hideki Irabu SH",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "304",
+          "Randy Johnson SH",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "305",
+          "Greg Maddux SH",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "306",
+          "Pedro Martinez SH",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "307",
+          "Mike Mussina SH",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "308",
+          "Andy Pettitte SH",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "309",
+          "Curt Schilling SH",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "310",
+          "John Smoltz SH",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "311",
+          "Roger Clemens GM",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "312",
+          "Jose Cruz, Jr. GM",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "313",
+          "Nomar Garciaparra GM",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "314",
+          "Ken Griffey, Jr. GM",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "315",
+          "Tony Gwynn GM",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "316",
+          "Hideki Irabu GM",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "317",
+          "Randy Johnson GM",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "318",
+          "Mark McGwire GM",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "319",
+          "Curt Schilling GM",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "320",
+          "Larry Walker GM",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "321",
+          "Jeff Bagwell TT",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "322",
+          "Albert Belle TT",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "323",
+          "Barry Bonds TT",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "324",
+          "Jay Buhner TT",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "325",
+          "Tony Clark TT",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "326",
+          "Jose Cruz, Jr. TT",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "327",
+          "Andres Galarraga TT",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "328",
+          "Juan Gonzalez TT",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "329",
+          "Ken Griffey, Jr. TT",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "330",
+          "Andruw Jones TT",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "331",
+          "Tino Martinez TT",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "332",
+          "Mark McGwire TT",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "333",
+          "Rafael Palmeiro TT",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "334",
+          "Mike Piazza TT",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "335",
+          "Manny Ramirez TT",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "336",
+          "Alex Rodriguez TT",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "337",
+          "Frank Thomas TT",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "338",
+          "Jim Thome TT",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "339",
+          "Mo Vaughn TT",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "340",
+          "Larry Walker TT",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "341",
+          "Jose Cruz, Jr. CL",
+          "Toronto Blue Jays",
+          "Checklist: 1-50"
+        ],
+        [
+          "342",
+          "Ken Griffey, Jr. CL",
+          "Seattle Mariners",
+          "Checklist: 51-100"
+        ],
+        [
+          "343",
+          "Derek Jeter CL",
+          "New York Yankees",
+          "Checklist: 101-150"
+        ],
+        [
+          "344",
+          "Andruw Jones CL",
+          "Atlanta Braves",
+          "Checklist: 151-200"
+        ],
+        [
+          "345",
+          "Chipper Jones CL",
+          "Atlanta Braves",
+          "Checklist: 201-250"
+        ],
+        [
+          "346",
+          "Greg Maddux CL",
+          "Atlanta Braves",
+          "Checklist: 251-300"
+        ],
+        [
+          "347",
+          "Mike Piazza CL",
+          "Los Angeles Dodgers",
+          "Checklist: 301-340"
+        ],
+        [
+          "348",
+          "Cal Ripken, Jr. CL",
+          "Baltimore Orioles",
+          "Checklist: 341-350 and Inserts"
+        ],
+        [
+          "349",
+          "Alex Rodriguez CL",
+          "Seattle Mariners",
+          "Checklist: Inserts"
+        ],
+        [
+          "350",
+          "Frank Thomas CL",
+          "Chicago White Sox",
+          "Checklist: Inserts"
+        ],
+        [
+          "351",
+          "Mo Vaughn",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "352",
+          "Andres Galarraga",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "353",
+          "Roberto Alomar",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "354",
+          "Darin Erstad",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "355",
+          "Albert Belle",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "356",
+          "Matt Williams",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "357",
+          "Darryl Kile",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "358",
+          "Kenny Lofton",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "359",
+          "Orel Hershiser",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "360",
+          "Bobby Abreu",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "361",
+          "Chris Widger",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "362",
+          "Glenallen Hill",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "363",
+          "Chili Davis",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "364",
+          "Kevin Brown",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "365",
+          "Marquis Grissom",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "366",
+          "Livan Hernandez",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "367",
+          "Moises Alou",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "368",
+          "Matt Lawton",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "369",
+          "Rey Ordonez",
+          "New York Mets",
+          ""
+        ],
+        [
+          "370",
+          "Kenny Rogers",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "371",
+          "Lee Stevens",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "372",
+          "Wade Boggs",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "373",
+          "Luis Gonzalez",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "374",
+          "Jeff Conine",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "375",
+          "Esteban Loaiza",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "376",
+          "Jose Canseco",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "377",
+          "Henry Rodriguez",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "378",
+          "Dave Burba",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "379",
+          "Todd Hollandsworth",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "380",
+          "Ron Gant",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "381",
+          "Pedro Martinez",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "382",
+          "Ryan Klesko",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "383",
+          "Derrek Lee ROO",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "384",
+          "Doug Glanville",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "385",
+          "David Wells",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "386",
+          "Ken Caminiti",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "387",
+          "Damon Hollins ROO",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "388",
+          "Manny Ramirez",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "389",
+          "Mike Mussina",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "390",
+          "Jay Bell",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "391",
+          "Mike Piazza",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "392",
+          "Mike Lansing",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "393",
+          "Mike Hampton",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "394",
+          "Geoff Jenkins ROO",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "395",
+          "Jimmy Haynes",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "396",
+          "Scott Servais",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "397",
+          "Kent Mercker",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "398",
+          "Jeff Kent",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "399",
+          "Kevin Elster",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "400",
+          "Masato Yoshii ROO, RC",
+          "New York Mets",
+          ""
+        ]
+      ]
+    },
+    "base-5": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/1149/1998-Fleer-Tradition?PageIndex=5",
+      "sha256": "49590759a38ef7d16ff06a5ca43bc3c79b29ea8b0f62560d8ad81221def67646",
+      "records": [
+        [
+          "401",
+          "Jose Vizcaino",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "402",
+          "Javier Martinez ROO, RC",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "403",
+          "David Segui",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "404",
+          "Tony Saunders",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "405",
+          "Karim Garcia ROO",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "406",
+          "Armando Benitez",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "407",
+          "Joe Randa",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "408",
+          "Vic Darensbourg ROO",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "409",
+          "Sean Casey ROO",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "410",
+          "Eric Milton ROO",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "411",
+          "Trey Moore ROO",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "412",
+          "Mike Stanley",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "413",
+          "Tom Gordon",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "414",
+          "Hal Morris",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "415",
+          "Braden Looper ROO",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "416",
+          "Mike Kelly",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "417",
+          "John Smoltz",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "418",
+          "Roger Cedeno",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "419",
+          "Al Leiter",
+          "New York Mets",
+          ""
+        ],
+        [
+          "420",
+          "Chuck Knoblauch",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "421",
+          "Felix Rodriguez",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "422",
+          "Bip Roberts",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "423",
+          "Ken Hill",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "424",
+          "Jermaine Allensworth",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "425",
+          "Esteban Yan ROO, RC",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "426",
+          "Scott Karl",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "427",
+          "Sean Berry",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "428",
+          "Rafael Medina ROO",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "429",
+          "Javier Vazquez ROO",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "430",
+          "Rickey Henderson",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "431",
+          "Adam Butler ROO",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "432",
+          "Todd Stottlemyre",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "433",
+          "Yamil Benitez",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "434",
+          "Sterling Hitchcock",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "435",
+          "Paul Sorrento",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "436",
+          "Bobby Ayala",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "437",
+          "Tim Raines",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "438",
+          "Chris Hoiles",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "439",
+          "Rod Beck",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "440",
+          "Donnie Sadler ROO",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "441",
+          "Charles Johnson",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "442",
+          "Russ Ortiz ROO",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "443",
+          "Pedro Astacio",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "444",
+          "Wilson Alvarez",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "445",
+          "Mike Blowers",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "446",
+          "Todd Zeile",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "447",
+          "Mel Rojas",
+          "New York Mets",
+          ""
+        ],
+        [
+          "448",
+          "F.P. Santangelo",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "449",
+          "Dmitri Young",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "450",
+          "Brian Anderson",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "451",
+          "Cecil Fielder",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "452",
+          "Roberto Hernandez",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "453",
+          "Todd Walker",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "454",
+          "Tyler Green",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "455",
+          "Jorge Posada",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "456",
+          "Geronimo Berroa",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "457",
+          "Jose Silva ROO",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "458",
+          "Bobby Bonilla",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "459",
+          "Walt Weiss",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "460",
+          "Darren Dreifort",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "461",
+          "B.J. Surhoff",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "462",
+          "Quinton McCracken",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "463",
+          "Derek Lowe",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "464",
+          "Jorge Fabregas",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "465",
+          "Joey Hamilton",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "466",
+          "Brian Jordan",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "467",
+          "Allen Watson",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "468",
+          "John Jaha",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "469",
+          "Heathcliff Slocumb",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "470",
+          "Gregg Jefferies",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "471",
+          "Scott Brosius",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "472",
+          "Chad Ogea",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "473",
+          "A.J. Hinch ROO",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "474",
+          "Bobby Smith ROO",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "475",
+          "Brian Moehler",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "476",
+          "DaRond Stovall ROO",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "477",
+          "Kevin Young",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "478",
+          "Jeff Suppan",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "479",
+          "Marty Cordova",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "480",
+          "John Halama ROO, RC",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "481",
+          "Bubba Trammell ROO",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "482",
+          "Mike Caruso ROO",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "483",
+          "Eric Karros",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "484",
+          "Jamey Wright",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "485",
+          "Mike Sweeney",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "486",
+          "Aaron Sele",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "487",
+          "Cliff Floyd",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "488",
+          "Jeff Brantley",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "489",
+          "Jim Leyritz",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "490",
+          "Denny Neagle",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "491",
+          "Travis Fryman",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "492",
+          "Carlos Baerga",
+          "New York Mets",
+          ""
+        ],
+        [
+          "493",
+          "Eddie Taubensee",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "494",
+          "Darryl Strawberry",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "495",
+          "Brian Johnson",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "496",
+          "Randy Myers",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "497",
+          "Jeff Blauser",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "498",
+          "Jason Wood",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "499",
+          "Rolando Arrojo ROO, RC",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "500",
+          "Johnny Damon",
+          "Kansas City Royals",
+          ""
+        ]
+      ]
+    },
+    "base-6": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/1149/1998-Fleer-Tradition?PageIndex=6",
+      "sha256": "4fa919602ef7f88469ecd1f12194388d982cf5f42411ac69ffa876df91cc5b70",
+      "records": [
+        [
+          "501",
+          "Jose Mercedes",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "502",
+          "Tony Batista",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "503",
+          "Mike Piazza",
+          "New York Mets",
+          ""
+        ],
+        [
+          "504",
+          "Hideo Nomo",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "505",
+          "Chris Gomez",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "506",
+          "Jesus Sanchez ROO, RC",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "507",
+          "Al Martin",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "508",
+          "Brian Edmondson ROO",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "509",
+          "Joe Girardi",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "510",
+          "Shayne Bennett ROO",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "511",
+          "Joe Carter",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "512",
+          "Dave Mlicki",
+          "New York Mets",
+          ""
+        ],
+        [
+          "513",
+          "Rich Butler ROO, RC",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "514",
+          "Dennis Eckersley",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "515",
+          "Travis Lee ROO",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "516",
+          "John Mabry",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "517",
+          "Jose Mesa",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "518",
+          "Phil Nevin",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "519",
+          "Raul Casanova",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "520",
+          "Mike Fetters",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "521",
+          "Gary Sheffield",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "522",
+          "Terry Steinbach",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "523",
+          "Steve Trachsel",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "524",
+          "Josh Booty ROO",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "525",
+          "Darryl Hamilton",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "526",
+          "Mark McLemore",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "527",
+          "Kevin Stocker",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "528",
+          "Bret Boone",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "529",
+          "Shane Andrews",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "530",
+          "Robb Nen",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "531",
+          "Carl Everett",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "532",
+          "LaTroy Hawkins",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "533",
+          "Fernando Vina",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "534",
+          "Michael Tucker",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "535",
+          "Mark Langston",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "536",
+          "Mickey Mantle",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "537",
+          "Bernard Gilkey",
+          "New York Mets",
+          ""
+        ],
+        [
+          "538",
+          "Francisco Cordova",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "539",
+          "Mike Bordick",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "540",
+          "Fred McGriff",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "541",
+          "Cliff Politte ROO",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "542",
+          "Jason Varitek ROO",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "543",
+          "Shawon Dunston",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "544",
+          "Brian Meadows ROO",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "545",
+          "Pat Meares",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "546",
+          "Carlos Perez",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "547",
+          "Desi Relaford ROO",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "548",
+          "Antonio Osuna",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "549",
+          "Devon White",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "550",
+          "Sean Runyan ROO",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "551",
+          "Mickey Morandini",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "552",
+          "Dave Martinez",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "553",
+          "Jeff Fassero",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "554",
+          "Ryan Jackson ROO, RC",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "555",
+          "Stan Javier",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "556",
+          "Jaime Navarro",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "557",
+          "Jose Offerman",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "558",
+          "Mike Lowell ROO, RC",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "559",
+          "Darrin Fletcher",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "560",
+          "Mark Lewis",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "561",
+          "Dante Bichette",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "562",
+          "Chuck Finley",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "563",
+          "Kerry Wood ROO",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "564",
+          "Andy Benes",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "565",
+          "Freddy Garcia",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "566",
+          "Tom Glavine",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "567",
+          "Jon Nunnally",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "568",
+          "Miguel Cairo ROO",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "569",
+          "Shane Reynolds",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "570",
+          "Roberto Kelly",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "571",
+          "Jose Cruz, Jr. CL",
+          "Toronto Blue Jays",
+          "Checklist: 351-412"
+        ],
+        [
+          "572",
+          "Ken Griffey, Jr. CL",
+          "Seattle Mariners",
+          "Checklist: 413-474"
+        ],
+        [
+          "573",
+          "Mark McGwire CL",
+          "St. Louis Cardinals",
+          "Checklist: 475-536"
+        ],
+        [
+          "574",
+          "Cal Ripken, Jr. CL",
+          "Baltimore Orioles",
+          "Checklist: 537-593"
+        ],
+        [
+          "575",
+          "Frank Thomas CL",
+          "Chicago White Sox",
+          "Checklist: 594-600 and Inserts"
+        ],
+        [
+          "576",
+          "Jeff Bagwell UM, SP",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "577",
+          "Barry Bonds UM",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "578",
+          "Tony Clark UM",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "579",
+          "Roger Clemens UM",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "580",
+          "Jose Cruz, Jr. UM",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "581",
+          "Nomar Garciaparra UM",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "582",
+          "Juan Gonzalez UM",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "583",
+          "Ben Grieve UM",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "584",
+          "Ken Griffey, Jr. UM, SP",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "585",
+          "Tony Gwynn UM, SP",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "586",
+          "Derek Jeter UM",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "587",
+          "Randy Johnson UM",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "588",
+          "Chipper Jones UM",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "589",
+          "Greg Maddux UM",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "590",
+          "Mark McGwire UM",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "591",
+          "Andy Pettitte UM",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "592",
+          "Paul Molitor UM",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "593",
+          "Cal Ripken, Jr. UM",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "594",
+          "Alex Rodriguez UM",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "595",
+          "Scott Rolen UM",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "596",
+          "Curt Schilling UM",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "597",
+          "Frank Thomas UM",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "598",
+          "Jim Thome UM",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "599",
+          "Larry Walker UM",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "600",
+          "Bernie Williams UM, SP",
+          "New York Yankees",
+          ""
+        ]
+      ]
+    },
+    "base-7": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/1149/1998-Fleer-Tradition?PageIndex=7",
+      "sha256": "c3361fa8967dc131ad4d10a9f9e81c21600f4356c7f2de0b78019dc34bbc5925",
+      "records": []
+    },
+    "rookies-1": {
+      "url": "https://www.tcdb.com/Rookies.cfm/sid/1149/1998-Fleer-Tradition?PageIndex=1",
+      "sha256": "571d8d46174432452ecc7166c4e184d607fa4dbd26bd90ed1f75a725b3b23eb8",
+      "records": [
+        [
+          "36",
+          "Curtis King MLD, RC",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "88",
+          "Mike Cather MLD, RC",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "92",
+          "Mike DeJean MLD, RC",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "95",
+          "Manny Aybar MLD, RC",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "123",
+          "Todd Erdos ED, RC",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "147",
+          "Chad Fox MLD, RC",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "149",
+          "Carlos Mendoza ED, MLD, RC",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "151",
+          "Jose Cabrera MLD, RC",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "159",
+          "Dave Dellucci ED, MLD, RC",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "186",
+          "Marc Pisciotta MLD, RC",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "212",
+          "Frank Catalanotto MLD, RC",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "235",
+          "Magglio Ordonez MLD, RC",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "269",
+          "Rob Stanifer MLD, RC",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "273",
+          "Takashi Kashiwada MLD, RC",
+          "New York Mets",
+          ""
+        ],
+        [
+          "294",
+          "Kevin Millwood MLD, RC",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "295",
+          "Rigo Beltran MLD, RC",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "400",
+          "Masato Yoshii ROO, RC",
+          "New York Mets",
+          ""
+        ],
+        [
+          "402",
+          "Javier Martinez ROO, RC",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "425",
+          "Esteban Yan ROO, RC",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "480",
+          "John Halama ROO, RC",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "499",
+          "Rolando Arrojo ROO, RC",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "506",
+          "Jesus Sanchez ROO, RC",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "513",
+          "Rich Butler ROO, RC",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "554",
+          "Ryan Jackson ROO, RC",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "558",
+          "Mike Lowell ROO, RC",
+          "New York Yankees",
+          ""
+        ]
+      ]
+    },
+    "rookies-2": {
+      "url": "https://www.tcdb.com/Rookies.cfm/sid/1149/1998-Fleer-Tradition?PageIndex=2",
+      "sha256": "509d57f306a0b86b8bf3827fd7ca7bee592936f361ebc3f038420e13d650f0bb",
+      "records": []
+    },
+    "decade-of-excellence": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/1150/1998-Fleer-Tradition-Decade-of-Excellence",
+      "sha256": "27ed4fd27d5c82a24920336d1641d955a7484fae5aa6606916ede1502681f88d",
+      "records": [
+        [
+          "1 DE",
+          "Roberto Alomar",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "2 DE",
+          "Barry Bonds",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "3 DE",
+          "Roger Clemens",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "4 DE",
+          "David Cone",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "5 DE",
+          "Andres Galarraga",
+          "Montreal Expos / Atlanta Braves",
+          ""
+        ],
+        [
+          "6 DE",
+          "Mark Grace",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "7 DE",
+          "Tony Gwynn",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "8 DE",
+          "Randy Johnson",
+          "Montreal Expos / Seattle Mariners",
+          ""
+        ],
+        [
+          "9 DE",
+          "Greg Maddux",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "10 DE",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "11 DE",
+          "Paul O'Neill",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "12 DE",
+          "Cal Ripken, Jr.",
+          "Baltimore Orioles",
+          ""
+        ]
+      ]
+    },
+    "decade-rare-traditions": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/11096/1998-Fleer-Tradition-Decade-of-Excellence-Rare-Traditions",
+      "sha256": "bd504997e5415f3bcb18f0578dc976b7d287614a15e3fcaf27ffb35254bcdf4d",
+      "records": [
+        [
+          "1 DE",
+          "Roberto Alomar",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "2 DE",
+          "Barry Bonds",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "3 DE",
+          "Roger Clemens",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "4 DE",
+          "David Cone",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "5 DE",
+          "Andres Galarraga",
+          "Montreal Expos / Atlanta Braves",
+          ""
+        ],
+        [
+          "6 DE",
+          "Mark Grace",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "7 DE",
+          "Tony Gwynn",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "8 DE",
+          "Randy Johnson",
+          "Montreal Expos / Seattle Mariners",
+          ""
+        ],
+        [
+          "9 DE",
+          "Greg Maddux",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "10 DE",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "11 DE",
+          "Paul O'Neill",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "12 DE",
+          "Cal Ripken, Jr.",
+          "Baltimore Orioles",
+          ""
+        ]
+      ]
+    },
+    "diamond-ink-1": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/11097/1998-Fleer-Tradition-Diamond-Ink-1-Point",
+      "sha256": "0faa1d35a71551ea49a6ba96c30d03d4a78998462637d781041436f697ed32f7",
+      "records": [
+        [
+          "NNO",
+          "Jay Buhner RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Roger Clemens RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Jose Cruz, Jr. RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Nomar Garciaparra RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Tony Gwynn RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Roberto Hernandez RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Greg Maddux RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Alex Rodriguez RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Scott Rolen RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Tony Womack RDM",
+          "",
+          ""
+        ]
+      ]
+    },
+    "diamond-ink-10": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/95553/1998-Fleer-Tradition-Diamond-Ink-10-Points",
+      "sha256": "b8697010c080c76ef0c40abb72677e7a13ba303ec8ab806805d08031bb5d95c9",
+      "records": [
+        [
+          "NNO",
+          "Jay Buhner RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Roger Clemens RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Jose Cruz, Jr. RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Nomar Garciaparra RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Tony Gwynn RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Roberto Hernandez RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Greg Maddux RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Alex Rodriguez RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Scott Rolen RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Tony Womack RDM",
+          "",
+          ""
+        ]
+      ]
+    },
+    "diamond-ink-25": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/282595/1998-Fleer-Tradition-Diamond-Ink-25-Points",
+      "sha256": "c5af57f616790d3058796f962e397f158e431f41cc1660bb82b02145536472b8",
+      "records": [
+        [
+          "NNO",
+          "Jay Buhner RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Roger Clemens RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Jose Cruz, Jr. RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Nomar Garciaparra RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Tony Gwynn RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Roberto Hernandez RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Greg Maddux RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Alex Rodriguez RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Scott Rolen RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Tony Womack RDM",
+          "",
+          ""
+        ]
+      ]
+    },
+    "diamond-ink-5": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/95552/1998-Fleer-Tradition-Diamond-Ink-5-Points",
+      "sha256": "05443ab93afade419a4d6f2890eef87ebfccc8ae05dfafe433f147a1eab5721c",
+      "records": [
+        [
+          "NNO",
+          "Jay Buhner RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Roger Clemens RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Jose Cruz, Jr. RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Nomar Garciaparra RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Tony Gwynn RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Roberto Hernandez RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Greg Maddux RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Alex Rodriguez RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Scott Rolen RDM",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Tony Womack RDM",
+          "",
+          ""
+        ]
+      ]
+    },
+    "diamond-standouts": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/1151/1998-Fleer-Tradition-Diamond-Standouts",
+      "sha256": "a2bd8f1d7c58e058cc695b07f2f57e36cc48d38cb4c7fd24d7b0f8fd22de84c4",
+      "records": [
+        [
+          "1 DS",
+          "Jeff Bagwell",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "2 DS",
+          "Barry Bonds",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "3 DS",
+          "Roger Clemens",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "4 DS",
+          "Jose Cruz, Jr.",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "5 DS",
+          "Andres Galarraga",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "6 DS",
+          "Nomar Garciaparra",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "7 DS",
+          "Juan Gonzalez",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "8 DS",
+          "Ken Griffey, Jr.",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "9 DS",
+          "Derek Jeter",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "10 DS",
+          "Randy Johnson",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "11 DS",
+          "Chipper Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "12 DS",
+          "Kenny Lofton",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "13 DS",
+          "Greg Maddux",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "14 DS",
+          "Pedro Martinez",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "15 DS",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "16 DS",
+          "Mike Piazza",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "17 DS",
+          "Alex Rodriguez",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "18 DS",
+          "Curt Schilling",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "19 DS",
+          "Frank Thomas",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "20 DS",
+          "Larry Walker",
+          "Colorado Rockies",
+          ""
+        ]
+      ]
+    },
+    "diamond-tribute": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/11098/1998-Fleer-Tradition-Diamond-Tribute",
+      "sha256": "8ffefb14ed9d1d5db56aa158166e1bcbac8f529d0edcf0e457f47174e185adff",
+      "records": [
+        [
+          "1 DT",
+          "Jeff Bagwell",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "2 DT",
+          "Roger Clemens",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "3 DT",
+          "Nomar Garciaparra",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "4 DT",
+          "Juan Gonzalez",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "5 DT",
+          "Ken Griffey, Jr.",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "6 DT",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "7 DT",
+          "Mike Piazza",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "8 DT",
+          "Cal Ripken, Jr.",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "9 DT",
+          "Alex Rodriguez",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "10 DT",
+          "Frank Thomas",
+          "Chicago White Sox",
+          ""
+        ]
+      ]
+    },
+    "in-the-clutch": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/11099/1998-Fleer-Tradition-In-the-Clutch",
+      "sha256": "a26a109b77fbd41cc258567e611590487583f2f8965d8cc2576342638f389da9",
+      "records": [
+        [
+          "1 IC",
+          "Jeff Bagwell",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "2 IC",
+          "Barry Bonds",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "3 IC",
+          "Roger Clemens",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "4 IC",
+          "Jose Cruz, Jr.",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "5 IC",
+          "Nomar Garciaparra",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "6 IC",
+          "Juan Gonzalez",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "7 IC",
+          "Ken Griffey, Jr.",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "8 IC",
+          "Tony Gwynn",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "9 IC",
+          "Derek Jeter",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "10 IC",
+          "Chipper Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "11 IC",
+          "Greg Maddux",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "12 IC",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "13 IC",
+          "Mike Piazza",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "14 IC",
+          "Frank Thomas",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "15 IC",
+          "Larry Walker",
+          "Colorado Rockies",
+          ""
+        ]
+      ]
+    },
+    "lumber-company": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/1153/1998-Fleer-Tradition-Lumber-Company",
+      "sha256": "57f5fccfe1d0ed309a2aa272e8a96af7c324b0f7e3fd362fd8b5f92303174777",
+      "records": [
+        [
+          "1 LC",
+          "Jeff Bagwell",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "2 LC",
+          "Barry Bonds",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "3 LC",
+          "Jose Cruz, Jr.",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "4 LC",
+          "Nomar Garciaparra",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "5 LC",
+          "Juan Gonzalez",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "6 LC",
+          "Ken Griffey, Jr.",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "7 LC",
+          "Tony Gwynn",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "8 LC",
+          "Chipper Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "9 LC",
+          "Tino Martinez",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "10 LC",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "11 LC",
+          "Mike Piazza",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "12 LC",
+          "Cal Ripken, Jr.",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "13 LC",
+          "Alex Rodriguez",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "14 LC",
+          "Frank Thomas",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "15 LC",
+          "Larry Walker",
+          "Colorado Rockies",
+          ""
+        ]
+      ]
+    },
+    "mantle-moments": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/11100/1998-Fleer-Tradition-Mickey-Mantle-Monumental-Moments",
+      "sha256": "4e5651173de93a03b430068807d9d2c9478dbfe59ef644406fc31634c0ba53c8",
+      "records": [
+        [
+          "1 MM",
+          "Mickey Mantle",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "2 MM",
+          "Mickey Mantle",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "3 MM",
+          "Mickey Mantle",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "4 MM",
+          "Mickey Mantle",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "5 MM",
+          "Mickey Mantle",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "6 MM",
+          "Mickey Mantle",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "7 MM",
+          "Mickey Mantle",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "8 MM",
+          "Mickey Mantle",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "9 MM",
+          "Mickey Mantle",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "10 MM",
+          "Mickey Mantle",
+          "New York Yankees",
+          ""
+        ]
+      ]
+    },
+    "mantle-gold": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/11101/1998-Fleer-Tradition-Mickey-Mantle-Monumental-Moments-Gold",
+      "sha256": "d1c40d335ce0913daa6082af1f7393e40757bffb12fc16fdf7150824595abb71",
+      "records": [
+        [
+          "1 MMG",
+          "Mickey Mantle SN51",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "2 MMG",
+          "Mickey Mantle SN51",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "3 MMG",
+          "Mickey Mantle SN51",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "4 MMG",
+          "Mickey Mantle SN51",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "5 MMG",
+          "Mickey Mantle SN51",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "6 MMG",
+          "Mickey Mantle SN51",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "7 MMG",
+          "Mickey Mantle SN51",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "8 MMG",
+          "Mickey Mantle SN51",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "9 MMG",
+          "Mickey Mantle SN51",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "10 MMG",
+          "Mickey Mantle SN51",
+          "New York Yankees",
+          ""
+        ]
+      ]
+    },
+    "promising-forecasts": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/11103/1998-Fleer-Tradition-Promising-Forecasts",
+      "sha256": "cec180dcbd4f8cb16316e9e85f30bbf39c8eb31328f4a6919e8ce9dfffb300f4",
+      "records": [
+        [
+          "1 PF",
+          "Rolando Arrojo",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "2 PF",
+          "Sean Casey",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "3 PF",
+          "Brad Fullmer",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "4 PF",
+          "Karim Garcia",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "5 PF",
+          "Ben Grieve",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "6 PF",
+          "Todd Helton",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "7 PF",
+          "Richard Hidalgo",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "8 PF",
+          "A.J. Hinch",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "9 PF",
+          "Paul Konerko",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "10 PF",
+          "Mark Kotsay",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "11 PF",
+          "Derrek Lee",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "12 PF",
+          "Travis Lee",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "13 PF",
+          "Eric Milton",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "14 PF",
+          "Magglio Ordonez",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "15 PF",
+          "David Ortiz",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "16 PF",
+          "Brian Rose",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "17 PF",
+          "Miguel Tejada",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "18 PF",
+          "Jason Varitek",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "19 PF",
+          "Enrique Wilson",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "20 PF",
+          "Kerry Wood",
+          "Chicago Cubs",
+          ""
+        ]
+      ]
+    },
+    "rookie-sensations": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/1154/1998-Fleer-Tradition-Rookie-Sensations",
+      "sha256": "9e834575e2c81eb7c45c5efb8876ed9fd3d399d35bf8ba6273585c20245d4711",
+      "records": [
+        [
+          "1 RS",
+          "Mike Cameron",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "2 RS",
+          "Jose Cruz, Jr.",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "3 RS",
+          "Jason Dickson",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "4 RS",
+          "Kelvim Escobar",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "5 RS",
+          "Nomar Garciaparra",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "6 RS",
+          "Ben Grieve",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "7 RS",
+          "Vladimir Guerrero",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "8 RS",
+          "Wilton Guerrero",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "9 RS",
+          "Jose Guillen",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "10 RS",
+          "Todd Helton",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "11 RS",
+          "Livan Hernandez",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "12 RS",
+          "Hideki Irabu",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "13 RS",
+          "Andruw Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "14 RS",
+          "Matt Morris",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "15 RS",
+          "Magglio Ordonez",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "16 RS",
+          "Neifi Perez",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "17 RS",
+          "Scott Rolen",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "18 RS",
+          "Fernando Tatis",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "19 RS",
+          "Brett Tomko",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "20 RS",
+          "Jaret Wright",
+          "Cleveland Indians",
+          ""
+        ]
+      ]
+    },
+    "power-game": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/1155/1998-Fleer-Tradition-The-Power-Game",
+      "sha256": "9180c699ed717fbd622c33277d9d71f0eb40baf3041f859b4708e8cc2811c697",
+      "records": [
+        [
+          "1 PG",
+          "Jeff Bagwell",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "2 PG",
+          "Albert Belle",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "3 PG",
+          "Barry Bonds",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "4 PG",
+          "Tony Clark",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "5 PG",
+          "Roger Clemens",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "6 PG",
+          "Jose Cruz, Jr.",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "7 PG",
+          "Andres Galarraga",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "8 PG",
+          "Nomar Garciaparra",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "9 PG",
+          "Juan Gonzalez",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "10 PG",
+          "Ken Griffey, Jr.",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "11 PG",
+          "Randy Johnson",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "12 PG",
+          "Greg Maddux",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "13 PG",
+          "Pedro Martinez",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "14 PG",
+          "Tino Martinez",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "15 PG",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "16 PG",
+          "Mike Piazza",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "17 PG",
+          "Curt Schilling",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "18 PG",
+          "Frank Thomas",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "19 PG",
+          "Jim Thome",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "20 PG",
+          "Larry Walker",
+          "Colorado Rockies",
+          ""
+        ]
+      ]
+    },
+    "vintage-1": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/1157/1998-Fleer-Tradition-Vintage?PageIndex=1",
+      "sha256": "a08e046e5b6daa8087ea8721ce518ca01cf84bb476a2704981706db0b7dae0c9",
+      "records": [
+        [
+          "1",
+          "Jason Dickson",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "2",
+          "Tim Salmon",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "3",
+          "Andruw Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "4",
+          "Chipper Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "5",
+          "Kenny Lofton",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "6",
+          "Greg Maddux",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "7",
+          "Rafael Palmeiro",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "8",
+          "Cal Ripken, Jr.",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "9",
+          "Nomar Garciaparra",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "10",
+          "Mark Grace",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "11",
+          "Sammy Sosa",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "12",
+          "Frank Thomas",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "13",
+          "Deion Sanders",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "14",
+          "Sandy Alomar, Jr.",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "15",
+          "David Justice",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "16",
+          "Jim Thome",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "17",
+          "Matt Williams",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "18",
+          "Jaret Wright",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "19",
+          "Vinny Castilla",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "20",
+          "Andres Galarraga",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "21",
+          "Todd Helton",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "22",
+          "Larry Walker",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "23",
+          "Tony Clark",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "24",
+          "Moises Alou",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "25",
+          "Kevin Brown",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "26",
+          "Charles Johnson",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "27",
+          "Edgar Renteria",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "28",
+          "Gary Sheffield",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "29",
+          "Jeff Bagwell",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "30",
+          "Craig Biggio",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "31",
+          "Raul Mondesi",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "32",
+          "Mike Piazza",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "33",
+          "Chuck Knoblauch",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "34",
+          "Paul Molitor",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "35",
+          "Vladimir Guerrero",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "36",
+          "Pedro Martinez",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "37",
+          "Todd Hundley",
+          "New York Mets",
+          ""
+        ],
+        [
+          "38",
+          "Derek Jeter",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "39",
+          "Tino Martinez",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "40",
+          "Paul O'Neill",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "41",
+          "Andy Pettitte",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "42",
+          "Mariano Rivera",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "43",
+          "Bernie Williams",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "44",
+          "Ben Grieve",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "45",
+          "Scott Rolen",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "46",
+          "Curt Schilling",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "47",
+          "Jason Kendall",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "48",
+          "Tony Womack",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "49",
+          "Ray Lankford",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "50",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "51",
+          "Matt Morris",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "52",
+          "Tony Gwynn",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "53",
+          "Barry Bonds",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "54",
+          "Jay Buhner",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "55",
+          "Ken Griffey, Jr.",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "56",
+          "Randy Johnson",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "57",
+          "Edgar Martinez",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "58",
+          "Alex Rodriguez",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "59",
+          "Juan Gonzalez",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "60",
+          "Rusty Greer",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "61",
+          "Ivan Rodriguez",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "62",
+          "Roger Clemens",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "63",
+          "Jose Cruz, Jr.",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "64",
+          "Darin Erstad",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "65",
+          "Jay Bell",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "66",
+          "Andy Benes",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "67",
+          "Mickey Mantle",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "68",
+          "Karim Garcia",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "69",
+          "Travis Lee",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "70",
+          "Matt Williams",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "71",
+          "Andres Galarraga",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "72",
+          "Tom Glavine",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "73",
+          "Ryan Klesko",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "74",
+          "Denny Neagle",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "75",
+          "John Smoltz",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "76",
+          "Roberto Alomar",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "77",
+          "Joe Carter",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "78",
+          "Mike Mussina",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "79",
+          "B.J. Surhoff",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "80",
+          "Dennis Eckersley",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "81",
+          "Pedro Martinez",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "82",
+          "Mo Vaughn",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "83",
+          "Henry Rodriguez",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "84",
+          "Kerry Wood",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "85",
+          "Albert Belle",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "86",
+          "Sean Casey",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "87",
+          "Travis Fryman",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "88",
+          "Kenny Lofton",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "89",
+          "Darryl Kile",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "90",
+          "Mike Lansing",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "91",
+          "Bobby Bonilla",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "92",
+          "Cliff Floyd",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "93",
+          "Livan Hernandez",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "94",
+          "Derrek Lee",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "95",
+          "Moises Alou",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "96",
+          "Shane Reynolds",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "97",
+          "Mike Piazza",
+          "New York Mets",
+          ""
+        ],
+        [
+          "98",
+          "Johnny Damon",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "99",
+          "Eric Karros",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "100",
+          "Hideo Nomo",
+          "Los Angeles Dodgers",
+          ""
+        ]
+      ]
+    },
+    "vintage-2": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/1157/1998-Fleer-Tradition-Vintage?PageIndex=2",
+      "sha256": "94f304fe63d9a605957f8b59570cbbd4694987e060f135db8cf30a6bc78e5842",
+      "records": [
+        [
+          "101",
+          "Marquis Grissom",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "102",
+          "Matt Lawton",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "103",
+          "Todd Walker",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "104",
+          "Gary Sheffield",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "105",
+          "Bernard Gilkey",
+          "New York Mets",
+          ""
+        ],
+        [
+          "106",
+          "Rey Ordonez",
+          "New York Mets",
+          ""
+        ],
+        [
+          "107",
+          "Chili Davis",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "108",
+          "Chuck Knoblauch",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "109",
+          "Charles Johnson",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "110",
+          "Rickey Henderson",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "111",
+          "Bobby Abreu",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "112",
+          "Doug Glanville",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "113",
+          "Gregg Jefferies",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "114",
+          "Al Martin",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "115",
+          "Kevin Young",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "116",
+          "Ron Gant",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "117",
+          "Kevin Brown",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "118",
+          "Ken Caminiti",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "119",
+          "Joey Hamilton",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "120",
+          "Jeff Kent",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "121",
+          "Wade Boggs",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "122",
+          "Quinton McCracken",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "123",
+          "Fred McGriff",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "124",
+          "Paul Sorrento",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "125",
+          "Jose Canseco",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "126",
+          "Randy Myers",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "NNO",
+          "Checklist: 1-63 CL",
+          "",
+          ""
+        ],
+        [
+          "NNO",
+          "Checklist: 64-126 CL",
+          "",
+          ""
+        ]
+      ]
+    },
+    "classic-1": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/11104/1998-Fleer-Tradition-Vintage-Classic?PageIndex=1",
+      "sha256": "fca556058578ebe706f6bc733c84a0e1294fd5768a4cf072384b91964233adf2",
+      "records": [
+        [
+          "1C",
+          "Jason Dickson SN63",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "2C",
+          "Tim Salmon SN63",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "3C",
+          "Andruw Jones SN63",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "4C",
+          "Chipper Jones SN63",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "5C",
+          "Kenny Lofton SN63",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "6C",
+          "Greg Maddux SN63",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "7C",
+          "Rafael Palmeiro SN63",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "8C",
+          "Cal Ripken Jr. SN63",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "9C",
+          "Nomar Garciaparra SN63",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "10C",
+          "Mark Grace SN63",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "11C",
+          "Sammy Sosa SN63",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "12C",
+          "Frank Thomas SN63",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "13C",
+          "Deion Sanders SN63",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "14C",
+          "Sandy Alomar Jr. SN63",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "15C",
+          "David Justice SN63",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "16C",
+          "Jim Thome SN63",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "17C",
+          "Matt Williams SN63",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "18C",
+          "Jaret Wright SN63",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "19C",
+          "Vinny Castilla SN63",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "20C",
+          "Andres Galarraga SN63",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "21C",
+          "Todd Helton SN63",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "22C",
+          "Larry Walker SN63",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "23C",
+          "Tony Clark SN63",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "24C",
+          "Moises Alou SN63",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "25C",
+          "Kevin Brown SN63",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "26C",
+          "Charles Johnson SN63",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "27C",
+          "Edgar Renteria SN63",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "28C",
+          "Gary Sheffield SN63",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "29C",
+          "Jeff Bagwell SN63",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "30C",
+          "Craig Biggio SN63",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "31C",
+          "Raul Mondesi SN63",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "32C",
+          "Mike Piazza SN63",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "33C",
+          "Chuck Knoblauch SN63",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "34C",
+          "Paul Molitor SN63",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "35C",
+          "Vladimir Guerrero SN63",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "36C",
+          "Pedro Martinez SN63",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "37C",
+          "Todd Hundley SN63",
+          "New York Mets",
+          ""
+        ],
+        [
+          "38C",
+          "Derek Jeter SN63",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "39C",
+          "Tino Martinez SN63",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "40C",
+          "Paul O'Neill SN63",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "41C",
+          "Andy Pettitte SN63",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "42C",
+          "Mariano Rivera SN63",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "43C",
+          "Bernie Williams SN63",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "44C",
+          "Ben Grieve SN63",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "45C",
+          "Scott Rolen SN63",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "46C",
+          "Curt Schilling SN63",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "47C",
+          "Jason Kendall SN63",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "48C",
+          "Tony Womack SN63",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "49C",
+          "Ray Lankford SN63",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "50C",
+          "Mark McGwire SN63",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "51C",
+          "Matt Morris SN63",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "52C",
+          "Tony Gwynn SN63",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "53C",
+          "Barry Bonds SN63",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "54C",
+          "Jay Buhner SN63",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "55C",
+          "Ken Griffey Jr. SN63",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "56C",
+          "Randy Johnson SN63",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "57C",
+          "Edgar Martinez SN63",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "58C",
+          "Alex Rodriguez SN63",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "59C",
+          "Juan Gonzalez SN63",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "60C",
+          "Rusty Greer SN63",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "61C",
+          "Ivan Rodriguez SN63",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "62C",
+          "Roger Clemens SN63",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "63C",
+          "Jose Cruz Jr. SN63",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "64C",
+          "Darin Erstad SN63",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "65C",
+          "Jay Bell SN63",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "66C",
+          "Andy Benes SN63",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "67C",
+          "Mickey Mantle SN63",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "68C",
+          "Karim Garcia SN63",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "69C",
+          "Travis Lee SN63",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "70C",
+          "Matt Williams SN63",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "71C",
+          "Andres Galarraga SN63",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "72C",
+          "Tom Glavine SN63",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "73C",
+          "Ryan Klesko SN63",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "74C",
+          "Denny Neagle SN63",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "75C",
+          "John Smoltz SN63",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "76C",
+          "Roberto Alomar SN63",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "77C",
+          "Joe Carter SN63",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "78C",
+          "Mike Mussina SN63",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "79C",
+          "B.J. Surhoff SN63",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "80C",
+          "Dennis Eckersley SN63",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "81C",
+          "Pedro Martinez SN63",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "82C",
+          "Mo Vaughn SN63",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "83C",
+          "Henry Rodriguez SN63",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "84C",
+          "Kerry Wood SN63",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "85C",
+          "Albert Belle SN63",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "86C",
+          "Sean Casey SN63",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "87C",
+          "Travis Fryman SN63",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "88C",
+          "Kenny Lofton SN63",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "89C",
+          "Darryl Kile SN63",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "90C",
+          "Mike Lansing SN63",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "91C",
+          "Bobby Bonilla SN63",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "92C",
+          "Cliff Floyd SN63",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "93C",
+          "Livan Hernandez SN63",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "94C",
+          "Derrek Lee SN63",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "95C",
+          "Moises Alou SN63",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "96C",
+          "Shane Reynolds SN63",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "97C",
+          "Mike Piazza SN63",
+          "New York Mets",
+          ""
+        ],
+        [
+          "98C",
+          "Johnny Damon SN63",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "99C",
+          "Eric Karros SN63",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "100C",
+          "Hideo Nomo SN63",
+          "Los Angeles Dodgers",
+          ""
+        ]
+      ]
+    },
+    "classic-2": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/11104/1998-Fleer-Tradition-Vintage-Classic?PageIndex=2",
+      "sha256": "f675c326fdabcc94dd43a836a80a835c7abd802687b4dd67179da9a61bdef04d",
+      "records": [
+        [
+          "101C",
+          "Marquis Grissom SN63",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "102C",
+          "Matt Lawton SN63",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "103C",
+          "Todd Walker SN63",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "104C",
+          "Gary Sheffield SN63",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "105C",
+          "Bernard Gilkey SN63",
+          "New York Mets",
+          ""
+        ],
+        [
+          "106C",
+          "Rey Ordonez SN63",
+          "New York Mets",
+          ""
+        ],
+        [
+          "107C",
+          "Chili Davis SN63",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "108C",
+          "Chuck Knoblauch SN63",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "109C",
+          "Charles Johnson SN63",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "110C",
+          "Rickey Henderson SN63",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "111C",
+          "Bobby Abreu SN63",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "112C",
+          "Doug Glanville SN63",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "113C",
+          "Gregg Jefferies SN63",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "114C",
+          "Al Martin SN63",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "115C",
+          "Kevin Young SN63",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "116C",
+          "Ron Gant SN63",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "117C",
+          "Kevin Brown SN63",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "118C",
+          "Ken Caminiti SN63",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "119C",
+          "Joey Hamilton SN63",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "120C",
+          "Jeff Kent SN63",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "121C",
+          "Wade Boggs SN63",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "122C",
+          "Quinton McCracken SN63",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "123C",
+          "Fred McGriff SN63",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "124C",
+          "Paul Sorrento SN63",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "125C",
+          "Jose Canseco SN63",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "126C",
+          "Randy Myers SN63",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "NNO1C",
+          "Checklist 1 SN63",
+          "",
+          ""
+        ],
+        [
+          "NNO2C",
+          "Checklist 2 SN63",
+          "",
+          ""
+        ]
+      ]
+    },
+    "zone": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/1158/1998-Fleer-Tradition-Zone",
+      "sha256": "5394482d1ce419d0efbcd4ade26a33aa4fd4cea93ee3b8ab7d60aef4d02915d0",
+      "records": [
+        [
+          "1 Z",
+          "Jeff Bagwell",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "2 Z",
+          "Barry Bonds",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "3 Z",
+          "Roger Clemens",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "4 Z",
+          "Jose Cruz, Jr.",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "5 Z",
+          "Nomar Garciaparra",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "6 Z",
+          "Juan Gonzalez",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "7 Z",
+          "Ken Griffey, Jr.",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "8 Z",
+          "Tony Gwynn",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "9 Z",
+          "Chipper Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "10 Z",
+          "Greg Maddux",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "11 Z",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "12 Z",
+          "Mike Piazza",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "13 Z",
+          "Alex Rodriguez",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "14 Z",
+          "Frank Thomas",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "15 Z",
+          "Larry Walker",
+          "Colorado Rockies",
+          ""
+        ]
+      ]
+    },
+    "scope-23kt-gold-commemorative-card-mark-mcgwire": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/87043/1998-Fleer-Tradition-23KT-Gold-Commemorative-Card-Mark-McGwire",
+      "sha256": "9859796f249fb68844e1fa2ff424c6590f2a132efa72ac28e5f6784e017c6a1c",
+      "records": [
+        [
+          "NNO",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ]
+      ]
+    },
+    "scope-diamond-skills-commemorative-sheet": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/85647/1998-Fleer-Tradition-Diamond-Skills-Commemorative-Sheet",
+      "sha256": "0f6a5a54e4b679a8ef616128db05161d788a478805a71fe4ab226e007ba98fd5",
+      "records": [
+        [
+          "NNO",
+          "Diamond Skills",
+          "Anaheim Angels / Los Angeles Dodgers / Philadelphia Phillies / St. Louis Cardinals / Houston Astros / Toronto Blue Jays / Baltimore Orioles / New York Yankees",
+          ""
+        ]
+      ]
+    },
+    "scope-diamond-skills-commemorative-sheet-singles": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/222559/1998-Fleer-Tradition-Diamond-Skills-Commemorative-Sheet-Singles",
+      "sha256": "d352a991e3f48c7c603147259bc34f7d2e5196b1065eadf2dffba043318d7c34",
+      "records": [
+        [
+          "2",
+          "Derek Jeter",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "8",
+          "Cal Ripken Jr.",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "21",
+          "Roger Clemens",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "25",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "50",
+          "Jeff Bagwell",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "150",
+          "Scott Rolen",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "200",
+          "Mike Piazza",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "217",
+          "Jim Edmonds",
+          "Anaheim Angels",
+          ""
+        ]
+      ]
+    },
+    "scope-diamond-skills-competition-cards": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/223238/1998-Fleer-Tradition-Diamond-Skills-Competition-Cards",
+      "sha256": "9a3d3a54aad75a3db9c07d2c09a744d9ecbadbafe68773206f6370ef144af4ac",
+      "records": [
+        [
+          "NNO",
+          "Jeff Bagwell",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "NNO",
+          "Roger Clemens",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "NNO",
+          "Jim Edmonds",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "NNO",
+          "Derek Jeter",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "NNO",
+          "Chipper Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "NNO",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "NNO",
+          "Mike Piazza",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "NNO",
+          "Cal Ripken, Jr.",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "NNO",
+          "Alex Rodriguez",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "NNO",
+          "Scott Rolen",
+          "Philadelphia Phillies",
+          ""
+        ]
+      ]
+    },
+    "scope-mickey-mantle-vintage-postcard-promo": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/465507/1998-Fleer-Tradition-Mickey-Mantle-Vintage-Postcard-Promo",
+      "sha256": "e005d6989d2b36d46ce38df4a5e66e7c901462e6d31481f40703f0aa9c3a91d0",
+      "records": [
+        [
+          "NNO",
+          "Mickey Mantle PROMO, SN3500",
+          "New York Yankees",
+          ""
+        ]
+      ]
+    },
+    "scope-singles": {
+      "url": "https://www.tcdb.com/Inserts.cfm/sid/1149/1998-Fleer-Tradition",
+      "sha256": "13260d6c414ef0a37968bf993b66bad6a23043624294cea77674b3980b242352",
+      "records": [
+        [
+          "100",
+          "Alex Rodriguez SAM",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "NNO",
+          "Target Spring Training Sweepstakes",
+          "",
+          "Win A Trip For 4 To 1998 World Series Champion's Spring Training Camp!"
+        ],
+        [
+          "NNO",
+          "1998 Colorado Rockies All-Star Game",
+          "Colorado Rockies",
+          "Revco/CVS/pharmacy Enter to Win"
+        ],
+        [
+          "NNO",
+          "1998 Players Choice Award Show",
+          "",
+          ""
+        ]
+      ]
+    },
+    "million-dollar-moments": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/59564/1997-98-Fleer-Million-Dollar-Moments",
+      "sha256": "0e4cd4c236b1f1e787613fb5165d2c95611cb2cbeb76e33d25ed1672e79cb6f1",
+      "records": [
+        [
+          "1",
+          "Checklist RDM, CL",
+          "",
+          ""
+        ],
+        [
+          "2",
+          "Derek Jeter RDM",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "3",
+          "Babe Ruth RDM",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "4",
+          "Barry Bonds RDM",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "5",
+          "Brooks Robinson RDM",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "6",
+          "Todd Hundley RDM",
+          "New York Mets",
+          ""
+        ],
+        [
+          "7",
+          "Johnny Vander Meer RDM",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "8",
+          "Cal Ripken, Jr. RDM",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "9",
+          "Bill Mazeroski RDM",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "10",
+          "Chipper Jones RDM",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "11",
+          "Frank Robinson RDM",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "12",
+          "Roger Clemens RDM",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "13",
+          "Bob Feller RDM",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "14",
+          "Mike Piazza RDM",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "15",
+          "Joe Nuxhall RDM",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "16",
+          "Hideo Nomo RDM",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "17",
+          "Jackie Robinson RDM",
+          "Brooklyn Dodgers",
+          ""
+        ],
+        [
+          "18",
+          "Orel Hershiser RDM",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "19",
+          "Bobby Thomson RDM",
+          "New York Giants",
+          ""
+        ],
+        [
+          "20",
+          "Joe Carter RDM",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "21",
+          "Al Kaline RDM",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "22",
+          "Bernie Williams RDM",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "23",
+          "Don Larsen RDM",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "24",
+          "Rickey Henderson RDM",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "25",
+          "Maury Wills RDM",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "26",
+          "Andruw Jones RDM",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "27",
+          "Bobby Richardson RDM",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "28",
+          "Alex Rodriguez RDM",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "29",
+          "Jim Bunning RDM",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "30",
+          "Ken Caminiti RDM",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "31",
+          "Bob Gibson RDM",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "32",
+          "Frank Thomas RDM",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "33",
+          "Mickey Lolich RDM",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "34",
+          "John Smoltz RDM",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "35",
+          "Ron Swoboda RDM",
+          "New York Mets",
+          ""
+        ],
+        [
+          "36",
+          "Albert Belle RDM",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "37",
+          "Chris Chambliss RDM",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "38",
+          "Juan Gonzalez RDM",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "39",
+          "Ron Blomberg RDM",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "40",
+          "John Wetteland RDM",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "41",
+          "Carlton Fisk RDM",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "42",
+          "Mo Vaughn RDM",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "43",
+          "Bucky Dent RDM",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "44",
+          "Greg Maddux RDM",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "45",
+          "Willie Stargell RDM",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "46",
+          "Tony Gwynn RDM, SSP",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "47",
+          "Joel Youngblood RDM, SSP",
+          "New York Mets",
+          ""
+        ],
+        [
+          "48",
+          "Andy Pettitte RDM, SSP",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "49",
+          "Mookie Wilson RDM, SSP",
+          "New York Mets",
+          ""
+        ],
+        [
+          "50",
+          "Jeff Bagwell RDM, SSP",
+          "Houston Astros",
+          ""
+        ]
+      ]
+    },
+    "bcp-base": {
+      "url": "https://baseballcardpedia.com/index.php/1998_Fleer_Tradition#Base_Set",
+      "sha256": "f3f4ea48aee493002a1baca39f208fed1ad625d5aafc91475be647983e1a9d8a",
+      "records": [
+        "1 Ken Griffey, Jr.",
+        "2 Derek Jeter",
+        "3 Gerald Williams",
+        "4 Carlos Delgado",
+        "5 Nomar Garciaparra",
+        "6 Gary Sheffield",
+        "7 Jeff King",
+        "8 Cal Ripken, Jr.",
+        "9 Matt Williams",
+        "10 Chipper Jones",
+        "11 Chuck Knoblauch",
+        "12 Mark Grudzielanek",
+        "13 Edgardo Alfonzo",
+        "14 Andres Galarraga",
+        "15 Tim Salmon",
+        "16 Reggie Sanders",
+        "17 Tony Clark",
+        "18 Jason Kendall",
+        "19 Juan Gonzalez",
+        "20 Ben Grieve",
+        "21 Roger Clemens",
+        "22 Raul Mondesi",
+        "23 Robin Ventura",
+        "24 Derrek Lee",
+        "25 Mark McGwire",
+        "26 Luis Gonzalez",
+        "27 Kevin Brown",
+        "28 Kirk Rueter",
+        "29 Bobby Estalella",
+        "30 Shawn Green",
+        "31 Greg Maddux",
+        "32 Jorge Velandia",
+        "33 Larry Walker",
+        "34 Joey Cora",
+        "35 Frank Thomas",
+        "36 Curtis King RC",
+        "37 Aaron Boone",
+        "38 Curt Schilling",
+        "39 Bruce Aven",
+        "40 Ben McDonald",
+        "41 Andy Ashby",
+        "42 Jason McDonald",
+        "43 Eric Davis",
+        "44 Mark Grace",
+        "45 Pedro Martinez",
+        "46 Lou Collier",
+        "47 Chan Ho Park",
+        "48 Shane Halter",
+        "49 Brian Hunter",
+        "50 Jeff Bagwell",
+        "51 Bernie Williams",
+        "52 J.T. Snow",
+        "53 Todd Greene",
+        "54 Shannon Stewart",
+        "55 Darren Bragg",
+        "56 Fernando Tatis",
+        "57 Darryl Kile",
+        "58 Chris Stynes",
+        "59 Javier Valentin",
+        "60 Brian McRae",
+        "61 Tom Evans",
+        "62 Randall Simon",
+        "63 Darrin Fletcher",
+        "64 Jaret Wright",
+        "65 Luis Ordaz",
+        "66 Jose Canseco",
+        "67 Edgar Renteria",
+        "68 Jay Buhner",
+        "69 Paul Konerko",
+        "70 Adrian Brown",
+        "71 Chris Carpenter",
+        "72 Mike Lieberthal",
+        "73 Dean Palmer",
+        "74 Jorge Fabregas",
+        "75 Stan Javier",
+        "76 Damion Easley",
+        "77 David Cone",
+        "78 Aaron Sele",
+        "79 Antonio Alfonseca",
+        "80 Bobby Jones",
+        "81 Dave Justice",
+        "82 Jeffrey Hammonds",
+        "83 Doug Glanville",
+        "84 Jason Dickson",
+        "85 Brad Radke",
+        "86 David Segui",
+        "87 Greg Vaughn",
+        "88 Mike Cather RC",
+        "89 Alex Fernandez",
+        "90 Billy Taylor",
+        "91 Jason Schmidt",
+        "92 Mike DeJean RC",
+        "93 Domingo Cedeno",
+        "94 Jeff Cirillo",
+        "95 Manny Aybar RC",
+        "96 Jaime Navarro",
+        "97 Dennis Reyes",
+        "98 Barry Larkin",
+        "99 Troy O'Leary",
+        "100 Alex Rodriguez",
+        "101 Pat Hentgen",
+        "102 Bubba Trammell",
+        "103 Glendon Rusch",
+        "104 Kenny Lofton",
+        "105 Craig Biggio",
+        "106 Kelvim Escobar",
+        "107 Mark Kotsay",
+        "108 Rondell White",
+        "109 Darren Oliver",
+        "110 Jim Thome",
+        "111 Rich Becker",
+        "112 Chad Curtis",
+        "113 Dave Hollins",
+        "114 Bill Mueller",
+        "115 Antone Williamson",
+        "116 Tony Womack",
+        "117 Randy Myers",
+        "118 Rico Brogna",
+        "119 Pat Watkins",
+        "120 Eli Marrero",
+        "121 Jay Bell",
+        "122 Kevin Tapani",
+        "123 Todd Erdos RC",
+        "124 Neifi Perez",
+        "125 Todd Hundley",
+        "126 Jeff Abbott",
+        "127 Todd Zeile",
+        "128 Travis Fryman",
+        "129 Sandy Alomar, Jr.",
+        "130 Fred McGriff",
+        "131 Richard Hidalgo",
+        "132 Scott Spiezio",
+        "133 John Valentin",
+        "134 Quilvio Veras",
+        "135 Mike Lansing",
+        "136 Paul Molitor",
+        "137 Randy Johnson",
+        "138 Harold Baines",
+        "139 Doug Jones",
+        "140 Abraham Nunez",
+        "141 Alan Benes",
+        "142 Matt Perisho",
+        "143 Chris Clemons",
+        "144 Andy Pettitte",
+        "145 Jason Giambi",
+        "146 Moises Alou",
+        "147 Chad Fox RC",
+        "148 Felix Martinez",
+        "149 Carlos Mendoza RC",
+        "150 Scott Rolen",
+        "151 Jose Cabrera RC",
+        "152 Justin Thompson",
+        "153 Ellis Burks",
+        "154 Pokey Reese",
+        "155 Bartolo Colon",
+        "156 Ray Durham",
+        "157 Ugueth Urbina",
+        "158 Tom Goodwin",
+        "159 Dave Dellucci RC",
+        "160 Rod Beck",
+        "161 Ramon Martinez",
+        "162 Joe Carter",
+        "163 Kevin Orie",
+        "164 Trevor Hoffman",
+        "165 Emil Brown",
+        "166 Robb Nen",
+        "167 Paul O'Neill",
+        "168 Ryan Long",
+        "169 Ray Lankford",
+        "170 Ivan Rodriguez",
+        "171 Rick Aguilera",
+        "172 Deivi Cruz",
+        "173 Ricky Bottalico",
+        "174 Garret Anderson",
+        "175 Jose Vizcaino",
+        "176 Omar Vizquel",
+        "177 Jeff Blauser",
+        "178 Orlando Cabrera",
+        "179 Russ Johnson",
+        "180 Matt Stairs",
+        "181 Will Cunnane",
+        "182 Adam Riggs",
+        "183 Matt Morris",
+        "184 Mario Valdez",
+        "185 Larry Sutton",
+        "186 Marc Pisciotta RC",
+        "187 Dan Wilson",
+        "188 John Franco",
+        "189 Darren Daulton",
+        "190 Todd Helton",
+        "191 Brady Anderson",
+        "192 Ricardo Rincon",
+        "193 Kevin Stocker",
+        "194 Jose Valentin",
+        "195 Ed Sprague",
+        "196 Ryan McGuire",
+        "197 Scott Eyre",
+        "198 Steve Finley",
+        "199 T.J. Mathews",
+        "200 Mike Piazza",
+        "201 Mark Wohlers",
+        "202 Brian Giles",
+        "203 Eduardo Perez",
+        "204 Shigetoshi Hasegawa",
+        "205 Mariano Rivera",
+        "206 Jose Rosado",
+        "207 Michael Coleman",
+        "208 James Baldwin",
+        "209 Russ Davis",
+        "210 Billy Wagner",
+        "211 Sammy Sosa",
+        "212 Frank Catalanotto RC",
+        "213 Delino DeShields",
+        "214 John Olerud",
+        "215 Heath Murray",
+        "216 Jose Vidro",
+        "217 Jim Edmonds",
+        "218 Shawon Dunston",
+        "219 Homer Bush",
+        "220 Midre Cummings",
+        "221 Tony Saunders",
+        "222 Jeromy Burnitz",
+        "223 Enrique Wilson",
+        "224 Chili Davis",
+        "225 Jerry DiPoto",
+        "226 Dante Powell",
+        "227 Javy Lopez",
+        "228 Kevin Polcovich",
+        "229 Deion Sanders",
+        "230 Jimmy Key",
+        "231 Rusty Greer",
+        "232 Reggie Jefferson",
+        "233 Ron Coomer",
+        "234 Bob Higginson",
+        "235 Magglio Ordonez RC",
+        "236 Miguel Tejada",
+        "237 Rick Gorecki",
+        "238 Charles Johnson",
+        "239 Lance Johnson",
+        "240 Derek Bell",
+        "241 Will Clark",
+        "242 Brady Raggio",
+        "243 Orel Hershiser",
+        "244 Vladimir Guerrero",
+        "245 John LeRoy",
+        "246 Shawn Estes",
+        "247 Brett Tomko",
+        "248 Dave Nilsson",
+        "249 Edgar Martinez",
+        "250 Tony Gwynn",
+        "251 Mark Bellhorn",
+        "252 Jed Hansen",
+        "253 Butch Huskey",
+        "254 Eric Young",
+        "255 Vinny Castilla",
+        "256 Hideki Irabu",
+        "257 Mike Cameron",
+        "258 Juan Encarnacion",
+        "259 Brian Rose",
+        "260 Brad Ausmus",
+        "261 Dan Serafini",
+        "262 Willie Greene",
+        "263 Troy Percival",
+        "264 Jeff Wallace",
+        "265 Richie Sexson",
+        "266 Rafael Palmeiro",
+        "267 Brad Fullmer",
+        "268 Jeremi Gonzalez",
+        "269 Rob Stanifer RC",
+        "270 Mickey Morandini",
+        "271 Andruw Jones",
+        "272 Royce Clayton",
+        "273 Takashi Kashiwada RC",
+        "274 Steve Woodard",
+        "275 Jose Cruz",
+        "276 Keith Foulke",
+        "277 Brad Rigby",
+        "278 Tino Martinez",
+        "279 Todd Jones",
+        "280 John Wetteland",
+        "281 Alex Gonzalez",
+        "282 Ken Cloude",
+        "283 Jose Guillen",
+        "284 Danny Clyburn",
+        "285 David Ortiz",
+        "286 John Thomson",
+        "287 Kevin Appier",
+        "288 Ismael Valdes",
+        "289 Gary DiSarcina",
+        "290 Todd Dunwoody",
+        "291 Wally Joyner",
+        "292 Charles Nagy",
+        "293 Jeff Shaw",
+        "294 Kevin Millwood RC",
+        "295 Rigo Beltran RC",
+        "296 Jeff Frye",
+        "297 Oscar Henriquez",
+        "298 Mike Thurman",
+        "299 Garrett Stephenson",
+        "300 Barry Bonds",
+        "301 Roger Clemens",
+        "302 David Cone",
+        "303 Hideki Irabu",
+        "304 Randy Johnson",
+        "305 Greg Maddux",
+        "306 Pedro Martinez",
+        "307 Mike Mussina",
+        "308 Andy Pettitte",
+        "309 Curt Schilling",
+        "310 John Smoltz",
+        "311 Roger Clemens",
+        "312 Jose Cruz, Jr.",
+        "313 Nomar Garciaparra",
+        "314 Ken Griffey, Jr.",
+        "315 Tony Gwynn",
+        "316 Hideki Irabu",
+        "317 Randy Johnson",
+        "318 Mark McGwire",
+        "319 Curt Schilling",
+        "320 Larry Walker",
+        "321 Jeff Bagwell",
+        "322 Albert Belle",
+        "323 Barry Bonds",
+        "324 Jay Buhner",
+        "325 Tony Clark",
+        "326 Jose Cruz, Jr.",
+        "327 Andres Galarraga",
+        "328 Juan Gonzalez",
+        "329 Ken Griffey, Jr.",
+        "330 Andruw Jones",
+        "331 Tino Martinez",
+        "332 Mark McGwire",
+        "333 Rafael Palmeiro",
+        "334 Mike Piazza",
+        "335 Manny Ramirez",
+        "336 Alex Rodriguez",
+        "337 Frank Thomas",
+        "338 Jim Thome",
+        "339 Mo Vaughn",
+        "340 Larry Walker",
+        "341 Jose Cruz, Jr.",
+        "342 Ken Griffey, Jr.",
+        "343 Derek Jeter",
+        "344 Andruw Jones",
+        "345 Chipper Jones",
+        "346 Greg Maddux",
+        "347 Mike Piazza",
+        "348 Cal Ripken, Jr.",
+        "349 Alex Rodriguez",
+        "350 Frank Thomas",
+        "351 Mo Vaughn",
+        "352 Andres Galarraga",
+        "353 Roberto Alomar",
+        "354 Darin Erstad",
+        "355 Albert Belle",
+        "356 Matt Williams",
+        "357 Darryl Kile",
+        "358 Kenny Lofton",
+        "359 Orel Hershiser",
+        "360 Bob Abreu",
+        "361 Chris Widger",
+        "362 Glenallen Hill",
+        "363 Chili Davis",
+        "364 Kevin Brown",
+        "365 Marquis Grissom",
+        "366 Livan Hernandez",
+        "367 Moises Alou",
+        "368 Matt Lawton",
+        "369 Rey Ordonez",
+        "370 Kenny Rogers",
+        "371 Lee Stevens",
+        "372 Wade Boggs",
+        "373 Luis Gonzalez",
+        "374 Jeff Conine",
+        "375 Esteban Loaiza",
+        "376 Jose Canseco",
+        "377 Henry Rodriguez",
+        "378 Dave Burba",
+        "379 Todd Hollandsworth",
+        "380 Ron Gant",
+        "381 Pedro Martinez",
+        "382 Ryan Klesko",
+        "383 Derrek Lee",
+        "384 Doug Glanville",
+        "385 David Wells",
+        "386 Ken Caminiti",
+        "387 Damon Hollins",
+        "388 Manny Ramirez",
+        "389 Mike Mussina",
+        "390 Jay Bell",
+        "391 Mike Piazza FLA",
+        "392 Mike Lansing",
+        "393 Mike Hampton",
+        "394 Geoff Jenkins",
+        "395 Jimmy Haynes",
+        "396 Scott Servais",
+        "397 Kent Mercker",
+        "398 Jeff Kent",
+        "399 Kevin Elster",
+        "400 Masato Yoshii RC",
+        "401 Jose Vizcaino",
+        "402 Javier Martinez RC",
+        "403 David Segui",
+        "404 Tony Saunders",
+        "405 Karim Garcia",
+        "406 Armando Benitez",
+        "407 Joe Randa",
+        "408 Vic Darensbourg",
+        "409 Sean Casey",
+        "410 Eric Milton",
+        "411 Trey Moore",
+        "412 Mike Stanley",
+        "413 Tom Gordon",
+        "414 Hal Morris",
+        "415 Braden Looper",
+        "416 Mike Kelly",
+        "417 John Smoltz",
+        "418 Roger Cedeno",
+        "419 Al Leiter",
+        "420 Chuck Knoblauch",
+        "421 Felix Rodriguez",
+        "422 Bip Roberts",
+        "423 Ken Hill",
+        "424 Jermaine Allensworth",
+        "425 Esteban Yan RC",
+        "426 Scott Karl",
+        "427 Sean Berry",
+        "428 Rafael Medina",
+        "429 Javier Vazquez",
+        "430 Rickey Henderson",
+        "431 Adam Butler",
+        "432 Todd Stottlemyre",
+        "433 Yamil Benitez",
+        "434 Sterling Hitchcock",
+        "435 Paul Sorrento",
+        "436 Bobby Ayala",
+        "437 Tim Raines",
+        "438 Chris Hoiles",
+        "439 Rod Beck",
+        "440 Donnie Sadler",
+        "441 Charles Johnson",
+        "442 Russ Ortiz",
+        "443 Pedro Astacio",
+        "444 Wilson Alvarez",
+        "445 Mike Blowers",
+        "446 Todd Zeile",
+        "447 Mel Rojas",
+        "448 F.P. Santangelo",
+        "449 Dmitri Young",
+        "450 Brian Anderson",
+        "451 Cecil Fielder",
+        "452 Roberto Hernandez",
+        "453 Todd Walker",
+        "454 Tyler Green",
+        "455 Jorge Posada",
+        "456 Geronimo Berroa",
+        "457 Jose Silva",
+        "458 Bobby Bonilla",
+        "459 Walt Weiss",
+        "460 Darren Dreifort",
+        "461 B.J. Surhoff",
+        "462 Quinton McCracken",
+        "463 Derek Lowe",
+        "464 Jorge Fabregas",
+        "465 Joey Hamilton",
+        "466 Brian Jordan",
+        "467 Allen Watson",
+        "468 John Jaha",
+        "469 Heathcliff Slocumb",
+        "470 Gregg Jefferies",
+        "471 Scott Brosius",
+        "472 Chad Ogea",
+        "473 A.J. Hinch",
+        "474 Bobby Smith",
+        "475 Brian Moehler",
+        "476 Darond Stovall",
+        "477 Kevin Young",
+        "478 Jeff Suppan",
+        "479 Marty Cordova",
+        "480 John Halama RC",
+        "481 Bubba Trammell",
+        "482 Mike Caruso",
+        "483 Eric Karros",
+        "484 Jamey Wright",
+        "485 Mike Sweeney",
+        "486 Aaron Sele",
+        "487 Cliff Floyd",
+        "488 Jeff Brantley",
+        "489 Jim Leyritz",
+        "490 Denny Neagle",
+        "491 Travis Fryman",
+        "492 Carlos Baerga",
+        "493 Eddie Taubensee",
+        "494 Darryl Strawberry",
+        "495 Brian Johnson",
+        "496 Randy Myers",
+        "497 Jeff Blauser",
+        "498 Jason Wood",
+        "499 Rolando Arrojo RC",
+        "500 Johnny Damon",
+        "501 Jose Mercedes",
+        "502 Tony Batista",
+        "503 Mike Piazza NYM",
+        "504 Hideo Nomo",
+        "505 Chris Gomez",
+        "506 Jesus Sanchez RC",
+        "507 Al Martin",
+        "508 Brian Edmondson",
+        "509 Joe Girardi",
+        "510 Shayne Bennett",
+        "511 Joe Carter",
+        "512 Dave Mlicki",
+        "513 Rich Butler RC",
+        "514 Dennis Eckersley",
+        "515 Travis Lee",
+        "516 John Mabry",
+        "517 Jose Mesa",
+        "518 Phil Nevin",
+        "519 Raul Casanova",
+        "520 Mike Fetters",
+        "521 Gary Sheffield",
+        "522 Terry Steinbach",
+        "523 Steve Trachsel",
+        "524 Josh Booty",
+        "525 Darryl Hamilton",
+        "526 Mark McLemore",
+        "527 Kevin Stocker",
+        "528 Bret Boone",
+        "529 Shane Andrews",
+        "530 Robb Nen",
+        "531 Carl Everett",
+        "532 LaTroy Hawkins",
+        "533 Fernando Vina",
+        "534 Michael Tucker",
+        "535 Mark Langston",
+        "536 Mickey Mantle",
+        "537 Bernard Gilkey",
+        "538 Francisco Cordova",
+        "539 Mike Bordick",
+        "540 Fred McGriff",
+        "541 Cliff Politte",
+        "542 Jason Varitek",
+        "543 Shawon Dunston",
+        "544 Brian Meadows",
+        "545 Pat Meares",
+        "546 Carlos Perez",
+        "547 Desi Relaford",
+        "548 Antonio Osuna",
+        "549 Devon White",
+        "550 Sean Runyan",
+        "551 Mickey Morandini",
+        "552 Dave Martinez",
+        "553 Jeff Fassero",
+        "554 Ryan Jackson RC",
+        "555 Stan Javier",
+        "556 Jaime Navarro",
+        "557 Jose Offerman",
+        "558 Mike Lowell RC",
+        "559 Darrin Fletcher",
+        "560 Mark Lewis",
+        "561 Dante Bichette",
+        "562 Chuck Finley",
+        "563 Kerry Wood",
+        "564 Andy Benes",
+        "565 Freddy Garcia",
+        "566 Tom Glavine",
+        "567 Jon Nunnally",
+        "568 Miguel Cairo",
+        "569 Shane Reynolds",
+        "570 Roberto Kelly",
+        "571 Jose Cruz, Jr.",
+        "572 Ken Griffey, Jr.",
+        "573 Mark McGwire",
+        "574 Cal Ripken, Jr.",
+        "575 Frank Thomas",
+        "576 Jeff Bagwell",
+        "577 Barry Bonds",
+        "578 Tony Clark",
+        "579 Roger Clemens",
+        "580 Jose Cruz, Jr.",
+        "581 Nomar Garciaparra",
+        "582 Juan Gonzalez",
+        "583 Ben Grieve",
+        "584 Ken Griffey, Jr.",
+        "585 Tony Gwynn",
+        "586 Derek Jeter",
+        "587 Randy Johnson",
+        "588 Chipper Jones",
+        "589 Greg Maddux",
+        "590 Mark McGwire",
+        "591 Andy Pettitte",
+        "592 Paul Molitor",
+        "593 Cal Ripken, Jr.",
+        "594 Alex Rodriguez",
+        "595 Scott Rolen",
+        "596 Curt Schilling",
+        "597 Frank Thomas",
+        "598 Jim Thome",
+        "599 Larry Walker",
+        "600 Bernie Williams"
+      ]
+    },
+    "bcp-vintage": {
+      "url": "https://baseballcardpedia.com/index.php/1998_Fleer_Tradition#Vintage_'63",
+      "sha256": "f3f4ea48aee493002a1baca39f208fed1ad625d5aafc91475be647983e1a9d8a",
+      "records": [
+        "NNO Checklist (A)",
+        "1 Jason Dickson",
+        "2 Tim Salmon",
+        "3 Andruw Jones",
+        "4 Chipper Jones",
+        "5 Kenny Lofton",
+        "6 Greg Maddux",
+        "7 Rafael Palmeiro",
+        "8 Cal Ripken, Jr.",
+        "9 Nomar Garciaparra",
+        "10 Mark Grace",
+        "11 Sammy Sosa",
+        "12 Frank Thomas",
+        "13 Deion Sanders",
+        "14 Sandy Alomar, Jr.",
+        "15 Dave Justice",
+        "16 Jim Thome",
+        "17 Matt Williams",
+        "18 Jaret Wright",
+        "19 Vinny Castilla",
+        "20 Andres Galarraga",
+        "21 Todd Helton",
+        "22 Larry Walker",
+        "23 Tony Clark",
+        "24 Moises Alou",
+        "25 Kevin Brown",
+        "26 Charles Johnson",
+        "27 Edgar Renteria",
+        "28 Gary Sheffield",
+        "29 Jeff Bagwell",
+        "30 Craig Biggio",
+        "31 Raul Mondesi",
+        "32 Mike Piazza",
+        "33 Chuck Knoblauch",
+        "34 Paul Molitor",
+        "35 Vladimir Guerrero",
+        "36 Pedro Martinez",
+        "37 Todd Hundley",
+        "38 Derek Jeter",
+        "39 Tino Martinez",
+        "40 Paul O'Neill",
+        "41 Andy Pettitte",
+        "42 Mariano Rivera",
+        "43 Bernie Williams",
+        "44 Ben Grieve",
+        "45 Scott Rolen",
+        "46 Curt Schilling",
+        "47 Jason Kendall",
+        "48 Tony Womack",
+        "49 Ray Lankford",
+        "50 Mark McGwire",
+        "51 Matt Morris",
+        "52 Tony Gwynn",
+        "53 Barry Bonds",
+        "54 Jay Buhner",
+        "55 Ken Griffey, Jr.",
+        "56 Randy Johnson",
+        "57 Edgar Martinez",
+        "58 Alex Rodriguez",
+        "59 Juan Gonzalez",
+        "60 Rusty Greer",
+        "61 Ivan Rodriguez",
+        "62 Roger Clemens",
+        "63 Jose Cruz, Jr.",
+        "NNO Checklist (B)",
+        "64 Darin Erstad",
+        "65 Jay Bell",
+        "66 Andy Benes",
+        "67 Mickey Mantle",
+        "68 Karim Garcia",
+        "69 Travis Lee",
+        "70 Matt Williams",
+        "71 Andres Galarraga",
+        "72 Tom Glavine",
+        "73 Ryan Klesko",
+        "74 Denny Neagle",
+        "75 John Smoltz",
+        "76 Roberto Alomar",
+        "77 Joe Carter",
+        "78 Mike Mussina",
+        "79 B.J. Surhoff",
+        "80 Dennis Eckersley",
+        "81 Pedro Martinez",
+        "82 Mo Vaughn",
+        "83 Henry Rodriguez",
+        "84 Kerry Wood",
+        "85 Albert Belle",
+        "86 Sean Casey",
+        "87 Travis Fryman",
+        "88 Kenny Lofton",
+        "89 Darryl Kile",
+        "90 Mike Lansing",
+        "91 Bobby Bonilla",
+        "92 Cliff Floyd",
+        "93 Livan Hernandez",
+        "94 Derrek Lee",
+        "95 Moises Alou",
+        "96 Shane Reynolds",
+        "97 Mike Piazza",
+        "98 Johnny Damon",
+        "99 Eric Karros",
+        "100 Hideo Nomo",
+        "101 Marquis Grissom",
+        "102 Matt Lawton",
+        "103 Todd Walker",
+        "104 Gary Sheffield",
+        "105 Bernard Gilkey",
+        "106 Rey Ordonez",
+        "107 Chili Davis",
+        "108 Chuck Knoblauch",
+        "109 Charles Johnson",
+        "110 Rickey Henderson",
+        "111 Bob Abreu",
+        "112 Doug Glanville",
+        "113 Gregg Jefferies",
+        "114 Al Martin",
+        "115 Kevin Young",
+        "116 Ron Gant",
+        "117 Kevin Brown",
+        "118 Ken Caminiti",
+        "119 Joey Hamilton",
+        "120 Jeff Kent",
+        "121 Wade Boggs",
+        "122 Quinton McCracken",
+        "123 Fred McGriff",
+        "124 Paul Sorrento",
+        "125 Jose Canseco",
+        "126 Randy Myers"
+      ]
+    },
+    "bcp-diamond-standouts": {
+      "url": "https://baseballcardpedia.com/index.php/1998_Fleer_Tradition#Diamond_Standouts",
+      "sha256": "f3f4ea48aee493002a1baca39f208fed1ad625d5aafc91475be647983e1a9d8a",
+      "records": [
+        "1 DS Jeff Bagwell",
+        "2 DS Barry Bonds",
+        "3 DS Roger Clemens",
+        "4 DS Jose Cruz, Jr.",
+        "5 DS  Andres Galarraga",
+        "6 DS Nomar Garciaparra",
+        "7 DS Juan Gonzalez",
+        "8 DS Ken Griffey, Jr.",
+        "9 DS Derek Jeter",
+        "10 DS Randy Johnson",
+        "11 DS Chipper Jones",
+        "12 DS Kenny Lofton",
+        "13 DS Greg Maddux",
+        "14 DS Pedro Martinez",
+        "15 DS Mark McGwire",
+        "16 DS Mike Piazza",
+        "17 DS Alex Rodriguez",
+        "18 DS Curt Schilling",
+        "19 DS Frank Thomas",
+        "20 DS Larry Walker"
+      ]
+    },
+    "bcp-diamond-tribute": {
+      "url": "https://baseballcardpedia.com/index.php/1998_Fleer_Tradition#Diamond_Tribute",
+      "sha256": "f3f4ea48aee493002a1baca39f208fed1ad625d5aafc91475be647983e1a9d8a",
+      "records": [
+        "1 DT Jeff Bagwell",
+        "2 DT Roger Clemens",
+        "3 DT Nomar Garciaparra",
+        "4 DT Juan Gonzalez",
+        "5 DT Ken Griffey, Jr.",
+        "6 DT Mark McGwire",
+        "7 DT Mike Piazza FLA",
+        "8 DT Cal Ripken, Jr.",
+        "9 DT Alex Rodriguez",
+        "10 DT Frank Thomas"
+      ]
+    },
+    "bcp-in-the-clutch": {
+      "url": "https://baseballcardpedia.com/index.php/1998_Fleer_Tradition#In_The_Clutch",
+      "sha256": "f3f4ea48aee493002a1baca39f208fed1ad625d5aafc91475be647983e1a9d8a",
+      "records": [
+        "1 IC Jeff Bagwell",
+        "2 IC Barry Bonds",
+        "3 IC Roger Clemens",
+        "4 IC Jose Cruz, Jr.",
+        "5 IC Nomar Garciaparra",
+        "6 IC Juan Gonzalez",
+        "7 IC Ken Griffey, Jr.",
+        "8 IC Tony Gwynn",
+        "9 IC Derek Jeter",
+        "10 IC Chipper Jones",
+        "11 IC Greg Maddux",
+        "12 IC Mark McGwire",
+        "13 IC Mike Piazza FLA",
+        "14 IC Frank Thomas",
+        "15 IC Larry Walker"
+      ]
+    },
+    "bcp-lumber-company": {
+      "url": "https://baseballcardpedia.com/index.php/1998_Fleer_Tradition#Lumber_Company",
+      "sha256": "f3f4ea48aee493002a1baca39f208fed1ad625d5aafc91475be647983e1a9d8a",
+      "records": [
+        "1 LC Jeff Bagwell",
+        "2 LC Barry Bonds",
+        "3 LC Jose Cruz, Jr.",
+        "4 LC Nomar Garciaparra",
+        "5 LC Juan Gonzalez",
+        "6 LC Ken Griffey, Jr.",
+        "7 LC Tony Gwynn",
+        "8 LC Chipper Jones",
+        "9 LC Tino Martinez",
+        "10 LC Mark McGwire",
+        "11 LC Mike Piazza",
+        "12 LC Cal Ripken, Jr.",
+        "13 LC Alex Rodriguez",
+        "14 LC Frank Thomas",
+        "15 LC Larry Walker"
+      ]
+    },
+    "bcp-mantle-moments": {
+      "url": "https://baseballcardpedia.com/index.php/1998_Fleer_Tradition#Mickey_Mantle_Monumental_Moments",
+      "sha256": "f3f4ea48aee493002a1baca39f208fed1ad625d5aafc91475be647983e1a9d8a",
+      "records": [
+        "1 MM Mickey Mantle",
+        "2 MM Mickey Mantle",
+        "3 MM Mickey Mantle / Phil Rizzuto",
+        "4 MM Mickey Mantle",
+        "5 MM Mickey Mantle",
+        "6 MM Mickey Mantle",
+        "7 MM Mickey Mantle",
+        "8 MM Mickey Mantle",
+        "9 MM Mickey Mantle",
+        "10 MM Mickey Mantle"
+      ]
+    },
+    "bcp-promising-forecasts": {
+      "url": "https://baseballcardpedia.com/index.php/1998_Fleer_Tradition#Promising_Forecast",
+      "sha256": "f3f4ea48aee493002a1baca39f208fed1ad625d5aafc91475be647983e1a9d8a",
+      "records": [
+        "1 PF Rolando Arrojo",
+        "2 PF Sean Casey",
+        "3 PF Brad Fullmer",
+        "4 PF Karim Garcia",
+        "5 PF Ben Grieve",
+        "6 PF Todd Helton",
+        "7 PF Richard Hidalgo",
+        "8 PF A.J. Hinch",
+        "9 PF Paul Konerko",
+        "10 PF Mark Kotsay",
+        "11 PF Derrek Lee",
+        "12 PF Travis Lee",
+        "13 PF Eric Milton",
+        "14 PF Magglio Ordonez",
+        "15 PF David Ortiz",
+        "16 PF Brian Rose",
+        "17 PF Miguel Tejada",
+        "18 PF Jason Varitek",
+        "19 PF Enrique Wilson",
+        "20 PF Kerry Wood"
+      ]
+    },
+    "bcp-rookie-sensations": {
+      "url": "https://baseballcardpedia.com/index.php/1998_Fleer_Tradition#Rookie_Sensations",
+      "sha256": "f3f4ea48aee493002a1baca39f208fed1ad625d5aafc91475be647983e1a9d8a",
+      "records": [
+        "1 RS Mike Cameron",
+        "2 RS Jose Cruz, Jr.",
+        "3 RS Jason Dickson",
+        "4 RS Kelvim Escobar",
+        "5 RS Nomar Garciaparra",
+        "6 RS Ben Grieve",
+        "7 RS Vladimir Guerrero",
+        "8 RS Wilton Guerrero",
+        "9 RS Jose Guillen",
+        "10 RS Todd Helton",
+        "11 RS Livan Hernandez",
+        "12 RS Hideki Irabu",
+        "13 RS Andruw Jones",
+        "14 RS Matt Morris",
+        "15 RS Magglio Ordonez",
+        "16 RS Neifi Perez",
+        "17 RS Scott Rolen",
+        "18 RS Fernando Tatis",
+        "19 RS Brett Tomko",
+        "20 RS Jaret Wright"
+      ]
+    },
+    "bcp-power-game": {
+      "url": "https://baseballcardpedia.com/index.php/1998_Fleer_Tradition#The_Power_Game",
+      "sha256": "f3f4ea48aee493002a1baca39f208fed1ad625d5aafc91475be647983e1a9d8a",
+      "records": [
+        "1 PG Jeff Bagwell",
+        "2 PG Albert Belle",
+        "3 PG Barry Bonds",
+        "4 PG Tony Clark",
+        "5 PG Roger Clemens",
+        "6 PG Jose Cruz, Jr.",
+        "7 PG Andres Galarraga",
+        "8 PG Nomar Garciaparra",
+        "9 PG Juan Gonzalez",
+        "10 PG Ken Griffey, Jr.",
+        "11 PG Randy Johnson",
+        "12 PG Greg Maddux",
+        "13 PG Pedro Martinez",
+        "14 PG Tino Martinez",
+        "15 PG Mark McGwire",
+        "16 PG Mike Piazza",
+        "17 PG Curt Schilling",
+        "18 PG Frank Thomas",
+        "19 PG Jim Thome",
+        "20 PG Larry Walker"
+      ]
+    },
+    "bcp-zone": {
+      "url": "https://baseballcardpedia.com/index.php/1998_Fleer_Tradition#Zone",
+      "sha256": "f3f4ea48aee493002a1baca39f208fed1ad625d5aafc91475be647983e1a9d8a",
+      "records": [
+        "1 Z Jeff Bagwell",
+        "2 Z Barry Bonds",
+        "3 Z Roger Clemens",
+        "4 Z Jose Cruz, Jr.",
+        "5 Z Nomar Garciaparra",
+        "6 Z Juan Gonzalez",
+        "7 Z Ken Griffey, Jr.",
+        "8 Z Tony Gwynn",
+        "9 Z Chipper Jones",
+        "10 Z Greg Maddux",
+        "11 Z Mark McGwire",
+        "12 Z Mike Piazza",
+        "13 Z Alex Rodriguez",
+        "14 Z Frank Thomas",
+        "15 Z Larry Walker"
+      ]
+    },
+    "bcp-decade-of-excellence": {
+      "url": "https://baseballcardpedia.com/index.php/1998_Fleer_Tradition#Decade_of_Excellence",
+      "sha256": "f3f4ea48aee493002a1baca39f208fed1ad625d5aafc91475be647983e1a9d8a",
+      "records": [
+        "1 DE Roberto Alomar",
+        "2 DE Barry Bonds",
+        "3 DE Roger Clemens",
+        "4 DE David Cone",
+        "5 DE Andres Galarraga",
+        "6 DE Mark Grace",
+        "7 DE Tony Gwynn",
+        "8 DE Randy Johnson",
+        "9 DE Greg Maddux",
+        "10 DE Mark McGwire",
+        "11 DE Paul O'Neill",
+        "12 DE Cal Ripken, Jr."
+      ]
+    },
+    "bcp-million-dollar-moments": {
+      "url": "https://baseballcardpedia.com/index.php/1997_Fleer_Million_Dollar_Moments#Checklist",
+      "sha256": "2b4f3dcbe4de927c3621129fd109753b25c14cac93d58b84608514042dc1518a",
+      "records": [
+        "1 Checklist",
+        "2 Derek Jeter",
+        "3 Babe Ruth",
+        "4 Barry Bonds",
+        "5 Brooks Robinson",
+        "6 Todd Hundley",
+        "7 Johnny VanderMeer",
+        "8 Cal Ripken, Jr.",
+        "9 Bill Mazeroski",
+        "10 Chipper Jones",
+        "11 Frank Robinson",
+        "12 Roger Clemens",
+        "13 Bob Feller",
+        "14 Mike Piazza",
+        "15 Joe Nuxhall",
+        "16 Hideo Nomo",
+        "17 Jackie Robinson",
+        "18 Orel Hershiser",
+        "19 Bobby Thomson",
+        "20 Joe Carter",
+        "21 Al Kaline",
+        "22 Bernie Williams",
+        "23 Don Larsen",
+        "24 Rickey Henderson",
+        "25 Maury Wills",
+        "26 Andruw Jones",
+        "27 Bobby Richardson",
+        "28 Alex Rodriguez",
+        "29 Jim Bunning",
+        "30 Ken Caminiti",
+        "31 Bob Gibson",
+        "32 Frank Thomas",
+        "33 Mickey Lolich",
+        "34 John Smoltz",
+        "35 Ron Swoboda",
+        "36 Albert Belle",
+        "37 Chris Chambliss",
+        "38 Juan Gonzalez",
+        "39 Ron Blomberg",
+        "40 John Wetteland",
+        "41 Carlton Fisk",
+        "42 Mo Vaughn",
+        "43 Bucky Dent",
+        "44 Greg Maddux",
+        "45 Willie Stargell",
+        "46 Tony Gwynn SP",
+        "47 Joel Youngblood SP",
+        "48 Andy Pettitte SP",
+        "49 Mookie Wilson SP",
+        "50 Jeff Bagwell SP"
+      ]
+    },
+    "scope-flashback-description": {
+      "url": "https://baseballcardpedia.com/index.php/1998_Fleer_Tradition#Description",
+      "sha256": "f3f4ea48aee493002a1baca39f208fed1ad625d5aafc91475be647983e1a9d8a",
+      "records": [
+        "50 hand-numbered Fleer Flashback Exchange cards; exchange for framed uncut press sheet from 1981-1993; individual card inventory/numbering not verified"
+      ]
+    },
+    "scope-diamond-ink-program": {
+      "url": "https://baseballcardpedia.com/index.php/1998_Fleer_Diamond_Ink",
+      "sha256": "efdc1e136caf78586e39b62e258b9464264e154a953877447115356dfc83f208",
+      "records": [
+        "Ten players; 1, 5, 10 and 25 point denominations; 500 points of same player exchanged for autographed baseball",
+        "Greg Maddux point cards available only in 1998 Fleer Tradition Series One packs"
+      ]
+    }
+  },
+  "reviewedScanEvidence": [
+    {
+      "set": "base-1",
+      "number": "63",
+      "side": "front",
+      "url": "https://www.tcdb.com/Images/Cards/Baseball/1149/1149-63Fr.jpg",
+      "sha256": "5e10352001e76fd86da4c61be1f121d433742f5007bace07218145523490b955"
+    },
+    {
+      "set": "base-1",
+      "number": "63",
+      "side": "back",
+      "url": "https://www.tcdb.com/Images/Cards/Baseball/1149/1149-63Bk.jpg",
+      "sha256": "97435fd707571a7a192f46601763fed9f106d291d1791589aaedbdb634df8fab"
+    },
+    {
+      "set": "base-1",
+      "number": "36",
+      "side": "front",
+      "url": "https://www.tcdb.com/Images/Cards/Baseball/1149/1149-36Fr.jpg",
+      "sha256": "e73b4be95bf55750ae8f55210077aae255a821be3ee4a73df073394a086495f2"
+    },
+    {
+      "set": "base-1",
+      "number": "36",
+      "side": "back",
+      "url": "https://www.tcdb.com/Images/Cards/Baseball/1149/1149-36Bk.jpg",
+      "sha256": "c7db53d639cb71db4d9afe9befe7d8b8d327a101c04c8d6aa732d9c77bd18b84"
+    },
+    {
+      "set": "Mickey Mantle Monumental Moments",
+      "number": "3 MM",
+      "side": "front",
+      "url": "https://www.tcdb.com/Images/Cards/Baseball/11100/11100-1911532Fr.jpg",
+      "sha256": "0e22f3c4a63939986304cf026742e623a05378e243c58d9e5384cc59f0135f5d"
+    },
+    {
+      "set": "Mickey Mantle Monumental Moments",
+      "number": "3 MM",
+      "side": "back",
+      "url": "https://www.tcdb.com/Images/Cards/Baseball/11100/11100-1911532Bk.jpg",
+      "sha256": "d7b2eb56debb2eba2604fd492969fc7915298f52d50c1ccb8d8d4df97e051b8f"
+    },
+    {
+      "set": "Diamond Ink 1 Point",
+      "number": "NNO",
+      "side": "front",
+      "url": "https://www.tcdb.com/Images/Cards/Baseball/11097/11097-1911460Fr.jpg",
+      "sha256": "04dfe037e5e1d161f0aeada37f6c3a2171f2729dd37689110dd83fa4912a0d59"
+    },
+    {
+      "set": "Diamond Ink 1 Point",
+      "number": "NNO",
+      "side": "back",
+      "url": "https://www.tcdb.com/Images/Cards/Baseball/11097/11097-1911460Bk.jpg",
+      "sha256": "03c305dc9ff27c34194d60179646a0c0d707e27359c8734fe77fda5f6280927b"
+    },
+    {
+      "set": "Vintage-2",
+      "number": "NNO",
+      "side": "front",
+      "url": "https://www.tcdb.com/Images/Cards/Baseball/1157/1157-1911736Fr.jpg",
+      "sha256": "7bf37d9ad1cb328934784b9e79ca1aac93f14f9025559e6289e98c87956ee4a1"
+    },
+    {
+      "set": "Vintage-2",
+      "number": "NNO",
+      "side": "back",
+      "url": "https://www.tcdb.com/Images/Cards/Baseball/1157/1157-1911736RepBk.jpg",
+      "sha256": "b9fb9b706d7c6a871247ce4e7bce2ef81e28941ecef7d517abe0c6f57c5b930b"
+    },
+    {
+      "set": "packaging",
+      "number": "92047",
+      "side": "front",
+      "url": "https://www.tcdb.com/Images/Packaging/Baseball/1149Pack92047Large.jpg",
+      "sha256": "31219176d8f30ef264b7accf1a96d4040a7f5fd998e996fd44ae5e799b66188e",
+      "finding": "Series 2 Hobby wrapper says contains 10 Major League Baseball cards; exact total including extras unresolved. Confirms Classic /63 and Mantle Gold /51."
+    }
+  ]
+}

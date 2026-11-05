@@ -1,0 +1,1126 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,"Ken Griffey, Jr.",Seattle Mariners,,
+base,2,Derek Jeter,New York Yankees,,
+base,3,Gerald Williams,Milwaukee Brewers,,
+base,4,Carlos Delgado,Toronto Blue Jays,,
+base,5,Nomar Garciaparra,Boston Red Sox,,
+base,6,Gary Sheffield,Florida Marlins,,
+base,7,Jeff King,Kansas City Royals,,
+base,8,"Cal Ripken, Jr.",Baltimore Orioles,,
+base,9,Matt Williams,Arizona Diamondbacks,,Traded
+base,10,Chipper Jones,Atlanta Braves,,
+base,11,Chuck Knoblauch,Minnesota Twins,,
+base,12,Mark Grudzielanek,Montreal Expos,,
+base,13,Edgardo Alfonzo,New York Mets,,
+base,14,Andres Galarraga,Atlanta Braves,,
+base,15,Tim Salmon,Anaheim Angels,,
+base,16,Reggie Sanders,Cincinnati Reds,,
+base,17,Tony Clark,Detroit Tigers,,
+base,18,Jason Kendall,Pittsburgh Pirates,,
+base,19,Juan Gonzalez,Texas Rangers,,
+base,20,Ben Grieve,Oakland Athletics,1997 Debut,
+base,21,Roger Clemens,Toronto Blue Jays,,
+base,22,Raul Mondesi,Los Angeles Dodgers,,
+base,23,Robin Ventura,Chicago White Sox,,
+base,24,Derrek Lee,San Diego Padres,1997 Debut,
+base,25,Mark McGwire,St. Louis Cardinals,,
+base,26,Luis Gonzalez,Houston Astros,,
+base,27,Kevin Brown,Florida Marlins,,
+base,28,Kirk Rueter,San Francisco Giants,,
+base,29,Bobby Estalella,Philadelphia Phillies,,
+base,30,Shawn Green,Toronto Blue Jays,,
+base,31,Greg Maddux,Atlanta Braves,,
+base,32,Jorge Velandia,Oakland Athletics,,Traded
+base,33,Larry Walker,Colorado Rockies,,
+base,34,Joey Cora,Seattle Mariners,,
+base,35,Frank Thomas,Chicago White Sox,,
+base,36,Curtis King RC,St. Louis Cardinals,1997 Debut,
+base,37,Aaron Boone,Cincinnati Reds,1997 Debut,
+base,38,Curt Schilling,Philadelphia Phillies,,
+base,39,Bruce Aven,Cleveland Indians,,
+base,40,Ben McDonald,Milwaukee Brewers,,
+base,41,Andy Ashby,San Diego Padres,,
+base,42,Jason McDonald,Oakland Athletics,1997 Debut,
+base,43,Eric Davis,Baltimore Orioles,,
+base,44,Mark Grace,Chicago Cubs,,
+base,45,Pedro Martinez,Boston Red Sox,,Traded
+base,46,Lou Collier,Pittsburgh Pirates,1997 Debut,
+base,47,Chan Ho Park,Los Angeles Dodgers,,
+base,48,Shane Halter,Kansas City Royals,1997 Debut,
+base,49,Brian Hunter,Detroit Tigers,,
+base,50,Jeff Bagwell,Houston Astros,,
+base,51,Bernie Williams,New York Yankees,,
+base,52,J.T. Snow,San Francisco Giants,,
+base,53,Todd Greene,Anaheim Angels,,
+base,54,Shannon Stewart,Toronto Blue Jays,,
+base,55,Darren Bragg,Boston Red Sox,,
+base,56,Fernando Tatis,Texas Rangers,1997 Debut,
+base,57,Darryl Kile,Houston Astros,,
+base,58,Chris Stynes,Cincinnati Reds,,
+base,59,Javier Valentin,Minnesota Twins,1997 Debut,
+base,60,Brian McRae,New York Mets,,
+base,61,Tom Evans,Toronto Blue Jays,1997 Debut,
+base,62,Randall Simon,Atlanta Braves,1997 Debut,
+base,63,Darrin Fletcher,Toronto Blue Jays,,
+base,64,Jaret Wright,Cleveland Indians,1997 Debut,
+base,65,Luis Ordaz,St. Louis Cardinals,1997 Debut,
+base,66,Jose Canseco,Oakland Athletics,,
+base,67,Edgar Renteria,Florida Marlins,,
+base,68,Jay Buhner,Seattle Mariners,,
+base,69,Paul Konerko,Los Angeles Dodgers,1997 Debut,
+base,70,Adrian Brown,Pittsburgh Pirates,1997 Debut,
+base,71,Chris Carpenter,Toronto Blue Jays,1997 Debut,
+base,72,Mike Lieberthal,Philadelphia Phillies,,
+base,73,Dean Palmer,Kansas City Royals,,
+base,74,Jorge Fabregas,Arizona Diamondbacks,,Expansion Draft
+base,75,Stan Javier,San Francisco Giants,,
+base,76,Damion Easley,Detroit Tigers,,
+base,77,David Cone,New York Yankees,,
+base,78,Aaron Sele,Texas Rangers,,Traded
+base,79,Antonio Alfonseca,Florida Marlins,1997 Debut,
+base,80,Bobby Jones,New York Mets,,
+base,81,David Justice,Cleveland Indians,,
+base,82,Jeffrey Hammonds,Baltimore Orioles,,
+base,83,Doug Glanville,Chicago Cubs,,
+base,84,Jason Dickson,Anaheim Angels,,
+base,85,Brad Radke,Minnesota Twins,,
+base,86,David Segui,Montreal Expos,,
+base,87,Greg Vaughn,San Diego Padres,,
+base,88,Mike Cather RC,Atlanta Braves,1997 Debut,
+base,89,Alex Fernandez,Florida Marlins,,
+base,90,Billy Taylor,Oakland Athletics,,
+base,91,Jason Schmidt,Pittsburgh Pirates,,
+base,92,Mike DeJean RC,Colorado Rockies,1997 Debut,
+base,93,Domingo Cedeno,Texas Rangers,,
+base,94,Jeff Cirillo,Milwaukee Brewers,,
+base,95,Manny Aybar RC,St. Louis Cardinals,1997 Debut,
+base,96,Jaime Navarro,Chicago White Sox,,
+base,97,Dennis Reyes,Los Angeles Dodgers,1997 Debut,
+base,98,Barry Larkin,Cincinnati Reds,,
+base,99,Troy O'Leary,Boston Red Sox,,
+base,100,Alex Rodriguez,Seattle Mariners,,
+base,101,Pat Hentgen,Toronto Blue Jays,,
+base,102,Bubba Trammell,Tampa Bay Devil Rays,1997 Debut,Expansion Draft
+base,103,Glendon Rusch,Kansas City Royals,1997 Debut,
+base,104,Kenny Lofton,Atlanta Braves,,
+base,105,Craig Biggio,Houston Astros,,
+base,106,Kelvim Escobar,Toronto Blue Jays,1997 Debut,
+base,107,Mark Kotsay,Florida Marlins,1997 Debut,
+base,108,Rondell White,Montreal Expos,,
+base,109,Darren Oliver,Texas Rangers,,
+base,110,Jim Thome,Cleveland Indians,,
+base,111,Rich Becker,Minnesota Twins,,
+base,112,Chad Curtis,New York Yankees,,
+base,113,Dave Hollins,Anaheim Angels,,
+base,114,Bill Mueller,San Francisco Giants,,
+base,115,Antone Williamson,Milwaukee Brewers,1997 Debut,
+base,116,Tony Womack,Pittsburgh Pirates,,
+base,117,Randy Myers,Toronto Blue Jays,,
+base,118,Rico Brogna,Philadelphia Phillies,,
+base,119,Pat Watkins,Cincinnati Reds,1997 Debut,
+base,120,Eli Marrero,St. Louis Cardinals,1997 Debut,
+base,121,Jay Bell,Arizona Diamondbacks,,
+base,122,Kevin Tapani,Chicago Cubs,,
+base,123,Todd Erdos RC,Arizona Diamondbacks,,Expansion Draft
+base,124,Neifi Perez,Colorado Rockies,,
+base,125,Todd Hundley,New York Mets,,
+base,126,Jeff Abbott,Chicago White Sox,1997 Debut,
+base,127,Todd Zeile,Los Angeles Dodgers,,
+base,128,Travis Fryman,Cleveland Indians,,Traded
+base,129,"Sandy Alomar, Jr.",Cleveland Indians,,
+base,130,Fred McGriff,Tampa Bay Devil Rays,,Expansion Draft
+base,131,Richard Hidalgo,Houston Astros,1997 Debut,
+base,132,Scott Spiezio,Oakland Athletics,,
+base,133,John Valentin,Boston Red Sox,,
+base,134,Quilvio Veras,San Diego Padres,,
+base,135,Mike Lansing,Colorado Rockies,,Traded
+base,136,Paul Molitor,Minnesota Twins,,
+base,137,Randy Johnson,Seattle Mariners,,
+base,138,Harold Baines,Baltimore Orioles,,
+base,139,Doug Jones,Milwaukee Brewers,,
+base,140,Abraham Nunez,Pittsburgh Pirates,1997 Debut,
+base,141,Alan Benes,St. Louis Cardinals,,
+base,142,Matt Perisho,Texas Rangers,1997 Debut,Traded
+base,143,Chris Clemons,Arizona Diamondbacks,,Expansion Draft
+base,144,Andy Pettitte,New York Yankees,,
+base,145,Jason Giambi,Oakland Athletics,,
+base,146,Moises Alou,Houston Astros,,Traded
+base,147,Chad Fox RC,Atlanta Braves,1997 Debut,
+base,148,Felix Martinez,Kansas City Royals,1997 Debut,
+base,149,Carlos Mendoza RC,Tampa Bay Devil Rays,1997 Debut,Expansion Draft
+base,150,Scott Rolen,Philadelphia Phillies,,
+base,151,Jose Cabrera RC,Houston Astros,1997 Debut,
+base,152,Justin Thompson,Detroit Tigers,,
+base,153,Ellis Burks,Colorado Rockies,,
+base,154,Pokey Reese,Cincinnati Reds,1997 Debut,
+base,155,Bartolo Colon,Cleveland Indians,1997 Debut,
+base,156,Ray Durham,Chicago White Sox,,
+base,157,Ugueth Urbina,Montreal Expos,,
+base,158,Tom Goodwin,Texas Rangers,,
+base,159,Dave Dellucci RC,Arizona Diamondbacks,1997 Debut,Expansion Draft
+base,160,Rod Beck,San Francisco Giants,,
+base,161,Ramon Martinez,Los Angeles Dodgers,,
+base,162,Joe Carter,Toronto Blue Jays,,
+base,163,Kevin Orie,Chicago Cubs,1997 Debut,
+base,164,Trevor Hoffman,San Diego Padres,,
+base,165,Emil Brown,Pittsburgh Pirates,1997 Debut,
+base,166,Robb Nen,San Francisco Giants,,Traded
+base,167,Paul O'Neill,New York Yankees,,
+base,168,Ryan Long,Kansas City Royals,1997 Debut,
+base,169,Ray Lankford,St. Louis Cardinals,,
+base,170,Ivan Rodriguez,Texas Rangers,,
+base,171,Rick Aguilera,Minnesota Twins,,
+base,172,Deivi Cruz,Detroit Tigers,1997 Debut,
+base,173,Ricky Bottalico,Philadelphia Phillies,,
+base,174,Garret Anderson,Anaheim Angels,,
+base,175,Jose Vizcaino,San Francisco Giants,,
+base,176,Omar Vizquel,Cleveland Indians,,
+base,177,Jeff Blauser,Atlanta Braves,,
+base,178,Orlando Cabrera,Montreal Expos,1997 Debut,
+base,179,Russ Johnson,Houston Astros,1997 Debut,
+base,180,Matt Stairs,Oakland Athletics,,
+base,181,Will Cunnane,San Diego Padres,1997 Debut,
+base,182,Adam Riggs,Los Angeles Dodgers,1997 Debut,
+base,183,Matt Morris,St. Louis Cardinals,1997 Debut,
+base,184,Mario Valdez,Chicago White Sox,1997 Debut,
+base,185,Larry Sutton,Kansas City Royals,1997 Debut,
+base,186,Marc Pisciotta RC,Chicago Cubs,1997 Debut,
+base,187,Dan Wilson,Seattle Mariners,,
+base,188,John Franco,New York Mets,,
+base,189,Darren Daulton,Florida Marlins,,
+base,190,Todd Helton,Colorado Rockies,1997 Debut,
+base,191,Brady Anderson,Baltimore Orioles,,
+base,192,Ricardo Rincon,Pittsburgh Pirates,1997 Debut,
+base,193,Kevin Stocker,Tampa Bay Devil Rays,,Traded
+base,194,Jose Valentin,Milwaukee Brewers,,
+base,195,Ed Sprague,Toronto Blue Jays,,
+base,196,Ryan McGuire,Montreal Expos,1997 Debut,
+base,197,Scott Eyre,Chicago White Sox,1997 Debut,
+base,198,Steve Finley,San Diego Padres,,
+base,199,T.J. Mathews,Oakland Athletics,,
+base,200,Mike Piazza,Los Angeles Dodgers,,
+base,201,Mark Wohlers,Atlanta Braves,,
+base,202,Brian Giles,Cleveland Indians,,
+base,203,Eduardo Perez,Cincinnati Reds,,
+base,204,Shigetoshi Hasegawa,Anaheim Angels,1997 Debut,
+base,205,Mariano Rivera,New York Yankees,,
+base,206,Jose Rosado,Kansas City Royals,,
+base,207,Michael Coleman,Boston Red Sox,1997 Debut,
+base,208,James Baldwin,Chicago White Sox,,
+base,209,Russ Davis,Seattle Mariners,,
+base,210,Billy Wagner,Houston Astros,,
+base,211,Sammy Sosa,Chicago Cubs,,
+base,212,Frank Catalanotto RC,Detroit Tigers,1997 Debut,
+base,213,Delino DeShields,St. Louis Cardinals,,
+base,214,John Olerud,New York Mets,,
+base,215,Heath Murray,San Diego Padres,1997 Debut,
+base,216,Jose Vidro,Montreal Expos,1997 Debut,
+base,217,Jim Edmonds,Anaheim Angels,,
+base,218,Shawon Dunston,Pittsburgh Pirates,,
+base,219,Homer Bush,New York Yankees,1997 Debut,
+base,220,Midre Cummings,Philadelphia Phillies,,
+base,221,Tony Saunders,Tampa Bay Devil Rays,1997 Debut,Expansion Draft
+base,222,Jeromy Burnitz,Milwaukee Brewers,,
+base,223,Enrique Wilson,Cleveland Indians,1997 Debut,
+base,224,Chili Davis,Kansas City Royals,,
+base,225,Jerry DiPoto,Colorado Rockies,,
+base,226,Dante Powell,San Francisco Giants,1997 Debut,
+base,227,Javier Lopez,Atlanta Braves,,
+base,228,Kevin Polcovich,Pittsburgh Pirates,1997 Debut,
+base,229,Deion Sanders,Cincinnati Reds,,
+base,230,Jimmy Key,Baltimore Orioles,,
+base,231,Rusty Greer,Texas Rangers,,
+base,232,Reggie Jefferson,Boston Red Sox,,
+base,233,Ron Coomer,Minnesota Twins,,
+base,234,Bobby Higginson,Detroit Tigers,,
+base,235,Magglio Ordonez RC,Chicago White Sox,1997 Debut,
+base,236,Miguel Tejada,Oakland Athletics,1997 Debut,
+base,237,Rick Gorecki,Tampa Bay Devil Rays,1997 Debut,Expansion Draft
+base,238,Charles Johnson,Florida Marlins,,
+base,239,Lance Johnson,Chicago Cubs,,
+base,240,Derek Bell,Houston Astros,,
+base,241,Will Clark,Texas Rangers,,
+base,242,Brady Raggio,St. Louis Cardinals,1997 Debut,
+base,243,Orel Hershiser,Cleveland Indians,,
+base,244,Vladimir Guerrero,Montreal Expos,,
+base,245,John LeRoy,Tampa Bay Devil Rays,1997 Debut,Expansion Draft
+base,246,Shawn Estes,San Francisco Giants,,
+base,247,Brett Tomko,Cincinnati Reds,1997 Debut,
+base,248,Dave Nilsson,Milwaukee Brewers,,
+base,249,Edgar Martinez,Seattle Mariners,,
+base,250,Tony Gwynn,San Diego Padres,,
+base,251,Mark Bellhorn,Oakland Athletics,1997 Debut,
+base,252,Jed Hansen,Kansas City Royals,1997 Debut,
+base,253,Butch Huskey,New York Mets,,
+base,254,Eric Young,Los Angeles Dodgers,,
+base,255,Vinny Castilla,Colorado Rockies,,
+base,256,Hideki Irabu,New York Yankees,1997 Debut,
+base,257,Mike Cameron,Chicago White Sox,,
+base,258,Juan Encarnacion,Detroit Tigers,1997 Debut,
+base,259,Brian Rose,Boston Red Sox,1997 Debut,
+base,260,Brad Ausmus,Houston Astros,,
+base,261,Dan Serafini,Minnesota Twins,,
+base,262,Willie Greene,Cincinnati Reds,,
+base,263,Troy Percival,Anaheim Angels,,
+base,264,Jeff Wallace,Pittsburgh Pirates,1997 Debut,
+base,265,Richie Sexson,Cleveland Indians,1997 Debut,
+base,266,Rafael Palmeiro,Baltimore Orioles,,
+base,267,Brad Fullmer,Montreal Expos,1997 Debut,
+base,268,Jeremi Gonzalez,Chicago Cubs,1997 Debut,
+base,269,Rob Stanifer RC,Florida Marlins,1997 Debut,
+base,270,Mickey Morandini,Philadelphia Phillies,,
+base,271,Andruw Jones,Atlanta Braves,,
+base,272,Royce Clayton,St. Louis Cardinals,,
+base,273,Takashi Kashiwada RC,New York Mets,1997 Debut,
+base,274,Steve Woodard,Milwaukee Brewers,1997 Debut,
+base,275,"Jose Cruz, Jr.",Toronto Blue Jays,1997 Debut,
+base,276,Keith Foulke,Chicago White Sox,1997 Debut,
+base,277,Brad Rigby,Oakland Athletics,1997 Debut,
+base,278,Tino Martinez,New York Yankees,,
+base,279,Todd Jones,Detroit Tigers,,
+base,280,John Wetteland,Texas Rangers,,
+base,281,Alex Gonzalez,Toronto Blue Jays,,
+base,282,Ken Cloude,Seattle Mariners,1997 Debut,
+base,283,Jose Guillen,Pittsburgh Pirates,1997 Debut,
+base,284,Danny Clyburn,Baltimore Orioles,1997 Debut,
+base,285,David Ortiz,Minnesota Twins,1997 Debut,
+base,286,John Thomson,Colorado Rockies,1997 Debut,
+base,287,Kevin Appier,Kansas City Royals,,
+base,288,Ismael Valdes,Los Angeles Dodgers,,
+base,289,Gary DiSarcina,Anaheim Angels,,
+base,290,Todd Dunwoody,Florida Marlins,1997 Debut,
+base,291,Wally Joyner,San Diego Padres,,
+base,292,Charles Nagy,Cleveland Indians,,
+base,293,Jeff Shaw,Cincinnati Reds,,
+base,294,Kevin Millwood RC,Atlanta Braves,1997 Debut,
+base,295,Rigo Beltran RC,St. Louis Cardinals,1997 Debut,
+base,296,Jeff Frye,Boston Red Sox,,
+base,297,Oscar Henriquez,Florida Marlins,,Traded
+base,298,Mike Thurman,Montreal Expos,1997 Debut,
+base,299,Garrett Stephenson,Philadelphia Phillies,,
+base,300,Barry Bonds,San Francisco Giants,,
+base,301,Roger Clemens,Toronto Blue Jays,Smoke 'n Heat,
+base,302,David Cone,New York Yankees,Smoke 'n Heat,
+base,303,Hideki Irabu,New York Yankees,Smoke 'n Heat,
+base,304,Randy Johnson,Seattle Mariners,Smoke 'n Heat,
+base,305,Greg Maddux,Atlanta Braves,Smoke 'n Heat,
+base,306,Pedro Martinez,Boston Red Sox,Smoke 'n Heat,
+base,307,Mike Mussina,Baltimore Orioles,Smoke 'n Heat,
+base,308,Andy Pettitte,New York Yankees,Smoke 'n Heat,
+base,309,Curt Schilling,Philadelphia Phillies,Smoke 'n Heat,
+base,310,John Smoltz,Atlanta Braves,Smoke 'n Heat,
+base,311,Roger Clemens,Toronto Blue Jays,Golden Memories,Short print
+base,312,"Jose Cruz, Jr.",Toronto Blue Jays,Golden Memories,Short print
+base,313,Nomar Garciaparra,Boston Red Sox,Golden Memories,Short print
+base,314,"Ken Griffey, Jr.",Seattle Mariners,Golden Memories,Short print
+base,315,Tony Gwynn,San Diego Padres,Golden Memories,Short print
+base,316,Hideki Irabu,New York Yankees,Golden Memories,Short print
+base,317,Randy Johnson,Seattle Mariners,Golden Memories,Short print
+base,318,Mark McGwire,St. Louis Cardinals,Golden Memories,Short print
+base,319,Curt Schilling,Philadelphia Phillies,Golden Memories,Short print
+base,320,Larry Walker,Colorado Rockies,Golden Memories,Short print
+base,321,Jeff Bagwell,Houston Astros,Tale of the Tape,Short print
+base,322,Albert Belle,Chicago White Sox,Tale of the Tape,Short print
+base,323,Barry Bonds,San Francisco Giants,Tale of the Tape,Short print
+base,324,Jay Buhner,Seattle Mariners,Tale of the Tape,Short print
+base,325,Tony Clark,Detroit Tigers,Tale of the Tape,Short print
+base,326,"Jose Cruz, Jr.",Toronto Blue Jays,Tale of the Tape,Short print
+base,327,Andres Galarraga,Atlanta Braves,Tale of the Tape,Short print
+base,328,Juan Gonzalez,Texas Rangers,Tale of the Tape,Short print
+base,329,"Ken Griffey, Jr.",Seattle Mariners,Tale of the Tape,Short print
+base,330,Andruw Jones,Atlanta Braves,Tale of the Tape,Short print
+base,331,Tino Martinez,New York Yankees,Tale of the Tape,Short print
+base,332,Mark McGwire,St. Louis Cardinals,Tale of the Tape,Short print
+base,333,Rafael Palmeiro,Baltimore Orioles,Tale of the Tape,Short print
+base,334,Mike Piazza,Los Angeles Dodgers,Tale of the Tape,Short print
+base,335,Manny Ramirez,Cleveland Indians,Tale of the Tape,Short print
+base,336,Alex Rodriguez,Seattle Mariners,Tale of the Tape,Short print
+base,337,Frank Thomas,Chicago White Sox,Tale of the Tape,Short print
+base,338,Jim Thome,Cleveland Indians,Tale of the Tape,Short print
+base,339,Mo Vaughn,Boston Red Sox,Tale of the Tape,Short print
+base,340,Larry Walker,Colorado Rockies,Tale of the Tape,Short print
+base,341,"Jose Cruz, Jr.",Toronto Blue Jays,Checklist,Checklist: 1-50
+base,342,"Ken Griffey, Jr.",Seattle Mariners,Checklist,Checklist: 51-100
+base,343,Derek Jeter,New York Yankees,Checklist,Checklist: 101-150
+base,344,Andruw Jones,Atlanta Braves,Checklist,Checklist: 151-200
+base,345,Chipper Jones,Atlanta Braves,Checklist,Checklist: 201-250
+base,346,Greg Maddux,Atlanta Braves,Checklist,Checklist: 251-300
+base,347,Mike Piazza,Los Angeles Dodgers,Checklist,Checklist: 301-340
+base,348,"Cal Ripken, Jr.",Baltimore Orioles,Checklist,Checklist: 341-350 and Inserts
+base,349,Alex Rodriguez,Seattle Mariners,Checklist,Checklist: Inserts
+base,350,Frank Thomas,Chicago White Sox,Checklist,Checklist: Inserts
+base,351,Mo Vaughn,Boston Red Sox,,
+base,352,Andres Galarraga,Atlanta Braves,,
+base,353,Roberto Alomar,Baltimore Orioles,,
+base,354,Darin Erstad,Anaheim Angels,,
+base,355,Albert Belle,Chicago White Sox,,
+base,356,Matt Williams,Arizona Diamondbacks,,
+base,357,Darryl Kile,Colorado Rockies,,
+base,358,Kenny Lofton,Cleveland Indians,,
+base,359,Orel Hershiser,San Francisco Giants,,
+base,360,Bobby Abreu,Philadelphia Phillies,,
+base,361,Chris Widger,Montreal Expos,,
+base,362,Glenallen Hill,Seattle Mariners,,
+base,363,Chili Davis,New York Yankees,,
+base,364,Kevin Brown,San Diego Padres,,
+base,365,Marquis Grissom,Milwaukee Brewers,,
+base,366,Livan Hernandez,Florida Marlins,,
+base,367,Moises Alou,Houston Astros,,
+base,368,Matt Lawton,Minnesota Twins,,
+base,369,Rey Ordonez,New York Mets,,
+base,370,Kenny Rogers,Oakland Athletics,,
+base,371,Lee Stevens,Texas Rangers,,
+base,372,Wade Boggs,Tampa Bay Devil Rays,,
+base,373,Luis Gonzalez,Detroit Tigers,,
+base,374,Jeff Conine,Kansas City Royals,,
+base,375,Esteban Loaiza,Pittsburgh Pirates,,
+base,376,Jose Canseco,Toronto Blue Jays,,
+base,377,Henry Rodriguez,Chicago Cubs,,
+base,378,Dave Burba,Cleveland Indians,,
+base,379,Todd Hollandsworth,Los Angeles Dodgers,,
+base,380,Ron Gant,St. Louis Cardinals,,
+base,381,Pedro Martinez,Boston Red Sox,,
+base,382,Ryan Klesko,Atlanta Braves,,
+base,383,Derrek Lee,Florida Marlins,Rookie,
+base,384,Doug Glanville,Philadelphia Phillies,,
+base,385,David Wells,New York Yankees,,
+base,386,Ken Caminiti,San Diego Padres,,
+base,387,Damon Hollins,Atlanta Braves,Rookie,
+base,388,Manny Ramirez,Cleveland Indians,,
+base,389,Mike Mussina,Baltimore Orioles,,
+base,390,Jay Bell,Arizona Diamondbacks,,
+base,391,Mike Piazza,Florida Marlins,,
+base,392,Mike Lansing,Colorado Rockies,,
+base,393,Mike Hampton,Houston Astros,,
+base,394,Geoff Jenkins,Milwaukee Brewers,Rookie,
+base,395,Jimmy Haynes,Oakland Athletics,,
+base,396,Scott Servais,Chicago Cubs,,
+base,397,Kent Mercker,St. Louis Cardinals,,
+base,398,Jeff Kent,San Francisco Giants,,
+base,399,Kevin Elster,Texas Rangers,,
+base,400,Masato Yoshii RC,New York Mets,Rookie,
+base,401,Jose Vizcaino,Los Angeles Dodgers,,
+base,402,Javier Martinez RC,Pittsburgh Pirates,Rookie,
+base,403,David Segui,Seattle Mariners,,
+base,404,Tony Saunders,Tampa Bay Devil Rays,,
+base,405,Karim Garcia,Arizona Diamondbacks,Rookie,
+base,406,Armando Benitez,Baltimore Orioles,,
+base,407,Joe Randa,Detroit Tigers,,
+base,408,Vic Darensbourg,Florida Marlins,Rookie,
+base,409,Sean Casey,Cincinnati Reds,Rookie,
+base,410,Eric Milton,Minnesota Twins,Rookie,
+base,411,Trey Moore,Montreal Expos,Rookie,
+base,412,Mike Stanley,Toronto Blue Jays,,
+base,413,Tom Gordon,Boston Red Sox,,
+base,414,Hal Morris,Kansas City Royals,,
+base,415,Braden Looper,St. Louis Cardinals,Rookie,
+base,416,Mike Kelly,Tampa Bay Devil Rays,,
+base,417,John Smoltz,Atlanta Braves,,
+base,418,Roger Cedeno,Los Angeles Dodgers,,
+base,419,Al Leiter,New York Mets,,
+base,420,Chuck Knoblauch,New York Yankees,,
+base,421,Felix Rodriguez,Arizona Diamondbacks,,
+base,422,Bip Roberts,Detroit Tigers,,
+base,423,Ken Hill,Anaheim Angels,,
+base,424,Jermaine Allensworth,Pittsburgh Pirates,,
+base,425,Esteban Yan RC,Tampa Bay Devil Rays,Rookie,
+base,426,Scott Karl,Milwaukee Brewers,,
+base,427,Sean Berry,Houston Astros,,
+base,428,Rafael Medina,Florida Marlins,Rookie,
+base,429,Javier Vazquez,Montreal Expos,Rookie,
+base,430,Rickey Henderson,Oakland Athletics,,
+base,431,Adam Butler,Atlanta Braves,Rookie,
+base,432,Todd Stottlemyre,St. Louis Cardinals,,
+base,433,Yamil Benitez,Arizona Diamondbacks,,
+base,434,Sterling Hitchcock,San Diego Padres,,
+base,435,Paul Sorrento,Tampa Bay Devil Rays,,
+base,436,Bobby Ayala,Seattle Mariners,,
+base,437,Tim Raines,New York Yankees,,
+base,438,Chris Hoiles,Baltimore Orioles,,
+base,439,Rod Beck,Chicago Cubs,,
+base,440,Donnie Sadler,Boston Red Sox,Rookie,
+base,441,Charles Johnson,Los Angeles Dodgers,,
+base,442,Russ Ortiz,San Francisco Giants,Rookie,
+base,443,Pedro Astacio,Colorado Rockies,,
+base,444,Wilson Alvarez,Tampa Bay Devil Rays,,
+base,445,Mike Blowers,Oakland Athletics,,
+base,446,Todd Zeile,Florida Marlins,,
+base,447,Mel Rojas,New York Mets,,
+base,448,F.P. Santangelo,Montreal Expos,,
+base,449,Dmitri Young,Cincinnati Reds,,
+base,450,Brian Anderson,Arizona Diamondbacks,,
+base,451,Cecil Fielder,Anaheim Angels,,
+base,452,Roberto Hernandez,Tampa Bay Devil Rays,,
+base,453,Todd Walker,Minnesota Twins,,
+base,454,Tyler Green,Philadelphia Phillies,,
+base,455,Jorge Posada,New York Yankees,,
+base,456,Geronimo Berroa,Cleveland Indians,,
+base,457,Jose Silva,Pittsburgh Pirates,Rookie,
+base,458,Bobby Bonilla,Los Angeles Dodgers,,
+base,459,Walt Weiss,Atlanta Braves,,
+base,460,Darren Dreifort,Los Angeles Dodgers,,
+base,461,B.J. Surhoff,Baltimore Orioles,,
+base,462,Quinton McCracken,Tampa Bay Devil Rays,,
+base,463,Derek Lowe,Boston Red Sox,,
+base,464,Jorge Fabregas,Arizona Diamondbacks,,
+base,465,Joey Hamilton,San Diego Padres,,
+base,466,Brian Jordan,St. Louis Cardinals,,
+base,467,Allen Watson,Anaheim Angels,,
+base,468,John Jaha,Milwaukee Brewers,,
+base,469,Heathcliff Slocumb,Seattle Mariners,,
+base,470,Gregg Jefferies,Philadelphia Phillies,,
+base,471,Scott Brosius,New York Yankees,,
+base,472,Chad Ogea,Cleveland Indians,,
+base,473,A.J. Hinch,Oakland Athletics,Rookie,
+base,474,Bobby Smith,Tampa Bay Devil Rays,Rookie,
+base,475,Brian Moehler,Detroit Tigers,,
+base,476,DaRond Stovall,Montreal Expos,Rookie,
+base,477,Kevin Young,Pittsburgh Pirates,,
+base,478,Jeff Suppan,Arizona Diamondbacks,,
+base,479,Marty Cordova,Minnesota Twins,,
+base,480,John Halama RC,Houston Astros,Rookie,
+base,481,Bubba Trammell,Tampa Bay Devil Rays,Rookie,
+base,482,Mike Caruso,Chicago White Sox,Rookie,
+base,483,Eric Karros,Los Angeles Dodgers,,
+base,484,Jamey Wright,Colorado Rockies,,
+base,485,Mike Sweeney,Kansas City Royals,,
+base,486,Aaron Sele,Texas Rangers,,
+base,487,Cliff Floyd,Florida Marlins,,
+base,488,Jeff Brantley,St. Louis Cardinals,,
+base,489,Jim Leyritz,Boston Red Sox,,
+base,490,Denny Neagle,Atlanta Braves,,
+base,491,Travis Fryman,Cleveland Indians,,
+base,492,Carlos Baerga,New York Mets,,
+base,493,Eddie Taubensee,Cincinnati Reds,,
+base,494,Darryl Strawberry,New York Yankees,,
+base,495,Brian Johnson,San Francisco Giants,,
+base,496,Randy Myers,Toronto Blue Jays,,
+base,497,Jeff Blauser,Chicago Cubs,,
+base,498,Jason Wood,Oakland Athletics,,
+base,499,Rolando Arrojo RC,Tampa Bay Devil Rays,Rookie,
+base,500,Johnny Damon,Kansas City Royals,,
+base,501,Jose Mercedes,Milwaukee Brewers,,
+base,502,Tony Batista,Arizona Diamondbacks,,
+base,503,Mike Piazza,New York Mets,,
+base,504,Hideo Nomo,Los Angeles Dodgers,,
+base,505,Chris Gomez,San Diego Padres,,
+base,506,Jesus Sanchez RC,Florida Marlins,Rookie,
+base,507,Al Martin,Pittsburgh Pirates,,
+base,508,Brian Edmondson,Atlanta Braves,Rookie,
+base,509,Joe Girardi,New York Yankees,,
+base,510,Shayne Bennett,Montreal Expos,Rookie,
+base,511,Joe Carter,Baltimore Orioles,,
+base,512,Dave Mlicki,New York Mets,,
+base,513,Rich Butler RC,Tampa Bay Devil Rays,Rookie,
+base,514,Dennis Eckersley,Boston Red Sox,,
+base,515,Travis Lee,Arizona Diamondbacks,Rookie,
+base,516,John Mabry,St. Louis Cardinals,,
+base,517,Jose Mesa,Cleveland Indians,,
+base,518,Phil Nevin,Anaheim Angels,,
+base,519,Raul Casanova,Detroit Tigers,,
+base,520,Mike Fetters,Oakland Athletics,,
+base,521,Gary Sheffield,Los Angeles Dodgers,,
+base,522,Terry Steinbach,Minnesota Twins,,
+base,523,Steve Trachsel,Chicago Cubs,,
+base,524,Josh Booty,Florida Marlins,Rookie,
+base,525,Darryl Hamilton,San Francisco Giants,,
+base,526,Mark McLemore,Texas Rangers,,
+base,527,Kevin Stocker,Tampa Bay Devil Rays,,
+base,528,Bret Boone,Cincinnati Reds,,
+base,529,Shane Andrews,Montreal Expos,,
+base,530,Robb Nen,San Francisco Giants,,
+base,531,Carl Everett,Houston Astros,,
+base,532,LaTroy Hawkins,Minnesota Twins,,
+base,533,Fernando Vina,Milwaukee Brewers,,
+base,534,Michael Tucker,Atlanta Braves,,
+base,535,Mark Langston,San Diego Padres,,
+base,536,Mickey Mantle,New York Yankees,,
+base,537,Bernard Gilkey,New York Mets,,
+base,538,Francisco Cordova,Pittsburgh Pirates,,
+base,539,Mike Bordick,Baltimore Orioles,,
+base,540,Fred McGriff,Tampa Bay Devil Rays,,
+base,541,Cliff Politte,St. Louis Cardinals,Rookie,
+base,542,Jason Varitek,Boston Red Sox,Rookie,
+base,543,Shawon Dunston,Cleveland Indians,,
+base,544,Brian Meadows,Florida Marlins,Rookie,
+base,545,Pat Meares,Minnesota Twins,,
+base,546,Carlos Perez,Montreal Expos,,
+base,547,Desi Relaford,Philadelphia Phillies,Rookie,
+base,548,Antonio Osuna,Los Angeles Dodgers,,
+base,549,Devon White,Arizona Diamondbacks,,
+base,550,Sean Runyan,Detroit Tigers,Rookie,
+base,551,Mickey Morandini,Chicago Cubs,,
+base,552,Dave Martinez,Tampa Bay Devil Rays,,
+base,553,Jeff Fassero,Seattle Mariners,,
+base,554,Ryan Jackson RC,Florida Marlins,Rookie,
+base,555,Stan Javier,San Francisco Giants,,
+base,556,Jaime Navarro,Chicago White Sox,,
+base,557,Jose Offerman,Kansas City Royals,,
+base,558,Mike Lowell RC,New York Yankees,Rookie,
+base,559,Darrin Fletcher,Toronto Blue Jays,,
+base,560,Mark Lewis,Philadelphia Phillies,,
+base,561,Dante Bichette,Colorado Rockies,,
+base,562,Chuck Finley,Anaheim Angels,,
+base,563,Kerry Wood,Chicago Cubs,Rookie,
+base,564,Andy Benes,Arizona Diamondbacks,,
+base,565,Freddy Garcia,Pittsburgh Pirates,,
+base,566,Tom Glavine,Atlanta Braves,,
+base,567,Jon Nunnally,Cincinnati Reds,,
+base,568,Miguel Cairo,Tampa Bay Devil Rays,Rookie,
+base,569,Shane Reynolds,Houston Astros,,
+base,570,Roberto Kelly,Texas Rangers,,
+base,571,"Jose Cruz, Jr.",Toronto Blue Jays,Checklist,Checklist: 351-412
+base,572,"Ken Griffey, Jr.",Seattle Mariners,Checklist,Checklist: 413-474
+base,573,Mark McGwire,St. Louis Cardinals,Checklist,Checklist: 475-536
+base,574,"Cal Ripken, Jr.",Baltimore Orioles,Checklist,Checklist: 537-593
+base,575,Frank Thomas,Chicago White Sox,Checklist,Checklist: 594-600 and Inserts
+base,576,Jeff Bagwell,Houston Astros,Unforgettable Moments,Short print
+base,577,Barry Bonds,San Francisco Giants,Unforgettable Moments,Short print
+base,578,Tony Clark,Detroit Tigers,Unforgettable Moments,Short print
+base,579,Roger Clemens,Toronto Blue Jays,Unforgettable Moments,Short print
+base,580,"Jose Cruz, Jr.",Toronto Blue Jays,Unforgettable Moments,Short print
+base,581,Nomar Garciaparra,Boston Red Sox,Unforgettable Moments,Short print
+base,582,Juan Gonzalez,Texas Rangers,Unforgettable Moments,Short print
+base,583,Ben Grieve,Oakland Athletics,Unforgettable Moments,Short print
+base,584,"Ken Griffey, Jr.",Seattle Mariners,Unforgettable Moments,Short print
+base,585,Tony Gwynn,San Diego Padres,Unforgettable Moments,Short print
+base,586,Derek Jeter,New York Yankees,Unforgettable Moments,Short print
+base,587,Randy Johnson,Seattle Mariners,Unforgettable Moments,Short print
+base,588,Chipper Jones,Atlanta Braves,Unforgettable Moments,Short print
+base,589,Greg Maddux,Atlanta Braves,Unforgettable Moments,Short print
+base,590,Mark McGwire,St. Louis Cardinals,Unforgettable Moments,Short print
+base,591,Andy Pettitte,New York Yankees,Unforgettable Moments,Short print
+base,592,Paul Molitor,Minnesota Twins,Unforgettable Moments,Short print
+base,593,"Cal Ripken, Jr.",Baltimore Orioles,Unforgettable Moments,Short print
+base,594,Alex Rodriguez,Seattle Mariners,Unforgettable Moments,Short print
+base,595,Scott Rolen,Philadelphia Phillies,Unforgettable Moments,Short print
+base,596,Curt Schilling,Philadelphia Phillies,Unforgettable Moments,Short print
+base,597,Frank Thomas,Chicago White Sox,Unforgettable Moments,Short print
+base,598,Jim Thome,Cleveland Indians,Unforgettable Moments,Short print
+base,599,Larry Walker,Colorado Rockies,Unforgettable Moments,Short print
+base,600,Bernie Williams,New York Yankees,Unforgettable Moments,Short print
+vintage,1,Jason Dickson,Anaheim Angels,,
+vintage,2,Tim Salmon,Anaheim Angels,,
+vintage,3,Andruw Jones,Atlanta Braves,,
+vintage,4,Chipper Jones,Atlanta Braves,,
+vintage,5,Kenny Lofton,Atlanta Braves,,
+vintage,6,Greg Maddux,Atlanta Braves,,
+vintage,7,Rafael Palmeiro,Baltimore Orioles,,
+vintage,8,"Cal Ripken, Jr.",Baltimore Orioles,,
+vintage,9,Nomar Garciaparra,Boston Red Sox,,
+vintage,10,Mark Grace,Chicago Cubs,,
+vintage,11,Sammy Sosa,Chicago Cubs,,
+vintage,12,Frank Thomas,Chicago White Sox,,
+vintage,13,Deion Sanders,Cincinnati Reds,,
+vintage,14,"Sandy Alomar, Jr.",Cleveland Indians,,
+vintage,15,David Justice,Cleveland Indians,,
+vintage,16,Jim Thome,Cleveland Indians,,
+vintage,17,Matt Williams,Arizona Diamondbacks,,
+vintage,18,Jaret Wright,Cleveland Indians,,
+vintage,19,Vinny Castilla,Colorado Rockies,,
+vintage,20,Andres Galarraga,Atlanta Braves,,
+vintage,21,Todd Helton,Colorado Rockies,,
+vintage,22,Larry Walker,Colorado Rockies,,
+vintage,23,Tony Clark,Detroit Tigers,,
+vintage,24,Moises Alou,Houston Astros,,
+vintage,25,Kevin Brown,Florida Marlins,,
+vintage,26,Charles Johnson,Florida Marlins,,
+vintage,27,Edgar Renteria,Florida Marlins,,
+vintage,28,Gary Sheffield,Florida Marlins,,
+vintage,29,Jeff Bagwell,Houston Astros,,
+vintage,30,Craig Biggio,Houston Astros,,
+vintage,31,Raul Mondesi,Los Angeles Dodgers,,
+vintage,32,Mike Piazza,Los Angeles Dodgers,,
+vintage,33,Chuck Knoblauch,Minnesota Twins,,
+vintage,34,Paul Molitor,Minnesota Twins,,
+vintage,35,Vladimir Guerrero,Montreal Expos,,
+vintage,36,Pedro Martinez,Boston Red Sox,,
+vintage,37,Todd Hundley,New York Mets,,
+vintage,38,Derek Jeter,New York Yankees,,
+vintage,39,Tino Martinez,New York Yankees,,
+vintage,40,Paul O'Neill,New York Yankees,,
+vintage,41,Andy Pettitte,New York Yankees,,
+vintage,42,Mariano Rivera,New York Yankees,,
+vintage,43,Bernie Williams,New York Yankees,,
+vintage,44,Ben Grieve,Oakland Athletics,,
+vintage,45,Scott Rolen,Philadelphia Phillies,,
+vintage,46,Curt Schilling,Philadelphia Phillies,,
+vintage,47,Jason Kendall,Pittsburgh Pirates,,
+vintage,48,Tony Womack,Pittsburgh Pirates,,
+vintage,49,Ray Lankford,St. Louis Cardinals,,
+vintage,50,Mark McGwire,St. Louis Cardinals,,
+vintage,51,Matt Morris,St. Louis Cardinals,,
+vintage,52,Tony Gwynn,San Diego Padres,,
+vintage,53,Barry Bonds,San Francisco Giants,,
+vintage,54,Jay Buhner,Seattle Mariners,,
+vintage,55,"Ken Griffey, Jr.",Seattle Mariners,,
+vintage,56,Randy Johnson,Seattle Mariners,,
+vintage,57,Edgar Martinez,Seattle Mariners,,
+vintage,58,Alex Rodriguez,Seattle Mariners,,
+vintage,59,Juan Gonzalez,Texas Rangers,,
+vintage,60,Rusty Greer,Texas Rangers,,
+vintage,61,Ivan Rodriguez,Texas Rangers,,
+vintage,62,Roger Clemens,Toronto Blue Jays,,
+vintage,63,"Jose Cruz, Jr.",Toronto Blue Jays,,
+vintage,64,Darin Erstad,Anaheim Angels,,
+vintage,65,Jay Bell,Arizona Diamondbacks,,
+vintage,66,Andy Benes,Arizona Diamondbacks,,
+vintage,67,Mickey Mantle,New York Yankees,,
+vintage,68,Karim Garcia,Arizona Diamondbacks,,
+vintage,69,Travis Lee,Arizona Diamondbacks,,
+vintage,70,Matt Williams,Arizona Diamondbacks,,
+vintage,71,Andres Galarraga,Atlanta Braves,,
+vintage,72,Tom Glavine,Atlanta Braves,,
+vintage,73,Ryan Klesko,Atlanta Braves,,
+vintage,74,Denny Neagle,Atlanta Braves,,
+vintage,75,John Smoltz,Atlanta Braves,,
+vintage,76,Roberto Alomar,Baltimore Orioles,,
+vintage,77,Joe Carter,Baltimore Orioles,,
+vintage,78,Mike Mussina,Baltimore Orioles,,
+vintage,79,B.J. Surhoff,Baltimore Orioles,,
+vintage,80,Dennis Eckersley,Boston Red Sox,,
+vintage,81,Pedro Martinez,Boston Red Sox,,
+vintage,82,Mo Vaughn,Boston Red Sox,,
+vintage,83,Henry Rodriguez,Chicago Cubs,,
+vintage,84,Kerry Wood,Chicago Cubs,,
+vintage,85,Albert Belle,Chicago White Sox,,
+vintage,86,Sean Casey,Cincinnati Reds,,
+vintage,87,Travis Fryman,Cleveland Indians,,
+vintage,88,Kenny Lofton,Cleveland Indians,,
+vintage,89,Darryl Kile,Colorado Rockies,,
+vintage,90,Mike Lansing,Colorado Rockies,,
+vintage,91,Bobby Bonilla,Los Angeles Dodgers,,
+vintage,92,Cliff Floyd,Florida Marlins,,
+vintage,93,Livan Hernandez,Florida Marlins,,
+vintage,94,Derrek Lee,Florida Marlins,,
+vintage,95,Moises Alou,Houston Astros,,
+vintage,96,Shane Reynolds,Houston Astros,,
+vintage,97,Mike Piazza,New York Mets,,
+vintage,98,Johnny Damon,Kansas City Royals,,
+vintage,99,Eric Karros,Los Angeles Dodgers,,
+vintage,100,Hideo Nomo,Los Angeles Dodgers,,
+vintage,101,Marquis Grissom,Milwaukee Brewers,,
+vintage,102,Matt Lawton,Minnesota Twins,,
+vintage,103,Todd Walker,Minnesota Twins,,
+vintage,104,Gary Sheffield,Los Angeles Dodgers,,
+vintage,105,Bernard Gilkey,New York Mets,,
+vintage,106,Rey Ordonez,New York Mets,,
+vintage,107,Chili Davis,New York Yankees,,
+vintage,108,Chuck Knoblauch,New York Yankees,,
+vintage,109,Charles Johnson,Los Angeles Dodgers,,
+vintage,110,Rickey Henderson,Oakland Athletics,,
+vintage,111,Bobby Abreu,Philadelphia Phillies,,
+vintage,112,Doug Glanville,Philadelphia Phillies,,
+vintage,113,Gregg Jefferies,Philadelphia Phillies,,
+vintage,114,Al Martin,Pittsburgh Pirates,,
+vintage,115,Kevin Young,Pittsburgh Pirates,,
+vintage,116,Ron Gant,St. Louis Cardinals,,
+vintage,117,Kevin Brown,San Diego Padres,,
+vintage,118,Ken Caminiti,San Diego Padres,,
+vintage,119,Joey Hamilton,San Diego Padres,,
+vintage,120,Jeff Kent,San Francisco Giants,,
+vintage,121,Wade Boggs,Tampa Bay Devil Rays,,
+vintage,122,Quinton McCracken,Tampa Bay Devil Rays,,
+vintage,123,Fred McGriff,Tampa Bay Devil Rays,,
+vintage,124,Paul Sorrento,Tampa Bay Devil Rays,,
+vintage,125,Jose Canseco,Toronto Blue Jays,,
+vintage,126,Randy Myers,Toronto Blue Jays,,
+vintage,NNO-A,Checklist,,Checklist,Checklist: 1-63
+vintage,NNO-B,Checklist,,Checklist,Checklist: 64-126
+classic,1C,Jason Dickson,Anaheim Angels,,Serial numbered /63
+classic,2C,Tim Salmon,Anaheim Angels,,Serial numbered /63
+classic,3C,Andruw Jones,Atlanta Braves,,Serial numbered /63
+classic,4C,Chipper Jones,Atlanta Braves,,Serial numbered /63
+classic,5C,Kenny Lofton,Atlanta Braves,,Serial numbered /63
+classic,6C,Greg Maddux,Atlanta Braves,,Serial numbered /63
+classic,7C,Rafael Palmeiro,Baltimore Orioles,,Serial numbered /63
+classic,8C,Cal Ripken Jr.,Baltimore Orioles,,Serial numbered /63
+classic,9C,Nomar Garciaparra,Boston Red Sox,,Serial numbered /63
+classic,10C,Mark Grace,Chicago Cubs,,Serial numbered /63
+classic,11C,Sammy Sosa,Chicago Cubs,,Serial numbered /63
+classic,12C,Frank Thomas,Chicago White Sox,,Serial numbered /63
+classic,13C,Deion Sanders,Cincinnati Reds,,Serial numbered /63
+classic,14C,Sandy Alomar Jr.,Cleveland Indians,,Serial numbered /63
+classic,15C,David Justice,Cleveland Indians,,Serial numbered /63
+classic,16C,Jim Thome,Cleveland Indians,,Serial numbered /63
+classic,17C,Matt Williams,Arizona Diamondbacks,,Serial numbered /63
+classic,18C,Jaret Wright,Cleveland Indians,,Serial numbered /63
+classic,19C,Vinny Castilla,Colorado Rockies,,Serial numbered /63
+classic,20C,Andres Galarraga,Atlanta Braves,,Serial numbered /63
+classic,21C,Todd Helton,Colorado Rockies,,Serial numbered /63
+classic,22C,Larry Walker,Colorado Rockies,,Serial numbered /63
+classic,23C,Tony Clark,Detroit Tigers,,Serial numbered /63
+classic,24C,Moises Alou,Houston Astros,,Serial numbered /63
+classic,25C,Kevin Brown,Florida Marlins,,Serial numbered /63
+classic,26C,Charles Johnson,Florida Marlins,,Serial numbered /63
+classic,27C,Edgar Renteria,Florida Marlins,,Serial numbered /63
+classic,28C,Gary Sheffield,Florida Marlins,,Serial numbered /63
+classic,29C,Jeff Bagwell,Houston Astros,,Serial numbered /63
+classic,30C,Craig Biggio,Houston Astros,,Serial numbered /63
+classic,31C,Raul Mondesi,Los Angeles Dodgers,,Serial numbered /63
+classic,32C,Mike Piazza,Los Angeles Dodgers,,Serial numbered /63
+classic,33C,Chuck Knoblauch,Minnesota Twins,,Serial numbered /63
+classic,34C,Paul Molitor,Minnesota Twins,,Serial numbered /63
+classic,35C,Vladimir Guerrero,Montreal Expos,,Serial numbered /63
+classic,36C,Pedro Martinez,Boston Red Sox,,Serial numbered /63
+classic,37C,Todd Hundley,New York Mets,,Serial numbered /63
+classic,38C,Derek Jeter,New York Yankees,,Serial numbered /63
+classic,39C,Tino Martinez,New York Yankees,,Serial numbered /63
+classic,40C,Paul O'Neill,New York Yankees,,Serial numbered /63
+classic,41C,Andy Pettitte,New York Yankees,,Serial numbered /63
+classic,42C,Mariano Rivera,New York Yankees,,Serial numbered /63
+classic,43C,Bernie Williams,New York Yankees,,Serial numbered /63
+classic,44C,Ben Grieve,Oakland Athletics,,Serial numbered /63
+classic,45C,Scott Rolen,Philadelphia Phillies,,Serial numbered /63
+classic,46C,Curt Schilling,Philadelphia Phillies,,Serial numbered /63
+classic,47C,Jason Kendall,Pittsburgh Pirates,,Serial numbered /63
+classic,48C,Tony Womack,Pittsburgh Pirates,,Serial numbered /63
+classic,49C,Ray Lankford,St. Louis Cardinals,,Serial numbered /63
+classic,50C,Mark McGwire,St. Louis Cardinals,,Serial numbered /63
+classic,51C,Matt Morris,St. Louis Cardinals,,Serial numbered /63
+classic,52C,Tony Gwynn,San Diego Padres,,Serial numbered /63
+classic,53C,Barry Bonds,San Francisco Giants,,Serial numbered /63
+classic,54C,Jay Buhner,Seattle Mariners,,Serial numbered /63
+classic,55C,Ken Griffey Jr.,Seattle Mariners,,Serial numbered /63
+classic,56C,Randy Johnson,Seattle Mariners,,Serial numbered /63
+classic,57C,Edgar Martinez,Seattle Mariners,,Serial numbered /63
+classic,58C,Alex Rodriguez,Seattle Mariners,,Serial numbered /63
+classic,59C,Juan Gonzalez,Texas Rangers,,Serial numbered /63
+classic,60C,Rusty Greer,Texas Rangers,,Serial numbered /63
+classic,61C,Ivan Rodriguez,Texas Rangers,,Serial numbered /63
+classic,62C,Roger Clemens,Toronto Blue Jays,,Serial numbered /63
+classic,63C,Jose Cruz Jr.,Toronto Blue Jays,,Serial numbered /63
+classic,64C,Darin Erstad,Anaheim Angels,,Serial numbered /63
+classic,65C,Jay Bell,Arizona Diamondbacks,,Serial numbered /63
+classic,66C,Andy Benes,Arizona Diamondbacks,,Serial numbered /63
+classic,67C,Mickey Mantle,New York Yankees,,Serial numbered /63
+classic,68C,Karim Garcia,Arizona Diamondbacks,,Serial numbered /63
+classic,69C,Travis Lee,Arizona Diamondbacks,,Serial numbered /63
+classic,70C,Matt Williams,Arizona Diamondbacks,,Serial numbered /63
+classic,71C,Andres Galarraga,Atlanta Braves,,Serial numbered /63
+classic,72C,Tom Glavine,Atlanta Braves,,Serial numbered /63
+classic,73C,Ryan Klesko,Atlanta Braves,,Serial numbered /63
+classic,74C,Denny Neagle,Atlanta Braves,,Serial numbered /63
+classic,75C,John Smoltz,Atlanta Braves,,Serial numbered /63
+classic,76C,Roberto Alomar,Baltimore Orioles,,Serial numbered /63
+classic,77C,Joe Carter,Baltimore Orioles,,Serial numbered /63
+classic,78C,Mike Mussina,Baltimore Orioles,,Serial numbered /63
+classic,79C,B.J. Surhoff,Baltimore Orioles,,Serial numbered /63
+classic,80C,Dennis Eckersley,Boston Red Sox,,Serial numbered /63
+classic,81C,Pedro Martinez,Boston Red Sox,,Serial numbered /63
+classic,82C,Mo Vaughn,Boston Red Sox,,Serial numbered /63
+classic,83C,Henry Rodriguez,Chicago Cubs,,Serial numbered /63
+classic,84C,Kerry Wood,Chicago Cubs,,Serial numbered /63
+classic,85C,Albert Belle,Chicago White Sox,,Serial numbered /63
+classic,86C,Sean Casey,Cincinnati Reds,,Serial numbered /63
+classic,87C,Travis Fryman,Cleveland Indians,,Serial numbered /63
+classic,88C,Kenny Lofton,Cleveland Indians,,Serial numbered /63
+classic,89C,Darryl Kile,Colorado Rockies,,Serial numbered /63
+classic,90C,Mike Lansing,Colorado Rockies,,Serial numbered /63
+classic,91C,Bobby Bonilla,Los Angeles Dodgers,,Serial numbered /63
+classic,92C,Cliff Floyd,Florida Marlins,,Serial numbered /63
+classic,93C,Livan Hernandez,Florida Marlins,,Serial numbered /63
+classic,94C,Derrek Lee,Florida Marlins,,Serial numbered /63
+classic,95C,Moises Alou,Houston Astros,,Serial numbered /63
+classic,96C,Shane Reynolds,Houston Astros,,Serial numbered /63
+classic,97C,Mike Piazza,New York Mets,,Serial numbered /63
+classic,98C,Johnny Damon,Kansas City Royals,,Serial numbered /63
+classic,99C,Eric Karros,Los Angeles Dodgers,,Serial numbered /63
+classic,100C,Hideo Nomo,Los Angeles Dodgers,,Serial numbered /63
+classic,101C,Marquis Grissom,Milwaukee Brewers,,Serial numbered /63
+classic,102C,Matt Lawton,Minnesota Twins,,Serial numbered /63
+classic,103C,Todd Walker,Minnesota Twins,,Serial numbered /63
+classic,104C,Gary Sheffield,Los Angeles Dodgers,,Serial numbered /63
+classic,105C,Bernard Gilkey,New York Mets,,Serial numbered /63
+classic,106C,Rey Ordonez,New York Mets,,Serial numbered /63
+classic,107C,Chili Davis,New York Yankees,,Serial numbered /63
+classic,108C,Chuck Knoblauch,New York Yankees,,Serial numbered /63
+classic,109C,Charles Johnson,Los Angeles Dodgers,,Serial numbered /63
+classic,110C,Rickey Henderson,Oakland Athletics,,Serial numbered /63
+classic,111C,Bobby Abreu,Philadelphia Phillies,,Serial numbered /63
+classic,112C,Doug Glanville,Philadelphia Phillies,,Serial numbered /63
+classic,113C,Gregg Jefferies,Philadelphia Phillies,,Serial numbered /63
+classic,114C,Al Martin,Pittsburgh Pirates,,Serial numbered /63
+classic,115C,Kevin Young,Pittsburgh Pirates,,Serial numbered /63
+classic,116C,Ron Gant,St. Louis Cardinals,,Serial numbered /63
+classic,117C,Kevin Brown,San Diego Padres,,Serial numbered /63
+classic,118C,Ken Caminiti,San Diego Padres,,Serial numbered /63
+classic,119C,Joey Hamilton,San Diego Padres,,Serial numbered /63
+classic,120C,Jeff Kent,San Francisco Giants,,Serial numbered /63
+classic,121C,Wade Boggs,Tampa Bay Devil Rays,,Serial numbered /63
+classic,122C,Quinton McCracken,Tampa Bay Devil Rays,,Serial numbered /63
+classic,123C,Fred McGriff,Tampa Bay Devil Rays,,Serial numbered /63
+classic,124C,Paul Sorrento,Tampa Bay Devil Rays,,Serial numbered /63
+classic,125C,Jose Canseco,Toronto Blue Jays,,Serial numbered /63
+classic,126C,Randy Myers,Toronto Blue Jays,,Serial numbered /63
+classic,NNO1C,Checklist,,Checklist,Checklist: 1-63; Serial numbered /63
+classic,NNO2C,Checklist,,Checklist,Checklist: 64-126; Serial numbered /63
+decade-of-excellence,1 DE,Roberto Alomar,Baltimore Orioles,,
+decade-of-excellence,2 DE,Barry Bonds,San Francisco Giants,,
+decade-of-excellence,3 DE,Roger Clemens,Toronto Blue Jays,,
+decade-of-excellence,4 DE,David Cone,New York Yankees,,
+decade-of-excellence,5 DE,Andres Galarraga,Montreal Expos / Atlanta Braves,,
+decade-of-excellence,6 DE,Mark Grace,Chicago Cubs,,
+decade-of-excellence,7 DE,Tony Gwynn,San Diego Padres,,
+decade-of-excellence,8 DE,Randy Johnson,Montreal Expos / Seattle Mariners,,
+decade-of-excellence,9 DE,Greg Maddux,Atlanta Braves,,
+decade-of-excellence,10 DE,Mark McGwire,St. Louis Cardinals,,
+decade-of-excellence,11 DE,Paul O'Neill,New York Yankees,,
+decade-of-excellence,12 DE,"Cal Ripken, Jr.",Baltimore Orioles,,
+decade-rare-traditions,1 DE,Roberto Alomar,Baltimore Orioles,,
+decade-rare-traditions,2 DE,Barry Bonds,San Francisco Giants,,
+decade-rare-traditions,3 DE,Roger Clemens,Toronto Blue Jays,,
+decade-rare-traditions,4 DE,David Cone,New York Yankees,,
+decade-rare-traditions,5 DE,Andres Galarraga,Montreal Expos / Atlanta Braves,,
+decade-rare-traditions,6 DE,Mark Grace,Chicago Cubs,,
+decade-rare-traditions,7 DE,Tony Gwynn,San Diego Padres,,
+decade-rare-traditions,8 DE,Randy Johnson,Montreal Expos / Seattle Mariners,,
+decade-rare-traditions,9 DE,Greg Maddux,Atlanta Braves,,
+decade-rare-traditions,10 DE,Mark McGwire,St. Louis Cardinals,,
+decade-rare-traditions,11 DE,Paul O'Neill,New York Yankees,,
+decade-rare-traditions,12 DE,"Cal Ripken, Jr.",Baltimore Orioles,,
+diamond-ink-1,NNO-01,Alex Rodriguez,,Diamond Ink,1 point; physical redemption token
+diamond-ink-1,NNO-02,Greg Maddux,,Diamond Ink,1 point; physical redemption token
+diamond-ink-1,NNO-03,Jay Buhner,,Diamond Ink,1 point; physical redemption token
+diamond-ink-1,NNO-04,"Jose Cruz, Jr.",,Diamond Ink,1 point; physical redemption token
+diamond-ink-1,NNO-05,Nomar Garciaparra,,Diamond Ink,1 point; physical redemption token
+diamond-ink-1,NNO-06,Roberto Hernandez,,Diamond Ink,1 point; physical redemption token
+diamond-ink-1,NNO-07,Roger Clemens,,Diamond Ink,1 point; physical redemption token
+diamond-ink-1,NNO-08,Scott Rolen,,Diamond Ink,1 point; physical redemption token
+diamond-ink-1,NNO-09,Tony Gwynn,,Diamond Ink,1 point; physical redemption token
+diamond-ink-1,NNO-10,Tony Womack,,Diamond Ink,1 point; physical redemption token
+diamond-ink-5,NNO-01,Alex Rodriguez,,Diamond Ink,5 points; physical redemption token
+diamond-ink-5,NNO-02,Greg Maddux,,Diamond Ink,5 points; physical redemption token
+diamond-ink-5,NNO-03,Jay Buhner,,Diamond Ink,5 points; physical redemption token
+diamond-ink-5,NNO-04,"Jose Cruz, Jr.",,Diamond Ink,5 points; physical redemption token
+diamond-ink-5,NNO-05,Nomar Garciaparra,,Diamond Ink,5 points; physical redemption token
+diamond-ink-5,NNO-06,Roberto Hernandez,,Diamond Ink,5 points; physical redemption token
+diamond-ink-5,NNO-07,Roger Clemens,,Diamond Ink,5 points; physical redemption token
+diamond-ink-5,NNO-08,Scott Rolen,,Diamond Ink,5 points; physical redemption token
+diamond-ink-5,NNO-09,Tony Gwynn,,Diamond Ink,5 points; physical redemption token
+diamond-ink-5,NNO-10,Tony Womack,,Diamond Ink,5 points; physical redemption token
+diamond-ink-10,NNO-01,Alex Rodriguez,,Diamond Ink,10 points; physical redemption token
+diamond-ink-10,NNO-02,Greg Maddux,,Diamond Ink,10 points; physical redemption token
+diamond-ink-10,NNO-03,Jay Buhner,,Diamond Ink,10 points; physical redemption token
+diamond-ink-10,NNO-04,"Jose Cruz, Jr.",,Diamond Ink,10 points; physical redemption token
+diamond-ink-10,NNO-05,Nomar Garciaparra,,Diamond Ink,10 points; physical redemption token
+diamond-ink-10,NNO-06,Roberto Hernandez,,Diamond Ink,10 points; physical redemption token
+diamond-ink-10,NNO-07,Roger Clemens,,Diamond Ink,10 points; physical redemption token
+diamond-ink-10,NNO-08,Scott Rolen,,Diamond Ink,10 points; physical redemption token
+diamond-ink-10,NNO-09,Tony Gwynn,,Diamond Ink,10 points; physical redemption token
+diamond-ink-10,NNO-10,Tony Womack,,Diamond Ink,10 points; physical redemption token
+diamond-ink-25,NNO-01,Alex Rodriguez,,Diamond Ink,25 points; physical redemption token
+diamond-ink-25,NNO-02,Greg Maddux,,Diamond Ink,25 points; physical redemption token
+diamond-ink-25,NNO-03,Jay Buhner,,Diamond Ink,25 points; physical redemption token
+diamond-ink-25,NNO-04,"Jose Cruz, Jr.",,Diamond Ink,25 points; physical redemption token
+diamond-ink-25,NNO-05,Nomar Garciaparra,,Diamond Ink,25 points; physical redemption token
+diamond-ink-25,NNO-06,Roberto Hernandez,,Diamond Ink,25 points; physical redemption token
+diamond-ink-25,NNO-07,Roger Clemens,,Diamond Ink,25 points; physical redemption token
+diamond-ink-25,NNO-08,Scott Rolen,,Diamond Ink,25 points; physical redemption token
+diamond-ink-25,NNO-09,Tony Gwynn,,Diamond Ink,25 points; physical redemption token
+diamond-ink-25,NNO-10,Tony Womack,,Diamond Ink,25 points; physical redemption token
+diamond-standouts,1 DS,Jeff Bagwell,Houston Astros,,
+diamond-standouts,2 DS,Barry Bonds,San Francisco Giants,,
+diamond-standouts,3 DS,Roger Clemens,Toronto Blue Jays,,
+diamond-standouts,4 DS,"Jose Cruz, Jr.",Toronto Blue Jays,,
+diamond-standouts,5 DS,Andres Galarraga,Atlanta Braves,,
+diamond-standouts,6 DS,Nomar Garciaparra,Boston Red Sox,,
+diamond-standouts,7 DS,Juan Gonzalez,Texas Rangers,,
+diamond-standouts,8 DS,"Ken Griffey, Jr.",Seattle Mariners,,
+diamond-standouts,9 DS,Derek Jeter,New York Yankees,,
+diamond-standouts,10 DS,Randy Johnson,Seattle Mariners,,
+diamond-standouts,11 DS,Chipper Jones,Atlanta Braves,,
+diamond-standouts,12 DS,Kenny Lofton,Atlanta Braves,,
+diamond-standouts,13 DS,Greg Maddux,Atlanta Braves,,
+diamond-standouts,14 DS,Pedro Martinez,Boston Red Sox,,
+diamond-standouts,15 DS,Mark McGwire,St. Louis Cardinals,,
+diamond-standouts,16 DS,Mike Piazza,Los Angeles Dodgers,,
+diamond-standouts,17 DS,Alex Rodriguez,Seattle Mariners,,
+diamond-standouts,18 DS,Curt Schilling,Philadelphia Phillies,,
+diamond-standouts,19 DS,Frank Thomas,Chicago White Sox,,
+diamond-standouts,20 DS,Larry Walker,Colorado Rockies,,
+diamond-tribute,1 DT,Jeff Bagwell,Houston Astros,,
+diamond-tribute,2 DT,Roger Clemens,Toronto Blue Jays,,
+diamond-tribute,3 DT,Nomar Garciaparra,Boston Red Sox,,
+diamond-tribute,4 DT,Juan Gonzalez,Texas Rangers,,
+diamond-tribute,5 DT,"Ken Griffey, Jr.",Seattle Mariners,,
+diamond-tribute,6 DT,Mark McGwire,St. Louis Cardinals,,
+diamond-tribute,7 DT,Mike Piazza,Florida Marlins,,
+diamond-tribute,8 DT,"Cal Ripken, Jr.",Baltimore Orioles,,
+diamond-tribute,9 DT,Alex Rodriguez,Seattle Mariners,,
+diamond-tribute,10 DT,Frank Thomas,Chicago White Sox,,
+in-the-clutch,1 IC,Jeff Bagwell,Houston Astros,,
+in-the-clutch,2 IC,Barry Bonds,San Francisco Giants,,
+in-the-clutch,3 IC,Roger Clemens,Toronto Blue Jays,,
+in-the-clutch,4 IC,"Jose Cruz, Jr.",Toronto Blue Jays,,
+in-the-clutch,5 IC,Nomar Garciaparra,Boston Red Sox,,
+in-the-clutch,6 IC,Juan Gonzalez,Texas Rangers,,
+in-the-clutch,7 IC,"Ken Griffey, Jr.",Seattle Mariners,,
+in-the-clutch,8 IC,Tony Gwynn,San Diego Padres,,
+in-the-clutch,9 IC,Derek Jeter,New York Yankees,,
+in-the-clutch,10 IC,Chipper Jones,Atlanta Braves,,
+in-the-clutch,11 IC,Greg Maddux,Atlanta Braves,,
+in-the-clutch,12 IC,Mark McGwire,St. Louis Cardinals,,
+in-the-clutch,13 IC,Mike Piazza,Florida Marlins,,
+in-the-clutch,14 IC,Frank Thomas,Chicago White Sox,,
+in-the-clutch,15 IC,Larry Walker,Colorado Rockies,,
+lumber-company,1 LC,Jeff Bagwell,Houston Astros,,
+lumber-company,2 LC,Barry Bonds,San Francisco Giants,,
+lumber-company,3 LC,"Jose Cruz, Jr.",Toronto Blue Jays,,
+lumber-company,4 LC,Nomar Garciaparra,Boston Red Sox,,
+lumber-company,5 LC,Juan Gonzalez,Texas Rangers,,
+lumber-company,6 LC,"Ken Griffey, Jr.",Seattle Mariners,,
+lumber-company,7 LC,Tony Gwynn,San Diego Padres,,
+lumber-company,8 LC,Chipper Jones,Atlanta Braves,,
+lumber-company,9 LC,Tino Martinez,New York Yankees,,
+lumber-company,10 LC,Mark McGwire,St. Louis Cardinals,,
+lumber-company,11 LC,Mike Piazza,Los Angeles Dodgers,,
+lumber-company,12 LC,"Cal Ripken, Jr.",Baltimore Orioles,,
+lumber-company,13 LC,Alex Rodriguez,Seattle Mariners,,
+lumber-company,14 LC,Frank Thomas,Chicago White Sox,,
+lumber-company,15 LC,Larry Walker,Colorado Rockies,,
+mantle-moments,1 MM,Mickey Mantle,New York Yankees,,
+mantle-moments,2 MM,Mickey Mantle,New York Yankees,,
+mantle-moments,3 MM,Mickey Mantle / Phil Rizzuto,New York Yankees,,
+mantle-moments,4 MM,Mickey Mantle,New York Yankees,,
+mantle-moments,5 MM,Mickey Mantle,New York Yankees,,
+mantle-moments,6 MM,Mickey Mantle,New York Yankees,,
+mantle-moments,7 MM,Mickey Mantle,New York Yankees,,
+mantle-moments,8 MM,Mickey Mantle,New York Yankees,,
+mantle-moments,9 MM,Mickey Mantle,New York Yankees,,
+mantle-moments,10 MM,Mickey Mantle,New York Yankees,,
+mantle-gold,1 MMG,Mickey Mantle,New York Yankees,,Serial numbered /51
+mantle-gold,2 MMG,Mickey Mantle,New York Yankees,,Serial numbered /51
+mantle-gold,3 MMG,Mickey Mantle / Phil Rizzuto,New York Yankees,,Serial numbered /51
+mantle-gold,4 MMG,Mickey Mantle,New York Yankees,,Serial numbered /51
+mantle-gold,5 MMG,Mickey Mantle,New York Yankees,,Serial numbered /51
+mantle-gold,6 MMG,Mickey Mantle,New York Yankees,,Serial numbered /51
+mantle-gold,7 MMG,Mickey Mantle,New York Yankees,,Serial numbered /51
+mantle-gold,8 MMG,Mickey Mantle,New York Yankees,,Serial numbered /51
+mantle-gold,9 MMG,Mickey Mantle,New York Yankees,,Serial numbered /51
+mantle-gold,10 MMG,Mickey Mantle,New York Yankees,,Serial numbered /51
+promising-forecasts,1 PF,Rolando Arrojo,Tampa Bay Devil Rays,,
+promising-forecasts,2 PF,Sean Casey,Cincinnati Reds,,
+promising-forecasts,3 PF,Brad Fullmer,Montreal Expos,,
+promising-forecasts,4 PF,Karim Garcia,Arizona Diamondbacks,,
+promising-forecasts,5 PF,Ben Grieve,Oakland Athletics,,
+promising-forecasts,6 PF,Todd Helton,Colorado Rockies,,
+promising-forecasts,7 PF,Richard Hidalgo,Houston Astros,,
+promising-forecasts,8 PF,A.J. Hinch,Oakland Athletics,,
+promising-forecasts,9 PF,Paul Konerko,Los Angeles Dodgers,,
+promising-forecasts,10 PF,Mark Kotsay,Florida Marlins,,
+promising-forecasts,11 PF,Derrek Lee,Florida Marlins,,
+promising-forecasts,12 PF,Travis Lee,Arizona Diamondbacks,,
+promising-forecasts,13 PF,Eric Milton,Minnesota Twins,,
+promising-forecasts,14 PF,Magglio Ordonez,Chicago White Sox,,
+promising-forecasts,15 PF,David Ortiz,Minnesota Twins,,
+promising-forecasts,16 PF,Brian Rose,Boston Red Sox,,
+promising-forecasts,17 PF,Miguel Tejada,Oakland Athletics,,
+promising-forecasts,18 PF,Jason Varitek,Boston Red Sox,,
+promising-forecasts,19 PF,Enrique Wilson,Cleveland Indians,,
+promising-forecasts,20 PF,Kerry Wood,Chicago Cubs,,
+rookie-sensations,1 RS,Mike Cameron,Chicago White Sox,,
+rookie-sensations,2 RS,"Jose Cruz, Jr.",Toronto Blue Jays,,
+rookie-sensations,3 RS,Jason Dickson,Anaheim Angels,,
+rookie-sensations,4 RS,Kelvim Escobar,Toronto Blue Jays,,
+rookie-sensations,5 RS,Nomar Garciaparra,Boston Red Sox,,
+rookie-sensations,6 RS,Ben Grieve,Oakland Athletics,,
+rookie-sensations,7 RS,Vladimir Guerrero,Montreal Expos,,
+rookie-sensations,8 RS,Wilton Guerrero,Los Angeles Dodgers,,
+rookie-sensations,9 RS,Jose Guillen,Pittsburgh Pirates,,
+rookie-sensations,10 RS,Todd Helton,Colorado Rockies,,
+rookie-sensations,11 RS,Livan Hernandez,Florida Marlins,,
+rookie-sensations,12 RS,Hideki Irabu,New York Yankees,,
+rookie-sensations,13 RS,Andruw Jones,Atlanta Braves,,
+rookie-sensations,14 RS,Matt Morris,St. Louis Cardinals,,
+rookie-sensations,15 RS,Magglio Ordonez,Chicago White Sox,,
+rookie-sensations,16 RS,Neifi Perez,Colorado Rockies,,
+rookie-sensations,17 RS,Scott Rolen,Philadelphia Phillies,,
+rookie-sensations,18 RS,Fernando Tatis,Texas Rangers,,
+rookie-sensations,19 RS,Brett Tomko,Cincinnati Reds,,
+rookie-sensations,20 RS,Jaret Wright,Cleveland Indians,,
+power-game,1 PG,Jeff Bagwell,Houston Astros,,
+power-game,2 PG,Albert Belle,Chicago White Sox,,
+power-game,3 PG,Barry Bonds,San Francisco Giants,,
+power-game,4 PG,Tony Clark,Detroit Tigers,,
+power-game,5 PG,Roger Clemens,Toronto Blue Jays,,
+power-game,6 PG,"Jose Cruz, Jr.",Toronto Blue Jays,,
+power-game,7 PG,Andres Galarraga,Atlanta Braves,,
+power-game,8 PG,Nomar Garciaparra,Boston Red Sox,,
+power-game,9 PG,Juan Gonzalez,Texas Rangers,,
+power-game,10 PG,"Ken Griffey, Jr.",Seattle Mariners,,
+power-game,11 PG,Randy Johnson,Seattle Mariners,,
+power-game,12 PG,Greg Maddux,Atlanta Braves,,
+power-game,13 PG,Pedro Martinez,Montreal Expos,,
+power-game,14 PG,Tino Martinez,New York Yankees,,
+power-game,15 PG,Mark McGwire,St. Louis Cardinals,,
+power-game,16 PG,Mike Piazza,Los Angeles Dodgers,,
+power-game,17 PG,Curt Schilling,Philadelphia Phillies,,
+power-game,18 PG,Frank Thomas,Chicago White Sox,,
+power-game,19 PG,Jim Thome,Cleveland Indians,,
+power-game,20 PG,Larry Walker,Colorado Rockies,,
+zone,1 Z,Jeff Bagwell,Houston Astros,,
+zone,2 Z,Barry Bonds,San Francisco Giants,,
+zone,3 Z,Roger Clemens,Toronto Blue Jays,,
+zone,4 Z,"Jose Cruz, Jr.",Toronto Blue Jays,,
+zone,5 Z,Nomar Garciaparra,Boston Red Sox,,
+zone,6 Z,Juan Gonzalez,Texas Rangers,,
+zone,7 Z,"Ken Griffey, Jr.",Seattle Mariners,,
+zone,8 Z,Tony Gwynn,San Diego Padres,,
+zone,9 Z,Chipper Jones,Atlanta Braves,,
+zone,10 Z,Greg Maddux,Atlanta Braves,,
+zone,11 Z,Mark McGwire,St. Louis Cardinals,,
+zone,12 Z,Mike Piazza,Los Angeles Dodgers,,
+zone,13 Z,Alex Rodriguez,Seattle Mariners,,
+zone,14 Z,Frank Thomas,Chicago White Sox,,
+zone,15 Z,Larry Walker,Colorado Rockies,,
+million-dollar-moments,1,Checklist,,Checklist,Original game-card back; shared 1997-98 issue
+million-dollar-moments,2,Derek Jeter,New York Yankees,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,3,Babe Ruth,New York Yankees,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,4,Barry Bonds,San Francisco Giants,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,5,Brooks Robinson,Baltimore Orioles,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,6,Todd Hundley,New York Mets,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,7,Johnny Vander Meer,Cincinnati Reds,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,8,"Cal Ripken, Jr.",Baltimore Orioles,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,9,Bill Mazeroski,Pittsburgh Pirates,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,10,Chipper Jones,Atlanta Braves,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,11,Frank Robinson,Cleveland Indians,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,12,Roger Clemens,Boston Red Sox,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,13,Bob Feller,Cleveland Indians,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,14,Mike Piazza,Los Angeles Dodgers,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,15,Joe Nuxhall,Cincinnati Reds,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,16,Hideo Nomo,Los Angeles Dodgers,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,17,Jackie Robinson,Brooklyn Dodgers,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,18,Orel Hershiser,Los Angeles Dodgers,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,19,Bobby Thomson,New York Giants,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,20,Joe Carter,Toronto Blue Jays,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,21,Al Kaline,Detroit Tigers,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,22,Bernie Williams,New York Yankees,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,23,Don Larsen,New York Yankees,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,24,Rickey Henderson,Oakland Athletics,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,25,Maury Wills,Los Angeles Dodgers,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,26,Andruw Jones,Atlanta Braves,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,27,Bobby Richardson,New York Yankees,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,28,Alex Rodriguez,Seattle Mariners,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,29,Jim Bunning,Philadelphia Phillies,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,30,Ken Caminiti,San Diego Padres,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,31,Bob Gibson,St. Louis Cardinals,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,32,Frank Thomas,Chicago White Sox,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,33,Mickey Lolich,Detroit Tigers,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,34,John Smoltz,Atlanta Braves,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,35,Ron Swoboda,New York Mets,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,36,Albert Belle,Cleveland Indians,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,37,Chris Chambliss,New York Yankees,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,38,Juan Gonzalez,Texas Rangers,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,39,Ron Blomberg,New York Yankees,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,40,John Wetteland,New York Yankees,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,41,Carlton Fisk,Boston Red Sox,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,42,Mo Vaughn,Boston Red Sox,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,43,Bucky Dent,New York Yankees,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,44,Greg Maddux,Atlanta Braves,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,45,Willie Stargell,Pittsburgh Pirates,,Original game-card back; shared 1997-98 issue
+million-dollar-moments,46,Tony Gwynn,San Diego Padres,,Original game-card back; shared 1997-98 issue; Super short print
+million-dollar-moments,47,Joel Youngblood,New York Mets,,Original game-card back; shared 1997-98 issue; Super short print
+million-dollar-moments,48,Andy Pettitte,New York Yankees,,Original game-card back; shared 1997-98 issue; Super short print
+million-dollar-moments,49,Mookie Wilson,New York Mets,,Original game-card back; shared 1997-98 issue; Super short print
+million-dollar-moments,50,Jeff Bagwell,Houston Astros,,Original game-card back; shared 1997-98 issue; Super short print
