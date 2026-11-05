@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1122/1998-Circa-Thunder",
+    "checklistReference": "https://www.tcdb.com/Checklist.cfm/sid/1122/1998-Circa-Thunder?PageIndex=1",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/1122/1998-Circa-Thunder",
+    "insertReference": "https://www.tcdb.com/Inserts.cfm/sid/1122/1998-Circa-Thunder",
+    "independentReference": "https://baseballcardpedia.com/index.php/1998_Circa_Thunder",
+    "supplementaryTeamReference": "https://mycardbatch.com/checklists/circa-thunder-1998-baseball",
+    "numberingReference": "https://www.beckett.com/baseball/1998/circa-thunder/"
+  },
+  "decisions": {
+    "inventory": "976 explicit cards across nine complete families: base 300, Rave 296, Super Rave 296, Boss 20, Fast Track 10, Limited Access 15, Quick Strike 12, Rave Reviews 15, Thunder Boomers 12. Full parallels individually retrieved from own namespaces, not extrapolated. No parallel checklist cards #297–300 invented.",
+    "numbering": "Grissom base is erroneously printed #8 instead of intended #280, confirmed by TCDB, BCP and Beckett. Keep local ID 8B distinct from Ripken #8; B is not printed. No corrected base #280 invented. Both parallel catalogues list Grissom as 280; compare identity/team to base 8B. Printed insert identifiers retained: 1B, 1 FT, 1LA, 1 QS, 1RR, 1TB.",
+    "rookies": "Exactly four true base RCs: 48 Rich Butler, 133 Mike Lowell, 175 Magglio Ordonez, 198 Rolando Arrojo. Base, independent BCP and separate rookie index agree. No RC suffix extrapolation to parallels/inserts or from retailer marketing lists.",
+    "checklists": "Featured-player checklist cards stay in base: 297 Frank Thomas (1–99), 298 Alex Rodriguez (100–198), 299 Ken Griffey Jr. (199–296), 300 Jose Cruz Jr. (297–300 and inserts). Clean player names, Checklist subset, ranges in variant. All four have real team affiliations; no generic or blank teams.",
+    "namesTeams": "All 384 base/insert number-name-team tuples checked against complete supplementary tables and independent BCP rosters. Both full parallel subject/team lists compared to base with Grissom slot mapping. Historical affiliations retained, including Piazza Dodgers, Clemens Toronto, Randy Johnson Seattle, Lowell Yankees, Galarraga Atlanta. Limited spelling normalization only.",
+    "packOdds": "Hobby 36 packs of eight cards. Verified Hobby denominators: Rave 36, Super Rave 216, Boss 6, Fast Track 24, Quick Strike 36, Rave Reviews 288, Thunder Boomers 96. Limited Access retail-only 1:18 stays null in Hobby model. Odds live only on ProductSets. Independent VCS hit rolls replace base slots; original pack positions/collation are not reproduced.",
+    "exclusions": "Exclude Ripken #8 Promotional Sample distributed in dealer/media materials and Rolen SF1 SportsFest 1998 giveaway, published quantity 5000. BCP P8 is a promo catalogue prefix, not an extra pack-issued base card. No verified pack-issued autograph, memorabilia, hologram or extra parallel family; none invented.",
+    "verificationLimit": "Complete catalogue-based checklist/metadata audit. Scan retrieval was interrupted by workspace/network errors; no completed physical card or packaging visual audit is claimed. All normalized source rows, exact URLs and hashes retained. Image harvesting pending.",
+    "release": "Unreleased draft for pricing/image harvesting. Release blocked pending pack QA, images and prices. No production database access or deployment."
+  },
+  "product": {
+    "id": "1998_Circa_Thunder_Baseball",
+    "year": 1998,
+    "brand": "Circa Thunder",
+    "sport": "Baseball",
+    "cardsPerPack": 8,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "checklist": "VERIFIED_976_CARDS_9_FAMILIES_AGAINST_CATALOGUES",
+    "rookieDesignation": "VERIFIED_4_BASE_RCS",
+    "scanReview": "PENDING_IMAGE_HARVEST",
+    "packCollation": "PENDING",
+    "insertOdds": "VERIFIED_HOBBY_RETAIL_LIMITED_ACCESS_EXCLUDED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1998-circa-thunder-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1998_Circa_Thunder_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 1122,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1122/1998-Circa-Thunder?PageIndex=1",
+      "expectedCards": 300,
+      "notes": "Full 300-card base family including four featured-player checklists #297–300. Grissom printed #8 in intended slot #280; local ID 8B distinguishes Ripken #8."
+    },
+    {
+      "key": "rave",
+      "id": "1998_Circa_Thunder_Baseball_Rave",
+      "name": "Rave",
+      "kind": "PARALLEL",
+      "oddsPerPack": 36,
+      "sourceSetId": 11020,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11020/1998-Circa-Thunder-Rave?PageIndex=1",
+      "expectedCards": 296,
+      "notes": "Full 296-card sparkling silver /150 parallel; no checklist cards #297–300. Hobby 1:36."
+    },
+    {
+      "key": "super-rave",
+      "id": "1998_Circa_Thunder_Baseball_Super_Rave",
+      "name": "Super Rave",
+      "kind": "PARALLEL",
+      "oddsPerPack": 216,
+      "sourceSetId": 11021,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11021/1998-Circa-Thunder-Super-Rave?PageIndex=1",
+      "expectedCards": 296,
+      "notes": "Full 296-card sparkling gold /25 parallel; no checklist cards #297–300. Hobby 1:216."
+    },
+    {
+      "key": "boss",
+      "id": "1998_Circa_Thunder_Baseball_Boss",
+      "name": "Boss",
+      "kind": "INSERT",
+      "oddsPerPack": 6,
+      "sourceSetId": 7400,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/7400/1998-Circa-Thunder-Boss",
+      "expectedCards": 20,
+      "notes": "Full 20-card collector checklist; Hobby denominator 6."
+    },
+    {
+      "key": "fast-track",
+      "id": "1998_Circa_Thunder_Baseball_Fast_Track",
+      "name": "Fast Track",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "sourceSetId": 7401,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/7401/1998-Circa-Thunder-Fast-Track",
+      "expectedCards": 10,
+      "notes": "Full 10-card collector checklist; Hobby denominator 24."
+    },
+    {
+      "key": "limited-access",
+      "id": "1998_Circa_Thunder_Baseball_Limited_Access",
+      "name": "Limited Access",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 11019,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11019/1998-Circa-Thunder-Limited-Access",
+      "expectedCards": 15,
+      "notes": "Full fifteen-card die-cut fold-out retail-only checklist. Physical retail 1:18; odds null for Hobby default. Retained for pricing and image harvesting."
+    },
+    {
+      "key": "quick-strike",
+      "id": "1998_Circa_Thunder_Baseball_Quick_Strike",
+      "name": "Quick Strike",
+      "kind": "INSERT",
+      "oddsPerPack": 36,
+      "sourceSetId": 7402,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/7402/1998-Circa-Thunder-Quick-Strike",
+      "expectedCards": 12,
+      "notes": "Full 12-card collector checklist; Hobby denominator 36."
+    },
+    {
+      "key": "rave-reviews",
+      "id": "1998_Circa_Thunder_Baseball_Rave_Reviews",
+      "name": "Rave Reviews",
+      "kind": "INSERT",
+      "oddsPerPack": 288,
+      "sourceSetId": 7404,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/7404/1998-Circa-Thunder-Rave-Reviews",
+      "expectedCards": 15,
+      "notes": "Full 15-card collector checklist; Hobby denominator 288."
+    },
+    {
+      "key": "thunder-boomers",
+      "id": "1998_Circa_Thunder_Baseball_Thunder_Boomers",
+      "name": "Thunder Boomers",
+      "kind": "INSERT",
+      "oddsPerPack": 96,
+      "sourceSetId": 7403,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/7403/1998-Circa-Thunder-Thunder-Boomers",
+      "expectedCards": 12,
+      "notes": "Full 12-card collector checklist; Hobby denominator 96."
+    }
+  ]
+}
