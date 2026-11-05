@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1455/2001-Fleer-E-X",
+    "checklistReference": "https://www.tcdb.com/Checklist.cfm/sid/1455/2001-Fleer-E-X?PageIndex=1",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/1455/2001-Fleer-E-X",
+    "insertReference": "https://www.tcdb.com/Inserts.cfm/sid/1455/2001-Fleer-E-X",
+    "independentReference": "https://baseballcardpedia.com/index.php/2001_E-X",
+    "jeterProgramReference": "https://baseballcardpedia.com/index.php/2001_Fleer_Derek_Jeter_Monumental_Moments",
+    "seasonPassReference": "https://baseballcardpedia.com/index.php/2001_Fleer_Season_Pass",
+    "supplementaryTeamReference": "https://mycardbatch.com/checklists/fleer-e-x-2001-baseball"
+  },
+  "decisions": {
+    "inventory": "426 explicit original-product cards across 12 complete collector families: 130 base, 130 Essential Credentials, 29 prospect autographs, 44 jerseys, 42 jersey autographs, 30 Wall of Fame, ten retail E-Xtra Innings, three E-X Jeter issues, six E-X Season Pass exchange cards, two physical checklists.",
+    "originalVsUpdate": "TCDB separates the original 130-card plastic-stock E-X issue (1455) from the ten paper-stock /499 #131–140 update cards (324240) distributed in 2001 Fleer Platinum Rookie Collection. Independent BCP lists combined 140; all 140 identities/RCs are audited, but the ten Platinum-issued cards including Albert Pujols are excluded from original E-X packs. This is an issue boundary, not an odds-driven split.",
+    "rookies": "Exactly four true original-issue base RCs: 105 Ichiro Suzuki, 109 Esix Snead, 115 Elpidio Guzman, 117 Winston Abreu; agree across base, separate rookie index and BCP. RC* in BCP means a player did not reach MLB; the catalogue still recognizes Guzman RC. No inferred RC suffix on parallel/autograph/jersey cards.",
+    "sharedSerialPools": "Prospect serial denominations are 1999/2499/2999, shared between signed and unsigned portions except Ichiro. Preserve serial denominator AND published signed/unsigned allocation as different attributes. For all 29 pairs, allocations sum to serial denominator and match independent BCP autograph quantities, including Brian Cole 2000 signed + 999 unsigned. Do not mislabel Hart as physically /250 or /1749.",
+    "correctedSourceErrors": "Card backs directly confirm #109 Esix Snead /1999, #121 Jason Tyner /2999 and #129 Nate Rolison /2999; BCP incorrectly lists /2499 for each. Independent dedicated Jeter program and original scans confirm E-X Monumental /1996 and auto /96; generic product summary 2000/100 is wrong for this brand. Physical checklist B lists 122–130 plus inserts; source catalogue label 122–140 is corrected from reviewed front/back scans.",
+    "pendingPrintRun": "Behind the Numbers Rollie Fingers autograph: TCDB /34 vs BCP /24. No actual signed card serial scan located. Roster/team is catalogued, but run unresolved and clearly flagged in CSV. Keep product blocked from release; do not silently assert either conflicting run as verified.",
+    "familyIntegrity": "Base remains 130 and Essential Credentials remains 130; range-specific scarcity stays in subset and metadata. Now/Future ranges /299 and /29 are not separate completion lists. VCS uniform selection flattens prospect scarcity and serial-quantity differences.",
+    "productMembership": "Jeter shared program: include only E-X #2 MM /1996, unnumbered autograph /96, Base Inks published 500. Season Pass shared 30-name matrix: include six E-X subjects only. No other-brand Jeter cards or Season Pass subjects. No unsupported standalone hologram, bat or additional parallel family.",
+    "namesTeams": "Clean canonical subjects; four RC suffixes only. All 130 base and 29 prospect autograph number/name/team tuples independently match supplementary tables. Full parallel agrees with base. Insert team checks allow historically depicted affiliations: jersey Grace Chicago Cubs and Grieve Oakland vs base Arizona/Tampa Bay. Retired jerseys use card franchises, not last team or uniform-year guesses.",
+    "numbering": "Retain printed 1XI–10XI and 2 MM. Unnumbered player cards get stable NNO-NAME-SLUG VCS keys; physical checklists NNO-A/B. These are local IDs, not fictitious printed numbers. MEM/AU/SN/PR/RDM and long source annotations belong in variant/subset, not player.",
+    "packOdds": "Hobby default 24 packs x five cards, verified original box plus product and retailer sources. Retail three cards per pack, eight-pack blaster (7 plus bonus) is distinct. Wall of Fame 1:24 and Behind Numbers jerseys 1:33 stored; all unverified denominators null. E-Xtra Innings retail 1:20 remains null in Hobby model. Box averages do not justify invented autograph odds. Odds only at ProductSet level.",
+    "redemptions": "Season Pass physical expired exchange cards included; no active entitlement simulated. A PR1 catalogue note does not prove a printed serial 1/1. Jeter Base Inks 500 is published production, not an invented printed serial denominator.",
+    "release": "Unreleased draft for pricing and image harvesting; release blocked pending Rollie Fingers run, unknown odds, pack QA, images and prices. No production database access or deployment."
+  },
+  "product": {
+    "id": "2001_Fleer_EX_Baseball",
+    "year": 2001,
+    "brand": "Fleer E-X",
+    "sport": "Baseball",
+    "cardsPerPack": 5,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "checklist": "CATALOGUED_426_CARDS_12_FAMILIES",
+    "rookieDesignation": "VERIFIED_4_ORIGINAL_BASE_RCS",
+    "printRuns": "PENDING_ROLLIE_FINGERS_JERSEY_AUTOGRAPH",
+    "packCollation": "PENDING",
+    "insertOdds": "PENDING_UNKNOWN_ODDS_AND_RETAIL_EXCLUSION",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "2001-fleer-ex-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2001_Fleer_EX_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 1455,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1455/2001-Fleer-E-X?PageIndex=1",
+      "expectedCards": 130,
+      "notes": "Original-product 130-card plastic-stock base checklist. #101–130 Rookies/Prospects share serial pools with separate autographed portions (except Ichiro). Preserve full collector family and flatten historical scarcity. Paper-stock #131–140 issued in Fleer Platinum, not original E-X packs, are audited as exclusions."
+    },
+    {
+      "key": "essential",
+      "id": "2001_Fleer_EX_Baseball_Essential_Credentials",
+      "name": "Essential Credentials",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 12771,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12771/2001-Fleer-E-X-Essential-Credentials?PageIndex=1",
+      "expectedCards": 130,
+      "notes": "Full original 130-card parallel: Essential Credentials Now #1–100 /299; Future #101–130 /29. One collector family with subset metadata; no verified denominator, odds null."
+    },
+    {
+      "key": "rookie-autographs",
+      "id": "2001_Fleer_EX_Baseball_Autographed_Rookies_Prospects",
+      "name": "Autographed Rookies/Prospects",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 12773,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12773/2001-Fleer-E-X-Autographed-Rookies-Prospects",
+      "expectedCards": 29,
+      "notes": "29 signed prospect portions, all #101–130 except Ichiro #105. Serial denominators match base pools; published signed quantities differ from denominators. No inserted Ichiro autograph invented. Odds unknown."
+    },
+    {
+      "key": "jerseys",
+      "id": "2001_Fleer_EX_Baseball_Behind_the_Numbers_Game_Jersey",
+      "name": "Behind the Numbers Game Jersey",
+      "kind": "INSERT",
+      "oddsPerPack": 33,
+      "sourceSetId": 12769,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12769/2001-Fleer-E-X-Behind-the-Numbers-Game-Jersey",
+      "expectedCards": 44,
+      "notes": "44 game-used jersey subjects; Hobby 1:33 according to product checklist and retailer. Some cards depict earlier franchises (e.g. Mark Grace Chicago Cubs)."
+    },
+    {
+      "key": "jersey-autographs",
+      "id": "2001_Fleer_EX_Baseball_Behind_the_Numbers_Game_Jersey_Autograph",
+      "name": "Behind the Numbers Game Jersey Autograph",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 12770,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12770/2001-Fleer-E-X-Behind-the-Numbers-Game-Jersey-Autograph",
+      "expectedCards": 42,
+      "notes": "42 signed jersey subjects; Willie Mays and Ted Williams are unsigned-only. Hand-numbered to listed quantities. Rollie Fingers source /34 disagrees with BCP /24 and remains flagged pending scan verification. Odds unknown."
+    },
+    {
+      "key": "wall-of-fame",
+      "id": "2001_Fleer_EX_Baseball_Wall_of_Fame",
+      "name": "Wall of Fame",
+      "kind": "INSERT",
+      "oddsPerPack": 24,
+      "sourceSetId": 12774,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12774/2001-Fleer-E-X-Wall-of-Fame",
+      "expectedCards": 30,
+      "notes": "30 subjects with pieces of Milwaukee County Stadium outfield wall; not jerseys or bats. Hobby 1:24."
+    },
+    {
+      "key": "extra-innings",
+      "id": "2001_Fleer_EX_Baseball_E_Xtra_Innings",
+      "name": "E-Xtra Innings",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 12772,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12772/2001-Fleer-E-X-E-Xtra-Innings",
+      "expectedCards": 10,
+      "notes": "Ten-card numbered retail-exclusive insert checklist, historically 1:20 retail. Hobby default odds null; retained for pricing/images, not injected into Hobby packs."
+    },
+    {
+      "key": "jeter-monumental",
+      "id": "2001_Fleer_EX_Baseball_Derek_Jeter_Monumental_Moments",
+      "name": "Derek Jeter Monumental Moments",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 324253,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/324253/2001-Fleer-E-X-Derek-Jeter-Monumental-Moments",
+      "expectedCards": 1,
+      "notes": "Only E-X #2 MM /1996 from shared five-brand promotion; do not use generic product summary 2000."
+    },
+    {
+      "key": "jeter-monumental-auto",
+      "id": "2001_Fleer_EX_Baseball_Derek_Jeter_Monumental_Moments_Autographed",
+      "name": "Derek Jeter Monumental Moments Autographed",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 324254,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/324254/2001-Fleer-E-X-Derek-Jeter-Monumental-Moments-Autographed",
+      "expectedCards": 1,
+      "notes": "Only E-X unnumbered /96 autograph from shared promotion; do not use generic product summary 100. Odds unknown."
+    },
+    {
+      "key": "jeter-base-inks",
+      "id": "2001_Fleer_EX_Baseball_Derek_Jeter_Base_Inks",
+      "name": "Derek Jeter Base Inks",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 324261,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/324261/2001-Fleer-E-X-Derek-Jeter-Base-Inks",
+      "expectedCards": 1,
+      "notes": "E-X-only unnumbered Jeter autograph with piece of game-used base; published quantity 500. No invented printed /500 serial number. Odds unknown."
+    },
+    {
+      "key": "season-pass",
+      "id": "2001_Fleer_EX_Baseball_Fleer_Season_Pass",
+      "name": "Fleer Season Pass",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 152530,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/152530/2001-Fleer-E-X-Fleer-Season-Pass",
+      "expectedCards": 6,
+      "notes": "Six E-X-assigned unnumbered redemption subjects from independent cross-brand matrix. Published one copy each; historical exchange expired December 1, 2001. Import physical collector cards only; no working redemption entitlement. Odds unknown."
+    },
+    {
+      "key": "checklists",
+      "id": "2001_Fleer_EX_Baseball_Checklists",
+      "name": "Checklists",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 264410,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/264410/2001-Fleer-E-X-Checklists",
+      "expectedCards": 2,
+      "notes": "Two physical unnumbered cards: 1–121 and 122–130 plus inserts. Both sides reviewed; source catalogue label 122–140 is incorrect and corrected from scans in the CSV, with raw label retained in provenance. Local NNO-A/B are VCS IDs, not printed numbers; teams intentionally blank. Exact odds unknown."
+    }
+  ]
+}

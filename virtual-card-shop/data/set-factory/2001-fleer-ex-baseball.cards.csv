@@ -1,0 +1,427 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Jason Kendall,Pittsburgh Pirates,,
+base,2,Derek Jeter,New York Yankees,,
+base,3,Greg Vaughn,Tampa Bay Devil Rays,,
+base,4,Eric Chavez,Oakland Athletics,,
+base,5,Nomar Garciaparra,Boston Red Sox,,
+base,6,Roberto Alomar,Cleveland Indians,,
+base,7,Barry Larkin,Cincinnati Reds,,
+base,8,Matt Lawton,Minnesota Twins,,
+base,9,Larry Walker,Colorado Rockies,,
+base,10,Chipper Jones,Atlanta Braves,,
+base,11,Scott Rolen,Philadelphia Phillies,,
+base,12,Carlos Lee,Chicago White Sox,,
+base,13,Adrian Beltre,Los Angeles Dodgers,,
+base,14,Ben Grieve,Tampa Bay Devil Rays,,
+base,15,Mike Sweeney,Kansas City Royals,,
+base,16,John Olerud,Seattle Mariners,,
+base,17,Gabe Kapler,Texas Rangers,,
+base,18,Brian Giles,Pittsburgh Pirates,,
+base,19,Luis Gonzalez,Arizona Diamondbacks,,
+base,20,Sammy Sosa,Chicago Cubs,,
+base,21,Roger Clemens,New York Yankees,,
+base,22,Vladimir Guerrero,Montreal Expos,,
+base,23,"Ken Griffey, Jr.",Cincinnati Reds,,
+base,24,Mark McGwire,St. Louis Cardinals,,
+base,25,Orlando Hernandez,New York Yankees,,
+base,26,Shannon Stewart,Toronto Blue Jays,,
+base,27,Fred McGriff,Tampa Bay Devil Rays,,
+base,28,Lance Berkman,Houston Astros,,
+base,29,Carlos Delgado,Toronto Blue Jays,,
+base,30,Mike Piazza,New York Mets,,
+base,31,Juan Encarnacion,Detroit Tigers,,
+base,32,David Justice,New York Yankees,,
+base,33,Greg Maddux,Atlanta Braves,,
+base,34,Frank Thomas,Chicago White Sox,,
+base,35,Jason Giambi,Oakland Athletics,,
+base,36,Ruben Mateo,Texas Rangers,,
+base,37,Todd Helton,Colorado Rockies,,
+base,38,Jim Edmonds,St. Louis Cardinals,,
+base,39,Steve Finley,Arizona Diamondbacks,,
+base,40,Tom Glavine,Atlanta Braves,,
+base,41,Mo Vaughn,Anaheim Angels,,
+base,42,Phil Nevin,San Diego Padres,,
+base,43,Richie Sexson,Milwaukee Brewers,,
+base,44,Craig Biggio,Houston Astros,,
+base,45,Kerry Wood,Chicago Cubs,,
+base,46,Pat Burrell,Philadelphia Phillies,,
+base,47,Edgar Martinez,Seattle Mariners,,
+base,48,Jim Thome,Cleveland Indians,,
+base,49,Jeff Bagwell,Houston Astros,,
+base,50,Bernie Williams,New York Yankees,,
+base,51,Andruw Jones,Atlanta Braves,,
+base,52,Gary Sheffield,Los Angeles Dodgers,,
+base,53,Johnny Damon,Oakland Athletics,,
+base,54,Rondell White,Chicago Cubs,,
+base,55,J.D. Drew,St. Louis Cardinals,,
+base,56,Tony Batista,Toronto Blue Jays,,
+base,57,Paul Konerko,Chicago White Sox,,
+base,58,Rafael Palmeiro,Texas Rangers,,
+base,59,"Cal Ripken, Jr.",Baltimore Orioles,,
+base,60,Darin Erstad,Anaheim Angels,,
+base,61,Ivan Rodriguez,Texas Rangers,,
+base,62,Barry Bonds,San Francisco Giants,,
+base,63,Edgardo Alfonzo,New York Mets,,
+base,64,Ellis Burks,Cleveland Indians,,
+base,65,Mike Lieberthal,Philadelphia Phillies,,
+base,66,Robin Ventura,New York Mets,,
+base,67,Richard Hidalgo,Houston Astros,,
+base,68,Magglio Ordonez,Chicago White Sox,,
+base,69,Kazuhiro Sasaki,Seattle Mariners,,
+base,70,Miguel Tejada,Oakland Athletics,,
+base,71,David Wells,Chicago White Sox,,
+base,72,Troy Glaus,Anaheim Angels,,
+base,73,Jose Vidro,Montreal Expos,,
+base,74,Shawn Green,Los Angeles Dodgers,,
+base,75,Barry Zito,Oakland Athletics,,
+base,76,Jermaine Dye,Kansas City Royals,,
+base,77,Geoff Jenkins,Milwaukee Brewers,,
+base,78,Jeff Kent,San Francisco Giants,,
+base,79,Al Leiter,New York Mets,,
+base,80,Deivi Cruz,Detroit Tigers,,
+base,81,Eric Karros,Los Angeles Dodgers,,
+base,82,Albert Belle,Baltimore Orioles,,
+base,83,Pedro Martinez,Boston Red Sox,,
+base,84,Raul Mondesi,Toronto Blue Jays,,
+base,85,Preston Wilson,Florida Marlins,,
+base,86,Rafael Furcal,Atlanta Braves,,
+base,87,Rick Ankiel,St. Louis Cardinals,,
+base,88,Randy Johnson,Arizona Diamondbacks,,
+base,89,Kevin Brown,Los Angeles Dodgers,,
+base,90,Sean Casey,Cincinnati Reds,,
+base,91,Mike Mussina,New York Yankees,,
+base,92,Alex Rodriguez,Texas Rangers,,
+base,93,Andres Galarraga,Texas Rangers,,
+base,94,Juan Gonzalez,Cleveland Indians,,
+base,95,Manny Ramirez,Boston Red Sox,,
+base,96,Mark Grace,Arizona Diamondbacks,,
+base,97,Carl Everett,Boston Red Sox,,
+base,98,Tony Gwynn,San Diego Padres,,
+base,99,Mike Hampton,Colorado Rockies,,
+base,100,Ken Caminiti,Texas Rangers,,
+base,101,Jason Hart,Oakland Athletics,Rookies/Prospects,Serial numbered /1999; Published unsigned allocation 1749; shared numbered pool with autographs
+base,102,Corey Patterson,Chicago Cubs,Rookies/Prospects,Serial numbered /1999; Published unsigned allocation 1199; shared numbered pool with autographs
+base,103,Timo Perez,New York Mets,Rookies/Prospects,Serial numbered /2999; Published unsigned allocation 1999; shared numbered pool with autographs
+base,104,Marcus Giles,Atlanta Braves,Rookies/Prospects,Serial numbered /2499; Published unsigned allocation 1999; shared numbered pool with autographs
+base,105,Ichiro Suzuki RC,Seattle Mariners,Rookies/Prospects,Serial numbered /1999
+base,106,Aubrey Huff,Tampa Bay Devil Rays,Rookies/Prospects,Serial numbered /1999; Published unsigned allocation 1499; shared numbered pool with autographs
+base,107,Joe Crede,Chicago White Sox,Rookies/Prospects,Serial numbered /2499; Published unsigned allocation 1999; shared numbered pool with autographs
+base,108,Larry Barnes,Anaheim Angels,Rookies/Prospects,Serial numbered /1999; Published unsigned allocation 1499; shared numbered pool with autographs
+base,109,Esix Snead RC,St. Louis Cardinals,Rookies/Prospects,Serial numbered /1999; Published unsigned allocation 1499; shared numbered pool with autographs
+base,110,Kenny Kelly,Tampa Bay Devil Rays,Rookies/Prospects,Serial numbered /2499; Published unsigned allocation 2249; shared numbered pool with autographs
+base,111,Justin Miller,Oakland Athletics,Rookies/Prospects,Serial numbered /2499; Published unsigned allocation 2249; shared numbered pool with autographs
+base,112,Jack Cust,Arizona Diamondbacks,Rookies/Prospects,Serial numbered /2999; Published unsigned allocation 1999; shared numbered pool with autographs
+base,113,Xavier Nady,San Diego Padres,Rookies/Prospects,Serial numbered /1999; Published unsigned allocation 999; shared numbered pool with autographs
+base,114,Eric Munson,Detroit Tigers,Rookies/Prospects,Serial numbered /2999; Published unsigned allocation 1499; shared numbered pool with autographs
+base,115,Elpidio Guzman RC,Anaheim Angels,Rookies/Prospects,Serial numbered /1999; Published unsigned allocation 1749; shared numbered pool with autographs
+base,116,Juan Pierre,Colorado Rockies,Rookies/Prospects,Serial numbered /2999; Published unsigned allocation 2189; shared numbered pool with autographs
+base,117,Winston Abreu RC,Atlanta Braves,Rookies/Prospects,Serial numbered /1999; Published unsigned allocation 1749; shared numbered pool with autographs
+base,118,Keith Ginter,Houston Astros,Rookies/Prospects,Serial numbered /2499; Published unsigned allocation 1999; shared numbered pool with autographs
+base,119,Jace Brewer,Tampa Bay Devil Rays,Rookies/Prospects,Serial numbered /2999; Published unsigned allocation 2699; shared numbered pool with autographs
+base,120,Paxton Crawford,Boston Red Sox,Rookies/Prospects,Serial numbered /2499; Published unsigned allocation 2249; shared numbered pool with autographs
+base,121,Jason Tyner,Tampa Bay Devil Rays,Rookies/Prospects,Serial numbered /2999; Published unsigned allocation 2749; shared numbered pool with autographs
+base,122,Tike Redman,Pittsburgh Pirates,Rookies/Prospects,Serial numbered /2499; Published unsigned allocation 2249; shared numbered pool with autographs
+base,123,John Riedling,Cincinnati Reds,Rookies/Prospects,Serial numbered /2999; Published unsigned allocation 2499; shared numbered pool with autographs
+base,124,Jose Ortiz,Oakland Athletics,Rookies/Prospects,Serial numbered /1999; Published unsigned allocation 1499; shared numbered pool with autographs
+base,125,Oswaldo Mairena,Chicago Cubs,Rookies/Prospects,Serial numbered /2999; Published unsigned allocation 2499; shared numbered pool with autographs
+base,126,Eric Byrnes,Oakland Athletics,Rookies/Prospects,Serial numbered /2499; Published unsigned allocation 2249; shared numbered pool with autographs
+base,127,Brian Cole,New York Mets,Rookies/Prospects,Serial numbered /2999; Published unsigned allocation 999; shared numbered pool with autographs
+base,128,Adam Piatt,Oakland Athletics,Rookies/Prospects,Serial numbered /2499; Published unsigned allocation 2249; shared numbered pool with autographs
+base,129,Nate Rolison,Florida Marlins,Rookies/Prospects,Serial numbered /2999; Published unsigned allocation 2499; shared numbered pool with autographs
+base,130,Keith McDonald,St. Louis Cardinals,Rookies/Prospects,Serial numbered /2499; Published unsigned allocation 2249; shared numbered pool with autographs
+essential,1,Jason Kendall,Pittsburgh Pirates,Essential Credentials Now,Serial numbered /299
+essential,2,Derek Jeter,New York Yankees,Essential Credentials Now,Serial numbered /299
+essential,3,Greg Vaughn,Tampa Bay Devil Rays,Essential Credentials Now,Serial numbered /299
+essential,4,Eric Chavez,Oakland Athletics,Essential Credentials Now,Serial numbered /299
+essential,5,Nomar Garciaparra,Boston Red Sox,Essential Credentials Now,Serial numbered /299
+essential,6,Roberto Alomar,Cleveland Indians,Essential Credentials Now,Serial numbered /299
+essential,7,Barry Larkin,Cincinnati Reds,Essential Credentials Now,Serial numbered /299
+essential,8,Matt Lawton,Minnesota Twins,Essential Credentials Now,Serial numbered /299
+essential,9,Larry Walker,Colorado Rockies,Essential Credentials Now,Serial numbered /299
+essential,10,Chipper Jones,Atlanta Braves,Essential Credentials Now,Serial numbered /299
+essential,11,Scott Rolen,Philadelphia Phillies,Essential Credentials Now,Serial numbered /299
+essential,12,Carlos Lee,Chicago White Sox,Essential Credentials Now,Serial numbered /299
+essential,13,Adrian Beltre,Los Angeles Dodgers,Essential Credentials Now,Serial numbered /299
+essential,14,Ben Grieve,Tampa Bay Devil Rays,Essential Credentials Now,Serial numbered /299
+essential,15,Mike Sweeney,Kansas City Royals,Essential Credentials Now,Serial numbered /299
+essential,16,John Olerud,Seattle Mariners,Essential Credentials Now,Serial numbered /299
+essential,17,Gabe Kapler,Texas Rangers,Essential Credentials Now,Serial numbered /299
+essential,18,Brian Giles,Pittsburgh Pirates,Essential Credentials Now,Serial numbered /299
+essential,19,Luis Gonzalez,Arizona Diamondbacks,Essential Credentials Now,Serial numbered /299
+essential,20,Sammy Sosa,Chicago Cubs,Essential Credentials Now,Serial numbered /299
+essential,21,Roger Clemens,New York Yankees,Essential Credentials Now,Serial numbered /299
+essential,22,Vladimir Guerrero,Montreal Expos,Essential Credentials Now,Serial numbered /299
+essential,23,"Ken Griffey, Jr.",Cincinnati Reds,Essential Credentials Now,Serial numbered /299
+essential,24,Mark McGwire,St. Louis Cardinals,Essential Credentials Now,Serial numbered /299
+essential,25,Orlando Hernandez,New York Yankees,Essential Credentials Now,Serial numbered /299
+essential,26,Shannon Stewart,Toronto Blue Jays,Essential Credentials Now,Serial numbered /299
+essential,27,Fred McGriff,Tampa Bay Devil Rays,Essential Credentials Now,Serial numbered /299
+essential,28,Lance Berkman,Houston Astros,Essential Credentials Now,Serial numbered /299
+essential,29,Carlos Delgado,Toronto Blue Jays,Essential Credentials Now,Serial numbered /299
+essential,30,Mike Piazza,New York Mets,Essential Credentials Now,Serial numbered /299
+essential,31,Juan Encarnacion,Detroit Tigers,Essential Credentials Now,Serial numbered /299
+essential,32,David Justice,New York Yankees,Essential Credentials Now,Serial numbered /299
+essential,33,Greg Maddux,Atlanta Braves,Essential Credentials Now,Serial numbered /299
+essential,34,Frank Thomas,Chicago White Sox,Essential Credentials Now,Serial numbered /299
+essential,35,Jason Giambi,Oakland Athletics,Essential Credentials Now,Serial numbered /299
+essential,36,Ruben Mateo,Texas Rangers,Essential Credentials Now,Serial numbered /299
+essential,37,Todd Helton,Colorado Rockies,Essential Credentials Now,Serial numbered /299
+essential,38,Jim Edmonds,St. Louis Cardinals,Essential Credentials Now,Serial numbered /299
+essential,39,Steve Finley,Arizona Diamondbacks,Essential Credentials Now,Serial numbered /299
+essential,40,Tom Glavine,Atlanta Braves,Essential Credentials Now,Serial numbered /299
+essential,41,Mo Vaughn,Anaheim Angels,Essential Credentials Now,Serial numbered /299
+essential,42,Phil Nevin,San Diego Padres,Essential Credentials Now,Serial numbered /299
+essential,43,Richie Sexson,Milwaukee Brewers,Essential Credentials Now,Serial numbered /299
+essential,44,Craig Biggio,Houston Astros,Essential Credentials Now,Serial numbered /299
+essential,45,Kerry Wood,Chicago Cubs,Essential Credentials Now,Serial numbered /299
+essential,46,Pat Burrell,Philadelphia Phillies,Essential Credentials Now,Serial numbered /299
+essential,47,Edgar Martinez,Seattle Mariners,Essential Credentials Now,Serial numbered /299
+essential,48,Jim Thome,Cleveland Indians,Essential Credentials Now,Serial numbered /299
+essential,49,Jeff Bagwell,Houston Astros,Essential Credentials Now,Serial numbered /299
+essential,50,Bernie Williams,New York Yankees,Essential Credentials Now,Serial numbered /299
+essential,51,Andruw Jones,Atlanta Braves,Essential Credentials Now,Serial numbered /299
+essential,52,Gary Sheffield,Los Angeles Dodgers,Essential Credentials Now,Serial numbered /299
+essential,53,Johnny Damon,Oakland Athletics,Essential Credentials Now,Serial numbered /299
+essential,54,Rondell White,Chicago Cubs,Essential Credentials Now,Serial numbered /299
+essential,55,J.D. Drew,St. Louis Cardinals,Essential Credentials Now,Serial numbered /299
+essential,56,Tony Batista,Toronto Blue Jays,Essential Credentials Now,Serial numbered /299
+essential,57,Paul Konerko,Chicago White Sox,Essential Credentials Now,Serial numbered /299
+essential,58,Rafael Palmeiro,Texas Rangers,Essential Credentials Now,Serial numbered /299
+essential,59,"Cal Ripken, Jr.",Baltimore Orioles,Essential Credentials Now,Serial numbered /299
+essential,60,Darin Erstad,Anaheim Angels,Essential Credentials Now,Serial numbered /299
+essential,61,Ivan Rodriguez,Texas Rangers,Essential Credentials Now,Serial numbered /299
+essential,62,Barry Bonds,San Francisco Giants,Essential Credentials Now,Serial numbered /299
+essential,63,Edgardo Alfonzo,New York Mets,Essential Credentials Now,Serial numbered /299
+essential,64,Ellis Burks,Cleveland Indians,Essential Credentials Now,Serial numbered /299
+essential,65,Mike Lieberthal,Philadelphia Phillies,Essential Credentials Now,Serial numbered /299
+essential,66,Robin Ventura,New York Mets,Essential Credentials Now,Serial numbered /299
+essential,67,Richard Hidalgo,Houston Astros,Essential Credentials Now,Serial numbered /299
+essential,68,Magglio Ordonez,Chicago White Sox,Essential Credentials Now,Serial numbered /299
+essential,69,Kazuhiro Sasaki,Seattle Mariners,Essential Credentials Now,Serial numbered /299
+essential,70,Miguel Tejada,Oakland Athletics,Essential Credentials Now,Serial numbered /299
+essential,71,David Wells,Chicago White Sox,Essential Credentials Now,Serial numbered /299
+essential,72,Troy Glaus,Anaheim Angels,Essential Credentials Now,Serial numbered /299
+essential,73,Jose Vidro,Montreal Expos,Essential Credentials Now,Serial numbered /299
+essential,74,Shawn Green,Los Angeles Dodgers,Essential Credentials Now,Serial numbered /299
+essential,75,Barry Zito,Oakland Athletics,Essential Credentials Now,Serial numbered /299
+essential,76,Jermaine Dye,Kansas City Royals,Essential Credentials Now,Serial numbered /299
+essential,77,Geoff Jenkins,Milwaukee Brewers,Essential Credentials Now,Serial numbered /299
+essential,78,Jeff Kent,San Francisco Giants,Essential Credentials Now,Serial numbered /299
+essential,79,Al Leiter,New York Mets,Essential Credentials Now,Serial numbered /299
+essential,80,Deivi Cruz,Detroit Tigers,Essential Credentials Now,Serial numbered /299
+essential,81,Eric Karros,Los Angeles Dodgers,Essential Credentials Now,Serial numbered /299
+essential,82,Albert Belle,Baltimore Orioles,Essential Credentials Now,Serial numbered /299
+essential,83,Pedro Martinez,Boston Red Sox,Essential Credentials Now,Serial numbered /299
+essential,84,Raul Mondesi,Toronto Blue Jays,Essential Credentials Now,Serial numbered /299
+essential,85,Preston Wilson,Florida Marlins,Essential Credentials Now,Serial numbered /299
+essential,86,Rafael Furcal,Atlanta Braves,Essential Credentials Now,Serial numbered /299
+essential,87,Rick Ankiel,St. Louis Cardinals,Essential Credentials Now,Serial numbered /299
+essential,88,Randy Johnson,Arizona Diamondbacks,Essential Credentials Now,Serial numbered /299
+essential,89,Kevin Brown,Los Angeles Dodgers,Essential Credentials Now,Serial numbered /299
+essential,90,Sean Casey,Cincinnati Reds,Essential Credentials Now,Serial numbered /299
+essential,91,Mike Mussina,New York Yankees,Essential Credentials Now,Serial numbered /299
+essential,92,Alex Rodriguez,Texas Rangers,Essential Credentials Now,Serial numbered /299
+essential,93,Andres Galarraga,Texas Rangers,Essential Credentials Now,Serial numbered /299
+essential,94,Juan Gonzalez,Cleveland Indians,Essential Credentials Now,Serial numbered /299
+essential,95,Manny Ramirez,Boston Red Sox,Essential Credentials Now,Serial numbered /299
+essential,96,Mark Grace,Arizona Diamondbacks,Essential Credentials Now,Serial numbered /299
+essential,97,Carl Everett,Boston Red Sox,Essential Credentials Now,Serial numbered /299
+essential,98,Tony Gwynn,San Diego Padres,Essential Credentials Now,Serial numbered /299
+essential,99,Mike Hampton,Colorado Rockies,Essential Credentials Now,Serial numbered /299
+essential,100,Ken Caminiti,Texas Rangers,Essential Credentials Now,Serial numbered /299
+essential,101,Jason Hart,Oakland Athletics,Essential Credentials Future,Serial numbered /29
+essential,102,Corey Patterson,Chicago Cubs,Essential Credentials Future,Serial numbered /29
+essential,103,Timo Perez,New York Mets,Essential Credentials Future,Serial numbered /29
+essential,104,Marcus Giles,Atlanta Braves,Essential Credentials Future,Serial numbered /29
+essential,105,Ichiro Suzuki,Seattle Mariners,Essential Credentials Future,Serial numbered /29
+essential,106,Aubrey Huff,Tampa Bay Devil Rays,Essential Credentials Future,Serial numbered /29
+essential,107,Joe Crede,Chicago White Sox,Essential Credentials Future,Serial numbered /29
+essential,108,Larry Barnes,Anaheim Angels,Essential Credentials Future,Serial numbered /29
+essential,109,Esix Snead,St. Louis Cardinals,Essential Credentials Future,Serial numbered /29
+essential,110,Kenny Kelly,Tampa Bay Devil Rays,Essential Credentials Future,Serial numbered /29
+essential,111,Justin Miller,Oakland Athletics,Essential Credentials Future,Serial numbered /29
+essential,112,Jack Cust,Arizona Diamondbacks,Essential Credentials Future,Serial numbered /29
+essential,113,Xavier Nady,San Diego Padres,Essential Credentials Future,Serial numbered /29
+essential,114,Eric Munson,Detroit Tigers,Essential Credentials Future,Serial numbered /29
+essential,115,Elpidio Guzman,Anaheim Angels,Essential Credentials Future,Serial numbered /29
+essential,116,Juan Pierre,Colorado Rockies,Essential Credentials Future,Serial numbered /29
+essential,117,Winston Abreu,Atlanta Braves,Essential Credentials Future,Serial numbered /29
+essential,118,Keith Ginter,Houston Astros,Essential Credentials Future,Serial numbered /29
+essential,119,Jace Brewer,Tampa Bay Devil Rays,Essential Credentials Future,Serial numbered /29
+essential,120,Paxton Crawford,Boston Red Sox,Essential Credentials Future,Serial numbered /29
+essential,121,Jason Tyner,Tampa Bay Devil Rays,Essential Credentials Future,Serial numbered /29
+essential,122,Tike Redman,Pittsburgh Pirates,Essential Credentials Future,Serial numbered /29
+essential,123,John Riedling,Cincinnati Reds,Essential Credentials Future,Serial numbered /29
+essential,124,Jose Ortiz,Oakland Athletics,Essential Credentials Future,Serial numbered /29
+essential,125,Oswaldo Mairena,Chicago Cubs,Essential Credentials Future,Serial numbered /29
+essential,126,Eric Byrnes,Oakland Athletics,Essential Credentials Future,Serial numbered /29
+essential,127,Brian Cole,New York Mets,Essential Credentials Future,Serial numbered /29
+essential,128,Adam Piatt,Oakland Athletics,Essential Credentials Future,Serial numbered /29
+essential,129,Nate Rolison,Florida Marlins,Essential Credentials Future,Serial numbered /29
+essential,130,Keith McDonald,St. Louis Cardinals,Essential Credentials Future,Serial numbered /29
+rookie-autographs,101,Jason Hart,Oakland Athletics,Rookies/Prospects,Autograph; serial numbered /1999; Published signed allocation 250; shared numbered pool with unsigned cards
+rookie-autographs,102,Corey Patterson,Chicago Cubs,Rookies/Prospects,Autograph; serial numbered /1999; Published signed allocation 800; shared numbered pool with unsigned cards
+rookie-autographs,103,Timo Perez,New York Mets,Rookies/Prospects,Autograph; serial numbered /2999; Published signed allocation 1000; shared numbered pool with unsigned cards
+rookie-autographs,104,Marcus Giles,Atlanta Braves,Rookies/Prospects,Autograph; serial numbered /2499; Published signed allocation 500; shared numbered pool with unsigned cards
+rookie-autographs,106,Aubrey Huff,Tampa Bay Devil Rays,Rookies/Prospects,Autograph; serial numbered /1999; Published signed allocation 500; shared numbered pool with unsigned cards
+rookie-autographs,107,Joe Crede,Chicago White Sox,Rookies/Prospects,Autograph; serial numbered /2499; Published signed allocation 500; shared numbered pool with unsigned cards
+rookie-autographs,108,Larry Barnes,Anaheim Angels,Rookies/Prospects,Autograph; serial numbered /1999; Published signed allocation 500; shared numbered pool with unsigned cards
+rookie-autographs,109,Esix Snead,St. Louis Cardinals,Rookies/Prospects,Autograph; serial numbered /1999; Published signed allocation 500; shared numbered pool with unsigned cards
+rookie-autographs,110,Kenny Kelly,Tampa Bay Devil Rays,Rookies/Prospects,Autograph; serial numbered /2499; Published signed allocation 250; shared numbered pool with unsigned cards
+rookie-autographs,111,Justin Miller,Oakland Athletics,Rookies/Prospects,Autograph; serial numbered /2499; Published signed allocation 250; shared numbered pool with unsigned cards
+rookie-autographs,112,Jack Cust,Arizona Diamondbacks,Rookies/Prospects,Autograph; serial numbered /2999; Published signed allocation 1000; shared numbered pool with unsigned cards
+rookie-autographs,113,Xavier Nady,San Diego Padres,Rookies/Prospects,Autograph; serial numbered /1999; Published signed allocation 1000; shared numbered pool with unsigned cards
+rookie-autographs,114,Eric Munson,Detroit Tigers,Rookies/Prospects,Autograph; serial numbered /2999; Published signed allocation 1500; shared numbered pool with unsigned cards
+rookie-autographs,115,Elpidio Guzman,Anaheim Angels,Rookies/Prospects,Autograph; serial numbered /1999; Published signed allocation 250; shared numbered pool with unsigned cards
+rookie-autographs,116,Juan Pierre,Colorado Rockies,Rookies/Prospects,Autograph; serial numbered /2999; Published signed allocation 810; shared numbered pool with unsigned cards
+rookie-autographs,117,Winston Abreu,Atlanta Braves,Rookies/Prospects,Autograph; serial numbered /1999; Published signed allocation 250; shared numbered pool with unsigned cards
+rookie-autographs,118,Keith Ginter,Houston Astros,Rookies/Prospects,Autograph; serial numbered /2499; Published signed allocation 500; shared numbered pool with unsigned cards
+rookie-autographs,119,Jace Brewer,Tampa Bay Devil Rays,Rookies/Prospects,Autograph; serial numbered /2999; Published signed allocation 300; shared numbered pool with unsigned cards
+rookie-autographs,120,Paxton Crawford,Boston Red Sox,Rookies/Prospects,Autograph; serial numbered /2499; Published signed allocation 250; shared numbered pool with unsigned cards
+rookie-autographs,121,Jason Tyner,Tampa Bay Devil Rays,Rookies/Prospects,Autograph; serial numbered /2999; Published signed allocation 250; shared numbered pool with unsigned cards
+rookie-autographs,122,Tike Redman,Pittsburgh Pirates,Rookies/Prospects,Autograph; serial numbered /2499; Published signed allocation 250; shared numbered pool with unsigned cards
+rookie-autographs,123,John Riedling,Cincinnati Reds,Rookies/Prospects,Autograph; serial numbered /2999; Published signed allocation 500; shared numbered pool with unsigned cards
+rookie-autographs,124,Jose Ortiz,Oakland Athletics,Rookies/Prospects,Autograph; serial numbered /1999; Published signed allocation 500; shared numbered pool with unsigned cards
+rookie-autographs,125,Oswaldo Mairena,Chicago Cubs,Rookies/Prospects,Autograph; serial numbered /2999; Published signed allocation 500; shared numbered pool with unsigned cards
+rookie-autographs,126,Eric Byrnes,Oakland Athletics,Rookies/Prospects,Autograph; serial numbered /2499; Published signed allocation 250; shared numbered pool with unsigned cards
+rookie-autographs,127,Brian Cole,New York Mets,Rookies/Prospects,Autograph; serial numbered /2999; Published signed allocation 2000; shared numbered pool with unsigned cards
+rookie-autographs,128,Adam Piatt,Oakland Athletics,Rookies/Prospects,Autograph; serial numbered /2499; Published signed allocation 250; shared numbered pool with unsigned cards
+rookie-autographs,129,Nate Rolison,Florida Marlins,Rookies/Prospects,Autograph; serial numbered /2999; Published signed allocation 500; shared numbered pool with unsigned cards
+rookie-autographs,130,Keith McDonald,St. Louis Cardinals,Rookies/Prospects,Autograph; serial numbered /2499; Published signed allocation 250; shared numbered pool with unsigned cards
+jerseys,NNO-BRADY-ANDERSON,Brady Anderson,Baltimore Orioles,,Game-used jersey memorabilia
+jerseys,NNO-RICK-ANKIEL,Rick Ankiel,St. Louis Cardinals,,Game-used jersey memorabilia
+jerseys,NNO-ALBERT-BELLE,Albert Belle,Baltimore Orioles,,Game-used jersey memorabilia
+jerseys,NNO-ADRIAN-BELTRE,Adrian Beltre,Los Angeles Dodgers,,Game-used jersey memorabilia
+jerseys,NNO-JOHNNY-BENCH,Johnny Bench,Cincinnati Reds,,Game-used jersey memorabilia
+jerseys,NNO-WADE-BOGGS,Wade Boggs,Boston Red Sox,,Game-used jersey memorabilia
+jerseys,NNO-BARRY-BONDS,Barry Bonds,San Francisco Giants,,Game-used jersey memorabilia
+jerseys,NNO-GEORGE-BRETT,George Brett,Kansas City Royals,,Game-used jersey memorabilia
+jerseys,NNO-LOU-BROCK,Lou Brock,St. Louis Cardinals,,Game-used jersey memorabilia
+jerseys,NNO-ERIC-CHAVEZ,Eric Chavez,Oakland Athletics,,Game-used jersey memorabilia
+jerseys,NNO-J-D-DREW,J.D. Drew,St. Louis Cardinals,,Game-used jersey memorabilia
+jerseys,NNO-DARIN-ERSTAD,Darin Erstad,Anaheim Angels,,Game-used jersey memorabilia
+jerseys,NNO-ROLLIE-FINGERS,Rollie Fingers,Milwaukee Brewers,,Game-used jersey memorabilia
+jerseys,NNO-CARLTON-FISK,Carlton Fisk,Boston Red Sox,,Game-used jersey memorabilia
+jerseys,NNO-TROY-GLAUS,Troy Glaus,Anaheim Angels,,Game-used jersey memorabilia
+jerseys,NNO-MARK-GRACE,Mark Grace,Chicago Cubs,,Game-used jersey memorabilia
+jerseys,NNO-BEN-GRIEVE,Ben Grieve,Oakland Athletics,,Game-used jersey memorabilia
+jerseys,NNO-TONY-GWYNN,Tony Gwynn,San Diego Padres,,Game-used jersey memorabilia
+jerseys,NNO-TODD-HELTON,Todd Helton,Colorado Rockies,,Game-used jersey memorabilia
+jerseys,NNO-REGGIE-JACKSON,Reggie Jackson,New York Yankees,,Game-used jersey memorabilia
+jerseys,NNO-DEREK-JETER,Derek Jeter,New York Yankees,,Game-used jersey memorabilia
+jerseys,NNO-CHIPPER-JONES,Chipper Jones,Atlanta Braves,,Game-used jersey memorabilia
+jerseys,NNO-AL-KALINE,Al Kaline,Detroit Tigers,,Game-used jersey memorabilia
+jerseys,NNO-JASON-KENDALL,Jason Kendall,Pittsburgh Pirates,,Game-used jersey memorabilia
+jerseys,NNO-JEFF-KENT,Jeff Kent,San Francisco Giants,,Game-used jersey memorabilia
+jerseys,NNO-GREG-MADDUX,Greg Maddux,Atlanta Braves,,Game-used jersey memorabilia
+jerseys,NNO-WILLIE-MAYS,Willie Mays,San Francisco Giants,,Game-used jersey memorabilia
+jerseys,NNO-WILLIE-MCCOVEY,Willie McCovey,San Francisco Giants,,Game-used jersey memorabilia
+jerseys,NNO-PAUL-MOLITOR,Paul Molitor,Milwaukee Brewers,,Game-used jersey memorabilia
+jerseys,NNO-EDDIE-MURRAY,Eddie Murray,Baltimore Orioles,,Game-used jersey memorabilia
+jerseys,NNO-JOHN-OLERUD,John Olerud,Seattle Mariners,,Game-used jersey memorabilia
+jerseys,NNO-JIM-PALMER,Jim Palmer,Baltimore Orioles,,Game-used jersey memorabilia
+jerseys,NNO-CAL-RIPKEN-JR,Cal Ripken Jr.,Baltimore Orioles,,Game-used jersey memorabilia
+jerseys,NNO-NOLAN-RYAN,Nolan Ryan,Texas Rangers,,Game-used jersey memorabilia
+jerseys,NNO-MIKE-SCHMIDT,Mike Schmidt,Philadelphia Phillies,,Game-used jersey memorabilia
+jerseys,NNO-TOM-SEAVER,Tom Seaver,Cincinnati Reds,,Game-used jersey memorabilia
+jerseys,NNO-OZZIE-SMITH,Ozzie Smith,St. Louis Cardinals,,Game-used jersey memorabilia
+jerseys,NNO-JOHN-SMOLTZ,John Smoltz,Atlanta Braves,,Game-used jersey memorabilia
+jerseys,NNO-FRANK-THOMAS,Frank Thomas,Chicago White Sox,,Game-used jersey memorabilia
+jerseys,NNO-ROBIN-VENTURA,Robin Ventura,New York Mets,,Game-used jersey memorabilia
+jerseys,NNO-DAVE-WINFIELD,Dave Winfield,San Diego Padres,,Game-used jersey memorabilia
+jerseys,NNO-BERNIE-WILLIAMS,Bernie Williams,New York Yankees,,Game-used jersey memorabilia
+jerseys,NNO-TED-WILLIAMS,Ted Williams,Boston Red Sox,,Game-used jersey memorabilia
+jerseys,NNO-ROBIN-YOUNT,Robin Yount,Milwaukee Brewers,,Game-used jersey memorabilia
+jersey-autographs,NNO-BRADY-ANDERSON,Brady Anderson,Baltimore Orioles,,Game-used jersey memorabilia; Autograph; Hand numbered /9
+jersey-autographs,NNO-RICK-ANKIEL,Rick Ankiel,St. Louis Cardinals,,Game-used jersey memorabilia; Autograph; Hand numbered /66
+jersey-autographs,NNO-ALBERT-BELLE,Albert Belle,Baltimore Orioles,,Game-used jersey memorabilia; Autograph; Hand numbered /88
+jersey-autographs,NNO-ADRIAN-BELTRE,Adrian Beltre,Los Angeles Dodgers,,Game-used jersey memorabilia; Autograph; Hand numbered /29
+jersey-autographs,NNO-JOHNNY-BENCH,Johnny Bench,Cincinnati Reds,,Game-used jersey memorabilia; Autograph; Hand numbered /5
+jersey-autographs,NNO-WADE-BOGGS,Wade Boggs,Boston Red Sox,,Game-used jersey memorabilia; Autograph; Hand numbered /26
+jersey-autographs,NNO-BARRY-BONDS,Barry Bonds,San Francisco Giants,,Game-used jersey memorabilia; Autograph; Hand numbered /25
+jersey-autographs,NNO-GEORGE-BRETT,George Brett,Kansas City Royals,,Game-used jersey memorabilia; Autograph; Hand numbered /5
+jersey-autographs,NNO-LOU-BROCK,Lou Brock,St. Louis Cardinals,,Game-used jersey memorabilia; Autograph; Hand numbered /20
+jersey-autographs,NNO-ERIC-CHAVEZ,Eric Chavez,Oakland Athletics,,Game-used jersey memorabilia; Autograph; Hand numbered /3
+jersey-autographs,NNO-J-D-DREW,J.D. Drew,St. Louis Cardinals,,Game-used jersey memorabilia; Autograph; Hand numbered /7
+jersey-autographs,NNO-DARIN-ERSTAD,Darin Erstad,Anaheim Angels,,Game-used jersey memorabilia; Autograph; Hand numbered /17
+jersey-autographs,NNO-ROLLIE-FINGERS,Rollie Fingers,Milwaukee Brewers,,Game-used jersey memorabilia; Autograph; Serial run pending verification: catalogue /34; independent listing /24
+jersey-autographs,NNO-CARLTON-FISK,Carlton Fisk,Boston Red Sox,,Game-used jersey memorabilia; Autograph; Hand numbered /27
+jersey-autographs,NNO-TROY-GLAUS,Troy Glaus,Anaheim Angels,,Game-used jersey memorabilia; Autograph; Hand numbered /25
+jersey-autographs,NNO-MARK-GRACE,Mark Grace,Chicago Cubs,,Game-used jersey memorabilia; Autograph; Hand numbered /17
+jersey-autographs,NNO-BEN-GRIEVE,Ben Grieve,Oakland Athletics,,Game-used jersey memorabilia; Autograph; Hand numbered /14
+jersey-autographs,NNO-TONY-GWYNN,Tony Gwynn,San Diego Padres,,Game-used jersey memorabilia; Autograph; Hand numbered /19
+jersey-autographs,NNO-TODD-HELTON,Todd Helton,Colorado Rockies,,Game-used jersey memorabilia; Autograph; Hand numbered /17
+jersey-autographs,NNO-REGGIE-JACKSON,Reggie Jackson,New York Yankees,,Game-used jersey memorabilia; Autograph; Hand numbered /44
+jersey-autographs,NNO-DEREK-JETER,Derek Jeter,New York Yankees,,Game-used jersey memorabilia; Autograph; Hand numbered /2
+jersey-autographs,NNO-CHIPPER-JONES,Chipper Jones,Atlanta Braves,,Game-used jersey memorabilia; Autograph; Hand numbered /10
+jersey-autographs,NNO-AL-KALINE,Al Kaline,Detroit Tigers,,Game-used jersey memorabilia; Autograph; Hand numbered /6
+jersey-autographs,NNO-JASON-KENDALL,Jason Kendall,Pittsburgh Pirates,,Game-used jersey memorabilia; Autograph; Hand numbered /18
+jersey-autographs,NNO-JEFF-KENT,Jeff Kent,San Francisco Giants,,Game-used jersey memorabilia; Autograph; Hand numbered /21
+jersey-autographs,NNO-GREG-MADDUX,Greg Maddux,Atlanta Braves,,Game-used jersey memorabilia; Autograph; Hand numbered /31
+jersey-autographs,NNO-WILLIE-MCCOVEY,Willie McCovey,San Francisco Giants,,Game-used jersey memorabilia; Autograph; Hand numbered /44
+jersey-autographs,NNO-PAUL-MOLITOR,Paul Molitor,Milwaukee Brewers,,Game-used jersey memorabilia; Autograph; Hand numbered /4
+jersey-autographs,NNO-EDDIE-MURRAY,Eddie Murray,Baltimore Orioles,,Game-used jersey memorabilia; Autograph; Hand numbered /33
+jersey-autographs,NNO-JOHN-OLERUD,John Olerud,Seattle Mariners,,Game-used jersey memorabilia; Autograph; Hand numbered /5
+jersey-autographs,NNO-JIM-PALMER,Jim Palmer,Baltimore Orioles,,Game-used jersey memorabilia; Autograph; Hand numbered /22
+jersey-autographs,NNO-CAL-RIPKEN-JR,Cal Ripken Jr.,Baltimore Orioles,,Game-used jersey memorabilia; Autograph; Hand numbered /8
+jersey-autographs,NNO-NOLAN-RYAN,Nolan Ryan,Texas Rangers,,Game-used jersey memorabilia; Autograph; Hand numbered /34
+jersey-autographs,NNO-MIKE-SCHMIDT,Mike Schmidt,Philadelphia Phillies,,Game-used jersey memorabilia; Autograph; Hand numbered /20
+jersey-autographs,NNO-TOM-SEAVER,Tom Seaver,Cincinnati Reds,,Game-used jersey memorabilia; Autograph; Hand numbered /41
+jersey-autographs,NNO-OZZIE-SMITH,Ozzie Smith,St. Louis Cardinals,,Game-used jersey memorabilia; Autograph; Hand numbered /1
+jersey-autographs,NNO-JOHN-SMOLTZ,John Smoltz,Atlanta Braves,,Game-used jersey memorabilia; Autograph; Hand numbered /29
+jersey-autographs,NNO-FRANK-THOMAS,Frank Thomas,Chicago White Sox,,Game-used jersey memorabilia; Autograph; Hand numbered /35
+jersey-autographs,NNO-ROBIN-VENTURA,Robin Ventura,New York Mets,,Game-used jersey memorabilia; Autograph; Hand numbered /4
+jersey-autographs,NNO-BERNIE-WILLIAMS,Bernie Williams,New York Yankees,,Game-used jersey memorabilia; Autograph; Hand numbered /51
+jersey-autographs,NNO-DAVE-WINFIELD,Dave Winfield,San Diego Padres,,Game-used jersey memorabilia; Autograph; Hand numbered /31
+jersey-autographs,NNO-ROBIN-YOUNT,Robin Yount,Milwaukee Brewers,,Game-used jersey memorabilia; Autograph; Hand numbered /19
+wall-of-fame,NNO-JEFF-BAGWELL,Jeff Bagwell,Houston Astros,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-BARRY-BONDS,Barry Bonds,San Francisco Giants,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-PAT-BURRELL,Pat Burrell,Philadelphia Phillies,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-ROGER-CLEMENS,Roger Clemens,New York Yankees,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-NOMAR-GARCIAPARRA,Nomar Garciaparra,Boston Red Sox,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-JASON-GIAMBI,Jason Giambi,Oakland Athletics,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-TROY-GLAUS,Troy Glaus,Anaheim Angels,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-JUAN-GONZALEZ,Juan Gonzalez,Cleveland Indians,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-KEN-GRIFFEY-JR,Ken Griffey Jr.,Cincinnati Reds,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-VLADIMIR-GUERRERO,Vladimir Guerrero,Montreal Expos,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-TONY-GWYNN,Tony Gwynn,San Diego Padres,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-TODD-HELTON,Todd Helton,Colorado Rockies,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-GEOFF-JENKINS,Geoff Jenkins,Milwaukee Brewers,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-DEREK-JETER,Derek Jeter,New York Yankees,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-ANDRUW-JONES,Andruw Jones,Atlanta Braves,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-CHIPPER-JONES,Chipper Jones,Atlanta Braves,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-JASON-KENDALL,Jason Kendall,Pittsburgh Pirates,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-GREG-MADDUX,Greg Maddux,Atlanta Braves,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-PEDRO-MARTINEZ,Pedro Martinez,Boston Red Sox,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-MARK-MCGWIRE,Mark McGwire,St. Louis Cardinals,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-PAUL-MOLITOR,Paul Molitor,Milwaukee Brewers,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-MIKE-PIAZZA,Mike Piazza,New York Mets,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-MANNY-RAMIREZ,Manny Ramirez,Boston Red Sox,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-CAL-RIPKEN-JR,Cal Ripken Jr.,Baltimore Orioles,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-ALEX-RODRIGUEZ,Alex Rodriguez,Texas Rangers,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-IVAN-RODRIGUEZ,Ivan Rodriguez,Texas Rangers,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-SCOTT-ROLEN,Scott Rolen,Philadelphia Phillies,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-SAMMY-SOSA,Sammy Sosa,Chicago Cubs,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-FRANK-THOMAS,Frank Thomas,Chicago White Sox,,Milwaukee County Stadium outfield-wall memorabilia
+wall-of-fame,NNO-ROBIN-YOUNT,Robin Yount,Milwaukee Brewers,,Milwaukee County Stadium outfield-wall memorabilia; Die-cut
+extra-innings,1XI,Mark McGwire,St. Louis Cardinals,,
+extra-innings,2XI,Sammy Sosa,Chicago Cubs,,
+extra-innings,3XI,Chipper Jones,Atlanta Braves,,
+extra-innings,4XI,Mike Piazza,New York Mets,,
+extra-innings,5XI,Cal Ripken Jr.,Baltimore Orioles,,
+extra-innings,6XI,Ken Griffey Jr.,Cincinnati Reds,,
+extra-innings,7XI,Alex Rodriguez,Texas Rangers,,
+extra-innings,8XI,Vladimir Guerrero,Montreal Expos,,
+extra-innings,9XI,Nomar Garciaparra,Boston Red Sox,,
+extra-innings,10XI,Derek Jeter,New York Yankees,,
+jeter-monumental,2 MM,Derek Jeter,New York Yankees,,Serial numbered /1996
+jeter-monumental-auto,NNO-DEREK-JETER,Derek Jeter,New York Yankees,,Autograph; hand numbered /96
+jeter-base-inks,NNO-DEREK-JETER,Derek Jeter,New York Yankees,,Autograph; game-used base memorabilia; published print run 500
+season-pass,NNO-RANDY-JOHNSON,Randy Johnson,Arizona Diamondbacks,,"Season Pass exchange card; published print run 1; historical redemption expired December 1, 2001"
+season-pass,NNO-GREG-MADDUX,Greg Maddux,Atlanta Braves,,"Season Pass exchange card; published print run 1; historical redemption expired December 1, 2001"
+season-pass,NNO-MAGGLIO-ORDONEZ,Magglio Ordonez,Chicago White Sox,,"Season Pass exchange card; published print run 1; historical redemption expired December 1, 2001"
+season-pass,NNO-CAL-RIPKEN-JR,"Cal Ripken, Jr.",Baltimore Orioles,,"Season Pass exchange card; published print run 1; historical redemption expired December 1, 2001"
+season-pass,NNO-SCOTT-ROLEN,Scott Rolen,Philadelphia Phillies,,"Season Pass exchange card; published print run 1; historical redemption expired December 1, 2001"
+season-pass,NNO-NOLAN-RYAN,Nolan Ryan,Texas Rangers,,"Season Pass exchange card; published print run 1; historical redemption expired December 1, 2001"
+checklists,NNO-A,Checklist,,Checklist,Checklist: 1-121
+checklists,NNO-B,Checklist,,Checklist,Checklist: 122-130 and Inserts; source catalogue range 122-140 corrected from scans
