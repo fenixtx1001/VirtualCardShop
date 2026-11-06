@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/171/1991-Upper-Deck",
+    "checklistReference": "https://www.tcdb.com/Checklist.cfm/sid/171/1991-Upper-Deck?BasicID=17",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/171/1991-Upper-Deck",
+    "insertReference": "https://www.tcdb.com/Inserts.cfm/sid/171/1991-Upper-Deck",
+    "secondaryReference": "https://www.cardboardconnection.com/1991-upper-deck-baseball-cards",
+    "independentReference": "https://www.psacard.com/cardfacts/baseball-cards/1991-upper-deck/358",
+    "independentChecklistReference": "https://baseballcardpedia.com/index.php/1991_Upper_Deck",
+    "rookieExceptionReference": "https://www.tcdb.com/Checklist.cfm/sid/142/1990-Fleer-Update"
+  },
+  "decisions": {
+    "collectorChecklist": "Keep all 800 numbered cards in one Base Product Set; #1-700 low series and #701-800 high series. Original high-series packs also contain low-series cards; VCS flattens availability for set completion.",
+    "rookies": "69 true base RCs: explicit canonical TCDB tags matched to its independently retrieved rookie index; 67 additionally labeled RC by Cardboard Connection. BCP omits seven RC labels; Cardboard Connection omits #538/#629. Exclude #514 Chuck Carr despite erroneous RC tags on two TCDB hologram variants: his recognized RC is 1990 Fleer Update U-34 (TCDB and Beckett). Subset titles alone do not confer RC status. Multi-player highlights and Michael Jordan SP1 are not true RCs.",
+    "printingVariations": "One card per printed base number. TCDB BasicID=17 contains 802 rows: normalize 231b (corrected DH) and 636a (dated), omitting their alternate a/b rows. Other back-hologram stock differences (1990 baseball/Comic Ball, 1990-91 hockey, 1992 logo) and printing errors are manufacturing variations, not a verified complete commercially issued parallel checklist. Do not fabricate 800-card parallel sets from isolated variants. #309 is Milt Thompson, #311 Luis Salazar; BCP Other Variations prose transposes identities, while its actual checklist and TCDB/CCC agree.",
+    "physicalPack": "Original standard foil: 15 cards plus one team-logo hologram; VCS total items=16, boxes=36 packs. oddsPerPack=1 guarantees one logo from a nonempty pool in src/app/api/rip/open/route.ts, leaving 15 regular/base slots before other insert replacements. Physical jumbo had 27 regular cards; no jumbo product is fabricated.",
+    "odds": "VCS design assumption retained from draft: equal low/high channel mix, not a verified historical sales ratio. Ryan and Aaron Heroes historical 1:6 within their respective series become 1:12 each; combined SP1/SP2 stays 1:72. Logo stickers 1:1 foil. Silver Sluggers historical one per jumbo, unavailable in standard foil: no verified jumbo share, so replace unsupported 1:2 draft approximation with null. HH1 randomly inserted in high series; no established frequency. Autograph odds unknown. Null families remain collector checklists but cannot be pulled until Admin configures odds; pack/odds QA pending.",
+    "scarceHeaders": "Heroes headers are SP. VCS chooses uniformly within a Product Set and cannot weight the header separately; retain unified collector checklists and document flattening. Product remains blocked from release pending pack QA.",
+    "eventExclusives": "Heroes of Baseball H1-H4: one per specially marked low-series event box; H1-H3 autographs hand-numbered /3000. Retain genuine separate collector issues with null standard-product odds. H4 header depicts Killebrew/Perry/Jenkins, with three teams verified by TCDB; do not assign MLB.",
+    "excluded": "1991 Upper Deck Final Edition is a separate 100-card boxed release; other factory-only or promo materials are excluded. Magazine insert NNO is not treated as a trading card.",
+    "numberedLogos": "28 unnumbered logo cards (26 franchises plus AL and NL) receive deterministic collector IDs NNO-01..NNO-28 in alphabetical order; those IDs are VCS identifiers, not printed numbers.",
+    "safety": "Offline regeneration validates every source row, 800-number coverage, identities against two independent base checklists, insert subjects/IDs, source team vocabulary, 69 true RCs and subset assignments before atomically writing 878 rows. --refresh-sources re-fetches and revalidates all sources; incomplete/changed data fails closed. --check compares committed CSV byte-for-byte. No database access from generator.",
+    "numTeamHeaders": "Two generic Baseball Heroes NNO headers have no team affiliation. Leave blank, review.teamData PENDING, require --allow-pending-teams. Ten generic base checklists intentionally blank under importer exception. Player/team affiliations follow TCDB rows; AL/NL logo cards use explicit league subjects. No invented MLB teams."
+  },
+  "product": {
+    "id": "1991_Upper_Deck_Baseball",
+    "year": 1991,
+    "brand": "Upper Deck",
+    "sport": "Baseball",
+    "cardsPerPack": 16,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "packCollation": "PENDING",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA",
+    "insertOdds": "PENDING"
+  },
+  "cardsFile": "1991-upper-deck-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1991_Upper_Deck_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 171,
+      "expectedCards": 800,
+      "notes": "800 printed numbers; 1–700 low, 701–800 high; one combined collector checklist.",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/171/1991-Upper-Deck"
+    },
+    {
+      "key": "special-prints",
+      "id": "1991_Upper_Deck_Baseball_Special_Prints",
+      "name": "Special Prints",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "sourceSetId": 171,
+      "expectedCards": 2,
+      "notes": "SP1 Michael Jordan (low series), SP2 Nolan Ryan / Rickey Henderson (high series), each 1:72 in its original pack channel.",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/171/1991-Upper-Deck"
+    },
+    {
+      "key": "aaron-hologram",
+      "id": "1991_Upper_Deck_Baseball_Aaron_Hologram",
+      "name": "Hank Aaron Hologram",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 171,
+      "expectedCards": 1,
+      "notes": "HH1 high-series insert. Published pack insertion rate not established; no invented odds.",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/171/1991-Upper-Deck"
+    },
+    {
+      "key": "ryan-heroes",
+      "id": "1991_Upper_Deck_Baseball_Nolan_Ryan_Heroes",
+      "name": "Baseball Heroes - Nolan Ryan",
+      "kind": "INSERT",
+      "oddsPerPack": 12,
+      "sourceSetId": 174,
+      "expectedCards": 10,
+      "notes": "Cards 10–18 plus unnumbered SP header. Original 1:6 in low-series; normalized 1:12 across equal low/high mix.",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/174/1991-Upper-Deck"
+    },
+    {
+      "key": "aaron-heroes",
+      "id": "1991_Upper_Deck_Baseball_Hank_Aaron_Heroes",
+      "name": "Baseball Heroes - Hank Aaron",
+      "kind": "INSERT",
+      "oddsPerPack": 12,
+      "sourceSetId": 173,
+      "expectedCards": 10,
+      "notes": "Cards 19–27 plus unnumbered SP header. Original 1:6 in high-series; normalized 1:12 across equal low/high mix.",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/173/1991-Upper-Deck"
+    },
+    {
+      "key": "silver-sluggers",
+      "id": "1991_Upper_Deck_Baseball_Silver_Sluggers",
+      "name": "Silver Sluggers",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 175,
+      "expectedCards": 18,
+      "notes": "18 SS-prefixed cards, one per physical jumbo; not standard foil. No verified jumbo-channel share: combined VCS odds deliberately null; Admin QA required.",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/175/1991-Upper-Deck"
+    },
+    {
+      "key": "team-holograms",
+      "id": "1991_Upper_Deck_Baseball_Team_Logo_Holograms",
+      "name": "Team Logo Holograms",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "sourceSetId": 94496,
+      "expectedCards": 28,
+      "notes": "26 franchise logos plus AL/NL logos; 1 per standard foil, 2 per jumbo according to TCDB (BCP general distribution says 1). Model standard foil guarantee only. NNO-01..28 are VCS IDs, not printed numbers.",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/94496/1991-Upper-Deck"
+    },
+    {
+      "key": "heroes-event",
+      "id": "1991_Upper_Deck_Baseball_Heroes_of_Baseball",
+      "name": "Heroes of Baseball (Event)",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 10247,
+      "expectedCards": 4,
+      "notes": "H1-H4, one per specially marked low-series event box, not normal retail foil. H4 depicts all three players; normal-product odds null.",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10247/1991-Upper-Deck"
+    },
+    {
+      "key": "ryan-auto",
+      "id": "1991_Upper_Deck_Baseball_Nolan_Ryan_Heroes_Auto",
+      "name": "Nolan Ryan Heroes Autograph",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 336782,
+      "expectedCards": 1,
+      "notes": "Autographed #18, hand numbered to 2500; low series; unknown per-pack odds.",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/336782/1991-Upper-Deck"
+    },
+    {
+      "key": "aaron-auto",
+      "id": "1991_Upper_Deck_Baseball_Hank_Aaron_Heroes_Auto",
+      "name": "Hank Aaron Heroes Autograph",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 336781,
+      "expectedCards": 1,
+      "notes": "Autographed #27, hand numbered to 2500; high series; unknown per-pack odds.",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/336781/1991-Upper-Deck"
+    },
+    {
+      "key": "heroes-event-autos",
+      "id": "1991_Upper_Deck_Baseball_Heroes_of_Baseball_Autographs",
+      "name": "Heroes of Baseball Autographs (Event)",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 251678,
+      "expectedCards": 3,
+      "notes": "H1–H3 autographed, each numbered to 3000; only in special event packs.",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/251678/1991-Upper-Deck"
+    }
+  ]
+}
