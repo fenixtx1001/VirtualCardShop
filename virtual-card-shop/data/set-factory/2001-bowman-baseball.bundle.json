@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1441/2001-Bowman",
+    "checklistReference": "https://www.tcdb.com/Checklist.cfm/sid/1441/2001-Bowman?PageIndex=1",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/1441/2001-Bowman",
+    "insertReference": "https://www.tcdb.com/Inserts.cfm/sid/1441/2001-Bowman",
+    "independentReference": "https://www.cardboardconnection.com/2001-bowman-baseball",
+    "supplementaryTeamReference": "https://mycardbatch.com/checklists/bowman-2001-baseball",
+    "historicalOddsReference": "https://baseballcardpedia.com/index.php/2001_Bowman",
+    "distributorReference": "https://www.dacardworld.com/sports-cards/2001-bowman-baseball-hobby-box"
+  },
+  "decisions": {
+    "inventory": "1032 completed cards in twelve collector families: base 440, Gold 440, reprints 25, Futures jerseys 34, multiple relics 18, reprint bats 5, ROY dual 1, autographs 40, signed reprints 9, AutoProofs 10, signed triple relics 5, signed bat reprints 5. All rows executed/validated, not count placeholders.",
+    "rookies": "104 true base RCs corroborated by full separate rookie index, both pages, and independent complete roster. Rookies/Prospects marketing is not sufficient; parallel/autograph/reprint copies do not inherit RC suffixes. #32 Dan Tosca is a source-confirmed RC in the nominal red/veteran range. CBC misses four RC tags (#283/334/397/419), corroborated by BCP and the separate TCDB index; BCP falsely tags Neugebauer #180 despite his 2000 Bowman #329 RC. All 104 reconciled, no blind acceptance of source RC flags.",
+    "namesTeams": "All 595 supplementary tuples checked; full 440-card Gold roster independently fetched and matched to base identities/teams; ROY dual separately sourced and independently compared. Historical franchises retained. No blank non-checklist teams, no modern club substitutions.",
+    "numbering": "Printed FGR-DCP Patterson and FGR-CP Pena corrected from TCDB FGR-CP/CP2 using original backs. AMGR code hyphens normalized against original Munson reverse. AutoProofs keep original buyback card numbers and years; CBC 1-10 are ordinals. Signed reprints #7 absent, not invented.",
+    "variants": "Clean names plus verified RC only. Preserve misspelling and false Rookie-logo errors in variant. Cabrera #299 remains Miguel Cabrera as catalogued; photo error noted, disputed Denny Bautista/Manuel Esquivia identity not asserted. Gold source omits base Peavey error caption; do not infer a corrected print or invent extra variants.",
+    "autographs": "All forty actual signatures retained, including visually verified fulfilled McGowan BA-DM. Sasaki BA-KS appears only in an expanded secondary list without corroborated issued card; excluded from verified inventory, no claim to have proven nonexistence. Signed Rookie Reprints PR100 is a print run, not serial numbering. No unsupported bat/multi autograph serial run inferred from marketing.",
+    "packConfiguration": "Default Hobby 24 packs, ten nominal cards; HTA 12 packs, 21 nominal cards. Original wrappers/boxes reviewed. Relic-containing physical packs can hold fewer cards; VCS fixed count does not reproduce reduction. HTA autograph box-loader sticker observed; no additional checklist fabricated, HTA collation pending.",
+    "packOdds": "Gold denominator 1 produces guaranteed one hit under current pack code, with other hits replacing base slots. Verified aggregate Hobby denominators on ProductSets only; card-tier scarcity flattened within complete collector families. AutoProofs null until 18239/18259 source conflict resolved with legible primary odds. No approximate rate substituted.",
+    "exclusions": "Exclude three PP dealer/media promos, later Topps Vault blank-back proof, and physical Sean Burroughs signed-baseball redemption ticket (not a trading-card autograph family). Keep actually issued ROY dual. No Bowman Chrome, Heritage, Draft or Bowmans Best checklist mixed in; no extra refractor/hologram family.",
+    "verificationLimit": "Complete catalogue-based checklist/metadata audit plus selected original scan checks for numbering, signatures, serial status and packaging. Not a full physical image audit. AutoProof odds, pictured identity in Cabrera error and HTA/physical relic collation remain documented QA items.",
+    "release": "Unreleased Admin draft for pricing/image harvesting; blocked pending pack QA, unknown AutoProof odds, images and pricing. No production DB access or deploy."
+  },
+  "product": {
+    "id": "2001_Bowman_Baseball",
+    "year": 2001,
+    "brand": "Bowman",
+    "sport": "Baseball",
+    "cardsPerPack": 10,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "checklist": "VERIFIED_1032_CARDS_12_FAMILIES_AGAINST_CATALOGUES",
+    "rookieDesignation": "VERIFIED_104_BASE_RCS",
+    "scanReview": "SELECTED_ORIGINAL_SCANS_COMPLETE_FULL_HARVEST_PENDING",
+    "packCollation": "PENDING_PHYSICAL_RELIC_COUNTS_AND_TIER_FLATTENING",
+    "insertOdds": "VERIFIED_AGGREGATE_HOBBY_EXCEPT_AUTOPROOF_CONFLICT_NULL",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "2001-bowman-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2001_Bowman_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 1441,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1441/2001-Bowman?PageIndex=1",
+      "expectedCards": 440,
+      "notes": "440-card numbered collector checklist: 140 red-format slots, 300 blue rookies/prospects. Exactly 104 true RCs including anomalous red-format #32 Dan Tosca. UER notes kept outside player field."
+    },
+    {
+      "key": "gold",
+      "id": "2001_Bowman_Baseball_Gold",
+      "name": "Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "sourceSetId": 12604,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12604/2001-Bowman-Gold?PageIndex=1",
+      "expectedCards": 440,
+      "notes": "Complete independently retrieved 440-card Gold partial-design parallel. Gold-foil facsimile signature only; not real autograph. One per pack; denominator 1 supported by current hit model. No inferred extra RC suffixes."
+    },
+    {
+      "key": "reprints",
+      "id": "2001_Bowman_Baseball_Rookie_Reprints",
+      "name": "Rookie Reprints",
+      "kind": "INSERT",
+      "oddsPerPack": 12,
+      "sourceSetId": 12607,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12607/2001-Bowman-Rookie-Reprints",
+      "expectedCards": 25,
+      "notes": "Full 25-card historical Rookie Reprints family; retain 2001 reprint identifiers and original issue/year/card in variant. Hobby 1:12; not true 2001 RCs."
+    },
+    {
+      "key": "futures",
+      "id": "2001_Bowman_Baseball_Futures_Game_Jerseys",
+      "name": "Futures Game Jerseys",
+      "kind": "INSERT",
+      "oddsPerPack": 82,
+      "sourceSetId": 12603,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12603/2001-Bowman-Futures-Game-Jerseys",
+      "expectedCards": 34,
+      "notes": "Complete 34-card 2000 All-Star Futures Game jersey family, overall Hobby 1:82; historical internal tier rates flattened within family. Original scans correct Patterson to FGR-DCP and Pena to FGR-CP."
+    },
+    {
+      "key": "multiple",
+      "id": "2001_Bowman_Baseball_Futures_Game_Jerseys_Bases_and_Helmets",
+      "name": "Futures Game Jerseys Bases and Helmets",
+      "kind": "INSERT",
+      "oddsPerPack": 1476,
+      "sourceSetId": 12605,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12605/2001-Bowman-Futures-Game-Jerseys-Bases-Helmets",
+      "expectedCards": 18,
+      "notes": "Complete eighteen-card triple-material family (helmet, base, jersey), overall Hobby 1:1476. Retain family intact; internal tier rates flattened."
+    },
+    {
+      "key": "reprint-bats",
+      "id": "2001_Bowman_Baseball_Rookie_Reprints_Bats",
+      "name": "Rookie Reprints Bats",
+      "kind": "INSERT",
+      "oddsPerPack": 1954,
+      "sourceSetId": 12609,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12609/2001-Bowman-Rookie-Reprints-Bats",
+      "expectedCards": 5,
+      "notes": "Complete five-card game-used bat reprints; Hobby 1:1954. Preserve historical teams and reprint origins; no unsupported serial run invented."
+    },
+    {
+      "key": "roy",
+      "id": "2001_Bowman_Baseball_2000_ROY_Dual_Jersey",
+      "name": "2000 ROY Dual Jersey",
+      "kind": "INSERT",
+      "oddsPerPack": 2202,
+      "sourceSetId": 1441,
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/1441/2001-Bowman",
+      "expectedCards": 1,
+      "notes": "Issued one-card ROY-R Kazuhiro Sasaki/Rafael Furcal dual jersey, Hobby 1:2202. Separate from 440 base; both historical teams retained."
+    },
+    {
+      "key": "autographs",
+      "id": "2001_Bowman_Baseball_Autographs",
+      "name": "Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": 74,
+      "sourceSetId": 12601,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12601/2001-Bowman-Autographs",
+      "expectedCards": 40,
+      "notes": "Forty verified signed subjects, Hobby 1:74. Dustin McGowan originally packed as redemption, actual fulfilled signed card visually verified. CBC extra BA-KS Sasaki unsupported and omitted. Alex Gordon is the documented Orioles prospect, not a modern team substitution."
+    },
+    {
+      "key": "reprint-autographs",
+      "id": "2001_Bowman_Baseball_Rookie_Reprints_Autographs",
+      "name": "Rookie Reprints Autographs",
+      "kind": "PARALLEL",
+      "oddsPerPack": 2467,
+      "sourceSetId": 12608,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12608/2001-Bowman-Rookie-Reprints-Autographs",
+      "expectedCards": 9,
+      "notes": "Nine actual cards #1-6,8-10; #7 does not exist. Hobby 1:2467. Reported 100 copies each, NOT serial numbered; original Snider reverse checked."
+    },
+    {
+      "key": "autoproofs",
+      "id": "2001_Bowman_Baseball_AutoProofs",
+      "name": "AutoProofs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 12602,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12602/2001-Bowman-AutoProofs",
+      "expectedCards": 10,
+      "notes": "Ten actual signed /25 buybacks retain original card numbers 3,33,101,127,175,219,260,272,364,569 and original issue years. No ordinal 1-10 fake numbering. Hobby odds null: BCP 1:18239 conflicts with CBC/distributor 1:18259."
+    },
+    {
+      "key": "multiple-autographs",
+      "id": "2001_Bowman_Baseball_Futures_Game_Multiple_Relics_Autographs",
+      "name": "Futures Game Multiple Relics Autographs",
+      "kind": "PARALLEL",
+      "oddsPerPack": 18259,
+      "sourceSetId": 12606,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12606/2001-Bowman-Futures-Game-Jerseys-Bases-Helmets-Autographs",
+      "expectedCards": 5,
+      "notes": "Five certified signed triple-material cards, canonical printed-code formatting AMGR-AE/BW/CP/EM/JH. Original Munson back confirms AMGR-EM. Hobby 1:18259; no unsupported serial run invented."
+    },
+    {
+      "key": "bat-autographs",
+      "id": "2001_Bowman_Baseball_Rookie_Reprints_Bats_Autographs",
+      "name": "Rookie Reprints Bats Autographs",
+      "kind": "PARALLEL",
+      "oddsPerPack": 18259,
+      "sourceSetId": 12610,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12610/2001-Bowman-Rookie-Reprints-Bats-Autographs",
+      "expectedCards": 5,
+      "notes": "Full five-card certified signed game-used bat family, Hobby 1:18259. No unsupported /25 or /50 assertion; original Minoso front/back show no serial stamp."
+    }
+  ]
+}
