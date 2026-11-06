@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1597/2003-Bowman",
+    "independentReference": "https://baseballcardpedia.com/index.php/2003_Bowman",
+    "supplementaryTeamReference": "https://mycardbatch.com/checklists/bowman-2003-baseball",
+    "additionalBaseReference": "https://keymancollectibles.com/baseballcards/bowman/2003bowmanbaseballcardchecklist.htm",
+    "independentPackReference": "https://bbcexchange.com/products/2003-bowman-baseball-box-h"
+  },
+  "decisions": {
+    "inventory": "1,317 completed collector cards across eleven intact families: Base 330; Gold 330; Uncirculated Silver 330; Uncirculated Metallic Gold 165; Future Fiber Bats 33; Futures Game Jerseys 46; Signs of the Future 40; Red Ink 40; dual autograph 1; signed base relic 1; dual ROY relic 1. Exclude the two generic redemption tickets. Include the ROY singleton listed inline in the related-set index.",
+    "scope": "Regular paper 2003 Bowman only. Exclude separate Chrome, Draft Picks & Prospects, Heritage and Best products. The preliminary box-back roster names Andres Torres, but the three actual regular Bowman autograph rosters do not; his released SOF-AT is in the separate Draft product. Do not manufacture a 41st regular Bowman autograph.",
+    "rookies": "Exactly 165 true base RCs corroborated by the complete base labels, separate two-page rookie index and independent BCP flags. Check every rookie number, identity and team. Ten blue-subset prospects have earlier RCs; subset marketing and award names do not confer rookie status. No added RC suffixes on parallels, signatures or relics.",
+    "aliases": "Verify six printed-name identities through original scans, primary TCDB person IDs and independent BCP names: #171 Ramon A. Martinez is Ramon Nivar; #190 Eny Cabreja is Wandy Rodriguez; #217 Jairo Garcia is Santiago Casilla; #258 Aneudis Mateo is Willy Corporan; #293 Carlos Rijo is Rafael Diaz; #317 Denny Tussen is Carlos Morla. Preserve each printed alias in variant while displaying the verified identity. Harmonize common Ichiro, Rob/Robby Hammock, Wil/Wilfredo Ledezma and CC/C.C. Sabathia spelling variants.",
+    "numbering": "Preserve original catalogue card numbers across all complete checklists. The original Reyes back confirms FGAB-JR, correcting BCP FCAB-JR. The Metallic Gold partial parallel is exactly #166-330; do not extend it to Quincy Carter #157 or the veterans.",
+    "teams": "Audit every independent supplementary tuple and complete parallel identity/team against base. Retain historical affiliations printed on relics. Original backs confirm Seung Song with Boston and Ricardo Rodriguez with Los Angeles. Victor Diaz FG-VD actually prints Cleveland Indians; retain that printed affiliation with an explicit historical-club discrepancy note.",
+    "serials": "Uncirculated Silver is serial numbered /250. Metallic Gold has a stated 230-copy print run and is not serial numbered. Ordinary Gold uses thick cardstock and a gold-foil facsimile signature, not a certified autograph. No serial limits are invented for the autograph families or generic redemption tickets.",
+    "materials": "Future Fiber contains game-used bats; Futures Game Jerseys contain game-worn jerseys from the 2002 event. Jose Reyes FGAB-JR contains a game-used base and certified autograph. ROY-JH contains Jennings jersey and Hinske bat. Selected original fronts/backs establish the material, subject order and code corrections.",
+    "packConfiguration": "Hobby draft: 24 packs x 10 nominal cards, corroborated by BCP and BBCE. DA Card World and Waxstat report nine; preserve that conflict for wrapper QA. HTA uses 12 packs x 21 cards. Gold is one per pack. Silver box toppers and Metallic Gold mail-in fulfilment are not ordinary pack hit pools.",
+    "packOdds": "Verified Hobby denominators 1, 26, 687, 9220 and 765 belong on ProductSets. Keep the 33-card bat and 40-card plain-autograph checklists intact; no verified unified integer aggregate replaces their tier rates, so odds remain null pending QA. HTA-only Reyes and nonpack encased families also have null Hobby odds. Preserve all original groups/formats in source evidence. No pack-engine change or invented rounded probability.",
+    "verificationLimit": "Catalogue-level audit of every output number, subject, team, subset and RC, with full independent rosters plus 24 original card images and two packaging images. This is not a visual audit of every physical card. Pricing, images, wrapper count, tier aggregates and box-topper/format collation remain pending release QA.",
+    "release": "Unreleased Admin draft for pricing and image harvesting. No production database access, release or deployment. Importer dry-run is default; reruns preserve existing prices, images and release state."
+  },
+  "product": {
+    "id": "2003_Bowman_Baseball",
+    "year": 2003,
+    "brand": "Bowman",
+    "sport": "Baseball",
+    "cardsPerPack": 10,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "checklist": "VERIFIED_1317_CARDS_11_FAMILIES_AGAINST_CATALOGUES",
+    "rookieDesignation": "VERIFIED_165_TRUE_BASE_RCS",
+    "scanReview": "SELECTED_ORIGINAL_IMAGES_VERIFIED_FULL_HARVEST_PENDING",
+    "packCollation": "PENDING_TIER_AGGREGATES_WRAPPER_COUNT_AND_BOX_TOPPERS",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "2003-bowman-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2003_Bowman_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 1597,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1597/2003-Bowman?PageIndex=1",
+      "expectedCards": 330,
+      "notes": "Complete 330-card paper checklist: Veterans #1-155 and Rookies/Prospects #156-330, including 165 independently verified true RCs. Six printed-name identities retain their original names in metadata."
+    },
+    {
+      "key": "gold",
+      "id": "2003_Bowman_Baseball_Gold",
+      "name": "Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "sourceSetId": 14263,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/14263/2003-Bowman-Gold?PageIndex=1",
+      "expectedCards": 330,
+      "notes": "Complete independently retrieved 330-card parallel, one per pack. Thick cardstock and gold-foil facsimile signature. No certified autograph or serial-number claim."
+    },
+    {
+      "key": "silver",
+      "id": "2003_Bowman_Baseball_Uncirculated_Silver",
+      "name": "Uncirculated Silver",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 14268,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/14268/2003-Bowman-Uncirculated-Silver?PageIndex=1",
+      "expectedCards": 330,
+      "notes": "330 encased individual cards serial numbered /250, issued as Hobby/HTA box toppers. The catalogue count of 331 includes one generic complete-set exchange ticket, excluded from player inventory. Null pack odds."
+    },
+    {
+      "key": "metallic-gold",
+      "id": "2003_Bowman_Baseball_Uncirculated_Metallic_Gold",
+      "name": "Uncirculated Metallic Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 14267,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/14267/2003-Bowman-Uncirculated-Gold?PageIndex=1",
+      "expectedCards": 165,
+      "notes": "165 fulfilled encased mail-in cards, exactly #166-330. Stated print run 230, not serial /230. The catalogue count of 166 includes a generic exchange ticket, excluded. Retail 1:49 was ticket odds; no ordinary player-card pack odds. Redemption expired April 30, 2004."
+    },
+    {
+      "key": "bats",
+      "id": "2003_Bowman_Baseball_Future_Fiber_Bats",
+      "name": "Future Fiber Bats",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 14260,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/14260/2003-Bowman-Future-Fiber-Bats?PageIndex=1",
+      "expectedCards": 33,
+      "notes": "Complete 33-card game-used bat family. Hobby groups 1:96 and 1:393; HTA groups 1:34 and 1:140; no retail. Keep the collector family intact and preserve the seven Group B subjects in source notes. No verified unified integer rate: null pending QA."
+    },
+    {
+      "key": "jerseys",
+      "id": "2003_Bowman_Baseball_Futures_Game_Jerseys",
+      "name": "Futures Game Jerseys",
+      "kind": "INSERT",
+      "oddsPerPack": 26,
+      "sourceSetId": 14262,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/14262/2003-Bowman-Futures-Game-Jerseys?PageIndex=1",
+      "expectedCards": 46,
+      "notes": "Complete 46-card game-worn jersey family from the 2002 Futures Game. Hobby 1:26, Retail 1:52, HTA 1:9. Retain printed historical affiliations; explicitly annotate Victor Diaz Cleveland back discrepancy."
+    },
+    {
+      "key": "autographs",
+      "id": "2003_Bowman_Baseball_Signs_of_the_Future",
+      "name": "Signs of the Future",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 14264,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/14264/2003-Bowman-Signs-of-the-Future?PageIndex=1",
+      "expectedCards": 40,
+      "notes": "Complete 40-card signature family. Hobby tiers 1:39/183/2288 and HTA tiers 1:13/65/816 remain in source details. No verified aggregate: null pending QA. Preliminary Andres Torres box mention is not a 41st regular Bowman subject; his released card is in the separate Draft product."
+    },
+    {
+      "key": "red-ink",
+      "id": "2003_Bowman_Baseball_Signs_of_the_Future_Red_Ink",
+      "name": "Signs of the Future Red Ink",
+      "kind": "PARALLEL",
+      "oddsPerPack": 687,
+      "sourceSetId": 14266,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/14266/2003-Bowman-Signs-of-the-Future-Red-Ink?PageIndex=1",
+      "expectedCards": 40,
+      "notes": "Complete independently retrieved 40-card red-ink signature parallel. Hobby 1:687, HTA 1:245; no retail. Full number/name/team inventory compared with ordinary signatures. No new RC suffixes or invented serial limit."
+    },
+    {
+      "key": "dual-autographs",
+      "id": "2003_Bowman_Baseball_Signs_of_the_Future_Dual",
+      "name": "Signs of the Future Dual",
+      "kind": "INSERT",
+      "oddsPerPack": 9220,
+      "sourceSetId": 14265,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/14265/2003-Bowman-Signs-of-the-Future-Dual?PageIndex=1",
+      "expectedCards": 1,
+      "notes": "DSF-CH certified dual autograph: Quincy Carter / Chad Hutchinson as Cubs/Cardinals baseball prospects. Hobby 1:9220, HTA 1:3264; no retail. Do not substitute their football team or infer new RC status."
+    },
+    {
+      "key": "futures-autograph",
+      "id": "2003_Bowman_Baseball_Futures_Game_Base_Autograph",
+      "name": "Futures Game Base Autograph",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 14261,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/14261/2003-Bowman-Futures-Game-Autograph?PageIndex=1",
+      "expectedCards": 1,
+      "notes": "FGAB-JR Jose Reyes: certified autograph plus game-used BASE from the 2002 Futures Game, confirmed on original front/back. Correct BCP FCAB-JR typo. HTA exclusive 1:141, null Hobby odds; not a bat relic."
+    },
+    {
+      "key": "roy-relic",
+      "id": "2003_Bowman_Baseball_Dual_Rookie_of_the_Year_Relic",
+      "name": "Dual Rookie of the Year Relic",
+      "kind": "INSERT",
+      "oddsPerPack": 765,
+      "sourceSetId": 1597,
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/1597/2003-Bowman",
+      "expectedCards": 1,
+      "notes": "ROY-JH Jason Jennings / Eric Hinske: 2002 ROY tribute with Jennings game-worn jersey and Hinske game-used bat, Colorado/Toronto. Verified inline index, independent BCP and original front/back. Hobby 1:765, HTA 1:246; no retail or new RC suffixes."
+    }
+  ]
+}
