@@ -1,0 +1,999 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,David Boston,Arizona Cardinals,,
+base,2,MarTay Jenkins,Arizona Cardinals,,
+base,3,Jake Plummer,Arizona Cardinals,,
+base,4,Chris Chandler,Atlanta Falcons,,
+base,5,Jamal Anderson,Atlanta Falcons,,
+base,6,Michael Vick,Atlanta Falcons,,
+base,7,Maurice Smith,Atlanta Falcons,,
+base,8,Elvis Grbac,Baltimore Ravens,,
+base,9,Jamal Lewis,Baltimore Ravens,,
+base,10,Todd Heap,Baltimore Ravens,,
+base,11,Qadry Ismail,Baltimore Ravens,,
+base,12,Shannon Sharpe,Baltimore Ravens,,
+base,13,Ray Lewis,Baltimore Ravens,,
+base,14,Rod Woodson,Baltimore Ravens,,
+base,15,Travis Henry,Buffalo Bills,,
+base,16,Rob Johnson,Buffalo Bills,,
+base,17,Eric Moulds,Buffalo Bills,,
+base,18,Nate Clements,Buffalo Bills,,
+base,19,Donald Hayes,Carolina Panthers,,
+base,20,Muhsin Muhammad,Carolina Panthers,,
+base,21,Steve Smith,Carolina Panthers,,
+base,22,Wesley Walls,Carolina Panthers,,
+base,23,Chris Weinke,Carolina Panthers,,
+base,24,James Allen,Chicago Bears,,
+base,25,David Terrell,Chicago Bears,,
+base,26,Anthony Thomas,Chicago Bears,,
+base,27,Dez White,Chicago Bears,,
+base,28,Brian Urlacher,Chicago Bears,,
+base,29,Mike Brown,Chicago Bears,,
+base,30,Corey Dillon,Cincinnati Bengals,,
+base,31,Chad Johnson,Cincinnati Bengals,,
+base,32,Peter Warrick,Cincinnati Bengals,,
+base,33,Justin Smith,Cincinnati Bengals,,
+base,34,Tim Couch,Cleveland Browns,,
+base,35,James Jackson,Cleveland Browns,,
+base,36,Quincy Morgan,Cleveland Browns,,
+base,37,Kevin Johnson,Cleveland Browns,,
+base,38,Gerard Warren,Cleveland Browns,,
+base,39,Anthony Henry,Cleveland Browns,,
+base,40,Quincy Carter,Dallas Cowboys,,
+base,41,Joey Galloway,Dallas Cowboys,,
+base,42,Raghib Ismail,Dallas Cowboys,,
+base,43,Ryan Leaf,Dallas Cowboys,,
+base,44,Emmitt Smith,Dallas Cowboys,,
+base,45,Troy Hambrick,Dallas Cowboys,,
+base,46,Mike Anderson,Denver Broncos,,
+base,47,Terrell Davis,Denver Broncos,,
+base,48,Brian Griese,Denver Broncos,,
+base,49,Rod Smith,Denver Broncos,,
+base,50,Ed McCaffrey,Denver Broncos,,
+base,51,Charlie Batch,Detroit Lions,,
+base,52,Johnnie Morton,Detroit Lions,,
+base,53,Germane Crowell,Detroit Lions,,
+base,54,James Stewart,Detroit Lions,,
+base,55,Shaun Rogers,Detroit Lions,,
+base,56,Brett Favre,Green Bay Packers,,
+base,57,Antonio Freeman,Green Bay Packers,,
+base,58,Ahman Green,Green Bay Packers,,
+base,59,Bill Schroeder,Green Bay Packers,,
+base,60,Kabeer Gbaja-Biamila,Green Bay Packers,,
+base,61,Marvin Harrison,Indianapolis Colts,,
+base,62,Terrence Wilkins,Indianapolis Colts,,
+base,63,Dominic Rhodes,Indianapolis Colts,,
+base,64,Reggie Wayne,Indianapolis Colts,,
+base,65,Edgerrin James,Indianapolis Colts,,
+base,66,Mark Brunell,Jacksonville Jaguars,,
+base,67,Keenan McCardell,Jacksonville Jaguars,,
+base,68,Jimmy Smith,Jacksonville Jaguars,,
+base,69,Fred Taylor,Jacksonville Jaguars,,
+base,70,Derrick Alexander,Kansas City Chiefs,,
+base,71,Tony Gonzalez,Kansas City Chiefs,,
+base,72,Trent Green,Kansas City Chiefs,,
+base,73,Priest Holmes,Kansas City Chiefs,,
+base,74,Marvin Minnis,Kansas City Chiefs,,
+base,75,Chris Chambers,Miami Dolphins,,
+base,76,Jay Fiedler,Miami Dolphins,,
+base,77,Travis Minor,Miami Dolphins,,
+base,78,Lamar Smith,Miami Dolphins,,
+base,79,Zach Thomas,Miami Dolphins,,
+base,80,Michael Bennett,Minnesota Vikings,,
+base,81,Cris Carter,Minnesota Vikings,,
+base,82,Daunte Culpepper,Minnesota Vikings,,
+base,83,Randy Moss,Minnesota Vikings,,
+base,84,Drew Bledsoe,New England Patriots,,
+base,85,Tom Brady,New England Patriots,,
+base,86,Troy Brown,New England Patriots,,
+base,87,Antowain Smith,New England Patriots,,
+base,88,Aaron Brooks,New Orleans Saints,,
+base,89,Joe Horn,New Orleans Saints,,
+base,90,Deuce McAllister,New Orleans Saints,,
+base,91,Ricky Williams,New Orleans Saints,,
+base,92,Kerry Collins,New York Giants,,
+base,93,Ron Dayne,New York Giants,,
+base,94,Michael Strahan,New York Giants,,
+base,95,Jason Sehorn,New York Giants,,
+base,96,Wayne Chrebet,New York Jets,,
+base,97,Laveranues Coles,New York Jets,,
+base,98,LaMont Jordan,New York Jets,,
+base,99,Curtis Martin,New York Jets,,
+base,100,Santana Moss,New York Jets,,
+base,101,Vinny Testaverde,New York Jets,,
+base,102,Tim Brown,Oakland Raiders,,
+base,103,Jerry Porter,Oakland Raiders,,
+base,104,Jerry Rice,Oakland Raiders,,
+base,105,Charlie Garner,Oakland Raiders,,
+base,106,Tyrone Wheatley,Oakland Raiders,,
+base,107,Charles Woodson,Oakland Raiders,,
+base,108,Correll Buckhalter,Philadelphia Eagles,,
+base,109,Todd Pinkston,Philadelphia Eagles,,
+base,110,Freddie Mitchell,Philadelphia Eagles,,
+base,111,James Thrash,Philadelphia Eagles,,
+base,112,Duce Staley,Philadelphia Eagles,,
+base,113,Jerome Bettis,Pittsburgh Steelers,,
+base,114,Plaxico Burress,Pittsburgh Steelers,,
+base,115,Kordell Stewart,Pittsburgh Steelers,,
+base,116,Hines Ward,Pittsburgh Steelers,,
+base,117,Kendrell Bell,Pittsburgh Steelers,,
+base,118,Drew Brees,San Diego Chargers,,
+base,119,Curtis Conway,San Diego Chargers,,
+base,120,Doug Flutie,San Diego Chargers,,
+base,121,LaDainian Tomlinson,San Diego Chargers,,
+base,122,Junior Seau,San Diego Chargers,,
+base,123,Kevan Barlow,San Francisco 49ers,,
+base,124,Jeff Garcia,San Francisco 49ers,,
+base,125,Garrison Hearst,San Francisco 49ers,,
+base,126,Terrell Owens,San Francisco 49ers,,
+base,127,Andre Carter,San Francisco 49ers,,
+base,128,Shaun Alexander,Seattle Seahawks,,
+base,129,Matt Hasselbeck,Seattle Seahawks,,
+base,130,Koren Robinson,Seattle Seahawks,,
+base,131,Ricky Watters,Seattle Seahawks,,
+base,132,Isaac Bruce,St. Louis Rams,,
+base,133,Trung Canidate,St. Louis Rams,,
+base,134,Marshall Faulk,St. Louis Rams,,
+base,135,Torry Holt,St. Louis Rams,,
+base,136,Kurt Warner,St. Louis Rams,,
+base,137,Mike Alstott,Tampa Bay Buccaneers,,
+base,138,Warrick Dunn,Tampa Bay Buccaneers,,
+base,139,Brad Johnson,Tampa Bay Buccaneers,,
+base,140,Keyshawn Johnson,Tampa Bay Buccaneers,,
+base,141,Warren Sapp,Tampa Bay Buccaneers,,
+base,142,Eddie George,Tennessee Titans,,
+base,143,Derrick Mason,Tennessee Titans,,
+base,144,Steve McNair,Tennessee Titans,,
+base,145,Jevon Kearse,Tennessee Titans,,
+base,146,Stephen Davis,Washington Redskins,,
+base,147,Rod Gardner,Washington Redskins,,
+base,148,Champ Bailey,Washington Redskins,,
+base,149,Bruce Smith,Washington Redskins,,
+base,150,Houston Texans,Houston Texans,Team Card,Inaugural Season / Season Schedule
+base,151,David Carr RC,Houston Texans,Rookie,SP
+base,152,Julius Peppers RC,Carolina Panthers,Rookie,SP
+base,153,Joey Harrington RC,Detroit Lions,Rookie,SP
+base,154,Quentin Jammer RC,San Diego Chargers,Rookie,SP
+base,155,Ryan Sims RC,Kansas City Chiefs,Rookie,SP
+base,156,Bryant McKinnie RC,Minnesota Vikings,Rookie,SP
+base,157,Roy Williams RC,Dallas Cowboys,Rookie,SP
+base,158,John Henderson RC,Jacksonville Jaguars,Rookie,SP
+base,159,Dwight Freeney RC,Indianapolis Colts,Rookie,SP
+base,160,Wendell Bryant RC,Arizona Cardinals,Rookie,SP
+base,161,Donte Stallworth RC,New Orleans Saints,Rookie,SP
+base,162,Jeremy Shockey RC,New York Giants,Rookie,SP
+base,163,Albert Haynesworth RC,Tennessee Titans,Rookie,SP
+base,164,William Green RC,Cleveland Browns,Rookie,SP
+base,165,Phillip Buchanon RC,Oakland Raiders,Rookie,SP
+base,166,T.J. Duckett RC,Atlanta Falcons,Rookie,SP
+base,167,Ashley Lelie RC,Denver Broncos,Rookie,SP
+base,168,Javon Walker RC,Green Bay Packers,Rookie,SP
+base,169,Daniel Graham RC,New England Patriots,Rookie,SP
+base,170,Napoleon Harris RC,Oakland Raiders,Rookie,SP
+base,171,Lito Sheppard RC,Philadelphia Eagles,Rookie,SP
+base,172,Robert Thomas RC,St. Louis Rams,Rookie,SP
+base,173,Patrick Ramsey RC,Washington Redskins,Rookie,SP
+base,174,Jabar Gaffney RC,Houston Texans,Rookie,SP
+base,175,DeShaun Foster RC,Carolina Panthers,Rookie,SP
+base,176,Kalimba Edwards RC,Detroit Lions,Rookie,SP
+base,177,Josh Reed RC,Buffalo Bills,Rookie,SP
+base,178,Larry Tripplett RC,Indianapolis Colts,Rookie,SP
+base,179,Andre Davis RC,Cleveland Browns,Rookie,SP
+base,180,Reche Caldwell RC,San Diego Chargers,Rookie,SP
+base,181,Levar Fisher RC,Arizona Cardinals,Rookie,SP
+base,182,Clinton Portis RC,Denver Broncos,Rookie,SP
+base,183,Anthony Weaver RC,Baltimore Ravens,Rookie,SP
+base,184,Maurice Morris RC,Seattle Seahawks,Rookie,SP
+base,185,Ladell Betts RC,Washington Redskins,Rookie,SP
+base,186,Antwaan Randle El RC,Pittsburgh Steelers,Rookie,SP
+base,187,Antonio Bryant RC,Dallas Cowboys,Rookie,SP
+base,188,Rocky Calmus RC,Tennessee Titans,Rookie,SP
+base,189,Josh McCown RC,Arizona Cardinals,Rookie,SP
+base,190,Lamar Gordon RC,St. Louis Rams,Rookie,SP
+base,191,Marquise Walker RC,Tampa Bay Buccaneers,Rookie,SP
+base,192,Cliff Russell RC,Washington Redskins,Rookie,SP
+base,193,Eric Crouch RC,St. Louis Rams,Rookie,SP
+base,194,Dennis Johnson RC,Arizona Cardinals,Rookie,SP
+base,195,Alex Brown RC,Chicago Bears,Rookie,SP
+base,196,David Garrard RC,Jacksonville Jaguars,Rookie,SP
+base,197,Rohan Davey RC,New England Patriots,Rookie,SP
+base,198,Alan Harper RC,New York Jets,Rookie,SP
+base,199,Ron Johnson RC,Baltimore Ravens,Rookie,SP
+base,200,Andra Davis RC,Cleveland Browns,Rookie,SP
+base,201,Kurt Kittner RC,Atlanta Falcons,Rookie,SP
+base,202,Freddie Milons RC,Philadelphia Eagles,Rookie,SP
+base,203,Adrian Peterson RC,Chicago Bears,Rookie,SP
+base,204,Luke Staley RC,Detroit Lions,Rookie,SP
+base,205,Tracey Wistrom RC,Tampa Bay Buccaneers,Rookie,SP
+base,206,Woodrow Dantzler RC,Clemson Tigers,Rookie,SP
+base,207,Chad Hutchinson RC,Dallas Cowboys,Rookie,SP
+base,208,Zak Kustok RC,Northwestern Wildcats,Rookie,SP
+base,209,Damien Anderson RC,Northwestern Wildcats,Rookie,SP
+base,210,James Mungro RC,Syracuse Orangemen,Rookie,SP
+base,211,Cortlen Johnson RC,Colorado Buffaloes,Rookie,SP
+base,212,Demontray Carter RC,Troy Trojans,Rookie,SP
+base,213,Kelly Campbell RC,Georgia Tech Yellow Jackets,Rookie,SP
+base,214,Brian Poli-Dixon RC,UCLA Bruins,Rookie,SP
+base,215,Mike Rumph RC,San Francisco 49ers,Rookie,SP
+base,216,Najeh Davenport RC,Green Bay Packers,Rookie,SP
+banner-season,BS-1,Archie Griffin,Cincinnati Bengals,,SN1979
+banner-season,BS-2,Archie Manning,New Orleans Saints,,SN1980
+banner-season,BS-3,Art Monk,Washington Redskins,,SN1984
+banner-season,BS-4,Charley Taylor,Washington Redskins,,SN1966
+banner-season,BS-5,Cris Collinsworth,Cincinnati Bengals,,SN1986
+banner-season,BS-6,Craig Morton,Denver Broncos,,SN1981
+banner-season,BS-7,Dick Butkus,Chicago Bears,,SN1965
+banner-season,BS-8,Don Maynard,New York Jets,,SN1967
+banner-season,BS-9,Drew Pearson,Dallas Cowboys,,SN1979
+banner-season,BS-10,Dwight Clark,San Francisco 49ers,,SN1981
+banner-season,BS-11,Eric Dickerson,Los Angeles Rams,,SN1984
+banner-season,BS-12,Fran Tarkenton,Minnesota Vikings,,SN1975
+banner-season,BS-13,Franco Harris,Pittsburgh Steelers,,SN1975
+banner-season,BS-14,Frank Gifford,New York Giants,,SN1956
+banner-season,BS-15,Fred Biletnikoff,Oakland Raiders,,SN1969
+banner-season,BS-16,John Fuqua,Pittsburgh Steelers,,SN1970
+banner-season,BS-17,Gale Sayers,Chicago Bears,,SN1966
+banner-season,BS-18,Henry Ellard,Los Angeles Rams,,SN1988
+banner-season,BS-19,James Lofton,Buffalo Bills,,SN1991
+banner-season,BS-20,Jim Plunkett,Los Angeles Raiders,,SN1983
+banner-season,BS-21,Joe Greene,Pittsburgh Steelers,,SN1972
+banner-season,BS-22,Joe Theismann,Washington Redskins,,SN1983
+banner-season,BS-23,John Hadl,San Diego Chargers,,SN1968
+banner-season,BS-24,John Stallworth,Pittsburgh Steelers,,SN1984
+banner-season,BS-25,Kellen Winslow,San Diego Chargers,,SN1980
+banner-season,BS-26,Ken Anderson,Cincinnati Bengals,,SN1981
+banner-season,BS-27,Lance Alworth,San Diego Chargers,,SN1965
+banner-season,BS-28,Mike Singletary,Chicago Bears,,SN1985
+banner-season,BS-29,Otto Graham,Cleveland Browns,,SN1953
+banner-season,BS-30,Paul Hornung,Green Bay Packers,,SN1960
+banner-season,BS-31,Paul Warfield,Miami Dolphins,,SN1971
+banner-season,BS-32,Raymond Berry,Indianapolis Colts,,SN1960
+banner-season,BS-33,Rocky Bleier,Pittsburgh Steelers,,SN1976
+banner-season,BS-34,Ronnie Lott,San Francisco 49ers,,SN1986
+banner-season,BS-35,Sammy Baugh,Washington Redskins,,SN1947
+banner-season,BS-36,Sonny Jurgensen,Washington Redskins,,SN1967
+banner-season,BS-37,Steve Largent,Seattle Seahawks,,SN1979
+banner-season,BS-38,Terry Bradshaw,Pittsburgh Steelers,,SN1978
+banner-season,BS-39,Todd Christensen,Los Angeles Raiders,,SN1983
+banner-season,BS-40,Y.A. Tittle,New York Giants,,SN1963
+banner-season-ink-autographs,BS-1,Archie Griffin,Cincinnati Bengals,,"AU, SN25"
+banner-season-ink-autographs,BS-2,Archie Manning,New Orleans Saints,,"AU, SN25"
+banner-season-ink-autographs,BS-3,Art Monk,Washington Redskins,,"AU, SN25"
+banner-season-ink-autographs,BS-4,Charley Taylor,Washington Redskins,,"AU, SN25"
+banner-season-ink-autographs,BS-5,Cris Collinsworth,Cincinnati Bengals,,"AU, SN25"
+banner-season-ink-autographs,BS-6,Craig Morton,Denver Broncos,,"AU, SN25"
+banner-season-ink-autographs,BS-7,Dick Butkus,Chicago Bears,,"AU, SN25"
+banner-season-ink-autographs,BS-8,Don Maynard,New York Jets,,"AU, SN25"
+banner-season-ink-autographs,BS-9,Drew Pearson,Dallas Cowboys,,"AU, SN25"
+banner-season-ink-autographs,BS-10,Dwight Clark,San Francisco 49ers,,"AU, SN25"
+banner-season-ink-autographs,BS-11,Eric Dickerson,Los Angeles Rams,,"AU, SN25"
+banner-season-ink-autographs,BS-12,Fran Tarkenton,Minnesota Vikings,,"AU, SN25"
+banner-season-ink-autographs,BS-13,Franco Harris,Pittsburgh Steelers,,"AU, SN25"
+banner-season-ink-autographs,BS-14,Frank Gifford,New York Giants,,"AU, SN25"
+banner-season-ink-autographs,BS-15,Fred Biletnikoff,Oakland Raiders,,"AU, SN25"
+banner-season-ink-autographs,BS-16,John Fuqua,Pittsburgh Steelers,,"AU, SN25"
+banner-season-ink-autographs,BS-17,Gale Sayers,Chicago Bears,,"AU, SN25"
+banner-season-ink-autographs,BS-18,Henry Ellard,Los Angeles Rams,,"AU, SN25"
+banner-season-ink-autographs,BS-19,James Lofton,Buffalo Bills,,"AU, SN25"
+banner-season-ink-autographs,BS-20,Jim Plunkett,Los Angeles Raiders,,"AU, SN25"
+banner-season-ink-autographs,BS-21,Joe Greene,Pittsburgh Steelers,,"AU, SN25"
+banner-season-ink-autographs,BS-22,Joe Theismann,Washington Redskins,,"AU, SN25"
+banner-season-ink-autographs,BS-23,John Hadl,San Diego Chargers,,"AU, SN25"
+banner-season-ink-autographs,BS-24,John Stallworth,Pittsburgh Steelers,,"AU, SN25"
+banner-season-ink-autographs,BS-25,Kellen Winslow,San Diego Chargers,,"AU, SN25"
+banner-season-ink-autographs,BS-26,Ken Anderson,Cincinnati Bengals,,"AU, SN25"
+banner-season-ink-autographs,BS-27,Lance Alworth,San Diego Chargers,,"AU, SN25"
+banner-season-ink-autographs,BS-28,Mike Singletary,Chicago Bears,,"AU, SN25"
+banner-season-ink-autographs,BS-29,Otto Graham,Cleveland Browns,,"AU, SN25"
+banner-season-ink-autographs,BS-30,Paul Hornung,Green Bay Packers,,"AU, SN25"
+banner-season-ink-autographs,BS-31,Paul Warfield,Miami Dolphins,,"AU, SN25"
+banner-season-ink-autographs,BS-32,Raymond Berry,Indianapolis Colts,,"AU, SN25"
+banner-season-ink-autographs,BS-33,Rocky Bleier,Pittsburgh Steelers,,"AU, SN25"
+banner-season-ink-autographs,BS-34,Ronnie Lott,San Francisco 49ers,,"AU, SN25"
+banner-season-ink-autographs,BS-35,Sammy Baugh,Washington Redskins,,"AU, SN25"
+banner-season-ink-autographs,BS-36,Sonny Jurgensen,Washington Redskins,,"AU, SN25"
+banner-season-ink-autographs,BS-37,Steve Largent,Seattle Seahawks,,"AU, SN25"
+banner-season-ink-autographs,BS-38,Terry Bradshaw,Pittsburgh Steelers,,"AU, SN25"
+banner-season-ink-autographs,BS-39,Todd Christensen,Los Angeles Raiders,,"AU, SN25"
+banner-season-ink-autographs,BS-40,Y.A. Tittle,New York Giants,,"AU, SN25"
+connections-jerseys,C-1,Kurt Warner / Isaac Bruce,St. Louis Rams,,"MEM, SN500"
+connections-jerseys,C-2,Daunte Culpepper / Cris Carter,Minnesota Vikings,,"MEM, SN500"
+connections-jerseys,C-3,Jay Fiedler / Chris Chambers,Miami Dolphins,,"MEM, SN500"
+connections-jerseys,C-4,Tom Brady / Troy Brown,New England Patriots,,"MEM, SN500"
+connections-jerseys,C-5,Brian Griese / Ed McCaffrey,Denver Broncos,,"MEM, SN500"
+connections-jerseys,C-6,Jeff Garcia / Terrell Owens,San Francisco 49ers,,"MEM, SN500"
+connections-jerseys,C-7,Chris Weinke / Muhsin Muhammad,Carolina Panthers,,"MEM, SN500"
+connections-jerseys,C-8,Jake Plummer / David Boston,Arizona Cardinals,,"MEM, SN500"
+connections-jerseys,C-9,Vinny Testaverde / Laveranues Coles,New York Jets,,"MEM, SN500"
+connections-jerseys,C-10,Brett Favre / Antonio Freeman,Green Bay Packers,,"MEM, SN500"
+connections-jerseys,C-11,Mark Brunell / Jimmy Smith,Jacksonville Jaguars,,"MEM, SN500"
+connections-jerseys,C-12,Rob Johnson / Eric Moulds,Buffalo Bills,,"MEM, SN500"
+connections-jerseys,C-13,Tim Couch / Quincy Morgan,Cleveland Browns,,"MEM, SN500"
+connections-jerseys,C-14,Kerry Collins / Amani Toomer,New York Giants,,"MEM, SN500"
+connections-jerseys,C-15,Rich Gannon / Tim Brown,Oakland Raiders,,"MEM, SN500"
+connections-jerseys,C-16,Donovan McNabb / Todd Pinkston,Philadelphia Eagles,,"MEM, SN500"
+connections-jerseys,C-17,Charlie Batch / Germane Crowell,Detroit Lions,,"MEM, SN500"
+connections-jerseys,C-18,Kurt Warner / Az-Zahir Hakim,St. Louis Rams,,"MEM, SN500"
+connections-jerseys,C-19,Brad Johnson / Keyshawn Johnson,Tampa Bay Buccaneers,,"MEM, SN500"
+connections-jerseys,C-20,Mark Brunell / Keenan McCardell,Jacksonville Jaguars,,"MEM, SN500"
+connections-jerseys,C-21,Peyton Manning / Marvin Harrison,Indianapolis Colts,,"MEM, SN500"
+connections-jerseys,C-22,Brian Griese / Rod Smith,Denver Broncos,,"MEM, SN500"
+connections-jerseys,C-23,Steve McNair / Kevin Dyson,Tennessee Titans,,"MEM, SN500"
+connections-jerseys,C-24,Kurt Warner / Torry Holt,St. Louis Rams,,"MEM, SN500"
+connections-jerseys,C-25,Tim Couch / Kevin Johnson,Cleveland Browns,,"MEM, SN500"
+connections-jerseys,C-26,Jake Plummer / Frank Sanders,Arizona Cardinals,,"MEM, SN500"
+connections-jerseys,C-27,Kordell Stewart / Plaxico Burress,Pittsburgh Steelers,,"MEM, SN500"
+connections-jerseys,C-28,Daunte Culpepper / Randy Moss,Minnesota Vikings,,"MEM, SN500"
+connections-jerseys,C-29,Vinny Testaverde / Wayne Chrebet,New York Jets,,"MEM, SN500"
+connections-jerseys,C-30,Rich Gannon / Jerry Rice,Oakland Raiders,,"MEM, SN500"
+draft-picks,DP-1,David Carr,Fresno State Bulldogs,,SN2002
+draft-picks,DP-2,Joey Harrington,Oregon Ducks,,SN2002
+draft-picks,DP-3,Kurt Kittner,Illinois Fighting Illini,,SN2002
+draft-picks,DP-4,Rohan Davey,LSU Tigers,,SN2002
+draft-picks,DP-5,Eric Crouch,Nebraska Cornhuskers,,SN2002
+draft-picks,DP-6,William Green,Boston College Eagles,,SN2002
+draft-picks,DP-7,T.J. Duckett,Michigan State Spartans,,SN2002
+draft-picks,DP-8,DeShaun Foster,UCLA Bruins,,SN2002
+draft-picks,DP-9,Travis Stephens,Tennessee Volunteers,,SN2002
+draft-picks,DP-10,Luke Staley,BYU Cougars,,SN2002
+draft-picks,DP-11,Clinton Portis,Miami Hurricanes,,SN2002
+draft-picks,DP-12,Antonio Bryant,Pittsburgh Panthers,,SN2002
+draft-picks,DP-13,Josh Reed,LSU Tigers,,SN2002
+draft-picks,DP-14,Marquise Walker,Michigan Wolverines,,SN2002
+draft-picks,DP-15,Andre Davis,Virginia Tech Hokies,,SN2002
+draft-picks,DP-16,Ashley Lelie,Hawaii Rainbow Warriors,,SN2002
+draft-picks,DP-17,Jabar Gaffney,Florida Gators,,SN2002
+draft-picks,DP-18,Reche Caldwell,Florida Gators,,SN2002
+draft-picks,DP-19,Daniel Graham,Colorado Buffaloes,,SN2002
+draft-picks,DP-20,Jeremy Shockey,Miami Hurricanes,,SN2002
+draft-picks,DP-21,Julius Peppers,North Carolina Tar Heels,,SN2002
+draft-picks,DP-22,John Henderson,Tennessee Volunteers,,SN2002
+draft-picks,DP-23,Ed Reed,Miami Hurricanes,,SN2002
+draft-picks,DP-24,Roy Williams,Oklahoma Sooners,,SN2002
+draft-picks,DP-25,Bryant McKinnie,Miami Hurricanes,,SN2002
+draft-picks-autographs,DP-1,David Carr,Fresno State Bulldogs,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-2,Joey Harrington,Oregon Ducks,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-3,Kurt Kittner,Illinois Fighting Illini,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-4,Rohan Davey,LSU Tigers,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-5,Eric Crouch,Nebraska Cornhuskers,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-6,William Green,Boston College Eagles,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-7,T.J. Duckett,Michigan State Spartans,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-8,DeShaun Foster,UCLA Bruins,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-9,Travis Stephens,Tennessee Volunteers,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-10,Luke Staley,BYU Cougars,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-11,Clinton Portis,Miami Hurricanes,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-12,Antonio Bryant,Pittsburgh Panthers,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-13,Josh Reed,LSU Tigers,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-14,Marquise Walker,Michigan Wolverines,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-15,Andre Davis,Virginia Tech Hokies,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-16,Ashley Lelie,Hawaii Rainbow Warriors,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-17,Jabar Gaffney,Florida Gators,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-18,Reche Caldwell,Florida Gators,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-19,Daniel Graham,Colorado Buffaloes,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-20,Jeremy Shockey,Miami Hurricanes,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-21,Julius Peppers,North Carolina Tar Heels,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-22,John Henderson,Tennessee Volunteers,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-23,Ed Reed,Miami Hurricanes,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-24,Roy Williams,Oklahoma Sooners,,"AU, SN50, Redemption; Fulfilled redemption"
+draft-picks-autographs,DP-25,Bryant McKinnie,Miami Hurricanes,,"AU, SN50, Redemption; Fulfilled redemption"
+gridiron-heritage-helmets,GH-1,Mike Anderson,Denver Broncos,,"MEM, SN100"
+gridiron-heritage-helmets,GH-2,Stephen Davis,Washington Redskins,,"MEM, SN100"
+gridiron-heritage-helmets,GH-3,Mark Brunell,Jacksonville Jaguars,,"MEM, SN100"
+gridiron-heritage-helmets,GH-4,Rich Gannon,Oakland Raiders,,"MEM, SN100"
+gridiron-heritage-helmets,GH-5,Kordell Stewart,Pittsburgh Steelers,,"MEM, SN100"
+gridiron-heritage-helmets,GH-6,Curtis Martin,New York Jets,,"MEM, SN100"
+gridiron-heritage-helmets,GH-7,Michael Vick,Atlanta Falcons,,"MEM, SN100"
+gridiron-heritage-helmets,GH-8,Duce Staley,Philadelphia Eagles,,"MEM, SN100"
+gridiron-heritage-helmets,GH-9,Troy Aikman,Dallas Cowboys,,"MEM, SN100"
+gridiron-heritage-helmets,GH-10,Warren Moon,Houston Oilers,,"MEM, SN100"
+gridiron-heritage-helmets,GH-11,Daunte Culpepper,Minnesota Vikings,,"MEM, SN100"
+gridiron-heritage-helmets,GH-12,Jerome Bettis,Pittsburgh Steelers,,"MEM, SN100"
+gridiron-heritage-helmets,GH-13,Junior Seau,San Diego Chargers,,"MEM, SN100"
+gridiron-heritage-helmets,GH-14,Cris Carter,Minnesota Vikings,,"MEM, SN100"
+gridiron-heritage-helmets,GH-15,John Elway,Denver Broncos,,"MEM, SN100"
+gridiron-heritage-helmets,GH-16,Lamar Smith,Miami Dolphins,,"MEM, SN100"
+gridiron-heritage-helmets,GH-17,Doug Flutie,San Diego Chargers,,"MEM, SN100"
+gridiron-heritage-helmets,GH-18,Keyshawn Johnson,Tampa Bay Buccaneers,,"MEM, SN100"
+gridiron-heritage-helmets,GH-19,LaDainian Tomlinson,San Diego Chargers,,"MEM, SN100"
+gridiron-heritage-helmets,GH-20,Aaron Brooks,New Orleans Saints,,"MEM, SN100"
+inside-the-numbers,IN1,Aaron Brooks,New Orleans Saints,,
+inside-the-numbers,IN2,Mark Brunell,Jacksonville Jaguars,,
+inside-the-numbers,IN3,Daunte Culpepper,Minnesota Vikings,,
+inside-the-numbers,IN4,Brad Johnson,Tampa Bay Buccaneers,,
+inside-the-numbers,IN5,Steve McNair,Tennessee Titans,,
+inside-the-numbers,IN6,Kurt Warner,St. Louis Rams,,
+inside-the-numbers,IN7,Donovan McNabb,Philadelphia Eagles,,
+inside-the-numbers,IN8,Brian Griese,Denver Broncos,,
+inside-the-numbers,IN9,Tom Brady,New England Patriots,,
+inside-the-numbers,IN10,Marshall Faulk,St. Louis Rams,,
+inside-the-numbers,IN11,Edgerrin James,Indianapolis Colts,,
+inside-the-numbers,IN12,LaDainian Tomlinson,San Diego Chargers,,
+inside-the-numbers,IN13,Eddie George,Tennessee Titans,,
+inside-the-numbers,IN14,Curtis Martin,New York Jets,,
+inside-the-numbers,IN15,Jerome Bettis,Pittsburgh Steelers,,
+inside-the-numbers,IN16,Shaun Alexander,Seattle Seahawks,,
+inside-the-numbers,IN17,Ricky Williams,New Orleans Saints,,
+inside-the-numbers,IN18,Emmitt Smith,Dallas Cowboys,,
+inside-the-numbers,IN19,Randy Moss,Minnesota Vikings,,
+inside-the-numbers,IN20,Jimmy Smith,Jacksonville Jaguars,,
+inside-the-numbers,IN21,Troy Brown,New England Patriots,,
+inside-the-numbers,IN22,Rod Smith,Denver Broncos,,
+inside-the-numbers,IN23,Chris Chambers,Miami Dolphins,,
+inside-the-numbers,IN24,Terrell Owens,San Francisco 49ers,,
+inside-the-numbers,IN25,Marvin Harrison,Indianapolis Colts,,
+inside-the-numbers,IN26,Tim Brown,Oakland Raiders,,
+inside-the-numbers,IN27,David Boston,Arizona Cardinals,,
+inside-the-numbers,IN28,Ray Lewis,Baltimore Ravens,,
+inside-the-numbers,IN29,Brian Urlacher,Chicago Bears,,
+inside-the-numbers,IN30,Zach Thomas,Miami Dolphins,,
+inside-the-numbers-gold,IN1,Aaron Brooks,New Orleans Saints,,SN2
+inside-the-numbers-gold,IN2,Mark Brunell,Jacksonville Jaguars,,SN8
+inside-the-numbers-gold,IN3,Daunte Culpepper,Minnesota Vikings,,SN11
+inside-the-numbers-gold,IN4,Brad Johnson,Tampa Bay Buccaneers,,SN14
+inside-the-numbers-gold,IN5,Steve McNair,Tennessee Titans,,SN9
+inside-the-numbers-gold,IN6,Kurt Warner,St. Louis Rams,,SN13
+inside-the-numbers-gold,IN7,Donovan McNabb,Philadelphia Eagles,,SN5
+inside-the-numbers-gold,IN8,Brian Griese,Denver Broncos,,SN14
+inside-the-numbers-gold,IN9,Tom Brady,New England Patriots,,SN12
+inside-the-numbers-gold,IN10,Marshall Faulk,St. Louis Rams,,SN28
+inside-the-numbers-gold,IN11,Edgerrin James,Indianapolis Colts,,SN32
+inside-the-numbers-gold,IN12,LaDainian Tomlinson,San Diego Chargers,,SN21
+inside-the-numbers-gold,IN13,Eddie George,Tennessee Titans,,SN27
+inside-the-numbers-gold,IN14,Curtis Martin,New York Jets,,SN28
+inside-the-numbers-gold,IN15,Jerome Bettis,Pittsburgh Steelers,,SN36
+inside-the-numbers-gold,IN16,Shaun Alexander,Seattle Seahawks,,SN37
+inside-the-numbers-gold,IN17,Ricky Williams,New Orleans Saints,,SN34
+inside-the-numbers-gold,IN18,Emmitt Smith,Dallas Cowboys,,SN22
+inside-the-numbers-gold,IN19,Randy Moss,Minnesota Vikings,,SN84
+inside-the-numbers-gold,IN20,Jimmy Smith,Jacksonville Jaguars,,SN82
+inside-the-numbers-gold,IN21,Troy Brown,New England Patriots,,SN80
+inside-the-numbers-gold,IN22,Rod Smith,Denver Broncos,,SN80
+inside-the-numbers-gold,IN23,Chris Chambers,Miami Dolphins,,SN84
+inside-the-numbers-gold,IN24,Terrell Owens,San Francisco 49ers,,SN81
+inside-the-numbers-gold,IN25,Marvin Harrison,Indianapolis Colts,,SN88
+inside-the-numbers-gold,IN26,Tim Brown,Oakland Raiders,,SN81
+inside-the-numbers-gold,IN27,David Boston,Arizona Cardinals,,SN89
+inside-the-numbers-gold,IN28,Ray Lewis,Baltimore Ravens,,SN52
+inside-the-numbers-gold,IN29,Brian Urlacher,Chicago Bears,,SN54
+inside-the-numbers-gold,IN30,Zach Thomas,Miami Dolphins,,SN54
+league-leader-tandems,LL1,Brian Griese / Kurt Warner,Denver Broncos / St. Louis Rams,,
+league-leader-tandems,LL2,Peyton Manning / Brett Favre,Indianapolis Colts / Green Bay Packers,,
+league-leader-tandems,LL3,Daunte Culpepper / Rich Gannon,Minnesota Vikings / Oakland Raiders,,
+league-leader-tandems,LL4,Doug Flutie / Kerry Collins,San Diego Chargers / New York Giants,,
+league-leader-tandems,LL5,Jake Plummer / Jay Fiedler,Arizona Cardinals / Miami Dolphins,,
+league-leader-tandems,LL6,Mark Brunell / Jeff Garcia,Jacksonville Jaguars / San Francisco 49ers,,
+league-leader-tandems,LL7,Kordell Stewart / Brad Johnson,Pittsburgh Steelers / Tampa Bay Buccaneers,,
+league-leader-tandems,LL8,Jerome Bettis / Ricky Williams,Pittsburgh Steelers / New Orleans Saints,,
+league-leader-tandems,LL9,Shaun Alexander / Ahman Green,Seattle Seahawks / Green Bay Packers,,
+league-leader-tandems,LL10,Curtis Martin / Marshall Faulk,New York Jets / St. Louis Rams,,
+league-leader-tandems,LL11,LaDainian Tomlinson / Stephen Davis,San Diego Chargers / Washington Redskins,,
+league-leader-tandems,LL12,Corey Dillon / Tiki Barber,Cincinnati Bengals / New York Giants,,
+league-leader-tandems,LL13,Lamar Smith / Emmitt Smith,Miami Dolphins / Dallas Cowboys,,
+league-leader-tandems,LL14,Rod Smith / David Boston,Denver Broncos / Arizona Cardinals,,
+league-leader-tandems,LL15,Marvin Harrison / Terrell Owens,Indianapolis Colts / San Francisco 49ers,,
+league-leader-tandems,LL16,Keyshawn Johnson / Troy Brown,Tampa Bay Buccaneers / New England Patriots,,
+league-leader-tandems,LL17,Tim Brown / Isaac Bruce,Oakland Raiders / St. Louis Rams,,
+league-leader-tandems,LL18,Jimmy Smith / Johnnie Morton,Jacksonville Jaguars / Detroit Lions,,
+league-leader-tandems,LL19,Kevin Johnson / Torry Holt,Cleveland Browns / St. Louis Rams,,
+league-leader-tandems,LL20,Jevon Kearse / Michael Strahan,Tennessee Titans / New York Giants,,
+league-leader-tandems-materials,LL1,Brian Griese / Kurt Warner,Denver Broncos / St. Louis Rams,,"MEM, SN250"
+league-leader-tandems-materials,LL2,Peyton Manning / Brett Favre,Indianapolis Colts / Green Bay Packers,,"MEM, SN250"
+league-leader-tandems-materials,LL3,Daunte Culpepper / Rich Gannon,Minnesota Vikings / Oakland Raiders,,"MEM, SN250"
+league-leader-tandems-materials,LL4,Doug Flutie / Kerry Collins,San Diego Chargers / New York Giants,,"MEM, SN250"
+league-leader-tandems-materials,LL5,Jay Fiedler / Jake Plummer,Miami Dolphins / Arizona Cardinals,,"MEM, SN250"
+league-leader-tandems-materials,LL6,Mark Brunell / Jeff Garcia,Jacksonville Jaguars / San Francisco 49ers,,"MEM, SN250"
+league-leader-tandems-materials,LL7,Kordell Stewart / Brad Johnson,Pittsburgh Steelers / Tampa Bay Buccaneers,,"MEM, SN250"
+league-leader-tandems-materials,LL8,Jerome Bettis / Ricky Williams,Pittsburgh Steelers / New Orleans Saints,,"MEM, SN250"
+league-leader-tandems-materials,LL9,Shaun Alexander / Ahman Green,Seattle Seahawks / Green Bay Packers,,"MEM, SN250"
+league-leader-tandems-materials,LL10,Curtis Martin / Marshall Faulk,New York Jets / St. Louis Rams,,"MEM, SN250"
+league-leader-tandems-materials,LL11,LaDainian Tomlinson / Stephen Davis,San Diego Chargers / Washington Redskins,,"MEM, SN250"
+league-leader-tandems-materials,LL12,Corey Dillon / Tiki Barber,Cincinnati Bengals / New York Giants,,"MEM, SN250"
+league-leader-tandems-materials,LL13,Lamar Smith / Emmitt Smith,Miami Dolphins / Dallas Cowboys,,"MEM, SN250"
+league-leader-tandems-materials,LL14,Rod Smith / David Boston,Denver Broncos / Arizona Cardinals,,"MEM, SN250"
+league-leader-tandems-materials,LL15,Marvin Harrison / Terrell Owens,Indianapolis Colts / San Francisco 49ers,,"MEM, SN250"
+league-leader-tandems-materials,LL16,Troy Brown / Keyshawn Johnson,New England Patriots / Tampa Bay Buccaneers,,"MEM, SN250"
+league-leader-tandems-materials,LL17,Tim Brown / Isaac Bruce,Oakland Raiders / St. Louis Rams,,"MEM, SN250"
+league-leader-tandems-materials,LL18,Jimmy Smith / Johnnie Morton,Jacksonville Jaguars / Detroit Lions,,"MEM, SN250"
+league-leader-tandems-materials,LL19,Kevin Johnson / Torry Holt,Cleveland Browns / St. Louis Rams,,"MEM, SN250"
+league-leader-tandems-materials,LL20,Jevon Kearse / Michael Strahan,Tennessee Titans / New York Giants,,"MEM, SN250"
+sophomore-signatures,SS1,Mike McMahon,Detroit Lions,,"AU, SP"
+sophomore-signatures,SS2,Alge Crumpler,Atlanta Falcons,,"AU, SP"
+sophomore-signatures,SS3,Anthony Thomas,Chicago Bears,,AU
+sophomore-signatures,SS4,Carlos Polk,San Diego Chargers,,AU
+sophomore-signatures,SS5,Cedric Scott,New York Giants,,AU
+sophomore-signatures,SS6,Cedrick Wilson,San Francisco 49ers,,AU
+sophomore-signatures,SS7,Chad Johnson,Cincinnati Bengals,,AU
+sophomore-signatures,SS8,Chris Weinke,Carolina Panthers,,AU
+sophomore-signatures,SS9,David Terrell,Chicago Bears,,AU
+sophomore-signatures,SS10,Deuce McAllister,New Orleans Saints,,AU
+sophomore-signatures,SS11,Drew Brees,San Diego Chargers,,AU
+sophomore-signatures,SS12,Ennis Davis,New Orleans Saints,,AU
+sophomore-signatures,SS13,Hakim Akbar,New England Patriots,,AU
+sophomore-signatures,SS14,Heath Evans,Seattle Seahawks,,AU
+sophomore-signatures,SS15,Jamal Reynolds,Green Bay Packers,,AU
+sophomore-signatures,SS16,Jesse Palmer,New York Giants,,AU
+sophomore-signatures,SS17,Justin Smith,Cincinnati Bengals,,AU
+sophomore-signatures,SS18,Karon Riley,Chicago Bears,,AU
+sophomore-signatures,SS19,Kendrell Bell,Pittsburgh Steelers,,"AU, SP"
+sophomore-signatures,SS20,Kenny Smith,New Orleans Saints,,AU
+sophomore-signatures,SS21,Kenyatta Walker,Tampa Bay Buccaneers,,AU
+sophomore-signatures,SS22,Ken-Yon Rambo,Dallas Cowboys,,AU
+sophomore-signatures,SS23,Kevan Barlow,San Francisco 49ers,,AU
+sophomore-signatures,SS24,Koren Robinson,Seattle Seahawks,,AU
+sophomore-signatures,SS25,Marcus Stroud,Jacksonville Jaguars,,AU
+sophomore-signatures,SS26,Marvin Minnis,Kansas City Chiefs,,SN100 Unsigned
+sophomore-signatures,SS27,Michael Bennett,Minnesota Vikings,,AU
+sophomore-signatures,SS28,Moran Norris,New Orleans Saints,,"AU, SP"
+sophomore-signatures,SS29,Morlon Greenwood,Miami Dolphins,,"AU, SP"
+sophomore-signatures,SS30,Nate Clements,Buffalo Bills,,SN100 Unsigned
+sophomore-signatures,SS31,Quincy Carter,Dallas Cowboys,,AU
+sophomore-signatures,SS32,Quincy Morgan,Cleveland Browns,,AU
+sophomore-signatures,SS33,Reggie Germany,Buffalo Bills,,AU
+sophomore-signatures,SS34,Robert Ferguson,Green Bay Packers,,AU
+sophomore-signatures,SS35,Rudi Johnson,Cincinnati Bengals,,AU
+sophomore-signatures,SS36,Santana Moss,New York Jets,,AU
+sophomore-signatures,SS37,T.J. Houshmandzadeh,Cincinnati Bengals,,AU
+sophomore-signatures,SS38,Todd Heap,Baltimore Ravens,,AU
+sophomore-signatures,SS39,Travis Henry,Buffalo Bills,,SN100 Unsigned
+sophomore-signatures,SS40,Travis Minor,Miami Dolphins,,AU
+stars-of-the-nfl-autographs,SN-4,Brett Favre,Green Bay Packers,,"AU, MEM, SN4"
+stars-of-the-nfl-autographs,SN-7,John Elway,Denver Broncos,,"AU, MEM, SN7"
+stars-of-the-nfl-autographs,SN-8,Troy Aikman,Dallas Cowboys,,"AU, MEM, SN8"
+stars-of-the-nfl-autographs,SN-11,Stephen Davis,Washington Redskins,,"AU, MEM, SN48"
+stars-of-the-nfl-autographs,SN-13,Dan Marino,Miami Dolphins,,"AU, MEM, SN13"
+stars-of-the-nfl-autographs,SN-14,Brian Urlacher,Chicago Bears,,"AU, MEM, SN54"
+stars-of-the-nfl-autographs,SN-15,Mike Anderson,Denver Broncos,,"AU, MEM, SN38"
+stars-of-the-nfl-autographs,SN-16,Jevon Kearse,Tennessee Titans,,"AU, MEM, SN90"
+stars-of-the-nfl-autographs,SN-17,Terrell Owens,San Francisco 49ers,,"AU, MEM, SN81"
+stars-of-the-nfl-autographs,SN-19,Ricky Williams,Miami Dolphins,,"AU, MEM, SN34"
+stars-of-the-nfl-jerseys,SN-1,Edgerrin James,Indianapolis Colts,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-2,Jerome Bettis,Pittsburgh Steelers,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-3,Shaun Alexander,Seattle Seahawks,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-4,Brett Favre,Green Bay Packers,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-5,Donovan McNabb,Philadelphia Eagles,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-6,Marshall Faulk,St. Louis Rams,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-7,John Elway,Denver Broncos,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-8,Troy Aikman,Dallas Cowboys,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-9,Jeff Garcia,San Francisco 49ers,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-10,Randy Moss,Minnesota Vikings,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-11,Stephen Davis,Washington Redskins,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-12,Emmitt Smith,Dallas Cowboys,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-13,Dan Marino,Miami Dolphins,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-14,Brian Urlacher,Chicago Bears,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-15,Mike Anderson,Denver Broncos,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-16,Jevon Kearse,Tennessee Titans,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-17,Terrell Owens,San Francisco 49ers,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-18,Peyton Manning,Indianapolis Colts,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-19,Ricky Williams,Miami Dolphins,,"MEM, SN300"
+stars-of-the-nfl-jerseys,SN-20,Warren Sapp,Tampa Bay Buccaneers,,"MEM, SN300"
+xtra-points-green,1,David Boston,Arizona Cardinals,,SN150
+xtra-points-green,2,MarTay Jenkins,Arizona Cardinals,,SN150
+xtra-points-green,3,Jake Plummer,Arizona Cardinals,,SN150
+xtra-points-green,4,Chris Chandler,Atlanta Falcons,,SN150
+xtra-points-green,5,Jamal Anderson,Atlanta Falcons,,SN150
+xtra-points-green,6,Michael Vick,Atlanta Falcons,,SN150
+xtra-points-green,7,Maurice Smith,Atlanta Falcons,,SN150
+xtra-points-green,8,Elvis Grbac,Baltimore Ravens,,SN150
+xtra-points-green,9,Jamal Lewis,Baltimore Ravens,,SN150
+xtra-points-green,10,Todd Heap,Baltimore Ravens,,SN150
+xtra-points-green,11,Qadry Ismail,Baltimore Ravens,,SN150
+xtra-points-green,12,Shannon Sharpe,Baltimore Ravens,,SN150
+xtra-points-green,13,Ray Lewis,Baltimore Ravens,,SN150
+xtra-points-green,14,Rod Woodson,Baltimore Ravens,,SN150
+xtra-points-green,15,Travis Henry,Buffalo Bills,,SN150
+xtra-points-green,16,Rob Johnson,Buffalo Bills,,SN150
+xtra-points-green,17,Eric Moulds,Buffalo Bills,,SN150
+xtra-points-green,18,Nate Clements,Buffalo Bills,,SN150
+xtra-points-green,19,Donald Hayes,Carolina Panthers,,SN150
+xtra-points-green,20,Muhsin Muhammad,Carolina Panthers,,SN150
+xtra-points-green,21,Steve Smith,Carolina Panthers,,SN150
+xtra-points-green,22,Wesley Walls,Carolina Panthers,,SN150
+xtra-points-green,23,Chris Weinke,Carolina Panthers,,SN150
+xtra-points-green,24,James Allen,Chicago Bears,,SN150
+xtra-points-green,25,David Terrell,Chicago Bears,,SN150
+xtra-points-green,26,Anthony Thomas,Chicago Bears,,SN150
+xtra-points-green,27,Dez White,Chicago Bears,,SN150
+xtra-points-green,28,Brian Urlacher,Chicago Bears,,SN150
+xtra-points-green,29,Mike Brown,Chicago Bears,,SN150
+xtra-points-green,30,Corey Dillon,Cincinnati Bengals,,SN150
+xtra-points-green,31,Chad Johnson,Cincinnati Bengals,,SN150
+xtra-points-green,32,Peter Warrick,Cincinnati Bengals,,SN150
+xtra-points-green,33,Justin Smith,Cincinnati Bengals,,SN150
+xtra-points-green,34,Tim Couch,Cleveland Browns,,SN150
+xtra-points-green,35,James Jackson,Cleveland Browns,,SN150
+xtra-points-green,36,Quincy Morgan,Cleveland Browns,,SN150
+xtra-points-green,37,Kevin Johnson,Cleveland Browns,,SN150
+xtra-points-green,38,Gerard Warren,Cleveland Browns,,SN150
+xtra-points-green,39,Anthony Henry,Cleveland Browns,,SN150
+xtra-points-green,40,Quincy Carter,Dallas Cowboys,,SN150
+xtra-points-green,41,Joey Galloway,Dallas Cowboys,,SN150
+xtra-points-green,42,Raghib Ismail,Dallas Cowboys,,SN150
+xtra-points-green,43,Ryan Leaf,Dallas Cowboys,,SN150
+xtra-points-green,44,Emmitt Smith,Dallas Cowboys,,SN150
+xtra-points-green,45,Troy Hambrick,Dallas Cowboys,,SN150
+xtra-points-green,46,Mike Anderson,Denver Broncos,,SN150
+xtra-points-green,47,Terrell Davis,Denver Broncos,,SN150
+xtra-points-green,48,Brian Griese,Denver Broncos,,SN150
+xtra-points-green,49,Rod Smith,Denver Broncos,,SN150
+xtra-points-green,50,Ed McCaffrey,Denver Broncos,,SN150
+xtra-points-green,51,Charlie Batch,Detroit Lions,,SN150
+xtra-points-green,52,Johnnie Morton,Detroit Lions,,SN150
+xtra-points-green,53,Germane Crowell,Detroit Lions,,SN150
+xtra-points-green,54,James Stewart,Detroit Lions,,SN150
+xtra-points-green,55,Shaun Rogers,Detroit Lions,,SN150
+xtra-points-green,56,Brett Favre,Green Bay Packers,,SN150
+xtra-points-green,57,Antonio Freeman,Green Bay Packers,,SN150
+xtra-points-green,58,Ahman Green,Green Bay Packers,,SN150
+xtra-points-green,59,Bill Schroeder,Green Bay Packers,,SN150
+xtra-points-green,60,Kabeer Gbaja-Biamila,Green Bay Packers,,SN150
+xtra-points-green,61,Marvin Harrison,Indianapolis Colts,,SN150
+xtra-points-green,62,Terrence Wilkins,Indianapolis Colts,,SN150
+xtra-points-green,63,Dominic Rhodes,Indianapolis Colts,,SN150
+xtra-points-green,64,Reggie Wayne,Indianapolis Colts,,SN150
+xtra-points-green,65,Edgerrin James,Indianapolis Colts,,SN150
+xtra-points-green,66,Mark Brunell,Jacksonville Jaguars,,SN150
+xtra-points-green,67,Keenan McCardell,Jacksonville Jaguars,,SN150
+xtra-points-green,68,Jimmy Smith,Jacksonville Jaguars,,SN150
+xtra-points-green,69,Fred Taylor,Jacksonville Jaguars,,SN150
+xtra-points-green,70,Derrick Alexander,Kansas City Chiefs,,SN150
+xtra-points-green,71,Tony Gonzalez,Kansas City Chiefs,,SN150
+xtra-points-green,72,Trent Green,Kansas City Chiefs,,SN150
+xtra-points-green,73,Priest Holmes,Kansas City Chiefs,,SN150
+xtra-points-green,74,Marvin Minnis,Kansas City Chiefs,,SN150
+xtra-points-green,75,Chris Chambers,Miami Dolphins,,SN150
+xtra-points-green,76,Jay Fiedler,Miami Dolphins,,SN150
+xtra-points-green,77,Travis Minor,Miami Dolphins,,SN150
+xtra-points-green,78,Lamar Smith,Miami Dolphins,,SN150
+xtra-points-green,79,Zach Thomas,Miami Dolphins,,SN150
+xtra-points-green,80,Michael Bennett,Minnesota Vikings,,SN150
+xtra-points-green,81,Cris Carter,Minnesota Vikings,,SN150
+xtra-points-green,82,Daunte Culpepper,Minnesota Vikings,,SN150
+xtra-points-green,83,Randy Moss,Minnesota Vikings,,SN150
+xtra-points-green,84,Drew Bledsoe,New England Patriots,,SN150
+xtra-points-green,85,Tom Brady,New England Patriots,,SN150
+xtra-points-green,86,Troy Brown,New England Patriots,,SN150
+xtra-points-green,87,Antowain Smith,New England Patriots,,SN150
+xtra-points-green,88,Aaron Brooks,New Orleans Saints,,SN150
+xtra-points-green,89,Joe Horn,New Orleans Saints,,SN150
+xtra-points-green,90,Deuce McAllister,New Orleans Saints,,SN150
+xtra-points-green,91,Ricky Williams,New Orleans Saints,,SN150
+xtra-points-green,92,Kerry Collins,New York Giants,,SN150
+xtra-points-green,93,Ron Dayne,New York Giants,,SN150
+xtra-points-green,94,Michael Strahan,New York Giants,,SN150
+xtra-points-green,95,Jason Sehorn,New York Giants,,SN150
+xtra-points-green,96,Wayne Chrebet,New York Jets,,SN150
+xtra-points-green,97,Laveranues Coles,New York Jets,,SN150
+xtra-points-green,98,LaMont Jordan,New York Jets,,SN150
+xtra-points-green,99,Curtis Martin,New York Jets,,SN150
+xtra-points-green,100,Santana Moss,New York Jets,,SN150
+xtra-points-green,101,Vinny Testaverde,New York Jets,,SN150
+xtra-points-green,102,Tim Brown,Oakland Raiders,,SN150
+xtra-points-green,103,Jerry Porter,Oakland Raiders,,SN150
+xtra-points-green,104,Jerry Rice,Oakland Raiders,,SN150
+xtra-points-green,105,Charlie Garner,Oakland Raiders,,SN150
+xtra-points-green,106,Tyrone Wheatley,Oakland Raiders,,SN150
+xtra-points-green,107,Charles Woodson,Oakland Raiders,,SN150
+xtra-points-green,108,Correll Buckhalter,Philadelphia Eagles,,SN150
+xtra-points-green,109,Todd Pinkston,Philadelphia Eagles,,SN150
+xtra-points-green,110,Freddie Mitchell,Philadelphia Eagles,,SN150
+xtra-points-green,111,James Thrash,Philadelphia Eagles,,SN150
+xtra-points-green,112,Duce Staley,Philadelphia Eagles,,SN150
+xtra-points-green,113,Jerome Bettis,Pittsburgh Steelers,,SN150
+xtra-points-green,114,Plaxico Burress,Pittsburgh Steelers,,SN150
+xtra-points-green,115,Kordell Stewart,Pittsburgh Steelers,,SN150
+xtra-points-green,116,Hines Ward,Pittsburgh Steelers,,SN150
+xtra-points-green,117,Kendrell Bell,Pittsburgh Steelers,,SN150
+xtra-points-green,118,Drew Brees,San Diego Chargers,,SN150
+xtra-points-green,119,Curtis Conway,San Diego Chargers,,SN150
+xtra-points-green,120,Doug Flutie,San Diego Chargers,,SN150
+xtra-points-green,121,LaDainian Tomlinson,San Diego Chargers,,SN150
+xtra-points-green,122,Junior Seau,San Diego Chargers,,SN150
+xtra-points-green,123,Kevan Barlow,San Francisco 49ers,,SN150
+xtra-points-green,124,Jeff Garcia,San Francisco 49ers,,SN150
+xtra-points-green,125,Garrison Hearst,San Francisco 49ers,,SN150
+xtra-points-green,126,Terrell Owens,San Francisco 49ers,,SN150
+xtra-points-green,127,Andre Carter,San Francisco 49ers,,SN150
+xtra-points-green,128,Shaun Alexander,Seattle Seahawks,,SN150
+xtra-points-green,129,Matt Hasselbeck,Seattle Seahawks,,SN150
+xtra-points-green,130,Koren Robinson,Seattle Seahawks,,SN150
+xtra-points-green,131,Ricky Watters,Seattle Seahawks,,SN150
+xtra-points-green,132,Isaac Bruce,St. Louis Rams,,SN150
+xtra-points-green,133,Trung Canidate,St. Louis Rams,,SN150
+xtra-points-green,134,Marshall Faulk,St. Louis Rams,,SN150
+xtra-points-green,135,Torry Holt,St. Louis Rams,,SN150
+xtra-points-green,136,Kurt Warner,St. Louis Rams,,SN150
+xtra-points-green,137,Mike Alstott,Tampa Bay Buccaneers,,SN150
+xtra-points-green,138,Warrick Dunn,Tampa Bay Buccaneers,,SN150
+xtra-points-green,139,Brad Johnson,Tampa Bay Buccaneers,,SN150
+xtra-points-green,140,Keyshawn Johnson,Tampa Bay Buccaneers,,SN150
+xtra-points-green,141,Warren Sapp,Tampa Bay Buccaneers,,SN150
+xtra-points-green,142,Eddie George,Tennessee Titans,,SN150
+xtra-points-green,143,Derrick Mason,Tennessee Titans,,SN150
+xtra-points-green,144,Steve McNair,Tennessee Titans,,SN150
+xtra-points-green,145,Jevon Kearse,Tennessee Titans,,SN150
+xtra-points-green,146,Stephen Davis,Washington Redskins,,SN150
+xtra-points-green,147,Rod Gardner,Washington Redskins,,SN150
+xtra-points-green,148,Champ Bailey,Washington Redskins,,SN150
+xtra-points-green,149,Bruce Smith,Washington Redskins,,SN150
+xtra-points-green,150,Houston Texans,Houston Texans,,SN150
+xtra-points-green,151,David Carr RC,Houston Texans,Rookie,SN25
+xtra-points-green,152,Julius Peppers RC,Carolina Panthers,Rookie,SN25
+xtra-points-green,153,Joey Harrington RC,Detroit Lions,Rookie,SN25
+xtra-points-green,154,Quentin Jammer RC,San Diego Chargers,Rookie,SN25
+xtra-points-green,155,Ryan Sims RC,Kansas City Chiefs,Rookie,SN25
+xtra-points-green,156,Bryant McKinnie RC,Minnesota Vikings,Rookie,SN25
+xtra-points-green,157,Roy Williams RC,Dallas Cowboys,Rookie,SN25
+xtra-points-green,158,John Henderson RC,Jacksonville Jaguars,Rookie,SN25
+xtra-points-green,159,Dwight Freeney RC,Indianapolis Colts,Rookie,SN25
+xtra-points-green,160,Wendell Bryant RC,Arizona Cardinals,Rookie,SN25
+xtra-points-green,161,Donte Stallworth RC,New Orleans Saints,Rookie,SN25
+xtra-points-green,162,Jeremy Shockey RC,New York Giants,Rookie,SN25
+xtra-points-green,163,Albert Haynesworth RC,Tennessee Titans,Rookie,SN25
+xtra-points-green,164,William Green RC,Cleveland Browns,Rookie,SN25
+xtra-points-green,165,Phillip Buchanon RC,Oakland Raiders,Rookie,SN25
+xtra-points-green,166,T.J. Duckett RC,Atlanta Falcons,Rookie,SN25
+xtra-points-green,167,Ashley Lelie RC,Denver Broncos,Rookie,SN25
+xtra-points-green,168,Javon Walker RC,Green Bay Packers,Rookie,SN25
+xtra-points-green,169,Daniel Graham RC,New England Patriots,Rookie,SN25
+xtra-points-green,170,Napoleon Harris RC,Oakland Raiders,Rookie,SN25
+xtra-points-green,171,Lito Sheppard RC,Philadelphia Eagles,Rookie,SN25
+xtra-points-green,172,Robert Thomas RC,St. Louis Rams,Rookie,SN25
+xtra-points-green,173,Patrick Ramsey RC,Washington Redskins,Rookie,SN25
+xtra-points-green,174,Jabar Gaffney RC,Houston Texans,Rookie,SN25
+xtra-points-green,175,DeShaun Foster RC,Carolina Panthers,Rookie,SN25
+xtra-points-green,176,Kalimba Edwards RC,Detroit Lions,Rookie,SN25
+xtra-points-green,177,Josh Reed RC,Buffalo Bills,Rookie,SN25
+xtra-points-green,178,Larry Tripplett RC,Indianapolis Colts,Rookie,SN25
+xtra-points-green,179,Andre Davis RC,Cleveland Browns,Rookie,SN25
+xtra-points-green,180,Reche Caldwell RC,San Diego Chargers,Rookie,SN25
+xtra-points-green,181,Levar Fisher RC,Arizona Cardinals,Rookie,SN25
+xtra-points-green,182,Clinton Portis RC,Denver Broncos,Rookie,SN25
+xtra-points-green,183,Anthony Weaver RC,Baltimore Ravens,Rookie,SN25
+xtra-points-green,184,Maurice Morris RC,Seattle Seahawks,Rookie,SN25
+xtra-points-green,185,Ladell Betts RC,Washington Redskins,Rookie,SN25
+xtra-points-green,186,Antwaan Randle El RC,Pittsburgh Steelers,Rookie,SN25
+xtra-points-green,187,Antonio Bryant RC,Dallas Cowboys,Rookie,SN25
+xtra-points-green,188,Rocky Calmus RC,Tennessee Titans,Rookie,SN25
+xtra-points-green,189,Josh McCown RC,Arizona Cardinals,Rookie,SN25
+xtra-points-green,190,Lamar Gordon RC,St. Louis Rams,Rookie,SN25
+xtra-points-green,191,Marquise Walker RC,Tampa Bay Buccaneers,Rookie,SN25
+xtra-points-green,192,Cliff Russell RC,Washington Redskins,Rookie,SN25
+xtra-points-green,193,Eric Crouch RC,St. Louis Rams,Rookie,SN25
+xtra-points-green,194,Dennis Johnson RC,Arizona Cardinals,Rookie,SN25
+xtra-points-green,195,Alex Brown RC,Chicago Bears,Rookie,SN25
+xtra-points-green,196,David Garrard RC,Jacksonville Jaguars,Rookie,SN25
+xtra-points-green,197,Rohan Davey RC,New England Patriots,Rookie,SN25
+xtra-points-green,198,Alan Harper RC,New York Jets,Rookie,SN25
+xtra-points-green,199,Ron Johnson RC,Baltimore Ravens,Rookie,SN25
+xtra-points-green,200,Andra Davis RC,Cleveland Browns,Rookie,SN25
+xtra-points-green,201,Kurt Kittner RC,Atlanta Falcons,Rookie,SN25
+xtra-points-green,202,Freddie Milons RC,Philadelphia Eagles,Rookie,SN25
+xtra-points-green,203,Adrian Peterson RC,Chicago Bears,Rookie,SN25
+xtra-points-green,204,Luke Staley RC,Detroit Lions,Rookie,SN25
+xtra-points-green,205,Tracey Wistrom RC,Tampa Bay Buccaneers,Rookie,SN25
+xtra-points-green,206,Woodrow Dantzler RC,Clemson Tigers,Rookie,SN25
+xtra-points-green,207,Chad Hutchinson RC,Dallas Cowboys,Rookie,SN25
+xtra-points-green,208,Zak Kustok RC,Northwestern Wildcats,Rookie,SN25
+xtra-points-green,209,Damien Anderson RC,Northwestern Wildcats,Rookie,SN25
+xtra-points-green,210,James Mungro RC,Syracuse Orangemen,Rookie,SN25
+xtra-points-green,211,Cortlen Johnson RC,Colorado Buffaloes,Rookie,SN25
+xtra-points-green,212,Demontray Carter RC,Troy Trojans,Rookie,SN25
+xtra-points-green,213,Kelly Campbell RC,Georgia Tech Yellow Jackets,Rookie,SN25
+xtra-points-green,214,Brian Poli-Dixon RC,UCLA Bruins,Rookie,SN25
+xtra-points-green,215,Mike Rumph RC,San Francisco 49ers,Rookie,SN25
+xtra-points-green,216,Najeh Davenport RC,Green Bay Packers,Rookie,SN25
+xtra-points-purple,1,David Boston,Arizona Cardinals,,SN150
+xtra-points-purple,2,MarTay Jenkins,Arizona Cardinals,,SN150
+xtra-points-purple,3,Jake Plummer,Arizona Cardinals,,SN150
+xtra-points-purple,4,Chris Chandler,Atlanta Falcons,,SN150
+xtra-points-purple,5,Jamal Anderson,Atlanta Falcons,,SN150
+xtra-points-purple,6,Michael Vick,Atlanta Falcons,,SN150
+xtra-points-purple,7,Maurice Smith,Atlanta Falcons,,SN150
+xtra-points-purple,8,Elvis Grbac,Baltimore Ravens,,SN150
+xtra-points-purple,9,Jamal Lewis,Baltimore Ravens,,SN150
+xtra-points-purple,10,Todd Heap,Baltimore Ravens,,SN150
+xtra-points-purple,11,Qadry Ismail,Baltimore Ravens,,SN150
+xtra-points-purple,12,Shannon Sharpe,Baltimore Ravens,,SN150
+xtra-points-purple,13,Ray Lewis,Baltimore Ravens,,SN150
+xtra-points-purple,14,Rod Woodson,Baltimore Ravens,,SN150
+xtra-points-purple,15,Travis Henry,Buffalo Bills,,SN150
+xtra-points-purple,16,Rob Johnson,Buffalo Bills,,SN150
+xtra-points-purple,17,Eric Moulds,Buffalo Bills,,SN150
+xtra-points-purple,18,Nate Clements,Buffalo Bills,,SN150
+xtra-points-purple,19,Donald Hayes,Carolina Panthers,,SN150
+xtra-points-purple,20,Muhsin Muhammad,Carolina Panthers,,SN150
+xtra-points-purple,21,Steve Smith,Carolina Panthers,,SN150
+xtra-points-purple,22,Wesley Walls,Carolina Panthers,,SN150
+xtra-points-purple,23,Chris Weinke,Carolina Panthers,,SN150
+xtra-points-purple,24,James Allen,Chicago Bears,,SN150
+xtra-points-purple,25,David Terrell,Chicago Bears,,SN150
+xtra-points-purple,26,Anthony Thomas,Chicago Bears,,SN150
+xtra-points-purple,27,Dez White,Chicago Bears,,SN150
+xtra-points-purple,28,Brian Urlacher,Chicago Bears,,SN150
+xtra-points-purple,29,Mike Brown,Chicago Bears,,SN150
+xtra-points-purple,30,Corey Dillon,Cincinnati Bengals,,SN150
+xtra-points-purple,31,Chad Johnson,Cincinnati Bengals,,SN150
+xtra-points-purple,32,Peter Warrick,Cincinnati Bengals,,SN150
+xtra-points-purple,33,Justin Smith,Cincinnati Bengals,,SN150
+xtra-points-purple,34,Tim Couch,Cleveland Browns,,SN150
+xtra-points-purple,35,James Jackson,Cleveland Browns,,SN150
+xtra-points-purple,36,Quincy Morgan,Cleveland Browns,,SN150
+xtra-points-purple,37,Kevin Johnson,Cleveland Browns,,SN150
+xtra-points-purple,38,Gerard Warren,Cleveland Browns,,SN150
+xtra-points-purple,39,Anthony Henry,Cleveland Browns,,SN150
+xtra-points-purple,40,Quincy Carter,Dallas Cowboys,,SN150
+xtra-points-purple,41,Joey Galloway,Dallas Cowboys,,SN150
+xtra-points-purple,42,Raghib Ismail,Dallas Cowboys,,SN150
+xtra-points-purple,43,Ryan Leaf,Dallas Cowboys,,SN150
+xtra-points-purple,44,Emmitt Smith,Dallas Cowboys,,SN150
+xtra-points-purple,45,Troy Hambrick,Dallas Cowboys,,SN150
+xtra-points-purple,46,Mike Anderson,Denver Broncos,,SN150
+xtra-points-purple,47,Terrell Davis,Denver Broncos,,SN150
+xtra-points-purple,48,Brian Griese,Denver Broncos,,SN150
+xtra-points-purple,49,Rod Smith,Denver Broncos,,SN150
+xtra-points-purple,50,Ed McCaffrey,Denver Broncos,,SN150
+xtra-points-purple,51,Charlie Batch,Detroit Lions,,SN150
+xtra-points-purple,52,Johnnie Morton,Detroit Lions,,SN150
+xtra-points-purple,53,Germane Crowell,Detroit Lions,,SN150
+xtra-points-purple,54,James Stewart,Detroit Lions,,SN150
+xtra-points-purple,55,Shaun Rogers,Detroit Lions,,SN150
+xtra-points-purple,56,Brett Favre,Green Bay Packers,,SN150
+xtra-points-purple,57,Antonio Freeman,Green Bay Packers,,SN150
+xtra-points-purple,58,Ahman Green,Green Bay Packers,,SN150
+xtra-points-purple,59,Bill Schroeder,Green Bay Packers,,SN150
+xtra-points-purple,60,Kabeer Gbaja-Biamila,Green Bay Packers,,SN150
+xtra-points-purple,61,Marvin Harrison,Indianapolis Colts,,SN150
+xtra-points-purple,62,Terrence Wilkins,Indianapolis Colts,,SN150
+xtra-points-purple,63,Dominic Rhodes,Indianapolis Colts,,SN150
+xtra-points-purple,64,Reggie Wayne,Indianapolis Colts,,SN150
+xtra-points-purple,65,Edgerrin James,Indianapolis Colts,,SN150
+xtra-points-purple,66,Mark Brunell,Jacksonville Jaguars,,SN150
+xtra-points-purple,67,Keenan McCardell,Jacksonville Jaguars,,SN150
+xtra-points-purple,68,Jimmy Smith,Jacksonville Jaguars,,SN150
+xtra-points-purple,69,Fred Taylor,Jacksonville Jaguars,,SN150
+xtra-points-purple,70,Derrick Alexander,Kansas City Chiefs,,SN150
+xtra-points-purple,71,Tony Gonzalez,Kansas City Chiefs,,SN150
+xtra-points-purple,72,Trent Green,Kansas City Chiefs,,SN150
+xtra-points-purple,73,Priest Holmes,Kansas City Chiefs,,SN150
+xtra-points-purple,74,Marvin Minnis,Kansas City Chiefs,,SN150
+xtra-points-purple,75,Chris Chambers,Miami Dolphins,,SN150
+xtra-points-purple,76,Jay Fiedler,Miami Dolphins,,SN150
+xtra-points-purple,77,Travis Minor,Miami Dolphins,,SN150
+xtra-points-purple,78,Lamar Smith,Miami Dolphins,,SN150
+xtra-points-purple,79,Zach Thomas,Miami Dolphins,,SN150
+xtra-points-purple,80,Michael Bennett,Minnesota Vikings,,SN150
+xtra-points-purple,81,Cris Carter,Minnesota Vikings,,SN150
+xtra-points-purple,82,Daunte Culpepper,Minnesota Vikings,,SN150
+xtra-points-purple,83,Randy Moss,Minnesota Vikings,,SN150
+xtra-points-purple,84,Drew Bledsoe,New England Patriots,,SN150
+xtra-points-purple,85,Tom Brady,New England Patriots,,SN150
+xtra-points-purple,86,Troy Brown,New England Patriots,,SN150
+xtra-points-purple,87,Antowain Smith,New England Patriots,,SN150
+xtra-points-purple,88,Aaron Brooks,New Orleans Saints,,SN150
+xtra-points-purple,89,Joe Horn,New Orleans Saints,,SN150
+xtra-points-purple,90,Deuce McAllister,New Orleans Saints,,SN150
+xtra-points-purple,91,Ricky Williams,New Orleans Saints,,SN150
+xtra-points-purple,92,Kerry Collins,New York Giants,,SN150
+xtra-points-purple,93,Ron Dayne,New York Giants,,SN150
+xtra-points-purple,94,Michael Strahan,New York Giants,,SN150
+xtra-points-purple,95,Jason Sehorn,New York Giants,,SN150
+xtra-points-purple,96,Wayne Chrebet,New York Jets,,SN150
+xtra-points-purple,97,Laveranues Coles,New York Jets,,SN150
+xtra-points-purple,98,LaMont Jordan,New York Jets,,SN150
+xtra-points-purple,99,Curtis Martin,New York Jets,,SN150
+xtra-points-purple,100,Santana Moss,New York Jets,,SN150
+xtra-points-purple,101,Vinny Testaverde,New York Jets,,SN150
+xtra-points-purple,102,Tim Brown,Oakland Raiders,,SN150
+xtra-points-purple,103,Jerry Porter,Oakland Raiders,,SN150
+xtra-points-purple,104,Jerry Rice,Oakland Raiders,,SN150
+xtra-points-purple,105,Charlie Garner,Oakland Raiders,,SN150
+xtra-points-purple,106,Tyrone Wheatley,Oakland Raiders,,SN150
+xtra-points-purple,107,Charles Woodson,Oakland Raiders,,SN150
+xtra-points-purple,108,Correll Buckhalter,Philadelphia Eagles,,SN150
+xtra-points-purple,109,Todd Pinkston,Philadelphia Eagles,,SN150
+xtra-points-purple,110,Freddie Mitchell,Philadelphia Eagles,,SN150
+xtra-points-purple,111,James Thrash,Philadelphia Eagles,,SN150
+xtra-points-purple,112,Duce Staley,Philadelphia Eagles,,SN150
+xtra-points-purple,113,Jerome Bettis,Pittsburgh Steelers,,SN150
+xtra-points-purple,114,Plaxico Burress,Pittsburgh Steelers,,SN150
+xtra-points-purple,115,Kordell Stewart,Pittsburgh Steelers,,SN150
+xtra-points-purple,116,Hines Ward,Pittsburgh Steelers,,SN150
+xtra-points-purple,117,Kendrell Bell,Pittsburgh Steelers,,SN150
+xtra-points-purple,118,Drew Brees,San Diego Chargers,,SN150
+xtra-points-purple,119,Curtis Conway,San Diego Chargers,,SN150
+xtra-points-purple,120,Doug Flutie,San Diego Chargers,,SN150
+xtra-points-purple,121,LaDainian Tomlinson,San Diego Chargers,,SN150
+xtra-points-purple,122,Junior Seau,San Diego Chargers,,SN150
+xtra-points-purple,123,Kevan Barlow,San Francisco 49ers,,SN150
+xtra-points-purple,124,Jeff Garcia,San Francisco 49ers,,SN150
+xtra-points-purple,125,Garrison Hearst,San Francisco 49ers,,SN150
+xtra-points-purple,126,Terrell Owens,San Francisco 49ers,,SN150
+xtra-points-purple,127,Andre Carter,San Francisco 49ers,,SN150
+xtra-points-purple,128,Shaun Alexander,Seattle Seahawks,,SN150
+xtra-points-purple,129,Matt Hasselbeck,Seattle Seahawks,,SN150
+xtra-points-purple,130,Koren Robinson,Seattle Seahawks,,SN150
+xtra-points-purple,131,Ricky Watters,Seattle Seahawks,,SN150
+xtra-points-purple,132,Isaac Bruce,St. Louis Rams,,SN150
+xtra-points-purple,133,Trung Canidate,St. Louis Rams,,SN150
+xtra-points-purple,134,Marshall Faulk,St. Louis Rams,,SN150
+xtra-points-purple,135,Torry Holt,St. Louis Rams,,SN150
+xtra-points-purple,136,Kurt Warner,St. Louis Rams,,SN150
+xtra-points-purple,137,Mike Alstott,Tampa Bay Buccaneers,,SN150
+xtra-points-purple,138,Warrick Dunn,Tampa Bay Buccaneers,,SN150
+xtra-points-purple,139,Brad Johnson,Tampa Bay Buccaneers,,SN150
+xtra-points-purple,140,Keyshawn Johnson,Tampa Bay Buccaneers,,SN150
+xtra-points-purple,141,Warren Sapp,Tampa Bay Buccaneers,,SN150
+xtra-points-purple,142,Eddie George,Tennessee Titans,,SN150
+xtra-points-purple,143,Derrick Mason,Tennessee Titans,,SN150
+xtra-points-purple,144,Steve McNair,Tennessee Titans,,SN150
+xtra-points-purple,145,Jevon Kearse,Tennessee Titans,,SN150
+xtra-points-purple,146,Stephen Davis,Washington Redskins,,SN150
+xtra-points-purple,147,Rod Gardner,Washington Redskins,,SN150
+xtra-points-purple,148,Champ Bailey,Washington Redskins,,SN150
+xtra-points-purple,149,Bruce Smith,Washington Redskins,,SN150
+xtra-points-purple,150,Houston Texans,Houston Texans,,SN150
+xtra-points-purple,151,David Carr RC,Houston Texans,Rookie,SN25
+xtra-points-purple,152,Julius Peppers RC,Carolina Panthers,Rookie,SN25
+xtra-points-purple,153,Joey Harrington RC,Detroit Lions,Rookie,SN25
+xtra-points-purple,154,Quentin Jammer RC,San Diego Chargers,Rookie,SN25
+xtra-points-purple,155,Ryan Sims RC,Kansas City Chiefs,Rookie,SN25
+xtra-points-purple,156,Bryant McKinnie RC,Minnesota Vikings,Rookie,SN25
+xtra-points-purple,157,Roy Williams RC,Dallas Cowboys,Rookie,SN25
+xtra-points-purple,158,John Henderson RC,Jacksonville Jaguars,Rookie,SN25
+xtra-points-purple,159,Dwight Freeney RC,Indianapolis Colts,Rookie,SN25
+xtra-points-purple,160,Wendell Bryant RC,Arizona Cardinals,Rookie,SN25
+xtra-points-purple,161,Donte Stallworth RC,New Orleans Saints,Rookie,SN25
+xtra-points-purple,162,Jeremy Shockey RC,New York Giants,Rookie,SN25
+xtra-points-purple,163,Albert Haynesworth RC,Tennessee Titans,Rookie,SN25
+xtra-points-purple,164,William Green RC,Cleveland Browns,Rookie,SN25
+xtra-points-purple,165,Phillip Buchanon RC,Oakland Raiders,Rookie,SN25
+xtra-points-purple,166,T.J. Duckett RC,Atlanta Falcons,Rookie,SN25
+xtra-points-purple,167,Ashley Lelie RC,Denver Broncos,Rookie,SN25
+xtra-points-purple,168,Javon Walker RC,Green Bay Packers,Rookie,SN25
+xtra-points-purple,169,Daniel Graham RC,New England Patriots,Rookie,SN25
+xtra-points-purple,170,Napoleon Harris RC,Oakland Raiders,Rookie,SN25
+xtra-points-purple,171,Lito Sheppard RC,Philadelphia Eagles,Rookie,SN25
+xtra-points-purple,172,Robert Thomas RC,St. Louis Rams,Rookie,SN25
+xtra-points-purple,173,Patrick Ramsey RC,Washington Redskins,Rookie,SN25
+xtra-points-purple,174,Jabar Gaffney RC,Houston Texans,Rookie,SN25
+xtra-points-purple,175,DeShaun Foster RC,Carolina Panthers,Rookie,SN25
+xtra-points-purple,176,Kalimba Edwards RC,Detroit Lions,Rookie,SN25
+xtra-points-purple,177,Josh Reed RC,Buffalo Bills,Rookie,SN25
+xtra-points-purple,178,Larry Tripplett RC,Indianapolis Colts,Rookie,SN25
+xtra-points-purple,179,Andre Davis RC,Cleveland Browns,Rookie,SN25
+xtra-points-purple,180,Reche Caldwell RC,San Diego Chargers,Rookie,SN25
+xtra-points-purple,181,Levar Fisher RC,Arizona Cardinals,Rookie,SN25
+xtra-points-purple,182,Clinton Portis RC,Denver Broncos,Rookie,SN25
+xtra-points-purple,183,Anthony Weaver RC,Baltimore Ravens,Rookie,SN25
+xtra-points-purple,184,Maurice Morris RC,Seattle Seahawks,Rookie,SN25
+xtra-points-purple,185,Ladell Betts RC,Washington Redskins,Rookie,SN25
+xtra-points-purple,186,Antwaan Randle El RC,Pittsburgh Steelers,Rookie,SN25
+xtra-points-purple,187,Antonio Bryant RC,Dallas Cowboys,Rookie,SN25
+xtra-points-purple,188,Rocky Calmus RC,Tennessee Titans,Rookie,SN25
+xtra-points-purple,189,Josh McCown RC,Arizona Cardinals,Rookie,SN25
+xtra-points-purple,190,Lamar Gordon RC,St. Louis Rams,Rookie,SN25
+xtra-points-purple,191,Marquise Walker RC,Tampa Bay Buccaneers,Rookie,SN25
+xtra-points-purple,192,Cliff Russell RC,Washington Redskins,Rookie,SN25
+xtra-points-purple,193,Eric Crouch RC,St. Louis Rams,Rookie,SN25
+xtra-points-purple,194,Dennis Johnson RC,Arizona Cardinals,Rookie,SN25
+xtra-points-purple,195,Alex Brown RC,Chicago Bears,Rookie,SN25
+xtra-points-purple,196,David Garrard RC,Jacksonville Jaguars,Rookie,SN25
+xtra-points-purple,197,Rohan Davey RC,New England Patriots,Rookie,SN25
+xtra-points-purple,198,Alan Harper RC,New York Jets,Rookie,SN25
+xtra-points-purple,199,Ron Johnson RC,Baltimore Ravens,Rookie,SN25
+xtra-points-purple,200,Andra Davis RC,Cleveland Browns,Rookie,SN25
+xtra-points-purple,201,Kurt Kittner RC,Atlanta Falcons,Rookie,SN25
+xtra-points-purple,202,Freddie Milons RC,Philadelphia Eagles,Rookie,SN25
+xtra-points-purple,203,Adrian Peterson RC,Chicago Bears,Rookie,SN25
+xtra-points-purple,204,Luke Staley RC,Detroit Lions,Rookie,SN25
+xtra-points-purple,205,Tracey Wistrom RC,Tampa Bay Buccaneers,Rookie,SN25
+xtra-points-purple,206,Woodrow Dantzler RC,Clemson Tigers,Rookie,SN25
+xtra-points-purple,207,Chad Hutchinson RC,Dallas Cowboys,Rookie,SN25
+xtra-points-purple,208,Zak Kustok RC,Northwestern Wildcats,Rookie,SN25
+xtra-points-purple,209,Damien Anderson RC,Northwestern Wildcats,Rookie,SN25
+xtra-points-purple,210,James Mungro RC,Syracuse Orangemen,Rookie,SN25
+xtra-points-purple,211,Cortlen Johnson RC,Colorado Buffaloes,Rookie,SN25
+xtra-points-purple,212,Demontray Carter RC,Troy Trojans,Rookie,SN25
+xtra-points-purple,213,Kelly Campbell RC,Georgia Tech Yellow Jackets,Rookie,SN25
+xtra-points-purple,214,Brian Poli-Dixon RC,UCLA Bruins,Rookie,SN25
+xtra-points-purple,215,Mike Rumph RC,San Francisco 49ers,Rookie,SN25
+xtra-points-purple,216,Najeh Davenport RC,Green Bay Packers,Rookie,SN25
