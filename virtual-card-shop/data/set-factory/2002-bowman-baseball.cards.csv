@@ -1,0 +1,1071 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Adam Dunn,Cincinnati Reds,Veterans,
+base,2,Derek Jeter,New York Yankees,Veterans,
+base,3,Alex Rodriguez,Texas Rangers,Veterans,
+base,4,Miguel Tejada,Oakland Athletics,Veterans,
+base,5,Nomar Garciaparra,Boston Red Sox,Veterans,
+base,6,Toby Hall,Tampa Bay Devil Rays,Veterans,
+base,7,Brandon Duckworth,Philadelphia Phillies,Veterans,
+base,8,Paul Lo Duca,Los Angeles Dodgers,Veterans,
+base,9,Brian Giles,Pittsburgh Pirates,Veterans,
+base,10,C.C. Sabathia,Cleveland Indians,Veterans,
+base,11,Curt Schilling,Arizona Diamondbacks,Veterans,
+base,12,Tsuyoshi Shinjo,San Francisco Giants,Veterans,
+base,13,Ramon Hernandez,Oakland Athletics,Veterans,
+base,14,Jose Cruz Jr.,Toronto Blue Jays,Veterans,
+base,15,Albert Pujols,St. Louis Cardinals,Veterans,
+base,16,Joe Mays,Minnesota Twins,Veterans,
+base,17,Javy Lopez,Atlanta Braves,Veterans,
+base,18,J.T. Snow,San Francisco Giants,Veterans,
+base,19,David Segui,Baltimore Orioles,Veterans,
+base,20,Jorge Posada,New York Yankees,Veterans,
+base,21,Doug Mientkiewicz,Minnesota Twins,Veterans,
+base,22,Jerry Hairston Jr.,Baltimore Orioles,Veterans,
+base,23,Bernie Williams,New York Yankees,Veterans,
+base,24,Mike Sweeney,Kansas City Royals,Veterans,
+base,25,Jason Giambi,New York Yankees,Veterans,
+base,26,Ryan Dempster,Florida Marlins,Veterans,
+base,27,Ryan Klesko,San Diego Padres,Veterans,
+base,28,Mark Quinn,Kansas City Royals,Veterans,
+base,29,Jeff Kent,San Francisco Giants,Veterans,
+base,30,Eric Chavez,Oakland Athletics,Veterans,
+base,31,Adrian Beltre,Los Angeles Dodgers,Veterans,
+base,32,Andruw Jones,Atlanta Braves,Veterans,
+base,33,Alfonso Soriano,New York Yankees,Veterans,
+base,34,Aramis Ramirez,Pittsburgh Pirates,Veterans,
+base,35,Greg Maddux,Atlanta Braves,Veterans,
+base,36,Andy Pettitte,New York Yankees,Veterans,
+base,37,Bartolo Colon,Cleveland Indians,Veterans,
+base,38,Ben Sheets,Milwaukee Brewers,Veterans,
+base,39,Bobby Higginson,Detroit Tigers,Veterans,
+base,40,Ivan Rodriguez,Texas Rangers,Veterans,
+base,41,Brad Penny,Florida Marlins,Veterans,
+base,42,Carlos Lee,Chicago White Sox,Veterans,
+base,43,Damion Easley,Detroit Tigers,Veterans,
+base,44,Preston Wilson,Florida Marlins,Veterans,
+base,45,Jeff Bagwell,Houston Astros,Veterans,
+base,46,Eric Milton,Minnesota Twins,Veterans,
+base,47,Rafael Palmeiro,Texas Rangers,Veterans,
+base,48,Gary Sheffield,Atlanta Braves,Veterans,
+base,49,J.D. Drew,St. Louis Cardinals,Veterans,
+base,50,Jim Thome,Cleveland Indians,Veterans,
+base,51,Ichiro,Seattle Mariners,Veterans,
+base,52,Bud Smith,St. Louis Cardinals,Veterans,
+base,53,Chan Ho Park,Texas Rangers,Veterans,
+base,54,D'Angelo Jimenez,San Diego Padres,Veterans,
+base,55,Ken Griffey Jr.,Cincinnati Reds,Veterans,
+base,56,Wade Miller,Houston Astros,Veterans,
+base,57,Vladimir Guerrero,Montreal Expos,Veterans,
+base,58,Troy Glaus,Anaheim Angels,Veterans,
+base,59,Shawn Green,Los Angeles Dodgers,Veterans,
+base,60,Kerry Wood,Chicago Cubs,Veterans,
+base,61,Jack Wilson,Pittsburgh Pirates,Veterans,
+base,62,Kevin Brown,Los Angeles Dodgers,Veterans,
+base,63,Marcus Giles,Atlanta Braves,Veterans,
+base,64,Pat Burrell,Philadelphia Phillies,Veterans,
+base,65,Larry Walker,Colorado Rockies,Veterans,
+base,66,Sammy Sosa,Chicago Cubs,Veterans,
+base,67,Raul Mondesi,Toronto Blue Jays,Veterans,
+base,68,Tim Hudson,Oakland Athletics,Veterans,
+base,69,Lance Berkman,Houston Astros,Veterans,
+base,70,Mike Mussina,New York Yankees,Veterans,
+base,71,Barry Zito,Oakland Athletics,Veterans,
+base,72,Jimmy Rollins,Philadelphia Phillies,Veterans,
+base,73,Barry Bonds,San Francisco Giants,Veterans,
+base,74,Craig Biggio,Houston Astros,Veterans,
+base,75,Todd Helton,Colorado Rockies,Veterans,
+base,76,Roger Clemens,New York Yankees,Veterans,
+base,77,Frank Catalanotto,Texas Rangers,Veterans,
+base,78,Josh Towers,Baltimore Orioles,Veterans,
+base,79,Roy Oswalt,Houston Astros,Veterans,
+base,80,Chipper Jones,Atlanta Braves,Veterans,
+base,81,Cristian Guzman,Minnesota Twins,Veterans,
+base,82,Darin Erstad,Anaheim Angels,Veterans,
+base,83,Freddy Garcia,Seattle Mariners,Veterans,
+base,84,Jason Tyner,Tampa Bay Devil Rays,Veterans,
+base,85,Carlos Delgado,Toronto Blue Jays,Veterans,
+base,86,Jon Lieber,Chicago Cubs,Veterans,
+base,87,Juan Pierre,Colorado Rockies,Veterans,
+base,88,Matt Morris,St. Louis Cardinals,Veterans,
+base,89,Phil Nevin,San Diego Padres,Veterans,
+base,90,Jim Edmonds,St. Louis Cardinals,Veterans,
+base,91,Magglio Ordonez,Chicago White Sox,Veterans,
+base,92,Mike Hampton,Colorado Rockies,Veterans,
+base,93,Rafael Furcal,Atlanta Braves,Veterans,
+base,94,Richie Sexson,Milwaukee Brewers,Veterans,
+base,95,Luis Gonzalez,Arizona Diamondbacks,Veterans,
+base,96,Scott Rolen,Philadelphia Phillies,Veterans,
+base,97,Tim Redding,Houston Astros,Veterans,
+base,98,Moises Alou,Chicago Cubs,Veterans,
+base,99,Jose Vidro,Montreal Expos,Veterans,
+base,100,Mike Piazza,New York Mets,Veterans,
+base,101,Pedro Martinez,Boston Red Sox,Veterans,
+base,102,Geoff Jenkins,Milwaukee Brewers,Veterans,
+base,103,Johnny Damon,Boston Red Sox,Veterans,
+base,104,Mike Cameron,Seattle Mariners,Veterans,
+base,105,Randy Johnson,Arizona Diamondbacks,Veterans,
+base,106,David Eckstein,Anaheim Angels,Veterans,
+base,107,Javier Vazquez,Montreal Expos,Veterans,
+base,108,Mark Mulder,Oakland Athletics,Veterans,
+base,109,Robert Fick,Detroit Tigers,Veterans,
+base,110,Roberto Alomar,New York Mets,Veterans,
+base,111,Wilson Betemit,Atlanta Braves,Rookies/Prospects,
+base,112,Chris Tritle RC,Oakland Athletics,Rookies/Prospects,
+base,113,Ed Rogers,Baltimore Orioles,Rookies/Prospects,
+base,114,Juan Pena,Boston Red Sox,Rookies/Prospects,
+base,115,Josh Beckett,Florida Marlins,Rookies/Prospects,
+base,116,Juan Cruz,Chicago Cubs,Rookies/Prospects,
+base,117,Noochie Varner RC,Cincinnati Reds,Rookies/Prospects,
+base,118,Taylor Buchholz RC,Philadelphia Phillies,Rookies/Prospects,
+base,119,Mike Rivera,Detroit Tigers,Rookies/Prospects,
+base,120,Hank Blalock,Texas Rangers,Rookies/Prospects,
+base,121,Hansel Izquierdo RC,Florida Marlins,Rookies/Prospects,
+base,122,Orlando Hudson,Toronto Blue Jays,Rookies/Prospects,
+base,123,Bill Hall,Milwaukee Brewers,Rookies/Prospects,
+base,124,Jose Reyes,New York Mets,Rookies/Prospects,
+base,125,Juan Rivera,New York Yankees,Rookies/Prospects,
+base,126,Eric Valent,Philadelphia Phillies,Rookies/Prospects,
+base,127,Scotty Layfield RC,St. Louis Cardinals,Rookies/Prospects,
+base,128,Austin Kearns,Cincinnati Reds,Rookies/Prospects,
+base,129,Nic Jackson RC,Chicago Cubs,Rookies/Prospects,
+base,130,Chris Baker RC,Toronto Blue Jays,Rookies/Prospects,
+base,131,Chad Qualls RC,Houston Astros,Rookies/Prospects,
+base,132,Marcus Thames,New York Yankees,Rookies/Prospects,
+base,133,Nathan Haynes,Anaheim Angels,Rookies/Prospects,
+base,134,Brett Evert,Atlanta Braves,Rookies/Prospects,
+base,135,Joe Borchard,Chicago White Sox,Rookies/Prospects,
+base,136,Ryan Christianson,Seattle Mariners,Rookies/Prospects,
+base,137,Josh Hamilton,Tampa Bay Devil Rays,Rookies/Prospects,
+base,138,Corey Patterson,Chicago Cubs,Rookies/Prospects,
+base,139,Travis Wilson,Atlanta Braves,Rookies/Prospects,
+base,140,Alex Escobar,Cleveland Indians,Rookies/Prospects,
+base,141,Alexis Gomez,Kansas City Royals,Rookies/Prospects,
+base,142,Nick Johnson,New York Yankees,Rookies/Prospects,
+base,143,Kenny Kelly,Seattle Mariners,Rookies/Prospects,
+base,144,Marlon Byrd,Philadelphia Phillies,Rookies/Prospects,
+base,145,Kory DeHaan,San Diego Padres,Rookies/Prospects,
+base,146,Matt Belisle,Atlanta Braves,Rookies/Prospects,
+base,147,Carlos Hernandez,Houston Astros,Rookies/Prospects,
+base,148,Sean Burroughs,San Diego Padres,Rookies/Prospects,
+base,149,Angel Berroa,Kansas City Royals,Rookies/Prospects,
+base,150,Aubrey Huff,Tampa Bay Devil Rays,Rookies/Prospects,
+base,151,Travis Hafner,Texas Rangers,Rookies/Prospects,
+base,152,Brandon Berger,Kansas City Royals,Rookies/Prospects,
+base,153,David Krynzel,Milwaukee Brewers,Rookies/Prospects,
+base,154,Ruben Salazar,Minnesota Twins,Rookies/Prospects,
+base,155,J.R. House,Pittsburgh Pirates,Rookies/Prospects,
+base,156,Juan Silvestre,Seattle Mariners,Rookies/Prospects,
+base,157,Dewon Brazelton,Tampa Bay Devil Rays,Rookies/Prospects,
+base,158,Jayson Werth,Toronto Blue Jays,Rookies/Prospects,
+base,159,Larry Barnes,Anaheim Angels,Rookies/Prospects,
+base,160,Elvis Pena,Milwaukee Brewers,Rookies/Prospects,
+base,161,Ruben Gotay RC,Kansas City Royals,Rookies/Prospects,
+base,162,Tommy Marx RC,Detroit Tigers,Rookies/Prospects,
+base,163,John Suomi RC,Oakland Athletics,Rookies/Prospects,
+base,164,Javier Colina,Colorado Rockies,Rookies/Prospects,
+base,165,Greg Sain RC,San Diego Padres,Rookies/Prospects,
+base,166,Robert Cosby RC,Toronto Blue Jays,Rookies/Prospects,
+base,167,Angel Pagan RC,New York Mets,Rookies/Prospects,
+base,168,Ralph Santana RC,Milwaukee Brewers,Rookies/Prospects,
+base,169,Joe Orloski RC,Toronto Blue Jays,Rookies/Prospects,
+base,170,Shayne Wright RC,Anaheim Angels,Rookies/Prospects,
+base,171,Jay Caligiuri RC,New York Mets,Rookies/Prospects,
+base,172,Greg Montalbano RC,Boston Red Sox,Rookies/Prospects,
+base,173,Rich Harden RC,Oakland Athletics,Rookies/Prospects,Printed name James Harden; Rich Harden
+base,174,Rich Thompson RC,Toronto Blue Jays,Rookies/Prospects,
+base,175,Fred Bastardo RC,Florida Marlins,Rookies/Prospects,
+base,176,Alejandro Giron RC,Philadelphia Phillies,Rookies/Prospects,
+base,177,Jesus Medrano RC,Florida Marlins,Rookies/Prospects,
+base,178,Kevin Deaton RC,New York Mets,Rookies/Prospects,
+base,179,Mike Rosamond RC,Houston Astros,Rookies/Prospects,
+base,180,Jon Guzman RC,Kansas City Royals,Rookies/Prospects,
+base,181,Gerard Oakes RC,Milwaukee Brewers,Rookies/Prospects,
+base,182,Francisco Liriano RC,San Francisco Giants,Rookies/Prospects,
+base,183,Matt Allegra RC,Oakland Athletics,Rookies/Prospects,
+base,184,Mike Snyder RC,Toronto Blue Jays,Rookies/Prospects,
+base,185,James Shanks RC,Kansas City Royals,Rookies/Prospects,
+base,186,Anderson Hernandez RC,Detroit Tigers,Rookies/Prospects,
+base,187,Dan Trumble RC,San Francisco Giants,Rookies/Prospects,
+base,188,Luis DePaula RC,Tampa Bay Devil Rays,Rookies/Prospects,
+base,189,Randall Shelley RC,Texas Rangers,Rookies/Prospects,
+base,190,Richard Lane RC,Montreal Expos,Rookies/Prospects,
+base,191,Antwon Rollins RC,Texas Rangers,Rookies/Prospects,
+base,192,Ryan Bukvich RC,Kansas City Royals,Rookies/Prospects,
+base,193,Derrick Lewis,Atlanta Braves,Rookies/Prospects,
+base,194,Eric Miller RC,Montreal Expos,Rookies/Prospects,
+base,195,Justin Schuda RC,Tampa Bay Devil Rays,Rookies/Prospects,
+base,196,Brian West RC,Chicago White Sox,Rookies/Prospects,
+base,197,Adam Roller RC,New York Yankees,Rookies/Prospects,
+base,198,Neal Frendling RC,Tampa Bay Devil Rays,Rookies/Prospects,
+base,199,Jeremy Hill RC,Kansas City Royals,Rookies/Prospects,
+base,200,James Barrett RC,Houston Astros,Rookies/Prospects,
+base,201,Brett Kay RC,New York Mets,Rookies/Prospects,
+base,202,Ryan Mottl RC,Cincinnati Reds,Rookies/Prospects,
+base,203,Brad Nelson RC,Milwaukee Brewers,Rookies/Prospects,
+base,204,Juan Gonzalez RC,Detroit Tigers,Rookies/Prospects,
+base,205,Curtis Legendre RC,Kansas City Royals,Rookies/Prospects,
+base,206,Ronald Acuna Sr. RC,New York Mets,Rookies/Prospects,Father of Ronald Acuna Jr.
+base,207,Chris Flinn RC,Tampa Bay Devil Rays,Rookies/Prospects,
+base,208,Nick Alvarez RC,Los Angeles Dodgers,Rookies/Prospects,
+base,209,Jason Ellison RC,San Francisco Giants,Rookies/Prospects,
+base,210,Blake McGinley RC,New York Mets,Rookies/Prospects,
+base,211,Dan Phillips RC,Colorado Rockies,Rookies/Prospects,
+base,212,Demetrius Heath RC,Detroit Tigers,Rookies/Prospects,
+base,213,Eric Bruntlett RC,Houston Astros,Rookies/Prospects,
+base,214,Joe Jiannetti RC,New York Mets,Rookies/Prospects,
+base,215,Mike Hill RC,Houston Astros,Rookies/Prospects,
+base,216,Ricardo Cordova RC,Los Angeles Dodgers,Rookies/Prospects,
+base,217,Mark Hamilton RC,Houston Astros,Rookies/Prospects,
+base,218,David Mattox RC,New York Mets,Rookies/Prospects,
+base,219,Jose Morban RC,Texas Rangers,Rookies/Prospects,
+base,220,Scott Wiggins RC,New York Yankees,Rookies/Prospects,
+base,221,Steve Green,Anaheim Angels,Rookies/Prospects,
+base,222,Brian Rogers,New York Yankees,Rookies/Prospects,
+base,223,Chin-Hui Tsao,Colorado Rockies,Rookies/Prospects,
+base,224,Kenny Baugh,Detroit Tigers,Rookies/Prospects,
+base,225,Nate Teut,Florida Marlins,Rookies/Prospects,
+base,226,Josh Wilson RC,Florida Marlins,Rookies/Prospects,
+base,227,Christian Parker,New York Yankees,Rookies/Prospects,
+base,228,Tim Raines Jr.,Baltimore Orioles,Rookies/Prospects,
+base,229,Anastacio Martinez RC,Boston Red Sox,Rookies/Prospects,
+base,230,Richard Lewis,Atlanta Braves,Rookies/Prospects,
+base,231,Tim Kalita RC,Detroit Tigers,Rookies/Prospects,
+base,232,Edwin Almonte RC,Chicago White Sox,Rookies/Prospects,
+base,233,Hee Seop Choi,Chicago Cubs,Rookies/Prospects,
+base,234,Ty Howington,Cincinnati Reds,Rookies/Prospects,
+base,235,Victor Alvarez RC,Los Angeles Dodgers,Rookies/Prospects,
+base,236,Morgan Ensberg,Houston Astros,Rookies/Prospects,
+base,237,Jeff Austin RC,Kansas City Royals,Rookies/Prospects,
+base,238,Luis Terrero,Arizona Diamondbacks,Rookies/Prospects,
+base,239,Adam Wainwright,Atlanta Braves,Rookies/Prospects,
+base,240,Clint Weibl RC,St. Louis Cardinals,Rookies/Prospects,
+base,241,Eric Cyr,San Diego Padres,Rookies/Prospects,
+base,242,Marlyn Tisdale RC,Cincinnati Reds,Rookies/Prospects,
+base,243,John VanBenschoten,Pittsburgh Pirates,Rookies/Prospects,
+base,244,Ryan Raburn RC,Detroit Tigers,Rookies/Prospects,
+base,245,Miguel Cabrera,Florida Marlins,Rookies/Prospects,
+base,246,Jung Bong,Atlanta Braves,Rookies/Prospects,
+base,247,Raul Chavez RC,Houston Astros,Rookies/Prospects,
+base,248,Erik Bedard,Baltimore Orioles,Rookies/Prospects,
+base,249,Chris Snelling RC,Seattle Mariners,Rookies/Prospects,
+base,250,Joe Rogers RC,St. Louis Cardinals,Rookies/Prospects,
+base,251,Nate Field RC,Kansas City Royals,Rookies/Prospects,
+base,252,Matt Herges RC,Los Angeles Dodgers,Rookies/Prospects,
+base,253,Matt Childers RC,Milwaukee Brewers,Rookies/Prospects,
+base,254,Erick Almonte,New York Yankees,Rookies/Prospects,
+base,255,Nick Neugebauer,Milwaukee Brewers,Rookies/Prospects,
+base,256,Ron Calloway RC,Montreal Expos,Rookies/Prospects,
+base,257,Seung Song,Boston Red Sox,Rookies/Prospects,
+base,258,Brandon Phillips,Montreal Expos,Rookies/Prospects,
+base,259,Cole Barthel RC,Atlanta Braves,Rookies/Prospects,
+base,260,Jason Lane,Houston Astros,Rookies/Prospects,
+base,261,Jae Seo,New York Mets,Rookies/Prospects,
+base,262,Randy Flores,Texas Rangers,Rookies/Prospects,
+base,263,Scott Chiasson,Chicago Cubs,Rookies/Prospects,
+base,264,Chase Utley,Philadelphia Phillies,Rookies/Prospects,
+base,265,Tony Alvarez,Pittsburgh Pirates,Rookies/Prospects,
+base,266,Ben Howard RC,San Diego Padres,Rookies/Prospects,
+base,267,Nelson Castro RC,San Francisco Giants,Rookies/Prospects,
+base,268,Mark Lukasiewicz,Anaheim Angels,Rookies/Prospects,
+base,269,Eric Glaser RC,Boston Red Sox,Rookies/Prospects,
+base,270,Rob Henkel RC,Florida Marlins,Rookies/Prospects,
+base,271,Jose Valverde RC,Arizona Diamondbacks,Rookies/Prospects,
+base,272,Ricardo Rodriguez,Los Angeles Dodgers,Rookies/Prospects,
+base,273,Chris Smith,Baltimore Orioles,Rookies/Prospects,
+base,274,Mark Prior,Chicago Cubs,Rookies/Prospects,
+base,275,Miguel Olivo,Chicago White Sox,Rookies/Prospects,
+base,276,Ben Broussard,Cincinnati Reds,Rookies/Prospects,
+base,277,Zach Sorensen,Cleveland Indians,Rookies/Prospects,
+base,278,Brian Mallette RC,Milwaukee Brewers,Rookies/Prospects,
+base,279,Brad Wilkerson,Montreal Expos,Rookies/Prospects,
+base,280,Carl Crawford,Tampa Bay Devil Rays,Rookies/Prospects,
+base,281,Chone Figgins RC,Anaheim Angels,Rookies/Prospects,
+base,282,Jimmy Alvarez RC,Toronto Blue Jays,Rookies/Prospects,
+base,283,Gavin Floyd RC,Philadelphia Phillies,Rookies/Prospects,
+base,284,Josh Bonifay RC,Pittsburgh Pirates,Rookies/Prospects,
+base,285,Garrett Guzman RC,Minnesota Twins,Rookies/Prospects,
+base,286,Blake Williams,St. Louis Cardinals,Rookies/Prospects,
+base,287,Matt Holliday,Colorado Rockies,Rookies/Prospects,
+base,288,Ryan Madson,Philadelphia Phillies,Rookies/Prospects,
+base,289,Luis Torres,Pittsburgh Pirates,Rookies/Prospects,
+base,290,Jeff Verplancke RC,San Francisco Giants,Rookies/Prospects,
+base,291,Nate Espy RC,Philadelphia Phillies,Rookies/Prospects,
+base,292,Jeff Lincoln RC,Minnesota Twins,Rookies/Prospects,
+base,293,Ryan Snare RC,Cincinnati Reds,Rookies/Prospects,
+base,294,Jose Ortiz,Colorado Rockies,Rookies/Prospects,
+base,295,Eric Munson,Detroit Tigers,Rookies/Prospects,
+base,296,Denny Bautista,Florida Marlins,Rookies/Prospects,
+base,297,Willy Aybar,Los Angeles Dodgers,Rookies/Prospects,
+base,298,Kelly Johnson,Atlanta Braves,Rookies/Prospects,
+base,299,Justin Morneau,Minnesota Twins,Rookies/Prospects,
+base,300,Derrick Van Dusen,Seattle Mariners,Rookies/Prospects,
+base,301,Chad Petty,Detroit Tigers,Rookies/Prospects,
+base,302,Mike Restovich,Minnesota Twins,Rookies/Prospects,
+base,303,Shawn Fagan,Toronto Blue Jays,Rookies/Prospects,
+base,304,Yurendell DeCaster RC,Pittsburgh Pirates,Rookies/Prospects,
+base,305,Justin Wayne,Montreal Expos,Rookies/Prospects,
+base,306,Mike Peeples RC,Colorado Rockies,Rookies/Prospects,
+base,307,Joel Guzman,Los Angeles Dodgers,Rookies/Prospects,
+base,308,Ryan Vogelsong,Pittsburgh Pirates,Rookies/Prospects,
+base,309,Jorge Padilla RC,Philadelphia Phillies,Rookies/Prospects,
+base,310,Grady Sizemore,Montreal Expos,Rookies/Prospects,
+base,311,Joe Jester RC,San Francisco Giants,Rookies/Prospects,
+base,312,Jim Journell,St. Louis Cardinals,Rookies/Prospects,
+base,313,Bobby Seay,Tampa Bay Devil Rays,Rookies/Prospects,
+base,314,Ryan Church RC,Cleveland Indians,Rookies/Prospects,
+base,315,Grant Balfour,Minnesota Twins,Rookies/Prospects,
+base,316,Mitch Jones,New York Yankees,Rookies/Prospects,
+base,317,Travis Foley RC,Cleveland Indians,Rookies/Prospects,
+base,318,Bobby Crosby,Oakland Athletics,Rookies/Prospects,
+base,319,Adrian Gonzalez,Florida Marlins,Rookies/Prospects,
+base,320,Ronnie Merrill,Detroit Tigers,Rookies/Prospects,
+base,321,Joel Pineiro,Seattle Mariners,Rookies/Prospects,
+base,322,John-Ford Griffin,New York Yankees,Rookies/Prospects,
+base,323,Brian Forystek RC,Baltimore Orioles,Rookies/Prospects,
+base,324,Sean Douglass,Baltimore Orioles,Rookies/Prospects,
+base,325,Manny Delcarmen RC,Boston Red Sox,Rookies/Prospects,
+base,326,Donnie Bridges,Montreal Expos,Rookies/Prospects,
+base,327,Jim Kavourias RC,Florida Marlins,Rookies/Prospects,
+base,328,Gabe Gross,Toronto Blue Jays,Rookies/Prospects,
+base,329,Jon Rauch,Chicago White Sox,Rookies/Prospects,
+base,330,Bill Ortega,St. Louis Cardinals,Rookies/Prospects,
+base,331,Joey Hammond RC,Baltimore Orioles,Rookies/Prospects,
+base,332,Ramon Moreta RC,San Francisco Giants,Rookies/Prospects,
+base,333,Ron Davenport,Toronto Blue Jays,Rookies/Prospects,
+base,334,Brett Myers,Philadelphia Phillies,Rookies/Prospects,
+base,335,Carlos Pena,Oakland Athletics,Rookies/Prospects,
+base,336,Ezequiel Astacio RC,Philadelphia Phillies,Rookies/Prospects,
+base,337,Edwin Yan RC,Pittsburgh Pirates,Rookies/Prospects,
+base,338,Josh Girdley,Montreal Expos,Rookies/Prospects,
+base,339,Shaun Boyd,St. Louis Cardinals,Rookies/Prospects,
+base,340,Juan Rincon,Minnesota Twins,Rookies/Prospects,
+base,341,Chris Duffy RC,Pittsburgh Pirates,Rookies/Prospects,
+base,342,Jason Kinchen,New York Yankees,Rookies/Prospects,
+base,343,Brad Thomas,Minnesota Twins,Rookies/Prospects,
+base,344,David Kelton,Chicago Cubs,Rookies/Prospects,
+base,345,Rafael Soriano,Seattle Mariners,Rookies/Prospects,
+base,346,Colin Young RC,Colorado Rockies,Rookies/Prospects,
+base,347,Eric Byrnes,Oakland Athletics,Rookies/Prospects,
+base,348,Chris Narveson RC,St. Louis Cardinals,Rookies/Prospects,
+base,349,John Rheinecker,Oakland Athletics,Rookies/Prospects,
+base,350,Mike Wilson RC,Seattle Mariners,Rookies/Prospects,
+base,351,Justin Sherrod RC,Boston Red Sox,Rookies/Prospects,
+base,352,Deivi Mendez,New York Yankees,Rookies/Prospects,
+base,353,Wily Mo Pena,Cincinnati Reds,Rookies/Prospects,
+base,354,Brett Roneberg RC,Florida Marlins,Rookies/Prospects,
+base,355,Trey Lunsford RC,San Francisco Giants,Rookies/Prospects,
+base,356,Jimmy Gobble RC,Kansas City Royals,Rookies/Prospects,
+base,357,Brent Butler,Colorado Rockies,Rookies/Prospects,
+base,358,Aaron Heilman,New York Mets,Rookies/Prospects,
+base,359,Wilkin Ruan,Montreal Expos,Rookies/Prospects,
+base,360,Brian Wolfe RC,Minnesota Twins,Rookies/Prospects,
+base,361,Cody Ransom,San Francisco Giants,Rookies/Prospects,
+base,362,Koyie Hill,Los Angeles Dodgers,Rookies/Prospects,
+base,363,Scott Cassidy,Toronto Blue Jays,Rookies/Prospects,
+base,364,Tony Fontana RC,Boston Red Sox,Rookies/Prospects,
+base,365,Mark Teixeira,Texas Rangers,Rookies/Prospects,
+base,366,Doug Sessions RC,Houston Astros,Rookies/Prospects,
+base,367,Victor Hall,Arizona Diamondbacks,Rookies/Prospects,
+base,368,Josh Cisneros RC,Philadelphia Phillies,Rookies/Prospects,
+base,369,Kevin Mench,Texas Rangers,Rookies/Prospects,
+base,370,Tike Redman,Pittsburgh Pirates,Rookies/Prospects,
+base,371,Jeff Heaverlo,Seattle Mariners,Rookies/Prospects,
+base,372,Carlos Brackley RC,Boston Red Sox,Rookies/Prospects,
+base,373,Brad Hawpe,Colorado Rockies,Rookies/Prospects,
+base,374,Jesus Colome,Tampa Bay Devil Rays,Rookies/Prospects,
+base,375,David Espinosa,Cincinnati Reds,Rookies/Prospects,
+base,376,Jesse Foppert RC,San Francisco Giants,Rookies/Prospects,
+base,377,Ross Peeples RC,New York Mets,Rookies/Prospects,
+base,378,Alex Requena RC,Cleveland Indians,Rookies/Prospects,
+base,379,Joe Mauer RC,Minnesota Twins,Rookies/Prospects,
+base,380,Carlos Silva,Philadelphia Phillies,Rookies/Prospects,
+base,381,David Wright RC,New York Mets,Rookies/Prospects,
+base,382,Craig Kuzmic RC,Seattle Mariners,Rookies/Prospects,
+base,383,Pete Zamora RC,Philadelphia Phillies,Rookies/Prospects,
+base,384,Matt Parker RC,Milwaukee Brewers,Rookies/Prospects,
+base,385,Keith Ginter,Houston Astros,Rookies/Prospects,
+base,386,Gary Cates Jr. RC,Baltimore Orioles,Rookies/Prospects,
+base,387,Justin Reid RC,Pittsburgh Pirates,Rookies/Prospects,
+base,388,Jake Mauer RC,Minnesota Twins,Rookies/Prospects,
+base,389,Dennis Tankersley,San Diego Padres,Rookies/Prospects,
+base,390,Josh Barfield RC,San Diego Padres,Rookies/Prospects,
+base,391,Luis Maza,Minnesota Twins,Rookies/Prospects,
+base,392,Henry Pichardo RC,Cleveland Indians,Rookies/Prospects,
+base,393,Michael Floyd RC,Philadelphia Phillies,Rookies/Prospects,
+base,394,Clint Nageotte RC,Seattle Mariners,Rookies/Prospects,
+base,395,Raymond Cabrera RC,Baltimore Orioles,Rookies/Prospects,
+base,396,Mauricio Lara RC,Boston Red Sox,Rookies/Prospects,
+base,397,Alejandro Cadena RC,Seattle Mariners,Rookies/Prospects,
+base,398,Jonny Gomes RC,Tampa Bay Devil Rays,Rookies/Prospects,
+base,399,Jason Bulger RC,Arizona Diamondbacks,Rookies/Prospects,
+base,400,Bobby Jenks RC,Anaheim Angels,Rookies/Prospects,
+base,401,David Gil RC,Cincinnati Reds,Rookies/Prospects,
+base,402,Joel Crump RC,Baltimore Orioles,Rookies/Prospects,
+base,403,Kazuhisa Ishii RC,Los Angeles Dodgers,Rookies/Prospects,
+base,404,So Taguchi RC,St. Louis Cardinals,Rookies/Prospects,
+base,405,Ryan Doumit RC,Pittsburgh Pirates,Rookies/Prospects,
+base,406,Macay McBride,Atlanta Braves,Rookies/Prospects,
+base,407,Brandon Claussen,New York Yankees,Rookies/Prospects,
+base,408,Chin-Feng Chen,Los Angeles Dodgers,Rookies/Prospects,
+base,409,Josh Phelps,Toronto Blue Jays,Rookies/Prospects,
+base,410,Freddie Money RC,Boston Red Sox,Rookies/Prospects,
+base,411,Cliff Bartosh RC,San Diego Padres,Rookies/Prospects,
+base,412,Josh Pearce,St. Louis Cardinals,Rookies/Prospects,
+base,413,Lyle Overbay,Arizona Diamondbacks,Rookies/Prospects,
+base,414,Ryan Anderson,Seattle Mariners,Rookies/Prospects,
+base,415,Terrance Hill RC,Boston Red Sox,Rookies/Prospects,
+base,416,John Rodriguez RC,New York Yankees,Rookies/Prospects,
+base,417,Rich Stahl,Baltimore Orioles,Rookies/Prospects,
+base,418,Brian Specht,Anaheim Angels,Rookies/Prospects,
+base,419,Chris Latham RC,Toronto Blue Jays,Rookies/Prospects,
+base,420,Alfredo Simon RC,Philadelphia Phillies,Rookies/Prospects,Printed name Carlos Cabrera; Alfredo Simon identity alias
+base,421,Jose Bautista RC,Pittsburgh Pirates,Rookies/Prospects,UER: Facsimile signature is not Bautista's
+base,422,Kevin Frederick RC,Minnesota Twins,Rookies/Prospects,
+base,423,Jerome Williams,San Francisco Giants,Rookies/Prospects,
+base,424,Napoleon Calzado RC,Baltimore Orioles,Rookies/Prospects,"UER: First name misspelled ""Napolean"" on front and back"
+base,425,Benito Baez,Florida Marlins,Rookies/Prospects,
+base,426,Xavier Nady,San Diego Padres,Rookies/Prospects,
+base,427,Jason Botts RC,Texas Rangers,Rookies/Prospects,
+base,428,Steve Bechler RC,Baltimore Orioles,Rookies/Prospects,
+base,429,Reed Johnson RC,Toronto Blue Jays,Rookies/Prospects,
+base,430,Mark Outlaw RC,Philadelphia Phillies,Rookies/Prospects,
+base,431,Billy Sylvester,Atlanta Braves,Rookies/Prospects,
+base,432,Luke Lockwood,Montreal Expos,Rookies/Prospects,
+base,433,Jake Peavy,San Diego Padres,Rookies/Prospects,
+base,434,Alfredo Amezaga,Anaheim Angels,Rookies/Prospects,
+base,435,Aaron Cook RC,Colorado Rockies,Rookies/Prospects,
+base,436,Josh Shaffer RC,Anaheim Angels,Rookies/Prospects,
+base,437,Dan Wright,Chicago White Sox,Rookies/Prospects,
+base,438,Ryan Gripp RC,Chicago Cubs,Rookies/Prospects,
+base,439,Alex Herrera,Cleveland Indians,Rookies/Prospects,
+base,440,Jason Bay RC,Montreal Expos,Rookies/Prospects,
+gold,1,Adam Dunn,Cincinnati Reds,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,2,Derek Jeter,New York Yankees,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,3,Alex Rodriguez,Texas Rangers,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,4,Miguel Tejada,Oakland Athletics,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,5,Nomar Garciaparra,Boston Red Sox,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,6,Toby Hall,Tampa Bay Devil Rays,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,7,Brandon Duckworth,Philadelphia Phillies,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,8,Paul Lo Duca,Los Angeles Dodgers,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,9,Brian Giles,Pittsburgh Pirates,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,10,C.C. Sabathia,Cleveland Indians,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,11,Curt Schilling,Arizona Diamondbacks,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,12,Tsuyoshi Shinjo,San Francisco Giants,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,13,Ramon Hernandez,Oakland Athletics,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,14,Jose Cruz Jr.,Toronto Blue Jays,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,15,Albert Pujols,St. Louis Cardinals,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,16,Joe Mays,Minnesota Twins,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,17,Javy Lopez,Atlanta Braves,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,18,J.T. Snow,San Francisco Giants,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,19,David Segui,Baltimore Orioles,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,20,Jorge Posada,New York Yankees,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,21,Doug Mientkiewicz,Minnesota Twins,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,22,Jerry Hairston Jr.,Baltimore Orioles,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,23,Bernie Williams,New York Yankees,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,24,Mike Sweeney,Kansas City Royals,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,25,Jason Giambi,New York Yankees,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,26,Ryan Dempster,Florida Marlins,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,27,Ryan Klesko,San Diego Padres,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,28,Mark Quinn,Kansas City Royals,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,29,Jeff Kent,San Francisco Giants,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,30,Eric Chavez,Oakland Athletics,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,31,Adrian Beltre,Los Angeles Dodgers,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,32,Andruw Jones,Atlanta Braves,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,33,Alfonso Soriano,New York Yankees,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,34,Aramis Ramirez,Pittsburgh Pirates,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,35,Greg Maddux,Atlanta Braves,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,36,Andy Pettitte,New York Yankees,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,37,Bartolo Colon,Cleveland Indians,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,38,Ben Sheets,Milwaukee Brewers,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,39,Bobby Higginson,Detroit Tigers,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,40,Ivan Rodriguez,Texas Rangers,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,41,Brad Penny,Florida Marlins,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,42,Carlos Lee,Chicago White Sox,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,43,Damion Easley,Detroit Tigers,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,44,Preston Wilson,Florida Marlins,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,45,Jeff Bagwell,Houston Astros,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,46,Eric Milton,Minnesota Twins,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,47,Rafael Palmeiro,Texas Rangers,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,48,Gary Sheffield,Atlanta Braves,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,49,J.D. Drew,St. Louis Cardinals,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,50,Jim Thome,Cleveland Indians,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,51,Ichiro,Seattle Mariners,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,52,Bud Smith,St. Louis Cardinals,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,53,Chan Ho Park,Texas Rangers,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,54,D'Angelo Jimenez,San Diego Padres,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,55,Ken Griffey Jr.,Cincinnati Reds,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,56,Wade Miller,Houston Astros,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,57,Vladimir Guerrero,Montreal Expos,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,58,Troy Glaus,Anaheim Angels,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,59,Shawn Green,Los Angeles Dodgers,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,60,Kerry Wood,Chicago Cubs,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,61,Jack Wilson,Pittsburgh Pirates,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,62,Kevin Brown,Los Angeles Dodgers,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,63,Marcus Giles,Atlanta Braves,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,64,Pat Burrell,Philadelphia Phillies,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,65,Larry Walker,Colorado Rockies,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,66,Sammy Sosa,Chicago Cubs,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,67,Raul Mondesi,Toronto Blue Jays,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,68,Tim Hudson,Oakland Athletics,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,69,Lance Berkman,Houston Astros,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,70,Mike Mussina,New York Yankees,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,71,Barry Zito,Oakland Athletics,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,72,Jimmy Rollins,Philadelphia Phillies,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,73,Barry Bonds,San Francisco Giants,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,74,Craig Biggio,Houston Astros,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,75,Todd Helton,Colorado Rockies,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,76,Roger Clemens,New York Yankees,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,77,Frank Catalanotto,Texas Rangers,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,78,Josh Towers,Baltimore Orioles,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,79,Roy Oswalt,Houston Astros,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,80,Chipper Jones,Atlanta Braves,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,81,Cristian Guzman,Minnesota Twins,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,82,Darin Erstad,Anaheim Angels,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,83,Freddy Garcia,Seattle Mariners,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,84,Jason Tyner,Tampa Bay Devil Rays,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,85,Carlos Delgado,Toronto Blue Jays,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,86,Jon Lieber,Chicago Cubs,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,87,Juan Pierre,Colorado Rockies,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,88,Matt Morris,St. Louis Cardinals,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,89,Phil Nevin,San Diego Padres,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,90,Jim Edmonds,St. Louis Cardinals,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,91,Magglio Ordonez,Chicago White Sox,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,92,Mike Hampton,Colorado Rockies,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,93,Rafael Furcal,Atlanta Braves,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,94,Richie Sexson,Milwaukee Brewers,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,95,Luis Gonzalez,Arizona Diamondbacks,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,96,Scott Rolen,Philadelphia Phillies,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,97,Tim Redding,Houston Astros,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,98,Moises Alou,Chicago Cubs,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,99,Jose Vidro,Montreal Expos,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,100,Mike Piazza,New York Mets,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,101,Pedro Martinez,Boston Red Sox,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,102,Geoff Jenkins,Milwaukee Brewers,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,103,Johnny Damon,Boston Red Sox,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,104,Mike Cameron,Seattle Mariners,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,105,Randy Johnson,Arizona Diamondbacks,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,106,David Eckstein,Anaheim Angels,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,107,Javier Vazquez,Montreal Expos,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,108,Mark Mulder,Oakland Athletics,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,109,Robert Fick,Detroit Tigers,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,110,Roberto Alomar,New York Mets,Veterans,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,111,Wilson Betemit,Atlanta Braves,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,112,Chris Tritle,Oakland Athletics,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,113,Ed Rogers,Baltimore Orioles,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,114,Juan Pena,Boston Red Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,115,Josh Beckett,Florida Marlins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,116,Juan Cruz,Chicago Cubs,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,117,Noochie Varner,Cincinnati Reds,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,118,Taylor Buchholz,Philadelphia Phillies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,119,Mike Rivera,Detroit Tigers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,120,Hank Blalock,Texas Rangers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,121,Hansel Izquierdo,Florida Marlins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,122,Orlando Hudson,Toronto Blue Jays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,123,Bill Hall,Milwaukee Brewers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,124,Jose Reyes,New York Mets,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,125,Juan Rivera,New York Yankees,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,126,Eric Valent,Philadelphia Phillies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,127,Scotty Layfield,St. Louis Cardinals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,128,Austin Kearns,Cincinnati Reds,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,129,Nic Jackson,Chicago Cubs,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,130,Chris Baker,Toronto Blue Jays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,131,Chad Qualls,Houston Astros,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,132,Marcus Thames,New York Yankees,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,133,Nathan Haynes,Anaheim Angels,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,134,Brett Evert,Atlanta Braves,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,135,Joe Borchard,Chicago White Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,136,Ryan Christianson,Seattle Mariners,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,137,Josh Hamilton,Tampa Bay Devil Rays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,138,Corey Patterson,Chicago Cubs,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,139,Travis Wilson,Atlanta Braves,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,140,Alex Escobar,Cleveland Indians,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,141,Alexis Gomez,Kansas City Royals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,142,Nick Johnson,New York Yankees,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,143,Kenny Kelly,Seattle Mariners,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,144,Marlon Byrd,Philadelphia Phillies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,145,Kory DeHaan,San Diego Padres,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,146,Matt Belisle,Atlanta Braves,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,147,Carlos Hernandez,Houston Astros,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,148,Sean Burroughs,San Diego Padres,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,149,Angel Berroa,Kansas City Royals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,150,Aubrey Huff,Tampa Bay Devil Rays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,151,Travis Hafner,Texas Rangers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,152,Brandon Berger,Kansas City Royals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,153,David Krynzel,Milwaukee Brewers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,154,Ruben Salazar,Minnesota Twins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,155,J.R. House,Pittsburgh Pirates,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,156,Juan Silvestre,Seattle Mariners,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,157,Dewon Brazelton,Tampa Bay Devil Rays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,158,Jayson Werth,Toronto Blue Jays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,159,Larry Barnes,Anaheim Angels,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,160,Elvis Pena,Milwaukee Brewers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,161,Ruben Gotay,Kansas City Royals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,162,Tommy Marx,Detroit Tigers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,163,John Suomi,Oakland Athletics,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,164,Javier Colina,Colorado Rockies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,165,Greg Sain,San Diego Padres,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,166,Robert Cosby,Toronto Blue Jays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,167,Angel Pagan,New York Mets,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,168,Ralph Santana,Milwaukee Brewers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,169,Joe Orloski,Toronto Blue Jays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,170,Shayne Wright,Anaheim Angels,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,171,Jay Caligiuri,New York Mets,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,172,Greg Montalbano,Boston Red Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,173,Rich Harden,Oakland Athletics,Rookies/Prospects,Printed name James Harden; Rich Harden; Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,174,Rich Thompson,Toronto Blue Jays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,175,Fred Bastardo,Florida Marlins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,176,Alejandro Giron,Philadelphia Phillies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,177,Jesus Medrano,Florida Marlins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,178,Kevin Deaton,New York Mets,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,179,Mike Rosamond,Houston Astros,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,180,Jon Guzman,Kansas City Royals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,181,Gerard Oakes,Milwaukee Brewers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,182,Francisco Liriano,San Francisco Giants,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,183,Matt Allegra,Oakland Athletics,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,184,Mike Snyder,Toronto Blue Jays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,185,James Shanks,Kansas City Royals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,186,Anderson Hernandez,Detroit Tigers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,187,Dan Trumble,San Francisco Giants,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,188,Luis DePaula,Tampa Bay Devil Rays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,189,Randall Shelley,Texas Rangers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,190,Richard Lane,Montreal Expos,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,191,Antwon Rollins,Texas Rangers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,192,Ryan Bukvich,Kansas City Royals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,193,Derrick Lewis,Atlanta Braves,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,194,Eric Miller,Montreal Expos,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,195,Justin Schuda,Tampa Bay Devil Rays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,196,Brian West,Chicago White Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,197,Adam Roller,New York Yankees,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,198,Neal Frendling,Tampa Bay Devil Rays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,199,Jeremy Hill,Kansas City Royals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,200,James Barrett,Houston Astros,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,201,Brett Kay,New York Mets,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,202,Ryan Mottl,Cincinnati Reds,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,203,Brad Nelson,Milwaukee Brewers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,204,Juan Gonzalez,Detroit Tigers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,205,Curtis Legendre,Kansas City Royals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,206,Ronald Acuna Sr.,New York Mets,Rookies/Prospects,Father of Ronald Acuna Jr.; Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,207,Chris Flinn,Tampa Bay Devil Rays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,208,Nick Alvarez,Los Angeles Dodgers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,209,Jason Ellison,San Francisco Giants,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,210,Blake McGinley,New York Mets,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,211,Dan Phillips,Colorado Rockies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,212,Demetrius Heath,Detroit Tigers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,213,Eric Bruntlett,Houston Astros,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,214,Joe Jiannetti,New York Mets,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,215,Mike Hill,Houston Astros,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,216,Ricardo Cordova,Los Angeles Dodgers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,217,Mark Hamilton,Houston Astros,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,218,David Mattox,New York Mets,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,219,Jose Morban,Texas Rangers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,220,Scott Wiggins,New York Yankees,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,221,Steve Green,Anaheim Angels,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,222,Brian Rogers,New York Yankees,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,223,Chin-Hui Tsao,Colorado Rockies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,224,Kenny Baugh,Detroit Tigers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,225,Nate Teut,Florida Marlins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,226,Josh Wilson,Florida Marlins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,227,Christian Parker,New York Yankees,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,228,Tim Raines Jr.,Baltimore Orioles,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,229,Anastacio Martinez,Boston Red Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,230,Richard Lewis,Atlanta Braves,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,231,Tim Kalita,Detroit Tigers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,232,Edwin Almonte,Chicago White Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,233,Hee Seop Choi,Chicago Cubs,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,234,Ty Howington,Cincinnati Reds,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,235,Victor Alvarez,Los Angeles Dodgers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,236,Morgan Ensberg,Houston Astros,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,237,Jeff Austin,Kansas City Royals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,238,Luis Terrero,Arizona Diamondbacks,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,239,Adam Wainwright,Atlanta Braves,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,240,Clint Weibl,St. Louis Cardinals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,241,Eric Cyr,San Diego Padres,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,242,Marlyn Tisdale,Cincinnati Reds,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,243,John VanBenschoten,Pittsburgh Pirates,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,244,Ryan Raburn,Detroit Tigers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,245,Miguel Cabrera,Florida Marlins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,246,Jung Bong,Atlanta Braves,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,247,Raul Chavez,Houston Astros,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,248,Erik Bedard,Baltimore Orioles,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,249,Chris Snelling,Seattle Mariners,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,250,Joe Rogers,St. Louis Cardinals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,251,Nate Field,Kansas City Royals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,252,Matt Herges,Los Angeles Dodgers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,253,Matt Childers,Milwaukee Brewers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,254,Erick Almonte,New York Yankees,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,255,Nick Neugebauer,Milwaukee Brewers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,256,Ron Calloway,Montreal Expos,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,257,Seung Song,Boston Red Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,258,Brandon Phillips,Montreal Expos,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,259,Cole Barthel,Atlanta Braves,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,260,Jason Lane,Houston Astros,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,261,Jae Seo,New York Mets,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,262,Randy Flores,Texas Rangers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,263,Scott Chiasson,Chicago Cubs,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,264,Chase Utley,Philadelphia Phillies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,265,Tony Alvarez,Pittsburgh Pirates,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,266,Ben Howard,San Diego Padres,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,267,Nelson Castro,San Francisco Giants,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,268,Mark Lukasiewicz,Anaheim Angels,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,269,Eric Glaser,Boston Red Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,270,Rob Henkel,Florida Marlins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,271,Jose Valverde,Arizona Diamondbacks,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,272,Ricardo Rodriguez,Los Angeles Dodgers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,273,Chris Smith,Baltimore Orioles,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,274,Mark Prior,Chicago Cubs,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,275,Miguel Olivo,Chicago White Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,276,Ben Broussard,Cincinnati Reds,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,277,Zach Sorensen,Cleveland Indians,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,278,Brian Mallette,Milwaukee Brewers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,279,Brad Wilkerson,Montreal Expos,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,280,Carl Crawford,Tampa Bay Devil Rays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,281,Chone Figgins,Anaheim Angels,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,282,Jimmy Alvarez,Toronto Blue Jays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,283,Gavin Floyd,Philadelphia Phillies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,284,Josh Bonifay,Pittsburgh Pirates,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,285,Garrett Guzman,Minnesota Twins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,286,Blake Williams,St. Louis Cardinals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,287,Matt Holliday,Colorado Rockies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,288,Ryan Madson,Philadelphia Phillies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,289,Luis Torres,Pittsburgh Pirates,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,290,Jeff Verplancke,San Francisco Giants,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,291,Nate Espy,Philadelphia Phillies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,292,Jeff Lincoln,Minnesota Twins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,293,Ryan Snare,Cincinnati Reds,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,294,Jose Ortiz,Colorado Rockies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,295,Eric Munson,Detroit Tigers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,296,Denny Bautista,Florida Marlins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,297,Willy Aybar,Los Angeles Dodgers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,298,Kelly Johnson,Atlanta Braves,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,299,Justin Morneau,Minnesota Twins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,300,Derrick Van Dusen,Seattle Mariners,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,301,Chad Petty,Detroit Tigers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,302,Mike Restovich,Minnesota Twins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,303,Shawn Fagan,Toronto Blue Jays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,304,Yurendell DeCaster,Pittsburgh Pirates,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,305,Justin Wayne,Montreal Expos,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,306,Mike Peeples,Colorado Rockies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,307,Joel Guzman,Los Angeles Dodgers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,308,Ryan Vogelsong,Pittsburgh Pirates,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,309,Jorge Padilla,Philadelphia Phillies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,310,Grady Sizemore,Montreal Expos,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,311,Joe Jester,San Francisco Giants,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,312,Jim Journell,St. Louis Cardinals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,313,Bobby Seay,Tampa Bay Devil Rays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,314,Ryan Church,Cleveland Indians,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,315,Grant Balfour,Minnesota Twins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,316,Mitch Jones,New York Yankees,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,317,Travis Foley,Cleveland Indians,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,318,Bobby Crosby,Oakland Athletics,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,319,Adrian Gonzalez,Florida Marlins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,320,Ronnie Merrill,Detroit Tigers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,321,Joel Pineiro,Seattle Mariners,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,322,John-Ford Griffin,New York Yankees,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,323,Brian Forystek,Baltimore Orioles,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,324,Sean Douglass,Baltimore Orioles,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,325,Manny Delcarmen,Boston Red Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,326,Donnie Bridges,Montreal Expos,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,327,Jim Kavourias,Florida Marlins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,328,Gabe Gross,Toronto Blue Jays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,329,Jon Rauch,Chicago White Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,330,Bill Ortega,St. Louis Cardinals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,331,Joey Hammond,Baltimore Orioles,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,332,Ramon Moreta,San Francisco Giants,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,333,Ron Davenport,Toronto Blue Jays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,334,Brett Myers,Philadelphia Phillies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,335,Carlos Pena,Oakland Athletics,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,336,Ezequiel Astacio,Philadelphia Phillies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,337,Edwin Yan,Pittsburgh Pirates,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,338,Josh Girdley,Montreal Expos,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,339,Shaun Boyd,St. Louis Cardinals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,340,Juan Rincon,Minnesota Twins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,341,Chris Duffy,Pittsburgh Pirates,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,342,Jason Kinchen,New York Yankees,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,343,Brad Thomas,Minnesota Twins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,344,David Kelton,Chicago Cubs,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,345,Rafael Soriano,Seattle Mariners,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,346,Colin Young,Colorado Rockies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,347,Eric Byrnes,Oakland Athletics,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,348,Chris Narveson,St. Louis Cardinals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,349,John Rheinecker,Oakland Athletics,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,350,Mike Wilson,Seattle Mariners,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,351,Justin Sherrod,Boston Red Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,352,Deivi Mendez,New York Yankees,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,353,Wily Mo Pena,Cincinnati Reds,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,354,Brett Roneberg,Florida Marlins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,355,Trey Lunsford,San Francisco Giants,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,356,Jimmy Gobble,Kansas City Royals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,357,Brent Butler,Colorado Rockies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,358,Aaron Heilman,New York Mets,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,359,Wilkin Ruan,Montreal Expos,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,360,Brian Wolfe,Minnesota Twins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,361,Cody Ransom,San Francisco Giants,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,362,Koyie Hill,Los Angeles Dodgers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,363,Scott Cassidy,Toronto Blue Jays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,364,Tony Fontana,Boston Red Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,365,Mark Teixeira,Texas Rangers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,366,Doug Sessions,Houston Astros,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,367,Victor Hall,Arizona Diamondbacks,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,368,Josh Cisneros,Philadelphia Phillies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,369,Kevin Mench,Texas Rangers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,370,Tike Redman,Pittsburgh Pirates,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,371,Jeff Heaverlo,Seattle Mariners,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,372,Carlos Brackley,Boston Red Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,373,Brad Hawpe,Colorado Rockies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,374,Jesus Colome,Tampa Bay Devil Rays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,375,David Espinosa,Cincinnati Reds,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,376,Jesse Foppert,San Francisco Giants,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,377,Ross Peeples,New York Mets,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,378,Alex Requena,Cleveland Indians,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,379,Joe Mauer,Minnesota Twins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,380,Carlos Silva,Philadelphia Phillies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,381,David Wright,New York Mets,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,382,Craig Kuzmic,Seattle Mariners,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,383,Pete Zamora,Philadelphia Phillies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,384,Matt Parker,Milwaukee Brewers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,385,Keith Ginter,Houston Astros,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,386,Gary Cates Jr.,Baltimore Orioles,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,387,Justin Reid,Pittsburgh Pirates,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,388,Jake Mauer,Minnesota Twins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,389,Dennis Tankersley,San Diego Padres,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,390,Josh Barfield,San Diego Padres,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,391,Luis Maza,Minnesota Twins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,392,Henry Pichardo,Cleveland Indians,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,393,Michael Floyd,Philadelphia Phillies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,394,Clint Nageotte,Seattle Mariners,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,395,Raymond Cabrera,Baltimore Orioles,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,396,Mauricio Lara,Boston Red Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,397,Alejandro Cadena,Seattle Mariners,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,398,Jonny Gomes,Tampa Bay Devil Rays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,399,Jason Bulger,Arizona Diamondbacks,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,400,Bobby Jenks,Anaheim Angels,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,401,David Gil,Cincinnati Reds,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,402,Joel Crump,Baltimore Orioles,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,403,Kazuhisa Ishii,Los Angeles Dodgers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,404,So Taguchi,St. Louis Cardinals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,405,Ryan Doumit,Pittsburgh Pirates,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,406,Macay McBride,Atlanta Braves,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,407,Brandon Claussen,New York Yankees,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,408,Chin-Feng Chen,Los Angeles Dodgers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,409,Josh Phelps,Toronto Blue Jays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,410,Freddie Money,Boston Red Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,411,Cliff Bartosh,San Diego Padres,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,412,Josh Pearce,St. Louis Cardinals,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,413,Lyle Overbay,Arizona Diamondbacks,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,414,Ryan Anderson,Seattle Mariners,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,415,Terrance Hill,Boston Red Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,416,John Rodriguez,New York Yankees,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,417,Rich Stahl,Baltimore Orioles,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,418,Brian Specht,Anaheim Angels,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,419,Chris Latham,Toronto Blue Jays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,420,Alfredo Simon,Philadelphia Phillies,Rookies/Prospects,Printed name Carlos Cabrera; Alfredo Simon identity alias; Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,421,Jose Bautista,Pittsburgh Pirates,Rookies/Prospects,UER: Facsimile signature is not Bautista's; Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,422,Kevin Frederick,Minnesota Twins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,423,Jerome Williams,San Francisco Giants,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,424,Napoleon Calzado,Baltimore Orioles,Rookies/Prospects,"UER: First name misspelled ""Napolean"" on front and back; Thicker cardstock; gold-foil facsimile signature; not a certified autograph"
+gold,425,Benito Baez,Florida Marlins,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,426,Xavier Nady,San Diego Padres,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,427,Jason Botts,Texas Rangers,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,428,Steve Bechler,Baltimore Orioles,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,429,Reed Johnson,Toronto Blue Jays,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,430,Mark Outlaw,Philadelphia Phillies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,431,Billy Sylvester,Atlanta Braves,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,432,Luke Lockwood,Montreal Expos,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,433,Jake Peavy,San Diego Padres,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,434,Alfredo Amezaga,Anaheim Angels,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,435,Aaron Cook,Colorado Rockies,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,436,Josh Shaffer,Anaheim Angels,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,437,Dan Wright,Chicago White Sox,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,438,Ryan Gripp,Chicago Cubs,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,439,Alex Herrera,Cleveland Indians,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+gold,440,Jason Bay,Montreal Expos,Rookies/Prospects,Thicker cardstock; gold-foil facsimile signature; not a certified autograph
+autographs,BA-AA,Alfredo Amezaga,Anaheim Angels,,Certified autograph
+autographs,BA-AH,Aubrey Huff,Tampa Bay Devil Rays,,Certified autograph
+autographs,BA-BAC,Brandon Claussen,New York Yankees,,Certified autograph
+autographs,BA-BB,Boof Bonser,San Francisco Giants,,Certified autograph
+autographs,BA-BC,Ben Christensen,Chicago Cubs,,Certified autograph
+autographs,BA-BDC,Brian Cardwell,Toronto Blue Jays,,Certified autograph
+autographs,BA-BJS,Brian Specht,Anaheim Angels,,Certified autograph
+autographs,BA-BS,Bud Smith,St. Louis Cardinals,,Certified autograph
+autographs,BA-CK,Charles Kegley,Toronto Blue Jays,,Certified autograph
+autographs,BA-CR,Cody Ransom,San Francisco Giants,,Certified autograph
+autographs,BA-CS,Chris Smith,Baltimore Orioles,,Certified autograph
+autographs,BA-CT,Chris Tritle,Oakland Athletics,,Certified autograph
+autographs,BA-CU,Chase Utley,Philadelphia Phillies,,Certified autograph
+autographs,BA-DV,Domingo Valdez,Texas Rangers,,Certified autograph
+autographs,BA-DW,Dan Wright,Chicago White Sox,,Certified autograph
+autographs,BA-GA,Garrett Atkins,Colorado Rockies,,Certified autograph
+autographs,BA-GJ,Gary Johnson,Anaheim Angels,,Certified autograph
+autographs,BA-HB,Hank Blalock,Texas Rangers,,Certified autograph
+autographs,BA-JAB,Jason Botts,Texas Rangers,,Certified autograph
+autographs,BA-JB,Josh Beckett,Florida Marlins,,Certified autograph
+autographs,BA-JD,Jeff Davanon,Anaheim Angels,,Certified autograph
+autographs,BA-JL,Jason Lane,Houston Astros,,Certified autograph
+autographs,BA-JLW,Jerome Williams,San Francisco Giants,,Certified autograph
+autographs,BA-JP,Juan Pena,Oakland Athletics,,Certified autograph
+autographs,BA-JS,Juan Silvestre,Seattle Mariners,,Certified autograph
+autographs,BA-KG,Keith Ginter,Houston Astros,,Certified autograph
+autographs,BA-LB,Larry Bigbie,Baltimore Orioles,,Certified autograph
+autographs,BA-MB,Marlon Byrd,Philadelphia Phillies,,Certified autograph
+autographs,BA-MC,Matt Cooper,Boston Red Sox,,Certified autograph
+autographs,BA-MD,Manny Delcarmen,Boston Red Sox,,Certified autograph
+autographs,BA-ME,Morgan Ensberg,Houston Astros,,Certified autograph
+autographs,BA-MP,Mark Prior,Chicago Cubs,,Certified autograph
+autographs,BA-NJ,Nick Johnson,New York Yankees,,Certified autograph
+autographs,BA-NN,Nick Neugebauer,Milwaukee Brewers,,Certified autograph
+autographs,BA-NV,Noochie Varner,Cincinnati Reds,,Certified autograph
+autographs,BA-RF-FLORES,Randy Flores,New York Yankees,,Certified autograph; Printed number BA-RF; local suffix distinguishes two subjects
+autographs,BA-RF-FRANKLIN,Ryan Franklin,Seattle Mariners,,Certified autograph; Printed number BA-RF; local suffix distinguishes two subjects
+autographs,BA-RH,Ryan Hannaman,San Francisco Giants,,Certified autograph
+autographs,BA-RO,Roy Oswalt,Houston Astros,,Certified autograph
+autographs,BA-RV,Ryan Vogelsong,Pittsburgh Pirates,,Certified autograph
+autographs,BA-TB,Tony Blanco,Boston Red Sox,,Certified autograph
+autographs,BA-TH,Toby Hall,Tampa Bay Devil Rays,,Certified autograph
+autographs,BA-TS,Terrmel Sledge,Montreal Expos,,Certified autograph
+autographs,BA-WB,Wilson Betemit,Atlanta Braves,,Certified autograph
+autographs,BA-WS,Will Smith,Florida Marlins,,Certified autograph
+relics,BR-AB,Angel Berroa,Kansas City Royals,,Game-used bat relic
+relics,BR-AC,Antoine Cameron,Chicago Cubs,,Game-used bat relic
+relics,BR-AE,Adam Everett,Houston Astros,,Game-used bat relic
+relics,BR-AF1,Alex Fernandez,Seattle Mariners,,Game-used bat relic; Printed number BR-AF1; bat version
+relics,BR-AF2,Alex Fernandez,Seattle Mariners,,Game-worn jersey relic; Printed number BR-AF2; jersey version
+relics,BR-AG,Alexis Gomez,Kansas City Royals,,Game-used bat relic
+relics,BR-AK,Austin Kearns,Cincinnati Reds,,Game-used bat relic
+relics,BR-ALC,Alex Cintron,Arizona Diamondbacks,,Game-used bat relic
+relics,BR-CG,Cristian Guerrero,Milwaukee Brewers,,Game-used bat relic
+relics,BR-CI,Cesar Izturis,Toronto Blue Jays,,Game-used bat relic
+relics,BR-CP,Corey Patterson,Chicago Cubs,,Game-used bat relic
+relics,BR-CY,Colin Young,Colorado Rockies,,Game-worn jersey relic
+relics,BR-DJ,D'Angelo Jimenez,San Diego Padres,,Game-used bat relic
+relics,BR-FJ,Forrest Johnson,Detroit Tigers,,Game-used bat relic
+relics,BR-GA,Garrett Atkins,Colorado Rockies,,Game-used bat relic
+relics,BR-JA1,Jared Abruzzo,Anaheim Angels,,Game-used bat relic; Printed number BR-JA1; bat version
+relics,BR-JA2,Jared Abruzzo,Anaheim Angels,,Game-worn jersey relic; Printed number BR-JA2; jersey version
+relics,BR-JL,Jason Lane,Houston Astros,,Game-worn jersey relic
+relics,BR-JS,Jamal Strong,Seattle Mariners,,Game-worn jersey relic
+relics,BR-NC,Nate Cornejo,Detroit Tigers,,Game-worn jersey relic
+relics,BR-NN,Nick Neugebauer,Milwaukee Brewers,,Game-worn jersey relic
+relics,BR-RC,Ryan Church,Cleveland Indians,,Game-used bat relic
+relics,BR-RD,Ryan Dittfurth,Texas Rangers,,Game-worn jersey relic
+relics,BR-RM,Ryan Madson,Philadelphia Phillies,,Game-used bat relic
+relics,BR-RS,Ruben Salazar,Minnesota Twins,,Game-used bat relic
+relics,BR-RST,Richard Stahl,Baltimore Orioles,,Game-worn jersey relic
+futures,FGAB-TH,Toby Hall,Tampa Bay Devil Rays,,Certified autograph; game-used base relic from 2001 All-Star Futures Game; HTA Jumbo exclusive
+futures,FGAJ-CH,Carlos Hernandez,Houston Astros,,Certified autograph; game-worn jersey relic from 2001 All-Star Futures Game
+futures,FGAJ-CP,Carlos Pena,Texas Rangers,,Certified autograph; game-worn jersey relic from 2001 All-Star Futures Game
+futures,FGAJ-DT,Dennis Tankersley,San Diego Padres,,Certified autograph; game-worn jersey relic from 2001 All-Star Futures Game
+futures,FGAJ-JRH,J.R. House,Pittsburgh Pirates,,Certified autograph; game-worn jersey relic from 2001 All-Star Futures Game
+futures,FGAJ-JW,Jerome Williams,San Francisco Giants,,Certified autograph; game-worn jersey relic from 2001 All-Star Futures Game
+futures,FGAJ-NJ,Nick Johnson,New York Yankees,,Certified autograph; game-worn jersey relic from 2001 All-Star Futures Game
+futures,FGAJ-RL,Ryan Ludwick,Oakland Athletics,,Certified autograph; game-worn jersey relic from 2001 All-Star Futures Game
+futures,FGAJ-WB,Wilson Betemit,Atlanta Braves,,Certified autograph; game-worn jersey relic from 2001 All-Star Futures Game
+uncirculated,112,Chris Tritle,Oakland Athletics,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,117,Noochie Varner,Cincinnati Reds,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,118,Taylor Buchholz,Philadelphia Phillies,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,121,Hansel Izquierdo,Florida Marlins,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,123,Bill Hall,Milwaukee Brewers,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,127,Scotty Layfield,St. Louis Cardinals,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,129,Nic Jackson,Chicago Cubs,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,130,Chris Baker,Toronto Blue Jays,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,131,Chad Qualls,Houston Astros,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,161,Ruben Gotay,Kansas City Royals,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,162,Tommy Marx,Detroit Tigers,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,163,John Suomi,Oakland Athletics,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,164,Javier Colina,Colorado Rockies,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,165,Greg Sain,San Diego Padres,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,222,Brian Rogers,New York Yankees,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,229,Anastacio Martinez,Boston Red Sox,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,230,Richard Lewis,Atlanta Braves,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,231,Tim Kalita,Detroit Tigers,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,232,Edwin Almonte,Chicago White Sox,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,235,Victor Alvarez,Los Angeles Dodgers,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,237,Jeff Austin,Kansas City Royals,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,240,Clint Weibl,St. Louis Cardinals,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,244,Ryan Raburn,Detroit Tigers,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,249,Chris Snelling,Seattle Mariners,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,250,Joe Rogers,St. Louis Cardinals,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,251,Nate Field,Kansas City Royals,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,253,Matt Childers,Milwaukee Brewers,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,256,Ron Calloway,Montreal Expos,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,259,Cole Barthel,Atlanta Braves,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,266,Ben Howard,San Diego Padres,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,267,Nelson Castro,San Francisco Giants,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,269,Eric Glaser,Boston Red Sox,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,270,Rob Henkel,Florida Marlins,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,271,Jose Valverde,Arizona Diamondbacks,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,278,Brian Mallette,Milwaukee Brewers,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,281,Chone Figgins,Anaheim Angels,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,282,Jimmy Alvarez,Toronto Blue Jays,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,283,Gavin Floyd,Philadelphia Phillies,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,284,Josh Bonifay,Pittsburgh Pirates,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,285,Garrett Guzman,Minnesota Twins,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,290,Jeff Verplancke,San Francisco Giants,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,291,Nate Espy,Philadelphia Phillies,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,293,Ryan Snare,Cincinnati Reds,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,304,Yurendell DeCaster,Pittsburgh Pirates,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,306,Mike Peeples,Colorado Rockies,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,309,Jorge Padilla,Philadelphia Phillies,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,311,Joe Jester,San Francisco Giants,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,314,Ryan Church,Cleveland Indians,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,317,Travis Foley,Cleveland Indians,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,323,Brian Forystek,Baltimore Orioles,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,325,Manny Delcarmen,Boston Red Sox,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,327,Jim Kavourias,Florida Marlins,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,331,Joey Hammond,Baltimore Orioles,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,336,Ezequiel Astacio,Philadelphia Phillies,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,337,Edwin Yan,Pittsburgh Pirates,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,341,Chris Duffy,Pittsburgh Pirates,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,348,Chris Narveson,St. Louis Cardinals,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,351,Justin Sherrod,Boston Red Sox,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,354,Brett Roneberg,Florida Marlins,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,355,Trey Lunsford,San Francisco Giants,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,356,Jimmy Gobble,Kansas City Royals,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,360,Brian Wolfe,Minnesota Twins,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,362,Koyie Hill,Los Angeles Dodgers,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,364,Tony Fontana,Boston Red Sox,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,366,Doug Sessions,Houston Astros,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,372,Carlos Brackley,Boston Red Sox,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,376,Jesse Foppert,San Francisco Giants,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,377,Ross Peeples,New York Mets,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,378,Alex Requena,Cleveland Indians,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,379,Joe Mauer,Minnesota Twins,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,381,David Wright,New York Mets,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,382,Craig Kuzmic,Seattle Mariners,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,383,Pete Zamora,Philadelphia Phillies,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,384,Matt Parker,Milwaukee Brewers,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,386,Gary Cates Jr.,Baltimore Orioles,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,387,Justin Reid,Pittsburgh Pirates,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,388,Jake Mauer,Minnesota Twins,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,390,Josh Barfield,San Diego Padres,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,392,Henry Pichardo,Cleveland Indians,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,393,Michael Floyd,Philadelphia Phillies,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,394,Clint Nageotte,Seattle Mariners,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,395,Raymond Cabrera,Baltimore Orioles,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,396,Mauricio Lara,Boston Red Sox,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,397,Alejandro Cadena,Seattle Mariners,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,398,Jonny Gomes,Tampa Bay Devil Rays,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,399,Jason Bulger,Arizona Diamondbacks,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,400,Bobby Jenks,Anaheim Angels,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,401,David Gil,Cincinnati Reds,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,402,Joel Crump,Baltimore Orioles,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,403,Kazuhisa Ishii,Los Angeles Dodgers,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,404,So Taguchi,St. Louis Cardinals,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,405,Ryan Doumit,Pittsburgh Pirates,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,410,Freddie Money,Boston Red Sox,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,411,Cliff Bartosh,San Diego Padres,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,415,Terrance Hill,Boston Red Sox,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,416,John Rodriguez,New York Yankees,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,419,Chris Latham,Toronto Blue Jays,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,420,Alfredo Simon,Philadelphia Phillies,Rookies/Prospects,Printed name Carlos Cabrera; Alfredo Simon identity alias; Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,421,Jose Bautista,Pittsburgh Pirates,Rookies/Prospects,UER: Facsimile signature is not Bautista's; Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,422,Kevin Frederick,Minnesota Twins,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,424,Napoleon Calzado,Baltimore Orioles,Rookies/Prospects,"UER: Name misspelled ""Napolean"" on front and back; Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered"
+uncirculated,425,Benito Baez,Florida Marlins,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,427,Jason Botts,Texas Rangers,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,428,Steve Bechler,Baltimore Orioles,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,429,Reed Johnson,Toronto Blue Jays,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,430,Mark Outlaw,Philadelphia Phillies,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,436,Josh Shaffer,Anaheim Angels,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,437,Dan Wright,Chicago White Sox,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,438,Ryan Gripp,Chicago Cubs,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered
+uncirculated,440,Jason Bay,Montreal Expos,Rookies/Prospects,Uncirculated sealed holder; announced maximum 672; reported 574 claimed; not serial numbered

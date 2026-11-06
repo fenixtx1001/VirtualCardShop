@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/Checklist.cfm/sid/1522/2002-Bowman",
+    "independentReference": "https://baseballcardpedia.com/index.php/2002_Bowman",
+    "supplementaryTeamReference": "https://mycardbatch.com/checklists/bowman-2002-baseball",
+    "rookieReference": "https://keymancollectibles.com/baseballcards/bowman/2002bowmanbaseballcardchecklist.htm"
+  },
+  "decisions": {
+    "inventory": "1070 actual collector cards across six intact families: 440 base, 440 Gold, 45 autographs, 26 relics, nine Futures Game signed relics, 110 Uncirculated Exchange. Complete TCDB related index reconciled; exclude generic redemption ticket, separate Chrome/Draft/Best/Heritage products, aftermarket signatures.",
+    "rookies": "167 base RCs, every number/name/team compared with independent TCDB index and full Keyman checklist. BCP omits #332 RC; Keyman corroborates TCDB #332; Keyman omits Nate Espy #291 and incorrectly marks Bobby Crosby #318, corrected against TCDB/BCP and his 2001 Bowman Draft BDP88 RC. No extra RC suffixes inferred for parallels/inserts. Prospect marketing does not establish RC.",
+    "names": "Clean canonical identities; preserve James Harden printed-name, Acuna Sr. and Carlos Cabrera/Alfredo Simon identity notes. Historical 2002 teams preserved, including Randy Flores Yankees on autograph versus Rangers on base. Selected originals resolve code/material conflicts; not a full scan-by-scan audit. Gold #50 TCDB Phillies error corrected to Cleveland from independent Beckett Gold entry and base roster; selected Gold capitalization and Jim/Jimmy Journell aliases explicitly reconciled.",
+    "numbering": "BCP autograph prefix typos corrected against TCDB, independent supplementary table and selected originals; Futures prefixes FGAJ/FGAB retained. BA-RF-FLORES and BA-RF-FRANKLIN are explicitly local unique identifiers for duplicate printed BA-RF. Relic printed AF1/2 JA1/2 verified on original backs.",
+    "independentLimit": "Supplement table has only 44 autographs, omitting Ryan Franklin; full BCP 45 subject list plus TCDB and original Franklin scan cover the omission. BCP has 166 RC markers; Keyman 167 with two divergent markers (#291 missing, #318 false). Reconciled 167 actual RCs from their detailed rosters and separate TCDB rookie index. Conflicting printed names normalized by explicit reviewed aliases, never generic fuzzy matching.",
+    "packConfiguration": "Hobby 24 packs x 10 nominal cards; Retail also 24 x 10. HTA 12 x 21 and extra autograph box topper are historical alternatives, not a second product. One Gold per pack; original Hobby/HTA redemption topper excluded from pack slots.",
+    "packOdds": "Verified aggregate Hobby denominators on ProductSets only. Source physical tier tables and format eligibility retained in source.json. No artificial split by scarcity. Futures full-family odds null because HTA-exclusive base relic; Uncirculated null as mail-in. Distributor 1:33 autograph claim is ambiguous relative to catalogue plain-auto 1:40 and signed-relic 1:196; no substitution.",
+    "collation": "Existing engine independently rolls hit families; it does not reproduce guaranteed Hobby box hit, HTA autograph topper or mail-in redemption. All such collation/eligibility require Admin QA before release.",
+    "release": "Unreleased draft for pricing/image harvesting; no production DB access or deployment. Gold facsimiles are not certified autographs. Uncirculated print-run claims are not SN672 or SN574."
+  },
+  "product": {
+    "id": "2002_Bowman_Baseball",
+    "year": 2002,
+    "brand": "Bowman",
+    "sport": "Baseball",
+    "cardsPerPack": 10,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "checklist": "VERIFIED_1070_CARDS_SIX_FAMILIES_AGAINST_CATALOGUES",
+    "rookieDesignation": "VERIFIED_167_BASE_RCS",
+    "scanReview": "SELECTED_ORIGINAL_SCANS_FULL_HARVEST_PENDING",
+    "packCollation": "PENDING_BOX_TOPPERS_AND_MIXED_FORMAT_ELIGIBILITY",
+    "insertOdds": "VERIFIED_HOBBY_AGGREGATES_FUTURES_AND_MAIL_IN_NULL",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "2002-bowman-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2002_Bowman_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 1522,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1522/2002-Bowman?PageIndex=1",
+      "expectedCards": 440,
+      "notes": "Complete 440-card paper Bowman checklist: Veterans 1-110, Rookies/Prospects 111-440, 167 independently corroborated true RCs. Rich Harden printed James; Ronald Acuna is Sr.; Carlos Cabrera is Alfredo Simon."
+    },
+    {
+      "key": "gold",
+      "id": "2002_Bowman_Baseball_Gold",
+      "name": "Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "sourceSetId": 13371,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/13371/2002-Bowman-Gold?PageIndex=1",
+      "expectedCards": 440,
+      "notes": "Complete independently fetched 440-card parallel. One per pack; thicker cardstock with gold-foil facsimile signature, not certified autographs, not serial numbered."
+    },
+    {
+      "key": "autographs",
+      "id": "2002_Bowman_Baseball_Autographs",
+      "name": "Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": 40,
+      "sourceSetId": 13368,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/13368/2002-Bowman-Autographs?PageIndex=1",
+      "expectedCards": 45,
+      "notes": "Full 45-card family at aggregate Hobby 1:40, Retail 1:53, HTA 1:24 plus one HTA box topper. Tier availability flattened. Two printed BA-RF cards use explicit local subject suffixes; original printed code retained in variant."
+    },
+    {
+      "key": "relics",
+      "id": "2002_Bowman_Baseball_Relics",
+      "name": "Relics",
+      "kind": "INSERT",
+      "oddsPerPack": 74,
+      "sourceSetId": 13370,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/13370/2002-Bowman-Relics?PageIndex=1",
+      "expectedCards": 26,
+      "notes": "One complete 26-card bat/jersey collector family, Hobby 1:74, Retail 1:99, HTA 1:43. AF1/AF2 and JA1/JA2 are actual printed bat/jersey identifiers confirmed on original backs. Internal material tiers flattened."
+    },
+    {
+      "key": "futures",
+      "id": "2002_Bowman_Baseball_Futures_Game_Relics_Autographs",
+      "name": "Futures Game Relics Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 13369,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/13369/2002-Bowman-Futures-Game-Relics-Autographs?PageIndex=1",
+      "expectedCards": 9,
+      "notes": "All nine certified autographed relics from 2001 Futures Game. Eight jerseys aggregate Hobby 1:196, Retail 1:259, HTA 1:113. Ninth FGAB-TH Toby Hall contains a used BASE and is HTA-only 1:126. Complete family kept intact, odds null pending eligibility QA; no false Hobby hit rate."
+    },
+    {
+      "key": "uncirculated",
+      "id": "2002_Bowman_Baseball_Uncirculated_Exchange",
+      "name": "Uncirculated Exchange",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 13372,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/13372/2002-Bowman-Uncirculated-Exchange?PageIndex=1",
+      "expectedCards": 110,
+      "notes": "Complete sparse 110-card mail-in parallel, one random fulfilled encased card per Hobby/HTA box redemption. Maximum 672 announced; 574 reportedly claimed per subject; neither is a serial number. Generic expired scratch-off ticket excluded as a duplicate access mechanism. Odds null: not a pack insert."
+    }
+  ]
+}
