@@ -1,0 +1,774 @@
+setKey,cardNumber,player,team,subset,variant
+base,1A,Kris Benson,Pittsburgh Pirates,Low Numbers,Red back; catalogue suffix A is not printed
+base,1B,Kris Benson,Pittsburgh Pirates,Low Numbers,Black back; catalogue suffix B is not printed
+base,2A,Brian Jordan,Atlanta Braves,Low Numbers,Red back; catalogue suffix A is not printed
+base,2B,Brian Jordan,Atlanta Braves,Low Numbers,Black back; catalogue suffix B is not printed
+base,3A,Fernando Vina,St. Louis Cardinals,Low Numbers,Red back; catalogue suffix A is not printed
+base,3B,Fernando Vina,St. Louis Cardinals,Low Numbers,Black back; catalogue suffix B is not printed
+base,4A,Mike Sweeney,Kansas City Royals,Low Numbers,Red back; catalogue suffix A is not printed
+base,4B,Mike Sweeney,Kansas City Royals,Low Numbers,Black back; catalogue suffix B is not printed
+base,5A,Rafael Palmeiro,Texas Rangers,Low Numbers,Red back; catalogue suffix A is not printed
+base,5B,Rafael Palmeiro,Texas Rangers,Low Numbers,Black back; catalogue suffix B is not printed
+base,6A,Paul O'Neill,New York Yankees,Low Numbers,Red back; catalogue suffix A is not printed
+base,6B,Paul O'Neill,New York Yankees,Low Numbers,Black back; catalogue suffix B is not printed
+base,7A,Todd Helton,Colorado Rockies,Low Numbers,Red back; catalogue suffix A is not printed
+base,7B,Todd Helton,Colorado Rockies,Low Numbers,Black back; catalogue suffix B is not printed
+base,8A,Ramiro Mendoza,New York Yankees,Low Numbers,Red back; catalogue suffix A is not printed
+base,8B,Ramiro Mendoza,New York Yankees,Low Numbers,Black back; catalogue suffix B is not printed
+base,9A,Kevin Millwood,Atlanta Braves,Low Numbers,Red back; catalogue suffix A is not printed
+base,9B,Kevin Millwood,Atlanta Braves,Low Numbers,Black back; catalogue suffix B is not printed
+base,10A,Chuck Knoblauch,New York Yankees,Low Numbers,Red back; catalogue suffix A is not printed
+base,10B,Chuck Knoblauch,New York Yankees,Low Numbers,Black back; catalogue suffix B is not printed
+base,11A,Derek Jeter,New York Yankees,Low Numbers,Red back; catalogue suffix A is not printed
+base,11B,Derek Jeter,New York Yankees,Low Numbers,Black back; catalogue suffix B is not printed
+base,12A,Alex Rodriguez,Texas Rangers,Low Numbers,Red back; catalogue suffix A is not printed
+base,12B,Alex Rodriguez,Texas Rangers,Low Numbers,Black back; catalogue suffix B is not printed
+base,13A,Geoff Jenkins,Milwaukee Brewers,Low Numbers,Red back; catalogue suffix A is not printed
+base,13B,Geoff Jenkins,Milwaukee Brewers,Low Numbers,Black back; catalogue suffix B is not printed
+base,14A,David Justice,New York Yankees,Low Numbers,Red back; catalogue suffix A is not printed
+base,14B,David Justice,New York Yankees,Low Numbers,Black back; catalogue suffix B is not printed
+base,15A,David Cone,New York Yankees,Low Numbers,Red back; catalogue suffix A is not printed
+base,15B,David Cone,New York Yankees,Low Numbers,Black back; catalogue suffix B is not printed
+base,16A,Andres Galarraga,Atlanta Braves,Low Numbers,Red back; catalogue suffix A is not printed
+base,16B,Andres Galarraga,Atlanta Braves,Low Numbers,Black back; catalogue suffix B is not printed
+base,17A,Garret Anderson,Anaheim Angels,Low Numbers,Red back; catalogue suffix A is not printed
+base,17B,Garret Anderson,Anaheim Angels,Low Numbers,Black back; catalogue suffix B is not printed
+base,18A,Roger Cedeno,Houston Astros,Low Numbers,Red back; catalogue suffix A is not printed
+base,18B,Roger Cedeno,Houston Astros,Low Numbers,Black back; catalogue suffix B is not printed
+base,19A,Randy Velarde,Oakland Athletics,Low Numbers,Red back; catalogue suffix A is not printed
+base,19B,Randy Velarde,Oakland Athletics,Low Numbers,Black back; catalogue suffix B is not printed
+base,20A,Carlos Delgado,Toronto Blue Jays,Low Numbers,Red back; catalogue suffix A is not printed
+base,20B,Carlos Delgado,Toronto Blue Jays,Low Numbers,Black back; catalogue suffix B is not printed
+base,21A,Quilvio Veras,Atlanta Braves,Low Numbers,Red back; catalogue suffix A is not printed
+base,21B,Quilvio Veras,Atlanta Braves,Low Numbers,Black back; catalogue suffix B is not printed
+base,22A,Jose Vidro,Montreal Expos,Low Numbers,Red back; catalogue suffix A is not printed
+base,22B,Jose Vidro,Montreal Expos,Low Numbers,Black back; catalogue suffix B is not printed
+base,23A,Corey Patterson,Chicago Cubs,Low Numbers,Red back; catalogue suffix A is not printed
+base,23B,Corey Patterson,Chicago Cubs,Low Numbers,Black back; catalogue suffix B is not printed
+base,24A,Jorge Posada,New York Yankees,Low Numbers,Red back; catalogue suffix A is not printed
+base,24B,Jorge Posada,New York Yankees,Low Numbers,Black back; catalogue suffix B is not printed
+base,25A,Eddie Perez,Atlanta Braves,Low Numbers,Red back; catalogue suffix A is not printed
+base,25B,Eddie Perez,Atlanta Braves,Low Numbers,Black back; catalogue suffix B is not printed
+base,26A,Jack Cust,Arizona Diamondbacks,Low Numbers,Red back; catalogue suffix A is not printed
+base,26B,Jack Cust,Arizona Diamondbacks,Low Numbers,Black back; catalogue suffix B is not printed
+base,27A,Sean Burroughs,San Diego Padres,Low Numbers,Red back; catalogue suffix A is not printed
+base,27B,Sean Burroughs,San Diego Padres,Low Numbers,Black back; catalogue suffix B is not printed
+base,28A,Randy Wolf,Philadelphia Phillies,Low Numbers,Red back; catalogue suffix A is not printed
+base,28B,Randy Wolf,Philadelphia Phillies,Low Numbers,Black back; catalogue suffix B is not printed
+base,29A,Mike Lamb,Texas Rangers,Low Numbers,Red back; catalogue suffix A is not printed
+base,29B,Mike Lamb,Texas Rangers,Low Numbers,Black back; catalogue suffix B is not printed
+base,30A,Rafael Furcal,Atlanta Braves,Low Numbers,Red back; catalogue suffix A is not printed
+base,30B,Rafael Furcal,Atlanta Braves,Low Numbers,Black back; catalogue suffix B is not printed
+base,31A,Barry Bonds,San Francisco Giants,Low Numbers,Red back; catalogue suffix A is not printed; Source-designated short print
+base,31B,Barry Bonds,San Francisco Giants,Low Numbers,Black back; catalogue suffix B is not printed
+base,32A,Tim Hudson,Oakland Athletics,Low Numbers,Red back; catalogue suffix A is not printed
+base,32B,Tim Hudson,Oakland Athletics,Low Numbers,Black back; catalogue suffix B is not printed
+base,33A,Tom Glavine,Atlanta Braves,Low Numbers,Red back; catalogue suffix A is not printed
+base,33B,Tom Glavine,Atlanta Braves,Low Numbers,Black back; catalogue suffix B is not printed
+base,34A,Javy Lopez,Atlanta Braves,Low Numbers,Red back; catalogue suffix A is not printed
+base,34B,Javy Lopez,Atlanta Braves,Low Numbers,Black back; catalogue suffix B is not printed
+base,35A,Aubrey Huff,Tampa Bay Devil Rays,Low Numbers,Red back; catalogue suffix A is not printed
+base,35B,Aubrey Huff,Tampa Bay Devil Rays,Low Numbers,Black back; catalogue suffix B is not printed
+base,36A,Wally Joyner,Atlanta Braves,Low Numbers,Red back; catalogue suffix A is not printed
+base,36B,Wally Joyner,Atlanta Braves,Low Numbers,Black back; catalogue suffix B is not printed
+base,37A,Magglio Ordonez,Chicago White Sox,Low Numbers,Red back; catalogue suffix A is not printed
+base,37B,Magglio Ordonez,Chicago White Sox,Low Numbers,Black back; catalogue suffix B is not printed
+base,38A,Matt Lawton,Minnesota Twins,Low Numbers,Red back; catalogue suffix A is not printed
+base,38B,Matt Lawton,Minnesota Twins,Low Numbers,Black back; catalogue suffix B is not printed
+base,39A,Mariano Rivera,New York Yankees,Low Numbers,Red back; catalogue suffix A is not printed
+base,39B,Mariano Rivera,New York Yankees,Low Numbers,Black back; catalogue suffix B is not printed
+base,40A,Andy Ashby,Atlanta Braves,Low Numbers,Red back; catalogue suffix A is not printed
+base,40B,Andy Ashby,Atlanta Braves,Low Numbers,Black back; catalogue suffix B is not printed
+base,41A,Mark Buehrle,Chicago White Sox,Low Numbers,Red back; catalogue suffix A is not printed; UER: Buehrle misspelled Buerhle on front and back
+base,41B,Mark Buehrle,Chicago White Sox,Low Numbers,Black back; catalogue suffix B is not printed; UER: Buehrle misspelled Buerhle on front and back
+base,42A,Esteban Loaiza,Toronto Blue Jays,Low Numbers,Red back; catalogue suffix A is not printed
+base,42B,Esteban Loaiza,Toronto Blue Jays,Low Numbers,Black back; catalogue suffix B is not printed
+base,43A,Mark Redman,Minnesota Twins,Low Numbers,Red back; catalogue suffix A is not printed
+base,43B,Mark Redman,Minnesota Twins,Low Numbers,Black back; catalogue suffix B is not printed
+base,44A,Mark Quinn,Kansas City Royals,Low Numbers,Red back; catalogue suffix A is not printed
+base,44B,Mark Quinn,Kansas City Royals,Low Numbers,Black back; catalogue suffix B is not printed
+base,45A,Tino Martinez,New York Yankees,Low Numbers,Red back; catalogue suffix A is not printed
+base,45B,Tino Martinez,New York Yankees,Low Numbers,Black back; catalogue suffix B is not printed
+base,46A,Joe Mays,Minnesota Twins,Low Numbers,Red back; catalogue suffix A is not printed
+base,46B,Joe Mays,Minnesota Twins,Low Numbers,Black back; catalogue suffix B is not printed
+base,47A,Walt Weiss,Atlanta Braves,Low Numbers,Red back; catalogue suffix A is not printed
+base,47B,Walt Weiss,Atlanta Braves,Low Numbers,Black back; catalogue suffix B is not printed
+base,48A,Roger Clemens,New York Yankees,Low Numbers,Red back; catalogue suffix A is not printed
+base,48B,Roger Clemens,New York Yankees,Low Numbers,Black back; catalogue suffix B is not printed
+base,49A,Greg Maddux,Atlanta Braves,Low Numbers,Red back; catalogue suffix A is not printed
+base,49B,Greg Maddux,Atlanta Braves,Low Numbers,Black back; catalogue suffix B is not printed
+base,50A,Richard Hidalgo,Houston Astros,Low Numbers,Red back; catalogue suffix A is not printed
+base,50B,Richard Hidalgo,Houston Astros,Low Numbers,Black back; catalogue suffix B is not printed
+base,51A,Orlando Hernandez,New York Yankees,Low Numbers,Red back; catalogue suffix A is not printed
+base,51B,Orlando Hernandez,New York Yankees,Low Numbers,Black back; catalogue suffix B is not printed
+base,52A,Chipper Jones,Atlanta Braves,Low Numbers,Red back; catalogue suffix A is not printed
+base,52B,Chipper Jones,Atlanta Braves,Low Numbers,Black back; catalogue suffix B is not printed
+base,53A,Ben Grieve,Oakland Athletics,Low Numbers,Red back; catalogue suffix A is not printed
+base,53B,Ben Grieve,Oakland Athletics,Low Numbers,Black back; catalogue suffix B is not printed
+base,54A,Jimmy Haynes,Milwaukee Brewers,Low Numbers,Red back; catalogue suffix A is not printed
+base,54B,Jimmy Haynes,Milwaukee Brewers,Low Numbers,Black back; catalogue suffix B is not printed
+base,55A,Ken Caminiti,Houston Astros,Low Numbers,Red back; catalogue suffix A is not printed
+base,55B,Ken Caminiti,Houston Astros,Low Numbers,Black back; catalogue suffix B is not printed
+base,56A,Tim Salmon,Anaheim Angels,Low Numbers,Red back; catalogue suffix A is not printed
+base,56B,Tim Salmon,Anaheim Angels,Low Numbers,Black back; catalogue suffix B is not printed
+base,57A,Andy Pettitte,New York Yankees,Low Numbers,Red back; catalogue suffix A is not printed
+base,57B,Andy Pettitte,New York Yankees,Low Numbers,Black back; catalogue suffix B is not printed
+base,58A,Darin Erstad,Anaheim Angels,Low Numbers,Red back; catalogue suffix A is not printed
+base,58B,Darin Erstad,Anaheim Angels,Low Numbers,Black back; catalogue suffix B is not printed
+base,59A,Marquis Grissom,Milwaukee Brewers,Low Numbers,Red back; catalogue suffix A is not printed
+base,59B,Marquis Grissom,Milwaukee Brewers,Low Numbers,Black back; catalogue suffix B is not printed
+base,60A,Raul Mondesi,Toronto Blue Jays,Low Numbers,Red back; catalogue suffix A is not printed
+base,60B,Raul Mondesi,Toronto Blue Jays,Low Numbers,Black back; catalogue suffix B is not printed
+base,61A,Bengie Molina,Anaheim Angels,Low Numbers,Red back; catalogue suffix A is not printed
+base,61B,Bengie Molina,Anaheim Angels,Low Numbers,Black back; catalogue suffix B is not printed
+base,62A,Miguel Tejada,Oakland Athletics,Low Numbers,Red back; catalogue suffix A is not printed
+base,62B,Miguel Tejada,Oakland Athletics,Low Numbers,Black back; catalogue suffix B is not printed
+base,63A,Jose Cruz Jr.,Toronto Blue Jays,Low Numbers,Red back; catalogue suffix A is not printed
+base,63B,Jose Cruz Jr.,Toronto Blue Jays,Low Numbers,Black back; catalogue suffix B is not printed
+base,64A,Billy Koch,Toronto Blue Jays,Low Numbers,Red back; catalogue suffix A is not printed
+base,64B,Billy Koch,Toronto Blue Jays,Low Numbers,Black back; catalogue suffix B is not printed
+base,65A,Troy Glaus,Anaheim Angels,Low Numbers,Red back; catalogue suffix A is not printed
+base,65B,Troy Glaus,Anaheim Angels,Low Numbers,Black back; catalogue suffix B is not printed
+base,66A,Cliff Floyd,Florida Marlins,Low Numbers,Red back; catalogue suffix A is not printed
+base,66B,Cliff Floyd,Florida Marlins,Low Numbers,Black back; catalogue suffix B is not printed
+base,67A,Tony Batista,Toronto Blue Jays,Low Numbers,Red back; catalogue suffix A is not printed
+base,67B,Tony Batista,Toronto Blue Jays,Low Numbers,Black back; catalogue suffix B is not printed
+base,68A,Jeff Bagwell,Houston Astros,Low Numbers,Red back; catalogue suffix A is not printed
+base,68B,Jeff Bagwell,Houston Astros,Low Numbers,Black back; catalogue suffix B is not printed
+base,69A,Billy Wagner,Houston Astros,Low Numbers,Red back; catalogue suffix A is not printed
+base,69B,Billy Wagner,Houston Astros,Low Numbers,Black back; catalogue suffix B is not printed
+base,70A,Eric Chavez,Oakland Athletics,Low Numbers,Red back; catalogue suffix A is not printed
+base,70B,Eric Chavez,Oakland Athletics,Low Numbers,Black back; catalogue suffix B is not printed
+base,71A,Troy Percival,Anaheim Angels,Low Numbers,Red back; catalogue suffix A is not printed
+base,71B,Troy Percival,Anaheim Angels,Low Numbers,Black back; catalogue suffix B is not printed
+base,72A,Andruw Jones,Atlanta Braves,Low Numbers,Red back; catalogue suffix A is not printed
+base,72B,Andruw Jones,Atlanta Braves,Low Numbers,Black back; catalogue suffix B is not printed
+base,73A,Shane Reynolds,Houston Astros,Low Numbers,Red back; catalogue suffix A is not printed
+base,73B,Shane Reynolds,Houston Astros,Low Numbers,Black back; catalogue suffix B is not printed
+base,74A,Barry Zito,Oakland Athletics,Low Numbers,Red back; catalogue suffix A is not printed
+base,74B,Barry Zito,Oakland Athletics,Low Numbers,Black back; catalogue suffix B is not printed
+base,75A,Roy Halladay,Toronto Blue Jays,Low Numbers,Red back; catalogue suffix A is not printed
+base,75B,Roy Halladay,Toronto Blue Jays,Low Numbers,Black back; catalogue suffix B is not printed
+base,76A,David Wells,Toronto Blue Jays,Low Numbers,Red back; catalogue suffix A is not printed
+base,76B,David Wells,Toronto Blue Jays,Low Numbers,Black back; catalogue suffix B is not printed
+base,77A,Jason Giambi,Oakland Athletics,Low Numbers,Red back; catalogue suffix A is not printed
+base,77B,Jason Giambi,Oakland Athletics,Low Numbers,Black back; catalogue suffix B is not printed
+base,78A,Scott Elarton,Houston Astros,Low Numbers,Red back; catalogue suffix A is not printed
+base,78B,Scott Elarton,Houston Astros,Low Numbers,Black back; catalogue suffix B is not printed
+base,79A,Moises Alou,Houston Astros,Low Numbers,Red back; catalogue suffix A is not printed
+base,79B,Moises Alou,Houston Astros,Low Numbers,Black back; catalogue suffix B is not printed
+base,80A,Adam Piatt,Oakland Athletics,Low Numbers,Red back; catalogue suffix A is not printed
+base,80B,Adam Piatt,Oakland Athletics,Low Numbers,Black back; catalogue suffix B is not printed
+base,81,Wilton Veras,Boston Red Sox,,
+base,82,Darryl Kile,St. Louis Cardinals,,
+base,83,Johnny Damon,Kansas City Royals,,
+base,84,Tony Armas Jr.,Montreal Expos,,
+base,85,Ellis Burks,Cleveland Indians,,
+base,86,Jamey Wright,Milwaukee Brewers,,
+base,87,Jose Vizcaino,Houston Astros,,
+base,88,Bartolo Colon,Cleveland Indians,,
+base,89,Carmen Cali RC,St. Louis Cardinals,,
+base,90,Kevin Brown,Los Angeles Dodgers,,
+base,91,Josh Hamilton,Tampa Bay Devil Rays,,
+base,92,Jay Buhner,Seattle Mariners,,
+base,93,Scott Pratt RC,Cleveland Indians,,
+base,94,Alex Cora,Los Angeles Dodgers,,
+base,95,Luis Montanez RC,Chicago Cubs,,
+base,96,Dmitri Young,Cincinnati Reds,,
+base,97,J.T. Snow Jr.,San Francisco Giants,,
+base,98,Damion Easley,Detroit Tigers,,
+base,99,Greg Norton,Chicago White Sox,,
+base,100,Matt Wheatland,Detroit Tigers,,
+base,101,Chin-Feng Chen,Los Angeles Dodgers,,
+base,102,Tony Womack,Arizona Diamondbacks,,
+base,103,Adam Kennedy,Anaheim Angels,,Black back only; documented printing anomaly
+base,104,J.D. Drew,St. Louis Cardinals,,
+base,105,Carlos Febles,Kansas City Royals,,
+base,106,Jim Thome,Cleveland Indians,,
+base,107,Danny Graves,Cincinnati Reds,,
+base,108,Dave Mlicki,Detroit Tigers,,
+base,109,Ron Coomer,Minnesota Twins,,
+base,110,James Baldwin,Chicago White Sox,,
+base,111,Shaun Boyd RC,St. Louis Cardinals,,
+base,112,Brian Bohanon,Colorado Rockies,,
+base,113,Jacque Jones,Minnesota Twins,,
+base,114,Alfonso Soriano,New York Yankees,,
+base,115,Tony Clark,Detroit Tigers,,
+base,116,Terrence Long,Oakland Athletics,,
+base,117,Todd Hundley,Los Angeles Dodgers,,
+base,118,Kazuhiro Sasaki,Seattle Mariners,,
+base,119,Brian Sellier RC,Toronto Blue Jays,,
+base,120,John Olerud,Seattle Mariners,,
+base,121,Javier Vazquez,Montreal Expos,,
+base,122,Sean Burnett,Pittsburgh Pirates,,
+base,123,Matt LeCroy,Minnesota Twins,,
+base,124,Erubiel Durazo,Arizona Diamondbacks,,
+base,125,Juan Encarnacion,Detroit Tigers,,
+base,126,Pablo Ozuna,Florida Marlins,,
+base,127,Russ Ortiz,San Francisco Giants,,
+base,128,David Segui,Cleveland Indians,,
+base,129,Mark McGwire,St. Louis Cardinals,,
+base,130,Mark Grace,Chicago Cubs,,
+base,131,Fred McGriff,Tampa Bay Devil Rays,,
+base,132,Carl Pavano,Montreal Expos,,
+base,133,Derek Thompson,Cleveland Indians,,
+base,134,Shawn Green,Los Angeles Dodgers,,
+base,135,B.J. Surhoff,Atlanta Braves,,
+base,136,Michael Tucker,Cincinnati Reds,,
+base,137,Jason Isringhausen,Oakland Athletics,,
+base,138,Eric Milton,Minnesota Twins,,
+base,139,Mike Stodolka,Kansas City Royals,,
+base,140,Milton Bradley,Montreal Expos,,
+base,141,Curt Schilling,Arizona Diamondbacks,,
+base,142,Sandy Alomar,Cleveland Indians,,
+base,143,Brent Mayne,Colorado Rockies,,
+base,144,Todd Jones,Detroit Tigers,,
+base,145,Charles Johnson,Chicago White Sox,,
+base,146,Dean Palmer,Detroit Tigers,,
+base,147,Masato Yoshii,Colorado Rockies,,
+base,148,Edgar Renteria,St. Louis Cardinals,,
+base,149,Joe Randa,Kansas City Royals,,
+base,150,Adam Johnson,Minnesota Twins,,
+base,151,Greg Vaughn,Tampa Bay Devil Rays,,
+base,152,Adrian Beltre,Los Angeles Dodgers,,
+base,153,Glenallen Hill,New York Yankees,,
+base,154,David Parrish RC,New York Yankees,,
+base,155,Neifi Perez,Colorado Rockies,,
+base,156,Pete Harnisch,Cincinnati Reds,,
+base,157,Paul Konerko,Chicago White Sox,,
+base,158,Dennys Reyes,Cincinnati Reds,,
+base,159,Jose Lima,Houston Astros,,Black back only; documented printing anomaly
+base,160,Eddie Taubensee,Cleveland Indians,,
+base,161,Miguel Cairo,Tampa Bay Devil Rays,,
+base,162,Jeff Kent,San Francisco Giants,,
+base,163,Dustin Hermanson,Montreal Expos,,
+base,164,Alex Gonzalez,Florida Marlins,,
+base,165,Hideo Nomo,Detroit Tigers,,
+base,166,Sammy Sosa,Chicago Cubs,,
+base,167,C.J. Nitkowski,Detroit Tigers,,
+base,168,Cal Eldred,Chicago White Sox,,
+base,169,Jeff Abbott,Chicago White Sox,,
+base,170,Jim Edmonds,St. Louis Cardinals,,
+base,171,Mark Mulder,Oakland Athletics,,Black back only; documented printing anomaly
+base,172,Dominic Rich RC,Toronto Blue Jays,,
+base,173,Ray Lankford,St. Louis Cardinals,,
+base,174,Danny Borrell RC,New York Yankees,,
+base,175,Rick Aguilera,Chicago Cubs,,
+base,176,Shannon Stewart,Toronto Blue Jays,,Black back only; documented printing anomaly
+base,177,Steve Finley,Arizona Diamondbacks,,
+base,178,Jim Parque,Chicago White Sox,,
+base,179,Kevin Appier,Oakland Athletics,,Black back only; documented printing anomaly
+base,180,Adrian Gonzalez,Florida Marlins,,
+base,181,Tom Goodwin,Los Angeles Dodgers,,
+base,182,Kevin Tapani,Chicago Cubs,,
+base,183,Fernando Tatis,St. Louis Cardinals,,
+base,184,Mark Grudzielanek,Los Angeles Dodgers,,
+base,185,Ryan Anderson,Seattle Mariners,,
+base,186,Jeffrey Hammonds,Colorado Rockies,,
+base,187,Corey Koskie,Minnesota Twins,,
+base,188,Brad Fullmer,Toronto Blue Jays,,Black back only; documented printing anomaly
+base,189,Rey Sanchez,Kansas City Royals,,
+base,190,Michael Barrett,Montreal Expos,,
+base,191,Rickey Henderson,Seattle Mariners,,
+base,192,Jermaine Dye,Kansas City Royals,,
+base,193,Scott Brosius,New York Yankees,,
+base,194,Matt Anderson,Detroit Tigers,,
+base,195,Brian Buchanan,Minnesota Twins,,
+base,196,Derrek Lee,Florida Marlins,,
+base,197,Larry Walker,Colorado Rockies,,
+base,198,Dan Moylan RC,St. Louis Cardinals,,
+base,199,Vinny Castilla,Tampa Bay Devil Rays,,
+base,200,Ken Griffey Jr.,Cincinnati Reds,,
+base,201,Matt Stairs,Chicago Cubs,,Black back only; documented printing anomaly
+base,202,Ty Howington,Cincinnati Reds,,
+base,203,Andy Benes,St. Louis Cardinals,,
+base,204,Luis Gonzalez,Arizona Diamondbacks,,
+base,205,Brian Moehler,Detroit Tigers,,
+base,206,Harold Baines,Chicago White Sox,,
+base,207,Pedro Astacio,Colorado Rockies,,
+base,208,Cristian Guzman,Minnesota Twins,,
+base,209,Kip Wells,Chicago White Sox,,
+base,210,Frank Thomas,Chicago White Sox,,
+base,211,Jose Rosado,Kansas City Royals,,
+base,212,Vernon Wells,Toronto Blue Jays,,Black back only; documented printing anomaly
+base,213,Bobby Higginson,Detroit Tigers,,
+base,214,Juan Gonzalez,Detroit Tigers,,
+base,215,Omar Vizquel,Cleveland Indians,,
+base,216,Bernie Williams,New York Yankees,,
+base,217,Aaron Sele,Seattle Mariners,,
+base,218,Shawn Estes,San Francisco Giants,,
+base,219,Roberto Alomar,Cleveland Indians,,
+base,220,Rick Ankiel,St. Louis Cardinals,,
+base,221,Josh Kalinowski,Colorado Rockies,,
+base,222,David Bell,Seattle Mariners,,
+base,223,Keith Foulke,Chicago White Sox,,
+base,224,Craig Biggio,Houston Astros,,Black back only; documented printing anomaly
+base,225,Josh Axelson RC,St. Louis Cardinals,,
+base,226,Scott Williamson,Cincinnati Reds,,
+base,227,Ron Belliard,Milwaukee Brewers,,
+base,228,Chris Singleton,Chicago White Sox,,
+base,229,Alex Serrano RC,Colorado Rockies,,
+base,230,Deivi Cruz,Detroit Tigers,,
+base,231,Eric Munson,Detroit Tigers,,
+base,232,Luis Castillo,Florida Marlins,,
+base,233,Edgar Martinez,Seattle Mariners,,
+base,234,Jeff Shaw,Los Angeles Dodgers,,
+base,235,Jeromy Burnitz,Milwaukee Brewers,,
+base,236,Richie Sexson,Milwaukee Brewers,,
+base,237,Will Clark,St. Louis Cardinals,,
+base,238,Ron Villone,Cincinnati Reds,,
+base,239,Kerry Wood,Chicago Cubs,,
+base,240,Rich Aurilia,San Francisco Giants,,
+base,241,Mo Vaughn,Anaheim Angels,,Black back only; documented printing anomaly
+base,242,Travis Fryman,Cleveland Indians,,
+base,243,Manny Ramirez,Boston Red Sox,,
+base,244,Chris Stynes,Cincinnati Reds,,
+base,245,Ray Durham,Chicago White Sox,,
+base,246,Juan Uribe RC,Colorado Rockies,,
+base,247,Juan Guzman,Tampa Bay Devil Rays,,
+base,248,Lee Stevens,Montreal Expos,,
+base,249,Devon White,Los Angeles Dodgers,,
+base,250,Kyle Lohse RC,Minnesota Twins,,
+base,251,Bryan Wolff,Houston Astros,,
+base,252,Matt Galante RC,St. Louis Cardinals,,
+base,253,Eric Young,Chicago Cubs,,
+base,254,Freddy Garcia,Seattle Mariners,,
+base,255,Jay Bell,Arizona Diamondbacks,,
+base,256,Steve Cox,Tampa Bay Devil Rays,,
+base,257,Torii Hunter,Minnesota Twins,,
+base,258,Jose Canseco,New York Yankees,,
+base,259,Brad Ausmus,Detroit Tigers,,
+base,260,Jeff Cirillo,Colorado Rockies,,
+base,261,Brad Penny,Florida Marlins,,
+base,262,Antonio Alfonseca,Florida Marlins,,
+base,263,Russell Branyan,Cleveland Indians,,
+base,264,Chris Morris RC,St. Louis Cardinals,,
+base,265,John Lackey,Anaheim Angels,,
+base,266,Justin Wayne RC,Montreal Expos,,
+base,267,Brad Radke,Minnesota Twins,,
+base,268,Todd Stottlemyre,Arizona Diamondbacks,,
+base,269,Mark Loretta,Milwaukee Brewers,,
+base,270,Matt Williams,Arizona Diamondbacks,,
+base,271,Kenny Lofton,Cleveland Indians,,
+base,272,Jeff D'Amico,Milwaukee Brewers,,
+base,273,Jamie Moyer,Seattle Mariners,,
+base,274,Darren Dreifort,Los Angeles Dodgers,,
+base,275,Denny Neagle,New York Yankees,,
+base,276,Orlando Cabrera,Montreal Expos,,
+base,277,Chuck Finley,Cleveland Indians,,
+base,278,Miguel Batista,Montreal Expos,,
+base,279,Carlos Beltran,Kansas City Royals,,
+base,280,Eric Karros,Los Angeles Dodgers,,
+base,281,Mark Kotsay,Florida Marlins,,
+base,282,Ryan Dempster,Florida Marlins,,
+base,283,Barry Larkin,Cincinnati Reds,,
+base,284,Jeff Suppan,Kansas City Royals,,
+base,285,Gary Sheffield,Los Angeles Dodgers,,
+base,286,Jose Valentin,Chicago White Sox,,
+base,287,Robb Nen,San Francisco Giants,,
+base,288,Chan Ho Park,Los Angeles Dodgers,,
+base,289,John Halama,Seattle Mariners,,
+base,290,Steve Smyth RC,Chicago Cubs,,
+base,291,Gerald Williams,Tampa Bay Devil Rays,,
+base,292,Preston Wilson,Florida Marlins,,
+base,293,Victor Hall RC,Arizona Diamondbacks,,
+base,294,Ben Sheets,Milwaukee Brewers,,
+base,295,Eric Davis,St. Louis Cardinals,,
+base,296,Kirk Rueter,San Francisco Giants,,
+base,297,Chad Petty RC,Detroit Tigers,,
+base,298,Kevin Millar,Florida Marlins,,
+base,299,Marvin Benard,San Francisco Giants,,
+base,300,Vladimir Guerrero,Montreal Expos,,
+base,301,Livan Hernandez,San Francisco Giants,,
+base,302,Travis Baptist RC,Pittsburgh Pirates,,
+base,303,Bill Mueller,Chicago Cubs,,
+base,304,Mike Cameron,Seattle Mariners,,
+base,305,Randy Johnson,Arizona Diamondbacks,,
+base,306,Alan Mahaffey RC,Cleveland Indians,,
+base,307,Timo Perez,New York Mets,,
+base,308,Pokey Reese,Cincinnati Reds,,
+base,309,Ryan Rupe,Tampa Bay Devil Rays,,
+base,310,Carlos Lee,Chicago White Sox,,
+base,311,Doug Glanville,Philadelphia Phillies,High Numbers,
+base,312,Jay Payton,New York Mets,High Numbers,
+base,313,Troy O'Leary,Boston Red Sox,High Numbers,
+base,314,Francisco Cordero,Texas Rangers,High Numbers,
+base,315,Rusty Greer,Texas Rangers,High Numbers,
+base,316,Cal Ripken,Baltimore Orioles,High Numbers,
+base,317,Ricky Ledee,Texas Rangers,High Numbers,
+base,318,Brian Daubach,Boston Red Sox,High Numbers,
+base,319,Robin Ventura,New York Mets,High Numbers,
+base,320,Todd Zeile,New York Mets,High Numbers,
+base,321,Francisco Cordova,Pittsburgh Pirates,High Numbers,
+base,322,Henry Rodriguez,Florida Marlins,High Numbers,
+base,323,Pat Meares,Pittsburgh Pirates,High Numbers,
+base,324,Glendon Rusch,New York Mets,High Numbers,
+base,325,Keith Osik,Pittsburgh Pirates,High Numbers,
+base,326,Bob Keppel RC,New York Mets,High Numbers,
+base,327,Bobby Jones,New York Mets,High Numbers,
+base,328,Alex Ramirez,Pittsburgh Pirates,High Numbers,
+base,329,Robert Person,Philadelphia Phillies,High Numbers,
+base,330,Ruben Mateo,Texas Rangers,High Numbers,
+base,331,Rob Bell,Cincinnati Reds,High Numbers,
+base,332,Carl Everett,Boston Red Sox,High Numbers,
+base,333,Jason Schmidt,Pittsburgh Pirates,High Numbers,
+base,334,Scott Rolen,Philadelphia Phillies,High Numbers,
+base,335,Jimmy Anderson,Pittsburgh Pirates,High Numbers,
+base,336,Bret Boone,San Diego Padres,High Numbers,
+base,337,Delino DeShields,Baltimore Orioles,High Numbers,
+base,338,Trevor Hoffman,San Diego Padres,High Numbers,
+base,339,Bobby Abreu,Philadelphia Phillies,High Numbers,
+base,340,Mike Williams,Pittsburgh Pirates,High Numbers,
+base,341,Mike Hampton,Colorado Rockies,High Numbers,
+base,342,John Wetteland,Texas Rangers,High Numbers,
+base,343,Scott Erickson,Baltimore Orioles,High Numbers,
+base,344,Enrique Wilson,Pittsburgh Pirates,High Numbers,
+base,345,Tim Wakefield,Boston Red Sox,High Numbers,
+base,346,Mike Lowell,Florida Marlins,High Numbers,
+base,347,Todd Pratt,New York Mets,High Numbers,
+base,348,Brook Fordyce,Baltimore Orioles,High Numbers,
+base,349,Benny Agbayani,New York Mets,High Numbers,
+base,350,Gabe Kapler,Texas Rangers,High Numbers,
+base,351,Sean Casey,Cincinnati Reds,High Numbers,
+base,352,Darren Oliver,Texas Rangers,High Numbers,
+base,353,Todd Ritchie,Pittsburgh Pirates,High Numbers,
+base,354,Kenny Rogers,Texas Rangers,High Numbers,
+base,355,Jason Kendall,Pittsburgh Pirates,High Numbers,
+base,356,John Vander Wal,Pittsburgh Pirates,High Numbers,
+base,357,Ramon Martinez,Boston Red Sox,High Numbers,
+base,358,Edgardo Alfonzo,New York Mets,High Numbers,
+base,359,Phil Nevin,San Diego Padres,High Numbers,
+base,360,Albert Belle,Baltimore Orioles,High Numbers,
+base,361,Ruben Rivera,San Diego Padres,High Numbers,
+base,362,Pedro Martinez,Boston Red Sox,High Numbers,
+base,363,Derek Lowe,Boston Red Sox,High Numbers,
+base,364,Pat Burrell,Philadelphia Phillies,High Numbers,
+base,365,Mike Mussina,Baltimore Orioles,High Numbers,
+base,366,Brady Anderson,Baltimore Orioles,High Numbers,
+base,367,Darren Lewis,Boston Red Sox,High Numbers,
+base,368,Sidney Ponson,Baltimore Orioles,High Numbers,
+base,369,Adam Eaton,San Diego Padres,High Numbers,
+base,370,Eric Owens,San Diego Padres,High Numbers,
+base,371,Aaron Boone,Cincinnati Reds,High Numbers,
+base,372,Matt Clement,San Diego Padres,High Numbers,
+base,373,Derek Bell,New York Mets,High Numbers,
+base,374,Trot Nixon,Boston Red Sox,High Numbers,
+base,375,Travis Lee,Philadelphia Phillies,High Numbers,
+base,376,Mike Benjamin,Pittsburgh Pirates,High Numbers,
+base,377,Jeff Zimmerman,Texas Rangers,High Numbers,
+base,378,Mike Lieberthal,Philadelphia Phillies,High Numbers,
+base,379,Rick Reed,New York Mets,High Numbers,
+base,380,Nomar Garciaparra,Boston Red Sox,High Numbers,
+base,381,Omar Daal,Philadelphia Phillies,High Numbers,
+base,382,Ryan Klesko,San Diego Padres,High Numbers,
+base,383,Rey Ordonez,New York Mets,High Numbers,
+base,384,Kevin Young,Pittsburgh Pirates,High Numbers,
+base,385,Rick Helling,Texas Rangers,High Numbers,
+base,386,Brian Giles,Pittsburgh Pirates,High Numbers,
+base,387,Tony Gwynn,San Diego Padres,High Numbers,
+base,388,Ed Sprague,Boston Red Sox,High Numbers,
+base,389,J.R. House,Pittsburgh Pirates,High Numbers,
+base,390,Scott Hatteberg,Boston Red Sox,High Numbers,
+base,391,John Valentin,Boston Red Sox,High Numbers,
+base,392,Melvin Mora,Baltimore Orioles,High Numbers,
+base,393,Royce Clayton,Texas Rangers,High Numbers,
+base,394,Jeff Fassero,Boston Red Sox,High Numbers,
+base,395,Manny Alexander,Boston Red Sox,High Numbers,
+base,396,John Franco,New York Mets,High Numbers,
+base,397,Luis Alicea,Texas Rangers,High Numbers,
+base,398,Ivan Rodriguez,Texas Rangers,High Numbers,
+base,399,Kevin Jordan,Philadelphia Phillies,High Numbers,
+base,400,Jose Offerman,Boston Red Sox,High Numbers,
+base,401,Jeff Conine,Baltimore Orioles,High Numbers,
+base,402,Seth Etherton,Anaheim Angels,High Numbers,
+base,403,Mike Bordick,New York Mets,High Numbers,
+base,404,Al Leiter,New York Mets,High Numbers,
+base,405,Mike Piazza,New York Mets,High Numbers,
+base,406,Armando Benitez,New York Mets,High Numbers,
+base,407,Warren Morris,Pittsburgh Pirates,High Numbers,
+checklists,1,Checklist 1,,Checklist,1-359
+checklists,2,Checklist 2,,Checklist,360-407 and Inserts
+chrome,CP1,Cal Ripken Jr.,Baltimore Orioles,,Serial numbered /552
+chrome,CP2,Jim Thome,Cleveland Indians,,Serial numbered /552
+chrome,CP3,Derek Jeter,New York Yankees,,Serial numbered /552
+chrome,CP4,Andres Galarraga,Atlanta Braves,,Serial numbered /552
+chrome,CP5,Carlos Delgado,Toronto Blue Jays,,Serial numbered /552
+chrome,CP6,Roberto Alomar,Cleveland Indians,,Serial numbered /552
+chrome,CP7,Tom Glavine,Atlanta Braves,,Serial numbered /552
+chrome,CP8,Gary Sheffield,Los Angeles Dodgers,,Serial numbered /552
+chrome,CP9,Mo Vaughn,Anaheim Angels,,Serial numbered /552
+chrome,CP10,Preston Wilson,Florida Marlins,,Serial numbered /552
+chrome,CP11,Mike Mussina,Baltimore Orioles,,Serial numbered /552
+chrome,CP12,Greg Maddux,Atlanta Braves,,Serial numbered /552
+chrome,CP13,Ivan Rodriguez,Texas Rangers,,Serial numbered /552
+chrome,CP14,Al Leiter,New York Mets,,Serial numbered /552
+chrome,CP15,Seth Etherton,Anaheim Angels,,Serial numbered /552
+chrome,CP16,Edgardo Alfonzo,New York Mets,,Serial numbered /552
+chrome,CP17,Richie Sexson,Milwaukee Brewers,,Serial numbered /552
+chrome,CP18,Andruw Jones,Atlanta Braves,,Serial numbered /552
+chrome,CP19,Bartolo Colon,Cleveland Indians,,Serial numbered /552
+chrome,CP20,Darin Erstad,Anaheim Angels,,Serial numbered /552
+chrome,CP21,Kevin Brown,Los Angeles Dodgers,,Serial numbered /552
+chrome,CP22,Mike Sweeney,Kansas City Royals,,Serial numbered /552
+chrome,CP23,Mike Piazza,New York Mets,,Serial numbered /552
+chrome,CP24,Rafael Palmeiro,Texas Rangers,,Serial numbered /552
+chrome,CP25,Terrence Long,Oakland Athletics,,Serial numbered /552
+chrome,CP26,Kazuhiro Sasaki,Seattle Mariners,,Serial numbered /552
+chrome,CP27,John Olerud,Seattle Mariners,,Serial numbered /552
+chrome,CP28,Mark McGwire,St. Louis Cardinals,,Serial numbered /552
+chrome,CP29,Fred McGriff,Tampa Bay Devil Rays,,Serial numbered /552
+chrome,CP30,Todd Helton,Colorado Rockies,,Serial numbered /552
+chrome,CP31,Curt Schilling,Arizona Diamondbacks,,Serial numbered /552
+chrome,CP32,Alex Rodriguez,Seattle Mariners,,Serial numbered /552
+chrome,CP33,Jeff Kent,San Francisco Giants,,Serial numbered /552
+chrome,CP34,Pat Burrell,Philadelphia Phillies,,Serial numbered /552
+chrome,CP35,Jim Edmonds,St. Louis Cardinals,,Serial numbered /552
+chrome,CP36,Mark Mulder,Oakland Athletics,,Serial numbered /552
+chrome,CP37,Troy Glaus,Anaheim Angels,,Serial numbered /552
+chrome,CP38,Jay Payton,New York Mets,,Serial numbered /552
+chrome,CP39,Jermaine Dye,Kansas City Royals,,Serial numbered /552
+chrome,CP40,Larry Walker,Colorado Rockies,,Serial numbered /552
+chrome,CP41,Ken Griffey Jr.,Cincinnati Reds,,Serial numbered /552
+chrome,CP42,Jeff Bagwell,Houston Astros,,Serial numbered /552
+chrome,CP43,Rick Ankiel,St. Louis Cardinals,,Serial numbered /552
+chrome,CP44,Mark Redman,Minnesota Twins,,Serial numbered /552
+chrome,CP45,Edgar Martinez,Seattle Mariners,,Serial numbered /552
+chrome,CP46,Mike Hampton,New York Mets,,Serial numbered /552
+chrome,CP47,Manny Ramirez,Cleveland Indians,,Serial numbered /552
+chrome,CP48,Ray Durham,Chicago White Sox,,Serial numbered /552
+chrome,CP49,Rafael Furcal,Atlanta Braves,,Serial numbered /552
+chrome,CP50,Sean Casey,Cincinnati Reds,,Serial numbered /552
+chrome,CP51,Jose Canseco,New York Yankees,,Serial numbered /552
+chrome,CP52,Barry Bonds,San Francisco Giants,,Serial numbered /552
+chrome,CP53,Tim Hudson,Oakland Athletics,,Serial numbered /552
+chrome,CP54,Barry Zito,Oakland Athletics,,Serial numbered /552
+chrome,CP55,Chuck Finley,Cleveland Indians,,Serial numbered /552
+chrome,CP56,Magglio Ordonez,Chicago White Sox,,Serial numbered /552
+chrome,CP57,David Wells,Toronto Blue Jays,,Serial numbered /552
+chrome,CP58,Jason Giambi,Oakland Athletics,,Serial numbered /552
+chrome,CP59,Tony Gwynn,San Diego Padres,,Serial numbered /552
+chrome,CP60,Vladimir Guerrero,Montreal Expos,,Serial numbered /552
+chrome,CP61,Randy Johnson,Arizona Diamondbacks,,Serial numbered /552
+chrome,CP62,Bernie Williams,New York Yankees,,Serial numbered /552
+chrome,CP63,Craig Biggio,Houston Astros,,Serial numbered /552
+chrome,CP64,Jason Kendall,Pittsburgh Pirates,,Serial numbered /552
+chrome,CP65,Pedro Martinez,Boston Red Sox,,Serial numbered /552
+chrome,CP66,Mark Quinn,Kansas City Royals,,Serial numbered /552
+chrome,CP67,Frank Thomas,Chicago White Sox,,Serial numbered /552
+chrome,CP68,Nomar Garciaparra,Boston Red Sox,,Serial numbered /552
+chrome,CP69,Brian Giles,Pittsburgh Pirates,,Serial numbered /552
+chrome,CP70,Shawn Green,Los Angeles Dodgers,,Serial numbered /552
+chrome,CP71,Roger Clemens,New York Yankees,,Serial numbered /552
+chrome,CP72,Sammy Sosa,Chicago Cubs,,Serial numbered /552
+chrome,CP73,Juan Gonzalez,Detroit Tigers,,Serial numbered /552
+chrome,CP74,Orlando Hernandez,New York Yankees,,Serial numbered /552
+chrome,CP75,Chipper Jones,Atlanta Braves,,Serial numbered /552
+chrome,CP76,Josh Hamilton,Tampa Bay Devil Rays,,Serial numbered /552
+chrome,CP77,Adam Johnson,Minnesota Twins,,Serial numbered /552
+chrome,CP78,Shaun Boyd,St. Louis Cardinals,,Serial numbered /552
+chrome,CP79,Alfonso Soriano,New York Yankees,,Serial numbered /552
+chrome,CP80,Derek Thompson,Cleveland Indians,,Serial numbered /552
+chrome,CP81,Adrian Gonzalez,Florida Marlins,,Serial numbered /552
+chrome,CP82,Ryan Anderson,Seattle Mariners,,Serial numbered /552
+chrome,CP83,Corey Patterson,Chicago Cubs,,Serial numbered /552
+chrome,CP84,J.R. House,Pittsburgh Pirates,,Serial numbered /552
+chrome,CP85,Sean Burroughs,San Diego Padres,,Serial numbered /552
+chrome,CP86,Bryan Wolff,Houston Astros,,Serial numbered /552
+chrome,CP87,John Lackey,Anaheim Angels,,Serial numbered /552
+chrome,CP88,Ben Sheets,Milwaukee Brewers,,Serial numbered /552
+chrome,CP89,Timo Perez,New York Mets,,Serial numbered /552
+chrome,CP90,Robert Keppel,New York Mets,,Serial numbered /552
+chrome,CP91,Lou Montanez,Chicago Cubs,,Serial numbered /552
+chrome,CP92,Sean Burnett,Pittsburgh Pirates,,Serial numbered /552
+chrome,CP93,Justin Wayne,Montreal Expos,,Serial numbered /552
+chrome,CP94,Eric Munson,Detroit Tigers,,Serial numbered /552
+chrome,CP95,Steve Smyth,Chicago Cubs,,Serial numbered /552
+chrome,CP96,Matt Galante,St. Louis Cardinals,,Serial numbered /552
+chrome,CP97,Carmen Cali,St. Louis Cardinals,,Serial numbered /552
+chrome,CP98,Brian Sellier,Toronto Blue Jays,,Serial numbered /552
+chrome,CP99,David Parrish,New York Yankees,,Serial numbered /552
+chrome,CP100,Danny Borrell,New York Yankees,,Serial numbered /552
+chrome,CP101,Chad Petty,Detroit Tigers,,Serial numbered /552
+chrome,CP102,Dominic Rich,Toronto Blue Jays,,Serial numbered /552
+chrome,CP103,Josh Axelson,St. Louis Cardinals,,Serial numbered /552
+chrome,CP104,Alex Serrano,Colorado Rockies,,Serial numbered /552
+chrome,CP105,Juan Uribe,Colorado Rockies,,Serial numbered /552
+chrome,CP106,Travis Baptist,Pittsburgh Pirates,,Serial numbered /552
+chrome,CP107,Alan Mahaffey,Cleveland Indians,,Serial numbered /552
+chrome,CP108,Kyle Lohse,Minnesota Twins,,Serial numbered /552
+chrome,CP109,Victor Hall,Arizona Diamondbacks,,Serial numbered /552
+chrome,CP110,Scott Pratt,Cleveland Indians,,Serial numbered /552
+classic,CR1,Mark McGwire,St. Louis Cardinals,,
+classic,CR2,Nomar Garciaparra,Boston Red Sox,,
+classic,CR3,Barry Bonds,San Francisco Giants,,
+classic,CR4,Sammy Sosa,Chicago Cubs,,
+classic,CR5,Chipper Jones,Atlanta Braves,,
+classic,CR6,Pat Burrell,Philadelphia Phillies,,
+classic,CR7,Frank Thomas,Chicago White Sox,,
+classic,CR8,Manny Ramirez,Cleveland Indians,,
+classic,CR9,Derek Jeter,New York Yankees,,
+classic,CR10,Ken Griffey Jr.,Cincinnati Reds,,
+new-age,NAP1,Mike Piazza,New York Mets,,
+new-age,NAP2,Sammy Sosa,Chicago Cubs,,
+new-age,NAP3,Alex Rodriguez,Seattle Mariners,,
+new-age,NAP4,Barry Bonds,San Francisco Giants,,
+new-age,NAP5,Ken Griffey Jr.,Cincinnati Reds,,
+new-age,NAP6,Chipper Jones,Atlanta Braves,,
+new-age,NAP7,Randy Johnson,Arizona Diamondbacks,,
+new-age,NAP8,Derek Jeter,New York Yankees,,
+new-age,NAP9,Nomar Garciaparra,Boston Red Sox,,
+new-age,NAP10,Mark McGwire,St. Louis Cardinals,,
+new-age,NAP11,Jeff Bagwell,Houston Astros,,
+new-age,NAP12,Pedro Martinez,Boston Red Sox,,
+new-age,NAP13,Todd Helton,Colorado Rockies,,
+new-age,NAP14,Vladimir Guerrero,Montreal Expos,,
+new-age,NAP15,Greg Maddux,Atlanta Braves,,
+then-now,TH1,Yogi Berra / Mike Piazza,New York Yankees / New York Mets,,
+then-now,TH2,Duke Snider / Sammy Sosa,Brooklyn Dodgers / Chicago Cubs,,
+then-now,TH3,Willie Mays / Ken Griffey Jr.,San Francisco Giants / Cincinnati Reds,,
+then-now,TH4,Phil Rizzuto / Derek Jeter,New York Yankees,,
+then-now,TH5,Pee Wee Reese / Nomar Garciaparra,Brooklyn Dodgers / Boston Red Sox,,
+then-now,TH6,Jackie Robinson / Alex Rodriguez,Brooklyn Dodgers / Seattle Mariners,,
+then-now,TH7,Johnny Mize / Mark McGwire,St. Louis Cardinals,,
+then-now,TH8,Bob Feller / Pedro Martinez,Cleveland Indians / Boston Red Sox,,
+then-now,TH9,Robin Roberts / Greg Maddux,Philadelphia Phillies / Atlanta Braves,,
+then-now,TH10,Warren Spahn / Randy Johnson,Milwaukee Braves / Arizona Diamondbacks,,
+autographs,THA-AH,Aubrey Huff,Tampa Bay Devil Rays,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-AP,Andy Pafko,Brooklyn Dodgers,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-AR,Alex Rodriguez,Seattle Mariners,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-BB,Barry Bonds,San Francisco Giants,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-BS,Bobby Shantz,Philadelphia Athletics,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-BT,Bobby Thomson,New York Giants,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-CD,Carlos Delgado,Toronto Blue Jays,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-CF,Cliff Floyd,Florida Marlins,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-CJ,Chipper Jones,Atlanta Braves,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-CP,Corey Patterson,Chicago Cubs,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-CS,Curt Simmons,Philadelphia Phillies,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-DD,Dom DiMaggio,Boston Red Sox,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-DG,Dick Groat,Pittsburgh Pirates,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-DS,Duke Snider,Brooklyn Dodgers,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-ES,Enos Slaughter,St. Louis Cardinals,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-FV,Fernando Vina,St. Louis Cardinals,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-GJ,Geoff Jenkins,Milwaukee Brewers,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-GM,Gil McDougald,New York Yankees,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-HB,Hank Bauer,New York Yankees,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-HS,Hank Sauer,Chicago Cubs,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-HW,Hoyt Wilhelm,New York Giants,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-JG,Joe Garagiola,Pittsburgh Pirates,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-JM,Joe Mays,Minnesota Twins,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-JS,Johnny Sain,New York Yankees,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-JV,Jose Vidro,Montreal Expos,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-KB,Kris Benson,Pittsburgh Pirates,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-MB,Mark Buehrle,Chicago White Sox,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-MI,Monte Irvin,New York Giants,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-ML,Mike Lamb,Texas Rangers,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-ML2,Matt Lawton,Minnesota Twins,,"Printed THA-ML; local ID THA-ML2 distinguishes Mike Lamb; Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-MM,Orestes Minoso,Chicago White Sox,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-MO,Magglio Ordonez,Chicago White Sox,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-MQ,Mark Quinn,Kansas City Royals,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-MR,Mark Redman,Minnesota Twins,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-MS,Mike Sweeney,Kansas City Royals,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-MV,Mickey Vernon,Washington Senators,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-NG,Nomar Garciaparra,Boston Red Sox,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-PR,Preacher Roe,Brooklyn Dodgers,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-PFR,Phil Rizzuto,New York Yankees,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-RH,Richard Hidalgo,Houston Astros,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-RR,Robin Roberts,Philadelphia Phillies,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-RS,Red Schoendienst,St. Louis Cardinals,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-RW,Randy Wolf,Philadelphia Phillies,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-SPB,Sean Burroughs,San Diego Padres,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-TG,Tom Glavine,Atlanta Braves,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-TH,Todd Helton,Colorado Rockies,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-TL,Terrence Long,Oakland Athletics,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-VL,Vernon Law,Pittsburgh Pirates,,"1952 Topps #81; Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-WM,Willie Mays,New York Giants,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+autographs,THA-WS,Warren Spahn,Boston Braves,,"Certified autograph; blue ink; reported print run 200, not serial numbered"
+red-ink,THA-AH,Aubrey Huff,Tampa Bay Devil Rays,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-AP,Andy Pafko,Brooklyn Dodgers,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-AR,Alex Rodriguez,Seattle Mariners,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-BB,Barry Bonds,San Francisco Giants,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-BS,Bobby Shantz,Philadelphia Athletics,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-BT,Bobby Thomson,New York Giants,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-CD,Carlos Delgado,Toronto Blue Jays,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-CF,Cliff Floyd,Florida Marlins,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-CJ,Chipper Jones,Atlanta Braves,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-CP,Corey Patterson,Chicago Cubs,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-CS,Curt Simmons,Philadelphia Phillies,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-DD,Dom DiMaggio,Boston Red Sox,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-DG,Dick Groat,Pittsburgh Pirates,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-DS,Duke Snider,Brooklyn Dodgers,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-ES,Enos Slaughter,St. Louis Cardinals,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-FV,Fernando Vina,St. Louis Cardinals,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-GJ,Geoff Jenkins,Milwaukee Brewers,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-GM,Gil McDougald,New York Yankees,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-HB,Hank Bauer,New York Yankees,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-HS,Hank Sauer,Chicago Cubs,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-HW,Hoyt Wilhelm,New York Giants,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-JG,Joe Garagiola,Pittsburgh Pirates,,Back identifies Pittsburgh Pirates; front carries Cardinals logo; Certified autograph; red ink; Hand numbered /52
+red-ink,THA-JM,Joe Mays,Minnesota Twins,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-JS,Johnny Sain,New York Yankees,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-JV,Jose Vidro,Montreal Expos,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-KB,Kris Benson,Pittsburgh Pirates,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-MB,Mark Buehrle,Chicago White Sox,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-MI,Monte Irvin,New York Giants,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-ML,Mike Lamb,Texas Rangers,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-ML2,Matt Lawton,Minnesota Twins,,Printed THA-ML; local ID THA-ML2 distinguishes Mike Lamb; Certified autograph; red ink; Hand numbered /52
+red-ink,THA-MM,Orestes Minoso,Chicago White Sox,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-MO,Magglio Ordonez,Chicago White Sox,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-MQ,Mark Quinn,Kansas City Royals,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-MR,Mark Redman,Minnesota Twins,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-MS,Mike Sweeney,Kansas City Royals,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-MV,Mickey Vernon,Washington Senators,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-NG,Nomar Garciaparra,Boston Red Sox,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-PR,Preacher Roe,Brooklyn Dodgers,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-PFR,Phil Rizzuto,New York Yankees,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-RH,Richard Hidalgo,Houston Astros,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-RR,Robin Roberts,Philadelphia Phillies,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-RS,Red Schoendienst,St. Louis Cardinals,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-RW,Randy Wolf,Philadelphia Phillies,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-SPB,Sean Burroughs,San Diego Padres,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-TG,Tom Glavine,Atlanta Braves,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-TH,Todd Helton,Colorado Rockies,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-TL,Terrence Long,Oakland Athletics,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-VL,Vernon Law,Pittsburgh Pirates,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-WM,Willie Mays,New York Giants,,Certified autograph; red ink; Unnumbered Eddie Mathews redemption replacement; not a pack-issued /52 card
+red-ink,THA-WS,Warren Spahn,Boston Braves,,Certified autograph; red ink; Hand numbered /52
+red-ink,THA-WMA,Willie Mays,New York Giants,,Printed THA-WM; local ID THA-WMA distinguishes numbered red ink; Certified autograph; red ink; Hand numbered /52
+classic-autographs,CRA-BB,Barry Bonds,San Francisco Giants,,Certified autograph; Serial numbered /25
+classic-autographs,CRA-CJ,Chipper Jones,Atlanta Braves,,Certified autograph; Serial numbered /25
+classic-autographs,CRA-NG,Nomar Garciaparra,Boston Red Sox,,Certified autograph; Serial numbered /25
+clubhouse,THCC-BB,Barry Bonds,San Francisco Giants,,Game-used bat
+clubhouse,THCC-CJ,Chipper Jones,Atlanta Braves,,Game-used bat
+clubhouse,THCC-DS,Duke Snider,Brooklyn Dodgers,,Game-used bat
+clubhouse,THCC-EM,Eddie Mathews,Milwaukee Braves,,Game-used bat
+clubhouse,THCC-FT,Frank Thomas,Chicago White Sox,,Game-used jersey
+clubhouse,THCC-FV,Fernando Vina,St. Louis Cardinals,,Game-used bat
+clubhouse,THCC-MM,Minnie Minoso,Chicago White Sox,,Game-used jersey
+clubhouse,THCC-RA,Richie Ashburn,Philadelphia Phillies,,Game-used bat
+clubhouse,THCC-RS,Red Schoendienst,St. Louis Cardinals,,Game-used bat
+clubhouse,THCC-SG,Shawn Green,Los Angeles Dodgers,,Game-used bat
+clubhouse,THCC-SR,Scott Rolen,Philadelphia Phillies,,Game-used bat
+clubhouse,THCC-WM,Willie Mays,San Francisco Giants,,Game-used bat
+clubhouse-dual,THCC-DSSG,Duke Snider / Shawn Green,Brooklyn Dodgers / Los Angeles Dodgers,,Game-used bat; Serial numbered /52
+clubhouse-dual,THCC-EMCJ,Eddie Mathews / Chipper Jones,Milwaukee Braves / Atlanta Braves,,Game-used bat; Serial numbered /52
+clubhouse-dual,THCC-MMFT,Minnie Minoso / Frank Thomas,Chicago White Sox,,Game-used jersey; Serial numbered /52
+clubhouse-dual,THCC-RASR,Richie Ashburn / Scott Rolen,Philadelphia Phillies,,Game-used bat; Serial numbered /52
+clubhouse-dual,THCC-RSFV,Red Schoendienst / Fernando Vina,St. Louis Cardinals,,Game-used bat; Serial numbered /52
+clubhouse-dual,THCC-WMBB,Willie Mays / Barry Bonds,San Francisco Giants,,Game-used bat; Serial numbered /52
+clubhouse-autographs,THCC-DS,Duke Snider,Brooklyn Dodgers,,Certified autograph; game-used bat; Serial numbered /25
+clubhouse-autographs,THCC-MM,Minnie Minoso,Chicago White Sox,,Certified autograph; game-used jersey; Serial numbered /25
+clubhouse-autographs,THCC-RS,Red Schoendienst,St. Louis Cardinals,,Certified autograph; game-used bat; Serial numbered /25
+clubhouse-autographs,THCC-WM,Willie Mays,San Francisco Giants,,Certified autograph; game-used bat; Serial numbered /25
+grandstand,THGG-JR,Jackie Robinson,Brooklyn Dodgers,,Stadium-seat relic; not player-used equipment
+grandstand,THGG-NF,Nellie Fox,Chicago White Sox,,Stadium-seat relic; not player-used equipment
+grandstand,THGG-PR,Phil Rizzuto,New York Yankees,,Stadium-seat relic; not player-used equipment
+grandstand,THGG-RA,Richie Ashburn,Philadelphia Phillies,,Stadium-seat relic; not player-used equipment
+grandstand,THGG-RR,Robin Roberts,Philadelphia Phillies,,Stadium-seat relic; not player-used equipment
+grandstand,THGG-WM,Willie Mays,New York Giants,,Stadium-seat relic; not player-used equipment
+grandstand,THGG-YB,Yogi Berra,New York Yankees,,Stadium-seat relic; not player-used equipment
+time-capsule,THTC-DN,Don Newcombe,Brooklyn Dodgers,,Korean War-era uniform relic; not worn by featured player(s)
+time-capsule,THTC-TW,Ted Williams,Boston Red Sox,,Korean War-era uniform relic; not worn by featured player(s)
+time-capsule,THTC-WF,Whitey Ford,New York Yankees,,Korean War-era uniform relic; not worn by featured player(s)
+time-capsule,THTC-WM,Willie Mays,New York Giants,,Korean War-era uniform relic; not worn by featured player(s)
+time-capsule,THTC-WMTW,Willie Mays / Ted Williams,New York Giants / Boston Red Sox,,Korean War-era uniform relic; not worn by featured player(s); Serial numbered /52
+autoproofs,261,Willie Mays,New York Giants,,1952 Topps Buy Back Autograph; Serial numbered /25

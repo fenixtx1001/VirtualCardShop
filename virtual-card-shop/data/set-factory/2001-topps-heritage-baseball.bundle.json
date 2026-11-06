@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1498/2001-Topps-Heritage",
+    "checklistReference": "https://www.tcdb.com/Checklist.cfm/sid/1498/2001-Topps-Heritage?PageIndex=1",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/1498/2001-Topps-Heritage",
+    "insertReference": "https://www.tcdb.com/Inserts.cfm/sid/1498/2001-Topps-Heritage",
+    "independentReference": "https://www.cardboardconnection.com/2001-topps-heritage-baseball-cards",
+    "supplementaryTeamReference": "https://mycardbatch.com/checklists/topps-heritage-2001-baseball",
+    "historicalOddsReference": "https://baseballcardpedia.com/index.php/2001_Topps_Heritage"
+  },
+  "decisions": {
+    "inventory": "773 actual catalogue cards in fifteen complete collector families: 487 expanded base, 2 loose checklists, 110 Chrome, 10 Classic Renditions, 15 New Age Performers, 10 Then and Now, 50 blue autographs, 51 red autographs including unnumbered Mays replacement, 3 Classic autographs, 12 single/6 dual/4 autograph Clubhouse Collection relics, 7 Grandstand Glory, 5 Time Capsule, 1 box-only AutoProof. Complete CSV executed and validated; no expected-count placeholders.",
+    "baseVariations": "Base 407 subjects plus 80 additional red/black-back variants. Local A/B are not printed. Ten mid-series black-only backs and #41 Buehrle misspelling retained. High numbers 311-407 kept within same base family; range scarcity flattened under existing conventions.",
+    "rookies": "Exactly 22 independently corroborated true base RCs. No Ichiro or Pujols in this product. Chrome and autograph marketing do not confer true RC suffixes.",
+    "autographs": "50 actually signed subjects per colour, not intended 52. Exclude non-signed Eddie Mathews/Larry Doby paper redemptions. Retain the actual unnumbered Mays red replacement alongside 50 /52 cards in complete red collector family, with null pack odds. Duplicate THA-ML and numbered Mays local suffixes explicitly identified as catalogue-only.",
+    "numbering": "Exact TCDB catalogue identifiers preserved except TH spacing normalized and duplicate blue THA-ML Matt Lawton locally THA-ML2. Autograph relic source discrepancy resolved by original Snider THCC-DS /25 back. CBC extra A forms are catalogue aliases, not extra cards.",
+    "namesTeams": "Every available full supplementary tuple checked; its 49-card blue autograph table omits duplicate-number Matt Lawton, covered by two independent complete rosters. Historical New York Giants, Brooklyn Dodgers, Boston/Milwaukee Braves, Philadelphia Athletics, Washington Senators retained. Red Joe Garagiola team corrected to Pittsburgh from explicit original back, matching blue ink; conflicting Cardinals front logo documented. Only loose checklist cards have blank teams.",
+    "packConfiguration": "Original Hobby box confirms 24 packs of eight cards. Wrapper confirms eight cards plus gum; gum is not an inventory card. Retail blaster seven packs is not Hobby configuration. Pack/box MSRP conflicts across sources irrelevant to VCS pending pricing.",
+    "packOdds": "ProductSet-level verified representable Hobby rates only. Mixed bat/jersey/dual families remain intact with odds null rather than arbitrary averaging or range/material splits. Red family includes non-pack replacement; AutoProof is box-only; both null. Full historical physical table preserved with its identified bat/signer count errors. No rounded, invented or box-to-pack odds.",
+    "exclusions": "Three pre-production dealer/media promos PP1-PP3, generic 1952-card and replica apparel exchange tickets, and non-signed Mathews/Doby exchange promises excluded. No fabricated autograph, extra Chrome refractor, hologram, or 1952 buyback checklist. Actual signed Mays #261 buyback retained separately with null pack odds.",
+    "verificationLimit": "Catalogue/metadata audit of every output row, plus selected original scans resolving pack configuration, numbering and team discrepancies; not a scan-by-scan audit of all cards. Source retrieval failures fail closed. Beckett direct retrieval 404, so its headline count was not used to pad roster; full TCDB/CBC/supplementary rosters used.",
+    "release": "Unreleased Admin draft for pricing/image harvesting. Blocked pending pack/collation QA, remaining mixed-family odds, images and pricing. No production DB or deployment."
+  },
+  "product": {
+    "id": "2001_Topps_Heritage_Baseball",
+    "year": 2001,
+    "brand": "Topps Heritage",
+    "sport": "Baseball",
+    "cardsPerPack": 8,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "checklist": "VERIFIED_773_CARDS_15_FAMILIES_AGAINST_CATALOGUES",
+    "rookieDesignation": "VERIFIED_22_BASE_RCS",
+    "scanReview": "SELECTED_ORIGINAL_SCANS_COMPLETE_FULL_HARVEST_PENDING",
+    "packCollation": "PENDING_BASE_VARIATIONS_AND_MIXED_HITS",
+    "insertOdds": "PARTIAL_MIXED_FAMILIES_AND_NON_PACK_ISSUES_NULL",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "2001-topps-heritage-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2001_Topps_Heritage_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 1498,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1498/2001-Topps-Heritage?PageIndex=1",
+      "expectedCards": 487,
+      "notes": "407 numbered subjects; 80 extra red/black-back variants give 487 rows. Local A/B suffixes are catalogue IDs, not printed. Keep all in one base family; low-number scarcity/high numbers 1:2 preserved in research; no range splitting."
+    },
+    {
+      "key": "checklists",
+      "id": "2001_Topps_Heritage_Baseball_Checklists",
+      "name": "Checklists",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 128363,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/128363/2001-Topps-Heritage-Checklists",
+      "expectedCards": 2,
+      "notes": "Two separately catalogued loose checklists: #1 1-359; #2 360-407 and Inserts. Blank teams intentional. Frequency unverified, null."
+    },
+    {
+      "key": "chrome",
+      "id": "2001_Topps_Heritage_Baseball_Chrome",
+      "name": "Chrome",
+      "kind": "PARALLEL",
+      "oddsPerPack": 25,
+      "sourceSetId": 13123,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/13123/2001-Topps-Heritage-Chrome",
+      "expectedCards": 110,
+      "notes": "Full 110-card partial parallel CP1-CP110, /552. Hobby/retail 1:25; no extra 407-card chrome family or refractors invented."
+    },
+    {
+      "key": "classic",
+      "id": "2001_Topps_Heritage_Baseball_Classic_Renditions",
+      "name": "Classic Renditions",
+      "kind": "INSERT",
+      "oddsPerPack": 5,
+      "sourceSetId": 9220,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9220/2001-Topps-Heritage-Classic-Renditions",
+      "expectedCards": 10,
+      "notes": "Full ten-card CR1-CR10; Hobby 1:5, retail 1:9."
+    },
+    {
+      "key": "new-age",
+      "id": "2001_Topps_Heritage_Baseball_New_Age_Performers",
+      "name": "New Age Performers",
+      "kind": "INSERT",
+      "oddsPerPack": 8,
+      "sourceSetId": 9224,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9224/2001-Topps-Heritage-New-Age-Performers",
+      "expectedCards": 15,
+      "notes": "Full fifteen-card NAP1-NAP15; Hobby 1:8, retail 1:15."
+    },
+    {
+      "key": "then-now",
+      "id": "2001_Topps_Heritage_Baseball_Then_and_Now",
+      "name": "Then and Now",
+      "kind": "INSERT",
+      "oddsPerPack": 8,
+      "sourceSetId": 9226,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9226/2001-Topps-Heritage-Then-and-Now",
+      "expectedCards": 10,
+      "notes": "Full ten-card TH1-TH10 dual-player checklist; Hobby 1:8, retail 1:15. TCDB spacing TH 1 normalized to TH1."
+    },
+    {
+      "key": "autographs",
+      "id": "2001_Topps_Heritage_Baseball_Autographs",
+      "name": "Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": 142,
+      "sourceSetId": 9217,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9217/2001-Topps-Heritage-Autographs",
+      "expectedCards": 50,
+      "notes": "50 actual signed blue-ink subjects; reported print run 200 each, NOT serial numbered. Hobby 1:142. No signed Mathews/Doby invented; their expired paper exchanges excluded. Duplicate printed THA-ML uses local THA-ML2 for Matt Lawton."
+    },
+    {
+      "key": "red-ink",
+      "id": "2001_Topps_Heritage_Baseball_Autographs_Red_Ink",
+      "name": "Autographs Red Ink",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 9218,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9218/2001-Topps-Heritage-Autographs-Red-Ink",
+      "expectedCards": 51,
+      "notes": "50 numbered /52 signed subjects plus one unnumbered Mays replacement =51 actual cards. Excludes unsigned Mathews exchange. THA-WMA identifies numbered Mays locally; printed THA-WM. Physical numbered-red Hobby 1:545; entire family null because replacement was not pack-issued and current engine cannot filter it within family."
+    },
+    {
+      "key": "classic-autographs",
+      "id": "2001_Topps_Heritage_Baseball_Classic_Renditions_Autographs",
+      "name": "Classic Renditions Autographs",
+      "kind": "PARALLEL",
+      "oddsPerPack": 19710,
+      "sourceSetId": 9221,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9221/2001-Topps-Heritage-Classic-Renditions-Autograph",
+      "expectedCards": 3,
+      "notes": "Complete three-card /25 family, CRA-BB/CJ/NG. Hobby 1:19710."
+    },
+    {
+      "key": "clubhouse",
+      "id": "2001_Topps_Heritage_Baseball_Clubhouse_Collection_Relics",
+      "name": "Clubhouse Collection Relics",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 9222,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9222/2001-Topps-Heritage-Clubhouse-Collection-Relics",
+      "expectedCards": 12,
+      "notes": "Complete twelve-card family: ten bats, two jerseys. BCP odds table 20 bats is erroneous. Physical bat 1:590 / jersey 1:798 Hobby; null combined family pending mixed-material collation QA."
+    },
+    {
+      "key": "clubhouse-dual",
+      "id": "2001_Topps_Heritage_Baseball_Clubhouse_Collection_Dual_Relics",
+      "name": "Clubhouse Collection Dual Relics",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 536012,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/536012/2001-Topps-Heritage-Clubhouse-Collection-Dual-Relics",
+      "expectedCards": 6,
+      "notes": "Complete six-card /52 family, five dual bats and one dual jersey. BCP roster omits two cards; TCDB and CBC complete. Hobby bats 1:5701 / jersey 1:28744; combined-family odds null."
+    },
+    {
+      "key": "clubhouse-autographs",
+      "id": "2001_Topps_Heritage_Baseball_Clubhouse_Collection_Autograph_Relics",
+      "name": "Clubhouse Collection Autograph Relics",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 221176,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/221176/2001-Topps-Heritage-Clubhouse-Collection-Autograph-Relics",
+      "expectedCards": 4,
+      "notes": "Four completed /25 autograph relic cards (three bats, one jersey). Original Snider back confirms THCC-DS, not THCC-ADS. Hobby bats 1:19710 / jersey 1:62714; combined-family odds null."
+    },
+    {
+      "key": "grandstand",
+      "id": "2001_Topps_Heritage_Baseball_Grandstand_Glory",
+      "name": "Grandstand Glory",
+      "kind": "INSERT",
+      "oddsPerPack": 211,
+      "sourceSetId": 9223,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9223/2001-Topps-Heritage-Grandstand-Glory",
+      "expectedCards": 7,
+      "notes": "Complete seven stadium-seat relics; not player-used gear. Hobby/retail 1:211."
+    },
+    {
+      "key": "time-capsule",
+      "id": "2001_Topps_Heritage_Baseball_Time_Capsule",
+      "name": "Time Capsule",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 9227,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9227/2001-Topps-Heritage-Time-Capsule",
+      "expectedCards": 5,
+      "notes": "Four singles plus one Mays/Williams dual /52. Korean War-era uniform material NOT worn by featured players. Hobby singles 1:369 / dual 1:28744; combined-family odds null."
+    },
+    {
+      "key": "autoproofs",
+      "id": "2001_Topps_Heritage_Baseball_AutoProofs",
+      "name": "AutoProofs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 9219,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9219/2001-Topps-Heritage-AutoProofs",
+      "expectedCards": 1,
+      "notes": "1952 Topps Willie Mays #261 buyback autograph /25, Hobby BOX topper 1:5749 boxes. Not pack-issued; odds null, never treat boxes as packs."
+    }
+  ]
+}
