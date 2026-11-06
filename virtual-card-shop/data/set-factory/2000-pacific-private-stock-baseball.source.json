@@ -1,0 +1,7834 @@
+{
+  "schemaVersion": 1,
+  "productId": "2000_Pacific_Private_Stock_Baseball",
+  "retrievedAt": "2026-11-05",
+  "sources": {
+    "base-1": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/1401/2000-Pacific-Private-Stock?PageIndex=1",
+      "sha256": "44f8457b29fc465ac2d75e965124aa7b711d0b8077a1b079435b9223af39e27d",
+      "records": [
+        [
+          "1",
+          "Darin Erstad",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "2",
+          "Troy Glaus",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "3",
+          "Tim Salmon",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "4",
+          "Mo Vaughn",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "5",
+          "Jay Bell",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "6",
+          "Luis Gonzalez",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "7",
+          "Randy Johnson",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "8",
+          "Matt Williams",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "9",
+          "Andruw Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "10",
+          "Chipper Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "11",
+          "Brian Jordan",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "12",
+          "Greg Maddux",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "13",
+          "Kevin Millwood",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "14",
+          "Albert Belle",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "15",
+          "Mike Mussina",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "16",
+          "Cal Ripken Jr.",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "17",
+          "B.J. Surhoff",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "18",
+          "Nomar Garciaparra",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "19",
+          "Butch Huskey",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "20",
+          "Pedro Martinez",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "21",
+          "Troy O'Leary",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "22",
+          "Mark Grace",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "23",
+          "Bo Porter ROO, SP",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "24",
+          "Henry Rodriguez",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "25",
+          "Sammy Sosa",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "26",
+          "Kerry Wood",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "27",
+          "Jason Dellaero ROO, SP",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "28",
+          "Ray Durham",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "29",
+          "Paul Konerko",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "30",
+          "Carlos Lee",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "31",
+          "Magglio Ordonez",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "32",
+          "Frank Thomas",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "33",
+          "Mike Cameron",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "34",
+          "Sean Casey",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "35",
+          "Barry Larkin",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "36",
+          "Greg Vaughn",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "37",
+          "Roberto Alomar",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "38",
+          "Russell Branyan ROO, SP",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "39",
+          "Kenny Lofton",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "40",
+          "Manny Ramirez",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "41",
+          "Richie Sexson",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "42",
+          "Jim Thome",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "43",
+          "Omar Vizquel",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "44",
+          "Pedro Astacio",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "45",
+          "Vinny Castilla",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "46",
+          "Todd Helton",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "47",
+          "Ben Petrick ROO, SP",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "48",
+          "Juan Sosa ROO, RC, SP",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "49",
+          "Larry Walker",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "50",
+          "Tony Clark",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "51",
+          "Damion Easley",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "52",
+          "Juan Encarnacion",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "53",
+          "Robert Fick ROO, SP",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "54",
+          "Dean Palmer",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "55",
+          "A.J. Burnett ROO, SP",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "56",
+          "Luis Castillo",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "57",
+          "Alex Gonzalez",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "58",
+          "Julio Ramirez ROO, SP",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "59",
+          "Preston Wilson",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "60",
+          "Jeff Bagwell",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "61",
+          "Craig Biggio",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "62",
+          "Ken Caminiti",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "63",
+          "Carl Everett",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "64",
+          "Mike Hampton",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "65",
+          "Billy Wagner",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "66",
+          "Carlos Beltran",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "67",
+          "Dermal Brown ROO, SP",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "68",
+          "Jermaine Dye",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "69",
+          "Carlos Febles",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "70",
+          "Mark Quinn ROO, SP",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "71",
+          "Mike Sweeney",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "72",
+          "Kevin Brown",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "73",
+          "Eric Gagne ROO, SP",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "74",
+          "Eric Karros",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "75",
+          "Raul Mondesi",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "76",
+          "Gary Sheffield",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "77",
+          "Jeromy Burnitz",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "78",
+          "Jeff Cirillo",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "79",
+          "Geoff Jenkins",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "80",
+          "Dave Nilsson",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "81",
+          "Ron Coomer",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "82",
+          "Jacque Jones",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "83",
+          "Corey Koskie",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "84",
+          "Brad Radke",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "85",
+          "Tony Armas Jr. ROO, SP",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "86",
+          "Peter Bergeron ROO, SP",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "87",
+          "Vladimir Guerrero",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "88",
+          "Jose Vidro",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "89",
+          "Rondell White",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "90",
+          "Edgardo Alfonzo",
+          "New York Mets",
+          ""
+        ],
+        [
+          "91",
+          "Roger Cedeno",
+          "New York Mets",
+          ""
+        ],
+        [
+          "92",
+          "Rickey Henderson",
+          "New York Mets",
+          ""
+        ],
+        [
+          "93",
+          "Jay Payton ROO, SP",
+          "New York Mets",
+          ""
+        ],
+        [
+          "94",
+          "Mike Piazza",
+          "New York Mets",
+          ""
+        ],
+        [
+          "95",
+          "Jorge Toca ROO, SP",
+          "New York Mets",
+          ""
+        ],
+        [
+          "96",
+          "Robin Ventura",
+          "New York Mets",
+          ""
+        ],
+        [
+          "97",
+          "Roger Clemens",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "98",
+          "David Cone",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "99",
+          "Derek Jeter",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "100",
+          "D'Angelo Jimenez ROO, SP",
+          "New York Yankees",
+          ""
+        ]
+      ]
+    },
+    "base-2": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/1401/2000-Pacific-Private-Stock?PageIndex=2",
+      "sha256": "7088cd50d621982068e3a317ef9bdbb23b18734cf110c3974208f426b1f3f7d1",
+      "records": [
+        [
+          "101",
+          "Tino Martinez",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "102",
+          "Alfonso Soriano ROO, SP",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "103",
+          "Bernie Williams",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "104",
+          "Jason Giambi",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "105",
+          "Ben Grieve",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "106",
+          "Tim Hudson",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "107",
+          "Matt Stairs",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "108",
+          "Bobby Abreu",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "109",
+          "Doug Glanville",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "110",
+          "Scott Rolen",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "111",
+          "Curt Schilling",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "112",
+          "Brian Giles",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "113",
+          "Chad Hermansen ROO, SP",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "114",
+          "Jason Kendall",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "115",
+          "Warren Morris",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "116",
+          "Rick Ankiel ROO, SP",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "117",
+          "J.D. Drew",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "118",
+          "Adam Kennedy ROO, SP",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "119",
+          "Ray Lankford",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "120",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "121",
+          "Fernando Tatis",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "122",
+          "Mike Darr ROO, SP",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "123",
+          "Ben Davis",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "124",
+          "Tony Gwynn",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "125",
+          "Trevor Hoffman",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "126",
+          "Reggie Sanders",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "127",
+          "Barry Bonds",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "128",
+          "Ellis Burks",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "129",
+          "Jeff Kent",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "130",
+          "J.T. Snow",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "131",
+          "Freddy Garcia",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "132",
+          "Ken Griffey Jr.",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "133",
+          "Carlos Guillen ROO, SP",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "134",
+          "Edgar Martinez",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "135",
+          "Alex Rodriguez",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "136",
+          "Miguel Cairo",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "137",
+          "Jose Canseco",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "138",
+          "Steve Cox ROO, SP",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "139",
+          "Roberto Hernandez",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "140",
+          "Fred McGriff",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "141",
+          "Juan Gonzalez",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "142",
+          "Rusty Greer",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "143",
+          "Ruben Mateo ROO, SP",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "144",
+          "Rafael Palmeiro",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "145",
+          "Ivan Rodriguez",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "146",
+          "Carlos Delgado",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "147",
+          "Tony Fernandez",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "148",
+          "Shawn Green",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "149",
+          "Shannon Stewart",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "150",
+          "Vernon Wells ROO, SP",
+          "Toronto Blue Jays",
+          ""
+        ]
+      ]
+    },
+    "gold-1": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/12207/2000-Pacific-Private-Stock-Gold-Portraits?PageIndex=1",
+      "sha256": "85a4425d9b2839e4e4d4a24564cb44ea07d97db41d1d1ea39ed88d52a7388dc7",
+      "records": [
+        [
+          "1",
+          "Darin Erstad SN99",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "2",
+          "Troy Glaus SN99",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "3",
+          "Tim Salmon SN99",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "4",
+          "Mo Vaughn SN99",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "5",
+          "Jay Bell SN99",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "6",
+          "Luis Gonzalez SN99",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "7",
+          "Randy Johnson SN99",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "8",
+          "Matt Williams SN99",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "9",
+          "Andruw Jones SN99",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "10",
+          "Chipper Jones SN99",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "11",
+          "Brian Jordan SN99",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "12",
+          "Greg Maddux SN99",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "13",
+          "Kevin Millwood SN99",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "14",
+          "Albert Belle SN99",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "15",
+          "Mike Mussina SN99",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "16",
+          "Cal Ripken Jr. SN99",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "17",
+          "B.J. Surhoff SN99",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "18",
+          "Nomar Garciaparra SN99",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "19",
+          "Butch Huskey SN99",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "20",
+          "Pedro Martinez SN99",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "21",
+          "Troy O'Leary SN99",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "22",
+          "Mark Grace SN99",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "23",
+          "Bo Porter ROO, SN99",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "24",
+          "Henry Rodriguez SN99",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "25",
+          "Sammy Sosa SN99",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "26",
+          "Kerry Wood SN99",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "27",
+          "Jason Dellaero ROO, SN99",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "28",
+          "Ray Durham SN99",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "29",
+          "Paul Konerko SN99",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "30",
+          "Carlos Lee SN99",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "31",
+          "Magglio Ordonez SN99",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "32",
+          "Frank Thomas SN99",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "33",
+          "Mike Cameron SN99",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "34",
+          "Sean Casey SN99",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "35",
+          "Barry Larkin SN99",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "36",
+          "Greg Vaughn SN99",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "37",
+          "Roberto Alomar SN99",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "38",
+          "Russell Branyan ROO, SN99",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "39",
+          "Kenny Lofton SN99",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "40",
+          "Manny Ramirez SN99",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "41",
+          "Richie Sexson SN99",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "42",
+          "Jim Thome SN99",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "43",
+          "Omar Vizquel SN99",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "44",
+          "Dante Bichette SN99",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "45",
+          "Vinny Castilla SN99",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "46",
+          "Todd Helton SN99",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "47",
+          "Ben Petrick ROO, SN99",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "48",
+          "Juan Sosa ROO, SN99",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "49",
+          "Larry Walker SN99",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "50",
+          "Tony Clark SN99",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "51",
+          "Damion Easley SN99",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "52",
+          "Juan Encarnacion SN99",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "53",
+          "Robert Fick ROO, SN99",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "54",
+          "Dean Palmer SN99",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "55",
+          "A.J. Burnett ROO, SN99",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "56",
+          "Luis Castillo SN99",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "57",
+          "Alex Gonzalez SN99",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "58",
+          "Julio Ramirez ROO, SN99",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "59",
+          "Preston Wilson SN99",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "60",
+          "Jeff Bagwell SN99",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "61",
+          "Craig Biggio SN99",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "62",
+          "Ken Caminiti SN99",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "63",
+          "Carl Everett SN99",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "64",
+          "Mike Hampton SN99",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "65",
+          "Billy Wagner SN99",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "66",
+          "Carlos Beltran SN99",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "67",
+          "Dermal Brown ROO, SN99",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "68",
+          "Jermaine Dye SN99",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "69",
+          "Carlos Febles SN99",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "70",
+          "Mark Quinn ROO, SN99",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "71",
+          "Mike Sweeney SN99",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "72",
+          "Kevin Brown SN99",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "73",
+          "Eric Gagne ROO, SN99",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "74",
+          "Eric Karros SN99",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "75",
+          "Raul Mondesi SN99",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "76",
+          "Gary Sheffield SN99",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "77",
+          "Jeromy Burnitz SN99",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "78",
+          "Jeff Cirillo SN99",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "79",
+          "Geoff Jenkins SN99",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "80",
+          "Dave Nilsson SN99",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "81",
+          "Ron Coomer SN99",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "82",
+          "Jacque Jones SN99",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "83",
+          "Corey Koskie SN99",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "84",
+          "Brad Radke SN99",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "85",
+          "Tony Armas Jr. ROO, SN99",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "86",
+          "Peter Bergeron ROO, SN99",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "87",
+          "Vladimir Guerrero SN99",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "88",
+          "Jose Vidro SN99",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "89",
+          "Rondell White SN99",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "90",
+          "Edgardo Alfonzo SN99",
+          "New York Mets",
+          ""
+        ],
+        [
+          "91",
+          "Roger Cedeno SN99",
+          "New York Mets",
+          ""
+        ],
+        [
+          "92",
+          "Rickey Henderson SN99",
+          "New York Mets",
+          ""
+        ],
+        [
+          "93",
+          "Jay Payton ROO, SN99",
+          "New York Mets",
+          ""
+        ],
+        [
+          "94",
+          "Mike Piazza SN99",
+          "New York Mets",
+          ""
+        ],
+        [
+          "95",
+          "Jorge Toca ROO, SN99",
+          "New York Mets",
+          ""
+        ],
+        [
+          "96",
+          "Robin Ventura SN99",
+          "New York Mets",
+          ""
+        ],
+        [
+          "97",
+          "Roger Clemens SN99",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "98",
+          "David Cone SN99",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "99",
+          "Derek Jeter SN99",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "100",
+          "D'Angelo Jimenez ROO, SN99",
+          "New York Yankees",
+          ""
+        ]
+      ]
+    },
+    "gold-2": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/12207/2000-Pacific-Private-Stock-Gold-Portraits?PageIndex=2",
+      "sha256": "1b24e51ec6c1bd9b5f83f3670120141fea23128a780a9c32522251a53c3fbdc3",
+      "records": [
+        [
+          "101",
+          "Tino Martinez SN99",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "102",
+          "Alfonso Soriano ROO, SN99",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "103",
+          "Bernie Williams SN99",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "104",
+          "Jason Giambi SN99",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "105",
+          "Ben Grieve SN99",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "106",
+          "Tim Hudson SN99",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "107",
+          "Matt Stairs SN99",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "108",
+          "Bobby Abreu SN99",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "109",
+          "Doug Glanville SN99",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "110",
+          "Scott Rolen SN99",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "111",
+          "Curt Schilling SN99",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "112",
+          "Brian Giles SN99",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "113",
+          "Chad Hermansen ROO, SN99",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "114",
+          "Jason Kendall SN99",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "115",
+          "Warren Morris SN99",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "116",
+          "Rick Ankiel ROO, SN99",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "117",
+          "J.D. Drew SN99",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "118",
+          "Adam Kennedy ROO, SN99",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "119",
+          "Ray Lankford SN99",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "120",
+          "Mark McGwire SN99",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "121",
+          "Fernando Tatis SN99",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "122",
+          "Mike Darr ROO, SN99",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "123",
+          "Ben Davis SN99",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "124",
+          "Tony Gwynn SN99",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "125",
+          "Trevor Hoffman SN99",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "126",
+          "Reggie Sanders SN99",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "127",
+          "Barry Bonds SN99",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "128",
+          "Ellis Burks SN99",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "129",
+          "Jeff Kent SN99",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "130",
+          "J.T. Snow SN99",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "131",
+          "Freddy Garcia SN99",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "132",
+          "Ken Griffey Jr. SN99",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "133",
+          "Carlos Guillen ROO, SN99",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "134",
+          "Edgar Martinez SN99",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "135",
+          "Alex Rodriguez SN99",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "136",
+          "Miguel Cairo SN99",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "137",
+          "Jose Canseco SN99",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "138",
+          "Steve Cox ROO, SN99",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "139",
+          "Roberto Hernandez SN99",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "140",
+          "Fred McGriff SN99",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "141",
+          "Juan Gonzalez SN99",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "142",
+          "Rusty Greer SN99",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "143",
+          "Ruben Mateo ROO, SN99",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "144",
+          "Rafael Palmeiro SN99",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "145",
+          "Ivan Rodriguez SN99",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "146",
+          "Carlos Delgado SN99",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "147",
+          "Tony Fernandez SN99",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "148",
+          "Shawn Green SN99",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "149",
+          "Shannon Stewart SN99",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "150",
+          "Vernon Wells ROO, SN99",
+          "Toronto Blue Jays",
+          ""
+        ]
+      ]
+    },
+    "premiere-1": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/12208/2000-Pacific-Private-Stock-Premiere-Date?PageIndex=1",
+      "sha256": "47187f87aad245e9db4334dadc6da80b6a41f089f80f7383275fae190a8723a1",
+      "records": [
+        [
+          "1",
+          "Darin Erstad SN34",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "2",
+          "Troy Glaus SN34",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "3",
+          "Tim Salmon SN34",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "4",
+          "Mo Vaughn SN34",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "5",
+          "Jay Bell SN34",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "6",
+          "Luis Gonzalez SN34",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "7",
+          "Randy Johnson SN34",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "8",
+          "Matt Williams SN34",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "9",
+          "Andruw Jones SN34",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "10",
+          "Chipper Jones SN34",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "11",
+          "Brian Jordan SN34",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "12",
+          "Greg Maddux SN34",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "13",
+          "Kevin Millwood SN34",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "14",
+          "Albert Belle SN34",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "15",
+          "Mike Mussina SN34",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "16",
+          "Cal Ripken Jr. SN34",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "17",
+          "B.J. Surhoff SN34",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "18",
+          "Nomar Garciaparra SN34",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "19",
+          "Butch Huskey SN34",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "20",
+          "Pedro Martinez SN34",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "21",
+          "Troy O'Leary SN34",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "22",
+          "Mark Grace SN34",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "23",
+          "Bo Porter ROO, SN34",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "24",
+          "Henry Rodriguez SN34",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "25",
+          "Sammy Sosa SN34",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "26",
+          "Kerry Wood SN34",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "27",
+          "Jason Dellaero ROO, SN34",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "28",
+          "Ray Durham SN34",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "29",
+          "Paul Konerko SN34",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "30",
+          "Carlos Lee SN34",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "31",
+          "Magglio Ordonez SN34",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "32",
+          "Frank Thomas SN34",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "33",
+          "Mike Cameron SN34",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "34",
+          "Sean Casey SN34",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "35",
+          "Barry Larkin SN34",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "36",
+          "Greg Vaughn SN34",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "37",
+          "Roberto Alomar SN34",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "38",
+          "Russell Branyan ROO, SN34",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "39",
+          "Kenny Lofton SN34",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "40",
+          "Manny Ramirez SN34",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "41",
+          "Richie Sexson SN34",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "42",
+          "Jim Thome SN34",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "43",
+          "Omar Vizquel SN34",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "44",
+          "Pedro Astacio SN34",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "45",
+          "Vinny Castilla SN34",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "46",
+          "Todd Helton SN34",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "47",
+          "Ben Petrick ROO, SN34",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "48",
+          "Juan Sosa ROO, SN34",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "49",
+          "Larry Walker SN34",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "50",
+          "Tony Clark SN34",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "51",
+          "Damion Easley SN34",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "52",
+          "Juan Encarnacion SN34",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "53",
+          "Robert Fick ROO, SN34",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "54",
+          "Dean Palmer SN34",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "55",
+          "A.J. Burnett ROO, SN34",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "56",
+          "Luis Castillo SN34",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "57",
+          "Alex Gonzalez SN34",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "58",
+          "Julio Ramirez ROO, SN34",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "59",
+          "Preston Wilson SN34",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "60",
+          "Jeff Bagwell SN34",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "61",
+          "Craig Biggio SN34",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "62",
+          "Ken Caminiti SN34",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "63",
+          "Carl Everett SN34",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "64",
+          "Mike Hampton SN34",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "65",
+          "Billy Wagner SN34",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "66",
+          "Carlos Beltran SN34",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "67",
+          "Dermal Brown ROO, SN34",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "68",
+          "Jermaine Dye SN34",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "69",
+          "Carlos Febles SN34",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "70",
+          "Mark Quinn ROO, SN34",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "71",
+          "Mike Sweeney SN34",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "72",
+          "Kevin Brown SN34",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "73",
+          "Eric Gagne ROO, SN34",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "74",
+          "Eric Karros SN34",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "75",
+          "Raul Mondesi SN34",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "76",
+          "Gary Sheffield SN34",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "77",
+          "Jeromy Burnitz SN34",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "78",
+          "Jeff Cirillo SN34",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "79",
+          "Geoff Jenkins SN34",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "80",
+          "Dave Nilsson SN34",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "81",
+          "Ron Coomer SN34",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "82",
+          "Jacque Jones SN34",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "83",
+          "Corey Koskie SN34",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "84",
+          "Brad Radke SN34",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "85",
+          "Tony Armas Jr. ROO, SN34",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "86",
+          "Peter Bergeron ROO, SN34",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "87",
+          "Vladimir Guerrero SN34",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "88",
+          "Jose Vidro SN34",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "89",
+          "Rondell White SN34",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "90",
+          "Edgardo Alfonzo SN34",
+          "New York Mets",
+          ""
+        ],
+        [
+          "91",
+          "Roger Cedeno SN34",
+          "New York Mets",
+          ""
+        ],
+        [
+          "92",
+          "Rickey Henderson SN34",
+          "New York Mets",
+          ""
+        ],
+        [
+          "93",
+          "Jay Payton ROO, SN34",
+          "New York Mets",
+          ""
+        ],
+        [
+          "94",
+          "Mike Piazza SN34",
+          "New York Mets",
+          ""
+        ],
+        [
+          "95",
+          "Jorge Toca ROO, SN34",
+          "New York Mets",
+          ""
+        ],
+        [
+          "96",
+          "Robin Ventura SN34",
+          "New York Mets",
+          ""
+        ],
+        [
+          "97",
+          "Roger Clemens SN34",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "98",
+          "David Cone SN34",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "99",
+          "Derek Jeter SN34",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "100",
+          "D'Angelo Jimenez ROO, SN34",
+          "New York Yankees",
+          ""
+        ]
+      ]
+    },
+    "premiere-2": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/12208/2000-Pacific-Private-Stock-Premiere-Date?PageIndex=2",
+      "sha256": "d073e2c0884a37662f9c86ec89d676b183b0f1ee7867e59628ab44f04e0fcd2f",
+      "records": [
+        [
+          "101",
+          "Tino Martinez SN34",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "102",
+          "Alfonso Soriano ROO, SN34",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "103",
+          "Bernie Williams SN34",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "104",
+          "Jason Giambi SN34",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "105",
+          "Ben Grieve SN34",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "106",
+          "Tim Hudson SN34",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "107",
+          "Matt Stairs SN34",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "108",
+          "Bobby Abreu SN34",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "109",
+          "Doug Glanville SN34",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "110",
+          "Scott Rolen SN34",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "111",
+          "Curt Schilling SN34",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "112",
+          "Brian Giles SN34",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "113",
+          "Chad Hermansen ROO, SN34",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "114",
+          "Jason Kendall SN34",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "115",
+          "Warren Morris SN34",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "116",
+          "Rick Ankiel ROO, SN34",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "117",
+          "J.D. Drew SN34",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "118",
+          "Adam Kennedy ROO, SN34",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "119",
+          "Ray Lankford SN34",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "120",
+          "Mark McGwire SN34",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "121",
+          "Fernando Tatis SN34",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "122",
+          "Mike Darr ROO, SN34",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "123",
+          "Ben Davis SN34",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "124",
+          "Tony Gwynn SN34",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "125",
+          "Trevor Hoffman SN34",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "126",
+          "Reggie Sanders SN34",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "127",
+          "Barry Bonds SN34",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "128",
+          "Ellis Burks SN34",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "129",
+          "Jeff Kent SN34",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "130",
+          "J.T. Snow SN34",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "131",
+          "Freddy Garcia SN34",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "132",
+          "Ken Griffey Jr. SN34",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "133",
+          "Carlos Guillen ROO, SN34",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "134",
+          "Edgar Martinez SN34",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "135",
+          "Alex Rodriguez SN34",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "136",
+          "Miguel Cairo SN34",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "137",
+          "Jose Canseco SN34",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "138",
+          "Steve Cox ROO, SN34",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "139",
+          "Roberto Hernandez SN34",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "140",
+          "Fred McGriff SN34",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "141",
+          "Juan Gonzalez SN34",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "142",
+          "Rusty Greer SN34",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "143",
+          "Ruben Mateo ROO, SN34",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "144",
+          "Rafael Palmeiro SN34",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "145",
+          "Ivan Rodriguez SN34",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "146",
+          "Carlos Delgado SN34",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "147",
+          "Tony Fernandez SN34",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "148",
+          "Shawn Green SN34",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "149",
+          "Shannon Stewart SN34",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "150",
+          "Vernon Wells ROO, SN34",
+          "Toronto Blue Jays",
+          ""
+        ]
+      ]
+    },
+    "silver-1": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/12214/2000-Pacific-Private-Stock-Silver-Portraits?PageIndex=1",
+      "sha256": "0e5fc33aea540fc6ce4a26fedea54c40b8d3751d79558c47c388bd5ca5445030",
+      "records": [
+        [
+          "1",
+          "Darin Erstad SN199",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "2",
+          "Troy Glaus SN199",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "3",
+          "Tim Salmon SN199",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "4",
+          "Mo Vaughn SN199",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "5",
+          "Jay Bell SN199",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "6",
+          "Luis Gonzalez SN199",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "7",
+          "Randy Johnson SN199",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "8",
+          "Matt Williams SN199",
+          "Arizona Diamondbacks",
+          ""
+        ],
+        [
+          "9",
+          "Andruw Jones SN199",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "10",
+          "Chipper Jones SN199",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "11",
+          "Brian Jordan SN199",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "12",
+          "Greg Maddux SN199",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "13",
+          "Kevin Millwood SN199",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "14",
+          "Albert Belle SN199",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "15",
+          "Mike Mussina SN199",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "16",
+          "Cal Ripken Jr. SN199",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "17",
+          "B.J. Surhoff SN199",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "18",
+          "Nomar Garciaparra SN199",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "19",
+          "Butch Huskey SN199",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "20",
+          "Pedro Martinez SN199",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "21",
+          "Troy O'Leary SN199",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "22",
+          "Mark Grace SN199",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "23",
+          "Bo Porter ROO, SN199",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "24",
+          "Henry Rodriguez SN199",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "25",
+          "Sammy Sosa SN199",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "26",
+          "Kerry Wood SN199",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "27",
+          "Jason Dellaero ROO, SN199",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "28",
+          "Ray Durham SN199",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "29",
+          "Paul Konerko SN199",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "30",
+          "Carlos Lee SN199",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "31",
+          "Magglio Ordonez SN199",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "32",
+          "Frank Thomas SN199",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "33",
+          "Mike Cameron SN199",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "34",
+          "Sean Casey SN199",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "35",
+          "Barry Larkin SN199",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "36",
+          "Greg Vaughn SN199",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "37",
+          "Roberto Alomar SN199",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "38",
+          "Russell Branyan ROO, SN199",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "39",
+          "Kenny Lofton SN199",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "40",
+          "Manny Ramirez SN199",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "41",
+          "Richie Sexson SN199",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "42",
+          "Jim Thome SN199",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "43",
+          "Omar Vizquel SN199",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "44",
+          "Pedro Astacio SN199",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "45",
+          "Vinny Castilla SN199",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "46",
+          "Todd Helton SN199",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "47",
+          "Ben Petrick ROO, SN199",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "48",
+          "Juan Sosa ROO, SN199",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "49",
+          "Larry Walker SN199",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "50",
+          "Tony Clark SN199",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "51",
+          "Damion Easley SN199",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "52",
+          "Juan Encarnacion SN199",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "53",
+          "Robert Fick ROO, SN199",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "54",
+          "Dean Palmer SN199",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "55",
+          "A.J. Burnett ROO, SN199",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "56",
+          "Luis Castillo SN199",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "57",
+          "Alex Gonzalez SN199",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "58",
+          "Julio Ramirez ROO, SN199",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "59",
+          "Preston Wilson SN199",
+          "Florida Marlins",
+          ""
+        ],
+        [
+          "60",
+          "Jeff Bagwell SN199",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "61",
+          "Craig Biggio SN199",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "62",
+          "Ken Caminiti SN199",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "63",
+          "Carl Everett SN199",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "64",
+          "Mike Hampton SN199",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "65",
+          "Billy Wagner SN199",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "66",
+          "Carlos Beltran SN199",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "67",
+          "Dermal Brown ROO, SN199",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "68",
+          "Jermaine Dye SN199",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "69",
+          "Carlos Febles SN199",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "70",
+          "Mark Quinn ROO, SN199",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "71",
+          "Mike Sweeney SN199",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "72",
+          "Kevin Brown SN199",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "73",
+          "Eric Gagne ROO, SN199",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "74",
+          "Eric Karros SN199",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "75",
+          "Raul Mondesi SN199",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "76",
+          "Gary Sheffield SN199",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "77",
+          "Jeromy Burnitz SN199",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "78",
+          "Jeff Cirillo SN199",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "79",
+          "Geoff Jenkins SN199",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "80",
+          "Dave Nilsson SN199",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "81",
+          "Ron Coomer SN199",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "82",
+          "Jacque Jones SN199",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "83",
+          "Corey Koskie SN199",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "84",
+          "Brad Radke SN199",
+          "Minnesota Twins",
+          ""
+        ],
+        [
+          "85",
+          "Tony Armas Jr. ROO, SN199",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "86",
+          "Peter Bergeron ROO, SN199",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "87",
+          "Vladimir Guerrero SN199",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "88",
+          "Jose Vidro SN199",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "89",
+          "Rondell White SN199",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "90",
+          "Edgardo Alfonzo SN199",
+          "New York Mets",
+          ""
+        ],
+        [
+          "91",
+          "Roger Cedeno SN199",
+          "New York Mets",
+          ""
+        ],
+        [
+          "92",
+          "Rickey Henderson SN199",
+          "New York Mets",
+          ""
+        ],
+        [
+          "93",
+          "Jay Payton ROO, SN199",
+          "New York Mets",
+          ""
+        ],
+        [
+          "94",
+          "Mike Piazza SN199",
+          "New York Mets",
+          ""
+        ],
+        [
+          "95",
+          "Jorge Toca ROO, SN199",
+          "New York Mets",
+          ""
+        ],
+        [
+          "96",
+          "Robin Ventura SN199",
+          "New York Mets",
+          ""
+        ],
+        [
+          "97",
+          "Roger Clemens SN199",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "98",
+          "David Cone SN199",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "99",
+          "Derek Jeter SN199",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "100",
+          "D'Angelo Jimenez ROO, SN199",
+          "New York Yankees",
+          ""
+        ]
+      ]
+    },
+    "silver-2": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/12214/2000-Pacific-Private-Stock-Silver-Portraits?PageIndex=2",
+      "sha256": "b7d2bb78829d506e4a36426492b16ccffea1be6171b5ba33d162e5ddcc2ea281",
+      "records": [
+        [
+          "101",
+          "Tino Martinez SN199",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "102",
+          "Alfonso Soriano ROO, SN199",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "103",
+          "Bernie Williams SN199",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "104",
+          "Jason Giambi SN199",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "105",
+          "Ben Grieve SN199",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "106",
+          "Tim Hudson SN199",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "107",
+          "Matt Stairs SN199",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "108",
+          "Bobby Abreu SN199",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "109",
+          "Doug Glanville SN199",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "110",
+          "Scott Rolen SN199",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "111",
+          "Curt Schilling SN199",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "112",
+          "Brian Giles SN199",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "113",
+          "Chad Hermansen ROO, SN199",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "114",
+          "Jason Kendall SN199",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "115",
+          "Warren Morris SN199",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "116",
+          "Rick Ankiel ROO, SN199",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "117",
+          "J.D. Drew SN199",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "118",
+          "Adam Kennedy ROO, SN199",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "119",
+          "Ray Lankford SN199",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "120",
+          "Mark McGwire SN199",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "121",
+          "Fernando Tatis SN199",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "122",
+          "Mike Darr ROO, SN199",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "123",
+          "Ben Davis SN199",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "124",
+          "Tony Gwynn SN199",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "125",
+          "Trevor Hoffman SN199",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "126",
+          "Reggie Sanders SN199",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "127",
+          "Barry Bonds SN199",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "128",
+          "Ellis Burks SN199",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "129",
+          "Jeff Kent SN199",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "130",
+          "J.T. Snow SN199",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "131",
+          "Freddy Garcia SN199",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "132",
+          "Ken Griffey Jr. SN199",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "133",
+          "Carlos Guillen ROO, SN199",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "134",
+          "Edgar Martinez SN199",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "135",
+          "Alex Rodriguez SN199",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "136",
+          "Miguel Cairo SN199",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "137",
+          "Jose Canseco SN199",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "138",
+          "Steve Cox ROO, SN199",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "139",
+          "Roberto Hernandez SN199",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "140",
+          "Fred McGriff SN199",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "141",
+          "Juan Gonzalez SN199",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "142",
+          "Rusty Greer SN199",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "143",
+          "Ruben Mateo ROO, SN199",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "144",
+          "Rafael Palmeiro SN199",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "145",
+          "Ivan Rodriguez SN199",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "146",
+          "Carlos Delgado SN199",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "147",
+          "Tony Fernandez SN199",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "148",
+          "Shawn Green SN199",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "149",
+          "Shannon Stewart SN199",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "150",
+          "Vernon Wells ROO, SN199",
+          "Toronto Blue Jays",
+          ""
+        ]
+      ]
+    },
+    "canvas": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/12204/2000-Pacific-Private-Stock-Artists-Canvas",
+      "sha256": "e6218cdb98796c1fb93055e7113fd4fd768bae76ad8de189d8f9a6f201844f0e",
+      "records": [
+        [
+          "1",
+          "Chipper Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "2",
+          "Greg Maddux",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "3",
+          "Cal Ripken Jr.",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "4",
+          "Nomar Garciaparra",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "5",
+          "Sammy Sosa",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "6",
+          "Frank Thomas",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "7",
+          "Manny Ramirez",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "8",
+          "Larry Walker",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "9",
+          "Jeff Bagwell",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "10",
+          "Vladimir Guerrero",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "11",
+          "Mike Piazza",
+          "New York Mets",
+          ""
+        ],
+        [
+          "12",
+          "Roger Clemens",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "13",
+          "Derek Jeter",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "14",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "15",
+          "Tony Gwynn",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "16",
+          "Barry Bonds",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "17",
+          "Ken Griffey Jr.",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "18",
+          "Alex Rodriguez",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "19",
+          "Juan Gonzalez",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "20",
+          "Ivan Rodriguez",
+          "Texas Rangers",
+          ""
+        ]
+      ]
+    },
+    "canvas-proofs": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/12205/2000-Pacific-Private-Stock-Artists-Canvas-Proofs",
+      "sha256": "337d2dc9fdd71b5a8087632b71c9855aeaa466cbc7439d286d7b2081e2889034",
+      "records": [
+        [
+          "1",
+          "Chipper Jones SN1",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "2",
+          "Greg Maddux SN1",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "3",
+          "Cal Ripken Jr. SN1",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "4",
+          "Nomar Garciaparra SN1",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "5",
+          "Sammy Sosa SN1",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "6",
+          "Frank Thomas SN1",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "7",
+          "Manny Ramirez SN1",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "8",
+          "Larry Walker SN1",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "9",
+          "Jeff Bagwell SN1",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "10",
+          "Vladimir Guerrero SN1",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "11",
+          "Mike Piazza SN1",
+          "New York Mets",
+          ""
+        ],
+        [
+          "12",
+          "Roger Clemens SN1",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "13",
+          "Derek Jeter SN1",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "14",
+          "Mark McGwire SN1",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "15",
+          "Tony Gwynn SN1",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "16",
+          "Barry Bonds SN1",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "17",
+          "Ken Griffey Jr. SN1",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "18",
+          "Alex Rodriguez SN1",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "19",
+          "Juan Gonzalez SN1",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "20",
+          "Ivan Rodriguez SN1",
+          "Texas Rangers",
+          ""
+        ]
+      ]
+    },
+    "extreme": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/12206/2000-Pacific-Private-Stock-Extreme-Action",
+      "sha256": "2dfc59d97644b337646774aaf86b86e3e9da7dd4696aee6e97c40a109151fea2",
+      "records": [
+        [
+          "1",
+          "Andruw Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "2",
+          "Chipper Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "3",
+          "Cal Ripken Jr.",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "4",
+          "Nomar Garciaparra",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "5",
+          "Sammy Sosa",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "6",
+          "Frank Thomas",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "7",
+          "Roberto Alomar",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "8",
+          "Manny Ramirez",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "9",
+          "Larry Walker",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "10",
+          "Jeff Bagwell",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "11",
+          "Vladimir Guerrero",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "12",
+          "Mike Piazza",
+          "New York Mets",
+          ""
+        ],
+        [
+          "13",
+          "Derek Jeter",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "14",
+          "Bernie Williams",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "15",
+          "Scott Rolen",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "16",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "17",
+          "Tony Gwynn",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "18",
+          "Ken Griffey Jr.",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "19",
+          "Alex Rodriguez",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "20",
+          "Ivan Rodriguez",
+          "Texas Rangers",
+          ""
+        ]
+      ]
+    },
+    "action": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/12209/2000-Pacific-Private-Stock-PS-2000-Action",
+      "sha256": "951f33a5b406d7307459a1dc0e3b5cb24b345aeaf08dda78e0c9ec4af5af99eb",
+      "records": [
+        [
+          "1",
+          "Mo Vaughn",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "2",
+          "Greg Maddux",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "3",
+          "Andruw Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "4",
+          "Chipper Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "5",
+          "Cal Ripken Jr.",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "6",
+          "Nomar Garciaparra",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "7",
+          "Pedro Martinez",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "8",
+          "Sammy Sosa",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "9",
+          "Jason Dellaero",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "10",
+          "Magglio Ordonez",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "11",
+          "Frank Thomas",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "12",
+          "Sean Casey",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "13",
+          "Russell Branyan",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "14",
+          "Manny Ramirez",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "15",
+          "Richie Sexson",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "16",
+          "Ben Petrick",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "17",
+          "Juan Sosa",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "18",
+          "Larry Walker",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "19",
+          "Robert Fick",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "20",
+          "Craig Biggio",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "21",
+          "Jeff Bagwell",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "22",
+          "Carlos Beltran",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "23",
+          "Dermal Brown",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "24",
+          "Mark Quinn",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "25",
+          "Eric Gagne",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "26",
+          "Jeromy Burnitz",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "27",
+          "Tony Armas Jr.",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "28",
+          "Peter Bergeron",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "29",
+          "Vladimir Guerrero",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "30",
+          "Edgardo Alfonzo",
+          "New York Mets",
+          ""
+        ],
+        [
+          "31",
+          "Mike Piazza",
+          "New York Mets",
+          ""
+        ],
+        [
+          "32",
+          "Jorge Toca",
+          "New York Mets",
+          ""
+        ],
+        [
+          "33",
+          "Roger Clemens",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "34",
+          "Alfonso Soriano",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "35",
+          "Bernie Williams",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "36",
+          "Derek Jeter",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "37",
+          "Tim Hudson",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "38",
+          "Bobby Abreu",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "39",
+          "Scott Rolen",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "40",
+          "Brian Giles",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "41",
+          "Chad Hermansen",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "42",
+          "Warren Morris",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "43",
+          "Rick Ankiel",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "44",
+          "J.D. Drew",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "45",
+          "Adam Kennedy",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "46",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "47",
+          "Mike Darr",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "48",
+          "Tony Gwynn",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "49",
+          "Barry Bonds",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "50",
+          "Ken Griffey Jr.",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "51",
+          "Carlos Guillen",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "52",
+          "Alex Rodriguez",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "53",
+          "Juan Gonzalez",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "54",
+          "Ruben Mateo",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "55",
+          "Ivan Rodriguez",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "56",
+          "Rafael Palmeiro",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "57",
+          "Jose Canseco",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "58",
+          "Steve Cox",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "59",
+          "Shawn Green",
+          "Toronto Blue Jays",
+          ""
+        ],
+        [
+          "60",
+          "Vernon Wells",
+          "Toronto Blue Jays",
+          ""
+        ]
+      ]
+    },
+    "new-wave": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/12210/2000-Pacific-Private-Stock-PS-2000-New-Wave",
+      "sha256": "a127085ffbd8cec964b2f2ec572836d4add194d35eb6f4fe34c67f636cbc49a1",
+      "records": [
+        [
+          "1",
+          "Andruw Jones SN199",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "2",
+          "Chipper Jones SN199",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "3",
+          "Nomar Garciaparra SN199",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "4",
+          "Magglio Ordonez SN199",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "5",
+          "Sean Casey SN199",
+          "Cincinnati Reds",
+          ""
+        ],
+        [
+          "6",
+          "Manny Ramirez SN199",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "7",
+          "Richie Sexson SN199",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "8",
+          "Carlos Beltran SN199",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "9",
+          "Jeromy Burnitz SN199",
+          "Milwaukee Brewers",
+          ""
+        ],
+        [
+          "10",
+          "Vladimir Guerrero SN199",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "11",
+          "Edgardo Alfonzo SN199",
+          "New York Mets",
+          ""
+        ],
+        [
+          "12",
+          "Derek Jeter SN199",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "13",
+          "Tim Hudson SN199",
+          "Oakland Athletics",
+          ""
+        ],
+        [
+          "14",
+          "Bobby Abreu SN199",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "15",
+          "Scott Rolen SN199",
+          "Philadelphia Phillies",
+          ""
+        ],
+        [
+          "16",
+          "Brian Giles SN199",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "17",
+          "Warren Morris SN199",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "18",
+          "J.D. Drew SN199",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "19",
+          "Alex Rodriguez SN199",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "20",
+          "Shawn Green SN199",
+          "Toronto Blue Jays",
+          ""
+        ]
+      ]
+    },
+    "rookie-minis": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/12211/2000-Pacific-Private-Stock-PS-2000-Rookies",
+      "sha256": "10ffcd84f6f864c1478cc58b6c6209f8c5aee243a9b5b4868a0f063ed4ac5b44",
+      "records": [
+        [
+          "1",
+          "Jason Dellaero SN99",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "2",
+          "Russell Branyan SN99",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "3",
+          "Ben Petrick SN99",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "4",
+          "Juan Sosa SN99",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "5",
+          "Robert Fick SN99",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "6",
+          "Dermal Brown SN99",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "7",
+          "Mark Quinn SN99",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "8",
+          "Eric Gagne SN99",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "9",
+          "Tony Armas Jr. SN99",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "10",
+          "Peter Bergeron SN99",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "11",
+          "Jorge Toca SN99",
+          "New York Mets",
+          ""
+        ],
+        [
+          "12",
+          "Alfonso Soriano SN99",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "13",
+          "Chad Hermansen SN99",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "14",
+          "Rick Ankiel SN99",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "15",
+          "Adam Kennedy SN99",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "16",
+          "Mike Darr SN99",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "17",
+          "Carlos Guillen SN99",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "18",
+          "Steve Cox SN99",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "19",
+          "Ruben Mateo SN99",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "20",
+          "Vernon Wells SN99",
+          "Toronto Blue Jays",
+          ""
+        ]
+      ]
+    },
+    "stars": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/12212/2000-Pacific-Private-Stock-PS-2000-Stars",
+      "sha256": "64290cc0a38b6d3e99d616f9c78416d543cded8c329658db712ec04a4ff4baf1",
+      "records": [
+        [
+          "1",
+          "Mo Vaughn SN299",
+          "Anaheim Angels",
+          ""
+        ],
+        [
+          "2",
+          "Greg Maddux SN299",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "3",
+          "Cal Ripken Jr. SN299",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "4",
+          "Pedro Martinez SN299",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "5",
+          "Sammy Sosa SN299",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "6",
+          "Frank Thomas SN299",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "7",
+          "Larry Walker SN299",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "8",
+          "Craig Biggio SN299",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "9",
+          "Jeff Bagwell SN299",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "10",
+          "Mike Piazza SN299",
+          "New York Mets",
+          ""
+        ],
+        [
+          "11",
+          "Roger Clemens SN299",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "12",
+          "Bernie Williams SN299",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "13",
+          "Mark McGwire SN299",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "14",
+          "Tony Gwynn SN299",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "15",
+          "Barry Bonds SN299",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "16",
+          "Ken Griffey Jr. SN299",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "17",
+          "Juan Gonzalez SN299",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "18",
+          "Ivan Rodriguez SN299",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "19",
+          "Rafael Palmeiro SN299",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "20",
+          "Jose Canseco SN299",
+          "Tampa Bay Devil Rays",
+          ""
+        ]
+      ]
+    },
+    "reserve": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/12213/2000-Pacific-Private-Stock-Reserve",
+      "sha256": "d59649b809285d4a67020168d33f8800578753d4d7bf16ecebcb69e31f856cfa",
+      "records": [
+        [
+          "1",
+          "Chipper Jones",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "2",
+          "Greg Maddux",
+          "Atlanta Braves",
+          ""
+        ],
+        [
+          "3",
+          "Cal Ripken Jr.",
+          "Baltimore Orioles",
+          ""
+        ],
+        [
+          "4",
+          "Nomar Garciaparra",
+          "Boston Red Sox",
+          ""
+        ],
+        [
+          "5",
+          "Sammy Sosa",
+          "Chicago Cubs",
+          ""
+        ],
+        [
+          "6",
+          "Frank Thomas",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "7",
+          "Manny Ramirez",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "8",
+          "Larry Walker",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "9",
+          "Jeff Bagwell",
+          "Houston Astros",
+          ""
+        ],
+        [
+          "10",
+          "Vladimir Guerrero",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "11",
+          "Mike Piazza",
+          "New York Mets",
+          ""
+        ],
+        [
+          "12",
+          "Roger Clemens",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "13",
+          "Derek Jeter",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "14",
+          "Mark McGwire",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "15",
+          "Tony Gwynn",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "16",
+          "Barry Bonds",
+          "San Francisco Giants",
+          ""
+        ],
+        [
+          "17",
+          "Ken Griffey Jr.",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "18",
+          "Alex Rodriguez",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "19",
+          "Ivan Rodriguez",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "20",
+          "Shawn Green",
+          "Toronto Blue Jays",
+          ""
+        ]
+      ]
+    },
+    "samples": {
+      "url": "https://www.tcdb.com/Checklist.cfm/sid/285943/2000-Pacific-Private-Stock-PS-2000-Rookies-Embossed-Samples",
+      "sha256": "2718ae4dc8c3756cd0f1f992bb2f93ee2f81e2ac517c398988d7bdedd7e690ad",
+      "records": [
+        [
+          "1",
+          "Jason Dellaero SAM",
+          "Chicago White Sox",
+          ""
+        ],
+        [
+          "2",
+          "Russell Branyan SAM",
+          "Cleveland Indians",
+          ""
+        ],
+        [
+          "3",
+          "Ben Petrick SAM",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "4",
+          "Juan Sosa SAM",
+          "Colorado Rockies",
+          ""
+        ],
+        [
+          "5",
+          "Robert Fick SAM",
+          "Detroit Tigers",
+          ""
+        ],
+        [
+          "6",
+          "Dermal Brown SAM",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "7",
+          "Mark Quinn SAM",
+          "Kansas City Royals",
+          ""
+        ],
+        [
+          "8",
+          "Eric Gagne SAM",
+          "Los Angeles Dodgers",
+          ""
+        ],
+        [
+          "9",
+          "Tony Armas Jr. SAM",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "10",
+          "Peter Bergeron SAM",
+          "Montreal Expos",
+          ""
+        ],
+        [
+          "11",
+          "Jorge Toca SAM",
+          "New York Mets",
+          ""
+        ],
+        [
+          "12",
+          "Alfonso Soriano SAM",
+          "New York Yankees",
+          ""
+        ],
+        [
+          "13",
+          "Chad Hermansen SAM",
+          "Pittsburgh Pirates",
+          ""
+        ],
+        [
+          "14",
+          "Rick Ankiel SAM",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "15",
+          "Adam Kennedy SAM",
+          "St. Louis Cardinals",
+          ""
+        ],
+        [
+          "16",
+          "Mike Darr SAM",
+          "San Diego Padres",
+          ""
+        ],
+        [
+          "17",
+          "Carlos Guillen SAM",
+          "Seattle Mariners",
+          ""
+        ],
+        [
+          "18",
+          "Steve Cox SAM",
+          "Tampa Bay Devil Rays",
+          ""
+        ],
+        [
+          "19",
+          "Ruben Mateo SAM",
+          "Texas Rangers",
+          ""
+        ],
+        [
+          "20",
+          "Vernon Wells SAM",
+          "Toronto Blue Jays",
+          ""
+        ]
+      ]
+    },
+    "rookies": {
+      "url": "https://www.tcdb.com/Rookies.cfm/sid/1401/2000-Pacific-Private-Stock",
+      "sha256": "517b971f69926bc5697ab1cb47240aa8df6de6b4fcad313930414ac2d24b0c9d",
+      "records": [
+        [
+          "48",
+          "Juan Sosa ROO, RC, SP",
+          "Colorado Rockies",
+          ""
+        ]
+      ]
+    },
+    "packaging": {
+      "url": "https://www.tcdb.com/Packaging.cfm/sid/1401/2000-Pacific-Private-Stock",
+      "sha256": "c21af27e568130ce2c80629b1458b4349db295ddc5625c644df4132cafc534aa",
+      "records": [
+        "Packaging - 2000 Pacific Private Stock Baseball | Trading Card Database //show function function showmenu(elmnt) { document.getElementById(elmnt).style.visibility=\"visible\" } // hide function function hidemenu(elmnt) { document.getElementById(elmnt).style.visibility=\"hidden\" } window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VGXS6LWKSL'); (function(w, d) { w.adthrive = w.adthrive || {}; w.adthrive.cmd = w. adthrive.cmd || []; w.adthrive.plugin = 'adthrive-ads-manual'; w.adthrive.host = 'ads.adthrive.com';var s = d.createElement('script'); s.async = true; s.referrerpolicy='no-referrer-when-downgrade'; s.src = 'https://' + w.adthrive.host + '/sites/6744c6004563c858d06c7252/ads.min.js?referrer=' + w.encodeURIComponent(w.location.href) + '&cb=' + (Math.floor(Math.random() * 100) + 1); var n = d.getElementsByTagName('script')[0]; n.parentNode.insertBefore(s, n); })(window, document); !function(){\"use strict\";function e(e){const t=e.match(/((?=([a-z0-9._!#$%+^&*()[\\]<>-]+))\\2@[a-z0-9._-]+\\.[a-z0-9._-]+)/gi);return t?t[0]:\"\"}function t(t){return e(a(t.toLowerCase()))}function a(e){return e.replace(/\\s/g,\"\")}async function n(e){const t={sha256Hash:\"\",sha1Hash:\"\"};if(!(\"msCrypto\"in window)&&\"https:\"===location.protocol&&\"crypto\"in window&&\"TextEncoder\"in window){const a=(new TextEncoder).encode(e),[n,c]=await Promise.all([s(\"SHA-256\",a),s(\"SHA-1\",a)]);t.sha256Hash=n,t.sha1Hash=c}return t}async function s(e,t){const a=await crypto.subtle.digest(e,t);return Array.from(new Uint8Array(a)).map(e=>(\"00\"+e.toString(16)).slice(-2)).join(\"\")}function c(e){let t=!0;return Object.keys(e).forEach(a=>{0===e[a].length&&(t=!1)}),t}function i(e,t,a){e.splice(t,1);const n=\"?\"+e.join(\"&\")+a.hash;history.replaceState(null,\"\",n)}var o={checkEmail:e,validateEmail:t,trimInput:a,hashEmail:n,hasHashes:c,removeEmailAndReplaceHistory:i,detectEmails:async function(){const e=new URL(window.location.href),a=Array.from(e.searchParams.entries()).map(e=>`${e[0]}=${e[1]}`);let s,o;const r=[\"adt_eih\",\"sh_kit\"];if(a.forEach((e,t)=>{const a=decodeURIComponent(e),[n,c]=a.split(\"=\");if(\"adt_ei\"===n&&(s={value:c,index:t,emsrc:\"url\"}),r.includes(n)){o={value:c,index:t,emsrc:\"sh_kit\"===n?\"urlhck\":\"urlh\"}}}),s)t(s.value)&&n(s.value).then(e=>{if(c(e)){const t={value:e,created:Date.now()};localStorage.setItem(\"adt_ei\",JSON.stringify(t)),localStorage.setItem(\"adt_emsrc\",s.emsrc)}});else if(o){const e={value:{sha256Hash:o.value,sha1Hash:\"\"},created:Date.now()};localStorage.setItem(\"adt_ei\",JSON.stringify(e)),localStorage.setItem(\"adt_emsrc\",o.emsrc)}s&&i(a,s.index,e),o&&i(a,o.index,e)},cb:\"adthrive\"};const{detectEmails:r,cb:l}=o;r()}(); Browse Baseball Basketball Boxing Cricket Football Gaming Golf Hockey Misc Sports MMA Multi-Sport Non-Sport Racing Soccer Tennis Wrestling More Baseball Basketball Boxing Cricket Football Gaming Golf Hockey Misc Sports MMA Multi-Sport Non-Sport Racing Soccer Tennis Wrestling Search Advanced Advanced Search Login Register Baseball Sets 2000 Overview 2000 Pacific Private Stock Total Cards: 150 Rating: 6.3 (13 ratings) Rate this set... * *Clicking on this affiliate link and making a purchase can result in this site earning a commission Set Links Overview Checklist Teams Errors / Variations Hall of Famers Rookies Inserts and Related Sets Comments Packaging Pricing Sell Sheets / Ads Trivia Videos Forum External Links Change Log Contributors Glossary Gallery Card Rankings Collection Summary Set Links Overview | Checklist | Teams | Errors / Variations | Hall of Famers | Rookies | Inserts and Related Sets | Comments | Packaging | Pricing | Sell Sheets / Ads | Trivia | Videos | Forum | External Links | Change Log | Contributors | Glossary | Gallery | Card Rankings | Collection Summary Baseball Sets 2000 Overview 2000 Pacific Private Stock Packaging Add Image Blaster Box Submitted by Busscooter on Nov 30, 2022 2000 Pacific Private Stock Blaster Box Close Hobby Box Submitted by Busscooter on Nov 30, 2022 2000 Pacific Private Stock Hobby Box Close Pack Submitted by Busscooter on Feb 10, 2020 2000 Pacific Private Stock Pack Close Pack Submitted by Busscooter on Nov 30, 2022 2000 Pacific Private Stock Pack Close Retail Box Submitted by Busscooter on Nov 30, 2022 2000 Pacific Private Stock Retail Box Close Account Collection Forum Subscriptions Friends Goals Lists Messages Permissions Ratings Saved Pack Rips Sponsorships Transactions Browse Baseball Basketball Boxing Cricket Football Gaming Golf Hockey Misc Sports MMA Multi-Sport Non-Sport Racing Soccer Tennis Wrestling Features Card of the Day Galleries Games Poll of the Day Recently Added Recently Collected Reverse Image Search Rip a Pack Site Awards Tagged Things To Do Top Members Top Searches Top Sets User Lists Resources Blogs Card Companies Card Shops Card Shows Completed Transactions Forums Glossary Pricing Release Dates General Info About Us Change Log Contact Us FAQ Member Directory Privacy Policy Sponsorships Stats Store Support the Site Terms of Use Upgrade to Ad-Free User Manual Copyright © 2026 Trading Card Database LLC Designated trademarks and brands are the property of their respective owners."
+      ]
+    },
+    "trivia": {
+      "url": "https://www.tcdb.com/Trivia.cfm/sid/1401/2000-Pacific-Private-Stock",
+      "sha256": "a10e8ff5481e978fe75c53010cd27322d650d6c2dbf3d3ebcc76d540541868c7",
+      "records": [
+        "Trivia - 2000 Pacific Private Stock Baseball | Trading Card Database //show function function showmenu(elmnt) { document.getElementById(elmnt).style.visibility=\"visible\" } // hide function function hidemenu(elmnt) { document.getElementById(elmnt).style.visibility=\"hidden\" } window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VGXS6LWKSL'); (function(w, d) { w.adthrive = w.adthrive || {}; w.adthrive.cmd = w. adthrive.cmd || []; w.adthrive.plugin = 'adthrive-ads-manual'; w.adthrive.host = 'ads.adthrive.com';var s = d.createElement('script'); s.async = true; s.referrerpolicy='no-referrer-when-downgrade'; s.src = 'https://' + w.adthrive.host + '/sites/6744c6004563c858d06c7252/ads.min.js?referrer=' + w.encodeURIComponent(w.location.href) + '&cb=' + (Math.floor(Math.random() * 100) + 1); var n = d.getElementsByTagName('script')[0]; n.parentNode.insertBefore(s, n); })(window, document); !function(){\"use strict\";function e(e){const t=e.match(/((?=([a-z0-9._!#$%+^&*()[\\]<>-]+))\\2@[a-z0-9._-]+\\.[a-z0-9._-]+)/gi);return t?t[0]:\"\"}function t(t){return e(a(t.toLowerCase()))}function a(e){return e.replace(/\\s/g,\"\")}async function n(e){const t={sha256Hash:\"\",sha1Hash:\"\"};if(!(\"msCrypto\"in window)&&\"https:\"===location.protocol&&\"crypto\"in window&&\"TextEncoder\"in window){const a=(new TextEncoder).encode(e),[n,c]=await Promise.all([s(\"SHA-256\",a),s(\"SHA-1\",a)]);t.sha256Hash=n,t.sha1Hash=c}return t}async function s(e,t){const a=await crypto.subtle.digest(e,t);return Array.from(new Uint8Array(a)).map(e=>(\"00\"+e.toString(16)).slice(-2)).join(\"\")}function c(e){let t=!0;return Object.keys(e).forEach(a=>{0===e[a].length&&(t=!1)}),t}function i(e,t,a){e.splice(t,1);const n=\"?\"+e.join(\"&\")+a.hash;history.replaceState(null,\"\",n)}var o={checkEmail:e,validateEmail:t,trimInput:a,hashEmail:n,hasHashes:c,removeEmailAndReplaceHistory:i,detectEmails:async function(){const e=new URL(window.location.href),a=Array.from(e.searchParams.entries()).map(e=>`${e[0]}=${e[1]}`);let s,o;const r=[\"adt_eih\",\"sh_kit\"];if(a.forEach((e,t)=>{const a=decodeURIComponent(e),[n,c]=a.split(\"=\");if(\"adt_ei\"===n&&(s={value:c,index:t,emsrc:\"url\"}),r.includes(n)){o={value:c,index:t,emsrc:\"sh_kit\"===n?\"urlhck\":\"urlh\"}}}),s)t(s.value)&&n(s.value).then(e=>{if(c(e)){const t={value:e,created:Date.now()};localStorage.setItem(\"adt_ei\",JSON.stringify(t)),localStorage.setItem(\"adt_emsrc\",s.emsrc)}});else if(o){const e={value:{sha256Hash:o.value,sha1Hash:\"\"},created:Date.now()};localStorage.setItem(\"adt_ei\",JSON.stringify(e)),localStorage.setItem(\"adt_emsrc\",o.emsrc)}s&&i(a,s.index,e),o&&i(a,o.index,e)},cb:\"adthrive\"};const{detectEmails:r,cb:l}=o;r()}(); Browse Baseball Basketball Boxing Cricket Football Gaming Golf Hockey Misc Sports MMA Multi-Sport Non-Sport Racing Soccer Tennis Wrestling More Baseball Basketball Boxing Cricket Football Gaming Golf Hockey Misc Sports MMA Multi-Sport Non-Sport Racing Soccer Tennis Wrestling Search Advanced Advanced Search Login Register Baseball Sets 2000 Overview 2000 Pacific Private Stock Total Cards: 150 Rating: 6.3 (13 ratings) Rate this set... * *Clicking on this affiliate link and making a purchase can result in this site earning a commission Set Links Overview Checklist Teams Errors / Variations Hall of Famers Rookies Inserts and Related Sets Comments Packaging Pricing Sell Sheets / Ads Trivia Videos Forum External Links Change Log Contributors Glossary Gallery Card Rankings Collection Summary Set Links Overview | Checklist | Teams | Errors / Variations | Hall of Famers | Rookies | Inserts and Related Sets | Comments | Packaging | Pricing | Sell Sheets / Ads | Trivia | Videos | Forum | External Links | Change Log | Contributors | Glossary | Gallery | Card Rankings | Collection Summary Baseball Sets 2000 Overview 2000 Pacific Private Stock Trivia Add Item At the 2000 Chicago SportsFest Collectors Convention, Pacific offered visitors the opportunity to have any card embossed with the show logo if they purchased and opened a box of 2000 Private Stock at the booth. Due to the nature of how these cards were created and distributed, they are ineligible to be included in this database. Account Collection Forum Subscriptions Friends Goals Lists Messages Permissions Ratings Saved Pack Rips Sponsorships Transactions Browse Baseball Basketball Boxing Cricket Football Gaming Golf Hockey Misc Sports MMA Multi-Sport Non-Sport Racing Soccer Tennis Wrestling Features Card of the Day Galleries Games Poll of the Day Recently Added Recently Collected Reverse Image Search Rip a Pack Site Awards Tagged Things To Do Top Members Top Searches Top Sets User Lists Resources Blogs Card Companies Card Shops Card Shows Completed Transactions Forums Glossary Pricing Release Dates General Info About Us Change Log Contact Us FAQ Member Directory Privacy Policy Sponsorships Stats Store Support the Site Terms of Use Upgrade to Ad-Free User Manual Copyright © 2026 Trading Card Database LLC Designated trademarks and brands are the property of their respective owners."
+      ]
+    },
+    "supplement": {
+      "url": "https://mycardbatch.com/checklists/pacific-private-stock-2000-baseball",
+      "sha256": "8d907e83650432e33dafd9290c4ee04ec38cea5c31602042602c98df9ba38afd",
+      "records": [
+        [
+          "base",
+          "1",
+          "Darin Erstad",
+          "Anaheim Angels"
+        ],
+        [
+          "base",
+          "2",
+          "Troy Glaus",
+          "Anaheim Angels"
+        ],
+        [
+          "base",
+          "3",
+          "Tim Salmon",
+          "Anaheim Angels"
+        ],
+        [
+          "base",
+          "4",
+          "Mo Vaughn",
+          "Anaheim Angels"
+        ],
+        [
+          "base",
+          "5",
+          "Jay Bell",
+          "Arizona Diamondbacks"
+        ],
+        [
+          "base",
+          "6",
+          "Luis Gonzalez",
+          "Arizona Diamondbacks"
+        ],
+        [
+          "base",
+          "7",
+          "Randy Johnson",
+          "Arizona Diamondbacks"
+        ],
+        [
+          "base",
+          "8",
+          "Matt Williams",
+          "Arizona Diamondbacks"
+        ],
+        [
+          "base",
+          "9",
+          "Andruw Jones",
+          "Atlanta Braves"
+        ],
+        [
+          "base",
+          "10",
+          "Chipper Jones",
+          "Atlanta Braves"
+        ],
+        [
+          "base",
+          "11",
+          "Brian Jordan",
+          "Atlanta Braves"
+        ],
+        [
+          "base",
+          "12",
+          "Greg Maddux",
+          "Atlanta Braves"
+        ],
+        [
+          "base",
+          "13",
+          "Kevin Millwood",
+          "Atlanta Braves"
+        ],
+        [
+          "base",
+          "14",
+          "Albert Belle",
+          "Baltimore Orioles"
+        ],
+        [
+          "base",
+          "15",
+          "Mike Mussina",
+          "Baltimore Orioles"
+        ],
+        [
+          "base",
+          "16",
+          "Cal Ripken Jr",
+          "Baltimore Orioles"
+        ],
+        [
+          "base",
+          "17",
+          "B.J. Surhoff",
+          "Baltimore Orioles"
+        ],
+        [
+          "base",
+          "18",
+          "Nomar Garciaparra",
+          "Boston Red Sox"
+        ],
+        [
+          "base",
+          "19",
+          "Butch Huskey",
+          "Boston Red Sox"
+        ],
+        [
+          "base",
+          "20",
+          "Pedro Martinez",
+          "Boston Red Sox"
+        ],
+        [
+          "base",
+          "21",
+          "Troy O'Leary",
+          "Boston Red Sox"
+        ],
+        [
+          "base",
+          "22",
+          "Mark Grace",
+          "Chicago Cubs"
+        ],
+        [
+          "base",
+          "23",
+          "Bo Porter RC",
+          "Chicago Cubs"
+        ],
+        [
+          "base",
+          "24",
+          "Henry Rodriguez",
+          "Chicago Cubs"
+        ],
+        [
+          "base",
+          "25",
+          "Sammy Sosa",
+          "Chicago Cubs"
+        ],
+        [
+          "base",
+          "26",
+          "Kerry Wood",
+          "Chicago Cubs"
+        ],
+        [
+          "base",
+          "27",
+          "Jason Dellaero RC",
+          "Chicago White Sox"
+        ],
+        [
+          "base",
+          "28",
+          "Ray Durham",
+          "Chicago White Sox"
+        ],
+        [
+          "base",
+          "29",
+          "Paul Konerko",
+          "Chicago White Sox"
+        ],
+        [
+          "base",
+          "30",
+          "Carlos Lee",
+          "Chicago White Sox"
+        ],
+        [
+          "base",
+          "31",
+          "Magglio Ordonez",
+          "Chicago White Sox"
+        ],
+        [
+          "base",
+          "32",
+          "Frank Thomas",
+          "Chicago White Sox"
+        ],
+        [
+          "base",
+          "33",
+          "Mike Cameron",
+          "Cincinnati Reds"
+        ],
+        [
+          "base",
+          "34",
+          "Sean Casey",
+          "Cincinnati Reds"
+        ],
+        [
+          "base",
+          "35",
+          "Barry Larkin",
+          "Cincinnati Reds"
+        ],
+        [
+          "base",
+          "36",
+          "Greg Vaughn",
+          "Cincinnati Reds"
+        ],
+        [
+          "base",
+          "37",
+          "Roberto Alomar",
+          "Cleveland Indians"
+        ],
+        [
+          "base",
+          "38",
+          "Russell Branyan RC",
+          "Cleveland Indians"
+        ],
+        [
+          "base",
+          "39",
+          "Kenny Lofton",
+          "Cleveland Indians"
+        ],
+        [
+          "base",
+          "40",
+          "Manny Ramirez",
+          "Cleveland Indians"
+        ],
+        [
+          "base",
+          "41",
+          "Richie Sexson",
+          "Cleveland Indians"
+        ],
+        [
+          "base",
+          "42",
+          "Jim Thome",
+          "Cleveland Indians"
+        ],
+        [
+          "base",
+          "43",
+          "Omar Vizquel",
+          "Cleveland Indians"
+        ],
+        [
+          "base",
+          "44",
+          "Pedro Astacio",
+          "Colorado Rockies"
+        ],
+        [
+          "base",
+          "45",
+          "Vinny Castilla",
+          "Colorado Rockies"
+        ],
+        [
+          "base",
+          "46",
+          "Todd Helton",
+          "Colorado Rockies"
+        ],
+        [
+          "base",
+          "47",
+          "Ben Petrick RC",
+          "Colorado Rockies"
+        ],
+        [
+          "base",
+          "48",
+          "Juan Sosa RC",
+          "Colorado Rockies"
+        ],
+        [
+          "base",
+          "49",
+          "Larry Walker",
+          "Colorado Rockies"
+        ],
+        [
+          "base",
+          "50",
+          "Tony Clark",
+          "Detroit Tigers"
+        ],
+        [
+          "base",
+          "51",
+          "Damion Easley",
+          "Detroit Tigers"
+        ],
+        [
+          "base",
+          "52",
+          "Juan Encarnacion",
+          "Detroit Tigers"
+        ],
+        [
+          "base",
+          "53",
+          "Robert Fick RC",
+          "Detroit Tigers"
+        ],
+        [
+          "base",
+          "54",
+          "Dean Palmer",
+          "Detroit Tigers"
+        ],
+        [
+          "base",
+          "55",
+          "A.J. Burnett RC",
+          "Florida Marlins"
+        ],
+        [
+          "base",
+          "56",
+          "Luis Castillo",
+          "Florida Marlins"
+        ],
+        [
+          "base",
+          "57",
+          "Alex Gonzalez",
+          "Florida Marlins"
+        ],
+        [
+          "base",
+          "58",
+          "Julio Ramirez RC",
+          "Florida Marlins"
+        ],
+        [
+          "base",
+          "59",
+          "Preston Wilson",
+          "Florida Marlins"
+        ],
+        [
+          "base",
+          "60",
+          "Jeff Bagwell",
+          "Houston Astros"
+        ],
+        [
+          "base",
+          "61",
+          "Craig Biggio",
+          "Houston Astros"
+        ],
+        [
+          "base",
+          "62",
+          "Ken Caminiti",
+          "Houston Astros"
+        ],
+        [
+          "base",
+          "63",
+          "Carl Everett",
+          "Houston Astros"
+        ],
+        [
+          "base",
+          "64",
+          "Mike Hampton",
+          "Houston Astros"
+        ],
+        [
+          "base",
+          "65",
+          "Billy Wagner",
+          "Houston Astros"
+        ],
+        [
+          "base",
+          "66",
+          "Carlos Beltran",
+          "Kansas City Royals"
+        ],
+        [
+          "base",
+          "67",
+          "Dermal Brown RC",
+          "Kansas City Royals"
+        ],
+        [
+          "base",
+          "68",
+          "Jermaine Dye",
+          "Kansas City Royals"
+        ],
+        [
+          "base",
+          "69",
+          "Carlos Febles",
+          "Kansas City Royals"
+        ],
+        [
+          "base",
+          "70",
+          "Mark Quinn RC",
+          "Kansas City Royals"
+        ],
+        [
+          "base",
+          "71",
+          "Mike Sweeney",
+          "Kansas City Royals"
+        ],
+        [
+          "base",
+          "72",
+          "Kevin Brown",
+          "Los Angeles Dodgers"
+        ],
+        [
+          "base",
+          "73",
+          "Eric Gagne RC",
+          "Los Angeles Dodgers"
+        ],
+        [
+          "base",
+          "74",
+          "Eric Karros",
+          "Los Angeles Dodgers"
+        ],
+        [
+          "base",
+          "75",
+          "Raul Mondesi",
+          "Los Angeles Dodgers"
+        ],
+        [
+          "base",
+          "76",
+          "Gary Sheffield",
+          "Los Angeles Dodgers"
+        ],
+        [
+          "base",
+          "77",
+          "Jeromy Burnitz",
+          "Milwaukee Brewers"
+        ],
+        [
+          "base",
+          "78",
+          "Jeff Cirillo",
+          "Milwaukee Brewers"
+        ],
+        [
+          "base",
+          "79",
+          "Geoff Jenkins",
+          "Milwaukee Brewers"
+        ],
+        [
+          "base",
+          "80",
+          "Dave Nilsson",
+          "Milwaukee Brewers"
+        ],
+        [
+          "base",
+          "81",
+          "Ron Coomer",
+          "Minnesota Twins"
+        ],
+        [
+          "base",
+          "82",
+          "Jacque Jones",
+          "Minnesota Twins"
+        ],
+        [
+          "base",
+          "83",
+          "Corey Koskie",
+          "Minnesota Twins"
+        ],
+        [
+          "base",
+          "84",
+          "Brad Radke",
+          "Minnesota Twins"
+        ],
+        [
+          "base",
+          "85",
+          "Tony Armas Jr RC",
+          "Montreal Expos"
+        ],
+        [
+          "base",
+          "86",
+          "Peter Bergeron RC",
+          "Montreal Expos"
+        ],
+        [
+          "base",
+          "87",
+          "Vladimir Guerrero",
+          "Montreal Expos"
+        ],
+        [
+          "base",
+          "88",
+          "Jose Vidro",
+          "Montreal Expos"
+        ],
+        [
+          "base",
+          "89",
+          "Rondell White",
+          "Montreal Expos"
+        ],
+        [
+          "base",
+          "90",
+          "Edgardo Alfonzo",
+          "New York Mets"
+        ],
+        [
+          "base",
+          "91",
+          "Roger Cedeno",
+          "New York Mets"
+        ],
+        [
+          "base",
+          "92",
+          "Rickey Henderson",
+          "New York Mets"
+        ],
+        [
+          "base",
+          "93",
+          "Jay Payton RC",
+          "New York Mets"
+        ],
+        [
+          "base",
+          "94",
+          "Mike Piazza",
+          "New York Mets"
+        ],
+        [
+          "base",
+          "95",
+          "Jorge Toca RC",
+          "New York Mets"
+        ],
+        [
+          "base",
+          "96",
+          "Robin Ventura",
+          "New York Mets"
+        ],
+        [
+          "base",
+          "97",
+          "Roger Clemens",
+          "New York Yankees"
+        ],
+        [
+          "base",
+          "98",
+          "David Cone",
+          "New York Yankees"
+        ],
+        [
+          "base",
+          "99",
+          "Derek Jeter",
+          "New York Yankees"
+        ],
+        [
+          "base",
+          "100",
+          "D'Angelo Jimenez RC",
+          "New York Yankees"
+        ],
+        [
+          "base",
+          "101",
+          "Tino Martinez",
+          "New York Yankees"
+        ],
+        [
+          "base",
+          "102",
+          "Alfonso Soriano RC",
+          "New York Yankees"
+        ],
+        [
+          "base",
+          "103",
+          "Bernie Williams",
+          "New York Yankees"
+        ],
+        [
+          "base",
+          "104",
+          "Jason Giambi",
+          "Oakland Athletics"
+        ],
+        [
+          "base",
+          "105",
+          "Ben Grieve",
+          "Oakland Athletics"
+        ],
+        [
+          "base",
+          "106",
+          "Tim Hudson",
+          "Oakland Athletics"
+        ],
+        [
+          "base",
+          "107",
+          "Matt Stairs",
+          "Oakland Athletics"
+        ],
+        [
+          "base",
+          "108",
+          "Bobby Abreu",
+          "Philadelphia Phillies"
+        ],
+        [
+          "base",
+          "109",
+          "Doug Glanville",
+          "Philadelphia Phillies"
+        ],
+        [
+          "base",
+          "110",
+          "Scott Rolen",
+          "Philadelphia Phillies"
+        ],
+        [
+          "base",
+          "111",
+          "Curt Schilling",
+          "Philadelphia Phillies"
+        ],
+        [
+          "base",
+          "112",
+          "Brian Giles",
+          "Pittsburgh Pirates"
+        ],
+        [
+          "base",
+          "113",
+          "Chad Hermansen RC",
+          "Pittsburgh Pirates"
+        ],
+        [
+          "base",
+          "114",
+          "Jason Kendall",
+          "Pittsburgh Pirates"
+        ],
+        [
+          "base",
+          "115",
+          "Warren Morris",
+          "Pittsburgh Pirates"
+        ],
+        [
+          "base",
+          "116",
+          "Rick Ankiel RC",
+          "St. Louis Cardinals"
+        ],
+        [
+          "base",
+          "117",
+          "J.D. Drew",
+          "St. Louis Cardinals"
+        ],
+        [
+          "base",
+          "118",
+          "Adam Kennedy RC",
+          "St. Louis Cardinals"
+        ],
+        [
+          "base",
+          "119",
+          "Ray Lankford",
+          "St. Louis Cardinals"
+        ],
+        [
+          "base",
+          "120",
+          "Mark McGwire",
+          "St. Louis Cardinals"
+        ],
+        [
+          "base",
+          "121",
+          "Fernando Tatis",
+          "St. Louis Cardinals"
+        ],
+        [
+          "base",
+          "122",
+          "Mike Darr RC",
+          "San Diego Padres"
+        ],
+        [
+          "base",
+          "123",
+          "Ben Davis",
+          "San Diego Padres"
+        ],
+        [
+          "base",
+          "124",
+          "Tony Gwynn",
+          "San Diego Padres"
+        ],
+        [
+          "base",
+          "125",
+          "Trevor Hoffman",
+          "San Diego Padres"
+        ],
+        [
+          "base",
+          "126",
+          "Reggie Sanders",
+          "San Diego Padres"
+        ],
+        [
+          "base",
+          "127",
+          "Barry Bonds",
+          "San Francisco Giants"
+        ],
+        [
+          "base",
+          "128",
+          "Ellis Burks",
+          "San Francisco Giants"
+        ],
+        [
+          "base",
+          "129",
+          "Jeff Kent",
+          "San Francisco Giants"
+        ],
+        [
+          "base",
+          "130",
+          "J.T. Snow",
+          "San Francisco Giants"
+        ],
+        [
+          "base",
+          "131",
+          "Freddy Garcia",
+          "Seattle Mariners"
+        ],
+        [
+          "base",
+          "132",
+          "Ken Griffey Jr",
+          "Seattle Mariners"
+        ],
+        [
+          "base",
+          "133",
+          "Carlos Guillen RC",
+          "Seattle Mariners"
+        ],
+        [
+          "base",
+          "134",
+          "Edgar Martinez",
+          "Seattle Mariners"
+        ],
+        [
+          "base",
+          "135",
+          "Alex Rodriguez",
+          "Seattle Mariners"
+        ],
+        [
+          "base",
+          "136",
+          "Miguel Cairo",
+          "Tampa Bay Devil Rays"
+        ],
+        [
+          "base",
+          "137",
+          "Jose Canseco",
+          "Tampa Bay Devil Rays"
+        ],
+        [
+          "base",
+          "138",
+          "Steve Cox RC",
+          "Tampa Bay Devil Rays"
+        ],
+        [
+          "base",
+          "139",
+          "Roberto Hernandez",
+          "Tampa Bay Devil Rays"
+        ],
+        [
+          "base",
+          "140",
+          "Fred McGriff",
+          "Tampa Bay Devil Rays"
+        ],
+        [
+          "base",
+          "141",
+          "Juan Gonzalez",
+          "Texas Rangers"
+        ],
+        [
+          "base",
+          "142",
+          "Rusty Greer",
+          "Texas Rangers"
+        ],
+        [
+          "base",
+          "143",
+          "Ruben Mateo RC",
+          "Texas Rangers"
+        ],
+        [
+          "base",
+          "144",
+          "Rafael Palmeiro",
+          "Texas Rangers"
+        ],
+        [
+          "base",
+          "145",
+          "Ivan Rodriguez",
+          "Texas Rangers"
+        ],
+        [
+          "base",
+          "146",
+          "Carlos Delgado",
+          "Toronto Blue Jays"
+        ],
+        [
+          "base",
+          "147",
+          "Tony Fernandez",
+          "Toronto Blue Jays"
+        ],
+        [
+          "base",
+          "148",
+          "Shawn Green",
+          "Toronto Blue Jays"
+        ],
+        [
+          "base",
+          "149",
+          "Shannon Stewart",
+          "Toronto Blue Jays"
+        ],
+        [
+          "base",
+          "150",
+          "Vernon Wells RC",
+          "Toronto Blue Jays"
+        ],
+        [
+          "canvas",
+          "1",
+          "Chipper Jones",
+          "Atlanta Braves"
+        ],
+        [
+          "canvas",
+          "2",
+          "Greg Maddux",
+          "Atlanta Braves"
+        ],
+        [
+          "canvas",
+          "3",
+          "Cal Ripken Jr",
+          "Baltimore Orioles"
+        ],
+        [
+          "canvas",
+          "4",
+          "Nomar Garciaparra",
+          "Boston Red Sox"
+        ],
+        [
+          "canvas",
+          "5",
+          "Sammy Sosa",
+          "Chicago Cubs"
+        ],
+        [
+          "canvas",
+          "6",
+          "Frank Thomas",
+          "Chicago White Sox"
+        ],
+        [
+          "canvas",
+          "7",
+          "Manny Ramirez",
+          "Cleveland Indians"
+        ],
+        [
+          "canvas",
+          "8",
+          "Larry Walker",
+          "Colorado Rockies"
+        ],
+        [
+          "canvas",
+          "9",
+          "Jeff Bagwell",
+          "Houston Astros"
+        ],
+        [
+          "canvas",
+          "10",
+          "Vladimir Guerrero",
+          "Montreal Expos"
+        ],
+        [
+          "canvas",
+          "11",
+          "Mike Piazza",
+          "New York Mets"
+        ],
+        [
+          "canvas",
+          "12",
+          "Roger Clemens",
+          "New York Yankees"
+        ],
+        [
+          "canvas",
+          "13",
+          "Derek Jeter",
+          "New York Yankees"
+        ],
+        [
+          "canvas",
+          "14",
+          "Mark McGwire",
+          "St. Louis Cardinals"
+        ],
+        [
+          "canvas",
+          "15",
+          "Tony Gwynn",
+          "San Diego Padres"
+        ],
+        [
+          "canvas",
+          "16",
+          "Barry Bonds",
+          "San Francisco Giants"
+        ],
+        [
+          "canvas",
+          "17",
+          "Ken Griffey Jr",
+          "Seattle Mariners"
+        ],
+        [
+          "canvas",
+          "18",
+          "Alex Rodriguez",
+          "Seattle Mariners"
+        ],
+        [
+          "canvas",
+          "19",
+          "Juan Gonzalez",
+          "Texas Rangers"
+        ],
+        [
+          "canvas",
+          "20",
+          "Ivan Rodriguez",
+          "Texas Rangers"
+        ],
+        [
+          "canvas-proofs",
+          "1",
+          "Chipper Jones",
+          "Atlanta Braves"
+        ],
+        [
+          "canvas-proofs",
+          "2",
+          "Greg Maddux",
+          "Atlanta Braves"
+        ],
+        [
+          "canvas-proofs",
+          "3",
+          "Cal Ripken Jr",
+          "Baltimore Orioles"
+        ],
+        [
+          "canvas-proofs",
+          "4",
+          "Nomar Garciaparra",
+          "Boston Red Sox"
+        ],
+        [
+          "canvas-proofs",
+          "5",
+          "Sammy Sosa",
+          "Chicago Cubs"
+        ],
+        [
+          "canvas-proofs",
+          "6",
+          "Frank Thomas",
+          "Chicago White Sox"
+        ],
+        [
+          "canvas-proofs",
+          "7",
+          "Manny Ramirez",
+          "Cleveland Indians"
+        ],
+        [
+          "canvas-proofs",
+          "8",
+          "Larry Walker",
+          "Colorado Rockies"
+        ],
+        [
+          "canvas-proofs",
+          "9",
+          "Jeff Bagwell",
+          "Houston Astros"
+        ],
+        [
+          "canvas-proofs",
+          "10",
+          "Vladimir Guerrero",
+          "Montreal Expos"
+        ],
+        [
+          "canvas-proofs",
+          "11",
+          "Mike Piazza",
+          "New York Mets"
+        ],
+        [
+          "canvas-proofs",
+          "12",
+          "Roger Clemens",
+          "New York Yankees"
+        ],
+        [
+          "canvas-proofs",
+          "13",
+          "Derek Jeter",
+          "New York Yankees"
+        ],
+        [
+          "canvas-proofs",
+          "14",
+          "Mark McGwire",
+          "St. Louis Cardinals"
+        ],
+        [
+          "canvas-proofs",
+          "15",
+          "Tony Gwynn",
+          "San Diego Padres"
+        ],
+        [
+          "canvas-proofs",
+          "16",
+          "Barry Bonds",
+          "San Francisco Giants"
+        ],
+        [
+          "canvas-proofs",
+          "17",
+          "Ken Griffey Jr",
+          "Seattle Mariners"
+        ],
+        [
+          "canvas-proofs",
+          "18",
+          "Alex Rodriguez",
+          "Seattle Mariners"
+        ],
+        [
+          "canvas-proofs",
+          "19",
+          "Juan Gonzalez",
+          "Texas Rangers"
+        ],
+        [
+          "canvas-proofs",
+          "20",
+          "Ivan Rodriguez",
+          "Texas Rangers"
+        ],
+        [
+          "extreme",
+          "1",
+          "Andruw Jones",
+          "Atlanta Braves"
+        ],
+        [
+          "extreme",
+          "2",
+          "Chipper Jones",
+          "Atlanta Braves"
+        ],
+        [
+          "extreme",
+          "3",
+          "Cal Ripken Jr",
+          "Baltimore Orioles"
+        ],
+        [
+          "extreme",
+          "4",
+          "Nomar Garciaparra",
+          "Boston Red Sox"
+        ],
+        [
+          "extreme",
+          "5",
+          "Sammy Sosa",
+          "Chicago Cubs"
+        ],
+        [
+          "extreme",
+          "6",
+          "Frank Thomas",
+          "Chicago White Sox"
+        ],
+        [
+          "extreme",
+          "7",
+          "Roberto Alomar",
+          "Cleveland Indians"
+        ],
+        [
+          "extreme",
+          "8",
+          "Manny Ramirez",
+          "Cleveland Indians"
+        ],
+        [
+          "extreme",
+          "9",
+          "Larry Walker",
+          "Colorado Rockies"
+        ],
+        [
+          "extreme",
+          "10",
+          "Jeff Bagwell",
+          "Houston Astros"
+        ],
+        [
+          "extreme",
+          "11",
+          "Vladimir Guerrero",
+          "Montreal Expos"
+        ],
+        [
+          "extreme",
+          "12",
+          "Mike Piazza",
+          "New York Mets"
+        ],
+        [
+          "extreme",
+          "13",
+          "Derek Jeter",
+          "New York Yankees"
+        ],
+        [
+          "extreme",
+          "14",
+          "Bernie Williams",
+          "New York Yankees"
+        ],
+        [
+          "extreme",
+          "15",
+          "Scott Rolen",
+          "Philadelphia Phillies"
+        ],
+        [
+          "extreme",
+          "16",
+          "Mark McGwire",
+          "St. Louis Cardinals"
+        ],
+        [
+          "extreme",
+          "17",
+          "Tony Gwynn",
+          "San Diego Padres"
+        ],
+        [
+          "extreme",
+          "18",
+          "Ken Griffey Jr",
+          "Seattle Mariners"
+        ],
+        [
+          "extreme",
+          "19",
+          "Alex Rodriguez",
+          "Seattle Mariners"
+        ],
+        [
+          "extreme",
+          "20",
+          "Ivan Rodriguez",
+          "Texas Rangers"
+        ],
+        [
+          "action",
+          "1",
+          "Mo Vaughn",
+          "Anaheim Angels"
+        ],
+        [
+          "action",
+          "2",
+          "Greg Maddux",
+          "Atlanta Braves"
+        ],
+        [
+          "action",
+          "3",
+          "Andruw Jones",
+          "Atlanta Braves"
+        ],
+        [
+          "action",
+          "4",
+          "Chipper Jones",
+          "Atlanta Braves"
+        ],
+        [
+          "action",
+          "5",
+          "Cal Ripken Jr",
+          "Baltimore Orioles"
+        ],
+        [
+          "action",
+          "6",
+          "Nomar Garciaparra",
+          "Boston Red Sox"
+        ],
+        [
+          "action",
+          "7",
+          "Pedro Martinez",
+          "Boston Red Sox"
+        ],
+        [
+          "action",
+          "8",
+          "Sammy Sosa",
+          "Chicago Cubs"
+        ],
+        [
+          "action",
+          "9",
+          "Jason Dellaero",
+          "Chicago White Sox"
+        ],
+        [
+          "action",
+          "10",
+          "Magglio Ordonez",
+          "Chicago White Sox"
+        ],
+        [
+          "action",
+          "11",
+          "Frank Thomas",
+          "Chicago White Sox"
+        ],
+        [
+          "action",
+          "12",
+          "Sean Casey",
+          "Cincinnati Reds"
+        ],
+        [
+          "action",
+          "13",
+          "Russell Branyan",
+          "Cleveland Indians"
+        ],
+        [
+          "action",
+          "14",
+          "Manny Ramirez",
+          "Cleveland Indians"
+        ],
+        [
+          "action",
+          "15",
+          "Richie Sexson",
+          "Cleveland Indians"
+        ],
+        [
+          "action",
+          "16",
+          "Ben Petrick",
+          "Colorado Rockies"
+        ],
+        [
+          "action",
+          "17",
+          "Juan Sosa",
+          "Colorado Rockies"
+        ],
+        [
+          "action",
+          "18",
+          "Larry Walker",
+          "Colorado Rockies"
+        ],
+        [
+          "action",
+          "19",
+          "Robert Fick",
+          "Detroit Tigers"
+        ],
+        [
+          "action",
+          "20",
+          "Craig Biggio",
+          "Houston Astros"
+        ],
+        [
+          "action",
+          "21",
+          "Jeff Bagwell",
+          "Houston Astros"
+        ],
+        [
+          "action",
+          "22",
+          "Carlos Beltran",
+          "Kansas City Royals"
+        ],
+        [
+          "action",
+          "23",
+          "Dermal Brown",
+          "Kansas City Royals"
+        ],
+        [
+          "action",
+          "24",
+          "Mark Quinn",
+          "Kansas City Royals"
+        ],
+        [
+          "action",
+          "25",
+          "Eric Gagne",
+          "Los Angeles Dodgers"
+        ],
+        [
+          "action",
+          "26",
+          "Jeromy Burnitz",
+          "Milwaukee Brewers"
+        ],
+        [
+          "action",
+          "27",
+          "Tony Armas Jr",
+          "Montreal Expos"
+        ],
+        [
+          "action",
+          "28",
+          "Peter Bergeron",
+          "Montreal Expos"
+        ],
+        [
+          "action",
+          "29",
+          "Vladimir Guerrero",
+          "Montreal Expos"
+        ],
+        [
+          "action",
+          "30",
+          "Edgardo Alfonzo",
+          "New York Mets"
+        ],
+        [
+          "action",
+          "31",
+          "Mike Piazza",
+          "New York Mets"
+        ],
+        [
+          "action",
+          "32",
+          "Jorge Toca",
+          "New York Mets"
+        ],
+        [
+          "action",
+          "33",
+          "Roger Clemens",
+          "New York Yankees"
+        ],
+        [
+          "action",
+          "34",
+          "Alfonso Soriano",
+          "New York Yankees"
+        ],
+        [
+          "action",
+          "35",
+          "Bernie Williams",
+          "New York Yankees"
+        ],
+        [
+          "action",
+          "36",
+          "Derek Jeter",
+          "New York Yankees"
+        ],
+        [
+          "action",
+          "37",
+          "Tim Hudson",
+          "Oakland Athletics"
+        ],
+        [
+          "action",
+          "38",
+          "Bobby Abreu",
+          "Philadelphia Phillies"
+        ],
+        [
+          "action",
+          "39",
+          "Scott Rolen",
+          "Philadelphia Phillies"
+        ],
+        [
+          "action",
+          "40",
+          "Brian Giles",
+          "Pittsburgh Pirates"
+        ],
+        [
+          "action",
+          "41",
+          "Chad Hermansen",
+          "Pittsburgh Pirates"
+        ],
+        [
+          "action",
+          "42",
+          "Warren Morris",
+          "Pittsburgh Pirates"
+        ],
+        [
+          "action",
+          "43",
+          "Rick Ankiel",
+          "St. Louis Cardinals"
+        ],
+        [
+          "action",
+          "44",
+          "J.D. Drew",
+          "St. Louis Cardinals"
+        ],
+        [
+          "action",
+          "45",
+          "Adam Kennedy",
+          "St. Louis Cardinals"
+        ],
+        [
+          "action",
+          "46",
+          "Mark McGwire",
+          "St. Louis Cardinals"
+        ],
+        [
+          "action",
+          "47",
+          "Mike Darr",
+          "San Diego Padres"
+        ],
+        [
+          "action",
+          "48",
+          "Tony Gwynn",
+          "San Diego Padres"
+        ],
+        [
+          "action",
+          "49",
+          "Barry Bonds",
+          "San Francisco Giants"
+        ],
+        [
+          "action",
+          "50",
+          "Ken Griffey Jr",
+          "Seattle Mariners"
+        ],
+        [
+          "action",
+          "51",
+          "Carlos Guillen",
+          "Seattle Mariners"
+        ],
+        [
+          "action",
+          "52",
+          "Alex Rodriguez",
+          "Seattle Mariners"
+        ],
+        [
+          "action",
+          "53",
+          "Juan Gonzalez",
+          "Texas Rangers"
+        ],
+        [
+          "action",
+          "54",
+          "Ruben Mateo",
+          "Texas Rangers"
+        ],
+        [
+          "action",
+          "55",
+          "Ivan Rodriguez",
+          "Texas Rangers"
+        ],
+        [
+          "action",
+          "56",
+          "Rafael Palmeiro",
+          "Texas Rangers"
+        ],
+        [
+          "action",
+          "57",
+          "Jose Canseco",
+          "Tampa Bay Devil Rays"
+        ],
+        [
+          "action",
+          "58",
+          "Steve Cox",
+          "Tampa Bay Devil Rays"
+        ],
+        [
+          "action",
+          "59",
+          "Shawn Green",
+          "Toronto Blue Jays"
+        ],
+        [
+          "action",
+          "60",
+          "Vernon Wells",
+          "Toronto Blue Jays"
+        ],
+        [
+          "new-wave",
+          "1",
+          "Andruw Jones",
+          "Atlanta Braves"
+        ],
+        [
+          "new-wave",
+          "2",
+          "Chipper Jones",
+          "Atlanta Braves"
+        ],
+        [
+          "new-wave",
+          "3",
+          "Nomar Garciaparra",
+          "Boston Red Sox"
+        ],
+        [
+          "new-wave",
+          "4",
+          "Magglio Ordonez",
+          "Chicago White Sox"
+        ],
+        [
+          "new-wave",
+          "5",
+          "Sean Casey",
+          "Cincinnati Reds"
+        ],
+        [
+          "new-wave",
+          "6",
+          "Manny Ramirez",
+          "Cleveland Indians"
+        ],
+        [
+          "new-wave",
+          "7",
+          "Richie Sexson",
+          "Cleveland Indians"
+        ],
+        [
+          "new-wave",
+          "8",
+          "Carlos Beltran",
+          "Kansas City Royals"
+        ],
+        [
+          "new-wave",
+          "9",
+          "Jeromy Burnitz",
+          "Milwaukee Brewers"
+        ],
+        [
+          "new-wave",
+          "10",
+          "Vladimir Guerrero",
+          "Montreal Expos"
+        ],
+        [
+          "new-wave",
+          "11",
+          "Edgardo Alfonzo",
+          "New York Mets"
+        ],
+        [
+          "new-wave",
+          "12",
+          "Derek Jeter",
+          "New York Yankees"
+        ],
+        [
+          "new-wave",
+          "13",
+          "Tim Hudson",
+          "Oakland Athletics"
+        ],
+        [
+          "new-wave",
+          "14",
+          "Bobby Abreu",
+          "Philadelphia Phillies"
+        ],
+        [
+          "new-wave",
+          "15",
+          "Scott Rolen",
+          "Philadelphia Phillies"
+        ],
+        [
+          "new-wave",
+          "16",
+          "Brian Giles",
+          "Pittsburgh Pirates"
+        ],
+        [
+          "new-wave",
+          "17",
+          "Warren Morris",
+          "Pittsburgh Pirates"
+        ],
+        [
+          "new-wave",
+          "18",
+          "J.D. Drew",
+          "St. Louis Cardinals"
+        ],
+        [
+          "new-wave",
+          "19",
+          "Alex Rodriguez",
+          "Seattle Mariners"
+        ],
+        [
+          "new-wave",
+          "20",
+          "Shawn Green",
+          "Toronto Blue Jays"
+        ],
+        [
+          "rookie-minis",
+          "1",
+          "Jason Dellaero",
+          "Chicago White Sox"
+        ],
+        [
+          "rookie-minis",
+          "2",
+          "Russell Branyan",
+          "Cleveland Indians"
+        ],
+        [
+          "rookie-minis",
+          "3",
+          "Ben Petrick",
+          "Colorado Rockies"
+        ],
+        [
+          "rookie-minis",
+          "4",
+          "Juan Sosa",
+          "Colorado Rockies"
+        ],
+        [
+          "rookie-minis",
+          "5",
+          "Robert Fick",
+          "Detroit Tigers"
+        ],
+        [
+          "rookie-minis",
+          "6",
+          "Dermal Brown",
+          "Kansas City Royals"
+        ],
+        [
+          "rookie-minis",
+          "7",
+          "Mark Quinn",
+          "Kansas City Royals"
+        ],
+        [
+          "rookie-minis",
+          "8",
+          "Eric Gagne",
+          "Los Angeles Dodgers"
+        ],
+        [
+          "rookie-minis",
+          "9",
+          "Tony Armas Jr",
+          "Montreal Expos"
+        ],
+        [
+          "rookie-minis",
+          "10",
+          "Peter Bergeron",
+          "Montreal Expos"
+        ],
+        [
+          "rookie-minis",
+          "11",
+          "Jorge Toca",
+          "New York Mets"
+        ],
+        [
+          "rookie-minis",
+          "12",
+          "Alfonso Soriano",
+          "New York Yankees"
+        ],
+        [
+          "rookie-minis",
+          "13",
+          "Chad Hermansen",
+          "Pittsburgh Pirates"
+        ],
+        [
+          "rookie-minis",
+          "14",
+          "Rick Ankiel",
+          "St. Louis Cardinals"
+        ],
+        [
+          "rookie-minis",
+          "15",
+          "Adam Kennedy",
+          "St. Louis Cardinals"
+        ],
+        [
+          "rookie-minis",
+          "16",
+          "Mike Darr",
+          "San Diego Padres"
+        ],
+        [
+          "rookie-minis",
+          "17",
+          "Carlos Guillen",
+          "Seattle Mariners"
+        ],
+        [
+          "rookie-minis",
+          "18",
+          "Steve Cox",
+          "Tampa Bay Devil Rays"
+        ],
+        [
+          "rookie-minis",
+          "19",
+          "Ruben Mateo",
+          "Texas Rangers"
+        ],
+        [
+          "rookie-minis",
+          "20",
+          "Vernon Wells",
+          "Toronto Blue Jays"
+        ],
+        [
+          "stars",
+          "1",
+          "Mo Vaughn",
+          "Anaheim Angels"
+        ],
+        [
+          "stars",
+          "2",
+          "Greg Maddux",
+          "Atlanta Braves"
+        ],
+        [
+          "stars",
+          "3",
+          "Cal Ripken Jr",
+          "Baltimore Orioles"
+        ],
+        [
+          "stars",
+          "4",
+          "Pedro Martinez",
+          "Boston Red Sox"
+        ],
+        [
+          "stars",
+          "5",
+          "Sammy Sosa",
+          "Chicago Cubs"
+        ],
+        [
+          "stars",
+          "6",
+          "Frank Thomas",
+          "Chicago White Sox"
+        ],
+        [
+          "stars",
+          "7",
+          "Larry Walker",
+          "Colorado Rockies"
+        ],
+        [
+          "stars",
+          "8",
+          "Craig Biggio",
+          "Houston Astros"
+        ],
+        [
+          "stars",
+          "9",
+          "Jeff Bagwell",
+          "Houston Astros"
+        ],
+        [
+          "stars",
+          "10",
+          "Mike Piazza",
+          "New York Mets"
+        ],
+        [
+          "stars",
+          "11",
+          "Roger Clemens",
+          "New York Yankees"
+        ],
+        [
+          "stars",
+          "12",
+          "Bernie Williams",
+          "New York Yankees"
+        ],
+        [
+          "stars",
+          "13",
+          "Mark McGwire",
+          "St. Louis Cardinals"
+        ],
+        [
+          "stars",
+          "14",
+          "Tony Gwynn",
+          "San Diego Padres"
+        ],
+        [
+          "stars",
+          "15",
+          "Barry Bonds",
+          "San Francisco Giants"
+        ],
+        [
+          "stars",
+          "16",
+          "Ken Griffey Jr",
+          "Seattle Mariners"
+        ],
+        [
+          "stars",
+          "17",
+          "Juan Gonzalez",
+          "Texas Rangers"
+        ],
+        [
+          "stars",
+          "18",
+          "Ivan Rodriguez",
+          "Texas Rangers"
+        ],
+        [
+          "stars",
+          "19",
+          "Rafael Palmeiro",
+          "Texas Rangers"
+        ],
+        [
+          "stars",
+          "20",
+          "Jose Canseco",
+          "Tampa Bay Devil Rays"
+        ],
+        [
+          "reserve",
+          "1",
+          "Chipper Jones",
+          "Atlanta Braves"
+        ],
+        [
+          "reserve",
+          "2",
+          "Greg Maddux",
+          "Atlanta Braves"
+        ],
+        [
+          "reserve",
+          "3",
+          "Cal Ripken Jr",
+          "Baltimore Orioles"
+        ],
+        [
+          "reserve",
+          "4",
+          "Nomar Garciaparra",
+          "Boston Red Sox"
+        ],
+        [
+          "reserve",
+          "5",
+          "Sammy Sosa",
+          "Chicago Cubs"
+        ],
+        [
+          "reserve",
+          "6",
+          "Frank Thomas",
+          "Chicago White Sox"
+        ],
+        [
+          "reserve",
+          "7",
+          "Manny Ramirez",
+          "Cleveland Indians"
+        ],
+        [
+          "reserve",
+          "8",
+          "Larry Walker",
+          "Colorado Rockies"
+        ],
+        [
+          "reserve",
+          "9",
+          "Jeff Bagwell",
+          "Houston Astros"
+        ],
+        [
+          "reserve",
+          "10",
+          "Vladimir Guerrero",
+          "Montreal Expos"
+        ],
+        [
+          "reserve",
+          "11",
+          "Mike Piazza",
+          "New York Mets"
+        ],
+        [
+          "reserve",
+          "12",
+          "Roger Clemens",
+          "New York Yankees"
+        ],
+        [
+          "reserve",
+          "13",
+          "Derek Jeter",
+          "New York Yankees"
+        ],
+        [
+          "reserve",
+          "14",
+          "Mark McGwire",
+          "St. Louis Cardinals"
+        ],
+        [
+          "reserve",
+          "15",
+          "Tony Gwynn",
+          "San Diego Padres"
+        ],
+        [
+          "reserve",
+          "16",
+          "Barry Bonds",
+          "San Francisco Giants"
+        ],
+        [
+          "reserve",
+          "17",
+          "Ken Griffey Jr",
+          "Seattle Mariners"
+        ],
+        [
+          "reserve",
+          "18",
+          "Alex Rodriguez",
+          "Seattle Mariners"
+        ],
+        [
+          "reserve",
+          "19",
+          "Ivan Rodriguez",
+          "Texas Rangers"
+        ],
+        [
+          "reserve",
+          "20",
+          "Shawn Green",
+          "Toronto Blue Jays"
+        ],
+        [
+          "samples",
+          "1",
+          "Jason Dellaero",
+          "Chicago White Sox"
+        ],
+        [
+          "samples",
+          "2",
+          "Russell Branyan",
+          "Cleveland Indians"
+        ],
+        [
+          "samples",
+          "3",
+          "Ben Petrick",
+          "Colorado Rockies"
+        ],
+        [
+          "samples",
+          "4",
+          "Juan Sosa",
+          "Colorado Rockies"
+        ],
+        [
+          "samples",
+          "5",
+          "Robert Fick",
+          "Detroit Tigers"
+        ],
+        [
+          "samples",
+          "6",
+          "Dermal Brown",
+          "Kansas City Royals"
+        ],
+        [
+          "samples",
+          "7",
+          "Mark Quinn",
+          "Kansas City Royals"
+        ],
+        [
+          "samples",
+          "8",
+          "Eric Gagne",
+          "Los Angeles Dodgers"
+        ],
+        [
+          "samples",
+          "9",
+          "Tony Armas Jr",
+          "Montreal Expos"
+        ],
+        [
+          "samples",
+          "10",
+          "Peter Bergeron",
+          "Montreal Expos"
+        ],
+        [
+          "samples",
+          "11",
+          "Jorge Toca",
+          "New York Mets"
+        ],
+        [
+          "samples",
+          "12",
+          "Alfonso Soriano",
+          "New York Yankees"
+        ],
+        [
+          "samples",
+          "13",
+          "Chad Hermansen",
+          "Pittsburgh Pirates"
+        ],
+        [
+          "samples",
+          "14",
+          "Rick Ankiel",
+          "St. Louis Cardinals"
+        ],
+        [
+          "samples",
+          "15",
+          "Adam Kennedy",
+          "St. Louis Cardinals"
+        ],
+        [
+          "samples",
+          "16",
+          "Mike Darr",
+          "San Diego Padres"
+        ],
+        [
+          "samples",
+          "17",
+          "Carlos Guillen",
+          "Seattle Mariners"
+        ],
+        [
+          "samples",
+          "18",
+          "Steve Cox",
+          "Tampa Bay Devil Rays"
+        ],
+        [
+          "samples",
+          "19",
+          "Ruben Mateo",
+          "Texas Rangers"
+        ],
+        [
+          "samples",
+          "20",
+          "Vernon Wells",
+          "Toronto Blue Jays"
+        ]
+      ]
+    },
+    "bcp-base": {
+      "url": "https://baseballcardpedia.com/index.php/2000_Private_Stock#Base_Set",
+      "sha256": "0cbeae68065a0640c8822a8572725160e0a0e4365e761cbb1a6b4f00c10bfcf0",
+      "records": [
+        "1 Darin Erstad",
+        "2 Troy Glaus",
+        "3 Tim Salmon",
+        "4 Mo Vaughn",
+        "5 Jay Bell",
+        "6 Luis Gonzalez",
+        "7 Randy Johnson",
+        "8 Matt Williams",
+        "9 Andruw Jones",
+        "10 Chipper Jones",
+        "11 Brian Jordan",
+        "12 Greg Maddux",
+        "13 Kevin Millwood",
+        "14 Albert Belle",
+        "15 Mike Mussina",
+        "16 Cal Ripken, Jr.",
+        "17 B.J. Surhoff",
+        "18 Nomar Garciaparra",
+        "19 Butch Huskey",
+        "20 Pedro Martinez",
+        "21 Troy O'Leary",
+        "22 Mark Grace",
+        "23 Bo Porter",
+        "24 Henry Rodriguez",
+        "25 Sammy Sosa",
+        "26 Kerry Wood",
+        "27 Jason Dellaero",
+        "28 Ray Durham",
+        "29 Paul Konerko",
+        "30 Carlos Lee",
+        "31 Magglio Ordonez",
+        "32 Frank Thomas",
+        "33 Mike Cameron",
+        "34 Sean Casey",
+        "35 Barry Larkin",
+        "36 Greg Vaughn",
+        "37 Roberto Alomar",
+        "38 Russell Branyan",
+        "39 Kenny Lofton",
+        "40 Manny Ramirez",
+        "41 Richie Sexson",
+        "42 Jim Thome",
+        "43 Omar Vizquel",
+        "44 Pedro Astacio",
+        "45 Vinny Castilla",
+        "46 Todd Helton",
+        "47 Ben Petrick",
+        "48 Juan Sosa",
+        "49 Larry Walker",
+        "50 Tony Clark",
+        "51 Damion Easley",
+        "52 Juan Encarnacion",
+        "53 Robert Fick",
+        "54 Dean Palmer",
+        "55 A.J. Burnett",
+        "56 Luis Castillo",
+        "57 Alex Gonzalez",
+        "58 Julio Ramirez",
+        "59 Preston Wilson",
+        "60 Jeff Bagwell",
+        "61 Craig Biggio",
+        "62 Ken Caminiti",
+        "63 Carl Everett",
+        "64 Mike Hampton",
+        "65 Billy Wagner",
+        "66 Carlos Beltran",
+        "67 Dermal Brown",
+        "68 Jermaine Dye",
+        "69 Carlos Febles",
+        "70 Mark Quinn",
+        "71 Mike Sweeney",
+        "72 Kevin Brown",
+        "73 Eric Gagne",
+        "74 Eric Karros",
+        "75 Raul Mondesi",
+        "76 Gary Sheffield",
+        "77 Jeromy Burnitz",
+        "78 Jeff Cirillo",
+        "79 Geoff Jenkins",
+        "80 David Nilsson",
+        "81 Ron Coomer",
+        "82 Jacque Jones",
+        "83 Corey Koskie",
+        "84 Brad Radke",
+        "85 Tony Armas",
+        "86 Peter Bergeron",
+        "87 Vladimir Guerrero",
+        "88 Jose Vidro",
+        "89 Rondell White",
+        "90 Edgardo Alfonzo",
+        "91 Roger Cedeno",
+        "92 Rickey Henderson",
+        "93 Jay Payton",
+        "94 Mike Piazza",
+        "95 Jorge Toca",
+        "96 Robin Ventura",
+        "97 Roger Clemens",
+        "98 David Cone",
+        "99 Derek Jeter",
+        "100 D'Angelo Jimenez",
+        "101 Tino Martinez",
+        "102 Alfonso Soriano",
+        "103 Bernie Williams",
+        "104 Jason Giambi",
+        "105 Ben Grieve",
+        "106 Tim Hudson",
+        "107 Matt Stairs",
+        "108 Bob Abreu",
+        "109 Doug Glanville",
+        "110 Scott Rolen",
+        "111 Curt Schilling",
+        "112 Brian Giles",
+        "113 Chad Hermansen",
+        "114 Jason Kendall",
+        "115 Warren Morris",
+        "116 Rick Ankiel",
+        "117 J.D. Drew",
+        "118 Adam Kennedy",
+        "119 Ray Lankford",
+        "120 Mark McGwire",
+        "121 Fernando Tatis",
+        "122 Mike Darr",
+        "123 Ben Davis",
+        "124 Tony Gwynn",
+        "125 Trevor Hoffman",
+        "126 Reggie Sanders",
+        "127 Barry Bonds",
+        "128 Ellis Burks",
+        "129 Jeff Kent",
+        "130 J.T. Snow",
+        "131 Freddy Garcia",
+        "132 Ken Griffey, Jr.",
+        "133 Carlos Guillen",
+        "134 Edgar Martinez",
+        "135 Alex Rodriguez",
+        "136 Miguel Cairo",
+        "137 Jose Canseco",
+        "138 Steve Cox",
+        "139 Roberto Hernandez",
+        "140 Fred McGriff",
+        "141 Juan Gonzalez",
+        "142 Rusty Greer",
+        "143 Ruben Mateo",
+        "144 Rafael Palmeiro",
+        "145 Ivan Rodriguez",
+        "146 Carlos Delgado",
+        "147 Tony Fernandez",
+        "148 Shawn Green",
+        "149 Shannon Stewart",
+        "150 Vernon Wells"
+      ]
+    },
+    "bcp-canvas": {
+      "url": "https://baseballcardpedia.com/index.php/2000_Private_Stock#Artist's_Canvas",
+      "sha256": "0cbeae68065a0640c8822a8572725160e0a0e4365e761cbb1a6b4f00c10bfcf0",
+      "records": [
+        "1 Chipper Jones",
+        "2 Greg Maddux",
+        "3 Cal Ripken, Jr.",
+        "4 Nomar Garciaparra",
+        "5 Sammy Sosa",
+        "6 Frank Thomas",
+        "7 Manny Ramirez",
+        "8 Larry Walker",
+        "9 Jeff Bagwell",
+        "10 Vladimir Guerrero",
+        "11 Mike Piazza",
+        "12 Roger Clemens",
+        "13 Derek Jeter",
+        "14 Mark McGwire",
+        "15 Tony Gwynn",
+        "16 Barry Bonds",
+        "17 Ken Griffey, Jr.",
+        "18 Alex Rodriguez",
+        "19 Juan Gonzalez",
+        "20 Ivan Rodriguez"
+      ]
+    },
+    "bcp-extreme": {
+      "url": "https://baseballcardpedia.com/index.php/2000_Private_Stock#Extreme_Action",
+      "sha256": "0cbeae68065a0640c8822a8572725160e0a0e4365e761cbb1a6b4f00c10bfcf0",
+      "records": [
+        "1 Andruw Jones",
+        "2 Chipper Jones",
+        "3 Cal Ripken, Jr.",
+        "4 Nomar Garciaparra",
+        "5 Sammy Sosa",
+        "6 Frank Thomas",
+        "7 Roberto Alomar",
+        "8 Manny Ramirez",
+        "9 Larry Walker",
+        "10 Jeff Bagwell",
+        "11 Vladimir Guerrero",
+        "12 Mike Piazza",
+        "13 Derek Jeter",
+        "14 Bernie Williams",
+        "15 Scott Rolen",
+        "16 Mark McGwire",
+        "17 Tony Gwynn",
+        "18 Ken Griffey, Jr.",
+        "19 Alex Rodriguez",
+        "20 Ivan Rodriguez"
+      ]
+    },
+    "bcp-action": {
+      "url": "https://baseballcardpedia.com/index.php/2000_Private_Stock#Action",
+      "sha256": "0cbeae68065a0640c8822a8572725160e0a0e4365e761cbb1a6b4f00c10bfcf0",
+      "records": [
+        "1 Mo Vaughn",
+        "2 Greg Maddux",
+        "3 Andruw Jones",
+        "4 Chipper Jones",
+        "5 Cal Ripken, Jr.",
+        "6 Nomar Garciaparra",
+        "7 Pedro Martinez",
+        "8 Sammy Sosa",
+        "9 Jason Dellaero",
+        "10 Magglio Ordonez",
+        "11 Frank Thomas",
+        "12 Sean Casey",
+        "13 Russell Branyan",
+        "14 Manny Ramirez",
+        "15 Richie Sexson",
+        "16 Ben Petrick",
+        "17 Juan Sosa",
+        "18 Larry Walker",
+        "19 Robert Fick",
+        "20 Craig Biggio",
+        "21 Jeff Bagwell",
+        "22 Carlos Beltran",
+        "23 Dermal Brown",
+        "24 Mark Quinn",
+        "25 Eric Gagne",
+        "26 Jeromy Burnitz",
+        "27 Tony Armas",
+        "28 Peter Bergeron",
+        "29 Vladimir Guerrero",
+        "30 Edgardo Alfonzo",
+        "31 Mike Piazza",
+        "32 Jorge Toca",
+        "33 Roger Clemens",
+        "34 Alfonso Soriano",
+        "35 Bernie Williams",
+        "36 Derek Jeter",
+        "37 Tim Hudson",
+        "38 Bob Abreu",
+        "39 Scott Rolen",
+        "40 Brian Giles",
+        "41 Chad Hermansen",
+        "42 Warren Morris",
+        "43 Rick Ankiel",
+        "44 J.D. Drew",
+        "45 Adam Kennedy",
+        "46 Mark McGwire",
+        "47 Mike Darr",
+        "48 Tony Gwynn",
+        "49 Barry Bonds",
+        "50 Ken Griffey, Jr.",
+        "51 Carlos Guillen",
+        "52 Alex Rodriguez",
+        "53 Juan Gonzalez",
+        "54 Ruben Mateo",
+        "55 Ivan Rodriguez",
+        "56 Rafael Palmeiro",
+        "57 Jose Canseco",
+        "58 Steve Cox",
+        "59 Shawn Green",
+        "60 Vernon Wells"
+      ]
+    },
+    "bcp-new-wave": {
+      "url": "https://baseballcardpedia.com/index.php/2000_Private_Stock#New_Wave",
+      "sha256": "0cbeae68065a0640c8822a8572725160e0a0e4365e761cbb1a6b4f00c10bfcf0",
+      "records": [
+        "1 Andruw Jones",
+        "2 Chipper Jones",
+        "3 Nomar Garciaparra",
+        "4 Magglio Ordonez",
+        "5 Sean Casey",
+        "6 Manny Ramirez",
+        "7 Richie Sexson",
+        "8 Carlos Beltran",
+        "9 Jeromy Burnitz",
+        "10 Vladimir Guerrero",
+        "11 Edgardo Alfonzo",
+        "12 Derek Jeter",
+        "13 Tim Hudson",
+        "14 Bob Abreu",
+        "15 Scott Rolen",
+        "16 Brian Giles",
+        "17 Warren Morris",
+        "18 J.D. Drew",
+        "19 Alex Rodriguez",
+        "20 Shawn Green"
+      ]
+    },
+    "bcp-rookie-minis": {
+      "url": "https://baseballcardpedia.com/index.php/2000_Private_Stock#Rookies",
+      "sha256": "0cbeae68065a0640c8822a8572725160e0a0e4365e761cbb1a6b4f00c10bfcf0",
+      "records": [
+        "1 Jason Dellaero",
+        "2 Russell Branyan",
+        "3 Ben Petrick",
+        "4 Juan Sosa",
+        "5 Robert Fick",
+        "6 Dermal Brown",
+        "7 Mark Quinn",
+        "8 Eric Gagne",
+        "9 Tony Armas",
+        "10 Peter Bergeron",
+        "11 Jorge Toca",
+        "12 Alfonso Soriano",
+        "13 Chad Hermansen",
+        "14 Rick Ankiel",
+        "15 Adam Kennedy",
+        "16 Mike Darr",
+        "17 Carlos Guillen",
+        "18 Steve Cox",
+        "19 Ruben Mateo",
+        "20 Vernon Wells"
+      ]
+    },
+    "bcp-stars": {
+      "url": "https://baseballcardpedia.com/index.php/2000_Private_Stock#Stars",
+      "sha256": "0cbeae68065a0640c8822a8572725160e0a0e4365e761cbb1a6b4f00c10bfcf0",
+      "records": [
+        "1 Mo Vaughn",
+        "2 Greg Maddux",
+        "3 Cal Ripken, Jr.",
+        "4 Pedro Martinez",
+        "5 Sammy Sosa",
+        "6 Frank Thomas",
+        "7 Larry Walker",
+        "8 Craig Biggio",
+        "9 Jeff Bagwell",
+        "10 Mike Piazza",
+        "11 Roger Clemens",
+        "12 Bernie Williams",
+        "13 Mark McGwire",
+        "14 Tony Gwynn",
+        "15 Barry Bonds",
+        "16 Ken Griffey, Jr.",
+        "17 Juan Gonzalez",
+        "18 Ivan Rodriguez",
+        "19 Rafael Palmeiro",
+        "20 Jose Canseco"
+      ]
+    },
+    "bcp-reserve": {
+      "url": "https://baseballcardpedia.com/index.php/2000_Private_Stock#Reserve",
+      "sha256": "0cbeae68065a0640c8822a8572725160e0a0e4365e761cbb1a6b4f00c10bfcf0",
+      "records": [
+        "1 Chipper Jones",
+        "2 Greg Maddux",
+        "3 Cal Ripken, Jr.",
+        "4 Nomar Garciaparra",
+        "5 Sammy Sosa",
+        "6 Frank Thomas",
+        "7 Manny Ramirez",
+        "8 Larry Walker",
+        "9 Jeff Bagwell",
+        "10 Vladimir Guerrero",
+        "11 Mike Piazza",
+        "12 Roger Clemens",
+        "13 Derek Jeter",
+        "14 Mark McGwire",
+        "15 Tony Gwynn",
+        "16 Barry Bonds",
+        "17 Ken Griffey, Jr.",
+        "18 Alex Rodriguez",
+        "19 Ivan Rodriguez",
+        "20 Shawn Green"
+      ]
+    },
+    "bcp-configuration": {
+      "url": "https://baseballcardpedia.com/index.php/2000_Private_Stock#Insertion_Ratios",
+      "sha256": "0cbeae68065a0640c8822a8572725160e0a0e4365e761cbb1a6b4f00c10bfcf0",
+      "records": [
+        [
+          "Base",
+          "150",
+          "-",
+          "?",
+          "?"
+        ],
+        [
+          "short set",
+          "125",
+          "-",
+          "?",
+          "?"
+        ],
+        [
+          "Prospects",
+          "25",
+          "-",
+          "1:4",
+          "1:6"
+        ],
+        [
+          "Silver Portrait",
+          "150",
+          "199",
+          "N/A",
+          "?"
+        ],
+        [
+          "Gold Portrait",
+          "150",
+          "99",
+          "?",
+          "N/A"
+        ],
+        [
+          "Premiere Date",
+          "150",
+          "34",
+          "1:24",
+          "N/A"
+        ],
+        [
+          "PS-2000 Action",
+          "60",
+          "-",
+          "2:1",
+          "2:1"
+        ],
+        [
+          "PS-2000 Stars",
+          "20",
+          "299",
+          "?",
+          "?"
+        ],
+        [
+          "PS-2000 New Wave",
+          "20",
+          "199",
+          "?",
+          "?"
+        ],
+        [
+          "PS-2000 Rookies",
+          "20",
+          "99",
+          "?",
+          "?"
+        ],
+        [
+          "Extreme Action",
+          "20",
+          "-",
+          "2:25",
+          "2:25"
+        ],
+        [
+          "Reserve",
+          "20",
+          "-",
+          "1:25",
+          "N/A"
+        ],
+        [
+          "Artist's Canvas",
+          "20",
+          "-",
+          "1:49",
+          "1:49"
+        ],
+        [
+          "Artist's Canvas Proof",
+          "20",
+          "one-of-one",
+          "?",
+          "?"
+        ]
+      ]
+    },
+    "scope-index": {
+      "url": "https://www.tcdb.com/Inserts.cfm/sid/1401/2000-Pacific-Private-Stock",
+      "sha256": "51de685be613f94663f90aa4d36c1722b7c5fdf0f77f2a5c4e29c9af492e0a58",
+      "records": [
+        12204,
+        12205,
+        12206,
+        12207,
+        12208,
+        12209,
+        12210,
+        12211,
+        12212,
+        12213,
+        12214,
+        285943
+      ]
+    }
+  },
+  "reviewedPackaging": [
+    {
+      "key": "package-0",
+      "url": "https://www.tcdb.com/Images/Packaging/Baseball/1401Pack53819Large.jpg",
+      "sha256": "e04a0cbb71851a62020dd2d574cc522ccc114d6a9124578ec9affbde90ae961d"
+    },
+    {
+      "key": "package-1",
+      "url": "https://www.tcdb.com/Images/Packaging/Baseball/1401Pack53818Large.jpg",
+      "sha256": "c0358ff0035662bd5784387d4bd16d92c465ceaa49b75bd520dbb55ef2f8eae0"
+    },
+    {
+      "key": "package-2",
+      "url": "https://www.tcdb.com/Images/Packaging/Baseball/1401Pack21554.jpg",
+      "sha256": "440bf881deeb734ede6b40e28d8ca54db68c86fe6f7c460e89ca6876b14dda86"
+    },
+    {
+      "key": "package-3",
+      "url": "https://www.tcdb.com/Images/Packaging/Baseball/1401Pack53820Large.jpg",
+      "sha256": "98df4c38a8c53007f872a1fb9e6ebc5fdde0a72176572d1b0fd101187d75b9e3"
+    },
+    {
+      "key": "package-4",
+      "url": "https://www.tcdb.com/Images/Packaging/Baseball/1401Pack53821Large.jpg",
+      "sha256": "f654fff9f753a61585f502813a95774312a99a1a4f096f1027a70a489e724d15"
+    }
+  ],
+  "scanReviewStatus": "PACKAGING_ONLY_CARD_IMAGES_PENDING",
+  "reviewedCardEvidence": [
+    {
+      "key": "gold44-front",
+      "url": "https://i.ebayimg.com/images/g/ikAAAOSwGadhZgvn/s-l1600.webp",
+      "sha256": "f774c2a68ba3ea6fd0ee8296ca271489287cd37209c72ff4cfa089fb46f33e2f",
+      "listingUrl": "https://www.ebay.com/itm/332516665092",
+      "observed": "Pedro Astacio, Colorado Rockies, gold portrait border"
+    },
+    {
+      "key": "gold44-back",
+      "url": "https://i.ebayimg.com/images/g/bRMAAOSw5cRZNvg9/s-l1600.webp",
+      "sha256": "1424ef099ac6770b260fd53100aab3e8893c11ffb54e2ffaccbc7097d02ab611",
+      "listingUrl": "https://www.ebay.com/itm/332516665092",
+      "observed": "Pedro Astacio, Colorado Rockies, #44, serial 27/99"
+    }
+  ],
+  "corrections": [
+    {
+      "setKey": "gold",
+      "cardNumber": "44",
+      "sourceLabel": "Dante Bichette SN99",
+      "correctedPlayer": "Pedro Astacio",
+      "basis": "Reviewed original front/back scans: printed Pedro Astacio, Colorado Rockies, #44, 27/99. Raw source row preserved."
+    }
+  ]
+}

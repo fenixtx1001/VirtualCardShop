@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1401/2000-Pacific-Private-Stock",
+    "checklistReference": "https://www.tcdb.com/Checklist.cfm/sid/1401/2000-Pacific-Private-Stock?PageIndex=1",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/1401/2000-Pacific-Private-Stock",
+    "insertReference": "https://www.tcdb.com/Inserts.cfm/sid/1401/2000-Pacific-Private-Stock",
+    "independentReference": "https://baseballcardpedia.com/index.php/2000_Private_Stock",
+    "supplementaryTeamReference": "https://mycardbatch.com/checklists/pacific-private-stock-2000-baseball"
+  },
+  "decisions": {
+    "inventory": "800 explicit cards in 12 collector families: base 150; Gold Portraits, Premiere Date and Silver Portraits 150 each; Artist's Canvas 20; Canvas Proofs 20; Extreme Action 20; PS-2000 Action 60; New Wave, Rookies, Stars and Reserve 20 each. All full parallel rosters independently fetched, not extrapolated.",
+    "rookies": "Only base #48 Juan Sosa is a true RC, matching the separate rookie index and Beckett listing. Twenty-five scattered ROO/SP labels retained as Rookies/Prospects subsets on base and matching full parallels. No false RC suffixes on marketed mini Rookies or parallels.",
+    "namesTeams": "Every base/insert tuple compared with complete supplementary tables; base and seven insert rosters independently compared with BCP. All full-base parallels compared to matching base identities/teams. Canvas Proofs match independently listed Canvas roster and own complete table. Historical franchises retained; punctuation and explicit Bob/Bobby Abreu, Tony Armas/Jr., David/Dave Nilsson aliases only. Gold Portraits #44 TCDB mislabels Dante Bichette; reviewed original front/back identify Pedro Astacio, Colorado Rockies, #44, 27/99. Correct output with explicit fail-closed source exception; raw row retained.",
+    "packConfiguration": "BCP lists 24 packs per box, seven cards per pack, MSRP $4.49. Reviewed retail wrapper and blaster explicitly say five cards; small Hobby box scan does not resolve Hobby count. Seven is a provisional catalogue Hobby value, NOT visually verified. Do not assume five full-size plus two minis. Release blocked until physical Hobby configuration is resolved.",
+    "packOdds": "Verified representable Hobby odds: Premiere Date 1:24, Reserve 1:25, Canvas 1:49. Extreme Action printed 2:25 and PS-2000 Action two per pack cannot be represented by integer one-in-N ProductSet denominators and therefore remain null, NOT rounded or split. Unknown rates and retail-only Silver stay null. All documented physical rates retained in source snapshot; original prospect collation not modeled.",
+    "exclusions": "Exclude 20 PS-2000 Rookies Embossed Samples, promotional SAM cards without /99 stamping. Chicago SportsFest 2000 booth would emboss any eligible purchased/opened card: not a bounded regular pack-issued parallel. Do not fabricate a 150-card show family. No additional verified pack-issued autograph, memorabilia or hologram family; do not mix other years or sports.",
+    "verificationLimit": "Complete catalogue/tuple checklist audit with normalized source records and SHA256 retrieval provenance. Five original packaging scans inspected; no full physical-card scan audit claimed. Hobby pack-count discrepancy and unsupported odds remain explicit release blockers. Gold #44 front/back visually audited to resolve the source error.",
+    "release": "Unreleased draft for pricing/image harvesting; pack QA, images and pricing remain pending. No production database access or deployment."
+  },
+  "product": {
+    "id": "2000_Pacific_Private_Stock_Baseball",
+    "year": 2000,
+    "brand": "Pacific Private Stock",
+    "sport": "Baseball",
+    "cardsPerPack": 7,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "checklist": "VERIFIED_800_CARDS_12_FAMILIES_AGAINST_CATALOGUES",
+    "rookieDesignation": "VERIFIED_1_BASE_RC",
+    "scanReview": "PACKAGING_ONLY_CARD_IMAGES_PENDING",
+    "packCollation": "BLOCKED_HOBBY_COUNT_DISCREPANCY_AND_MINI_SLOTS",
+    "insertOdds": "PARTIAL_UNSUPPORTED_MULTIPLE_AND_FRACTIONAL_RATES",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "2000-pacific-private-stock-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2000_Pacific_Private_Stock_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 1401,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1401/2000-Pacific-Private-Stock?PageIndex=1",
+      "expectedCards": 150,
+      "notes": "150-card base: 125 regular cards and 25 scattered rookie/prospect short prints. Only #48 Juan Sosa is a true base RC. Hobby prospect 1:4, retail 1:6; VCS base-family flattening needs QA."
+    },
+    {
+      "key": "gold",
+      "id": "2000_Pacific_Private_Stock_Baseball_Gold_Portraits",
+      "name": "Gold Portraits",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 12207,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12207/2000-Pacific-Private-Stock-Gold-Portraits?PageIndex=1",
+      "expectedCards": 150,
+      "notes": "Full 150-card Gold Portraits /99; Hobby only, insertion frequency unverified, null."
+    },
+    {
+      "key": "premiere",
+      "id": "2000_Pacific_Private_Stock_Baseball_Premiere_Date",
+      "name": "Premiere Date",
+      "kind": "PARALLEL",
+      "oddsPerPack": 24,
+      "sourceSetId": 12208,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12208/2000-Pacific-Private-Stock-Premiere-Date?PageIndex=1",
+      "expectedCards": 150,
+      "notes": "Full 150-card Premiere Date /34; Hobby 1:24. Some cards lack serial stamping; no separate unverified unstamped inventory invented."
+    },
+    {
+      "key": "silver",
+      "id": "2000_Pacific_Private_Stock_Baseball_Silver_Portraits",
+      "name": "Silver Portraits",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 12214,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12214/2000-Pacific-Private-Stock-Silver-Portraits?PageIndex=1",
+      "expectedCards": 150,
+      "notes": "Full 150-card Silver Portraits /199; retail only, rate unverified; null in Hobby draft."
+    },
+    {
+      "key": "canvas",
+      "id": "2000_Pacific_Private_Stock_Baseball_Artist_s_Canvas",
+      "name": "Artist's Canvas",
+      "kind": "INSERT",
+      "oddsPerPack": 49,
+      "sourceSetId": 12204,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12204/2000-Pacific-Private-Stock-Artists-Canvas",
+      "expectedCards": 20,
+      "notes": "Full 20-card Artist's Canvas family; Hobby/retail 1:49."
+    },
+    {
+      "key": "canvas-proofs",
+      "id": "2000_Pacific_Private_Stock_Baseball_Artist_s_Canvas_Proofs",
+      "name": "Artist's Canvas Proofs",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 12205,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12205/2000-Pacific-Private-Stock-Artists-Canvas-Proofs",
+      "expectedCards": 20,
+      "notes": "Full 20-card one-of-one Artist's Canvas Proofs parallel; exact insertion odds unverified."
+    },
+    {
+      "key": "extreme",
+      "id": "2000_Pacific_Private_Stock_Baseball_Extreme_Action",
+      "name": "Extreme Action",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 12206,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12206/2000-Pacific-Private-Stock-Extreme-Action",
+      "expectedCards": 20,
+      "notes": "Full 20-card Extreme Action; physical rate 2:25 (printed on reviewed wrapper). Cannot encode 12.5 in integer denominator model, null pending QA."
+    },
+    {
+      "key": "action",
+      "id": "2000_Pacific_Private_Stock_Baseball_PS_2000_Action",
+      "name": "PS-2000 Action",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 12209,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12209/2000-Pacific-Private-Stock-PS-2000-Action",
+      "expectedCards": 60,
+      "notes": "Full 60-card PS-2000 Action mini family; two per physical pack. Cannot encode denominator 0.5 or guarantee two slots in current model; null pending QA."
+    },
+    {
+      "key": "new-wave",
+      "id": "2000_Pacific_Private_Stock_Baseball_PS_2000_New_Wave",
+      "name": "PS-2000 New Wave",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 12210,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12210/2000-Pacific-Private-Stock-PS-2000-New-Wave",
+      "expectedCards": 20,
+      "notes": "Full 20-card PS-2000 New Wave mini family /199; frequency unverified, null."
+    },
+    {
+      "key": "rookie-minis",
+      "id": "2000_Pacific_Private_Stock_Baseball_PS_2000_Rookies",
+      "name": "PS-2000 Rookies",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 12211,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12211/2000-Pacific-Private-Stock-PS-2000-Rookies",
+      "expectedCards": 20,
+      "notes": "Full 20-card PS-2000 Rookies mini family /99. Marketing Rookies is not true RC status. Excludes unnumbered embossed promotional samples; frequency unverified, null."
+    },
+    {
+      "key": "stars",
+      "id": "2000_Pacific_Private_Stock_Baseball_PS_2000_Stars",
+      "name": "PS-2000 Stars",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 12212,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12212/2000-Pacific-Private-Stock-PS-2000-Stars",
+      "expectedCards": 20,
+      "notes": "Full 20-card PS-2000 Stars mini family /299; frequency unverified, null."
+    },
+    {
+      "key": "reserve",
+      "id": "2000_Pacific_Private_Stock_Baseball_Reserve",
+      "name": "Reserve",
+      "kind": "INSERT",
+      "oddsPerPack": 25,
+      "sourceSetId": 12213,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/12213/2000-Pacific-Private-Stock-Reserve",
+      "expectedCards": 20,
+      "notes": "Full 20-card Reserve family; Hobby exclusive 1:25."
+    }
+  ]
+}

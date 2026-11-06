@@ -1,0 +1,801 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Darin Erstad,Anaheim Angels,,
+base,2,Troy Glaus,Anaheim Angels,,
+base,3,Tim Salmon,Anaheim Angels,,
+base,4,Mo Vaughn,Anaheim Angels,,
+base,5,Jay Bell,Arizona Diamondbacks,,
+base,6,Luis Gonzalez,Arizona Diamondbacks,,
+base,7,Randy Johnson,Arizona Diamondbacks,,
+base,8,Matt Williams,Arizona Diamondbacks,,
+base,9,Andruw Jones,Atlanta Braves,,
+base,10,Chipper Jones,Atlanta Braves,,
+base,11,Brian Jordan,Atlanta Braves,,
+base,12,Greg Maddux,Atlanta Braves,,
+base,13,Kevin Millwood,Atlanta Braves,,
+base,14,Albert Belle,Baltimore Orioles,,
+base,15,Mike Mussina,Baltimore Orioles,,
+base,16,Cal Ripken Jr.,Baltimore Orioles,,
+base,17,B.J. Surhoff,Baltimore Orioles,,
+base,18,Nomar Garciaparra,Boston Red Sox,,
+base,19,Butch Huskey,Boston Red Sox,,
+base,20,Pedro Martinez,Boston Red Sox,,
+base,21,Troy O'Leary,Boston Red Sox,,
+base,22,Mark Grace,Chicago Cubs,,
+base,23,Bo Porter,Chicago Cubs,Rookies/Prospects,
+base,24,Henry Rodriguez,Chicago Cubs,,
+base,25,Sammy Sosa,Chicago Cubs,,
+base,26,Kerry Wood,Chicago Cubs,,
+base,27,Jason Dellaero,Chicago White Sox,Rookies/Prospects,
+base,28,Ray Durham,Chicago White Sox,,
+base,29,Paul Konerko,Chicago White Sox,,
+base,30,Carlos Lee,Chicago White Sox,,
+base,31,Magglio Ordonez,Chicago White Sox,,
+base,32,Frank Thomas,Chicago White Sox,,
+base,33,Mike Cameron,Cincinnati Reds,,
+base,34,Sean Casey,Cincinnati Reds,,
+base,35,Barry Larkin,Cincinnati Reds,,
+base,36,Greg Vaughn,Cincinnati Reds,,
+base,37,Roberto Alomar,Cleveland Indians,,
+base,38,Russell Branyan,Cleveland Indians,Rookies/Prospects,
+base,39,Kenny Lofton,Cleveland Indians,,
+base,40,Manny Ramirez,Cleveland Indians,,
+base,41,Richie Sexson,Cleveland Indians,,
+base,42,Jim Thome,Cleveland Indians,,
+base,43,Omar Vizquel,Cleveland Indians,,
+base,44,Pedro Astacio,Colorado Rockies,,
+base,45,Vinny Castilla,Colorado Rockies,,
+base,46,Todd Helton,Colorado Rockies,,
+base,47,Ben Petrick,Colorado Rockies,Rookies/Prospects,
+base,48,Juan Sosa RC,Colorado Rockies,Rookies/Prospects,
+base,49,Larry Walker,Colorado Rockies,,
+base,50,Tony Clark,Detroit Tigers,,
+base,51,Damion Easley,Detroit Tigers,,
+base,52,Juan Encarnacion,Detroit Tigers,,
+base,53,Robert Fick,Detroit Tigers,Rookies/Prospects,
+base,54,Dean Palmer,Detroit Tigers,,
+base,55,A.J. Burnett,Florida Marlins,Rookies/Prospects,
+base,56,Luis Castillo,Florida Marlins,,
+base,57,Alex Gonzalez,Florida Marlins,,
+base,58,Julio Ramirez,Florida Marlins,Rookies/Prospects,
+base,59,Preston Wilson,Florida Marlins,,
+base,60,Jeff Bagwell,Houston Astros,,
+base,61,Craig Biggio,Houston Astros,,
+base,62,Ken Caminiti,Houston Astros,,
+base,63,Carl Everett,Houston Astros,,
+base,64,Mike Hampton,Houston Astros,,
+base,65,Billy Wagner,Houston Astros,,
+base,66,Carlos Beltran,Kansas City Royals,,
+base,67,Dermal Brown,Kansas City Royals,Rookies/Prospects,
+base,68,Jermaine Dye,Kansas City Royals,,
+base,69,Carlos Febles,Kansas City Royals,,
+base,70,Mark Quinn,Kansas City Royals,Rookies/Prospects,
+base,71,Mike Sweeney,Kansas City Royals,,
+base,72,Kevin Brown,Los Angeles Dodgers,,
+base,73,Eric Gagne,Los Angeles Dodgers,Rookies/Prospects,
+base,74,Eric Karros,Los Angeles Dodgers,,
+base,75,Raul Mondesi,Los Angeles Dodgers,,
+base,76,Gary Sheffield,Los Angeles Dodgers,,
+base,77,Jeromy Burnitz,Milwaukee Brewers,,
+base,78,Jeff Cirillo,Milwaukee Brewers,,
+base,79,Geoff Jenkins,Milwaukee Brewers,,
+base,80,Dave Nilsson,Milwaukee Brewers,,
+base,81,Ron Coomer,Minnesota Twins,,
+base,82,Jacque Jones,Minnesota Twins,,
+base,83,Corey Koskie,Minnesota Twins,,
+base,84,Brad Radke,Minnesota Twins,,
+base,85,Tony Armas Jr.,Montreal Expos,Rookies/Prospects,
+base,86,Peter Bergeron,Montreal Expos,Rookies/Prospects,
+base,87,Vladimir Guerrero,Montreal Expos,,
+base,88,Jose Vidro,Montreal Expos,,
+base,89,Rondell White,Montreal Expos,,
+base,90,Edgardo Alfonzo,New York Mets,,
+base,91,Roger Cedeno,New York Mets,,
+base,92,Rickey Henderson,New York Mets,,
+base,93,Jay Payton,New York Mets,Rookies/Prospects,
+base,94,Mike Piazza,New York Mets,,
+base,95,Jorge Toca,New York Mets,Rookies/Prospects,
+base,96,Robin Ventura,New York Mets,,
+base,97,Roger Clemens,New York Yankees,,
+base,98,David Cone,New York Yankees,,
+base,99,Derek Jeter,New York Yankees,,
+base,100,D'Angelo Jimenez,New York Yankees,Rookies/Prospects,
+base,101,Tino Martinez,New York Yankees,,
+base,102,Alfonso Soriano,New York Yankees,Rookies/Prospects,
+base,103,Bernie Williams,New York Yankees,,
+base,104,Jason Giambi,Oakland Athletics,,
+base,105,Ben Grieve,Oakland Athletics,,
+base,106,Tim Hudson,Oakland Athletics,,
+base,107,Matt Stairs,Oakland Athletics,,
+base,108,Bobby Abreu,Philadelphia Phillies,,
+base,109,Doug Glanville,Philadelphia Phillies,,
+base,110,Scott Rolen,Philadelphia Phillies,,
+base,111,Curt Schilling,Philadelphia Phillies,,
+base,112,Brian Giles,Pittsburgh Pirates,,
+base,113,Chad Hermansen,Pittsburgh Pirates,Rookies/Prospects,
+base,114,Jason Kendall,Pittsburgh Pirates,,
+base,115,Warren Morris,Pittsburgh Pirates,,
+base,116,Rick Ankiel,St. Louis Cardinals,Rookies/Prospects,
+base,117,J.D. Drew,St. Louis Cardinals,,
+base,118,Adam Kennedy,St. Louis Cardinals,Rookies/Prospects,
+base,119,Ray Lankford,St. Louis Cardinals,,
+base,120,Mark McGwire,St. Louis Cardinals,,
+base,121,Fernando Tatis,St. Louis Cardinals,,
+base,122,Mike Darr,San Diego Padres,Rookies/Prospects,
+base,123,Ben Davis,San Diego Padres,,
+base,124,Tony Gwynn,San Diego Padres,,
+base,125,Trevor Hoffman,San Diego Padres,,
+base,126,Reggie Sanders,San Diego Padres,,
+base,127,Barry Bonds,San Francisco Giants,,
+base,128,Ellis Burks,San Francisco Giants,,
+base,129,Jeff Kent,San Francisco Giants,,
+base,130,J.T. Snow,San Francisco Giants,,
+base,131,Freddy Garcia,Seattle Mariners,,
+base,132,Ken Griffey Jr.,Seattle Mariners,,
+base,133,Carlos Guillen,Seattle Mariners,Rookies/Prospects,
+base,134,Edgar Martinez,Seattle Mariners,,
+base,135,Alex Rodriguez,Seattle Mariners,,
+base,136,Miguel Cairo,Tampa Bay Devil Rays,,
+base,137,Jose Canseco,Tampa Bay Devil Rays,,
+base,138,Steve Cox,Tampa Bay Devil Rays,Rookies/Prospects,
+base,139,Roberto Hernandez,Tampa Bay Devil Rays,,
+base,140,Fred McGriff,Tampa Bay Devil Rays,,
+base,141,Juan Gonzalez,Texas Rangers,,
+base,142,Rusty Greer,Texas Rangers,,
+base,143,Ruben Mateo,Texas Rangers,Rookies/Prospects,
+base,144,Rafael Palmeiro,Texas Rangers,,
+base,145,Ivan Rodriguez,Texas Rangers,,
+base,146,Carlos Delgado,Toronto Blue Jays,,
+base,147,Tony Fernandez,Toronto Blue Jays,,
+base,148,Shawn Green,Toronto Blue Jays,,
+base,149,Shannon Stewart,Toronto Blue Jays,,
+base,150,Vernon Wells,Toronto Blue Jays,Rookies/Prospects,
+gold,1,Darin Erstad,Anaheim Angels,,Serial numbered /99
+gold,2,Troy Glaus,Anaheim Angels,,Serial numbered /99
+gold,3,Tim Salmon,Anaheim Angels,,Serial numbered /99
+gold,4,Mo Vaughn,Anaheim Angels,,Serial numbered /99
+gold,5,Jay Bell,Arizona Diamondbacks,,Serial numbered /99
+gold,6,Luis Gonzalez,Arizona Diamondbacks,,Serial numbered /99
+gold,7,Randy Johnson,Arizona Diamondbacks,,Serial numbered /99
+gold,8,Matt Williams,Arizona Diamondbacks,,Serial numbered /99
+gold,9,Andruw Jones,Atlanta Braves,,Serial numbered /99
+gold,10,Chipper Jones,Atlanta Braves,,Serial numbered /99
+gold,11,Brian Jordan,Atlanta Braves,,Serial numbered /99
+gold,12,Greg Maddux,Atlanta Braves,,Serial numbered /99
+gold,13,Kevin Millwood,Atlanta Braves,,Serial numbered /99
+gold,14,Albert Belle,Baltimore Orioles,,Serial numbered /99
+gold,15,Mike Mussina,Baltimore Orioles,,Serial numbered /99
+gold,16,Cal Ripken Jr.,Baltimore Orioles,,Serial numbered /99
+gold,17,B.J. Surhoff,Baltimore Orioles,,Serial numbered /99
+gold,18,Nomar Garciaparra,Boston Red Sox,,Serial numbered /99
+gold,19,Butch Huskey,Boston Red Sox,,Serial numbered /99
+gold,20,Pedro Martinez,Boston Red Sox,,Serial numbered /99
+gold,21,Troy O'Leary,Boston Red Sox,,Serial numbered /99
+gold,22,Mark Grace,Chicago Cubs,,Serial numbered /99
+gold,23,Bo Porter,Chicago Cubs,Rookies/Prospects,Serial numbered /99
+gold,24,Henry Rodriguez,Chicago Cubs,,Serial numbered /99
+gold,25,Sammy Sosa,Chicago Cubs,,Serial numbered /99
+gold,26,Kerry Wood,Chicago Cubs,,Serial numbered /99
+gold,27,Jason Dellaero,Chicago White Sox,Rookies/Prospects,Serial numbered /99
+gold,28,Ray Durham,Chicago White Sox,,Serial numbered /99
+gold,29,Paul Konerko,Chicago White Sox,,Serial numbered /99
+gold,30,Carlos Lee,Chicago White Sox,,Serial numbered /99
+gold,31,Magglio Ordonez,Chicago White Sox,,Serial numbered /99
+gold,32,Frank Thomas,Chicago White Sox,,Serial numbered /99
+gold,33,Mike Cameron,Cincinnati Reds,,Serial numbered /99
+gold,34,Sean Casey,Cincinnati Reds,,Serial numbered /99
+gold,35,Barry Larkin,Cincinnati Reds,,Serial numbered /99
+gold,36,Greg Vaughn,Cincinnati Reds,,Serial numbered /99
+gold,37,Roberto Alomar,Cleveland Indians,,Serial numbered /99
+gold,38,Russell Branyan,Cleveland Indians,Rookies/Prospects,Serial numbered /99
+gold,39,Kenny Lofton,Cleveland Indians,,Serial numbered /99
+gold,40,Manny Ramirez,Cleveland Indians,,Serial numbered /99
+gold,41,Richie Sexson,Cleveland Indians,,Serial numbered /99
+gold,42,Jim Thome,Cleveland Indians,,Serial numbered /99
+gold,43,Omar Vizquel,Cleveland Indians,,Serial numbered /99
+gold,44,Pedro Astacio,Colorado Rockies,,Serial numbered /99
+gold,45,Vinny Castilla,Colorado Rockies,,Serial numbered /99
+gold,46,Todd Helton,Colorado Rockies,,Serial numbered /99
+gold,47,Ben Petrick,Colorado Rockies,Rookies/Prospects,Serial numbered /99
+gold,48,Juan Sosa,Colorado Rockies,Rookies/Prospects,Serial numbered /99
+gold,49,Larry Walker,Colorado Rockies,,Serial numbered /99
+gold,50,Tony Clark,Detroit Tigers,,Serial numbered /99
+gold,51,Damion Easley,Detroit Tigers,,Serial numbered /99
+gold,52,Juan Encarnacion,Detroit Tigers,,Serial numbered /99
+gold,53,Robert Fick,Detroit Tigers,Rookies/Prospects,Serial numbered /99
+gold,54,Dean Palmer,Detroit Tigers,,Serial numbered /99
+gold,55,A.J. Burnett,Florida Marlins,Rookies/Prospects,Serial numbered /99
+gold,56,Luis Castillo,Florida Marlins,,Serial numbered /99
+gold,57,Alex Gonzalez,Florida Marlins,,Serial numbered /99
+gold,58,Julio Ramirez,Florida Marlins,Rookies/Prospects,Serial numbered /99
+gold,59,Preston Wilson,Florida Marlins,,Serial numbered /99
+gold,60,Jeff Bagwell,Houston Astros,,Serial numbered /99
+gold,61,Craig Biggio,Houston Astros,,Serial numbered /99
+gold,62,Ken Caminiti,Houston Astros,,Serial numbered /99
+gold,63,Carl Everett,Houston Astros,,Serial numbered /99
+gold,64,Mike Hampton,Houston Astros,,Serial numbered /99
+gold,65,Billy Wagner,Houston Astros,,Serial numbered /99
+gold,66,Carlos Beltran,Kansas City Royals,,Serial numbered /99
+gold,67,Dermal Brown,Kansas City Royals,Rookies/Prospects,Serial numbered /99
+gold,68,Jermaine Dye,Kansas City Royals,,Serial numbered /99
+gold,69,Carlos Febles,Kansas City Royals,,Serial numbered /99
+gold,70,Mark Quinn,Kansas City Royals,Rookies/Prospects,Serial numbered /99
+gold,71,Mike Sweeney,Kansas City Royals,,Serial numbered /99
+gold,72,Kevin Brown,Los Angeles Dodgers,,Serial numbered /99
+gold,73,Eric Gagne,Los Angeles Dodgers,Rookies/Prospects,Serial numbered /99
+gold,74,Eric Karros,Los Angeles Dodgers,,Serial numbered /99
+gold,75,Raul Mondesi,Los Angeles Dodgers,,Serial numbered /99
+gold,76,Gary Sheffield,Los Angeles Dodgers,,Serial numbered /99
+gold,77,Jeromy Burnitz,Milwaukee Brewers,,Serial numbered /99
+gold,78,Jeff Cirillo,Milwaukee Brewers,,Serial numbered /99
+gold,79,Geoff Jenkins,Milwaukee Brewers,,Serial numbered /99
+gold,80,Dave Nilsson,Milwaukee Brewers,,Serial numbered /99
+gold,81,Ron Coomer,Minnesota Twins,,Serial numbered /99
+gold,82,Jacque Jones,Minnesota Twins,,Serial numbered /99
+gold,83,Corey Koskie,Minnesota Twins,,Serial numbered /99
+gold,84,Brad Radke,Minnesota Twins,,Serial numbered /99
+gold,85,Tony Armas Jr.,Montreal Expos,Rookies/Prospects,Serial numbered /99
+gold,86,Peter Bergeron,Montreal Expos,Rookies/Prospects,Serial numbered /99
+gold,87,Vladimir Guerrero,Montreal Expos,,Serial numbered /99
+gold,88,Jose Vidro,Montreal Expos,,Serial numbered /99
+gold,89,Rondell White,Montreal Expos,,Serial numbered /99
+gold,90,Edgardo Alfonzo,New York Mets,,Serial numbered /99
+gold,91,Roger Cedeno,New York Mets,,Serial numbered /99
+gold,92,Rickey Henderson,New York Mets,,Serial numbered /99
+gold,93,Jay Payton,New York Mets,Rookies/Prospects,Serial numbered /99
+gold,94,Mike Piazza,New York Mets,,Serial numbered /99
+gold,95,Jorge Toca,New York Mets,Rookies/Prospects,Serial numbered /99
+gold,96,Robin Ventura,New York Mets,,Serial numbered /99
+gold,97,Roger Clemens,New York Yankees,,Serial numbered /99
+gold,98,David Cone,New York Yankees,,Serial numbered /99
+gold,99,Derek Jeter,New York Yankees,,Serial numbered /99
+gold,100,D'Angelo Jimenez,New York Yankees,Rookies/Prospects,Serial numbered /99
+gold,101,Tino Martinez,New York Yankees,,Serial numbered /99
+gold,102,Alfonso Soriano,New York Yankees,Rookies/Prospects,Serial numbered /99
+gold,103,Bernie Williams,New York Yankees,,Serial numbered /99
+gold,104,Jason Giambi,Oakland Athletics,,Serial numbered /99
+gold,105,Ben Grieve,Oakland Athletics,,Serial numbered /99
+gold,106,Tim Hudson,Oakland Athletics,,Serial numbered /99
+gold,107,Matt Stairs,Oakland Athletics,,Serial numbered /99
+gold,108,Bobby Abreu,Philadelphia Phillies,,Serial numbered /99
+gold,109,Doug Glanville,Philadelphia Phillies,,Serial numbered /99
+gold,110,Scott Rolen,Philadelphia Phillies,,Serial numbered /99
+gold,111,Curt Schilling,Philadelphia Phillies,,Serial numbered /99
+gold,112,Brian Giles,Pittsburgh Pirates,,Serial numbered /99
+gold,113,Chad Hermansen,Pittsburgh Pirates,Rookies/Prospects,Serial numbered /99
+gold,114,Jason Kendall,Pittsburgh Pirates,,Serial numbered /99
+gold,115,Warren Morris,Pittsburgh Pirates,,Serial numbered /99
+gold,116,Rick Ankiel,St. Louis Cardinals,Rookies/Prospects,Serial numbered /99
+gold,117,J.D. Drew,St. Louis Cardinals,,Serial numbered /99
+gold,118,Adam Kennedy,St. Louis Cardinals,Rookies/Prospects,Serial numbered /99
+gold,119,Ray Lankford,St. Louis Cardinals,,Serial numbered /99
+gold,120,Mark McGwire,St. Louis Cardinals,,Serial numbered /99
+gold,121,Fernando Tatis,St. Louis Cardinals,,Serial numbered /99
+gold,122,Mike Darr,San Diego Padres,Rookies/Prospects,Serial numbered /99
+gold,123,Ben Davis,San Diego Padres,,Serial numbered /99
+gold,124,Tony Gwynn,San Diego Padres,,Serial numbered /99
+gold,125,Trevor Hoffman,San Diego Padres,,Serial numbered /99
+gold,126,Reggie Sanders,San Diego Padres,,Serial numbered /99
+gold,127,Barry Bonds,San Francisco Giants,,Serial numbered /99
+gold,128,Ellis Burks,San Francisco Giants,,Serial numbered /99
+gold,129,Jeff Kent,San Francisco Giants,,Serial numbered /99
+gold,130,J.T. Snow,San Francisco Giants,,Serial numbered /99
+gold,131,Freddy Garcia,Seattle Mariners,,Serial numbered /99
+gold,132,Ken Griffey Jr.,Seattle Mariners,,Serial numbered /99
+gold,133,Carlos Guillen,Seattle Mariners,Rookies/Prospects,Serial numbered /99
+gold,134,Edgar Martinez,Seattle Mariners,,Serial numbered /99
+gold,135,Alex Rodriguez,Seattle Mariners,,Serial numbered /99
+gold,136,Miguel Cairo,Tampa Bay Devil Rays,,Serial numbered /99
+gold,137,Jose Canseco,Tampa Bay Devil Rays,,Serial numbered /99
+gold,138,Steve Cox,Tampa Bay Devil Rays,Rookies/Prospects,Serial numbered /99
+gold,139,Roberto Hernandez,Tampa Bay Devil Rays,,Serial numbered /99
+gold,140,Fred McGriff,Tampa Bay Devil Rays,,Serial numbered /99
+gold,141,Juan Gonzalez,Texas Rangers,,Serial numbered /99
+gold,142,Rusty Greer,Texas Rangers,,Serial numbered /99
+gold,143,Ruben Mateo,Texas Rangers,Rookies/Prospects,Serial numbered /99
+gold,144,Rafael Palmeiro,Texas Rangers,,Serial numbered /99
+gold,145,Ivan Rodriguez,Texas Rangers,,Serial numbered /99
+gold,146,Carlos Delgado,Toronto Blue Jays,,Serial numbered /99
+gold,147,Tony Fernandez,Toronto Blue Jays,,Serial numbered /99
+gold,148,Shawn Green,Toronto Blue Jays,,Serial numbered /99
+gold,149,Shannon Stewart,Toronto Blue Jays,,Serial numbered /99
+gold,150,Vernon Wells,Toronto Blue Jays,Rookies/Prospects,Serial numbered /99
+premiere,1,Darin Erstad,Anaheim Angels,,Serial numbered /34
+premiere,2,Troy Glaus,Anaheim Angels,,Serial numbered /34
+premiere,3,Tim Salmon,Anaheim Angels,,Serial numbered /34
+premiere,4,Mo Vaughn,Anaheim Angels,,Serial numbered /34
+premiere,5,Jay Bell,Arizona Diamondbacks,,Serial numbered /34
+premiere,6,Luis Gonzalez,Arizona Diamondbacks,,Serial numbered /34
+premiere,7,Randy Johnson,Arizona Diamondbacks,,Serial numbered /34
+premiere,8,Matt Williams,Arizona Diamondbacks,,Serial numbered /34
+premiere,9,Andruw Jones,Atlanta Braves,,Serial numbered /34
+premiere,10,Chipper Jones,Atlanta Braves,,Serial numbered /34
+premiere,11,Brian Jordan,Atlanta Braves,,Serial numbered /34
+premiere,12,Greg Maddux,Atlanta Braves,,Serial numbered /34
+premiere,13,Kevin Millwood,Atlanta Braves,,Serial numbered /34
+premiere,14,Albert Belle,Baltimore Orioles,,Serial numbered /34
+premiere,15,Mike Mussina,Baltimore Orioles,,Serial numbered /34
+premiere,16,Cal Ripken Jr.,Baltimore Orioles,,Serial numbered /34
+premiere,17,B.J. Surhoff,Baltimore Orioles,,Serial numbered /34
+premiere,18,Nomar Garciaparra,Boston Red Sox,,Serial numbered /34
+premiere,19,Butch Huskey,Boston Red Sox,,Serial numbered /34
+premiere,20,Pedro Martinez,Boston Red Sox,,Serial numbered /34
+premiere,21,Troy O'Leary,Boston Red Sox,,Serial numbered /34
+premiere,22,Mark Grace,Chicago Cubs,,Serial numbered /34
+premiere,23,Bo Porter,Chicago Cubs,Rookies/Prospects,Serial numbered /34
+premiere,24,Henry Rodriguez,Chicago Cubs,,Serial numbered /34
+premiere,25,Sammy Sosa,Chicago Cubs,,Serial numbered /34
+premiere,26,Kerry Wood,Chicago Cubs,,Serial numbered /34
+premiere,27,Jason Dellaero,Chicago White Sox,Rookies/Prospects,Serial numbered /34
+premiere,28,Ray Durham,Chicago White Sox,,Serial numbered /34
+premiere,29,Paul Konerko,Chicago White Sox,,Serial numbered /34
+premiere,30,Carlos Lee,Chicago White Sox,,Serial numbered /34
+premiere,31,Magglio Ordonez,Chicago White Sox,,Serial numbered /34
+premiere,32,Frank Thomas,Chicago White Sox,,Serial numbered /34
+premiere,33,Mike Cameron,Cincinnati Reds,,Serial numbered /34
+premiere,34,Sean Casey,Cincinnati Reds,,Serial numbered /34
+premiere,35,Barry Larkin,Cincinnati Reds,,Serial numbered /34
+premiere,36,Greg Vaughn,Cincinnati Reds,,Serial numbered /34
+premiere,37,Roberto Alomar,Cleveland Indians,,Serial numbered /34
+premiere,38,Russell Branyan,Cleveland Indians,Rookies/Prospects,Serial numbered /34
+premiere,39,Kenny Lofton,Cleveland Indians,,Serial numbered /34
+premiere,40,Manny Ramirez,Cleveland Indians,,Serial numbered /34
+premiere,41,Richie Sexson,Cleveland Indians,,Serial numbered /34
+premiere,42,Jim Thome,Cleveland Indians,,Serial numbered /34
+premiere,43,Omar Vizquel,Cleveland Indians,,Serial numbered /34
+premiere,44,Pedro Astacio,Colorado Rockies,,Serial numbered /34
+premiere,45,Vinny Castilla,Colorado Rockies,,Serial numbered /34
+premiere,46,Todd Helton,Colorado Rockies,,Serial numbered /34
+premiere,47,Ben Petrick,Colorado Rockies,Rookies/Prospects,Serial numbered /34
+premiere,48,Juan Sosa,Colorado Rockies,Rookies/Prospects,Serial numbered /34
+premiere,49,Larry Walker,Colorado Rockies,,Serial numbered /34
+premiere,50,Tony Clark,Detroit Tigers,,Serial numbered /34
+premiere,51,Damion Easley,Detroit Tigers,,Serial numbered /34
+premiere,52,Juan Encarnacion,Detroit Tigers,,Serial numbered /34
+premiere,53,Robert Fick,Detroit Tigers,Rookies/Prospects,Serial numbered /34
+premiere,54,Dean Palmer,Detroit Tigers,,Serial numbered /34
+premiere,55,A.J. Burnett,Florida Marlins,Rookies/Prospects,Serial numbered /34
+premiere,56,Luis Castillo,Florida Marlins,,Serial numbered /34
+premiere,57,Alex Gonzalez,Florida Marlins,,Serial numbered /34
+premiere,58,Julio Ramirez,Florida Marlins,Rookies/Prospects,Serial numbered /34
+premiere,59,Preston Wilson,Florida Marlins,,Serial numbered /34
+premiere,60,Jeff Bagwell,Houston Astros,,Serial numbered /34
+premiere,61,Craig Biggio,Houston Astros,,Serial numbered /34
+premiere,62,Ken Caminiti,Houston Astros,,Serial numbered /34
+premiere,63,Carl Everett,Houston Astros,,Serial numbered /34
+premiere,64,Mike Hampton,Houston Astros,,Serial numbered /34
+premiere,65,Billy Wagner,Houston Astros,,Serial numbered /34
+premiere,66,Carlos Beltran,Kansas City Royals,,Serial numbered /34
+premiere,67,Dermal Brown,Kansas City Royals,Rookies/Prospects,Serial numbered /34
+premiere,68,Jermaine Dye,Kansas City Royals,,Serial numbered /34
+premiere,69,Carlos Febles,Kansas City Royals,,Serial numbered /34
+premiere,70,Mark Quinn,Kansas City Royals,Rookies/Prospects,Serial numbered /34
+premiere,71,Mike Sweeney,Kansas City Royals,,Serial numbered /34
+premiere,72,Kevin Brown,Los Angeles Dodgers,,Serial numbered /34
+premiere,73,Eric Gagne,Los Angeles Dodgers,Rookies/Prospects,Serial numbered /34
+premiere,74,Eric Karros,Los Angeles Dodgers,,Serial numbered /34
+premiere,75,Raul Mondesi,Los Angeles Dodgers,,Serial numbered /34
+premiere,76,Gary Sheffield,Los Angeles Dodgers,,Serial numbered /34
+premiere,77,Jeromy Burnitz,Milwaukee Brewers,,Serial numbered /34
+premiere,78,Jeff Cirillo,Milwaukee Brewers,,Serial numbered /34
+premiere,79,Geoff Jenkins,Milwaukee Brewers,,Serial numbered /34
+premiere,80,Dave Nilsson,Milwaukee Brewers,,Serial numbered /34
+premiere,81,Ron Coomer,Minnesota Twins,,Serial numbered /34
+premiere,82,Jacque Jones,Minnesota Twins,,Serial numbered /34
+premiere,83,Corey Koskie,Minnesota Twins,,Serial numbered /34
+premiere,84,Brad Radke,Minnesota Twins,,Serial numbered /34
+premiere,85,Tony Armas Jr.,Montreal Expos,Rookies/Prospects,Serial numbered /34
+premiere,86,Peter Bergeron,Montreal Expos,Rookies/Prospects,Serial numbered /34
+premiere,87,Vladimir Guerrero,Montreal Expos,,Serial numbered /34
+premiere,88,Jose Vidro,Montreal Expos,,Serial numbered /34
+premiere,89,Rondell White,Montreal Expos,,Serial numbered /34
+premiere,90,Edgardo Alfonzo,New York Mets,,Serial numbered /34
+premiere,91,Roger Cedeno,New York Mets,,Serial numbered /34
+premiere,92,Rickey Henderson,New York Mets,,Serial numbered /34
+premiere,93,Jay Payton,New York Mets,Rookies/Prospects,Serial numbered /34
+premiere,94,Mike Piazza,New York Mets,,Serial numbered /34
+premiere,95,Jorge Toca,New York Mets,Rookies/Prospects,Serial numbered /34
+premiere,96,Robin Ventura,New York Mets,,Serial numbered /34
+premiere,97,Roger Clemens,New York Yankees,,Serial numbered /34
+premiere,98,David Cone,New York Yankees,,Serial numbered /34
+premiere,99,Derek Jeter,New York Yankees,,Serial numbered /34
+premiere,100,D'Angelo Jimenez,New York Yankees,Rookies/Prospects,Serial numbered /34
+premiere,101,Tino Martinez,New York Yankees,,Serial numbered /34
+premiere,102,Alfonso Soriano,New York Yankees,Rookies/Prospects,Serial numbered /34
+premiere,103,Bernie Williams,New York Yankees,,Serial numbered /34
+premiere,104,Jason Giambi,Oakland Athletics,,Serial numbered /34
+premiere,105,Ben Grieve,Oakland Athletics,,Serial numbered /34
+premiere,106,Tim Hudson,Oakland Athletics,,Serial numbered /34
+premiere,107,Matt Stairs,Oakland Athletics,,Serial numbered /34
+premiere,108,Bobby Abreu,Philadelphia Phillies,,Serial numbered /34
+premiere,109,Doug Glanville,Philadelphia Phillies,,Serial numbered /34
+premiere,110,Scott Rolen,Philadelphia Phillies,,Serial numbered /34
+premiere,111,Curt Schilling,Philadelphia Phillies,,Serial numbered /34
+premiere,112,Brian Giles,Pittsburgh Pirates,,Serial numbered /34
+premiere,113,Chad Hermansen,Pittsburgh Pirates,Rookies/Prospects,Serial numbered /34
+premiere,114,Jason Kendall,Pittsburgh Pirates,,Serial numbered /34
+premiere,115,Warren Morris,Pittsburgh Pirates,,Serial numbered /34
+premiere,116,Rick Ankiel,St. Louis Cardinals,Rookies/Prospects,Serial numbered /34
+premiere,117,J.D. Drew,St. Louis Cardinals,,Serial numbered /34
+premiere,118,Adam Kennedy,St. Louis Cardinals,Rookies/Prospects,Serial numbered /34
+premiere,119,Ray Lankford,St. Louis Cardinals,,Serial numbered /34
+premiere,120,Mark McGwire,St. Louis Cardinals,,Serial numbered /34
+premiere,121,Fernando Tatis,St. Louis Cardinals,,Serial numbered /34
+premiere,122,Mike Darr,San Diego Padres,Rookies/Prospects,Serial numbered /34
+premiere,123,Ben Davis,San Diego Padres,,Serial numbered /34
+premiere,124,Tony Gwynn,San Diego Padres,,Serial numbered /34
+premiere,125,Trevor Hoffman,San Diego Padres,,Serial numbered /34
+premiere,126,Reggie Sanders,San Diego Padres,,Serial numbered /34
+premiere,127,Barry Bonds,San Francisco Giants,,Serial numbered /34
+premiere,128,Ellis Burks,San Francisco Giants,,Serial numbered /34
+premiere,129,Jeff Kent,San Francisco Giants,,Serial numbered /34
+premiere,130,J.T. Snow,San Francisco Giants,,Serial numbered /34
+premiere,131,Freddy Garcia,Seattle Mariners,,Serial numbered /34
+premiere,132,Ken Griffey Jr.,Seattle Mariners,,Serial numbered /34
+premiere,133,Carlos Guillen,Seattle Mariners,Rookies/Prospects,Serial numbered /34
+premiere,134,Edgar Martinez,Seattle Mariners,,Serial numbered /34
+premiere,135,Alex Rodriguez,Seattle Mariners,,Serial numbered /34
+premiere,136,Miguel Cairo,Tampa Bay Devil Rays,,Serial numbered /34
+premiere,137,Jose Canseco,Tampa Bay Devil Rays,,Serial numbered /34
+premiere,138,Steve Cox,Tampa Bay Devil Rays,Rookies/Prospects,Serial numbered /34
+premiere,139,Roberto Hernandez,Tampa Bay Devil Rays,,Serial numbered /34
+premiere,140,Fred McGriff,Tampa Bay Devil Rays,,Serial numbered /34
+premiere,141,Juan Gonzalez,Texas Rangers,,Serial numbered /34
+premiere,142,Rusty Greer,Texas Rangers,,Serial numbered /34
+premiere,143,Ruben Mateo,Texas Rangers,Rookies/Prospects,Serial numbered /34
+premiere,144,Rafael Palmeiro,Texas Rangers,,Serial numbered /34
+premiere,145,Ivan Rodriguez,Texas Rangers,,Serial numbered /34
+premiere,146,Carlos Delgado,Toronto Blue Jays,,Serial numbered /34
+premiere,147,Tony Fernandez,Toronto Blue Jays,,Serial numbered /34
+premiere,148,Shawn Green,Toronto Blue Jays,,Serial numbered /34
+premiere,149,Shannon Stewart,Toronto Blue Jays,,Serial numbered /34
+premiere,150,Vernon Wells,Toronto Blue Jays,Rookies/Prospects,Serial numbered /34
+silver,1,Darin Erstad,Anaheim Angels,,Serial numbered /199
+silver,2,Troy Glaus,Anaheim Angels,,Serial numbered /199
+silver,3,Tim Salmon,Anaheim Angels,,Serial numbered /199
+silver,4,Mo Vaughn,Anaheim Angels,,Serial numbered /199
+silver,5,Jay Bell,Arizona Diamondbacks,,Serial numbered /199
+silver,6,Luis Gonzalez,Arizona Diamondbacks,,Serial numbered /199
+silver,7,Randy Johnson,Arizona Diamondbacks,,Serial numbered /199
+silver,8,Matt Williams,Arizona Diamondbacks,,Serial numbered /199
+silver,9,Andruw Jones,Atlanta Braves,,Serial numbered /199
+silver,10,Chipper Jones,Atlanta Braves,,Serial numbered /199
+silver,11,Brian Jordan,Atlanta Braves,,Serial numbered /199
+silver,12,Greg Maddux,Atlanta Braves,,Serial numbered /199
+silver,13,Kevin Millwood,Atlanta Braves,,Serial numbered /199
+silver,14,Albert Belle,Baltimore Orioles,,Serial numbered /199
+silver,15,Mike Mussina,Baltimore Orioles,,Serial numbered /199
+silver,16,Cal Ripken Jr.,Baltimore Orioles,,Serial numbered /199
+silver,17,B.J. Surhoff,Baltimore Orioles,,Serial numbered /199
+silver,18,Nomar Garciaparra,Boston Red Sox,,Serial numbered /199
+silver,19,Butch Huskey,Boston Red Sox,,Serial numbered /199
+silver,20,Pedro Martinez,Boston Red Sox,,Serial numbered /199
+silver,21,Troy O'Leary,Boston Red Sox,,Serial numbered /199
+silver,22,Mark Grace,Chicago Cubs,,Serial numbered /199
+silver,23,Bo Porter,Chicago Cubs,Rookies/Prospects,Serial numbered /199
+silver,24,Henry Rodriguez,Chicago Cubs,,Serial numbered /199
+silver,25,Sammy Sosa,Chicago Cubs,,Serial numbered /199
+silver,26,Kerry Wood,Chicago Cubs,,Serial numbered /199
+silver,27,Jason Dellaero,Chicago White Sox,Rookies/Prospects,Serial numbered /199
+silver,28,Ray Durham,Chicago White Sox,,Serial numbered /199
+silver,29,Paul Konerko,Chicago White Sox,,Serial numbered /199
+silver,30,Carlos Lee,Chicago White Sox,,Serial numbered /199
+silver,31,Magglio Ordonez,Chicago White Sox,,Serial numbered /199
+silver,32,Frank Thomas,Chicago White Sox,,Serial numbered /199
+silver,33,Mike Cameron,Cincinnati Reds,,Serial numbered /199
+silver,34,Sean Casey,Cincinnati Reds,,Serial numbered /199
+silver,35,Barry Larkin,Cincinnati Reds,,Serial numbered /199
+silver,36,Greg Vaughn,Cincinnati Reds,,Serial numbered /199
+silver,37,Roberto Alomar,Cleveland Indians,,Serial numbered /199
+silver,38,Russell Branyan,Cleveland Indians,Rookies/Prospects,Serial numbered /199
+silver,39,Kenny Lofton,Cleveland Indians,,Serial numbered /199
+silver,40,Manny Ramirez,Cleveland Indians,,Serial numbered /199
+silver,41,Richie Sexson,Cleveland Indians,,Serial numbered /199
+silver,42,Jim Thome,Cleveland Indians,,Serial numbered /199
+silver,43,Omar Vizquel,Cleveland Indians,,Serial numbered /199
+silver,44,Pedro Astacio,Colorado Rockies,,Serial numbered /199
+silver,45,Vinny Castilla,Colorado Rockies,,Serial numbered /199
+silver,46,Todd Helton,Colorado Rockies,,Serial numbered /199
+silver,47,Ben Petrick,Colorado Rockies,Rookies/Prospects,Serial numbered /199
+silver,48,Juan Sosa,Colorado Rockies,Rookies/Prospects,Serial numbered /199
+silver,49,Larry Walker,Colorado Rockies,,Serial numbered /199
+silver,50,Tony Clark,Detroit Tigers,,Serial numbered /199
+silver,51,Damion Easley,Detroit Tigers,,Serial numbered /199
+silver,52,Juan Encarnacion,Detroit Tigers,,Serial numbered /199
+silver,53,Robert Fick,Detroit Tigers,Rookies/Prospects,Serial numbered /199
+silver,54,Dean Palmer,Detroit Tigers,,Serial numbered /199
+silver,55,A.J. Burnett,Florida Marlins,Rookies/Prospects,Serial numbered /199
+silver,56,Luis Castillo,Florida Marlins,,Serial numbered /199
+silver,57,Alex Gonzalez,Florida Marlins,,Serial numbered /199
+silver,58,Julio Ramirez,Florida Marlins,Rookies/Prospects,Serial numbered /199
+silver,59,Preston Wilson,Florida Marlins,,Serial numbered /199
+silver,60,Jeff Bagwell,Houston Astros,,Serial numbered /199
+silver,61,Craig Biggio,Houston Astros,,Serial numbered /199
+silver,62,Ken Caminiti,Houston Astros,,Serial numbered /199
+silver,63,Carl Everett,Houston Astros,,Serial numbered /199
+silver,64,Mike Hampton,Houston Astros,,Serial numbered /199
+silver,65,Billy Wagner,Houston Astros,,Serial numbered /199
+silver,66,Carlos Beltran,Kansas City Royals,,Serial numbered /199
+silver,67,Dermal Brown,Kansas City Royals,Rookies/Prospects,Serial numbered /199
+silver,68,Jermaine Dye,Kansas City Royals,,Serial numbered /199
+silver,69,Carlos Febles,Kansas City Royals,,Serial numbered /199
+silver,70,Mark Quinn,Kansas City Royals,Rookies/Prospects,Serial numbered /199
+silver,71,Mike Sweeney,Kansas City Royals,,Serial numbered /199
+silver,72,Kevin Brown,Los Angeles Dodgers,,Serial numbered /199
+silver,73,Eric Gagne,Los Angeles Dodgers,Rookies/Prospects,Serial numbered /199
+silver,74,Eric Karros,Los Angeles Dodgers,,Serial numbered /199
+silver,75,Raul Mondesi,Los Angeles Dodgers,,Serial numbered /199
+silver,76,Gary Sheffield,Los Angeles Dodgers,,Serial numbered /199
+silver,77,Jeromy Burnitz,Milwaukee Brewers,,Serial numbered /199
+silver,78,Jeff Cirillo,Milwaukee Brewers,,Serial numbered /199
+silver,79,Geoff Jenkins,Milwaukee Brewers,,Serial numbered /199
+silver,80,Dave Nilsson,Milwaukee Brewers,,Serial numbered /199
+silver,81,Ron Coomer,Minnesota Twins,,Serial numbered /199
+silver,82,Jacque Jones,Minnesota Twins,,Serial numbered /199
+silver,83,Corey Koskie,Minnesota Twins,,Serial numbered /199
+silver,84,Brad Radke,Minnesota Twins,,Serial numbered /199
+silver,85,Tony Armas Jr.,Montreal Expos,Rookies/Prospects,Serial numbered /199
+silver,86,Peter Bergeron,Montreal Expos,Rookies/Prospects,Serial numbered /199
+silver,87,Vladimir Guerrero,Montreal Expos,,Serial numbered /199
+silver,88,Jose Vidro,Montreal Expos,,Serial numbered /199
+silver,89,Rondell White,Montreal Expos,,Serial numbered /199
+silver,90,Edgardo Alfonzo,New York Mets,,Serial numbered /199
+silver,91,Roger Cedeno,New York Mets,,Serial numbered /199
+silver,92,Rickey Henderson,New York Mets,,Serial numbered /199
+silver,93,Jay Payton,New York Mets,Rookies/Prospects,Serial numbered /199
+silver,94,Mike Piazza,New York Mets,,Serial numbered /199
+silver,95,Jorge Toca,New York Mets,Rookies/Prospects,Serial numbered /199
+silver,96,Robin Ventura,New York Mets,,Serial numbered /199
+silver,97,Roger Clemens,New York Yankees,,Serial numbered /199
+silver,98,David Cone,New York Yankees,,Serial numbered /199
+silver,99,Derek Jeter,New York Yankees,,Serial numbered /199
+silver,100,D'Angelo Jimenez,New York Yankees,Rookies/Prospects,Serial numbered /199
+silver,101,Tino Martinez,New York Yankees,,Serial numbered /199
+silver,102,Alfonso Soriano,New York Yankees,Rookies/Prospects,Serial numbered /199
+silver,103,Bernie Williams,New York Yankees,,Serial numbered /199
+silver,104,Jason Giambi,Oakland Athletics,,Serial numbered /199
+silver,105,Ben Grieve,Oakland Athletics,,Serial numbered /199
+silver,106,Tim Hudson,Oakland Athletics,,Serial numbered /199
+silver,107,Matt Stairs,Oakland Athletics,,Serial numbered /199
+silver,108,Bobby Abreu,Philadelphia Phillies,,Serial numbered /199
+silver,109,Doug Glanville,Philadelphia Phillies,,Serial numbered /199
+silver,110,Scott Rolen,Philadelphia Phillies,,Serial numbered /199
+silver,111,Curt Schilling,Philadelphia Phillies,,Serial numbered /199
+silver,112,Brian Giles,Pittsburgh Pirates,,Serial numbered /199
+silver,113,Chad Hermansen,Pittsburgh Pirates,Rookies/Prospects,Serial numbered /199
+silver,114,Jason Kendall,Pittsburgh Pirates,,Serial numbered /199
+silver,115,Warren Morris,Pittsburgh Pirates,,Serial numbered /199
+silver,116,Rick Ankiel,St. Louis Cardinals,Rookies/Prospects,Serial numbered /199
+silver,117,J.D. Drew,St. Louis Cardinals,,Serial numbered /199
+silver,118,Adam Kennedy,St. Louis Cardinals,Rookies/Prospects,Serial numbered /199
+silver,119,Ray Lankford,St. Louis Cardinals,,Serial numbered /199
+silver,120,Mark McGwire,St. Louis Cardinals,,Serial numbered /199
+silver,121,Fernando Tatis,St. Louis Cardinals,,Serial numbered /199
+silver,122,Mike Darr,San Diego Padres,Rookies/Prospects,Serial numbered /199
+silver,123,Ben Davis,San Diego Padres,,Serial numbered /199
+silver,124,Tony Gwynn,San Diego Padres,,Serial numbered /199
+silver,125,Trevor Hoffman,San Diego Padres,,Serial numbered /199
+silver,126,Reggie Sanders,San Diego Padres,,Serial numbered /199
+silver,127,Barry Bonds,San Francisco Giants,,Serial numbered /199
+silver,128,Ellis Burks,San Francisco Giants,,Serial numbered /199
+silver,129,Jeff Kent,San Francisco Giants,,Serial numbered /199
+silver,130,J.T. Snow,San Francisco Giants,,Serial numbered /199
+silver,131,Freddy Garcia,Seattle Mariners,,Serial numbered /199
+silver,132,Ken Griffey Jr.,Seattle Mariners,,Serial numbered /199
+silver,133,Carlos Guillen,Seattle Mariners,Rookies/Prospects,Serial numbered /199
+silver,134,Edgar Martinez,Seattle Mariners,,Serial numbered /199
+silver,135,Alex Rodriguez,Seattle Mariners,,Serial numbered /199
+silver,136,Miguel Cairo,Tampa Bay Devil Rays,,Serial numbered /199
+silver,137,Jose Canseco,Tampa Bay Devil Rays,,Serial numbered /199
+silver,138,Steve Cox,Tampa Bay Devil Rays,Rookies/Prospects,Serial numbered /199
+silver,139,Roberto Hernandez,Tampa Bay Devil Rays,,Serial numbered /199
+silver,140,Fred McGriff,Tampa Bay Devil Rays,,Serial numbered /199
+silver,141,Juan Gonzalez,Texas Rangers,,Serial numbered /199
+silver,142,Rusty Greer,Texas Rangers,,Serial numbered /199
+silver,143,Ruben Mateo,Texas Rangers,Rookies/Prospects,Serial numbered /199
+silver,144,Rafael Palmeiro,Texas Rangers,,Serial numbered /199
+silver,145,Ivan Rodriguez,Texas Rangers,,Serial numbered /199
+silver,146,Carlos Delgado,Toronto Blue Jays,,Serial numbered /199
+silver,147,Tony Fernandez,Toronto Blue Jays,,Serial numbered /199
+silver,148,Shawn Green,Toronto Blue Jays,,Serial numbered /199
+silver,149,Shannon Stewart,Toronto Blue Jays,,Serial numbered /199
+silver,150,Vernon Wells,Toronto Blue Jays,Rookies/Prospects,Serial numbered /199
+canvas,1,Chipper Jones,Atlanta Braves,,
+canvas,2,Greg Maddux,Atlanta Braves,,
+canvas,3,Cal Ripken Jr.,Baltimore Orioles,,
+canvas,4,Nomar Garciaparra,Boston Red Sox,,
+canvas,5,Sammy Sosa,Chicago Cubs,,
+canvas,6,Frank Thomas,Chicago White Sox,,
+canvas,7,Manny Ramirez,Cleveland Indians,,
+canvas,8,Larry Walker,Colorado Rockies,,
+canvas,9,Jeff Bagwell,Houston Astros,,
+canvas,10,Vladimir Guerrero,Montreal Expos,,
+canvas,11,Mike Piazza,New York Mets,,
+canvas,12,Roger Clemens,New York Yankees,,
+canvas,13,Derek Jeter,New York Yankees,,
+canvas,14,Mark McGwire,St. Louis Cardinals,,
+canvas,15,Tony Gwynn,San Diego Padres,,
+canvas,16,Barry Bonds,San Francisco Giants,,
+canvas,17,Ken Griffey Jr.,Seattle Mariners,,
+canvas,18,Alex Rodriguez,Seattle Mariners,,
+canvas,19,Juan Gonzalez,Texas Rangers,,
+canvas,20,Ivan Rodriguez,Texas Rangers,,
+canvas-proofs,1,Chipper Jones,Atlanta Braves,,Serial numbered /1
+canvas-proofs,2,Greg Maddux,Atlanta Braves,,Serial numbered /1
+canvas-proofs,3,Cal Ripken Jr.,Baltimore Orioles,,Serial numbered /1
+canvas-proofs,4,Nomar Garciaparra,Boston Red Sox,,Serial numbered /1
+canvas-proofs,5,Sammy Sosa,Chicago Cubs,,Serial numbered /1
+canvas-proofs,6,Frank Thomas,Chicago White Sox,,Serial numbered /1
+canvas-proofs,7,Manny Ramirez,Cleveland Indians,,Serial numbered /1
+canvas-proofs,8,Larry Walker,Colorado Rockies,,Serial numbered /1
+canvas-proofs,9,Jeff Bagwell,Houston Astros,,Serial numbered /1
+canvas-proofs,10,Vladimir Guerrero,Montreal Expos,,Serial numbered /1
+canvas-proofs,11,Mike Piazza,New York Mets,,Serial numbered /1
+canvas-proofs,12,Roger Clemens,New York Yankees,,Serial numbered /1
+canvas-proofs,13,Derek Jeter,New York Yankees,,Serial numbered /1
+canvas-proofs,14,Mark McGwire,St. Louis Cardinals,,Serial numbered /1
+canvas-proofs,15,Tony Gwynn,San Diego Padres,,Serial numbered /1
+canvas-proofs,16,Barry Bonds,San Francisco Giants,,Serial numbered /1
+canvas-proofs,17,Ken Griffey Jr.,Seattle Mariners,,Serial numbered /1
+canvas-proofs,18,Alex Rodriguez,Seattle Mariners,,Serial numbered /1
+canvas-proofs,19,Juan Gonzalez,Texas Rangers,,Serial numbered /1
+canvas-proofs,20,Ivan Rodriguez,Texas Rangers,,Serial numbered /1
+extreme,1,Andruw Jones,Atlanta Braves,,
+extreme,2,Chipper Jones,Atlanta Braves,,
+extreme,3,Cal Ripken Jr.,Baltimore Orioles,,
+extreme,4,Nomar Garciaparra,Boston Red Sox,,
+extreme,5,Sammy Sosa,Chicago Cubs,,
+extreme,6,Frank Thomas,Chicago White Sox,,
+extreme,7,Roberto Alomar,Cleveland Indians,,
+extreme,8,Manny Ramirez,Cleveland Indians,,
+extreme,9,Larry Walker,Colorado Rockies,,
+extreme,10,Jeff Bagwell,Houston Astros,,
+extreme,11,Vladimir Guerrero,Montreal Expos,,
+extreme,12,Mike Piazza,New York Mets,,
+extreme,13,Derek Jeter,New York Yankees,,
+extreme,14,Bernie Williams,New York Yankees,,
+extreme,15,Scott Rolen,Philadelphia Phillies,,
+extreme,16,Mark McGwire,St. Louis Cardinals,,
+extreme,17,Tony Gwynn,San Diego Padres,,
+extreme,18,Ken Griffey Jr.,Seattle Mariners,,
+extreme,19,Alex Rodriguez,Seattle Mariners,,
+extreme,20,Ivan Rodriguez,Texas Rangers,,
+action,1,Mo Vaughn,Anaheim Angels,,PS-2000 mini
+action,2,Greg Maddux,Atlanta Braves,,PS-2000 mini
+action,3,Andruw Jones,Atlanta Braves,,PS-2000 mini
+action,4,Chipper Jones,Atlanta Braves,,PS-2000 mini
+action,5,Cal Ripken Jr.,Baltimore Orioles,,PS-2000 mini
+action,6,Nomar Garciaparra,Boston Red Sox,,PS-2000 mini
+action,7,Pedro Martinez,Boston Red Sox,,PS-2000 mini
+action,8,Sammy Sosa,Chicago Cubs,,PS-2000 mini
+action,9,Jason Dellaero,Chicago White Sox,,PS-2000 mini
+action,10,Magglio Ordonez,Chicago White Sox,,PS-2000 mini
+action,11,Frank Thomas,Chicago White Sox,,PS-2000 mini
+action,12,Sean Casey,Cincinnati Reds,,PS-2000 mini
+action,13,Russell Branyan,Cleveland Indians,,PS-2000 mini
+action,14,Manny Ramirez,Cleveland Indians,,PS-2000 mini
+action,15,Richie Sexson,Cleveland Indians,,PS-2000 mini
+action,16,Ben Petrick,Colorado Rockies,,PS-2000 mini
+action,17,Juan Sosa,Colorado Rockies,,PS-2000 mini
+action,18,Larry Walker,Colorado Rockies,,PS-2000 mini
+action,19,Robert Fick,Detroit Tigers,,PS-2000 mini
+action,20,Craig Biggio,Houston Astros,,PS-2000 mini
+action,21,Jeff Bagwell,Houston Astros,,PS-2000 mini
+action,22,Carlos Beltran,Kansas City Royals,,PS-2000 mini
+action,23,Dermal Brown,Kansas City Royals,,PS-2000 mini
+action,24,Mark Quinn,Kansas City Royals,,PS-2000 mini
+action,25,Eric Gagne,Los Angeles Dodgers,,PS-2000 mini
+action,26,Jeromy Burnitz,Milwaukee Brewers,,PS-2000 mini
+action,27,Tony Armas Jr.,Montreal Expos,,PS-2000 mini
+action,28,Peter Bergeron,Montreal Expos,,PS-2000 mini
+action,29,Vladimir Guerrero,Montreal Expos,,PS-2000 mini
+action,30,Edgardo Alfonzo,New York Mets,,PS-2000 mini
+action,31,Mike Piazza,New York Mets,,PS-2000 mini
+action,32,Jorge Toca,New York Mets,,PS-2000 mini
+action,33,Roger Clemens,New York Yankees,,PS-2000 mini
+action,34,Alfonso Soriano,New York Yankees,,PS-2000 mini
+action,35,Bernie Williams,New York Yankees,,PS-2000 mini
+action,36,Derek Jeter,New York Yankees,,PS-2000 mini
+action,37,Tim Hudson,Oakland Athletics,,PS-2000 mini
+action,38,Bobby Abreu,Philadelphia Phillies,,PS-2000 mini
+action,39,Scott Rolen,Philadelphia Phillies,,PS-2000 mini
+action,40,Brian Giles,Pittsburgh Pirates,,PS-2000 mini
+action,41,Chad Hermansen,Pittsburgh Pirates,,PS-2000 mini
+action,42,Warren Morris,Pittsburgh Pirates,,PS-2000 mini
+action,43,Rick Ankiel,St. Louis Cardinals,,PS-2000 mini
+action,44,J.D. Drew,St. Louis Cardinals,,PS-2000 mini
+action,45,Adam Kennedy,St. Louis Cardinals,,PS-2000 mini
+action,46,Mark McGwire,St. Louis Cardinals,,PS-2000 mini
+action,47,Mike Darr,San Diego Padres,,PS-2000 mini
+action,48,Tony Gwynn,San Diego Padres,,PS-2000 mini
+action,49,Barry Bonds,San Francisco Giants,,PS-2000 mini
+action,50,Ken Griffey Jr.,Seattle Mariners,,PS-2000 mini
+action,51,Carlos Guillen,Seattle Mariners,,PS-2000 mini
+action,52,Alex Rodriguez,Seattle Mariners,,PS-2000 mini
+action,53,Juan Gonzalez,Texas Rangers,,PS-2000 mini
+action,54,Ruben Mateo,Texas Rangers,,PS-2000 mini
+action,55,Ivan Rodriguez,Texas Rangers,,PS-2000 mini
+action,56,Rafael Palmeiro,Texas Rangers,,PS-2000 mini
+action,57,Jose Canseco,Tampa Bay Devil Rays,,PS-2000 mini
+action,58,Steve Cox,Tampa Bay Devil Rays,,PS-2000 mini
+action,59,Shawn Green,Toronto Blue Jays,,PS-2000 mini
+action,60,Vernon Wells,Toronto Blue Jays,,PS-2000 mini
+new-wave,1,Andruw Jones,Atlanta Braves,,Serial numbered /199; PS-2000 mini
+new-wave,2,Chipper Jones,Atlanta Braves,,Serial numbered /199; PS-2000 mini
+new-wave,3,Nomar Garciaparra,Boston Red Sox,,Serial numbered /199; PS-2000 mini
+new-wave,4,Magglio Ordonez,Chicago White Sox,,Serial numbered /199; PS-2000 mini
+new-wave,5,Sean Casey,Cincinnati Reds,,Serial numbered /199; PS-2000 mini
+new-wave,6,Manny Ramirez,Cleveland Indians,,Serial numbered /199; PS-2000 mini
+new-wave,7,Richie Sexson,Cleveland Indians,,Serial numbered /199; PS-2000 mini
+new-wave,8,Carlos Beltran,Kansas City Royals,,Serial numbered /199; PS-2000 mini
+new-wave,9,Jeromy Burnitz,Milwaukee Brewers,,Serial numbered /199; PS-2000 mini
+new-wave,10,Vladimir Guerrero,Montreal Expos,,Serial numbered /199; PS-2000 mini
+new-wave,11,Edgardo Alfonzo,New York Mets,,Serial numbered /199; PS-2000 mini
+new-wave,12,Derek Jeter,New York Yankees,,Serial numbered /199; PS-2000 mini
+new-wave,13,Tim Hudson,Oakland Athletics,,Serial numbered /199; PS-2000 mini
+new-wave,14,Bobby Abreu,Philadelphia Phillies,,Serial numbered /199; PS-2000 mini
+new-wave,15,Scott Rolen,Philadelphia Phillies,,Serial numbered /199; PS-2000 mini
+new-wave,16,Brian Giles,Pittsburgh Pirates,,Serial numbered /199; PS-2000 mini
+new-wave,17,Warren Morris,Pittsburgh Pirates,,Serial numbered /199; PS-2000 mini
+new-wave,18,J.D. Drew,St. Louis Cardinals,,Serial numbered /199; PS-2000 mini
+new-wave,19,Alex Rodriguez,Seattle Mariners,,Serial numbered /199; PS-2000 mini
+new-wave,20,Shawn Green,Toronto Blue Jays,,Serial numbered /199; PS-2000 mini
+rookie-minis,1,Jason Dellaero,Chicago White Sox,,Serial numbered /99; PS-2000 mini
+rookie-minis,2,Russell Branyan,Cleveland Indians,,Serial numbered /99; PS-2000 mini
+rookie-minis,3,Ben Petrick,Colorado Rockies,,Serial numbered /99; PS-2000 mini
+rookie-minis,4,Juan Sosa,Colorado Rockies,,Serial numbered /99; PS-2000 mini
+rookie-minis,5,Robert Fick,Detroit Tigers,,Serial numbered /99; PS-2000 mini
+rookie-minis,6,Dermal Brown,Kansas City Royals,,Serial numbered /99; PS-2000 mini
+rookie-minis,7,Mark Quinn,Kansas City Royals,,Serial numbered /99; PS-2000 mini
+rookie-minis,8,Eric Gagne,Los Angeles Dodgers,,Serial numbered /99; PS-2000 mini
+rookie-minis,9,Tony Armas Jr.,Montreal Expos,,Serial numbered /99; PS-2000 mini
+rookie-minis,10,Peter Bergeron,Montreal Expos,,Serial numbered /99; PS-2000 mini
+rookie-minis,11,Jorge Toca,New York Mets,,Serial numbered /99; PS-2000 mini
+rookie-minis,12,Alfonso Soriano,New York Yankees,,Serial numbered /99; PS-2000 mini
+rookie-minis,13,Chad Hermansen,Pittsburgh Pirates,,Serial numbered /99; PS-2000 mini
+rookie-minis,14,Rick Ankiel,St. Louis Cardinals,,Serial numbered /99; PS-2000 mini
+rookie-minis,15,Adam Kennedy,St. Louis Cardinals,,Serial numbered /99; PS-2000 mini
+rookie-minis,16,Mike Darr,San Diego Padres,,Serial numbered /99; PS-2000 mini
+rookie-minis,17,Carlos Guillen,Seattle Mariners,,Serial numbered /99; PS-2000 mini
+rookie-minis,18,Steve Cox,Tampa Bay Devil Rays,,Serial numbered /99; PS-2000 mini
+rookie-minis,19,Ruben Mateo,Texas Rangers,,Serial numbered /99; PS-2000 mini
+rookie-minis,20,Vernon Wells,Toronto Blue Jays,,Serial numbered /99; PS-2000 mini
+stars,1,Mo Vaughn,Anaheim Angels,,Serial numbered /299; PS-2000 mini
+stars,2,Greg Maddux,Atlanta Braves,,Serial numbered /299; PS-2000 mini
+stars,3,Cal Ripken Jr.,Baltimore Orioles,,Serial numbered /299; PS-2000 mini
+stars,4,Pedro Martinez,Boston Red Sox,,Serial numbered /299; PS-2000 mini
+stars,5,Sammy Sosa,Chicago Cubs,,Serial numbered /299; PS-2000 mini
+stars,6,Frank Thomas,Chicago White Sox,,Serial numbered /299; PS-2000 mini
+stars,7,Larry Walker,Colorado Rockies,,Serial numbered /299; PS-2000 mini
+stars,8,Craig Biggio,Houston Astros,,Serial numbered /299; PS-2000 mini
+stars,9,Jeff Bagwell,Houston Astros,,Serial numbered /299; PS-2000 mini
+stars,10,Mike Piazza,New York Mets,,Serial numbered /299; PS-2000 mini
+stars,11,Roger Clemens,New York Yankees,,Serial numbered /299; PS-2000 mini
+stars,12,Bernie Williams,New York Yankees,,Serial numbered /299; PS-2000 mini
+stars,13,Mark McGwire,St. Louis Cardinals,,Serial numbered /299; PS-2000 mini
+stars,14,Tony Gwynn,San Diego Padres,,Serial numbered /299; PS-2000 mini
+stars,15,Barry Bonds,San Francisco Giants,,Serial numbered /299; PS-2000 mini
+stars,16,Ken Griffey Jr.,Seattle Mariners,,Serial numbered /299; PS-2000 mini
+stars,17,Juan Gonzalez,Texas Rangers,,Serial numbered /299; PS-2000 mini
+stars,18,Ivan Rodriguez,Texas Rangers,,Serial numbered /299; PS-2000 mini
+stars,19,Rafael Palmeiro,Texas Rangers,,Serial numbered /299; PS-2000 mini
+stars,20,Jose Canseco,Tampa Bay Devil Rays,,Serial numbered /299; PS-2000 mini
+reserve,1,Chipper Jones,Atlanta Braves,,
+reserve,2,Greg Maddux,Atlanta Braves,,
+reserve,3,Cal Ripken Jr.,Baltimore Orioles,,
+reserve,4,Nomar Garciaparra,Boston Red Sox,,
+reserve,5,Sammy Sosa,Chicago Cubs,,
+reserve,6,Frank Thomas,Chicago White Sox,,
+reserve,7,Manny Ramirez,Cleveland Indians,,
+reserve,8,Larry Walker,Colorado Rockies,,
+reserve,9,Jeff Bagwell,Houston Astros,,
+reserve,10,Vladimir Guerrero,Montreal Expos,,
+reserve,11,Mike Piazza,New York Mets,,
+reserve,12,Roger Clemens,New York Yankees,,
+reserve,13,Derek Jeter,New York Yankees,,
+reserve,14,Mark McGwire,St. Louis Cardinals,,
+reserve,15,Tony Gwynn,San Diego Padres,,
+reserve,16,Barry Bonds,San Francisco Giants,,
+reserve,17,Ken Griffey Jr.,Seattle Mariners,,
+reserve,18,Alex Rodriguez,Seattle Mariners,,
+reserve,19,Ivan Rodriguez,Texas Rangers,,
+reserve,20,Shawn Green,Toronto Blue Jays,,
