@@ -1,0 +1,818 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Darin Erstad,Anaheim Angels,Veterans,
+base,2,Luis Gonzalez,Arizona Diamondbacks,Veterans,
+base,3,Rafael Furcal,Atlanta Braves,Veterans,
+base,4,Dante Bichette,Boston Red Sox,Veterans,
+base,5,Sammy Sosa,Chicago Cubs,Veterans,
+base,6,Ken Griffey Jr.,Cincinnati Reds,Veterans,
+base,7,Jim Thome,Cleveland Indians,Veterans,
+base,8,Bobby Higginson,Detroit Tigers,Veterans,
+base,9,Cliff Floyd,Florida Marlins,Veterans,
+base,10,Lance Berkman,Houston Astros,Veterans,
+base,11,Eric Karros,Los Angeles Dodgers,Veterans,
+base,12,Jeromy Burnitz,Milwaukee Brewers,Veterans,
+base,13,Jose Vidro,Montreal Expos,Veterans,
+base,14,Benny Agbayani,New York Mets,Veterans,
+base,15,Jorge Posada,New York Yankees,Veterans,
+base,16,Ramon Hernandez,Oakland Athletics,Veterans,
+base,17,Jason Kendall,Pittsburgh Pirates,Veterans,
+base,18,Jeff Kent,San Francisco Giants,Veterans,
+base,19,John Olerud,Seattle Mariners,Veterans,
+base,20,Al Martin,Seattle Mariners,Veterans,
+base,21,Gerald Williams,Tampa Bay Devil Rays,Veterans,
+base,22,Gabe Kapler,Texas Rangers,Veterans,
+base,23,Carlos Delgado,Toronto Blue Jays,Veterans,
+base,24,Mariano Rivera,New York Yankees,Veterans,
+base,25,Javy Lopez,Atlanta Braves,Veterans,
+base,26,Paul Konerko,Chicago White Sox,Veterans,
+base,27,Daryle Ward,Houston Astros,Veterans,
+base,28,Mike Lieberthal,Philadelphia Phillies,Veterans,
+base,29,Tom Goodwin,Los Angeles Dodgers,Veterans,
+base,30,Garret Anderson,Anaheim Angels,Veterans,
+base,31,Steve Finley,Arizona Diamondbacks,Veterans,
+base,32,Brian Jordan,Atlanta Braves,Veterans,
+base,33,Nomar Garciaparra,Boston Red Sox,Veterans,
+base,34,Ray Durham,Chicago White Sox,Veterans,
+base,35,Sean Casey,Cincinnati Reds,Veterans,
+base,36,Kenny Lofton,Cleveland Indians,Veterans,
+base,37,Dean Palmer,Detroit Tigers,Veterans,
+base,38,Jeff Bagwell,Houston Astros,Veterans,
+base,39,Mike Sweeney,Kansas City Royals,Veterans,
+base,40,Adrian Beltre,Los Angeles Dodgers,Veterans,
+base,41,Richie Sexson,Milwaukee Brewers,Veterans,
+base,42,Vladimir Guerrero,Montreal Expos,Veterans,
+base,43,Derek Jeter,New York Yankees,Veterans,
+base,44,Miguel Tejada,Oakland Athletics,Veterans,
+base,45,Doug Glanville,Philadelphia Phillies,Veterans,
+base,46,Brian Giles,Pittsburgh Pirates,Veterans,
+base,47,Marvin Benard,San Francisco Giants,Veterans,
+base,48,Edgar Martinez,Seattle Mariners,Veterans,
+base,49,Edgar Renteria,St. Louis Cardinals,Veterans,
+base,50,Fred McGriff,Tampa Bay Devil Rays,Veterans,
+base,51,Ivan Rodriguez,Texas Rangers,Veterans,
+base,52,Brad Fullmer,Toronto Blue Jays,Veterans,
+base,53,Antonio Alfonseca,Florida Marlins,Veterans,
+base,54,Tom Glavine,Atlanta Braves,Veterans,
+base,55,Warren Morris,Pittsburgh Pirates,Veterans,
+base,56,Johnny Damon,Oakland Athletics,Veterans,
+base,57,Dmitri Young,Cincinnati Reds,Veterans,
+base,58,Mo Vaughn,Anaheim Angels,Veterans,
+base,59,Randy Johnson,Arizona Diamondbacks,Veterans,
+base,60,Greg Maddux,Atlanta Braves,Veterans,
+base,61,Carl Everett,Boston Red Sox,Veterans,
+base,62,Magglio Ordonez,Chicago White Sox,Veterans,
+base,63,Pokey Reese,Cincinnati Reds,Veterans,
+base,64,Todd Helton,Colorado Rockies,Veterans,
+base,65,Preston Wilson,Florida Marlins,Veterans,
+base,66,Richard Hidalgo,Houston Astros,Veterans,
+base,67,Jermaine Dye,Kansas City Royals,Veterans,
+base,68,Gary Sheffield,Los Angeles Dodgers,Veterans,
+base,69,Geoff Jenkins,Milwaukee Brewers,Veterans,
+base,70,Edgardo Alfonzo,New York Mets,Veterans,
+base,71,Paul O'Neill,New York Yankees,Veterans,
+base,72,Terrence Long,Oakland Athletics,Veterans,
+base,73,Bobby Abreu,Philadelphia Phillies,Veterans,
+base,74,Kevin Young,Pittsburgh Pirates,Veterans,
+base,75,J.T. Snow Jr.,San Francisco Giants,Veterans,
+base,76,Alex Rodriguez,Texas Rangers,Veterans,
+base,77,Jim Edmonds,St. Louis Cardinals,Veterans,
+base,78,Mark McGwire,St. Louis Cardinals,Veterans,
+base,79,Tony Batista,Toronto Blue Jays,Veterans,
+base,80,Darrin Fletcher,Toronto Blue Jays,Veterans,
+base,81,Robb Nen,San Francisco Giants,Veterans,
+base,82,Jose Offerman,Boston Red Sox,Veterans,
+base,83,Travis Fryman,Cleveland Indians,Veterans,
+base,84,Joe Randa,Kansas City Royals,Veterans,
+base,85,Omar Vizquel,Cleveland Indians,Veterans,
+base,86,Tim Salmon,Anaheim Angels,Veterans,
+base,87,Andruw Jones,Atlanta Braves,Veterans,
+base,88,Albert Belle,Baltimore Orioles,Veterans,
+base,89,Manny Ramirez,Boston Red Sox,Veterans,
+base,90,Frank Thomas,Chicago White Sox,Veterans,
+base,91,Barry Larkin,Cincinnati Reds,Veterans,
+base,92,Neifi Perez,Colorado Rockies,Veterans,
+base,93,Luis Castillo,Florida Marlins,Veterans,
+base,94,Moises Alou,Houston Astros,Veterans,
+base,95,Mark Quinn,Kansas City Royals,Veterans,
+base,96,Kevin Brown,Los Angeles Dodgers,Veterans,
+base,97,Cristian Guzman,Minnesota Twins,Veterans,
+base,98,Mike Piazza,New York Mets,Veterans,
+base,99,Bernie Williams,New York Yankees,Veterans,
+base,100,Jason Giambi,Oakland Athletics,Veterans,
+base,101,Scott Rolen,Philadelphia Phillies,Veterans,
+base,102,Phil Nevin,San Diego Padres,Veterans,
+base,103,Rich Aurilia,San Francisco Giants,Veterans,
+base,104,Mike Cameron,Seattle Mariners,Veterans,
+base,105,Fernando Vina,St. Louis Cardinals,Veterans,
+base,106,Greg Vaughn,Tampa Bay Devil Rays,Veterans,
+base,107,Jose Cruz Jr.,Toronto Blue Jays,Veterans,
+base,108,Raul Mondesi,Toronto Blue Jays,Veterans,
+base,109,Ben Molina,Anaheim Angels,Veterans,
+base,110,Pedro Martinez,Boston Red Sox,Veterans,
+base,111,Todd Hollandsworth,Colorado Rockies,Veterans,
+base,112,Jacque Jones,Minnesota Twins,Veterans,
+base,113,Rickey Henderson,San Diego Padres,Veterans,
+base,114,Troy Glaus,Anaheim Angels,Veterans,
+base,115,Chipper Jones,Atlanta Braves,Veterans,
+base,116,Delino DeShields,Baltimore Orioles,Veterans,
+base,117,Eric Young,Chicago Cubs,Veterans,
+base,118,Jose Valentin,Chicago White Sox,Veterans,
+base,119,Roberto Alomar,Cleveland Indians,Veterans,
+base,120,Jeff Cirillo,Colorado Rockies,Veterans,
+base,121,Mike Lowell,Florida Marlins,Veterans,
+base,122,Julio Lugo,Houston Astros,Veterans,
+base,123,Shawn Green,Los Angeles Dodgers,Veterans,
+base,124,Marquis Grissom,Los Angeles Dodgers,Veterans,
+base,125,Matt Lawton,Minnesota Twins,Veterans,
+base,126,Jay Payton,New York Mets,Veterans,
+base,127,David Justice,New York Yankees,Veterans,
+base,128,Eric Chavez,Oakland Athletics,Veterans,
+base,129,Pat Burrell,Philadelphia Phillies,Veterans,
+base,130,Ryan Klesko,San Diego Padres,Veterans,
+base,131,Barry Bonds,San Francisco Giants,Veterans,
+base,132,Jay Buhner,Seattle Mariners,Veterans,
+base,133,J.D. Drew,St. Louis Cardinals,Veterans,
+base,134,Rafael Palmeiro,Texas Rangers,Veterans,
+base,135,Shannon Stewart,Toronto Blue Jays,Veterans,
+base,136,Juan Gonzalez,Cleveland Indians,Veterans,
+base,137,Tony Womack,Arizona Diamondbacks,Veterans,
+base,138,Carlos Lee,Chicago White Sox,Veterans,
+base,139,Derrek Lee,Florida Marlins,Veterans,
+base,140,Ben Grieve,Tampa Bay Devil Rays,Veterans,
+base,141,Ron Belliard,Milwaukee Brewers,Veterans,
+base,142,Stan Musial,St. Louis Cardinals,Hall of Fame,
+base,143,Ernie Banks,Chicago Cubs,Hall of Fame,
+base,144,Jim Palmer,Baltimore Orioles,Hall of Fame,
+base,145,Tony Perez,Cincinnati Reds,Hall of Fame,
+base,146,Duke Snider,Brooklyn Dodgers,Hall of Fame,
+base,147,Rod Carew,California Angels,Hall of Fame,
+base,148,Warren Spahn,Milwaukee Braves,Hall of Fame,
+base,149,Yogi Berra,New York Yankees,Hall of Fame,
+base,150,Juan Marichal,San Francisco Giants,Hall of Fame,
+base,151,Eric Munson,Detroit Tigers,Rookies/Prospects,
+base,152,Carlos Pena,Texas Rangers,Rookies/Prospects,
+base,153,Joe Crede,Chicago White Sox,Rookies/Prospects,
+base,154,Ryan Anderson,Seattle Mariners,Rookies/Prospects,
+base,155,Milton Bradley,Montreal Expos,Rookies/Prospects,
+base,156,Sean Burroughs,San Diego Padres,Rookies/Prospects,
+base,157,Corey Patterson,Chicago Cubs,Rookies/Prospects,
+base,158,CC Sabathia,Cleveland Indians,Rookies/Prospects,
+base,159,Ben Petrick,Colorado Rockies,Rookies/Prospects,
+base,160,Aubrey Huff,Tampa Bay Devil Rays,Rookies/Prospects,
+base,161,Gookie Dawkins,Cincinnati Reds,Rookies/Prospects,
+base,162,Ben Sheets,Milwaukee Brewers,Rookies/Prospects,
+base,163,Pablo Ozuna,Florida Marlins,Rookies/Prospects,
+base,164,Eric Valent,Philadelphia Phillies,Rookies/Prospects,
+base,165,Rod Barajas,Arizona Diamondbacks,Rookies/Prospects,
+base,166,Chin-Feng Chen,Los Angeles Dodgers,Rookies/Prospects,
+base,167,Josh Hamilton,Tampa Bay Devil Rays,Rookies/Prospects,
+base,168,Keith Ginter,Houston Astros,Rookies/Prospects,
+base,169,Vernon Wells,Toronto Blue Jays,Rookies/Prospects,
+base,170,Dernell Stenson,Boston Red Sox,Rookies/Prospects,
+base,171,Alfonso Soriano,New York Yankees,Rookies/Prospects,
+base,172,Jason Marquis,Atlanta Braves,Rookies/Prospects,
+base,173,Nick Johnson,New York Yankees,Rookies/Prospects,
+base,174,Adam Everett,Houston Astros,Rookies/Prospects,
+base,175,Jimmy Rollins,Philadelphia Phillies,Rookies/Prospects,
+base,176,Ben Diggins,Los Angeles Dodgers,Rookies/Prospects,
+base,177,John Lackey,Anaheim Angels,Rookies/Prospects,
+base,178,Scott Heard,Texas Rangers,Rookies/Prospects,
+base,179,Brian Hitchcox RC,Philadelphia Phillies,Rookies/Prospects,
+base,180,Odanis Ayala RC,Kansas City Royals,Rookies/Prospects,"UER: Name misspelled, should be Odannys."
+base,181,Scott Pratt RC,Cleveland Indians,Rookies/Prospects,
+base,182,Greg Runser RC,Texas Rangers,Rookies/Prospects,
+base,183,Chris Russ RC,Texas Rangers,Rookies/Prospects,
+base,184,Derek Thompson,Cleveland Indians,Rookies/Prospects,
+base,185,Jason Jones RC,Texas Rangers,Rookies/Prospects,
+base,186,Dominic Rich RC,Toronto Blue Jays,Rookies/Prospects,
+base,187,Chad Petty RC,Detroit Tigers,Rookies/Prospects,
+base,188,Steve Smyth RC,Chicago Cubs,Rookies/Prospects,
+base,189,Bryan Hebson RC,Montreal Expos,Rookies/Prospects,
+base,190,Danny Borrell RC,New York Yankees,Rookies/Prospects,
+base,191,Bob Keppel RC,New York Mets,Rookies/Prospects,
+base,192,Justin Wayne RC,Montreal Expos,Rookies/Prospects,
+base,193,Reggie Abercrombie RC,Los Angeles Dodgers,Rookies/Prospects,
+base,194,Travis Baptist RC,Pittsburgh Pirates,Rookies/Prospects,
+base,195,Shawn Fagan RC,Toronto Blue Jays,Rookies/Prospects,
+base,196,Jose Reyes RC,New York Mets,Rookies/Prospects,
+base,197,Chris Bass RC,Pittsburgh Pirates,Rookies/Prospects,
+base,198,Albert Pujols RC,St. Louis Cardinals,Rookies/Prospects,
+base,199,Luis Cotto RC,Kansas City Royals,Rookies/Prospects,
+base,200,Jake Peavy RC,San Diego Padres,Rookies/Prospects,
+gold,1,Darin Erstad,Anaheim Angels,Veterans,Serial numbered /499
+gold,2,Luis Gonzalez,Arizona Diamondbacks,Veterans,Serial numbered /499
+gold,3,Rafael Furcal,Atlanta Braves,Veterans,Serial numbered /499
+gold,4,Dante Bichette,Boston Red Sox,Veterans,Serial numbered /499
+gold,5,Sammy Sosa,Chicago Cubs,Veterans,Serial numbered /499
+gold,6,Ken Griffey Jr.,Cincinnati Reds,Veterans,Serial numbered /499
+gold,7,Jim Thome,Cleveland Indians,Veterans,Serial numbered /499
+gold,8,Bobby Higginson,Detroit Tigers,Veterans,Serial numbered /499
+gold,9,Cliff Floyd,Florida Marlins,Veterans,Serial numbered /499
+gold,10,Lance Berkman,Houston Astros,Veterans,Serial numbered /499
+gold,11,Eric Karros,Los Angeles Dodgers,Veterans,Serial numbered /499
+gold,12,Jeromy Burnitz,Milwaukee Brewers,Veterans,Serial numbered /499
+gold,13,Jose Vidro,Montreal Expos,Veterans,Serial numbered /499
+gold,14,Benny Agbayani,New York Mets,Veterans,Serial numbered /499
+gold,15,Jorge Posada,New York Yankees,Veterans,Serial numbered /499
+gold,16,Ramon Hernandez,Oakland Athletics,Veterans,Serial numbered /499
+gold,17,Jason Kendall,Pittsburgh Pirates,Veterans,Serial numbered /499
+gold,18,Jeff Kent,San Francisco Giants,Veterans,Serial numbered /499
+gold,19,John Olerud,Seattle Mariners,Veterans,Serial numbered /499
+gold,20,Al Martin,Seattle Mariners,Veterans,Serial numbered /499
+gold,21,Gerald Williams,Tampa Bay Devil Rays,Veterans,Serial numbered /499
+gold,22,Gabe Kapler,Texas Rangers,Veterans,Serial numbered /499
+gold,23,Carlos Delgado,Toronto Blue Jays,Veterans,Serial numbered /499
+gold,24,Mariano Rivera,New York Yankees,Veterans,Serial numbered /499
+gold,25,Javy Lopez,Atlanta Braves,Veterans,Serial numbered /499
+gold,26,Paul Konerko,Chicago White Sox,Veterans,Serial numbered /499
+gold,27,Daryle Ward,Houston Astros,Veterans,Serial numbered /499
+gold,28,Mike Lieberthal,Philadelphia Phillies,Veterans,Serial numbered /499
+gold,29,Tom Goodwin,Los Angeles Dodgers,Veterans,Serial numbered /499
+gold,30,Garret Anderson,Anaheim Angels,Veterans,Serial numbered /499
+gold,31,Steve Finley,Arizona Diamondbacks,Veterans,Serial numbered /499
+gold,32,Brian Jordan,Atlanta Braves,Veterans,Serial numbered /499
+gold,33,Nomar Garciaparra,Boston Red Sox,Veterans,Serial numbered /499
+gold,34,Ray Durham,Chicago White Sox,Veterans,Serial numbered /499
+gold,35,Sean Casey,Cincinnati Reds,Veterans,Serial numbered /499
+gold,36,Kenny Lofton,Cleveland Indians,Veterans,Serial numbered /499
+gold,37,Dean Palmer,Detroit Tigers,Veterans,Serial numbered /499
+gold,38,Jeff Bagwell,Houston Astros,Veterans,Serial numbered /499
+gold,39,Mike Sweeney,Kansas City Royals,Veterans,Serial numbered /499
+gold,40,Adrian Beltre,Los Angeles Dodgers,Veterans,Serial numbered /499
+gold,41,Richie Sexson,Milwaukee Brewers,Veterans,Serial numbered /499
+gold,42,Vladimir Guerrero,Montreal Expos,Veterans,Serial numbered /499
+gold,43,Derek Jeter,New York Yankees,Veterans,Serial numbered /499
+gold,44,Miguel Tejada,Oakland Athletics,Veterans,Serial numbered /499
+gold,45,Doug Glanville,Philadelphia Phillies,Veterans,Serial numbered /499
+gold,46,Brian Giles,Pittsburgh Pirates,Veterans,Serial numbered /499
+gold,47,Marvin Benard,San Francisco Giants,Veterans,Serial numbered /499
+gold,48,Edgar Martinez,Seattle Mariners,Veterans,Serial numbered /499
+gold,49,Edgar Renteria,St. Louis Cardinals,Veterans,Serial numbered /499
+gold,50,Fred McGriff,Tampa Bay Devil Rays,Veterans,Serial numbered /499
+gold,51,Ivan Rodriguez,Texas Rangers,Veterans,Serial numbered /499
+gold,52,Brad Fullmer,Toronto Blue Jays,Veterans,Serial numbered /499
+gold,53,Antonio Alfonseca,Florida Marlins,Veterans,Serial numbered /499
+gold,54,Tom Glavine,Atlanta Braves,Veterans,Serial numbered /499
+gold,55,Warren Morris,Pittsburgh Pirates,Veterans,Serial numbered /499
+gold,56,Johnny Damon,Oakland Athletics,Veterans,Serial numbered /499
+gold,57,Dmitri Young,Cincinnati Reds,Veterans,Serial numbered /499
+gold,58,Mo Vaughn,Anaheim Angels,Veterans,Serial numbered /499
+gold,59,Randy Johnson,Arizona Diamondbacks,Veterans,Serial numbered /499
+gold,60,Greg Maddux,Atlanta Braves,Veterans,Serial numbered /499
+gold,61,Carl Everett,Boston Red Sox,Veterans,Serial numbered /499
+gold,62,Magglio Ordonez,Chicago White Sox,Veterans,Serial numbered /499
+gold,63,Pokey Reese,Cincinnati Reds,Veterans,Serial numbered /499
+gold,64,Todd Helton,Colorado Rockies,Veterans,Serial numbered /499
+gold,65,Preston Wilson,Florida Marlins,Veterans,Serial numbered /499
+gold,66,Richard Hidalgo,Houston Astros,Veterans,Serial numbered /499
+gold,67,Jermaine Dye,Kansas City Royals,Veterans,Serial numbered /499
+gold,68,Gary Sheffield,Los Angeles Dodgers,Veterans,Serial numbered /499
+gold,69,Geoff Jenkins,Milwaukee Brewers,Veterans,Serial numbered /499
+gold,70,Edgardo Alfonzo,New York Mets,Veterans,Serial numbered /499
+gold,71,Paul O'Neill,New York Yankees,Veterans,Serial numbered /499
+gold,72,Terrence Long,Oakland Athletics,Veterans,Serial numbered /499
+gold,73,Bobby Abreu,Philadelphia Phillies,Veterans,Serial numbered /499
+gold,74,Kevin Young,Pittsburgh Pirates,Veterans,Serial numbered /499
+gold,75,J.T. Snow Jr.,San Francisco Giants,Veterans,Serial numbered /499
+gold,76,Alex Rodriguez,Texas Rangers,Veterans,Serial numbered /499
+gold,77,Jim Edmonds,St. Louis Cardinals,Veterans,Serial numbered /499
+gold,78,Mark McGwire,St. Louis Cardinals,Veterans,Serial numbered /499
+gold,79,Tony Batista,Toronto Blue Jays,Veterans,Serial numbered /499
+gold,80,Darrin Fletcher,Toronto Blue Jays,Veterans,Serial numbered /499
+gold,81,Robb Nen,San Francisco Giants,Veterans,Serial numbered /499
+gold,82,Jose Offerman,Boston Red Sox,Veterans,Serial numbered /499
+gold,83,Travis Fryman,Cleveland Indians,Veterans,Serial numbered /499
+gold,84,Joe Randa,Kansas City Royals,Veterans,Serial numbered /499
+gold,85,Omar Vizquel,Cleveland Indians,Veterans,Serial numbered /499
+gold,86,Tim Salmon,Anaheim Angels,Veterans,Serial numbered /499
+gold,87,Andruw Jones,Atlanta Braves,Veterans,Serial numbered /499
+gold,88,Albert Belle,Baltimore Orioles,Veterans,Serial numbered /499
+gold,89,Manny Ramirez,Boston Red Sox,Veterans,Serial numbered /499
+gold,90,Frank Thomas,Chicago White Sox,Veterans,Serial numbered /499
+gold,91,Barry Larkin,Cincinnati Reds,Veterans,Serial numbered /499
+gold,92,Neifi Perez,Colorado Rockies,Veterans,Serial numbered /499
+gold,93,Luis Castillo,Florida Marlins,Veterans,Serial numbered /499
+gold,94,Moises Alou,Houston Astros,Veterans,Serial numbered /499
+gold,95,Mark Quinn,Kansas City Royals,Veterans,Serial numbered /499
+gold,96,Kevin Brown,Los Angeles Dodgers,Veterans,Serial numbered /499
+gold,97,Cristian Guzman,Minnesota Twins,Veterans,Serial numbered /499
+gold,98,Mike Piazza,New York Mets,Veterans,Serial numbered /499
+gold,99,Bernie Williams,New York Yankees,Veterans,Serial numbered /499
+gold,100,Jason Giambi,Oakland Athletics,Veterans,Serial numbered /499
+gold,101,Scott Rolen,Philadelphia Phillies,Veterans,Serial numbered /499
+gold,102,Phil Nevin,San Diego Padres,Veterans,Serial numbered /499
+gold,103,Rich Aurilia,San Francisco Giants,Veterans,Serial numbered /499
+gold,104,Mike Cameron,Seattle Mariners,Veterans,Serial numbered /499
+gold,105,Fernando Vina,St. Louis Cardinals,Veterans,Serial numbered /499
+gold,106,Greg Vaughn,Tampa Bay Devil Rays,Veterans,Serial numbered /499
+gold,107,Jose Cruz Jr.,Toronto Blue Jays,Veterans,Serial numbered /499
+gold,108,Raul Mondesi,Toronto Blue Jays,Veterans,Serial numbered /499
+gold,109,Ben Molina,Anaheim Angels,Veterans,Serial numbered /499
+gold,110,Pedro Martinez,Boston Red Sox,Veterans,Serial numbered /499
+gold,111,Todd Hollandsworth,Colorado Rockies,Veterans,Serial numbered /499
+gold,112,Jacque Jones,Minnesota Twins,Veterans,Serial numbered /499
+gold,113,Rickey Henderson,San Diego Padres,Veterans,Serial numbered /499
+gold,114,Troy Glaus,Anaheim Angels,Veterans,Serial numbered /499
+gold,115,Chipper Jones,Atlanta Braves,Veterans,Serial numbered /499
+gold,116,Delino DeShields,Baltimore Orioles,Veterans,Serial numbered /499
+gold,117,Eric Young,Chicago Cubs,Veterans,Serial numbered /499
+gold,118,Jose Valentin,Chicago White Sox,Veterans,Serial numbered /499
+gold,119,Roberto Alomar,Cleveland Indians,Veterans,Serial numbered /499
+gold,120,Jeff Cirillo,Colorado Rockies,Veterans,Serial numbered /499
+gold,121,Mike Lowell,Florida Marlins,Veterans,Serial numbered /499
+gold,122,Julio Lugo,Houston Astros,Veterans,Serial numbered /499
+gold,123,Shawn Green,Los Angeles Dodgers,Veterans,Serial numbered /499
+gold,124,Marquis Grissom,Los Angeles Dodgers,Veterans,Serial numbered /499
+gold,125,Matt Lawton,Minnesota Twins,Veterans,Serial numbered /499
+gold,126,Jay Payton,New York Mets,Veterans,Serial numbered /499
+gold,127,David Justice,New York Yankees,Veterans,Serial numbered /499
+gold,128,Eric Chavez,Oakland Athletics,Veterans,Serial numbered /499
+gold,129,Pat Burrell,Philadelphia Phillies,Veterans,Serial numbered /499
+gold,130,Ryan Klesko,San Diego Padres,Veterans,Serial numbered /499
+gold,131,Barry Bonds,San Francisco Giants,Veterans,Serial numbered /499
+gold,132,Jay Buhner,Seattle Mariners,Veterans,Serial numbered /499
+gold,133,J.D. Drew,St. Louis Cardinals,Veterans,Serial numbered /499
+gold,134,Rafael Palmeiro,Texas Rangers,Veterans,Serial numbered /499
+gold,135,Shannon Stewart,Toronto Blue Jays,Veterans,Serial numbered /499
+gold,136,Juan Gonzalez,Cleveland Indians,Veterans,Serial numbered /499
+gold,137,Tony Womack,Arizona Diamondbacks,Veterans,Serial numbered /499
+gold,138,Carlos Lee,Chicago White Sox,Veterans,Serial numbered /499
+gold,139,Derrek Lee,Florida Marlins,Veterans,Serial numbered /499
+gold,140,Ben Grieve,Tampa Bay Devil Rays,Veterans,Serial numbered /499
+gold,141,Ron Belliard,Milwaukee Brewers,Veterans,Serial numbered /499
+gold,142,Stan Musial,St. Louis Cardinals,Hall of Fame,Serial numbered /499
+gold,143,Ernie Banks,Chicago Cubs,Hall of Fame,Serial numbered /499
+gold,144,Jim Palmer,Baltimore Orioles,Hall of Fame,Serial numbered /499
+gold,145,Tony Perez,Cincinnati Reds,Hall of Fame,Serial numbered /499
+gold,146,Duke Snider,Brooklyn Dodgers,Hall of Fame,Serial numbered /499
+gold,147,Rod Carew,California Angels,Hall of Fame,Serial numbered /499
+gold,148,Warren Spahn,Milwaukee Braves,Hall of Fame,Serial numbered /499
+gold,149,Yogi Berra,New York Yankees,Hall of Fame,Serial numbered /499
+gold,150,Juan Marichal,San Francisco Giants,Hall of Fame,Serial numbered /499
+gold,151,Eric Munson,Detroit Tigers,Rookies/Prospects,Serial numbered /499
+gold,152,Carlos Pena,Texas Rangers,Rookies/Prospects,Serial numbered /499
+gold,153,Joe Crede,Chicago White Sox,Rookies/Prospects,Serial numbered /499
+gold,154,Ryan Anderson,Seattle Mariners,Rookies/Prospects,Serial numbered /499
+gold,155,Milton Bradley,Montreal Expos,Rookies/Prospects,Serial numbered /499
+gold,156,Sean Burroughs,San Diego Padres,Rookies/Prospects,Serial numbered /499
+gold,157,Corey Patterson,Chicago Cubs,Rookies/Prospects,Serial numbered /499
+gold,158,CC Sabathia,Cleveland Indians,Rookies/Prospects,Serial numbered /499
+gold,159,Ben Petrick,Colorado Rockies,Rookies/Prospects,Serial numbered /499
+gold,160,Aubrey Huff,Tampa Bay Devil Rays,Rookies/Prospects,Serial numbered /499
+gold,161,Gookie Dawkins,Cincinnati Reds,Rookies/Prospects,Serial numbered /499
+gold,162,Ben Sheets,Milwaukee Brewers,Rookies/Prospects,Serial numbered /499
+gold,163,Pablo Ozuna,Florida Marlins,Rookies/Prospects,Serial numbered /499
+gold,164,Eric Valent,Philadelphia Phillies,Rookies/Prospects,Serial numbered /499
+gold,165,Rod Barajas,Arizona Diamondbacks,Rookies/Prospects,Serial numbered /499
+gold,166,Chin-Feng Chen,Los Angeles Dodgers,Rookies/Prospects,Serial numbered /499
+gold,167,Josh Hamilton,Tampa Bay Devil Rays,Rookies/Prospects,Serial numbered /499
+gold,168,Keith Ginter,Houston Astros,Rookies/Prospects,Serial numbered /499
+gold,169,Vernon Wells,Toronto Blue Jays,Rookies/Prospects,Serial numbered /499
+gold,170,Dernell Stenson,Boston Red Sox,Rookies/Prospects,Serial numbered /499
+gold,171,Alfonso Soriano,New York Yankees,Rookies/Prospects,Serial numbered /499
+gold,172,Jason Marquis,Atlanta Braves,Rookies/Prospects,Serial numbered /499
+gold,173,Nick Johnson,New York Yankees,Rookies/Prospects,Serial numbered /499
+gold,174,Adam Everett,Houston Astros,Rookies/Prospects,Serial numbered /499
+gold,175,Jimmy Rollins,Philadelphia Phillies,Rookies/Prospects,Serial numbered /499
+gold,176,Ben Diggins,Los Angeles Dodgers,Rookies/Prospects,Serial numbered /499
+gold,177,John Lackey,Anaheim Angels,Rookies/Prospects,Serial numbered /499
+gold,178,Scott Heard,Texas Rangers,Rookies/Prospects,Serial numbered /499
+gold,179,Brian Hitchcox,Philadelphia Phillies,Rookies/Prospects,Serial numbered /499
+gold,180,Odannis Ayala,Kansas City Royals,Rookies/Prospects,Serial numbered /499
+gold,181,Scott Pratt,Cleveland Indians,Rookies/Prospects,Serial numbered /499
+gold,182,Greg Runser,Texas Rangers,Rookies/Prospects,Serial numbered /499
+gold,183,Chris Russ,Texas Rangers,Rookies/Prospects,Serial numbered /499
+gold,184,Derek Thompson,Cleveland Indians,Rookies/Prospects,Serial numbered /499
+gold,185,Jason Jones,Texas Rangers,Rookies/Prospects,Serial numbered /499
+gold,186,Dominic Rich,Toronto Blue Jays,Rookies/Prospects,Serial numbered /499
+gold,187,Chad Petty,Detroit Tigers,Rookies/Prospects,Serial numbered /499
+gold,188,Steve Smyth,Chicago Cubs,Rookies/Prospects,Serial numbered /499
+gold,189,Bryan Hebson,Montreal Expos,Rookies/Prospects,Serial numbered /499
+gold,190,Danny Borrell,New York Yankees,Rookies/Prospects,Serial numbered /499
+gold,191,Bob Keppel,New York Mets,Rookies/Prospects,Serial numbered /499
+gold,192,Justin Wayne,Montreal Expos,Rookies/Prospects,Serial numbered /499
+gold,193,Reggie Abercrombie,Los Angeles Dodgers,Rookies/Prospects,Serial numbered /499
+gold,194,Travis Baptist,Pittsburgh Pirates,Rookies/Prospects,Serial numbered /499
+gold,195,Shawn Fagan,Toronto Blue Jays,Rookies/Prospects,Serial numbered /499
+gold,196,Jose Reyes,New York Mets,Rookies/Prospects,Serial numbered /499
+gold,197,Chris Bass,Pittsburgh Pirates,Rookies/Prospects,Serial numbered /499
+gold,198,Albert Pujols,St. Louis Cardinals,Rookies/Prospects,Serial numbered /499
+gold,199,Luis Cotto,Kansas City Royals,Rookies/Prospects,Serial numbered /499
+gold,200,Jake Peavy,San Diego Padres,Rookies/Prospects,Serial numbered /499
+onyx,1,Darin Erstad,Anaheim Angels,Veterans,Serial numbered /99
+onyx,2,Luis Gonzalez,Arizona Diamondbacks,Veterans,Serial numbered /99
+onyx,3,Rafael Furcal,Atlanta Braves,Veterans,Serial numbered /99
+onyx,4,Dante Bichette,Boston Red Sox,Veterans,Serial numbered /99
+onyx,5,Sammy Sosa,Chicago Cubs,Veterans,Serial numbered /99
+onyx,6,Ken Griffey Jr.,Cincinnati Reds,Veterans,Serial numbered /99
+onyx,7,Jim Thome,Cleveland Indians,Veterans,Serial numbered /99
+onyx,8,Bobby Higginson,Detroit Tigers,Veterans,Serial numbered /99
+onyx,9,Cliff Floyd,Florida Marlins,Veterans,Serial numbered /99
+onyx,10,Lance Berkman,Houston Astros,Veterans,Serial numbered /99
+onyx,11,Eric Karros,Los Angeles Dodgers,Veterans,Serial numbered /99
+onyx,12,Jeromy Burnitz,Milwaukee Brewers,Veterans,Serial numbered /99
+onyx,13,Jose Vidro,Montreal Expos,Veterans,Serial numbered /99
+onyx,14,Benny Agbayani,New York Mets,Veterans,Serial numbered /99
+onyx,15,Jorge Posada,New York Yankees,Veterans,Serial numbered /99
+onyx,16,Ramon Hernandez,Oakland Athletics,Veterans,Serial numbered /99
+onyx,17,Jason Kendall,Pittsburgh Pirates,Veterans,Serial numbered /99
+onyx,18,Jeff Kent,San Francisco Giants,Veterans,Serial numbered /99
+onyx,19,John Olerud,Seattle Mariners,Veterans,Serial numbered /99
+onyx,20,Al Martin,Seattle Mariners,Veterans,Serial numbered /99
+onyx,21,Gerald Williams,Tampa Bay Devil Rays,Veterans,Serial numbered /99
+onyx,22,Gabe Kapler,Texas Rangers,Veterans,Serial numbered /99
+onyx,23,Carlos Delgado,Toronto Blue Jays,Veterans,Serial numbered /99
+onyx,24,Mariano Rivera,New York Yankees,Veterans,Serial numbered /99
+onyx,25,Javy Lopez,Atlanta Braves,Veterans,Serial numbered /99
+onyx,26,Paul Konerko,Chicago White Sox,Veterans,Serial numbered /99
+onyx,27,Daryle Ward,Houston Astros,Veterans,Serial numbered /99
+onyx,28,Mike Lieberthal,Philadelphia Phillies,Veterans,Serial numbered /99
+onyx,29,Tom Goodwin,Los Angeles Dodgers,Veterans,Serial numbered /99
+onyx,30,Garret Anderson,Anaheim Angels,Veterans,Serial numbered /99
+onyx,31,Steve Finley,Arizona Diamondbacks,Veterans,Serial numbered /99
+onyx,32,Brian Jordan,Atlanta Braves,Veterans,Serial numbered /99
+onyx,33,Nomar Garciaparra,Boston Red Sox,Veterans,Serial numbered /99
+onyx,34,Ray Durham,Chicago White Sox,Veterans,Serial numbered /99
+onyx,35,Sean Casey,Cincinnati Reds,Veterans,Serial numbered /99
+onyx,36,Kenny Lofton,Cleveland Indians,Veterans,Serial numbered /99
+onyx,37,Dean Palmer,Detroit Tigers,Veterans,Serial numbered /99
+onyx,38,Jeff Bagwell,Houston Astros,Veterans,Serial numbered /99
+onyx,39,Mike Sweeney,Kansas City Royals,Veterans,Serial numbered /99
+onyx,40,Adrian Beltre,Los Angeles Dodgers,Veterans,Serial numbered /99
+onyx,41,Richie Sexson,Milwaukee Brewers,Veterans,Serial numbered /99
+onyx,42,Vladimir Guerrero,Montreal Expos,Veterans,Serial numbered /99
+onyx,43,Derek Jeter,New York Yankees,Veterans,Serial numbered /99
+onyx,44,Miguel Tejada,Oakland Athletics,Veterans,Serial numbered /99
+onyx,45,Doug Glanville,Philadelphia Phillies,Veterans,Serial numbered /99
+onyx,46,Brian Giles,Pittsburgh Pirates,Veterans,Serial numbered /99
+onyx,47,Marvin Benard,San Francisco Giants,Veterans,Serial numbered /99
+onyx,48,Edgar Martinez,Seattle Mariners,Veterans,Serial numbered /99
+onyx,49,Edgar Renteria,St. Louis Cardinals,Veterans,Serial numbered /99
+onyx,50,Fred McGriff,Tampa Bay Devil Rays,Veterans,Serial numbered /99
+onyx,51,Ivan Rodriguez,Texas Rangers,Veterans,Serial numbered /99
+onyx,52,Brad Fullmer,Toronto Blue Jays,Veterans,Serial numbered /99
+onyx,53,Antonio Alfonseca,Florida Marlins,Veterans,Serial numbered /99
+onyx,54,Tom Glavine,Atlanta Braves,Veterans,Serial numbered /99
+onyx,55,Warren Morris,Pittsburgh Pirates,Veterans,Serial numbered /99
+onyx,56,Johnny Damon,Oakland Athletics,Veterans,Serial numbered /99
+onyx,57,Dmitri Young,Cincinnati Reds,Veterans,Serial numbered /99
+onyx,58,Mo Vaughn,Anaheim Angels,Veterans,Serial numbered /99
+onyx,59,Randy Johnson,Arizona Diamondbacks,Veterans,Serial numbered /99
+onyx,60,Greg Maddux,Atlanta Braves,Veterans,Serial numbered /99
+onyx,61,Carl Everett,Boston Red Sox,Veterans,Serial numbered /99
+onyx,62,Magglio Ordonez,Chicago White Sox,Veterans,Serial numbered /99
+onyx,63,Pokey Reese,Cincinnati Reds,Veterans,Serial numbered /99
+onyx,64,Todd Helton,Colorado Rockies,Veterans,Serial numbered /99
+onyx,65,Preston Wilson,Florida Marlins,Veterans,Serial numbered /99
+onyx,66,Richard Hidalgo,Houston Astros,Veterans,Serial numbered /99
+onyx,67,Jermaine Dye,Kansas City Royals,Veterans,Serial numbered /99
+onyx,68,Gary Sheffield,Los Angeles Dodgers,Veterans,Serial numbered /99
+onyx,69,Geoff Jenkins,Milwaukee Brewers,Veterans,Serial numbered /99
+onyx,70,Edgardo Alfonzo,New York Mets,Veterans,Serial numbered /99
+onyx,71,Paul O'Neill,New York Yankees,Veterans,Serial numbered /99
+onyx,72,Terrence Long,Oakland Athletics,Veterans,Serial numbered /99
+onyx,73,Bobby Abreu,Philadelphia Phillies,Veterans,Serial numbered /99
+onyx,74,Kevin Young,Pittsburgh Pirates,Veterans,Serial numbered /99
+onyx,75,J.T. Snow Jr.,San Francisco Giants,Veterans,Serial numbered /99
+onyx,76,Alex Rodriguez,Texas Rangers,Veterans,Serial numbered /99
+onyx,77,Jim Edmonds,St. Louis Cardinals,Veterans,Serial numbered /99
+onyx,78,Mark McGwire,St. Louis Cardinals,Veterans,Serial numbered /99
+onyx,79,Tony Batista,Toronto Blue Jays,Veterans,Serial numbered /99
+onyx,80,Darrin Fletcher,Toronto Blue Jays,Veterans,Serial numbered /99
+onyx,81,Robb Nen,San Francisco Giants,Veterans,Serial numbered /99
+onyx,82,Jose Offerman,Boston Red Sox,Veterans,Serial numbered /99
+onyx,83,Travis Fryman,Cleveland Indians,Veterans,Serial numbered /99
+onyx,84,Joe Randa,Kansas City Royals,Veterans,Serial numbered /99
+onyx,85,Omar Vizquel,Cleveland Indians,Veterans,Serial numbered /99
+onyx,86,Tim Salmon,Anaheim Angels,Veterans,Serial numbered /99
+onyx,87,Andruw Jones,Atlanta Braves,Veterans,Serial numbered /99
+onyx,88,Albert Belle,Baltimore Orioles,Veterans,Serial numbered /99
+onyx,89,Manny Ramirez,Boston Red Sox,Veterans,Serial numbered /99
+onyx,90,Frank Thomas,Chicago White Sox,Veterans,Serial numbered /99
+onyx,91,Barry Larkin,Cincinnati Reds,Veterans,Serial numbered /99
+onyx,92,Neifi Perez,Colorado Rockies,Veterans,Serial numbered /99
+onyx,93,Luis Castillo,Florida Marlins,Veterans,Serial numbered /99
+onyx,94,Moises Alou,Houston Astros,Veterans,Serial numbered /99
+onyx,95,Mark Quinn,Kansas City Royals,Veterans,Serial numbered /99
+onyx,96,Kevin Brown,Los Angeles Dodgers,Veterans,Serial numbered /99
+onyx,97,Cristian Guzman,Minnesota Twins,Veterans,Serial numbered /99
+onyx,98,Mike Piazza,New York Mets,Veterans,Serial numbered /99
+onyx,99,Bernie Williams,New York Yankees,Veterans,Serial numbered /99
+onyx,100,Jason Giambi,Oakland Athletics,Veterans,Serial numbered /99
+onyx,101,Scott Rolen,Philadelphia Phillies,Veterans,Serial numbered /99
+onyx,102,Phil Nevin,San Diego Padres,Veterans,Serial numbered /99
+onyx,103,Rich Aurilia,San Francisco Giants,Veterans,Serial numbered /99
+onyx,104,Mike Cameron,Seattle Mariners,Veterans,Serial numbered /99
+onyx,105,Fernando Vina,St. Louis Cardinals,Veterans,Serial numbered /99
+onyx,106,Greg Vaughn,Tampa Bay Devil Rays,Veterans,Serial numbered /99
+onyx,107,Jose Cruz Jr.,Toronto Blue Jays,Veterans,Serial numbered /99
+onyx,108,Raul Mondesi,Toronto Blue Jays,Veterans,Serial numbered /99
+onyx,109,Ben Molina,Anaheim Angels,Veterans,Serial numbered /99
+onyx,110,Pedro Martinez,Boston Red Sox,Veterans,Serial numbered /99
+onyx,111,Todd Hollandsworth,Colorado Rockies,Veterans,Serial numbered /99
+onyx,112,Jacque Jones,Minnesota Twins,Veterans,Serial numbered /99
+onyx,113,Rickey Henderson,San Diego Padres,Veterans,Serial numbered /99
+onyx,114,Troy Glaus,Anaheim Angels,Veterans,Serial numbered /99
+onyx,115,Chipper Jones,Atlanta Braves,Veterans,Serial numbered /99
+onyx,116,Delino DeShields,Baltimore Orioles,Veterans,Serial numbered /99
+onyx,117,Eric Young,Chicago Cubs,Veterans,Serial numbered /99
+onyx,118,Jose Valentin,Chicago White Sox,Veterans,Serial numbered /99
+onyx,119,Roberto Alomar,Cleveland Indians,Veterans,Serial numbered /99
+onyx,120,Jeff Cirillo,Colorado Rockies,Veterans,Serial numbered /99
+onyx,121,Mike Lowell,Florida Marlins,Veterans,Serial numbered /99
+onyx,122,Julio Lugo,Houston Astros,Veterans,Serial numbered /99
+onyx,123,Shawn Green,Los Angeles Dodgers,Veterans,Serial numbered /99
+onyx,124,Marquis Grissom,Los Angeles Dodgers,Veterans,Serial numbered /99
+onyx,125,Matt Lawton,Minnesota Twins,Veterans,Serial numbered /99
+onyx,126,Jay Payton,New York Mets,Veterans,Serial numbered /99
+onyx,127,David Justice,New York Yankees,Veterans,Serial numbered /99
+onyx,128,Eric Chavez,Oakland Athletics,Veterans,Serial numbered /99
+onyx,129,Pat Burrell,Philadelphia Phillies,Veterans,Serial numbered /99
+onyx,130,Ryan Klesko,San Diego Padres,Veterans,Serial numbered /99
+onyx,131,Barry Bonds,San Francisco Giants,Veterans,Serial numbered /99
+onyx,132,Jay Buhner,Seattle Mariners,Veterans,Serial numbered /99
+onyx,133,J.D. Drew,St. Louis Cardinals,Veterans,Serial numbered /99
+onyx,134,Rafael Palmeiro,Texas Rangers,Veterans,Serial numbered /99
+onyx,135,Shannon Stewart,Toronto Blue Jays,Veterans,Serial numbered /99
+onyx,136,Juan Gonzalez,Cleveland Indians,Veterans,Serial numbered /99
+onyx,137,Tony Womack,Arizona Diamondbacks,Veterans,Serial numbered /99
+onyx,138,Carlos Lee,Chicago White Sox,Veterans,Serial numbered /99
+onyx,139,Derrek Lee,Florida Marlins,Veterans,Serial numbered /99
+onyx,140,Ben Grieve,Tampa Bay Devil Rays,Veterans,Serial numbered /99
+onyx,141,Ron Belliard,Milwaukee Brewers,Veterans,Serial numbered /99
+onyx,142,Stan Musial,St. Louis Cardinals,Hall of Fame,Serial numbered /99
+onyx,143,Ernie Banks,Chicago Cubs,Hall of Fame,Serial numbered /99
+onyx,144,Jim Palmer,Baltimore Orioles,Hall of Fame,Serial numbered /99
+onyx,145,Tony Perez,Cincinnati Reds,Hall of Fame,Serial numbered /99
+onyx,146,Duke Snider,Brooklyn Dodgers,Hall of Fame,Serial numbered /99
+onyx,147,Rod Carew,California Angels,Hall of Fame,Serial numbered /99
+onyx,148,Warren Spahn,Milwaukee Braves,Hall of Fame,Serial numbered /99
+onyx,149,Yogi Berra,New York Yankees,Hall of Fame,Serial numbered /99
+onyx,150,Juan Marichal,San Francisco Giants,Hall of Fame,Serial numbered /99
+onyx,151,Eric Munson,Detroit Tigers,Rookies/Prospects,Serial numbered /99
+onyx,152,Carlos Pena,Texas Rangers,Rookies/Prospects,Serial numbered /99
+onyx,153,Joe Crede,Chicago White Sox,Rookies/Prospects,Serial numbered /99
+onyx,154,Ryan Anderson,Seattle Mariners,Rookies/Prospects,Serial numbered /99
+onyx,155,Milton Bradley,Montreal Expos,Rookies/Prospects,Serial numbered /99
+onyx,156,Sean Burroughs,San Diego Padres,Rookies/Prospects,Serial numbered /99
+onyx,157,Corey Patterson,Chicago Cubs,Rookies/Prospects,Serial numbered /99
+onyx,158,CC Sabathia,Cleveland Indians,Rookies/Prospects,Serial numbered /99
+onyx,159,Ben Petrick,Colorado Rockies,Rookies/Prospects,Serial numbered /99
+onyx,160,Aubrey Huff,Tampa Bay Devil Rays,Rookies/Prospects,Serial numbered /99
+onyx,161,Gookie Dawkins,Cincinnati Reds,Rookies/Prospects,Serial numbered /99
+onyx,162,Ben Sheets,Milwaukee Brewers,Rookies/Prospects,Serial numbered /99
+onyx,163,Pablo Ozuna,Florida Marlins,Rookies/Prospects,Serial numbered /99
+onyx,164,Eric Valent,Philadelphia Phillies,Rookies/Prospects,Serial numbered /99
+onyx,165,Rod Barajas,Arizona Diamondbacks,Rookies/Prospects,Serial numbered /99
+onyx,166,Chin-Feng Chen,Los Angeles Dodgers,Rookies/Prospects,Serial numbered /99
+onyx,167,Josh Hamilton,Tampa Bay Devil Rays,Rookies/Prospects,Serial numbered /99
+onyx,168,Keith Ginter,Houston Astros,Rookies/Prospects,Serial numbered /99
+onyx,169,Vernon Wells,Toronto Blue Jays,Rookies/Prospects,Serial numbered /99
+onyx,170,Dernell Stenson,Boston Red Sox,Rookies/Prospects,Serial numbered /99
+onyx,171,Alfonso Soriano,New York Yankees,Rookies/Prospects,Serial numbered /99
+onyx,172,Jason Marquis,Atlanta Braves,Rookies/Prospects,Serial numbered /99
+onyx,173,Nick Johnson,New York Yankees,Rookies/Prospects,Serial numbered /99
+onyx,174,Adam Everett,Houston Astros,Rookies/Prospects,Serial numbered /99
+onyx,175,Jimmy Rollins,Philadelphia Phillies,Rookies/Prospects,Serial numbered /99
+onyx,176,Ben Diggins,Los Angeles Dodgers,Rookies/Prospects,Serial numbered /99
+onyx,177,John Lackey,Anaheim Angels,Rookies/Prospects,Serial numbered /99
+onyx,178,Scott Heard,Texas Rangers,Rookies/Prospects,Serial numbered /99
+onyx,179,Brian Hitchcox,Philadelphia Phillies,Rookies/Prospects,Serial numbered /99
+onyx,180,Odannis Ayala,Kansas City Royals,Rookies/Prospects,Serial numbered /99
+onyx,181,Scott Pratt,Cleveland Indians,Rookies/Prospects,Serial numbered /99
+onyx,182,Greg Runser,Texas Rangers,Rookies/Prospects,Serial numbered /99
+onyx,183,Chris Russ,Texas Rangers,Rookies/Prospects,Serial numbered /99
+onyx,184,Derek Thompson,Cleveland Indians,Rookies/Prospects,Serial numbered /99
+onyx,185,Jason Jones,Texas Rangers,Rookies/Prospects,Serial numbered /99
+onyx,186,Dominic Rich,Toronto Blue Jays,Rookies/Prospects,Serial numbered /99
+onyx,187,Chad Petty,Detroit Tigers,Rookies/Prospects,Serial numbered /99
+onyx,188,Steve Smyth,Chicago Cubs,Rookies/Prospects,Serial numbered /99
+onyx,189,Bryan Hebson,Montreal Expos,Rookies/Prospects,Serial numbered /99
+onyx,190,Danny Borrell,New York Yankees,Rookies/Prospects,Serial numbered /99
+onyx,191,Bob Keppel,New York Mets,Rookies/Prospects,Serial numbered /99
+onyx,192,Justin Wayne,Montreal Expos,Rookies/Prospects,Serial numbered /99
+onyx,193,Reggie Abercrombie,Los Angeles Dodgers,Rookies/Prospects,Serial numbered /99
+onyx,194,Travis Baptist,Pittsburgh Pirates,Rookies/Prospects,Serial numbered /99
+onyx,195,Shawn Fagan,Toronto Blue Jays,Rookies/Prospects,Serial numbered /99
+onyx,196,Jose Reyes,New York Mets,Rookies/Prospects,Serial numbered /99
+onyx,197,Chris Bass,Pittsburgh Pirates,Rookies/Prospects,Serial numbered /99
+onyx,198,Albert Pujols,St. Louis Cardinals,Rookies/Prospects,Serial numbered /99
+onyx,199,Luis Cotto,Kansas City Royals,Rookies/Prospects,Serial numbered /99
+onyx,200,Jake Peavy,San Diego Padres,Rookies/Prospects,Serial numbered /99
+elimination,1,Darin Erstad,Anaheim Angels,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,2,Luis Gonzalez,Arizona Diamondbacks,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,3,Rafael Furcal,Atlanta Braves,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,4,Dante Bichette,Boston Red Sox,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,5,Sammy Sosa,Chicago Cubs,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,6,Ken Griffey Jr.,Cincinnati Reds,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,7,Jim Thome,Cleveland Indians,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,8,Bobby Higginson,Detroit Tigers,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,9,Cliff Floyd,Florida Marlins,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,10,Lance Berkman,Houston Astros,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,11,Eric Karros,Los Angeles Dodgers,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,12,Jeromy Burnitz,Milwaukee Brewers,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,13,Jose Vidro,Montreal Expos,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,14,Benny Agbayani,New York Mets,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,15,Jorge Posada,New York Yankees,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,16,Ramon Hernandez,Oakland Athletics,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,17,Jason Kendall,Pittsburgh Pirates,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,18,Jeff Kent,San Francisco Giants,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,19,John Olerud,Seattle Mariners,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,20,Al Martin,Seattle Mariners,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,21,Gerald Williams,Tampa Bay Devil Rays,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,22,Gabe Kapler,Texas Rangers,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,23,Carlos Delgado,Toronto Blue Jays,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,25,Javy Lopez,Atlanta Braves,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,26,Paul Konerko,Chicago White Sox,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,27,Daryle Ward,Houston Astros,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,28,Mike Lieberthal,Philadelphia Phillies,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,29,Tom Goodwin,Los Angeles Dodgers,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,30,Garret Anderson,Anaheim Angels,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,31,Steve Finley,Arizona Diamondbacks,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,32,Brian Jordan,Atlanta Braves,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,33,Nomar Garciaparra,Boston Red Sox,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,34,Ray Durham,Chicago White Sox,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,35,Sean Casey,Cincinnati Reds,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,36,Kenny Lofton,Cleveland Indians,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,37,Dean Palmer,Detroit Tigers,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,38,Jeff Bagwell,Houston Astros,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,39,Mike Sweeney,Kansas City Royals,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,40,Adrian Beltre,Los Angeles Dodgers,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,41,Richie Sexson,Milwaukee Brewers,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,42,Vladimir Guerrero,Montreal Expos,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,43,Derek Jeter,New York Yankees,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,44,Miguel Tejada,Oakland Athletics,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,45,Doug Glanville,Philadelphia Phillies,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,46,Brian Giles,Pittsburgh Pirates,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,47,Marvin Benard,San Francisco Giants,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,48,Edgar Martinez,Seattle Mariners,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,49,Edgar Renteria,St. Louis Cardinals,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,50,Fred McGriff,Tampa Bay Devil Rays,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,51,Ivan Rodriguez,Texas Rangers,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,52,Brad Fullmer,Toronto Blue Jays,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,55,Warren Morris,Pittsburgh Pirates,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,56,Johnny Damon,Oakland Athletics,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,57,Dmitri Young,Cincinnati Reds,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,58,Mo Vaughn,Anaheim Angels,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,61,Carl Everett,Boston Red Sox,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,62,Magglio Ordonez,Chicago White Sox,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,63,Pokey Reese,Cincinnati Reds,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,64,Todd Helton,Colorado Rockies,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,65,Preston Wilson,Florida Marlins,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,66,Richard Hidalgo,Houston Astros,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,67,Jermaine Dye,Kansas City Royals,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,68,Gary Sheffield,Los Angeles Dodgers,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,69,Geoff Jenkins,Milwaukee Brewers,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,70,Edgardo Alfonzo,New York Mets,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,71,Paul O'Neill,New York Yankees,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,72,Terrence Long,Oakland Athletics,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,73,Bobby Abreu,Philadelphia Phillies,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,74,Kevin Young,Pittsburgh Pirates,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,75,J.T. Snow Jr.,San Francisco Giants,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,76,Alex Rodriguez,Texas Rangers,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,77,Jim Edmonds,St. Louis Cardinals,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,78,Mark McGwire,St. Louis Cardinals,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,79,Tony Batista,Toronto Blue Jays,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,80,Darrin Fletcher,Toronto Blue Jays,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,82,Jose Offerman,Boston Red Sox,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,83,Travis Fryman,Cleveland Indians,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,84,Joe Randa,Kansas City Royals,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,85,Omar Vizquel,Cleveland Indians,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,86,Tim Salmon,Anaheim Angels,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,87,Andruw Jones,Atlanta Braves,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,88,Albert Belle,Baltimore Orioles,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,89,Manny Ramirez,Boston Red Sox,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,90,Frank Thomas,Chicago White Sox,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,91,Barry Larkin,Cincinnati Reds,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,92,Neifi Perez,Colorado Rockies,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,93,Luis Castillo,Florida Marlins,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,94,Moises Alou,Houston Astros,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,95,Mark Quinn,Kansas City Royals,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,97,Cristian Guzman,Minnesota Twins,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,98,Mike Piazza,New York Mets,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,99,Bernie Williams,New York Yankees,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,100,Jason Giambi,Oakland Athletics,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,101,Scott Rolen,Philadelphia Phillies,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,102,Phil Nevin,San Diego Padres,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,103,Rich Aurilia,San Francisco Giants,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,104,Mike Cameron,Seattle Mariners,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,105,Fernando Vina,St. Louis Cardinals,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,106,Greg Vaughn,Tampa Bay Devil Rays,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,107,Jose Cruz Jr.,Toronto Blue Jays,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,108,Raul Mondesi,Toronto Blue Jays,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,109,Bengie Molina,Anaheim Angels,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,111,Todd Hollandsworth,Colorado Rockies,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,112,Jacque Jones,Minnesota Twins,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,113,Rickey Henderson,San Diego Padres,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,114,Troy Glaus,Anaheim Angels,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,115,Chipper Jones,Atlanta Braves,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,116,Delino DeShields,Baltimore Orioles,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,117,Eric Young,Chicago Cubs,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,118,Jose Valentin,Chicago White Sox,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,119,Roberto Alomar,Cleveland Indians,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,120,Jeff Cirillo,Colorado Rockies,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,121,Mike Lowell,Florida Marlins,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,122,Julio Lugo,Houston Astros,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,123,Shawn Green,Los Angeles Dodgers,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,124,Marquis Grissom,Los Angeles Dodgers,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,125,Matt Lawton,Minnesota Twins,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,126,Jay Payton,New York Mets,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,127,David Justice,New York Yankees,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,128,Eric Chavez,Oakland Athletics,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,129,Pat Burrell,Philadelphia Phillies,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,130,Ryan Klesko,San Diego Padres,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,131,Barry Bonds,San Francisco Giants,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,132,Jay Buhner,Seattle Mariners,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,133,J.D. Drew,St. Louis Cardinals,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,134,Rafael Palmeiro,Texas Rangers,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,135,Shannon Stewart,Toronto Blue Jays,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,136,Juan Gonzalez,Cleveland Indians,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,137,Tony Womack,Arizona Diamondbacks,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,138,Carlos Lee,Chicago White Sox,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,139,Derrek Lee,Florida Marlins,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,140,Ben Grieve,Tampa Bay Devil Rays,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,141,Ron Belliard,Milwaukee Brewers,Veterans,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+elimination,198,Albert Pujols,St. Louis Cardinals,Rookies/Prospects,Reported print run 100; not serial numbered; expired Star Stats Elimination game card
+progression,P1,Ernie Banks / Alex Rodriguez / Felipe Lopez,Chicago Cubs / Texas Rangers / Toronto Blue Jays,,
+progression,P2,Yogi Berra / Ivan Rodriguez / Ramon Hernandez,New York Yankees / Texas Rangers / Oakland Athletics,,
+progression,P3,Tony Perez / Carlos Delgado / Eric Munson,Cincinnati Reds / Toronto Blue Jays / Detroit Tigers,,
+progression,P4,Rod Carew / Roberto Alomar / Jose Ortiz,California Angels / Cleveland Indians / Oakland Athletics,,
+progression,P5,Stan Musial / Darin Erstad / Alex Escobar,St. Louis Cardinals / Anaheim Angels / New York Mets,,
+progression,P6,Jim Palmer / Kevin Brown / Kurt Ainsworth,Baltimore Orioles / Los Angeles Dodgers / San Francisco Giants,,
+progression,P7,Duke Snider / Jim Edmonds / Vernon Wells,Brooklyn Dodgers / St. Louis Cardinals / Toronto Blue Jays,,
+progression,P8,Warren Spahn / Randy Johnson / Ryan Anderson,Milwaukee Braves / Arizona Diamondbacks / Seattle Mariners,,
+progression,P9,Juan Marichal / Bartolo Colon / Bobby Bradley,San Francisco Giants / Cleveland Indians / Pittsburgh Pirates,,
+awards,PCA1,Carlos Delgado / Barry Bonds / Todd Helton,Toronto Blue Jays / San Francisco Giants / Colorado Rockies,,
+awards,PCA2,Eric Davis / Gary Sheffield / Turk Wendell,St. Louis Cardinals / Los Angeles Dodgers / New York Mets,,
+awards,PCA3,Carlos Delgado / Alex Rodriguez / Frank Thomas,Toronto Blue Jays / Seattle Mariners / Chicago White Sox,,
+awards,PCA4,Pedro Martinez / David Wells / Andy Pettitte,Boston Red Sox / Toronto Blue Jays / New York Yankees,,
+awards,PCA5,Terrence Long / Mark Quinn / Kazuhiro Sasaki,Oakland Athletics / Kansas City Royals / Seattle Mariners,,
+awards,PCA6,Frank Thomas / Jay Buhner / Bobby Higginson,Chicago White Sox / Seattle Mariners / Detroit Tigers,,
+awards,PCA7,Todd Helton / Barry Bonds / Jeff Kent,Colorado Rockies / San Francisco Giants,,
+awards,PCA8,Randy Johnson / Tom Glavine / Greg Maddux,Arizona Diamondbacks / Atlanta Braves,,
+awards,PCA9,Rafael Furcal / Rick Ankiel / Jay Payton,Atlanta Braves / St. Louis Cardinals / New York Mets,,
+awards,PCA10,Andres Galarraga / Moises Alou / Jeff D'Amico,Atlanta Braves / Houston Astros / Milwaukee Brewers,,
+awards-relics,PCAR-1,Carlos Delgado,Toronto Blue Jays,,Authentic Players Choice Awards ticket stub; not player-worn material; Ticket face printed 2000; card back refers to 2001 awards
+awards-relics,PCAR-2,Eric Davis,St. Louis Cardinals,,Authentic Players Choice Awards ticket stub; not player-worn material
+awards-relics,PCAR-3,Carlos Delgado,Toronto Blue Jays,,Authentic Players Choice Awards ticket stub; not player-worn material
+awards-relics,PCAR-4,Pedro Martinez,Boston Red Sox,,Authentic Players Choice Awards ticket stub; not player-worn material
+awards-relics,PCAR-5,Terrence Long,Oakland Athletics,,Authentic Players Choice Awards ticket stub; not player-worn material
+awards-relics,PCAR-6,Frank Thomas,Chicago White Sox,,Authentic Players Choice Awards ticket stub; not player-worn material
+awards-relics,PCAR-7,Todd Helton,Colorado Rockies,,Authentic Players Choice Awards ticket stub; not player-worn material
+awards-relics,PCAR-8,Randy Johnson,Arizona Diamondbacks,,Authentic Players Choice Awards ticket stub; not player-worn material
+awards-relics,PCAR-9,Rafael Furcal,Atlanta Braves,,Authentic Players Choice Awards ticket stub; not player-worn material
+awards-relics,PCAR-10,Andres Galarraga,Atlanta Braves,,Authentic Players Choice Awards ticket stub; not player-worn material
+jerseys,TSR-AJ,Andruw Jones,Atlanta Braves,,Player-worn jersey relic
+jerseys,TSR-BB,Barry Bonds,San Francisco Giants,,Player-worn jersey relic
+jerseys,TSR-CJ,Chipper Jones,Atlanta Braves,,Player-worn jersey relic
+jerseys,TSR-EA,Edgardo Alfonzo,New York Mets,,Player-worn jersey relic
+jerseys,TSR-EM,Edgar Martinez,Seattle Mariners,,Player-worn jersey relic
+jerseys,TSR-FT,Frank Thomas,Chicago White Sox,,Player-worn jersey relic
+jerseys,TSR-JV,Jose Vidro,Montreal Expos,,Player-worn jersey relic
+jerseys,TSR-LC,Luis Castillo,Florida Marlins,,Player-worn jersey relic
+jerseys,TSR-MO,Magglio Ordonez,Chicago White Sox,,Player-worn jersey relic
+jerseys,TSR-MP,Mike Piazza,New York Mets,,Player-worn jersey relic
+jerseys,TSR-RA,Roberto Alomar,Cleveland Indians,,Player-worn jersey relic
+jerseys,TSR-SHS,Shannon Stewart,Toronto Blue Jays,,Player-worn jersey relic
+jerseys,TSR-SS,Sammy Sosa,Chicago Cubs,,Player-worn jersey relic
+jerseys,TSR-TG,Tony Gwynn,San Diego Padres,,Player-worn jersey relic
+jerseys,TSR-TH,Todd Helton,Colorado Rockies,,Player-worn jersey relic
+bats,TSR-AB,Adrian Beltre,Los Angeles Dodgers,,Game-used bat relic
+bats,TSR-AK,Adam Kennedy,Anaheim Angels,,Game-used bat relic
+bats,TSR-AP,Adam Piatt,Oakland Athletics,,Game-used bat relic
+bats,TSR-BD,Ben Davis,San Diego Padres,,Game-used bat relic
+bats,TSR-CP,Corey Patterson,Chicago Cubs,,Game-used bat relic
+bats,TSR-ED,Erubiel Durazo,Arizona Diamondbacks,,Game-used bat relic
+bats,TSR-EM,Eric Munson,Detroit Tigers,,Game-used bat relic
+bats,TSR-FL,Felipe Lopez,Toronto Blue Jays,,Game-used bat relic
+bats,TSR-FS,Fernando Seguignol,Montreal Expos,,Game-used bat relic
+bats,TSR-GL,George Lombard,Atlanta Braves,,Game-used bat relic
+bats,TSR-GM,Gary Matthews Jr.,Chicago Cubs,,Game-used bat relic
+bats,TSR-JDD,J.D. Drew,St. Louis Cardinals,,Game-used bat relic
+bats,TSR-JE,Juan Encarnacion,Detroit Tigers,,Game-used bat relic
+bats,TSR-LB,Lance Berkman,Houston Astros,,Game-used bat relic
+bats,TSR-MC,Michael Cuddyer,Minnesota Twins,,Game-used bat relic
+bats,TSR-NP,Neifi Perez,Colorado Rockies,,Game-used bat relic
+bats,TSR-RF,Rafael Furcal,Atlanta Braves,,Game-used bat relic
+bats,TSR-RS,Richie Sexson,Milwaukee Brewers,,Game-used bat relic
+bats,TSR-SB,Sean Burroughs,San Diego Padres,,Game-used bat relic
+bats,TSR-SR,Scott Rolen,Philadelphia Phillies,,Game-used bat relic
+bats,TSR-TL,Terrence Long,Oakland Athletics,,Game-used bat relic
+autographs,TSA-CD,Carlos Delgado,Toronto Blue Jays,,Certified autograph
+autographs,TSA-DS,Duke Snider,Brooklyn Dodgers,,Certified autograph
+autographs,TSA-EB,Ernie Banks,Chicago Cubs,,Certified autograph
+autographs,TSA-EM,Eric Munson,Detroit Tigers,,Certified autograph
+autographs,TSA-IR,Ivan Rodriguez,Texas Rangers,,Certified autograph
+autographs,TSA-JM,Juan Marichal,San Francisco Giants,,Certified autograph
+autographs,TSA-JP,Jim Palmer,Baltimore Orioles,,Certified autograph
+autographs,TSA-RC,Rod Carew,California Angels,,Certified autograph
+autographs,TSA-SM,Stan Musial,St. Louis Cardinals,,Certified autograph
+autographs,TSA-TH,Todd Helton,Colorado Rockies,,Certified autograph
+autographs,TSA-TP,Tony Perez,Cincinnati Reds,,Certified autograph
+autographs,TSA-WS,Warren Spahn,Milwaukee Braves,,Certified autograph
+autographs,TSA-YB,Yogi Berra,New York Yankees,,Certified autograph
+autograph-relics,TSRA-BB,Barry Bonds,San Francisco Giants,,Certified autograph; player-worn jersey relic; serial numbered /25
+autograph-relics,TSRA-CP,Corey Patterson,Chicago Cubs,,Certified autograph; game-used bat relic; serial numbered /25
+autograph-relics,TSRA-RF,Rafael Furcal,Atlanta Braves,,Certified autograph; game-used bat relic; serial numbered /25
+autograph-relics,TSRA-TH,Todd Helton,Colorado Rockies,,Certified autograph; player-worn jersey relic; serial numbered /25
+autograph-relics,TSRA-TL,Terrence Long,Oakland Athletics,,Certified autograph; game-used bat relic; serial numbered /25

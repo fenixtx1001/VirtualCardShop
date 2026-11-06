@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1501/2001-Topps-Stars",
+    "checklistReference": "https://www.tcdb.com/Checklist.cfm/sid/1501/2001-Topps-Stars?PageIndex=1",
+    "rookieReference": "https://www.tcdb.com/Rookies.cfm/sid/1501/2001-Topps-Stars",
+    "insertReference": "https://www.tcdb.com/Inserts.cfm/sid/1501/2001-Topps-Stars",
+    "independentReference": "https://baseballcardpedia.com/index.php/2001_Topps_Stars",
+    "supplementaryTeamReference": "https://mycardbatch.com/checklists/topps-stars-2001-baseball",
+    "distributorReference": "https://www.dacardworld.com/sports-cards/2001-topps-stars-baseball-hobby-box"
+  },
+  "decisions": {
+    "inventory": "817 completed cards across eleven complete collector families: base/Gold/Onyx 200 each, Elimination 134, Progression 9, Players Choice Awards 10, Awards ticket relics 10, Game Gear jerseys 15, bats 21, autographs 13, signed relics 5. Every full parallel fetched in its own namespace and both pages, not extrapolated.",
+    "rookies": "Exactly 21 true base RCs corroborated number-by-number between full base labels, separate TCDB index and independent BCP roster. BCP prose says 22 in error. No extra RC for marketed prospects, parallels, retired Hall of Famers, triple-player inserts or autograph cards.",
+    "subsets": "Retain one 200-card base family; record #1-141 Veterans, #142-150 Hall of Fame, #151-200 Rookies/Prospects as metadata. Hall of Fame cards are not a separate short-print pool.",
+    "numbering": "Preserve actual printed identifiers, including PCAR-1 ticket back hyphen, P1/PCA1, TSR and TSRA prefixes. Elimination retains sparse base numbers including #198; no invented full 200-card Elimination inventory.",
+    "namesTeams": "All 417 complete supplementary tuples audited, plus independent base/insert subject rosters and three complete parallel identities/teams checked against base. Fix PCA6 Seatle to Seattle. Correct Progression P7 Snider to Brooklyn from reviewed B-cap original images. Preserve 2000-award affiliations such as Rodriguez Seattle and Galarraga Atlanta, even when current base teams differ. Shared-team triples retain unique franchise lists.",
+    "variants": "Gold /499 and Onyx /99 are serial-numbered; Elimination print run 100 is NOT serial. Source Ayala spelling variants retained cleanly with base UER note and explicit comparison aliases. Selected original ticket front/back resolves ticket material and preserves 2000/2001 printed-year discrepancy.",
+    "provenance": "Game Gear jerseys are player-worn per source/original card, not upgraded to game-worn. Bats are game-used. Award relics contain ticket stubs, not player equipment. Signed relics /25 and plain certified signatures remain distinct.",
+    "packConfiguration": "HTA Hobby-only release: 24 packs per box, six nominal cards per pack, corroborated by independent catalogue/distributor. Reviewed packaging is box front, not a claimed legible wrapper odds audit. No retail configuration invented.",
+    "packOdds": "Verified aggregate Hobby denominators live on ProductSets. Within-family tier scarcity flattened under existing conventions. Five signed relics stay in one collector family; differing jersey/bat physical rates remain in notes, odds null without invented aggregate or material-only split. Pack QA still pending.",
+    "exclusions": "No extra verified autograph, memorabilia, promo, refractor or hologram family beyond the complete related-set index. Paper autograph redemptions are not duplicated as extra signed cards. The expired Elimination contest remains a real collector parallel; no present-day prize or redemption fulfillment implied.",
+    "verificationLimit": "Catalogue-based audit of every output row, complete independent rosters/teams and selected original images; not a full scan-by-scan card audit. Thirteen actual autograph subjects verified by catalogues, not claimed individually visually inspected. Box front does not visually establish pack counts; corroborated distributor/catalogue used.",
+    "release": "Unreleased Admin draft for pricing/image harvesting, blocked pending signed-relic pack odds/collation QA, prices and images. No production database access or deployment."
+  },
+  "product": {
+    "id": "2001_Topps_Stars_Baseball",
+    "year": 2001,
+    "brand": "Topps Stars",
+    "sport": "Baseball",
+    "cardsPerPack": 6,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "checklist": "VERIFIED_817_CARDS_11_FAMILIES_AGAINST_CATALOGUES",
+    "rookieDesignation": "VERIFIED_21_BASE_RCS",
+    "scanReview": "SELECTED_ORIGINAL_SCANS_COMPLETE_FULL_HARVEST_PENDING",
+    "packCollation": "PENDING_TIER_FLATTENING_AND_MIXED_SIGNED_RELICS",
+    "insertOdds": "VERIFIED_AGGREGATE_EXCEPT_MIXED_SIGNED_RELICS_NULL",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "2001-topps-stars-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2001_Topps_Stars_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 1501,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1501/2001-Topps-Stars?PageIndex=1",
+      "expectedCards": 200,
+      "notes": "Complete 200-card numbered checklist, no short prints. Veterans #1-141, retired Hall of Famers #142-150, Rookies/Prospects #151-200. Twenty-one true RCs; BCP 22-card headline contradicted by both detailed rookie inventories."
+    },
+    {
+      "key": "gold",
+      "id": "2001_Topps_Stars_Baseball_Gold",
+      "name": "Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": 9,
+      "sourceSetId": 13136,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/13136/2001-Topps-Stars-Gold?PageIndex=1",
+      "expectedCards": 200,
+      "notes": "Complete independently retrieved 200-card /499 parallel, HTA Hobby 1:9. No additional RC suffixes inferred."
+    },
+    {
+      "key": "onyx",
+      "id": "2001_Topps_Stars_Baseball_Onyx",
+      "name": "Onyx",
+      "kind": "PARALLEL",
+      "oddsPerPack": 48,
+      "sourceSetId": 13137,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/13137/2001-Topps-Stars-Onyx?PageIndex=1",
+      "expectedCards": 200,
+      "notes": "Complete independently retrieved 200-card /99 parallel, HTA Hobby 1:48. No additional RC suffixes inferred."
+    },
+    {
+      "key": "elimination",
+      "id": "2001_Topps_Stars_Baseball_Elimination",
+      "name": "Elimination",
+      "kind": "PARALLEL",
+      "oddsPerPack": 72,
+      "sourceSetId": 13132,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/13132/2001-Topps-Stars-Elimination?PageIndex=1",
+      "expectedCards": 134,
+      "notes": "Complete 134-card partial parallel: #1-141 excluding 24,53,54,59,60,81,96,110, plus #198 Albert Pujols. Reported 100 copies per card, NOT serial numbered. Hobby 1:72. Expired contest game rules do not remove genuine collector cards."
+    },
+    {
+      "key": "progression",
+      "id": "2001_Topps_Stars_Baseball_Progression",
+      "name": "Progression",
+      "kind": "INSERT",
+      "oddsPerPack": 8,
+      "sourceSetId": 9269,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9269/2001-Topps-Stars-Progression",
+      "expectedCards": 9,
+      "notes": "Nine P1-P9 triple-player cards, Hobby 1:8. Preserve all three subjects and card-specific historical affiliations. P7 Snider corrected to Brooklyn from original B-cap image; BCP P8 Rich Anderson typo normalized to Ryan."
+    },
+    {
+      "key": "awards",
+      "id": "2001_Topps_Stars_Baseball_Player_s_Choice_Awards",
+      "name": "Player's Choice Awards",
+      "kind": "INSERT",
+      "oddsPerPack": 12,
+      "sourceSetId": 13138,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/13138/2001-Topps-Stars-Player-s-Choice-Awards",
+      "expectedCards": 10,
+      "notes": "Ten PCA1-PCA10 triple-player 2000 award nominees, Hobby 1:12. All three subjects retained, source subject order and distinct franchises preserved. PCA6 Seattle typo corrected; do not replace 2000 award teams with 2001 current teams."
+    },
+    {
+      "key": "awards-relics",
+      "id": "2001_Topps_Stars_Baseball_Player_s_Choice_Awards_Relics",
+      "name": "Player's Choice Awards Relics",
+      "kind": "INSERT",
+      "oddsPerPack": 530,
+      "sourceSetId": 13139,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/13139/2001-Topps-Stars-Player-s-Choice-Awards-Relics",
+      "expectedCards": 10,
+      "notes": "Ten PCAR-1 through PCAR-10 ticket-stub cards, Hobby 1:530. Authentic Players Choice Awards ticket pieces, NOT player-worn jersey material. Original PCAR-1 front ticket says 2000, back says 2001; discrepancy documented."
+    },
+    {
+      "key": "jerseys",
+      "id": "2001_Topps_Stars_Baseball_Game_Gear_Jerseys",
+      "name": "Game Gear Jerseys",
+      "kind": "INSERT",
+      "oddsPerPack": 61,
+      "sourceSetId": 13135,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/13135/2001-Topps-Stars-Game-Gear-Jerseys",
+      "expectedCards": 15,
+      "notes": "Full fifteen-card player-worn jersey family, aggregate Hobby 1:61. Internal groups 1:71 and 1:472 flattened within collector family. Do not upgrade player-worn provenance to game-worn."
+    },
+    {
+      "key": "bats",
+      "id": "2001_Topps_Stars_Baseball_Game_Gear_Bats",
+      "name": "Game Gear Bats",
+      "kind": "INSERT",
+      "oddsPerPack": 187,
+      "sourceSetId": 13134,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/13134/2001-Topps-Stars-Game-Gear-Bats",
+      "expectedCards": 21,
+      "notes": "Full 21-card game-used bat family, aggregate Hobby 1:187. Internal groups 1:216 and 1:1368 flattened within collector family."
+    },
+    {
+      "key": "autographs",
+      "id": "2001_Topps_Stars_Baseball_Autographs",
+      "name": "Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": 353,
+      "sourceSetId": 13131,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/13131/2001-Topps-Stars-Autographs",
+      "expectedCards": 13,
+      "notes": "Complete thirteen-card signed checklist, Hobby 1:353. Some originally packed as redemptions expiring April 30, 2003; retain actual fulfilled signed subjects, no duplicate paper exchanges or assumed new RCs."
+    },
+    {
+      "key": "autograph-relics",
+      "id": "2001_Topps_Stars_Baseball_Game_Gear_Autographed_Relics",
+      "name": "Game Gear Autographed Relics",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 13133,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/13133/2001-Topps-Stars-Game-Gear-Autographed-Relics",
+      "expectedCards": 5,
+      "notes": "One intact five-card /25 family: TSRA-BB/TH jerseys, TSRA-CP/RF/TL bats. Physical jersey 1:19288, bat 1:12240; no single verified integer aggregate rate, odds null pending QA. Do not split collector checklist solely for material odds."
+    }
+  ]
+}
