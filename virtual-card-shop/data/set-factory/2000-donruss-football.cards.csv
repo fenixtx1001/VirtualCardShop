@@ -1,0 +1,1279 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Jake Plummer,Arizona Cardinals,Veterans,
+base,2,Frank Sanders,Arizona Cardinals,Veterans,
+base,3,Rob Moore,Arizona Cardinals,Veterans,
+base,4,David Boston,Arizona Cardinals,Veterans,
+base,5,Tim Dwight,Atlanta Falcons,Veterans,
+base,6,Jamal Anderson,Atlanta Falcons,Veterans,
+base,7,Chris Chandler,Atlanta Falcons,Veterans,
+base,8,Terance Mathis,Atlanta Falcons,Veterans,
+base,9,Tony Banks,Baltimore Ravens,Veterans,
+base,10,Jermaine Lewis,Baltimore Ravens,Veterans,
+base,11,Shannon Sharpe,Baltimore Ravens,Veterans,
+base,12,Trent Dilfer,Baltimore Ravens,Veterans,
+base,13,Qadry Ismail,Baltimore Ravens,Veterans,
+base,14,Eric Moulds,Buffalo Bills,Veterans,
+base,15,Doug Flutie,Buffalo Bills,Veterans,
+base,16,Antowain Smith,Buffalo Bills,Veterans,
+base,17,Jonathan Linton,Buffalo Bills,Veterans,
+base,18,Peerless Price,Buffalo Bills,Veterans,
+base,19,Rob Johnson,Buffalo Bills,Veterans,
+base,20,Natrone Means,Carolina Panthers,Veterans,
+base,21,Muhsin Muhammad,Carolina Panthers,Veterans,
+base,22,Wesley Walls,Carolina Panthers,Veterans,
+base,23,Tim Biakabutuka,Carolina Panthers,Veterans,
+base,24,Steve Beuerlein,Carolina Panthers,Veterans,
+base,25,Patrick Jeffers,Carolina Panthers,Veterans,
+base,26,Curtis Enis,Chicago Bears,Veterans,
+base,27,Cade McNown,Chicago Bears,Veterans,
+base,28,Bobby Engram,Chicago Bears,Veterans,
+base,29,Marcus Robinson,Chicago Bears,Veterans,
+base,30,Marty Booker,Chicago Bears,Veterans,
+base,31,Corey Dillon,Cincinnati Bengals,Veterans,
+base,32,Darnay Scott,Cincinnati Bengals,Veterans,
+base,33,Carl Pickens,Tennessee Titans,Veterans,
+base,34,Akili Smith,Cincinnati Bengals,Veterans,
+base,35,Michael Basnight,Cincinnati Bengals,Veterans,
+base,36,Tim Couch,Cleveland Browns,Veterans,
+base,37,Kevin Johnson,Cleveland Browns,Veterans,
+base,38,Abdul-Karim al-Jabbar,Indianapolis Colts,Veterans,
+base,39,Errict Rhett,Cleveland Browns,Veterans,
+base,40,Darrin Chiaverini,Cleveland Browns,Veterans,
+base,41,Emmitt Smith,Dallas Cowboys,Veterans,
+base,42,Troy Aikman,Dallas Cowboys,Veterans,
+base,43,Joey Galloway,Dallas Cowboys,Veterans,
+base,44,Randall Cunningham,Dallas Cowboys,Veterans,
+base,45,Michael Irvin,Dallas Cowboys,Veterans,
+base,46,Raghib Ismail,Dallas Cowboys,Veterans,
+base,47,Jason Tucker,Dallas Cowboys,Veterans,
+base,48,Terrell Davis,Denver Broncos,Veterans,
+base,49,John Elway,Denver Broncos,Veterans,
+base,50,Olandis Gary,Denver Broncos,Veterans,
+base,51,Ed McCaffrey,Denver Broncos,Veterans,
+base,52,Rod Smith,Denver Broncos,Veterans,
+base,53,Brian Griese,Denver Broncos,Veterans,
+base,54,Charlie Batch,Detroit Lions,Veterans,
+base,55,Barry Sanders,Detroit Lions,Veterans,
+base,56,Herman Moore,Detroit Lions,Veterans,
+base,57,Johnnie Morton,Detroit Lions,Veterans,
+base,58,Germane Crowell,Detroit Lions,Veterans,
+base,59,James Stewart,Detroit Lions,Veterans,
+base,60,Brett Favre,Green Bay Packers,Veterans,
+base,61,Dorsey Levens,Green Bay Packers,Veterans,
+base,62,Antonio Freeman,Green Bay Packers,Veterans,
+base,63,Corey Bradford,Green Bay Packers,Veterans,
+base,64,Bill Schroeder,Green Bay Packers,Veterans,
+base,65,E.G. Green,Indianapolis Colts,Veterans,
+base,66,Peyton Manning,Indianapolis Colts,Veterans,
+base,67,Edgerrin James,Indianapolis Colts,Veterans,
+base,68,Marvin Harrison,Indianapolis Colts,Veterans,
+base,69,Terrence Wilkins,Indianapolis Colts,Veterans,
+base,70,Mark Brunell,Jacksonville Jaguars,Veterans,
+base,71,Fred Taylor,Jacksonville Jaguars,Veterans,
+base,72,Keenan McCardell,Jacksonville Jaguars,Veterans,
+base,73,Jimmy Smith,Jacksonville Jaguars,Veterans,
+base,74,Warren Moon,Kansas City Chiefs,Veterans,
+base,75,Elvis Grbac,Kansas City Chiefs,Veterans,
+base,76,Tony Gonzalez,Kansas City Chiefs,Veterans,
+base,77,Dan Marino,Miami Dolphins,Veterans,
+base,78,O.J. McDuffie,Miami Dolphins,Veterans,
+base,79,Tony Martin,Miami Dolphins,Veterans,
+base,80,James Johnson,Miami Dolphins,Veterans,
+base,81,Thurman Thomas,Miami Dolphins,Veterans,
+base,82,Randy Moss,Minnesota Vikings,Veterans,
+base,83,Daunte Culpepper,Minnesota Vikings,Veterans,
+base,84,Cris Carter,Minnesota Vikings,Veterans,
+base,85,Robert Smith,Minnesota Vikings,Veterans,
+base,86,John Randle,Minnesota Vikings,Veterans,
+base,87,Drew Bledsoe,New England Patriots,Veterans,
+base,88,Terry Glenn,New England Patriots,Veterans,
+base,89,Kevin Faulk,New England Patriots,Veterans,
+base,90,Ricky Williams,New Orleans Saints,Veterans,
+base,91,Jeff Blake,New Orleans Saints,Veterans,
+base,92,Jake Reed,New Orleans Saints,Veterans,
+base,93,Amani Toomer,New York Giants,Veterans,
+base,94,Kerry Collins,New York Giants,Veterans,
+base,95,Tiki Barber,New York Giants,Veterans,
+base,96,Ike Hilliard,New York Giants,Veterans,
+base,97,Curtis Martin,New York Jets,Veterans,
+base,98,Vinny Testaverde,New York Jets,Veterans,
+base,99,Wayne Chrebet,New York Jets,Veterans,
+base,100,Ray Lucas,New York Jets,Veterans,
+base,101,Charles Woodson,Oakland Raiders,Veterans,
+base,102,Napoleon Kaufman,Oakland Raiders,Veterans,
+base,103,Tim Brown,Oakland Raiders,Veterans,
+base,104,Tyrone Wheatley,Oakland Raiders,Veterans,
+base,105,Rich Gannon,Oakland Raiders,Veterans,
+base,106,Duce Staley,Philadelphia Eagles,Veterans,
+base,107,Donovan McNabb,Philadelphia Eagles,Veterans,
+base,108,Amos Zereoue,Pittsburgh Steelers,Veterans,
+base,109,Kordell Stewart,Pittsburgh Steelers,Veterans,
+base,110,Jerome Bettis,Pittsburgh Steelers,Veterans,
+base,111,Troy Edwards,Pittsburgh Steelers,Veterans,
+base,112,Ryan Leaf,San Diego Chargers,Veterans,
+base,113,Junior Seau,San Diego Chargers,Veterans,
+base,114,Jim Harbaugh,San Diego Chargers,Veterans,
+base,115,Jermaine Fazande,San Diego Chargers,Veterans,
+base,116,Curtis Conway,San Diego Chargers,Veterans,
+base,117,Steve Young,San Francisco 49ers,Veterans,
+base,118,Jerry Rice,San Francisco 49ers,Veterans,
+base,119,Terrell Owens,San Francisco 49ers,Veterans,
+base,120,Charlie Garner,San Francisco 49ers,Veterans,
+base,121,Jeff Garcia,San Francisco 49ers,Veterans,
+base,122,Jon Kitna,Seattle Seahawks,Veterans,
+base,123,Derrick Mayes,Seattle Seahawks,Veterans,
+base,124,Ricky Watters,Seattle Seahawks,Veterans,
+base,125,Kurt Warner,St. Louis Rams,Veterans,
+base,126,Marshall Faulk,St. Louis Rams,Veterans,
+base,127,Torry Holt,St. Louis Rams,Veterans,
+base,128,Az-Zahir Hakim,St. Louis Rams,Veterans,
+base,129,Isaac Bruce,St. Louis Rams,Veterans,
+base,130,Mike Alstott,Tampa Bay Buccaneers,Veterans,
+base,131,Warrick Dunn,Tampa Bay Buccaneers,Veterans,
+base,132,Shaun King,Tampa Bay Buccaneers,Veterans,
+base,133,Keyshawn Johnson,Tampa Bay Buccaneers,Veterans,
+base,134,Jacquez Green,Tampa Bay Buccaneers,Veterans,
+base,135,Reidel Anthony,Tampa Bay Buccaneers,Veterans,
+base,136,Warren Sapp,Tampa Bay Buccaneers,Veterans,
+base,137,Eddie George,Tennessee Titans,Veterans,
+base,138,Steve McNair,Tennessee Titans,Veterans,
+base,139,Yancey Thigpen,Tennessee Titans,Veterans,
+base,140,Kevin Dyson,Tennessee Titans,Veterans,
+base,141,Frank Wycheck,Tennessee Titans,Veterans,
+base,142,Jevon Kearse,Tennessee Titans,Veterans,
+base,143,Stephen Davis,Washington Redskins,Veterans,
+base,144,Skip Hicks,Washington Redskins,Veterans,
+base,145,Brad Johnson,Washington Redskins,Veterans,
+base,146,Bruce Smith,Washington Redskins,Veterans,
+base,147,Michael Westbrook,Washington Redskins,Veterans,
+base,148,Albert Connell,Washington Redskins,Veterans,
+base,149,Jeff George,Washington Redskins,Veterans,
+base,150,Deion Sanders,Washington Redskins,Veterans,
+base,151,Courtney Brown RC,Cleveland Browns,Rookies,Serial numbered /1325
+base,152,Corey Simon RC,Philadelphia Eagles,Rookies,Serial numbered /1325
+base,153,Brian Urlacher RC,Chicago Bears,Rookies,Serial numbered /1325
+base,154,Shaun Ellis RC,New York Jets,Rookies,Serial numbered /1325
+base,155,John Abraham RC,New York Jets,Rookies,Serial numbered /1325
+base,156,Deltha O'Neal RC,Denver Broncos,Rookies,Serial numbered /1325
+base,157,Ahmed Plummer RC,San Francisco 49ers,Rookies,Serial numbered /1325
+base,158,Chris Hovan RC,Minnesota Vikings,Rookies,Serial numbered /1325
+base,159,Rob Morris RC,Indianapolis Colts,Rookies,Serial numbered /1325
+base,160,Keith Bulluck RC,Tennessee Titans,Rookies,Serial numbered /1325
+base,161,Darren Howard RC,New Orleans Saints,Rookies,Serial numbered /1325
+base,162,John Engelberger RC,San Francisco 49ers,Rookies,Serial numbered /1325
+base,163,Raynoch Thompson RC,Arizona Cardinals,Rookies,Serial numbered /1325
+base,164,Cornelius Griffin RC,New York Giants,Rookies,Serial numbered /1325
+base,165,William Bartee RC,Kansas City Chiefs,Rookies,Serial numbered /1325
+base,166,Fred Robbins RC,Minnesota Vikings,Rookies,Serial numbered /1325
+base,167,Michael Boireau RC,Minnesota Vikings,Rookies,Serial numbered /1325
+base,168,Brandon Short RC,New York Giants,Rookies,Serial numbered /1325
+base,169,Jacoby Shepherd RC,St. Louis Rams,Rookies,Serial numbered /1325
+base,170,Peter Warrick RC,Cincinnati Bengals,Rookies,Serial numbered /1325
+base,171,Jamal Lewis RC,Baltimore Ravens,Rookies,Serial numbered /1325
+base,172,Thomas Jones RC,Arizona Cardinals,Rookies,Serial numbered /1325
+base,173,Plaxico Burress RC,Pittsburgh Steelers,Rookies,Serial numbered /1325
+base,174,Travis Taylor RC,Baltimore Ravens,Rookies,Serial numbered /1325
+base,175,Ron Dayne RC,New York Giants,Rookies,Serial numbered /1325
+base,176,Bubba Franks RC,Green Bay Packers,Rookies,Serial numbered /1325
+base,177,Sebastian Janikowski RC,Oakland Raiders,Rookies,Serial numbered /1325
+base,178,Chad Pennington RC,New York Jets,Rookies,Serial numbered /1325
+base,179,Shaun Alexander RC,Seattle Seahawks,Rookies,Serial numbered /1325
+base,180,Sylvester Morris RC,Kansas City Chiefs,Rookies,Serial numbered /1325
+base,181,Anthony Becht RC,New York Jets,Rookies,Serial numbered /1325
+base,182,R. Jay Soward RC,Jacksonville Jaguars,Rookies,Serial numbered /1325
+base,183,Trung Canidate RC,St. Louis Rams,Rookies,Serial numbered /1325
+base,184,Dennis Northcutt RC,Cleveland Browns,Rookies,Serial numbered /1325
+base,185,Todd Pinkston RC,Philadelphia Eagles,Rookies,Serial numbered /1325
+base,186,Jerry Porter RC,Oakland Raiders,Rookies,Serial numbered /1325
+base,187,Travis Prentice RC,Cleveland Browns,Rookies,Serial numbered /1325
+base,188,Giovanni Carmazzi RC,San Francisco 49ers,Rookies,Serial numbered /1325
+base,189,Ron Dugans RC,Cincinnati Bengals,Rookies,Serial numbered /1325
+base,190,Erron Kinney RC,Tennessee Titans,Rookies,Serial numbered /1325
+base,191,Dez White RC,Chicago Bears,Rookies,Serial numbered /1325
+base,192,Chris Cole RC,Denver Broncos,Rookies,Serial numbered /1325
+base,193,Ron Dixon RC,New York Giants,Rookies,Serial numbered /1325
+base,194,Chris Redman RC,Baltimore Ravens,Rookies,Serial numbered /1325
+base,195,J.R. Redmond RC,New England Patriots,Rookies,Serial numbered /1325
+base,196,Laveranues Coles RC,New York Jets,Rookies,Serial numbered /1325
+base,197,JaJuan Dawson RC,Cleveland Browns,Rookies,Serial numbered /1325
+base,198,Darrell Jackson RC,Seattle Seahawks,Rookies,Serial numbered /1325
+base,199,Reuben Droughns RC,Detroit Lions,Rookies,Serial numbered /1325
+base,200,Doug Chapman RC,Minnesota Vikings,Rookies,Serial numbered /1325
+base,201,Terrelle Smith RC,New Orleans Saints,Rookies,Serial numbered /1325
+base,202,Curtis Keaton RC,Cincinnati Bengals,Rookies,Serial numbered /1325
+base,203,Gari Scott RC,Philadelphia Eagles,Rookies,Serial numbered /1325
+base,204,Danny Farmer RC,Cincinnati Bengals,Rookies,Serial numbered /1325
+base,205,Hank Poteat RC,Pittsburgh Steelers,Rookies,Serial numbered /1325
+base,206,Ben Kelly RC,Miami Dolphins,Rookies,Serial numbered /1325
+base,207,Corey Moore RC,Buffalo Bills,Rookies,Serial numbered /1325
+base,208,Na'il Diggs RC,Green Bay Packers,Rookies,Serial numbered /1325
+base,209,Aaron Shea RC,Cleveland Browns,Rookies,Serial numbered /1325
+base,210,Trevor Gaylor RC,San Diego Chargers,Rookies,Serial numbered /1325
+base,211,Julian Peterson RC,San Francisco 49ers,Rookies,Serial numbered /1325
+base,212,Frank Moreau RC,Kansas City Chiefs,Rookies,Serial numbered /1325
+base,213,Deon Dyer RC,Miami Dolphins,Rookies,Serial numbered /1325
+base,214,Avion Black RC,Buffalo Bills,Rookies,Serial numbered /1325
+base,215,Paul Smith RC,San Francisco 49ers,Rookies,Serial numbered /1325
+base,216,Michael Wiley RC,Dallas Cowboys,Rookies,Serial numbered /1325
+base,217,Dante Hall RC,Kansas City Chiefs,Rookies,Serial numbered /1325
+base,218,Mike Brown RC,Chicago Bears,Rookies,Serial numbered /1325
+base,219,Sammy Morris RC,Buffalo Bills,Rookies,Serial numbered /1325
+base,220,Billy Volek RC,Tennessee Titans,Rookies,Serial numbered /1325
+base,221,Tee Martin RC,Pittsburgh Steelers,Rookies,Serial numbered /1325
+base,222,Troy Walters RC,Minnesota Vikings,Rookies,Serial numbered /1325
+base,223,Chad Morton RC,New Orleans Saints,Rookies,Serial numbered /1325
+base,224,Erik Flowers RC,Buffalo Bills,Rookies,Serial numbered /1325
+base,225,Ronney Jenkins RC,San Diego Chargers,Rookies,Serial numbered /1325
+base,226,Thomas Hamner RC,Philadelphia Eagles,Rookies,Serial numbered /1325
+base,227,Mareno Philyaw RC,Atlanta Falcons,Rookies,Serial numbered /1325
+base,228,James Williams RC,Seattle Seahawks,Rookies,Serial numbered /1325
+base,229,Mike Anderson RC,Denver Broncos,Rookies,Serial numbered /1325
+base,230,Tom Brady RC,New England Patriots,Rookies,Serial numbered /1325
+base,231,Mike Green RC,Tennessee Titans,Rookies,Serial numbered /1325
+base,232,Todd Husak RC,Washington Redskins,Rookies,Serial numbered /1325
+base,233,Tim Rattay RC,San Francisco 49ers,Rookies,Serial numbered /1325
+base,234,Jarious Jackson RC,Denver Broncos,Rookies,Serial numbered /1325
+base,235,Joe Hamilton RC,Tampa Bay Buccaneers,Rookies,Serial numbered /1325
+base,236,Shyrone Stith RC,Jacksonville Jaguars,Rookies,Serial numbered /1325
+base,237,Rondell Mealey RC,Green Bay Packers,Rookies,Serial numbered /1325
+base,238,Demario Brown RC,Tennessee Titans,Rookies,Serial numbered /1325
+base,239,Chris Coleman RC,Tennessee Titans,Rookies,Serial numbered /1325
+base,240,Dwayne Goodrich RC,Dallas Cowboys,Rookies,Serial numbered /1325
+base,241,Drew Haddad RC,Buffalo Bills,Rookies,Serial numbered /1325
+base,242,Doug Johnson RC,Atlanta Falcons,Rookies,Serial numbered /1325
+base,243,Windrell Hayes RC,New York Jets,Rookies,Serial numbered /1325
+base,244,Charles Lee RC,Green Bay Packers,Rookies,Serial numbered /1325
+base,245,Kevin McDougal RC,Indianapolis Colts,Rookies,Serial numbered /1325
+base,246,Spergon Wynn RC,Cleveland Browns,Rookies,Serial numbered /1325
+base,247,Shockmain Davis RC,New England Patriots,Rookies,Serial numbered /1325
+base,248,Jamel White RC,Cleveland Browns,Rookies,Serial numbered /1325
+base,249,Bashir Yamini RC,Tennessee Titans,Rookies,Serial numbered /1325
+base,250,Kwame Cavil RC,Buffalo Bills,Rookies,Serial numbered /1325
+all-time-kings,GK-1,Joe Montana,San Francisco 49ers,,Serial numbered /2500
+all-time-kings,GK-2,Terry Bradshaw,Pittsburgh Steelers,,Serial numbered /2500
+all-time-kings,GK-3,Fran Tarkenton,Minnesota Vikings,,Serial numbered /2500
+all-time-kings,GK-4,Dan Fouts,San Diego Chargers,,Serial numbered /2500
+all-time-kings,GK-5,Sammy Baugh,Washington Redskins,,Serial numbered /2500
+all-time-kings,GK-6,Eric Dickerson,Los Angeles Rams,,Serial numbered /2500
+all-time-kings,GK-7,Bob Griese,Miami Dolphins,,Serial numbered /2500
+all-time-kings,GK-8,Ken Stabler,Oakland Raiders,,Serial numbered /2500
+all-time-kings,GK-9,Joe Namath,New York Jets,,Serial numbered /2500
+all-time-kings,GK-10,Lawrence Taylor,New York Giants,,Serial numbered /2500
+all-time-autographs,GK-1,Joe Montana,San Francisco 49ers,,Certified autograph; Serial numbered /250
+all-time-autographs,GK-2,Terry Bradshaw,Pittsburgh Steelers,,Certified autograph; Serial numbered /250
+all-time-autographs,GK-3,Fran Tarkenton,Minnesota Vikings,,Certified autograph; Serial numbered /250
+all-time-autographs,GK-5,Sammy Baugh,Washington Redskins,,Certified autograph; Serial numbered /250
+all-time-autographs,GK-6,Eric Dickerson,Los Angeles Rams,,Certified autograph; Serial numbered /250
+all-time-autographs,GK-7,Bob Griese,Miami Dolphins,,Certified autograph; Serial numbered /250
+all-time-autographs,GK-8,Ken Stabler,Oakland Raiders,,Certified autograph; Serial numbered /250
+all-time-autographs,GK-9,Joe Namath,New York Jets,,Certified autograph; Serial numbered /250
+all-time-autographs,GK-10,Lawrence Taylor,New York Giants,,Certified autograph; Serial numbered /250
+dominators,D-1,Jake Plummer,Arizona Cardinals,,Serial numbered /5000
+dominators,D-2,Tim Couch,Cleveland Browns,,Serial numbered /5000
+dominators,D-3,Emmitt Smith,Dallas Cowboys,,Serial numbered /5000
+dominators,D-4,Troy Aikman,Dallas Cowboys,,Serial numbered /5000
+dominators,D-5,John Elway,Denver Broncos,,Serial numbered /5000
+dominators,D-6,Terrell Davis,Denver Broncos,,Serial numbered /5000
+dominators,D-7,Charlie Batch,Detroit Lions,,Serial numbered /5000
+dominators,D-8,Barry Sanders,Detroit Lions,,Serial numbered /5000
+dominators,D-9,Brett Favre,Green Bay Packers,,Serial numbered /5000
+dominators,D-10,Peyton Manning,Indianapolis Colts,,Serial numbered /5000
+dominators,D-11,Edgerrin James,Indianapolis Colts,,Serial numbered /5000
+dominators,D-12,Mark Brunell,Jacksonville Jaguars,,Serial numbered /5000
+dominators,D-13,Fred Taylor,Jacksonville Jaguars,,Serial numbered /5000
+dominators,D-14,Dan Marino,Miami Dolphins,,Serial numbered /5000
+dominators,D-15,Randy Moss,Minnesota Vikings,,Serial numbered /5000
+dominators,D-16,Drew Bledsoe,New England Patriots,,Serial numbered /5000
+dominators,D-17,Ricky Williams,New Orleans Saints,,Serial numbered /5000
+dominators,D-18,Jerry Rice,San Francisco 49ers,,Serial numbered /5000
+dominators,D-19,Steve Young,San Francisco 49ers,,Serial numbered /5000
+dominators,D-20,Kurt Warner,St. Louis Rams,,Serial numbered /5000
+dominators,D-21,Eddie George,Tennessee Titans,,Serial numbered /5000
+dominators,D-22,Jamal Anderson,Atlanta Falcons,,Serial numbered /5000
+dominators,D-23,Eric Moulds,Buffalo Bills,,Serial numbered /5000
+dominators,D-24,Cade McNown,Chicago Bears,,Serial numbered /5000
+dominators,D-25,Corey Dillon,Cincinnati Bengals,,Serial numbered /5000
+dominators,D-26,Kevin Johnson,Cleveland Browns,,Serial numbered /5000
+dominators,D-27,Joey Galloway,Dallas Cowboys,,Serial numbered /5000
+dominators,D-28,Olandis Gary,Denver Broncos,,Serial numbered /5000
+dominators,D-29,Dorsey Levens,Green Bay Packers,,Serial numbered /5000
+dominators,D-30,Antonio Freeman,Green Bay Packers,,Serial numbered /5000
+dominators,D-31,Marvin Harrison,Indianapolis Colts,,Serial numbered /5000
+dominators,D-32,Daunte Culpepper,Minnesota Vikings,,Serial numbered /5000
+dominators,D-33,Cris Carter,Minnesota Vikings,,Serial numbered /5000
+dominators,D-34,Robert Smith,Minnesota Vikings,,Serial numbered /5000
+dominators,D-35,Curtis Martin,New York Jets,,Serial numbered /5000
+dominators,D-36,Tim Brown,Oakland Raiders,,Serial numbered /5000
+dominators,D-37,Duce Staley,Philadelphia Eagles,,Serial numbered /5000
+dominators,D-38,Donovan McNabb,Philadelphia Eagles,,Serial numbered /5000
+dominators,D-39,Jerome Bettis,Pittsburgh Steelers,,Serial numbered /5000
+dominators,D-40,Terrell Owens,San Francisco 49ers,,Serial numbered /5000
+dominators,D-41,Jon Kitna,Seattle Seahawks,,Serial numbered /5000
+dominators,D-42,Marshall Faulk,St. Louis Rams,,Serial numbered /5000
+dominators,D-43,Warrick Dunn,Tampa Bay Buccaneers,,Serial numbered /5000
+dominators,D-44,Shaun King,Tampa Bay Buccaneers,,Serial numbered /5000
+dominators,D-45,Keyshawn Johnson,Tampa Bay Buccaneers,,Serial numbered /5000
+dominators,D-46,Steve McNair,Tennessee Titans,,Serial numbered /5000
+dominators,D-47,Stephen Davis,Washington Redskins,,Serial numbered /5000
+dominators,D-48,Brad Johnson,Washington Redskins,,Serial numbered /5000
+dominators,D-49,Muhsin Muhammad,Carolina Panthers,,Serial numbered /5000
+dominators,D-50,Marcus Robinson,Chicago Bears,,Serial numbered /5000
+dominators,D-51,Akili Smith,Cincinnati Bengals,,Serial numbered /5000
+dominators,D-52,Brian Griese,Denver Broncos,,Serial numbered /5000
+dominators,D-53,Germane Crowell,Detroit Lions,,Serial numbered /5000
+dominators,D-54,Jimmy Smith,Jacksonville Jaguars,,Serial numbered /5000
+dominators,D-55,Ricky Watters,Seattle Seahawks,,Serial numbered /5000
+dominators,D-56,Isaac Bruce,St. Louis Rams,,Serial numbered /5000
+dominators,D-57,Warren Sapp,Tampa Bay Buccaneers,,Serial numbered /5000
+dominators,D-58,Jevon Kearse,Tennessee Titans,,Serial numbered /5000
+dominators,D-59,Michael Westbrook,Washington Redskins,,Serial numbered /5000
+dominators,D-60,Ed McCaffrey,Denver Broncos,,Serial numbered /5000
+elite-series,ES-1,Jake Plummer,Arizona Cardinals,,Serial numbered /2500
+elite-series,ES-2,Emmitt Smith,Dallas Cowboys,,Serial numbered /2500
+elite-series,ES-3,Tim Couch,Cleveland Browns,,Serial numbered /2500
+elite-series,ES-4,Troy Aikman,Dallas Cowboys,,Serial numbered /2500
+elite-series,ES-5,John Elway,Denver Broncos,,Serial numbered /2500
+elite-series,ES-6,Terrell Davis,Denver Broncos,,Serial numbered /2500
+elite-series,ES-7,Barry Sanders,Detroit Lions,,Serial numbered /2500
+elite-series,ES-8,Brett Favre,Green Bay Packers,,Serial numbered /2500
+elite-series,ES-9,Peyton Manning,Indianapolis Colts,,Serial numbered /2500
+elite-series,ES-10,Mark Brunell,Jacksonville Jaguars,,Serial numbered /2500
+elite-series,ES-11,Edgerrin James,Indianapolis Colts,,Serial numbered /2500
+elite-series,ES-12,Fred Taylor,Jacksonville Jaguars,,Serial numbered /2500
+elite-series,ES-13,Dan Marino,Miami Dolphins,,Serial numbered /2500
+elite-series,ES-14,Randy Moss,Minnesota Vikings,,Serial numbered /2500
+elite-series,ES-15,Drew Bledsoe,New England Patriots,,Serial numbered /2500
+elite-series,ES-16,Ricky Williams,New Orleans Saints,,Serial numbered /2500
+elite-series,ES-17,Jerry Rice,San Francisco 49ers,,Serial numbered /2500
+elite-series,ES-18,Steve Young,San Francisco 49ers,,Serial numbered /2500
+elite-series,ES-19,Kurt Warner,St. Louis Rams,,Serial numbered /2500
+elite-series,ES-20,Eddie George,Tennessee Titans,,Serial numbered /2500
+elite-series,ES-21,Deion Sanders,Dallas Cowboys,,Serial numbered /2500
+elite-series,ES-22,Cade McNown,Chicago Bears,,Serial numbered /2500
+elite-series,ES-23,Joey Galloway,Dallas Cowboys,,Serial numbered /2500
+elite-series,ES-24,Dorsey Levens,Green Bay Packers,,Serial numbered /2500
+elite-series,ES-25,Antonio Freeman,Green Bay Packers,,Serial numbered /2500
+elite-series,ES-26,Marvin Harrison,Indianapolis Colts,,Serial numbered /2500
+elite-series,ES-27,Daunte Culpepper,Minnesota Vikings,,Serial numbered /2500
+elite-series,ES-28,Cris Carter,Minnesota Vikings,,Serial numbered /2500
+elite-series,ES-29,Curtis Martin,New York Jets,,Serial numbered /2500
+elite-series,ES-30,Tim Brown,Oakland Raiders,,Serial numbered /2500
+elite-series,ES-31,Donovan McNabb,Philadelphia Eagles,,Serial numbered /2500
+elite-series,ES-32,Jerome Bettis,Pittsburgh Steelers,,Serial numbered /2500
+elite-series,ES-33,Marshall Faulk,St. Louis Rams,,Serial numbered /2500
+elite-series,ES-34,Jon Kitna,Seattle Seahawks,,Serial numbered /2500
+elite-series,ES-35,Keyshawn Johnson,Tampa Bay Buccaneers,,Serial numbered /2500
+elite-series,ES-36,Steve McNair,Tennessee Titans,,Serial numbered /2500
+elite-series,ES-37,Stephen Davis,Washington Redskins,,Serial numbered /2500
+elite-series,ES-38,Jimmy Smith,Jacksonville Jaguars,,Serial numbered /2500
+elite-series,ES-39,Brad Johnson,Washington Redskins,,Serial numbered /2500
+elite-series,ES-40,Isaac Bruce,St. Louis Rams,,Serial numbered /2500
+kings,GK-1,Emmitt Smith,Dallas Cowboys,,Serial numbered /2500
+kings,GK-2,John Elway,Denver Broncos,,Serial numbered /2500
+kings,GK-3,Barry Sanders,Detroit Lions,,Serial numbered /2500
+kings,GK-4,Brett Favre,Green Bay Packers,,Serial numbered /2500
+kings,GK-5,Peyton Manning,Indianapolis Colts,,Serial numbered /2500
+kings,GK-6,Dan Marino,Miami Dolphins,,Serial numbered /2500
+kings,GK-7,Randy Moss,Minnesota Vikings,,Serial numbered /2500
+kings,GK-8,Jerry Rice,San Francisco 49ers,,Serial numbered /2500
+kings,GK-9,Steve Young,San Francisco 49ers,,Serial numbered /2500
+kings,GK-10,Kurt Warner,St. Louis Rams,,Serial numbered /2500
+kings-studio,GK-1,Emmitt Smith,Dallas Cowboys,,Unsigned Studio; serials 051-250 of printed /250; Serial numbered /250; Reported print run 200 unsigned copies
+kings-studio,GK-2,John Elway,Denver Broncos,,Unsigned Studio; serials 051-250 of printed /250; Serial numbered /250; Reported print run 200 unsigned copies
+kings-studio,GK-3,Barry Sanders,Detroit Lions,,Unsigned Studio; serials 051-250 of printed /250; Serial numbered /250; Reported print run 200 unsigned copies
+kings-studio,GK-4,Brett Favre,Green Bay Packers,,Unsigned Studio; serials 051-250 of printed /250; Serial numbered /250; Reported print run 200 unsigned copies
+kings-studio,GK-5,Peyton Manning,Indianapolis Colts,,Unsigned Studio; serials 051-250 of printed /250; Serial numbered /250; Reported print run 200 unsigned copies
+kings-studio,GK-6,Dan Marino,Miami Dolphins,,Unsigned Studio; serials 051-250 of printed /250; Serial numbered /250; Reported print run 200 unsigned copies
+kings-studio,GK-7,Randy Moss,Minnesota Vikings,,Unsigned Studio; serials 051-250 of printed /250; Serial numbered /250; Reported print run 200 unsigned copies
+kings-studio,GK-8,Jerry Rice,San Francisco 49ers,,Unsigned Studio; serials 051-250 of printed /250; Serial numbered /250; Reported print run 200 unsigned copies
+kings-studio,GK-9,Steve Young,San Francisco 49ers,,Unsigned Studio; serials 051-250 of printed /250; Serial numbered /250; Reported print run 200 unsigned copies
+kings-studio,GK-10,Kurt Warner,St. Louis Rams,,Unsigned Studio; serials 051-250 of printed /250; Serial numbered /250; Reported print run 200 unsigned copies
+kings-autographs,GK-1,Emmitt Smith,Dallas Cowboys,,Certified autograph; First-50 signed allocation; printed denominator /250; Serial numbered /250; Reported print run 50 signed copies
+kings-autographs,GK-2,John Elway,Denver Broncos,,Certified autograph; First-50 signed allocation; printed denominator /250; Serial numbered /250; Reported print run 50 signed copies
+kings-autographs,GK-3,Barry Sanders,Detroit Lions,,Certified autograph; First-50 signed allocation; printed denominator /250; Serial numbered /250; Reported print run 50 signed copies
+kings-autographs,GK-4,Brett Favre,Green Bay Packers,,Certified autograph; First-50 signed allocation; printed denominator /250; Serial numbered /250; Reported print run 50 signed copies
+kings-autographs,GK-5,Peyton Manning,Indianapolis Colts,,Certified autograph; First-50 signed allocation; printed denominator /250; Serial numbered /250; Reported print run 50 signed copies
+kings-autographs,GK-6,Dan Marino,Miami Dolphins,,Certified autograph; First-50 signed allocation; printed denominator /250; Serial numbered /250; Reported print run 50 signed copies
+kings-autographs,GK-7,Randy Moss,Minnesota Vikings,,Certified autograph; First-50 signed allocation; printed denominator /250; Serial numbered /250; Reported print run 19 signed copies
+kings-autographs,GK-8,Jerry Rice,San Francisco 49ers,,Certified autograph; First-50 signed allocation; printed denominator /250; Serial numbered /250; Reported print run 50 signed copies
+kings-autographs,GK-9,Steve Young,San Francisco 49ers,,Certified autograph; First-50 signed allocation; printed denominator /250; Serial numbered /250; Reported print run 50 signed copies
+kings-autographs,GK-10,Kurt Warner,St. Louis Rams,,Certified autograph; First-50 signed allocation; printed denominator /250; Serial numbered /250; Reported print run 50 signed copies
+jersey-autographs,1,John Elway,Denver Broncos,,Certified autograph; Game-worn jersey relic; Serial numbered /50
+jersey-autographs,2,Barry Sanders,Detroit Lions,,Certified autograph; Game-worn jersey relic; Serial numbered /50
+jersey-autographs,3,Dan Marino,Miami Dolphins,,Certified autograph; Game-worn jersey relic; Serial numbered /50
+jersey-autographs,4,Jerry Rice,San Francisco 49ers,,Certified autograph; Game-worn jersey relic; Serial numbered /50
+jersey-autographs,5,Kurt Warner,St. Louis Rams,,Certified autograph; Game-worn jersey relic; Serial numbered /50
+jersey-autographs,6,Joe Montana,San Francisco 49ers,,Certified autograph; Game-worn jersey relic; Serial numbered /50
+jersey-autographs,7,Terry Bradshaw,Pittsburgh Steelers,,Certified autograph; Game-worn jersey relic; Serial numbered /50
+jersey-autographs,8,Fran Tarkenton,Minnesota Vikings,,Certified autograph; Game-worn jersey relic; Serial numbered /50
+jersey-autographs,9,Eric Dickerson,Los Angeles Rams,,Certified autograph; Game-worn jersey relic; Serial numbered /50
+jersey-autographs,10,Joe Namath,New York Jets,,Certified autograph; Game-worn jersey relic; Serial numbered /50
+rated-rookies,RR-1,Peter Warrick,Cincinnati Bengals,,Serial numbered /2500
+rated-rookies,RR-2,Jamal Lewis,Baltimore Ravens,,Serial numbered /2500
+rated-rookies,RR-3,Thomas Jones,Arizona Cardinals,,Serial numbered /2500
+rated-rookies,RR-4,Plaxico Burress,Pittsburgh Steelers,,Serial numbered /2500
+rated-rookies,RR-5,Travis Taylor,Baltimore Ravens,,Serial numbered /2500
+rated-rookies,RR-6,Ron Dayne,New York Giants,,Serial numbered /2500
+rated-rookies,RR-7,Bubba Franks,Green Bay Packers,,Serial numbered /2500
+rated-rookies,RR-8,Chad Pennington,New York Jets,,Serial numbered /2500
+rated-rookies,RR-9,Shaun Alexander,Seattle Seahawks,,Serial numbered /2500
+rated-rookies,RR-10,Sylvester Morris,Kansas City Chiefs,,Serial numbered /2500
+rated-rookies,RR-11,R. Jay Soward,Jacksonville Jaguars,,Serial numbered /2500
+rated-rookies,RR-12,Trung Canidate,St. Louis Rams,,Serial numbered /2500
+rated-rookies,RR-13,Dennis Northcutt,Cleveland Browns,,Serial numbered /2500
+rated-rookies,RR-14,Todd Pinkston,Philadelphia Eagles,,Serial numbered /2500
+rated-rookies,RR-15,Jerry Porter,Oakland Raiders,,Serial numbered /2500
+rated-rookies,RR-16,Travis Prentice,Cleveland Browns,,Serial numbered /2500
+rated-rookies,RR-17,Giovanni Carmazzi,San Francisco 49ers,,Serial numbered /2500
+rated-rookies,RR-18,Ron Dugans,Cincinnati Bengals,,Serial numbered /2500
+rated-rookies,RR-19,Dez White,Chicago Bears,,Serial numbered /2500
+rated-rookies,RR-20,Chris Cole,Denver Broncos,,Serial numbered /2500
+rated-rookies,RR-21,Ron Dixon,New York Giants,,Serial numbered /2500
+rated-rookies,RR-22,Chris Redman,Baltimore Ravens,,Serial numbered /2500
+rated-rookies,RR-23,J.R. Redmond,New England Patriots,,Serial numbered /2500
+rated-rookies,RR-24,Laveranues Coles,New York Jets,,Serial numbered /2500
+rated-rookies,RR-25,JaJuan Dawson,Cleveland Browns,,Serial numbered /2500
+rated-rookies,RR-26,Darrell Jackson,Seattle Seahawks,,Serial numbered /2500
+rated-rookies,RR-27,Reuben Droughns,Detroit Lions,,Serial numbered /2500
+rated-rookies,RR-28,Doug Chapman,Minnesota Vikings,,Serial numbered /2500
+rated-rookies,RR-29,Curtis Keaton,Cincinnati Bengals,,Serial numbered /2500
+rated-rookies,RR-30,Gari Scott,Philadelphia Eagles,,Serial numbered /2500
+rated-rookies,RR-31,Danny Farmer,Cincinnati Bengals,,Serial numbered /2500
+rated-rookies,RR-32,Trevor Gaylor,San Diego Chargers,,Serial numbered /2500
+rated-rookies,RR-33,Anthony Becht,New York Jets,,Serial numbered /2500
+rated-rookies,RR-34,Frank Moreau,Kansas City Chiefs,,Serial numbered /2500
+rated-rookies,RR-35,Avion Black,Buffalo Bills,,Serial numbered /2500
+rated-rookies,RR-36,Michael Wiley,Dallas Cowboys,,Serial numbered /2500
+rated-rookies,RR-37,Dante Hall,Kansas City Chiefs,,Serial numbered /2500
+rated-rookies,RR-38,Tim Rattay,San Francisco 49ers,,Serial numbered /2500
+rated-rookies,RR-39,Tee Martin,Pittsburgh Steelers,,Serial numbered /2500
+rated-rookies,RR-40,Courtney Brown,Cleveland Browns,,Serial numbered /2500
+rated-medalist,RR-1,Peter Warrick,Cincinnati Bengals,,Serial numbered /100
+rated-medalist,RR-2,Jamal Lewis,Baltimore Ravens,,Serial numbered /100
+rated-medalist,RR-3,Thomas Jones,Arizona Cardinals,,Serial numbered /100
+rated-medalist,RR-4,Plaxico Burress,Pittsburgh Steelers,,Serial numbered /100
+rated-medalist,RR-5,Travis Taylor,Baltimore Ravens,,Serial numbered /100
+rated-medalist,RR-6,Ron Dayne,New York Giants,,Serial numbered /100
+rated-medalist,RR-7,Bubba Franks,Green Bay Packers,,Serial numbered /100
+rated-medalist,RR-8,Chad Pennington,New York Jets,,Serial numbered /100
+rated-medalist,RR-9,Shaun Alexander,Seattle Seahawks,,Serial numbered /100
+rated-medalist,RR-10,Sylvester Morris,Kansas City Chiefs,,Serial numbered /100
+rated-medalist,RR-11,R. Jay Soward,Jacksonville Jaguars,,Serial numbered /100
+rated-medalist,RR-12,Trung Canidate,St. Louis Rams,,Serial numbered /100
+rated-medalist,RR-13,Dennis Northcutt,Cleveland Browns,,Serial numbered /100
+rated-medalist,RR-14,Todd Pinkston,Philadelphia Eagles,,Serial numbered /100
+rated-medalist,RR-15,Jerry Porter,Oakland Raiders,,Serial numbered /100
+rated-medalist,RR-16,Travis Prentice,Cleveland Browns,,Serial numbered /100
+rated-medalist,RR-17,Giovanni Carmazzi,San Francisco 49ers,,Serial numbered /100
+rated-medalist,RR-18,Ron Dugans,Cincinnati Bengals,,Serial numbered /100
+rated-medalist,RR-19,Dez White,Chicago Bears,,Serial numbered /100
+rated-medalist,RR-20,Chris Cole,Denver Broncos,,Serial numbered /100
+rated-medalist,RR-21,Ron Dixon,New York Giants,,Serial numbered /100
+rated-medalist,RR-22,Chris Redman,Baltimore Ravens,,Serial numbered /100
+rated-medalist,RR-23,J.R. Redmond,New England Patriots,,Serial numbered /100
+rated-medalist,RR-24,Laveranues Coles,New York Jets,,Serial numbered /100
+rated-medalist,RR-25,JaJuan Dawson,Cleveland Browns,,Serial numbered /100
+rated-medalist,RR-26,Darrell Jackson,Seattle Seahawks,,Serial numbered /100
+rated-medalist,RR-27,Reuben Droughns,Detroit Lions,,Serial numbered /100
+rated-medalist,RR-28,Doug Chapman,Minnesota Vikings,,Serial numbered /100
+rated-medalist,RR-29,Curtis Keaton,Cincinnati Bengals,,Serial numbered /100
+rated-medalist,RR-30,Gari Scott,Philadelphia Eagles,,Serial numbered /100
+rated-medalist,RR-31,Danny Farmer,Cincinnati Bengals,,Serial numbered /100
+rated-medalist,RR-32,Trevor Gaylor,San Diego Chargers,,Serial numbered /100
+rated-medalist,RR-33,Anthony Becht,New York Jets,,Serial numbered /100
+rated-medalist,RR-34,Frank Moreau,Kansas City Chiefs,,Serial numbered /100
+rated-medalist,RR-35,Avion Black,Buffalo Bills,,Serial numbered /100
+rated-medalist,RR-36,Michael Wiley,Dallas Cowboys,,Serial numbered /100
+rated-medalist,RR-37,Dante Hall,Kansas City Chiefs,,Serial numbered /100
+rated-medalist,RR-38,Tim Rattay,San Francisco 49ers,,Serial numbered /100
+rated-medalist,RR-39,Tee Martin,Pittsburgh Steelers,,Serial numbered /100
+rated-medalist,RR-40,Courtney Brown,Cleveland Browns,,Serial numbered /100
+rookie-kings,GK-1,Peter Warrick,Cincinnati Bengals,,Serial numbered /2500
+rookie-kings,GK-2,Jamal Lewis,Baltimore Ravens,,Serial numbered /2500
+rookie-kings,GK-3,Thomas Jones,Arizona Cardinals,,Serial numbered /2500
+rookie-kings,GK-4,Plaxico Burress,Pittsburgh Steelers,,Serial numbered /2500
+rookie-kings,GK-5,Travis Taylor,Baltimore Ravens,,Serial numbered /2500
+rookie-kings,GK-6,Ron Dayne,New York Giants,,Serial numbered /2500
+rookie-kings,GK-7,Chad Pennington,New York Jets,,Serial numbered /2500
+rookie-kings,GK-8,Shaun Alexander,Seattle Seahawks,,Serial numbered /2500
+rookie-kings,GK-9,Sylvester Morris,Kansas City Chiefs,,Serial numbered /2500
+rookie-kings,GK-10,Chris Redman,Baltimore Ravens,,Serial numbered /2500
+rookie-studio,GK-1,Peter Warrick,Cincinnati Bengals,,Unsigned Studio; separate first-50 signed allocation; Serial numbered /250
+rookie-studio,GK-2,Jamal Lewis,Baltimore Ravens,,Unsigned Studio; separate first-50 signed allocation; Serial numbered /250
+rookie-studio,GK-3,Thomas Jones,Arizona Cardinals,,Unsigned Studio; separate first-50 signed allocation; Serial numbered /250
+rookie-studio,GK-4,Plaxico Burress,Pittsburgh Steelers,,Unsigned Studio; separate first-50 signed allocation; Serial numbered /250
+rookie-studio,GK-5,Travis Taylor,Baltimore Ravens,,Unsigned Studio; separate first-50 signed allocation; Serial numbered /250
+rookie-studio,GK-6,Ron Dayne,New York Giants,,Unsigned Studio; separate first-50 signed allocation; Serial numbered /250
+rookie-studio,GK-7,Chad Pennington,New York Jets,,Unsigned Studio; separate first-50 signed allocation; Serial numbered /250
+rookie-studio,GK-8,Shaun Alexander,Seattle Seahawks,,Unsigned Studio; separate first-50 signed allocation; Serial numbered /250
+rookie-studio,GK-9,Sylvester Morris,Kansas City Chiefs,,Unsigned Studio; separate first-50 signed allocation; Serial numbered /250
+rookie-studio,GK-10,Chris Redman,Baltimore Ravens,,Unsigned Studio; separate first-50 signed allocation; Serial numbered /250
+rookie-autographs,GK-1,Peter Warrick,Cincinnati Bengals,,"Certified autograph; Signed allocation 50; source SN50 describes allocation, independent originals print /250; Serial numbered /250"
+rookie-autographs,GK-2,Jamal Lewis,Baltimore Ravens,,"Certified autograph; Signed allocation 50; source SN50 describes allocation, independent originals print /250; Serial numbered /250"
+rookie-autographs,GK-3,Thomas Jones,Arizona Cardinals,,"Certified autograph; Signed allocation 50; source SN50 describes allocation, independent originals print /250; Serial numbered /250"
+rookie-autographs,GK-4,Plaxico Burress,Pittsburgh Steelers,,"Certified autograph; Signed allocation 50; source SN50 describes allocation, independent originals print /250; Serial numbered /250"
+rookie-autographs,GK-5,Travis Taylor,Baltimore Ravens,,"Certified autograph; Signed allocation 50; source SN50 describes allocation, independent originals print /250; Serial numbered /250"
+rookie-autographs,GK-6,Ron Dayne,New York Giants,,"Certified autograph; Signed allocation 50; source SN50 describes allocation, independent originals print /250; Serial numbered /250"
+rookie-autographs,GK-7,Chad Pennington,New York Jets,,"Certified autograph; Signed allocation 50; source SN50 describes allocation, independent originals print /250; Serial numbered /250"
+rookie-autographs,GK-8,Shaun Alexander,Seattle Seahawks,,"Certified autograph; Signed allocation 50; source SN50 describes allocation, independent originals print /250; Serial numbered /250"
+rookie-autographs,GK-9,Sylvester Morris,Kansas City Chiefs,,"Certified autograph; Signed allocation 50; source SN50 describes allocation, independent originals print /250; Catalogued EXCH; fulfilled signed Sylvester Morris original front independently observed; original exchange ticket not separately imported; Serial numbered /250"
+rookie-autographs,GK-10,Chris Redman,Baltimore Ravens,,"Certified autograph; Signed allocation 50; source SN50 describes allocation, independent originals print /250; Serial numbered /250"
+signature-blue,NNO-3685064,Tony Banks,Baltimore Ravens,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685065,Jeff Blake,New Orleans Saints,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685066,Giovanni Carmazzi,San Francisco 49ers,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685067,Kwame Cavil,Buffalo Bills,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685068,Doug Chapman,Minnesota Vikings,,Certified autograph; Source team corrected from Atlanta; original Blue back prints Minnesota Vikings; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685069,Kerry Collins,New York Giants,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685070,Albert Connell,Washington Redskins,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685071,Germane Crowell,Detroit Lions,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685072,Reuben Droughns,Detroit Lions,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685073,Ron Dugans,Cincinnati Bengals,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685074,Tim Dwight,Atlanta Falcons,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685075,Troy Edwards,Pittsburgh Steelers,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685076,Danny Farmer,Pittsburgh Steelers,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685077,Kevin Faulk,New England Patriots,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685078,Jermaine Fazande,San Diego Chargers,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685079,Antonio Freeman,Green Bay Packers,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685080,Olandis Gary,Denver Broncos,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685081,Patrick Jeffers,Carolina Panthers,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685082,Kevin Johnson,Cleveland Browns,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685083,Tee Martin,Pittsburgh Steelers,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685084,Derrick Mayes,Seattle Seahawks,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685085,Sylvester Morris,Kansas City Chiefs,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685086,Dennis Northcutt,Cleveland Browns,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685087,Todd Pinkston,Philadelphia Eagles,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685088,Jerry Porter,Oakland Raiders,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685089,Travis Prentice,Cleveland Browns,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685090,Tim Rattay,San Francisco 49ers,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685091,J.R. Redmond,New England Patriots,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685092,Corey Simon,Philadelphia Eagles,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685093,Shyrone Stith,Jacksonville Jaguars,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-blue,NNO-3685094,Tyrone Wheatley,Oakland Raiders,,Certified autograph; Serial numbered /100; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685095,Troy Aikman,Dallas Cowboys,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685096,Tony Banks,Baltimore Ravens,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685097,Jeff Blake,New Orleans Saints,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685098,Drew Bledsoe,New England Patriots,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685099,Isaac Bruce,St. Louis Rams,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685100,Trung Canidate,St. Louis Rams,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685101,Giovanni Carmazzi,San Francisco 49ers,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685102,Kwame Cavil,Buffalo Bills,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685103,Doug Chapman,Minnesota Vikings,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685104,Kerry Collins,New York Giants,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685105,Albert Connell,Washington Redskins,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685106,Tim Couch,Cleveland Browns,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685107,Germane Crowell,Detroit Lions,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685108,Reuben Droughns,Detroit Lions,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685109,Ron Dugans,Cincinnati Bengals,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685110,Tim Dwight,Atlanta Falcons,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685111,Troy Edwards,Pittsburgh Steelers,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685112,Kevin Faulk,New England Patriots,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685113,Danny Farmer,Pittsburgh Steelers,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685114,Marshall Faulk,St. Louis Rams,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685115,Jermaine Fazande,San Diego Chargers,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685116,Antonio Freeman,Green Bay Packers,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685117,Olandis Gary,Denver Broncos,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685118,Eddie George,Tennessee Titans,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685119,Marvin Harrison,Indianapolis Colts,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685120,Torry Holt,St. Louis Rams,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685121,Edgerrin James,Indianapolis Colts,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685122,Patrick Jeffers,Carolina Panthers,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685123,Brad Johnson,Washington Redskins,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685124,Kevin Johnson,Cleveland Browns,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685125,Tee Martin,Pittsburgh Steelers,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685126,Derrick Mayes,Seattle Seahawks,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685127,Cade McNown,Chicago Bears,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685128,Sylvester Morris,Kansas City Chiefs,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685129,Randy Moss,Minnesota Vikings,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685130,Eric Moulds,Buffalo Bills,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685131,Dennis Northcutt,Cleveland Browns,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685132,Todd Pinkston,Philadelphia Eagles,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685133,Jake Plummer,Arizona Cardinals,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685134,Jerry Porter,Oakland Raiders,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685135,Travis Prentice,Cleveland Browns,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685136,Tim Rattay,San Francisco 49ers,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685137,J.R. Redmond,New England Patriots,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685138,Corey Simon,Philadelphia Eagles,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685139,Akili Smith,Cincinnati Bengals,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685140,Antowain Smith,Buffalo Bills,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685141,Jimmy Smith,Jacksonville Jaguars,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685142,Shyrone Stith,Jacksonville Jaguars,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685143,Fred Taylor,Jacksonville Jaguars,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685144,Thurman Thomas,Miami Dolphins,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685145,Kurt Warner,St. Louis Rams,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685146,Ricky Williams,New Orleans Saints,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-gold,NNO-3685147,Tyrone Wheatley,Oakland Raiders,,Certified autograph; Serial numbered /25; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773598,Troy Aikman,Dallas Cowboys,,Certified autograph; Reported print run 25; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773599,Tony Banks,Baltimore Ravens,,Certified autograph; Reported print run 325; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773600,Jeff Blake,New Orleans Saints,,Certified autograph; Reported print run 125; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773601,Drew Bledsoe,New England Patriots,,Certified autograph; Reported print run 35; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773602,Isaac Bruce,St. Louis Rams,,Certified autograph; Reported print run 25; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773603,Trung Canidate,St. Louis Rams,,Certified autograph; Reported print run 75; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773604,Giovanni Carmazzi,San Francisco 49ers,,Certified autograph; Reported print run 175; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773605,Kwame Cavil,Buffalo Bills,,Certified autograph; Reported print run 375; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773606,Doug Chapman,Minnesota Vikings,,Certified autograph; Reported print run 375; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773607,Kerry Collins,New York Giants,,Certified autograph; Reported print run 125; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773608,Albert Connell,Washington Redskins,,Certified autograph; Reported print run 750; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773609,Tim Couch,Cleveland Browns,,Certified autograph; Reported print run 25; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773610,Germane Crowell,Detroit Lions,,Certified autograph; Reported print run 350; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773611,Reuben Droughns,Detroit Lions,,Certified autograph; Reported print run 375; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773612,Ron Dugans,Cincinnati Bengals,,Certified autograph; Reported print run 175; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773613,Tim Dwight,Atlanta Falcons,,Certified autograph; Reported print run 350; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773614,Troy Edwards,Pittsburgh Steelers,,Certified autograph; Reported print run 350; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773615,Danny Farmer,Pittsburgh Steelers,,Certified autograph; Source swapped team corrected using independent Gold roster and original Blue/Red images; Reported print run 175; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773616,Kevin Faulk,New England Patriots,,Certified autograph; Source swapped team corrected using independent Gold roster and original Blue/Red images; Reported print run 750; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773617,Marshall Faulk,St. Louis Rams,,Certified autograph; Reported print run 25; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773618,Jermaine Fazande,San Diego Chargers,,Certified autograph; Reported print run 750; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773619,Antonio Freeman,Green Bay Packers,,Certified autograph; Reported print run 175; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773620,Olandis Gary,Denver Broncos,,Certified autograph; Reported print run 350; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773621,Eddie George,Tennessee Titans,,Certified autograph; Reported print run 25; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773622,Marvin Harrison,Indianapolis Colts,,Certified autograph; Reported print run 75; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773623,Torry Holt,St. Louis Rams,,Certified autograph; Reported print run 75; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773624,Edgerrin James,Indianapolis Colts,,Certified autograph; Reported print run 25; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773625,Patrick Jeffers,Carolina Panthers,,Certified autograph; Reported print run 750; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773626,Brad Johnson,Washington Redskins,,Certified autograph; Reported print run 25; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773627,Kevin Johnson,Cleveland Browns,,Certified autograph; Reported print run 350; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773628,Tee Martin,Pittsburgh Steelers,,Certified autograph; Reported print run 275; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773629,Derrick Mayes,Seattle Seahawks,,Certified autograph; Reported print run 750; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773630,Cade McNown,Chicago Bears,,Certified autograph; Reported print run 75; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773631,Sylvester Morris,Kansas City Chiefs,,Certified autograph; Reported print run 125; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773632,Randy Moss,Minnesota Vikings,,Certified autograph; Reported print run 75; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773633,Eric Moulds,Buffalo Bills,,Certified autograph; Reported print run 100; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773634,Dennis Northcutt,Cleveland Browns,,Certified autograph; Reported print run 175; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773635,Todd Pinkston,Philadelphia Eagles,,Certified autograph; Reported print run 175; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773636,Jake Plummer,Arizona Cardinals,,Certified autograph; Reported print run 25; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773637,Jerry Porter,Oakland Raiders,,Certified autograph; Reported print run 175; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773638,Travis Prentice,Cleveland Browns,,Certified autograph; Reported print run 175; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773639,Tim Rattay,San Francisco 49ers,,Certified autograph; Reported print run 375; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773640,J.R. Redmond,New England Patriots,,Certified autograph; Reported print run 175; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773641,Corey Simon,Philadelphia Eagles,,Certified autograph; Reported print run 175; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773642,Akili Smith,Cincinnati Bengals,,Certified autograph; Reported print run 75; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773643,Antowain Smith,Buffalo Bills,,Certified autograph; Reported print run 75; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773644,Jimmy Smith,Jacksonville Jaguars,,Certified autograph; Reported print run 75; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773645,Shyrone Stith,Jacksonville Jaguars,,Certified autograph; Reported print run 175; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773646,Fred Taylor,Jacksonville Jaguars,,Certified autograph; Reported print run 75; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773647,Thurman Thomas,Miami Dolphins,,Certified autograph; Reported print run 75; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773648,Kurt Warner,St. Louis Rams,,Certified autograph; Reported print run 75; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773649,Ricky Williams,New Orleans Saints,,Certified autograph; Reported print run 25; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+signature-red,NNO-11773650,Tyrone Wheatley,Oakland Raiders,,Certified autograph; Reported print run 350; not serial numbered; Unnumbered original; local NNO-CID identifier is not a printed card number
+zoning,ZC-1,Jake Plummer,Arizona Cardinals,,Serial numbered /1000
+zoning,ZC-2,Tim Couch,Cleveland Browns,,Serial numbered /1000
+zoning,ZC-3,Emmitt Smith,Dallas Cowboys,,Serial numbered /1000
+zoning,ZC-4,Troy Aikman,Dallas Cowboys,,Serial numbered /1000
+zoning,ZC-5,Charlie Batch,Detroit Lions,,Serial numbered /1000
+zoning,ZC-6,Brett Favre,Green Bay Packers,,Serial numbered /1000
+zoning,ZC-7,Peyton Manning,Indianapolis Colts,,Serial numbered /1000
+zoning,ZC-8,Edgerrin James,Indianapolis Colts,,Serial numbered /1000
+zoning,ZC-9,Mark Brunell,Jacksonville Jaguars,,Serial numbered /1000
+zoning,ZC-10,Fred Taylor,Jacksonville Jaguars,,Serial numbered /1000
+zoning,ZC-11,Dan Marino,Miami Dolphins,,Serial numbered /1000
+zoning,ZC-12,Randy Moss,Minnesota Vikings,,Serial numbered /1000
+zoning,ZC-13,Drew Bledsoe,New England Patriots,,Serial numbered /1000
+zoning,ZC-14,Ricky Williams,New Orleans Saints,,Serial numbered /1000
+zoning,ZC-15,Jerry Rice,San Francisco 49ers,,Serial numbered /1000
+zoning,ZC-16,Steve Young,San Francisco 49ers,,Serial numbered /1000
+zoning,ZC-17,Kurt Warner,St. Louis Rams,,Serial numbered /1000
+zoning,ZC-18,Eddie George,Tennessee Titans,,Serial numbered /1000
+zoning,ZC-19,Eric Moulds,Buffalo Bills,,Serial numbered /1000
+zoning,ZC-20,Doug Flutie,Buffalo Bills,,Serial numbered /1000
+zoning,ZC-21,Antowain Smith,Buffalo Bills,,Serial numbered /1000
+zoning,ZC-22,Cade McNown,Chicago Bears,,Serial numbered /1000
+zoning,ZC-23,Corey Dillon,Cincinnati Bengals,,Serial numbered /1000
+zoning,ZC-24,Kevin Johnson,Cleveland Browns,,Serial numbered /1000
+zoning,ZC-25,Joey Galloway,Dallas Cowboys,,Serial numbered /1000
+zoning,ZC-26,Olandis Gary,Denver Broncos,,Serial numbered /1000
+zoning,ZC-27,Dorsey Levens,Green Bay Packers,,Serial numbered /1000
+zoning,ZC-28,Antonio Freeman,Green Bay Packers,,Serial numbered /1000
+zoning,ZC-29,Marvin Harrison,Indianapolis Colts,,Serial numbered /1000
+zoning,ZC-30,Cris Carter,Minnesota Vikings,,Serial numbered /1000
+zoning,ZC-31,Robert Smith,Minnesota Vikings,,Serial numbered /1000
+zoning,ZC-32,Curtis Martin,New York Jets,,Serial numbered /1000
+zoning,ZC-33,Tim Brown,Oakland Raiders,,Serial numbered /1000
+zoning,ZC-34,Duce Staley,Philadelphia Eagles,,Serial numbered /1000
+zoning,ZC-35,Donovan McNabb,Philadelphia Eagles,,Serial numbered /1000
+zoning,ZC-36,Kordell Stewart,Pittsburgh Steelers,,Serial numbered /1000
+zoning,ZC-37,Jerome Bettis,Pittsburgh Steelers,,Serial numbered /1000
+zoning,ZC-38,Terrell Owens,San Francisco 49ers,,Serial numbered /1000
+zoning,ZC-39,Jon Kitna,Seattle Seahawks,,Serial numbered /1000
+zoning,ZC-40,Marshall Faulk,St. Louis Rams,,Serial numbered /1000
+zoning,ZC-41,Torry Holt,St. Louis Rams,,Serial numbered /1000
+zoning,ZC-42,Mike Alstott,Tampa Bay Buccaneers,,Serial numbered /1000
+zoning,ZC-43,Shaun King,Tampa Bay Buccaneers,,Serial numbered /1000
+zoning,ZC-44,Keyshawn Johnson,Tampa Bay Buccaneers,,Serial numbered /1000
+zoning,ZC-45,Steve McNair,Tennessee Titans,,Serial numbered /1000
+zoning,ZC-46,Stephen Davis,Washington Redskins,,Serial numbered /1000
+zoning,ZC-47,Brad Johnson,Washington Redskins,,Serial numbered /1000
+zoning,ZC-48,Qadry Ismail,Baltimore Ravens,,Serial numbered /1000
+zoning,ZC-49,Muhsin Muhammad,Carolina Panthers,,Serial numbered /1000
+zoning,ZC-50,Patrick Jeffers,Carolina Panthers,,Serial numbered /1000
+zoning,ZC-51,Marcus Robinson,Chicago Bears,,Serial numbered /1000
+zoning,ZC-52,Akili Smith,Cincinnati Bengals,,Serial numbered /1000
+zoning,ZC-53,Germane Crowell,Detroit Lions,,Serial numbered /1000
+zoning,ZC-54,James Stewart,Detroit Lions,,Serial numbered /1000
+zoning,ZC-55,Jimmy Smith,Jacksonville Jaguars,,Serial numbered /1000
+zoning,ZC-56,Amani Toomer,New York Giants,,Serial numbered /1000
+zoning,ZC-57,Charlie Garner,San Francisco 49ers,,Serial numbered /1000
+zoning,ZC-58,Isaac Bruce,St. Louis Rams,,Serial numbered /1000
+zoning,ZC-59,Albert Connell,Washington Redskins,,Serial numbered /1000
+zoning,ZC-60,Jeff George,Washington Redskins,,Serial numbered /1000
+zoning-red,1,Jake Plummer,Arizona Cardinals,,Serial numbered /9
+zoning-red,2,Tim Couch,Cleveland Browns,,Serial numbered /15
+zoning-red,3,Emmitt Smith,Dallas Cowboys,,Serial numbered /11
+zoning-red,4,Troy Aikman,Dallas Cowboys,,Serial numbered /17
+zoning-red,5,Charlie Batch,Detroit Lions,,Serial numbered /13
+zoning-red,6,Brett Favre,Green Bay Packers,,Serial numbered /22
+zoning-red,7,Peyton Manning,Indianapolis Colts,,Serial numbered /26
+zoning-red,8,Edgerrin James,Indianapolis Colts,,Serial numbered /13
+zoning-red,9,Mark Brunell,Jacksonville Jaguars,,Serial numbered /14
+zoning-red,10,Fred Taylor,Jacksonville Jaguars,,Serial numbered /6
+zoning-red,11,Dan Marino,Miami Dolphins,,Serial numbered /12
+zoning-red,12,Randy Moss,Minnesota Vikings,,Serial numbered /11
+zoning-red,13,Drew Bledsoe,New England Patriots,,Serial numbered /19
+zoning-red,14,Ricky Williams,New Orleans Saints,,Serial numbered /2
+zoning-red,15,Jerry Rice,San Francisco 49ers,,Serial numbered /5
+zoning-red,16,Steve Young,San Francisco 49ers,,Serial numbered /3
+zoning-red,17,Kurt Warner,St. Louis Rams,,Serial numbered /41
+zoning-red,18,Eddie George,Tennessee Titans,,Serial numbered /9
+zoning-red,19,Eric Moulds,Buffalo Bills,,Serial numbered /7
+zoning-red,20,Doug Flutie,Buffalo Bills,,Serial numbered /19
+zoning-red,21,Antowain Smith,Buffalo Bills,,Serial numbered /6
+zoning-red,22,Cade McNown,Chicago Bears,,Serial numbered /8
+zoning-red,23,Corey Dillon,Cincinnati Bengals,,Serial numbered /5
+zoning-red,24,Kevin Johnson,Cleveland Browns,,Serial numbered /8
+zoning-red,25,Joey Galloway,Dallas Cowboys,,Serial numbered /1
+zoning-red,26,Olandis Gary,Denver Broncos,,Serial numbered /7
+zoning-red,27,Dorsey Levens,Green Bay Packers,,Serial numbered /9
+zoning-red,28,Antonio Freeman,Green Bay Packers,,Serial numbered /6
+zoning-red,29,Marvin Harrison,Indianapolis Colts,,Serial numbered /12
+zoning-red,30,Cris Carter,Minnesota Vikings,,Serial numbered /13
+zoning-red,31,Robert Smith,Minnesota Vikings,,Serial numbered /2
+zoning-red,32,Curtis Martin,New York Jets,,Serial numbered /5
+zoning-red,33,Tim Brown,Oakland Raiders,,Serial numbered /6
+zoning-red,34,Duce Staley,Philadelphia Eagles,,Serial numbered /4
+zoning-red,35,Donovan McNabb,Philadelphia Eagles,,Serial numbered /8
+zoning-red,36,Kordell Stewart,Pittsburgh Steelers,,Serial numbered /6
+zoning-red,37,Jerome Bettis,Pittsburgh Steelers,,Serial numbered /7
+zoning-red,38,Terrell Owens,San Francisco 49ers,,Serial numbered /4
+zoning-red,39,Jon Kitna,Seattle Seahawks,,Serial numbered /23
+zoning-red,40,Marshall Faulk,St. Louis Rams,,Serial numbered /7
+zoning-red,41,Torry Holt,St. Louis Rams,,Serial numbered /6
+zoning-red,42,Mike Alstott,Tampa Bay Buccaneers,,Serial numbered /7
+zoning-red,43,Shaun King,Tampa Bay Buccaneers,,Serial numbered /7
+zoning-red,44,Keyshawn Johnson,Tampa Bay Buccaneers,,Serial numbered /8
+zoning-red,45,Steve McNair,Tennessee Titans,,Serial numbered /12
+zoning-red,46,Stephen Davis,Washington Redskins,,Serial numbered /17
+zoning-red,47,Brad Johnson,Washington Redskins,,Serial numbered /24
+zoning-red,48,Qadry Ismail,Baltimore Ravens,,Serial numbered /6
+zoning-red,49,Muhsin Muhammad,Carolina Panthers,,Serial numbered /8
+zoning-red,50,Patrick Jeffers,Carolina Panthers,,Serial numbered /12
+zoning-red,51,Marcus Robinson,Chicago Bears,,Serial numbered /9
+zoning-red,52,Akili Smith,Cincinnati Bengals,,Serial numbered /2
+zoning-red,53,Germane Crowell,Detroit Lions,,Serial numbered /7
+zoning-red,54,James Stewart,Detroit Lions,,Serial numbered /13
+zoning-red,55,Jimmy Smith,Jacksonville Jaguars,,Serial numbered /6
+zoning-red,56,Amani Toomer,New York Giants,,Serial numbered /6
+zoning-red,57,Charlie Garner,San Francisco 49ers,,Serial numbered /4
+zoning-red,58,Isaac Bruce,St. Louis Rams,,Serial numbered /12
+zoning-red,59,Albert Connell,Washington Redskins,,Serial numbered /7
+zoning-red,60,Jeff George,Washington Redskins,,Serial numbered /23
+career,1,Jake Plummer,Arizona Cardinals,Veterans,Serial numbered /129
+career,2,Frank Sanders,Arizona Cardinals,Veterans,Serial numbered /70
+career,3,Rob Moore,Arizona Cardinals,Veterans,Serial numbered /153
+career,4,David Boston,Arizona Cardinals,Veterans,Serial numbered /62
+career,5,Tim Dwight,Atlanta Falcons,Veterans,Serial numbered /80
+career,6,Jamal Anderson,Atlanta Falcons,Veterans,Serial numbered /47
+career,7,Chris Chandler,Atlanta Falcons,Veterans,Serial numbered /300
+career,8,Terance Mathis,Atlanta Falcons,Veterans,Serial numbered /81
+career,9,Tony Banks,Baltimore Ravens,Veterans,Serial numbered /80
+career,10,Jermaine Lewis,Baltimore Ravens,Veterans,Serial numbered /96
+career,11,Shannon Sharpe,Baltimore Ravens,Veterans,Serial numbered /44
+career,12,Trent Dilfer,Baltimore Ravens,Veterans,Serial numbered /70
+career,13,Qadry Ismail,Baltimore Ravens,Veterans,Serial numbered /186
+career,14,Eric Moulds,Buffalo Bills,Veterans,Serial numbered /84
+career,15,Doug Flutie,Buffalo Bills,Veterans,Serial numbered /205
+career,16,Antowain Smith,Buffalo Bills,Veterans,Serial numbered /22
+career,17,Jonathan Linton,Buffalo Bills,Veterans,Serial numbered /250
+career,18,Peerless Price,Buffalo Bills,Veterans,Serial numbered /45
+career,19,Rob Johnson,Buffalo Bills,Veterans,Serial numbered /65
+career,20,Natrone Means,Carolina Panthers,Veterans,Serial numbered /72
+career,21,Muhsin Muhammad,Carolina Panthers,Veterans,Serial numbered /216
+career,22,Wesley Walls,Carolina Panthers,Veterans,Serial numbered /42
+career,23,Tim Biakabutuka,Carolina Panthers,Veterans,Serial numbered /67
+career,24,Steve Beuerlein,Carolina Panthers,Veterans,Serial numbered /120
+career,25,Patrick Jeffers,Carolina Panthers,Veterans,Serial numbered /84
+career,26,Curtis Enis,Chicago Bears,Veterans,Serial numbered /51
+career,27,Cade McNown,Chicago Bears,Veterans,Serial numbered /235
+career,28,Bobby Engram,Chicago Bears,Veterans,Serial numbered /230
+career,29,Marcus Robinson,Chicago Bears,Veterans,Serial numbered /80
+career,30,Marty Booker,Chicago Bears,Veterans,Serial numbered /57
+career,31,Corey Dillon,Cincinnati Bengals,Veterans,Serial numbered /71
+career,32,Darnay Scott,Cincinnati Bengals,Veterans,Serial numbered /93
+career,33,Carl Pickens,Tennessee Titans,Veterans,Serial numbered /63
+career,34,Akili Smith,Cincinnati Bengals,Veterans,Serial numbered /153
+career,35,Michael Basnight,Cincinnati Bengals,Veterans,Serial numbered /62
+career,36,Tim Couch,Cleveland Browns,Veterans,Serial numbered /15
+career,37,Kevin Johnson,Cleveland Browns,Veterans,Serial numbered /66
+career,38,Abdul-Karim al-Jabbar,Indianapolis Colts,Veterans,Serial numbered /33
+career,39,Errict Rhett,Cleveland Browns,Veterans,Serial numbered /52
+career,40,Darrin Chiaverini,Cleveland Browns,Veterans,Serial numbered /44
+career,41,Emmitt Smith,Dallas Cowboys,Veterans,Serial numbered /155
+career,42,Troy Aikman,Dallas Cowboys,Veterans,Serial numbered /158
+career,43,Joey Galloway,Dallas Cowboys,Veterans,Serial numbered /283
+career,44,Randall Cunningham,Dallas Cowboys,Veterans,Serial numbered /95
+career,45,Michael Irvin,Dallas Cowboys,Veterans,Serial numbered /65
+career,46,Raghib Ismail,Dallas Cowboys,Veterans,Serial numbered /76
+career,47,Jason Tucker,Dallas Cowboys,Veterans,Serial numbered /90
+career,48,Terrell Davis,Denver Broncos,Veterans,Serial numbered /58
+career,49,John Elway,Denver Broncos,Veterans,Serial numbered /300
+career,50,Olandis Gary,Denver Broncos,Veterans,Serial numbered /276
+career,51,Ed McCaffrey,Denver Broncos,Veterans,Serial numbered /78
+career,52,Rod Smith,Denver Broncos,Veterans,Serial numbered /257
+career,53,Brian Griese,Denver Broncos,Veterans,Serial numbered /262
+career,54,Charlie Batch,Detroit Lions,Veterans,Serial numbered /98
+career,55,Barry Sanders,Detroit Lions,Veterans,Serial numbered /99
+career,56,Herman Moore,Detroit Lions,Veterans,Serial numbered /94
+career,57,Johnnie Morton,Detroit Lions,Veterans,Serial numbered /98
+career,58,Germane Crowell,Detroit Lions,Veterans,Serial numbered /106
+career,59,James Stewart,Detroit Lions,Veterans,Serial numbered /119
+career,60,Brett Favre,Green Bay Packers,Veterans,Serial numbered /129
+career,61,Dorsey Levens,Green Bay Packers,Veterans,Serial numbered /52
+career,62,Antonio Freeman,Green Bay Packers,Veterans,Serial numbered /42
+career,63,Corey Bradford,Green Bay Packers,Veterans,Serial numbered /74
+career,64,Bill Schroeder,Green Bay Packers,Veterans,Serial numbered /74
+career,65,E.G. Green,Indianapolis Colts,Veterans,Serial numbered /50
+career,66,Peyton Manning,Indianapolis Colts,Veterans,Serial numbered /52
+career,67,Edgerrin James,Indianapolis Colts,Veterans,Serial numbered /72
+career,68,Marvin Harrison,Indianapolis Colts,Veterans,Serial numbered /61
+career,69,Terrence Wilkins,Indianapolis Colts,Veterans,Serial numbered /42
+career,70,Mark Brunell,Jacksonville Jaguars,Veterans,Serial numbered /297
+career,71,Fred Taylor,Jacksonville Jaguars,Veterans,Serial numbered /78
+career,72,Keenan McCardell,Jacksonville Jaguars,Veterans,Serial numbered /99
+career,73,Jimmy Smith,Jacksonville Jaguars,Veterans,Serial numbered /28
+career,74,Warren Moon,Kansas City Chiefs,Veterans,Serial numbered /290
+career,75,Elvis Grbac,Kansas City Chiefs,Veterans,Serial numbered /260
+career,76,Tony Gonzalez,Kansas City Chiefs,Veterans,Serial numbered /168
+career,77,Dan Marino,Miami Dolphins,Veterans,Serial numbered /240
+career,78,O.J. McDuffie,Miami Dolphins,Veterans,Serial numbered /2
+career,79,Tony Martin,Miami Dolphins,Veterans,Serial numbered /99
+career,80,James Johnson,Miami Dolphins,Veterans,Serial numbered /100
+career,81,Thurman Thomas,Miami Dolphins,Veterans,Serial numbered /74
+career,82,Randy Moss,Minnesota Vikings,Veterans,Serial numbered /28
+career,83,Daunte Culpepper,Minnesota Vikings,Veterans,Serial numbered /6
+career,84,Cris Carter,Minnesota Vikings,Veterans,Serial numbered /93
+career,85,Robert Smith,Minnesota Vikings,Veterans,Serial numbered /78
+career,86,John Randle,Minnesota Vikings,Veterans,Serial numbered /105
+career,87,Drew Bledsoe,New England Patriots,Veterans,Serial numbered /147
+career,88,Terry Glenn,New England Patriots,Veterans,Serial numbered /86
+career,89,Kevin Faulk,New England Patriots,Veterans,Serial numbered /98
+career,90,Ricky Williams,New Orleans Saints,Veterans,Serial numbered /253
+career,91,Jeff Blake,New Orleans Saints,Veterans,Serial numbered /88
+career,92,Jake Reed,New Orleans Saints,Veterans,Serial numbered /82
+career,93,Amani Toomer,New York Giants,Veterans,Serial numbered /101
+career,94,Kerry Collins,New York Giants,Veterans,Serial numbered /149
+career,95,Tiki Barber,New York Giants,Veterans,Serial numbered /250
+career,96,Ike Hilliard,New York Giants,Veterans,Serial numbered /125
+career,97,Curtis Martin,New York Jets,Veterans,Serial numbered /70
+career,98,Vinny Testaverde,New York Jets,Veterans,Serial numbered /205
+career,99,Wayne Chrebet,New York Jets,Veterans,Serial numbered /21
+career,100,Ray Lucas,New York Jets,Veterans,Serial numbered /279
+career,101,Charles Woodson,Oakland Raiders,Veterans,Serial numbered /6
+career,102,Napoleon Kaufman,Oakland Raiders,Veterans,Serial numbered /83
+career,103,Tim Brown,Oakland Raiders,Veterans,Serial numbered /176
+career,104,Tyrone Wheatley,Oakland Raiders,Veterans,Serial numbered /21
+career,105,Rich Gannon,Oakland Raiders,Veterans,Serial numbered /90
+career,106,Duce Staley,Philadelphia Eagles,Veterans,Serial numbered /64
+career,107,Donovan McNabb,Philadelphia Eagles,Veterans,Serial numbered /216
+career,108,Amos Zereoue,Pittsburgh Steelers,Veterans,Serial numbered /48
+career,109,Kordell Stewart,Pittsburgh Steelers,Veterans,Serial numbered /279
+career,110,Jerome Bettis,Pittsburgh Steelers,Veterans,Serial numbered /41
+career,111,Troy Edwards,Pittsburgh Steelers,Veterans,Serial numbered /234
+career,112,Ryan Leaf,San Diego Chargers,Veterans,Serial numbered /245
+career,113,Junior Seau,San Diego Chargers,Veterans,Serial numbered /224
+career,114,Jim Harbaugh,San Diego Chargers,Veterans,Serial numbered /139
+career,115,Jermaine Fazande,San Diego Chargers,Veterans,Serial numbered /54
+career,116,Curtis Conway,San Diego Chargers,Veterans,Serial numbered /85
+career,117,Steve Young,San Francisco 49ers,Veterans,Serial numbered /97
+career,118,Jerry Rice,San Francisco 49ers,Veterans,Serial numbered /180
+career,119,Terrell Owens,San Francisco 49ers,Veterans,Serial numbered /222
+career,120,Charlie Garner,San Francisco 49ers,Veterans,Serial numbered /23
+career,121,Jeff Garcia,San Francisco 49ers,Veterans,Serial numbered /225
+career,122,Jon Kitna,Seattle Seahawks,Veterans,Serial numbered /132
+career,123,Derrick Mayes,Seattle Seahawks,Veterans,Serial numbered /116
+career,124,Ricky Watters,Seattle Seahawks,Veterans,Serial numbered /123
+career,125,Kurt Warner,St. Louis Rams,Veterans,Serial numbered /41
+career,126,Marshall Faulk,St. Louis Rams,Veterans,Serial numbered /63
+career,127,Torry Holt,St. Louis Rams,Veterans,Serial numbered /63
+career,128,Az-Zahir Hakim,St. Louis Rams,Veterans,Serial numbered /75
+career,129,Isaac Bruce,St. Louis Rams,Veterans,Serial numbered /41
+career,130,Mike Alstott,Tampa Bay Buccaneers,Veterans,Serial numbered /137
+career,131,Warrick Dunn,Tampa Bay Buccaneers,Veterans,Serial numbered /76
+career,132,Shaun King,Tampa Bay Buccaneers,Veterans,Serial numbered /89
+career,133,Keyshawn Johnson,Tampa Bay Buccaneers,Veterans,Serial numbered /31
+career,134,Jacquez Green,Tampa Bay Buccaneers,Veterans,Serial numbered /53
+career,135,Reidel Anthony,Tampa Bay Buccaneers,Veterans,Serial numbered /79
+career,136,Warren Sapp,Tampa Bay Buccaneers,Veterans,Serial numbered /160
+career,137,Eddie George,Tennessee Titans,Veterans,Serial numbered /114
+career,138,Steve McNair,Tennessee Titans,Veterans,Serial numbered /292
+career,139,Yancey Thigpen,Tennessee Titans,Veterans,Serial numbered /298
+career,140,Kevin Dyson,Tennessee Titans,Veterans,Serial numbered /75
+career,141,Frank Wycheck,Tennessee Titans,Veterans,Serial numbered /42
+career,142,Jevon Kearse,Tennessee Titans,Veterans,Serial numbered /48
+career,143,Stephen Davis,Washington Redskins,Veterans,Serial numbered /22
+career,144,Skip Hicks,Washington Redskins,Veterans,Serial numbered /200
+career,145,Brad Johnson,Washington Redskins,Veterans,Serial numbered /82
+career,146,Bruce Smith,Washington Redskins,Veterans,Serial numbered /281
+career,147,Michael Westbrook,Washington Redskins,Veterans,Serial numbered /211
+career,148,Albert Connell,Washington Redskins,Veterans,Serial numbered /97
+career,149,Jeff George,Washington Redskins,Veterans,Serial numbered /147
+career,150,Deion Sanders,Washington Redskins,Veterans,Serial numbered /21
+career,151,Courtney Brown,Cleveland Browns,Rookies,Serial numbered /106
+career,152,Corey Simon,Philadelphia Eagles,Rookies,Serial numbered /14
+career,153,Brian Urlacher,Chicago Bears,Rookies,Serial numbered /3
+career,154,Shaun Ellis,New York Jets,Rookies,Serial numbered /13
+career,155,John Abraham,New York Jets,Rookies,Serial numbered /60
+career,156,Deltha O'Neal,Denver Broncos,Rookies,Serial numbered /5
+career,157,Ahmed Plummer,San Francisco 49ers,Rookies,Serial numbered /14
+career,158,Chris Hovan,Minnesota Vikings,Rookies,Serial numbered /148
+career,159,Rob Morris,Indianapolis Colts,Rookies,Serial numbered /223
+career,160,Keith Bulluck,Tennessee Titans,Rookies,Serial numbered /3
+career,161,Darren Howard,New Orleans Saints,Rookies,Serial numbered /84
+career,162,John Engelberger,San Francisco 49ers,Rookies,Serial numbered /27
+career,163,Raynoch Thompson,Arizona Cardinals,Rookies,Serial numbered /4
+career,164,Cornelius Griffin,New York Giants,Rookies,Serial numbered /7
+career,165,William Bartee,Kansas City Chiefs,Rookies,Serial numbered /41
+career,166,Fred Robbins,Minnesota Vikings,Rookies,Serial numbered /132
+career,167,Michael Boireau,Minnesota Vikings,Rookies,Serial numbered /62
+career,168,Brandon Short,New York Giants,Rookies,Serial numbered /14
+career,169,Jacoby Shepherd,St. Louis Rams,Rookies,Serial numbered /2
+career,170,Peter Warrick,Cincinnati Bengals,Rookies,Serial numbered /31
+career,171,Jamal Lewis,Baltimore Ravens,Rookies,Serial numbered /17
+career,172,Thomas Jones,Arizona Cardinals,Rookies,Serial numbered /36
+career,173,Plaxico Burress,Pittsburgh Steelers,Rookies,Serial numbered /131
+career,174,Travis Taylor,Baltimore Ravens,Rookies,Serial numbered /15
+career,175,Ron Dayne,New York Giants,Rookies,Serial numbered /63
+career,176,Bubba Franks,Green Bay Packers,Rookies,Serial numbered /77
+career,177,Sebastian Janikowski,Oakland Raiders,Rookies,Serial numbered /66
+career,178,Chad Pennington,New York Jets,Rookies,Serial numbered /123
+career,179,Shaun Alexander,Seattle Seahawks,Rookies,Serial numbered /41
+career,180,Sylvester Morris,Kansas City Chiefs,Rookies,Serial numbered /34
+career,181,Anthony Becht,New York Jets,Rookies,Serial numbered /25
+career,182,R. Jay Soward,Jacksonville Jaguars,Rookies,Serial numbered /179
+career,183,Trung Canidate,St. Louis Rams,Rookies,Serial numbered /25
+career,184,Dennis Northcutt,Cleveland Browns,Rookies,Serial numbered /225
+career,185,Todd Pinkston,Philadelphia Eagles,Rookies,Serial numbered /22
+career,186,Jerry Porter,Oakland Raiders,Rookies,Serial numbered /38
+career,187,Travis Prentice,Cleveland Browns,Rookies,Serial numbered /73
+career,188,Giovanni Carmazzi,San Francisco 49ers,Rookies,Serial numbered /71
+career,189,Ron Dugans,Cincinnati Bengals,Rookies,Serial numbered /105
+career,190,Erron Kinney,Tennessee Titans,Rookies,Serial numbered /5
+career,191,Dez White,Chicago Bears,Rookies,Serial numbered /14
+career,192,Chris Cole,Denver Broncos,Rookies,Serial numbered /8
+career,193,Ron Dixon,New York Giants,Rookies,Serial numbered /89
+career,194,Chris Redman,Baltimore Ravens,Rookies,Serial numbered /84
+career,195,J.R. Redmond,New England Patriots,Rookies,Serial numbered /28
+career,196,Laveranues Coles,New York Jets,Rookies,Serial numbered /7
+career,197,JaJuan Dawson,Cleveland Browns,Rookies,Serial numbered /29
+career,198,Darrell Jackson,Seattle Seahawks,Rookies,Serial numbered /97
+career,199,Reuben Droughns,Detroit Lions,Rookies,Serial numbered /19
+career,200,Doug Chapman,Minnesota Vikings,Rookies,Serial numbered /55
+career,201,Terrelle Smith,New Orleans Saints,Rookies,Serial numbered /126
+career,202,Curtis Keaton,Cincinnati Bengals,Rookies,Serial numbered /33
+career,203,Gari Scott,Philadelphia Eagles,Rookies,Serial numbered /18
+career,204,Danny Farmer,Cincinnati Bengals,Rookies,Serial numbered /159
+career,205,Hank Poteat,Pittsburgh Steelers,Rookies,Serial numbered /10
+career,206,Ben Kelly,Miami Dolphins,Rookies,Serial numbered /11
+career,207,Corey Moore,Buffalo Bills,Rookies,Serial numbered /166
+career,208,Na'il Diggs,Green Bay Packers,Rookies,Serial numbered /18
+career,209,Aaron Shea,Cleveland Browns,Rookies,Serial numbered /27
+career,210,Trevor Gaylor,San Diego Chargers,Rookies,Serial numbered /128
+career,211,Julian Peterson,San Francisco 49ers,Rookies,Serial numbered /134
+career,212,Frank Moreau,Kansas City Chiefs,Rookies,Serial numbered /233
+career,213,Deon Dyer,Miami Dolphins,Rookies,Serial numbered /9
+career,214,Avion Black,Buffalo Bills,Rookies,Serial numbered /11
+career,215,Paul Smith,San Francisco 49ers,Rookies,Serial numbered /16
+career,216,Michael Wiley,Dallas Cowboys,Rookies,Serial numbered /27
+career,217,Dante Hall,Kansas City Chiefs,Rookies,Serial numbered /22
+career,218,Mike Brown,Chicago Bears,Rookies,Serial numbered /144
+career,219,Sammy Morris,Buffalo Bills,Rookies,Serial numbered /169
+career,220,Billy Volek,Tennessee Titans,Rookies,Serial numbered /120
+career,221,Tee Martin,Pittsburgh Steelers,Rookies,Serial numbered /32
+career,222,Troy Walters,Minnesota Vikings,Rookies,Serial numbered /244
+career,223,Chad Morton,New Orleans Saints,Rookies,Serial numbered /262
+career,224,Erik Flowers,Buffalo Bills,Rookies,Serial numbered /59
+career,225,Ronney Jenkins,San Diego Chargers,Rookies,Serial numbered /8
+career,226,Thomas Hamner,Philadelphia Eagles,Rookies,Serial numbered /21
+career,227,Mareno Philyaw,Atlanta Falcons,Rookies,Serial numbered /59
+career,228,James Williams,Seattle Seahawks,Rookies,Serial numbered /17
+career,229,Mike Anderson,Denver Broncos,Rookies,Serial numbered /22
+career,230,Tom Brady,New England Patriots,Rookies,Serial numbered /214
+career,231,Mike Green,Tennessee Titans,Rookies,Serial numbered /193
+career,232,Todd Husak,Washington Redskins,Rookies,Serial numbered /41
+career,233,Tim Rattay,San Francisco 49ers,Rookies,Serial numbered /112
+career,234,Jarious Jackson,Denver Broncos,Rookies,Serial numbered /34
+career,235,Joe Hamilton,Tampa Bay Buccaneers,Rookies,Serial numbered /203
+career,236,Shyrone Stith,Jacksonville Jaguars,Rookies,Serial numbered /21
+career,237,Rondell Mealey,Green Bay Packers,Rookies,Serial numbered /29
+career,238,Demario Brown,Tennessee Titans,Rookies,Serial numbered /37
+career,239,Chris Coleman,Tennessee Titans,Rookies,Serial numbered /122
+career,240,Dwayne Goodrich,Dallas Cowboys,Rookies,Serial numbered /8
+career,241,Drew Haddad,Buffalo Bills,Rookies,Serial numbered /240
+career,242,Doug Johnson,Atlanta Falcons,Rookies,Serial numbered /62
+career,243,Windrell Hayes,New York Jets,Rookies,Serial numbered /176
+career,244,Charles Lee,Green Bay Packers,Rookies,Serial numbered /90
+career,245,Kevin McDougal,Indianapolis Colts,Rookies,Serial numbered /82
+career,246,Spergon Wynn,Cleveland Browns,Rookies,Serial numbered /24
+career,247,Shockmain Davis,New England Patriots,Rookies,Serial numbered /56
+career,248,Jamel White,Cleveland Browns,Rookies,Serial numbered /105
+career,249,Bashir Yamini,Tennessee Titans,Rookies,Serial numbered /10
+career,250,Kwame Cavil,Buffalo Bills,Rookies,Serial numbered /174
+season,1,Jake Plummer,Arizona Cardinals,Veterans,Serial numbered /57
+season,2,Frank Sanders,Arizona Cardinals,Veterans,Serial numbered /79
+season,3,Rob Moore,Arizona Cardinals,Veterans,Serial numbered /37
+season,4,David Boston,Arizona Cardinals,Veterans,Serial numbered /53
+season,5,Tim Dwight,Atlanta Falcons,Veterans,Serial numbered /80
+season,6,Jamal Anderson,Atlanta Falcons,Veterans,Serial numbered /32
+season,7,Chris Chandler,Atlanta Falcons,Veterans,Serial numbered /42
+season,8,Terance Mathis,Atlanta Falcons,Veterans,Serial numbered /98
+season,9,Tony Banks,Baltimore Ravens,Veterans,Serial numbered /24
+season,10,Jermaine Lewis,Baltimore Ravens,Veterans,Serial numbered /57
+season,11,Shannon Sharpe,Baltimore Ravens,Veterans,Serial numbered /86
+season,12,Trent Dilfer,Baltimore Ravens,Veterans,Serial numbered /25
+season,13,Qadry Ismail,Baltimore Ravens,Veterans,Serial numbered /3
+season,14,Eric Moulds,Buffalo Bills,Veterans,Serial numbered /10
+season,15,Doug Flutie,Buffalo Bills,Veterans,Serial numbered /50
+season,16,Antowain Smith,Buffalo Bills,Veterans,Serial numbered /30
+season,17,Jonathan Linton,Buffalo Bills,Veterans,Serial numbered /96
+season,18,Peerless Price,Buffalo Bills,Veterans,Serial numbered /62
+season,19,Rob Johnson,Buffalo Bills,Veterans,Serial numbered /32
+season,20,Natrone Means,Carolina Panthers,Veterans,Serial numbered /79
+season,21,Muhsin Muhammad,Carolina Panthers,Veterans,Serial numbered /11
+season,22,Wesley Walls,Carolina Panthers,Veterans,Serial numbered /96
+season,23,Tim Biakabutuka,Carolina Panthers,Veterans,Serial numbered /31
+season,24,Steve Beuerlein,Carolina Panthers,Veterans,Serial numbered /5
+season,25,Patrick Jeffers,Carolina Panthers,Veterans,Serial numbered /8
+season,26,Curtis Enis,Chicago Bears,Veterans,Serial numbered /79
+season,27,Cade McNown,Chicago Bears,Veterans,Serial numbered /4
+season,28,Bobby Engram,Chicago Bears,Veterans,Serial numbered /13
+season,29,Marcus Robinson,Chicago Bears,Veterans,Serial numbered /3
+season,30,Marty Booker,Chicago Bears,Veterans,Serial numbered /19
+season,31,Corey Dillon,Cincinnati Bengals,Veterans,Serial numbered /3
+season,32,Darnay Scott,Cincinnati Bengals,Veterans,Serial numbered /8
+season,33,Carl Pickens,Tennessee Titans,Veterans,Serial numbered /7
+season,34,Akili Smith,Cincinnati Bengals,Veterans,Serial numbered /42
+season,35,Michael Basnight,Cincinnati Bengals,Veterans,Serial numbered /62
+season,36,Tim Couch,Cleveland Browns,Veterans,Serial numbered /46
+season,37,Kevin Johnson,Cleveland Browns,Veterans,Serial numbered /90
+season,38,Abdul-Karim al-Jabbar,Indianapolis Colts,Veterans,Serial numbered /84
+season,39,Errict Rhett,Cleveland Browns,Veterans,Serial numbered /27
+season,40,Darrin Chiaverini,Cleveland Browns,Veterans,Serial numbered /10
+season,41,Emmitt Smith,Dallas Cowboys,Veterans,Serial numbered /9
+season,42,Troy Aikman,Dallas Cowboys,Veterans,Serial numbered /5
+season,43,Joey Galloway,Dallas Cowboys,Veterans,Serial numbered /15
+season,44,Randall Cunningham,Dallas Cowboys,Veterans,Serial numbered /47
+season,45,Michael Irvin,Dallas Cowboys,Veterans,Serial numbered /3
+season,46,Raghib Ismail,Dallas Cowboys,Veterans,Serial numbered /8
+season,47,Jason Tucker,Dallas Cowboys,Veterans,Serial numbered /27
+season,48,Terrell Davis,Denver Broncos,Veterans,Serial numbered /67
+season,49,John Elway,Denver Broncos,Veterans,Serial numbered /26
+season,50,Olandis Gary,Denver Broncos,Veterans,Serial numbered /95
+season,51,Ed McCaffrey,Denver Broncos,Veterans,Serial numbered /3
+season,52,Rod Smith,Denver Broncos,Veterans,Serial numbered /9
+season,53,Brian Griese,Denver Broncos,Veterans,Serial numbered /3
+season,54,Charlie Batch,Detroit Lions,Veterans,Serial numbered /74
+season,55,Barry Sanders,Detroit Lions,Veterans,Serial numbered /8
+season,56,Herman Moore,Detroit Lions,Veterans,Serial numbered /16
+season,57,Johnnie Morton,Detroit Lions,Veterans,Serial numbered /10
+season,58,Germane Crowell,Detroit Lions,Veterans,Serial numbered /99
+season,59,James Stewart,Detroit Lions,Veterans,Serial numbered /30
+season,60,Brett Favre,Green Bay Packers,Veterans,Serial numbered /50
+season,61,Dorsey Levens,Green Bay Packers,Veterans,Serial numbered /99
+season,62,Antonio Freeman,Green Bay Packers,Veterans,Serial numbered /8
+season,63,Corey Bradford,Green Bay Packers,Veterans,Serial numbered /94
+season,64,Bill Schroeder,Green Bay Packers,Veterans,Serial numbered /93
+season,65,E.G. Green,Indianapolis Colts,Veterans,Serial numbered /21
+season,66,Peyton Manning,Indianapolis Colts,Veterans,Serial numbered /54
+season,67,Edgerrin James,Indianapolis Colts,Veterans,Serial numbered /3
+season,68,Marvin Harrison,Indianapolis Colts,Veterans,Serial numbered /14
+season,69,Terrence Wilkins,Indianapolis Colts,Veterans,Serial numbered /81
+season,70,Mark Brunell,Jacksonville Jaguars,Veterans,Serial numbered /3
+season,71,Fred Taylor,Jacksonville Jaguars,Veterans,Serial numbered /27
+season,72,Keenan McCardell,Jacksonville Jaguars,Veterans,Serial numbered /9
+season,73,Jimmy Smith,Jacksonville Jaguars,Veterans,Serial numbered /14
+season,74,Warren Moon,Kansas City Chiefs,Veterans,Serial numbered /20
+season,75,Elvis Grbac,Kansas City Chiefs,Veterans,Serial numbered /49
+season,76,Tony Gonzalez,Kansas City Chiefs,Veterans,Serial numbered /90
+season,77,Dan Marino,Miami Dolphins,Veterans,Serial numbered /52
+season,78,O.J. McDuffie,Miami Dolphins,Veterans,Serial numbered /85
+season,79,Tony Martin,Miami Dolphins,Veterans,Serial numbered /10
+season,80,James Johnson,Miami Dolphins,Veterans,Serial numbered /86
+season,81,Thurman Thomas,Miami Dolphins,Veterans,Serial numbered /36
+season,82,Randy Moss,Minnesota Vikings,Veterans,Serial numbered /12
+season,83,Daunte Culpepper,Minnesota Vikings,Veterans,Serial numbered /3
+season,84,Cris Carter,Minnesota Vikings,Veterans,Serial numbered /3
+season,85,Robert Smith,Minnesota Vikings,Veterans,Serial numbered /70
+season,86,John Randle,Minnesota Vikings,Veterans,Serial numbered /27
+season,87,Drew Bledsoe,New England Patriots,Veterans,Serial numbered /49
+season,88,Terry Glenn,New England Patriots,Veterans,Serial numbered /13
+season,89,Kevin Faulk,New England Patriots,Veterans,Serial numbered /43
+season,90,Ricky Williams,New Orleans Saints,Veterans,Serial numbered /99
+season,91,Jeff Blake,New Orleans Saints,Veterans,Serial numbered /4
+season,92,Jake Reed,New Orleans Saints,Veterans,Serial numbered /50
+season,93,Amani Toomer,New York Giants,Veterans,Serial numbered /99
+season,94,Kerry Collins,New York Giants,Veterans,Serial numbered /51
+season,95,Tiki Barber,New York Giants,Veterans,Serial numbered /66
+season,96,Ike Hilliard,New York Giants,Veterans,Serial numbered /8
+season,97,Curtis Martin,New York Jets,Veterans,Serial numbered /38
+season,98,Vinny Testaverde,New York Jets,Veterans,Serial numbered /15
+season,99,Wayne Chrebet,New York Jets,Veterans,Serial numbered /88
+season,100,Ray Lucas,New York Jets,Veterans,Serial numbered /4
+season,101,Charles Woodson,Oakland Raiders,Veterans,Serial numbered /52
+season,102,Napoleon Kaufman,Oakland Raiders,Veterans,Serial numbered /76
+season,103,Tim Brown,Oakland Raiders,Veterans,Serial numbered /11
+season,104,Tyrone Wheatley,Oakland Raiders,Veterans,Serial numbered /66
+season,105,Rich Gannon,Oakland Raiders,Veterans,Serial numbered /4
+season,106,Duce Staley,Philadelphia Eagles,Veterans,Serial numbered /93
+season,107,Donovan McNabb,Philadelphia Eagles,Veterans,Serial numbered /3
+season,108,Amos Zereoue,Pittsburgh Steelers,Veterans,Serial numbered /17
+season,109,Kordell Stewart,Pittsburgh Steelers,Veterans,Serial numbered /32
+season,110,Jerome Bettis,Pittsburgh Steelers,Veterans,Serial numbered /99
+season,111,Troy Edwards,Pittsburgh Steelers,Veterans,Serial numbered /86
+season,112,Ryan Leaf,San Diego Chargers,Veterans,Serial numbered /2
+season,113,Junior Seau,San Diego Chargers,Veterans,Serial numbered /75
+season,114,Jim Harbaugh,San Diego Chargers,Veterans,Serial numbered /46
+season,115,Jermaine Fazande,San Diego Chargers,Veterans,Serial numbered /30
+season,116,Curtis Conway,San Diego Chargers,Veterans,Serial numbered /9
+season,117,Steve Young,San Francisco 49ers,Veterans,Serial numbered /45
+season,118,Jerry Rice,San Francisco 49ers,Veterans,Serial numbered /9
+season,119,Terrell Owens,San Francisco 49ers,Veterans,Serial numbered /9
+season,120,Charlie Garner,San Francisco 49ers,Veterans,Serial numbered /53
+season,121,Jeff Garcia,San Francisco 49ers,Veterans,Serial numbered /11
+season,122,Jon Kitna,Seattle Seahawks,Veterans,Serial numbered /3
+season,123,Derrick Mayes,Seattle Seahawks,Veterans,Serial numbered /7
+season,124,Ricky Watters,Seattle Seahawks,Veterans,Serial numbered /99
+season,125,Kurt Warner,St. Louis Rams,Veterans,Serial numbered /5
+season,126,Marshall Faulk,St. Louis Rams,Veterans,Serial numbered /7
+season,127,Torry Holt,St. Louis Rams,Veterans,Serial numbered /87
+season,128,Az-Zahir Hakim,St. Louis Rams,Veterans,Serial numbered /4
+season,129,Isaac Bruce,St. Louis Rams,Veterans,Serial numbered /4
+season,130,Mike Alstott,Tampa Bay Buccaneers,Veterans,Serial numbered /4
+season,131,Warrick Dunn,Tampa Bay Buccaneers,Veterans,Serial numbered /11
+season,132,Shaun King,Tampa Bay Buccaneers,Veterans,Serial numbered /23
+season,133,Keyshawn Johnson,Tampa Bay Buccaneers,Veterans,Serial numbered /11
+season,134,Jacquez Green,Tampa Bay Buccaneers,Veterans,Serial numbered /96
+season,135,Reidel Anthony,Tampa Bay Buccaneers,Veterans,Serial numbered /94
+season,136,Warren Sapp,Tampa Bay Buccaneers,Veterans,Serial numbered /13
+season,137,Eddie George,Tennessee Titans,Veterans,Serial numbered /31
+season,138,Steve McNair,Tennessee Titans,Veterans,Serial numbered /5
+season,139,Yancey Thigpen,Tennessee Titans,Veterans,Serial numbered /84
+season,140,Kevin Dyson,Tennessee Titans,Veterans,Serial numbered /79
+season,141,Frank Wycheck,Tennessee Titans,Veterans,Serial numbered /87
+season,142,Jevon Kearse,Tennessee Titans,Veterans,Serial numbered /15
+season,143,Stephen Davis,Washington Redskins,Veterans,Serial numbered /6
+season,144,Skip Hicks,Washington Redskins,Veterans,Serial numbered /52
+season,145,Brad Johnson,Washington Redskins,Veterans,Serial numbered /32
+season,146,Bruce Smith,Washington Redskins,Veterans,Serial numbered /3
+season,147,Michael Westbrook,Washington Redskins,Veterans,Serial numbered /5
+season,148,Albert Connell,Washington Redskins,Veterans,Serial numbered /97
+season,149,Jeff George,Washington Redskins,Veterans,Serial numbered /45
+season,150,Deion Sanders,Washington Redskins,Veterans,Serial numbered /3
+season,151,Courtney Brown,Cleveland Browns,Rookies,Serial numbered /16
+season,152,Corey Simon,Philadelphia Eagles,Rookies,Serial numbered /59
+season,153,Brian Urlacher,Chicago Bears,Rookies,Serial numbered /90
+season,154,Shaun Ellis,New York Jets,Rookies,Serial numbered /30
+season,155,John Abraham,New York Jets,Rookies,Serial numbered /6
+season,156,Deltha O'Neal,Denver Broncos,Rookies,Serial numbered /9
+season,157,Ahmed Plummer,San Francisco 49ers,Rookies,Serial numbered /48
+season,158,Chris Hovan,Minnesota Vikings,Rookies,Serial numbered /11
+season,159,Rob Morris,Indianapolis Colts,Rookies,Serial numbered /6
+season,160,Keith Bulluck,Tennessee Titans,Rookies,Serial numbered /90
+season,161,Darren Howard,New Orleans Saints,Rookies,Serial numbered /2
+season,162,John Engelberger,San Francisco 49ers,Rookies,Serial numbered /31
+season,163,Raynoch Thompson,Arizona Cardinals,Rookies,Serial numbered /49
+season,164,Cornelius Griffin,New York Giants,Rookies,Serial numbered /30
+season,165,William Bartee,Kansas City Chiefs,Rookies,Serial numbered /1
+season,166,Fred Robbins,Minnesota Vikings,Rookies,Serial numbered /5
+season,167,Michael Boireau,Minnesota Vikings,Rookies,Serial numbered /4
+season,168,Brandon Short,New York Giants,Rookies,Serial numbered /49
+season,169,Jacoby Shepherd,St. Louis Rams,Rookies,Serial numbered /12
+season,170,Peter Warrick,Cincinnati Bengals,Rookies,Serial numbered /71
+season,171,Jamal Lewis,Baltimore Ravens,Rookies,Serial numbered /15
+season,172,Thomas Jones,Arizona Cardinals,Rookies,Serial numbered /16
+season,173,Plaxico Burress,Pittsburgh Steelers,Rookies,Serial numbered /12
+season,174,Travis Taylor,Baltimore Ravens,Rookies,Serial numbered /34
+season,175,Ron Dayne,New York Giants,Rookies,Serial numbered /19
+season,176,Bubba Franks,Green Bay Packers,Rookies,Serial numbered /5
+season,177,Sebastian Janikowski,Oakland Raiders,Rookies,Serial numbered /54
+season,178,Chad Pennington,New York Jets,Rookies,Serial numbered /38
+season,179,Shaun Alexander,Seattle Seahawks,Rookies,Serial numbered /19
+season,180,Sylvester Morris,Kansas City Chiefs,Rookies,Serial numbered /69
+season,181,Anthony Becht,New York Jets,Rookies,Serial numbered /35
+season,182,R. Jay Soward,Jacksonville Jaguars,Rookies,Serial numbered /4
+season,183,Trung Canidate,St. Louis Rams,Rookies,Serial numbered /11
+season,184,Dennis Northcutt,Cleveland Browns,Rookies,Serial numbered /8
+season,185,Todd Pinkston,Philadelphia Eagles,Rookies,Serial numbered /48
+season,186,Jerry Porter,Oakland Raiders,Rookies,Serial numbered /4
+season,187,Travis Prentice,Cleveland Browns,Rookies,Serial numbered /17
+season,188,Giovanni Carmazzi,San Francisco 49ers,Rookies,Serial numbered /11
+season,189,Ron Dugans,Cincinnati Bengals,Rookies,Serial numbered /3
+season,190,Erron Kinney,Tennessee Titans,Rookies,Serial numbered /16
+season,191,Dez White,Chicago Bears,Rookies,Serial numbered /44
+season,192,Chris Cole,Denver Broncos,Rookies,Serial numbered /22
+season,193,Ron Dixon,New York Giants,Rookies,Serial numbered /19
+season,194,Chris Redman,Baltimore Ravens,Rookies,Serial numbered /29
+season,195,J.R. Redmond,New England Patriots,Rookies,Serial numbered /78
+season,196,Laveranues Coles,New York Jets,Rookies,Serial numbered /12
+season,197,JaJuan Dawson,Cleveland Browns,Rookies,Serial numbered /78
+season,198,Darrell Jackson,Seattle Seahawks,Rookies,Serial numbered /9
+season,199,Reuben Droughns,Detroit Lions,Rookies,Serial numbered /10
+season,200,Doug Chapman,Minnesota Vikings,Rookies,Serial numbered /12
+season,201,Terrelle Smith,New Orleans Saints,Rookies,Serial numbered /22
+season,202,Curtis Keaton,Cincinnati Bengals,Rookies,Serial numbered /20
+season,203,Gari Scott,Philadelphia Eagles,Rookies,Serial numbered /30
+season,204,Danny Farmer,Cincinnati Bengals,Rookies,Serial numbered /3
+season,205,Hank Poteat,Pittsburgh Steelers,Rookies,Serial numbered /31
+season,206,Ben Kelly,Miami Dolphins,Rookies,Serial numbered /27
+season,207,Corey Moore,Buffalo Bills,Rookies,Serial numbered /60
+season,208,Na'il Diggs,Green Bay Packers,Rookies,Serial numbered /64
+season,209,Aaron Shea,Cleveland Browns,Rookies,Serial numbered /31
+season,210,Trevor Gaylor,San Diego Chargers,Rookies,Serial numbered /11
+season,211,Julian Peterson,San Francisco 49ers,Rookies,Serial numbered /5
+season,212,Frank Moreau,Kansas City Chiefs,Rookies,Serial numbered /17
+season,213,Deon Dyer,Miami Dolphins,Rookies,Serial numbered /73
+season,214,Avion Black,Buffalo Bills,Rookies,Serial numbered /47
+season,215,Paul Smith,San Francisco 49ers,Rookies,Serial numbered /12
+season,216,Michael Wiley,Dallas Cowboys,Rookies,Serial numbered /10
+season,217,Dante Hall,Kansas City Chiefs,Rookies,Serial numbered /53
+season,218,Mike Brown,Chicago Bears,Rookies,Serial numbered /7
+season,219,Sammy Morris,Buffalo Bills,Rookies,Serial numbered /3
+season,220,Billy Volek,Tennessee Titans,Rookies,Serial numbered /10
+season,221,Tee Martin,Pittsburgh Steelers,Rookies,Serial numbered /12
+season,222,Troy Walters,Minnesota Vikings,Rookies,Serial numbered /10
+season,223,Chad Morton,New Orleans Saints,Rookies,Serial numbered /15
+season,224,Erik Flowers,Buffalo Bills,Rookies,Serial numbered /11
+season,225,Ronney Jenkins,San Diego Chargers,Rookies,Serial numbered /37
+season,226,Thomas Hamner,Philadelphia Eagles,Rookies,Serial numbered /10
+season,227,Mareno Philyaw,Atlanta Falcons,Rookies,Serial numbered /4
+season,228,James Williams,Seattle Seahawks,Rookies,Serial numbered /47
+season,229,Mike Anderson,Denver Broncos,Rookies,Serial numbered /10
+season,230,Tom Brady,New England Patriots,Rookies,Serial numbered /20
+season,231,Mike Green,Tennessee Titans,Rookies,Serial numbered /7
+season,232,Todd Husak,Washington Redskins,Rookies,Serial numbered /18
+season,233,Tim Rattay,San Francisco 49ers,Rookies,Serial numbered /32
+season,234,Jarious Jackson,Denver Broncos,Rookies,Serial numbered /17
+season,235,Joe Hamilton,Tampa Bay Buccaneers,Rookies,Serial numbered /29
+season,236,Shyrone Stith,Jacksonville Jaguars,Rookies,Serial numbered /13
+season,237,Rondell Mealey,Green Bay Packers,Rookies,Serial numbered /8
+season,238,Demario Brown,Tennessee Titans,Rookies,Serial numbered /14
+season,239,Chris Coleman,Tennessee Titans,Rookies,Serial numbered /41
+season,240,Dwayne Goodrich,Dallas Cowboys,Rookies,Serial numbered /39
+season,241,Drew Haddad,Buffalo Bills,Rookies,Serial numbered /6
+season,242,Doug Johnson,Atlanta Falcons,Rookies,Serial numbered /20
+season,243,Windrell Hayes,New York Jets,Rookies,Serial numbered /4
+season,244,Charles Lee,Green Bay Packers,Rookies,Serial numbered /5
+season,245,Kevin McDougal,Indianapolis Colts,Rookies,Serial numbered /36
+season,246,Spergon Wynn,Cleveland Browns,Rookies,Serial numbered /52
+season,247,Shockmain Davis,New England Patriots,Rookies,Serial numbered /18
+season,248,Jamel White,Cleveland Browns,Rookies,Serial numbered /3
+season,249,Bashir Yamini,Tennessee Titans,Rookies,Serial numbered /31
+season,250,Kwame Cavil,Buffalo Bills,Rookies,Serial numbered /6
+promos,NNO-12736822,Kurt Warner,St. Louis Rams,Promotional Cards,Super Bowl Promotion / Kurt Warner; expired promotion; no current redemption rights; Unnumbered original; local NNO-CID identifier is not a printed card number
+promos,NNO-14089499,Kurt Warner,St. Louis Rams,Promotional Cards,Win Original Artwork!; expired promotion; no current redemption rights; Unnumbered original; local NNO-CID identifier is not a printed card number

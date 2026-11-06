@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/4374/2000-Donruss",
+    "independentReference": "https://mycardbatch.com/checklists/donruss-2000-football",
+    "additionalReference": "https://www.laststicker.com/br/cards/donruss_nfl_2000/"
+  },
+  "decisions": {
+    "scope": "Regular 2000 Donruss Football only; exclude separate Elite, Preferred and Quantum Leaf products. 1278 staged cards in 22 families; separate 53-card Authentic Stamp namespace withheld as unresolved, with all raw rows retained in source.json. This is not a fully verified master inventory until that question is resolved.",
+    "rookies": "100 true base RCs #151-250, all /1325, cross-checked complete rookie index and both independent base rosters. No inferred RCs on inserts or parallels.",
+    "numbering": "Retain primary catalogue numbers, which may differ from physical prefixes and other catalogues. NNO-CID identifiers are explicitly local stable IDs. Full printed-number harvest pending.",
+    "teams": "Every base/parallel identity and team checked. Independent rosters establish historical affiliations, including Los Angeles Rams for Dickerson. Correct three erroneous autograph-team entries using independent Gold roster and selected originals, including Doug Chapman Blue back.",
+    "serials": "Retain every individual Stat Line and Zoning Red source limit. Signed Studio first-50 allocation is not necessarily printed /50. Randy Moss PR19 differs from printed /250. Red signatures have announced PR, not serial numbers.",
+    "sourceLimits": "MCB actual tables cover 521 rows despite 581 headline; LastSticker covers 574 rows. Neither is a complete master. Source retrieval of Beckett redirected to a service-status page and is not treated as checklist evidence. Catalogue-level coverage and selected originals, not visual verification of every card.",
+    "packConfiguration": "Hobby 18 packs x16 cards; retail 24x7 differs. Career denominator unresolved 24 versus25; other undocumented odds null. Serial quantities never substitute for insertion odds. No pack-engine changes.",
+    "release": "Unreleased draft only; pricing, images, unresolved Authentic Stamp, full printed prefixes and historical collation require QA. No production DB access or deployment."
+  },
+  "product": {
+    "id": "2000_Donruss_Football",
+    "year": 2000,
+    "brand": "Donruss",
+    "sport": "Football",
+    "cardsPerPack": 16,
+    "packsPerBox": 18,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "CATALOGUE_AUDIT_COMPLETE_WITH_DOCUMENTED_CORRECTIONS",
+    "checklist": "1278_STAGED_53_WITHHELD_PENDING_DISTINCT_VARIANT_EVIDENCE",
+    "rookieDesignation": "VERIFIED_100_TRUE_BASE_RCS",
+    "scanReview": "SELECTED_ORIGINALS_ONLY_FULL_HARVEST_PENDING",
+    "packCollation": "PENDING_CAREER_RATE_AND_UNDOCUMENTED_INSERT_ODDS",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "2000-donruss-football.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2000_Donruss_Football_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 4374,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4374/2000-Donruss?PageIndex=1",
+      "expectedCards": 250,
+      "notes": "Complete 250-card collector family: veterans #1-150; 100 true RCs #151-250 serial numbered /1325. Do not split by scarcity."
+    },
+    {
+      "key": "all-time-kings",
+      "id": "2000_Donruss_Football_All_Time_Gridiron_Kings",
+      "name": "All-Time Gridiron Kings",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 35784,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35784/2000-Donruss-All-Time-Gridiron-Kings?PageIndex=1",
+      "expectedCards": 10,
+      "notes": "Complete independently retrieved collector roster. No inferred odds or RC suffixes."
+    },
+    {
+      "key": "all-time-autographs",
+      "id": "2000_Donruss_Football_All_Time_Gridiron_Kings_Studio_Autographs",
+      "name": "All-Time Gridiron Kings Studio Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 35785,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35785/2000-Donruss-All-Time-Gridiron-Kings-Studio-Autographs?PageIndex=1",
+      "expectedCards": 9,
+      "notes": "Nine issued subjects. Dan Fouts exchange was fulfilled with a 1997 Leaf autograph, which is not an additional 2000 Donruss card."
+    },
+    {
+      "key": "dominators",
+      "id": "2000_Donruss_Football_Dominators",
+      "name": "Dominators",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 35786,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35786/2000-Donruss-Dominators?PageIndex=1",
+      "expectedCards": 60,
+      "notes": "Complete independently retrieved collector roster. No inferred odds or RC suffixes."
+    },
+    {
+      "key": "elite-series",
+      "id": "2000_Donruss_Football_Elite_Series",
+      "name": "Elite Series",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 35810,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35810/2000-Donruss-Elite-Series?PageIndex=1",
+      "expectedCards": 40,
+      "notes": "Complete independently retrieved collector roster. No inferred odds or RC suffixes."
+    },
+    {
+      "key": "kings",
+      "id": "2000_Donruss_Football_Gridiron_Kings",
+      "name": "Gridiron Kings",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 35787,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35787/2000-Donruss-Gridiron-Kings?PageIndex=1",
+      "expectedCards": 10,
+      "notes": "Complete independently retrieved collector roster. No inferred odds or RC suffixes."
+    },
+    {
+      "key": "kings-studio",
+      "id": "2000_Donruss_Football_Gridiron_Kings_Studio",
+      "name": "Gridiron Kings Studio",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 35788,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35788/2000-Donruss-Gridiron-Kings-Studio?PageIndex=1",
+      "expectedCards": 10,
+      "notes": "Unsigned Studio cards, printed /250; serials 051-250. Signed first-50 allocation is a separate family."
+    },
+    {
+      "key": "kings-autographs",
+      "id": "2000_Donruss_Football_Gridiron_Kings_Studio_Autographs",
+      "name": "Gridiron Kings Studio Autographs",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 35789,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35789/2000-Donruss-Gridiron-Kings-Studio-Autographs?PageIndex=1",
+      "expectedCards": 10,
+      "notes": "Printed /250, first 50 allocated for signatures. Randy Moss has reported signed print run 19; do not label /19."
+    },
+    {
+      "key": "jersey-autographs",
+      "id": "2000_Donruss_Football_Jersey_King_Autographs",
+      "name": "Jersey King Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 35790,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35790/2000-Donruss-Jersey-King-Autographs?PageIndex=1",
+      "expectedCards": 10,
+      "notes": "Ten certified signed jersey relics catalogued /50. Retain TCDB catalogue numbers 1-10 pending full back-image harvesting."
+    },
+    {
+      "key": "rated-rookies",
+      "id": "2000_Donruss_Football_Rated_Rookies",
+      "name": "Rated Rookies",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 35791,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35791/2000-Donruss-Rated-Rookies?PageIndex=1",
+      "expectedCards": 40,
+      "notes": "Complete independently retrieved collector roster. No inferred odds or RC suffixes."
+    },
+    {
+      "key": "rated-medalist",
+      "id": "2000_Donruss_Football_Rated_Rookies_Medalist",
+      "name": "Rated Rookies Medalist",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 35792,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35792/2000-Donruss-Rated-Rookies-Medalist?PageIndex=1",
+      "expectedCards": 40,
+      "notes": "Complete independently retrieved collector roster. No inferred odds or RC suffixes."
+    },
+    {
+      "key": "rookie-kings",
+      "id": "2000_Donruss_Football_Rookie_Gridiron_Kings",
+      "name": "Rookie Gridiron Kings",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 35793,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35793/2000-Donruss-Rookie-Gridiron-Kings?PageIndex=1",
+      "expectedCards": 10,
+      "notes": "Complete independently retrieved collector roster. No inferred odds or RC suffixes."
+    },
+    {
+      "key": "rookie-studio",
+      "id": "2000_Donruss_Football_Rookie_Gridiron_Kings_Studio",
+      "name": "Rookie Gridiron Kings Studio",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 35794,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35794/2000-Donruss-Rookie-Gridiron-Kings-Studio?PageIndex=1",
+      "expectedCards": 10,
+      "notes": "Unsigned Studio cards printed /250; signed first-50 allocation is separate."
+    },
+    {
+      "key": "rookie-autographs",
+      "id": "2000_Donruss_Football_Rookie_Gridiron_Kings_Studio_Autographs",
+      "name": "Rookie Gridiron Kings Studio Autographs",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 35795,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35795/2000-Donruss-Rookie-Gridiron-Kings-Studio-Autographs?PageIndex=1",
+      "expectedCards": 10,
+      "notes": "Printed /250 in independent original-card listings (Thomas Jones 31/250; Chris Redman 29/250), correcting source SN50 allocation shorthand. Fifty signed allocation. Morris catalogued EXCH; fulfilled signed original front independently observed."
+    },
+    {
+      "key": "signature-blue",
+      "id": "2000_Donruss_Football_Signature_Series_Blue",
+      "name": "Signature Series Blue",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 35796,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35796/2000-Donruss-Signature-Series-Blue?PageIndex=1",
+      "expectedCards": 31,
+      "notes": "31 unnumbered autographs /100. Correct Doug Chapman team to Minnesota using complete independent Gold roster; original Blue back confirms Minnesota Vikings."
+    },
+    {
+      "key": "signature-gold",
+      "id": "2000_Donruss_Football_Signature_Series_Gold",
+      "name": "Signature Series Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 35797,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35797/2000-Donruss-Signature-Series-Gold?PageIndex=1",
+      "expectedCards": 53,
+      "notes": "53 unnumbered autographs /25. Full subjects and teams independently corroborated by LastSticker."
+    },
+    {
+      "key": "signature-red",
+      "id": "2000_Donruss_Football_Signature_Series_Red",
+      "name": "Signature Series Red",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 185739,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/185739/2000-Donruss-Signature-Series-Red?PageIndex=1",
+      "expectedCards": 53,
+      "notes": "53 unnumbered autographs, announced subject-specific print runs, not serial numbered. Correct switched Danny Farmer/Kevin Faulk teams using independent Gold roster and original Blue/Red scans."
+    },
+    {
+      "key": "zoning",
+      "id": "2000_Donruss_Football_Zoning_Commission",
+      "name": "Zoning Commission",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 35801,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35801/2000-Donruss-Zoning-Commission?PageIndex=1",
+      "expectedCards": 60,
+      "notes": "60 serial numbered /1000, confirmed original back. Dealer /100 text is incorrect."
+    },
+    {
+      "key": "zoning-red",
+      "id": "2000_Donruss_Football_Zoning_Commission_Red",
+      "name": "Zoning Commission Red",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 35802,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35802/2000-Donruss-Zoning-Commission-Red?PageIndex=1",
+      "expectedCards": 60,
+      "notes": "60-card red parallel with individual serial limits; source uses catalogue numbers 1-60, equivalent to ZC-1..60. Preserve catalogue numbers."
+    },
+    {
+      "key": "career",
+      "id": "2000_Donruss_Football_Stat_Line_Career",
+      "name": "Stat Line Career",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 35799,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35799/2000-Donruss-Stat-Line-Career?PageIndex=1",
+      "expectedCards": 250,
+      "notes": "Complete 250-card parallel, individual serial limits retained. Hobby Career rate conflict: TCDB 1:25 versus dealer 1:24; null pending wrapper QA."
+    },
+    {
+      "key": "season",
+      "id": "2000_Donruss_Football_Stat_Line_Season",
+      "name": "Stat Line Season",
+      "kind": "PARALLEL",
+      "oddsPerPack": 192,
+      "sourceSetId": 35800,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/35800/2000-Donruss-Stat-Line-Season?PageIndex=1",
+      "expectedCards": 250,
+      "notes": "Complete 250-card parallel, individual serial limits retained. Hobby rate 1:192; retail differs. Preserve intact collector family."
+    },
+    {
+      "key": "promos",
+      "id": "2000_Donruss_Football_Promotional_Cards",
+      "name": "Promotional Cards",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 4374,
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4374/2000-Donruss",
+      "expectedCards": 2,
+      "notes": "Two Kurt Warner promotional/contest cards; expired contests confer no current redemption rights. NNO-CID is a local identity, not a printed number; null pack odds."
+    }
+  ]
+}
