@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/4525/2002-Bowman",
+    "independentReference": "https://mycardbatch.com/checklists/bowman-2002-football",
+    "independentPackReference": "https://www.dacardworld.com/sports-cards/2002-bowman-football-hobby-box"
+  },
+  "decisions": {
+    "inventory": "1022 actual rows across11 intact collector families: Base275, Gold275, Silver275, Uncirculated110, Draft Day10, Fabric17, Flashback Autographs8, Flashback Jerseys11, Signs19, Red Ink20, Checklists2. Regular paper Bowman only; separate Chrome, Best and cross-product Team Topps Legends excluded. Generic redemption rights are not player cards.",
+    "rookies": "165 true base RCs111-275, fully matched against two-page rookie index and independent165RC flags. No rookie suffixes inferred on parallels or autograph/relic inserts. James Allen#49 veteran RB and #261 Saints rookie LB are different subjects.",
+    "identity": "Original Edward Reed#138 is displayed as Ed Reed; preserve printed name on base metadata. Correct Jeremy Allen Gold/Silver#197 source Miami to Minnesota, corroborated by original base front/back and independent Silver catalogues.",
+    "numbering": "Use actual primary numbers; independent Draft Day H-/J- shorthand maps to original DDH-/DDJ- confirmed by Carr back. Retain catalogue SF-DG1 for Red Ink Daniel Graham; physical suffix needs image QA. Uncirculated partial parallel uses110 actual noncontiguous numbers, not assumed range.",
+    "serials": "Gold /50 and Silver /250. Red Ink12 explicit /50 source tags retained; eight others lack explicit serial metadata, so do not manufacture stamps. Uncirculated reported290 production is not asserted as physical serial /290; source attributes conflict and encased originals need QA.",
+    "materials": "Draft-day apparel is event worn, not game used; Fabric jerseys are game worn at Senior Bowl; Flashback jerseys are player worn. Certified signatures separate from facsimile Bowman base design.",
+    "packConfiguration": "Hobby24x10, corroborated dealer descriptions. HTA10x35 differs. Combined parallel/autograph/relic odds are not individual family rates. Preserve historical tier evidence and leave per-family odds null pending verified aggregates; no guessed ratios.",
+    "verificationLimit": "All numbers/names/teams/subsets/RCs checked at catalogue level, including full independent insert/Uncirculated rosters and selected originals. Not physical verification of every card. Graham suffix, eight Red Ink serial attributes, Uncirculated physical serial status and full pack collation remain QA items.",
+    "release": "Unreleased Admin draft for pricing and image harvesting only. No production database access, release or deployment; reruns preserve prices/images/release state."
+  },
+  "product": {
+    "id": "2002_Bowman_Football",
+    "year": 2002,
+    "brand": "Bowman",
+    "sport": "Football",
+    "cardsPerPack": 10,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "checklist": "VERIFIED_1022_CATALOGUE_ROWS_11_FAMILIES_WITH_DOCUMENTED_ATTRIBUTE_LIMITS",
+    "rookieDesignation": "VERIFIED_165_TRUE_BASE_RCS",
+    "scanReview": "SELECTED_ORIGINALS_FULL_HARVEST_PENDING",
+    "packCollation": "PENDING_AGGREGATES_AND_REDEMPTION_HANDLING",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "2002-bowman-football.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2002_Bowman_Football_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceSetId": 4525,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4525/2002-Bowman?PageIndex=1",
+      "expectedCards": 275,
+      "notes": "Complete #1-275: veterans1-110 and 165 true base RCs111-275. Original #42 error preserved as variant; Edward Reed displayed as Ed Reed with printed name retained."
+    },
+    {
+      "key": "gold",
+      "id": "2002_Bowman_Football_Gold",
+      "name": "Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 36989,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/36989/2002-Bowman-Gold?PageIndex=1",
+      "expectedCards": 275,
+      "notes": "Complete independently retrieved 275-card parallel /50. Correct Jeremy Allen #197 to Minnesota Vikings. Combined base-parallel rate 1:11 does not supply separate Gold odds."
+    },
+    {
+      "key": "silver",
+      "id": "2002_Bowman_Football_Silver",
+      "name": "Silver",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 36992,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/36992/2002-Bowman-Silver?PageIndex=1",
+      "expectedCards": 275,
+      "notes": "Complete independently retrieved 275-card parallel /250. Correct Jeremy Allen #197 to Minnesota Vikings. No fabricated split of combined base-parallel odds."
+    },
+    {
+      "key": "uncirculated",
+      "id": "2002_Bowman_Football_Uncirculated",
+      "name": "Uncirculated",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 36993,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/36993/2002-Bowman-Uncirculated?PageIndex=1",
+      "expectedCards": 110,
+      "notes": "110 noncontiguous rookies, complete actual roster independently corroborated. Do not assume #111-220 or all165 rookies. Reported print run290, physical serial stamp not established; no invented /290. Redeemed through expired programme; 1:24 refers to redemption, not a random fulfilled player card."
+    },
+    {
+      "key": "draft-relics",
+      "id": "2002_Bowman_Football_Draft_Day_Relics",
+      "name": "Draft Day Relics",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 36985,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/36985/2002-Bowman-Draft-Day-Relics?PageIndex=1",
+      "expectedCards": 10,
+      "notes": "Ten cards: five draft-day hat and five jersey relics. Original Carr back confirms DDJ-DC, so normalize independent H-/J- shorthand to DDH-/DDJ-. No game-use claim for draft event apparel."
+    },
+    {
+      "key": "fabric",
+      "id": "2002_Bowman_Football_Fabric_of_the_Future",
+      "name": "Fabric of the Future",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 36986,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/36986/2002-Bowman-Fabric-of-the-Future?PageIndex=1",
+      "expectedCards": 17,
+      "notes": "17 game-worn Senior Bowl jersey cards. Preserve tier rates in source; no verified aggregate integer."
+    },
+    {
+      "key": "flashback-autographs",
+      "id": "2002_Bowman_Football_Flashback_Autographs",
+      "name": "Flashback Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 36987,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/36987/2002-Bowman-Flashback-Autographs?PageIndex=1",
+      "expectedCards": 8,
+      "notes": "Eight certified veteran autographs; retain card affiliations, including Bill Schroeder with Packers. Separate from true base rookies."
+    },
+    {
+      "key": "flashback-jerseys",
+      "id": "2002_Bowman_Football_Flashback_Jerseys",
+      "name": "Flashback Jerseys",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 36988,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/36988/2002-Bowman-Flashback-Jerseys?PageIndex=1",
+      "expectedCards": 11,
+      "notes": "11 player-worn jersey relics; do not claim game-used material. Tier groups retained in source."
+    },
+    {
+      "key": "autographs",
+      "id": "2002_Bowman_Football_Signs_of_the_Future",
+      "name": "Signs of the Future",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 36990,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/36990/2002-Bowman-Signs-of-the-Future?PageIndex=1",
+      "expectedCards": 19,
+      "notes": "19 certified autographs. Distinct roster from Red Ink20; no added Daniel Graham regular autograph. No inferred RC suffixes."
+    },
+    {
+      "key": "red-ink",
+      "id": "2002_Bowman_Football_Signs_of_the_Future_Red_Ink",
+      "name": "Signs of the Future Red Ink",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceSetId": 36991,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/36991/2002-Bowman-Signs-of-the-Future-Red-Ink?PageIndex=1",
+      "expectedCards": 20,
+      "notes": "20 separately retrieved subjects, including Daniel Graham SF-DG1 in addition to David Garrard SF-DG. Retain catalogue disambiguation; Graham printed code needs back-image QA. Preserve12 explicit /50 source tags; other8 have no verified individual serial stamp. Programme reports hand-numbered50; do not invent stamps on those8."
+    },
+    {
+      "key": "checklists",
+      "id": "2002_Bowman_Football_Checklists",
+      "name": "Checklists",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceSetId": 4525,
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4525/2002-Bowman",
+      "expectedCards": 2,
+      "notes": "Two separate unnumbered-base checklist inserts, catalogue #1 and2. Clean Checklist subject; ranges in variant; blank teams intentionally valid."
+    }
+  ]
+}

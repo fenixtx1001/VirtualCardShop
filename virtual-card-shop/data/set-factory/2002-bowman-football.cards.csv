@@ -1,0 +1,1023 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Emmitt Smith,Dallas Cowboys,Veterans,
+base,2,Drew Brees,San Diego Chargers,Veterans,
+base,3,Duce Staley,Philadelphia Eagles,Veterans,
+base,4,Curtis Martin,New York Jets,Veterans,
+base,5,Isaac Bruce,St. Louis Rams,Veterans,
+base,6,Stephen Davis,Washington Redskins,Veterans,
+base,7,Darrell Jackson,Seattle Seahawks,Veterans,
+base,8,James Stewart,Detroit Lions,Veterans,
+base,9,Tim Couch,Cleveland Browns,Veterans,
+base,10,Travis Henry,Buffalo Bills,Veterans,
+base,11,Thomas Jones,Arizona Cardinals,Veterans,
+base,12,Jamal Lewis,Baltimore Ravens,Veterans,
+base,13,Chris Chambers,Miami Dolphins,Veterans,
+base,14,Jeff Blake,Baltimore Ravens,Veterans,
+base,15,Plaxico Burress,Pittsburgh Steelers,Veterans,
+base,16,Michael Pittman,Tampa Bay Buccaneers,Veterans,
+base,17,Jeff Garcia,San Francisco 49ers,Veterans,
+base,18,Tim Brown,Oakland Raiders,Veterans,
+base,19,Kent Graham,Houston Texans,Veterans,
+base,20,Shannon Sharpe,Denver Broncos,Veterans,
+base,21,Corey Dillon,Cincinnati Bengals,Veterans,
+base,22,Muhsin Muhammad,Carolina Panthers,Veterans,
+base,23,Tony Gonzalez,Kansas City Chiefs,Veterans,
+base,24,Qadry Ismail,Indianapolis Colts,Veterans,
+base,25,Mike McMahon,Detroit Lions,Veterans,
+base,26,Edgerrin James,Indianapolis Colts,Veterans,
+base,27,Daunte Culpepper,Minnesota Vikings,Veterans,
+base,28,Deuce McAllister,New Orleans Saints,Veterans,
+base,29,Kerry Collins,New York Giants,Veterans,
+base,30,Eddie George,Tennessee Titans,Veterans,
+base,31,Torry Holt,St. Louis Rams,Veterans,
+base,32,Todd Pinkston,Philadelphia Eagles,Veterans,
+base,33,Quincy Carter,Dallas Cowboys,Veterans,
+base,34,Rod Smith,Denver Broncos,Veterans,
+base,35,Michael Vick,Atlanta Falcons,Veterans,
+base,36,Jim Miller,Chicago Bears,Veterans,
+base,37,Troy Brown,New England Patriots,Veterans,
+base,38,Wayne Chrebet,New York Jets,Veterans,
+base,39,Curtis Conway,San Diego Chargers,Veterans,
+base,40,Reidel Anthony,Washington Redskins,Veterans,
+base,41,Mark Brunell,Jacksonville Jaguars,Veterans,
+base,42,Chris Weinke,Carolina Panthers,Veterans,UER: Passing Yards in AVG column and Passing AVG in YDS column
+base,43,Eric Moulds,Buffalo Bills,Veterans,
+base,44,Ike Hilliard,New York Giants,Veterans,
+base,45,Jay Fiedler,Miami Dolphins,Veterans,
+base,46,Keyshawn Johnson,Tampa Bay Buccaneers,Veterans,
+base,47,Rod Gardner,Washington Redskins,Veterans,
+base,48,Chris Redman,Baltimore Ravens,Veterans,
+base,49,James Allen,Houston Texans,Veterans,
+base,50,Kordell Stewart,Pittsburgh Steelers,Veterans,
+base,51,Priest Holmes,Kansas City Chiefs,Veterans,
+base,52,Anthony Thomas,Chicago Bears,Veterans,
+base,53,Peter Warrick,Cincinnati Bengals,Veterans,
+base,54,Jake Plummer,Arizona Cardinals,Veterans,
+base,55,Jerry Rice,Oakland Raiders,Veterans,
+base,56,Joe Horn,New Orleans Saints,Veterans,
+base,57,Derrick Mason,Tennessee Titans,Veterans,
+base,58,Kurt Warner,St. Louis Rams,Veterans,
+base,59,Antowain Smith,New England Patriots,Veterans,
+base,60,Randy Moss,Minnesota Vikings,Veterans,
+base,61,Warrick Dunn,Atlanta Falcons,Veterans,
+base,62,Laveranues Coles,New York Jets,Veterans,
+base,63,LaDainian Tomlinson,San Diego Chargers,Veterans,
+base,64,Michael Westbrook,Cincinnati Bengals,Veterans,
+base,65,Travis Taylor,Baltimore Ravens,Veterans,
+base,66,Brian Griese,Denver Broncos,Veterans,
+base,67,Bill Schroeder,Detroit Lions,Veterans,
+base,68,Ahman Green,Green Bay Packers,Veterans,
+base,69,Jimmy Smith,Jacksonville Jaguars,Veterans,
+base,70,Charlie Garner,Oakland Raiders,Veterans,
+base,71,Terrell Owens,San Francisco 49ers,Veterans,
+base,72,Brad Johnson,Tampa Bay Buccaneers,Veterans,
+base,73,James Thrash,Philadelphia Eagles,Veterans,
+base,74,Marvin Harrison,Indianapolis Colts,Veterans,
+base,75,Brett Favre,Green Bay Packers,Veterans,
+base,76,Raghib Ismail,Dallas Cowboys,Veterans,
+base,77,David Boston,Arizona Cardinals,Veterans,
+base,78,Jermaine Lewis,Houston Texans,Veterans,
+base,79,Aaron Brooks,New Orleans Saints,Veterans,
+base,80,Shaun Alexander,Seattle Seahawks,Veterans,
+base,81,Steve McNair,Tennessee Titans,Veterans,
+base,82,Marshall Faulk,St. Louis Rams,Veterans,
+base,83,Terrell Davis,Denver Broncos,Veterans,
+base,84,Corey Bradford,Houston Texans,Veterans,
+base,85,David Terrell,Chicago Bears,Veterans,
+base,86,Kevin Johnson,Cleveland Browns,Veterans,
+base,87,Jon Kitna,Cincinnati Bengals,Veterans,
+base,88,Az-Zahir Hakim,Detroit Lions,Veterans,
+base,89,Drew Bledsoe,Buffalo Bills,Veterans,
+base,90,Garrison Hearst,San Francisco 49ers,Veterans,
+base,91,Doug Flutie,San Diego Chargers,Veterans,
+base,92,Jerome Bettis,Pittsburgh Steelers,Veterans,
+base,93,Vinny Testaverde,New York Jets,Veterans,
+base,94,Tiki Barber,New York Giants,Veterans,
+base,95,Johnnie Morton,Kansas City Chiefs,Veterans,
+base,96,Lamar Smith,Carolina Panthers,Veterans,
+base,97,Marcus Robinson,Chicago Bears,Veterans,
+base,98,Fred Taylor,Jacksonville Jaguars,Veterans,
+base,99,Tom Brady,New England Patriots,Veterans,
+base,100,Peyton Manning,Indianapolis Colts,Veterans,
+base,101,Donovan McNabb,Philadelphia Eagles,Veterans,
+base,102,Rich Gannon,Oakland Raiders,Veterans,
+base,103,Hines Ward,Pittsburgh Steelers,Veterans,
+base,104,Michael Bennett,Minnesota Vikings,Veterans,
+base,105,Ricky Williams,Miami Dolphins,Veterans,
+base,106,Germane Crowell,Detroit Lions,Veterans,
+base,107,Joey Galloway,Dallas Cowboys,Veterans,
+base,108,Amani Toomer,New York Giants,Veterans,
+base,109,Trent Green,Kansas City Chiefs,Veterans,
+base,110,Terry Glenn,Green Bay Packers,Veterans,
+base,111,Donte' Stallworth RC,New Orleans Saints,Rookies,
+base,112,Mike Williams RC,Buffalo Bills,Rookies,
+base,113,Kurt Kittner RC,Atlanta Falcons,Rookies,
+base,114,Josh Reed RC,Buffalo Bills,Rookies,
+base,115,Raonall Smith RC,Minnesota Vikings,Rookies,
+base,116,David Garrard RC,Jacksonville Jaguars,Rookies,
+base,117,Eric Crouch RC,St. Louis Rams,Rookies,
+base,118,Bryan Thomas RC,New York Jets,Rookies,
+base,119,Levi Jones RC,Cincinnati Bengals,Rookies,
+base,120,Andre Davis RC,Cleveland Browns,Rookies,
+base,121,Herb Haygood RC,Denver Broncos,Rookies,
+base,122,Josh McCown RC,Arizona Cardinals,Rookies,
+base,123,Quentin Jammer RC,San Diego Chargers,Rookies,
+base,124,Cliff Russell RC,Washington Redskins,Rookies,
+base,125,Jeremy Shockey RC,New York Giants,Rookies,
+base,126,Jamin Elliott RC,Chicago Bears,Rookies,
+base,127,Roy Williams RC,Dallas Cowboys,Rookies,
+base,128,Marquise Walker RC,Tampa Bay Buccaneers,Rookies,
+base,129,Kalimba Edwards RC,Detroit Lions,Rookies,
+base,130,Daniel Graham RC,New England Patriots,Rookies,
+base,131,Freddie Milons RC,Philadelphia Eagles,Rookies,
+base,132,Anthony Weaver RC,Baltimore Ravens,Rookies,
+base,133,Jake Schifino RC,Tennessee Titans,Rookies,
+base,134,Antonio Bryant RC,Dallas Cowboys,Rookies,
+base,135,DeShaun Foster RC,Carolina Panthers,Rookies,
+base,136,Antwaan Randle El RC,Pittsburgh Steelers,Rookies,
+base,137,William Green RC,Cleveland Browns,Rookies,
+base,138,Ed Reed RC,Baltimore Ravens,Rookies,Printed name Edward Reed; canonical Ed Reed
+base,139,Maurice Morris RC,Seattle Seahawks,Rookies,
+base,140,Joey Harrington RC,Detroit Lions,Rookies,
+base,141,T.J. Duckett RC,Atlanta Falcons,Rookies,
+base,142,Javon Walker RC,Green Bay Packers,Rookies,
+base,143,Albert Haynesworth RC,Tennessee Titans,Rookies,
+base,144,Julius Peppers RC,Carolina Panthers,Rookies,
+base,145,Clinton Portis RC,Denver Broncos,Rookies,
+base,146,Craig Nall RC,Green Bay Packers,Rookies,
+base,147,Ashley Lelie RC,Denver Broncos,Rookies,
+base,148,Donald Reche Caldwell RC,San Diego Chargers,Rookies,
+base,149,Rohan Davey RC,New England Patriots,Rookies,
+base,150,Patrick Ramsey RC,Washington Redskins,Rookies,
+base,151,Jabar Gaffney RC,Houston Texans,Rookies,
+base,152,Tank Williams RC,Tennessee Titans,Rookies,
+base,153,Ron Johnson RC,Baltimore Ravens,Rookies,
+base,154,Ladell Betts RC,Washington Redskins,Rookies,
+base,155,Brian Westbrook RC,Philadelphia Eagles,Rookies,
+base,156,Jamar Martin RC,Dallas Cowboys,Rookies,
+base,157,Travis Stephens RC,Tampa Bay Buccaneers,Rookies,
+base,158,Tim Carter RC,New York Giants,Rookies,
+base,159,Darrell Hill RC,Tennessee Titans,Rookies,
+base,160,Luke Staley RC,Detroit Lions,Rookies,
+base,161,Randy Fasani RC,Carolina Panthers,Rookies,
+base,162,Matt Schobel RC,Cincinnati Bengals,Rookies,
+base,163,Jon McGraw RC,New York Jets,Rookies,
+base,164,Dwight Freeney RC,Indianapolis Colts,Rookies,
+base,165,Chad Hutchinson RC,Dallas Cowboys,Rookies,
+base,166,Adrian Peterson RC,Chicago Bears,Rookies,
+base,167,Josh Scobey RC,Arizona Cardinals,Rookies,
+base,168,Jonathan Wells RC,Houston Texans,Rookies,
+base,169,Sam Simmons RC,Miami Dolphins,Rookies,
+base,170,Jerramy Stevens RC,Seattle Seahawks,Rookies,
+base,171,Jason McAddley RC,Arizona Cardinals,Rookies,
+base,172,Ken Simonton RC,San Francisco 49ers,Rookies,
+base,173,Chester Taylor RC,Baltimore Ravens,Rookies,
+base,174,Brandon Doman RC,San Francisco 49ers,Rookies,
+base,175,Javin Hunter RC,Baltimore Ravens,Rookies,
+base,176,Eddie Drummond RC,Detroit Lions,Rookies,
+base,177,Andre Lott RC,Washington Redskins,Rookies,
+base,178,Travis Fisher RC,St. Louis Rams,Rookies,
+base,179,Jarvis Green RC,New England Patriots,Rookies,
+base,180,Ross Tucker RC,Washington Redskins,Rookies,
+base,181,Lamont Brightful RC,Baltimore Ravens,Rookies,
+base,182,Rocky Calmus RC,Tennessee Titans,Rookies,
+base,183,Wes Pate RC,Baltimore Ravens,Rookies,
+base,184,Lamar Gordon RC,St. Louis Rams,Rookies,
+base,185,Terry Jones RC,Baltimore Ravens,Rookies,
+base,186,Kyle Johnson RC,Carolina Panthers,Rookies,
+base,187,Daryl Jones RC,New York Giants,Rookies,
+base,188,Tellis Redmon RC,Baltimore Ravens,Rookies,
+base,189,Howard Green RC,Houston Texans,Rookies,
+base,190,Jarrod Baxter RC,Houston Texans,Rookies,
+base,191,Delvon Flowers RC,Houston Texans,Rookies,
+base,192,Kevin Curtis RC,San Francisco 49ers,Rookies,
+base,193,Kelly Campbell RC,Minnesota Vikings,Rookies,
+base,194,Eddie Freeman RC,Kansas City Chiefs,Rookies,
+base,195,Atrews Bell RC,Minnesota Vikings,Rookies,
+base,196,Omar Easy RC,Kansas City Chiefs,Rookies,
+base,197,Jeremy Allen RC,Minnesota Vikings,Rookies,
+base,198,Andra Davis RC,Cleveland Browns,Rookies,
+base,199,Jack Brewer RC,Minnesota Vikings,Rookies,
+base,200,Mike Rumph RC,San Francisco 49ers,Rookies,
+base,201,Seth Burford RC,San Diego Chargers,Rookies,
+base,202,Marquand Manuel RC,Cincinnati Bengals,Rookies,
+base,203,Marques Anderson RC,Green Bay Packers,Rookies,
+base,204,Ben Leber RC,San Diego Chargers,Rookies,
+base,205,Ryan Denney RC,Buffalo Bills,Rookies,
+base,206,Justin Peelle RC,San Diego Chargers,Rookies,
+base,207,Lito Sheppard RC,Philadelphia Eagles,Rookies,
+base,208,Damien Anderson RC,Arizona Cardinals,Rookies,
+base,209,Lamont Thompson RC,Cincinnati Bengals,Rookies,
+base,210,David Priestley RC,Buffalo Bills,Rookies,
+base,211,Michael Lewis RC,Philadelphia Eagles,Rookies,
+base,212,Lee Mays RC,Pittsburgh Steelers,Rookies,
+base,213,Alan Harper RC,New York Jets,Rookies,
+base,214,Verron Haynes RC,Pittsburgh Steelers,Rookies,
+base,215,Chris Hope RC,Pittsburgh Steelers,Rookies,
+base,216,David Thornton RC,Indianapolis Colts,Rookies,
+base,217,Derek Ross RC,Dallas Cowboys,Rookies,
+base,218,Brett Keisel RC,Pittsburgh Steelers,Rookies,
+base,219,Joseph Jefferson RC,Indianapolis Colts,Rookies,
+base,220,Andre' Goodman RC,Detroit Lions,Rookies,
+base,221,Robert Royal RC,Washington Redskins,Rookies,
+base,222,Sheldon Brown RC,Philadelphia Eagles,Rookies,
+base,223,DeVeren Johnson RC,Dallas Cowboys,Rookies,
+base,224,Rock Cartwright RC,Washington Redskins,Rookies,
+base,225,Quincy Monk RC,New York Giants,Rookies,
+base,226,Nick Rogers RC,Minnesota Vikings,Rookies,
+base,227,Kendall Simmons RC,Pittsburgh Steelers,Rookies,
+base,228,Joe Burns RC,Buffalo Bills,Rookies,
+base,229,Wesly Mallard RC,New York Giants,Rookies,
+base,230,Chris Cash RC,Detroit Lions,Rookies,
+base,231,David Givens RC,New England Patriots,Rookies,
+base,232,John Owens RC,Detroit Lions,Rookies,
+base,233,Jarrett Ferguson RC,Buffalo Bills,Rookies,
+base,234,Randy McMichael RC,Miami Dolphins,Rookies,
+base,235,Chris Baker RC,New York Jets,Rookies,
+base,236,Rashad Bauman RC,Washington Redskins,Rookies,
+base,237,Matt Murphy RC,Detroit Lions,Rookies,
+base,238,LaVar Glover RC,Pittsburgh Steelers,Rookies,
+base,239,Steve Bellisari RC,St. Louis Rams,Rookies,
+base,240,Chad Williams RC,Baltimore Ravens,Rookies,
+base,241,Kevin Thomas RC,Buffalo Bills,Rookies,
+base,242,Carlos Hall RC,Tennessee Titans,Rookies,
+base,243,Nick Greisen RC,New York Giants,Rookies,
+base,244,Justin Bannan RC,Buffalo Bills,Rookies,
+base,245,Charles Hill RC,Houston Texans,Rookies,
+base,246,Mark Anelli RC,San Francisco 49ers,Rookies,
+base,247,Coy Wire RC,Buffalo Bills,Rookies,
+base,248,Darnell Sanders RC,Cleveland Browns,Rookies,
+base,249,Larry Foote RC,Pittsburgh Steelers,Rookies,
+base,250,David Carr RC,Houston Texans,Rookies,
+base,251,Ricky Williams RC,New Orleans Saints,Rookies,
+base,252,Napoleon Harris RC,Oakland Raiders,Rookies,
+base,253,Ennis Haywood RC,Dallas Cowboys,Rookies,
+base,254,Keyuo Craver RC,New Orleans Saints,Rookies,
+base,255,Kahlil Hill RC,Atlanta Falcons,Rookies,
+base,256,J.T. O'Sullivan RC,New Orleans Saints,Rookies,
+base,257,Woodrow Dantzler RC,Dallas Cowboys,Rookies,
+base,258,Phillip Buchanon RC,Oakland Raiders,Rookies,
+base,259,Charles Grant RC,New Orleans Saints,Rookies,
+base,260,Dusty Bonner RC,Atlanta Falcons,Rookies,
+base,261,James Allen RC,New Orleans Saints,Rookies,
+base,262,Ronald Curry RC,Oakland Raiders,Rookies,
+base,263,Deion Branch RC,New England Patriots,Rookies,
+base,264,Larry Ned RC,Oakland Raiders,Rookies,
+base,265,Mel Mitchell RC,New Orleans Saints,Rookies,
+base,266,Kendall Newson RC,Jacksonville Jaguars,Rookies,
+base,267,Shaun Hill RC,Minnesota Vikings,Rookies,
+base,268,David Pugh RC,Indianapolis Colts,Rookies,
+base,269,Dante Wesley RC,Carolina Panthers,Rookies,
+base,270,Josh Mallard RC,Indianapolis Colts,Rookies,
+base,271,Akin Ayodele RC,Jacksonville Jaguars,Rookies,
+base,272,Pete Hunter RC,Dallas Cowboys,Rookies,
+base,273,Kevin McCadam RC,Atlanta Falcons,Rookies,
+base,274,Jeff Kelly RC,Seattle Seahawks,Rookies,
+base,275,John Henderson RC,Jacksonville Jaguars,Rookies,
+gold,1,Emmitt Smith,Dallas Cowboys,Veterans,Serial numbered /50
+gold,2,Drew Brees,San Diego Chargers,Veterans,Serial numbered /50
+gold,3,Duce Staley,Philadelphia Eagles,Veterans,Serial numbered /50
+gold,4,Curtis Martin,New York Jets,Veterans,Serial numbered /50
+gold,5,Isaac Bruce,St. Louis Rams,Veterans,Serial numbered /50
+gold,6,Stephen Davis,Washington Redskins,Veterans,Serial numbered /50
+gold,7,Darrell Jackson,Seattle Seahawks,Veterans,Serial numbered /50
+gold,8,James Stewart,Detroit Lions,Veterans,Serial numbered /50
+gold,9,Tim Couch,Cleveland Browns,Veterans,Serial numbered /50
+gold,10,Travis Henry,Buffalo Bills,Veterans,Serial numbered /50
+gold,11,Thomas Jones,Arizona Cardinals,Veterans,Serial numbered /50
+gold,12,Jamal Lewis,Baltimore Ravens,Veterans,Serial numbered /50
+gold,13,Chris Chambers,Miami Dolphins,Veterans,Serial numbered /50
+gold,14,Jeff Blake,Baltimore Ravens,Veterans,Serial numbered /50
+gold,15,Plaxico Burress,Pittsburgh Steelers,Veterans,Serial numbered /50
+gold,16,Michael Pittman,Tampa Bay Buccaneers,Veterans,Serial numbered /50
+gold,17,Jeff Garcia,San Francisco 49ers,Veterans,Serial numbered /50
+gold,18,Tim Brown,Oakland Raiders,Veterans,Serial numbered /50
+gold,19,Kent Graham,Houston Texans,Veterans,Serial numbered /50
+gold,20,Shannon Sharpe,Denver Broncos,Veterans,Serial numbered /50
+gold,21,Corey Dillon,Cincinnati Bengals,Veterans,Serial numbered /50
+gold,22,Muhsin Muhammad,Carolina Panthers,Veterans,Serial numbered /50
+gold,23,Tony Gonzalez,Kansas City Chiefs,Veterans,Serial numbered /50
+gold,24,Qadry Ismail,Indianapolis Colts,Veterans,Serial numbered /50
+gold,25,Mike McMahon,Detroit Lions,Veterans,Serial numbered /50
+gold,26,Edgerrin James,Indianapolis Colts,Veterans,Serial numbered /50
+gold,27,Daunte Culpepper,Minnesota Vikings,Veterans,Serial numbered /50
+gold,28,Deuce McAllister,New Orleans Saints,Veterans,Serial numbered /50
+gold,29,Kerry Collins,New York Giants,Veterans,Serial numbered /50
+gold,30,Eddie George,Tennessee Titans,Veterans,Serial numbered /50
+gold,31,Torry Holt,St. Louis Rams,Veterans,Serial numbered /50
+gold,32,Todd Pinkston,Philadelphia Eagles,Veterans,Serial numbered /50
+gold,33,Quincy Carter,Dallas Cowboys,Veterans,Serial numbered /50
+gold,34,Rod Smith,Denver Broncos,Veterans,Serial numbered /50
+gold,35,Michael Vick,Atlanta Falcons,Veterans,Serial numbered /50
+gold,36,Jim Miller,Chicago Bears,Veterans,Serial numbered /50
+gold,37,Troy Brown,New England Patriots,Veterans,Serial numbered /50
+gold,38,Wayne Chrebet,New York Jets,Veterans,Serial numbered /50
+gold,39,Curtis Conway,San Diego Chargers,Veterans,Serial numbered /50
+gold,40,Reidel Anthony,Washington Redskins,Veterans,Serial numbered /50
+gold,41,Mark Brunell,Jacksonville Jaguars,Veterans,Serial numbered /50
+gold,42,Chris Weinke,Carolina Panthers,Veterans,Serial numbered /50
+gold,43,Eric Moulds,Buffalo Bills,Veterans,Serial numbered /50
+gold,44,Ike Hilliard,New York Giants,Veterans,Serial numbered /50
+gold,45,Jay Fiedler,Miami Dolphins,Veterans,Serial numbered /50
+gold,46,Keyshawn Johnson,Tampa Bay Buccaneers,Veterans,Serial numbered /50
+gold,47,Rod Gardner,Washington Redskins,Veterans,Serial numbered /50
+gold,48,Chris Redman,Baltimore Ravens,Veterans,Serial numbered /50
+gold,49,James Allen,Houston Texans,Veterans,Serial numbered /50
+gold,50,Kordell Stewart,Pittsburgh Steelers,Veterans,Serial numbered /50
+gold,51,Priest Holmes,Kansas City Chiefs,Veterans,Serial numbered /50
+gold,52,Anthony Thomas,Chicago Bears,Veterans,Serial numbered /50
+gold,53,Peter Warrick,Cincinnati Bengals,Veterans,Serial numbered /50
+gold,54,Jake Plummer,Arizona Cardinals,Veterans,Serial numbered /50
+gold,55,Jerry Rice,Oakland Raiders,Veterans,Serial numbered /50
+gold,56,Joe Horn,New Orleans Saints,Veterans,Serial numbered /50
+gold,57,Derrick Mason,Tennessee Titans,Veterans,Serial numbered /50
+gold,58,Kurt Warner,St. Louis Rams,Veterans,Serial numbered /50
+gold,59,Antowain Smith,New England Patriots,Veterans,Serial numbered /50
+gold,60,Randy Moss,Minnesota Vikings,Veterans,Serial numbered /50
+gold,61,Warrick Dunn,Atlanta Falcons,Veterans,Serial numbered /50
+gold,62,Laveranues Coles,New York Jets,Veterans,Serial numbered /50
+gold,63,LaDainian Tomlinson,San Diego Chargers,Veterans,Serial numbered /50
+gold,64,Michael Westbrook,Cincinnati Bengals,Veterans,Serial numbered /50
+gold,65,Travis Taylor,Baltimore Ravens,Veterans,Serial numbered /50
+gold,66,Brian Griese,Denver Broncos,Veterans,Serial numbered /50
+gold,67,Bill Schroeder,Detroit Lions,Veterans,Serial numbered /50
+gold,68,Ahman Green,Green Bay Packers,Veterans,Serial numbered /50
+gold,69,Jimmy Smith,Jacksonville Jaguars,Veterans,Serial numbered /50
+gold,70,Charlie Garner,Oakland Raiders,Veterans,Serial numbered /50
+gold,71,Terrell Owens,San Francisco 49ers,Veterans,Serial numbered /50
+gold,72,Brad Johnson,Tampa Bay Buccaneers,Veterans,Serial numbered /50
+gold,73,James Thrash,Philadelphia Eagles,Veterans,Serial numbered /50
+gold,74,Marvin Harrison,Indianapolis Colts,Veterans,Serial numbered /50
+gold,75,Brett Favre,Green Bay Packers,Veterans,Serial numbered /50
+gold,76,Raghib Ismail,Dallas Cowboys,Veterans,Serial numbered /50
+gold,77,David Boston,Arizona Cardinals,Veterans,Serial numbered /50
+gold,78,Jermaine Lewis,Houston Texans,Veterans,Serial numbered /50
+gold,79,Aaron Brooks,New Orleans Saints,Veterans,Serial numbered /50
+gold,80,Shaun Alexander,Seattle Seahawks,Veterans,Serial numbered /50
+gold,81,Steve McNair,Tennessee Titans,Veterans,Serial numbered /50
+gold,82,Marshall Faulk,St. Louis Rams,Veterans,Serial numbered /50
+gold,83,Terrell Davis,Denver Broncos,Veterans,Serial numbered /50
+gold,84,Corey Bradford,Houston Texans,Veterans,Serial numbered /50
+gold,85,David Terrell,Chicago Bears,Veterans,Serial numbered /50
+gold,86,Kevin Johnson,Cleveland Browns,Veterans,Serial numbered /50
+gold,87,Jon Kitna,Cincinnati Bengals,Veterans,Serial numbered /50
+gold,88,Az-Zahir Hakim,Detroit Lions,Veterans,Serial numbered /50
+gold,89,Drew Bledsoe,Buffalo Bills,Veterans,Serial numbered /50
+gold,90,Garrison Hearst,San Francisco 49ers,Veterans,Serial numbered /50
+gold,91,Doug Flutie,San Diego Chargers,Veterans,Serial numbered /50
+gold,92,Jerome Bettis,Pittsburgh Steelers,Veterans,Serial numbered /50
+gold,93,Vinny Testaverde,New York Jets,Veterans,Serial numbered /50
+gold,94,Tiki Barber,New York Giants,Veterans,Serial numbered /50
+gold,95,Johnnie Morton,Kansas City Chiefs,Veterans,Serial numbered /50
+gold,96,Lamar Smith,Carolina Panthers,Veterans,Serial numbered /50
+gold,97,Marcus Robinson,Chicago Bears,Veterans,Serial numbered /50
+gold,98,Fred Taylor,Jacksonville Jaguars,Veterans,Serial numbered /50
+gold,99,Tom Brady,New England Patriots,Veterans,Serial numbered /50
+gold,100,Peyton Manning,Indianapolis Colts,Veterans,Serial numbered /50
+gold,101,Donovan McNabb,Philadelphia Eagles,Veterans,Serial numbered /50
+gold,102,Rich Gannon,Oakland Raiders,Veterans,Serial numbered /50
+gold,103,Hines Ward,Pittsburgh Steelers,Veterans,Serial numbered /50
+gold,104,Michael Bennett,Minnesota Vikings,Veterans,Serial numbered /50
+gold,105,Ricky Williams,Miami Dolphins,Veterans,Serial numbered /50
+gold,106,Germane Crowell,Detroit Lions,Veterans,Serial numbered /50
+gold,107,Joey Galloway,Dallas Cowboys,Veterans,Serial numbered /50
+gold,108,Amani Toomer,New York Giants,Veterans,Serial numbered /50
+gold,109,Trent Green,Kansas City Chiefs,Veterans,Serial numbered /50
+gold,110,Terry Glenn,Green Bay Packers,Veterans,Serial numbered /50
+gold,111,Donte' Stallworth,New Orleans Saints,Rookies,Serial numbered /50
+gold,112,Mike Williams,Buffalo Bills,Rookies,Serial numbered /50
+gold,113,Kurt Kittner,Atlanta Falcons,Rookies,Serial numbered /50
+gold,114,Josh Reed,Buffalo Bills,Rookies,Serial numbered /50
+gold,115,Raonall Smith,Minnesota Vikings,Rookies,Serial numbered /50
+gold,116,David Garrard,Jacksonville Jaguars,Rookies,Serial numbered /50
+gold,117,Eric Crouch,St. Louis Rams,Rookies,Serial numbered /50
+gold,118,Bryan Thomas,New York Jets,Rookies,Serial numbered /50
+gold,119,Levi Jones,Cincinnati Bengals,Rookies,Serial numbered /50
+gold,120,Andre Davis,Cleveland Browns,Rookies,Serial numbered /50
+gold,121,Herb Haygood,Denver Broncos,Rookies,Serial numbered /50
+gold,122,Josh McCown,Arizona Cardinals,Rookies,Serial numbered /50
+gold,123,Quentin Jammer,San Diego Chargers,Rookies,Serial numbered /50
+gold,124,Cliff Russell,Washington Redskins,Rookies,Serial numbered /50
+gold,125,Jeremy Shockey,New York Giants,Rookies,Serial numbered /50
+gold,126,Jamin Elliott,Chicago Bears,Rookies,Serial numbered /50
+gold,127,Roy Williams,Dallas Cowboys,Rookies,Serial numbered /50
+gold,128,Marquise Walker,Tampa Bay Buccaneers,Rookies,Serial numbered /50
+gold,129,Kalimba Edwards,Detroit Lions,Rookies,Serial numbered /50
+gold,130,Daniel Graham,New England Patriots,Rookies,Serial numbered /50
+gold,131,Freddie Milons,Philadelphia Eagles,Rookies,Serial numbered /50
+gold,132,Anthony Weaver,Baltimore Ravens,Rookies,Serial numbered /50
+gold,133,Jake Schifino,Tennessee Titans,Rookies,Serial numbered /50
+gold,134,Antonio Bryant,Dallas Cowboys,Rookies,Serial numbered /50
+gold,135,DeShaun Foster,Carolina Panthers,Rookies,Serial numbered /50
+gold,136,Antwaan Randle El,Pittsburgh Steelers,Rookies,Serial numbered /50
+gold,137,William Green,Cleveland Browns,Rookies,Serial numbered /50
+gold,138,Ed Reed,Baltimore Ravens,Rookies,Serial numbered /50
+gold,139,Maurice Morris,Seattle Seahawks,Rookies,Serial numbered /50
+gold,140,Joey Harrington,Detroit Lions,Rookies,Serial numbered /50
+gold,141,T.J. Duckett,Atlanta Falcons,Rookies,Serial numbered /50
+gold,142,Javon Walker,Green Bay Packers,Rookies,Serial numbered /50
+gold,143,Albert Haynesworth,Tennessee Titans,Rookies,Serial numbered /50
+gold,144,Julius Peppers,Carolina Panthers,Rookies,Serial numbered /50
+gold,145,Clinton Portis,Denver Broncos,Rookies,Serial numbered /50
+gold,146,Craig Nall,Green Bay Packers,Rookies,Serial numbered /50
+gold,147,Ashley Lelie,Denver Broncos,Rookies,Serial numbered /50
+gold,148,Donald Reche Caldwell,San Diego Chargers,Rookies,Serial numbered /50
+gold,149,Rohan Davey,New England Patriots,Rookies,Serial numbered /50
+gold,150,Patrick Ramsey,Washington Redskins,Rookies,Serial numbered /50
+gold,151,Jabar Gaffney,Houston Texans,Rookies,Serial numbered /50
+gold,152,Tank Williams,Tennessee Titans,Rookies,Serial numbered /50
+gold,153,Ron Johnson,Baltimore Ravens,Rookies,Serial numbered /50
+gold,154,Ladell Betts,Washington Redskins,Rookies,Serial numbered /50
+gold,155,Brian Westbrook,Philadelphia Eagles,Rookies,Serial numbered /50
+gold,156,Jamar Martin,Dallas Cowboys,Rookies,Serial numbered /50
+gold,157,Travis Stephens,Tampa Bay Buccaneers,Rookies,Serial numbered /50
+gold,158,Tim Carter,New York Giants,Rookies,Serial numbered /50
+gold,159,Darrell Hill,Tennessee Titans,Rookies,Serial numbered /50
+gold,160,Luke Staley,Detroit Lions,Rookies,Serial numbered /50
+gold,161,Randy Fasani,Carolina Panthers,Rookies,Serial numbered /50
+gold,162,Matt Schobel,Cincinnati Bengals,Rookies,Serial numbered /50
+gold,163,Jon McGraw,New York Jets,Rookies,Serial numbered /50
+gold,164,Dwight Freeney,Indianapolis Colts,Rookies,Serial numbered /50
+gold,165,Chad Hutchinson,Dallas Cowboys,Rookies,Serial numbered /50
+gold,166,Adrian Peterson,Chicago Bears,Rookies,Serial numbered /50
+gold,167,Josh Scobey,Arizona Cardinals,Rookies,Serial numbered /50
+gold,168,Jonathan Wells,Houston Texans,Rookies,Serial numbered /50
+gold,169,Sam Simmons,Miami Dolphins,Rookies,Serial numbered /50
+gold,170,Jerramy Stevens,Seattle Seahawks,Rookies,Serial numbered /50
+gold,171,Jason McAddley,Arizona Cardinals,Rookies,Serial numbered /50
+gold,172,Ken Simonton,San Francisco 49ers,Rookies,Serial numbered /50
+gold,173,Chester Taylor,Baltimore Ravens,Rookies,Serial numbered /50
+gold,174,Brandon Doman,San Francisco 49ers,Rookies,Serial numbered /50
+gold,175,Javin Hunter,Baltimore Ravens,Rookies,Serial numbered /50
+gold,176,Eddie Drummond,Detroit Lions,Rookies,Serial numbered /50
+gold,177,Andre Lott,Washington Redskins,Rookies,Serial numbered /50
+gold,178,Travis Fisher,St. Louis Rams,Rookies,Serial numbered /50
+gold,179,Jarvis Green,New England Patriots,Rookies,Serial numbered /50
+gold,180,Ross Tucker,Washington Redskins,Rookies,Serial numbered /50
+gold,181,LaMont Brightful,Baltimore Ravens,Rookies,Serial numbered /50
+gold,182,Rocky Calmus,Tennessee Titans,Rookies,Serial numbered /50
+gold,183,Wes Pate,Baltimore Ravens,Rookies,Serial numbered /50
+gold,184,Lamar Gordon,St. Louis Rams,Rookies,Serial numbered /50
+gold,185,Terry Jones,Baltimore Ravens,Rookies,Serial numbered /50
+gold,186,Kyle Johnson,Carolina Panthers,Rookies,Serial numbered /50
+gold,187,Daryl Jones,New York Giants,Rookies,Serial numbered /50
+gold,188,Tellis Redmon,Baltimore Ravens,Rookies,Serial numbered /50
+gold,189,Howard Green,Houston Texans,Rookies,Serial numbered /50
+gold,190,Jarrod Baxter,Houston Texans,Rookies,Serial numbered /50
+gold,191,Delvon Flowers,Houston Texans,Rookies,Serial numbered /50
+gold,192,Kevin Curtis,San Francisco 49ers,Rookies,Serial numbered /50
+gold,193,Kelly Campbell,Minnesota Vikings,Rookies,Serial numbered /50
+gold,194,Eddie Freeman,Kansas City Chiefs,Rookies,Serial numbered /50
+gold,195,Atrews Bell,Minnesota Vikings,Rookies,Serial numbered /50
+gold,196,Omar Easy,Kansas City Chiefs,Rookies,Serial numbered /50
+gold,197,Jeremy Allen,Minnesota Vikings,Rookies,Serial numbered /50; Source Miami affiliation corrected to Minnesota Vikings; original base and independent Silver catalogues confirm
+gold,198,Andra Davis,Cleveland Browns,Rookies,Serial numbered /50
+gold,199,Jack Brewer,Minnesota Vikings,Rookies,Serial numbered /50
+gold,200,Mike Rumph,San Francisco 49ers,Rookies,Serial numbered /50
+gold,201,Seth Burford,San Diego Chargers,Rookies,Serial numbered /50
+gold,202,Marquand Manuel,Cincinnati Bengals,Rookies,Serial numbered /50
+gold,203,Marques Anderson,Green Bay Packers,Rookies,Serial numbered /50
+gold,204,Ben Leber,San Diego Chargers,Rookies,Serial numbered /50
+gold,205,Ryan Denney,Buffalo Bills,Rookies,Serial numbered /50
+gold,206,Justin Peelle,San Diego Chargers,Rookies,Serial numbered /50
+gold,207,Lito Sheppard,Philadelphia Eagles,Rookies,Serial numbered /50
+gold,208,Damien Anderson,Arizona Cardinals,Rookies,Serial numbered /50
+gold,209,Lamont Thompson,Cincinnati Bengals,Rookies,Serial numbered /50
+gold,210,David Priestley,Buffalo Bills,Rookies,Serial numbered /50
+gold,211,Michael Lewis,Philadelphia Eagles,Rookies,Serial numbered /50
+gold,212,Lee Mays,Pittsburgh Steelers,Rookies,Serial numbered /50
+gold,213,Alan Harper,New York Jets,Rookies,Serial numbered /50
+gold,214,Verron Haynes,Pittsburgh Steelers,Rookies,Serial numbered /50
+gold,215,Chris Hope,Pittsburgh Steelers,Rookies,Serial numbered /50
+gold,216,David Thornton,Indianapolis Colts,Rookies,Serial numbered /50
+gold,217,Derek Ross,Dallas Cowboys,Rookies,Serial numbered /50
+gold,218,Brett Keisel,Pittsburgh Steelers,Rookies,Serial numbered /50
+gold,219,Joseph Jefferson,Indianapolis Colts,Rookies,Serial numbered /50
+gold,220,Andre Goodman,Detroit Lions,Rookies,Serial numbered /50
+gold,221,Robert Royal,Washington Redskins,Rookies,Serial numbered /50
+gold,222,Sheldon Brown,Philadelphia Eagles,Rookies,Serial numbered /50
+gold,223,DeVeren Johnson,Dallas Cowboys,Rookies,Serial numbered /50
+gold,224,Rock Cartwright,Washington Redskins,Rookies,Serial numbered /50
+gold,225,Quincy Monk,New York Giants,Rookies,Serial numbered /50
+gold,226,Nick Rogers,Minnesota Vikings,Rookies,Serial numbered /50
+gold,227,Kendall Simmons,Pittsburgh Steelers,Rookies,Serial numbered /50
+gold,228,Joe Burns,Buffalo Bills,Rookies,Serial numbered /50
+gold,229,Wesly Mallard,New York Giants,Rookies,Serial numbered /50
+gold,230,Chris Cash,Detroit Lions,Rookies,Serial numbered /50
+gold,231,David Givens,New England Patriots,Rookies,Serial numbered /50
+gold,232,John Owens,Detroit Lions,Rookies,Serial numbered /50
+gold,233,Jarrett Ferguson,Buffalo Bills,Rookies,Serial numbered /50
+gold,234,Randy McMichael,Miami Dolphins,Rookies,Serial numbered /50
+gold,235,Chris Baker,New York Jets,Rookies,Serial numbered /50
+gold,236,Rashad Bauman,Washington Redskins,Rookies,Serial numbered /50
+gold,237,Matt Murphy,Detroit Lions,Rookies,Serial numbered /50
+gold,238,LaVar Glover,Pittsburgh Steelers,Rookies,Serial numbered /50
+gold,239,Steve Bellisari,St. Louis Rams,Rookies,Serial numbered /50
+gold,240,Chad Williams,Baltimore Ravens,Rookies,Serial numbered /50
+gold,241,Kevin Thomas,Buffalo Bills,Rookies,Serial numbered /50
+gold,242,Carlos Hall,Tennessee Titans,Rookies,Serial numbered /50
+gold,243,Nick Greisen,New York Giants,Rookies,Serial numbered /50
+gold,244,Justin Bannan,Buffalo Bills,Rookies,Serial numbered /50
+gold,245,Charles Hill,Houston Texans,Rookies,Serial numbered /50
+gold,246,Mark Anelli,San Francisco 49ers,Rookies,Serial numbered /50
+gold,247,Coy Wire,Buffalo Bills,Rookies,Serial numbered /50
+gold,248,Darnell Sanders,Cleveland Browns,Rookies,Serial numbered /50
+gold,249,Larry Foote,Pittsburgh Steelers,Rookies,Serial numbered /50
+gold,250,David Carr,Houston Texans,Rookies,Serial numbered /50
+gold,251,Ricky Williams,New Orleans Saints,Rookies,Serial numbered /50
+gold,252,Napoleon Harris,Oakland Raiders,Rookies,Serial numbered /50
+gold,253,Ennis Haywood,Dallas Cowboys,Rookies,Serial numbered /50
+gold,254,Keyuo Craver,New Orleans Saints,Rookies,Serial numbered /50
+gold,255,Kahlil Hill,Atlanta Falcons,Rookies,Serial numbered /50
+gold,256,J.T. O'Sullivan,New Orleans Saints,Rookies,Serial numbered /50
+gold,257,Woodrow Dantzler,Dallas Cowboys,Rookies,Serial numbered /50
+gold,258,Phillip Buchanon,Oakland Raiders,Rookies,Serial numbered /50
+gold,259,Charles Grant,New Orleans Saints,Rookies,Serial numbered /50
+gold,260,Dusty Bonner,Atlanta Falcons,Rookies,Serial numbered /50
+gold,261,James Allen,New Orleans Saints,Rookies,Serial numbered /50
+gold,262,Ronald Curry,Oakland Raiders,Rookies,Serial numbered /50
+gold,263,Deion Branch,New England Patriots,Rookies,Serial numbered /50
+gold,264,Larry Ned,Oakland Raiders,Rookies,Serial numbered /50
+gold,265,Mel Mitchell,New Orleans Saints,Rookies,Serial numbered /50
+gold,266,Kendall Newson,Jacksonville Jaguars,Rookies,Serial numbered /50
+gold,267,Shaun Hill,Minnesota Vikings,Rookies,Serial numbered /50
+gold,268,David Pugh,Indianapolis Colts,Rookies,Serial numbered /50
+gold,269,Dante Wesley,Carolina Panthers,Rookies,Serial numbered /50
+gold,270,Josh Mallard,Indianapolis Colts,Rookies,Serial numbered /50
+gold,271,Akin Ayodele,Jacksonville Jaguars,Rookies,Serial numbered /50
+gold,272,Pete Hunter,Dallas Cowboys,Rookies,Serial numbered /50
+gold,273,Kevin McCadam,Atlanta Falcons,Rookies,Serial numbered /50
+gold,274,Jeff Kelly,Seattle Seahawks,Rookies,Serial numbered /50
+gold,275,John Henderson,Jacksonville Jaguars,Rookies,Serial numbered /50
+silver,1,Emmitt Smith,Dallas Cowboys,Veterans,Serial numbered /250
+silver,2,Drew Brees,San Diego Chargers,Veterans,Serial numbered /250
+silver,3,Duce Staley,Philadelphia Eagles,Veterans,Serial numbered /250
+silver,4,Curtis Martin,New York Jets,Veterans,Serial numbered /250
+silver,5,Isaac Bruce,St. Louis Rams,Veterans,Serial numbered /250
+silver,6,Stephen Davis,Washington Redskins,Veterans,Serial numbered /250
+silver,7,Darrell Jackson,Seattle Seahawks,Veterans,Serial numbered /250
+silver,8,James Stewart,Detroit Lions,Veterans,Serial numbered /250
+silver,9,Tim Couch,Cleveland Browns,Veterans,Serial numbered /250
+silver,10,Travis Henry,Buffalo Bills,Veterans,Serial numbered /250
+silver,11,Thomas Jones,Arizona Cardinals,Veterans,Serial numbered /250
+silver,12,Jamal Lewis,Baltimore Ravens,Veterans,Serial numbered /250
+silver,13,Chris Chambers,Miami Dolphins,Veterans,Serial numbered /250
+silver,14,Jeff Blake,Baltimore Ravens,Veterans,Serial numbered /250
+silver,15,Plaxico Burress,Pittsburgh Steelers,Veterans,Serial numbered /250
+silver,16,Michael Pittman,Tampa Bay Buccaneers,Veterans,Serial numbered /250
+silver,17,Jeff Garcia,San Francisco 49ers,Veterans,Serial numbered /250
+silver,18,Tim Brown,Oakland Raiders,Veterans,Serial numbered /250
+silver,19,Kent Graham,Houston Texans,Veterans,Serial numbered /250
+silver,20,Shannon Sharpe,Denver Broncos,Veterans,Serial numbered /250
+silver,21,Corey Dillon,Cincinnati Bengals,Veterans,Serial numbered /250
+silver,22,Muhsin Muhammad,Carolina Panthers,Veterans,Serial numbered /250
+silver,23,Tony Gonzalez,Kansas City Chiefs,Veterans,Serial numbered /250
+silver,24,Qadry Ismail,Indianapolis Colts,Veterans,Serial numbered /250
+silver,25,Mike McMahon,Detroit Lions,Veterans,Serial numbered /250
+silver,26,Edgerrin James,Indianapolis Colts,Veterans,Serial numbered /250
+silver,27,Daunte Culpepper,Minnesota Vikings,Veterans,Serial numbered /250
+silver,28,Deuce McAllister,New Orleans Saints,Veterans,Serial numbered /250
+silver,29,Kerry Collins,New York Giants,Veterans,Serial numbered /250
+silver,30,Eddie George,Tennessee Titans,Veterans,Serial numbered /250
+silver,31,Torry Holt,St. Louis Rams,Veterans,Serial numbered /250
+silver,32,Todd Pinkston,Philadelphia Eagles,Veterans,Serial numbered /250
+silver,33,Quincy Carter,Dallas Cowboys,Veterans,Serial numbered /250
+silver,34,Rod Smith,Denver Broncos,Veterans,Serial numbered /250
+silver,35,Michael Vick,Atlanta Falcons,Veterans,Serial numbered /250
+silver,36,Jim Miller,Chicago Bears,Veterans,Serial numbered /250
+silver,37,Troy Brown,New England Patriots,Veterans,Serial numbered /250
+silver,38,Wayne Chrebet,New York Jets,Veterans,Serial numbered /250
+silver,39,Curtis Conway,San Diego Chargers,Veterans,Serial numbered /250
+silver,40,Reidel Anthony,Washington Redskins,Veterans,Serial numbered /250
+silver,41,Mark Brunell,Jacksonville Jaguars,Veterans,Serial numbered /250
+silver,42,Chris Weinke,Carolina Panthers,Veterans,Serial numbered /250
+silver,43,Eric Moulds,Buffalo Bills,Veterans,Serial numbered /250
+silver,44,Ike Hilliard,New York Giants,Veterans,Serial numbered /250
+silver,45,Jay Fiedler,Miami Dolphins,Veterans,Serial numbered /250
+silver,46,Keyshawn Johnson,Tampa Bay Buccaneers,Veterans,Serial numbered /250
+silver,47,Rod Gardner,Washington Redskins,Veterans,Serial numbered /250
+silver,48,Chris Redman,Baltimore Ravens,Veterans,Serial numbered /250
+silver,49,James Allen,Houston Texans,Veterans,Serial numbered /250
+silver,50,Kordell Stewart,Pittsburgh Steelers,Veterans,Serial numbered /250
+silver,51,Priest Holmes,Kansas City Chiefs,Veterans,Serial numbered /250
+silver,52,Anthony Thomas,Chicago Bears,Veterans,Serial numbered /250
+silver,53,Peter Warrick,Cincinnati Bengals,Veterans,Serial numbered /250
+silver,54,Jake Plummer,Arizona Cardinals,Veterans,Serial numbered /250
+silver,55,Jerry Rice,Oakland Raiders,Veterans,Serial numbered /250
+silver,56,Joe Horn,New Orleans Saints,Veterans,Serial numbered /250
+silver,57,Derrick Mason,Tennessee Titans,Veterans,Serial numbered /250
+silver,58,Kurt Warner,St. Louis Rams,Veterans,Serial numbered /250
+silver,59,Antowain Smith,New England Patriots,Veterans,Serial numbered /250
+silver,60,Randy Moss,Minnesota Vikings,Veterans,Serial numbered /250
+silver,61,Warrick Dunn,Atlanta Falcons,Veterans,Serial numbered /250
+silver,62,Laveranues Coles,New York Jets,Veterans,Serial numbered /250
+silver,63,LaDainian Tomlinson,San Diego Chargers,Veterans,Serial numbered /250
+silver,64,Michael Westbrook,Cincinnati Bengals,Veterans,Serial numbered /250
+silver,65,Travis Taylor,Baltimore Ravens,Veterans,Serial numbered /250
+silver,66,Brian Griese,Denver Broncos,Veterans,Serial numbered /250
+silver,67,Bill Schroeder,Detroit Lions,Veterans,Serial numbered /250
+silver,68,Ahman Green,Green Bay Packers,Veterans,Serial numbered /250
+silver,69,Jimmy Smith,Jacksonville Jaguars,Veterans,Serial numbered /250
+silver,70,Charlie Garner,Oakland Raiders,Veterans,Serial numbered /250
+silver,71,Terrell Owens,San Francisco 49ers,Veterans,Serial numbered /250
+silver,72,Brad Johnson,Tampa Bay Buccaneers,Veterans,Serial numbered /250
+silver,73,James Thrash,Philadelphia Eagles,Veterans,Serial numbered /250
+silver,74,Marvin Harrison,Indianapolis Colts,Veterans,Serial numbered /250
+silver,75,Brett Favre,Green Bay Packers,Veterans,Serial numbered /250
+silver,76,Raghib Ismail,Dallas Cowboys,Veterans,Serial numbered /250
+silver,77,David Boston,Arizona Cardinals,Veterans,Serial numbered /250
+silver,78,Jermaine Lewis,Houston Texans,Veterans,Serial numbered /250
+silver,79,Aaron Brooks,New Orleans Saints,Veterans,Serial numbered /250
+silver,80,Shaun Alexander,Seattle Seahawks,Veterans,Serial numbered /250
+silver,81,Steve McNair,Tennessee Titans,Veterans,Serial numbered /250
+silver,82,Marshall Faulk,St. Louis Rams,Veterans,Serial numbered /250
+silver,83,Terrell Davis,Denver Broncos,Veterans,Serial numbered /250
+silver,84,Corey Bradford,Houston Texans,Veterans,Serial numbered /250
+silver,85,David Terrell,Chicago Bears,Veterans,Serial numbered /250
+silver,86,Kevin Johnson,Cleveland Browns,Veterans,Serial numbered /250
+silver,87,Jon Kitna,Cincinnati Bengals,Veterans,Serial numbered /250
+silver,88,Az-Zahir Hakim,Detroit Lions,Veterans,Serial numbered /250
+silver,89,Drew Bledsoe,Buffalo Bills,Veterans,Serial numbered /250
+silver,90,Garrison Hearst,San Francisco 49ers,Veterans,Serial numbered /250
+silver,91,Doug Flutie,San Diego Chargers,Veterans,Serial numbered /250
+silver,92,Jerome Bettis,Pittsburgh Steelers,Veterans,Serial numbered /250
+silver,93,Vinny Testaverde,New York Jets,Veterans,Serial numbered /250
+silver,94,Tiki Barber,New York Giants,Veterans,Serial numbered /250
+silver,95,Johnnie Morton,Kansas City Chiefs,Veterans,Serial numbered /250
+silver,96,Lamar Smith,Carolina Panthers,Veterans,Serial numbered /250
+silver,97,Marcus Robinson,Chicago Bears,Veterans,Serial numbered /250
+silver,98,Fred Taylor,Jacksonville Jaguars,Veterans,Serial numbered /250
+silver,99,Tom Brady,New England Patriots,Veterans,Serial numbered /250
+silver,100,Peyton Manning,Indianapolis Colts,Veterans,Serial numbered /250
+silver,101,Donovan McNabb,Philadelphia Eagles,Veterans,Serial numbered /250
+silver,102,Rich Gannon,Oakland Raiders,Veterans,Serial numbered /250
+silver,103,Hines Ward,Pittsburgh Steelers,Veterans,Serial numbered /250
+silver,104,Michael Bennett,Minnesota Vikings,Veterans,Serial numbered /250
+silver,105,Ricky Williams,Miami Dolphins,Veterans,Serial numbered /250
+silver,106,Germane Crowell,Detroit Lions,Veterans,Serial numbered /250
+silver,107,Joey Galloway,Dallas Cowboys,Veterans,Serial numbered /250
+silver,108,Amani Toomer,New York Giants,Veterans,Serial numbered /250
+silver,109,Trent Green,Kansas City Chiefs,Veterans,Serial numbered /250
+silver,110,Terry Glenn,Green Bay Packers,Veterans,Serial numbered /250
+silver,111,Donte' Stallworth,New Orleans Saints,Rookies,Serial numbered /250
+silver,112,Mike Williams,Buffalo Bills,Rookies,Serial numbered /250
+silver,113,Kurt Kittner,Atlanta Falcons,Rookies,Serial numbered /250
+silver,114,Josh Reed,Buffalo Bills,Rookies,Serial numbered /250
+silver,115,Raonall Smith,Minnesota Vikings,Rookies,Serial numbered /250
+silver,116,David Garrard,Jacksonville Jaguars,Rookies,Serial numbered /250
+silver,117,Eric Crouch,St. Louis Rams,Rookies,Serial numbered /250
+silver,118,Bryan Thomas,New York Jets,Rookies,Serial numbered /250
+silver,119,Levi Jones,Cincinnati Bengals,Rookies,Serial numbered /250
+silver,120,Andre Davis,Cleveland Browns,Rookies,Serial numbered /250
+silver,121,Herb Haygood,Denver Broncos,Rookies,Serial numbered /250
+silver,122,Josh McCown,Arizona Cardinals,Rookies,Serial numbered /250
+silver,123,Quentin Jammer,San Diego Chargers,Rookies,Serial numbered /250
+silver,124,Cliff Russell,Washington Redskins,Rookies,Serial numbered /250
+silver,125,Jeremy Shockey,New York Giants,Rookies,Serial numbered /250
+silver,126,Jamin Elliott,Chicago Bears,Rookies,Serial numbered /250
+silver,127,Roy Williams,Dallas Cowboys,Rookies,Serial numbered /250
+silver,128,Marquise Walker,Tampa Bay Buccaneers,Rookies,Serial numbered /250
+silver,129,Kalimba Edwards,Detroit Lions,Rookies,Serial numbered /250
+silver,130,Daniel Graham,New England Patriots,Rookies,Serial numbered /250
+silver,131,Freddie Milons,Philadelphia Eagles,Rookies,Serial numbered /250
+silver,132,Anthony Weaver,Baltimore Ravens,Rookies,Serial numbered /250
+silver,133,Jake Schifino,Tennessee Titans,Rookies,Serial numbered /250
+silver,134,Antonio Bryant,Dallas Cowboys,Rookies,Serial numbered /250
+silver,135,DeShaun Foster,Carolina Panthers,Rookies,Serial numbered /250
+silver,136,Antwaan Randle El,Pittsburgh Steelers,Rookies,Serial numbered /250
+silver,137,William Green,Cleveland Browns,Rookies,Serial numbered /250
+silver,138,Ed Reed,Baltimore Ravens,Rookies,Serial numbered /250
+silver,139,Maurice Morris,Seattle Seahawks,Rookies,Serial numbered /250
+silver,140,Joey Harrington,Detroit Lions,Rookies,Serial numbered /250
+silver,141,T.J. Duckett,Atlanta Falcons,Rookies,Serial numbered /250
+silver,142,Javon Walker,Green Bay Packers,Rookies,Serial numbered /250
+silver,143,Albert Haynesworth,Tennessee Titans,Rookies,Serial numbered /250
+silver,144,Julius Peppers,Carolina Panthers,Rookies,Serial numbered /250
+silver,145,Clinton Portis,Denver Broncos,Rookies,Serial numbered /250
+silver,146,Craig Nall,Green Bay Packers,Rookies,Serial numbered /250
+silver,147,Ashley Lelie,Denver Broncos,Rookies,Serial numbered /250
+silver,148,Donald Reche Caldwell,San Diego Chargers,Rookies,Serial numbered /250
+silver,149,Rohan Davey,New England Patriots,Rookies,Serial numbered /250
+silver,150,Patrick Ramsey,Washington Redskins,Rookies,Serial numbered /250
+silver,151,Jabar Gaffney,Houston Texans,Rookies,Serial numbered /250
+silver,152,Tank Williams,Tennessee Titans,Rookies,Serial numbered /250
+silver,153,Ron Johnson,Baltimore Ravens,Rookies,Serial numbered /250
+silver,154,Ladell Betts,Washington Redskins,Rookies,Serial numbered /250
+silver,155,Brian Westbrook,Philadelphia Eagles,Rookies,Serial numbered /250
+silver,156,Jamar Martin,Dallas Cowboys,Rookies,Serial numbered /250
+silver,157,Travis Stephens,Tampa Bay Buccaneers,Rookies,Serial numbered /250
+silver,158,Tim Carter,New York Giants,Rookies,Serial numbered /250
+silver,159,Darrell Hill,Tennessee Titans,Rookies,Serial numbered /250
+silver,160,Luke Staley,Detroit Lions,Rookies,Serial numbered /250
+silver,161,Randy Fasani,Carolina Panthers,Rookies,Serial numbered /250
+silver,162,Matt Schobel,Cincinnati Bengals,Rookies,Serial numbered /250
+silver,163,Jon McGraw,New York Jets,Rookies,Serial numbered /250
+silver,164,Dwight Freeney,Indianapolis Colts,Rookies,Serial numbered /250
+silver,165,Chad Hutchinson,Dallas Cowboys,Rookies,Serial numbered /250
+silver,166,Adrian Peterson,Chicago Bears,Rookies,Serial numbered /250
+silver,167,Josh Scobey,Arizona Cardinals,Rookies,Serial numbered /250
+silver,168,Jonathan Wells,Houston Texans,Rookies,Serial numbered /250
+silver,169,Sam Simmons,Miami Dolphins,Rookies,Serial numbered /250
+silver,170,Jerramy Stevens,Seattle Seahawks,Rookies,Serial numbered /250
+silver,171,Jason McAddley,Arizona Cardinals,Rookies,Serial numbered /250
+silver,172,Ken Simonton,San Francisco 49ers,Rookies,Serial numbered /250
+silver,173,Chester Taylor,Baltimore Ravens,Rookies,Serial numbered /250
+silver,174,Brandon Doman,San Francisco 49ers,Rookies,Serial numbered /250
+silver,175,Javin Hunter,Baltimore Ravens,Rookies,Serial numbered /250
+silver,176,Eddie Drummond,Detroit Lions,Rookies,Serial numbered /250
+silver,177,Andre Lott,Washington Redskins,Rookies,Serial numbered /250
+silver,178,Travis Fisher,St. Louis Rams,Rookies,Serial numbered /250
+silver,179,Jarvis Green,New England Patriots,Rookies,Serial numbered /250
+silver,180,Ross Tucker,Washington Redskins,Rookies,Serial numbered /250
+silver,181,LaMont Brightful,Baltimore Ravens,Rookies,Serial numbered /250
+silver,182,Rocky Calmus,Tennessee Titans,Rookies,Serial numbered /250
+silver,183,Wes Pate,Baltimore Ravens,Rookies,Serial numbered /250
+silver,184,Lamar Gordon,St. Louis Rams,Rookies,Serial numbered /250
+silver,185,Terry Jones,Baltimore Ravens,Rookies,Serial numbered /250
+silver,186,Kyle Johnson,Carolina Panthers,Rookies,Serial numbered /250
+silver,187,Daryl Jones,New York Giants,Rookies,Serial numbered /250
+silver,188,Tellis Redmon,Baltimore Ravens,Rookies,Serial numbered /250
+silver,189,Howard Green,Houston Texans,Rookies,Serial numbered /250
+silver,190,Jarrod Baxter,Houston Texans,Rookies,Serial numbered /250
+silver,191,Delvon Flowers,Houston Texans,Rookies,Serial numbered /250
+silver,192,Kevin Curtis,San Francisco 49ers,Rookies,Serial numbered /250
+silver,193,Kelly Campbell,Minnesota Vikings,Rookies,Serial numbered /250
+silver,194,Eddie Freeman,Kansas City Chiefs,Rookies,Serial numbered /250
+silver,195,Atrews Bell,Minnesota Vikings,Rookies,Serial numbered /250
+silver,196,Omar Easy,Kansas City Chiefs,Rookies,Serial numbered /250
+silver,197,Jeremy Allen,Minnesota Vikings,Rookies,Serial numbered /250; Source Miami affiliation corrected to Minnesota Vikings; original base and independent Silver catalogues confirm
+silver,198,Andra Davis,Cleveland Browns,Rookies,Serial numbered /250
+silver,199,Jack Brewer,Minnesota Vikings,Rookies,Serial numbered /250
+silver,200,Mike Rumph,San Francisco 49ers,Rookies,Serial numbered /250
+silver,201,Seth Burford,San Diego Chargers,Rookies,Serial numbered /250
+silver,202,Marquand Manuel,Cincinnati Bengals,Rookies,Serial numbered /250
+silver,203,Marques Anderson,Green Bay Packers,Rookies,Serial numbered /250
+silver,204,Ben Leber,San Diego Chargers,Rookies,Serial numbered /250
+silver,205,Ryan Denney,Buffalo Bills,Rookies,Serial numbered /250
+silver,206,Justin Peelle,San Diego Chargers,Rookies,Serial numbered /250
+silver,207,Lito Sheppard,Philadelphia Eagles,Rookies,Serial numbered /250
+silver,208,Damien Anderson,Arizona Cardinals,Rookies,Serial numbered /250
+silver,209,Lamont Thompson,Cincinnati Bengals,Rookies,Serial numbered /250
+silver,210,David Priestley,Buffalo Bills,Rookies,Serial numbered /250
+silver,211,Michael Lewis,Philadelphia Eagles,Rookies,Serial numbered /250
+silver,212,Lee Mays,Pittsburgh Steelers,Rookies,Serial numbered /250
+silver,213,Alan Harper,New York Jets,Rookies,Serial numbered /250
+silver,214,Verron Haynes,Pittsburgh Steelers,Rookies,Serial numbered /250
+silver,215,Chris Hope,Pittsburgh Steelers,Rookies,Serial numbered /250
+silver,216,David Thornton,Indianapolis Colts,Rookies,Serial numbered /250
+silver,217,Derek Ross,Dallas Cowboys,Rookies,Serial numbered /250
+silver,218,Brett Keisel,Pittsburgh Steelers,Rookies,Serial numbered /250
+silver,219,Joseph Jefferson,Indianapolis Colts,Rookies,Serial numbered /250
+silver,220,Andre Goodman,Detroit Lions,Rookies,Serial numbered /250
+silver,221,Robert Royal,Washington Redskins,Rookies,Serial numbered /250
+silver,222,Sheldon Brown,Philadelphia Eagles,Rookies,Serial numbered /250
+silver,223,DeVeren Johnson,Dallas Cowboys,Rookies,Serial numbered /250
+silver,224,Rock Cartwright,Washington Redskins,Rookies,Serial numbered /250
+silver,225,Quincy Monk,New York Giants,Rookies,Serial numbered /250
+silver,226,Nick Rogers,Minnesota Vikings,Rookies,Serial numbered /250
+silver,227,Kendall Simmons,Pittsburgh Steelers,Rookies,Serial numbered /250
+silver,228,Joe Burns,Buffalo Bills,Rookies,Serial numbered /250
+silver,229,Wesly Mallard,New York Giants,Rookies,Serial numbered /250
+silver,230,Chris Cash,Detroit Lions,Rookies,Serial numbered /250
+silver,231,David Givens,New England Patriots,Rookies,Serial numbered /250
+silver,232,John Owens,Detroit Lions,Rookies,Serial numbered /250
+silver,233,Jarrett Ferguson,Buffalo Bills,Rookies,Serial numbered /250
+silver,234,Randy McMichael,Miami Dolphins,Rookies,Serial numbered /250
+silver,235,Chris Baker,New York Jets,Rookies,Serial numbered /250
+silver,236,Rashad Bauman,Washington Redskins,Rookies,Serial numbered /250
+silver,237,Matt Murphy,Detroit Lions,Rookies,Serial numbered /250
+silver,238,LaVar Glover,Pittsburgh Steelers,Rookies,Serial numbered /250
+silver,239,Steve Bellisari,St. Louis Rams,Rookies,Serial numbered /250
+silver,240,Chad Williams,Baltimore Ravens,Rookies,Serial numbered /250
+silver,241,Kevin Thomas,Buffalo Bills,Rookies,Serial numbered /250
+silver,242,Carlos Hall,Tennessee Titans,Rookies,Serial numbered /250
+silver,243,Nick Greisen,New York Giants,Rookies,Serial numbered /250
+silver,244,Justin Bannan,Buffalo Bills,Rookies,Serial numbered /250
+silver,245,Charles Hill,Houston Texans,Rookies,Serial numbered /250
+silver,246,Mark Anelli,San Francisco 49ers,Rookies,Serial numbered /250
+silver,247,Coy Wire,Buffalo Bills,Rookies,Serial numbered /250
+silver,248,Darnell Sanders,Cleveland Browns,Rookies,Serial numbered /250
+silver,249,Larry Foote,Pittsburgh Steelers,Rookies,Serial numbered /250
+silver,250,David Carr,Houston Texans,Rookies,Serial numbered /250
+silver,251,Ricky Williams,New Orleans Saints,Rookies,Serial numbered /250
+silver,252,Napoleon Harris,Oakland Raiders,Rookies,Serial numbered /250
+silver,253,Ennis Haywood,Dallas Cowboys,Rookies,Serial numbered /250
+silver,254,Keyuo Craver,New Orleans Saints,Rookies,Serial numbered /250
+silver,255,Kahlil Hill,Atlanta Falcons,Rookies,Serial numbered /250
+silver,256,J.T. O'Sullivan,New Orleans Saints,Rookies,Serial numbered /250
+silver,257,Woodrow Dantzler,Dallas Cowboys,Rookies,Serial numbered /250
+silver,258,Phillip Buchanon,Oakland Raiders,Rookies,Serial numbered /250
+silver,259,Charles Grant,New Orleans Saints,Rookies,Serial numbered /250
+silver,260,Dusty Bonner,Atlanta Falcons,Rookies,Serial numbered /250
+silver,261,James Allen,New Orleans Saints,Rookies,Serial numbered /250
+silver,262,Ronald Curry,Oakland Raiders,Rookies,Serial numbered /250
+silver,263,Deion Branch,New England Patriots,Rookies,Serial numbered /250
+silver,264,Larry Ned,Oakland Raiders,Rookies,Serial numbered /250
+silver,265,Mel Mitchell,New Orleans Saints,Rookies,Serial numbered /250
+silver,266,Kendall Newson,Jacksonville Jaguars,Rookies,Serial numbered /250
+silver,267,Shaun Hill,Minnesota Vikings,Rookies,Serial numbered /250
+silver,268,David Pugh,Indianapolis Colts,Rookies,Serial numbered /250
+silver,269,Dante Wesley,Carolina Panthers,Rookies,Serial numbered /250
+silver,270,Josh Mallard,Indianapolis Colts,Rookies,Serial numbered /250
+silver,271,Akin Ayodele,Jacksonville Jaguars,Rookies,Serial numbered /250
+silver,272,Pete Hunter,Dallas Cowboys,Rookies,Serial numbered /250
+silver,273,Kevin McCadam,Atlanta Falcons,Rookies,Serial numbered /250
+silver,274,Jeff Kelly,Seattle Seahawks,Rookies,Serial numbered /250
+silver,275,John Henderson,Jacksonville Jaguars,Rookies,Serial numbered /250
+uncirculated,111,Donte' Stallworth,New Orleans Saints,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,112,Mike Williams,Buffalo Bills,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,113,Kurt Kittner,Atlanta Falcons,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,114,Josh Reed,Buffalo Bills,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,115,Raonall Smith,Minnesota Vikings,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,116,David Garrard,Jacksonville Jaguars,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,117,Eric Crouch,St. Louis Rams,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,118,Bryan Thomas,New York Jets,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,119,Levi Jones,Cincinnati Bengals,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,120,Andre Davis,Cleveland Browns,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,121,Herb Haygood,Denver Broncos,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,122,Josh McCown,Arizona Cardinals,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,123,Quentin Jammer,San Diego Chargers,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,124,Cliff Russell,Washington Redskins,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,125,Jeremy Shockey,New York Giants,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,126,Jamin Elliott,Chicago Bears,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,127,Roy Williams,Dallas Cowboys,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,128,Marquise Walker,Tampa Bay Buccaneers,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,129,Kalimba Edwards,Detroit Lions,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,130,Daniel Graham,New England Patriots,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,131,Freddie Milons,Philadelphia Eagles,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,132,Anthony Weaver,Baltimore Ravens,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,133,Jake Schifino,Tennessee Titans,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,134,Antonio Bryant,Dallas Cowboys,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,135,DeShaun Foster,Carolina Panthers,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,136,Antwaan Randle El,Pittsburgh Steelers,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,137,William Green,Cleveland Browns,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,138,Ed Reed,Baltimore Ravens,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,139,Maurice Morris,Seattle Seahawks,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,140,Joey Harrington,Detroit Lions,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,141,T.J. Duckett,Atlanta Falcons,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,142,Javon Walker,Green Bay Packers,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,143,Albert Haynesworth,Tennessee Titans,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,144,Julius Peppers,Carolina Panthers,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,145,Clinton Portis,Denver Broncos,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,146,Craig Nall,Green Bay Packers,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,147,Ashley Lelie,Denver Broncos,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,148,Donald Reche Caldwell,San Diego Chargers,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,149,Rohan Davey,New England Patriots,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,150,Patrick Ramsey,Washington Redskins,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,151,Jabar Gaffney,Houston Texans,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,152,Tank Williams,Tennessee Titans,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,153,Ron Johnson,Baltimore Ravens,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,154,Ladell Betts,Washington Redskins,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,155,Brian Westbrook,Philadelphia Eagles,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,156,Jamar Martin,Dallas Cowboys,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,157,Travis Stephens,Tampa Bay Buccaneers,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,158,Tim Carter,New York Giants,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,159,Darrell Hill,Tennessee Titans,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,160,Luke Staley,Detroit Lions,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,161,Randy Fasani,Carolina Panthers,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,162,Matt Schobel,Cincinnati Bengals,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,163,Jon Mcgraw,New York Jets,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,164,Dwight Freeney,Indianapolis Colts,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,165,Chad Hutchinson,Dallas Cowboys,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,166,Adrian Peterson,Chicago Bears,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,167,Josh Scobey,Arizona Cardinals,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,168,Jonathan Wells,Houston Texans,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,169,Sam Simmons,Miami Dolphins,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,170,Jerramy Stevens,Seattle Seahawks,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,171,Jason Mcaddley,Arizona Cardinals,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,172,Ken Simonton,San Francisco 49ers,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,173,Chester Taylor,Baltimore Ravens,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,174,Brandon Doman,San Francisco 49ers,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,175,Javin Hunter,Baltimore Ravens,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,181,Lamont Brightful,Baltimore Ravens,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,182,Rocky Calmus,Tennessee Titans,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,183,Wes Pate,Baltimore Ravens,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,184,Lamar Gordon,St. Louis Rams,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,185,Terry Jones,Baltimore Ravens,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,187,Daryl Jones,New York Giants,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,188,Tellis Redmon,Baltimore Ravens,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,190,Jarrod Baxter,Houston Texans,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,193,Kelly Campbell,Minnesota Vikings,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,194,Eddie Freeman,Kansas City Chiefs,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,196,Omar Easy,Kansas City Chiefs,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,200,Mike Rumph,San Francisco 49ers,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,201,Seth Burford,San Diego Chargers,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,205,Ryan Denney,Buffalo Bills,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,207,Lito Sheppard,Philadelphia Eagles,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,208,Damien Anderson,Arizona Cardinals,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,211,Michael Lewis,Philadelphia Eagles,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,212,Lee Mays,Pittsburgh Steelers,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,214,Verron Haynes,Pittsburgh Steelers,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,217,Derek Ross,Dallas Cowboys,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,221,Robert Royal,Washington Redskins,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,223,Deveren Johnson,Dallas Cowboys,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,231,David Givens,New England Patriots,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,234,Randy McMichael,Miami Dolphins,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,235,Chris Baker,New York Jets,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,242,Carlos Hall,Tennessee Titans,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,243,Nick Greisen,New York Giants,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,245,Charles Hill,Houston Texans,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,247,Coy Wire,Buffalo Bills,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,250,David Carr,Houston Texans,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,251,Ricky Williams,New Orleans Saints,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,252,Napoleon Harris,Oakland Raiders,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,255,Kahlil Hill,Atlanta Falcons,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,256,J.T. O'Sullivan,New Orleans Saints,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,257,Woodrow Dantzler,Dallas Cowboys,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,258,Phillip Buchanon,Oakland Raiders,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,259,Charles Grant,New Orleans Saints,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,261,James Allen,New Orleans Saints,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,262,Ronald Curry,Oakland Raiders,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,263,Deion Branch,New England Patriots,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,264,Larry Ned,Oakland Raiders,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,267,Shaun Hill,Minnesota Vikings,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,270,Josh Mallard,Indianapolis Colts,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,272,Pete Hunter,Dallas Cowboys,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+uncirculated,275,John Henderson,Jacksonville Jaguars,Rookies,"Uncirculated redemption fulfilment; reported print run 290; physical serial stamp unverified, not asserted as /290"
+draft-relics,DDH-BM,Bryant McKinnie,Minnesota Vikings,Draft Day Hats,"Authentic NFL draft-day hat relic; event apparel, not claimed game-used"
+draft-relics,DDH-DC,David Carr,Houston Texans,Draft Day Hats,"Authentic NFL draft-day hat relic; event apparel, not claimed game-used"
+draft-relics,DDH-JP,Julius Peppers,Carolina Panthers,Draft Day Hats,"Authentic NFL draft-day hat relic; event apparel, not claimed game-used"
+draft-relics,DDH-MW,Mike Williams,Buffalo Bills,Draft Day Hats,"Authentic NFL draft-day hat relic; event apparel, not claimed game-used"
+draft-relics,DDH-QJ,Quentin Jammer,San Diego Chargers,Draft Day Hats,"Authentic NFL draft-day hat relic; event apparel, not claimed game-used"
+draft-relics,DDJ-BM,Bryant McKinnie,Minnesota Vikings,Draft Day Jerseys,"Authentic NFL draft-day jersey relic; event apparel, not claimed game-used"
+draft-relics,DDJ-DC,David Carr,Houston Texans,Draft Day Jerseys,"Authentic NFL draft-day jersey relic; event apparel, not claimed game-used"
+draft-relics,DDJ-JP,Julius Peppers,Carolina Panthers,Draft Day Jerseys,"Authentic NFL draft-day jersey relic; event apparel, not claimed game-used"
+draft-relics,DDJ-MW,Mike Williams,Buffalo Bills,Draft Day Jerseys,"Authentic NFL draft-day jersey relic; event apparel, not claimed game-used"
+draft-relics,DDJ-QJ,Quentin Jammer,San Diego Chargers,Draft Day Jerseys,"Authentic NFL draft-day jersey relic; event apparel, not claimed game-used"
+fabric,FF-AB,Alex Brown,Chicago Bears,,Game-worn Senior Bowl jersey relic
+fabric,FF-DB,Deion Branch,New England Patriots,,Game-worn Senior Bowl jersey relic
+fabric,FF-DC,David Carr,Houston Texans,,Game-worn Senior Bowl jersey relic
+fabric,FF-DF,DeShaun Foster,Carolina Panthers,,Game-worn Senior Bowl jersey relic
+fabric,FF-EF,Eddie Freeman,Kansas City Chiefs,,Game-worn Senior Bowl jersey relic
+fabric,FF-HG,Herb Haygood,Denver Broncos,,Game-worn Senior Bowl jersey relic
+fabric,FF-JM,Josh McCown,Arizona Cardinals,,Game-worn Senior Bowl jersey relic
+fabric,FF-JW,Javon Walker,Green Bay Packers,,Game-worn Senior Bowl jersey relic
+fabric,FF-JWE,Jonathan Wells,Houston Texans,,Game-worn Senior Bowl jersey relic
+fabric,FF-KC,Kelly Campbell,Minnesota Vikings,,Game-worn Senior Bowl jersey relic
+fabric,FF-KK,Kurt Kittner,Atlanta Falcons,,Game-worn Senior Bowl jersey relic
+fabric,FF-LG,Lamar Gordon,St. Louis Rams,,Game-worn Senior Bowl jersey relic
+fabric,FF-TC,Tim Carter,New York Giants,,Game-worn Senior Bowl jersey relic
+fabric,FF-TJ,Terry Jones,Baltimore Ravens,,Game-worn Senior Bowl jersey relic
+fabric,FF-TS,Travis Stephens,Tampa Bay Buccaneers,,Game-worn Senior Bowl jersey relic
+fabric,FF-TW,Tank Williams,Tennessee Titans,,Game-worn Senior Bowl jersey relic
+fabric,FF-WD,Woodrow Dantzler,Dallas Cowboys,,Game-worn Senior Bowl jersey relic
+flashback-autographs,RFA-BF,Brett Favre,Green Bay Packers,,Certified autograph
+flashback-autographs,RFA-BS,Bill Schroeder,Green Bay Packers,,Certified autograph
+flashback-autographs,RFA-CC,Chris Chambers,Miami Dolphins,,Certified autograph
+flashback-autographs,RFA-JG,Jeff Garcia,San Francisco 49ers,,Certified autograph
+flashback-autographs,RFA-LJ,LaMont Jordan,New York Jets,,Certified autograph
+flashback-autographs,RFA-LS,Lamar Smith,Carolina Panthers,,Certified autograph
+flashback-autographs,RFA-LT,LaDainian Tomlinson,San Diego Chargers,,Certified autograph
+flashback-autographs,RFA-MR,Marcus Robinson,Chicago Bears,,Certified autograph
+flashback-jerseys,RFR-CJ,Chad Johnson,Cincinnati Bengals,,Player-worn jersey relic; not claimed game-used
+flashback-jerseys,RFR-CW,Chris Weinke,Carolina Panthers,,Player-worn jersey relic; not claimed game-used
+flashback-jerseys,RFR-DM,Deuce McAllister,New Orleans Saints,,Player-worn jersey relic; not claimed game-used
+flashback-jerseys,RFR-DT,David Terrell,Chicago Bears,,Player-worn jersey relic; not claimed game-used
+flashback-jerseys,RFR-KB,Kevan Barlow,San Francisco 49ers,,Player-worn jersey relic; not claimed game-used
+flashback-jerseys,RFR-MM,Snoop Minnis,Kansas City Chiefs,,Player-worn jersey relic; not claimed game-used
+flashback-jerseys,RFR-MMC,Mike McMahon,Detroit Lions,,Player-worn jersey relic; not claimed game-used
+flashback-jerseys,RFR-MV,Michael Vick,Atlanta Falcons,,Player-worn jersey relic; not claimed game-used
+flashback-jerseys,RFR-QM,Quincy Morgan,Cleveland Browns,,Player-worn jersey relic; not claimed game-used
+flashback-jerseys,RFR-RG,Rod Gardner,Washington Redskins,,Player-worn jersey relic; not claimed game-used
+flashback-jerseys,RFR-SM,Santana Moss,New York Jets,,Player-worn jersey relic; not claimed game-used
+autographs,SF-AB,Antonio Bryant,Dallas Cowboys,,Certified autograph
+autographs,SF-DC,David Carr,Houston Texans,,Certified autograph
+autographs,SF-DG,David Garrard,Jacksonville Jaguars,,Certified autograph
+autographs,SF-DRC,Donald Reche Caldwell,San Diego Chargers,,Certified autograph
+autographs,SF-JG,Jabar Gaffney,Houston Texans,,Certified autograph
+autographs,SF-JH,Joey Harrington,Detroit Lions,,Certified autograph
+autographs,SF-JM,Josh McCown,Arizona Cardinals,,Certified autograph
+autographs,SF-JS,Jeremy Shockey,New York Giants,,Certified autograph
+autographs,SF-JW,Javon Walker,Green Bay Packers,,Certified autograph
+autographs,SF-LB,Ladell Betts,Washington Redskins,,Certified autograph
+autographs,SF-MM,Maurice Morris,Seattle Seahawks,,Certified autograph
+autographs,SF-NH,Napoleon Harris,Oakland Raiders,,Certified autograph
+autographs,SF-PR,Patrick Ramsey,Washington Redskins,,Certified autograph
+autographs,SF-QJ,Quentin Jammer,San Diego Chargers,,Certified autograph
+autographs,SF-RD,Rohan Davey,New England Patriots,,Certified autograph
+autographs,SF-TC,Tim Carter,New York Giants,,Certified autograph
+autographs,SF-TJD,T.J. Duckett,Atlanta Falcons,,Certified autograph
+autographs,SF-TS,Travis Stephens,Tampa Bay Buccaneers,,Certified autograph
+autographs,SF-WG,William Green,Cleveland Browns,,Certified autograph
+red-ink,SF-AB,Antonio Bryant,Dallas Cowboys,,Certified red ink autograph; Programme reports hand-numbered 50; individual serial stamp not verified
+red-ink,SF-DC,David Carr,Houston Texans,,Certified red ink autograph; Programme reports hand-numbered 50; individual serial stamp not verified
+red-ink,SF-DG1,Daniel Graham,New England Patriots,,Certified red ink autograph; Programme reports hand-numbered 50; individual serial stamp not verified; Red Ink-only subject; catalogue code SF-DG1 distinguishes David Garrard SF-DG; printed code pending original back QA
+red-ink,SF-DG,David Garrard,Jacksonville Jaguars,,Certified red ink autograph; Serial numbered /50 (catalogued)
+red-ink,SF-DRC,Donald Reche Caldwell,San Diego Chargers,,Certified red ink autograph; Serial numbered /50 (catalogued)
+red-ink,SF-JG,Jabar Gaffney,Houston Texans,,Certified red ink autograph; Programme reports hand-numbered 50; individual serial stamp not verified
+red-ink,SF-JH,Joey Harrington,Detroit Lions,,Certified red ink autograph; Programme reports hand-numbered 50; individual serial stamp not verified
+red-ink,SF-JM,Josh McCown,Arizona Cardinals,,Certified red ink autograph; Serial numbered /50 (catalogued)
+red-ink,SF-JS,Jeremy Shockey,New York Giants,,Certified red ink autograph; Serial numbered /50 (catalogued)
+red-ink,SF-JW,Javon Walker,Green Bay Packers,,Certified red ink autograph; Serial numbered /50 (catalogued)
+red-ink,SF-LB,Ladell Betts,Washington Redskins,,Certified red ink autograph; Serial numbered /50 (catalogued)
+red-ink,SF-MM,Maurice Morris,Seattle Seahawks,,Certified red ink autograph; Serial numbered /50 (catalogued)
+red-ink,SF-NH,Napoleon Harris,Oakland Raiders,,Certified red ink autograph; Serial numbered /50 (catalogued)
+red-ink,SF-PR,Patrick Ramsey,Washington Redskins,,Certified red ink autograph; Serial numbered /50 (catalogued)
+red-ink,SF-QJ,Quentin Jammer,San Diego Chargers,,Certified red ink autograph; Serial numbered /50 (catalogued)
+red-ink,SF-RD,Rohan Davey,New England Patriots,,Certified red ink autograph; Serial numbered /50 (catalogued)
+red-ink,SF-TC,Tim Carter,New York Giants,,Certified red ink autograph; Programme reports hand-numbered 50; individual serial stamp not verified
+red-ink,SF-TJD,T.J. Duckett,Atlanta Falcons,,Certified red ink autograph; Programme reports hand-numbered 50; individual serial stamp not verified
+red-ink,SF-TS,Travis Stephens,Tampa Bay Buccaneers,,Certified red ink autograph; Programme reports hand-numbered 50; individual serial stamp not verified
+red-ink,SF-WG,William Green,Cleveland Browns,,Certified red ink autograph; Serial numbered /50 (catalogued)
+checklists,1,Checklist,,Checklist,Checklist range 1-197
+checklists,2,Checklist,,Checklist,Checklist range 198-275 and Inserts
