@@ -353,6 +353,7 @@ export default function AuctionsClient() {
   async function collectAll() {
     if (collectingRef.current) return;
     collectingRef.current = true;
+    const collectedStartedAt = Date.now();
     setCollectingAll(true);
     setCollectProgress(0);
     const estimated = data?.summary.globalReadyToCollect ?? 0;
@@ -393,7 +394,8 @@ export default function AuctionsClient() {
         afterId = json.nextCursor;
       }
       setNotice(collected + " auctions collected · " + money(payoutCents) +
-        " credited" + (unsold ? " · " + unsold + " unsold cards returned" : ""));
+        " credited" + (unsold ? " · " + unsold + " unsold cards returned" : "") +
+        " · " + ((Date.now() - collectedStartedAt) / 1000).toFixed(1) + "s");
       if (issues.length) setError(failed + " auctions need attention: " + issues.join("; "));
       if (collected) {
         window.dispatchEvent(new Event("vcs:economy-changed"));
