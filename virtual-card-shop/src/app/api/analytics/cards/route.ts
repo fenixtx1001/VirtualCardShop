@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { serverTimingHeader } from "@/lib/performance-timing";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -59,6 +60,7 @@ type SortMode =
   | "diff_qty_desc";
 
 export async function GET(req: Request) {
+  const startedAt = Date.now();
   try {
     const me = await requireUser();
     const url = new URL(req.url);
@@ -468,7 +470,7 @@ export async function GET(req: Request) {
         totalPages,
         rows: pagedRows,
       },
-      { status: 200 }
+      { status: 200, headers: { "Server-Timing": serverTimingHeader(startedAt, "analytics_cards") } }
     );
   } catch (e: any) {
     return NextResponse.json(
