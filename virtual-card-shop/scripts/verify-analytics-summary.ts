@@ -4,12 +4,13 @@
  * Usage: npx tsx scripts/verify-analytics-summary.ts
  */
 import { config } from "dotenv";
+import type { AggregateGroup } from "../src/lib/analytics/aggregate-summary";
 config({ path: ".env", quiet: true });
 config({ path: ".env.local", override: false, quiet: true });
 
 async function main() {
   const { prisma } = await import("../src/lib/prisma");
-  const { aggregateSummaryRows, type AggregateGroup } = await import("../src/lib/analytics/aggregate-summary");
+  const { aggregateSummaryRows } = await import("../src/lib/analytics/aggregate-summary");
   try {
     const product = await prisma.product.findFirst({
       where: { released: true, productSets: { some: { cards: { some: {} } } } },
