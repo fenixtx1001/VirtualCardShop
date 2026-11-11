@@ -239,6 +239,78 @@ export async function trySyncAuctionPortfolioDelta(
 }
 
 /**
+ * Incremental valuation for a single pack rip.
+ *
+ * Preconditions:
+ * - called INSIDE the same transaction that decrements sealed inventory
+ *   and creates the pulled ownership;
+ * - current cash is unchanged;
+ * - the caller supplies exactly the raw book value of every newly owned card
+ *   and the sealed cost basis removed from inventory.
+ *
+ * If today's snapshot is absent/inconsistent or another transaction changed
+ * it, return false; the caller must perform a full revaluation.
+ */
+export async function trySyncPackPortfolioDelta(
+  db: PortfolioDb,
+  userId: string,
+  delta: { collectionDeltaCents: number; sealedDeltaCents: number },
+  now = new Date()
+): Promise<boolean> {
+  const { collectionDeltaCents, sealedDeltaCents } = delta;
+  const netWorthDelta = collectionDeltaCents + sealedDeltaCents;
+  if (![collectionDeltaCents, sealedDeltaCents, netWorthDelta]
+    .every(Number.isSafeInteger)) return false;
+
+  const dateKey = getChicagoDateKey(now);
+  const [user, snapshot] = await Promise.all([
+    db.user.findUnique({ where: { id: userId }, select: { balanceCents: true } }),
+    db.financialDailySnapshot.findUnique({
+      where: { userId_dateKey: { userId, dateKey } },
+      select: {
+        id: true, balanceCents: true, collectionValueCents: true,
+        sealedValueCents: true, closingNetWorthCents: true,
+        netWorthCents: true, valuationVersion: true,
+      },
+    }),
+  ]);
+
+  if (!user || !snapshot || snapshot.valuationVersion < 2) return false;
+  const newCollection = snapshot.collectionValueCents + collectionDeltaCents;
+  const newSealed = snapshot.sealedValueCents + sealedDeltaCents;
+  const newNet = snapshot.closingNetWorthCents + netWorthDelta;
+  if (![newCollection, newSealed, newNet].every(Number.isSafeInteger) ||
+    newCollection < 0 || newSealed < 0) return false;
+  if (snapshot.balanceCents !== user.balanceCents ||
+    snapshot.netWorthCents !== snapshot.closingNetWorthCents ||
+    snapshot.closingNetWorthCents !==
+      snapshot.balanceCents + snapshot.collectionValueCents + snapshot.sealedValueCents) {
+    return false;
+  }
+
+  // Compare-and-swap prevents stale deltas overwriting a concurrent
+  // financial event. Preserve openingNetWorthCents for daily climb.
+  const changed = await db.financialDailySnapshot.updateMany({
+    where: {
+      id: snapshot.id,
+      valuationVersion: snapshot.valuationVersion,
+      balanceCents: snapshot.balanceCents,
+      collectionValueCents: snapshot.collectionValueCents,
+      sealedValueCents: snapshot.sealedValueCents,
+      netWorthCents: snapshot.netWorthCents,
+      closingNetWorthCents: snapshot.closingNetWorthCents,
+    },
+    data: {
+      collectionValueCents: { increment: collectionDeltaCents },
+      sealedValueCents: { increment: sealedDeltaCents },
+      netWorthCents: { increment: netWorthDelta },
+      closingNetWorthCents: { increment: netWorthDelta },
+    },
+  });
+  return changed.count === 1;
+}
+
+/**
  * Fast, atomic snapshot maintenance for transactions that ONLY change cash.
  *
  * Every reward still records a FinancialTransaction. For an already-current
