@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { queryOwnedCardPage } from "@/lib/analytics/owned-card-page";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -87,6 +88,37 @@ export async function GET(req: Request) {
 
     const targetUserId =
       scope === "me" ? me.id : scope === "single_user" ? selectedUserId : null;
+
+    // Fast path for the most common analytics view. It returns exactly the
+    // same response schema but selects only the requested page in Postgres,
+    // instead of loading and sorting an entire collector's card holdings.
+    // Comparisons, alternate sorts and all-card searches use legacy logic.
+    // Emergency rollback: VCS_ANALYTICS_CARD_PAGING=0.
+    if (!compareMode && universe === "owned" && targetUserId &&
+        sort === "owned_value_desc" &&
+        process.env.VCS_ANALYTICS_CARD_PAGING !== "0") {
+      try {
+        const optimized = await queryOwnedCardPage({
+          userId: targetUserId,
+          page,
+          pageSize,
+          search,
+          sport,
+          year,
+          brand,
+          productId,
+          productSetId,
+          team,
+          player,
+        });
+        return NextResponse.json(optimized, { status: 200 });
+      } catch (error) {
+        console.warn(
+          "VCS analytics page fallback:",
+          error instanceof Error ? error.message : "unknown"
+        );
+      }
+    }
 
     const where: any = {};
     const andClauses: any[] = [];
