@@ -270,10 +270,13 @@ export async function syncCollectedPortfolioSnapshots(
   tx: Prisma.TransactionClient,
   changedPortfolios: Set<string>,
   portfolioDeltas?: AuctionPortfolioDeltas,
+  options: { forceFullRevaluation?: boolean } = {},
 ) {
   for (const userId of [...changedPortfolios].sort()) {
     const delta = portfolioDeltas?.get(userId);
-    if (!delta || !(await trySyncAuctionPortfolioDelta(tx, userId, delta))) {
+    if (options.forceFullRevaluation ||
+      !delta ||
+      !(await trySyncAuctionPortfolioDelta(tx, userId, delta))) {
       await syncDailyPortfolioSnapshot(tx, userId);
     }
   }
