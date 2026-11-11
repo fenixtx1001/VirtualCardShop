@@ -1428,6 +1428,11 @@ export default function ChecklistClient({
 
                           <td className="checklist-stat-cell">
                             {number(row.collectionQty)}
+                            {(row.auctionLockedQty ?? 0) > 0 && (
+                              <small title="Copies committed to auction" style={{ display: "block", color: "#bba16c", whiteSpace: "nowrap" }}>
+                                {number(row.auctionLockedQty ?? 0)} listed
+                              </small>
+                            )}
                           </td>
 
                           <td
