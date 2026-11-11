@@ -166,6 +166,79 @@ export async function syncDailyPortfolioSnapshot(
 
 
 /**
+ * Fast path for auction settlements when the EXACT portfolio deltas are known.
+ * A sold copy changes cash plus collection value, but not sealed inventory.
+ * Keep this inside the same transaction as the ownership/cash changes.
+ *
+ * If today's snapshot is absent, stale, or changed concurrently, return false
+ * and let the caller fall back to a complete portfolio revaluation.
+ * Never update openingNetWorthCents: it is the day's fixed baseline.
+ */
+export async function trySyncAuctionPortfolioDelta(
+  db: PortfolioDb,
+  userId: string,
+  delta: { balanceDeltaCents: number; collectionDeltaCents: number },
+  now = new Date()
+): Promise<boolean> {
+  const { balanceDeltaCents, collectionDeltaCents } = delta;
+  const netWorthDeltaCents = balanceDeltaCents + collectionDeltaCents;
+  if (![balanceDeltaCents, collectionDeltaCents, netWorthDeltaCents]
+    .every(Number.isSafeInteger)) return false;
+
+  const dateKey = getChicagoDateKey(now);
+  const [user, existing] = await Promise.all([
+    db.user.findUnique({ where: { id: userId }, select: { balanceCents: true } }),
+    db.financialDailySnapshot.findUnique({
+      where: { userId_dateKey: { userId, dateKey } },
+      select: {
+        id: true,
+        balanceCents: true,
+        collectionValueCents: true,
+        sealedValueCents: true,
+        netWorthCents: true,
+        closingNetWorthCents: true,
+        valuationVersion: true,
+      },
+    }),
+  ]);
+  if (!user || !existing || existing.valuationVersion < 2) return false;
+
+  const oldBalance = user.balanceCents - balanceDeltaCents;
+  const collectionAfter = existing.collectionValueCents + collectionDeltaCents;
+  const closingAfter = existing.closingNetWorthCents + netWorthDeltaCents;
+  if (![oldBalance, collectionAfter, closingAfter].every(Number.isSafeInteger) ||
+    collectionAfter < 0) return false;
+
+  // Any unrelated cash or valuation write since the last snapshot requires
+  // a full scan rather than an optimistic incremental update.
+  if (existing.balanceCents !== oldBalance ||
+    existing.netWorthCents !== existing.closingNetWorthCents ||
+    existing.closingNetWorthCents !==
+      existing.balanceCents + existing.collectionValueCents + existing.sealedValueCents) {
+    return false;
+  }
+
+  const changed = await db.financialDailySnapshot.updateMany({
+    where: {
+      id: existing.id,
+      valuationVersion: existing.valuationVersion,
+      balanceCents: existing.balanceCents,
+      collectionValueCents: existing.collectionValueCents,
+      sealedValueCents: existing.sealedValueCents,
+      netWorthCents: existing.netWorthCents,
+      closingNetWorthCents: existing.closingNetWorthCents,
+    },
+    data: {
+      balanceCents: user.balanceCents,
+      collectionValueCents: { increment: collectionDeltaCents },
+      closingNetWorthCents: { increment: netWorthDeltaCents },
+      netWorthCents: { increment: netWorthDeltaCents },
+    },
+  });
+  return changed.count === 1;
+}
+
+/**
  * Fast, atomic snapshot maintenance for transactions that ONLY change cash.
  *
  * Every reward still records a FinancialTransaction. For an already-current
