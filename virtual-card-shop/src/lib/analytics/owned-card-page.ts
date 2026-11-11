@@ -76,22 +76,6 @@ export async function queryOwnedCardPage(f: OwnedCardPageFilters) {
     tests.push(Prisma.sql`(${Prisma.join(disjuncts, " OR ")})`);
   }
 
-  // Shared CTE is computed inside Postgres on each read. No mutable data
-  // cache or stale inventory is introduced.
-  const base = Prisma.sql`
-    WITH own AS (
-      SELECT o."cardId", SUM(o.quantity)::bigint AS qty
-      FROM "CardOwnership" o
-      WHERE o."userId" = ${f.userId} AND o.quantity > 0
-      GROUP BY o."cardId"
-    )
-    FROM own
-    JOIN "Card" c ON c.id = own."cardId"
-    LEFT JOIN "ProductSet" ps ON ps.id = c."productSetId"
-    LEFT JOIN "Product" p ON p.id = ps."productId"
-    WHERE ${Prisma.join(tests, " AND ")}
-  `;
-
   // Count first to preserve existing out-of-range page clamping.
   const countResults = await prisma.$queryRaw<CountResult[]>(Prisma.sql`
     WITH own AS (
