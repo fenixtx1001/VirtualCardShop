@@ -10,11 +10,11 @@ test("grouped ownership preserves exact raw, graded and pending values", async (
     $queryRaw: async (query: unknown) => {
       void query;
       if (++calls === 1) return [
-        { bookValue: 0.50, grade: 0, quantity: 4n },
-        { bookValue: 0.50, grade: 9, quantity: 2n },
-        { bookValue: 20.0, grade: 10, quantity: 1n },
+        { bookValue: 0.50, grade: 0, quantity: BigInt(4) },
+        { bookValue: 0.50, grade: 9, quantity: BigInt(2) },
+        { bookValue: 20.0, grade: 10, quantity: BigInt(1) },
       ];
-      return [{ bookValue: 0.25, grade: 0, quantity: 3n }];
+      return [{ bookValue: 0.25, grade: 0, quantity: BigInt(3) }];
     },
   } as unknown as Db;
   let calls = 0;
@@ -48,7 +48,7 @@ test("unsafe quantities fall back instead of altering financial totals", async (
   let queries = 0;
   const db = {
     $queryRaw: async () => ++queries === 1
-      ? [{ bookValue: 0.50, grade: 0, quantity: BigInt(Number.MAX_SAFE_INTEGER) + 5n }]
+      ? [{ bookValue: 0.50, grade: 0, quantity: BigInt(Number.MAX_SAFE_INTEGER) + BigInt(5) }]
       : [],
     cardOwnership: {
       findMany: async () => [{ quantity: 1, grade: 0, card: { bookValue: 0.50 } }],
