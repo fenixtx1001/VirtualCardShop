@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { highestRevealedGradeByCard } from "@/lib/checklist-best-grade";
 import { collectorQuantity } from "@/lib/collection-quantity";
+import { serverTimingHeader } from "@/lib/performance-timing";
 import {
   requireUserWithSelection,
 } from "@/lib/current-user";
@@ -215,6 +216,7 @@ function normalizeSearch(value: unknown) {
 }
 
 export async function GET(req: Request, ctx: Ctx) {
+  const startedAt = Date.now();
   try {
     const {
       currentUser,
@@ -990,7 +992,7 @@ export async function GET(req: Request, ctx: Ctx) {
       totalPages,
 
       rows,
-    });
+    }, { headers: { "Server-Timing": serverTimingHeader(startedAt, "checklist") } });
   } catch (error: any) {
     return NextResponse.json(
       {

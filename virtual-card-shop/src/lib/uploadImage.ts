@@ -35,6 +35,9 @@ export async function uploadImageToR2(opts: {
       Key: key,
       Body: buffer,
       ContentType: contentType,
+      // Card images are immutable. Match the primary R2 upload path so
+      // browsers and a future custom-domain CDN can cache these efficiently.
+      CacheControl: "public, max-age=31536000, immutable",
       // With R2 "Public Access: Enabled", this is typically enough.
       // If you later move to signed URLs, you’d remove this.
       ACL: "public-read" as any,

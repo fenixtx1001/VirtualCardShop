@@ -6,6 +6,7 @@ import { syncPrestigeProgressForProductSets } from "@/lib/prestige";
 import { openedPackCostBasisCents } from "@/lib/analytics-math";
 import { syncDailyPortfolioSnapshot } from "@/lib/portfolio";
 import { collectorQuantity, readyQuantity } from "@/lib/collection-quantity";
+import { serverTimingHeader } from "@/lib/performance-timing";
 
 type Body = { productId?: string };
 
@@ -80,6 +81,7 @@ type SetPrestigeSnapshot = {
 };
 
 export async function POST(req: Request) {
+  const startedAt = Date.now();
   try {
     const body = (await req.json().catch(() => ({}))) as Body;
     const productId = (body.productId ?? "").trim();
@@ -522,7 +524,7 @@ export async function POST(req: Request) {
       ripBoxId: result.ripBoxId,
       usedLoosePack: result.usedLoosePack,
       cards: result.cards,
-    });
+    }, { headers: { "Server-Timing": serverTimingHeader(startedAt, "open_pack") } });
   } catch (e: unknown) {
     const err = e as { status?: number; message?: string };
     const status = err?.status ?? (err?.message === "Unauthorized" ? 401 : 500);

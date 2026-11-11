@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { aggregateSummaryRows } from "@/lib/analytics/aggregate-summary";
+import { serverTimingHeader } from "@/lib/performance-timing";
 import {
   cleanCanonicalPlayerName,
   normalizePlayerName,
@@ -53,6 +55,7 @@ type SummaryBucket = {
 };
 
 export async function GET(req: Request) {
+  const startedAt = Date.now();
   try {
     const me = await requireUser();
     const url = new URL(req.url);
@@ -206,6 +209,60 @@ export async function GET(req: Request) {
 
     if (andClauses.length > 0) {
       where.AND = andClauses;
+    }
+
+    // The common non-player reports now aggregate in PostgreSQL, returning
+    // only compact groups instead of transferring every card to Vercel.
+    // Player normalization still uses the exact existing JavaScript code.
+    // Emergency rollback: VCS_ANALYTICS_SQL_AGGREGATION=0.
+    if (groupBy !== "player" && process.env.VCS_ANALYTICS_SQL_AGGREGATION !== "0") {
+      try {
+        const rows = await aggregateSummaryRows({
+          scope,
+          universe,
+          targetUserId,
+          groupBy,
+          search,
+          sport,
+          year,
+          brand,
+          productId,
+          productSetId,
+          team,
+          player,
+        });
+        rows.sort((a, b) => {
+          if (sort === "owned_value_desc") {
+            if (b.ownedValue !== a.ownedValue) return b.ownedValue - a.ownedValue;
+          } else if (sort === "owned_qty_desc") {
+            if (b.ownedQty !== a.ownedQty) return b.ownedQty - a.ownedQty;
+          } else if (sort === "unique_cards_desc") {
+            if (b.uniqueCards !== a.uniqueCards) return b.uniqueCards - a.uniqueCards;
+          } else if (sort === "avg_book_value_desc") {
+            const aAvg = a.uniqueCards ? a.totalBookValue / a.uniqueCards : 0;
+            const bAvg = b.uniqueCards ? b.totalBookValue / b.uniqueCards : 0;
+            if (bAvg !== aAvg) return bAvg - aAvg;
+          } else if (sort === "max_book_value_desc") {
+            if (b.maxBookValue !== a.maxBookValue) return b.maxBookValue - a.maxBookValue;
+          }
+          return norm(a.label).localeCompare(norm(b.label));
+        });
+        const total = rows.length;
+        const totalPages = Math.max(1, Math.ceil(total / pageSize));
+        const safePage = Math.min(page, totalPages);
+        const pagedRows = rows.slice((safePage - 1) * pageSize, safePage * pageSize)
+          .map(row => ({
+            ...row,
+            avgBookValue: row.uniqueCards ? row.totalBookValue / row.uniqueCards : 0,
+          }));
+        return NextResponse.json(
+          { ok: true, page: safePage, pageSize, total, totalPages, rows: pagedRows },
+          { status: 200, headers: { "Server-Timing": serverTimingHeader(startedAt, "analytics_sql") } }
+        );
+      } catch (error) {
+        // Preserve every filter and report even if a query edge case fails.
+        console.warn("VCS analytics SQL fallback:", error instanceof Error ? error.message : "unknown");
+      }
     }
 
     const cards = await prisma.card.findMany({
@@ -409,7 +466,7 @@ export async function GET(req: Request) {
         totalPages,
         rows: pagedRows,
       },
-      { status: 200 }
+      { status: 200, headers: { "Server-Timing": serverTimingHeader(startedAt, "analytics_legacy") } }
     );
   } catch (e: any) {
     return NextResponse.json(
