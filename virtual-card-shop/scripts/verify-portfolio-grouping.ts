@@ -24,7 +24,23 @@ async function main() {
 
       process.env.VCS_PORTFOLIO_GROUPED_VALUES = "1";
       const fastAt = Date.now();
-      const optimized = await getCollectionValueCents(prisma, user.id);
+      const originalWarn = console.warn;
+      let fallbackUsed = false;
+      console.warn = (...parts: unknown[]) => {
+        if (String(parts[0] ?? "").includes("grouped portfolio valuation fallback")) {
+          fallbackUsed = true;
+        }
+        originalWarn(...parts);
+      };
+      let optimized: number;
+      try {
+        optimized = await getCollectionValueCents(prisma, user.id);
+      } finally {
+        console.warn = originalWarn;
+      }
+      if (fallbackUsed) {
+        throw new Error("Grouped SQL failed and legacy fallback was used; do not deploy.");
+      }
       const fastMs = Date.now() - fastAt;
       const match = reference === optimized;
       if (!match) errors++;
