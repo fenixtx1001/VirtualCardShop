@@ -4,7 +4,8 @@ import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
 import { syncPrestigeProgressForProductSets } from "@/lib/prestige";
 import { openedPackCostBasisCents } from "@/lib/analytics-math";
-import { syncDailyPortfolioSnapshot } from "@/lib/portfolio";
+import { syncDailyPortfolioSnapshot, trySyncPackPortfolioDelta } from "@/lib/portfolio";
+import { bookValueToCents } from "@/lib/grading";
 import { collectorQuantity, readyQuantity } from "@/lib/collection-quantity";
 
 type Body = { productId?: string };
@@ -463,7 +464,18 @@ export async function POST(req: Request) {
         });
       }
 
-      await syncDailyPortfolioSnapshot(tx, user.id);
+      // The pack's sealed cost basis and every newly owned raw card are
+      // known exactly. Avoid a 20K-40K row ownership scan for each rip when
+      // today's snapshot is current. Missing/stale snapshots still get the
+      // original full portfolio calculation.
+      const collectionDeltaCents = pulled.reduce(
+        (total, card) => total + bookValueToCents(card.bookValue), 0
+      );
+      const incremented = await trySyncPackPortfolioDelta(tx, user.id, {
+        collectionDeltaCents,
+        sealedDeltaCents: -openedPackBasis,
+      });
+      if (!incremented) await syncDailyPortfolioSnapshot(tx, user.id);
 
       // Resolve the actual collector-facing quantities after the pack has
       // been opened. Auction reservations are effectively out of possession;
