@@ -123,7 +123,12 @@ export function calculateRegistryRevealImpact(input: {
   };
 }
 
-function compute(cards: CardRow[], ownership: OwnRow[]) {
+export function computeRegistry(
+  cards: CardRow[],
+  ownership: OwnRow[],
+  options: { includeCardDetails?: boolean } = {}
+) {
+  const includeCardDetails = options.includeCardDetails !== false;
   const medianValue = median(cards.map(c => c.bookValue));
   const setValue = cards.reduce((sum, c) => sum + Math.max(0, c.bookValue), 0);
   const multiplier = registrySetMultiplier(setValue);
@@ -145,29 +150,34 @@ function compute(cards: CardRow[], ownership: OwnRow[]) {
     const result: RegistryCard[] = [];
     for (const card of cards) {
       const own = owned.get(card.id);
+      // The community scoreboard only needs totals, not an entire set of
+      // per-user card detail arrays (mostly grade-zero entries).
+      if (!includeCardDetails && !own) continue;
       const grade = own?.grade ?? 0;
       const weight = registryValueWeight(card.bookValue, medianValue);
       const basePoints = (REGISTRY_GRADE_POINTS[grade] ?? 0) * weight;
       base += basePoints;
       if (grade >= 8) qualified++;
       if (grade === 10) gems++;
-      result.push({
-        cardId: card.id, cardNumber: card.cardNumber, player: card.player,
-        team: card.team, frontImageUrl: card.frontImageUrl,
-        backImageUrl: card.backImageUrl,
-        rawValue: card.bookValue, grade,
-        gradedAt: own?.gradedAt?.toISOString() ?? null,
-        weight: Number(weight.toFixed(4)),
-        basePoints: Number(basePoints.toFixed(2)),
-        points: registryPointsForGrade(grade, card.bookValue, medianValue, multiplier),
-      });
+      if (includeCardDetails) {
+        result.push({
+          cardId: card.id, cardNumber: card.cardNumber, player: card.player,
+          team: card.team, frontImageUrl: card.frontImageUrl,
+          backImageUrl: card.backImageUrl,
+          rawValue: card.bookValue, grade,
+          gradedAt: own?.gradedAt?.toISOString() ?? null,
+          weight: Number(weight.toFixed(4)),
+          basePoints: Number(basePoints.toFixed(2)),
+          points: registryPointsForGrade(grade, card.bookValue, medianValue, multiplier),
+        });
+      }
     }
     const rating = maximumBase > 0 ? 100 * base / maximumBase : 0;
     standings.push({
       userId, score: Math.round(base * multiplier),
       rating: Number(rating.toFixed(2)), qualified, gems, owned: owned.size,
     });
-    cardsByUser.set(userId, result);
+    if (includeCardDetails) cardsByUser.set(userId, result);
   }
   standings.sort((a, b) => b.score - a.score || b.qualified - a.qualified || a.userId.localeCompare(b.userId));
   return { standings, cardsByUser, maximum: Math.round(maximumBase * multiplier),
@@ -202,7 +212,7 @@ export async function getSetRegistry(productSetId: string, viewerId: string, tar
       orderBy: [{ isBase: "desc" }, { name: "asc" }],
     }),
   ]);
-  const calc = compute(cards, owned);
+  const calc = computeRegistry(cards, owned);
   const collectors = calc.standings.length ? await prisma.user.findMany({
     where: { id: { in: calc.standings.map(s => s.userId) } },
     select: { id: true, name: true, email: true },
@@ -269,7 +279,11 @@ export async function getRegistryCommunity() {
     topSets: Array<{ productSetId: string; name: string; points: number; rating: number }>;
   }>();
   for (const [setId, setCards] of groupedCards) {
-    const result = compute(setCards, groupedOwnership.get(setId) ?? []);
+    const result = computeRegistry(
+      setCards,
+      groupedOwnership.get(setId) ?? [],
+      { includeCardDetails: false }
+    );
     for (const standing of result.standings) {
       let total = totals.get(standing.userId);
       if (!total) {
