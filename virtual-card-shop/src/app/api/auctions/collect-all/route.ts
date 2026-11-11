@@ -73,7 +73,11 @@ export async function POST(req: Request) {
       // Exact, aggregated portfolio deltas avoid scanning the entire
       // collection every eight auctions. Stale/missing snapshots fall back
       // to the existing full calculation automatically.
-      await syncCollectedPortfolioSnapshots(tx, changedPortfolios, deltas);
+      await syncCollectedPortfolioSnapshots(tx, changedPortfolios, deltas, {
+        // Refresh the true portfolio baseline once at the start of each
+        // collector session; subsequent batches use exact, guarded deltas.
+        forceFullRevaluation: afterId === 0,
+      });
       return outcomes;
     }, { maxWait: 10000, timeout: 60000 });
 
