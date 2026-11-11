@@ -39,7 +39,7 @@ function makeFixture(input: {
   let revisionLocks = 0;
   const db = {
     $queryRaw: async (query: { strings?: readonly string[] }) => {
-      if (query.strings?.join("").includes("FOR UPDATE")) revisionLocks++;
+      if (query.strings?.join("").includes("FOR SHARE")) revisionLocks++;
       return input.catalogMissing
         ? []
         : [{ revision: input.catalogRevision ?? BigInt(7) }];
@@ -70,7 +70,7 @@ test("pack opening adds raw card values and removes sealed cost basis atomically
   }, testDate);
   assert.equal(ok, true);
   assert.equal(f.updated(), 1);
-  assert.equal(f.revisionLocks(), 1, "price revision row must be locked");
+  assert.equal(f.revisionLocks(), 1, "price revision row must have a shared lock");
   const update = f.payload() as any;
   assert.equal(update.where.cardPriceRevision, BigInt(7));
   assert.deepEqual(update.data.collectionValueCents, { increment: 275 });
