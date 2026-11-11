@@ -12,23 +12,36 @@ async function main() {
   const { prisma } = await import("../src/lib/prisma");
   const { aggregateSummaryRows } = await import("../src/lib/analytics/aggregate-summary");
   try {
-    const product = await prisma.product.findFirst({
-      where: { released: true, productSets: { some: { cards: { some: {} } } } },
-      orderBy: { id: "asc" },
-      select: { id: true },
+    // Use a product and collector with actual holdings so the "owned"
+    // equivalence checks exercise nonempty groups instead of passing on
+    // zero-row results. Prefer a released product when available.
+    const ownedSample = await prisma.cardOwnership.findFirst({
+      where: {
+        quantity: { gt: 0 },
+        card: { productSet: { product: { released: true } } },
+      },
+      select: {
+        userId: true,
+        card: { select: { productSet: { select: { productId: true } } } },
+      },
+    }) ?? await prisma.cardOwnership.findFirst({
+      where: { quantity: { gt: 0 }, card: { productSetId: { not: null } } },
+      select: {
+        userId: true,
+        card: { select: { productSet: { select: { productId: true } } } },
+      },
     });
-    const owner = await prisma.cardOwnership.findFirst({
-      where: { quantity: { gt: 0 } },
-      select: { userId: true },
-    });
-    if (!product || !owner) throw new Error("No product with cards or collector found.");
+    const productId = ownedSample?.card.productSet?.productId;
+    if (!productId || !ownedSample) {
+      throw new Error("No owned product-set cards available for analytics verification.");
+    }
 
     for (const universe of ["all", "owned"] as const) {
       const cards = await prisma.card.findMany({
         where: {
-          productSet: { productId: product.id },
+          productSet: { productId: productId },
           ...(universe === "owned" ? { ownerships: {
-            some: { userId: owner.userId, quantity: { gt: 0 } },
+            some: { userId: ownedSample.userId, quantity: { gt: 0 } },
           } } : {}),
         },
         include: {
@@ -39,7 +52,7 @@ async function main() {
             },
           },
           ownerships: {
-            where: { userId: owner.userId, quantity: { gt: 0 } },
+            where: { userId: ownedSample.userId, quantity: { gt: 0 } },
             select: { quantity: true },
           },
         },
@@ -68,9 +81,9 @@ async function main() {
           baseline.set(key, existing);
         }
         const optimized = await aggregateSummaryRows({
-          scope: "me", universe, targetUserId: owner.userId,
+          scope: "me", universe, targetUserId: ownedSample.userId,
           groupBy, search: "", player: "", team: "",
-          year: "", brand: "", sport: "", productId: product.id,
+          year: "", brand: "", sport: "", productId: productId,
           productSetId: "",
         });
         if (baseline.size !== optimized.length)
