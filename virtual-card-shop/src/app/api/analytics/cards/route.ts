@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
 import { serverTimingHeader } from "@/lib/performance-timing";
+import { queryOwnedCardPage } from "@/lib/analytics/owned-card-page";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -89,6 +90,28 @@ export async function GET(req: Request) {
 
     const targetUserId =
       scope === "me" ? me.id : scope === "single_user" ? selectedUserId : null;
+
+    // The normal My Collection analytics view now reads only the requested
+    // page from PostgreSQL. All other modes retain legacy behavior.
+    if (!compareMode && universe === "owned" && targetUserId &&
+        sort === "owned_value_desc" &&
+        process.env.VCS_ANALYTICS_CARD_PAGING !== "0") {
+      try {
+        const optimized = await queryOwnedCardPage({
+          userId: targetUserId, page, pageSize,
+          search, sport, year, brand, productId, productSetId, team, player,
+        });
+        return NextResponse.json(optimized, {
+          status: 200,
+          headers: { "Server-Timing": serverTimingHeader(startedAt, "analytics_owned") },
+        });
+      } catch (error) {
+        console.warn(
+          "VCS analytics page fallback:",
+          error instanceof Error ? error.message : "unknown"
+        );
+      }
+    }
 
     const where: any = {};
     const andClauses: any[] = [];
