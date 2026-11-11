@@ -241,9 +241,14 @@ export async function syncDailyPortfolioSnapshot(
   now = new Date()
 ) {
   const dateKey = getChicagoDateKey(now);
-  const priceRevisionBefore = await readCardPriceRevision(db);
+  const priceGuardEnabled = process.env.VCS_PACK_PORTFOLIO_DELTA === "1";
+  // No extra revision reads while fast accounting is disabled.
+  // Enabling it later will perform one full revaluation before fast updates.
+  const priceRevisionBefore = priceGuardEnabled
+    ? await readCardPriceRevision(db) : null;
   const portfolio = await getPortfolioValue(db, userId);
-  const priceRevisionAfter = await readCardPriceRevision(db);
+  const priceRevisionAfter = priceGuardEnabled
+    ? await readCardPriceRevision(db) : null;
   // Never certify a snapshot if prices changed during valuation. A new
   // price mutation immediately after this read will increment the catalog
   // revision and invalidate it before the next incremental rip.
