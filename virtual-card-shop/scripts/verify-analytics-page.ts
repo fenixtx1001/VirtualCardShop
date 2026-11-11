@@ -54,12 +54,16 @@ async function main() {
       // Normalize that incidental order before comparing to the optimized
       // SQL query (which explicitly breaks those ties by Card.id).
       cards.sort((a, b) => a.id - b.id);
+      // Match the application's actual owned_value_desc comparator:
+      // value desc, one-copy book value desc, player asc.
       const legacy = cards.map(c => ({
         id: c.id,
         player: c.player,
+        bookValue: c.bookValue,
         value: c.bookValue * (qtyByCard.get(c.id) ?? 0),
       })).sort((a, b) => {
         if (b.value !== a.value) return b.value - a.value;
+        if (b.bookValue !== a.bookValue) return b.bookValue - a.bookValue;
         return a.player.localeCompare(b.player) || a.id - b.id;
       });
       const legacyMs = Date.now() - beginOld;
