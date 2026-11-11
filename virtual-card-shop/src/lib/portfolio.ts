@@ -1,4 +1,4 @@
-import type { Prisma } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 import {
   RAW_GRADE,
   bookValueToCents,
@@ -14,6 +14,7 @@ type PortfolioDb = Pick<
   | "gradingOrder"
   | "sealedInventory"
   | "financialDailySnapshot"
+  | "$queryRaw"
 >;
 
 export type PortfolioValue = {
@@ -23,7 +24,7 @@ export type PortfolioValue = {
   netWorthCents: number;
 };
 
-export async function getCollectionValueCents(db: PortfolioDb, userId: string) {
+async function getCollectionValueCentsLegacy(db: PortfolioDb, userId: string) {
   const ownerships = await db.cardOwnership.findMany({
     where: { userId, quantity: { gt: 0 } },
     select: {
@@ -82,6 +83,91 @@ export async function getCollectionValueCents(db: PortfolioDb, userId: string) {
   }
 
   return total;
+}
+
+/**
+ * Aggregate the exact same card values by (bookValue, grade) inside Postgres.
+ * That returns a small number of value buckets rather than transferring
+ * tens of thousands of individual ownership/card rows over the network.
+ *
+ * Each bucket is still valued with the existing JavaScript grading code,
+ * so sliding grade premiums, cent rounding, pending grading and the
+ * valuation floor remain unchanged.
+ *
+ * Kill switch: VCS_PORTFOLIO_GROUPED_VALUES=0. On any SQL failure the old
+ * calculation runs, preserving financial correctness over speed.
+ */
+export async function getCollectionValueCents(db: PortfolioDb, userId: string) {
+  if (
+    process.env.VCS_PORTFOLIO_GROUPED_VALUES === "0" ||
+    // The grouped calculation is valid while all gradeability profiles share
+    // the same VCS grade multipliers. Auto-disable if that rule ever changes.
+    getEffectiveGradeability({ cardOverride: "ICONIC", productSetDefault: "GREAT" }) !==
+      getEffectiveGradeability({ cardOverride: "COMMON", productSetDefault: "COMMON" }) ||
+    typeof db.$queryRaw !== "function"
+  ) {
+    return getCollectionValueCentsLegacy(db, userId);
+  }
+
+  type ValueBucket = { bookValue: number; grade: number; quantity: bigint };
+  try {
+    const [holdings, pending] = await Promise.all([
+      db.$queryRaw<ValueBucket[]>(Prisma.sql`
+        SELECT c."bookValue" AS "bookValue",
+               o.grade,
+               SUM(o.quantity)::bigint AS quantity
+        FROM "CardOwnership" o
+        INNER JOIN "Card" c ON c.id = o."cardId"
+        WHERE o."userId" = ${userId} AND o.quantity > 0
+        GROUP BY c."bookValue", o.grade
+      `),
+      db.$queryRaw<ValueBucket[]>(Prisma.sql`
+        SELECT c."bookValue" AS "bookValue",
+               0::integer AS grade,
+               SUM(g.quantity)::bigint AS quantity
+        FROM "GradingOrder" g
+        INNER JOIN "Card" c ON c.id = g."cardId"
+        WHERE g."userId" = ${userId}
+          AND g.quantity > 0
+          AND g.status IN ('PENDING', 'READY')
+        GROUP BY c."bookValue"
+      `),
+    ]);
+
+    let total = 0;
+    for (const row of holdings) {
+      const qty = Number(row.quantity);
+      if (!Number.isSafeInteger(qty) || qty < 0) {
+        return getCollectionValueCentsLegacy(db, userId);
+      }
+      const raw = bookValueToCents(row.bookValue);
+      const unit = row.grade === RAW_GRADE
+        ? raw
+        : calculateGradedValueCents({
+            rawBookValueCents: raw,
+            gradeability: "COMMON",
+            grade: row.grade,
+          });
+      total += unit * qty;
+    }
+    for (const row of pending) {
+      const qty = Number(row.quantity);
+      if (!Number.isSafeInteger(qty) || qty < 0) {
+        return getCollectionValueCentsLegacy(db, userId);
+      }
+      total += bookValueToCents(row.bookValue) * qty;
+    }
+    if (!Number.isSafeInteger(total) || total < 0) {
+      return getCollectionValueCentsLegacy(db, userId);
+    }
+    return total;
+  } catch (error) {
+    console.warn(
+      "VCS grouped portfolio valuation fallback:",
+      error instanceof Error ? error.message : "unknown"
+    );
+    return getCollectionValueCentsLegacy(db, userId);
+  }
 }
 
 export async function getSealedValueCents(db: PortfolioDb, userId: string) {
