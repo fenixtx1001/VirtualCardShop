@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import { prisma } from "@/lib/prisma";
 import { highestRevealedGradeByCard } from "@/lib/checklist-best-grade";
+import { collectorQuantity } from "@/lib/collection-quantity";
 import {
   requireUserWithSelection,
 } from "@/lib/current-user";
@@ -873,6 +874,12 @@ export async function GET(req: Request, ctx: Ctx) {
       const auctionLockedQty =
         selectedAuctionLockedMap.get(card.id) ?? 0;
 
+      // Collector quantity excludes auction commitments, but includes
+      // pending grading. Keep ownedQty for the existing Prestige logic.
+      const collectionQty = collectorQuantity(
+        revealedOwnedQty, auctionLockedQty, pendingGradingQty
+      );
+
       const needQty = Math.max(
         0,
         nextPrestigeLevel - ownedQty
@@ -890,6 +897,7 @@ export async function GET(req: Request, ctx: Ctx) {
         frontImageUrl: card.frontImageUrl,
 
         ownedQty,
+        collectionQty,
         rawQty,
         needQty,
         bestGrade: selectedBestGradeMap.get(card.id) ?? null,
@@ -906,6 +914,11 @@ export async function GET(req: Request, ctx: Ctx) {
 
       if (isCompareMode) {
         row.myOwnedQty = myQty(card.id);
+        row.myCollectionQty = collectorQuantity(
+          myOwnedMap.get(card.id) ?? 0,
+          myAuctionLockedMap.get(card.id) ?? 0,
+          myPendingMap.get(card.id) ?? 0
+        );
         row.myRawQty =
           myRawAvailableMap.get(card.id) ?? 0;
         row.myAuctionLockedQty =
