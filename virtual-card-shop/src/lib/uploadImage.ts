@@ -35,6 +35,9 @@ export async function uploadImageToR2(opts: {
       Key: key,
       Body: buffer,
       ContentType: contentType,
+      // Newly uploaded card scans use immutable, content-addressed object keys.
+      // Consistent cache policy with r2Upload.ts; older images are untouched.
+      CacheControl: "public, max-age=31536000, immutable",
       // With R2 "Public Access: Enabled", this is typically enough.
       // If you later move to signed URLs, you’d remove this.
       ACL: "public-read" as any,
