@@ -2,35 +2,37 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
 import { getCollectionValueCents } from "@/lib/portfolio";
+import { ApiTimings } from "@/lib/api-timings";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
+  const timings = new ApiTimings();
   try {
     const user = await requireUser();
 
     const [owned, pending, collectionValueCents] = await Promise.all([
-      prisma.cardOwnership.aggregate({
+      timings.measure("ownership", () => prisma.cardOwnership.aggregate({
         where: { userId: user.id, quantity: { gt: 0 } },
         _sum: { quantity: true, auctionLockedQuantity: true },
-      }),
-      prisma.gradingOrder.aggregate({
+      })),
+      timings.measure("grading", () => prisma.gradingOrder.aggregate({
         where: {
           userId: user.id,
           quantity: { gt: 0 },
           status: { in: ["PENDING", "READY"] },
         },
         _sum: { quantity: true },
-      }),
-      getCollectionValueCents(prisma, user.id),
+      })),
+      timings.measure("valuation", () => getCollectionValueCents(prisma, user.id)),
     ]);
 
     return NextResponse.json({
       ok: true,
       cardsOwned: Math.max(0, (owned._sum.quantity ?? 0) - (owned._sum.auctionLockedQuantity ?? 0)) + (pending._sum.quantity ?? 0),
       collectionValueCents,
-    });
+    }, { headers: timings.headers("/api/collection/stats") });
   } catch (e: unknown) {
     const status =
       typeof e === "object" && e !== null && "status" in e &&
