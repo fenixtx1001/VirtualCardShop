@@ -27,6 +27,10 @@ type Card = {
   isInsert: boolean;
   bookValue: number;
   ownedAfter: number;
+  collectionAfter?: number;
+  auctionAfter?: number;
+  gradingAfter?: number;
+  rawReadyAfter?: number;
 
   prestigeTargetLevel: number | null;
   isNeededForNextPrestige: boolean;
@@ -486,6 +490,20 @@ export default function OpenPackClient({
     setGradingAvailable(null);
     setGradingBookValue(null);
     setGradingError("");
+  }
+
+  function collectionCount(card: Card | null) {
+    if (!card) return 0;
+    const newlyListed = summaryFeedback[card.id]?.auctions ?? 0;
+    return Math.max(0, (card.collectionAfter ?? card.ownedAfter) - newlyListed);
+  }
+
+  function auctionCount(card: Card) {
+    return (card.auctionAfter ?? 0) + (summaryFeedback[card.id]?.auctions ?? 0);
+  }
+
+  function gradingCount(card: Card) {
+    return (card.gradingAfter ?? 0) + (summaryFeedback[card.id]?.gradingSubmitted ?? 0);
   }
 
   // Work directly on the result screen without navigating away from this pack.
@@ -1967,6 +1985,13 @@ export default function OpenPackClient({
           color: #b6d8ad;
         }
         .summary-card-feedback.error { color: #f0b3a4; }
+        .summary-card-presence {
+          margin-top: 4px;
+          color: #d4bd86;
+          font-size: 10px;
+          font-weight: 650;
+          line-height: 1.25;
+        }
         .summary-grading-panel {
           margin: 7px 0 10px;
           padding: 10px;
@@ -4801,7 +4826,7 @@ export default function OpenPackClient({
                         </span>
 
                         <span>
-                          Own <b>{current?.ownedAfter ?? "—"}</b>
+                          Yours <b>{current ? collectionCount(current) : "—"}</b>
                         </span>
                       </div>
                     </div>
@@ -4934,8 +4959,8 @@ export default function OpenPackClient({
                         <strong>{money(current?.bookValue)}</strong>
                       </div>
                       <div>
-                        <span className="kv-label">YOU OWN</span>
-                        <strong>×{current?.ownedAfter ?? "—"}</strong>
+                        <span className="kv-label">IN COLLECTION</span>
+                        <strong>×{current ? collectionCount(current) : "—"}</strong>
                       </div>
                     </div>
                   </div>
@@ -5097,6 +5122,14 @@ export default function OpenPackClient({
                                     {contextParts.join(" • ")}
                                   </div>
                                 ) : null}
+                                {(auctionCount(c) > 0 || gradingCount(c) > 0) ? (
+                                  <div className="summary-card-presence">
+                                    {[
+                                      auctionCount(c) > 0 ? auctionCount(c) + " at auction" : null,
+                                      gradingCount(c) > 0 ? gradingCount(c) + " in grading" : null,
+                                    ].filter(Boolean).join(" · ")}
+                                  </div>
+                                ) : null}
 
                                 {c.isNeededForNextPrestige &&
                                 prestigeProgressLabel ? (
@@ -5120,7 +5153,7 @@ export default function OpenPackClient({
                                 </div>
 
                                 <div className="summary-card-value-sub">
-                                  Own {c.ownedAfter}
+                                  Yours {collectionCount(c)}
                                 </div>
 
                                 {/* Tap the row for Card Details, or use the action menu. */}
