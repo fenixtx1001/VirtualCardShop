@@ -355,8 +355,10 @@ export default function AuctionsClient() {
     collectingRef.current = true;
     setCollectingAll(true);
     setCollectProgress(0);
-    setNotice(null);
+    const estimated = data?.summary.globalReadyToCollect ?? 0;
+    setNotice("Collecting auctions securely… 0" + (estimated ? " of " + estimated : "") + " processed.");
     setError(null);
+    let processed = 0;
     let afterId = 0;
     let collected = 0;
     let payoutCents = 0;
@@ -376,7 +378,10 @@ export default function AuctionsClient() {
         payoutCents += json.payoutCents ?? 0;
         unsold += json.unsoldReturned ?? 0;
         failed += json.failed ?? 0;
-        setCollectProgress(collected);
+        processed += Array.isArray(json.results) ? json.results.length : 0;
+        setCollectProgress(processed);
+        setNotice("Collecting… " + processed + (estimated ? " of " + estimated : "") +
+          " processed · " + money(payoutCents) + " credited so far. You can follow the progress here.");
         for (const row of json.results ?? []) {
           if (!row.ok && issues.length < 3) issues.push(
             "#" + row.auctionId + ": " + (row.error || "Collection failed")
@@ -458,7 +463,7 @@ export default function AuctionsClient() {
           <p>{money(data?.summary.globalReadyPayoutCents ?? 0)} estimated payout
             {(data?.summary.globalUnsoldCount ?? 0) > 0 ? " · " + data?.summary.globalUnsoldCount + " possibly unsold" : ""}</p></div>
         <button type="button" className="auctionCollectAll" disabled={collectingAll || busyId !== null} onClick={collectAll}>
-          {collectingAll ? "Collecting… " + collectProgress : "Collect All"}
+          {collectingAll ? "Processing… " + collectProgress : "Collect All"}
         </button>
       </section>}
       {notice && <div className="auctionSuccessNotice" role="status">{notice}</div>}
