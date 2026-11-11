@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { collectorQuantity } from "@/lib/collection-quantity";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -38,6 +39,7 @@ export async function GET() {
       where: { userId: user.id, quantity: { gt: 0 } },
       select: {
         quantity: true,
+        auctionLockedQuantity: true,
         card: {
           select: {
             id: true,
@@ -111,7 +113,7 @@ export async function GET() {
     }
 
     for (const r of owned) {
-      const qty = safeQty(r.quantity);
+      const qty = collectorQuantity(r.quantity, r.auctionLockedQuantity);
       const ps = (r as any).card?.productSet;
       const productId = String(ps?.productId ?? "").trim();
       if (!productId || qty <= 0) continue;
@@ -205,7 +207,7 @@ export async function GET() {
         productId: pid,
         uniqueOwned,
 
-        // Total includes raw + revealed graded + pending grading.
+        // Collection count includes grading, but excludes auction commitments.
         totalQty: agg.totalQty,
 
         totalRawAndGradedQty: agg.totalRawAndGradedQty,
