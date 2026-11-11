@@ -4,7 +4,6 @@ import { requireUser } from "@/lib/current-user";
 import { processAuctionLifecycle } from "@/lib/auction-engine";
 import {
   collectEndedAuctionTx, syncCollectedPortfolioSnapshots,
-  type AuctionPortfolioDeltas,
 } from "@/lib/auction-settlement";
 
 export const runtime = "nodejs";
@@ -23,9 +22,8 @@ export async function POST(_request: Request, ctx: Ctx) {
     await processAuctionLifecycle({ auctionId, limit: 1 });
     const result = await prisma.$transaction(async tx => {
       const changed = new Set<string>();
-      const deltas: AuctionPortfolioDeltas = new Map();
-      const outcome = await collectEndedAuctionTx(tx, user.id, auctionId, changed, deltas);
-      if (outcome.ok) await syncCollectedPortfolioSnapshots(tx, changed, deltas);
+      const outcome = await collectEndedAuctionTx(tx, user.id, auctionId, changed);
+      if (outcome.ok) await syncCollectedPortfolioSnapshots(tx, changed);
       return outcome;
     }, { maxWait: 10000, timeout: 45000 });
 
