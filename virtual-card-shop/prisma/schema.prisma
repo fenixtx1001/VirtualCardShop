@@ -622,6 +622,9 @@ model FinancialDailySnapshot {
   openingNetWorthCents Int      @default(0)
   closingNetWorthCents Int      @default(0)
   valuationVersion     Int      @default(2)
+  // Set only after a full valuation observed a stable price-catalog revision.
+  // Null is deliberately unsafe for incremental pack accounting.
+  cardPriceRevision    BigInt?
   netWorthCents        Int
   createdAt            DateTime @default(now())
   updatedAt            DateTime @updatedAt
@@ -630,4 +633,12 @@ model FinancialDailySnapshot {
 
   @@unique([userId, dateKey])
   @@index([userId, dateKey])
+}
+
+// A single transactional revision, incremented by PostgreSQL triggers on
+// master Card inserts, deletes, and book-value updates, including bulk imports.
+// No API may increment or reset it directly.
+model CardPriceRevision {
+  id       Int    @id
+  revision BigInt @default(0)
 }
