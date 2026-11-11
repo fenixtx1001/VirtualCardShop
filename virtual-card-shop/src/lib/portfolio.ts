@@ -24,6 +24,38 @@ export type PortfolioValue = {
   netWorthCents: number;
 };
 
+/**
+ * Price catalog revision is advanced by a DB trigger, so even direct SQL
+ * imports and administrator repricing invalidate the fast snapshot path.
+ *
+ * lock=true MUST be called inside the same transaction as the pack and
+ * snapshot write. A price change then cannot commit between validation and
+ * the transaction committing: its trigger needs the locked revision row.
+ *
+ * Missing migration, unavailable revision, or query failure => no fast path.
+ */
+async function readCardPriceRevision(
+  db: PortfolioDb,
+  lock = false
+): Promise<bigint | null> {
+  if (typeof db.$queryRaw !== "function") return null;
+  try {
+    type Row = { revision: bigint };
+    const rows = lock
+      ? await db.$queryRaw<Row[]>(Prisma.sql`
+          SELECT "revision" FROM "CardPriceRevision"
+          WHERE "id" = 1 FOR UPDATE
+        `)
+      : await db.$queryRaw<Row[]>(Prisma.sql`
+          SELECT "revision" FROM "CardPriceRevision" WHERE "id" = 1
+        `);
+    return rows.length === 1 && typeof rows[0]?.revision === "bigint"
+      ? rows[0].revision : null;
+  } catch {
+    return null;
+  }
+}
+
 async function getCollectionValueCentsLegacy(db: PortfolioDb, userId: string) {
   const ownerships = await db.cardOwnership.findMany({
     where: { userId, quantity: { gt: 0 } },
@@ -208,7 +240,15 @@ export async function syncDailyPortfolioSnapshot(
   now = new Date()
 ) {
   const dateKey = getChicagoDateKey(now);
+  const priceRevisionBefore = await readCardPriceRevision(db);
   const portfolio = await getPortfolioValue(db, userId);
+  const priceRevisionAfter = await readCardPriceRevision(db);
+  // Never certify a snapshot if prices changed during valuation. A new
+  // price mutation immediately after this read will increment the catalog
+  // revision and invalidate it before the next incremental rip.
+  const cardPriceRevision =
+    priceRevisionBefore !== null && priceRevisionBefore === priceRevisionAfter
+      ? priceRevisionAfter : null;
 
   const [existing, previous] = await Promise.all([
     db.financialDailySnapshot.findUnique({
@@ -237,6 +277,7 @@ export async function syncDailyPortfolioSnapshot(
       closingNetWorthCents: portfolio.netWorthCents,
       netWorthCents: portfolio.netWorthCents,
       valuationVersion: 2,
+      cardPriceRevision,
     },
     update: {
       balanceCents: portfolio.balanceCents,
@@ -246,6 +287,7 @@ export async function syncDailyPortfolioSnapshot(
       closingNetWorthCents: portfolio.netWorthCents,
       netWorthCents: portfolio.netWorthCents,
       valuationVersion: 2,
+      cardPriceRevision,
     },
   });
 }
@@ -349,6 +391,12 @@ export async function trySyncPackPortfolioDelta(
   if (![collectionDeltaCents, sealedDeltaCents, netWorthDelta]
     .every(Number.isSafeInteger)) return false;
 
+  // Acquire the revision-row lock before checking the snapshot, and keep it
+  // until the enclosing pack-opening DB transaction commits. The trigger
+  // increment for any concurrent Card.bookValue mutation must then wait.
+  const priceRevision = await readCardPriceRevision(db, true);
+  if (priceRevision === null) return false;
+
   const dateKey = getChicagoDateKey(now);
   const [user, snapshot] = await Promise.all([
     db.user.findUnique({ where: { id: userId }, select: { balanceCents: true } }),
@@ -358,11 +406,16 @@ export async function trySyncPackPortfolioDelta(
         id: true, balanceCents: true, collectionValueCents: true,
         sealedValueCents: true, closingNetWorthCents: true,
         netWorthCents: true, valuationVersion: true,
+        cardPriceRevision: true,
       },
     }),
   ]);
 
-  if (!user || !snapshot || snapshot.valuationVersion < 2) return false;
+  if (!user || !snapshot || snapshot.valuationVersion < 2 ||
+      snapshot.cardPriceRevision === null ||
+      snapshot.cardPriceRevision !== priceRevision) {
+    return false;
+  }
   const newCollection = snapshot.collectionValueCents + collectionDeltaCents;
   const newSealed = snapshot.sealedValueCents + sealedDeltaCents;
   const newNet = snapshot.closingNetWorthCents + netWorthDelta;
@@ -386,6 +439,7 @@ export async function trySyncPackPortfolioDelta(
       sealedValueCents: snapshot.sealedValueCents,
       netWorthCents: snapshot.netWorthCents,
       closingNetWorthCents: snapshot.closingNetWorthCents,
+      cardPriceRevision: priceRevision,
     },
     data: {
       collectionValueCents: { increment: collectionDeltaCents },
