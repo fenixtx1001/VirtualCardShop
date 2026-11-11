@@ -216,6 +216,7 @@ function normalizeSearch(value: unknown) {
 }
 
 export async function GET(req: Request, ctx: Ctx) {
+  const startedAt = Date.now();
   try {
     const {
       currentUser,
@@ -991,7 +992,7 @@ export async function GET(req: Request, ctx: Ctx) {
       totalPages,
 
       rows,
-    });
+    }, { headers: { "Server-Timing": serverTimingHeader(startedAt, "checklist") } });
   } catch (error: any) {
     return NextResponse.json(
       {
