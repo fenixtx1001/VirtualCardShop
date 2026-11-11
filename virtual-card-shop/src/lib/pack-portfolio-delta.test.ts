@@ -4,6 +4,8 @@ import { trySyncPackPortfolioDelta } from "./portfolio";
 
 type PortfolioDb = Parameters<typeof trySyncPackPortfolioDelta>[0];
 const testDate = new Date("2026-11-11T17:00:00Z");
+// Exercise opt-in path in unit tests; production defaults to OFF.
+process.env.VCS_PACK_PORTFOLIO_DELTA = "1";
 
 function makeFixture(input: {
   balance: number;
@@ -119,7 +121,7 @@ test("feature flag disables the incremental path and preserves fallback", async 
     }, testDate), false);
     assert.equal(f.updated(), 0);
   } finally {
-    delete process.env.VCS_PACK_PORTFOLIO_DELTA;
+    process.env.VCS_PACK_PORTFOLIO_DELTA = "1";
   }
 });
 
@@ -183,4 +185,21 @@ test("a failed revision read cannot accidentally enable the fast path", async ()
     collectionDeltaCents: 250, sealedDeltaCents: -300,
   }, testDate), false);
   assert.equal(f.updated(), 0);
+});
+
+
+test("fast accounting is disabled by default if no opt-in was supplied", async () => {
+  const f = makeFixture({
+    balance: 1200, collection: 5000, sealed: 2000,
+    gained: 250, consumed: 300,
+  });
+  delete process.env.VCS_PACK_PORTFOLIO_DELTA;
+  try {
+    assert.equal(await trySyncPackPortfolioDelta(f.db, "collector", {
+      collectionDeltaCents: 250, sealedDeltaCents: -300,
+    }, testDate), false);
+    assert.equal(f.updated(), 0);
+  } finally {
+    process.env.VCS_PACK_PORTFOLIO_DELTA = "1";
+  }
 });
