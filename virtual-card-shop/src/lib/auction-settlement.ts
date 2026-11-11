@@ -1,7 +1,35 @@
 import type { Prisma } from "@prisma/client";
-import { labelVcsGrade } from "@/lib/grading";
+import {
+  RAW_GRADE,
+  bookValueToCents,
+  calculateGradedValueCents,
+  getEffectiveGradeability,
+  labelVcsGrade,
+} from "@/lib/grading";
 import { getPercentOfValueBps } from "@/lib/auctions";
-import { syncDailyPortfolioSnapshot } from "@/lib/portfolio";
+import {
+  syncDailyPortfolioSnapshot,
+  trySyncAuctionPortfolioDelta,
+} from "@/lib/portfolio";
+
+export type AuctionPortfolioDelta = {
+  balanceDeltaCents: number;
+  collectionDeltaCents: number;
+};
+export type AuctionPortfolioDeltas = Map<string, AuctionPortfolioDelta>;
+
+function recordPortfolioDelta(
+  deltas: AuctionPortfolioDeltas,
+  userId: string,
+  balanceDeltaCents: number,
+  collectionDeltaCents: number
+) {
+  const prior = deltas.get(userId);
+  deltas.set(userId, {
+    balanceDeltaCents: (prior?.balanceDeltaCents ?? 0) + balanceDeltaCents,
+    collectionDeltaCents: (prior?.collectionDeltaCents ?? 0) + collectionDeltaCents,
+  });
+}
 
 export type AuctionCollectionOutcome = {
   auctionId: number;
@@ -26,13 +54,20 @@ export async function collectEndedAuctionTx(
   sellerUserId: string,
   auctionId: number,
   changedPortfolios: Set<string>,
+  portfolioDeltas?: AuctionPortfolioDeltas,
 ): Promise<AuctionCollectionOutcome> {
   const reject = (error: string): AuctionCollectionOutcome => ({ auctionId, ok: false, error });
 
   const auction = await tx.auction.findUnique({
     where: { id: auctionId },
     include: {
-      card: { select: { player: true, cardNumber: true } },
+      card: {
+        select: {
+          player: true, cardNumber: true, bookValue: true,
+          gradeabilityOverride: true,
+          productSet: { select: { defaultGradeability: true } },
+        },
+      },
       bids: {
         orderBy: [{ amountCents: "desc" }, { createdAt: "asc" }, { id: "asc" }],
         take: 1,
@@ -203,6 +238,27 @@ export async function collectEndedAuctionTx(
     data: { winnerUserId: buyerUserId, currentBidCents: salePriceCents },
   });
   changedPortfolios.add(sellerUserId);
+
+  if (portfolioDeltas) {
+    // Use current VCS book valuation, not the historical auction starting
+    // basis. This exactly matches getCollectionValueCents at settlement time.
+    const rawBookValueCents = bookValueToCents(auction.card.bookValue);
+    const ownedCopyValueCents = auction.grade === RAW_GRADE
+      ? rawBookValueCents
+      : calculateGradedValueCents({
+          rawBookValueCents,
+          grade: auction.grade,
+          gradeability: getEffectiveGradeability({
+            cardOverride: auction.card.gradeabilityOverride,
+            productSetDefault: auction.card.productSet?.defaultGradeability,
+          }),
+        });
+    recordPortfolioDelta(portfolioDeltas, sellerUserId, salePriceCents, -ownedCopyValueCents);
+    if (buyerType === "HUMAN" && buyerUserId) {
+      recordPortfolioDelta(portfolioDeltas, buyerUserId, -salePriceCents, ownedCopyValueCents);
+    }
+  }
+
   return {
     auctionId, ok: true, status: "COLLECTED",
     salePriceCents, buyerType,
@@ -213,8 +269,12 @@ export async function collectEndedAuctionTx(
 export async function syncCollectedPortfolioSnapshots(
   tx: Prisma.TransactionClient,
   changedPortfolios: Set<string>,
+  portfolioDeltas?: AuctionPortfolioDeltas,
 ) {
   for (const userId of [...changedPortfolios].sort()) {
-    await syncDailyPortfolioSnapshot(tx, userId);
+    const delta = portfolioDeltas?.get(userId);
+    if (!delta || !(await trySyncAuctionPortfolioDelta(tx, userId, delta))) {
+      await syncDailyPortfolioSnapshot(tx, userId);
+    }
   }
 }
