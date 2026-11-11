@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { collectorQuantity } from "@/lib/collection-quantity";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -57,7 +58,7 @@ export async function GET(req: Request, ctx: Params) {
       prisma.cardOwnership.groupBy({
         by: ["cardId"],
         where: { userId: user.id, quantity: { gt: 0 }, card: { productSetId: selected.id } },
-        _sum: { quantity: true },
+        _sum: { quantity: true, auctionLockedQuantity: true },
       }),
       prisma.gradingOrder.groupBy({
         by: ["cardId"],
@@ -71,7 +72,14 @@ export async function GET(req: Request, ctx: Params) {
     ]);
 
     const ownedByCard = new Map<number, number>();
-    for (const row of [...ownership, ...pending]) {
+    const atAuctionByCard = new Map<number, number>();
+    for (const row of ownership) {
+      const owned = row._sum.quantity ?? 0;
+      const locked = row._sum.auctionLockedQuantity ?? 0;
+      ownedByCard.set(row.cardId, collectorQuantity(owned, locked));
+      atAuctionByCard.set(row.cardId, Math.min(owned, locked));
+    }
+    for (const row of pending) {
       ownedByCard.set(row.cardId, (ownedByCard.get(row.cardId) || 0) + (row._sum.quantity || 0));
     }
     const ordered = cards.sort(naturalCardOrder).map(card => ({
@@ -84,6 +92,7 @@ export async function GET(req: Request, ctx: Params) {
       frontImageUrl: card.frontImageUrl,
       backImageUrl: card.backImageUrl,
       quantity: ownedByCard.get(card.id) || 0,
+      listedQuantity: atAuctionByCard.get(card.id) || 0,
     }));
     const uniqueOwned = ordered.reduce((count, card) => count + Number(card.quantity > 0), 0);
     return NextResponse.json({
