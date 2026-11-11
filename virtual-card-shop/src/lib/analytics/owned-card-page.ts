@@ -113,8 +113,13 @@ export async function queryOwnedCardPage(f: OwnedCardPageFilters) {
     LEFT JOIN "ProductSet" ps ON ps.id = c."productSetId"
     LEFT JOIN "Product" p ON p.id = ps."productId"
     WHERE ${Prisma.join(tests, " AND ")}
+    -- Preserve the existing Analytics sort exactly:
+    -- total owned value, then one-copy book value, then player name.
+    -- Card ID only stabilizes otherwise identical ties across requests.
     ORDER BY (c."bookValue" * own.qty::float8) DESC,
-             c.player COLLATE "en-US-x-icu" ASC, c.id ASC
+             c."bookValue" DESC,
+             c.player COLLATE "en-US-x-icu" ASC,
+             c.id ASC
     LIMIT ${f.pageSize} OFFSET ${skip}
   `);
 
