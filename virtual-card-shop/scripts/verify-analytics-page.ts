@@ -19,22 +19,39 @@ async function main() {
     if (!collectors.length) throw new Error("No collector inventory to verify.");
     for (const [index, user] of collectors.entries()) {
       const beginOld = Date.now();
-      const cards = await prisma.card.findMany({
-        where: { ownerships: { some: {
-          userId: user.userId, quantity: { gt: 0 },
-        } } },
-        select: {
-          id: true, player: true, bookValue: true,
-          ownerships: {
-            where: { userId: user.userId, quantity: { gt: 0 } },
-            select: { quantity: true },
-          },
-        },
+      // Build the legacy calculation independently, but in bounded queries.
+      // Prisma's nested ownership relation can generate an IN() statement with
+      // >32,767 bind parameters when a collector owns tens of thousands of
+      // cards. Do not use that giant relational include in a safety verifier.
+      const ownedGroups = await prisma.cardOwnership.groupBy({
+        by: ["cardId"],
+        where: { userId: user.userId, quantity: { gt: 0 } },
+        _sum: { quantity: true },
       });
+      const qtyByCard = new Map(
+        ownedGroups.map(row => [row.cardId, row._sum.quantity ?? 0])
+      );
+      const cardIds = [...qtyByCard.keys()];
+      const cards: Array<{ id: number; player: string; bookValue: number }> = [];
+      const CHUNK_SIZE = 1000;
+      for (let offset = 0; offset < cardIds.length; offset += CHUNK_SIZE) {
+        const batchIds = cardIds.slice(offset, offset + CHUNK_SIZE);
+        const batch = await prisma.card.findMany({
+          where: { id: { in: batchIds } },
+          select: { id: true, player: true, bookValue: true },
+        });
+        cards.push(...batch);
+      }
+      if (cards.length !== cardIds.length) {
+        throw new Error(
+          "Collector " + (index + 1) +
+          " has ownerships with missing card records; cannot verify."
+        );
+      }
       const legacy = cards.map(c => ({
         id: c.id,
         player: c.player,
-        value: c.bookValue * c.ownerships.reduce((s, row) => s + row.quantity, 0),
+        value: c.bookValue * (qtyByCard.get(c.id) ?? 0),
       })).sort((a, b) => {
         if (b.value !== a.value) return b.value - a.value;
         return a.player.localeCompare(b.player);
