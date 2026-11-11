@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/5076/1994-95-Topps-Premier",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/5076/1994-95-Topps-Premier",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/5076/1994-95-Topps-Premier"
+  },
+  "decisions": {
+    "base": "550 cards in two series: #1-275 Series 1; #276-550 Series 2.",
+    "rookies": "TCDB indexes 23 Base RC records; match by printed number and cleaned identity.",
+    "specialEffects": "550-card holofoil parallel, 1:2 per regular pack. Unlike Base, #274, #275, #549 and #550 have player subjects rather than checklists; independently verify subjects.",
+    "inserts": "Finest Top Goal Scorers 23 cards, 1:36 Series One packs; Finest The Go To Guy 15 cards, 1:36 Series Two packs.",
+    "separation": "Topps Premier is distinct from 1994-95 O-Pee-Chee Premier, although cards share designs and photos. Do not merge the checklists.",
+    "release": "UNRELEASED; pack Series/channel constraints, photography, valuation and QA pending."
+  },
+  "product": {
+    "id": "1994_95_Topps_Premier_Hockey",
+    "year": 1994,
+    "brand": "Topps Premier",
+    "sport": "Hockey",
+    "cardsPerPack": 0,
+    "packsPerBox": 0,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "packConfiguration": "PENDING",
+    "seriesSpecificOdds": "PENDING",
+    "images": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_QA"
+  },
+  "cardsFile": "1994-95-topps-premier-hockey.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1994_95_Topps_Premier_Hockey_base",
+      "name": "Base",
+      "kind": "BASE",
+      "sourceSetId": 5076,
+      "expectedCards": 550,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/5076/1994-95-Topps-Premier",
+      "notes": null
+    },
+    {
+      "key": "special-effects",
+      "id": "1994_95_Topps_Premier_Hockey_special_effects",
+      "name": "Special Effects",
+      "kind": "PARALLEL",
+      "sourceSetId": 48512,
+      "expectedCards": 550,
+      "oddsPerPack": 2,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/48512/1994-95-Topps-Premier",
+      "notes": "Series-specific 1:2; 4 checklist numbers have different subjects"
+    },
+    {
+      "key": "finest-top-goal-scorers",
+      "id": "1994_95_Topps_Premier_Hockey_finest_top_goal_scorers",
+      "name": "Finest Top Goal Scorers",
+      "kind": "INSERT",
+      "sourceSetId": 5077,
+      "expectedCards": 23,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/5077/1994-95-Topps-Premier",
+      "notes": "Series One only, 1:36"
+    },
+    {
+      "key": "finest-the-go-to-guy",
+      "id": "1994_95_Topps_Premier_Hockey_finest_the_go_to_guy",
+      "name": "Finest The Go To Guy",
+      "kind": "INSERT",
+      "sourceSetId": 5041,
+      "expectedCards": 15,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/5041/1994-95-Topps-Premier",
+      "notes": "Series Two only, 1:36"
+    }
+  ]
+}
