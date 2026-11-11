@@ -7,7 +7,9 @@ const date = new Date("2026-11-11T19:30:00Z");
 
 async function verifyFullSnapshot(revisions: Array<bigint | null>) {
   const original = process.env.VCS_PORTFOLIO_GROUPED_VALUES;
+  const oldFastFlag = process.env.VCS_PACK_PORTFOLIO_DELTA;
   process.env.VCS_PORTFOLIO_GROUPED_VALUES = "0";
+  process.env.VCS_PACK_PORTFOLIO_DELTA = "1";
   let reads = 0;
   let saved: { create: { cardPriceRevision?: bigint | null } } | null = null;
   const db = {
@@ -34,6 +36,8 @@ async function verifyFullSnapshot(revisions: Array<bigint | null>) {
   } finally {
     if (original === undefined) delete process.env.VCS_PORTFOLIO_GROUPED_VALUES;
     else process.env.VCS_PORTFOLIO_GROUPED_VALUES = original;
+    if (oldFastFlag === undefined) delete process.env.VCS_PACK_PORTFOLIO_DELTA;
+    else process.env.VCS_PACK_PORTFOLIO_DELTA = oldFastFlag;
   }
 }
 
