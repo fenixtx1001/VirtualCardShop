@@ -5,6 +5,7 @@ import { requireUser } from "@/lib/current-user";
 import { syncPrestigeProgressForProductSets } from "@/lib/prestige";
 import { openedPackCostBasisCents } from "@/lib/analytics-math";
 import { syncDailyPortfolioSnapshot } from "@/lib/portfolio";
+import { collectorQuantity, readyQuantity } from "@/lib/collection-quantity";
 
 type Body = { productId?: string };
 
@@ -59,6 +60,10 @@ type EnrichedCard = {
   bookValue: number;
   ownedBefore: number;
   ownedAfter: number;
+  collectionAfter: number;
+  auctionAfter: number;
+  gradingAfter: number;
+  rawReadyAfter: number;
   ripBoxId: number | null;
 
   prestigeTargetLevel: number | null;
@@ -364,6 +369,10 @@ export async function POST(req: Request) {
           bookValue: c.bookValue,
           ownedBefore,
           ownedAfter,
+          collectionAfter: ownedAfter,
+          auctionAfter: 0,
+          gradingAfter: 0,
+          rawReadyAfter: ownedAfter,
           ripBoxId: ripBoxForThisPack?.id ?? null,
           prestigeTargetLevel: null,
           isNeededForNextPrestige: false,
@@ -455,6 +464,47 @@ export async function POST(req: Request) {
       }
 
       await syncDailyPortfolioSnapshot(tx, user.id);
+
+      // Resolve the actual collector-facing quantities after the pack has
+      // been opened. Auction reservations are effectively out of possession;
+      // pending grading copies still count in the collection.
+      const pulledIds = [...new Set(enriched.map(card => card.id))];
+      const [ownershipNow, gradingNow] = await Promise.all([
+        tx.cardOwnership.findMany({
+          where: { userId: user.id, cardId: { in: pulledIds }, quantity: { gt: 0 } },
+          select: { cardId: true, grade: true, quantity: true, auctionLockedQuantity: true },
+        }),
+        tx.gradingOrder.findMany({
+          where: {
+            userId: user.id, cardId: { in: pulledIds }, quantity: { gt: 0 },
+            status: { in: ["PENDING", "READY"] },
+          },
+          select: { cardId: true, quantity: true },
+        }),
+      ]);
+      const held = new Map<number, number>();
+      const listed = new Map<number, number>();
+      const rawReady = new Map<number, number>();
+      const pending = new Map<number, number>();
+      for (const row of ownershipNow) {
+        const count = collectorQuantity(row.quantity, row.auctionLockedQuantity);
+        held.set(row.cardId, (held.get(row.cardId) ?? 0) + count);
+        listed.set(row.cardId, (listed.get(row.cardId) ?? 0) +
+          Math.min(row.quantity, row.auctionLockedQuantity));
+        if (row.grade === RAW_GRADE) {
+          rawReady.set(row.cardId, (rawReady.get(row.cardId) ?? 0) +
+            readyQuantity(row.quantity, row.auctionLockedQuantity));
+        }
+      }
+      for (const row of gradingNow) {
+        pending.set(row.cardId, (pending.get(row.cardId) ?? 0) + row.quantity);
+      }
+      for (const row of enriched) {
+        row.collectionAfter = (held.get(row.id) ?? 0) + (pending.get(row.id) ?? 0);
+        row.auctionAfter = listed.get(row.id) ?? 0;
+        row.gradingAfter = pending.get(row.id) ?? 0;
+        row.rawReadyAfter = rawReady.get(row.id) ?? 0;
+      }
 
       return {
         cards: enriched,
