@@ -64,7 +64,12 @@ async function main() {
       });
       const legacyMs = Date.now() - beginOld;
 
-      for (const page of [1, 2, 5, 8]) {
+      // Cover early, middle and final pages so future player names or price
+      // ties do not silently change the collector's displayed card order.
+      const lastPage = Math.max(1, Math.ceil(legacy.length / 50));
+      const pages = [...new Set([1, 2, 5, 8, 20, 100, lastPage])]
+        .filter(page => page <= lastPage);
+      for (const page of pages) {
         const startNew = Date.now();
         const optimized = await queryOwnedCardPage({
           userId: user.userId, page, pageSize: 50,
