@@ -517,8 +517,8 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
               <strong>{inCollection}</strong>
               <small>
                 {owned.pendingGradingQuantity > 0
-                  ? `${rawInCollection} raw · ${gradedInCollection} graded · ${owned.pendingGradingQuantity} grading`
-                  : `${rawInCollection} raw · ${gradedInCollection} graded`}
+                  ? `${rawInCollection} raw · ${gradedInCollection} graded · ${owned.pendingGradingQuantity} grading${listed ? ` · ${listed} at auction` : ""}`
+                  : `${rawInCollection} raw · ${gradedInCollection} graded${listed ? ` · ${listed} at auction` : ""}`}
               </small>
             </button>
             <button onClick={() => selectTab("population", true)}>
