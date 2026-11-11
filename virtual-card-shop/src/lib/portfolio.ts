@@ -29,8 +29,9 @@ export type PortfolioValue = {
  * imports and administrator repricing invalidate the fast snapshot path.
  *
  * lock=true MUST be called inside the same transaction as the pack and
- * snapshot write. A price change then cannot commit between validation and
- * the transaction committing: its trigger needs the locked revision row.
+ * snapshot write. A shared lock allows simultaneous pack rips by different
+ * collectors, but conflicts with a price-editor trigger updating the row.
+ * Thus prices cannot change between validation and the transaction commit.
  *
  * Missing migration, unavailable revision, or query failure => no fast path.
  */
@@ -44,7 +45,7 @@ async function readCardPriceRevision(
     const rows = lock
       ? await db.$queryRaw<Row[]>(Prisma.sql`
           SELECT "revision" FROM "CardPriceRevision"
-          WHERE "id" = 1 FOR UPDATE
+          WHERE "id" = 1 FOR SHARE
         `)
       : await db.$queryRaw<Row[]>(Prisma.sql`
           SELECT "revision" FROM "CardPriceRevision" WHERE "id" = 1
@@ -393,9 +394,9 @@ export async function trySyncPackPortfolioDelta(
   if (![collectionDeltaCents, sealedDeltaCents, netWorthDelta]
     .every(Number.isSafeInteger)) return false;
 
-  // Acquire the revision-row lock before checking the snapshot, and keep it
-  // until the enclosing pack-opening DB transaction commits. The trigger
-  // increment for any concurrent Card.bookValue mutation must then wait.
+  // Acquire a shared revision-row lock before checking the snapshot. Multiple
+  // packs can run concurrently, while price-edit trigger updates must wait
+  // until those pack transactions commit.
   const priceRevision = await readCardPriceRevision(db, true);
   if (priceRevision === null) return false;
 
