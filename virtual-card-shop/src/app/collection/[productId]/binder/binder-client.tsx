@@ -15,6 +15,7 @@ type BinderCard = {
   frontImageUrl: string | null;
   backImageUrl: string | null;
   quantity: number;
+  listedQuantity?: number;
 };
 type BinderData = {
   ok: true;
@@ -43,7 +44,8 @@ function setName(data: BinderData) {
 }
 function accessibleCard(card: BinderCard) {
   return card.player + (card.cardNumber ? " #" + card.cardNumber : "") +
-    (card.quantity > 0 ? ", owned " + card.quantity : ", not owned");
+    (card.quantity > 0 ? ", in collection " + card.quantity : ", not in collection") +
+    (card.listedQuantity ? ", " + card.listedQuantity + " at auction" : "");
 }
 function useBodyLocked(open: boolean) {
   useEffect(() => {
@@ -431,7 +433,8 @@ export default function BinderClient({
             .filter(Boolean).join(" · ")}</p>
           <div className="binder-preview-ownership">
             <span>{preview.quantity > 0 ? "IN YOUR COLLECTION" : "MISSING FROM COLLECTION"}</span>
-            <strong>{preview.quantity > 0 ? "×" + preview.quantity + " owned" : "Not owned"}</strong>
+            <strong>{preview.quantity > 0 ? "×" + preview.quantity + " in collection" : "No copies in collection"}</strong>
+            {!!preview.listedQuantity && <small>{preview.listedQuantity} at auction</small>}
           </div>
           <Link href={"/cards/" + preview.cardId} className="binder-preview-details">
             Open Card Details ↗
