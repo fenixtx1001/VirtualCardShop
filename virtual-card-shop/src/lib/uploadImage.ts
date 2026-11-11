@@ -35,7 +35,7 @@ export async function uploadImageToR2(opts: {
       Key: key,
       Body: buffer,
       ContentType: contentType,
-      // Newly uploaded card scans use immutable, content-addressed object keys.
+      // Newly uploaded scans use distinct object keys so they can be cached.
       // Consistent cache policy with r2Upload.ts; older images are untouched.
       CacheControl: "public, max-age=31536000, immutable",
       // With R2 "Public Access: Enabled", this is typically enough.
