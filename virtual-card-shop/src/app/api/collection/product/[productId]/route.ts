@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { collectorQuantity } from "@/lib/collection-quantity";
 
 type Ctx =
   | { params: { productId?: string } }
@@ -28,6 +29,7 @@ type CardApiRow = {
   rawQuantity: number;
   gradedQuantity: number;
   pendingGradingQuantity: number;
+  auctionListedQuantity: number;
 
   highestGrade: number | null;
   gradeBreakdown: GradeBreakdownRow[];
@@ -112,6 +114,7 @@ export async function GET(req: Request, ctx: Ctx) {
       select: {
         quantity: true,
         grade: true,
+        auctionLockedQuantity: true,
         card: {
           select: {
             id: true,
@@ -190,6 +193,7 @@ export async function GET(req: Request, ctx: Ctx) {
         rawQuantity: 0,
         gradedQuantity: 0,
         pendingGradingQuantity: 0,
+        auctionListedQuantity: 0,
 
         highestGrade: null,
         gradeBreakdown: [],
@@ -205,28 +209,31 @@ export async function GET(req: Request, ctx: Ctx) {
 
     for (const o of owned) {
       const qty = safeQty(o.quantity);
+      const listed = Math.min(qty, safeQty(o.auctionLockedQuantity));
+      const inCollection = collectorQuantity(qty, listed);
       const grade = typeof o.grade === "number" && Number.isFinite(o.grade) ? o.grade : 0;
       if (qty <= 0) continue;
 
       const row = getOrCreateCardRow({ card: o.card });
 
-      row.quantity += qty;
+      row.quantity += inCollection;
+      row.auctionListedQuantity += listed;
 
-      if (grade === 0) row.rawQuantity += qty;
+      if (grade === 0) row.rawQuantity += inCollection;
 
       if (grade > 0) {
-        row.gradedQuantity += qty;
+        row.gradedQuantity += inCollection;
         row.highestGrade = Math.max(row.highestGrade ?? grade, grade);
       }
 
       const existingGrade = row.gradeBreakdown.find((g) => g.grade === grade);
       if (existingGrade) {
-        existingGrade.quantity += qty;
+        existingGrade.quantity += inCollection;
       } else {
         row.gradeBreakdown.push({
           grade,
           label: gradeLabel(grade),
-          quantity: qty,
+          quantity: inCollection,
         });
       }
     }
@@ -246,11 +253,12 @@ export async function GET(req: Request, ctx: Ctx) {
       gradeBreakdown: [...c.gradeBreakdown].sort((a, b) => gradeSortValue(a.grade) - gradeSortValue(b.grade)),
     }));
 
-    const uniqueOwned = cards.length;
+    const uniqueOwned = cards.filter(c => c.quantity > 0).length;
     const totalQty = cards.reduce((sum, c) => sum + (c.quantity ?? 0), 0);
     const totalRawQty = cards.reduce((sum, c) => sum + (c.rawQuantity ?? 0), 0);
     const totalGradedQty = cards.reduce((sum, c) => sum + (c.gradedQuantity ?? 0), 0);
     const totalPendingGradingQty = cards.reduce((sum, c) => sum + (c.pendingGradingQuantity ?? 0), 0);
+    const totalAuctionListedQty = cards.reduce((sum, c) => sum + (c.auctionListedQuantity ?? 0), 0);
     const percentComplete = totalCards > 0 ? (uniqueOwned / totalCards) * 100 : 0;
 
     return NextResponse.json({
@@ -269,6 +277,7 @@ export async function GET(req: Request, ctx: Ctx) {
       totalRawQty,
       totalGradedQty,
       totalPendingGradingQty,
+      totalAuctionListedQty,
       cards,
     });
   } catch (e: any) {
