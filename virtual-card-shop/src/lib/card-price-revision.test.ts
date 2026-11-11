@@ -5,11 +5,11 @@ import { syncDailyPortfolioSnapshot } from "./portfolio";
 type Db = Parameters<typeof syncDailyPortfolioSnapshot>[0];
 const date = new Date("2026-11-11T19:30:00Z");
 
-async function verifyFullSnapshot(revisions: Array<bigint | null>) {
+async function verifyFullSnapshot(revisions: Array<bigint | null>, enableFastPath = true) {
   const original = process.env.VCS_PORTFOLIO_GROUPED_VALUES;
   const oldFastFlag = process.env.VCS_PACK_PORTFOLIO_DELTA;
   process.env.VCS_PORTFOLIO_GROUPED_VALUES = "0";
-  process.env.VCS_PACK_PORTFOLIO_DELTA = "1";
+  process.env.VCS_PACK_PORTFOLIO_DELTA = enableFastPath ? "1" : "0";
   let reads = 0;
   let saved: { create: { cardPriceRevision?: bigint | null } } | null = null;
   const db = {
@@ -54,5 +54,11 @@ test("price change DURING full valuation stamps NULL, so no fast pack can trust 
 
 test("missing/unavailable catalog guard never certifies a financial snapshot", async () => {
   const result = await verifyFullSnapshot([null, null]);
+  assert.equal(result.saved.create.cardPriceRevision, null);
+});
+
+test("disabled optimization introduces no extra revision reads", async () => {
+  const result = await verifyFullSnapshot([BigInt(12), BigInt(12)], false);
+  assert.equal(result.reads, 0);
   assert.equal(result.saved.create.cardPriceRevision, null);
 });
