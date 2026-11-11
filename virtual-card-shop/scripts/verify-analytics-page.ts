@@ -48,17 +48,23 @@ async function main() {
           " has ownerships with missing card records; cannot verify."
         );
       }
+      // The old card.findMany() fetch typically arrived in Card primary-key
+      // order. Our bounded verifier assembles cards from an unordered
+      // groupBy() result, which scrambles same-player/same-value ties.
+      // Normalize that incidental order before comparing to the optimized
+      // SQL query (which explicitly breaks those ties by Card.id).
+      cards.sort((a, b) => a.id - b.id);
       const legacy = cards.map(c => ({
         id: c.id,
         player: c.player,
         value: c.bookValue * (qtyByCard.get(c.id) ?? 0),
       })).sort((a, b) => {
         if (b.value !== a.value) return b.value - a.value;
-        return a.player.localeCompare(b.player);
+        return a.player.localeCompare(b.player) || a.id - b.id;
       });
       const legacyMs = Date.now() - beginOld;
 
-      for (const page of [1, 2, 5]) {
+      for (const page of [1, 2, 5, 8]) {
         const startNew = Date.now();
         const optimized = await queryOwnedCardPage({
           userId: user.userId, page, pageSize: 50,
