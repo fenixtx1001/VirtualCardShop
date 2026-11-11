@@ -385,7 +385,9 @@ export async function trySyncPackPortfolioDelta(
   delta: { collectionDeltaCents: number; sealedDeltaCents: number },
   now = new Date()
 ): Promise<boolean> {
-  if (process.env.VCS_PACK_PORTFOLIO_DELTA === "0") return false;
+  // Opt-in rollout only. A database migration by itself must not change pack
+  // accounting; enable explicitly after independent migration verification.
+  if (process.env.VCS_PACK_PORTFOLIO_DELTA !== "1") return false;
   const { collectionDeltaCents, sealedDeltaCents } = delta;
   const netWorthDelta = collectionDeltaCents + sealedDeltaCents;
   if (![collectionDeltaCents, sealedDeltaCents, netWorthDelta]
