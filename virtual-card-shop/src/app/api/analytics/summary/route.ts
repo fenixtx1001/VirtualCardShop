@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
+import { ApiTimings } from "@/lib/api-timings";
 import {
   cleanCanonicalPlayerName,
   normalizePlayerName,
@@ -53,6 +54,7 @@ type SummaryBucket = {
 };
 
 export async function GET(req: Request) {
+  const timings = new ApiTimings();
   try {
     const me = await requireUser();
     const url = new URL(req.url);
@@ -208,9 +210,15 @@ export async function GET(req: Request) {
       where.AND = andClauses;
     }
 
-    const cards = await prisma.card.findMany({
+    const cards = await timings.measure("database", () => prisma.card.findMany({
       where,
-      include: {
+      select: {
+        id: true,
+        player: true,
+        cardNumber: true,
+        team: true,
+        bookValue: true,
+        productSetId: true,
         productSet: {
           select: {
             id: true,
@@ -248,7 +256,8 @@ export async function GET(req: Request) {
                 },
               },
       },
-    });
+    }));
+    const computeStarted = performance.now();
 
     const playerGroups = new Map<string, { key: string; label: string }>();
 
@@ -399,6 +408,7 @@ export async function GET(req: Request) {
     const safePage = Math.min(page, totalPages);
     const start = (safePage - 1) * pageSize;
     const pagedRows = rows.slice(start, start + pageSize);
+    timings.add("compute", performance.now() - computeStarted);
 
     return NextResponse.json(
       {
@@ -409,7 +419,7 @@ export async function GET(req: Request) {
         totalPages,
         rows: pagedRows,
       },
-      { status: 200 }
+      { status: 200, headers: timings.headers("/api/analytics/summary") }
     );
   } catch (e: any) {
     return NextResponse.json(
