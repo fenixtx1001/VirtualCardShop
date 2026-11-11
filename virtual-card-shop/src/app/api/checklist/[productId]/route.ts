@@ -646,8 +646,16 @@ export async function GET(req: Request, ctx: Ctx) {
     const dir = sortDir === "desc" ? -1 : 1;
 
     filteredCards.sort((a, b) => {
-      const aQty = selectedQty(a.id);
-      const bQty = selectedQty(b.id);
+      const aQty = collectorQuantity(
+        selectedOwnedMap.get(a.id) ?? 0,
+        selectedAuctionLockedMap.get(a.id) ?? 0,
+        selectedPendingMap.get(a.id) ?? 0
+      );
+      const bQty = collectorQuantity(
+        selectedOwnedMap.get(b.id) ?? 0,
+        selectedAuctionLockedMap.get(b.id) ?? 0,
+        selectedPendingMap.get(b.id) ?? 0
+      );
 
       const aOwned = aQty > 0 ? 1 : 0;
       const bOwned = bQty > 0 ? 1 : 0;
