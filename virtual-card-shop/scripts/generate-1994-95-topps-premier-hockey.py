@@ -35,7 +35,7 @@ def same_subjects(number,a,b):
  if number not in {"80","84","346","347"}:return False
  def players(name):
   # Strip TCDB subset notation, then compare participant identities
-  name=re.sub(r"\\s+TT$", "", name)
+  name=re.sub(r"\s+TT$", "", name)
   return sorted(part.strip() for part in name.split(" / "))
  return players(a[0])==players(b[0])
 def fetch(url):
