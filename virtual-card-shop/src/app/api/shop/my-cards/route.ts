@@ -9,6 +9,7 @@ import {
   labelShopGrade,
 } from "@/lib/shop-offers";
 import { RAW_GRADE } from "@/lib/grading";
+import { collectorQuantity } from "@/lib/collection-quantity";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -83,6 +84,7 @@ export async function GET(req: Request) {
       select: {
         quantity: true,
         grade: true,
+        auctionLockedQuantity: true,
         card: {
           select: {
             id: true,
@@ -119,7 +121,7 @@ export async function GET(req: Request) {
 
     const out = rows.map((r) => {
       const grade = typeof r.grade === "number" && Number.isFinite(r.grade) ? r.grade : RAW_GRADE;
-      const qtyOwned = safeQty(r.quantity);
+      const qtyOwned = collectorQuantity(safeQty(r.quantity), safeQty(r.auctionLockedQuantity));
 
       const rawBookValueCents = bookValueToPerCardCents(r.card.bookValue);
       const gradeability = getShopGradeability({
@@ -138,6 +140,7 @@ export async function GET(req: Request) {
 
         // Existing compatibility field. This is now the quantity for this exact grade bucket.
         qtyOwned,
+        listedQty: Math.min(safeQty(r.quantity), safeQty(r.auctionLockedQuantity)),
 
         // New explicit fields.
         grade,
@@ -169,7 +172,7 @@ export async function GET(req: Request) {
         // Useful for select keys in the UI.
         ownershipKey: `${r.card.id}:${grade}`,
       };
-    });
+    }).filter(row => row.qtyOwned > 0);
 
     return NextResponse.json({ ok: true, q, count: out.length, rows: out }, { status: 200 });
   } catch (e: any) {
