@@ -29,6 +29,15 @@ def clean(s):
  s=re.sub(r",?\s*(?:UERUER|ERRERR|CORCOR|RCRC|VARVAR):.*$","",s,flags=re.I)
  m=ANNOT.search(s)
  return s[:m.start()].strip(" ,;") if m else s
+def same_subjects(number,a,b):
+ if a==b:return True
+ if not a or not b or a[1]!=b[1]:return False
+ if number not in {"80","84","346","347"}:return False
+ def players(name):
+  # Strip TCDB subset notation, then compare participant identities
+  name=re.sub(r"\\s+TT$", "", name)
+  return sorted(part.strip() for part in name.split(" / "))
+ return players(a[0])==players(b[0])
 def fetch(url):
  for attempt in range(4):
   try:
@@ -67,6 +76,10 @@ def test():
  assert clean("Dean Chynoweth RC, UERUER: Listed with Whalers")=="Dean Chynoweth"
  assert clean("Grant Fuhr / Dominik Hasek GD")=="Grant Fuhr / Dominik Hasek"
  assert clean("Checklist: 1-136 CL")=="Checklist: 1-136"
+ assert same_subjects("80",("Dominik Hasek / Grant Fuhr","Buffalo Sabres"),("Grant Fuhr / Dominik Hasek","Buffalo Sabres"))
+ assert same_subjects("346",("Rick Tocchet / Luc Robitaille TT","Team A / Team B"),("Luc Robitaille / Rick Tocchet TT","Team A / Team B"))
+ assert not same_subjects("80",("Dominik Hasek / Someone Else","Buffalo Sabres"),("Grant Fuhr / Dominik Hasek","Buffalo Sabres"))
+ assert not same_subjects("81",("Dominik Hasek / Grant Fuhr","Buffalo Sabres"),("Grant Fuhr / Dominik Hasek","Buffalo Sabres"))
  print("1994-95 Topps Premier offline self-tests passed")
 def main():
  bundle=json.loads(BUNDLE.read_text(encoding="utf-8"))
@@ -88,7 +101,7 @@ def main():
  for n,v in source["special-effects"].items():
   if n in {"274","275","549","550"}:
    if not v[0] or v[0].startswith("Checklist"):errors.append(f"Special Effects #{n}: player replacement expected, found {v!r}")
-  elif v!=source["base"].get(n):errors.append(f"Special Effects #{n}: {v!r} != Base {source['base'].get(n)!r}")
+  elif not same_subjects(n,v,source["base"].get(n)):errors.append(f"Special Effects #{n}: {v!r} != Base {source['base'].get(n)!r}")
  for n in ("274","275","549","550"):
   if not source["base"].get(n,("",))[0].startswith("Checklist"):errors.append(f"Base #{n} is not checklist")
  if errors:
