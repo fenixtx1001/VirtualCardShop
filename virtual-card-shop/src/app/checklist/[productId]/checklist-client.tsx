@@ -69,6 +69,7 @@ type ChecklistRow = {
   frontImageUrl: string | null;
 
   ownedQty: number;
+  collectionQty: number;
   rawQty: number;
   needQty: number;
   bestGrade: number | null;
@@ -78,6 +79,7 @@ type ChecklistRow = {
   pendingGradingQty?: number;
 
   myOwnedQty?: number;
+  myCollectionQty?: number;
   myRawQty?: number;
 
   offerStatus?: OfferStatus;
@@ -152,7 +154,7 @@ const SORT_OPTIONS: Array<{
 }> = [
   { value: "cardNumber", label: "Card #" },
   { value: "bookValue", label: "Value" },
-  { value: "qty", label: "Qty Owned" },
+  { value: "qty", label: "Collection Qty" },
   { value: "rawQty", label: "Raw Qty" },
   { value: "owned", label: "Owned" },
   { value: "player", label: "Player" },
@@ -1319,7 +1321,7 @@ export default function ChecklistClient({
                         className="is-sortable checklist-small-col"
                         onClick={() => onSort("qty")}
                       >
-                        Qty
+                        Yours
                         {sortIcon(sortKey === "qty", sortDir)}
                       </th>
 
@@ -1352,7 +1354,7 @@ export default function ChecklistClient({
 
                   <tbody>
                     {rows.map((row) => {
-                      const owned = row.ownedQty > 0;
+                      const owned = row.collectionQty > 0;
                       const need = row.needQty > 0;
 
                       const status =
@@ -1425,7 +1427,7 @@ export default function ChecklistClient({
                           </td>
 
                           <td className="checklist-stat-cell">
-                            {number(row.ownedQty)}
+                            {number(row.collectionQty)}
                           </td>
 
                           <td
@@ -1440,7 +1442,7 @@ export default function ChecklistClient({
 
                           {compareMode ? (
                             <td className="checklist-stat-cell">
-                              {number(row.myOwnedQty ?? 0)}
+                              {number(row.myCollectionQty ?? 0)}
                             </td>
                           ) : null}
 
@@ -1507,7 +1509,7 @@ export default function ChecklistClient({
               <div className="checklist-mobile-list">
                 {rows.map((row) => {
                   const need = row.needQty > 0;
-                  const owned = row.ownedQty > 0;
+                  const owned = row.collectionQty > 0;
 
                   const status =
                     row.offerStatus ?? {
@@ -1567,7 +1569,7 @@ export default function ChecklistClient({
 
                           <span className="checklist-mobile-stats">
                             <span>
-                              Qty <b>{number(row.ownedQty)}</b>
+                              Yours <b>{number(row.collectionQty)}</b>
                             </span>
 
                             <span>
@@ -1585,11 +1587,17 @@ export default function ChecklistClient({
 
                             <BestGradeBadge grade={row.bestGrade} />
 
+                            {(row.auctionLockedQty ?? 0) > 0 ? (
+                              <span title="Already committed to auction">
+                                Listed <b>{number(row.auctionLockedQty ?? 0)}</b>
+                              </span>
+                            ) : null}
+
                             {compareMode ? (
                               <span>
                                 You{" "}
                                 <b>
-                                  {number(row.myOwnedQty ?? 0)}
+                                  {number(row.myCollectionQty ?? 0)}
                                 </b>
                               </span>
                             ) : null}
