@@ -15,6 +15,10 @@ function makeFixture(input: {
   snapshotMissing?: boolean;
   conflictingUpdate?: boolean;
   staleBalance?: boolean;
+  // Revision changes whenever an admin reprices, imports or removes cards.
+  catalogRevision?: bigint;
+  snapshotRevision?: bigint | null;
+  catalogMissing?: boolean;
 }) {
   const net = input.balance + input.collection + input.sealed;
   const snapshot = input.snapshotMissing ? null : {
@@ -25,10 +29,19 @@ function makeFixture(input: {
     closingNetWorthCents: net,
     netWorthCents: net,
     valuationVersion: input.version ?? 2,
+    cardPriceRevision: input.snapshotRevision === undefined
+      ? BigInt(7) : input.snapshotRevision,
   };
   let updated = 0;
   let payload: unknown = null;
+  let revisionLocks = 0;
   const db = {
+    $queryRaw: async (query: { strings?: readonly string[] }) => {
+      if (query.strings?.join("").includes("FOR UPDATE")) revisionLocks++;
+      return input.catalogMissing
+        ? []
+        : [{ revision: input.catalogRevision ?? BigInt(7) }];
+    },
     user: { findUnique: async () => ({ balanceCents: input.balance }) },
     financialDailySnapshot: {
       findUnique: async () => snapshot,
@@ -39,7 +52,10 @@ function makeFixture(input: {
       },
     },
   } as unknown as PortfolioDb;
-  return { db, updated: () => updated, payload: () => payload };
+  return {
+    db, updated: () => updated, payload: () => payload,
+    revisionLocks: () => revisionLocks,
+  };
 }
 
 test("pack opening adds raw card values and removes sealed cost basis atomically", async () => {
@@ -52,7 +68,9 @@ test("pack opening adds raw card values and removes sealed cost basis atomically
   }, testDate);
   assert.equal(ok, true);
   assert.equal(f.updated(), 1);
+  assert.equal(f.revisionLocks(), 1, "price revision row must be locked");
   const update = f.payload() as any;
+  assert.equal(update.where.cardPriceRevision, BigInt(7));
   assert.deepEqual(update.data.collectionValueCents, { increment: 275 });
   assert.deepEqual(update.data.sealedValueCents, { increment: -420 });
   assert.deepEqual(update.data.netWorthCents, { increment: -145 });
@@ -75,6 +93,9 @@ test("missing, older, and conflicting snapshots use the original full-value fall
     { version: 1 },
     { staleBalance: true },
     { conflictingUpdate: true },
+    { catalogMissing: true },
+    { catalogRevision: BigInt(8) }, // Price edited after last full valuation
+    { snapshotRevision: null }, // Pre-migration/unverified snapshot
   ]) {
     const f = makeFixture({
       balance: 100, collection: 300, sealed: 500,
@@ -113,4 +134,53 @@ test("invalid or impossible pack value cannot corrupt a snapshot", async () => {
   assert.equal(await trySyncPackPortfolioDelta(f.db, "collector", {
     collectionDeltaCents: Number.NaN, sealedDeltaCents: 0,
   }, testDate), false);
+});
+
+
+test("price changes after a snapshot force full revaluation before another pack", async () => {
+  const stale = makeFixture({
+    balance: 1200, collection: 10000, sealed: 2000,
+    gained: 300, consumed: 500,
+    catalogRevision: BigInt(17), snapshotRevision: BigInt(16),
+  });
+  assert.equal(await trySyncPackPortfolioDelta(stale.db, "collector", {
+    collectionDeltaCents: 300, sealedDeltaCents: -500,
+  }, testDate), false);
+  assert.equal(stale.updated(), 0);
+
+  // After the ordinary full-valuation fallback stamps the new catalog
+  // revision, the following pack may use the safe incremental update.
+  const revalued = makeFixture({
+    balance: 1200, collection: 12000, sealed: 1500,
+    gained: 100, consumed: 300,
+    catalogRevision: BigInt(17), snapshotRevision: BigInt(17),
+  });
+  assert.equal(await trySyncPackPortfolioDelta(revalued.db, "collector", {
+    collectionDeltaCents: 100, sealedDeltaCents: -300,
+  }, testDate), true);
+  assert.equal(revalued.updated(), 1);
+});
+
+test("concurrent snapshot update loses compare-and-swap and falls back safely", async () => {
+  const f = makeFixture({
+    balance: 1200, collection: 5000, sealed: 2000,
+    gained: 250, consumed: 300, conflictingUpdate: true,
+    catalogRevision: BigInt(19), snapshotRevision: BigInt(19),
+  });
+  assert.equal(await trySyncPackPortfolioDelta(f.db, "collector", {
+    collectionDeltaCents: 250, sealedDeltaCents: -300,
+  }, testDate), false);
+  assert.equal(f.updated(), 1);
+  assert.equal(f.revisionLocks(), 1);
+});
+
+test("a failed revision read cannot accidentally enable the fast path", async () => {
+  const f = makeFixture({
+    balance: 1200, collection: 5000, sealed: 2000,
+    gained: 250, consumed: 300, catalogMissing: true,
+  });
+  assert.equal(await trySyncPackPortfolioDelta(f.db, "collector", {
+    collectionDeltaCents: 250, sealedDeltaCents: -300,
+  }, testDate), false);
+  assert.equal(f.updated(), 0);
 });
