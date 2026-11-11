@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { highestRevealedGradeByCard } from "@/lib/checklist-best-grade";
 import { collectorQuantity } from "@/lib/collection-quantity";
+import { serverTimingHeader } from "@/lib/performance-timing";
 import {
   requireUserWithSelection,
 } from "@/lib/current-user";
