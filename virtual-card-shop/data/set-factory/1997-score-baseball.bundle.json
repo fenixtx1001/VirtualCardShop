@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/1001/1997-Score",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1001/1997-Score",
+    "relatedSetsUrl": "https://www.tcdb.com/Inserts.cfm/sid/1001/1997-Score",
+    "crossCheckUrl": "https://baseballcardpedia.com/index.php/1997_Score"
+  },
+  "decisions": {
+    "scope": "Flagship retail Score, including jumbo and blister inserts. Premium Stock and Hobby Reserve are separate products.",
+    "numbering": "Both players have printed #515. VCS uses 515-Thome for Jim Thome and 515 for Gary Sheffield. Chili Davis #338 uses the corrected back.",
+    "packFormat": "Four-card VCS packs, 36 packs per box, matching the 1996 Score VCS convention. Physical retail packs held 10 cards in Series One and 12 in Series Two.",
+    "odds": "Series-specific pack rates are weighted by the 330/551 and 221/551 series shares and rounded. Retail baselines apply where published, with the Series One jumbo rate for Stellar Season.",
+    "scarcity": "Short-print annotations are preserved where cataloged. The base pool gives each card equal availability.",
+    "excludedIssues": "Separate hobby products and their exclusive inserts, FanFest cards, 5x7 blaster box toppers, samples and the framed mail-in Stand & Deliver Gold set."
+  },
+  "product": {
+    "id": "1997_Score_Baseball",
+    "year": 1997,
+    "brand": "Score",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packOdds": "PARTIAL",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1997-score-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1997_Score_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 551,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1001/1997-Score",
+      "notes": "Two retail series. Corrected Chili Davis #338 is the canonical card."
+    },
+    {
+      "key": "showcase-series",
+      "id": "1997_Score_Baseball_Showcase_Series",
+      "name": "Showcase Series",
+      "kind": "PARALLEL",
+      "oddsPerPack": 7,
+      "expectedCards": 551,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10266/1997-Score-Showcase-Series",
+      "notes": "Physical retail rate 1:7. VCS rate 1:7."
+    },
+    {
+      "key": "artists-proofs-holofoil",
+      "id": "1997_Score_Baseball_Artists_Proofs_Holofoil",
+      "name": "Artist's Proofs Holofoil",
+      "kind": "PARALLEL",
+      "oddsPerPack": 35,
+      "expectedCards": 551,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10950/1997-Score-Artist-s-Proofs-Holofoil",
+      "notes": "Physical retail rate 1:35. VCS rate 1:35. Uses the TCDB retail 1:35 listing. BaseballCardPedia leaves Series One retail odds unspecified."
+    },
+    {
+      "key": "artists-proofs-white-border",
+      "id": "1997_Score_Baseball_Artists_Proofs_White_Border",
+      "name": "Artist's Proofs White Border",
+      "kind": "PARALLEL",
+      "oddsPerPack": 58,
+      "expectedCards": 330,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10945/1997-Score-Artist-s-Proofs-White-Border",
+      "notes": "Physical retail rate 1:35. VCS rate 1:58."
+    },
+    {
+      "key": "hobby-reserve-by-score",
+      "id": "1997_Score_Baseball_Hobby_Reserve_By_Score",
+      "name": "Hobby Reserve by Score",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "expectedCards": 220,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10946/1997-Score-Hobby-Reserve-by-Score",
+      "notes": "Retail foil-stamped parallel #331–550 without HR prefix. Pack insertion rate unverified."
+    },
+    {
+      "key": "andruw-jones",
+      "id": "1997_Score_Baseball_Andruw_Jones",
+      "name": "Andruw Jones",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10944/1997-Score-Andruw-Jones",
+      "notes": "One per Series Two blister. Mixed-pack odds left unset because the blister share is unknown."
+    },
+    {
+      "key": "blast-masters",
+      "id": "1997_Score_Baseball_Blast_Masters",
+      "name": "Blast Masters",
+      "kind": "INSERT",
+      "oddsPerPack": 87,
+      "expectedCards": 18,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1002/1997-Score-Blast-Masters",
+      "notes": "Physical retail rate 1:35. VCS rate 1:87."
+    },
+    {
+      "key": "heart-of-the-order",
+      "id": "1997_Score_Baseball_Heart_Of_The_Order",
+      "name": "Heart of the Order",
+      "kind": "INSERT",
+      "oddsPerPack": 57,
+      "expectedCards": 18,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1003/1997-Score-Heart-of-the-Order",
+      "notes": "Physical retail rate 1:23. VCS rate 1:57. Retail cards #1–18. Cards #19–36 belong to the separate Hobby Reserve product."
+    },
+    {
+      "key": "pitcher-perfect",
+      "id": "1997_Score_Baseball_Pitcher_Perfect",
+      "name": "Pitcher Perfect",
+      "kind": "INSERT",
+      "oddsPerPack": 38,
+      "expectedCards": 15,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1004/1997-Score-Pitcher-Perfect",
+      "notes": "Physical retail rate 1:23. VCS rate 1:38."
+    },
+    {
+      "key": "stand-and-deliver",
+      "id": "1997_Score_Baseball_Stand_And_Deliver",
+      "name": "Stand & Deliver",
+      "kind": "INSERT",
+      "oddsPerPack": 177,
+      "expectedCards": 24,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1005/1997-Score-Stand-Deliver",
+      "notes": "Physical retail rate 1:71. VCS rate 1:177."
+    },
+    {
+      "key": "stellar-season",
+      "id": "1997_Score_Baseball_Stellar_Season",
+      "name": "Stellar Season",
+      "kind": "INSERT",
+      "oddsPerPack": 58,
+      "expectedCards": 18,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1006/1997-Score-Stellar-Season",
+      "notes": "Physical jumbo rate 1:35. VCS rate 1:58. Uses the Series One jumbo rate before series weighting."
+    },
+    {
+      "key": "the-franchise",
+      "id": "1997_Score_Baseball_The_Franchise",
+      "name": "The Franchise",
+      "kind": "INSERT",
+      "oddsPerPack": 120,
+      "expectedCards": 9,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1007/1997-Score-The-Franchise",
+      "notes": "Physical retail rate 1:72. VCS rate 1:120."
+    },
+    {
+      "key": "the-franchise-glowing",
+      "id": "1997_Score_Baseball_The_Franchise_Glowing",
+      "name": "The Franchise Glowing",
+      "kind": "INSERT",
+      "oddsPerPack": 401,
+      "expectedCards": 9,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10951/1997-Score-The-Franchise-Glowing",
+      "notes": "Physical retail rate 1:240. VCS rate 1:401."
+    },
+    {
+      "key": "titanic-taters",
+      "id": "1997_Score_Baseball_Titanic_Taters",
+      "name": "Titanic Taters",
+      "kind": "INSERT",
+      "oddsPerPack": 58,
+      "expectedCards": 18,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1009/1997-Score-Titanic-Taters",
+      "notes": "Physical retail rate 1:35. VCS rate 1:58."
+    }
+  ]
+}
