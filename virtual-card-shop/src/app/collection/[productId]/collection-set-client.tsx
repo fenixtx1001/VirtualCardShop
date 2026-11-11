@@ -32,6 +32,7 @@ type CardRow = {
   rawQuantity?: number;
   gradedQuantity?: number;
   pendingGradingQuantity?: number;
+  auctionListedQuantity?: number;
   highestGrade?: number | null;
   gradeBreakdown?: GradeBreakdownRow[];
   bookValue: number | null;
@@ -52,6 +53,7 @@ type ApiResponse = {
   totalRawQty?: number;
   totalGradedQty?: number;
   totalPendingGradingQty?: number;
+  totalAuctionListedQty?: number;
   cards: CardRow[];
 };
 
@@ -456,12 +458,13 @@ export default function CollectionSetClient({ productId }: { productId: string }
               {selected && <Link href={`/cards/${selected.cardId}`} style={{ display: "inline-block", marginTop: 12 }}>Card details ↗</Link>}
               <div style={{ marginTop: 12, display: "grid", gap: 8, fontSize: 14 }}>
                 <div>
-                  <b>Total Qty:</b> {selected?.quantity ?? 0}
+                  <b>In Collection:</b> {selected?.quantity ?? 0}
                 </div>
                 <div>
                   <b>Raw:</b> {selectedRawQuantity}{" "}
                   <b style={{ marginLeft: 10 }}>Pending VCS:</b> {selectedPendingQuantity}{" "}
-                  <b style={{ marginLeft: 10 }}>Graded:</b> {safeNum(selected?.gradedQuantity)}
+                  <b style={{ marginLeft: 10 }}>Graded:</b> {safeNum(selected?.gradedQuantity)}{" "}
+                  <b style={{ marginLeft: 10 }}>At Auction:</b> {safeNum(selected?.auctionListedQuantity)}
                 </div>
                 <div>
                   <b>Book:</b> {fmtMoney(selected?.bookValue)}
@@ -520,7 +523,7 @@ export default function CollectionSetClient({ productId }: { productId: string }
                 <table style={{ width: "100%", borderCollapse: "collapse" }}>
                   <thead style={{ position: "sticky", top: 0, background: "#fff" }}>
                     <tr>
-                      {["#", "Player", "Qty", "Raw", "Pending", "Best", "Book"].map((h) => (
+                      {["#", "Player", "Yours", "Raw", "Grading", "Listed", "Best", "Book"].map((h) => (
                         <th key={h} style={{ padding: 10, borderBottom: "1px solid #eee", fontSize: 12 }}>
                           {h}
                         </th>
@@ -555,6 +558,7 @@ export default function CollectionSetClient({ productId }: { productId: string }
                           <td style={{ padding: 10, fontWeight: 800, color: getPendingQuantity(c) > 0 ? "#7a5200" : "#777" }}>
                             {getPendingQuantity(c)}
                           </td>
+                          <td style={{ padding: 10, color: safeNum(c.auctionListedQuantity) > 0 ? "#966c23" : "#777", fontWeight: 800 }}>{safeNum(c.auctionListedQuantity)}</td>
                           <td style={{ padding: 10, fontWeight: 900, color: hasGrade ? "#16477d" : "#777" }}>
                             {hasGrade ? `VCS ${c.highestGrade}` : "Raw"}
                           </td>
