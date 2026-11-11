@@ -293,6 +293,9 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
     (sum, r) => sum + (r.auctionLockedQuantity ?? 0),
     0,
   );
+  const inCollection = Math.max(0, owned.totalQuantity - listed);
+  const rawInCollection = rawAvailable;
+  const gradedInCollection = Math.max(0, available - rawAvailable);
   const pending = collector?.pendingOrders ?? [];
   const ready = pending.reduce(
     (sum, p) =>
@@ -510,12 +513,12 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
               <small>Per copy</small>
             </div>
             <button onClick={() => selectTab("overview", true)}>
-              <span>You own</span>
-              <strong>{owned.totalQuantity}</strong>
+              <span>In collection</span>
+              <strong>{inCollection}</strong>
               <small>
                 {owned.pendingGradingQuantity > 0
-                  ? `${owned.pendingGradingQuantity} in grading`
-                  : `${owned.rawQuantity} raw · ${owned.gradedQuantity} graded`}
+                  ? `${rawInCollection} raw · ${gradedInCollection} graded · ${owned.pendingGradingQuantity} grading`
+                  : `${rawInCollection} raw · ${gradedInCollection} graded`}
               </small>
             </button>
             <button onClick={() => selectTab("population", true)}>
@@ -527,7 +530,7 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
           {owned.totalQuantity > 0 && (
             <div className="cd-action-dock">
               <div>
-                <span>{available} available</span>
+                <span>{available} ready to act</span>
                 <small>
                   {listed ? `${listed} listed · ` : ""}
                   {owned.pendingGradingQuantity} in grading
@@ -609,17 +612,17 @@ export default function CardDetailClient({ cardId }: { cardId: number }) {
                         >
                           <span>
                             <strong>
-                              {row.label} <b>×{row.quantity}</b>
+                              {row.label} <b>×{availableCopies(row)}</b>
                             </strong>
                             <small>
-                              {availableCopies(row)} available
+                              {availableCopies(row)} ready to act
                               {row.auctionLockedQuantity
                                 ? ` · ${row.auctionLockedQuantity} listed`
                                 : ""}
                             </small>
                           </span>
                           <span>{money(row.valueCents)}</span>
-                          <span>{money(row.valueCents * row.quantity)}</span>
+                          <span>{money(row.valueCents * availableCopies(row))}</span>
                         </button>
                       ))}
                     </div>
