@@ -182,6 +182,14 @@ export default function BinderClient({
   // Only preload the next nine scans, not the entire card universe.
   useEffect(() => {
     if (!data || page < -1 || page >= pageCount - 1) return;
+    // Respect data-saver and low-bandwidth mobile connections instead of
+    // downloading the next page's scans before the collector requests it.
+    const connection = (navigator as Navigator & {
+      connection?: { saveData?: boolean; effectiveType?: string };
+    }).connection;
+    if (connection?.saveData ||
+        connection?.effectiveType === "slow-2g" ||
+        connection?.effectiveType === "2g") return;
     const upcoming = data.cards.slice((page + 1) * 9, (page + 2) * 9);
     for (const card of upcoming) {
       if (card.quantity > 0 && card.frontImageUrl) {
