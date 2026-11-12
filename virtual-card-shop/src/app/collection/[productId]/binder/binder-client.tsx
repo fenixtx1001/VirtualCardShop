@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { imageDeliveryUrl } from "@/lib/images/r2-cdn";
 import SetViewToggle from "@/components/collection/SetViewToggle";
 import { checklistHref } from "@/lib/collection/set-view-links";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -185,7 +186,7 @@ export default function BinderClient({
     for (const card of upcoming) {
       if (card.quantity > 0 && card.frontImageUrl) {
         const image = new Image();
-        image.src = card.frontImageUrl;
+        image.src = imageDeliveryUrl(card.frontImageUrl) ?? card.frontImageUrl;
       }
     }
   }, [data, page, pageCount]);
@@ -227,7 +228,7 @@ export default function BinderClient({
         (card.cardId === initialCardId && !switchingSets.current ? " binder-pocket-focused" : "")}
       aria-label={accessibleCard(card)} onClick={() => openPreview(card)}>
       <span className="binder-pocket-contents">
-        {visibleScan ? <img src={card.frontImageUrl!}
+        {visibleScan ? <img src={imageDeliveryUrl(card.frontImageUrl!) ?? card.frontImageUrl!}
           alt="" loading="lazy" decoding="async"
           className={landscapeScans[String(card.cardId) + ":front"] ? "binder-oriented-scan is-landscape" : "binder-oriented-scan"}
           onLoad={event => markLandscape(String(card.cardId) + ":front", event.currentTarget)}
@@ -413,7 +414,7 @@ export default function BinderClient({
             <button type="button" aria-label="Close card preview" onClick={() => setPreview(null)}>×</button>
           </div>
           <div className="binder-preview-art">
-            {validPreviewImage ? <img src={previewImage!} alt={preview.player + " card " + (showBack ? "back" : "front")}
+            {validPreviewImage ? <img src={imageDeliveryUrl(previewImage!) ?? previewImage!} alt={preview.player + " card " + (showBack ? "back" : "front")}
               className={landscapeScans[previewKey] ? "binder-oriented-scan is-landscape" : "binder-oriented-scan"}
               onLoad={event => markLandscape(previewKey, event.currentTarget)}
               onError={() => setBrokenScans(prev => ({ ...prev, [previewKey]: true }))} /> :
