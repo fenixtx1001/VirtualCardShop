@@ -11,8 +11,11 @@ test("disabled by default unless both the origin and CDN are configured", () => 
   assert.equal(imageDeliveryUrl(url, { originBaseUrl: origin }), url);
   assert.equal(imageDeliveryUrl(url, { cdnBaseUrl: cdn }), url);
   assert.equal(imageDeliveryUrl(url, {}), url);
+  // Preserve each absence representation exactly: null remains null,
+  // and an empty string remains empty (no URL rewrite, no new network fetch).
   assert.equal(imageDeliveryUrl(null, cfg), null);
-  assert.equal(imageDeliveryUrl("", cfg), null);
+  assert.equal(imageDeliveryUrl(undefined, cfg), null);
+  assert.equal(imageDeliveryUrl("", cfg), "");
 });
 
 test("maps only exact R2 origin and immutable asset namespace", () => {
