@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import { binderHref } from "@/lib/collection/set-view-links";
+import { imageDeliveryUrl } from "@/lib/images/r2-cdn";
 import SubmitForGradingButton from "@/components/grading/SubmitForGradingButton";
 import {
   PointerEvent as ReactPointerEvent,
@@ -172,7 +173,7 @@ function OrientedCardImage({
 
   return (
     <img
-      src={src}
+      src={imageDeliveryUrl(src) ?? src}
       alt={alt}
       loading={loading}
       decoding="async"
@@ -4480,7 +4481,7 @@ export default function OpenPackClient({
                     <div className="panel-title">Pack art</div>
                     <img
                       className="pack-img"
-                      src={packImageUrl}
+                      src={imageDeliveryUrl(packImageUrl) ?? packImageUrl}
                       alt="Pack"
                     />
                   </div>
@@ -4888,7 +4889,7 @@ export default function OpenPackClient({
                     <div className="stack-top">
                       {prevCard?.backImageUrl ? (
                         <img
-                          src={prevCard.backImageUrl}
+                          src={imageDeliveryUrl(prevCard.backImageUrl) ?? prevCard.backImageUrl}
                           alt="Top of stack (back)"
                         />
                       ) : prevCard ? (
@@ -4997,7 +4998,7 @@ export default function OpenPackClient({
 
                       <img
                         className="pack-img"
-                        src={packImageUrl}
+                        src={imageDeliveryUrl(packImageUrl) ?? packImageUrl}
                         alt="Pack"
                       />
                     </div>
