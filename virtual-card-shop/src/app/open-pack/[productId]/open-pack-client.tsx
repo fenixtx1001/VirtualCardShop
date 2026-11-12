@@ -155,10 +155,12 @@ function OrientedCardImage({
   src,
   alt,
   loading = "eager",
+  fetchPriority = "auto",
 }: {
   src: string;
   alt: string;
   loading?: "eager" | "lazy";
+  fetchPriority?: "auto" | "high" | "low";
 }) {
   const [orientation, setOrientation] = useState<{
     src: string;
@@ -176,6 +178,7 @@ function OrientedCardImage({
       src={imageDeliveryUrl(src) ?? src}
       alt={alt}
       loading={loading}
+      fetchPriority={fetchPriority}
       decoding="async"
       draggable={false}
       onLoad={(event) => {
@@ -4760,6 +4763,7 @@ export default function OpenPackClient({
                                 <OrientedCardImage
                                   src={cardFront}
                                   alt="Card front"
+                                  fetchPriority="high"
                                 />
                               ) : (
                                 <div className="img-missing">
@@ -4773,6 +4777,7 @@ export default function OpenPackClient({
                                 <OrientedCardImage
                                   src={cardBack}
                                   alt="Card back"
+                                  fetchPriority="low"
                                 />
                               ) : (
                                 <div className="img-missing">
