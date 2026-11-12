@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import { binderHref } from "@/lib/collection/set-view-links";
+import { imageDeliveryUrl } from "@/lib/images/r2-cdn";
 import SubmitForGradingButton from "@/components/grading/SubmitForGradingButton";
 import {
   PointerEvent as ReactPointerEvent,
@@ -154,10 +155,12 @@ function OrientedCardImage({
   src,
   alt,
   loading = "eager",
+  fetchPriority = "auto",
 }: {
   src: string;
   alt: string;
   loading?: "eager" | "lazy";
+  fetchPriority?: "auto" | "high" | "low";
 }) {
   const [orientation, setOrientation] = useState<{
     src: string;
@@ -172,9 +175,10 @@ function OrientedCardImage({
 
   return (
     <img
-      src={src}
+      src={imageDeliveryUrl(src) ?? src}
       alt={alt}
       loading={loading}
+      fetchPriority={fetchPriority}
       decoding="async"
       draggable={false}
       onLoad={(event) => {
@@ -4480,7 +4484,7 @@ export default function OpenPackClient({
                     <div className="panel-title">Pack art</div>
                     <img
                       className="pack-img"
-                      src={packImageUrl}
+                      src={imageDeliveryUrl(packImageUrl) ?? packImageUrl}
                       alt="Pack"
                     />
                   </div>
@@ -4759,6 +4763,7 @@ export default function OpenPackClient({
                                 <OrientedCardImage
                                   src={cardFront}
                                   alt="Card front"
+                                  fetchPriority="high"
                                 />
                               ) : (
                                 <div className="img-missing">
@@ -4772,6 +4777,7 @@ export default function OpenPackClient({
                                 <OrientedCardImage
                                   src={cardBack}
                                   alt="Card back"
+                                  fetchPriority="low"
                                 />
                               ) : (
                                 <div className="img-missing">
@@ -4888,7 +4894,7 @@ export default function OpenPackClient({
                     <div className="stack-top">
                       {prevCard?.backImageUrl ? (
                         <img
-                          src={prevCard.backImageUrl}
+                          src={imageDeliveryUrl(prevCard.backImageUrl) ?? prevCard.backImageUrl}
                           alt="Top of stack (back)"
                         />
                       ) : prevCard ? (
@@ -4997,7 +5003,7 @@ export default function OpenPackClient({
 
                       <img
                         className="pack-img"
-                        src={packImageUrl}
+                        src={imageDeliveryUrl(packImageUrl) ?? packImageUrl}
                         alt="Pack"
                       />
                     </div>
