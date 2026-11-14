@@ -1,0 +1,856 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Tony Clark,Detroit Tigers,,
+base,2,Jose Cruz Jr.,Toronto Blue Jays,,
+base,3,Ivan Rodriguez,Texas Rangers,,
+base,4,Mo Vaughn,Boston Red Sox,,
+base,5,Kenny Lofton,Cleveland Indians,,
+base,6,Will Clark,Texas Rangers,,
+base,7,Barry Larkin,Cincinnati Reds,,
+base,8,Jay Bell,Arizona Diamondbacks,,
+base,9,Kevin Young,Pittsburgh Pirates,,
+base,10,Francisco Cordova,Pittsburgh Pirates,,
+base,11,Justin Thompson,Detroit Tigers,,
+base,12,Paul Molitor,Minnesota Twins,,
+base,13,Jeff Bagwell,Houston Astros,,
+base,14,Jose Canseco,Toronto Blue Jays,,
+base,15,Scott Rolen,Philadelphia Phillies,,
+base,16,Wilton Guerrero,Los Angeles Dodgers,,
+base,17,Shannon Stewart,Toronto Blue Jays,,
+base,18,Hideki Irabu,New York Yankees,,
+base,19,Michael Tucker,Atlanta Braves,,
+base,20,Joe Carter,Baltimore Orioles,,
+base,21,Gabe Alvarez,Detroit Tigers,,
+base,22,Ricky Ledee,New York Yankees,,
+base,23,Karim Garcia,Arizona Diamondbacks,,
+base,24,Eli Marrero,St. Louis Cardinals,,
+base,25,Scott Elarton,Houston Astros,,
+base,26,Mario Valdez,Chicago White Sox,,
+base,27,Ben Grieve,Oakland Athletics,,
+base,28,Paul Konerko,Los Angeles Dodgers,,
+base,29,Esteban Yan RC,Tampa Bay Devil Rays,,
+base,30,Esteban Loaiza,Pittsburgh Pirates,,
+base,31,Delino DeShields,St. Louis Cardinals,,
+base,32,Bernie Williams,New York Yankees,,
+base,33,Joe Randa,Detroit Tigers,,
+base,34,Randy Johnson,Seattle Mariners,,
+base,35,Brett Tomko,Cincinnati Reds,,
+base,36,Todd Erdos RC,Arizona Diamondbacks,,
+base,37,Bobby Higginson,Detroit Tigers,,
+base,38,Jason Kendall,Pittsburgh Pirates,,
+base,39,Ray Lankford,St. Louis Cardinals,,
+base,40,Mark Grace,Chicago Cubs,,
+base,41,Andy Pettitte,New York Yankees,,
+base,42,Alex Rodriguez,Seattle Mariners,,
+base,43,Hideo Nomo,Los Angeles Dodgers,,
+base,44,Sammy Sosa,Chicago Cubs,,
+base,45,J.T. Snow,San Francisco Giants,,
+base,46,Jason Varitek,Boston Red Sox,,
+base,47,Vinny Castilla,Colorado Rockies,,
+base,48,Neifi Perez,Colorado Rockies,,
+base,49,Todd Walker,Minnesota Twins,,
+base,50,Mike Cameron,Chicago White Sox,,
+base,51,Jeffrey Hammonds,Baltimore Orioles,,
+base,52,Deivi Cruz,Detroit Tigers,,
+base,53,Brian Hunter,Detroit Tigers,,
+base,54,Al Martin,Pittsburgh Pirates,,
+base,55,Ron Coomer,Minnesota Twins,,
+base,56,Chan Ho Park,Los Angeles Dodgers,,
+base,57,Pedro Martinez,Boston Red Sox,,
+base,58,Darin Erstad,Anaheim Angels,,
+base,59,Albert Belle,Chicago White Sox,,
+base,60,Nomar Garciaparra,Boston Red Sox,,
+base,61,Tony Gwynn,San Diego Padres,,
+base,62,Mike Piazza,Los Angeles Dodgers,,
+base,63,Todd Helton,Colorado Rockies,,
+base,64,David Ortiz,Minnesota Twins,,
+base,65,Todd Dunwoody,Florida Marlins,,
+base,66,Orlando Cabrera,Montreal Expos,,
+base,67,Ken Cloude,Seattle Mariners,,
+base,68,Andy Benes,Arizona Diamondbacks,,
+base,69,Mariano Rivera,New York Yankees,,
+base,70,Cecil Fielder,Anaheim Angels,,
+base,71,Brian Jordan,St. Louis Cardinals,,
+base,72,Darryl Kile,Colorado Rockies,,
+base,73,Reggie Jefferson,Boston Red Sox,,
+base,74,Shawn Estes,San Francisco Giants,,
+base,75,Bobby Bonilla,Florida Marlins,,
+base,76,Denny Neagle,Atlanta Braves,,
+base,77,Robin Ventura,Chicago White Sox,,
+base,78,Omar Vizquel,Cleveland Indians,,
+base,79,Craig Biggio,Houston Astros,,
+base,80,Moises Alou,Houston Astros,,
+base,81,Garret Anderson,Anaheim Angels,,
+base,82,Eric Karros,Los Angeles Dodgers,,
+base,83,Dante Bichette,Colorado Rockies,,
+base,84,Charles Johnson,Florida Marlins,,
+base,85,Rusty Greer,Texas Rangers,,
+base,86,Travis Fryman,Cleveland Indians,,
+base,87,Fernando Tatis,Texas Rangers,,
+base,88,Wilson Alvarez,Tampa Bay Devil Rays,,
+base,89,Carl Pavano,Montreal Expos,,
+base,90,Brian Rose,Boston Red Sox,,
+base,91,Geoff Jenkins,Milwaukee Brewers,,
+base,92,Magglio Ordonez RC,Chicago White Sox,,
+base,93,David Segui,Seattle Mariners,,
+base,94,David Cone,New York Yankees,,
+base,95,John Smoltz,Atlanta Braves,,
+base,96,Jim Thome,Cleveland Indians,,
+base,97,Gary Sheffield,Florida Marlins,,
+base,98,Barry Bonds,San Francisco Giants,,
+base,99,Andres Galarraga,Atlanta Braves,,
+base,100,Brad Fullmer,Montreal Expos,,
+base,101,Bobby Estalella,Philadelphia Phillies,,
+base,102,Enrique Wilson,Cleveland Indians,,
+base,103,Frank Catalanotto RC,Detroit Tigers,,
+base,104,Mike Lowell RC,New York Yankees,,
+base,105,Kevin Orie,Chicago Cubs,,
+base,106,Matt Morris,St. Louis Cardinals,,
+base,107,Pokey Reese,Cincinnati Reds,,
+base,108,Shawn Green,Toronto Blue Jays,,
+base,109,Tony Womack,Pittsburgh Pirates,,
+base,110,Ken Caminiti,San Diego Padres,,
+base,111,Roberto Alomar,Baltimore Orioles,,
+base,112,Ken Griffey Jr.,Seattle Mariners,,
+base,113,Cal Ripken Jr.,Baltimore Orioles,,
+base,114,Lou Collier,Pittsburgh Pirates,,
+base,115,Larry Walker,Colorado Rockies,,
+base,116,Fred McGriff,Tampa Bay Devil Rays,,
+base,117,Jim Edmonds,Anaheim Angels,,
+base,118,Edgar Martinez,Seattle Mariners,,
+base,119,Matt Williams,Arizona Diamondbacks,,
+base,120,Ismael Valdes,Los Angeles Dodgers,,
+base,121,Bartolo Colon,Cleveland Indians,,
+base,122,Jeff Cirillo,Milwaukee Brewers,,
+base,123,Steve Woodard,Milwaukee Brewers,,
+base,124,Kevin Millwood RC,Atlanta Braves,,
+base,125,Derrick Gibson,Colorado Rockies,,
+base,126,Jacob Cruz,San Francisco Giants,,
+base,127,Russell Branyan,Cleveland Indians,,
+base,128,Sean Casey,Cleveland Indians,,
+base,129,Derrek Lee,Florida Marlins,,
+base,130,Paul O'Neill,New York Yankees,,
+base,131,Brad Radke,Minnesota Twins,,
+base,132,Kevin Appier,Kansas City Royals,,
+base,133,John Olerud,New York Mets,,
+base,134,Alan Benes,St. Louis Cardinals,,
+base,135,Todd Greene,Anaheim Angels,,
+base,136,Carlos Mendoza RC,Tampa Bay Devil Rays,,
+base,137,Wade Boggs,Tampa Bay Devil Rays,,
+base,138,Jose Guillen,Pittsburgh Pirates,,
+base,139,Tino Martinez,New York Yankees,,
+base,140,Aaron Boone,Cincinnati Reds,,
+base,141,Abraham Nunez,Pittsburgh Pirates,,
+base,142,Preston Wilson,New York Mets,,
+base,143,Randall Simon,Atlanta Braves,,
+base,144,Dennis Reyes,Los Angeles Dodgers,,
+base,145,Mark Kotsay,Florida Marlins,,
+base,146,Richard Hidalgo,Houston Astros,,
+base,147,Travis Lee,Arizona Diamondbacks,,
+base,148,Hanley Frias RC,Arizona Diamondbacks,,
+base,149,Ruben Rivera,San Diego Padres,,
+base,150,Rafael Medina,Florida Marlins,,
+base,151,Dave Nilsson,Milwaukee Brewers,,
+base,152,Curt Schilling,Philadelphia Phillies,,
+base,153,Brady Anderson,Baltimore Orioles,,
+base,154,Carlos Delgado,Toronto Blue Jays,,
+base,155,Jason Giambi,Oakland Athletics,,
+base,156,Pat Hentgen,Toronto Blue Jays,,
+base,157,Tom Glavine,Atlanta Braves,,
+base,158,Ryan Klesko,Atlanta Braves,,
+base,159,Chipper Jones,Atlanta Braves,,
+base,160,Juan Gonzalez,Texas Rangers,,
+base,161,Mark McGwire,St. Louis Cardinals,,
+base,162,Vladimir Guerrero,Montreal Expos,,
+base,163,Derek Jeter,New York Yankees,,
+base,164,Manny Ramirez,Cleveland Indians,,
+base,165,Mike Mussina,Baltimore Orioles,,
+base,166,Rafael Palmeiro,Baltimore Orioles,,
+base,167,Henry Rodriguez,Chicago Cubs,,
+base,168,Jeff Suppan,Arizona Diamondbacks,,
+base,169,Eric Milton,Minnesota Twins,,
+base,170,Scott Spiezio,Oakland Athletics,,
+base,171,Wilson Delgado,San Francisco Giants,,
+base,172,Bubba Trammell,Tampa Bay Devil Rays,,
+base,173,Ellis Burks,Colorado Rockies,,
+base,174,Jason Dickson,Anaheim Angels,,
+base,175,Butch Huskey,New York Mets,,
+base,176,Edgardo Alfonzo,New York Mets,,
+base,177,Eric Young,Los Angeles Dodgers,,
+base,178,Marquis Grissom,Milwaukee Brewers,,
+base,179,Lance Johnson,Chicago Cubs,,
+base,180,Kevin Brown,San Diego Padres,,
+base,181,Sandy Alomar Jr.,Cleveland Indians,,
+base,182,Todd Hundley,New York Mets,,
+base,183,Rondell White,Montreal Expos,,
+base,184,Javy Lopez,Atlanta Braves,,
+base,185,Damian Jackson,Cincinnati Reds,,
+base,186,Raul Mondesi,Los Angeles Dodgers,,
+base,187,Rickey Henderson,Oakland Athletics,,
+base,188,David Justice,Cleveland Indians,,
+base,189,Jay Buhner,Seattle Mariners,,
+base,190,Jaret Wright,Cleveland Indians,,
+base,191,Miguel Tejada,Oakland Athletics,,
+base,192,Ron Wright,Pittsburgh Pirates,,
+base,193,Livan Hernandez,Florida Marlins,,
+base,194,A.J. Hinch,Oakland Athletics,,
+base,195,Richie Sexson,Cleveland Indians,,
+base,196,Bob Abreu,Philadelphia Phillies,,
+base,197,Luis Castillo,Florida Marlins,,
+base,198,Michael Coleman,Boston Red Sox,,
+base,199,Greg Maddux,Atlanta Braves,,
+base,200,Frank Thomas,Chicago White Sox,,
+base,201,Andruw Jones,Atlanta Braves,,
+base,202,Roger Clemens,Toronto Blue Jays,,
+base,203,Tim Salmon,Anaheim Angels,,
+base,204,Chuck Knoblauch,New York Yankees,,
+base,205,Wes Helms,Atlanta Braves,,
+base,206,Juan Encarnacion,Detroit Tigers,,
+base,207,Russ Davis,Seattle Mariners,,
+base,208,John Valentin,Boston Red Sox,,
+base,209,Tony Saunders,Tampa Bay Devil Rays,,
+base,210,Mike Sweeney,Kansas City Royals,,
+base,211,Steve Finley,San Diego Padres,,
+base,212,David Dellucci RC,Arizona Diamondbacks,,
+base,213,Edgar Renteria,Florida Marlins,,
+base,214,Jeremi Gonzalez,Chicago Cubs,,
+base,215,Jeff Bagwell,Houston Astros,Checklist,
+base,216,Mike Piazza,Los Angeles Dodgers,Checklist,
+base,217,Greg Maddux,Atlanta Braves,Checklist,
+base,218,Cal Ripken Jr.,Baltimore Orioles,Checklist,
+base,219,Frank Thomas,Chicago White Sox,Checklist,
+base,220,Ken Griffey Jr.,Seattle Mariners,Checklist,
+studio-proofs-silver,1,Tony Clark,Detroit Tigers,,Silver Proof
+studio-proofs-silver,2,Jose Cruz Jr.,Toronto Blue Jays,,Silver Proof
+studio-proofs-silver,3,Ivan Rodriguez,Texas Rangers,,Silver Proof
+studio-proofs-silver,4,Mo Vaughn,Boston Red Sox,,Silver Proof
+studio-proofs-silver,5,Kenny Lofton,Cleveland Indians,,Silver Proof
+studio-proofs-silver,6,Will Clark,Texas Rangers,,Silver Proof
+studio-proofs-silver,7,Barry Larkin,Cincinnati Reds,,Silver Proof
+studio-proofs-silver,8,Jay Bell,Arizona Diamondbacks,,Silver Proof
+studio-proofs-silver,9,Kevin Young,Pittsburgh Pirates,,Silver Proof
+studio-proofs-silver,10,Francisco Cordova,Pittsburgh Pirates,,Silver Proof
+studio-proofs-silver,11,Justin Thompson,Detroit Tigers,,Silver Proof
+studio-proofs-silver,12,Paul Molitor,Minnesota Twins,,Silver Proof
+studio-proofs-silver,13,Jeff Bagwell,Houston Astros,,Silver Proof
+studio-proofs-silver,14,Jose Canseco,Toronto Blue Jays,,Silver Proof
+studio-proofs-silver,15,Scott Rolen,Philadelphia Phillies,,Silver Proof
+studio-proofs-silver,16,Wilton Guerrero,Los Angeles Dodgers,,Silver Proof
+studio-proofs-silver,17,Shannon Stewart,Toronto Blue Jays,,Silver Proof
+studio-proofs-silver,18,Hideki Irabu,New York Yankees,,Silver Proof
+studio-proofs-silver,19,Michael Tucker,Atlanta Braves,,Silver Proof
+studio-proofs-silver,20,Joe Carter,Baltimore Orioles,,Silver Proof
+studio-proofs-silver,21,Gabe Alvarez,Detroit Tigers,,Silver Proof
+studio-proofs-silver,22,Ricky Ledee,New York Yankees,,Silver Proof
+studio-proofs-silver,23,Karim Garcia,Arizona Diamondbacks,,Silver Proof
+studio-proofs-silver,24,Eli Marrero,St. Louis Cardinals,,Silver Proof
+studio-proofs-silver,25,Scott Elarton,Houston Astros,,Silver Proof
+studio-proofs-silver,26,Mario Valdez,Chicago White Sox,,Silver Proof
+studio-proofs-silver,27,Ben Grieve,Oakland Athletics,,Silver Proof
+studio-proofs-silver,28,Paul Konerko,Los Angeles Dodgers,,Silver Proof
+studio-proofs-silver,29,Esteban Yan,Tampa Bay Devil Rays,,Silver Proof
+studio-proofs-silver,30,Esteban Loaiza,Pittsburgh Pirates,,Silver Proof
+studio-proofs-silver,31,Delino DeShields,St. Louis Cardinals,,Silver Proof
+studio-proofs-silver,32,Bernie Williams,New York Yankees,,Silver Proof
+studio-proofs-silver,33,Joe Randa,Detroit Tigers,,Silver Proof
+studio-proofs-silver,34,Randy Johnson,Seattle Mariners,,Silver Proof
+studio-proofs-silver,35,Brett Tomko,Cincinnati Reds,,Silver Proof
+studio-proofs-silver,36,Todd Erdos,Arizona Diamondbacks,,Silver Proof
+studio-proofs-silver,37,Bobby Higginson,Detroit Tigers,,Silver Proof
+studio-proofs-silver,38,Jason Kendall,Pittsburgh Pirates,,Silver Proof
+studio-proofs-silver,39,Ray Lankford,St. Louis Cardinals,,Silver Proof
+studio-proofs-silver,40,Mark Grace,Chicago Cubs,,Silver Proof
+studio-proofs-silver,41,Andy Pettitte,New York Yankees,,Silver Proof
+studio-proofs-silver,42,Alex Rodriguez,Seattle Mariners,,Silver Proof
+studio-proofs-silver,43,Hideo Nomo,Los Angeles Dodgers,,Silver Proof
+studio-proofs-silver,44,Sammy Sosa,Chicago Cubs,,Silver Proof
+studio-proofs-silver,45,J.T. Snow,San Francisco Giants,,Silver Proof
+studio-proofs-silver,46,Jason Varitek,Boston Red Sox,,Silver Proof
+studio-proofs-silver,47,Vinny Castilla,Colorado Rockies,,Silver Proof
+studio-proofs-silver,48,Neifi Perez,Colorado Rockies,,Silver Proof
+studio-proofs-silver,49,Todd Walker,Minnesota Twins,,Silver Proof
+studio-proofs-silver,50,Mike Cameron,Chicago White Sox,,Silver Proof
+studio-proofs-silver,51,Jeffrey Hammonds,Baltimore Orioles,,Silver Proof
+studio-proofs-silver,52,Deivi Cruz,Detroit Tigers,,Silver Proof
+studio-proofs-silver,53,Brian Hunter,Detroit Tigers,,Silver Proof
+studio-proofs-silver,54,Al Martin,Pittsburgh Pirates,,Silver Proof
+studio-proofs-silver,55,Ron Coomer,Minnesota Twins,,Silver Proof
+studio-proofs-silver,56,Chan Ho Park,Los Angeles Dodgers,,Silver Proof
+studio-proofs-silver,57,Pedro Martinez,Boston Red Sox,,Silver Proof
+studio-proofs-silver,58,Darin Erstad,Anaheim Angels,,Silver Proof
+studio-proofs-silver,59,Albert Belle,Chicago White Sox,,Silver Proof
+studio-proofs-silver,60,Nomar Garciaparra,Boston Red Sox,,Silver Proof
+studio-proofs-silver,61,Tony Gwynn,San Diego Padres,,Silver Proof
+studio-proofs-silver,62,Mike Piazza,Los Angeles Dodgers,,Silver Proof
+studio-proofs-silver,63,Todd Helton,Colorado Rockies,,Silver Proof
+studio-proofs-silver,64,David Ortiz,Minnesota Twins,,Silver Proof
+studio-proofs-silver,65,Todd Dunwoody,Florida Marlins,,Silver Proof
+studio-proofs-silver,66,Orlando Cabrera,Montreal Expos,,Silver Proof
+studio-proofs-silver,67,Ken Cloude,Seattle Mariners,,Silver Proof
+studio-proofs-silver,68,Andy Benes,Arizona Diamondbacks,,Silver Proof
+studio-proofs-silver,69,Mariano Rivera,New York Yankees,,Silver Proof
+studio-proofs-silver,70,Cecil Fielder,Anaheim Angels,,Silver Proof
+studio-proofs-silver,71,Brian Jordan,St. Louis Cardinals,,Silver Proof
+studio-proofs-silver,72,Darryl Kile,Colorado Rockies,,Silver Proof
+studio-proofs-silver,73,Reggie Jefferson,Boston Red Sox,,Silver Proof
+studio-proofs-silver,74,Shawn Estes,San Francisco Giants,,Silver Proof
+studio-proofs-silver,75,Bobby Bonilla,Florida Marlins,,Silver Proof
+studio-proofs-silver,76,Denny Neagle,Atlanta Braves,,Silver Proof
+studio-proofs-silver,77,Robin Ventura,Chicago White Sox,,Silver Proof
+studio-proofs-silver,78,Omar Vizquel,Cleveland Indians,,Silver Proof
+studio-proofs-silver,79,Craig Biggio,Houston Astros,,Silver Proof
+studio-proofs-silver,80,Moises Alou,Houston Astros,,Silver Proof
+studio-proofs-silver,81,Garret Anderson,Anaheim Angels,,Silver Proof
+studio-proofs-silver,82,Eric Karros,Los Angeles Dodgers,,Silver Proof
+studio-proofs-silver,83,Dante Bichette,Colorado Rockies,,Silver Proof
+studio-proofs-silver,84,Charles Johnson,Florida Marlins,,Silver Proof
+studio-proofs-silver,85,Rusty Greer,Texas Rangers,,Silver Proof
+studio-proofs-silver,86,Travis Fryman,Cleveland Indians,,Silver Proof
+studio-proofs-silver,87,Fernando Tatis,Texas Rangers,,Silver Proof
+studio-proofs-silver,88,Wilson Alvarez,Tampa Bay Devil Rays,,Silver Proof
+studio-proofs-silver,89,Carl Pavano,Montreal Expos,,Silver Proof
+studio-proofs-silver,90,Brian Rose,Boston Red Sox,,Silver Proof
+studio-proofs-silver,91,Geoff Jenkins,Milwaukee Brewers,,Silver Proof
+studio-proofs-silver,92,Magglio Ordonez,Chicago White Sox,,Silver Proof
+studio-proofs-silver,93,David Segui,Seattle Mariners,,Silver Proof
+studio-proofs-silver,94,David Cone,New York Yankees,,Silver Proof
+studio-proofs-silver,95,John Smoltz,Atlanta Braves,,Silver Proof
+studio-proofs-silver,96,Jim Thome,Cleveland Indians,,Silver Proof
+studio-proofs-silver,97,Gary Sheffield,Florida Marlins,,Silver Proof
+studio-proofs-silver,98,Barry Bonds,San Francisco Giants,,Silver Proof
+studio-proofs-silver,99,Andres Galarraga,Atlanta Braves,,Silver Proof
+studio-proofs-silver,100,Brad Fullmer,Montreal Expos,,Silver Proof
+studio-proofs-silver,101,Bobby Estalella,Philadelphia Phillies,,Silver Proof
+studio-proofs-silver,102,Enrique Wilson,Cleveland Indians,,Silver Proof
+studio-proofs-silver,103,Frank Catalanotto,Detroit Tigers,,Silver Proof
+studio-proofs-silver,104,Mike Lowell,New York Yankees,,Silver Proof
+studio-proofs-silver,105,Kevin Orie,Chicago Cubs,,Silver Proof
+studio-proofs-silver,106,Matt Morris,St. Louis Cardinals,,Silver Proof
+studio-proofs-silver,107,Pokey Reese,Cincinnati Reds,,Silver Proof
+studio-proofs-silver,108,Shawn Green,Toronto Blue Jays,,Silver Proof
+studio-proofs-silver,109,Tony Womack,Pittsburgh Pirates,,Silver Proof
+studio-proofs-silver,110,Ken Caminiti,San Diego Padres,,Silver Proof
+studio-proofs-silver,111,Roberto Alomar,Baltimore Orioles,,Silver Proof
+studio-proofs-silver,112,Ken Griffey Jr.,Seattle Mariners,,Silver Proof
+studio-proofs-silver,113,Cal Ripken Jr.,Baltimore Orioles,,Silver Proof
+studio-proofs-silver,114,Lou Collier,Pittsburgh Pirates,,Silver Proof
+studio-proofs-silver,115,Larry Walker,Colorado Rockies,,Silver Proof
+studio-proofs-silver,116,Fred McGriff,Tampa Bay Devil Rays,,Silver Proof
+studio-proofs-silver,117,Jim Edmonds,Anaheim Angels,,Silver Proof
+studio-proofs-silver,118,Edgar Martinez,Seattle Mariners,,Silver Proof
+studio-proofs-silver,119,Matt Williams,Arizona Diamondbacks,,Silver Proof
+studio-proofs-silver,120,Ismael Valdes,Los Angeles Dodgers,,Silver Proof
+studio-proofs-silver,121,Bartolo Colon,Cleveland Indians,,Silver Proof
+studio-proofs-silver,122,Jeff Cirillo,Milwaukee Brewers,,Silver Proof
+studio-proofs-silver,123,Steve Woodard,Milwaukee Brewers,,Silver Proof
+studio-proofs-silver,124,Kevin Millwood,Atlanta Braves,,Silver Proof
+studio-proofs-silver,125,Derrick Gibson,Colorado Rockies,,Silver Proof
+studio-proofs-silver,126,Jacob Cruz,San Francisco Giants,,Silver Proof
+studio-proofs-silver,127,Russell Branyan,Cleveland Indians,,Silver Proof
+studio-proofs-silver,128,Sean Casey,Cleveland Indians,,Silver Proof
+studio-proofs-silver,129,Derrek Lee,Florida Marlins,,Silver Proof
+studio-proofs-silver,130,Paul O'Neill,New York Yankees,,Silver Proof
+studio-proofs-silver,131,Brad Radke,Minnesota Twins,,Silver Proof
+studio-proofs-silver,132,Kevin Appier,Kansas City Royals,,Silver Proof
+studio-proofs-silver,133,John Olerud,New York Mets,,Silver Proof
+studio-proofs-silver,134,Alan Benes,St. Louis Cardinals,,Silver Proof
+studio-proofs-silver,135,Todd Greene,Anaheim Angels,,Silver Proof
+studio-proofs-silver,136,Carlos Mendoza,Tampa Bay Devil Rays,,Silver Proof
+studio-proofs-silver,137,Wade Boggs,Tampa Bay Devil Rays,,Silver Proof
+studio-proofs-silver,138,Jose Guillen,Pittsburgh Pirates,,Silver Proof
+studio-proofs-silver,139,Tino Martinez,New York Yankees,,Silver Proof
+studio-proofs-silver,140,Aaron Boone,Cincinnati Reds,,Silver Proof
+studio-proofs-silver,141,Abraham Nunez,Pittsburgh Pirates,,Silver Proof
+studio-proofs-silver,142,Preston Wilson,New York Mets,,Silver Proof
+studio-proofs-silver,143,Randall Simon,Atlanta Braves,,Silver Proof
+studio-proofs-silver,144,Dennis Reyes,Los Angeles Dodgers,,Silver Proof
+studio-proofs-silver,145,Mark Kotsay,Florida Marlins,,Silver Proof
+studio-proofs-silver,146,Richard Hidalgo,Houston Astros,,Silver Proof
+studio-proofs-silver,147,Travis Lee,Arizona Diamondbacks,,Silver Proof
+studio-proofs-silver,148,Hanley Frias,Arizona Diamondbacks,,Silver Proof
+studio-proofs-silver,149,Ruben Rivera,San Diego Padres,,Silver Proof
+studio-proofs-silver,150,Rafael Medina,Florida Marlins,,Silver Proof
+studio-proofs-silver,151,Dave Nilsson,Milwaukee Brewers,,Silver Proof
+studio-proofs-silver,152,Curt Schilling,Philadelphia Phillies,,Silver Proof
+studio-proofs-silver,153,Brady Anderson,Baltimore Orioles,,Silver Proof
+studio-proofs-silver,154,Carlos Delgado,Toronto Blue Jays,,Silver Proof
+studio-proofs-silver,155,Jason Giambi,Oakland Athletics,,Silver Proof
+studio-proofs-silver,156,Pat Hentgen,Toronto Blue Jays,,Silver Proof
+studio-proofs-silver,157,Tom Glavine,Atlanta Braves,,Silver Proof
+studio-proofs-silver,158,Ryan Klesko,Atlanta Braves,,Silver Proof
+studio-proofs-silver,159,Chipper Jones,Atlanta Braves,,Silver Proof
+studio-proofs-silver,160,Juan Gonzalez,Texas Rangers,,Silver Proof
+studio-proofs-silver,161,Mark McGwire,St. Louis Cardinals,,Silver Proof
+studio-proofs-silver,162,Vladimir Guerrero,Montreal Expos,,Silver Proof
+studio-proofs-silver,163,Derek Jeter,New York Yankees,,Silver Proof
+studio-proofs-silver,164,Manny Ramirez,Cleveland Indians,,Silver Proof
+studio-proofs-silver,165,Mike Mussina,Baltimore Orioles,,Silver Proof
+studio-proofs-silver,166,Rafael Palmeiro,Baltimore Orioles,,Silver Proof
+studio-proofs-silver,167,Henry Rodriguez,Chicago Cubs,,Silver Proof
+studio-proofs-silver,168,Jeff Suppan,Arizona Diamondbacks,,Silver Proof
+studio-proofs-silver,169,Eric Milton,Minnesota Twins,,Silver Proof
+studio-proofs-silver,170,Scott Spiezio,Oakland Athletics,,Silver Proof
+studio-proofs-silver,171,Wilson Delgado,San Francisco Giants,,Silver Proof
+studio-proofs-silver,172,Bubba Trammell,Tampa Bay Devil Rays,,Silver Proof
+studio-proofs-silver,173,Ellis Burks,Colorado Rockies,,Silver Proof
+studio-proofs-silver,174,Jason Dickson,Anaheim Angels,,Silver Proof
+studio-proofs-silver,175,Butch Huskey,New York Mets,,Silver Proof
+studio-proofs-silver,176,Edgardo Alfonzo,New York Mets,,Silver Proof
+studio-proofs-silver,177,Eric Young,Los Angeles Dodgers,,Silver Proof
+studio-proofs-silver,178,Marquis Grissom,Milwaukee Brewers,,Silver Proof
+studio-proofs-silver,179,Lance Johnson,Chicago Cubs,,Silver Proof
+studio-proofs-silver,180,Kevin Brown,San Diego Padres,,Silver Proof
+studio-proofs-silver,181,Sandy Alomar Jr.,Cleveland Indians,,Silver Proof
+studio-proofs-silver,182,Todd Hundley,New York Mets,,Silver Proof
+studio-proofs-silver,183,Rondell White,Montreal Expos,,Silver Proof
+studio-proofs-silver,184,Javier Lopez,Atlanta Braves,,Silver Proof
+studio-proofs-silver,185,Damian Jackson,Cincinnati Reds,,Silver Proof
+studio-proofs-silver,186,Raul Mondesi,Los Angeles Dodgers,,Silver Proof
+studio-proofs-silver,187,Rickey Henderson,Oakland Athletics,,Silver Proof
+studio-proofs-silver,188,David Justice,Cleveland Indians,,Silver Proof
+studio-proofs-silver,189,Jay Buhner,Seattle Mariners,,Silver Proof
+studio-proofs-silver,190,Jaret Wright,Cleveland Indians,,Silver Proof
+studio-proofs-silver,191,Miguel Tejada,Oakland Athletics,,Silver Proof
+studio-proofs-silver,192,Ron Wright,Pittsburgh Pirates,,Silver Proof
+studio-proofs-silver,193,Livan Hernandez,Florida Marlins,,Silver Proof
+studio-proofs-silver,194,A.J. Hinch,Oakland Athletics,,Silver Proof
+studio-proofs-silver,195,Richie Sexson,Cleveland Indians,,Silver Proof
+studio-proofs-silver,196,Bob Abreu,Philadelphia Phillies,,Silver Proof
+studio-proofs-silver,197,Luis Castillo,Florida Marlins,,Silver Proof
+studio-proofs-silver,198,Michael Coleman,Boston Red Sox,,Silver Proof
+studio-proofs-silver,199,Greg Maddux,Atlanta Braves,,Silver Proof
+studio-proofs-silver,200,Frank Thomas,Chicago White Sox,,Silver Proof
+studio-proofs-silver,201,Andruw Jones,Atlanta Braves,,Silver Proof
+studio-proofs-silver,202,Roger Clemens,Toronto Blue Jays,,Silver Proof
+studio-proofs-silver,203,Tim Salmon,Anaheim Angels,,Silver Proof
+studio-proofs-silver,204,Chuck Knoblauch,New York Yankees,,Silver Proof
+studio-proofs-silver,205,Wes Helms,Atlanta Braves,,Silver Proof
+studio-proofs-silver,206,Juan Encarnacion,Detroit Tigers,,Silver Proof
+studio-proofs-silver,207,Russ Davis,Seattle Mariners,,Silver Proof
+studio-proofs-silver,208,John Valentin,Boston Red Sox,,Silver Proof
+studio-proofs-silver,209,Tony Saunders,Tampa Bay Devil Rays,,Silver Proof
+studio-proofs-silver,210,Mike Sweeney,Kansas City Royals,,Silver Proof
+studio-proofs-silver,211,Steve Finley,San Diego Padres,,Silver Proof
+studio-proofs-silver,212,David Dellucci,Arizona Diamondbacks,,Silver Proof
+studio-proofs-silver,213,Edgar Renteria,Florida Marlins,,Silver Proof
+studio-proofs-silver,214,Jeremi Gonzalez,Chicago Cubs,,Silver Proof
+studio-proofs-silver,215,Jeff Bagwell,Houston Astros,Checklist,Silver Proof
+studio-proofs-silver,216,Mike Piazza,Los Angeles Dodgers,Checklist,Silver Proof
+studio-proofs-silver,217,Greg Maddux,Atlanta Braves,Checklist,Silver Proof
+studio-proofs-silver,218,Cal Ripken Jr.,Baltimore Orioles,Checklist,Silver Proof
+studio-proofs-silver,219,Frank Thomas,Chicago White Sox,Checklist,Silver Proof
+studio-proofs-silver,220,Ken Griffey Jr.,Seattle Mariners,Checklist,Silver Proof
+studio-proofs-gold,1,Tony Clark,Detroit Tigers,,Gold Proof
+studio-proofs-gold,2,Jose Cruz Jr.,Toronto Blue Jays,,Gold Proof
+studio-proofs-gold,3,Ivan Rodriguez,Texas Rangers,,Gold Proof
+studio-proofs-gold,4,Mo Vaughn,Boston Red Sox,,Gold Proof
+studio-proofs-gold,5,Kenny Lofton,Cleveland Indians,,Gold Proof
+studio-proofs-gold,6,Will Clark,Texas Rangers,,Gold Proof
+studio-proofs-gold,7,Barry Larkin,Cincinnati Reds,,Gold Proof
+studio-proofs-gold,8,Jay Bell,Arizona Diamondbacks,,Gold Proof
+studio-proofs-gold,9,Kevin Young,Pittsburgh Pirates,,Gold Proof
+studio-proofs-gold,10,Francisco Cordova,Pittsburgh Pirates,,Gold Proof
+studio-proofs-gold,11,Justin Thompson,Detroit Tigers,,Gold Proof
+studio-proofs-gold,12,Paul Molitor,Minnesota Twins,,Gold Proof
+studio-proofs-gold,13,Jeff Bagwell,Houston Astros,,Gold Proof
+studio-proofs-gold,14,Jose Canseco,Toronto Blue Jays,,Gold Proof
+studio-proofs-gold,15,Scott Rolen,Philadelphia Phillies,,Gold Proof
+studio-proofs-gold,16,Wilton Guerrero,Los Angeles Dodgers,,Gold Proof
+studio-proofs-gold,17,Shannon Stewart,Toronto Blue Jays,,Gold Proof
+studio-proofs-gold,18,Hideki Irabu,New York Yankees,,Gold Proof
+studio-proofs-gold,19,Michael Tucker,Atlanta Braves,,Gold Proof
+studio-proofs-gold,20,Joe Carter,Baltimore Orioles,,Gold Proof
+studio-proofs-gold,21,Gabe Alvarez,Detroit Tigers,,Gold Proof
+studio-proofs-gold,22,Ricky Ledee,New York Yankees,,Gold Proof
+studio-proofs-gold,23,Karim Garcia,Arizona Diamondbacks,,Gold Proof
+studio-proofs-gold,24,Eli Marrero,St. Louis Cardinals,,Gold Proof
+studio-proofs-gold,25,Scott Elarton,Houston Astros,,Gold Proof
+studio-proofs-gold,26,Mario Valdez,Chicago White Sox,,Gold Proof
+studio-proofs-gold,27,Ben Grieve,Oakland Athletics,,Gold Proof
+studio-proofs-gold,28,Paul Konerko,Los Angeles Dodgers,,Gold Proof
+studio-proofs-gold,29,Esteban Yan,Tampa Bay Devil Rays,,Gold Proof
+studio-proofs-gold,30,Esteban Loaiza,Pittsburgh Pirates,,Gold Proof
+studio-proofs-gold,31,Delino DeShields,St. Louis Cardinals,,Gold Proof
+studio-proofs-gold,32,Bernie Williams,New York Yankees,,Gold Proof
+studio-proofs-gold,33,Joe Randa,Detroit Tigers,,Gold Proof
+studio-proofs-gold,34,Randy Johnson,Seattle Mariners,,Gold Proof
+studio-proofs-gold,35,Brett Tomko,Cincinnati Reds,,Gold Proof
+studio-proofs-gold,36,Todd Erdos,Arizona Diamondbacks,,Gold Proof
+studio-proofs-gold,37,Bobby Higginson,Detroit Tigers,,Gold Proof
+studio-proofs-gold,38,Jason Kendall,Pittsburgh Pirates,,Gold Proof
+studio-proofs-gold,39,Ray Lankford,St. Louis Cardinals,,Gold Proof
+studio-proofs-gold,40,Mark Grace,Chicago Cubs,,Gold Proof
+studio-proofs-gold,41,Andy Pettitte,New York Yankees,,Gold Proof
+studio-proofs-gold,42,Alex Rodriguez,Seattle Mariners,,Gold Proof
+studio-proofs-gold,43,Hideo Nomo,Los Angeles Dodgers,,Gold Proof
+studio-proofs-gold,44,Sammy Sosa,Chicago Cubs,,Gold Proof
+studio-proofs-gold,45,J.T. Snow,San Francisco Giants,,Gold Proof
+studio-proofs-gold,46,Jason Varitek,Boston Red Sox,,Gold Proof
+studio-proofs-gold,47,Vinny Castilla,Colorado Rockies,,Gold Proof
+studio-proofs-gold,48,Neifi Perez,Colorado Rockies,,Gold Proof
+studio-proofs-gold,49,Todd Walker,Minnesota Twins,,Gold Proof
+studio-proofs-gold,50,Mike Cameron,Chicago White Sox,,Gold Proof
+studio-proofs-gold,51,Jeffrey Hammonds,Baltimore Orioles,,Gold Proof
+studio-proofs-gold,52,Deivi Cruz,Detroit Tigers,,Gold Proof
+studio-proofs-gold,53,Brian Hunter,Detroit Tigers,,Gold Proof
+studio-proofs-gold,54,Al Martin,Pittsburgh Pirates,,Gold Proof
+studio-proofs-gold,55,Ron Coomer,Minnesota Twins,,Gold Proof
+studio-proofs-gold,56,Chan Ho Park,Los Angeles Dodgers,,Gold Proof
+studio-proofs-gold,57,Pedro Martinez,Boston Red Sox,,Gold Proof
+studio-proofs-gold,58,Darin Erstad,Anaheim Angels,,Gold Proof
+studio-proofs-gold,59,Albert Belle,Chicago White Sox,,Gold Proof
+studio-proofs-gold,60,Nomar Garciaparra,Boston Red Sox,,Gold Proof
+studio-proofs-gold,61,Tony Gwynn,San Diego Padres,,Gold Proof
+studio-proofs-gold,62,Mike Piazza,Los Angeles Dodgers,,Gold Proof
+studio-proofs-gold,63,Todd Helton,Colorado Rockies,,Gold Proof
+studio-proofs-gold,64,David Ortiz,Minnesota Twins,,Gold Proof
+studio-proofs-gold,65,Todd Dunwoody,Florida Marlins,,Gold Proof
+studio-proofs-gold,66,Orlando Cabrera,Montreal Expos,,Gold Proof
+studio-proofs-gold,67,Ken Cloude,Seattle Mariners,,Gold Proof
+studio-proofs-gold,68,Andy Benes,Arizona Diamondbacks,,Gold Proof
+studio-proofs-gold,69,Mariano Rivera,New York Yankees,,Gold Proof
+studio-proofs-gold,70,Cecil Fielder,Anaheim Angels,,Gold Proof
+studio-proofs-gold,71,Brian Jordan,St. Louis Cardinals,,Gold Proof
+studio-proofs-gold,72,Darryl Kile,Colorado Rockies,,Gold Proof
+studio-proofs-gold,73,Reggie Jefferson,Boston Red Sox,,Gold Proof
+studio-proofs-gold,74,Shawn Estes,San Francisco Giants,,Gold Proof
+studio-proofs-gold,75,Bobby Bonilla,Florida Marlins,,Gold Proof
+studio-proofs-gold,76,Denny Neagle,Atlanta Braves,,Gold Proof
+studio-proofs-gold,77,Robin Ventura,Chicago White Sox,,Gold Proof
+studio-proofs-gold,78,Omar Vizquel,Cleveland Indians,,Gold Proof
+studio-proofs-gold,79,Craig Biggio,Houston Astros,,Gold Proof
+studio-proofs-gold,80,Moises Alou,Houston Astros,,Gold Proof
+studio-proofs-gold,81,Garret Anderson,Anaheim Angels,,Gold Proof
+studio-proofs-gold,82,Eric Karros,Los Angeles Dodgers,,Gold Proof
+studio-proofs-gold,83,Dante Bichette,Colorado Rockies,,Gold Proof
+studio-proofs-gold,84,Charles Johnson,Florida Marlins,,Gold Proof
+studio-proofs-gold,85,Rusty Greer,Texas Rangers,,Gold Proof
+studio-proofs-gold,86,Travis Fryman,Cleveland Indians,,Gold Proof
+studio-proofs-gold,87,Fernando Tatis,Texas Rangers,,Gold Proof
+studio-proofs-gold,88,Wilson Alvarez,Tampa Bay Devil Rays,,Gold Proof
+studio-proofs-gold,89,Carl Pavano,Montreal Expos,,Gold Proof
+studio-proofs-gold,90,Brian Rose,Boston Red Sox,,Gold Proof
+studio-proofs-gold,91,Geoff Jenkins,Milwaukee Brewers,,Gold Proof
+studio-proofs-gold,92,Magglio Ordonez,Chicago White Sox,,Gold Proof
+studio-proofs-gold,93,David Segui,Seattle Mariners,,Gold Proof
+studio-proofs-gold,94,David Cone,New York Yankees,,Gold Proof
+studio-proofs-gold,95,John Smoltz,Atlanta Braves,,Gold Proof
+studio-proofs-gold,96,Jim Thome,Cleveland Indians,,Gold Proof
+studio-proofs-gold,97,Gary Sheffield,Florida Marlins,,Gold Proof
+studio-proofs-gold,98,Barry Bonds,San Francisco Giants,,Gold Proof
+studio-proofs-gold,99,Andres Galarraga,Atlanta Braves,,Gold Proof
+studio-proofs-gold,100,Brad Fullmer,Montreal Expos,,Gold Proof
+studio-proofs-gold,101,Bobby Estalella,Philadelphia Phillies,,Gold Proof
+studio-proofs-gold,102,Enrique Wilson,Cleveland Indians,,Gold Proof
+studio-proofs-gold,103,Frank Catalanotto,Detroit Tigers,,Gold Proof
+studio-proofs-gold,104,Mike Lowell,New York Yankees,,Gold Proof
+studio-proofs-gold,105,Kevin Orie,Chicago Cubs,,Gold Proof
+studio-proofs-gold,106,Matt Morris,St. Louis Cardinals,,Gold Proof
+studio-proofs-gold,107,Pokey Reese,Cincinnati Reds,,Gold Proof
+studio-proofs-gold,108,Shawn Green,Toronto Blue Jays,,Gold Proof
+studio-proofs-gold,109,Tony Womack,Pittsburgh Pirates,,Gold Proof
+studio-proofs-gold,110,Ken Caminiti,San Diego Padres,,Gold Proof
+studio-proofs-gold,111,Roberto Alomar,Baltimore Orioles,,Gold Proof
+studio-proofs-gold,112,Ken Griffey Jr.,Seattle Mariners,,Gold Proof
+studio-proofs-gold,113,Cal Ripken Jr.,Baltimore Orioles,,Gold Proof
+studio-proofs-gold,114,Lou Collier,Pittsburgh Pirates,,Gold Proof
+studio-proofs-gold,115,Larry Walker,Colorado Rockies,,Gold Proof
+studio-proofs-gold,116,Fred McGriff,Tampa Bay Devil Rays,,Gold Proof
+studio-proofs-gold,117,Jim Edmonds,Anaheim Angels,,Gold Proof
+studio-proofs-gold,118,Edgar Martinez,Seattle Mariners,,Gold Proof
+studio-proofs-gold,119,Matt Williams,Arizona Diamondbacks,,Gold Proof
+studio-proofs-gold,120,Ismael Valdes,Los Angeles Dodgers,,Gold Proof
+studio-proofs-gold,121,Bartolo Colon,Cleveland Indians,,Gold Proof
+studio-proofs-gold,122,Jeff Cirillo,Milwaukee Brewers,,Gold Proof
+studio-proofs-gold,123,Steve Woodard,Milwaukee Brewers,,Gold Proof
+studio-proofs-gold,124,Kevin Millwood,Atlanta Braves,,Gold Proof
+studio-proofs-gold,125,Derrick Gibson,Colorado Rockies,,Gold Proof
+studio-proofs-gold,126,Jacob Cruz,San Francisco Giants,,Gold Proof
+studio-proofs-gold,127,Russell Branyan,Cleveland Indians,,Gold Proof
+studio-proofs-gold,128,Sean Casey,Cleveland Indians,,Gold Proof
+studio-proofs-gold,129,Derrek Lee,Florida Marlins,,Gold Proof
+studio-proofs-gold,130,Paul O'Neill,New York Yankees,,Gold Proof
+studio-proofs-gold,131,Brad Radke,Minnesota Twins,,Gold Proof
+studio-proofs-gold,132,Kevin Appier,Kansas City Royals,,Gold Proof
+studio-proofs-gold,133,John Olerud,New York Mets,,Gold Proof
+studio-proofs-gold,134,Alan Benes,St. Louis Cardinals,,Gold Proof
+studio-proofs-gold,135,Todd Greene,Anaheim Angels,,Gold Proof
+studio-proofs-gold,136,Carlos Mendoza,Tampa Bay Devil Rays,,Gold Proof
+studio-proofs-gold,137,Wade Boggs,Tampa Bay Devil Rays,,Gold Proof
+studio-proofs-gold,138,Jose Guillen,Pittsburgh Pirates,,Gold Proof
+studio-proofs-gold,139,Tino Martinez,New York Yankees,,Gold Proof
+studio-proofs-gold,140,Aaron Boone,Cincinnati Reds,,Gold Proof
+studio-proofs-gold,141,Abraham Nunez,Pittsburgh Pirates,,Gold Proof
+studio-proofs-gold,142,Preston Wilson,New York Mets,,Gold Proof
+studio-proofs-gold,143,Randall Simon,Atlanta Braves,,Gold Proof
+studio-proofs-gold,144,Dennis Reyes,Los Angeles Dodgers,,Gold Proof
+studio-proofs-gold,145,Mark Kotsay,Florida Marlins,,Gold Proof
+studio-proofs-gold,146,Richard Hidalgo,Houston Astros,,Gold Proof
+studio-proofs-gold,147,Travis Lee,Arizona Diamondbacks,,Gold Proof
+studio-proofs-gold,148,Hanley Frias,Arizona Diamondbacks,,Gold Proof
+studio-proofs-gold,149,Ruben Rivera,San Diego Padres,,Gold Proof
+studio-proofs-gold,150,Rafael Medina,Florida Marlins,,Gold Proof
+studio-proofs-gold,151,Dave Nilsson,Milwaukee Brewers,,Gold Proof
+studio-proofs-gold,152,Curt Schilling,Philadelphia Phillies,,Gold Proof
+studio-proofs-gold,153,Brady Anderson,Baltimore Orioles,,Gold Proof
+studio-proofs-gold,154,Carlos Delgado,Toronto Blue Jays,,Gold Proof
+studio-proofs-gold,155,Jason Giambi,Oakland Athletics,,Gold Proof
+studio-proofs-gold,156,Pat Hentgen,Toronto Blue Jays,,Gold Proof
+studio-proofs-gold,157,Tom Glavine,Atlanta Braves,,Gold Proof
+studio-proofs-gold,158,Ryan Klesko,Atlanta Braves,,Gold Proof
+studio-proofs-gold,159,Chipper Jones,Atlanta Braves,,Gold Proof
+studio-proofs-gold,160,Juan Gonzalez,Texas Rangers,,Gold Proof
+studio-proofs-gold,161,Mark McGwire,St. Louis Cardinals,,Gold Proof
+studio-proofs-gold,162,Vladimir Guerrero,Montreal Expos,,Gold Proof
+studio-proofs-gold,163,Derek Jeter,New York Yankees,,Gold Proof
+studio-proofs-gold,164,Manny Ramirez,Cleveland Indians,,Gold Proof
+studio-proofs-gold,165,Mike Mussina,Baltimore Orioles,,Gold Proof
+studio-proofs-gold,166,Rafael Palmeiro,Baltimore Orioles,,Gold Proof
+studio-proofs-gold,167,Henry Rodriguez,Chicago Cubs,,Gold Proof
+studio-proofs-gold,168,Jeff Suppan,Arizona Diamondbacks,,Gold Proof
+studio-proofs-gold,169,Eric Milton,Minnesota Twins,,Gold Proof
+studio-proofs-gold,170,Scott Spiezio,Oakland Athletics,,Gold Proof
+studio-proofs-gold,171,Wilson Delgado,San Francisco Giants,,Gold Proof
+studio-proofs-gold,172,Bubba Trammell,Tampa Bay Devil Rays,,Gold Proof
+studio-proofs-gold,173,Ellis Burks,Colorado Rockies,,Gold Proof
+studio-proofs-gold,174,Jason Dickson,Anaheim Angels,,Gold Proof
+studio-proofs-gold,175,Butch Huskey,New York Mets,,Gold Proof
+studio-proofs-gold,176,Edgardo Alfonzo,New York Mets,,Gold Proof
+studio-proofs-gold,177,Eric Young,Los Angeles Dodgers,,Gold Proof
+studio-proofs-gold,178,Marquis Grissom,Milwaukee Brewers,,Gold Proof
+studio-proofs-gold,179,Lance Johnson,Chicago Cubs,,Gold Proof
+studio-proofs-gold,180,Kevin Brown,San Diego Padres,,Gold Proof
+studio-proofs-gold,181,Sandy Alomar Jr.,Cleveland Indians,,Gold Proof
+studio-proofs-gold,182,Todd Hundley,New York Mets,,Gold Proof
+studio-proofs-gold,183,Rondell White,Montreal Expos,,Gold Proof
+studio-proofs-gold,184,Javier Lopez,Atlanta Braves,,Gold Proof
+studio-proofs-gold,185,Damian Jackson,Cincinnati Reds,,Gold Proof
+studio-proofs-gold,186,Raul Mondesi,Los Angeles Dodgers,,Gold Proof
+studio-proofs-gold,187,Rickey Henderson,Oakland Athletics,,Gold Proof
+studio-proofs-gold,188,David Justice,Cleveland Indians,,Gold Proof
+studio-proofs-gold,189,Jay Buhner,Seattle Mariners,,Gold Proof
+studio-proofs-gold,190,Jaret Wright,Cleveland Indians,,Gold Proof
+studio-proofs-gold,191,Miguel Tejada,Oakland Athletics,,Gold Proof
+studio-proofs-gold,192,Ron Wright,Pittsburgh Pirates,,Gold Proof
+studio-proofs-gold,193,Livan Hernandez,Florida Marlins,,Gold Proof
+studio-proofs-gold,194,A.J. Hinch,Oakland Athletics,,Gold Proof
+studio-proofs-gold,195,Richie Sexson,Cleveland Indians,,Gold Proof
+studio-proofs-gold,196,Bob Abreu,Philadelphia Phillies,,Gold Proof
+studio-proofs-gold,197,Luis Castillo,Florida Marlins,,Gold Proof
+studio-proofs-gold,198,Michael Coleman,Boston Red Sox,,Gold Proof
+studio-proofs-gold,199,Greg Maddux,Atlanta Braves,,Gold Proof
+studio-proofs-gold,200,Frank Thomas,Chicago White Sox,,Gold Proof
+studio-proofs-gold,201,Andruw Jones,Atlanta Braves,,Gold Proof
+studio-proofs-gold,202,Roger Clemens,Toronto Blue Jays,,Gold Proof
+studio-proofs-gold,203,Tim Salmon,Anaheim Angels,,Gold Proof
+studio-proofs-gold,204,Chuck Knoblauch,New York Yankees,,Gold Proof
+studio-proofs-gold,205,Wes Helms,Atlanta Braves,,Gold Proof
+studio-proofs-gold,206,Juan Encarnacion,Detroit Tigers,,Gold Proof
+studio-proofs-gold,207,Russ Davis,Seattle Mariners,,Gold Proof
+studio-proofs-gold,208,John Valentin,Boston Red Sox,,Gold Proof
+studio-proofs-gold,209,Tony Saunders,Tampa Bay Devil Rays,,Gold Proof
+studio-proofs-gold,210,Mike Sweeney,Kansas City Royals,,Gold Proof
+studio-proofs-gold,211,Steve Finley,San Diego Padres,,Gold Proof
+studio-proofs-gold,212,David Dellucci,Arizona Diamondbacks,,Gold Proof
+studio-proofs-gold,213,Edgar Renteria,Florida Marlins,,Gold Proof
+studio-proofs-gold,214,Jeremi Gonzalez,Chicago Cubs,,Gold Proof
+studio-proofs-gold,215,Jeff Bagwell,Houston Astros,Checklist,Gold Proof
+studio-proofs-gold,216,Mike Piazza,Los Angeles Dodgers,Checklist,Gold Proof
+studio-proofs-gold,217,Greg Maddux,Atlanta Braves,Checklist,Gold Proof
+studio-proofs-gold,218,Cal Ripken Jr.,Baltimore Orioles,Checklist,Gold Proof
+studio-proofs-gold,219,Frank Thomas,Chicago White Sox,Checklist,Gold Proof
+studio-proofs-gold,220,Ken Griffey Jr.,Seattle Mariners,Checklist,Gold Proof
+freeze-frame,1,Ken Griffey Jr.,Seattle Mariners,,
+freeze-frame,2,Derek Jeter,New York Yankees,,
+freeze-frame,3,Ben Grieve,Oakland Athletics,,
+freeze-frame,4,Cal Ripken Jr.,Baltimore Orioles,,
+freeze-frame,5,Alex Rodriguez,Seattle Mariners,,
+freeze-frame,6,Greg Maddux,Atlanta Braves,,
+freeze-frame,7,David Justice,Cleveland Indians,,
+freeze-frame,8,Mike Piazza,Los Angeles Dodgers,,
+freeze-frame,9,Chipper Jones,Atlanta Braves,,
+freeze-frame,10,Randy Johnson,Seattle Mariners,,
+freeze-frame,11,Jeff Bagwell,Houston Astros,,
+freeze-frame,12,Nomar Garciaparra,Boston Red Sox,,
+freeze-frame,13,Andruw Jones,Atlanta Braves,,
+freeze-frame,14,Frank Thomas,Chicago White Sox,,
+freeze-frame,15,Scott Rolen,Philadelphia Phillies,,
+freeze-frame,16,Barry Bonds,San Francisco Giants,,
+freeze-frame,17,Kenny Lofton,Cleveland Indians,,
+freeze-frame,18,Ivan Rodriguez,Texas Rangers,,
+freeze-frame,19,Chuck Knoblauch,New York Yankees,,
+freeze-frame,20,Jose Cruz Jr.,Toronto Blue Jays,,
+freeze-frame,21,Bernie Williams,New York Yankees,,
+freeze-frame,22,Tony Gwynn,San Diego Padres,,
+freeze-frame,23,Juan Gonzalez,Texas Rangers,,
+freeze-frame,24,Gary Sheffield,Florida Marlins,,
+freeze-frame,25,Roger Clemens,Toronto Blue Jays,,
+freeze-frame,26,Travis Lee,Arizona Diamondbacks,,
+freeze-frame,27,Brad Fullmer,Montreal Expos,,
+freeze-frame,28,Tim Salmon,Anaheim Angels,,
+freeze-frame,29,Raul Mondesi,Los Angeles Dodgers,,
+freeze-frame,30,Roberto Alomar,Baltimore Orioles,,
+freeze-frame-die-cuts,1,Ken Griffey Jr.,Seattle Mariners,,Die Cut
+freeze-frame-die-cuts,2,Derek Jeter,New York Yankees,,Die Cut
+freeze-frame-die-cuts,3,Ben Grieve,Oakland Athletics,,Die Cut
+freeze-frame-die-cuts,4,Cal Ripken Jr.,Baltimore Orioles,,Die Cut
+freeze-frame-die-cuts,5,Alex Rodriguez,Seattle Mariners,,Die Cut
+freeze-frame-die-cuts,6,Greg Maddux,Atlanta Braves,,Die Cut
+freeze-frame-die-cuts,7,David Justice,Cleveland Indians,,Die Cut
+freeze-frame-die-cuts,8,Mike Piazza,Los Angeles Dodgers,,Die Cut
+freeze-frame-die-cuts,9,Chipper Jones,Atlanta Braves,,Die Cut
+freeze-frame-die-cuts,10,Randy Johnson,Seattle Mariners,,Die Cut
+freeze-frame-die-cuts,11,Jeff Bagwell,Houston Astros,,Die Cut
+freeze-frame-die-cuts,12,Nomar Garciaparra,Boston Red Sox,,Die Cut
+freeze-frame-die-cuts,13,Andruw Jones,Atlanta Braves,,Die Cut
+freeze-frame-die-cuts,14,Frank Thomas,Chicago White Sox,,Die Cut
+freeze-frame-die-cuts,15,Scott Rolen,Philadelphia Phillies,,Die Cut
+freeze-frame-die-cuts,16,Barry Bonds,San Francisco Giants,,Die Cut
+freeze-frame-die-cuts,17,Kenny Lofton,Cleveland Indians,,Die Cut
+freeze-frame-die-cuts,18,Ivan Rodriguez,Texas Rangers,,Die Cut
+freeze-frame-die-cuts,19,Chuck Knoblauch,New York Yankees,,Die Cut
+freeze-frame-die-cuts,20,Jose Cruz Jr.,Toronto Blue Jays,,Die Cut
+freeze-frame-die-cuts,21,Bernie Williams,New York Yankees,,Die Cut
+freeze-frame-die-cuts,22,Tony Gwynn,San Diego Padres,,Die Cut
+freeze-frame-die-cuts,23,Juan Gonzalez,Texas Rangers,,Die Cut
+freeze-frame-die-cuts,24,Gary Sheffield,Florida Marlins,,Die Cut
+freeze-frame-die-cuts,25,Roger Clemens,Toronto Blue Jays,,Die Cut
+freeze-frame-die-cuts,26,Travis Lee,Arizona Diamondbacks,,Die Cut
+freeze-frame-die-cuts,27,Brad Fullmer,Montreal Expos,,Die Cut
+freeze-frame-die-cuts,28,Tim Salmon,Anaheim Angels,,Die Cut
+freeze-frame-die-cuts,29,Raul Mondesi,Los Angeles Dodgers,,Die Cut
+freeze-frame-die-cuts,30,Roberto Alomar,Baltimore Orioles,,Die Cut
+hit-parade,1,Tony Gwynn,San Diego Padres,,
+hit-parade,2,Larry Walker,Colorado Rockies,,
+hit-parade,3,Mike Piazza,Los Angeles Dodgers,,
+hit-parade,4,Frank Thomas,Chicago White Sox,,
+hit-parade,5,Manny Ramirez,Cleveland Indians,,
+hit-parade,6,Ken Griffey Jr.,Seattle Mariners,,
+hit-parade,7,Todd Helton,Colorado Rockies,,
+hit-parade,8,Vladimir Guerrero,Montreal Expos,,
+hit-parade,9,Albert Belle,Chicago White Sox,,
+hit-parade,10,Jeff Bagwell,Houston Astros,,
+hit-parade,11,Juan Gonzalez,Texas Rangers,,
+hit-parade,12,Jim Thome,Cleveland Indians,,
+hit-parade,13,Scott Rolen,Philadelphia Phillies,,
+hit-parade,14,Tino Martinez,New York Yankees,,
+hit-parade,15,Mark McGwire,St. Louis Cardinals,,
+hit-parade,16,Barry Bonds,San Francisco Giants,,
+hit-parade,17,Tony Clark,Detroit Tigers,,
+hit-parade,18,Mo Vaughn,Boston Red Sox,,
+hit-parade,19,Darin Erstad,Anaheim Angels,,
+hit-parade,20,Paul Konerko,Los Angeles Dodgers,,
+masterstrokes,1,Travis Lee,Arizona Diamondbacks,,
+masterstrokes,2,Kenny Lofton,Cleveland Indians,,
+masterstrokes,3,Mo Vaughn,Boston Red Sox,,
+masterstrokes,4,Ivan Rodriguez,Texas Rangers,,
+masterstrokes,5,Roger Clemens,Toronto Blue Jays,,
+masterstrokes,6,Mark McGwire,St. Louis Cardinals,,
+masterstrokes,7,Hideo Nomo,Los Angeles Dodgers,,
+masterstrokes,8,Andruw Jones,Atlanta Braves,,
+masterstrokes,9,Nomar Garciaparra,Boston Red Sox,,
+masterstrokes,10,Juan Gonzalez,Texas Rangers,,
+masterstrokes,11,Jeff Bagwell,Houston Astros,,
+masterstrokes,12,Derek Jeter,New York Yankees,,
+masterstrokes,13,Tony Gwynn,San Diego Padres,,
+masterstrokes,14,Chipper Jones,Atlanta Braves,,
+masterstrokes,15,Mike Piazza,Los Angeles Dodgers,,
+masterstrokes,16,Greg Maddux,Atlanta Braves,,
+masterstrokes,17,Alex Rodriguez,Seattle Mariners,,
+masterstrokes,18,Cal Ripken Jr.,Baltimore Orioles,,
+masterstrokes,19,Frank Thomas,Chicago White Sox,,
+masterstrokes,20,Ken Griffey Jr.,Seattle Mariners,,
+oversized-portraits,1,Travis Lee,Arizona Diamondbacks,,
+oversized-portraits,2,Todd Helton,Colorado Rockies,,
+oversized-portraits,3,Ben Grieve,Oakland Athletics,,
+oversized-portraits,4,Paul Konerko,Los Angeles Dodgers,,
+oversized-portraits,5,Jeff Bagwell,Houston Astros,,
+oversized-portraits,6,Derek Jeter,New York Yankees,,
+oversized-portraits,7,Ivan Rodriguez,Texas Rangers,,
+oversized-portraits,8,Cal Ripken Jr.,Baltimore Orioles,,
+oversized-portraits,9,Mike Piazza,Los Angeles Dodgers,,
+oversized-portraits,10,Chipper Jones,Atlanta Braves,,
+oversized-portraits,11,Frank Thomas,Chicago White Sox,,
+oversized-portraits,12,Tony Gwynn,San Diego Padres,,
+oversized-portraits,13,Nomar Garciaparra,Boston Red Sox,,
+oversized-portraits,14,Juan Gonzalez,Texas Rangers,,
+oversized-portraits,15,Greg Maddux,Atlanta Braves,,
+oversized-portraits,16,Hideo Nomo,Los Angeles Dodgers,,
+oversized-portraits,17,Scott Rolen,Philadelphia Phillies,,
+oversized-portraits,18,Barry Bonds,San Francisco Giants,,
+oversized-portraits,19,Ken Griffey Jr.,Seattle Mariners,,
+oversized-portraits,20,Alex Rodriguez,Seattle Mariners,,
+oversized-portraits,21,Roger Clemens,Toronto Blue Jays,,
+oversized-portraits,22,Mark McGwire,St. Louis Cardinals,,
+oversized-portraits,23,Jose Cruz Jr.,Toronto Blue Jays,,
+oversized-portraits,24,Andruw Jones,Atlanta Braves,,
+oversized-portraits,25,Tino Martinez,New York Yankees,,
+oversized-portraits,26,Mo Vaughn,Boston Red Sox,,
+oversized-portraits,27,Vladimir Guerrero,Montreal Expos,,
+oversized-portraits,28,Tony Clark,Detroit Tigers,,
+oversized-portraits,29,Andy Pettitte,New York Yankees,,
+oversized-portraits,30,Jaret Wright,Cleveland Indians,,
+oversized-portraits,31,Paul Molitor,Minnesota Twins,,
+oversized-portraits,32,Darin Erstad,Anaheim Angels,,
+oversized-portraits,33,Larry Walker,Colorado Rockies,,
+oversized-portraits,34,Chuck Knoblauch,New York Yankees,,
+oversized-portraits,35,Barry Larkin,Cincinnati Reds,,
+oversized-portraits,36,Kenny Lofton,Cleveland Indians,,
+oversized-portrait-proofs,1,Travis Lee,Arizona Diamondbacks,,Gold Portrait Proof
+oversized-portrait-proofs,2,Todd Helton,Colorado Rockies,,Gold Portrait Proof
+oversized-portrait-proofs,3,Ben Grieve,Oakland Athletics,,Gold Portrait Proof
+oversized-portrait-proofs,4,Paul Konerko,Los Angeles Dodgers,,Gold Portrait Proof
+oversized-portrait-proofs,5,Jeff Bagwell,Houston Astros,,Gold Portrait Proof
+oversized-portrait-proofs,6,Derek Jeter,New York Yankees,,Gold Portrait Proof
+oversized-portrait-proofs,7,Ivan Rodriguez,Texas Rangers,,Gold Portrait Proof
+oversized-portrait-proofs,8,Cal Ripken Jr.,Baltimore Orioles,,Gold Portrait Proof
+oversized-portrait-proofs,9,Mike Piazza,Los Angeles Dodgers,,Gold Portrait Proof
+oversized-portrait-proofs,10,Chipper Jones,Atlanta Braves,,Gold Portrait Proof
+oversized-portrait-proofs,11,Frank Thomas,Chicago White Sox,,Gold Portrait Proof
+oversized-portrait-proofs,12,Tony Gwynn,San Diego Padres,,Gold Portrait Proof
+oversized-portrait-proofs,13,Nomar Garciaparra,Boston Red Sox,,Gold Portrait Proof
+oversized-portrait-proofs,14,Juan Gonzalez,Texas Rangers,,Gold Portrait Proof
+oversized-portrait-proofs,15,Greg Maddux,Atlanta Braves,,Gold Portrait Proof
+oversized-portrait-proofs,16,Hideo Nomo,Los Angeles Dodgers,,Gold Portrait Proof
+oversized-portrait-proofs,17,Scott Rolen,Philadelphia Phillies,,Gold Portrait Proof
+oversized-portrait-proofs,18,Barry Bonds,San Francisco Giants,,Gold Portrait Proof
+oversized-portrait-proofs,19,Ken Griffey Jr.,Seattle Mariners,,Gold Portrait Proof
+oversized-portrait-proofs,20,Alex Rodriguez,Seattle Mariners,,Gold Portrait Proof
+oversized-portrait-proofs,21,Roger Clemens,Toronto Blue Jays,,Gold Portrait Proof
+oversized-portrait-proofs,22,Mark McGwire,St. Louis Cardinals,,Gold Portrait Proof
+oversized-portrait-proofs,23,Jose Cruz Jr.,Toronto Blue Jays,,Gold Portrait Proof
+oversized-portrait-proofs,24,Andruw Jones,Atlanta Braves,,Gold Portrait Proof
+oversized-portrait-proofs,25,Tino Martinez,New York Yankees,,Gold Portrait Proof
+oversized-portrait-proofs,26,Mo Vaughn,Boston Red Sox,,Gold Portrait Proof
+oversized-portrait-proofs,27,Vladimir Guerrero,Montreal Expos,,Gold Portrait Proof
+oversized-portrait-proofs,28,Tony Clark,Detroit Tigers,,Gold Portrait Proof
+oversized-portrait-proofs,29,Andy Pettitte,New York Yankees,,Gold Portrait Proof
+oversized-portrait-proofs,30,Jaret Wright,Cleveland Indians,,Gold Portrait Proof
+oversized-portrait-proofs,31,Paul Molitor,Minnesota Twins,,Gold Portrait Proof
+oversized-portrait-proofs,32,Darin Erstad,Anaheim Angels,,Gold Portrait Proof
+oversized-portrait-proofs,33,Larry Walker,Colorado Rockies,,Gold Portrait Proof
+oversized-portrait-proofs,34,Chuck Knoblauch,New York Yankees,,Gold Portrait Proof
+oversized-portrait-proofs,35,Barry Larkin,Cincinnati Reds,,Gold Portrait Proof
+oversized-portrait-proofs,36,Kenny Lofton,Cleveland Indians,,Gold Portrait Proof
+oversized-portrait-autographs,001,Travis Lee,Arizona Diamondbacks,,Autograph
+oversized-portrait-autographs,002,Todd Helton,Colorado Rockies,,Autograph
+oversized-portrait-autographs,003,Ben Grieve,Oakland Athletics,,Autograph
+mlb-99,1,Cal Ripken Jr.,Baltimore Orioles,,
+mlb-99,2,Nomar Garciaparra,Boston Red Sox,,
+mlb-99,3,Barry Bonds,San Francisco Giants,,
+mlb-99,4,Mike Mussina,Baltimore Orioles,,
+mlb-99,5,Pedro Martinez,Boston Red Sox,,
+mlb-99,6,Derek Jeter,New York Yankees,,
+mlb-99,7,Andruw Jones,Atlanta Braves,,
+mlb-99,8,Kenny Lofton,Cleveland Indians,,
+mlb-99,9,Gary Sheffield,Florida Marlins,,
+mlb-99,10,Raul Mondesi,Los Angeles Dodgers,,
+mlb-99,11,Jeff Bagwell,Houston Astros,,
+mlb-99,12,Tim Salmon,Anaheim Angels,,
+mlb-99,13,Tom Glavine,Atlanta Braves,,
+mlb-99,14,Ben Grieve,Oakland Athletics,,
+mlb-99,15,Matt Williams,Arizona Diamondbacks,,
+mlb-99,16,Juan Gonzalez,Texas Rangers,,
+mlb-99,17,Mark McGwire,St. Louis Cardinals,,
+mlb-99,18,Bernie Williams,New York Yankees,,
+mlb-99,19,Andres Galarraga,Atlanta Braves,,
+mlb-99,20,Jose Cruz Jr.,Toronto Blue Jays,,

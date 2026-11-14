@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/1237/1998-Studio",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/1237/1998-Studio",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1237/1998-Studio",
+    "referenceUrls": [
+      "https://baseballcardpedia.com/index.php/1998_Studio",
+      "https://baseballcardpedia.com/index.php/1998_Donruss",
+      "https://www.beckett.com/baseball/1998/studio/"
+    ]
+  },
+  "decisions": {
+    "packFormat": "VCS uses a four-card pack and 18 packs per box. The physical hobby pack had seven standard cards and one 8x10 portrait.",
+    "odds": "The standard portrait pool uses the documented one-per-pack frequency. All other hit odds remain null pending verification. Print runs are not used as pack odds.",
+    "numbering": "TCDB indexes the six player-front checklist cards as #215–220; BaseballCardPedia uses CL1–CL6 aliases. VCS uses numeric checklist keys for the base and both proofs.",
+    "rookies": "Only the nine verified base cards carry an RC suffix. Parallel and insert player fields use clean names.",
+    "exclusions": "Dealer portrait samples and post-bankruptcy Gold Proof samples are outside the pack checklist."
+  },
+  "product": {
+    "id": "1998_Studio_Baseball",
+    "year": 1998,
+    "brand": "Studio",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 18,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packOdds": "PARTIAL",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1998-studio-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1998_Studio_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1237/1998-Studio",
+      "expectedCards": 220,
+      "notes": "One base pool. Checklist backs #215–220 retain the pictured players and teams."
+    },
+    {
+      "key": "studio-proofs-silver",
+      "id": "1998_Studio_Baseball_studio_proofs_silver",
+      "name": "Studio Proofs Silver",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11300/1998-Studio-Studio-Proofs-Silver",
+      "expectedCards": 220,
+      "notes": "1,000 copies per card, not individually serial-numbered."
+    },
+    {
+      "key": "studio-proofs-gold",
+      "id": "1998_Studio_Baseball_studio_proofs_gold",
+      "name": "Studio Proofs Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11295/1998-Studio-Studio-Proofs-Gold",
+      "expectedCards": 220,
+      "notes": "Serial-numbered to 300."
+    },
+    {
+      "key": "freeze-frame",
+      "id": "1998_Studio_Baseball_freeze_frame",
+      "name": "Freeze Frame",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11293/1998-Studio-Freeze-Frame",
+      "expectedCards": 30,
+      "notes": "Numbered out of 4,500. The first 500 are die-cuts; the remaining 4,000 are standard."
+    },
+    {
+      "key": "freeze-frame-die-cuts",
+      "id": "1998_Studio_Baseball_freeze_frame_die_cuts",
+      "name": "Freeze Frame Die Cuts",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11294/1998-Studio-Freeze-Frame-Die-Cuts",
+      "expectedCards": 30,
+      "notes": "First 500 serials of the shared /4,500 run."
+    },
+    {
+      "key": "hit-parade",
+      "id": "1998_Studio_Baseball_hit_parade",
+      "name": "Hit Parade",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11296/1998-Studio-Hit-Parade",
+      "expectedCards": 20,
+      "notes": "Serial-numbered to 5,000."
+    },
+    {
+      "key": "masterstrokes",
+      "id": "1998_Studio_Baseball_masterstrokes",
+      "name": "Masterstrokes",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11297/1998-Studio-Masterstrokes",
+      "expectedCards": 20,
+      "notes": "Serial-numbered to 1,000."
+    },
+    {
+      "key": "oversized-portraits",
+      "id": "1998_Studio_Baseball_oversized_portraits",
+      "name": "Oversized Portraits 8x10",
+      "kind": "INSERT",
+      "oddsPerPack": 1,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11298/1998-Studio-Oversized-Portraits-8x10",
+      "expectedCards": 36,
+      "notes": "Standard portraits are modeled at one per pack in the unified hobby pool. Cards #25–36 were hobby-exclusive. Verify replacement behavior when adding portrait proof or autograph odds."
+    },
+    {
+      "key": "oversized-portrait-proofs",
+      "id": "1998_Studio_Baseball_oversized_portrait_proofs",
+      "name": "Oversized Portraits Proofs 8x10",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11299/1998-Studio-Oversized-Portraits-Proofs-8x10",
+      "expectedCards": 36,
+      "notes": "Serial-numbered to 300."
+    },
+    {
+      "key": "oversized-portrait-autographs",
+      "id": "1998_Studio_Baseball_oversized_portrait_autographs",
+      "name": "Oversized Portraits Autographs 8x10",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11292/1998-Studio-Oversized-Portraits-Autographs-8x10",
+      "expectedCards": 3,
+      "notes": "001 Travis Lee (500), 002 Todd Helton (1,000), 003 Ben Grieve (1,000). Print runs only, not serial-numbered."
+    },
+    {
+      "key": "mlb-99",
+      "id": "1998_Studio_Baseball_mlb_99",
+      "name": "MLB 99",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/11301/1998-Studio-MLB-99",
+      "expectedCards": 20,
+      "notes": "Same 20-card PlayStation sweepstakes insert appeared in 1998 Donruss Update."
+    }
+  ]
+}
