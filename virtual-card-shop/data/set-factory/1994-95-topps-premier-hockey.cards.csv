@@ -1,0 +1,1139 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Mark Messier,New York Rangers,Series 1,
+base,2,Darren Turcotte,Hartford Whalers,Series 1,
+base,3,Mikhail Shtalenkov RC,Anaheim Mighty Ducks,Series 1,
+base,4,Rob Gaudreau,San Jose Sharks,Series 1,
+base,5,Tony Amonte,Chicago Blackhawks,Series 1,
+base,6,Stephane Quintal,Winnipeg Jets,Series 1,
+base,7,Iain Fraser,Quebec Nordiques,Series 1,
+base,8,Doug Weight,Edmonton Oilers,Series 1,
+base,9,German Titov,Calgary Flames,Series 1,
+base,10,Larry Murphy,Pittsburgh Penguins,Series 1,
+base,11,Danton Cole,Tampa Bay Lightning,Series 1,
+base,12,Pat Peake,Washington Capitals,Series 1,
+base,13,Chris Terreri,New Jersey Devils,Series 1,
+base,14,Yuri Khmylev,Buffalo Sabres,Series 1,
+base,15,Paul Coffey,Detroit Red Wings,Series 1,
+base,16,Brian Savage,Montreal Canadiens,Series 1,
+base,17,Rod Brind'Amour,Philadelphia Flyers,Series 1,
+base,18,Nathan Lafayette,Vancouver Canucks,Series 1,
+base,19,Gord Murphy,Florida Panthers,Series 1,
+base,20,Al Iafrate,Boston Bruins,Series 1,
+base,21,Kevin Miller,St. Louis Blues,Series 1,
+base,22,Peter Zezel,Toronto Maple Leafs,Series 1,
+base,23,Sylvain Turgeon,Ottawa Senators,Series 1,
+base,24,Mark Tinordi,Dallas Stars,Series 1,
+base,25,Jari Kurri,Los Angeles Kings,Series 1,
+base,26,Benoit Hogue,New York Islanders,Series 1,
+base,27,Jeff Reese,Hartford Whalers,Series 1,
+base,28,Brian Noonan,New York Rangers,Series 1,
+base,29,Denis Tsygurov RC,Buffalo Sabres,Series 1,
+base,30,James Patrick,Calgary Flames,Series 1,
+base,31,Bob Corkum,Anaheim Mighty Ducks,Series 1,
+base,32,Valeri Kamensky,Quebec Nordiques,Series 1,
+base,33,Ray Whitney,San Jose Sharks,Series 1,
+base,34,Joe Murphy,Chicago Blackhawks,Series 1,
+base,35,Dominik Hasek,Buffalo Sabres,Series 1,
+base,36,Ray Bourque,Boston Bruins,Series 1,
+base,37,Brian Leetch,New York Rangers,Series 1,
+base,38,Dave Andreychuk,Toronto Maple Leafs,Series 1,
+base,39,Pavel Bure,Vancouver Canucks,Series 1,
+base,40,Sergei Fedorov,Detroit Red Wings,Series 1,
+base,41,Bob Beers,Edmonton Oilers,Series 1,
+base,42,Byron Dafoe RC,Washington Capitals,Series 1,
+base,43,Lyle Odelein,Montreal Canadiens,Series 1,
+base,44,Markus Naslund,Pittsburgh Penguins,Series 1,
+base,45,Dean Chynoweth RC,New York Islanders,Series 1,
+base,46,Trent Klatt,Dallas Stars,Series 1,
+base,47,Murray Craven,Vancouver Canucks,Series 1,
+base,48,Dave Mackey,St. Louis Blues,Series 1,
+base,49,Norm Maciver,Ottawa Senators,Series 1,
+base,50,Alexander Mogilny,Buffalo Sabres,Series 1,
+base,51,Dave Reid,Boston Bruins,Series 1,
+base,52,Nicklas Lidstrom,Detroit Red Wings,Series 1,
+base,53,Tom Fitzgerald,Florida Panthers,Series 1,
+base,54,Roman Hamrlik,Tampa Bay Lightning,Series 1,
+base,55,Wendel Clark,Toronto Maple Leafs,Series 1,
+base,56,Dominic Roussel,Philadelphia Flyers,Series 1,
+base,57,Alexei Zhitnik,Los Angeles Kings,Series 1,
+base,58,Valeri Zelepukin,New Jersey Devils,Series 1,
+base,59,Calle Johansson,Washington Capitals,Series 1,
+base,60,Craig Janney,St. Louis Blues,Series 1,
+base,61,Randy Wood,Buffalo Sabres,Series 1,
+base,62,Curtis Leschyshyn,Quebec Nordiques,Series 1,
+base,63,Stephan Lebeau,Anaheim Mighty Ducks,Series 1,
+base,64,Dallas Drake,Winnipeg Jets,Series 1,
+base,65,Vincent Damphousse,Montreal Canadiens,Series 1,
+base,66,Scott Lachance,New York Islanders,Series 1,
+base,67,Dirk Graham,Chicago Blackhawks,Series 1,
+base,68,Kevin Smyth,Hartford Whalers,Series 1,
+base,69,Denis Savard,Tampa Bay Lightning,Series 1,
+base,70,Mike Richter,New York Rangers,Series 1,
+base,71,Ronnie Stern,Calgary Flames,Series 1,
+base,72,Kirk Maltby,Edmonton Oilers,Series 1,
+base,73,Kjell Samuelsson,Pittsburgh Penguins,Series 1,
+base,74,Neal Broten,Dallas Stars,Series 1,
+base,75,Trevor Linden,Vancouver Canucks,Series 1,
+base,76,Todd Elik,San Jose Sharks,Series 1,
+base,77,Andrew McBain,Ottawa Senators,Series 1,
+base,78,Alexei Kudashov,Toronto Maple Leafs,Series 1,
+base,79,Ken Daneyko,New Jersey Devils,Series 1,
+base,80,Grant Fuhr / Dominik Hasek,Buffalo Sabres,Series 1,
+base,81,Andy Moog / Darcy Wakaluk,Dallas Stars,Series 1,
+base,82,John Vanbiesbrouck / Mark Fitzpatrick,Florida Panthers,Series 1,
+base,83,Martin Brodeur / Chris Terreri,New Jersey Devils,Series 1,
+base,84,Ken Wregget / Tom Barrasso,Pittsburgh Penguins,Series 1,
+base,85,Kirk McLean / Kay Whitmore,Vancouver Canucks,Series 1,
+base,86,Darryl Sydor,Los Angeles Kings,Series 1,
+base,87,Chris Osgood,Detroit Red Wings,Series 1,
+base,88,Ted Donato,Boston Bruins,Series 1,
+base,89,Dave Lowry,Florida Panthers,Series 1,
+base,90,Mark Recchi,Philadelphia Flyers,Series 1,
+base,91,Jim Montgomery,St. Louis Blues,Series 1,
+base,92,Bill Houlder,Anaheim Mighty Ducks,Series 1,
+base,93,Richard Smehlik,Buffalo Sabres,Series 1,
+base,94,Benoit Brunet,Montreal Canadiens,Series 1,
+base,95,Teemu Selanne,Winnipeg Jets,Series 1,
+base,96,Paul Ranheim,Hartford Whalers,Series 1,
+base,97,Andrei Kovalenko,Quebec Nordiques,Series 1,
+base,98,Grant Ledyard,Dallas Stars,Series 1,
+base,99,Brent Grieve RC,Edmonton Oilers,Series 1,
+base,100,Joe Juneau,Washington Capitals,Series 1,
+base,101,Martin Gelinas,Vancouver Canucks,Series 1,
+base,102,Jamie Macoun,Toronto Maple Leafs,Series 1,
+base,103,Craig MacTavish,New York Rangers,Series 1,
+base,104,Micah Aivazoff,Detroit Red Wings,Series 1,
+base,105,Stephane Richer,New Jersey Devils,Series 1,
+base,106,Eric Weinrich,Chicago Blackhawks,Series 1,
+base,107,Pat Elynuik,Tampa Bay Lightning,Series 1,
+base,108,Tomas Sandstrom,Pittsburgh Penguins,Series 1,
+base,109,Darrin Madeley,Ottawa Senators,Series 1,
+base,110,Al MacInnis,Calgary Flames,Series 1,
+base,111,Cam Stewart,Boston Bruins,Series 1,
+base,112,Dixon Ward,Los Angeles Kings,Series 1,
+base,113,Vlastimil Kroupa,San Jose Sharks,Series 1,
+base,114,Rob DiMaio,Philadelphia Flyers,Series 1,
+base,115,Pierre Turgeon,New York Islanders,Series 1,
+base,116,Mike Hough,Florida Panthers,Series 1,
+base,117,John LeClair,Montreal Canadiens,Series 1,
+base,118,Dave Hannan,Buffalo Sabres,Series 1,
+base,119,Todd Ewen,Anaheim Mighty Ducks,Series 1,
+base,120,1994 Stanley Cup Champions SCC,New York Rangers,Series 1,
+base,121,Dave Manson,Winnipeg Jets,Series 1,
+base,122,Jocelyn Lemieux,Hartford Whalers,Series 1,
+base,123,Jocelyn Thibault,Quebec Nordiques,Series 1,
+base,124,Scott Pearson,Edmonton Oilers,Series 1,
+base,125,Patrick Roy,Montreal Canadiens,Series 1,
+base,126,Scott Stevens,New Jersey Devils,Series 1,
+base,127,Al MacInnis,Calgary Flames,Series 1,
+base,128,Adam Graves,New York Rangers,Series 1,
+base,129,Cam Neely,Boston Bruins,Series 1,
+base,130,Wayne Gretzky,Los Angeles Kings,Series 1,
+base,131,Tom Chorske,New Jersey Devils,Series 1,
+base,132,John Tucker,Tampa Bay Lightning,Series 1,
+base,133,Steve Smith,Chicago Blackhawks,Series 1,
+base,134,Kay Whitmore,Vancouver Canucks,Series 1,
+base,135,Adam Oates,Boston Bruins,Series 1,
+base,136,Bill Berg,Toronto Maple Leafs,Series 1,
+base,137,Wes Walz,Calgary Flames,Series 1,
+base,138,Jeff Beukeboom,New York Rangers,Series 1,
+base,139,Ron Francis,Pittsburgh Penguins,Series 1,
+base,140,Alexandre Daigle,Ottawa Senators,Series 1,
+base,141,Josef Beranek,Philadelphia Flyers,Series 1,
+base,142,Tom Pederson,San Jose Sharks,Series 1,
+base,143,Jamie McLennan,New York Islanders,Series 1,
+base,144,Scott Mellanby,Florida Panthers,Series 1,
+base,145,Vyacheslav Kozlov,Detroit Red Wings,Series 1,
+base,146,Marty McSorley,Los Angeles Kings,Series 1,
+base,147,Tim Sweeney,Anaheim Mighty Ducks,Series 1,
+base,148,Luciano Borsato,Winnipeg Jets,Series 1,
+base,149,Jason Dawe,Buffalo Sabres,Series 1,
+base,150,Wayne Gretzky LL,Los Angeles Kings,Series 1,
+base,151,Pavel Bure LL,Vancouver Canucks,Series 1,
+base,152,Dominik Hasek LL,Buffalo Sabres,Series 1,
+base,153,Scott Stevens LL,New Jersey Devils,Series 1,
+base,154,Wayne Gretzky LL,Los Angeles Kings,Series 1,
+base,155,Mike Richter LL,New York Rangers,Series 1,
+base,156,Dominik Hasek LL,Buffalo Sabres,Series 1,
+base,157,Ted Drury,Hartford Whalers,Series 1,
+base,158,Peter Popovic,Montreal Canadiens,Series 1,
+base,159,Alexei Kasatonov,St. Louis Blues,Series 1,
+base,160,Mats Sundin,Quebec Nordiques,Series 1,
+base,161,Brad Shaw,Ottawa Senators,Series 1,
+base,162,Bret Hedican,Vancouver Canucks,Series 1,
+base,163,Mike McPhee,Dallas Stars,Series 1,
+base,164,Martin Straka,Pittsburgh Penguins,Series 1,
+base,165,Dmitri Mironov,Toronto Maple Leafs,Series 1,
+base,166,Andrei Trefilov,Calgary Flames,Series 1,
+base,167,Joe Reekie,Washington Capitals,Series 1,
+base,168,Gary Suter,Chicago Blackhawks,Series 1,
+base,169,Greg Gilbert,New York Rangers,Series 1,
+base,170,Igor Larionov,San Jose Sharks,Series 1,
+base,171,Mike Sillinger,Detroit Red Wings,Series 1,
+base,172,Igor Kravchuk,Edmonton Oilers,Series 1,
+base,173,Glen Murray,Boston Bruins,Series 1,
+base,174,Shawn Chambers,Tampa Bay Lightning,Series 1,
+base,175,John MacLean,New Jersey Devils,Series 1,
+base,176,Yves Racine,Philadelphia Flyers,Series 1,
+base,177,Andrei Lomakin,Florida Panthers,Series 1,
+base,178,Patrick Flatley,New York Islanders,Series 1,
+base,179,Igor Ulanov,Winnipeg Jets,Series 1,
+base,180,Pat LaFontaine,Buffalo Sabres,Series 1,
+base,181,Mathieu Schneider,Montreal Canadiens,Series 1,
+base,182,Peter Stastny,St. Louis Blues,Series 1,
+base,183,Tony Granato,Los Angeles Kings,Series 1,
+base,184,Peter Douris,Anaheim Mighty Ducks,Series 1,
+base,185,Alexei Kovalev,New York Rangers,Series 1,
+base,186,Geoff Courtnall,Vancouver Canucks,Series 1,
+base,187,Richard Matvichuk,Dallas Stars,Series 1,
+base,188,Troy Murray,Ottawa Senators,Series 1,
+base,189,Todd Gill,Toronto Maple Leafs,Series 1,
+base,190,Martin Brodeur RS,New Jersey Devils,Series 1,
+base,191,Mikael Renberg RS,Philadelphia Flyers,Series 1,
+base,192,Alexei Yashin RS,Ottawa Senators,Series 1,
+base,193,Jason Arnott RS,Edmonton Oilers,Series 1,
+base,194,Derek Plante RS,Buffalo Sabres,Series 1,
+base,195,Alexandre Daigle RS,Ottawa Senators,Series 1,
+base,196,Bryan Smolinski RS,Boston Bruins,Series 1,
+base,197,Jesse Belanger RS,Florida Panthers,Series 1,
+base,198,Chris Pronger RS,Hartford Whalers,Series 1,
+base,199,Chris Osgood RS,Detroit Red Wings,Series 1,
+base,200,Jeremy Roenick,Chicago Blackhawks,Series 1,
+base,201,Johan Garpenlov,San Jose Sharks,Series 1,
+base,202,Dave Karpa,Quebec Nordiques,Series 1,
+base,203,Darren McCarty,Detroit Red Wings,Series 1,
+base,204,Claude Lemieux,New Jersey Devils,Series 1,
+base,205,Geoff Sanderson,Hartford Whalers,Series 1,
+base,206,Tom Barrasso,Pittsburgh Penguins,Series 1,
+base,207,Kevin Dineen,Philadelphia Flyers,Series 1,
+base,208,Sylvain Cote,Washington Capitals,Series 1,
+base,209,Brent Gretzky,Tampa Bay Lightning,Series 1,
+base,210,Shayne Corson,Edmonton Oilers,Series 1,
+base,211,Darius Kasparaitis,New York Islanders,Series 1,
+base,212,Peter Andersson,Florida Panthers,Series 1,
+base,213,Robert Reichel,Calgary Flames,Series 1,
+base,214,Jozef Stumpel,Boston Bruins,Series 1,
+base,215,Brendan Shanahan,St. Louis Blues,Series 1,
+base,216,Craig Muni,Buffalo Sabres,Series 1,
+base,217,Alexei Zhamnov,Winnipeg Jets,Series 1,
+base,218,Robert Lang,Los Angeles Kings,Series 1,
+base,219,Brian Bellows,Montreal Canadiens,Series 1,
+base,220,Steven King,Anaheim Mighty Ducks,Series 1,
+base,221,Sergei Zubov,New York Rangers,Series 1,
+base,222,Kelly Miller,Washington Capitals,Series 1,
+base,223,Ilya Byakin,Edmonton Oilers,Series 1,
+base,224,Chris Tamer RC,Pittsburgh Penguins,Series 1,
+base,225,Doug Gilmour,Toronto Maple Leafs,Series 1,
+base,226,Shawn Antoski,Vancouver Canucks,Series 1,
+base,227,Andrew Cassels,Hartford Whalers,Series 1,
+base,228,Craig Wolanin,Quebec Nordiques,Series 1,
+base,229,Jon Casey,Boston Bruins,Series 1,
+base,230,Mike Modano,Dallas Stars,Series 1,
+base,231,Bill Guerin,New Jersey Devils,Series 1,
+base,232,Gaetan Duchesne,San Jose Sharks,Series 1,
+base,233,Steve Dubinsky,Chicago Blackhawks,Series 1,
+base,234,Jason Bowen,Philadelphia Flyers,Series 1,
+base,235,Steve Yzerman,Detroit Red Wings,Series 1,
+base,236,Dave Poulin,Washington Capitals,Series 1,
+base,237,Mikael Nylander,Calgary Flames,Series 1,
+base,238,Felix Potvin TOTF,Toronto Maple Leafs,Series 1,
+base,239,Sandis Ozolinsh TOTF,San Jose Sharks,Series 1,
+base,240,Scott Niedermayer TOTF,New Jersey Devils,Series 1,
+base,241,Eric Lindros TOTF,Philadelphia Flyers,Series 1,
+base,242,Keith Tkachuk TOTF,Winnipeg Jets,Series 1,
+base,243,Teemu Selanne TOTF,Winnipeg Jets,Series 1,
+base,244,Marty McInnis,New York Islanders,Series 1,
+base,245,Bob Kudelski,Florida Panthers,Series 1,
+base,246,Paul Cavallini,Dallas Stars,Series 1,
+base,247,Brian Bradley,Tampa Bay Lightning,Series 1,
+base,248,Robb Stauber,Los Angeles Kings,Series 1,
+base,249,Jay Wells,New York Rangers,Series 1,
+base,250,Mario Lemieux,Pittsburgh Penguins,Series 1,
+base,251,Tommy Albelin,New Jersey Devils,Series 1,
+base,252,Paul DiPietro,Montreal Canadiens,Series 1,
+base,253,Mike Gartner,Toronto Maple Leafs,Series 1,
+base,254,Darrin Shannon,Winnipeg Jets,Series 1,
+base,255,Alexander Karpovtsev,New York Rangers,Series 1,
+base,256,Dave Babych,Vancouver Canucks,Series 1,
+base,257,Greg Johnson,Detroit Red Wings,Series 1,
+base,258,Frank Musil,Calgary Flames,Series 1,
+base,259,Michal Pivonka,Washington Capitals,Series 1,
+base,260,Arturs Irbe,San Jose Sharks,Series 1,
+base,261,Paul Broten,Dallas Stars,Series 1,
+base,262,Don Sweeney,Boston Bruins,Series 1,
+base,263,Doug Brown,Pittsburgh Penguins,Series 1,
+base,264,Bobby Dollas,Anaheim Mighty Ducks,Series 1,
+base,265,Brian Skrudland,Florida Panthers,Series 1,
+base,266,Dan Plante RC,New York Islanders,Series 1,
+base,267,Chad Penney,Ottawa Senators,Series 1,
+base,268,Steve Leach,Boston Bruins,Series 1,
+base,269,Damian Rhodes,Toronto Maple Leafs,Series 1,
+base,270,Glenn Anderson,New York Rangers,Series 1,
+base,271,Randy McKay,New Jersey Devils,Series 1,
+base,272,Jeff Brown,Vancouver Canucks,Series 1,
+base,273,Steve Konowalchuk,Washington Capitals,Series 1,
+base,274,Checklist: 1-136,,Series 1,
+base,275,Checklist: 137-275,,Series 1,
+base,276,Sergei Fedorov,Detroit Red Wings,Series 2,
+base,277,Adam Oates,Boston Bruins,Series 2,
+base,278,Mark Messier,New York Rangers,Series 2,
+base,279,Doug Gilmour,Toronto Maple Leafs,Series 2,
+base,280,Wayne Gretzky,Los Angeles Kings,Series 2,
+base,281,Rick Tocchet,Los Angeles Kings,Series 2,
+base,282,Guy Carbonneau,St. Louis Blues,Series 2,
+base,283,Peter Bondra,Washington Capitals,Series 2,
+base,284,Valeri Karpov RC,Anaheim Mighty Ducks,Series 2,
+base,285,Ed Belfour,Chicago Blackhawks,Series 2,
+base,286,Petr Nedved,New York Rangers,Series 2,
+base,287,Mikael Andersson,Tampa Bay Lightning,Series 2,
+base,288,Boris Mironov,Edmonton Oilers,Series 2,
+base,289,Donald Audette,Buffalo Sabres,Series 2,
+base,290,Kevin Stevens,Pittsburgh Penguins,Series 2,
+base,291,Cliff Ronning,Vancouver Canucks,Series 2,
+base,292,Bruce Driver,New Jersey Devils,Series 2,
+base,293,Mariusz Czerkawski RC,Boston Bruins,Series 2,
+base,294,Mikael Renberg,Philadelphia Flyers,Series 2,
+base,295,Theoren Fleury,Calgary Flames,Series 2,
+base,296,Robert Kron,Hartford Whalers,Series 2,
+base,297,Wendel Clark,Quebec Nordiques,Series 2,
+base,298,Dave Gagner,Dallas Stars,Series 2,
+base,299,Ulf Dahlen,San Jose Sharks,Series 2,
+base,300,Keith Tkachuk,Winnipeg Jets,Series 2,
+base,301,Mike Ridley,Toronto Maple Leafs,Series 2,
+base,302,Mike Vernon,Detroit Red Wings,Series 2,
+base,303,Troy Mallette,Ottawa Senators,Series 2,
+base,304,Derek King,New York Islanders,Series 2,
+base,305,Kirk Muller,Montreal Canadiens,Series 2,
+base,306,Rob Niedermayer,Florida Panthers,Series 2,
+base,307,Ian Laperriere RC,St. Louis Blues,Series 2,
+base,308,Mike Donnelly,Los Angeles Kings,Series 2,
+base,309,Joe Sacco,Anaheim Mighty Ducks,Series 2,
+base,310,Patrick Roy,Montreal Canadiens,Series 2,
+base,311,Tom Barrasso,Pittsburgh Penguins,Series 2,
+base,312,Dominik Hasek,Buffalo Sabres,Series 2,
+base,313,Felix Potvin,Toronto Maple Leafs,Series 2,
+base,314,Mike Richter,New York Rangers,Series 2,
+base,315,Bobby Holik,New Jersey Devils,Series 2,
+base,316,Patrick Poulin,Chicago Blackhawks,Series 2,
+base,317,Stephane Matteau,New York Rangers,Series 2,
+base,318,Petr Klima,Tampa Bay Lightning,Series 2,
+base,319,Fredrik Olausson,Edmonton Oilers,Series 2,
+base,320,Dale Hawerchuk,Buffalo Sabres,Series 2,
+base,321,Jim Dowd,New Jersey Devils,Series 2,
+base,322,Chris Therien,Philadelphia Flyers,Series 2,
+base,323,Ravil Gusmanov RC,Winnipeg Jets,Series 2,
+base,324,Vincent Riendeau,Boston Bruins,Series 2,
+base,325,Pavel Bure,Vancouver Canucks,Series 2,
+base,326,Jimmy Carson,Hartford Whalers,Series 2,
+base,327,Steve Chiasson,Calgary Flames,Series 2,
+base,328,Ken Wregget,Pittsburgh Penguins,Series 2,
+base,329,Kenny Jonsson,Toronto Maple Leafs,Series 2,
+base,330,Keith Primeau,Detroit Red Wings,Series 2,
+base,331,Bob Errey,San Jose Sharks,Series 2,
+base,332,Derian Hatcher,Dallas Stars,Series 2,
+base,333,Stephane Fiset,Quebec Nordiques,Series 2,
+base,334,Brent Severyn,Florida Panthers,Series 2,
+base,335,Ray Ferraro,New York Islanders,Series 2,
+base,336,Pavol Demitra,Ottawa Senators,Series 2,
+base,337,Valeri Bure,Montreal Canadiens,Series 2,
+base,338,Guy Hebert,Anaheim Mighty Ducks,Series 2,
+base,339,Matt Johnson RC,Los Angeles Kings,Series 2,
+base,340,Curtis Joseph,St. Louis Blues,Series 2,
+base,341,Rob Pearson,Washington Capitals,Series 2,
+base,342,Jeff Shantz,Chicago Blackhawks,Series 2,
+base,343,Eric Charron RC,Tampa Bay Lightning,Series 2,
+base,344,Jason Smith,New Jersey Devils,Series 2,
+base,345,Mats Sundin / Wendel Clark TT,Toronto Maple Leafs / Quebec Nordiques,Series 2,
+base,346,Luc Robitaille / Rick Tocchet TT,Pittsburgh Penguins / Los Angeles Kings,Series 2,
+base,347,Phil Housley / Al MacInnis TT,Calgary Flames / St. Louis Blues,Series 2,
+base,348,Mike Vernon / Steve Chiasson TT,Detroit Red Wings / Calgary Flames,Series 2,
+base,349,Craig Simpson,Buffalo Sabres,Series 2,
+base,350,Adam Graves,New York Rangers,Series 2,
+base,351,Kevin Haller,Philadelphia Flyers,Series 2,
+base,352,Nelson Emerson,Winnipeg Jets,Series 2,
+base,353,Phil Housley,Calgary Flames,Series 2,
+base,354,Shawn McEachern,Pittsburgh Penguins,Series 2,
+base,355,Felix Potvin,Toronto Maple Leafs,Series 2,
+base,356,Sergio Momesso,Vancouver Canucks,Series 2,
+base,357,Glen Wesley,Hartford Whalers,Series 2,
+base,358,David Shaw,Boston Bruins,Series 2,
+base,359,Terry Carkner,Detroit Red Wings,Series 2,
+base,360,John Vanbiesbrouck,Florida Panthers,Series 2,
+base,361,Dean Evason,Dallas Stars,Series 2,
+base,362,Michal Sykora,San Jose Sharks,Series 2,
+base,363,Troy Loney,New York Islanders,Series 2,
+base,364,Sylvain Lefebvre,Quebec Nordiques,Series 2,
+base,365,Alexei Yashin,Ottawa Senators,Series 2,
+base,366,Gilbert Dionne,Montreal Canadiens,Series 2,
+base,367,Rick Tabaracci,Washington Capitals,Series 2,
+base,368,Paul Ysebaert,Chicago Blackhawks,Series 2,
+base,369,Craig Johnson,St. Louis Blues,Series 2,
+base,370,Scott Stevens,New Jersey Devils,Series 2,
+base,371,Philippe Boucher,Buffalo Sabres,Series 2,
+base,372,Garry Valk,Anaheim Mighty Ducks,Series 2,
+base,373,Jason Muzzatti,Calgary Flames,Series 2,
+base,374,Chris Joseph,Tampa Bay Lightning,Series 2,
+base,375,Wayne Gretzky,Los Angeles Kings,Series 2,
+base,376,Teppo Numminen,Winnipeg Jets,Series 2,
+base,377,Oleg Petrov,Montreal Canadiens,Series 2,
+base,378,Patrik Juhlin RC,Philadelphia Flyers,Series 2,
+base,379,Zarley Zalapski,Calgary Flames,Series 2,
+base,380,Martin Brodeur TOTF,New Jersey Devils,Series 2,
+base,381,Chris Pronger TOTF,Hartford Whalers,Series 2,
+base,382,Sergei Zubov TOTF,New York Rangers,Series 2,
+base,383,Mikael Renberg TOTF,Philadelphia Flyers,Series 2,
+base,384,Brett Lindros TOTF,New York Islanders,Series 2,
+base,385,Peter Forsberg TOTF,Quebec Nordiques,Series 2,
+base,386,Brandon Convery,Toronto Maple Leafs,Series 2,
+base,387,Steve Heinze,Boston Bruins,Series 2,
+base,388,Glenn Healy,New York Rangers,Series 2,
+base,389,Brian Benning,Florida Panthers,Series 2,
+base,390,Pat Verbeek,Hartford Whalers,Series 2,
+base,391,Ulf Samuelsson,Pittsburgh Penguins,Series 2,
+base,392,Turner Stevenson,Montreal Canadiens,Series 2,
+base,393,Bob Rouse,Detroit Red Wings,Series 2,
+base,394,Steve Konroyd,Ottawa Senators,Series 2,
+base,395,Russ Courtnall,Dallas Stars,Series 2,
+base,396,Sergei Makarov,San Jose Sharks,Series 2,
+base,397,Kirk McLean,Vancouver Canucks,Series 2,
+base,398,Steven Finn,Quebec Nordiques,Series 2,
+base,399,Yan Kaminsky,New York Islanders,Series 2,
+base,400,Eric Lindros,Philadelphia Flyers,Series 2,
+base,401,Steve Duchesne,St. Louis Blues,Series 2,
+base,402,John Slaney,Washington Capitals,Series 2,
+base,403,Bernie Nicholls,Chicago Blackhawks,Series 2,
+base,404,Kelly Buchberger,Edmonton Oilers,Series 2,
+base,405,Paul Kariya,Anaheim Mighty Ducks,Series 2,
+base,406,Michel Petit,Los Angeles Kings,Series 2,
+base,407,Cale Hulse RC,New Jersey Devils,Series 2,
+base,408,Sheldon Kennedy,Winnipeg Jets,Series 2,
+base,409,Brad May,Buffalo Sabres,Series 2,
+base,410,Daren Puppa,Tampa Bay Lightning,Series 2,
+base,411,Janne Laukkanen,Quebec Nordiques,Series 2,
+base,412,Mats Sundin,Toronto Maple Leafs,Series 2,
+base,413,Trevor Kidd,Calgary Flames,Series 2,
+base,414,Greg Adams,Vancouver Canucks,Series 2,
+base,415,Pavel Bure,Vancouver Canucks,Series 2,
+base,416,Teemu Selanne,Winnipeg Jets,Series 2,
+base,417,Brett Hull,St. Louis Blues,Series 2,
+base,418,Steve Larmer,New York Rangers,Series 2,
+base,419,Cam Neely,Boston Bruins,Series 2,
+base,420,Ray Bourque,Boston Bruins,Series 2,
+base,421,Andrei Nikolishin,Hartford Whalers,Series 2,
+base,422,Jim Paek,Ottawa Senators,Series 2,
+base,423,John Cullen,Pittsburgh Penguins,Series 2,
+base,424,Darcy Wakaluk,Dallas Stars,Series 2,
+base,425,Peter Forsberg,Quebec Nordiques,Series 2,
+base,426,Yves Racine,Montreal Canadiens,Series 2,
+base,427,Jody Hull,Florida Panthers,Series 2,
+base,428,Ron Sutter,New York Islanders,Series 2,
+base,429,Ray Sheppard,Detroit Red Wings,Series 2,
+base,430,Sandis Ozolinsh,San Jose Sharks,Series 2,
+base,431,Brent Grieve,Chicago Blackhawks,Series 2,
+base,432,Shaun Van Allen,Anaheim Mighty Ducks,Series 2,
+base,433,Craig Berube,Washington Capitals,Series 2,
+base,434,Vladislav Boulin RC,Philadelphia Flyers,Series 2,
+base,435,Bill Ranford,Edmonton Oilers,Series 2,
+base,436,Denny Felsner,St. Louis Blues,Series 2,
+base,437,Jamie Storr,Los Angeles Kings,Series 2,
+base,438,Brian Rolston,New Jersey Devils,Series 2,
+base,439,Chris Gratton,Tampa Bay Lightning,Series 2,
+base,440,Dominik Hasek,Buffalo Sabres,Series 2,
+base,441,Garth Butcher,Toronto Maple Leafs,Series 2,
+base,442,Jyrki Lumme,Vancouver Canucks,Series 2,
+base,443,Sergei Nemchinov,New York Rangers,Series 2,
+base,444,Tie Domi,Winnipeg Jets,Series 2,
+base,445,Gary Roberts,Calgary Flames,Series 2,
+base,446,Dave McLlwain,Ottawa Senators,Series 2,
+base,447,John Gruden RC,Boston Bruins,Series 2,
+base,448,Vladimir Konstantinov,Detroit Red Wings,Series 2,
+base,449,Adam Deadmarsh,Quebec Nordiques,Series 2,
+base,450,Brian Leetch,New York Rangers,Series 2,
+base,451,Scott Stevens,New Jersey Devils,Series 2,
+base,452,Mark Tinordi,Dallas Stars,Series 2,
+base,453,Al Iafrate,Boston Bruins,Series 2,
+base,454,Ray Bourque,Boston Bruins,Series 2,
+base,455,Patrick Roy,Montreal Canadiens,Series 2,
+base,456,Viktor Gordiouk,Buffalo Sabres,Series 2,
+base,457,Owen Nolan,Quebec Nordiques,Series 2,
+base,458,Stu Barnes,Florida Panthers,Series 2,
+base,459,Zigmund Palffy,New York Islanders,Series 2,
+base,460,Jaromir Jagr,Pittsburgh Penguins,Series 2,
+base,461,Andrei Nazarov,San Jose Sharks,Series 2,
+base,462,Kelly Hrudey,Los Angeles Kings,Series 2,
+base,463,Jason Wiemer RC,Tampa Bay Lightning,Series 2,
+base,464,Oleg Tverdovsky,Anaheim Mighty Ducks,Series 2,
+base,465,Brett Hull,St. Louis Blues,Series 2,
+base,466,Luke Richardson,Edmonton Oilers,Series 2,
+base,467,Jason Allison,Washington Capitals,Series 2,
+base,468,Dimitri Yushkevich,Philadelphia Flyers,Series 2,
+base,469,Todd Simon RC,Buffalo Sabres,Series 2,
+base,470,Martin Brodeur,New Jersey Devils,Series 2,
+base,471,Thomas Steen,Winnipeg Jets,Series 2,
+base,472,Vesa Viitakoski,Calgary Flames,Series 2,
+base,473,Todd Harvey,Dallas Stars,Series 2,
+base,474,Kent Manderville,Toronto Maple Leafs,Series 2,
+base,475,Chris Chelios,Chicago Blackhawks,Series 2,
+base,476,Joby Messier,New York Rangers,Series 2,
+base,477,Jassen Cullimore,Vancouver Canucks,Series 2,
+base,478,Jamie Pushor,Detroit Red Wings,Series 2,
+base,479,Bryan Smolinski,Boston Bruins,Series 2,
+base,480,Joe Sakic,Quebec Nordiques,Series 2,
+base,481,David Wilkie,Montreal Canadiens,Series 2,
+base,482,Craig Billington,Ottawa Senators,Series 2,
+base,483,Pat Neaton,Pittsburgh Penguins,Series 2,
+base,484,Chris Pronger,Hartford Whalers,Series 2,
+base,485,Brian Leetch PATP,New York Rangers,Series 2,
+base,486,Chris Chelios PATP,Chicago Blackhawks,Series 2,
+base,487,Jeff Brown PATP,Vancouver Canucks,Series 2,
+base,488,Al MacInnis PATP,St. Louis Blues,Series 2,
+base,489,Paul Coffey PATP,Detroit Red Wings,Series 2,
+base,490,Ray Bourque PATP,Boston Bruins,Series 2,
+base,491,Phil Housley PATP,Calgary Flames,Series 2,
+base,492,Larry Murphy PATP,Pittsburgh Penguins,Series 2,
+base,493,Sergei Zubov PATP,New York Rangers,Series 2,
+base,494,Scott Stevens PATP,New Jersey Devils,Series 2,
+base,495,Steve Thomas,New York Islanders,Series 2,
+base,496,Jimmy Waite,San Jose Sharks,Series 2,
+base,497,Mike Keane,Montreal Canadiens,Series 2,
+base,498,Rob Blake,Los Angeles Kings,Series 2,
+base,499,John Lilley,Anaheim Mighty Ducks,Series 2,
+base,500,Brian Leetch,New York Rangers,Series 2,
+base,501,Derek Plante,Buffalo Sabres,Series 2,
+base,502,Tim Cheveldae,Winnipeg Jets,Series 2,
+base,503,Vladimir Vujtek,Edmonton Oilers,Series 2,
+base,504,Esa Tikkanen,St. Louis Blues,Series 2,
+base,505,Cam Neely,Boston Bruins,Series 2,
+base,506,Dale Hunter,Washington Capitals,Series 2,
+base,507,Marc Bergevin,Tampa Bay Lightning,Series 2,
+base,508,Joel Otto,Calgary Flames,Series 2,
+base,509,Brent Fedyk,Philadelphia Flyers,Series 2,
+base,510,Dave Andreychuk,Toronto Maple Leafs,Series 2,
+base,511,Andy Moog,Dallas Stars,Series 2,
+base,512,Jaroslav Modry,New Jersey Devils,Series 2,
+base,513,Sergei Krivokrasov,Chicago Blackhawks,Series 2,
+base,514,Brett Lindros,New York Islanders,Series 2,
+base,515,Cory Stillman RC,Calgary Flames,Series 2,
+base,516,Jon Rohloff RC,Boston Bruins,Series 2,
+base,517,Joe Mullen,Pittsburgh Penguins,Series 2,
+base,518,Evgeny Davydov,Ottawa Senators,Series 2,
+base,519,Scott Young,Quebec Nordiques,Series 2,
+base,520,Sergei Fedorov,Detroit Red Wings,Series 2,
+base,521,Pat Falloon,San Jose Sharks,Series 2,
+base,522,Bill Lindsay,Florida Panthers,Series 2,
+base,523,Ron Tugnutt,Montreal Canadiens,Series 2,
+base,524,Anatoli Semenov,Anaheim Mighty Ducks,Series 2,
+base,525,Geoff Courtnall,Vancouver Canucks,Series 2,
+base,526,Luc Robitaille,Pittsburgh Penguins,Series 2,
+base,527,Geoff Sanderson,Hartford Whalers,Series 2,
+base,528,Esa Tikkanen,St. Louis Blues,Series 2,
+base,529,Brendan Shanahan,St. Louis Blues,Series 2,
+base,530,Jason Arnott,Edmonton Oilers,Series 2,
+base,531,Michal Grosek RC,Winnipeg Jets,Series 2,
+base,532,Steve Larmer,New York Rangers,Series 2,
+base,533,Eric Fichaud RC,Toronto Maple Leafs,Series 2,
+base,534,Dimitri Khristich,Washington Capitals,Series 2,
+base,535,Garry Galley,Philadelphia Flyers,Series 2,
+base,536,Aaron Gavey,Tampa Bay Lightning,Series 2,
+base,537,Joe Nieuwendyk,Calgary Flames,Series 2,
+base,538,Mike Craig,Toronto Maple Leafs,Series 2,
+base,539,Scott Niedermayer,New Jersey Devils,Series 2,
+base,540,Luc Robitaille,Pittsburgh Penguins,Series 2,
+base,541,Dino Ciccarelli,Detroit Red Wings,Series 2,
+base,542,Sean Burke,Hartford Whalers,Series 2,
+base,543,Jiri Slegr,Vancouver Canucks,Series 2,
+base,544,Jesse Belanger,Florida Panthers,Series 2,
+base,545,Sean Hill,Ottawa Senators,Series 2,
+base,546,Vladimir Malakhov,New York Islanders,Series 2,
+base,547,Jeff Friesen,San Jose Sharks,Series 2,
+base,548,Mike Ricci,Quebec Nordiques,Series 2,
+base,549,Checklist: 276-414,,Series 2,
+base,550,Checklist: 415-550,,Series 2,
+special-effects,1,Mark Messier,New York Rangers,Series 1,Special Effects
+special-effects,2,Darren Turcotte,Hartford Whalers,Series 1,Special Effects
+special-effects,3,Mikhail Shtalenkov,Anaheim Mighty Ducks,Series 1,Special Effects
+special-effects,4,Rob Gaudreau,San Jose Sharks,Series 1,Special Effects
+special-effects,5,Tony Amonte,Chicago Blackhawks,Series 1,Special Effects
+special-effects,6,Stephane Quintal,Winnipeg Jets,Series 1,Special Effects
+special-effects,7,Iain Fraser,Quebec Nordiques,Series 1,Special Effects
+special-effects,8,Doug Weight,Edmonton Oilers,Series 1,Special Effects
+special-effects,9,German Titov,Calgary Flames,Series 1,Special Effects
+special-effects,10,Larry Murphy,Pittsburgh Penguins,Series 1,Special Effects
+special-effects,11,Danton Cole,Tampa Bay Lightning,Series 1,Special Effects
+special-effects,12,Pat Peake,Washington Capitals,Series 1,Special Effects
+special-effects,13,Chris Terreri,New Jersey Devils,Series 1,Special Effects
+special-effects,14,Yuri Khmylev,Buffalo Sabres,Series 1,Special Effects
+special-effects,15,Paul Coffey,Detroit Red Wings,Series 1,Special Effects
+special-effects,16,Brian Savage,Montreal Canadiens,Series 1,Special Effects
+special-effects,17,Rod Brind'Amour,Philadelphia Flyers,Series 1,Special Effects
+special-effects,18,Nathan Lafayette,Vancouver Canucks,Series 1,Special Effects
+special-effects,19,Gord Murphy,Florida Panthers,Series 1,Special Effects
+special-effects,20,Al Iafrate,Boston Bruins,Series 1,Special Effects
+special-effects,21,Kevin Miller,St. Louis Blues,Series 1,Special Effects
+special-effects,22,Peter Zezel,Toronto Maple Leafs,Series 1,Special Effects
+special-effects,23,Sylvain Turgeon,Ottawa Senators,Series 1,Special Effects
+special-effects,24,Mark Tinordi,Dallas Stars,Series 1,Special Effects
+special-effects,25,Jari Kurri,Los Angeles Kings,Series 1,Special Effects
+special-effects,26,Benoit Hogue,New York Islanders,Series 1,Special Effects
+special-effects,27,Jeff Reese,Hartford Whalers,Series 1,Special Effects
+special-effects,28,Brian Noonan,New York Rangers,Series 1,Special Effects
+special-effects,29,Denis Tsygurov,Buffalo Sabres,Series 1,Special Effects
+special-effects,30,James Patrick,Calgary Flames,Series 1,Special Effects
+special-effects,31,Bob Corkum,Anaheim Mighty Ducks,Series 1,Special Effects
+special-effects,32,Valeri Kamensky,Quebec Nordiques,Series 1,Special Effects
+special-effects,33,Ray Whitney,San Jose Sharks,Series 1,Special Effects
+special-effects,34,Joe Murphy,Chicago Blackhawks,Series 1,Special Effects
+special-effects,35,Dominik Hasek,Buffalo Sabres,Series 1,Special Effects
+special-effects,36,Ray Bourque,Boston Bruins,Series 1,Special Effects
+special-effects,37,Brian Leetch,New York Rangers,Series 1,Special Effects
+special-effects,38,Dave Andreychuk,Toronto Maple Leafs,Series 1,Special Effects
+special-effects,39,Pavel Bure,Vancouver Canucks,Series 1,Special Effects
+special-effects,40,Sergei Fedorov,Detroit Red Wings,Series 1,Special Effects
+special-effects,41,Bob Beers,Edmonton Oilers,Series 1,Special Effects
+special-effects,42,Byron Dafoe,Washington Capitals,Series 1,Special Effects
+special-effects,43,Lyle Odelein,Montreal Canadiens,Series 1,Special Effects
+special-effects,44,Markus Naslund,Pittsburgh Penguins,Series 1,Special Effects
+special-effects,45,Dean Chynoweth,New York Islanders,Series 1,Special Effects
+special-effects,46,Trent Klatt,Dallas Stars,Series 1,Special Effects
+special-effects,47,Murray Craven,Vancouver Canucks,Series 1,Special Effects
+special-effects,48,Dave Mackey,St. Louis Blues,Series 1,Special Effects
+special-effects,49,Norm Maciver,Ottawa Senators,Series 1,Special Effects
+special-effects,50,Alexander Mogilny,Buffalo Sabres,Series 1,Special Effects
+special-effects,51,Dave Reid,Boston Bruins,Series 1,Special Effects
+special-effects,52,Nicklas Lidstrom,Detroit Red Wings,Series 1,Special Effects
+special-effects,53,Tom Fitzgerald,Florida Panthers,Series 1,Special Effects
+special-effects,54,Roman Hamrlik,Tampa Bay Lightning,Series 1,Special Effects
+special-effects,55,Wendel Clark,Toronto Maple Leafs,Series 1,Special Effects
+special-effects,56,Dominic Roussel,Philadelphia Flyers,Series 1,Special Effects
+special-effects,57,Alexei Zhitnik,Los Angeles Kings,Series 1,Special Effects
+special-effects,58,Valeri Zelepukin,New Jersey Devils,Series 1,Special Effects
+special-effects,59,Calle Johansson,Washington Capitals,Series 1,Special Effects
+special-effects,60,Craig Janney,St. Louis Blues,Series 1,Special Effects
+special-effects,61,Randy Wood,Buffalo Sabres,Series 1,Special Effects
+special-effects,62,Curtis Leschyshyn,Quebec Nordiques,Series 1,Special Effects
+special-effects,63,Stephan Lebeau,Anaheim Mighty Ducks,Series 1,Special Effects
+special-effects,64,Dallas Drake,Winnipeg Jets,Series 1,Special Effects
+special-effects,65,Vincent Damphousse,Montreal Canadiens,Series 1,Special Effects
+special-effects,66,Scott Lachance,New York Islanders,Series 1,Special Effects
+special-effects,67,Dirk Graham,Chicago Blackhawks,Series 1,Special Effects
+special-effects,68,Kevin Smyth,Hartford Whalers,Series 1,Special Effects
+special-effects,69,Denis Savard,Tampa Bay Lightning,Series 1,Special Effects
+special-effects,70,Mike Richter,New York Rangers,Series 1,Special Effects
+special-effects,71,Ronnie Stern,Calgary Flames,Series 1,Special Effects
+special-effects,72,Kirk Maltby,Edmonton Oilers,Series 1,Special Effects
+special-effects,73,Kjell Samuelsson,Pittsburgh Penguins,Series 1,Special Effects
+special-effects,74,Neal Broten,Dallas Stars,Series 1,Special Effects
+special-effects,75,Trevor Linden,Vancouver Canucks,Series 1,Special Effects
+special-effects,76,Todd Elik,San Jose Sharks,Series 1,Special Effects
+special-effects,77,Andrew McBain,Ottawa Senators,Series 1,Special Effects
+special-effects,78,Alexei Kudashov,Toronto Maple Leafs,Series 1,Special Effects
+special-effects,79,Ken Daneyko,New Jersey Devils,Series 1,Special Effects
+special-effects,80,Dominik Hasek / Grant Fuhr,Buffalo Sabres,Series 1,Special Effects
+special-effects,81,Andy Moog / Darcy Wakaluk,Dallas Stars,Series 1,Special Effects
+special-effects,82,John Vanbiesbrouck / Mark Fitzpatrick,Florida Panthers,Series 1,Special Effects
+special-effects,83,Martin Brodeur / Chris Terreri,New Jersey Devils,Series 1,Special Effects
+special-effects,84,Tom Barrasso / Ken Wregget,Pittsburgh Penguins,Series 1,Special Effects
+special-effects,85,Kirk McLean / Kay Whitmore,Vancouver Canucks,Series 1,Special Effects
+special-effects,86,Darryl Sydor,Los Angeles Kings,Series 1,Special Effects
+special-effects,87,Chris Osgood,Detroit Red Wings,Series 1,Special Effects
+special-effects,88,Ted Donato,Boston Bruins,Series 1,Special Effects
+special-effects,89,Dave Lowry,Florida Panthers,Series 1,Special Effects
+special-effects,90,Mark Recchi,Philadelphia Flyers,Series 1,Special Effects
+special-effects,91,Jim Montgomery,St. Louis Blues,Series 1,Special Effects
+special-effects,92,Bill Houlder,Anaheim Mighty Ducks,Series 1,Special Effects
+special-effects,93,Richard Smehlik,Buffalo Sabres,Series 1,Special Effects
+special-effects,94,Benoit Brunet,Montreal Canadiens,Series 1,Special Effects
+special-effects,95,Teemu Selanne,Winnipeg Jets,Series 1,Special Effects
+special-effects,96,Paul Ranheim,Hartford Whalers,Series 1,Special Effects
+special-effects,97,Andrei Kovalenko,Quebec Nordiques,Series 1,Special Effects
+special-effects,98,Grant Ledyard,Dallas Stars,Series 1,Special Effects
+special-effects,99,Brent Grieve,Edmonton Oilers,Series 1,Special Effects
+special-effects,100,Joe Juneau,Washington Capitals,Series 1,Special Effects
+special-effects,101,Martin Gelinas,Vancouver Canucks,Series 1,Special Effects
+special-effects,102,Jamie Macoun,Toronto Maple Leafs,Series 1,Special Effects
+special-effects,103,Craig MacTavish,New York Rangers,Series 1,Special Effects
+special-effects,104,Micah Aivazoff,Detroit Red Wings,Series 1,Special Effects
+special-effects,105,Stephane Richer,New Jersey Devils,Series 1,Special Effects
+special-effects,106,Eric Weinrich,Chicago Blackhawks,Series 1,Special Effects
+special-effects,107,Pat Elynuik,Tampa Bay Lightning,Series 1,Special Effects
+special-effects,108,Tomas Sandstrom,Pittsburgh Penguins,Series 1,Special Effects
+special-effects,109,Darrin Madeley,Ottawa Senators,Series 1,Special Effects
+special-effects,110,Al MacInnis,Calgary Flames,Series 1,Special Effects
+special-effects,111,Cam Stewart,Boston Bruins,Series 1,Special Effects
+special-effects,112,Dixon Ward,Los Angeles Kings,Series 1,Special Effects
+special-effects,113,Vlastimil Kroupa,San Jose Sharks,Series 1,Special Effects
+special-effects,114,Rob DiMaio,Philadelphia Flyers,Series 1,Special Effects
+special-effects,115,Pierre Turgeon,New York Islanders,Series 1,Special Effects
+special-effects,116,Mike Hough,Florida Panthers,Series 1,Special Effects
+special-effects,117,John LeClair,Montreal Canadiens,Series 1,Special Effects
+special-effects,118,Dave Hannan,Buffalo Sabres,Series 1,Special Effects
+special-effects,119,Todd Ewen,Anaheim Mighty Ducks,Series 1,Special Effects
+special-effects,120,1994 Stanley Cup Champions SCC,New York Rangers,Series 1,Special Effects
+special-effects,121,Dave Manson,Winnipeg Jets,Series 1,Special Effects
+special-effects,122,Jocelyn Lemieux,Hartford Whalers,Series 1,Special Effects
+special-effects,123,Jocelyn Thibault,Quebec Nordiques,Series 1,Special Effects
+special-effects,124,Scott Pearson,Edmonton Oilers,Series 1,Special Effects
+special-effects,125,Patrick Roy,Montreal Canadiens,Series 1,Special Effects
+special-effects,126,Scott Stevens,New Jersey Devils,Series 1,Special Effects
+special-effects,127,Al MacInnis,Calgary Flames,Series 1,Special Effects
+special-effects,128,Adam Graves,New York Rangers,Series 1,Special Effects
+special-effects,129,Cam Neely,Boston Bruins,Series 1,Special Effects
+special-effects,130,Wayne Gretzky,Los Angeles Kings,Series 1,Special Effects
+special-effects,131,Tom Chorske,New Jersey Devils,Series 1,Special Effects
+special-effects,132,John Tucker,Tampa Bay Lightning,Series 1,Special Effects
+special-effects,133,Steve Smith,Chicago Blackhawks,Series 1,Special Effects
+special-effects,134,Kay Whitmore,Vancouver Canucks,Series 1,Special Effects
+special-effects,135,Adam Oates,Boston Bruins,Series 1,Special Effects
+special-effects,136,Bill Berg,Toronto Maple Leafs,Series 1,Special Effects
+special-effects,137,Wes Walz,Calgary Flames,Series 1,Special Effects
+special-effects,138,Jeff Beukeboom,New York Rangers,Series 1,Special Effects
+special-effects,139,Ron Francis,Pittsburgh Penguins,Series 1,Special Effects
+special-effects,140,Alexandre Daigle,Ottawa Senators,Series 1,Special Effects
+special-effects,141,Josef Beranek,Philadelphia Flyers,Series 1,Special Effects
+special-effects,142,Tom Pederson,San Jose Sharks,Series 1,Special Effects
+special-effects,143,Jamie McLennan,New York Islanders,Series 1,Special Effects
+special-effects,144,Scott Mellanby,Florida Panthers,Series 1,Special Effects
+special-effects,145,Vyacheslav Kozlov,Detroit Red Wings,Series 1,Special Effects
+special-effects,146,Marty McSorley,Los Angeles Kings,Series 1,Special Effects
+special-effects,147,Tim Sweeney,Anaheim Mighty Ducks,Series 1,Special Effects
+special-effects,148,Luciano Borsato,Winnipeg Jets,Series 1,Special Effects
+special-effects,149,Jason Dawe,Buffalo Sabres,Series 1,Special Effects
+special-effects,150,Wayne Gretzky LL,Los Angeles Kings,Series 1,Special Effects
+special-effects,151,Pavel Bure LL,Vancouver Canucks,Series 1,Special Effects
+special-effects,152,Dominik Hasek LL,Buffalo Sabres,Series 1,Special Effects
+special-effects,153,Scott Stevens LL,New Jersey Devils,Series 1,Special Effects
+special-effects,154,Wayne Gretzky LL,Los Angeles Kings,Series 1,Special Effects
+special-effects,155,Mike Richter LL,New York Rangers,Series 1,Special Effects
+special-effects,156,Dominik Hasek LL,Buffalo Sabres,Series 1,Special Effects
+special-effects,157,Ted Drury,Hartford Whalers,Series 1,Special Effects
+special-effects,158,Peter Popovic,Montreal Canadiens,Series 1,Special Effects
+special-effects,159,Alexei Kasatonov,St. Louis Blues,Series 1,Special Effects
+special-effects,160,Mats Sundin,Quebec Nordiques,Series 1,Special Effects
+special-effects,161,Brad Shaw,Ottawa Senators,Series 1,Special Effects
+special-effects,162,Bret Hedican,Vancouver Canucks,Series 1,Special Effects
+special-effects,163,Mike McPhee,Dallas Stars,Series 1,Special Effects
+special-effects,164,Martin Straka,Pittsburgh Penguins,Series 1,Special Effects
+special-effects,165,Dmitri Mironov,Toronto Maple Leafs,Series 1,Special Effects
+special-effects,166,Andrei Trefilov,Calgary Flames,Series 1,Special Effects
+special-effects,167,Joe Reekie,Washington Capitals,Series 1,Special Effects
+special-effects,168,Gary Suter,Chicago Blackhawks,Series 1,Special Effects
+special-effects,169,Greg Gilbert,New York Rangers,Series 1,Special Effects
+special-effects,170,Igor Larionov,San Jose Sharks,Series 1,Special Effects
+special-effects,171,Mike Sillinger,Detroit Red Wings,Series 1,Special Effects
+special-effects,172,Igor Kravchuk,Edmonton Oilers,Series 1,Special Effects
+special-effects,173,Glen Murray,Boston Bruins,Series 1,Special Effects
+special-effects,174,Shawn Chambers,Tampa Bay Lightning,Series 1,Special Effects
+special-effects,175,John MacLean,New Jersey Devils,Series 1,Special Effects
+special-effects,176,Yves Racine,Philadelphia Flyers,Series 1,Special Effects
+special-effects,177,Andrei Lomakin,Florida Panthers,Series 1,Special Effects
+special-effects,178,Patrick Flatley,New York Islanders,Series 1,Special Effects
+special-effects,179,Igor Ulanov,Winnipeg Jets,Series 1,Special Effects
+special-effects,180,Pat LaFontaine,Buffalo Sabres,Series 1,Special Effects
+special-effects,181,Mathieu Schneider,Montreal Canadiens,Series 1,Special Effects
+special-effects,182,Peter Stastny,St. Louis Blues,Series 1,Special Effects
+special-effects,183,Tony Granato,Los Angeles Kings,Series 1,Special Effects
+special-effects,184,Peter Douris,Anaheim Mighty Ducks,Series 1,Special Effects
+special-effects,185,Alexei Kovalev,New York Rangers,Series 1,Special Effects
+special-effects,186,Geoff Courtnall,Vancouver Canucks,Series 1,Special Effects
+special-effects,187,Richard Matvichuk,Dallas Stars,Series 1,Special Effects
+special-effects,188,Troy Murray,Ottawa Senators,Series 1,Special Effects
+special-effects,189,Todd Gill,Toronto Maple Leafs,Series 1,Special Effects
+special-effects,190,Martin Brodeur RS,New Jersey Devils,Series 1,Special Effects
+special-effects,191,Mikael Renberg RS,Philadelphia Flyers,Series 1,Special Effects
+special-effects,192,Alexei Yashin RS,Ottawa Senators,Series 1,Special Effects
+special-effects,193,Jason Arnott RS,Edmonton Oilers,Series 1,Special Effects
+special-effects,194,Derek Plante RS,Buffalo Sabres,Series 1,Special Effects
+special-effects,195,Alexandre Daigle RS,Ottawa Senators,Series 1,Special Effects
+special-effects,196,Bryan Smolinski RS,Boston Bruins,Series 1,Special Effects
+special-effects,197,Jesse Belanger RS,Florida Panthers,Series 1,Special Effects
+special-effects,198,Chris Pronger RS,Hartford Whalers,Series 1,Special Effects
+special-effects,199,Chris Osgood RS,Detroit Red Wings,Series 1,Special Effects
+special-effects,200,Jeremy Roenick,Chicago Blackhawks,Series 1,Special Effects
+special-effects,201,Johan Garpenlov,San Jose Sharks,Series 1,Special Effects
+special-effects,202,Dave Karpa,Quebec Nordiques,Series 1,Special Effects
+special-effects,203,Darren McCarty,Detroit Red Wings,Series 1,Special Effects
+special-effects,204,Claude Lemieux,New Jersey Devils,Series 1,Special Effects
+special-effects,205,Geoff Sanderson,Hartford Whalers,Series 1,Special Effects
+special-effects,206,Tom Barrasso,Pittsburgh Penguins,Series 1,Special Effects
+special-effects,207,Kevin Dineen,Philadelphia Flyers,Series 1,Special Effects
+special-effects,208,Sylvain Cote,Washington Capitals,Series 1,Special Effects
+special-effects,209,Brent Gretzky,Tampa Bay Lightning,Series 1,Special Effects
+special-effects,210,Shayne Corson,Edmonton Oilers,Series 1,Special Effects
+special-effects,211,Darius Kasparaitis,New York Islanders,Series 1,Special Effects
+special-effects,212,Peter Andersson,Florida Panthers,Series 1,Special Effects
+special-effects,213,Robert Reichel,Calgary Flames,Series 1,Special Effects
+special-effects,214,Jozef Stumpel,Boston Bruins,Series 1,Special Effects
+special-effects,215,Brendan Shanahan,St. Louis Blues,Series 1,Special Effects
+special-effects,216,Craig Muni,Buffalo Sabres,Series 1,Special Effects
+special-effects,217,Alexei Zhamnov,Winnipeg Jets,Series 1,Special Effects
+special-effects,218,Robert Lang,Los Angeles Kings,Series 1,Special Effects
+special-effects,219,Brian Bellows,Montreal Canadiens,Series 1,Special Effects
+special-effects,220,Steven King,Anaheim Mighty Ducks,Series 1,Special Effects
+special-effects,221,Sergei Zubov,New York Rangers,Series 1,Special Effects
+special-effects,222,Kelly Miller,Washington Capitals,Series 1,Special Effects
+special-effects,223,Ilya Byakin,Edmonton Oilers,Series 1,Special Effects
+special-effects,224,Chris Tamer,Pittsburgh Penguins,Series 1,Special Effects
+special-effects,225,Doug Gilmour,Toronto Maple Leafs,Series 1,Special Effects
+special-effects,226,Shawn Antoski,Vancouver Canucks,Series 1,Special Effects
+special-effects,227,Andrew Cassels,Hartford Whalers,Series 1,Special Effects
+special-effects,228,Craig Wolanin,Quebec Nordiques,Series 1,Special Effects
+special-effects,229,Jon Casey,Boston Bruins,Series 1,Special Effects
+special-effects,230,Mike Modano,Dallas Stars,Series 1,Special Effects
+special-effects,231,Bill Guerin,New Jersey Devils,Series 1,Special Effects
+special-effects,232,Gaetan Duchesne,San Jose Sharks,Series 1,Special Effects
+special-effects,233,Steve Dubinsky,Chicago Blackhawks,Series 1,Special Effects
+special-effects,234,Jason Bowen,Philadelphia Flyers,Series 1,Special Effects
+special-effects,235,Steve Yzerman,Detroit Red Wings,Series 1,Special Effects
+special-effects,236,Dave Poulin,Washington Capitals,Series 1,Special Effects
+special-effects,237,Mikael Nylander,Calgary Flames,Series 1,Special Effects
+special-effects,238,Felix Potvin TOTF,Toronto Maple Leafs,Series 1,Special Effects
+special-effects,239,Sandis Ozolinsh TOTF,San Jose Sharks,Series 1,Special Effects
+special-effects,240,Scott Niedermayer TOTF,New Jersey Devils,Series 1,Special Effects
+special-effects,241,Eric Lindros TOTF,Philadelphia Flyers,Series 1,Special Effects
+special-effects,242,Keith Tkachuk TOTF,Winnipeg Jets,Series 1,Special Effects
+special-effects,243,Teemu Selanne TOTF,Winnipeg Jets,Series 1,Special Effects
+special-effects,244,Marty McInnis,New York Islanders,Series 1,Special Effects
+special-effects,245,Bob Kudelski,Florida Panthers,Series 1,Special Effects
+special-effects,246,Paul Cavallini,Dallas Stars,Series 1,Special Effects
+special-effects,247,Brian Bradley,Tampa Bay Lightning,Series 1,Special Effects
+special-effects,248,Robb Stauber,Los Angeles Kings,Series 1,Special Effects
+special-effects,249,Jay Wells,New York Rangers,Series 1,Special Effects
+special-effects,250,Mario Lemieux,Pittsburgh Penguins,Series 1,Special Effects
+special-effects,251,Tommy Albelin,New Jersey Devils,Series 1,Special Effects
+special-effects,252,Paul DiPietro,Montreal Canadiens,Series 1,Special Effects
+special-effects,253,Mike Gartner,Toronto Maple Leafs,Series 1,Special Effects
+special-effects,254,Darrin Shannon,Winnipeg Jets,Series 1,Special Effects
+special-effects,255,Alexander Karpovtsev,New York Rangers,Series 1,Special Effects
+special-effects,256,Dave Babych,Vancouver Canucks,Series 1,Special Effects
+special-effects,257,Greg Johnson,Detroit Red Wings,Series 1,Special Effects
+special-effects,258,Frank Musil,Calgary Flames,Series 1,Special Effects
+special-effects,259,Michal Pivonka,Washington Capitals,Series 1,Special Effects
+special-effects,260,Arturs Irbe,San Jose Sharks,Series 1,Special Effects
+special-effects,261,Paul Broten,Dallas Stars,Series 1,Special Effects
+special-effects,262,Don Sweeney,Boston Bruins,Series 1,Special Effects
+special-effects,263,Doug Brown,Pittsburgh Penguins,Series 1,Special Effects
+special-effects,264,Bobby Dollas,Anaheim Mighty Ducks,Series 1,Special Effects
+special-effects,265,Brian Skrudland,Florida Panthers,Series 1,Special Effects
+special-effects,266,Dan Plante,New York Islanders,Series 1,Special Effects
+special-effects,267,Chad Penney,Ottawa Senators,Series 1,Special Effects
+special-effects,268,Steve Leach,Boston Bruins,Series 1,Special Effects
+special-effects,269,Damian Rhodes,Toronto Maple Leafs,Series 1,Special Effects
+special-effects,270,Glenn Anderson,New York Rangers,Series 1,Special Effects
+special-effects,271,Randy McKay,New Jersey Devils,Series 1,Special Effects
+special-effects,272,Jeff Brown,Vancouver Canucks,Series 1,Special Effects
+special-effects,273,Steve Konowalchuk,Washington Capitals,Series 1,Special Effects
+special-effects,274,Rudy Poeschek Checklist replacement,Tampa Bay Lightning,Series 1,Special Effects
+special-effects,275,Mike Peca Checklist replacement,Vancouver Canucks,Series 1,Special Effects
+special-effects,276,Sergei Fedorov,Detroit Red Wings,Series 2,Special Effects
+special-effects,277,Adam Oates,Boston Bruins,Series 2,Special Effects
+special-effects,278,Mark Messier,New York Rangers,Series 2,Special Effects
+special-effects,279,Doug Gilmour,Toronto Maple Leafs,Series 2,Special Effects
+special-effects,280,Wayne Gretzky,Los Angeles Kings,Series 2,Special Effects
+special-effects,281,Rick Tocchet,Los Angeles Kings,Series 2,Special Effects
+special-effects,282,Guy Carbonneau,St. Louis Blues,Series 2,Special Effects
+special-effects,283,Peter Bondra,Washington Capitals,Series 2,Special Effects
+special-effects,284,Valeri Karpov,Anaheim Mighty Ducks,Series 2,Special Effects
+special-effects,285,Ed Belfour,Chicago Blackhawks,Series 2,Special Effects
+special-effects,286,Petr Nedved,New York Rangers,Series 2,Special Effects
+special-effects,287,Mikael Andersson,Tampa Bay Lightning,Series 2,Special Effects
+special-effects,288,Boris Mironov,Edmonton Oilers,Series 2,Special Effects
+special-effects,289,Donald Audette,Buffalo Sabres,Series 2,Special Effects
+special-effects,290,Kevin Stevens,Pittsburgh Penguins,Series 2,Special Effects
+special-effects,291,Cliff Ronning,Vancouver Canucks,Series 2,Special Effects
+special-effects,292,Bruce Driver,New Jersey Devils,Series 2,Special Effects
+special-effects,293,Mariusz Czerkawski,Boston Bruins,Series 2,Special Effects
+special-effects,294,Mikael Renberg,Philadelphia Flyers,Series 2,Special Effects
+special-effects,295,Theoren Fleury,Calgary Flames,Series 2,Special Effects
+special-effects,296,Robert Kron,Hartford Whalers,Series 2,Special Effects
+special-effects,297,Wendel Clark,Quebec Nordiques,Series 2,Special Effects
+special-effects,298,Dave Gagner,Dallas Stars,Series 2,Special Effects
+special-effects,299,Ulf Dahlen,San Jose Sharks,Series 2,Special Effects
+special-effects,300,Keith Tkachuk,Winnipeg Jets,Series 2,Special Effects
+special-effects,301,Mike Ridley,Toronto Maple Leafs,Series 2,Special Effects
+special-effects,302,Mike Vernon,Detroit Red Wings,Series 2,Special Effects
+special-effects,303,Troy Mallette,Ottawa Senators,Series 2,Special Effects
+special-effects,304,Derek King,New York Islanders,Series 2,Special Effects
+special-effects,305,Kirk Muller,Montreal Canadiens,Series 2,Special Effects
+special-effects,306,Rob Niedermayer,Florida Panthers,Series 2,Special Effects
+special-effects,307,Ian Laperriere,St. Louis Blues,Series 2,Special Effects
+special-effects,308,Mike Donnelly,Los Angeles Kings,Series 2,Special Effects
+special-effects,309,Joe Sacco,Anaheim Mighty Ducks,Series 2,Special Effects
+special-effects,310,Patrick Roy,Montreal Canadiens,Series 2,Special Effects
+special-effects,311,Tom Barrasso,Pittsburgh Penguins,Series 2,Special Effects
+special-effects,312,Dominik Hasek,Buffalo Sabres,Series 2,Special Effects
+special-effects,313,Felix Potvin,Toronto Maple Leafs,Series 2,Special Effects
+special-effects,314,Mike Richter,New York Rangers,Series 2,Special Effects
+special-effects,315,Bobby Holik,New Jersey Devils,Series 2,Special Effects
+special-effects,316,Patrick Poulin,Chicago Blackhawks,Series 2,Special Effects
+special-effects,317,Stephane Matteau,New York Rangers,Series 2,Special Effects
+special-effects,318,Petr Klima,Tampa Bay Lightning,Series 2,Special Effects
+special-effects,319,Fredrik Olausson,Edmonton Oilers,Series 2,Special Effects
+special-effects,320,Dale Hawerchuk,Buffalo Sabres,Series 2,Special Effects
+special-effects,321,Jim Dowd,New Jersey Devils,Series 2,Special Effects
+special-effects,322,Chris Therien,Philadelphia Flyers,Series 2,Special Effects
+special-effects,323,Ravil Gusmanov,Winnipeg Jets,Series 2,Special Effects
+special-effects,324,Vincent Riendeau,Boston Bruins,Series 2,Special Effects
+special-effects,325,Pavel Bure,Vancouver Canucks,Series 2,Special Effects
+special-effects,326,Jimmy Carson,Hartford Whalers,Series 2,Special Effects
+special-effects,327,Steve Chiasson,Calgary Flames,Series 2,Special Effects
+special-effects,328,Ken Wregget,Pittsburgh Penguins,Series 2,Special Effects
+special-effects,329,Kenny Jonsson,Toronto Maple Leafs,Series 2,Special Effects
+special-effects,330,Keith Primeau,Detroit Red Wings,Series 2,Special Effects
+special-effects,331,Bob Errey,San Jose Sharks,Series 2,Special Effects
+special-effects,332,Derian Hatcher,Dallas Stars,Series 2,Special Effects
+special-effects,333,Stephane Fiset,Quebec Nordiques,Series 2,Special Effects
+special-effects,334,Brent Severyn,Florida Panthers,Series 2,Special Effects
+special-effects,335,Ray Ferraro,New York Islanders,Series 2,Special Effects
+special-effects,336,Pavol Demitra,Ottawa Senators,Series 2,Special Effects
+special-effects,337,Valeri Bure,Montreal Canadiens,Series 2,Special Effects
+special-effects,338,Guy Hebert,Anaheim Mighty Ducks,Series 2,Special Effects
+special-effects,339,Matt Johnson,Los Angeles Kings,Series 2,Special Effects
+special-effects,340,Curtis Joseph,St. Louis Blues,Series 2,Special Effects
+special-effects,341,Rob Pearson,Washington Capitals,Series 2,Special Effects
+special-effects,342,Jeff Shantz,Chicago Blackhawks,Series 2,Special Effects
+special-effects,343,Eric Charron,Tampa Bay Lightning,Series 2,Special Effects
+special-effects,344,Jason Smith,New Jersey Devils,Series 2,Special Effects
+special-effects,345,Mats Sundin / Wendel Clark TT,Toronto Maple Leafs / Quebec Nordiques,Series 2,Special Effects
+special-effects,346,Rick Tocchet / Luc Robitaille TT,Pittsburgh Penguins / Los Angeles Kings,Series 2,Special Effects
+special-effects,347,Al MacInnis / Phil Housley TT,Calgary Flames / St. Louis Blues,Series 2,Special Effects
+special-effects,348,Mike Vernon / Steve Chiasson TT,Detroit Red Wings / Calgary Flames,Series 2,Special Effects
+special-effects,349,Craig Simpson,Buffalo Sabres,Series 2,Special Effects
+special-effects,350,Adam Graves,New York Rangers,Series 2,Special Effects
+special-effects,351,Kevin Haller,Philadelphia Flyers,Series 2,Special Effects
+special-effects,352,Nelson Emerson,Winnipeg Jets,Series 2,Special Effects
+special-effects,353,Phil Housley,Calgary Flames,Series 2,Special Effects
+special-effects,354,Shawn McEachern,Pittsburgh Penguins,Series 2,Special Effects
+special-effects,355,Felix Potvin,Toronto Maple Leafs,Series 2,Special Effects
+special-effects,356,Sergio Momesso,Vancouver Canucks,Series 2,Special Effects
+special-effects,357,Glen Wesley,Hartford Whalers,Series 2,Special Effects
+special-effects,358,David Shaw,Boston Bruins,Series 2,Special Effects
+special-effects,359,Terry Carkner,Detroit Red Wings,Series 2,Special Effects
+special-effects,360,John Vanbiesbrouck,Florida Panthers,Series 2,Special Effects
+special-effects,361,Dean Evason,Dallas Stars,Series 2,Special Effects
+special-effects,362,Michal Sykora,San Jose Sharks,Series 2,Special Effects
+special-effects,363,Troy Loney,New York Islanders,Series 2,Special Effects
+special-effects,364,Sylvain Lefebvre,Quebec Nordiques,Series 2,Special Effects
+special-effects,365,Alexei Yashin,Ottawa Senators,Series 2,Special Effects
+special-effects,366,Gilbert Dionne,Montreal Canadiens,Series 2,Special Effects
+special-effects,367,Rick Tabaracci,Washington Capitals,Series 2,Special Effects
+special-effects,368,Paul Ysebaert,Chicago Blackhawks,Series 2,Special Effects
+special-effects,369,Craig Johnson,St. Louis Blues,Series 2,Special Effects
+special-effects,370,Scott Stevens,New Jersey Devils,Series 2,Special Effects
+special-effects,371,Philippe Boucher,Buffalo Sabres,Series 2,Special Effects
+special-effects,372,Garry Valk,Anaheim Mighty Ducks,Series 2,Special Effects
+special-effects,373,Jason Muzzatti,Calgary Flames,Series 2,Special Effects
+special-effects,374,Chris Joseph,Tampa Bay Lightning,Series 2,Special Effects
+special-effects,375,Wayne Gretzky,Los Angeles Kings,Series 2,Special Effects
+special-effects,376,Teppo Numminen,Winnipeg Jets,Series 2,Special Effects
+special-effects,377,Oleg Petrov,Montreal Canadiens,Series 2,Special Effects
+special-effects,378,Patrik Juhlin,Philadelphia Flyers,Series 2,Special Effects
+special-effects,379,Zarley Zalapski,Calgary Flames,Series 2,Special Effects
+special-effects,380,Martin Brodeur TOTF,New Jersey Devils,Series 2,Special Effects
+special-effects,381,Chris Pronger TOTF,Hartford Whalers,Series 2,Special Effects
+special-effects,382,Sergei Zubov TOTF,New York Rangers,Series 2,Special Effects
+special-effects,383,Mikael Renberg TOTF,Philadelphia Flyers,Series 2,Special Effects
+special-effects,384,Brett Lindros TOTF,New York Islanders,Series 2,Special Effects
+special-effects,385,Peter Forsberg TOTF,Quebec Nordiques,Series 2,Special Effects
+special-effects,386,Brandon Convery,Toronto Maple Leafs,Series 2,Special Effects
+special-effects,387,Steve Heinze,Boston Bruins,Series 2,Special Effects
+special-effects,388,Glenn Healy,New York Rangers,Series 2,Special Effects
+special-effects,389,Brian Benning,Florida Panthers,Series 2,Special Effects
+special-effects,390,Pat Verbeek,Hartford Whalers,Series 2,Special Effects
+special-effects,391,Ulf Samuelsson,Pittsburgh Penguins,Series 2,Special Effects
+special-effects,392,Turner Stevenson,Montreal Canadiens,Series 2,Special Effects
+special-effects,393,Bob Rouse,Detroit Red Wings,Series 2,Special Effects
+special-effects,394,Steve Konroyd,Ottawa Senators,Series 2,Special Effects
+special-effects,395,Russ Courtnall,Dallas Stars,Series 2,Special Effects
+special-effects,396,Sergei Makarov,San Jose Sharks,Series 2,Special Effects
+special-effects,397,Kirk McLean,Vancouver Canucks,Series 2,Special Effects
+special-effects,398,Steven Finn,Quebec Nordiques,Series 2,Special Effects
+special-effects,399,Yan Kaminsky,New York Islanders,Series 2,Special Effects
+special-effects,400,Eric Lindros,Philadelphia Flyers,Series 2,Special Effects
+special-effects,401,Steve Duchesne,St. Louis Blues,Series 2,Special Effects
+special-effects,402,John Slaney,Washington Capitals,Series 2,Special Effects
+special-effects,403,Bernie Nicholls,Chicago Blackhawks,Series 2,Special Effects
+special-effects,404,Kelly Buchberger,Edmonton Oilers,Series 2,Special Effects
+special-effects,405,Paul Kariya,Anaheim Mighty Ducks,Series 2,Special Effects
+special-effects,406,Michel Petit,Los Angeles Kings,Series 2,Special Effects
+special-effects,407,Cale Hulse,New Jersey Devils,Series 2,Special Effects
+special-effects,408,Sheldon Kennedy,Winnipeg Jets,Series 2,Special Effects
+special-effects,409,Brad May,Buffalo Sabres,Series 2,Special Effects
+special-effects,410,Daren Puppa,Tampa Bay Lightning,Series 2,Special Effects
+special-effects,411,Janne Laukkanen,Quebec Nordiques,Series 2,Special Effects
+special-effects,412,Mats Sundin,Toronto Maple Leafs,Series 2,Special Effects
+special-effects,413,Trevor Kidd,Calgary Flames,Series 2,Special Effects
+special-effects,414,Greg Adams,Vancouver Canucks,Series 2,Special Effects
+special-effects,415,Pavel Bure,Vancouver Canucks,Series 2,Special Effects
+special-effects,416,Teemu Selanne,Winnipeg Jets,Series 2,Special Effects
+special-effects,417,Brett Hull,St. Louis Blues,Series 2,Special Effects
+special-effects,418,Steve Larmer,New York Rangers,Series 2,Special Effects
+special-effects,419,Cam Neely,Boston Bruins,Series 2,Special Effects
+special-effects,420,Ray Bourque,Boston Bruins,Series 2,Special Effects
+special-effects,421,Andrei Nikolishin,Hartford Whalers,Series 2,Special Effects
+special-effects,422,Jim Paek,Ottawa Senators,Series 2,Special Effects
+special-effects,423,John Cullen,Pittsburgh Penguins,Series 2,Special Effects
+special-effects,424,Darcy Wakaluk,Dallas Stars,Series 2,Special Effects
+special-effects,425,Peter Forsberg,Quebec Nordiques,Series 2,Special Effects
+special-effects,426,Yves Racine,Montreal Canadiens,Series 2,Special Effects
+special-effects,427,Jody Hull,Florida Panthers,Series 2,Special Effects
+special-effects,428,Ron Sutter,New York Islanders,Series 2,Special Effects
+special-effects,429,Ray Sheppard,Detroit Red Wings,Series 2,Special Effects
+special-effects,430,Sandis Ozolinsh,San Jose Sharks,Series 2,Special Effects
+special-effects,431,Brent Grieve,Chicago Blackhawks,Series 2,Special Effects
+special-effects,432,Shaun Van Allen,Anaheim Mighty Ducks,Series 2,Special Effects
+special-effects,433,Craig Berube,Washington Capitals,Series 2,Special Effects
+special-effects,434,Vladislav Boulin,Philadelphia Flyers,Series 2,Special Effects
+special-effects,435,Bill Ranford,Edmonton Oilers,Series 2,Special Effects
+special-effects,436,Denny Felsner,St. Louis Blues,Series 2,Special Effects
+special-effects,437,Jamie Storr,Los Angeles Kings,Series 2,Special Effects
+special-effects,438,Brian Rolston,New Jersey Devils,Series 2,Special Effects
+special-effects,439,Chris Gratton,Tampa Bay Lightning,Series 2,Special Effects
+special-effects,440,Dominik Hasek,Buffalo Sabres,Series 2,Special Effects
+special-effects,441,Garth Butcher,Toronto Maple Leafs,Series 2,Special Effects
+special-effects,442,Jyrki Lumme,Vancouver Canucks,Series 2,Special Effects
+special-effects,443,Sergei Nemchinov,New York Rangers,Series 2,Special Effects
+special-effects,444,Tie Domi,Winnipeg Jets,Series 2,Special Effects
+special-effects,445,Gary Roberts,Calgary Flames,Series 2,Special Effects
+special-effects,446,Dave McLlwain,Ottawa Senators,Series 2,Special Effects
+special-effects,447,John Gruden,Boston Bruins,Series 2,Special Effects
+special-effects,448,Vladimir Konstantinov,Detroit Red Wings,Series 2,Special Effects
+special-effects,449,Adam Deadmarsh,Quebec Nordiques,Series 2,Special Effects
+special-effects,450,Brian Leetch,New York Rangers,Series 2,Special Effects
+special-effects,451,Scott Stevens,New Jersey Devils,Series 2,Special Effects
+special-effects,452,Mark Tinordi,Dallas Stars,Series 2,Special Effects
+special-effects,453,Al Iafrate,Boston Bruins,Series 2,Special Effects
+special-effects,454,Ray Bourque,Boston Bruins,Series 2,Special Effects
+special-effects,455,Patrick Roy,Montreal Canadiens,Series 2,Special Effects
+special-effects,456,Viktor Gordiouk,Buffalo Sabres,Series 2,Special Effects
+special-effects,457,Owen Nolan,Quebec Nordiques,Series 2,Special Effects
+special-effects,458,Stu Barnes,Florida Panthers,Series 2,Special Effects
+special-effects,459,Zigmund Palffy,New York Islanders,Series 2,Special Effects
+special-effects,460,Jaromir Jagr,Pittsburgh Penguins,Series 2,Special Effects
+special-effects,461,Andrei Nazarov,San Jose Sharks,Series 2,Special Effects
+special-effects,462,Kelly Hrudey,Los Angeles Kings,Series 2,Special Effects
+special-effects,463,Jason Wiemer,Tampa Bay Lightning,Series 2,Special Effects
+special-effects,464,Oleg Tverdovsky,Anaheim Mighty Ducks,Series 2,Special Effects
+special-effects,465,Brett Hull,St. Louis Blues,Series 2,Special Effects
+special-effects,466,Luke Richardson,Edmonton Oilers,Series 2,Special Effects
+special-effects,467,Jason Allison,Washington Capitals,Series 2,Special Effects
+special-effects,468,Dimitri Yushkevich,Philadelphia Flyers,Series 2,Special Effects
+special-effects,469,Todd Simon,Buffalo Sabres,Series 2,Special Effects
+special-effects,470,Martin Brodeur,New Jersey Devils,Series 2,Special Effects
+special-effects,471,Thomas Steen,Winnipeg Jets,Series 2,Special Effects
+special-effects,472,Vesa Viitakoski,Calgary Flames,Series 2,Special Effects
+special-effects,473,Todd Harvey,Dallas Stars,Series 2,Special Effects
+special-effects,474,Kent Manderville,Toronto Maple Leafs,Series 2,Special Effects
+special-effects,475,Chris Chelios,Chicago Blackhawks,Series 2,Special Effects
+special-effects,476,Joby Messier,New York Rangers,Series 2,Special Effects
+special-effects,477,Jassen Cullimore,Vancouver Canucks,Series 2,Special Effects
+special-effects,478,Jamie Pushor,Detroit Red Wings,Series 2,Special Effects
+special-effects,479,Bryan Smolinski,Boston Bruins,Series 2,Special Effects
+special-effects,480,Joe Sakic,Quebec Nordiques,Series 2,Special Effects
+special-effects,481,David Wilkie,Montreal Canadiens,Series 2,Special Effects
+special-effects,482,Craig Billington,Ottawa Senators,Series 2,Special Effects
+special-effects,483,Pat Neaton,Pittsburgh Penguins,Series 2,Special Effects
+special-effects,484,Chris Pronger,Hartford Whalers,Series 2,Special Effects
+special-effects,485,Brian Leetch PATP,New York Rangers,Series 2,Special Effects
+special-effects,486,Chris Chelios PATP,Chicago Blackhawks,Series 2,Special Effects
+special-effects,487,Jeff Brown PATP,Vancouver Canucks,Series 2,Special Effects
+special-effects,488,Al MacInnis PATP,St. Louis Blues,Series 2,Special Effects
+special-effects,489,Paul Coffey PATP,Detroit Red Wings,Series 2,Special Effects
+special-effects,490,Ray Bourque PATP,Boston Bruins,Series 2,Special Effects
+special-effects,491,Phil Housley PATP,Calgary Flames,Series 2,Special Effects
+special-effects,492,Larry Murphy PATP,Pittsburgh Penguins,Series 2,Special Effects
+special-effects,493,Sergei Zubov PATP,New York Rangers,Series 2,Special Effects
+special-effects,494,Scott Stevens PATP,New Jersey Devils,Series 2,Special Effects
+special-effects,495,Steve Thomas,New York Islanders,Series 2,Special Effects
+special-effects,496,Jimmy Waite,San Jose Sharks,Series 2,Special Effects
+special-effects,497,Mike Keane,Montreal Canadiens,Series 2,Special Effects
+special-effects,498,Rob Blake,Los Angeles Kings,Series 2,Special Effects
+special-effects,499,John Lilley,Anaheim Mighty Ducks,Series 2,Special Effects
+special-effects,500,Brian Leetch,New York Rangers,Series 2,Special Effects
+special-effects,501,Derek Plante,Buffalo Sabres,Series 2,Special Effects
+special-effects,502,Tim Cheveldae,Winnipeg Jets,Series 2,Special Effects
+special-effects,503,Vladimir Vujtek,Edmonton Oilers,Series 2,Special Effects
+special-effects,504,Esa Tikkanen,St. Louis Blues,Series 2,Special Effects
+special-effects,505,Cam Neely,Boston Bruins,Series 2,Special Effects
+special-effects,506,Dale Hunter,Washington Capitals,Series 2,Special Effects
+special-effects,507,Marc Bergevin,Tampa Bay Lightning,Series 2,Special Effects
+special-effects,508,Joel Otto,Calgary Flames,Series 2,Special Effects
+special-effects,509,Brent Fedyk,Philadelphia Flyers,Series 2,Special Effects
+special-effects,510,Dave Andreychuk,Toronto Maple Leafs,Series 2,Special Effects
+special-effects,511,Andy Moog,Dallas Stars,Series 2,Special Effects
+special-effects,512,Jaroslav Modry,New Jersey Devils,Series 2,Special Effects
+special-effects,513,Sergei Krivokrasov,Chicago Blackhawks,Series 2,Special Effects
+special-effects,514,Brett Lindros,New York Islanders,Series 2,Special Effects
+special-effects,515,Cory Stillman,Calgary Flames,Series 2,Special Effects
+special-effects,516,Jon Rohloff,Boston Bruins,Series 2,Special Effects
+special-effects,517,Joe Mullen,Pittsburgh Penguins,Series 2,Special Effects
+special-effects,518,Evgeny Davydov,Ottawa Senators,Series 2,Special Effects
+special-effects,519,Scott Young,Quebec Nordiques,Series 2,Special Effects
+special-effects,520,Sergei Fedorov,Detroit Red Wings,Series 2,Special Effects
+special-effects,521,Pat Falloon,San Jose Sharks,Series 2,Special Effects
+special-effects,522,Bill Lindsay,Florida Panthers,Series 2,Special Effects
+special-effects,523,Ron Tugnutt,Montreal Canadiens,Series 2,Special Effects
+special-effects,524,Anatoli Semenov,Anaheim Mighty Ducks,Series 2,Special Effects
+special-effects,525,Geoff Courtnall,Vancouver Canucks,Series 2,Special Effects
+special-effects,526,Luc Robitaille,Pittsburgh Penguins,Series 2,Special Effects
+special-effects,527,Geoff Sanderson,Hartford Whalers,Series 2,Special Effects
+special-effects,528,Esa Tikkanen,St. Louis Blues,Series 2,Special Effects
+special-effects,529,Brendan Shanahan,St. Louis Blues,Series 2,Special Effects
+special-effects,530,Jason Arnott,Edmonton Oilers,Series 2,Special Effects
+special-effects,531,Michal Grosek,Winnipeg Jets,Series 2,Special Effects
+special-effects,532,Steve Larmer,New York Rangers,Series 2,Special Effects
+special-effects,533,Eric Fichaud,Toronto Maple Leafs,Series 2,Special Effects
+special-effects,534,Dimitri Khristich,Washington Capitals,Series 2,Special Effects
+special-effects,535,Garry Galley,Philadelphia Flyers,Series 2,Special Effects
+special-effects,536,Aaron Gavey,Tampa Bay Lightning,Series 2,Special Effects
+special-effects,537,Joe Nieuwendyk,Calgary Flames,Series 2,Special Effects
+special-effects,538,Mike Craig,Toronto Maple Leafs,Series 2,Special Effects
+special-effects,539,Scott Niedermayer,New Jersey Devils,Series 2,Special Effects
+special-effects,540,Luc Robitaille,Pittsburgh Penguins,Series 2,Special Effects
+special-effects,541,Dino Ciccarelli,Detroit Red Wings,Series 2,Special Effects
+special-effects,542,Sean Burke,Hartford Whalers,Series 2,Special Effects
+special-effects,543,Jiri Slegr,Vancouver Canucks,Series 2,Special Effects
+special-effects,544,Jesse Belanger,Florida Panthers,Series 2,Special Effects
+special-effects,545,Sean Hill,Ottawa Senators,Series 2,Special Effects
+special-effects,546,Vladimir Malakhov,New York Islanders,Series 2,Special Effects
+special-effects,547,Jeff Friesen,San Jose Sharks,Series 2,Special Effects
+special-effects,548,Mike Ricci,Quebec Nordiques,Series 2,Special Effects
+special-effects,549,John Druce Checklist replacement,Los Angeles Kings,Series 2,Special Effects
+special-effects,550,Matt Martin Checklist replacement,Toronto Maple Leafs,Series 2,Special Effects
+finest-top-goal-scorers,1,Pavel Bure,Vancouver Canucks,,Finest Top Goal Scorers
+finest-top-goal-scorers,2,Brett Hull,St. Louis Blues,,Finest Top Goal Scorers
+finest-top-goal-scorers,3,Sergei Fedorov,Detroit Red Wings,,Finest Top Goal Scorers
+finest-top-goal-scorers,4,Dave Andreychuk,Toronto Maple Leafs,,Finest Top Goal Scorers
+finest-top-goal-scorers,5,Brendan Shanahan,St. Louis Blues,,Finest Top Goal Scorers
+finest-top-goal-scorers,6,Ray Sheppard,Detroit Red Wings,,Finest Top Goal Scorers
+finest-top-goal-scorers,7,Adam Graves,New York Rangers,,Finest Top Goal Scorers
+finest-top-goal-scorers,8,Cam Neely,Boston Bruins,,Finest Top Goal Scorers
+finest-top-goal-scorers,9,Mike Modano,Dallas Stars,,Finest Top Goal Scorers
+finest-top-goal-scorers,10,Wendel Clark,Toronto Maple Leafs,,Finest Top Goal Scorers
+finest-top-goal-scorers,11,Jeremy Roenick,Chicago Blackhawks,,Finest Top Goal Scorers
+finest-top-goal-scorers,12,Eric Lindros,Philadelphia Flyers,,Finest Top Goal Scorers
+finest-top-goal-scorers,13,Luc Robitaille,Los Angeles Kings,,Finest Top Goal Scorers
+finest-top-goal-scorers,14,Steve Thomas,New York Islanders,,Finest Top Goal Scorers
+finest-top-goal-scorers,15,Geoff Sanderson,Hartford Whalers,,Finest Top Goal Scorers
+finest-top-goal-scorers,16,Gary Roberts,Calgary Flames,,Finest Top Goal Scorers
+finest-top-goal-scorers,17,Kevin Stevens,Pittsburgh Penguins,,Finest Top Goal Scorers
+finest-top-goal-scorers,18,Keith Tkachuk,Winnipeg Jets,,Finest Top Goal Scorers
+finest-top-goal-scorers,19,Theoren Fleury,Calgary Flames,,Finest Top Goal Scorers
+finest-top-goal-scorers,20,Robert Reichel,Calgary Flames,,Finest Top Goal Scorers
+finest-top-goal-scorers,21,Mark Recchi,Philadelphia Flyers,,Finest Top Goal Scorers
+finest-top-goal-scorers,22,Vincent Damphousse,Montreal Canadiens,,Finest Top Goal Scorers
+finest-top-goal-scorers,23,Bob Kudelski,Florida Panthers,,Finest Top Goal Scorers
+finest-the-go-to-guy,1,Wayne Gretzky,Los Angeles Kings,,Finest The Go To Guy
+finest-the-go-to-guy,2,Joe Sakic,Quebec Nordiques,,Finest The Go To Guy
+finest-the-go-to-guy,3,Brett Hull,St. Louis Blues,,Finest The Go To Guy
+finest-the-go-to-guy,4,Mike Modano,Dallas Stars,,Finest The Go To Guy
+finest-the-go-to-guy,5,Pavel Bure,Vancouver Canucks,,Finest The Go To Guy
+finest-the-go-to-guy,6,Pat LaFontaine,Buffalo Sabres,,Finest The Go To Guy
+finest-the-go-to-guy,7,Theoren Fleury,Calgary Flames,,Finest The Go To Guy
+finest-the-go-to-guy,8,Jeremy Roenick,Chicago Blackhawks,,Finest The Go To Guy
+finest-the-go-to-guy,9,Sergei Fedorov,Detroit Red Wings,,Finest The Go To Guy
+finest-the-go-to-guy,10,Eric Lindros,Philadelphia Flyers,,Finest The Go To Guy
+finest-the-go-to-guy,11,Kirk Muller,Montreal Canadiens,,Finest The Go To Guy
+finest-the-go-to-guy,12,Steve Yzerman,Detroit Red Wings,,Finest The Go To Guy
+finest-the-go-to-guy,13,Alexander Mogilny,Buffalo Sabres,,Finest The Go To Guy
+finest-the-go-to-guy,14,Doug Gilmour,Toronto Maple Leafs,,Finest The Go To Guy
+finest-the-go-to-guy,15,Mark Messier,New York Rangers,,Finest The Go To Guy
