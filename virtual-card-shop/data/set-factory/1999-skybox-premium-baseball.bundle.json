@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "historicalChecklist": "https://baseballcardpedia.com/index.php/1999_Skybox_Premium",
+    "tcdb": "https://www.tcdb.com/ViewSet.cfm/sid/1331/1999-SkyBox-Premium",
+    "teamMap": "https://www.collectioncount.com/checklists/1999-skybox-premium-baseball/",
+    "verifiedAt": "2026-11-18"
+  },
+  "decisions": {
+    "cardCountBreakdown": "300 base + 50 action + 300 star rubies + 50 action star rubies + five inserts of 15 + 52 autographics + 52 blue-ink autographics = 879",
+    "physicalDistribution": "Hobby: 24 packs per box, 8 cards per pack; original MSRP $2.69",
+    "promoExcluded": "Ben Grieve promotional sample #83 (TCDB; non-pack-issued) intentionally excluded from pack pools",
+    "numbering": "Autographics issued unnumbered; AU01-AU52 are deterministic virtual identifiers based on BaseballCardPedia alphabetical order, not printed card numbers",
+    "rookies": "32 RC-tagged prospects #223-272 cross-checked against BCP and TCDB Rookie Cards; action versions retain RC designation",
+    "unknownOdds": "Historical odds for Star Rubies, Star Rubies Action, Intimidation Nation and Autographics Blue Ink are not verified and intentionally left null. These pools will not automatically be assigned invented insertion odds.",
+    "productStructure": "One collector-facing 300-card base product set, separate 50-card action variations and 300/50 Star Rubies sets; inserts remain separate complete product sets. All remain unreleased pending card art/pricing/odds review."
+  },
+  "product": {
+    "id": "1999_SkyBox_Premium_Baseball",
+    "year": 1999,
+    "brand": "SkyBox Premium",
+    "sport": "Baseball",
+    "cardsPerPack": 8,
+    "packsPerBox": 24,
+    "packPriceCents": 269,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "PENDING"
+  },
+  "cardsFile": "1999-skybox-premium-baseball.cards.csv.gz",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1999_SkyBox_Premium_Baseball_base",
+      "name": "Base Set",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 300,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Skybox_Premium"
+    },
+    {
+      "key": "action",
+      "id": "1999_SkyBox_Premium_Baseball_action",
+      "name": "Prospects Action Variations",
+      "kind": "PARALLEL",
+      "oddsPerPack": 8,
+      "expectedCards": 50,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Skybox_Premium",
+      "notes": "Alternate full-body action image of each #223-272 portrait prospect; same printed card number as base"
+    },
+    {
+      "key": "star-rubies",
+      "id": "1999_SkyBox_Premium_Baseball_star_rubies",
+      "name": "Star Rubies",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "expectedCards": 300,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Skybox_Premium",
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Star Rubies, serial numbered /50",
+      "notes": "All 300 standard base cards paralleled, /50; exact pack odds not verified"
+    },
+    {
+      "key": "star-rubies-action",
+      "id": "1999_SkyBox_Premium_Baseball_star_rubies_action",
+      "name": "Star Rubies Action",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "expectedCards": 50,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Skybox_Premium",
+      "deriveCardsFrom": "action",
+      "derivedVariant": "Action photo Star Rubies, serial numbered /15",
+      "notes": "Action-variation 50-card subset, /15; exact pack odds not verified"
+    },
+    {
+      "key": "live-bats",
+      "id": "1999_SkyBox_Premium_Baseball_live_bats",
+      "name": "Live Bats",
+      "kind": "INSERT",
+      "oddsPerPack": 7,
+      "expectedCards": 15,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Skybox_Premium"
+    },
+    {
+      "key": "soul-of-the-game",
+      "id": "1999_SkyBox_Premium_Baseball_soul_of_the_game",
+      "name": "Soul of the Game",
+      "kind": "INSERT",
+      "oddsPerPack": 14,
+      "expectedCards": 15,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Skybox_Premium"
+    },
+    {
+      "key": "diamond-debuts",
+      "id": "1999_SkyBox_Premium_Baseball_diamond_debuts",
+      "name": "Diamond Debuts",
+      "kind": "INSERT",
+      "oddsPerPack": 49,
+      "expectedCards": 15,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Skybox_Premium"
+    },
+    {
+      "key": "show-business",
+      "id": "1999_SkyBox_Premium_Baseball_show_business",
+      "name": "Show Business",
+      "kind": "INSERT",
+      "oddsPerPack": 70,
+      "expectedCards": 15,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Skybox_Premium"
+    },
+    {
+      "key": "intimidation-nation",
+      "id": "1999_SkyBox_Premium_Baseball_intimidation_nation",
+      "name": "Intimidation Nation",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 15,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Skybox_Premium",
+      "notes": "Serial numbered /99, pack odds unknown"
+    },
+    {
+      "key": "autographics",
+      "id": "1999_SkyBox_Premium_Baseball_autographics",
+      "name": "Autographics",
+      "kind": "INSERT",
+      "oddsPerPack": 68,
+      "expectedCards": 52,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Skybox_Premium",
+      "notes": "Unnumbered autograph cards, virtual AU01-AU52 inventory identifiers"
+    },
+    {
+      "key": "autographics-blue-ink",
+      "id": "1999_SkyBox_Premium_Baseball_autographics_blue_ink",
+      "name": "Autographics Blue Ink",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "expectedCards": 52,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Skybox_Premium",
+      "deriveCardsFrom": "autographics",
+      "derivedVariant": "Autographics signed in blue ink, serial numbered /50",
+      "notes": "Blue Ink autograph parallel /50; pack odds unknown"
+    }
+  ]
+}
