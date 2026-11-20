@@ -181,7 +181,7 @@ export default function HomePage() {
       <section className="home-hero" aria-label="Your next collecting move">
         <div className="home-hero-copy">
           <span className="home-hero-kicker"><span className="home-dot" /> {feature ? "A PACK IS WAITING" : chase ? "YOUR NEXT MILESTONE" : "THE HOBBY STARTS HERE"}</span>
-          <h2>{feature ? "There&apos;s another story in the next pack." : chase ? "A little closer to the finish line." : "Find something worth chasing."}</h2>
+          <h2>{feature ? "There's another story in the next pack." : chase ? "A little closer to the finish line." : "Find something worth chasing."}</h2>
           <p>{feature ? number(feature.packsOwned) + " unopened " + (feature.packsOwned === 1 ? "pack" : "packs") + " of " + heroName + " are ready whenever you are." :
             chase ? nameOf(chase.productId) + " is " + percent(chase.percentComplete).toFixed(1) + "% complete. Your next card could close the gap." :
             "Discover a classic set, open your first pack, and make this collection your own."}</p>
