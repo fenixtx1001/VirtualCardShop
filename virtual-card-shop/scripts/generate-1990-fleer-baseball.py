@@ -6,13 +6,13 @@ separate, correctly sourced pack/packaging/factory sub-checklists.
 No fabricated insert parallels or pack odds. --check is offline and deterministic.
 """
 from __future__ import annotations
-import argparse, csv, html, json, re, urllib.request, io, hashlib, sys
+import argparse, csv, gzip, html, json, re, urllib.request, io, hashlib, sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
 DATA = Path(__file__).resolve().parents[1]/"data"/"set-factory"
 STEM = "1990-fleer-baseball"
-OUT = DATA/(STEM+".cards.csv")
+OUT = DATA/(STEM+".cards.csv.gz")
 BUNDLE = DATA/(STEM+".bundle.json")
 SOURCE_BCP = "https://baseballcardpedia.com/index.php/1990_Fleer"
 SOURCE_CC = "https://www.collectioncount.com/checklists/1990-fleer-baseball/"
@@ -192,7 +192,7 @@ def generator():
 
 def check():
     bundle=json.loads(BUNDLE.read_text())
-    with OUT.open(encoding="utf8",newline="") as f:rows=list(csv.DictReader(f))
+    with gzip.open(OUT,"rt",encoding="utf8",newline="") as f:rows=list(csv.DictReader(f))
     if bundle["product"]["released"] is not False:raise ValueError("Must be unreleased")
     if bundle["schemaVersion"]!=2 or bundle["status"]!="DRAFT":raise ValueError("Schema")
     if {x["key"]:x["expectedCards"] for x in bundle["productSets"]}!=EXPECTED:raise ValueError("Wrong bundle subsets")
@@ -229,9 +229,10 @@ def main():
     if not args.check:
         rows=generator()
         DATA.mkdir(parents=True,exist_ok=True)
-        with OUT.open("w",encoding="utf8",newline="") as out:
-            w=csv.DictWriter(out,fieldnames=COLS,lineterminator="\n")
-            w.writeheader();w.writerows(rows)
+        buffer=io.StringIO(newline="")
+        w=csv.DictWriter(buffer,fieldnames=COLS,lineterminator="\n")
+        w.writeheader();w.writerows(rows)
+        OUT.write_bytes(gzip.compress(buffer.getvalue().encode("utf8"),compresslevel=9,mtime=0))
         print("Generated CSV rows:",len(rows))
     check()
 
