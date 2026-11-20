@@ -85,7 +85,7 @@ def lists(page):
 
 def display(name):
  name=re.sub(r"\s+(?:DP|RC)(?=\s|[*:]|$).*$","",name).strip()
- return ALIASES.get(name,name)
+ return ALIASES.get(name,name).replace("Ken Griffey Jr.","Ken Griffey, Jr.").replace("Cal Ripken Jr.","Cal Ripken, Jr.")
 
 def norm_key(s):return re.sub(r"[^a-z0-9]","",s.lower())
 
