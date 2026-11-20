@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "BCP": "https://baseballcardpedia.com/index.php/2003_Ultra",
+    "MyCardBatch": "https://mycardbatch.com/checklists/fleer-ultra-2003-baseball",
+    "TCDB": "https://www.tcdb.com/ViewSet.cfm/sid/1667/2003-Ultra",
+    "TCDBRookies": "https://www.tcdb.com/Rookies.cfm/sid/1667/2003-Ultra",
+    "TCDBExternal": "https://www.tcdb.com/Checklist.cfm/sid/289946/2003-Fleer-Rookies-Greats-2003-Ultra-Rookie-Update"
+  },
+  "decisions": {
+    "identity": "2003 Ultra: first 250 cards issued in original November 2002 product. Cross-brand later 15 U-251..U-265 serialized /1500 isolated from original wax.",
+    "base": "200 regular #1-200, 20 All-Stars #201-220, 20 2002-rookie-design #221-240, 10 prospects #241-250. BCP and independent MCB reconcile all 250 player/team/number.",
+    "rookies": "Only true original base RC is #249 Dave Pember per TCDB. Fifteen later Ultra-design cards are individually TCDB recognized rookie updates, but packed exclusively in Fleer Rookies & Greats.",
+    "names": "BCP/MCB source differences #70 Tony Armas/Jr, #81 Bob/Bobby Abreu, #191 Jose Cruz/Jr, #235 Will/Wil Nieves, and insert Ichiro/Suzuki variations reviewed. External U-255 Michael/Mike Hessman reviewed.",
+    "gold": "All 250 authentic original base number Gold Medallion hobby-only. Gold standard 1 per pack, All-Stars and rookies 1:24, not fictitiously numbered 1G-250G.",
+    "hits": "Photo Effex Gold 20 /25; Back 2 Back insert 17 /1000; Back 2 Back Memorabilia 17 /500 and Gold 17 /50; Double Up Memorabilia 16 /100; vintage When It Was A Game Used 12 individually serial capped.",
+    "memo": "Moonshots Game Used 20 plus all 17 Back 2 Back game-used, 16 double-player game-used, 12 vintage/modern game-used. All published material types and printed original number codes preserved.",
+    "sourceExceptions": "BaseballCardPedia mistakenly labels When It Was A Game #38-40 WH; independent MyCardBatch plus documented physical cards identify the printed suffix as WG. Physical WG used.",
+    "odds": "Hobby/retail 10 cards/pack x24 box; guaranteed Gold hobby only; subsets different frequency; two game-used per Hobby box; serial- and cross-product issues require per-slot and per-channel logic not available as integer ProductSet odds. Leave all oddsPerPack null to prevent fake odds.",
+    "images": "Never invent real card, relic swatch, 2002 rookie design, autograph, pack/box artwork. Source scans/pricing/collation need independent QA; draft stays unreleased.",
+    "safety": "Only insert 2003_Ultra_Baseball and its 15 ProductSets, preserving existing prices/images and ownership for every other product. Released false."
+  },
+  "product": {
+    "id": "2003_Ultra_Baseball",
+    "year": 2003,
+    "brand": "Ultra",
+    "sport": "Baseball",
+    "cardsPerPack": 10,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "checklists": "VERIFIED_BCP_MCB_TCDB",
+    "trueRookies": "VERIFIED_ONE_BASE_PLUS_FIFTEEN_EXTERNAL",
+    "cardImages": "PENDING",
+    "packImage": "PENDING",
+    "pricing": "PENDING",
+    "collation": "BLOCKED_CHANNEL_AND_SERIAL_ODDS",
+    "release": "UNRELEASED"
+  },
+  "cardsFile": "2003-ultra-baseball.cards.csv.gz",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2003_Ultra_Baseball_base",
+      "name": "Base Set",
+      "kind": "BASE",
+      "expectedCards": 250,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2003_Ultra",
+      "notes": "250 original Ultra wax #1-250 (200 veterans, 20 All-Stars, 20 2002 Ultra design rookies, 10 2003 prospects). Dave Pember #249 true RC only, verified TCDB."
+    },
+    {
+      "key": "gold-medallion",
+      "id": "2003_Ultra_Baseball_gold_medallion",
+      "name": "Gold Medallion",
+      "kind": "PARALLEL",
+      "expectedCards": 250,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2003_Ultra",
+      "notes": "250 original Gold Medallion, retaining base physical number. Hobby only: 1-200 one per pack, 201-220 SP 1:24, 221-250 SP 1:24. Not serial-numbered."
+    },
+    {
+      "key": "rookie-update-external",
+      "id": "2003_Ultra_Baseball_rookie_update_external",
+      "name": "Ultra Rookie Update (Fleer Rookies & Greats ONLY)",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/289946/2003-Fleer-Rookies-Greats-2003-Ultra-Rookie-Update",
+      "notes": "15 original U-251 to U-265 Ultra-design rookie update cards, serial /1500, exclusively packed in 2003 Fleer Rookies & Greats (Dec 2003), NOT 2003 Ultra wax."
+    },
+    {
+      "key": "double-up",
+      "id": "2003_Ultra_Baseball_double_up",
+      "name": "Double Up",
+      "kind": "INSERT",
+      "expectedCards": 16,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2003_Ultra",
+      "notes": "Original 16 DU dual-player inserts, 1:8 hobby/retail."
+    },
+    {
+      "key": "moonshots",
+      "id": "2003_Ultra_Baseball_moonshots",
+      "name": "Moonshots",
+      "kind": "INSERT",
+      "expectedCards": 20,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2003_Ultra",
+      "notes": "Original 20 MS inserts, 1:12 hobby/retail."
+    },
+    {
+      "key": "photo-effex",
+      "id": "2003_Ultra_Baseball_photo_effex",
+      "name": "Photo Effex",
+      "kind": "INSERT",
+      "expectedCards": 20,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2003_Ultra",
+      "notes": "Original 20 PE inserts, 1:12 hobby/retail."
+    },
+    {
+      "key": "photo-effex-gold",
+      "id": "2003_Ultra_Baseball_photo_effex_gold",
+      "name": "Photo Effex Gold /25",
+      "kind": "PARALLEL",
+      "expectedCards": 20,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2003_Ultra",
+      "notes": "All 20 original Photo Effex Gold serial /25, original PE numbers retained."
+    },
+    {
+      "key": "when-it-was-a-game",
+      "id": "2003_Ultra_Baseball_when_it_was_a_game",
+      "name": "When It Was A Game",
+      "kind": "INSERT",
+      "expectedCards": 40,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2003_Ultra",
+      "notes": "Original 40 vintage/modern WG and WH insert cards, odds hobby 1:20 retail 1:12; historical teams accurately preserved."
+    },
+    {
+      "key": "back-2-back",
+      "id": "2003_Ultra_Baseball_back_2_back",
+      "name": "Back 2 Back /1000",
+      "kind": "INSERT",
+      "expectedCards": 17,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2003_Ultra",
+      "notes": "Original 17 numbered B2B insert cards; each serial numbered /1000."
+    },
+    {
+      "key": "moonshots-memorabilia",
+      "id": "2003_Ultra_Baseball_moonshots_memorabilia",
+      "name": "Moonshots Memorabilia",
+      "kind": "INSERT",
+      "expectedCards": 20,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2003_Ultra",
+      "notes": "20 original game-used cards with source-printed letter IDs and exact material BAT/JSY/BASE/PANTS."
+    },
+    {
+      "key": "back-2-back-memorabilia",
+      "id": "2003_Ultra_Baseball_back_2_back_memorabilia",
+      "name": "Back 2 Back Memorabilia /500",
+      "kind": "INSERT",
+      "expectedCards": 17,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2003_Ultra",
+      "notes": "17 original B2B memorabilia, exact original letter IDs and individual materials; all serial /500."
+    },
+    {
+      "key": "back-2-back-memorabilia-gold",
+      "id": "2003_Ultra_Baseball_back_2_back_memorabilia_gold",
+      "name": "Back 2 Back Memorabilia Gold /50",
+      "kind": "PARALLEL",
+      "expectedCards": 17,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2003_Ultra",
+      "notes": "17 authentic Gold game-used versions each numbered /50, retaining source letter code."
+    },
+    {
+      "key": "double-up-memorabilia",
+      "id": "2003_Ultra_Baseball_double_up_memorabilia",
+      "name": "Double Up Memorabilia /100",
+      "kind": "INSERT",
+      "expectedCards": 16,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2003_Ultra",
+      "notes": "16 source-verified dual-player memorabilia with individual swatch materials; original printed DU numbers and serial /100."
+    },
+    {
+      "key": "when-it-was-a-game-used",
+      "id": "2003_Ultra_Baseball_when_it_was_a_game_used",
+      "name": "When It Was A Game Used",
+      "kind": "INSERT",
+      "expectedCards": 12,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2003_Ultra",
+      "notes": "12 original game-used historical/modern cards, numbered /100, /150, /200 or /300 as appropriate, individually verified."
+    },
+    {
+      "key": "checklists",
+      "id": "2003_Ultra_Baseball_checklists",
+      "name": "2003 Ultra Printed Checklist (NNO)",
+      "kind": "INSERT",
+      "expectedCards": 1,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2003_Ultra",
+      "notes": "One actual unnumbered printed checklist, '2003 ULTRA MLB Checklist' front and Checklist: 1-186 detail, kept separate from numbered base."
+    }
+  ]
+}
