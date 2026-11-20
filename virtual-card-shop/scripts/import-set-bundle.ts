@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 dotenv.config({ path: ".env.local" });
 
 import { readFile } from "node:fs/promises";
+import { gunzipSync } from "node:zlib";
 import path from "node:path";
 import { Gradeability, Prisma } from "@prisma/client";
 import { parse } from "csv-parse/sync";
@@ -177,7 +178,10 @@ function validateBundle(input: unknown): SetBundle {
 
 async function loadCsvCards(bundlePath: string, bundle: SetBundle) {
   const cardsPath = path.resolve(path.dirname(bundlePath), bundle.cardsFile);
-  const raw = await readFile(cardsPath, "utf8");
+  const bytes = await readFile(cardsPath);
+  const raw = cardsPath.endsWith(".gz")
+    ? gunzipSync(bytes).toString("utf8")
+    : bytes.toString("utf8");
   const rows = parse(raw, {
     columns: true,
     skip_empty_lines: true,

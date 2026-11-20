@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "baseCheck": "https://baseballcardpedia.com/index.php/1995_Pinnacle",
+    "independentBase": "https://www.collectioncount.com/checklists/1995-pinnacle-baseball/",
+    "independentChecklist": "https://www.keymancollectibles.com/baseballcards/score/1995pinnaclebaseballcardchecklist.htm",
+    "tcdb": "https://www.tcdb.com/ViewSet.cfm/sid/529/1995-Pinnacle",
+    "tcdbInserts": "https://www.tcdb.com/Inserts.cfm/sid/529/1995-Pinnacle",
+    "tcdbMuseum": "https://www.tcdb.com/Checklist.cfm/sid/533/1995-Pinnacle-MuseumCollection",
+    "tcdbArtists": "https://www.tcdb.com/Checklist.cfm/sid/530/1995-Pinnacle-Artists-Proofs",
+    "tcdbPinRedemptions": "https://www.tcdb.com/Checklist.cfm/sid/10642/1995-Pinnacle-Team-Pinnacle-Collector-Pins-Redemptions",
+    "tcdbPinExchanges": "https://www.tcdb.com/Checklist.cfm/sid/10643/1995-Pinnacle-Team-Pinnacle-Collector-Pins-Exchange"
+  },
+  "decisions": {
+    "product": "Authentic 1995 Pinnacle Baseball U.S. product in two physically separate 225-card series. Collector-facing base unified 1–450; 12 cards per hobby/retail pack, 36 per box; jumbo 15 per pack 36 per box.",
+    "independentAudit": "Each base number and subject cross-checked BaseballCardPedia's complete 450-item sequence against independent CollectionCount. Nine documented display spelling/name differences normalized, including original Griffey/Ripken Jr. punctuation, Dave/David Weathers, and Mel/Melvin Nieves. Nine physical checklist cards #177–180, 446–450 have deliberately NULL team; do not invent team affiliations.",
+    "rookies": "Five true rookie-card badges appear on base cards #167 McKay Christensen, #169 Antone Williamson, #171 Scott Elarton, #174 Mark Johnson and #176 Jayson Peterson. Paul Konerko #170 is not tagged rookie (prior RC exists). BCP notes no notable RC stars, consistent with rookie index.",
+    "baseSubsets": "Original base subfamilies are Rookies #131–166 and #406–444, Draft Picks #167–176, Swing Men #276–305, and league/checklists #177–180 and #446–450.",
+    "parallels": "Exactly two full #1–450 parallel checklists: Museum Collection Dufex emanating from team logo, and Artist's Proof silver foil/stamp. These are not serial numbered; 1995 Artist's Proof print run was NOT announced. Holographic foil Artist's Proof rare test/possible accidental issue lacks official provenance, so excluded rather than fabricating a 450-card set.",
+    "museumRedemption": "Seven distinct cardboard Museum Collection redemption vouchers for #410 Shane Andrews, #413 James Baldwin, #416 Ray Durham, #420 Todd Hollandsworth, #423 Troy Percival, #426 Michael Tucker, #444 Rich Aude. Redeem by Dec 31, 1995; include separately from authentic finished parallels.",
+    "inserts": "Nine offerings: ETA '95 6 Series One hobby; Gate Attractions 18 Series Two jumbo; New Blood 9 Series Two hobby/retail; Pinnacle Performers 18 Series One jumbo; Red Hot 25 Series Two hobby/retail; White Hot 25 Series Two hobby Dufex, separately numbered WH1–WH25; Team Pinnacle 9 original double-sided pairings with intentional separate Dufex on front and Dufex on back versions (18 collector variant entries); Team Pinnacle Pin Redemptions 18 Series Two NNO cards; Upstarts 30 Series One hobby/retail.",
+    "pinExchanges": "TCDB independently records 18 separate mail-in-only Team Pinnacle Collector Pins Exchange subjects. Model them as a distinct 18-card collectible exchange subset, NOT wax-inserted. NNO redemption and exchange subjects use VCS PIN-01…18 and EX-01…18 virtual inventory identifiers; not misrepresented as printed card numbers.",
+    "promoExclusion": "Nine SAMPLE promotional cards (seven base reprints, US22 promo, and unnumbered title card) belong to promotional distribution and are not normal product pack cards. Do not invent their wax odds.",
+    "historicalHobbyOdds": {
+      "seriesOne": "Museum Collection 1:4; Artist's Proof 1:36; Team Pinnacle 1:90; ETA '95 1:24 (hobby only); Upstarts 1:8. Pinnacle Performers 1:12 JUMBO only.",
+      "seriesTwo": "Museum Collection 1:4; Artist's Proof 1:36; Red Hot 1:8; White Hot not published; Team Pinnacle Pin redemptions 1:48; New Blood 1:90. Gate Attractions 1:12 JUMBO only.",
+      "retail": "Museum Collection 1:4, Artist's Proof 1:36, Team Pinnacle 1:90 (Series One), Upstarts 1:8 Series One; New Blood 1:90, Pin redemptions 1:48, Red Hot 1:8 Series Two. ETA '95 hobby-exclusive and no White Hot verified retail odds.",
+      "jumbo": "Museum Collection 1:3; Artist's Proof not available; Series One Pinnacle Performers 1:12; Series Two Gate Attractions 1:12 and Pin redemptions 1:36."
+    },
+    "packRestriction": "VCS currently cannot model physical Series One vs Series Two or hobby vs retail vs jumbo pools and cannot honor Team Pinnacle Dufex-side variants/unnumbered mail-in exchange gating in a unified pack. Therefore all oddsPerPack intentionally NULL. We do not fabricate a blended pack hit rate. Block public release until series/channel-aware pack collation exists.",
+    "reviewGate": "Unreleased pending authentic front/back images, pack/box art, pricing, era-correct metadata and pack series/channel QA. Does not alter existing image URLs, set valuations, or other VCS content.",
+    "teamAudit": "All non-checklist cards have verified clubs. Nine authentic base checklist cards deliberately have NULL team, recognized by the importer's checklist exception; the 900 parallel copies inherit the same nine intentional exceptions. Therefore teamData is COMPLETE."
+  },
+  "product": {
+    "id": "1995_Pinnacle_Baseball",
+    "year": 1995,
+    "brand": "Pinnacle",
+    "sport": "Baseball",
+    "cardsPerPack": 12,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "cardImages": "PENDING",
+    "packImage": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_SERIES_AND_CHANNEL_PACK_COLLATION"
+  },
+  "cardsFile": "1995-pinnacle-baseball.cards.csv.gz",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1995_Pinnacle_Baseball_base",
+      "name": "Base Set",
+      "kind": "BASE",
+      "expectedCards": 450,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1995_Pinnacle",
+      "notes": "Numbered #1–450, Series One 1–225; Series Two 226–450. Five confirmed base rookie cards; original nonteam checklists retained."
+    },
+    {
+      "key": "museum-collection",
+      "id": "1995_Pinnacle_Baseball_museum_collection",
+      "name": "Museum Collection",
+      "kind": "PARALLEL",
+      "expectedCards": 450,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1995_Pinnacle",
+      "notes": "Authentic Dufex pattern emanating from team logo, 1:4 regular wax each series, 1:3 jumbo. Not serial numbered.",
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Museum Collection Dufex parallel; unnumbered"
+    },
+    {
+      "key": "artists-proof",
+      "id": "1995_Pinnacle_Baseball_artists_proof",
+      "name": "Artist's Proof",
+      "kind": "PARALLEL",
+      "expectedCards": 450,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1995_Pinnacle",
+      "notes": "Silver foil seam/nameplate and Artist's Proof stamp, 1:36 regular wax; NOT jumbo; unpublished print quantity.",
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Artist's Proof silver foil stamp parallel; no claimed print run"
+    },
+    {
+      "key": "museum-redemptions",
+      "id": "1995_Pinnacle_Baseball_museum_redemptions",
+      "name": "Museum Collection Redemptions",
+      "kind": "INSERT",
+      "expectedCards": 7,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1995_Pinnacle",
+      "notes": "Seven actual voucher cards from Series Two, redemption expired 12/31/95, not finished Museum Collection foil cards"
+    },
+    {
+      "key": "eta-95",
+      "id": "1995_Pinnacle_Baseball_eta_95",
+      "name": "E.T.A. '95",
+      "kind": "INSERT",
+      "expectedCards": 6,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1995_Pinnacle",
+      "notes": "ETA1–ETA6. Series One hobby only, 1:24"
+    },
+    {
+      "key": "gate-attractions",
+      "id": "1995_Pinnacle_Baseball_gate_attractions",
+      "name": "Gate Attractions",
+      "kind": "INSERT",
+      "expectedCards": 18,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1995_Pinnacle",
+      "notes": "GA01–GA18. Series Two jumbo-only, 1:12 jumbo"
+    },
+    {
+      "key": "new-blood",
+      "id": "1995_Pinnacle_Baseball_new_blood",
+      "name": "New Blood",
+      "kind": "INSERT",
+      "expectedCards": 9,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1995_Pinnacle",
+      "notes": "NB1–NB9. Series Two hobby/retail, 1:90"
+    },
+    {
+      "key": "pinnacle-performers",
+      "id": "1995_Pinnacle_Baseball_pinnacle_performers",
+      "name": "Pinnacle Performers",
+      "kind": "INSERT",
+      "expectedCards": 18,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1995_Pinnacle",
+      "notes": "PP1–PP18. Series One jumbo-only, 1:12 jumbo"
+    },
+    {
+      "key": "red-hot",
+      "id": "1995_Pinnacle_Baseball_red_hot",
+      "name": "Red Hot",
+      "kind": "INSERT",
+      "expectedCards": 25,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1995_Pinnacle",
+      "notes": "RH1–RH25. Series Two hobby/retail, 1:8"
+    },
+    {
+      "key": "white-hot",
+      "id": "1995_Pinnacle_Baseball_white_hot",
+      "name": "White Hot",
+      "kind": "INSERT",
+      "expectedCards": 25,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1995_Pinnacle",
+      "notes": "WH1–WH25. Series Two hobby only, no verified pack odds; Dufex re-design of Red Hot"
+    },
+    {
+      "key": "team-pinnacle-front",
+      "id": "1995_Pinnacle_Baseball_team_pinnacle_front",
+      "name": "Team Pinnacle - Front Dufex",
+      "kind": "INSERT",
+      "expectedCards": 9,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1995_Pinnacle",
+      "notes": "TP1–TP9, double-sided AL/NL pairing, front (AL) Dufex one of two actual printed versions; original 1:90 Series One"
+    },
+    {
+      "key": "team-pinnacle-back",
+      "id": "1995_Pinnacle_Baseball_team_pinnacle_back",
+      "name": "Team Pinnacle - Back Dufex",
+      "kind": "INSERT",
+      "expectedCards": 9,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1995_Pinnacle",
+      "notes": "TP1–TP9 same printed number, back (NL) Dufex opposite actual printed version"
+    },
+    {
+      "key": "pin-redemptions",
+      "id": "1995_Pinnacle_Baseball_pin_redemptions",
+      "name": "Team Pinnacle Pin Redemptions",
+      "kind": "INSERT",
+      "expectedCards": 18,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1995_Pinnacle",
+      "notes": "18 unnumbered physical cards inserted Series Two wax 1:48 or jumbo 1:36. Virtual PIN identifiers, not printed"
+    },
+    {
+      "key": "pin-exchanges",
+      "id": "1995_Pinnacle_Baseball_pin_exchanges",
+      "name": "Team Pinnacle Pin Exchanges",
+      "kind": "INSERT",
+      "expectedCards": 18,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1995_Pinnacle",
+      "notes": "18 distinct TCDB-documented mail-in-only exchange cards; not pack-inserted. Virtual EX identifiers, not printed"
+    },
+    {
+      "key": "upstarts",
+      "id": "1995_Pinnacle_Baseball_upstarts",
+      "name": "Upstarts",
+      "kind": "INSERT",
+      "expectedCards": 30,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1995_Pinnacle",
+      "notes": "US1–US30 Series One hobby/retail 1:8. US22 SAMPLE promo excluded"
+    }
+  ]
+}
