@@ -105,7 +105,7 @@ def produce():
   if len(row) not in (3,4) or int(row[0])!=pos:raise ValueError(f"Independent base row #{pos} malformed: {row}")
   n,name,ti,*extra=row
   source_name=bcp[pos];normalized=clean_base(source_name)
-  if name!=normalized:diff.add(pos)
+  if name!=source_name:diff.add(pos)
   if pos==21:
    if (source_name,name)!=("Bob Higginson","Bobby Higginson"):raise ValueError("Unreviewed #21 name correction")
   elif pos==266:
