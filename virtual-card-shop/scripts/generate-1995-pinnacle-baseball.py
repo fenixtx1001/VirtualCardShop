@@ -117,7 +117,7 @@ def build():
   if len(row) not in (3,4) or int(row[0])!=n:
    raise ValueError(f"Malformed base source entry #{n}: {row}")
   _,cc_name,team_index,*extras=row
-  if cc_name!=display(bcp_base[n]):differences.add(n)
+  if cc_name!=re.sub(r"\s+(?:DP|RC)(?=\s|[*:]|$).*$","",bcp_base[n]).strip():differences.add(n)
   canonical=display(cc_name)
   if canonical!=display(bcp_base[n]):
    raise ValueError(f"Unreviewed identity mismatch #{n}: {canonical} / {display(bcp_base[n])}")
