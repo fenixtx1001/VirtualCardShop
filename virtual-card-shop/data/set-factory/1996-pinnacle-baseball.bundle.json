@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "baseAndParallelChecklist": "https://baseballcardpedia.com/index.php/1996_Pinnacle",
+    "independentBase": "https://www.collectioncount.com/checklists/1996-pinnacle-baseball/",
+    "TCDB": "https://www.tcdb.com/ViewSet.cfm/sid/733/1996-Pinnacle",
+    "TCDBInserts": "https://www.tcdb.com/Inserts.cfm/sid/733/1996-Pinnacle",
+    "keyman": "https://keymancollectibles.com/baseballcards/score/1996pinnaclebaseballcardchecklist.htm"
+  },
+  "decisions": {
+    "set": "1996 Pinnacle flagship Baseball, NOT 1996 Pinnacle Aficionado, Select, Summit, or Pinnacle Mint. Physical series: S1 numbered #1–200, S2 #201–399 with two distinct subjects both printed as #305 in the .300 Series, indexed separately as #305.3 Paul Molitor and #305.6 Jeff Bagwell for VCS. Total 400 base.",
+    "sourceReconciliation": "Every base identity and card number is compared live against independent CollectionCount 400-row checklist and BaseballCardPedia 400-row base list. #132 retains a multi-subject Rookie of the Year suffix; .300 Series labels and other subset annotations are carried as subset/variant rather than player names. The two #305 entries are independently verified and must not be deduplicated.",
+    "rookies": "Eight independently cataloged true base RCs #168 Matt Lawton, #180 Mike Sweeney, #372 Livan Hernandez, #382 Osvaldo Fernandez, #383 Wilton Guerrero, #385 George Williams, #388 F.P. Santangelo, #392 Mike Busby. Don't label other rookie-themed subset cards as true RC.",
+    "parallels": "Starburst is 200 selected cards only, numbered 1–100 Series One and 101–200 Series Two; each is Dufex foil. Starburst Artist's Proof is the same 200-card subject list, distinguished by AP graphics and checklist; derive directly from Starburst. Foil is 200 *Series Two* cards (#201–399 including the two #305 distinct printings), chrome-style foil in Series Two retail SuperPacks (6 of the 7 cards/pack). Never invent a 400-card Starburst/AP or Series One Foil parallel.",
+    "teamPinnacle": "Unlike 1995 Pinnacle, 1996's nine-card Team Pinnacle has only one physical printing with American League Dufex front and National League gold foil back. No reversed Dufex version.",
+    "insertSummary": "Eleven distinct original pack inserts, 158 cards total: Cal Ripken Tribute (1), Power (20), Team Pinnacle (9), Essence of the Game (18), First Rate (18), Team Tomorrow (10), Christie Brinkley Collection (16), Team Spirit (12), Project Stardom (18), Slugfest (18), Skylines (18). Pre-release SAMPLE cards and Christie Brinkley promo excluded.",
+    "distribution": "1996 regular hobby/retail 10 cards per pack, 24 packs per box. Jumbo 12 cards per pack, 36 packs per box. Series Two retail SuperPacks 7 cards per pack, 36 packs per box. Draft product defaults to standard hobby/retail 10/24.",
+    "historicalOdds": "S1 Starburst 1:7 hobby/retail, 1:6 jumbo; Starburst AP 1:47 hobby/retail, 1:39 jumbo; Ripken Tribute 1:150 hobby/retail; Power 1:35 hobby/retail, 1:29 jumbo; Team Pinnacle 1:72 hobby/retail; Essence of the Game 1:23 hobby only; First Rate 1:23 retail only; Team Tomorrow 1:19 jumbo only. S2 Starburst 1:7 hobby/retail, 1:6 jumbo, 1:10 SuperPack; Starburst AP 1:47 hobby/retail, 1:39 jumbo, 1:67 SuperPack; Foil six of seven SuperPack cards, not in ordinary wax; Christie Brinkley 1:23 hobby/retail, 1:19 jumbo, 1:32 SuperPack; Team Spirit 1:72 hobby/retail, 1:60 jumbo, 1:103 SuperPack; Project Stardom 1:35 hobby only; Slugfest 1:35 retail only; Skylines 1:29 jumbo or 1:50 SuperPack only.",
+    "packRules": "Pack engine currently uses combined series and format, and cannot issue Series One vs Two/channel-exclusive hits accurately. All VCS oddsPerPack stay NULL rather than providing impossible cards or misleading pull odds. Authentic printed odds retained above in metadata.",
+    "teamData": "Every non-composite subject assigned based on the audited base checklist where possible. Players appearing with two 1996 clubs (e.g., Eddie Murray, Cecil Fielder) are marked Multiple Teams pending image-specific club verification; no unsupported team claims. Multi-subject cards also Multiple Teams.",
+    "images": "No hallucinated scans or made-up pack art. All front/back imagery and pricing require authentic scan template QA; remain null until review.",
+    "release": "Draft and released:false. Physical product not visible in VCS shop; review original pack collation and scan sources before publication. No existing card pricing or image URLs changed."
+  },
+  "product": {
+    "id": "1996_Pinnacle_Baseball",
+    "year": 1996,
+    "brand": "Pinnacle",
+    "sport": "Baseball",
+    "cardsPerPack": 10,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_SERIES_CHANNEL_ODDS_AND_IMAGE_QA"
+  },
+  "cardsFile": "1996-pinnacle-baseball.cards.csv.gz",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1996_Pinnacle_Baseball_base",
+      "name": "Base Set",
+      "kind": "BASE",
+      "expectedCards": 400,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1996_Pinnacle",
+      "notes": "400 printed base subjects, #1–399 with distinct catalog #305.3 and #305.6"
+    },
+    {
+      "key": "starburst",
+      "id": "1996_Pinnacle_Baseball_starburst",
+      "name": "Starburst",
+      "kind": "PARALLEL",
+      "expectedCards": 200,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1996_Pinnacle",
+      "notes": "200-card silver Dufex *partial* parallel, 100 per physical series; #1–100 'of 100', #101–200 'of 200'. Not 400 cards."
+    },
+    {
+      "key": "starburst-artists-proof",
+      "id": "1996_Pinnacle_Baseball_starburst_artists_proof",
+      "name": "Starburst Artist's Proof",
+      "kind": "PARALLEL",
+      "expectedCards": 200,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1996_Pinnacle",
+      "notes": "200-card AP Dufex variation with print 'Artist's Proof', same subjects/numbers as Starburst.",
+      "deriveCardsFrom": "starburst",
+      "derivedVariant": "Starburst Artist's Proof; Dufex background Artist's Proof text; printed 'of 100' S1 or 'of 200' S2; not serial numbered"
+    },
+    {
+      "key": "foil",
+      "id": "1996_Pinnacle_Baseball_foil",
+      "name": "Foil",
+      "kind": "PARALLEL",
+      "expectedCards": 200,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1996_Pinnacle",
+      "notes": "Series Two retail SuperPack exclusive chrome-style foil, 200 cards with two #305 versions. Not sold in hobby/retail wax."
+    },
+    {
+      "key": "cal-ripken-tribute",
+      "id": "1996_Pinnacle_Baseball_cal_ripken_tribute",
+      "name": "Cal Ripken Jr. Tribute",
+      "kind": "INSERT",
+      "expectedCards": 1,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1996_Pinnacle",
+      "notes": "Single tribute insert, Series One hobby/retail 1:150"
+    },
+    {
+      "key": "power",
+      "id": "1996_Pinnacle_Baseball_power",
+      "name": "Power",
+      "kind": "INSERT",
+      "expectedCards": 20,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1996_Pinnacle",
+      "notes": "Power cutout with holographic foil, Series One hobby/retail 1:35, jumbo 1:29"
+    },
+    {
+      "key": "team-pinnacle",
+      "id": "1996_Pinnacle_Baseball_team_pinnacle",
+      "name": "Team Pinnacle",
+      "kind": "INSERT",
+      "expectedCards": 9,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1996_Pinnacle",
+      "notes": "Dual-sided AL front Dufex/NL back foil, only one printing, Series One hobby/retail 1:72"
+    },
+    {
+      "key": "essence-of-the-game",
+      "id": "1996_Pinnacle_Baseball_essence_of_the_game",
+      "name": "Essence of the Game",
+      "kind": "INSERT",
+      "expectedCards": 18,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1996_Pinnacle",
+      "notes": "Acetate etch, Series One hobby-only 1:23"
+    },
+    {
+      "key": "first-rate",
+      "id": "1996_Pinnacle_Baseball_first_rate",
+      "name": "First Rate",
+      "kind": "INSERT",
+      "expectedCards": 18,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1996_Pinnacle",
+      "notes": "Dufex, Series One retail-only 1:23"
+    },
+    {
+      "key": "team-tomorrow",
+      "id": "1996_Pinnacle_Baseball_team_tomorrow",
+      "name": "Team Tomorrow",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1996_Pinnacle",
+      "notes": "Dufex, Series One jumbo-only 1:19"
+    },
+    {
+      "key": "christie-brinkley",
+      "id": "1996_Pinnacle_Baseball_christie_brinkley",
+      "name": "Christie Brinkley Collection",
+      "kind": "INSERT",
+      "expectedCards": 16,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1996_Pinnacle",
+      "notes": "Original Spring Training celebrity-photographed Series Two, hobby/retail 1:23, jumbo 1:19, SuperPack 1:32"
+    },
+    {
+      "key": "team-spirit",
+      "id": "1996_Pinnacle_Baseball_team_spirit",
+      "name": "Team Spirit",
+      "kind": "INSERT",
+      "expectedCards": 12,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1996_Pinnacle",
+      "notes": "Foil embossed ball, Series Two hobby/retail 1:72, jumbo 1:60, SuperPack 1:103"
+    },
+    {
+      "key": "project-stardom",
+      "id": "1996_Pinnacle_Baseball_project_stardom",
+      "name": "Project Stardom",
+      "kind": "INSERT",
+      "expectedCards": 18,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1996_Pinnacle",
+      "notes": "Blue Dufex, Series Two hobby-only 1:35"
+    },
+    {
+      "key": "slugfest",
+      "id": "1996_Pinnacle_Baseball_slugfest",
+      "name": "Slugfest",
+      "kind": "INSERT",
+      "expectedCards": 18,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1996_Pinnacle",
+      "notes": "Silver/black Dufex, Series Two retail-only 1:35"
+    },
+    {
+      "key": "skylines",
+      "id": "1996_Pinnacle_Baseball_skylines",
+      "name": "Skylines",
+      "kind": "INSERT",
+      "expectedCards": 18,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1996_Pinnacle",
+      "notes": "Acetate skyline, Series Two jumbo-only 1:29, retail SuperPack 1:50"
+    }
+  ]
+}
