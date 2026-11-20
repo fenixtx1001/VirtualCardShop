@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import AppHeader from "@/components/AppHeader";
+import AppHeaderRouteGate from "@/components/AppHeaderRouteGate";
 import Providers from "./providers";
 
 const geistSans = Geist({
@@ -30,7 +30,7 @@ export default function RootLayout({
         className={`${geistSans.className} ${geistSans.variable} ${geistMono.variable}`}
       >
         <Providers>
-          <AppHeader />
+          <AppHeaderRouteGate />
           <main>{children}</main>
         </Providers>
       </body>
