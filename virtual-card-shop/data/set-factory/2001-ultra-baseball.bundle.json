@@ -3,15 +3,203 @@
   "status": "DRAFT",
   "source": {
     "BCP": "https://baseballcardpedia.com/index.php/2001_Ultra",
-    "MCB_independent": "https://mycardbatch.com/checklists/fleer-ultra-2001-baseball",
+    "independentMCB": "https://mycardbatch.com/checklists/fleer-ultra-2001-baseball",
     "TCDB": "https://www.tcdb.com/ViewSet.cfm/sid/1505/2001-Ultra",
-    "TCDB_inserts": "https://www.tcdb.com/Inserts.cfm/sid/1505/2001-Ultra",
-    "shared_autographics": "https://baseballcardpedia.com/index.php/2001_Fleer_Autographics",
-    "shared_feel_the_game": "https://baseballcardpedia.com/index.php/2001_Fleer_Feel_the_Game"
+    "TCDBInserts": "https://www.tcdb.com/Inserts.cfm/sid/1505/2001-Ultra"
   },
   "decisions": {
-    "identity": "Original 2001 Fleer Ultra Baseball, debut December 2000. Independently cross-checked original 275 base/2 medallion parallels and five four-line insert checklist families. New draft product only.",
-    "base": "BCP and independent MCB agree all 275 numbers and names except the four explicitly reviewed cases #39, #47, #70, #270. BCP recognizes 1-225 regular, 226-250 dual-player prospects (not SP), 251-275 single-player prospects 1:4.",
-    "names": "Four human-reviewed source name differences: #39 Bob vs Bobby Abreu (Bobby); #47 Dave vs David Justice (David); #70 Bob vs Bobby Higginson (Bobby); #270 Timoniel vs Timo Perez (Timo); other source-specific punctuation ignored.",
-    "gold": "275 authentic G-suffix Medallion: 1G-250G one per ordinary pack, SP 251G-275G 1:24; preserve complete single collector checklist and historical SP in notes.",
-    "platinum": "275 authentic P-suffix #1P-250P /50 and #251P-2¶»§q«^
+    "verified": "Two original full 275-card BCP/MCB lists independently reconciled, plus five complete original numbered insert lists and corresponding teams.",
+    "names": "Four reviewed variants #39 Bobby Abreu, #47 David Justice, #70 Bobby Higginson and #270 Timo Perez.",
+    "baseShortPrint": "Only single-player Prospects #251-275 were SP, one every four packs; 226-250 duals were regular.",
+    "medallions": "Original 275 Gold G suffix (251G-275G SP 1:24); 275 Platinum P suffix 1P-250P /50, 251P-275P /25.",
+    "inserts": "Four numbered insert groups total 50; corresponding true Platinum /10 variants total 50; Fall Classics 37, 26 game-used, nine signed memorabilia.",
+    "platinumRC": "Five /1499 cards #276-280 were in 2001 Fleer Platinum, not original Ultra; isolated outside base checklist; two-player printed RC never proves both individual true rookies.",
+    "sharedPrograms": "2001 Fleer Autographics, Feel the Game and Season Pass span multiple Fleer brands; omit until individual Ultra-channel checklists and allocation are verified.",
+    "collation": "10 cards/hobby pack, 24 packs/box; guaranteed Gold, range-specific SP, serialed, cross-product exclusions and hobby/retail split cannot all be represented by single oddsPerPack integer. Null rather than fabricated odds.",
+    "design": "No scans, cards, relic images, logos, autographs or pack art invented; released false until original imagery, prices and odds reviewed."
+  },
+  "product": {
+    "id": "2001_Ultra_Baseball",
+    "year": 2001,
+    "brand": "Ultra",
+    "sport": "Baseball",
+    "cardsPerPack": 10,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "PENDING",
+    "checklists": "VERIFIED_BCP_MCB",
+    "trueRookies": "PENDING",
+    "cardImages": "PENDING",
+    "packImage": "PENDING",
+    "pricing": "PENDING",
+    "collation": "BLOCKED_FORMAT_SPECIFIC",
+    "release": "UNRELEASED"
+  },
+  "cardsFile": "2001-ultra-baseball.cards.csv.gz",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2001_Ultra_Baseball_base",
+      "name": "Base Set",
+      "kind": "BASE",
+      "expectedCards": 275,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2001_Ultra",
+      "notes": "Original 275 Ultra wax cards: 1-225 regular, 226-250 dual-player Prospects normal, 251-275 single-player Prospects SP 1:4. Platinum RC 276-280 were not Ultra wax."
+    },
+    {
+      "key": "gold-medallion",
+      "id": "2001_Ultra_Baseball_gold_medallion",
+      "name": "Gold Medallion",
+      "kind": "PARALLEL",
+      "expectedCards": 275,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2001_Ultra",
+      "notes": "Full original 275 G suffix. Gold 1G-250G standard one per pack; 251G-275G Prospects SP 1:24."
+    },
+    {
+      "key": "platinum-medallion",
+      "id": "2001_Ultra_Baseball_platinum_medallion",
+      "name": "Platinum Medallion",
+      "kind": "PARALLEL",
+      "expectedCards": 275,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2001_Ultra",
+      "notes": "Full original 275 P suffix. 1P-250P /50, 251P-275P /25."
+    },
+    {
+      "key": "platinum-rc-2001-fleer-platinum",
+      "id": "2001_Ultra_Baseball_platinum_rc_2001_fleer_platinum",
+      "name": "Platinum RC Series (Fleer Platinum Only)",
+      "kind": "INSERT",
+      "expectedCards": 5,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2001_Ultra",
+      "notes": "Five continuation cards #276-280 /1499 issued in later 2001 Fleer Platinum; excluded from Ultra wax."
+    },
+    {
+      "key": "decade-of-dominance",
+      "id": "2001_Ultra_Baseball_decade_of_dominance",
+      "name": "Decade Of Dominance",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2001_Ultra",
+      "notes": "Authentic numbered 15-card checklist; original Ultra 1:8 physical hobby rate. VCS odds null until format-aware collation."
+    },
+    {
+      "key": "decade-of-dominance-platinum",
+      "id": "2001_Ultra_Baseball_decade_of_dominance_platinum",
+      "name": "Decade Of Dominance Platinum",
+      "kind": "PARALLEL",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2001_Ultra",
+      "notes": "Authentic 15-card serial /10 insert Platinum parallel; same printed insert numbers.",
+      "deriveCardsFrom": "decade-of-dominance",
+      "derivedVariant": "Original 2001 Ultra insert Platinum parallel; serial-numbered /10."
+    },
+    {
+      "key": "greatest-hits-of",
+      "id": "2001_Ultra_Baseball_greatest_hits_of",
+      "name": "Greatest Hits Of",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2001_Ultra",
+      "notes": "Authentic numbered 10-card checklist; original Ultra 1:12 physical hobby rate. VCS odds null until format-aware collation."
+    },
+    {
+      "key": "greatest-hits-of-platinum",
+      "id": "2001_Ultra_Baseball_greatest_hits_of_platinum",
+      "name": "Greatest Hits Of Platinum",
+      "kind": "PARALLEL",
+      "expectedCards": 10,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2001_Ultra",
+      "notes": "Authentic 10-card serial /10 insert Platinum parallel; same printed insert numbers.",
+      "deriveCardsFrom": "greatest-hits-of",
+      "derivedVariant": "Original 2001 Ultra insert Platinum parallel; serial-numbered /10."
+    },
+    {
+      "key": "power-plus",
+      "id": "2001_Ultra_Baseball_power_plus",
+      "name": "Power Plus",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2001_Ultra",
+      "notes": "Authentic numbered 10-card checklist; original Ultra 1:24 physical hobby rate. VCS odds null until format-aware collation."
+    },
+    {
+      "key": "power-plus-platinum",
+      "id": "2001_Ultra_Baseball_power_plus_platinum",
+      "name": "Power Plus Platinum",
+      "kind": "PARALLEL",
+      "expectedCards": 10,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2001_Ultra",
+      "notes": "Authentic 10-card serial /10 insert Platinum parallel; same printed insert numbers.",
+      "deriveCardsFrom": "power-plus",
+      "derivedVariant": "Original 2001 Ultra insert Platinum parallel; serial-numbered /10."
+    },
+    {
+      "key": "tomorrows-legends",
+      "id": "2001_Ultra_Baseball_tomorrows_legends",
+      "name": "Tomorrows Legends",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2001_Ultra",
+      "notes": "Authentic numbered 15-card checklist; original Ultra 1:4 physical hobby rate. VCS odds null until format-aware collation."
+    },
+    {
+      "key": "tomorrows-legends-platinum",
+      "id": "2001_Ultra_Baseball_tomorrows_legends_platinum",
+      "name": "Tomorrows Legends Platinum",
+      "kind": "PARALLEL",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2001_Ultra",
+      "notes": "Authentic 15-card serial /10 insert Platinum parallel; same printed insert numbers.",
+      "deriveCardsFrom": "tomorrows-legends",
+      "derivedVariant": "Original 2001 Ultra insert Platinum parallel; serial-numbered /10."
+    },
+    {
+      "key": "fall-classics",
+      "id": "2001_Ultra_Baseball_fall_classics",
+      "name": "Fall Classics",
+      "kind": "INSERT",
+      "expectedCards": 37,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2001_Ultra",
+      "notes": "37 numbered FC cards, original pack rate 1:20."
+    },
+    {
+      "key": "fall-classics-memorabilia",
+      "id": "2001_Ultra_Baseball_fall_classics_memorabilia",
+      "name": "Fall Classics Memorabilia",
+      "kind": "INSERT",
+      "expectedCards": 26,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2001_Ultra",
+      "notes": "26 physical subjects; game-used BAT/JSY/PANT materials. Hobby 1:144, retail 1:576, no invented single-rate odds."
+    },
+    {
+      "key": "fall-classics-memorabilia-autograph",
+      "id": "2001_Ultra_Baseball_fall_classics_memorabilia_autograph",
+      "name": "Fall Classics Memorabilia Autograph",
+      "kind": "INSERT",
+      "expectedCards": 9,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2001_Ultra",
+      "notes": "Nine original autographed memorabilia subjects, individually distinct serial caps."
+    }
+  ]
+}
