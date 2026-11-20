@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "primary": "https://baseballcardpedia.com/index.php/1994_Pinnacle",
+    "crosscheck": "https://www.collectioncount.com/checklists/1994-score-pinnacle-baseball/",
+    "tcdbChecklist": "https://www.tcdb.com/Checklist.cfm/sid/384/1994-Pinnacle",
+    "tcdbRookies": "https://www.tcdb.com/Rookies.cfm/sid/384/1994-Pinnacle",
+    "tcdbInserts": "https://www.tcdb.com/Inserts.cfm/sid/384/1994-Pinnacle",
+    "beckett": "https://www.beckett.com/baseball/1994/pinnacle"
+  },
+  "decisions": {
+    "base": "540 numbered base cards, issued as two physically distinct 270-card series (#1-270 and #271-540), unified for collector completion.",
+    "subsets": "1994 Rookie Prospects and Draft Picks retained as base subsets (not separately numbered insert checklists). Selected base award and printer-error notes preserved in per-card metadata.",
+    "trueRookies": "Exactly 32 TCDB Rookie Cards; CollectionCount labels 33, but its extra #436 Kirk Presley is not in TCDB true-rookie index. The generator fails closed on the difference. 1994 Pinnacle's recognized RCs include Torii Hunter #267, Trot Nixon #270, Billy Wagner #264, Chan Ho Park #527.",
+    "checklistValidation": "Base checklist #1-540 reconciled line by line between BaseballCardPedia and CollectionCount. Sixteen documented caption/spelling variations explicitly normalized. #378 'Carl Wills' on BCP corrected to Carl Willis; no invented/guessed players.",
+    "parallels": "Museum Collection and Artist's Proof both have all 540 base card numbers and are complete separate collector-facing parallel sets. Museum Collection is original Dufex foil, production approximately 6,500 per card, NOT serial numbered. Artist's Proof has original foil stamp, production approximately 1,000 per card, NOT serial numbered. Derived directly from the verified base checklist, not independent invented player checklists.",
+    "museumRedemptions": "In 1994 five Series Two Museum Collection cards #279, #313, #328, #382 and #387 were distributed as separate printed redemption vouchers, expiry December 31 1994. Voucher checklist contains five items distinct from their finished Museum Collection parallels. They do not represent five additional parallel cards.",
+    "inserts": "Rookie Team Pinnacle 9 (Series One); Team Pinnacle 9 (Series Two); Super Rookie Carlos Delgado SR1 (Series Two); Tribute TR1-TR18 (nine cards each series); Run Creators RC1-RC44 (22 each series, SuperPack-exclusive). The source named 'Run Creators' and TCDB 'The Run Creators' are equivalent.",
+    "promos": "Retail/Hobby sample previews, the separate Olerud/Alou strip, and Sample Dufex variants are promos, excluded from issued-product pack pools.",
+    "packDistribution": "Hobby and retail 14 cards/pack, 36 packs/box. SuperPack 17 cards/pack, 24 packs/box; different physical distribution channel. Standard VCS product metadata is 14/36 hobby.",
+    "historicalOdds": "Per BaseballCardPedia: Series One hobby Museum 1:4, Artist's Proof 1:26, Rookie Team Pinnacle 1:90, Tribute 1:18; Series Two hobby Museum 1:4, Artist's Proof 1:26, Team Pinnacle 1:90, Tribute 1:18, Super Rookie SR1 1:360. Retail Museum 1:3 and Artist's Proof 1:22; Rookie Team Pinnacle 1:72 Series One, Team Pinnacle 1:90 Series Two. Run Creators 1:4 SuperPacks only (no wax). Museum voucher substitutions apply to five Series Two parallels.",
+    "oddsInVCS": "The current VCS rip engine has a single mixed-series pack pool and has no card-level or series/channel restrictions. All ProductSets deliberately have oddsPerPack:null to avoid producing Series Two hits in Series One packs, retail-only hits in hobby packs, or Museum redemption outcomes that could not actually occur. Historical odds documented above, not fabricated.",
+    "release": "DRAFT and unreleased, pending series-specific collation, voucher handling, pricing, base/inserts/parallels front scans and authentic pack/box photography. No existing VCS products/images/prices are modified."
+  },
+  "product": {
+    "id": "1994_Pinnacle_Baseball",
+    "year": 1994,
+    "brand": "Pinnacle",
+    "sport": "Baseball",
+    "cardsPerPack": 14,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packConfiguration": "PENDING_SERIES_CHANNEL_SUPPORT",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_SERIES_AND_IMAGE_QA"
+  },
+  "cardsFile": "1994-pinnacle-baseball.cards.csv.gz",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1994_Pinnacle_Baseball_base",
+      "name": "Base",
+      "kind": "BASE",
+      "expectedCards": 540,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1994_Pinnacle",
+      "notes": "Standard 1–540; original Series One 1–270, Series Two 271–540; 32 verified true rookies."
+    },
+    {
+      "key": "museum-collection",
+      "id": "1994_Pinnacle_Baseball_museum_collection",
+      "name": "Museum Collection",
+      "kind": "PARALLEL",
+      "expectedCards": 540,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1994_Pinnacle",
+      "notes": "Dufex foil; 6,500 made per card, unnumbered; 1:4 hobby in both physical series. Five cards in Series Two were issued via redemption vouchers.",
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Museum Collection Dufex foil; unnumbered printing, stated production 6,500 per card"
+    },
+    {
+      "key": "artists-proof",
+      "id": "1994_Pinnacle_Baseball_artists_proof",
+      "name": "Artist's Proof",
+      "kind": "PARALLEL",
+      "expectedCards": 540,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1994_Pinnacle",
+      "notes": "Foil Artist's Proof stamp, 1,000 per card, unnumbered; original 1:26 hobby packs, both series.",
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Artist's Proof foil stamp; unnumbered printing, stated production 1,000 per card"
+    },
+    {
+      "key": "rookie-team-pinnacle",
+      "id": "1994_Pinnacle_Baseball_rookie_team_pinnacle",
+      "name": "Rookie Team Pinnacle",
+      "kind": "INSERT",
+      "expectedCards": 9,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1994_Pinnacle",
+      "notes": "Nine two-sided artist-rendered AL/NL pairings; Series One hobby 1:90, retail 1:72."
+    },
+    {
+      "key": "team-pinnacle",
+      "id": "1994_Pinnacle_Baseball_team_pinnacle",
+      "name": "Team Pinnacle",
+      "kind": "INSERT",
+      "expectedCards": 9,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1994_Pinnacle",
+      "notes": "Nine two-sided artist-rendered AL/NL pairings; Series Two hobby/retail 1:90."
+    },
+    {
+      "key": "super-rookie",
+      "id": "1994_Pinnacle_Baseball_super_rookie",
+      "name": "Super Rookie",
+      "kind": "INSERT",
+      "expectedCards": 1,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1994_Pinnacle",
+      "notes": "Carlos Delgado #SR1 foilboard, Series Two case hit approximately 1:360 packs."
+    },
+    {
+      "key": "tribute",
+      "id": "1994_Pinnacle_Baseball_tribute",
+      "name": "Tribute",
+      "kind": "INSERT",
+      "expectedCards": 18,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1994_Pinnacle",
+      "notes": "TR1-TR9 Series One and TR10-TR18 Series Two, 1:18 hobby packs."
+    },
+    {
+      "key": "run-creators",
+      "id": "1994_Pinnacle_Baseball_run_creators",
+      "name": "The Run Creators",
+      "kind": "INSERT",
+      "expectedCards": 44,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1994_Pinnacle",
+      "notes": "RC1–RC22 Series One SuperPacks; RC23–RC44 Series Two SuperPacks, 1:4 SuperPacks; never standard hobby/retail wax."
+    },
+    {
+      "key": "museum-redemptions",
+      "id": "1994_Pinnacle_Baseball_museum_redemptions",
+      "name": "Museum Collection Redemptions",
+      "kind": "INSERT",
+      "expectedCards": 5,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1994_Pinnacle",
+      "notes": "Distinct printed redemption vouchers for cards #279, #313, #328, #382, #387. Original redemption expired Dec 31, 1994; separate from finished parallel cards."
+    }
+  ]
+}
