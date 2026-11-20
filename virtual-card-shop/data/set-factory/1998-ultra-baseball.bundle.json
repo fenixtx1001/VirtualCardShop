@@ -1,0 +1,303 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "primary": "https://baseballcardpedia.com/index.php/1998_Ultra",
+    "independentChecklist": "https://www.collectioncount.com/checklists/1998-fleer-ultra-baseball/",
+    "tcdbOverview": "https://www.tcdb.com/ViewSet.cfm/sid/1273/1998-Ultra",
+    "tcdbRookies": "https://www.tcdb.com/Rookies.cfm/sid/1273/1998-Ultra",
+    "tcdbInserts": "https://www.tcdb.com/Inserts.cfm/sid/1273/1998-Ultra",
+    "tcdbPlatinumRedemptions": "https://www.tcdb.com/Inserts.cfm/sid/1273/1998-Ultra",
+    "crossBrandMDM": "https://baseballcardpedia.com/index.php/1997_Fleer_Million_Dollar_Moments",
+    "beckett": "https://www.beckett.com/baseball/1998/ultra/"
+  },
+  "decisions": {
+    "identity": "Fleer Ultra 1998 flagship Baseball, two series, 501 base #1–501. Does not recreate distinct 1998 Fleer Tradition or 1998 Fleer Ultra football/basketball. Database and GitHub verified no 1998 Ultra Baseball existing before import.",
+    "base": "S1 #1–250; S2 #251–501. S1 Season Crowns #211–220, Prospects #221–245, Checklists #246–250, including card #248 Diamond Ink program. S2 regular through #452, New Horizons #453–472, Checklists #473–475, Pizzazz #476–500. Mike Piazza Mets #501 late addition. These SP subsets should have source-level higher rarity, no invented individual card pull rates.",
+    "baseTeam": "501 subject/number/team identities crosschecked against independent CollectionCount; 19 BCP-vs-CC textual notes and spellings are explicitly audited. Mike Piazza #53 LA Dodgers, #485 Florida Marlins, #501 NY Mets (not merged into a single team/photo). CC 30 team dictionary also includes Arizona and Tampa Bay expansion-era teams. Base #248 Diamond Ink explanation does not depict a team.",
+    "rookies": "Exactly 14 cards tagged RC by TCDB, including #121 Kevin Millwood, #144 Chad Fox, #192 Takashi Kashiwada, #223 Dave Dellucci, #232 Henry Blanco, #235 Shane Bowers, #281 Scott Winchester, #293 Frank Catalanotto, #313 Masato Yoshii, #338 John Halama, #375 Mike Lowell, #380 Magglio Ordonez, #403 Jose Cabrera and #466 Rolando Arrojo. CollectionCount labels seven as true rookie based on 1998 service; TCDB and BaseballCardPedia include all 14 and were used for VCS collection RC recognition; source disagreement recorded.",
+    "parallelGold": "Full 501-card Gold Medallion checklist including #501, one per HOBBY pack, no fabricated serial numbering; physical packaging is 10 cards/pack. Retail details not collapsed with hobby.",
+    "parallelPlatinum": "498 numbered Platinum Medallions only; S1 #1P–250P /100 with 90 copies per card included in packs; S2 #251P–472P and #476P–501P /98 with 88 packed. #473P, #474P and #475P (Series Two checklist cards) were NEVER printed. Ten cards held for set-level redemption in each series. All 498 Platinum records explicit in generated CSV for generic importer reproducibility, not a naive 501-card derived set.",
+    "parallelMasterpiece": "Masterpiece full 501-card authentic purple one-of-one series; no asserted pack-specific insertion rate.",
+    "inserts": "Sixteen authentic insert families, 268 unique numbered cards, all checked line by line against independent CollectionCount. Nine in S1 and seven in S2. Fall Classics actual 15 cards (not 18 as one BCP odds-table typo). All Series Two Mike Piazza insert designs picture Florida Marlins, confirmed against independently indexed team metadata.",
+    "packaging": "Series One and Two hobby wax: 10 cards per pack, 24 packs/box, $2.59 MSRP. Retail wax: 7 cards per pack, 20 packs/box, $2.39 MSRP. Draft product metadata uses 10/24 hobby dimensions.",
+    "odds": "Hobby S1 Gold 1:1, Million Dollar Moments 1:1, Diamond Ink point 1:1. S1 Big Shots and Double Trouble 1:4, Back to the Future 1:6, Artistic Talents and Kid Gloves 1:8, Fall Classics 1:18, Power Plus 1:36, Prime Leather 1:144, Diamond Producers 1:288. S2 retail Top 30 one per pack, Notables hobby 1:4 retail 1:6, Rocket to Stardom hobby 1:15 retail 1:30, Millennium Men hobby only 1:35, Win Now hobby 1:72 retail 1:104, Ticket Studs hobby 1:144 retail 1:206, Diamond Immortals hobby 1:288 retail 1:412. Base S1 1:12 Season Crowns, 1:4 Prospects, 1:4 Checklists. S2 Pizzazz hobby 1:4 retail 1:6. Platinum and Masterpiece unknown numeric pack odds, do not invent.",
+    "sharedMDM": "1997–98 Fleer Million Dollar Moments 50 original cards are cross-brand with 1997 Fleer Series Two, 1997 Flair Showcase, 1998 Tradition Series One and 1998 Ultra Series One, 1 per pack in Series One only per TCDB. Pack-original #46–50 extremely rare (one-copy #47 Joel Youngblood is only speculative, not confirmed exact print run). Genuine full 50-card redemption edition has alternate text on back and printed in equal quantities. Catalog both with separate collection group, but redemption never in packs.",
+    "diamondInk": "Diamond Ink point cards were seeded across 1998 Fleer product lines one per pack, collect 500 points for a ball signed by the named player. No independently verified finite numbered/identity checklist for the point-card variants; DO NOT generate imaginary subjects or points as ordinary insert cards. Base #248 itself is an original checklist/program card and remains in the base.",
+    "platinumExchange": "Two actual set-exchange voucher designs, printed 10 copies each series (as independently documented by TCDB) and exchangeable for physical Platinum full-series lots. VCS S1 and S2 identifiers are virtual only. Redeemed Platinum cards already individually counted in 498, not duplicated.",
+    "promoAutograph": "A 1998 Fleer Tradition Alex Rodriguez Promo #100 signed by Rodriguez, 750 copies hand numbered on front, seeded Ultra S2 HOBBY. Catalog as separate Ultra-carried cross-brand autograph in the original Tradition promo design, not invented Ultra autograph layout.",
+    "collation": "Current VCS set product pack engine uses combined S1/S2 and hobby/retail and lacks source-specific SP/prospects subgroup + Gold guarantee and contest-program handling. oddsPerPack deliberately NULL for all 24 groups, product remains unreleased. Before release, implement S1/S2 source-specific pack manifests, retail/hobby dimensions and team-image scan QA. Do not make Platinum/Masterpiece artificially frequent or insert MDM exchange redemption cards in packs.",
+    "images": "No invented card layouts or unverified Dufex/foil templates, pack designs or era photo. Authentic scans pending. Existing product/card values and images untouched."
+  },
+  "product": {
+    "id": "1998_Ultra_Baseball",
+    "year": 1998,
+    "brand": "Ultra",
+    "sport": "Baseball",
+    "cardsPerPack": 10,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "checklist": "VERIFIED_BCP_COLLECTIONCOUNT_TCDB",
+    "rookies": "VERIFIED_14_TCDB",
+    "cardImages": "PENDING",
+    "packImage": "PENDING",
+    "pricing": "PENDING",
+    "collation": "BLOCKED_SERIES_CHANNEL_SHORTPRINT_AND_GOLD_GUARANTEE",
+    "release": "UNRELEASED"
+  },
+  "cardsFile": "1998-ultra-baseball.cards.csv.gz",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1998_Ultra_Baseball_base",
+      "name": "Base Set",
+      "kind": "BASE",
+      "expectedCards": 501,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Original 501-card base split S1 #1–250 and S2 #251–501, with authentic SP subset flags and late Piazza Mets #501. True rookie flags only on 14 TCDB-verified cards."
+    },
+    {
+      "key": "gold-medallion",
+      "id": "1998_Ultra_Baseball_gold_medallion",
+      "name": "Gold Medallion",
+      "kind": "PARALLEL",
+      "expectedCards": 501,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Gold Ultra Medallion embellishment on all base #1–501. Inserted ONE in every hobby pack, both series; no invented serial numbering.",
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Gold Medallion; authentic gold foil embossed parallel of 1998 Ultra base including #501; 1 per standard hobby pack"
+    },
+    {
+      "key": "platinum-medallion",
+      "id": "1998_Ultra_Baseball_platinum_medallion",
+      "name": "Platinum Medallion",
+      "kind": "PARALLEL",
+      "expectedCards": 498,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Genuine 498-card physical parallel with printed numbering #1P–250P and #251P–472P/#476P–501P; #473P–475P NEVER EXISTED. S1 /100 with 90 inserted, S2 /98 with 88 inserted; ten held per series as set redemption."
+    },
+    {
+      "key": "masterpiece",
+      "id": "1998_Ultra_Baseball_masterpiece",
+      "name": "Masterpiece",
+      "kind": "PARALLEL",
+      "expectedCards": 501,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Exactly one original one-of-one Masterpiece per base identity (full #1–501), including late Piazza Mets addition. No invented pack odds.",
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Masterpiece purple-shine Ultra parallel, individually one of one; authentic full original 501 base subjects"
+    },
+    {
+      "key": "big-shots",
+      "id": "1998_Ultra_Baseball_big_shots",
+      "name": "Big Shots",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Series One hobby/retail 1:4; BS prefix; one of 16 original insert sets."
+    },
+    {
+      "key": "double-trouble",
+      "id": "1998_Ultra_Baseball_double_trouble",
+      "name": "Double Trouble",
+      "kind": "INSERT",
+      "expectedCards": 20,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Series One hobby/retail 1:4; player pairings, two subjects on each card, DT prefix."
+    },
+    {
+      "key": "back-to-the-future",
+      "id": "1998_Ultra_Baseball_back_to_the_future",
+      "name": "Back to the Future",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Series One hobby/retail 1:6; BF prefix."
+    },
+    {
+      "key": "artistic-talents",
+      "id": "1998_Ultra_Baseball_artistic_talents",
+      "name": "Artistic Talents",
+      "kind": "INSERT",
+      "expectedCards": 18,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Series One hobby/retail 1:8; AT prefix."
+    },
+    {
+      "key": "kid-gloves",
+      "id": "1998_Ultra_Baseball_kid_gloves",
+      "name": "Kid Gloves",
+      "kind": "INSERT",
+      "expectedCards": 12,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Series One hobby/retail 1:8; KG prefix."
+    },
+    {
+      "key": "fall-classics",
+      "id": "1998_Ultra_Baseball_fall_classics",
+      "name": "Fall Classics",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Series One hobby/retail 1:18; FC prefix on first 14, source prints #15 without FC. One BCP odds table incorrectly says 18 cards: actual independent checklists both count 15."
+    },
+    {
+      "key": "power-plus",
+      "id": "1998_Ultra_Baseball_power_plus",
+      "name": "Power Plus",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Series One hobby/retail 1:36; PP prefix."
+    },
+    {
+      "key": "prime-leather",
+      "id": "1998_Ultra_Baseball_prime_leather",
+      "name": "Prime Leather",
+      "kind": "INSERT",
+      "expectedCards": 18,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Series One hobby/retail 1:144; PL prefix."
+    },
+    {
+      "key": "diamond-producers",
+      "id": "1998_Ultra_Baseball_diamond_producers",
+      "name": "Diamond Producers",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Series One hobby/retail 1:288; DP prefix."
+    },
+    {
+      "key": "top-30",
+      "id": "1998_Ultra_Baseball_top_30",
+      "name": "Top 30",
+      "kind": "INSERT",
+      "expectedCards": 30,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Series Two RETAIL ONLY; one in every retail pack; T3 prefix. Mike Piazza #14 pictured as Florida Marlin."
+    },
+    {
+      "key": "notables",
+      "id": "1998_Ultra_Baseball_notables",
+      "name": "Notables",
+      "kind": "INSERT",
+      "expectedCards": 20,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Series Two, hobby 1:4, retail 1:6; N prefix."
+    },
+    {
+      "key": "rocket-to-stardom",
+      "id": "1998_Ultra_Baseball_rocket_to_stardom",
+      "name": "Rocket to Stardom",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Series Two, hobby 1:15 retail 1:30; original die-cut; RS prefix."
+    },
+    {
+      "key": "millennium-men",
+      "id": "1998_Ultra_Baseball_millennium_men",
+      "name": "Millennium Men",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Series Two HOBBY ONLY 1:35; 2.5-by-7-inch folding insert; MM prefix."
+    },
+    {
+      "key": "win-now",
+      "id": "1998_Ultra_Baseball_win_now",
+      "name": "Win Now",
+      "kind": "INSERT",
+      "expectedCards": 20,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Series Two hobby 1:72 retail 1:104; WN prefix."
+    },
+    {
+      "key": "ticket-studs",
+      "id": "1998_Ultra_Baseball_ticket_studs",
+      "name": "Ticket Studs",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Series Two hobby 1:144 retail 1:206; 1.75-by-7-inch oversized die-cut ticket card, TS prefix."
+    },
+    {
+      "key": "diamond-immortals",
+      "id": "1998_Ultra_Baseball_diamond_immortals",
+      "name": "Diamond Immortals",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Series Two hobby 1:288 retail 1:412; DI prefix."
+    },
+    {
+      "key": "million-dollar-moments",
+      "id": "1998_Ultra_Baseball_million_dollar_moments",
+      "name": "Fleer Million Dollar Moments (Cross-Brand)",
+      "kind": "INSERT",
+      "expectedCards": 50,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Original physically pack-issued 1997–98 Fleer Million Dollar Moments game cards #1–50, first 45 common, #46–50 progressively rarer. Original Ultra Series One one per pack; shared EXACT issue with 1997 Fleer, 1997 Flair Showcase and 1998 Fleer Tradition Series One."
+    },
+    {
+      "key": "million-dollar-moments-exchange",
+      "id": "1998_Ultra_Baseball_million_dollar_moments_exchange",
+      "name": "Fleer Million Dollar Moments Exchange Set",
+      "kind": "INSERT",
+      "expectedCards": 50,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Distinct mail-in exchanged 50-card version of full original cross-brand set; all 50 printed in equal amounts and reverse says 'THIS IS NOT AN OFFICIAL GAME CARD'. Exchanged for a full 45-card set plus fee; NEVER a regular pack hit.",
+      "deriveCardsFrom": "million-dollar-moments",
+      "derivedVariant": "Cross-brand Fleer Million Dollar Moments mail-in full 50-card redemption version; equal quantities, printed back states THIS IS NOT AN OFFICIAL GAME CARD; not a wax-pulled variant"
+    },
+    {
+      "key": "platinum-redemptions",
+      "id": "1998_Ultra_Baseball_platinum_redemptions",
+      "name": "Platinum Medallion Complete-Series Redemptions",
+      "kind": "INSERT",
+      "expectedCards": 2,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Two different actual set-level redemption vouchers, one per series, only ten copies each. Virtual collector identifiers S1 and S2, not invented printed checklist card numbers, not ordinary single-card Platinum parallels."
+    },
+    {
+      "key": "fleer-tradition-promo-autograph",
+      "id": "1998_Ultra_Baseball_fleer_tradition_promo_autograph",
+      "name": "Alex Rodriguez Autographed Fleer Tradition Promo",
+      "kind": "INSERT",
+      "expectedCards": 1,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1998_Ultra",
+      "notes": "Actual #100 Alex Rodriguez 1998 Fleer Tradition Promo signed and hand-numbered /750, placed in 1998 Ultra Series Two HOBBY wax; not an Ultra artwork design."
+    }
+  ]
+}
