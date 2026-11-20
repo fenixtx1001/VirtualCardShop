@@ -91,7 +91,7 @@ def norm_key(s):return re.sub(r"[^a-z0-9]","",s.lower())
 
 def add(rows,key,num,name,team,subset="",variant=""):
  if not name or not name.strip():raise ValueError(f"Missing subject {key} {num}")
- if team is None and "Checklist" not in name:raise ValueError(f"Missing team {key} {num}: {name}")
+ if team is None and subset!="Checklist":raise ValueError(f"Missing team {key} {num}: {name}")
  rows.append(dict(zip(FIELDS,[key,str(num),name,team or "",subset,variant])))
 
 def parsed_line(s):
