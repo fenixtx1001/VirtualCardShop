@@ -95,8 +95,10 @@ def produce():
   if not isinstance(idx,int) or not 0<=idx<len(teams):
    raise ValueError(f"Bad team index #{number}")
   raw_bcp=base_src[number]
-  raw_name=re.sub(r"\s*\(UER:.*$","",name).strip()
-  if raw_name!=raw_bcp:raw_differences.add(number)
+  # Compare published printed-subject strings after removing BCP's subset/RC annotations.
+  # Keep award, punctuation, nicknames, and CC error footnotes as explicit discrepancies.
+  raw_bcp_display=re.sub(r"\s+(?:PROS|DP|DPK|RC|UER|ERR|COR|VAR)\b.*$","",raw_bcp).strip()
+  if name.strip()!=raw_bcp_display:raw_differences.add(number)
   cname=normalize(name);bname=normalize(raw_bcp)
   if cname!=bname:
    raise ValueError(f"Unreviewed identity mismatch #{number}: {cname!r} != {bname!r}")
