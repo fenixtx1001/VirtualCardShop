@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "BCP": "https://baseballcardpedia.com/index.php/2000_Ultra",
+    "baseIndependent": "https://mycardbatch.com/checklists/fleer-ultra-2000-baseball",
+    "KeyMan": "https://keymancollectibles.com/baseballcards/fleer/2000ultrabaseballcardchecklist.htm",
+    "TCDB": "https://www.tcdb.com/ViewSet.cfm/sid/1425/2000-Ultra",
+    "TCDBInsert": "https://www.tcdb.com/Inserts.cfm/sid/1425/2000-Ultra",
+    "TCDBRookies": "https://www.tcdb.com/Rookies.cfm/sid/1425/2000-Ultra",
+    "TCDBFreshInk": "https://www.tcdb.com/Checklist.cfm/sid/12434/2000-Ultra-Fresh-Ink",
+    "ClubCrossBrand": "https://baseballcardpedia.com/index.php/2000_Fleer_Club_3000",
+    "TCDBGoldExternal": "https://www.tcdb.com/ViewSet.cfm/sid/12435/2001-Fleer-Platinum-2000-Ultra-Fresh-Ink-Gold"
+  },
+  "decisions": {
+    "identity": "Original single-release 2000 Fleer Ultra Baseball issued late 1999; 300 base. No preexisting matching GitHub PR, factory branch or production Product. Distinct from 2000 Fleer Tradition and other brands.",
+    "base": "Full 300 #1–300, Prospects #251–300 inserted 1:4 packs. Every card ID, player name and team reconciled between BCP source and independently indexed MyCardBatch 300-row player/club checklist. Only 12 reviewed source-caption differences (#45, 52, 70, 100, 139, 144, 170, 202, 235, 274, 282, 295); BCP notes uncorrected wrong Dodgers back logo #70 Chipper Jones; did not replace Braves team.",
+    "rookies": "TCDB 2000 Ultra Rookies page currently has 0 flagged true rookie cards. Do NOT automatically call 50 Prospect subsets RCs; source may not establish whether individual subjects have earlier issue cards.",
+    "parallelGold": "All 300 in genuine G-suffix numbered list #1G–300G, regular 250 Gold 1 per pack and 50 SP Gold Prospects 1:24; never invent extra Gold hits in regular slot.",
+    "parallelPlatinum": "All 300 physical P-suffix. Regular #1P–250P individually numbered /50, Prospects #251P–300P /25, hobby only. Do not fabricate single uniform print-run or assign regular-card pack odds to low-print Platinum.",
+    "parallelMasterpiece": "All 300 original M-suffix 1/1 purple Masterpiece cards, 50 Prospects also die-cut, no asserted per-pack frequency. All derived cards retain exact base player/team identity and subset.",
+    "baseInserts": "World Premiere 10 1:12; Diamond Mine 15 1:6; Swing Kings 10 1:24; Crunch Time 15 1:72; Ultra Talented 10 /99 hobby only; Feel the Game 15 (14 in an inaccurate BCP odds table, independently 15 numbered by TCDB) 1:168 and material-specific game-used jerseys or batting gloves. All numeric letter-prefix IDs match original printed sets.",
+    "club3000": "Cross-brand 14 Club 3000 diecuts, but only three with physical ULT mark came through 2000 Ultra wax: Carl Yastrzemski, Tony Gwynn, Wade Boggs, 1:24. 15 matching memorabilia issues (three players x 5 authentic types) distinct serial caps per player/material from original 2000 Fleer Club 3000 source. The other 11 Club 3000 players were exclusively other 2000 Fleer brands and excluded.",
+    "freshInk": "62 original unnumbered Fresh Ink autographs with verified individual hand-numbered caps; original 2000 Ultra physically has sticker affixed before being signed and raised Fleer embossed sticker+card seal. BCP and TCDB differ for J.D. Drew (/600 BCP vs /550 TCDB) and Freddy Garcia (/500 BCP vs /550 TCDB); TCDB caps used, discrepancy preserved in card variant. These are virtual FI-XX catalog IDs, not faux card numbers.",
+    "freshInkGold": "BCP lists 24 established one-of-one gold-sticker variations using 2000 Ultra card design, reports 25 total rumored; never make up the 25th. They were originally packed in 2001 Fleer Platinum Rack Packs only, not Ultra wax. Clearly named segregated ProductSet and all oddsPerPack null and blocked from production pack issue.",
+    "promos": "Exactly two official Alex Rodriguez #P1 plain-stamped and #P2 lenticular promotional singles, both pre-release to dealers/media and excluded from packs. Same base card photo.",
+    "odds": "2000 Ultra regular hobby packs 10 cards and 24/box. Gold regular one per pack; Gold Prospects 1:24; regular Prospects 1:4; other historical original channels and odds in ProductSet notes. All VCS oddsPerPack NULL: VCS lacks an accurate distinct Gold slot, Prospects/SP rate, serial-limited hits, and 2001-rack-only Gold-external segregation. Product remains unreleased pending this QA.",
+    "design": "Never invent imagery, game-worn patch fabric, club 3000 stamp, promo hologram, player pose, autos, or a 25th unverified Gold. Real image templates and price valuations pending.",
+    "safety": "Production product released:false, pack price 0 auto, no impact on existing player cards or other products. All collector entries auditable with source-specific variants."
+  },
+  "product": {
+    "id": "2000_Ultra_Baseball",
+    "year": 2000,
+    "brand": "Ultra",
+    "sport": "Baseball",
+    "cardsPerPack": 10,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "checklists": "VERIFIED_BCP_MYCARDBATCH_TCDB",
+    "trueRookies": "NO_OFFICIAL_TCDB_FLAGS",
+    "cardImages": "PENDING",
+    "packImage": "PENDING",
+    "pricing": "PENDING",
+    "collation": "BLOCKED_FORMAT_SPS_SERIAL_GOLD_AND_2001_EXTERNAL_ISSUE",
+    "release": "UNRELEASED"
+  },
+  "cardsFile": "2000-ultra-baseball.cards.csv.gz",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2000_Ultra_Baseball_base",
+      "name": "Base Set",
+      "kind": "BASE",
+      "expectedCards": 300,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2000_Ultra",
+      "notes": "300 original #1–300. Normal #1–250; SP Prospects #251–300, one in four hobby or retail packs. All names/team from BCP + independent MyCardBatch; 12 documented name/typo discrepancies and Chipper Jones Dodgers-logo-back error #70."
+    },
+    {
+      "key": "gold-medallion",
+      "id": "2000_Ultra_Baseball_gold_medallion",
+      "name": "Gold Medallion",
+      "kind": "PARALLEL",
+      "expectedCards": 300,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2000_Ultra",
+      "notes": "Full original 300 numbered 1G–300G, die-cut for Prospects. Standard #1G–250G one per hobby/retail pack, Prospects #251G–300G 1:24. Distinct original G-suffixed printed number.",
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Authentic 2000 Ultra Gold Medallion foil with upper-front stamp; original cardNumber suffixed G. Gold Prospects #251G–300G short-printed 1:24; regular #1G–250G one per pack. Not serial-numbered"
+    },
+    {
+      "key": "platinum-medallion",
+      "id": "2000_Ultra_Baseball_platinum_medallion",
+      "name": "Platinum Medallion",
+      "kind": "PARALLEL",
+      "expectedCards": 300,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2000_Ultra",
+      "notes": "Original hobby-only Platinum Medallion 1P–300P, regular #1P–250P /50 and Prospects #251P–300P /25; source-printed P suffix and serial-numbered.",
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Authentic 2000 Ultra Platinum Medallion holofoil, original cardNumber suffixed P; first 250 printed /50, Prospects 251-300 printed /25. Hobby-exclusive"
+    },
+    {
+      "key": "masterpiece",
+      "id": "2000_Ultra_Baseball_masterpiece",
+      "name": "Masterpiece (1/1)",
+      "kind": "PARALLEL",
+      "expectedCards": 300,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2000_Ultra",
+      "notes": "All original 300 individually one-of-one Masterpiece, distinct printed M suffix, die-cut Prospects, purple foil front and The Only 1 of 1 Masterpiece back stamp.",
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Authentic 2000 Ultra Masterpiece 1/1, purple holofoil and back inscription THE ONLY 1 OF 1 MASTERPIECE; original cardNumber suffixed M. Distinct from platinum/regular"
+    },
+    {
+      "key": "world-premiere",
+      "id": "2000_Ultra_Baseball_world_premiere",
+      "name": "World Premiere",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2000_Ultra",
+      "notes": "Original 10-card die-cut WP numbered inserts, 1:12 standard packs."
+    },
+    {
+      "key": "diamond-mine",
+      "id": "2000_Ultra_Baseball_diamond_mine",
+      "name": "Diamond Mine",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2000_Ultra",
+      "notes": "Original 15-card DM insert checklist, 1:6 standard packs."
+    },
+    {
+      "key": "swing-kings",
+      "id": "2000_Ultra_Baseball_swing_kings",
+      "name": "Swing Kings",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2000_Ultra",
+      "notes": "Original SK 10-card insert, 1:24 hobby/retail."
+    },
+    {
+      "key": "crunch-time",
+      "id": "2000_Ultra_Baseball_crunch_time",
+      "name": "Crunch Time",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2000_Ultra",
+      "notes": "Original CT 15-card insert checklist, 1:72 packs."
+    },
+    {
+      "key": "ultra-talented",
+      "id": "2000_Ultra_Baseball_ultra_talented",
+      "name": "Ultra Talented",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2000_Ultra",
+      "notes": "10-card UT numbered hobby-exclusive insert, each physically serial numbered /99."
+    },
+    {
+      "key": "feel-the-game",
+      "id": "2000_Ultra_Baseball_feel_the_game",
+      "name": "Feel the Game Memorabilia",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2000_Ultra",
+      "notes": "15-card FG diecut game-used inserts including #15 Edgar Martinez; BCP odds table incorrectly states 14, but numbered card checklist #1–15 and TCDB independently confirm 15. 1:168 hobby/retail. Preserve batting-glove SP material types."
+    },
+    {
+      "key": "club-3000",
+      "id": "2000_Ultra_Baseball_club_3000",
+      "name": "Club 3000 (Ultra ULT)",
+      "kind": "INSERT",
+      "expectedCards": 3,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2000_Ultra",
+      "notes": "From 14-card Fleer cross-brand Club 3000 ONLY Carl Yastrzemski, Tony Gwynn, Wade Boggs ULT-marked diecut issues are in Ultra packs, 1:24. Three virtual catalog IDs rather than invented printed numbers."
+    },
+    {
+      "key": "club-3000-memorabilia",
+      "id": "2000_Ultra_Baseball_club_3000_memorabilia",
+      "name": "Club 3000 Memorabilia (Ultra ULT)",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2000_Ultra",
+      "notes": "Three actual ULT-marked Hall of Fame players each with Bat, Hat, Jersey, Bat/Jersey, and Bat/Hat/Jersey memorabilia, physically sequentially unnumbered but serial numbered specific runs by player/material, sourced from Club 3000 independent page."
+    },
+    {
+      "key": "fresh-ink",
+      "id": "2000_Ultra_Baseball_fresh_ink",
+      "name": "Fresh Ink Autographs",
+      "kind": "INSERT",
+      "expectedCards": 62,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2000_Ultra",
+      "notes": "62 physically unnumbered hand-numbered Fleer-stamped signed silver-sticker issues, individually numbered /95 to /1000. VCS FI-01…FI-62 are registry identifiers only. BCP vs TCDB inconsistent J.D. Drew and Freddy Garcia caps; card notes record dispute and use TCDB /550. Never assume all equal frequency."
+    },
+    {
+      "key": "fresh-ink-gold-platinum-2001",
+      "id": "2000_Ultra_Baseball_fresh_ink_gold_platinum_2001",
+      "name": "Fresh Ink Gold (2001 Platinum Rack Exclusive)",
+      "kind": "PARALLEL",
+      "expectedCards": 24,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2000_Ultra",
+      "notes": "24 named confirmed 1/1 gold sticker autograph subjects using 2000 Ultra card stock; issued **inside 2001 Fleer Platinum rack packs, NOT 2000 Ultra packs**. BCP says 25 alleged but only 24 identified; do not invent missing player. Cross-product collection only, not 2000 wax."
+    },
+    {
+      "key": "promos",
+      "id": "2000_Ultra_Baseball_promos",
+      "name": "Alex Rodriguez Promotional Cards",
+      "kind": "INSERT",
+      "expectedCards": 2,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/2000_Ultra",
+      "notes": "Original P1 normal gloss sample with PROMOTIONAL SAMPLE text on back, P2 rarer ribbed lenticular sample, distributed to dealers/media ahead of product; no pack inclusion."
+    }
+  ]
+}
