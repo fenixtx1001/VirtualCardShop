@@ -1389,7 +1389,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
               marginBottom: 12,
             }}
           >
-            <div style={{ fontWeight: 800 }}>Pricing Tools</div>
+            <div className="vcs-admin-pricing-heading"><strong>Pricing Tools</strong><span>Refresh player matches before applying tier defaults. <b>Fill Blank Prices</b> preserves existing values; <b>Overwrite All Prices</b> replaces them.</span></div>
 
             <button
               onClick={refreshPlayerRepository}
