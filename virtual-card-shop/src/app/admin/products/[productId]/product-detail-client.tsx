@@ -175,6 +175,7 @@ export default function ProductDetailClient({ productId }: { productId: string }
   return (
     <div style={{ padding: 16 }}>
       <h1 style={{ fontSize: 32, fontWeight: 800 }}>Admin: Product Detail</h1>
+      <p className="vcs-admin-inline-guidance">Configure this sealed product before making its checklist. Pack price, cards per pack, and packaging imagery affect how collectors see and open it. Changes in this section take effect when you select <strong>Save Product</strong>.</p>
 
       <div style={{ marginTop: 8, display: "flex", gap: 12 }}>
         <Link href="/admin/products" style={{ textDecoration: "underline" }}>
@@ -303,6 +304,7 @@ export default function ProductDetailClient({ productId }: { productId: string }
           <hr style={{ margin: "18px 0" }} />
 
           <h2 style={{ fontSize: 20, fontWeight: 800, marginBottom: 8 }}>Create Product Set</h2>
+          <p className="vcs-admin-inline-guidance">Add the base checklist or an insert/parallel group under this product. Choose one set type and enter odds such as <strong>84</strong> for a 1:84 pack hit. You can maintain its card list after creation.</p>
 
           <div style={{ display: "grid", gridTemplateColumns: "180px 1fr", gap: 10, maxWidth: 760 }}>
             <div>Product Set ID</div>
@@ -357,6 +359,7 @@ export default function ProductDetailClient({ productId }: { productId: string }
           <hr style={{ margin: "18px 0" }} />
 
           <h2 style={{ fontSize: 18, fontWeight: 800, marginBottom: 8 }}>Existing Product Sets</h2>
+          <p className="vcs-admin-inline-guidance">Open a linked product set to manage its checklist, card values, rarity settings, and images.</p>
           <div style={{ border: "1px solid #ddd" }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead style={{ background: "#f7f7f7" }}>

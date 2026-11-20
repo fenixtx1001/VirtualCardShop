@@ -1,66 +1,61 @@
+import Link from "next/link";
+
+const tools = [
+  { id: "01", title: "Card Maintenance", href: "/admin/cards", description: "Edit card details, book values, images, and VCS grading tiers." },
+  { id: "02", title: "Image Backfill", href: "/admin/cards/image-backfill", description: "Prioritize owned cards missing front or back art." },
+  { id: "03", title: "VCS Harvest", href: "/admin/set-factory/capture", description: "Capture reference card images into a selected set." },
+  { id: "04", title: "Player Repository", href: "/admin/player-tiers", description: "Manage player tiers that drive automated pricing." },
+  { id: "05", title: "Paste Import", href: "/admin/import", description: "Import copied checklist rows into a product set." },
+  { id: "06", title: "Legacy Set Editor", href: "/admin/sets", description: "Maintain earlier set records and their cards." },
+];
+
 export default function AdminHomePage() {
   return (
-    <main style={{ padding: 24, fontFamily: "system-ui, -apple-system, Segoe UI, Roboto" }}>
-      <h1 style={{ fontSize: 32, marginBottom: 8 }}>Admin</h1>
-      <p style={{ marginBottom: 24 }}>
-        Manage your product tree (Product → Product Set → Cards) and admin tools.
-      </p>
+    <section className="vcs-admin-home">
+      <header className="vcs-admin-home-heading">
+        <span className="vcs-admin-home-eyebrow">ADMINISTRATION / CONTROL ROOM</span>
+        <h1>Operations overview</h1>
+        <p className="vcs-admin-home-lead">
+          Your behind-the-scenes workspace for the VCS catalog, pricing, grading setup, and image pipeline.
+          Choose a workflow below or jump straight to the tool you need.
+        </p>
+      </header>
 
-      <ul style={{ lineHeight: 2 }}>
-        <li>
-          <a href="/">← Back to Home</a>
-        </li>
-        <li>
-          <a href="/admin/products">Admin: Products (top level)</a>
-        </li>
-        <li>
-          <a href="/admin/product-sets">Admin: Product Sets</a>
-        </li>
-        <li>
-          <a href="/admin/cards">Admin: Cards / Bulk VCS Tiers</a>
-        </li>
-        <li>
-          <a href="/admin/cards/image-backfill">Admin: Image Backfill Queue</a>
-        </li>
-        <li>
-          <a href="/admin/set-factory/capture">Set Factory: Browser Capture</a>
-        </li>
-        <li>
-          <a href="/admin/player-tiers">Admin: Player Repository / Tiers</a>
-        </li>
-        <li>
-          <a href="/admin/sets">Admin: Sets (legacy)</a>
-        </li>
-        <li>
-          <a href="/admin/import">Admin: Paste import</a>
-        </li>
-      </ul>
+      <section className="vcs-admin-home-feature" aria-labelledby="admin-workflow-heading">
+        <div>
+          <span className="vcs-admin-home-eyebrow">STANDARD CATALOG WORKFLOW</span>
+          <h2 id="admin-workflow-heading">Build from product to checklist.</h2>
+          <p>
+            Keep the product hierarchy accurate: configure the sealed product, organize its base and
+            insert sets, then import and maintain individual cards. This order keeps pack configuration,
+            image harvesting, and catalog navigation aligned.
+          </p>
+        </div>
+        <nav className="vcs-admin-home-workflow" aria-label="Catalog workflow">
+          <Link href="/admin/products"><span>STEP 01</span><strong>Products ↗</strong><small>Sealed packs, boxes &amp; release settings</small></Link>
+          <Link href="/admin/product-sets"><span>STEP 02</span><strong>Product sets ↗</strong><small>Base, inserts, odds &amp; defaults</small></Link>
+          <Link href="/admin/cards"><span>STEP 03</span><strong>Cards ↗</strong><small>Checklists, images &amp; grading</small></Link>
+        </nav>
+      </section>
 
-      <hr style={{ margin: "18px 0" }} />
+      <h2 className="vcs-admin-home-section-heading">Tools &amp; maintenance</h2>
+      <nav className="vcs-admin-home-grid" aria-label="Administration tools">
+        {tools.map((item) => (
+          <Link key={item.href} href={item.href} className="vcs-admin-home-tile">
+            <span className="vcs-admin-home-tile-top"><span>OPS / {item.id}</span><span aria-hidden="true">↗</span></span>
+            <strong>{item.title}</strong>
+            <small>{item.description}</small>
+          </Link>
+        ))}
+      </nav>
 
-      <p style={{ maxWidth: 820 }}>
-        Recommended workflow: start in <b>Products</b>, create/select a Product, then create its Product Sets
-        (Base/Elite/etc.), then import or attach cards to the right Product Set.
-      </p>
-
-      <p style={{ maxWidth: 820, marginTop: 14 }}>
-        For pricing automation, use <b>Player Repository / Tiers</b> to assign player tiers, then go to a Product Set
-        and use the pricing tools to fill blank prices, overwrite all prices, or pull a default on a single row.
-      </p>
-
-      <p style={{ maxWidth: 820, marginTop: 14 }}>
-        For retroactive VCS grading setup, use <b>Cards / Bulk VCS Tiers</b> to search across all cards and quickly
-        update individual or bulk gradeability overrides.
-      </p>
-
-      <p style={{ maxWidth: 820, marginTop: 14 }}>
-        Use <b>Image Backfill Queue</b> to find valuable owned cards that are missing front or back images, then
-        drag/drop images and update card attributes from one focused report.
-      </p>
-
-      <p style={{ maxWidth: 820, marginTop: 14 }}>
-        Use <b>Set Factory: Browser Capture</b> for the experimental browser-to-R2 card-image capture workflow.
-      </p>
-    </main>
+      <div className="vcs-admin-home-note">
+        <strong>Working with pricing?</strong> Assign players in the{" "}
+        <Link href="/admin/player-tiers">Player Repository</Link>, then open the relevant{" "}
+        <Link href="/admin/product-sets">Product Set</Link> to apply pricing. For missing artwork, use{" "}
+        <Link href="/admin/cards/image-backfill">Image Backfill</Link>. The legacy set editor remains available
+        for older records; new products should use the modern product hierarchy.
+      </div>
+    </section>
   );
 }

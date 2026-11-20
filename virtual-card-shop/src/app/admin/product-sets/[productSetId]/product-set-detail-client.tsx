@@ -1389,7 +1389,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
               marginBottom: 12,
             }}
           >
-            <div style={{ fontWeight: 800 }}>Pricing Tools</div>
+            <div className="vcs-admin-pricing-heading"><strong>Pricing Tools</strong><span>Refresh player matches before applying tier defaults. <b>Fill Blank Prices</b> preserves existing values; <b>Overwrite All Prices</b> replaces them.</span></div>
 
             <button
               onClick={refreshPlayerRepository}
@@ -1408,6 +1408,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
             </button>
 
             <button
+              className="vcs-admin-caution-action"
               onClick={overwriteAllPrices}
               disabled={pricingBusy || bulkSaving || loading || savingProductSet}
               style={{ padding: "8px 12px", fontWeight: 800, background: "#fff4e5" }}
@@ -1762,6 +1763,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                           {saving ? "Saving..." : "Save"}
                         </button>
                         <button
+                          className="vcs-admin-danger-action"
                           onClick={() => deleteCard(c)}
                           disabled={saving || bulkSaving || pricingBusy || savingProductSet}
                           style={{ padding: "6px 10px" }}
