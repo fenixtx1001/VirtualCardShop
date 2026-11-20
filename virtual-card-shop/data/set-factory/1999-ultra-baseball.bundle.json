@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "baseballcardpedia": "https://baseballcardpedia.com/index.php/1999_Ultra",
+    "independent": "https://www.collectioncount.com/checklists/1999-fleer-ultra-baseball/",
+    "tcdb": "https://www.tcdb.com/ViewSet.cfm/sid/1356/1999-Ultra",
+    "tcdbRookies": "https://www.tcdb.com/Rookies.cfm/sid/1356/1999-Ultra",
+    "tcdbInserts": "https://www.tcdb.com/Inserts.cfm/sid/1356/1999-Ultra",
+    "tcdbGold": "https://www.tcdb.com/Checklist.cfm/sid/11804/1999-Ultra-Gold-Medallion",
+    "tcdbPlatinum": "https://www.tcdb.com/Checklist.cfm/sid/11806/1999-Ultra-Platinum-Medallion",
+    "keyman": "https://www.keymancollectibles.com/baseballcards/fleer/1999ultrabaseballcardchecklist.htm"
+  },
+  "decisions": {
+    "setIdentity": "Original 1999 Fleer Ultra Baseball flagship set issued November 1998, one 250-card series, first single-series Ultra since 1991. Confirmed pre-import no matching Product, PR or factory branch. NOT Fleer Tradition or 1999 basketball/football Ultra.",
+    "base": "Cards #1–210 standard, five player-fronted checklists #211–215, 10 Season Crowns #216–225 short-printed 1:8, and 25 Prospects #226–250 short-printed 1:4. Original physical card #215 is Ken Griffey, Jr. checklist; #211 Kerry Wood. 250 cards all checked number/name/team vs BCP and independent CollectionCount. Three specific BCP missing Jr. suffix (#178 Sandy Alomar, #213 Cal Ripken, #215 Ken Griffey) corrected using independent source.",
+    "rookieFlags": "TCDB currently reports 0 flagged RCs and CollectionCount similarly lists 0; 13 men who met rookie thresholds in 1999 appear as Prospects or inserts, but do not stamp design-specific RC labels without official checklist confirmation. Prospect-themed is not synonymous with true RC.",
+    "parallels": "Gold Medallion complete 250 cards, printed G suffix; 215 normal Gold cards one per hobby pack, 10 short-printed Gold Season Crowns 1:80 hobby, 25 Gold Prospects 1:40 hobby. Platinum Medallion also 250 with P suffix, serial-numbered /99 for regular #1–215, /50 for Season Crowns #216–225 and /65 for Prospects #226–250; no invented /99 for all. Masterpiece authentic full 250-card 1/1 dark purple foil and back stamp, derived from Base only. All parallels hobby exclusive.",
+    "inserts": "Six authentic inserts, 105 cards: RBI Kings 30 retail exclusive one per pack; The Book On 20 1:6 hobby/retail; World Premiere 15 1:18; Thunderclap 15 1:36; Damage Inc. 15 1:72; Diamond Producers 10 die-cut 1:288. Every subject/number/team compared against BCP and independently-maintained CollectionCount. Original insert suffix printed n RK/BO/WP/TC/DI/DP stored in Card.cardNumber.",
+    "promos": "Six separate actual stamped PROMOTIONAL SAMPLE singles cut from a dealer/media uncut sheet, with Kerry Wood, Mark McGwire, Nomar Garciaparra, Andruw Jones, Alex Rodriguez, Kenny Lofton. Uses clearly named virtual SAMPLE-01..06 inventory IDs because physical promo checklist is unnumbered; do not invent printed numbering. Do not count the sheet six extra times. Never in wax.",
+    "distribution": "Hobby 10 cards per pack and 24 packs per box at $2.69 original manufacturer MSRP. BCP did not publish verifiable exact retail cards per pack or box configuration, so do not invent. Retail-only RBI Kings remain a different pack channel.",
+    "pricing": "Historical MSRP $2.69 is not a fair present-day virtual pack value; zero initial imported VCS price with autoPackPricing and released false, no changes to other products.",
+    "collation": "Current VCS pack engine lacks retail/hobby separation, true Season Crowns/Prospects subgroups, and a guaranteed hobby Gold slot. All oddsPerPack deliberately null rather than fabricating pack rates. Public release gated until format-aware and subgroup-aware collation, accurate images and pricing are checked.",
+    "images": "No fabricated card fronts, player poses, Dufex textures, promo sheet or packaging; real scans required for publication. No other VCS sets, prices, photos or collections modified."
+  },
+  "product": {
+    "id": "1999_Ultra_Baseball",
+    "year": 1999,
+    "brand": "Ultra",
+    "sport": "Baseball",
+    "cardsPerPack": 10,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "checklist": "VERIFIED",
+    "trueRookies": "NONE_DESIGNATED_TCDB",
+    "photos": "PENDING",
+    "packImage": "PENDING",
+    "pricing": "PENDING",
+    "collation": "BLOCKED_HOBBY_RETAIL_AND_SHORT_PRINT_ODDS",
+    "release": "UNRELEASED"
+  },
+  "cardsFile": "1999-ultra-baseball.cards.csv.gz",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1999_Ultra_Baseball_base",
+      "name": "Base Set",
+      "kind": "BASE",
+      "expectedCards": 250,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Ultra",
+      "notes": "One series #1–250: regular #1–210, five checklists #211–215, Season Crowns #216–225 (SP 1:8), Prospects #226–250 (SP 1:4). Source records 0 formal rookie-card badges; prospect label is not RC."
+    },
+    {
+      "key": "gold-medallion",
+      "id": "1999_Ultra_Baseball_gold_medallion",
+      "name": "Gold Medallion",
+      "kind": "PARALLEL",
+      "expectedCards": 250,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Ultra",
+      "notes": "Complete 250-card Gold Medallion in original G-suffix numbering, metallic gold matte foil and back foil stamp. Hobby #1G–215G one per pack, Season Crowns #216G–225G 1:80, Prospects #226G–250G 1:40. Exclude retail."
+    },
+    {
+      "key": "platinum-medallion",
+      "id": "1999_Ultra_Baseball_platinum_medallion",
+      "name": "Platinum Medallion",
+      "kind": "PARALLEL",
+      "expectedCards": 250,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Ultra",
+      "notes": "All 250 base subjects in original P-suffix IDs: #1P–215P serialized /99; Season Crowns #216P–225P /50; Prospects #226P–250P /65. Hobby-only. Correct individually printed tier metadata."
+    },
+    {
+      "key": "masterpiece",
+      "id": "1999_Ultra_Baseball_masterpiece",
+      "name": "Masterpiece (1/1)",
+      "kind": "PARALLEL",
+      "expectedCards": 250,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Ultra",
+      "notes": "True 250-card, one-of-one dark purple foil 'THE ONLY 1 OF 1 MASTERPIECE EDITION'. Exact base identities, without guessing per-pack odds.",
+      "deriveCardsFrom": "base",
+      "derivedVariant": "Authentic 1999 Ultra Masterpiece purple foil, each card serialized 1/1; manufacturer's THE ONLY 1 OF 1 MASTERPIECE EDITION stamp; original base card number"
+    },
+    {
+      "key": "rbi-kings",
+      "id": "1999_Ultra_Baseball_rbi_kings",
+      "name": "RBI Kings",
+      "kind": "INSERT",
+      "expectedCards": 30,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Ultra",
+      "notes": "One in each retail pack only, excluded from hobby. Original printed RK suffix, 30 subjects."
+    },
+    {
+      "key": "the-book-on",
+      "id": "1999_Ultra_Baseball_the_book_on",
+      "name": "The Book On",
+      "kind": "INSERT",
+      "expectedCards": 20,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Ultra",
+      "notes": "Hobby/retail odds 1:6; original BO suffix and 20 player checklist."
+    },
+    {
+      "key": "world-premiere",
+      "id": "1999_Ultra_Baseball_world_premiere",
+      "name": "World Premiere",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Ultra",
+      "notes": "Hobby/retail odds 1:18; original WP suffix and 15 player checklist."
+    },
+    {
+      "key": "thunderclap",
+      "id": "1999_Ultra_Baseball_thunderclap",
+      "name": "Thunderclap",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Ultra",
+      "notes": "Hobby/retail odds 1:36; original TC suffix and 15 players."
+    },
+    {
+      "key": "damage-inc",
+      "id": "1999_Ultra_Baseball_damage_inc",
+      "name": "Damage Inc.",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Ultra",
+      "notes": "Hobby/retail odds 1:72; original DI suffix and 15 players."
+    },
+    {
+      "key": "diamond-producers",
+      "id": "1999_Ultra_Baseball_diamond_producers",
+      "name": "Diamond Producers",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Ultra",
+      "notes": "Hobby/retail odds 1:288; authentic die-cut, DP suffix, not an invented parallel."
+    },
+    {
+      "key": "promotional-samples",
+      "id": "1999_Ultra_Baseball_promotional_samples",
+      "name": "Dealer Promotional Samples",
+      "kind": "INSERT",
+      "expectedCards": 6,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1999_Ultra",
+      "notes": "Six actual individual stamped samples of selected base subjects distributed to dealers/media; original single uncut sample sheet NOT counted as another six cards; never packable."
+    }
+  ]
+}
