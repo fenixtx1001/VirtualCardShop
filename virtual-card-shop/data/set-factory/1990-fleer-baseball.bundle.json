@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "baseAndInserts": "https://baseballcardpedia.com/index.php/1990_Fleer",
+    "independentBaseAndTeams": "https://www.collectioncount.com/checklists/1990-fleer-baseball/",
+    "tcdbBase": "https://www.tcdb.com/ViewSet.cfm/sid/140/1990-Fleer",
+    "tcdbRookies": "https://www.tcdb.com/Rookies.cfm/sid/140/1990-Fleer",
+    "tcdbStickers": "https://www.tcdb.com/Checklist.cfm/sid/70924/1990-Fleer-Action-Series-Team-Stickers"
+  },
+  "decisions": {
+    "collectorChecklist": "One 660-card base checklist numbered 1–660, including Players of the Decade 621–630, SuperStar Specials 631–639, Major League Prospects 640–653 and Checklist cards 654–660; never split the base set by team or subset.",
+    "verifiedException57": "Base #57 is Atlee Hammaker. BaseballCardPedia currently incorrectly lists Charlie Haag. TCDB and independent published catalog references support Atlee Hammaker.",
+    "packChannel": "Standard U.S. wax pack modeled (15 regular cards and one separately collectible unnumbered team logo sticker, 36 packs per box). Wax insert All-Stars is 1:8. VCS models 16 collectible objects/pack to include a sticker; a pack with an All-Star currently displaces one regular card because pack engine has fixed total slots. This needs a pack-collation improvement before release.",
+    "channelGates": "Soaring Stars 12 is jumbo-cello-only, 1:4 jumbo packs. League Standouts 6 is rack-only, exactly one per rack. Both remain null odds in US wax. World Series 12 came only complete in factory sets. Box Bottoms 28 are packaging cutouts, not wax-inserted; both remain null odds.",
+    "stickers": "TCDB catalogues 38 distinct unnumbered Action Series Team Stickers (26 single-team, 12 quad-logo). LOGO-01...LOGO-26 and QUAD-01...QUAD-12 are virtual inventory identifiers, not printed numbers; regular US wax packs include one sticker per pack.",
+    "canadian": "1990 Fleer Canadian is an authentic, separately distributed 660-card full parallel (10 cards/pack, 48 packs/box); excluded from the US wax product and should be its own future product. Do not silently add Canadian cards to regular U.S. wax.",
+    "variants": "Ordinary period/no-period PRINTED IN U.S.A. back differences apply widely; not modeled as a second complete 660-card parallel. Five named corrections and #660 are noted in base metadata, not duplicated collector-facing checklist. No invented rare print frequencies.",
+    "rookies": "TCDB RC index contains 126 physical variation records corresponding to 63 distinct numbered base card entries. True solo RCs are suffixed RC. For shared Major League Prospects cards, do not tag each player as a rookie indiscriminately. Moises Alou is independently identified as a true RC on #650; other shared card subjects have card-level RC notes pending per-person audit.",
+    "productSets": "Seven collector sets, total 768 catalog entries: base 660, All-Stars 12, League Standouts 6, Soaring Stars 12, World Series factory 12, Box Bottoms 28, Action Series Team Stickers 38.",
+    "release": "UNRELEASED. Original pack collation when wax All-Star appears, price, pack/box imagery, all card scans, and multi-subject RC badges pending QA. No altered existing prices or images."
+  },
+  "product": {
+    "id": "1990_Fleer_Baseball",
+    "year": 1990,
+    "brand": "Fleer",
+    "sport": "Baseball",
+    "cardsPerPack": 16,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_PACK_COLLATION_AND_IMAGE_QA"
+  },
+  "cardsFile": "1990-fleer-baseball.cards.csv.gz",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1990_Fleer_Baseball_base",
+      "name": "Base Set",
+      "kind": "BASE",
+      "expectedCards": 660,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1990_Fleer",
+      "notes": "All 660 numbered U.S. base cards. Includes three printed subsets and seven checklist cards."
+    },
+    {
+      "key": "all-stars",
+      "id": "1990_Fleer_Baseball_all_stars",
+      "name": "'90 Fleer All-Star Team",
+      "kind": "INSERT",
+      "expectedCards": 12,
+      "oddsPerPack": 8,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1990_Fleer",
+      "notes": "U.S. standard wax 1:8 packs; also 33-card cello. Original printing errors retained as variants."
+    },
+    {
+      "key": "soaring-stars",
+      "id": "1990_Fleer_Baseball_soaring_stars",
+      "name": "Soaring Stars",
+      "kind": "INSERT",
+      "expectedCards": 12,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1990_Fleer",
+      "notes": "43-card jumbo cello exclusive, 1:4 jumbo packs. Not inserted into standard wax."
+    },
+    {
+      "key": "league-standouts",
+      "id": "1990_Fleer_Baseball_league_standouts",
+      "name": "League Standouts",
+      "kind": "INSERT",
+      "expectedCards": 6,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1990_Fleer",
+      "notes": "45-card rack exclusive, one per rack. Not inserted into standard wax."
+    },
+    {
+      "key": "world-series",
+      "id": "1990_Fleer_Baseball_world_series",
+      "name": "World Series",
+      "kind": "INSERT",
+      "expectedCards": 12,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1990_Fleer",
+      "notes": "1989 World Series highlights; complete 12-card pack issued in factory sets only. Not wax-inserted."
+    },
+    {
+      "key": "box-bottoms",
+      "id": "1990_Fleer_Baseball_box_bottoms",
+      "name": "Box Bottoms",
+      "kind": "INSERT",
+      "expectedCards": 28,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1990_Fleer",
+      "notes": "Six printed box panels A-F; cards C1-C28 obtained by cutting wax/cello box bottoms. Packaging issue; not wax pack pulls."
+    },
+    {
+      "key": "team-stickers",
+      "id": "1990_Fleer_Baseball_team_stickers",
+      "name": "Action Series Team Stickers",
+      "kind": "INSERT",
+      "expectedCards": 38,
+      "oddsPerPack": 1,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1990_Fleer",
+      "notes": "One unnumbered team logo/quad-logo sticker per US wax pack; variants use VCS virtual identifiers."
+    }
+  ]
+}
