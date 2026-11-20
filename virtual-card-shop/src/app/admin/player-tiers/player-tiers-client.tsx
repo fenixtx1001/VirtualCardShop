@@ -563,7 +563,7 @@ export default function PlayerTiersClient() {
                     <button onClick={() => toggleIgnoreToken(row)} style={{ padding: "6px 10px", marginRight: 8 }}>
                       {row.isEnabled ? "Disable" : "Enable"}
                     </button>
-                    <button onClick={() => deleteIgnoreToken(row)} style={{ padding: "6px 10px", color: "red" }}>
+                    <button className="vcs-admin-danger-action" onClick={() => deleteIgnoreToken(row)} style={{ padding: "6px 10px", color: "red" }}>
                       Delete
                     </button>
                   </td>
