@@ -21,7 +21,7 @@ body:has(.vcs-admin-shell) { background: #16212b; }
 .vcs-admin-shell :is(a,button,input,textarea,select):focus-visible { outline: 2px solid #187b83 !important; outline-offset: 2px; box-shadow: 0 0 0 3px #30a9b322 !important; }
 .vcs-admin-shell a { color: #116875; text-underline-offset: 3px; }
 .vcs-admin-shell a:hover { color: #084f58; }
-.vcs-admin-topbar { background: #182631; color: #edf5f7; border-bottom: 1px solid #364855; }
+.vcs-admin-topbar { position: sticky; top: 0; z-index: 80; background: #182631; color: #edf5f7; border-bottom: 1px solid #364855; }
 .vcs-admin-topbar-inner { max-width: 1550px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 65px; padding: 10px 24px; }
 .vcs-admin-brand { display: flex; gap: 10px; align-items: center; color: #e7f2f1 !important; text-decoration: none; font-size: 16px; font-weight: 650; letter-spacing: -.035em; white-space: nowrap; }
 .vcs-admin-brand b { color: #9fc8ca; font-weight: 600; letter-spacing: .055em; }
@@ -31,7 +31,7 @@ body:has(.vcs-admin-shell) { background: #16212b; }
 .vcs-admin-exit { color: #dfb889 !important; font-size: 12px; text-decoration: none; white-space: nowrap; }
 .vcs-admin-exit span { font-size: 15px; }
 .vcs-admin-frame { max-width: 1550px; margin: auto; padding: 0 22px; }
-.vcs-admin-nav { position: sticky; top: 0; z-index: 25; background: #202e39; border: 1px solid #415361; border-top: 0; border-radius: 0 0 7px 7px; margin-bottom: 18px; box-shadow: 0 5px 16px #15253022; }
+.vcs-admin-nav { position: sticky; top: 65px; z-index: 25; background: #202e39; border: 1px solid #415361; border-top: 0; border-radius: 0 0 7px 7px; margin-bottom: 18px; box-shadow: 0 5px 16px #15253022; }
 .vcs-admin-nav-inner { display: flex; align-items: center; gap: 3px; overflow-x: auto; scrollbar-width: thin; padding: 8px 10px 7px; }
 .vcs-admin-nav-group { padding: 5px 7px 5px 13px; color: #829ba7; font: 600 9px/1.4 "Consolas", monospace; letter-spacing: .13em; flex: 0 0 auto; }
 .vcs-admin-nav-link { position: relative; display: inline-flex; min-height: 36px; padding: 9px 11px; align-items: center; color: #b9cbd0 !important; text-decoration: none !important; white-space: nowrap; border: 1px solid transparent; border-radius: 5px; font-weight: 570; font-size: 12px; flex: 0 0 auto; }
@@ -50,6 +50,7 @@ body:has(.vcs-admin-shell) { background: #16212b; }
 .vcs-admin-context-links a:hover { text-decoration: underline; }
 .vcs-admin-content { min-width: 0; min-height: 65vh; background: #f8fafb; border: 1px solid #d8e1e5; border-radius: 8px; padding: 22px; box-shadow: 0 8px 28px #10233110; }
 .vcs-admin-content > :is(main,div) { max-width: 100% !important; padding: 0 !important; font-family: inherit !important; }
+.vcs-admin-content > .vcs-admin-home { max-width: 1180px !important; }
 .vcs-admin-content h1 { color: #1b2f3c; margin-top: 0; margin-bottom: 6px; font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; font-size: clamp(23px,2.2vw,30px) !important; font-weight: 650 !important; letter-spacing: -.038em; }
 .vcs-admin-content h2 { color: #263e4a; font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; letter-spacing: -.02em; font-weight: 650 !important; }
 .vcs-admin-content h3 { color: #314b58; }
@@ -76,6 +77,21 @@ body:has(.vcs-admin-shell) { background: #16212b; }
 .vcs-admin-content details { padding: 11px 12px; border: 1px solid #d6e0e4; border-radius: 5px; background: #f5f8fa; }
 .vcs-admin-content summary { font-weight: 650; cursor: pointer; }
 .vcs-admin-content a { text-decoration-color: #2b828877; }
+
+/* Keep risky actions recognizable even though routine actions share one simple treatment. */
+.vcs-admin-content button.vcs-admin-caution-action {
+  background: #f9eddb !important; border-color: #dfbd87 !important; color: #7b511e !important;
+}
+.vcs-admin-content button.vcs-admin-caution-action:not(:disabled):hover { background: #f1dfc4 !important; border-color: #ce9d5b !important; }
+.vcs-admin-content button.vcs-admin-danger-action {
+  background: #fff1f1 !important; border-color: #ddb7b8 !important; color: #a13240 !important;
+}
+.vcs-admin-content button.vcs-admin-danger-action:not(:disabled):hover { background: #f7dfe0 !important; border-color: #c98188 !important; }
+.vcs-admin-inline-guidance { color: #526976 !important; margin: 7px 0 17px; font-size: 12px; max-width: 800px; line-height: 1.6; }
+.vcs-admin-pricing-heading { flex: 1 1 100%; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; padding-bottom: 6px; border-bottom: 1px solid #dce5e9; }
+.vcs-admin-pricing-heading strong { color: #203b46; font-size: 13px; }
+.vcs-admin-pricing-heading span { color: #5e7280; font-size: 12px; }
+.vcs-admin-pricing-heading b { color: #3d5c69; font-weight: 680; }
 
 /* Dense, accessible operations tables. Important rules normalize legacy inline row colors. */
 .vcs-admin-content table { width: 100%; border-collapse: separate !important; border-spacing: 0 !important; color: #203540; font-size: 12px; line-height: 1.4; background: #fff; }
