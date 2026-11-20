@@ -14,7 +14,6 @@ from __future__ import annotations
 import argparse,csv,gzip,html,io,json,re,urllib.request
 from collections import Counter,defaultdict
 from pathlib import Path
-from bs4 import BeautifulSoup
 
 DATA=Path(__file__).resolve().parents[1]/"data/set-factory"
 BUNDLE=DATA/"1998-pinnacle-baseball.bundle.json"
@@ -152,10 +151,13 @@ def build():
  # Epix 1998 Pinnacle-specific: Game E1–E6, Season E7–E12,
  # Moment E13–E18, Play E19–E24. Each of three foil colors exists for
  # the same 24 subjects; the two other colors derive from Orange.
- soup=BeautifulSoup(ep_html,"html.parser")
  candidates=[]
- for tb in soup.find_all("table"):
-  t=[[c.get_text(" ",strip=True) for c in tr.select("th,td")] for tr in tb.select("tr")]
+ for tb in re.findall(r'<table\b[^>]*>(.*?)</table>',ep_html,re.I|re.S):
+  t=[]
+  for tr in re.findall(r'<tr\b[^>]*>(.*?)</tr>',tb,re.I|re.S):
+   cells=[html.unescape(re.sub(r'<[^>]*>','',c)).strip()
+          for c in re.findall(r'<t[dh]\b[^>]*>(.*?)</t[dh]>',tr,re.I|re.S)]
+   if cells:t.append(cells)
   if t and t[0][:2]==["Player","Card Number"]:candidates.append(t)
  if len(candidates)!=1 or len(candidates[0])!=25:
   raise ValueError("Epix published 24-subject issue changed")
