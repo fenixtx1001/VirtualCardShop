@@ -166,7 +166,7 @@ export default function HomePage() {
     { number: "06", title: "Analytics", description: "Understand your collection", href: "/analytics" },
   ];
 
-  return <main className="home-shell">
+  return <div className="home-shell">
     <div className="home-container">
       <header className="home-masthead">
         <div><span className="home-eyebrow">VIRTUAL CARD SHOP / THE COLLECTOR&apos;S DESK</span>
@@ -281,5 +281,5 @@ export default function HomePage() {
       </section>
       <footer className="home-footer"><span>VCS · THE COLLECTOR&apos;S DESK</span><Link href="/rip-log">Your rip history ↗</Link></footer>
     </div>
-  </main>;
+  </div>;
 }
