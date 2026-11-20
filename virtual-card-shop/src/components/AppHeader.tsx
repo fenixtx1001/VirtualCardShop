@@ -580,9 +580,6 @@ export default function AppHeader() {
   const signedInEmail = status === "authenticated" ? session?.user?.email ?? null : null;
   const showCompactMobileRipHeader = isMobile && pathname?.startsWith("/open-pack/");
 
-  // Admin has its own operations navigation; avoid stacking the collector header.
-  if (pathname?.startsWith("/admin")) return null;
-
   if (!showCompactMobileRipHeader) {
     return <header ref={headerRef} style={{ position: "sticky", top: 0, zIndex: 1000, background: "#181a19f5", backdropFilter: "blur(16px)", borderBottom: "1px solid #393e33", color: "#eee9dc" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: isMobile ? "10px 18px" : "14px 32px", display: "flex", alignItems: "center", gap: 12 }}>
