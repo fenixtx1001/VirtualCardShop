@@ -54,6 +54,7 @@ if(!/\\/ViewCard\\.cfm(?:\\/|$)/i.test(location.pathname))throw new Error("Open 
 const I=[...document.images].map(i=>{
   const r=i.getBoundingClientRect();
   return{
+    img:i,
     src:i.currentSrc||i.src,
     alt:i.alt||"",
     title:i.title||"",
@@ -61,7 +62,7 @@ const I=[...document.images].map(i=>{
     top:r.top,
     left:r.left
   };
-}).filter(x=>x.src&&!/(?:no[-_ ]?image|no[-_ ]?photo|placeholder|missing[-_ ]?image)/i.test(x.src));
+}).filter(x=>x.src&&x.img.complete&&x.img.naturalWidth>0&&x.img.naturalHeight>0&&!/(?:no[-_ ]?image|no[-_ ]?photo|placeholder|missing[-_ ]?image)/i.test(x.src));
 
 const label=x=>((x&&x.alt)||"")+" "+((x&&x.title)||"")+" "+((x&&x.src)||"");
 let F=I.find(x=>/RepFr\\.(?:jpe?g|png|webp|gif)(?:\\?|$)/i.test(x.src));
@@ -182,7 +183,44 @@ const getImage=async(x,side)=>{
   return{blob,name:String(C)+"-"+side+ext(x.src)};
 };
 
-const Q=await Promise.all([getImage(F,"front"),getImage(B,"back")]);
+if(F&&B&&(F.src===B.src||F.img===B.img))throw new Error("Front and back resolved to the same page image. Capture stopped rather than pairing the wrong scans.");
+
+const sameBytes=async(a,b)=>{
+  if(!a||!b||a.size!==b.size)return false;
+  const sha=async(blob)=>Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",await blob.arrayBuffer()))).map(b=>b.toString(16).padStart(2,"0")).join("");
+  const hashes=await Promise.all([sha(a),sha(b)]);
+  return hashes[0]===hashes[1];
+};
+
+const fromDisplayedImage=async(x,side)=>{
+  if(!x||!x.img.complete||!x.img.naturalWidth||!x.img.naturalHeight)throw new Error(side+" displayed image is not fully loaded");
+  const canvas=document.createElement("canvas");
+  canvas.width=x.img.naturalWidth;
+  canvas.height=x.img.naturalHeight;
+  const ctx=canvas.getContext("2d");
+  if(!ctx)throw new Error("Canvas is unavailable");
+  ctx.drawImage(x.img,0,0);
+  const blob=await new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(new Error("Could not encode displayed image")),"image/png"));
+  if(blob.size===0||blob.size>5*1024*1024)throw new Error("Displayed "+side+" image is empty or exceeds VCS 5 MB limit");
+  return{blob,name:String(C)+"-"+side+".png"};
+};
+
+let Q=await Promise.all([getImage(F,"front"),getImage(B,"back")]);
+if(Q[0]&&Q[1]&&await sameBytes(Q[0].blob,Q[1].blob)){
+  console.warn("VCS Harvest: refetched images are identical; trying the already-rendered page images",{
+    frontSource:F?.src,
+    backSource:B?.src,
+    frontDimensions:F?.img?[F.img.naturalWidth,F.img.naturalHeight]:null,
+    backDimensions:B?.img?[B.img.naturalWidth,B.img.naturalHeight]:null
+  });
+  try{
+    const visible=await Promise.all([fromDisplayedImage(F,"front"),fromDisplayedImage(B,"back")]);
+    if(await sameBytes(visible[0].blob,visible[1].blob))throw new Error("the displayed images also yielded identical pixels");
+    Q=visible;
+  }catch(recoveryError){
+    throw new Error("Downloaded front/back images were identical. Unable to safely capture the displayed images ("+(recoveryError?.message||recoveryError)+"). Check the browser console for selected image URLs, then capture this card manually.");
+  }
+}
 D={
   front:Q[0]?Q[0].blob:null,
   back:Q[1]?Q[1].blob:null,
