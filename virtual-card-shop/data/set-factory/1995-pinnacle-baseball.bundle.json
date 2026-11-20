@@ -29,7 +29,8 @@
       "jumbo": "Museum Collection 1:3; Artist's Proof not available; Series One Pinnacle Performers 1:12; Series Two Gate Attractions 1:12 and Pin redemptions 1:36."
     },
     "packRestriction": "VCS currently cannot model physical Series One vs Series Two or hobby vs retail vs jumbo pools and cannot honor Team Pinnacle Dufex-side variants/unnumbered mail-in exchange gating in a unified pack. Therefore all oddsPerPack intentionally NULL. We do not fabricate a blended pack hit rate. Block public release until series/channel-aware pack collation exists.",
-    "reviewGate": "Unreleased pending authentic front/back images, pack/box art, pricing, era-correct metadata and pack series/channel QA. Does not alter existing image URLs, set valuations, or other VCS content."
+    "reviewGate": "Unreleased pending authentic front/back images, pack/box art, pricing, era-correct metadata and pack series/channel QA. Does not alter existing image URLs, set valuations, or other VCS content.",
+    "teamAudit": "All non-checklist cards have verified clubs. Nine authentic base checklist cards deliberately have NULL team, recognized by the importer's checklist exception; the 900 parallel copies inherit the same nine intentional exceptions. Therefore teamData is COMPLETE."
   },
   "product": {
     "id": "1995_Pinnacle_Baseball",
@@ -45,7 +46,7 @@
     "released": false
   },
   "review": {
-    "teamData": "COMPLETE_WITH_NINE_TEAMLESS_BASE_CHECKLISTS",
+    "teamData": "COMPLETE",
     "cardImages": "PENDING",
     "packImage": "PENDING",
     "pricing": "PENDING",
