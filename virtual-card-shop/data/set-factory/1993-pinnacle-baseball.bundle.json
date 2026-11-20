@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "primary": "https://www.collectioncount.com/checklists/1993-score-pinnacle-baseball/",
+    "crosscheck": "https://baseballcardpedia.com/index.php/1993_Pinnacle",
+    "rookies": "https://www.tcdb.com/Rookies.cfm/sid/259/1993-Pinnacle",
+    "overview": "https://www.tcdb.com/ViewSet.cfm/sid/259/1993-Pinnacle",
+    "psa": "https://www.psacard.com/cardfacts/baseball-cards/1993-pinnacle/364"
+  },
+  "decisions": {
+    "product": "1993 Pinnacle Baseball flagship. One 620-card collector-facing Base ProductSet covering Series One #1–310 and Series Two #311–620.",
+    "baseCheck": "Base checklist reconciled card-by-card with BaseballCardPedia 619 named entries, independent CollectionCount 620 entries, and TCDB 53 true rookie entries. BaseballCardPedia omission #230 restored as Mo Sanford, Colorado Rockies. Eight source-spelling/name formatting disagreements audited. Other distinctions preserved as metadata not invented cards.",
+    "baseSubsets": "Base subsets retained: 1992 Expansion Draft #230–239, 1993 Rookie Prospects #240–288 and #575–620, Now & Then #289–296/#470–476, Idols #297–303/#477–483, Hometown Heroes #304–310/#484–490, Draft Picks #455–469.",
+    "rookies": "53 verified base true RC identifiers match TCDB Rookie Cards (including Derek Jeter #457, Jason Kendall #458, Shannon Stewart #462). Do not mark all prospect / draft cards as RC.",
+    "inserts": "Team Pinnacle has one collector-facing 11-card checklist: 10 Series One wax inserts plus B11 redemption (mail only), not split solely for pack odds. Rookie Team Pinnacle 10 Series Two wax. Tribute 10 Series Two wax. Expansion Opening Day 9 Series Two hobby box-toppers and mail-in, never ordinary wax pulls. Team 2001 30 Series One SuperPack. Slugfest 30 Series Two SuperPack.",
+    "packDistribution": "Regular wax is 15 cards/pack and 36 packs/box; SuperPacks are 27 cards/pack and 24 packs/box, distinct channel not modeled in this combined VCS product. Current draft defaults to 15/36 standard wax but remains UNRELEASED.",
+    "verifiedPhysicalOdds": "Series One standard wax: Team Pinnacle cards 1–10 at 1:90 (B11 redemption only). Series Two standard wax: Rookie Team Pinnacle 1:90; Tribute 1:24; Expansion Opening Day one per Series Two hobby box topper (not inside pack). Series One SuperPacks: Team 2001 1 per pack. Series Two SuperPacks: Slugfest 1 per pack.",
+    "oddsDecision": "Historical odds apply to different series and package formats. VCS ProductSet odds cannot currently restrict to series, or exclude Team Pinnacle B11 from its pool. All oddsPerPack stay null until series-aware collation is implemented; do not silently blend incompatible odds.",
+    "promos": "Dealer Kit Samples #1–8 are special promo versions of numbered base cards distinguished by subtle layout; excluded from standard pack checklist rather than inventing 620-card parallel.",
+    "parallels": "No pack-issued base parallel, autograph, memorabilia or serial numbered parallel is documented for this product. Do not invent one.",
+    "assets": "Card images, pack/box art and pricing pending QA. Set remains released=false; existing products, images and pricing are untouched.",
+    "reviewGate": "Must implement/verify mixed Series One/Series Two handling and B11 mail-in restriction before release."
+  },
+  "product": {
+    "id": "1993_Pinnacle_Baseball",
+    "year": 1993,
+    "brand": "Pinnacle",
+    "sport": "Baseball",
+    "cardsPerPack": 15,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED_PENDING_SERIES_AWARE_PACKS_AND_ASSET_QA"
+  },
+  "cardsFile": "1993-pinnacle-baseball.cards.csv.gz",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1993_Pinnacle_Baseball_base",
+      "name": "Base Set",
+      "kind": "BASE",
+      "expectedCards": 620,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1993_Pinnacle",
+      "notes": "One full numbered #1–620 collector checklist; 310 cards per physical series"
+    },
+    {
+      "key": "team-pinnacle",
+      "id": "1993_Pinnacle_Baseball_team_pinnacle",
+      "name": "Team Pinnacle",
+      "kind": "INSERT",
+      "expectedCards": 11,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1993_Pinnacle",
+      "notes": "Ten Series One wax inserts (1:90) plus B11 redemption-only bonus. Combined for collector integrity; odds disabled until card-level restriction available"
+    },
+    {
+      "key": "rookie-team-pinnacle",
+      "id": "1993_Pinnacle_Baseball_rookie_team_pinnacle",
+      "name": "Rookie Team Pinnacle",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1993_Pinnacle",
+      "notes": "Series Two regular wax 1:90; disabled in combined wax draft pending series-aware collation"
+    },
+    {
+      "key": "expansion-opening-day",
+      "id": "1993_Pinnacle_Baseball_expansion_opening_day",
+      "name": "Expansion Draft Opening Day",
+      "kind": "INSERT",
+      "expectedCards": 9,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1993_Pinnacle",
+      "notes": "Series Two hobby box-topper (one per box), also complete mail-in redemption; not in wax packs"
+    },
+    {
+      "key": "tribute",
+      "id": "1993_Pinnacle_Baseball_tribute",
+      "name": "Tribute",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1993_Pinnacle",
+      "notes": "Series Two regular wax 1:24; disabled until series-aware pack collation"
+    },
+    {
+      "key": "team-2001",
+      "id": "1993_Pinnacle_Baseball_team_2001",
+      "name": "Team 2001",
+      "kind": "INSERT",
+      "expectedCards": 30,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1993_Pinnacle",
+      "notes": "Series One SuperPack exclusive, one per SuperPack; not in wax packs"
+    },
+    {
+      "key": "slugfest",
+      "id": "1993_Pinnacle_Baseball_slugfest",
+      "name": "Slugfest",
+      "kind": "INSERT",
+      "expectedCards": 30,
+      "oddsPerPack": null,
+      "sourceUrl": "https://baseballcardpedia.com/index.php/1993_Pinnacle",
+      "notes": "Series Two SuperPack exclusive, one per SuperPack; not in wax packs"
+    }
+  ]
+}
