@@ -5,6 +5,10 @@ import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { r2Configured, uploadToR2 } from "@/lib/r2Upload";
+import {
+  resolveHarvestCardNumber,
+  tcdbNumericSuffix,
+} from "@/lib/set-factory-harvest-number";
 
 const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
 
@@ -164,7 +168,7 @@ export async function POST(req: Request) {
     const frontFile = frontEntry instanceof File ? frontEntry : null;
     const backFile = backEntry instanceof File ? backEntry : null;
 
-    const card = await prisma.card.findUnique({
+    let card = await prisma.card.findUnique({
       where: {
         productSetId_cardNumber: {
           productSetId,
@@ -180,12 +184,59 @@ export async function POST(req: Request) {
       },
     });
 
+    // TCDB parallel numbering can have a suffix (e.g. 1G) while VCS stores
+    // the numbered checklist (1). Check exact matches first. When no exact card
+    // exists, map only a letter-suffixed TCDB number to a single unambiguous
+    // plain-number card in this Product Set. Never silently merge parallels.
+    let matchedByNumericAlias = false;
+    const numericAlias = !card ? tcdbNumericSuffix(cardNumber) : null;
+    if (!card && numericAlias) {
+      const potentialCards = await prisma.card.findMany({
+        where: {
+          productSetId,
+          cardNumber: { startsWith: numericAlias },
+        },
+        select: {
+          id: true,
+          cardNumber: true,
+          player: true,
+          frontImageUrl: true,
+          backImageUrl: true,
+        },
+      });
+      const resolution = resolveHarvestCardNumber(
+        cardNumber,
+        potentialCards.map((candidate) => candidate.cardNumber)
+      );
+
+      if (resolution.kind === "ambiguous") {
+        return NextResponse.json(
+          {
+            error: `TCDB #${cardNumber} cannot safely match a VCS card: multiple numbers share #${numericAlias} in ${productSetId} (${resolution.candidates.join(", ")}). Capture stopped to prevent assigning the wrong card image.`,
+          },
+          { status: 409 }
+        );
+      }
+
+      if (resolution.kind === "alias") {
+        card =
+          potentialCards.find(
+            (candidate) => candidate.cardNumber === resolution.cardNumber
+          ) ?? null;
+        matchedByNumericAlias = Boolean(card);
+      }
+    }
+
     if (!card) {
       return NextResponse.json(
         { error: `Card ${cardNumber} was not found in Product Set ${productSetId}.` },
         { status: 404 }
       );
     }
+
+    const numberMatchNote = matchedByNumericAlias
+      ? ` (TCDB #${cardNumber} matched VCS #${card.cardNumber})`
+      : "";
 
     if (!overwrite && card.frontImageUrl && card.backImageUrl) {
       const outcome: CaptureOutcome = "already-complete";
@@ -204,7 +255,7 @@ export async function POST(req: Request) {
           outcome,
           sourceFront: Boolean(frontFile),
           sourceBack: Boolean(backFile),
-        }),
+        }) + numberMatchNote,
         card,
       });
     }
@@ -228,7 +279,7 @@ export async function POST(req: Request) {
     if (front && (overwrite || !card.frontImageUrl)) {
       updateData.frontImageUrl = await uploadToR2({
         buffer: front.buffer,
-        key: storageKey({ productSetId, cardNumber, side: "front", image: front }),
+        key: storageKey({ productSetId, cardNumber: card.cardNumber, side: "front", image: front }),
         contentType: front.contentType,
       });
     }
@@ -236,7 +287,7 @@ export async function POST(req: Request) {
     if (back && (overwrite || !card.backImageUrl)) {
       updateData.backImageUrl = await uploadToR2({
         buffer: back.buffer,
-        key: storageKey({ productSetId, cardNumber, side: "back", image: back }),
+        key: storageKey({ productSetId, cardNumber: card.cardNumber, side: "back", image: back }),
         contentType: back.contentType,
       });
     }
@@ -280,7 +331,7 @@ export async function POST(req: Request) {
         outcome,
         sourceFront: Boolean(frontFile),
         sourceBack: Boolean(backFile),
-      }),
+      }) + numberMatchNote,
       card: updated,
     });
   } catch (error: any) {
