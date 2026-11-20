@@ -40,7 +40,7 @@
     "pricing": "PENDING",
     "release": "BLOCKED_PENDING_PACK_COLLATION_AND_IMAGE_QA"
   },
-  "cardsFile": "1990-fleer-baseball.cards.csv",
+  "cardsFile": "1990-fleer-baseball.cards.csv.gz",
   "productSets": [
     {
       "key": "base",
