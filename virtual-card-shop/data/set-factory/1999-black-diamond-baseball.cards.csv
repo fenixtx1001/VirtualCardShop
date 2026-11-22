@@ -1,0 +1,607 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Darin Erstad,Anaheim Angels,,
+double,1,Darin Erstad,Anaheim Angels,,Red foil; SN3000
+triple,1,Darin Erstad,Anaheim Angels,,Yellow foil; SN1500
+quadruple,1,Darin Erstad,Anaheim Angels,,Green foil; SN150
+base,2,Tim Salmon,Anaheim Angels,,
+double,2,Tim Salmon,Anaheim Angels,,Red foil; SN3000
+triple,2,Tim Salmon,Anaheim Angels,,Yellow foil; SN1500
+quadruple,2,Tim Salmon,Anaheim Angels,,Green foil; SN150
+base,3,Jim Edmonds,Anaheim Angels,,
+double,3,Jim Edmonds,Anaheim Angels,,Red foil; SN3000
+triple,3,Jim Edmonds,Anaheim Angels,,Yellow foil; SN1500
+quadruple,3,Jim Edmonds,Anaheim Angels,,Green foil; SN150
+base,4,Matt Williams,Arizona Diamondbacks,,
+double,4,Matt Williams,Arizona Diamondbacks,,Red foil; SN3000
+triple,4,Matt Williams,Arizona Diamondbacks,,Yellow foil; SN1500
+quadruple,4,Matt Williams,Arizona Diamondbacks,,Green foil; SN150
+base,5,David Dellucci,Arizona Diamondbacks,,
+double,5,David Dellucci,Arizona Diamondbacks,,Red foil; SN3000
+triple,5,David Dellucci,Arizona Diamondbacks,,Yellow foil; SN1500
+quadruple,5,David Dellucci,Arizona Diamondbacks,,Green foil; SN150
+base,6,Jay Bell,Arizona Diamondbacks,,
+double,6,Jay Bell,Arizona Diamondbacks,,Red foil; SN3000
+triple,6,Jay Bell,Arizona Diamondbacks,,Yellow foil; SN1500
+quadruple,6,Jay Bell,Arizona Diamondbacks,,Green foil; SN150
+base,7,Andres Galarraga,Atlanta Braves,,
+double,7,Andres Galarraga,Atlanta Braves,,Red foil; SN3000
+triple,7,Andres Galarraga,Atlanta Braves,,Yellow foil; SN1500
+quadruple,7,Andres Galarraga,Atlanta Braves,,Green foil; SN150
+base,8,Chipper Jones,Atlanta Braves,,
+double,8,Chipper Jones,Atlanta Braves,,Red foil; SN3000
+triple,8,Chipper Jones,Atlanta Braves,,Yellow foil; SN1500
+quadruple,8,Chipper Jones,Atlanta Braves,,Green foil; SN150
+base,9,Greg Maddux,Atlanta Braves,,
+double,9,Greg Maddux,Atlanta Braves,,Red foil; SN3000
+triple,9,Greg Maddux,Atlanta Braves,,Yellow foil; SN1500
+quadruple,9,Greg Maddux,Atlanta Braves,,Green foil; SN150
+base,10,Andruw Jones,Atlanta Braves,,
+double,10,Andruw Jones,Atlanta Braves,,Red foil; SN3000
+triple,10,Andruw Jones,Atlanta Braves,,Yellow foil; SN1500
+quadruple,10,Andruw Jones,Atlanta Braves,,Green foil; SN150
+base,11,Cal Ripken Jr.,Baltimore Orioles,,
+double,11,Cal Ripken Jr.,Baltimore Orioles,,Red foil; SN3000
+triple,11,Cal Ripken Jr.,Baltimore Orioles,,Yellow foil; SN1500
+quadruple,11,Cal Ripken Jr.,Baltimore Orioles,,Green foil; SN150
+base,12,Rafael Palmeiro,Baltimore Orioles,,
+double,12,Rafael Palmeiro,Baltimore Orioles,,Red foil; SN3000
+triple,12,Rafael Palmeiro,Baltimore Orioles,,Yellow foil; SN1500
+quadruple,12,Rafael Palmeiro,Baltimore Orioles,,Green foil; SN150
+base,13,Brady Anderson,Baltimore Orioles,,
+double,13,Brady Anderson,Baltimore Orioles,,Red foil; SN3000
+triple,13,Brady Anderson,Baltimore Orioles,,Yellow foil; SN1500
+quadruple,13,Brady Anderson,Baltimore Orioles,,Green foil; SN150
+base,14,Mike Mussina,Baltimore Orioles,,
+double,14,Mike Mussina,Baltimore Orioles,,Red foil; SN3000
+triple,14,Mike Mussina,Baltimore Orioles,,Yellow foil; SN1500
+quadruple,14,Mike Mussina,Baltimore Orioles,,Green foil; SN150
+base,15,Nomar Garciaparra,Boston Red Sox,,
+double,15,Nomar Garciaparra,Boston Red Sox,,Red foil; SN3000
+triple,15,Nomar Garciaparra,Boston Red Sox,,Yellow foil; SN1500
+quadruple,15,Nomar Garciaparra,Boston Red Sox,,Green foil; SN150
+base,16,Mo Vaughn,Boston Red Sox,,
+double,16,Mo Vaughn,Boston Red Sox,,Red foil; SN3000
+triple,16,Mo Vaughn,Boston Red Sox,,Yellow foil; SN1500
+quadruple,16,Mo Vaughn,Boston Red Sox,,Green foil; SN150
+base,17,Pedro Martinez,Boston Red Sox,,
+double,17,Pedro Martinez,Boston Red Sox,,Red foil; SN3000
+triple,17,Pedro Martinez,Boston Red Sox,,Yellow foil; SN1500
+quadruple,17,Pedro Martinez,Boston Red Sox,,Green foil; SN150
+base,18,Sammy Sosa,Chicago Cubs,,
+double,18,Sammy Sosa,Chicago Cubs,,Red foil; SN1998
+triple,18,Sammy Sosa,Chicago Cubs,,Yellow foil; SN273
+quadruple,18,Sammy Sosa,Chicago Cubs,,Green foil; SN66
+base,19,Henry Rodriguez,Chicago Cubs,,
+double,19,Henry Rodriguez,Chicago Cubs,,Red foil; SN3000
+triple,19,Henry Rodriguez,Chicago Cubs,,Yellow foil; SN1500
+quadruple,19,Henry Rodriguez,Chicago Cubs,,Green foil; SN150
+base,20,Frank Thomas,Chicago White Sox,,
+double,20,Frank Thomas,Chicago White Sox,,Red foil; SN3000
+triple,20,Frank Thomas,Chicago White Sox,,Yellow foil; SN1500
+quadruple,20,Frank Thomas,Chicago White Sox,,Green foil; SN150
+base,21,Magglio Ordonez,Chicago White Sox,,
+double,21,Magglio Ordonez,Chicago White Sox,,Red foil; SN3000
+triple,21,Magglio Ordonez,Chicago White Sox,,Yellow foil; SN1500
+quadruple,21,Magglio Ordonez,Chicago White Sox,,Green foil; SN150
+base,22,Albert Belle,Chicago White Sox,,
+double,22,Albert Belle,Chicago White Sox,,Red foil; SN3000
+triple,22,Albert Belle,Chicago White Sox,,Yellow foil; SN1500
+quadruple,22,Albert Belle,Chicago White Sox,,Green foil; SN150
+base,23,Paul Konerko,Cincinnati Reds,,
+double,23,Paul Konerko,Cincinnati Reds,,Red foil; SN3000
+triple,23,Paul Konerko,Cincinnati Reds,,Yellow foil; SN1500
+quadruple,23,Paul Konerko,Cincinnati Reds,,Green foil; SN150
+base,24,Sean Casey,Cincinnati Reds,,
+double,24,Sean Casey,Cincinnati Reds,,Red foil; SN3000
+triple,24,Sean Casey,Cincinnati Reds,,Yellow foil; SN1500
+quadruple,24,Sean Casey,Cincinnati Reds,,Green foil; SN150
+base,25,Jim Thome,Cleveland Indians,,
+double,25,Jim Thome,Cleveland Indians,,Red foil; SN3000
+triple,25,Jim Thome,Cleveland Indians,,Yellow foil; SN1500
+quadruple,25,Jim Thome,Cleveland Indians,,Green foil; SN150
+base,26,Kenny Lofton,Cleveland Indians,,
+double,26,Kenny Lofton,Cleveland Indians,,Red foil; SN3000
+triple,26,Kenny Lofton,Cleveland Indians,,Yellow foil; SN1500
+quadruple,26,Kenny Lofton,Cleveland Indians,,Green foil; SN150
+base,27,Sandy Alomar Jr.,Cleveland Indians,,
+double,27,Sandy Alomar Jr.,Cleveland Indians,,Red foil; SN3000
+triple,27,Sandy Alomar Jr.,Cleveland Indians,,Yellow foil; SN1500
+quadruple,27,Sandy Alomar Jr.,Cleveland Indians,,Green foil; SN150
+base,28,Jaret Wright,Cleveland Indians,,
+double,28,Jaret Wright,Cleveland Indians,,Red foil; SN3000
+triple,28,Jaret Wright,Cleveland Indians,,Yellow foil; SN1500
+quadruple,28,Jaret Wright,Cleveland Indians,,Green foil; SN150
+base,29,Larry Walker,Colorado Rockies,,
+double,29,Larry Walker,Colorado Rockies,,Red foil; SN3000
+triple,29,Larry Walker,Colorado Rockies,,Yellow foil; SN1500
+quadruple,29,Larry Walker,Colorado Rockies,,Green foil; SN150
+base,30,Todd Helton,Colorado Rockies,,
+double,30,Todd Helton,Colorado Rockies,,Red foil; SN3000
+triple,30,Todd Helton,Colorado Rockies,,Yellow foil; SN1500
+quadruple,30,Todd Helton,Colorado Rockies,,Green foil; SN150
+base,31,Vinny Castilla,Colorado Rockies,,
+double,31,Vinny Castilla,Colorado Rockies,,Red foil; SN3000
+triple,31,Vinny Castilla,Colorado Rockies,,Yellow foil; SN1500
+quadruple,31,Vinny Castilla,Colorado Rockies,,Green foil; SN150
+base,32,Tony Clark,Detroit Tigers,,
+double,32,Tony Clark,Detroit Tigers,,Red foil; SN3000
+triple,32,Tony Clark,Detroit Tigers,,Yellow foil; SN1500
+quadruple,32,Tony Clark,Detroit Tigers,,Green foil; SN150
+base,33,Damion Easley,Detroit Tigers,,
+double,33,Damion Easley,Detroit Tigers,,Red foil; SN3000
+triple,33,Damion Easley,Detroit Tigers,,Yellow foil; SN1500
+quadruple,33,Damion Easley,Detroit Tigers,,Green foil; SN150
+base,34,Mark Kotsay,Florida Marlins,,
+double,34,Mark Kotsay,Florida Marlins,,Red foil; SN3000
+triple,34,Mark Kotsay,Florida Marlins,,Yellow foil; SN1500
+quadruple,34,Mark Kotsay,Florida Marlins,,Green foil; SN150
+base,35,Derrek Lee,Florida Marlins,,
+double,35,Derrek Lee,Florida Marlins,,Red foil; SN3000
+triple,35,Derrek Lee,Florida Marlins,,Yellow foil; SN1500
+quadruple,35,Derrek Lee,Florida Marlins,,Green foil; SN150
+base,36,Moises Alou,Houston Astros,,
+double,36,Moises Alou,Houston Astros,,Red foil; SN3000
+triple,36,Moises Alou,Houston Astros,,Yellow foil; SN1500
+quadruple,36,Moises Alou,Houston Astros,,Green foil; SN150
+base,37,Jeff Bagwell,Houston Astros,,
+double,37,Jeff Bagwell,Houston Astros,,Red foil; SN3000
+triple,37,Jeff Bagwell,Houston Astros,,Yellow foil; SN1500
+quadruple,37,Jeff Bagwell,Houston Astros,,Green foil; SN150
+base,38,Craig Biggio,Houston Astros,,
+double,38,Craig Biggio,Houston Astros,,Red foil; SN3000
+triple,38,Craig Biggio,Houston Astros,,Yellow foil; SN1500
+quadruple,38,Craig Biggio,Houston Astros,,Green foil; SN150
+base,39,Randy Johnson,Houston Astros,,
+double,39,Randy Johnson,Houston Astros,,Red foil; SN3000
+triple,39,Randy Johnson,Houston Astros,,Yellow foil; SN1500
+quadruple,39,Randy Johnson,Houston Astros,,Green foil; SN150
+base,40,Dean Palmer,Kansas City Royals,,
+double,40,Dean Palmer,Kansas City Royals,,Red foil; SN3000
+triple,40,Dean Palmer,Kansas City Royals,,Yellow foil; SN1500
+quadruple,40,Dean Palmer,Kansas City Royals,,Green foil; SN150
+base,41,Johnny Damon,Kansas City Royals,,
+double,41,Johnny Damon,Kansas City Royals,,Red foil; SN3000
+triple,41,Johnny Damon,Kansas City Royals,,Yellow foil; SN1500
+quadruple,41,Johnny Damon,Kansas City Royals,,Green foil; SN150
+base,42,Chan Ho Park,Los Angeles Dodgers,,
+double,42,Chan Ho Park,Los Angeles Dodgers,,Red foil; SN3000
+triple,42,Chan Ho Park,Los Angeles Dodgers,,Yellow foil; SN1500
+quadruple,42,Chan Ho Park,Los Angeles Dodgers,,Green foil; SN150
+base,43,Raul Mondesi,Los Angeles Dodgers,,
+double,43,Raul Mondesi,Los Angeles Dodgers,,Red foil; SN3000
+triple,43,Raul Mondesi,Los Angeles Dodgers,,Yellow foil; SN1500
+quadruple,43,Raul Mondesi,Los Angeles Dodgers,,Green foil; SN150
+base,44,Gary Sheffield,Los Angeles Dodgers,,
+double,44,Gary Sheffield,Los Angeles Dodgers,,Red foil; SN3000
+triple,44,Gary Sheffield,Los Angeles Dodgers,,Yellow foil; SN1500
+quadruple,44,Gary Sheffield,Los Angeles Dodgers,,Green foil; SN150
+base,45,Jeromy Burnitz,Milwaukee Brewers,,
+double,45,Jeromy Burnitz,Milwaukee Brewers,,Red foil; SN3000
+triple,45,Jeromy Burnitz,Milwaukee Brewers,,Yellow foil; SN1500
+quadruple,45,Jeromy Burnitz,Milwaukee Brewers,,Green foil; SN150
+base,46,Marquis Grissom,Milwaukee Brewers,,
+double,46,Marquis Grissom,Milwaukee Brewers,,Red foil; SN3000
+triple,46,Marquis Grissom,Milwaukee Brewers,,Yellow foil; SN1500
+quadruple,46,Marquis Grissom,Milwaukee Brewers,,Green foil; SN150
+base,47,Jeff Cirillo,Milwaukee Brewers,,
+double,47,Jeff Cirillo,Milwaukee Brewers,,Red foil; SN3000
+triple,47,Jeff Cirillo,Milwaukee Brewers,,Yellow foil; SN1500
+quadruple,47,Jeff Cirillo,Milwaukee Brewers,,Green foil; SN150
+base,48,Paul Molitor,Minnesota Twins,,
+double,48,Paul Molitor,Minnesota Twins,,Red foil; SN3000
+triple,48,Paul Molitor,Minnesota Twins,,Yellow foil; SN1500
+quadruple,48,Paul Molitor,Minnesota Twins,,Green foil; SN150
+base,49,Todd Walker,Minnesota Twins,,
+double,49,Todd Walker,Minnesota Twins,,Red foil; SN3000
+triple,49,Todd Walker,Minnesota Twins,,Yellow foil; SN1500
+quadruple,49,Todd Walker,Minnesota Twins,,Green foil; SN150
+base,50,Vladimir Guerrero,Montreal Expos,,
+double,50,Vladimir Guerrero,Montreal Expos,,Red foil; SN3000
+triple,50,Vladimir Guerrero,Montreal Expos,,Yellow foil; SN1500
+quadruple,50,Vladimir Guerrero,Montreal Expos,,Green foil; SN150
+base,51,Brad Fullmer,Montreal Expos,,
+double,51,Brad Fullmer,Montreal Expos,,Red foil; SN3000
+triple,51,Brad Fullmer,Montreal Expos,,Yellow foil; SN1500
+quadruple,51,Brad Fullmer,Montreal Expos,,Green foil; SN150
+base,52,Mike Piazza,New York Mets,,
+double,52,Mike Piazza,New York Mets,,Red foil; SN3000
+triple,52,Mike Piazza,New York Mets,,Yellow foil; SN1500
+quadruple,52,Mike Piazza,New York Mets,,Green foil; SN150
+base,53,Hideo Nomo,New York Mets,,
+double,53,Hideo Nomo,New York Mets,,Red foil; SN3000
+triple,53,Hideo Nomo,New York Mets,,Yellow foil; SN1500
+quadruple,53,Hideo Nomo,New York Mets,,Green foil; SN150
+base,54,Carlos Baerga,New York Mets,,
+double,54,Carlos Baerga,New York Mets,,Red foil; SN3000
+triple,54,Carlos Baerga,New York Mets,,Yellow foil; SN1500
+quadruple,54,Carlos Baerga,New York Mets,,Green foil; SN150
+base,55,John Olerud,New York Mets,,
+double,55,John Olerud,New York Mets,,Red foil; SN3000
+triple,55,John Olerud,New York Mets,,Yellow foil; SN1500
+quadruple,55,John Olerud,New York Mets,,Green foil; SN150
+base,56,Derek Jeter,New York Yankees,,
+double,56,Derek Jeter,New York Yankees,,Red foil; SN3000
+triple,56,Derek Jeter,New York Yankees,,Yellow foil; SN1500
+quadruple,56,Derek Jeter,New York Yankees,,Green foil; SN150
+base,57,Hideki Irabu,New York Yankees,,
+double,57,Hideki Irabu,New York Yankees,,Red foil; SN3000
+triple,57,Hideki Irabu,New York Yankees,,Yellow foil; SN1500
+quadruple,57,Hideki Irabu,New York Yankees,,Green foil; SN150
+base,58,Tino Martinez,New York Yankees,,
+double,58,Tino Martinez,New York Yankees,,Red foil; SN3000
+triple,58,Tino Martinez,New York Yankees,,Yellow foil; SN1500
+quadruple,58,Tino Martinez,New York Yankees,,Green foil; SN150
+base,59,Bernie Williams,New York Yankees,,
+double,59,Bernie Williams,New York Yankees,,Red foil; SN3000
+triple,59,Bernie Williams,New York Yankees,,Yellow foil; SN1500
+quadruple,59,Bernie Williams,New York Yankees,,Green foil; SN150
+base,60,Miguel Tejada,Oakland Athletics,,
+double,60,Miguel Tejada,Oakland Athletics,,Red foil; SN3000
+triple,60,Miguel Tejada,Oakland Athletics,,Yellow foil; SN1500
+quadruple,60,Miguel Tejada,Oakland Athletics,,Green foil; SN150
+base,61,Ben Grieve,Oakland Athletics,,
+double,61,Ben Grieve,Oakland Athletics,,Red foil; SN3000
+triple,61,Ben Grieve,Oakland Athletics,,Yellow foil; SN1500
+quadruple,61,Ben Grieve,Oakland Athletics,,Green foil; SN150
+base,62,Jason Giambi,Oakland Athletics,,
+double,62,Jason Giambi,Oakland Athletics,,Red foil; SN3000
+triple,62,Jason Giambi,Oakland Athletics,,Yellow foil; SN1500
+quadruple,62,Jason Giambi,Oakland Athletics,,Green foil; SN150
+base,63,Scott Rolen,Philadelphia Phillies,,
+double,63,Scott Rolen,Philadelphia Phillies,,Red foil; SN3000
+triple,63,Scott Rolen,Philadelphia Phillies,,Yellow foil; SN1500
+quadruple,63,Scott Rolen,Philadelphia Phillies,,Green foil; SN150
+base,64,Doug Glanville,Philadelphia Phillies,,
+double,64,Doug Glanville,Philadelphia Phillies,,Red foil; SN3000
+triple,64,Doug Glanville,Philadelphia Phillies,,Yellow foil; SN1500
+quadruple,64,Doug Glanville,Philadelphia Phillies,,Green foil; SN150
+base,65,Desi Relaford,Philadelphia Phillies,,
+double,65,Desi Relaford,Philadelphia Phillies,,Red foil; SN3000
+triple,65,Desi Relaford,Philadelphia Phillies,,Yellow foil; SN1500
+quadruple,65,Desi Relaford,Philadelphia Phillies,,Green foil; SN150
+base,66,Tony Womack,Pittsburgh Pirates,,
+double,66,Tony Womack,Pittsburgh Pirates,,Red foil; SN3000
+triple,66,Tony Womack,Pittsburgh Pirates,,Yellow foil; SN1500
+quadruple,66,Tony Womack,Pittsburgh Pirates,,Green foil; SN150
+base,67,Jason Kendall,Pittsburgh Pirates,,
+double,67,Jason Kendall,Pittsburgh Pirates,,Red foil; SN3000
+triple,67,Jason Kendall,Pittsburgh Pirates,,Yellow foil; SN1500
+quadruple,67,Jason Kendall,Pittsburgh Pirates,,Green foil; SN150
+base,68,Jose Guillen,Pittsburgh Pirates,,
+double,68,Jose Guillen,Pittsburgh Pirates,,Red foil; SN3000
+triple,68,Jose Guillen,Pittsburgh Pirates,,Yellow foil; SN1500
+quadruple,68,Jose Guillen,Pittsburgh Pirates,,Green foil; SN150
+base,69,Tony Gwynn,San Diego Padres,,
+double,69,Tony Gwynn,San Diego Padres,,Red foil; SN3000
+triple,69,Tony Gwynn,San Diego Padres,,Yellow foil; SN1500
+quadruple,69,Tony Gwynn,San Diego Padres,,Green foil; SN150
+base,70,Ken Caminiti,San Diego Padres,,
+double,70,Ken Caminiti,San Diego Padres,,Red foil; SN3000
+triple,70,Ken Caminiti,San Diego Padres,,Yellow foil; SN1500
+quadruple,70,Ken Caminiti,San Diego Padres,,Green foil; SN150
+base,71,Greg Vaughn,San Diego Padres,,
+double,71,Greg Vaughn,San Diego Padres,,Red foil; SN3000
+triple,71,Greg Vaughn,San Diego Padres,,Yellow foil; SN1500
+quadruple,71,Greg Vaughn,San Diego Padres,,Green foil; SN150
+base,72,Kevin Brown,San Diego Padres,,
+double,72,Kevin Brown,San Diego Padres,,Red foil; SN3000
+triple,72,Kevin Brown,San Diego Padres,,Yellow foil; SN1500
+quadruple,72,Kevin Brown,San Diego Padres,,Green foil; SN150
+base,73,Barry Bonds,San Francisco Giants,,
+double,73,Barry Bonds,San Francisco Giants,,Red foil; SN3000
+triple,73,Barry Bonds,San Francisco Giants,,Yellow foil; SN1500
+quadruple,73,Barry Bonds,San Francisco Giants,,Green foil; SN150
+base,74,J.T. Snow,San Francisco Giants,,
+double,74,J.T. Snow,San Francisco Giants,,Red foil; SN3000
+triple,74,J.T. Snow,San Francisco Giants,,Yellow foil; SN1500
+quadruple,74,J.T. Snow,San Francisco Giants,,Green foil; SN150
+base,75,Jeff Kent,San Francisco Giants,,
+double,75,Jeff Kent,San Francisco Giants,,Red foil; SN3000
+triple,75,Jeff Kent,San Francisco Giants,,Yellow foil; SN1500
+quadruple,75,Jeff Kent,San Francisco Giants,,Green foil; SN150
+base,76,Ken Griffey Jr.,Seattle Mariners,,
+double,76,Ken Griffey Jr.,Seattle Mariners,,Red foil; SN1998
+triple,76,Ken Griffey Jr.,Seattle Mariners,,Yellow foil; SN350
+quadruple,76,Ken Griffey Jr.,Seattle Mariners,,Green foil; SN56
+base,77,Alex Rodriguez,Seattle Mariners,,
+double,77,Alex Rodriguez,Seattle Mariners,,Red foil; SN3000
+triple,77,Alex Rodriguez,Seattle Mariners,,Yellow foil; SN1500
+quadruple,77,Alex Rodriguez,Seattle Mariners,,Green foil; SN150
+base,78,Edgar Martinez,Seattle Mariners,,
+double,78,Edgar Martinez,Seattle Mariners,,Red foil; SN3000
+triple,78,Edgar Martinez,Seattle Mariners,,Yellow foil; SN1500
+quadruple,78,Edgar Martinez,Seattle Mariners,,Green foil; SN150
+base,79,Jay Buhner,Seattle Mariners,,
+double,79,Jay Buhner,Seattle Mariners,,Red foil; SN3000
+triple,79,Jay Buhner,Seattle Mariners,,Yellow foil; SN1500
+quadruple,79,Jay Buhner,Seattle Mariners,,Green foil; SN150
+base,80,Mark McGwire,St. Louis Cardinals,,
+double,80,Mark McGwire,St. Louis Cardinals,,Red foil; SN1998
+triple,80,Mark McGwire,St. Louis Cardinals,,Yellow foil; SN457
+quadruple,80,Mark McGwire,St. Louis Cardinals,,Green foil; SN70
+base,81,Delino DeShields,St. Louis Cardinals,,
+double,81,Delino DeShields,St. Louis Cardinals,,Red foil; SN3000
+triple,81,Delino DeShields,St. Louis Cardinals,,Yellow foil; SN1500
+quadruple,81,Delino DeShields,St. Louis Cardinals,,Green foil; SN150
+base,82,Brian Jordan,St. Louis Cardinals,,
+double,82,Brian Jordan,St. Louis Cardinals,,Red foil; SN3000
+triple,82,Brian Jordan,St. Louis Cardinals,,Yellow foil; SN1500
+quadruple,82,Brian Jordan,St. Louis Cardinals,,Green foil; SN150
+base,83,Quinton McCracken,Tampa Bay Devil Rays,,
+double,83,Quinton McCracken,Tampa Bay Devil Rays,,Red foil; SN3000
+triple,83,Quinton McCracken,Tampa Bay Devil Rays,,Yellow foil; SN1500
+quadruple,83,Quinton McCracken,Tampa Bay Devil Rays,,Green foil; SN150
+base,84,Fred McGriff,Tampa Bay Devil Rays,,
+double,84,Fred McGriff,Tampa Bay Devil Rays,,Red foil; SN3000
+triple,84,Fred McGriff,Tampa Bay Devil Rays,,Yellow foil; SN1500
+quadruple,84,Fred McGriff,Tampa Bay Devil Rays,,Green foil; SN150
+base,85,Juan Gonzalez,Texas Rangers,,
+double,85,Juan Gonzalez,Texas Rangers,,Red foil; SN3000
+triple,85,Juan Gonzalez,Texas Rangers,,Yellow foil; SN1500
+quadruple,85,Juan Gonzalez,Texas Rangers,,Green foil; SN150
+base,86,Ivan Rodriguez,Texas Rangers,,
+double,86,Ivan Rodriguez,Texas Rangers,,Red foil; SN3000
+triple,86,Ivan Rodriguez,Texas Rangers,,Yellow foil; SN1500
+quadruple,86,Ivan Rodriguez,Texas Rangers,,Green foil; SN150
+base,87,Will Clark,Texas Rangers,,
+double,87,Will Clark,Texas Rangers,,Red foil; SN3000
+triple,87,Will Clark,Texas Rangers,,Yellow foil; SN1500
+quadruple,87,Will Clark,Texas Rangers,,Green foil; SN150
+base,88,Roger Clemens,Toronto Blue Jays,,
+double,88,Roger Clemens,Toronto Blue Jays,,Red foil; SN3000
+triple,88,Roger Clemens,Toronto Blue Jays,,Yellow foil; SN1500
+quadruple,88,Roger Clemens,Toronto Blue Jays,,Green foil; SN150
+base,89,Jose Cruz Jr.,Toronto Blue Jays,,
+double,89,Jose Cruz Jr.,Toronto Blue Jays,,Red foil; SN3000
+triple,89,Jose Cruz Jr.,Toronto Blue Jays,,Yellow foil; SN1500
+quadruple,89,Jose Cruz Jr.,Toronto Blue Jays,,Green foil; SN150
+base,90,Babe Ruth,New York Yankees,,
+double,90,Babe Ruth,New York Yankees,,Red foil; SN3000
+triple,90,Babe Ruth,New York Yankees,,Yellow foil; SN1500
+quadruple,90,Babe Ruth,New York Yankees,,Green foil; SN150
+base,91,Troy Glaus,Anaheim Angels,Diamond Debut,
+double,91,Troy Glaus,Anaheim Angels,Diamond Debut,Red foil; SN2500
+triple,91,Troy Glaus,Anaheim Angels,Diamond Debut,Yellow foil; SN1000
+quadruple,91,Troy Glaus,Anaheim Angels,Diamond Debut,Green foil; SN100
+base,92,Jarrod Washburn,Anaheim Angels,Diamond Debut,
+double,92,Jarrod Washburn,Anaheim Angels,Diamond Debut,Red foil; SN2500
+triple,92,Jarrod Washburn,Anaheim Angels,Diamond Debut,Yellow foil; SN1000
+quadruple,92,Jarrod Washburn,Anaheim Angels,Diamond Debut,Green foil; SN100
+base,93,Travis Lee,Arizona Diamondbacks,Diamond Debut,
+double,93,Travis Lee,Arizona Diamondbacks,Diamond Debut,Red foil; SN2500
+triple,93,Travis Lee,Arizona Diamondbacks,Diamond Debut,Yellow foil; SN1000
+quadruple,93,Travis Lee,Arizona Diamondbacks,Diamond Debut,Green foil; SN100
+base,94,Bruce Chen,Atlanta Braves,Diamond Debut,
+double,94,Bruce Chen,Atlanta Braves,Diamond Debut,Red foil; SN2500
+triple,94,Bruce Chen,Atlanta Braves,Diamond Debut,Yellow foil; SN1000
+quadruple,94,Bruce Chen,Atlanta Braves,Diamond Debut,Green foil; SN100
+base,95,Mike Caruso,Chicago White Sox,Diamond Debut,
+double,95,Mike Caruso,Chicago White Sox,Diamond Debut,Red foil; SN2500
+triple,95,Mike Caruso,Chicago White Sox,Diamond Debut,Yellow foil; SN1000
+quadruple,95,Mike Caruso,Chicago White Sox,Diamond Debut,Green foil; SN100
+base,96,Jim Parque,Chicago White Sox,Diamond Debut,
+double,96,Jim Parque,Chicago White Sox,Diamond Debut,Red foil; SN2500
+triple,96,Jim Parque,Chicago White Sox,Diamond Debut,Yellow foil; SN1000
+quadruple,96,Jim Parque,Chicago White Sox,Diamond Debut,Green foil; SN100
+base,97,Kerry Wood,Chicago Cubs,Diamond Debut,
+double,97,Kerry Wood,Chicago Cubs,Diamond Debut,Red foil; SN2500
+triple,97,Kerry Wood,Chicago Cubs,Diamond Debut,Yellow foil; SN1000
+quadruple,97,Kerry Wood,Chicago Cubs,Diamond Debut,Green foil; SN100
+base,98,Jeremy Giambi,Kansas City Royals,Diamond Debut,
+double,98,Jeremy Giambi,Kansas City Royals,Diamond Debut,Red foil; SN2500
+triple,98,Jeremy Giambi,Kansas City Royals,Diamond Debut,Yellow foil; SN1000
+quadruple,98,Jeremy Giambi,Kansas City Royals,Diamond Debut,Green foil; SN100
+base,99,Matt Anderson,Detroit Tigers,Diamond Debut,
+double,99,Matt Anderson,Detroit Tigers,Diamond Debut,Red foil; SN2500
+triple,99,Matt Anderson,Detroit Tigers,Diamond Debut,Yellow foil; SN1000
+quadruple,99,Matt Anderson,Detroit Tigers,Diamond Debut,Green foil; SN100
+base,100,Seth Greisinger,Detroit Tigers,Diamond Debut,
+double,100,Seth Greisinger,Detroit Tigers,Diamond Debut,Red foil; SN2500
+triple,100,Seth Greisinger,Detroit Tigers,Diamond Debut,Yellow foil; SN1000
+quadruple,100,Seth Greisinger,Detroit Tigers,Diamond Debut,Green foil; SN100
+base,101,Gabe Alvarez,Detroit Tigers,Diamond Debut,
+double,101,Gabe Alvarez,Detroit Tigers,Diamond Debut,Red foil; SN2500
+triple,101,Gabe Alvarez,Detroit Tigers,Diamond Debut,Yellow foil; SN1000
+quadruple,101,Gabe Alvarez,Detroit Tigers,Diamond Debut,Green foil; SN100
+base,102,Rafael Medina,Florida Marlins,Diamond Debut,
+double,102,Rafael Medina,Florida Marlins,Diamond Debut,Red foil; SN2500
+triple,102,Rafael Medina,Florida Marlins,Diamond Debut,Yellow foil; SN1000
+quadruple,102,Rafael Medina,Florida Marlins,Diamond Debut,Green foil; SN100
+base,103,Daryle Ward,Houston Astros,Diamond Debut,
+double,103,Daryle Ward,Houston Astros,Diamond Debut,Red foil; SN2500
+triple,103,Daryle Ward,Houston Astros,Diamond Debut,Yellow foil; SN1000
+quadruple,103,Daryle Ward,Houston Astros,Diamond Debut,Green foil; SN100
+base,104,Alex Cora,Los Angeles Dodgers,Diamond Debut,
+double,104,Alex Cora,Los Angeles Dodgers,Diamond Debut,Red foil; SN2500
+triple,104,Alex Cora,Los Angeles Dodgers,Diamond Debut,Yellow foil; SN1000
+quadruple,104,Alex Cora,Los Angeles Dodgers,Diamond Debut,Green foil; SN100
+base,105,Adrian Beltre,Los Angeles Dodgers,Diamond Debut,
+double,105,Adrian Beltre,Los Angeles Dodgers,Diamond Debut,Red foil; SN2500
+triple,105,Adrian Beltre,Los Angeles Dodgers,Diamond Debut,Yellow foil; SN1000
+quadruple,105,Adrian Beltre,Los Angeles Dodgers,Diamond Debut,Green foil; SN100
+base,106,Geoff Jenkins,Milwaukee Brewers,Diamond Debut,
+double,106,Geoff Jenkins,Milwaukee Brewers,Diamond Debut,Red foil; SN2500
+triple,106,Geoff Jenkins,Milwaukee Brewers,Diamond Debut,Yellow foil; SN1000
+quadruple,106,Geoff Jenkins,Milwaukee Brewers,Diamond Debut,Green foil; SN100
+base,107,Eric Milton,Minnesota Twins,Diamond Debut,
+double,107,Eric Milton,Minnesota Twins,Diamond Debut,Red foil; SN2500
+triple,107,Eric Milton,Minnesota Twins,Diamond Debut,Yellow foil; SN1000
+quadruple,107,Eric Milton,Minnesota Twins,Diamond Debut,Green foil; SN100
+base,108,Carl Pavano,Montreal Expos,Diamond Debut,
+double,108,Carl Pavano,Montreal Expos,Diamond Debut,Red foil; SN2500
+triple,108,Carl Pavano,Montreal Expos,Diamond Debut,Yellow foil; SN1000
+quadruple,108,Carl Pavano,Montreal Expos,Diamond Debut,Green foil; SN100
+base,109,Eric Chavez,Oakland Athletics,Diamond Debut,
+double,109,Eric Chavez,Oakland Athletics,Diamond Debut,Red foil; SN2500
+triple,109,Eric Chavez,Oakland Athletics,Diamond Debut,Yellow foil; SN1000
+quadruple,109,Eric Chavez,Oakland Athletics,Diamond Debut,Green foil; SN100
+base,110,Orlando Hernandez,New York Yankees,Diamond Debut,
+double,110,Orlando Hernandez,New York Yankees,Diamond Debut,Red foil; SN2500
+triple,110,Orlando Hernandez,New York Yankees,Diamond Debut,Yellow foil; SN1000
+quadruple,110,Orlando Hernandez,New York Yankees,Diamond Debut,Green foil; SN100
+base,111,A.J. Hinch,Oakland Athletics,Diamond Debut,
+double,111,A.J. Hinch,Oakland Athletics,Diamond Debut,Red foil; SN2500
+triple,111,A.J. Hinch,Oakland Athletics,Diamond Debut,Yellow foil; SN1000
+quadruple,111,A.J. Hinch,Oakland Athletics,Diamond Debut,Green foil; SN100
+base,112,Carlton Loewer,Philadelphia Phillies,Diamond Debut,
+double,112,Carlton Loewer,Philadelphia Phillies,Diamond Debut,Red foil; SN2500
+triple,112,Carlton Loewer,Philadelphia Phillies,Diamond Debut,Yellow foil; SN1000
+quadruple,112,Carlton Loewer,Philadelphia Phillies,Diamond Debut,Green foil; SN100
+base,113,Aramis Ramirez,Pittsburgh Pirates,Diamond Debut,
+double,113,Aramis Ramirez,Pittsburgh Pirates,Diamond Debut,Red foil; SN2500
+triple,113,Aramis Ramirez,Pittsburgh Pirates,Diamond Debut,Yellow foil; SN1000
+quadruple,113,Aramis Ramirez,Pittsburgh Pirates,Diamond Debut,Green foil; SN100
+base,114,Cliff Politte,St. Louis Cardinals,Diamond Debut,
+double,114,Cliff Politte,St. Louis Cardinals,Diamond Debut,Red foil; SN2500
+triple,114,Cliff Politte,St. Louis Cardinals,Diamond Debut,Yellow foil; SN1000
+quadruple,114,Cliff Politte,St. Louis Cardinals,Diamond Debut,Green foil; SN100
+base,115,Matt Clement,San Diego Padres,Diamond Debut,
+double,115,Matt Clement,San Diego Padres,Diamond Debut,Red foil; SN2500
+triple,115,Matt Clement,San Diego Padres,Diamond Debut,Yellow foil; SN1000
+quadruple,115,Matt Clement,San Diego Padres,Diamond Debut,Green foil; SN100
+base,116,Alex Gonzalez,Florida Marlins,Diamond Debut,
+double,116,Alex Gonzalez,Florida Marlins,Diamond Debut,Red foil; SN2500
+triple,116,Alex Gonzalez,Florida Marlins,Diamond Debut,Yellow foil; SN1000
+quadruple,116,Alex Gonzalez,Florida Marlins,Diamond Debut,Green foil; SN100
+base,117,J.D. Drew,St. Louis Cardinals,Diamond Debut,
+double,117,J.D. Drew,St. Louis Cardinals,Diamond Debut,Red foil; SN2500
+triple,117,J.D. Drew,St. Louis Cardinals,Diamond Debut,Yellow foil; SN1000
+quadruple,117,J.D. Drew,St. Louis Cardinals,Diamond Debut,Green foil; SN100
+base,118,Shane Monahan,Seattle Mariners,Diamond Debut,
+double,118,Shane Monahan,Seattle Mariners,Diamond Debut,Red foil; SN2500
+triple,118,Shane Monahan,Seattle Mariners,Diamond Debut,Yellow foil; SN1000
+quadruple,118,Shane Monahan,Seattle Mariners,Diamond Debut,Green foil; SN100
+base,119,Rolando Arrojo,Tampa Bay Devil Rays,Diamond Debut,
+double,119,Rolando Arrojo,Tampa Bay Devil Rays,Diamond Debut,Red foil; SN2500
+triple,119,Rolando Arrojo,Tampa Bay Devil Rays,Diamond Debut,Yellow foil; SN1000
+quadruple,119,Rolando Arrojo,Tampa Bay Devil Rays,Diamond Debut,Green foil; SN100
+base,120,George Lombard,Atlanta Braves,Diamond Debut,
+double,120,George Lombard,Atlanta Braves,Diamond Debut,Red foil; SN2500
+triple,120,George Lombard,Atlanta Braves,Diamond Debut,Yellow foil; SN1000
+quadruple,120,George Lombard,Atlanta Braves,Diamond Debut,Green foil; SN100
+dominance,D1,Kerry Wood,Chicago Cubs,,SN1500
+dominance-emerald,D1,Kerry Wood,Chicago Cubs,,Emerald; SN1
+dominance,D2,Derek Jeter,New York Yankees,,SN1500
+dominance-emerald,D2,Derek Jeter,New York Yankees,,Emerald; SN1
+dominance,D3,Alex Rodriguez,Seattle Mariners,,SN1500
+dominance-emerald,D3,Alex Rodriguez,Seattle Mariners,,Emerald; SN1
+dominance,D4,Frank Thomas,Chicago White Sox,,SN1500
+dominance-emerald,D4,Frank Thomas,Chicago White Sox,,Emerald; SN1
+dominance,D5,Jeff Bagwell,Houston Astros,,SN1500
+dominance-emerald,D5,Jeff Bagwell,Houston Astros,,Emerald; SN1
+dominance,D6,Mo Vaughn,Boston Red Sox,,SN1500
+dominance-emerald,D6,Mo Vaughn,Boston Red Sox,,Emerald; SN1
+dominance,D7,Ivan Rodriguez,Texas Rangers,,SN1500
+dominance-emerald,D7,Ivan Rodriguez,Texas Rangers,,Emerald; SN1
+dominance,D8,Cal Ripken Jr.,Baltimore Orioles,,SN1500
+dominance-emerald,D8,Cal Ripken Jr.,Baltimore Orioles,,Emerald; SN1
+dominance,D9,Rolando Arrojo,Tampa Bay Devil Rays,,SN1500
+dominance-emerald,D9,Rolando Arrojo,Tampa Bay Devil Rays,,Emerald; SN1
+dominance,D10,Chipper Jones,Atlanta Braves,,SN1500
+dominance-emerald,D10,Chipper Jones,Atlanta Braves,,Emerald; SN1
+dominance,D11,Kenny Lofton,Cleveland Indians,,SN1500
+dominance-emerald,D11,Kenny Lofton,Cleveland Indians,,Emerald; SN1
+dominance,D12,Paul Konerko,Cincinnati Reds,,SN1500
+dominance-emerald,D12,Paul Konerko,Cincinnati Reds,,Emerald; SN1
+dominance,D13,Mike Piazza,New York Mets,,SN1500
+dominance-emerald,D13,Mike Piazza,New York Mets,,Emerald; SN1
+dominance,D14,Ben Grieve,Oakland Athletics,,SN1500
+dominance-emerald,D14,Ben Grieve,Oakland Athletics,,Emerald; SN1
+dominance,D15,Nomar Garciaparra,Boston Red Sox,,SN1500
+dominance-emerald,D15,Nomar Garciaparra,Boston Red Sox,,Emerald; SN1
+dominance,D16,Travis Lee,Arizona Diamondbacks,,SN1500
+dominance-emerald,D16,Travis Lee,Arizona Diamondbacks,,Emerald; SN1
+dominance,D17,Scott Rolen,Philadelphia Phillies,,SN1500
+dominance-emerald,D17,Scott Rolen,Philadelphia Phillies,,Emerald; SN1
+dominance,D18,Juan Gonzalez,Texas Rangers,,SN1500
+dominance-emerald,D18,Juan Gonzalez,Texas Rangers,,Emerald; SN1
+dominance,D19,Tony Gwynn,San Diego Padres,,SN1500
+dominance-emerald,D19,Tony Gwynn,San Diego Padres,,Emerald; SN1
+dominance,D20,Tony Clark,Detroit Tigers,,SN1500
+dominance-emerald,D20,Tony Clark,Detroit Tigers,,Emerald; SN1
+dominance,D21,Roger Clemens,Toronto Blue Jays,,SN1500
+dominance-emerald,D21,Roger Clemens,Toronto Blue Jays,,Emerald; SN1
+dominance,D22,Sammy Sosa,Chicago Cubs,,SN1500
+dominance-emerald,D22,Sammy Sosa,Chicago Cubs,,Emerald; SN1
+dominance,D23,Larry Walker,Colorado Rockies,,SN1500
+dominance-emerald,D23,Larry Walker,Colorado Rockies,,Emerald; SN1
+dominance,D24,Ken Griffey Jr.,Seattle Mariners,,SN1500
+dominance-emerald,D24,Ken Griffey Jr.,Seattle Mariners,,Emerald; SN1
+dominance,D25,Mark McGwire,St. Louis Cardinals,,SN1500
+dominance-emerald,D25,Mark McGwire,St. Louis Cardinals,,Emerald; SN1
+dominance,D26,Barry Bonds,San Francisco Giants,,SN1500
+dominance-emerald,D26,Barry Bonds,San Francisco Giants,,Emerald; SN1
+dominance,D27,Vladimir Guerrero,Montreal Expos,,SN1500
+dominance-emerald,D27,Vladimir Guerrero,Montreal Expos,,Emerald; SN1
+dominance,D28,Tino Martinez,New York Yankees,,SN1500
+dominance-emerald,D28,Tino Martinez,New York Yankees,,Emerald; SN1
+dominance,D29,Greg Maddux,Atlanta Braves,,SN1500
+dominance-emerald,D29,Greg Maddux,Atlanta Braves,,Emerald; SN1
+dominance,D30,Babe Ruth,New York Yankees,,SN1500
+dominance-emerald,D30,Babe Ruth,New York Yankees,,Emerald; SN1
+mystery-numbers,M1,Babe Ruth,New York Yankees,,SN100
+mystery-numbers-emerald,M1,Babe Ruth,New York Yankees,,Emerald; SN1
+mystery-numbers,M2,Ken Griffey Jr.,Seattle Mariners,,SN200
+mystery-numbers-emerald,M2,Ken Griffey Jr.,Seattle Mariners,,Emerald; SN2
+mystery-numbers,M3,Kerry Wood,Chicago Cubs,,SN300
+mystery-numbers-emerald,M3,Kerry Wood,Chicago Cubs,,Emerald; SN3
+mystery-numbers,M4,Mark McGwire,St. Louis Cardinals,,SN400
+mystery-numbers-emerald,M4,Mark McGwire,St. Louis Cardinals,,Emerald; SN4
+mystery-numbers,M5,Alex Rodriguez,Seattle Mariners,,SN500
+mystery-numbers-emerald,M5,Alex Rodriguez,Seattle Mariners,,Emerald; SN5
+mystery-numbers,M6,Chipper Jones,Atlanta Braves,,SN600
+mystery-numbers-emerald,M6,Chipper Jones,Atlanta Braves,,Emerald; SN6
+mystery-numbers,M7,Nomar Garciaparra,Boston Red Sox,,SN700
+mystery-numbers-emerald,M7,Nomar Garciaparra,Boston Red Sox,,Emerald; SN7
+mystery-numbers,M8,Derek Jeter,New York Yankees,,SN800
+mystery-numbers-emerald,M8,Derek Jeter,New York Yankees,,Emerald; SN8
+mystery-numbers,M9,Mike Piazza,New York Mets,,SN900
+mystery-numbers-emerald,M9,Mike Piazza,New York Mets,,Emerald; SN9
+mystery-numbers,M10,Roger Clemens,Toronto Blue Jays,,SN1000
+mystery-numbers-emerald,M10,Roger Clemens,Toronto Blue Jays,,Emerald; SN10
+mystery-numbers,M11,Greg Maddux,Atlanta Braves,,SN1100
+mystery-numbers-emerald,M11,Greg Maddux,Atlanta Braves,,Emerald; SN11
+mystery-numbers,M12,Scott Rolen,Philadelphia Phillies,,SN1200
+mystery-numbers-emerald,M12,Scott Rolen,Philadelphia Phillies,,Emerald; SN12
+mystery-numbers,M13,Cal Ripken Jr.,Baltimore Orioles,,SN1300
+mystery-numbers-emerald,M13,Cal Ripken Jr.,Baltimore Orioles,,Emerald; SN13
+mystery-numbers,M14,Ben Grieve,Oakland Athletics,,SN1400
+mystery-numbers-emerald,M14,Ben Grieve,Oakland Athletics,,Emerald; SN14
+mystery-numbers,M15,Troy Glaus,Anaheim Angels,,SN1500
+mystery-numbers-emerald,M15,Troy Glaus,Anaheim Angels,,Emerald; SN15
+mystery-numbers,M16,Sammy Sosa,Chicago Cubs,,SN1600
+mystery-numbers-emerald,M16,Sammy Sosa,Chicago Cubs,,Emerald; SN16
+mystery-numbers,M17,Darin Erstad,Anaheim Angels,,SN1700
+mystery-numbers-emerald,M17,Darin Erstad,Anaheim Angels,,Emerald; SN17
+mystery-numbers,M18,Juan Gonzalez,Texas Rangers,,SN1800
+mystery-numbers-emerald,M18,Juan Gonzalez,Texas Rangers,,Emerald; SN18
+mystery-numbers,M19,Pedro Martinez,Boston Red Sox,,SN1900
+mystery-numbers-emerald,M19,Pedro Martinez,Boston Red Sox,,Emerald; SN19
+mystery-numbers,M20,Larry Walker,Colorado Rockies,,SN2000
+mystery-numbers-emerald,M20,Larry Walker,Colorado Rockies,,Emerald; SN20
+mystery-numbers,M21,Vladimir Guerrero,Montreal Expos,,SN2100
+mystery-numbers-emerald,M21,Vladimir Guerrero,Montreal Expos,,Emerald; SN21
+mystery-numbers,M22,Jeff Bagwell,Houston Astros,,SN2200
+mystery-numbers-emerald,M22,Jeff Bagwell,Houston Astros,,Emerald; SN22
+mystery-numbers,M23,Jaret Wright,Cleveland Indians,,SN2300
+mystery-numbers-emerald,M23,Jaret Wright,Cleveland Indians,,Emerald; SN23
+mystery-numbers,M24,Travis Lee,Arizona Diamondbacks,,SN2400
+mystery-numbers-emerald,M24,Travis Lee,Arizona Diamondbacks,,Emerald; SN24
+mystery-numbers,M25,Barry Bonds,San Francisco Giants,,SN2500
+mystery-numbers-emerald,M25,Barry Bonds,San Francisco Giants,,Emerald; SN25
+mystery-numbers,M26,Orlando Hernandez,New York Yankees,,SN2600
+mystery-numbers-emerald,M26,Orlando Hernandez,New York Yankees,,Emerald; SN26
+mystery-numbers,M27,Frank Thomas,Chicago White Sox,,SN2700
+mystery-numbers-emerald,M27,Frank Thomas,Chicago White Sox,,Emerald; SN27
+mystery-numbers,M28,Tony Gwynn,San Diego Padres,,SN2800
+mystery-numbers-emerald,M28,Tony Gwynn,San Diego Padres,,Emerald; SN28
+mystery-numbers,M29,Andres Galarraga,Atlanta Braves,,SN2900
+mystery-numbers-emerald,M29,Andres Galarraga,Atlanta Braves,,Emerald; SN29
+mystery-numbers,M30,Craig Biggio,Houston Astros,,SN3000
+mystery-numbers-emerald,M30,Craig Biggio,Houston Astros,,Emerald; SN30
+a-piece-of-history,BW,Bernie Williams,New York Yankees,,Game-used bat; PR350; not serial numbered
+a-piece-of-history,JG,Juan Gonzalez,Texas Rangers,,Game-used bat; PR350; not serial numbered
+a-piece-of-history,MM,Mark McGwire,St. Louis Cardinals,,Game-used bat; PR350; not serial numbered
+a-piece-of-history,MV,Mo Vaughn,Boston Red Sox,,Game-used bat; PR350; not serial numbered
+a-piece-of-history,SS,Sammy Sosa,Chicago Cubs,,Game-used bat; PR350; not serial numbered
+a-piece-of-history,TG,Tony Gwynn,San Diego Padres,,Game-used bat; PR350; not serial numbered
