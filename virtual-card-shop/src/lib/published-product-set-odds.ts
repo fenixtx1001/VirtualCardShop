@@ -53,7 +53,7 @@ export function formatPublishedOdds(ref: PublishedOdds): string {
   if (ref.hobby !== undefined && ref.retail !== undefined && ref.hobby === ref.retail) {
     return ref.series + " · H/R 1:" + ref.hobby;
   }
-  const parts = [ref.series];
+  const parts: string[] = [ref.series];
   if (ref.hobby !== undefined) parts.push("H 1:" + ref.hobby);
   if (ref.retail !== undefined) parts.push("R 1:" + ref.retail);
   return parts.join(" · ");
