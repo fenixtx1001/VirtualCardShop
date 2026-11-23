@@ -552,3 +552,124 @@ body:has(.vcs-admin-shell) { background: #16212b; }
   white-space: nowrap;
   pointer-events: none;
 }
+
+
+/* Compare pricing across product sets without repeatedly opening panels. */
+.vcs-admin-pricing-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding: 10px 13px;
+  margin: 0 0 10px;
+  border: 1px solid #c5dbe0;
+  border-left: 3px solid #2d8b91;
+  background: #eaf3f5;
+  border-radius: 5px;
+}
+.vcs-admin-pricing-toolbar > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px 12px;
+}
+.vcs-admin-pricing-toolbar strong {
+  color: #1a4d57;
+  font-size: 12px;
+  font-weight: 720;
+}
+.vcs-admin-pricing-toolbar span {
+  color: #516c77;
+  font-size: 11px;
+}
+.vcs-admin-content .vcs-admin-pricing-toolbar button {
+  min-height: 31px;
+  padding: 6px 12px;
+  white-space: nowrap;
+  background: #236a73 !important;
+  border: 1px solid #236a73 !important;
+  color: #fff !important;
+  font-size: 11px !important;
+  font-weight: 720 !important;
+}
+.vcs-admin-content .vcs-admin-pricing-toolbar button:hover:not(:disabled) {
+  background: #174f58 !important;
+}
+
+/* The editable VCS pack frequency is separate from documented historical odds. */
+.vcs-admin-set-odds {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.vcs-admin-set-odds label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+.vcs-admin-set-odds label span {
+  color: #60727e;
+  font-size: 10px;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+.vcs-admin-content table.vcs-admin-product-set-table .vcs-admin-set-odds input {
+  min-width: 0;
+  max-width: 85px !important;
+  flex: 1 1 55px;
+  padding: 4px 5px !important;
+  min-height: 29px !important;
+  height: 29px;
+  font-variant-numeric: tabular-nums;
+}
+.vcs-admin-set-odds > a {
+  display: inline-block;
+  max-width: 100%;
+  color: #16707d !important;
+  font-size: 10px;
+  font-weight: 670 !important;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  text-decoration-color: #a0c5ca;
+}
+.vcs-admin-set-odds > a span {
+  display: block;
+  font-size: 9px;
+  font-weight: 600;
+  color: #617b84;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  text-decoration: none;
+}
+.vcs-admin-set-no-reference {
+  display: block;
+  font-size: 9px;
+  color: #81929b;
+  line-height: 1.25;
+}
+
+/* When every price panel is open, minimize repeated instructions and gutters. */
+.vcs-admin-product-set-table.is-all-prices-visible .vcs-admin-set-price-editor {
+  gap: 5px;
+}
+.vcs-admin-product-set-table.is-all-prices-visible .vcs-admin-set-price-intro {
+  font-size: 10px;
+}
+.vcs-admin-product-set-table.is-all-prices-visible .vcs-admin-set-price-intro span {
+  display: none;
+}
+.vcs-admin-content table.vcs-admin-product-set-table.is-all-prices-visible tbody tr.vcs-admin-set-price-detail td {
+  padding: 7px 10px !important;
+}
+.vcs-admin-product-set-table.is-all-prices-visible .vcs-admin-set-price-grid {
+  gap: 7px;
+}
+.vcs-admin-product-set-table.is-all-prices-visible .vcs-admin-set-price-footer {
+  font-size: 10px;
+}
+@media (max-width: 800px) {
+  .vcs-admin-pricing-toolbar { align-items: flex-start; }
+  .vcs-admin-set-odds > a { font-size: 9px; }
+}
