@@ -984,7 +984,7 @@ export default function ProductSetsClient() {
         {loading && rows.length === 0 ? (
           <div style={{ padding: 16 }}>Loading…</div>
         ) : (
-          <table className="vcs-admin-product-set-table" aria-label="Product set catalog management">
+          <table className={"vcs-admin-product-set-table" + (allVisiblePricingExpanded ? " is-all-prices-visible" : "")} aria-label="Product set catalog management">
             <colgroup>
               <col style={{ width: "11%" }} /><col style={{ width: "16%" }} />
               <col style={{ width: "13%" }} /><col style={{ width: "7%" }} />
