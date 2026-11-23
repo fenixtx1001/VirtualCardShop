@@ -1477,21 +1477,6 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
               </select>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-              <div style={{ fontWeight: 700 }}>VCS Tier</div>
-              <select
-                value={gradeabilityFilter}
-                onChange={(e) => setGradeabilityFilter(e.target.value as any)}
-                style={{ padding: 8, width: 180 }}
-              >
-                <option value="ALL">All</option>
-                <option value="COMMON">Common</option>
-                <option value="GREAT">Great</option>
-                <option value="ICONIC">Iconic</option>
-                <option value="OVERRIDE">Overrides only</option>
-              </select>
-            </div>
-
             <label style={{ display: "flex", alignItems: "center", gap: 8, paddingTop: 22 }}>
               <input type="checkbox" checked={needsSetupOnly} onChange={(e) => setNeedsSetupOnly(e.target.checked)} />
               <span style={{ fontWeight: 700 }}>Needs setup only</span>
@@ -1508,8 +1493,6 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                 <option value="CARDNO_ASC">Card # (default)</option>
                 <option value="BOOK_DESC">Book (high → low)</option>
                 <option value="BOOK_ASC">Book (low → high)</option>
-                <option value="GRADEABILITY_DESC">VCS Tier (Iconic → Common)</option>
-                <option value="GRADEABILITY_ASC">VCS Tier (Common → Iconic)</option>
                 <option value="NEEDS_SETUP_FIRST">Needs setup first</option>
                 <option value="PLAYER_ASC">Player (A → Z)</option>
                 <option value="TEAM_ASC">Team (A → Z)</option>
@@ -1530,7 +1513,6 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                 setQuery("");
                 setSubsetFilter("ALL");
                 setVariantFilter("ALL");
-                setGradeabilityFilter("ALL");
                 setNeedsSetupOnly(false);
                 setSortMode("CARDNO_ASC");
               }}
@@ -1541,7 +1523,19 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
           </div>
 
           <div style={{ overflowX: "auto", border: "1px solid #ddd" }}>
-            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+            <table className="vcs-admin-card-grid" aria-label="Product set card checklist editor" style={{ width: "100%", borderCollapse: "collapse" }}>
+              <colgroup>
+                <col style={{ width: "3.5%" }} />
+                <col style={{ width: "7.5%" }} />
+                <col style={{ width: "16%" }} />
+                <col style={{ width: "13%" }} />
+                <col style={{ width: "9%" }} />
+                <col style={{ width: "10%" }} />
+                <col style={{ width: "11.5%" }} />
+                <col style={{ width: "11.5%" }} />
+                <col style={{ width: "8%" }} />
+                <col style={{ width: "10%" }} />
+              </colgroup>
               <thead style={{ background: "#f7f7f7" }}>
                 <tr>
                   {[
@@ -1551,7 +1545,6 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                     "Team",
                     "Subset",
                     "Variant",
-                    "VCS Tier",
                     "Front Image",
                     "Back Image",
                     "Book",
@@ -1573,40 +1566,39 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                   const saving = savingCardId === c.id;
                   const defaulting = defaultingCardId === c.id;
                   const info = defaultingById[c.id];
-                  const effectiveGradeability = getEffectiveGradeability(c);
 
                   return (
                     <tr key={c.id} style={{ background: zebra }}>
-                      <td style={{ ...bodyCell, width: 60 }}>{idx + 1}</td>
+                      <td className="vcs-admin-card-rowno" style={bodyCell}>{idx + 1}</td>
 
-                      <td style={{ ...bodyCell, width: 110 }}>
+                      <td className="vcs-admin-card-number" style={bodyCell}>
                         <input
+                          aria-label={"Card number for " + c.player}
                           value={c.cardNumber}
                           onChange={(e) => patchCard(c.id, { cardNumber: e.target.value })}
                           style={{ width: "100%", padding: 6 }}
                         />
                       </td>
 
-                      <td style={{ ...bodyCell, minWidth: 280 }}>
-                        <input
-                          value={c.player ?? ""}
-                          onChange={(e) => patchCard(c.id, { player: e.target.value })}
-                          style={{ width: "100%", padding: 6 }}
-                        />
-                        <div
-                          style={{
-                            marginTop: 6,
-                            fontSize: 12,
-                            color: pricingHintColor(info),
-                            fontWeight: 700,
-                            lineHeight: 1.35,
-                          }}
-                        >
-                          {pricingHintText(info)}
+                      <td className="vcs-admin-card-player" style={bodyCell}>
+                        <div className="vcs-admin-card-player-line">
+                          <input
+                            aria-label={"Player for card #" + c.cardNumber}
+                            value={c.player ?? ""}
+                            onChange={(e) => patchCard(c.id, { player: e.target.value })}
+                            style={{ width: "100%", padding: 6 }}
+                          />
+                          <span
+                            className="vcs-admin-price-hint"
+                            role="note"
+                            title={pricingHintText(info)}
+                            aria-label={pricingHintText(info)}
+                            style={{ color: pricingHintColor(info) }}
+                          >ⓘ</span>
                         </div>
                       </td>
 
-                      <td style={{ ...bodyCell, minWidth: 220 }}>
+                      <td style={bodyCell}>
                         <input
                           value={c.team ?? ""}
                           onChange={(e) => patchCard(c.id, { team: e.target.value || null })}
@@ -1614,7 +1606,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                         />
                       </td>
 
-                      <td style={{ ...bodyCell, minWidth: 180 }}>
+                      <td style={bodyCell}>
                         <input
                           value={c.subset ?? ""}
                           onChange={(e) => patchCard(c.id, { subset: e.target.value || null })}
@@ -1622,7 +1614,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                         />
                       </td>
 
-                      <td style={{ ...bodyCell, minWidth: 160 }}>
+                      <td style={bodyCell}>
                         <input
                           value={c.variant ?? ""}
                           onChange={(e) => patchCard(c.id, { variant: e.target.value || null })}
@@ -1630,83 +1622,52 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                         />
                       </td>
 
-                      <td style={{ ...bodyCell, minWidth: 210 }}>
-                        <select
-                          value={c.gradeabilityOverride ?? ""}
-                          onChange={(e) => {
-                            const next = normalizeGradeabilityOverride(e.target.value);
-                            patchCard(c.id, { gradeabilityOverride: next }, { autosaveDelayMs: 250 });
-                          }}
-                          disabled={saving || bulkSaving || pricingBusy || savingProductSet}
-                          style={{ width: "100%", padding: 7, borderRadius: 8, border: "1px solid #ccc" }}
-                        >
-                          <option value="">Use set default ({gradeabilityLabel(defaultGradeability)})</option>
-                          <option value="COMMON">Common</option>
-                          <option value="GREAT">Great</option>
-                          <option value="ICONIC">Iconic</option>
-                        </select>
-
-                        <div style={{ marginTop: 6, display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
-                          <span style={gradeabilityBadgeStyle(effectiveGradeability)}>
-                            {gradeabilityLabel(effectiveGradeability)}
-                          </span>
-                          {c.gradeabilityOverride ? (
-                            <span style={{ fontSize: 11, color: "#555", fontWeight: 800 }}>override</span>
-                          ) : (
-                            <span style={{ fontSize: 11, color: "#777" }}>set default</span>
-                          )}
-                        </div>
-                      </td>
-
-                      <td style={{ ...bodyCell, minWidth: 420 }}>
-                        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                          <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-                            <input
-                              value={c.frontImageUrl ?? ""}
-                              onChange={(e) => patchCard(c.id, { frontImageUrl: e.target.value || null })}
-                              placeholder="front image URL"
-                              style={{ flex: 1, padding: 6, minWidth: 260 }}
-                            />
-                            {c.frontImageUrl ? (
-                              <a href={c.frontImageUrl} target="_blank" rel="noreferrer" style={{ fontSize: 12 }}>
-                                Preview
-                              </a>
-                            ) : null}
-                          </div>
-
+                      <td className="vcs-admin-card-image-cell" style={bodyCell}>
+                        <div className="vcs-admin-card-image-editor">
                           <ImageUploader
-                            label="Upload front image"
+                            compact
+                            label="Front image"
                             value={c.frontImageUrl}
                             onUploaded={(url) => patchCard(c.id, { frontImageUrl: url }, { autosaveDelayMs: 100 })}
                           />
+                          <details className="vcs-admin-image-url-details">
+                            <summary title="View or manually edit the front image URL">URL</summary>
+                            <label>
+                              Front image URL
+                              <input
+                                value={c.frontImageUrl ?? ""}
+                                onChange={(e) => patchCard(c.id, { frontImageUrl: e.target.value || null })}
+                                placeholder="Paste image URL"
+                              />
+                            </label>
+                          </details>
                         </div>
                       </td>
 
-                      <td style={{ ...bodyCell, minWidth: 420 }}>
-                        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                          <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-                            <input
-                              value={c.backImageUrl ?? ""}
-                              onChange={(e) => patchCard(c.id, { backImageUrl: e.target.value || null })}
-                              placeholder="back image URL"
-                              style={{ flex: 1, padding: 6, minWidth: 260 }}
-                            />
-                            {c.backImageUrl ? (
-                              <a href={c.backImageUrl} target="_blank" rel="noreferrer" style={{ fontSize: 12 }}>
-                                Preview
-                              </a>
-                            ) : null}
-                          </div>
-
+                      <td className="vcs-admin-card-image-cell" style={bodyCell}>
+                        <div className="vcs-admin-card-image-editor">
                           <ImageUploader
-                            label="Upload back image"
+                            compact
+                            label="Back image"
                             value={c.backImageUrl}
                             onUploaded={(url) => patchCard(c.id, { backImageUrl: url }, { autosaveDelayMs: 100 })}
                           />
+                          <details className="vcs-admin-image-url-details">
+                            <summary title="View or manually edit the back image URL">URL</summary>
+                            <label>
+                              Back image URL
+                              <input
+                                value={c.backImageUrl ?? ""}
+                                onChange={(e) => patchCard(c.id, { backImageUrl: e.target.value || null })}
+                                placeholder="Paste image URL"
+                              />
+                            </label>
+                          </details>
                         </div>
                       </td>
 
-                      <td style={{ ...bodyCell, width: 150 }}>
+                      <td className="vcs-admin-card-book" style={bodyCell}>
+                        <div className="vcs-admin-card-book-line">
                         <input
                           value={bookDraft[c.id] ?? moneyToDisplay(c.bookValue ?? 0)}
                           onChange={(e) => {
@@ -1732,33 +1693,27 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                           }}
                           style={{ width: "100%", padding: 6 }}
                         />
-
-                        <div
-                          style={{
-                            minHeight: 18,
-                            marginTop: 4,
-                            fontSize: 12,
-                            color: autoSaveById[c.id] === "error" ? "#8a1f1f" : "#666",
-                          }}
-                        >
-                          {autoSaveText(c.id)}
+                          <button
+                            type="button"
+                            onClick={() => useDefaultForCard(c)}
+                            disabled={saving || defaulting || bulkSaving || pricingBusy || savingProductSet}
+                            title="Use the configured player tier price (when available)"
+                            aria-label={"Use default price for " + c.player}
+                          >
+                            {defaulting ? "…" : "↺"}
+                          </button>
                         </div>
-
-                        <button
-                          onClick={() => useDefaultForCard(c)}
-                          disabled={saving || defaulting || bulkSaving || pricingBusy || savingProductSet}
-                          style={{ marginTop: 8, width: "100%", padding: "6px 8px", fontWeight: 800 }}
-                          title="Apply the configured tier default for this player on this product set"
-                        >
-                          {defaulting ? "Applying…" : "Use Default"}
-                        </button>
+                        {autoSaveText(c.id) ? (
+                          <span className={"vcs-admin-card-save-status" + (autoSaveById[c.id] === "error" ? " is-error" : "")}
+                            role="status">{autoSaveText(c.id)}</span>
+                        ) : null}
                       </td>
 
-                      <td style={{ ...bodyCell, whiteSpace: "nowrap" }}>
+                      <td className="vcs-admin-card-actions" style={bodyCell}>
                         <button
                           onClick={() => saveCard(c)}
                           disabled={saving || bulkSaving || pricingBusy || savingProductSet}
-                          style={{ padding: "6px 10px", marginRight: 8 }}
+                          style={{ padding: "6px 9px" }}
                         >
                           {saving ? "Saving..." : "Save"}
                         </button>
@@ -1766,7 +1721,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
                           className="vcs-admin-danger-action"
                           onClick={() => deleteCard(c)}
                           disabled={saving || bulkSaving || pricingBusy || savingProductSet}
-                          style={{ padding: "6px 10px" }}
+                          style={{ padding: "6px 9px" }}
                         >
                           Delete
                         </button>
@@ -1777,7 +1732,7 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
 
                 {filteredCards.length === 0 && (
                   <tr>
-                    <td colSpan={11} style={{ padding: 12 }}>
+                    <td colSpan={10} style={{ padding: 12 }}>
                       No cards match your search/filters on this page.
                     </td>
                   </tr>
