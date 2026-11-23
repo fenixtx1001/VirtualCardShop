@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 
 type ProductSetRow = {
@@ -123,6 +123,7 @@ export default function ProductSetsClient() {
 
   const [error, setError] = useState<string | null>(null);
   const [savingId, setSavingId] = useState<string | null>(null);
+  const [expandedPricingId, setExpandedPricingId] = useState<string | null>(null);
   const [saveOk, setSaveOk] = useState<string | null>(null);
 
   const [products, setProducts] = useState<ProductMeta[]>([]);
@@ -925,6 +926,7 @@ export default function ProductSetsClient() {
       {renderPagination("top")}
 
       <div
+        className="vcs-admin-product-set-table-wrap"
         style={{
           overflowX: "auto",
           border: "1px solid #ddd",
@@ -952,353 +954,129 @@ export default function ProductSetsClient() {
         {loading && rows.length === 0 ? (
           <div style={{ padding: 16 }}>Loading…</div>
         ) : (
-          <table
-            style={{
-              width: "100%",
-              borderCollapse: "collapse",
-            }}
-          >
-            <thead
-              style={{
-                position: "sticky",
-                top: 0,
-                background: "#f7f7f7",
-                zIndex: 2,
-              }}
-            >
+          <table className="vcs-admin-product-set-table" aria-label="Product set catalog management">
+            <colgroup>
+              <col style={{ width: "13%" }} /><col style={{ width: "16%" }} />
+              <col style={{ width: "15%" }} /><col style={{ width: "8%" }} />
+              <col style={{ width: "8%" }} /><col style={{ width: "10%" }} />
+              <col style={{ width: "16%" }} /><col style={{ width: "4%" }} />
+              <col style={{ width: "10%" }} />
+            </colgroup>
+            <thead>
               <tr>
-                {[
-                  "Product",
-                  "Product Set ID",
-                  "Name",
-                  "Base?",
-                  "Insert?",
-                  "Odds (1:X packs)",
-                  "Common $",
-                  "Semi-Star $",
-                  "Unlisted Star $",
-                  "Star 1 $",
-                  "Star 2 $",
-                  "Star 3 $",
-                  "Priced",
-                  "Front",
-                  "Back",
-                  "Cards",
-                  "Actions",
-                ].map((heading) => (
-                  <th key={heading} style={th}>
-                    {heading}
-                  </th>
+                {["Product", "Product Set", "Name", "Type", "Odds (1:X)", "Tier prices", "Setup completeness", "Cards", "Actions"].map((heading) => (
+                  <th key={heading} scope="col" style={th}>{heading}</th>
                 ))}
               </tr>
             </thead>
-
             <tbody>
               {rows.map((row, index) => {
-                const zebra = index % 2 === 0 ? "#fff" : "#fcfcfc";
-                const saving = savingId === row.id;
                 const draft = drafts[row.id] ?? createDraft(row);
-
-                const totalCards = safeNum(
-                  row.stats?.totalCards ?? row._count?.cards ?? 0
-                );
-                const pricedPct = row.stats?.pctPriced ?? 0;
-                const frontPct = row.stats?.pctFront ?? 0;
-                const backPct = row.stats?.pctBack ?? 0;
-
-                const mini = (pct: number, count: number) =>
-                  totalCards > 0
-                    ? `${pctText(pct)} (${count}/${totalCards})`
-                    : "—";
-
-                const priceInputStyle: CSSProperties = {
-                  width: 92,
-                  padding: 6,
-                };
-
+                const saving = savingId === row.id;
+                const expanded = expandedPricingId === row.id;
                 const productMeta = productMetaById.get(row.productId);
-
+                const productLabel = [productMeta?.year, productMeta?.brand].filter(Boolean).join(" ") || row.productId.replace(/_/g, " ");
+                const shortId = row.id.startsWith(row.productId) ? row.id.slice(row.productId.length).replace(/^_+/, "") : row.id;
+                const setLabel = (shortId || row.id).replace(/_/g, " ");
+                const totalCards = row.stats?.totalCards ?? row._count?.cards ?? null;
+                const configuredPrices = [
+                  draft.commonPrice, draft.semiStarPrice, draft.unlistedStarPrice,
+                  draft.star1Price, draft.star2Price, draft.star3Price,
+                ].filter((value) => value.trim() !== "").length;
+                const coverage = [
+                  { label: "Priced", pct: row.stats?.pctPriced, count: row.stats?.pricedCards },
+                  { label: "Front", pct: row.stats?.pctFront, count: row.stats?.frontCards },
+                  { label: "Back", pct: row.stats?.pctBack, count: row.stats?.backCards },
+                ];
                 return (
-                  <tr key={row.id} style={{ background: zebra }}>
-                    <td style={td}>
-                      <Link
-                        href={`/admin/products/${encodeURIComponent(
-                          row.productId
-                        )}`}
-                        style={{
-                          textDecoration: "underline",
-                          fontWeight: 700,
-                        }}
-                      >
-                        {row.productId}
-                      </Link>
-
-                      {productMeta ? (
-                        <div
-                          style={{
-                            fontSize: 12,
-                            opacity: 0.75,
-                            marginTop: 4,
-                          }}
-                        >
-                          {[
-                            productMeta.year
-                              ? String(productMeta.year)
-                              : null,
-                            productMeta.sport
-                              ? String(productMeta.sport)
-                              : null,
-                          ]
-                            .filter(Boolean)
-                            .join(" • ")}
+                  <Fragment key={row.id}>
+                    <tr className={expanded ? "vcs-admin-set-expanded-source" : ""}>
+                      <td style={td}>
+                        <Link className="vcs-admin-set-product-link" href={"/admin/products/" + encodeURIComponent(row.productId)} title={row.productId}>{productLabel}</Link>
+                        <small className="vcs-admin-set-meta">{productMeta?.sport || "Product"}</small>
+                      </td>
+                      <td style={td}>
+                        <Link className="vcs-admin-set-id-link" href={"/admin/product-sets/" + encodeURIComponent(row.id)} title={row.id}>{setLabel}</Link>
+                      </td>
+                      <td style={td}>
+                        <input aria-label={"Product set name for " + row.id} value={draft.name}
+                          onChange={(event) => patchDraft(row.id, { name: event.target.value })}
+                          placeholder="Set name" title={draft.name} />
+                      </td>
+                      <td style={td}>
+                        <div className="vcs-admin-set-type">
+                          <label title="Mark as the product's base checklist"><input type="checkbox" checked={!!draft.isBase} onChange={(event) => setBase(row.id, event.target.checked)} /> Base</label>
+                          <label title="Mark as an insert or parallel set"><input type="checkbox" checked={!!draft.isInsert} onChange={(event) => setInsert(row.id, event.target.checked)} /> Insert</label>
                         </div>
-                      ) : null}
-                    </td>
-
-                    <td style={td}>
-                      <Link
-                        href={`/admin/product-sets/${encodeURIComponent(
-                          row.id
-                        )}`}
-                        style={{
-                          textDecoration: "underline",
-                          fontWeight: 700,
-                        }}
-                      >
-                        {row.id}
-                      </Link>
-                    </td>
-
-                    <td
-                      style={{
-                        ...td,
-                        whiteSpace: "normal",
-                        minWidth: 220,
-                      }}
-                    >
-                      <input
-                        value={draft.name}
-                        onChange={(event) =>
-                          patchDraft(row.id, {
-                            name: event.target.value,
-                          })
-                        }
-                        placeholder="(e.g., Bonus Cards)"
-                        style={{ width: "100%", padding: 6 }}
-                      />
-                    </td>
-
-                    <td style={td}>
-                      <input
-                        type="checkbox"
-                        checked={!!draft.isBase}
-                        onChange={(event) =>
-                          setBase(row.id, event.target.checked)
-                        }
-                      />{" "}
-                      {draft.isBase ? "Yes" : "No"}
-                    </td>
-
-                    <td style={td}>
-                      <input
-                        type="checkbox"
-                        checked={!!draft.isInsert}
-                        onChange={(event) =>
-                          setInsert(row.id, event.target.checked)
-                        }
-                      />{" "}
-                      {draft.isInsert ? "Yes" : "No"}
-                    </td>
-
-                    <td style={td}>
-                      <input
-                        type="number"
-                        step="1"
-                        inputMode="numeric"
-                        value={draft.oddsPerPack}
-                        onChange={(event) =>
-                          patchDraft(row.id, {
-                            oddsPerPack: event.target.value,
-                          })
-                        }
-                        placeholder="—"
-                        style={{ width: 140, padding: 6 }}
-                      />
-                    </td>
-
-                    <td style={td}>
-                      <input
-                        type="number"
-                        step="0.01"
-                        inputMode="decimal"
-                        value={draft.commonPrice}
-                        onChange={(event) =>
-                          patchDraft(row.id, {
-                            commonPrice: event.target.value,
-                          })
-                        }
-                        placeholder="—"
-                        style={priceInputStyle}
-                      />
-                    </td>
-
-                    <td style={td}>
-                      <input
-                        type="number"
-                        step="0.01"
-                        inputMode="decimal"
-                        value={draft.semiStarPrice}
-                        onChange={(event) =>
-                          patchDraft(row.id, {
-                            semiStarPrice: event.target.value,
-                          })
-                        }
-                        placeholder="—"
-                        style={priceInputStyle}
-                      />
-                    </td>
-
-                    <td style={td}>
-                      <input
-                        type="number"
-                        step="0.01"
-                        inputMode="decimal"
-                        value={draft.unlistedStarPrice}
-                        onChange={(event) =>
-                          patchDraft(row.id, {
-                            unlistedStarPrice: event.target.value,
-                          })
-                        }
-                        placeholder="—"
-                        style={priceInputStyle}
-                      />
-                    </td>
-
-                    <td style={td}>
-                      <input
-                        type="number"
-                        step="0.01"
-                        inputMode="decimal"
-                        value={draft.star1Price}
-                        onChange={(event) =>
-                          patchDraft(row.id, {
-                            star1Price: event.target.value,
-                          })
-                        }
-                        placeholder="—"
-                        style={priceInputStyle}
-                      />
-                    </td>
-
-                    <td style={td}>
-                      <input
-                        type="number"
-                        step="0.01"
-                        inputMode="decimal"
-                        value={draft.star2Price}
-                        onChange={(event) =>
-                          patchDraft(row.id, {
-                            star2Price: event.target.value,
-                          })
-                        }
-                        placeholder="—"
-                        style={priceInputStyle}
-                      />
-                    </td>
-
-                    <td style={td}>
-                      <input
-                        type="number"
-                        step="0.01"
-                        inputMode="decimal"
-                        value={draft.star3Price}
-                        onChange={(event) =>
-                          patchDraft(row.id, {
-                            star3Price: event.target.value,
-                          })
-                        }
-                        placeholder="—"
-                        style={priceInputStyle}
-                      />
-                    </td>
-
-                    <td
-                      style={{
-                        ...td,
-                        fontSize: 12,
-                        opacity: 0.9,
-                      }}
-                    >
-                      {mini(
-                        pricedPct,
-                        safeNum(row.stats?.pricedCards ?? 0)
-                      )}
-                    </td>
-
-                    <td
-                      style={{
-                        ...td,
-                        fontSize: 12,
-                        opacity: 0.9,
-                      }}
-                    >
-                      {mini(
-                        frontPct,
-                        safeNum(row.stats?.frontCards ?? 0)
-                      )}
-                    </td>
-
-                    <td
-                      style={{
-                        ...td,
-                        fontSize: 12,
-                        opacity: 0.9,
-                      }}
-                    >
-                      {mini(backPct, safeNum(row.stats?.backCards ?? 0))}
-                    </td>
-
-                    <td style={td}>
-                      {row._count?.cards ??
-                        row.stats?.totalCards ??
-                        "—"}
-                    </td>
-
-                    <td style={td}>
-                      <button
-                        type="button"
-                        onClick={() => saveRow(row)}
-                        disabled={saving}
-                        style={{
-                          padding: "6px 10px",
-                          marginRight: 8,
-                        }}
-                      >
-                        {saving ? "Saving..." : "Save"}
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => deleteRow(row)}
-                        disabled={saving}
-                        style={{
-                          padding: "6px 10px",
-                          color: "red",
-                        }}
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
+                      </td>
+                      <td style={td}>
+                        <input type="number" step="1" inputMode="numeric" min="0"
+                          aria-label={"Odds in packs for " + row.id} value={draft.oddsPerPack}
+                          onChange={(event) => patchDraft(row.id, { oddsPerPack: event.target.value })}
+                          placeholder="—" title="One hit every X packs; blank for no odds" />
+                      </td>
+                      <td style={td}>
+                        <button type="button" className="vcs-admin-set-price-toggle"
+                          onClick={() => setExpandedPricingId(expanded ? null : row.id)}
+                          aria-expanded={expanded} aria-controls={"vcs-admin-prices-" + index}
+                          title="Expand all six editable player-tier default prices"
+                        >{expanded ? "Close prices" : "Edit prices"}</button>
+                        <small className="vcs-admin-set-meta">{configuredPrices}/6 set</small>
+                      </td>
+                      <td style={td}>
+                        <div className="vcs-admin-set-coverage" aria-label={"Setup completion for " + row.id}>
+                          {coverage.map((item) => (
+                            <div className="vcs-admin-set-coverage-item" key={item.label}
+                              title={item.pct == null || totalCards == null ? "Status unavailable" : item.label + ": " + pctText(item.pct) + " (" + safeNum(item.count) + " of " + totalCards + ")"}>
+                              <span>{item.label}</span><strong>{item.pct == null ? "—" : pctText(item.pct)}</strong>
+                              <div className="vcs-admin-set-progress-track"><i style={{ width: Math.min(100, Math.max(0, safeNum(item.pct))) + "%" }} /></div>
+                            </div>
+                          ))}
+                        </div>
+                      </td>
+                      <td className="vcs-admin-set-card-count" style={td}>{totalCards ?? "—"}</td>
+                      <td style={td}>
+                        <div className="vcs-admin-set-row-actions">
+                          <button type="button" onClick={() => saveRow(row)} disabled={saving}>{saving ? "Saving…" : "Save"}</button>
+                          <button type="button" className="vcs-admin-danger-action" onClick={() => deleteRow(row)} disabled={saving}>Delete</button>
+                        </div>
+                      </td>
+                    </tr>
+                    {expanded && (
+                      <tr className="vcs-admin-set-price-detail" id={"vcs-admin-prices-" + index}>
+                        <td colSpan={9}>
+                          <div className="vcs-admin-set-price-editor">
+                            <div className="vcs-admin-set-price-intro">
+                              <strong>Tier default prices</strong>
+                              <span>Configure all six book-value defaults for <b>{row.id}</b>. Press Save prices when finished.</span>
+                            </div>
+                            <div className="vcs-admin-set-price-grid">
+                              {([
+                                ["commonPrice", "Common"], ["semiStarPrice", "Semi-Star"],
+                                ["unlistedStarPrice", "Unlisted Star"], ["star1Price", "Star 1"],
+                                ["star2Price", "Star 2"], ["star3Price", "Star 3"],
+                              ] as const).map(([field, label]) => (
+                                <label key={field}><span>{label} ($)</span>
+                                  <input type="number" step="0.01" inputMode="decimal" min="0"
+                                    value={draft[field]}
+                                    onChange={(event) => patchDraft(row.id, { [field]: event.target.value })}
+                                    placeholder="Not set" />
+                                </label>
+                              ))}
+                            </div>
+                            <div className="vcs-admin-set-price-footer">
+                              <span>Blank values remain unconfigured. Saving also applies edits in this set's main row.</span>
+                              <button type="button" onClick={() => saveRow(row)} disabled={saving}>{saving ? "Saving…" : "Save prices"}</button>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    )}
+                  </Fragment>
                 );
               })}
-
               {rows.length === 0 && (
-                <tr>
-                  <td colSpan={17} style={{ padding: 12 }}>
-                    No matching product sets. Try clearing filters.
-                  </td>
-                </tr>
+                <tr><td colSpan={9} style={{ padding: 12 }}>No matching product sets. Try clearing filters.</td></tr>
               )}
             </tbody>
           </table>
