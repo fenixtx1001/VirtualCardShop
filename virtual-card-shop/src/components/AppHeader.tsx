@@ -343,17 +343,22 @@ function ClaimRewardButton({
   return (
     <button
       onClick={onClick}
+      type="button"
       disabled={!canClaim}
+      aria-label={canClaim ? "Claim $10 VCS reward" : eco ? `Next $10 reward in ${formatCountdown(eco.msUntilNextClaim)}` : "Reward status loading"}
       style={{
-        border: canClaim ? "1px solid #d7bb7e" : "1px solid #494e40",
-        background: canClaim ? "#d7bb7e" : "#252a22",
-        color: canClaim ? "#20221c" : "#c7cbbb",
-        borderRadius: 6,
-        padding: compact ? "7px 9px" : "8px 11px",
+        border: compact ? (canClaim ? "1px solid #d7bb7e" : "1px solid transparent") : canClaim ? "1px solid #d7bb7e" : "1px solid #494e40",
+        background: canClaim ? "#d7bb7e" : compact ? "transparent" : "#252a22",
+        color: canClaim ? "#20221c" : compact ? "#c2b695" : "#c7cbbb",
+        borderRadius: compact ? 4 : 6,
+        padding: compact ? "8px 4px" : "8px 11px",
+        minHeight: compact ? 42 : undefined,
         fontSize: compact ? 11 : 12,
+        fontVariantNumeric: "tabular-nums",
+        letterSpacing: compact ? "0.02em" : undefined,
         fontWeight: 750,
         cursor: canClaim ? "pointer" : "not-allowed",
-        boxShadow: canClaim ? "0 5px 16px rgba(0,0,0,.24)" : "none",
+        boxShadow: canClaim && !compact ? "0 5px 16px rgba(0,0,0,.24)" : "none",
         whiteSpace: "nowrap",
       }}
       title={
@@ -364,7 +369,7 @@ function ClaimRewardButton({
             : "Loading…"
       }
     >
-      {loading ? "Claiming…" : eco?.canClaim ? "Claim $10" : eco ? formatCountdown(eco.msUntilNextClaim) : "Reward"}
+      {loading ? "Claiming…" : eco?.canClaim ? "Claim $10" : eco ? compact ? `+$10 · ${formatCountdown(eco.msUntilNextClaim)}` : formatCountdown(eco.msUntilNextClaim) : "Reward"}
     </button>
   );
 }
@@ -840,38 +845,40 @@ export default function AppHeader() {
             position: "sticky",
             top: 0,
             zIndex: 1000,
-            padding: "9px 12px",
-            background: "#181a19f5",
+            padding: "4px 14px",
+            minHeight: 52,
+            background: "#1b201cfa",
             color: "#eee9dc",
             backdropFilter: "blur(18px)",
-            borderBottom: "1px solid #393e33",
-            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.18)",
+            borderBottom: "1px solid #4b4b3b",
+            boxShadow: "0 3px 15px rgba(0, 0, 0, 0.12)",
           }}
         >
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8, minHeight: 42 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
-              <VcsMark size={34} />
+              <VcsMark size={29} />
               <div style={{ minWidth: 0 }}>
-                <div style={{ fontSize: 14, fontWeight: 750, color: "#eee9dc", letterSpacing: -0.2 }}>
+                <div style={{ fontSize: 13, fontWeight: 690, color: "#eee9dc", letterSpacing: -0.3, lineHeight: 1.15 }}>
                   VCS Rip
                 </div>
-                <div style={{ fontSize: 11, color: "#b7bbaf", fontWeight: 600 }}>{balanceText}</div>
+                <div style={{ fontSize: 11, color: "#aaa998", fontWeight: 580, marginTop: 3, fontVariantNumeric: "tabular-nums" }}>{balanceText}</div>
               </div>
             </div>
 
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
               <ClaimRewardButton eco={eco} loading={loading} onClick={claimReward} compact />
               <Link
                 href="/inventory"
                 style={{
-                  color: "#ddd5bf",
+                  color: "#cbbd98",
                   textDecoration: "none",
-                  fontSize: 12,
-                  fontWeight: 700,
-                  padding: "7px 9px",
-                  borderRadius: 6,
-                  border: "1px solid #494e40",
-                  background: "#252a22",
+                  fontSize: 11,
+                  fontWeight: 660,
+                  padding: "9px 0 9px 11px",
+                  minHeight: 42,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  borderLeft: "1px solid #44483d",
                   whiteSpace: "nowrap",
                 }}
               >

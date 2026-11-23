@@ -4372,6 +4372,249 @@ export default function OpenPackClient({
           }
         }
 
+
+
+        /* =========================================================
+           VCS RIP / MOBILE EDITORIAL FINISH
+           Card artwork is the primary surface; other elements are labels,
+           hairlines, and quiet controls, not nested UI boxes.
+           ========================================================= */
+        @media (max-width: 560px) {
+          .vcs-pack-root.is-opened {
+            background:
+              radial-gradient(ellipse 65% 55% at 50% 40%, rgba(183, 163, 120, .055), transparent 75%),
+              #181a19 !important;
+          }
+
+          /* An edge-aligned collector readout instead of a floating pill. */
+          .mobile-rip-hud {
+            width: calc(100% - 22px) !important;
+            max-width: 440px;
+            min-height: 31px;
+            height: 33px;
+            box-sizing: border-box;
+            margin: 0 auto 4px !important;
+            padding: 0 3px 5px !important;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0;
+            border: none !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            backdrop-filter: none !important;
+            box-shadow: none !important;
+            position: relative;
+          }
+
+          .mobile-hud-item {
+            padding: 0 12px 0 0 !important;
+            gap: 5px;
+            align-items: baseline;
+          }
+          .mobile-hud-item + .mobile-hud-item {
+            border-left: 1px solid rgba(202, 192, 167, .23) !important;
+            padding: 0 0 0 12px !important;
+          }
+          .mobile-hud-label {
+            color: #898e84 !important;
+            font-size: 9px !important;
+            font-weight: 630 !important;
+            letter-spacing: .075em !important;
+          }
+          .mobile-hud-value {
+            color: #eeeae0 !important;
+            font-size: 13px !important;
+            font-weight: 670 !important;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: -.018em;
+          }
+          .mobile-hud-value.negative { color: #daa69d !important; }
+          .mobile-hud-value.positive { color: #b4d7ad !important; }
+          .mobile-hud-card {
+            margin: 0 0 0 auto !important;
+            padding: 0 !important;
+            border: 0 !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            color: #d7bb7e !important;
+            font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+            font-weight: 690 !important;
+            font-size: 12px !important;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: -.035em;
+            white-space: nowrap;
+          }
+          .mobile-rip-progress-track {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(205, 195, 165, .24);
+            overflow: hidden;
+            pointer-events: none;
+          }
+          .mobile-rip-progress-track span {
+            display: block;
+            height: 100%;
+            background: #c8b079;
+            transition: width 200ms ease;
+          }
+
+          /* Museum-style caption: a quiet separator rather than a dark tile. */
+          .mobile-current-meta {
+            width: calc(100% - 22px) !important;
+            max-width: 440px;
+            margin-top: 7px !important;
+            padding: 8px 1px 3px !important;
+            border: 0 !important;
+            border-top: 1px solid rgba(205, 194, 163, .33) !important;
+            border-radius: 0 !important;
+            background: linear-gradient(180deg, #1b1e1b 0%, #1b1e1b 70%, #191c19 100%) !important;
+            box-shadow: none !important;
+          }
+          .mobile-current-title {
+            color: #f2eee5 !important;
+            font-size: 15px !important;
+            font-weight: 680 !important;
+            line-height: 1.2 !important;
+            letter-spacing: -.022em !important;
+          }
+          .mobile-current-sub {
+            margin-top: 2px !important;
+            color: #a9ada2 !important;
+            font-size: 10px !important;
+            font-weight: 500 !important;
+            letter-spacing: .005em;
+          }
+          .mobile-current-bottom {
+            margin-top: 6px !important;
+            gap: 10px !important;
+            align-items: baseline !important;
+          }
+          .mobile-current-tags { gap: 7px !important; }
+          .mobile-current-type,
+          .mobile-current-type.special {
+            padding: 0 !important;
+            border: 0 !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            color: #9fa69b !important;
+            font-size: 9px !important;
+            font-weight: 670 !important;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+            line-height: 1.25;
+          }
+          .mobile-current-type.special { color: #d1bb88 !important; }
+          .mobile-current-stats {
+            gap: 10px !important;
+            color: #9da49a !important;
+            font-size: 10px !important;
+            font-weight: 530 !important;
+            font-variant-numeric: tabular-nums;
+          }
+          .mobile-current-stats b {
+            color: #ede8dc !important;
+            font-size: 12px !important;
+            font-weight: 700 !important;
+          }
+          .mobile-prestige-note {
+            margin-top: 6px !important;
+            border-radius: 2px !important;
+            font-size: 10px !important;
+          }
+
+          /* Keep the gesture hint, but take the extra black pill off the art. */
+          .mobile-swipe-hint {
+            padding: 2px 4px !important;
+            bottom: 8px !important;
+            border: 0 !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            backdrop-filter: none !important;
+            box-shadow: none !important;
+            color: #fff9ea !important;
+            text-shadow: 0 1px 6px #000, 0 1px 2px #000;
+            font-size: 8px !important;
+            font-weight: 650 !important;
+            letter-spacing: .095em !important;
+            opacity: .65 !important;
+          }
+
+          /* Touch-size arrow targets without chunky button outlines. */
+          .mobile-card-controls {
+            width: calc(100% - 22px) !important;
+            max-width: 440px;
+            grid-template-columns: 48px minmax(0, 1fr) 48px !important;
+            gap: 0 !important;
+            align-items: center;
+            margin: 3px auto 0 !important;
+          }
+          .mobile-card-controls .btn,
+          .mobile-card-controls .btn.flip-control {
+            min-height: 42px !important;
+            border: none !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            color: #c5cabd !important;
+            padding: 3px 4px !important;
+            -webkit-tap-highlight-color: transparent;
+          }
+          .mobile-card-controls .btn:first-child,
+          .mobile-card-controls .btn:last-child {
+            width: 48px;
+            justify-self: center;
+            color: #d1bd8e !important;
+          }
+          .mobile-card-controls .btn:first-child::before,
+          .mobile-card-controls .btn:last-child::before {
+            font-size: 28px !important;
+            font-weight: 350 !important;
+            line-height: 1 !important;
+          }
+          .mobile-card-controls .btn.flip-control {
+            width: min(57%, 136px) !important;
+            justify-self: center;
+            min-height: 40px !important;
+            border-top: 1px solid rgba(200, 183, 141, .4) !important;
+            border-bottom: 1px solid rgba(200, 183, 141, .12) !important;
+            color: #f1e6d1 !important;
+            font-size: 11px !important;
+            font-weight: 680 !important;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+          }
+          .mobile-card-controls .btn:hover:not(:disabled),
+          .mobile-card-controls .btn:active:not(:disabled) {
+            color: #fff1cd !important;
+            background: rgba(215,187,126,.06) !important;
+          }
+          .mobile-card-controls .btn:disabled {
+            opacity: .28 !important;
+          }
+          .mobile-card-controls .btn:focus-visible {
+            outline: 2px solid #d7bb7e !important;
+            outline-offset: 0 !important;
+          }
+
+          /* No adjustments to flip geometry, swipe physics, rare-card
+             illumination, pack summary, or desktop layouts. */
+        }
+        @media (max-width: 560px) and (max-height: 720px) {
+          .mobile-current-meta { padding: 6px 1px 1px !important; }
+          .mobile-current-bottom { margin-top: 4px !important; }
+          .mobile-card-controls .btn,
+          .mobile-card-controls .btn.flip-control { min-height: 36px !important; }
+          .mobile-rip-hud { margin-bottom: 2px !important; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .mobile-rip-progress-track span { transition: none !important; }
+        }
+
       `}</style>
 
       <div className="vcs-pack-wrap">
@@ -4573,8 +4816,11 @@ export default function OpenPackClient({
                   </div>
                 </div>
 
-                <div className="mobile-hud-card">
+                <div className="mobile-hud-card" aria-label={"Card " + mobileProgressText.replace("/", " of ")}>
                   {mobileProgressText}
+                </div>
+                <div className="mobile-rip-progress-track" aria-hidden="true">
+                  <span style={{ width: cards.length ? ((idx + 1) / cards.length) * 100 + "%" : "0%" }} />
                 </div>
               </div>
 
@@ -4848,7 +5094,10 @@ export default function OpenPackClient({
 
                   <div className="mobile-card-controls">
                     <button
+                      type="button"
                       className="btn"
+                      aria-label="Previous card"
+                      title="Previous card"
                       onClick={prev}
                       disabled={!canPrev || Boolean(swipeCommit)}
                     >
@@ -4856,7 +5105,10 @@ export default function OpenPackClient({
                     </button>
 
                     <button
+                      type="button"
                       className="btn flip-control"
+                      aria-label={flipped ? "Show card front" : "Flip card to back"}
+                      title={flipped ? "Show card front" : "Flip card to back"}
                       onClick={() => setFlipped((x) => !x)}
                       disabled={!current || Boolean(swipeCommit)}
                     >
@@ -4864,7 +5116,10 @@ export default function OpenPackClient({
                     </button>
 
                     <button
+                      type="button"
                       className="btn"
+                      aria-label="Next card"
+                      title="Next card"
                       onClick={next}
                       disabled={!canNext || Boolean(swipeCommit)}
                     >
