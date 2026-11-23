@@ -194,3 +194,214 @@ body:has(.vcs-admin-shell) { background: #16212b; }
 @media (prefers-reduced-motion: reduce) {
   .vcs-admin-shell *, .vcs-admin-shell *::before, .vcs-admin-shell *::after { transition: none !important; }
 }
+
+
+/* Compact checklist grid: fixed, intentional widths prevent the Card # input
+   from being squeezed by large image URLs or long player/team names. */
+.vcs-admin-content table.vcs-admin-card-grid {
+  table-layout: fixed !important;
+  min-width: 1150px;
+  width: 100% !important;
+}
+.vcs-admin-content table.vcs-admin-card-grid th {
+  padding: 8px 6px !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.vcs-admin-content table.vcs-admin-card-grid tbody td {
+  min-width: 0 !important;
+  padding: 6px 6px !important;
+  vertical-align: middle;
+  overflow: visible;
+}
+.vcs-admin-content table.vcs-admin-card-grid td:first-child,
+.vcs-admin-content table.vcs-admin-card-grid th:first-child {
+  padding-left: 9px !important;
+}
+.vcs-admin-content table.vcs-admin-card-grid td :is(input:not([type=checkbox]):not([type=radio]):not([type=file]),select) {
+  display: block;
+  box-sizing: border-box;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 31px !important;
+  height: 31px;
+  padding: 5px 7px !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
+}
+.vcs-admin-content table.vcs-admin-card-grid .vcs-admin-card-number input {
+  font-variant-numeric: tabular-nums;
+  font-weight: 650 !important;
+  text-overflow: clip;
+}
+.vcs-admin-card-player-line,
+.vcs-admin-card-book-line {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+.vcs-admin-card-player-line input,
+.vcs-admin-card-book-line input { flex: 1; min-width: 0; }
+.vcs-admin-price-hint {
+  flex: 0 0 14px;
+  cursor: help;
+  font-size: 14px;
+  line-height: 1;
+}
+.vcs-admin-content table.vcs-admin-card-grid .vcs-admin-card-book-line button {
+  flex: 0 0 28px;
+  width: 28px;
+  min-width: 28px;
+  padding: 0 !important;
+  min-height: 31px !important;
+  font-size: 16px !important;
+}
+.vcs-admin-card-save-status {
+  display: block;
+  color: #426c70;
+  font-size: 10px;
+  line-height: 1.3;
+  margin-top: 3px;
+}
+.vcs-admin-card-save-status.is-error { color: #a12b36; }
+.vcs-admin-card-actions { white-space: normal !important; }
+.vcs-admin-content table.vcs-admin-card-grid .vcs-admin-card-actions button {
+  min-width: 0;
+  min-height: 31px !important;
+  padding: 4px 8px !important;
+  margin: 0 4px 2px 0;
+}
+.vcs-admin-card-image-editor {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+}
+.vcs-admin-image-compact {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 1px dashed #c2d3d8;
+  border-radius: 4px;
+  padding: 2px 3px;
+  background: #f7fafb;
+}
+.vcs-admin-image-compact-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 3px;
+  align-items: center;
+  min-width: 0;
+}
+.vcs-admin-image-compact-main a {
+  font-size: 11px;
+  font-weight: 660;
+  white-space: nowrap;
+  text-decoration: underline;
+}
+.vcs-admin-image-missing {
+  color: #7b8790;
+  font-size: 10px;
+  white-space: nowrap;
+}
+.vcs-admin-content table.vcs-admin-card-grid .vcs-admin-image-compact button {
+  flex: 0 0 auto;
+  min-height: 27px !important;
+  padding: 3px 5px !important;
+  font-size: 10px;
+}
+.vcs-admin-image-warning,
+.vcs-admin-image-error {
+  display: block;
+  font-size: 10px;
+  line-height: 1.2;
+}
+.vcs-admin-image-warning { color: #90611c; }
+.vcs-admin-image-error { color: #a12535; }
+.vcs-admin-content details.vcs-admin-image-url-details {
+  flex: 0 0 auto;
+  padding: 0 !important;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  min-width: 0;
+}
+.vcs-admin-image-url-details summary {
+  display: block;
+  list-style: none;
+  font-size: 10px;
+  font-weight: 620;
+  color: #236f78;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.vcs-admin-image-url-details summary::-webkit-details-marker { display: none; }
+.vcs-admin-content table.vcs-admin-card-grid .vcs-admin-image-url-details label {
+  display: block;
+  width: 100%;
+  min-width: 180px;
+  margin-top: 6px;
+  font-size: 11px;
+}
+/* Open URL editing is deliberately an exceptional, taller row state. */
+.vcs-admin-content table.vcs-admin-card-grid .vcs-admin-image-url-details[open] {
+  position: relative;
+  z-index: 4;
+}
+.vcs-admin-content table.vcs-admin-card-grid .vcs-admin-image-url-details[open] label {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  width: 240px;
+  padding: 10px;
+  border: 1px solid #b9cbd2;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 10px 22px #1832412b;
+}
+.vcs-admin-topbar-actions { display: flex; align-items: center; gap: 15px; }
+.vcs-admin-reward { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.vcs-admin-reward-balance {
+  color: #a8c1c9;
+  font-family: "Consolas", "SFMono-Regular", monospace;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.vcs-admin-reward-button {
+  border-radius: 5px;
+  border: 1px solid #587d83;
+  background: #263e49;
+  color: #d2e3e5;
+  padding: 7px 10px;
+  min-height: 33px;
+  min-width: 69px;
+  font-size: 11px;
+  font-weight: 720;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+.vcs-admin-reward-button.is-ready {
+  background: #c0e1ce;
+  border-color: #c0e1ce;
+  color: #193c36;
+}
+.vcs-admin-reward-button:disabled { cursor: default; opacity: .78; }
+.vcs-admin-reward-button:not(:disabled):hover {
+  background: #d4f0dc;
+  color: #12392b;
+}
+.vcs-admin-reward-error {
+  color: #ffd9cf;
+  max-width: 180px;
+  font-size: 11px;
+}
+@media (max-width: 970px) {
+  .vcs-admin-reward-balance { display: none; }
+}
+@media (max-width: 650px) {
+  .vcs-admin-topbar-actions { gap: 8px; }
+  .vcs-admin-reward-button { min-width: 64px; padding: 7px 6px; }
+}
