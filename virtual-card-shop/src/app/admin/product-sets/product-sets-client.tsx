@@ -1041,10 +1041,26 @@ export default function ProductSetsClient() {
                         </div>
                       </td>
                       <td style={td}>
-                        <input type="number" step="1" inputMode="numeric" min="0"
-                          aria-label={"Odds in packs for " + row.id} value={draft.oddsPerPack}
-                          onChange={(event) => patchDraft(row.id, { oddsPerPack: event.target.value })}
-                          placeholder="—" title="One hit every X packs; blank for no odds" />
+                        <div className="vcs-admin-set-odds">
+                          <label>
+                            <span>VCS 1:</span>
+                            <input type="number" step="1" inputMode="numeric" min="1"
+                              aria-label={"VCS pack odds 1 in X for " + row.id}
+                              value={draft.oddsPerPack}
+                              onChange={(event) => patchDraft(row.id, { oddsPerPack: event.target.value })}
+                              placeholder="—"
+                              title="Editable VCS pack-engine odds. Blank means a single pack rate is not configured." />
+                          </label>
+                          {publishedOdds ? (
+                            <a href={publishedOdds.sourceUrl} target="_blank" rel="noreferrer"
+                              title={"Published pack odds only (not applied to VCS): " + formatPublishedOdds(publishedOdds) +
+                                (publishedOdds.note ? ". " + publishedOdds.note : "")}>
+                              <span>Published</span> {formatPublishedOdds(publishedOdds)} ↗
+                            </a>
+                          ) : (
+                            <span className="vcs-admin-set-no-reference" title="No verified historical pack odds recorded for this set">No published rate</span>
+                          )}
+                        </div>
                       </td>
                       <td style={td}>
                         <button type="button" className="vcs-admin-set-price-toggle"
