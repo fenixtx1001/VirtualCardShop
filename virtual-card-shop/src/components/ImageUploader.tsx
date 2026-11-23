@@ -6,6 +6,8 @@ type Props = {
   label: string;
   value: string | null | undefined;
   onUploaded: (url: string) => void;
+  /** Condensed drop / upload / preview controls for dense admin tables. */
+  compact?: boolean;
 };
 
 /**
@@ -40,7 +42,7 @@ function normalizeUploadedUrl(raw: unknown) {
   return `${baseNoSlash}/${s}`;
 }
 
-export default function ImageUploader({ label, value, onUploaded }: Props) {
+export default function ImageUploader({ label, value, onUploaded, compact = false }: Props) {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
@@ -110,6 +112,36 @@ export default function ImageUploader({ label, value, onUploaded }: Props) {
     // Normalize preview too, just in case old values are relative
     return normalizeUploadedUrl(value) ?? null;
   }, [value]);
+
+  if (compact) {
+    return (
+      <div
+        className="vcs-admin-image-compact"
+        onDragOver={(e) => { e.preventDefault(); e.stopPropagation(); }}
+        onDrop={onDrop}
+        title={`Drop an image to update ${label.toLowerCase()}`}
+      >
+        <div className="vcs-admin-image-compact-main">
+          {previewHref ? (
+            <a href={previewHref} target="_blank" rel="noreferrer" title={`View ${label.toLowerCase()}`}>View ↗</a>
+          ) : (
+            <span className="vcs-admin-image-missing">No image</span>
+          )}
+          <button
+            type="button"
+            onClick={() => inputRef.current?.click()}
+            disabled={busy}
+            aria-label={`Upload ${label.toLowerCase()}`}
+          >
+            {busy ? "Uploading…" : previewHref ? "Replace" : "Upload"}
+          </button>
+          <input ref={inputRef} type="file" accept="image/*" onChange={onPick} style={{ display: "none" }} />
+        </div>
+        {warning ? <span className="vcs-admin-image-warning" title={warning}>Legacy URL ⚠</span> : null}
+        {err ? <span className="vcs-admin-image-error" role="alert">{err}</span> : null}
+      </div>
+    );
+  }
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
