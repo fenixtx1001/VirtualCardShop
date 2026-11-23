@@ -184,17 +184,22 @@ export async function POST(req: Request) {
       },
     });
 
-    // TCDB parallel numbering can have a suffix (e.g. 1G) while VCS stores
-    // the numbered checklist (1). Check exact matches first. When no exact card
-    // exists, map only a letter-suffixed TCDB number to a single unambiguous
-    // plain-number card in this Product Set. Never silently merge parallels.
+    // Exact product-set/card-number matches always win. On a miss, support
+    // both TCDB #1G -> VCS #1 and TCDB #1 -> VCS #1KG (Kid Gloves).
+    // Fetch candidate prefixes/suffixes within this set, then require a
+    // single exact digit-slot match. Never silently pick between parallels.
     let matchedByNumericAlias = false;
-    const numericAlias = !card ? tcdbNumericSuffix(cardNumber) : null;
-    if (!card && numericAlias) {
+    const baseNumber = !card
+      ? (/^[0-9]+$/.test(cardNumber) ? cardNumber : tcdbNumericSuffix(cardNumber))
+      : null;
+    if (!card && baseNumber) {
       const potentialCards = await prisma.card.findMany({
         where: {
           productSetId,
-          cardNumber: { startsWith: numericAlias },
+          OR: [
+            { cardNumber: { startsWith: baseNumber } },
+            { cardNumber: { endsWith: baseNumber } },
+          ],
         },
         select: {
           id: true,
@@ -212,7 +217,7 @@ export async function POST(req: Request) {
       if (resolution.kind === "ambiguous") {
         return NextResponse.json(
           {
-            error: `TCDB #${cardNumber} cannot safely match a VCS card: multiple numbers share #${numericAlias} in ${productSetId} (${resolution.candidates.join(", ")}). Capture stopped to prevent assigning the wrong card image.`,
+            error: `TCDB #${cardNumber} cannot safely match a VCS card: multiple numbers share #${baseNumber} in ${productSetId} (${resolution.candidates.join(", ")}). Capture stopped to prevent assigning the wrong card image.`,
           },
           { status: 409 }
         );
