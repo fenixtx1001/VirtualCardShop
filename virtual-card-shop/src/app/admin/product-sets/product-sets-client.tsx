@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
+import { formatPublishedOdds, getPublishedOdds } from "@/lib/published-product-set-odds";
 
 type ProductSetRow = {
   id: string;
@@ -123,7 +124,8 @@ export default function ProductSetsClient() {
 
   const [error, setError] = useState<string | null>(null);
   const [savingId, setSavingId] = useState<string | null>(null);
-  const [expandedPricingId, setExpandedPricingId] = useState<string | null>(null);
+  const [expandAllPricing, setExpandAllPricing] = useState(false);
+  const [expandedPricingOverrides, setExpandedPricingOverrides] = useState<Record<string, boolean>>({});
   const [saveOk, setSaveOk] = useState<string | null>(null);
 
   const [products, setProducts] = useState<ProductMeta[]>([]);
@@ -248,7 +250,7 @@ export default function ProductSetsClient() {
     }
   }
 
-  async function loadRows(options?: { preserveMessage?: boolean }) {
+  async function loadRows(options?: { preserveMessage?: boolean; preserveOtherDraftsThan?: string }) {
     const requestId = ++requestIdRef.current;
 
     setLoading(true);
@@ -308,11 +310,21 @@ export default function ProductSetsClient() {
           : 1
       );
 
-      const nextDrafts: Record<string, ProductSetDraft> = {};
-      for (const row of nextRows) {
-        nextDrafts[row.id] = createDraft(row);
-      }
-      setDrafts(nextDrafts);
+      // Saving one set must not discard unfinished edits on the other rows.
+      const oldRows = new Map(rows.map((row) => [row.id, row]));
+      setDrafts((existing) => {
+        const nextDrafts: Record<string, ProductSetDraft> = {};
+        for (const nextRow of nextRows) {
+          const oldRow = oldRows.get(nextRow.id);
+          const pending = existing[nextRow.id];
+          const dirty = oldRow && pending &&
+            JSON.stringify(pending) !== JSON.stringify(createDraft(oldRow));
+          nextDrafts[nextRow.id] = options?.preserveOtherDraftsThan &&
+            nextRow.id !== options.preserveOtherDraftsThan && dirty
+              ? pending : createDraft(nextRow);
+        }
+        return nextDrafts;
+      });
     } catch (e: unknown) {
       if (requestId !== requestIdRef.current) return;
 
@@ -425,7 +437,7 @@ export default function ProductSetsClient() {
       }
 
       setSaveOk(`Saved ${row.id}`);
-      await loadRows({ preserveMessage: true });
+      await loadRows({ preserveMessage: true, preserveOtherDraftsThan: row.id });
     } catch (e: unknown) {
       setError(e instanceof Error ? e.message : "Save failed");
     } finally {
@@ -515,6 +527,7 @@ export default function ProductSetsClient() {
   const firstShown = total === 0 ? 0 : (page - 1) * pageSize + 1;
   const lastShown = total === 0 ? 0 : Math.min(page * pageSize, total);
   const pageNumbers = pageWindow(page, totalPages);
+  const allVisiblePricingExpanded = rows.length > 0 && rows.every((row) => expandedPricingOverrides[row.id] ?? expandAllPricing);
 
   const th: CSSProperties = {
     textAlign: "left",
@@ -925,6 +938,23 @@ export default function ProductSetsClient() {
 
       {renderPagination("top")}
 
+      <div className="vcs-admin-pricing-toolbar">
+        <div>
+          <strong>Tier default pricing</strong>
+          <span>Compare sets using published pack odds. Saving one row preserves unsaved edits in the other rows.</span>
+        </div>
+        <button
+          type="button"
+          aria-expanded={allVisiblePricingExpanded}
+          onClick={() => {
+            setExpandAllPricing(!allVisiblePricingExpanded);
+            setExpandedPricingOverrides({});
+          }}
+        >
+          {allVisiblePricingExpanded ? "Collapse all prices" : "Expand all prices"}
+        </button>
+      </div>
+
       <div
         className="vcs-admin-product-set-table-wrap"
         style={{
@@ -954,17 +984,17 @@ export default function ProductSetsClient() {
         {loading && rows.length === 0 ? (
           <div style={{ padding: 16 }}>Loading…</div>
         ) : (
-          <table className="vcs-admin-product-set-table" aria-label="Product set catalog management">
+          <table className={"vcs-admin-product-set-table" + (allVisiblePricingExpanded ? " is-all-prices-visible" : "")} aria-label="Product set catalog management">
             <colgroup>
-              <col style={{ width: "13%" }} /><col style={{ width: "16%" }} />
-              <col style={{ width: "15%" }} /><col style={{ width: "8%" }} />
-              <col style={{ width: "8%" }} /><col style={{ width: "10%" }} />
-              <col style={{ width: "16%" }} /><col style={{ width: "4%" }} />
+              <col style={{ width: "11%" }} /><col style={{ width: "16%" }} />
+              <col style={{ width: "13%" }} /><col style={{ width: "7%" }} />
+              <col style={{ width: "13%" }} /><col style={{ width: "9%" }} />
+              <col style={{ width: "17%" }} /><col style={{ width: "4%" }} />
               <col style={{ width: "10%" }} />
             </colgroup>
             <thead>
               <tr>
-                {["Product", "Product Set", "Name", "Type", "Odds (1:X)", "Tier prices", "Setup completeness", "Cards", "Actions"].map((heading) => (
+                {["Product", "Product Set", "Name", "Type", "Pack odds", "Tier prices", "Setup completeness", "Cards", "Actions"].map((heading) => (
                   <th key={heading} scope="col" style={th}>{heading}</th>
                 ))}
               </tr>
@@ -973,7 +1003,8 @@ export default function ProductSetsClient() {
               {rows.map((row, index) => {
                 const draft = drafts[row.id] ?? createDraft(row);
                 const saving = savingId === row.id;
-                const expanded = expandedPricingId === row.id;
+                const expanded = expandedPricingOverrides[row.id] ?? expandAllPricing;
+                const publishedOdds = getPublishedOdds(row.id);
                 const productMeta = productMetaById.get(row.productId);
                 const productLabel = [productMeta?.year, productMeta?.brand].filter(Boolean).join(" ") || row.productId.replace(/_/g, " ");
                 const shortId = row.id.startsWith(row.productId) ? row.id.slice(row.productId.length).replace(/^_+/, "") : row.id;
@@ -1010,14 +1041,30 @@ export default function ProductSetsClient() {
                         </div>
                       </td>
                       <td style={td}>
-                        <input type="number" step="1" inputMode="numeric" min="0"
-                          aria-label={"Odds in packs for " + row.id} value={draft.oddsPerPack}
-                          onChange={(event) => patchDraft(row.id, { oddsPerPack: event.target.value })}
-                          placeholder="—" title="One hit every X packs; blank for no odds" />
+                        <div className="vcs-admin-set-odds">
+                          <label>
+                            <span>VCS 1:</span>
+                            <input type="number" step="1" inputMode="numeric" min="1"
+                              aria-label={"VCS pack odds 1 in X for " + row.id}
+                              value={draft.oddsPerPack}
+                              onChange={(event) => patchDraft(row.id, { oddsPerPack: event.target.value })}
+                              placeholder="—"
+                              title="Editable VCS pack-engine odds. Blank means a single pack rate is not configured." />
+                          </label>
+                          {publishedOdds ? (
+                            <a href={publishedOdds.sourceUrl} target="_blank" rel="noreferrer"
+                              title={"Published pack odds only (not applied to VCS): " + formatPublishedOdds(publishedOdds) +
+                                (publishedOdds.note ? ". " + publishedOdds.note : "")}>
+                              <span>Published</span> {formatPublishedOdds(publishedOdds)} ↗
+                            </a>
+                          ) : (
+                            <span className="vcs-admin-set-no-reference" title="No verified historical pack odds recorded for this set">No published rate</span>
+                          )}
+                        </div>
                       </td>
                       <td style={td}>
                         <button type="button" className="vcs-admin-set-price-toggle"
-                          onClick={() => setExpandedPricingId(expanded ? null : row.id)}
+                          onClick={() => setExpandedPricingOverrides((previous) => ({ ...previous, [row.id]: !expanded }))}
                           aria-expanded={expanded} aria-controls={"vcs-admin-prices-" + index}
                           title="Expand all six editable player-tier default prices"
                         >{expanded ? "Close prices" : "Edit prices"}</button>
@@ -1048,7 +1095,7 @@ export default function ProductSetsClient() {
                           <div className="vcs-admin-set-price-editor">
                             <div className="vcs-admin-set-price-intro">
                               <strong>Tier default prices</strong>
-                              <span>Configure all six book-value defaults for <b>{row.id}</b>. Press Save prices when finished.</span>
+                              <span>Configure all six book-value defaults for <b>{row.id}</b>. Compare the published odds above.</span>
                             </div>
                             <div className="vcs-admin-set-price-grid">
                               {([
