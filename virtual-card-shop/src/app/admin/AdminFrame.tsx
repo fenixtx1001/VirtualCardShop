@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
+import AdminRewardClaim from "./AdminRewardClaim";
 
 type AdminArea = {
   href: string;
@@ -94,7 +95,10 @@ export default function AdminFrame({ children }: { children: ReactNode }) {
         <div className="vcs-admin-topbar-inner">
           <Link className="vcs-admin-brand" href="/admin" aria-label="VCS Admin overview"><span className="vcs-admin-symbol">V</span><span>VCS <b>OPERATIONS</b></span></Link>
           <span className="vcs-admin-environment">INTERNAL WORKSPACE <i aria-hidden="true" /> ADMIN MODE</span>
-          <Link className="vcs-admin-exit" href="/">Exit to VCS <span aria-hidden="true">↗</span></Link>
+          <div className="vcs-admin-topbar-actions">
+            <AdminRewardClaim />
+            <Link className="vcs-admin-exit" href="/">Exit to VCS <span aria-hidden="true">↗</span></Link>
+          </div>
         </div>
       </div>
       <div className="vcs-admin-frame">
