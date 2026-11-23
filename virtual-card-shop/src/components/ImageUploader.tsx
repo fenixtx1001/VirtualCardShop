@@ -45,6 +45,8 @@ function normalizeUploadedUrl(raw: unknown) {
 export default function ImageUploader({ label, value, onUploaded, compact = false }: Props) {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [busy, setBusy] = useState(false);
+  const [dragActive, setDragActive] = useState(false);
+  const dragDepthRef = useRef(0);
   const [err, setErr] = useState<string | null>(null);
 
   const warning = useMemo(() => {
@@ -97,15 +99,40 @@ export default function ImageUploader({ label, value, onUploaded, compact = fals
     [uploadFile]
   );
 
+  const handleDragEnter = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+    if (!Array.from(e.dataTransfer.types).includes("Files")) return;
+    e.preventDefault();
+    e.stopPropagation();
+    dragDepthRef.current += 1;
+    setDragActive(true);
+  }, []);
+
+  const handleDragLeave = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dragDepthRef.current = Math.max(0, dragDepthRef.current - 1);
+    if (dragDepthRef.current === 0) setDragActive(false);
+  }, []);
+
+  const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+    if (!Array.from(e.dataTransfer.types).includes("Files")) return;
+    e.preventDefault();
+    e.stopPropagation();
+    e.dataTransfer.dropEffect = "copy";
+  }, []);
+
   const onDrop = useCallback(
     async (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault();
       e.stopPropagation();
+      dragDepthRef.current = 0;
+      setDragActive(false);
+      if (busy) return;
       const file = e.dataTransfer.files?.[0];
       if (!file) return;
       await uploadFile(file);
     },
-    [uploadFile]
+    [uploadFile, busy]
   );
 
   const previewHref = useMemo(() => {
@@ -116,11 +143,14 @@ export default function ImageUploader({ label, value, onUploaded, compact = fals
   if (compact) {
     return (
       <div
-        className="vcs-admin-image-compact"
-        onDragOver={(e) => { e.preventDefault(); e.stopPropagation(); }}
+        className={"vcs-admin-image-compact" + (dragActive ? " is-dragging" : "")}
+        onDragEnter={handleDragEnter}
+        onDragLeave={handleDragLeave}
+        onDragOver={handleDragOver}
         onDrop={onDrop}
         title={`Drop an image to update ${label.toLowerCase()}`}
       >
+        {dragActive ? <div className="vcs-admin-image-drop-overlay" aria-hidden="true">Drop image here</div> : null}
         <div className="vcs-admin-image-compact-main">
           {previewHref ? (
             <a href={previewHref} target="_blank" rel="noreferrer" title={`View ${label.toLowerCase()}`}>View ↗</a>
@@ -149,26 +179,25 @@ export default function ImageUploader({ label, value, onUploaded, compact = fals
 
       <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
         <div
-          onDragOver={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-          }}
+          onDragEnter={handleDragEnter}
+          onDragLeave={handleDragLeave}
+          onDragOver={handleDragOver}
           onDrop={onDrop}
           style={{
             width: 220,
             height: 44,
-            border: "1px dashed #999",
+            border: dragActive ? "2px dashed #138c92" : "1px dashed #999",
             borderRadius: 10,
             display: "flex",
             alignItems: "center",
             padding: "0 10px",
-            background: "#fafafa",
-            color: "#444",
+            background: dragActive ? "#d9f1ee" : "#fafafa",
+            color: dragActive ? "#075e63" : "#444",
             fontSize: 12,
           }}
           title="Drag & drop an image here"
         >
-          {busy ? "Uploading…" : "Drag & drop image here"}
+          {busy ? "Uploading…" : dragActive ? "Drop image here" : "Drag & drop image here"}
         </div>
 
         <button

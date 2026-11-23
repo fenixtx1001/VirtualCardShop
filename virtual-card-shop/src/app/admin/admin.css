@@ -405,3 +405,150 @@ body:has(.vcs-admin-shell) { background: #16212b; }
   .vcs-admin-topbar-actions { gap: 8px; }
   .vcs-admin-reward-button { min-width: 64px; padding: 7px 6px; }
 }
+
+
+/* Admin Product Sets: the important information fits on a conventional 1200px
+   screen. Six less-frequently edited tier prices expand per row instead of
+   pushing coverage metrics completely outside the viewport. */
+.vcs-admin-content .vcs-admin-product-set-table-wrap {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto !important;
+  overflow-y: visible;
+  border-radius: 5px;
+  scrollbar-width: thin;
+  scrollbar-color: #7d9ca5 #ebf1f3;
+}
+.vcs-admin-content table.vcs-admin-product-set-table {
+  width: 100% !important;
+  max-width: 100%;
+  min-width: 0;
+  table-layout: fixed !important;
+  border-spacing: 0 !important;
+  font-size: 11px;
+}
+.vcs-admin-content table.vcs-admin-product-set-table th {
+  padding: 9px 5px !important;
+  font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.vcs-admin-content table.vcs-admin-product-set-table tbody td {
+  min-width: 0 !important;
+  padding: 6px 5px !important;
+  white-space: normal !important;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.vcs-admin-content table.vcs-admin-product-set-table :is(th,td):first-child {
+  padding-left: 8px !important;
+}
+.vcs-admin-content table.vcs-admin-product-set-table td :is(input:not([type=checkbox]):not([type=radio]),select) {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 30px !important;
+  height: 31px;
+  padding: 5px 6px !important;
+  font-size: 11px !important;
+  line-height: 18px;
+}
+.vcs-admin-set-product-link,
+.vcs-admin-set-id-link {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 700 !important;
+}
+.vcs-admin-set-meta {
+  display: block;
+  margin-top: 3px;
+  color: #647987;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+.vcs-admin-set-type { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
+.vcs-admin-set-type label { display: flex; align-items: center; gap: 4px; font-size: 10px; line-height: 1; white-space: nowrap; cursor: pointer; }
+.vcs-admin-set-type input[type=checkbox] { width: 13px; height: 13px; margin: 0; flex: 0 0 auto; }
+.vcs-admin-content table.vcs-admin-product-set-table button.vcs-admin-set-price-toggle {
+  padding: 4px 7px !important;
+  font-size: 10px;
+  min-height: 27px;
+  white-space: nowrap;
+  border-color: #88b2b8 !important;
+  color: #116873 !important;
+  background: #e4f1f2 !important;
+}
+.vcs-admin-set-card-count {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+  font-weight: 700;
+}
+.vcs-admin-set-row-actions { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.vcs-admin-content table.vcs-admin-product-set-table .vcs-admin-set-row-actions button {
+  min-height: 29px !important;
+  min-width: 0;
+  padding: 5px 6px !important;
+  font-size: 10px !important;
+  line-height: 1.2;
+}
+.vcs-admin-set-coverage { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 3px; min-width: 0; }
+.vcs-admin-set-coverage-item { min-width: 0; text-align: center; }
+.vcs-admin-set-coverage-item span { display: block; color: #647883; font-size: 9px; font-weight: 660; letter-spacing: -.01em; white-space: nowrap; }
+.vcs-admin-set-coverage-item strong { display: block; margin-top: 2px; color: #214751; font-size: 11px; font-weight: 750; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.vcs-admin-set-progress-track { margin: 4px auto 0; width: calc(100% - 5px); max-width: 54px; height: 3px; background: #d8e3e8; border-radius: 3px; overflow: hidden; }
+.vcs-admin-set-progress-track i { display: block; height: 100%; background: #308b91; border-radius: inherit; }
+.vcs-admin-content table.vcs-admin-product-set-table tbody tr.vcs-admin-set-price-detail { background: #e7f0f3 !important; }
+.vcs-admin-content table.vcs-admin-product-set-table tbody tr.vcs-admin-set-price-detail td { padding: 12px 16px !important; overflow: visible !important; }
+.vcs-admin-content table.vcs-admin-product-set-table tbody tr.vcs-admin-set-price-detail td:first-child { border-left: 3px solid #328c91; }
+.vcs-admin-set-price-editor { display: grid; gap: 11px; }
+.vcs-admin-set-price-intro { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; color: #425f6a; font-size: 11px; }
+.vcs-admin-set-price-intro strong { font-size: 12px; color: #1d414a; }
+.vcs-admin-set-price-grid { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 10px; }
+.vcs-admin-set-price-grid label { min-width: 0; display: flex; flex-direction: column; gap: 4px; color: #395661; font-size: 10px; font-weight: 650; }
+.vcs-admin-set-price-grid label span { white-space: nowrap; }
+.vcs-admin-set-price-footer { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; font-size: 11px; color: #647784; }
+.vcs-admin-content table.vcs-admin-product-set-table .vcs-admin-set-price-footer button {
+  padding: 7px 11px !important;
+  background: #176d76 !important;
+  border-color: #176d76 !important;
+  color: white !important;
+  font-weight: 700 !important;
+}
+.vcs-admin-content table.vcs-admin-product-set-table .vcs-admin-set-price-footer button:hover:not(:disabled) { background: #0c5660 !important; }
+@media (max-width: 1100px) {
+  .vcs-admin-content table.vcs-admin-product-set-table { min-width: 1060px; }
+}
+@media (max-width: 600px) {
+  .vcs-admin-set-price-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+
+/* Real image drop target, with a high-contrast, transient drag-over cue. */
+.vcs-admin-image-compact { position: relative; transition: border-color .12s ease, background .12s ease, box-shadow .12s ease; }
+.vcs-admin-image-compact:hover { border-color: #7dafb4; background: #eff7f7; }
+.vcs-admin-image-compact.is-dragging {
+  border: 2px dashed #148e88 !important;
+  background: #d7f4ec !important;
+  box-shadow: 0 0 0 3px #55c8af44 !important;
+}
+.vcs-admin-image-drop-overlay {
+  position: absolute;
+  inset: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  border: 2px dashed #16897f;
+  border-radius: 5px;
+  color: #07584f;
+  background: #d4f5e9;
+  font-size: 11px;
+  font-weight: 780;
+  white-space: nowrap;
+  pointer-events: none;
+}
