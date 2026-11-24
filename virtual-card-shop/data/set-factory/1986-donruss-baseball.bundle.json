@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/105/1986-Donruss",
+    "distributionReference": "https://baseballcardpedia.com/index.php/1986_Donruss"
+  },
+  "decisions": {
+    "equalBasePullProbability": true,
+    "canonicalPackFormat": "Wax",
+    "checklistNumbering": "1-653 plus CL-DK and CL1-CL6 disambiguate overlapping printed checklist numbers.",
+    "variations": "One canonical card per number, corrected/later b state. No extra completion requirements for errors or print variations.",
+    "exclusions": "Oversized Super Diamond Kings were wrapper-redemption cards; box bottoms were packaging; puzzle panels were non-card accompaniments. Separate Leaf, Highlights, All-Stars and The Rookies products excluded.",
+    "subsets": "Diamond Kings 1-26, Rated Rookies 27-46, King of Kings 653 remain in base."
+  },
+  "product": {
+    "id": "1986_Donruss_Baseball",
+    "year": 1986,
+    "brand": "Donruss",
+    "sport": "Baseball",
+    "cardsPerPack": 15,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1986-donruss-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1986_Donruss_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/105/1986-Donruss",
+      "expectedCards": 660
+    }
+  ]
+}
