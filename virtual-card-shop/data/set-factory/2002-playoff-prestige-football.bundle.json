@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "requestedUrl": "https://www.tcdb.com/ViewSet.cfm/sid/4562/2002-Playoff-Prestige",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/4562/2002-Playoff-Prestige",
+    "verifiedOn": "2026-11-06",
+    "note": "All 16 collector checklists checked card by card against the frozen TCDB source snapshot. Beckett confirms base size and hobby configuration; see research notes for odds evidence and source corrections."
+  },
+  "decisions": {
+    "canonicalPackFormat": "Hobby: 5 cards per pack, 20 packs per box. Retail 4-card packs are not a separate VCS product.",
+    "baseStructure": "One complete #1-216 Base checklist. #151-216 are SP true RCs; availability flattened within Base to preserve collector completion.",
+    "parallelStructure": "Two complete #1-216 Xtra Points checklists; #1-150 SN150 and #151-216 SN25. No split by serial-number tier.",
+    "promotions": "Exclude National Embossed, National Embossed Banner Season, Beckett Samples Gold and Silver; these are non-pack promotions.",
+    "redemptions": "Draft Picks Autographs models the 25 fulfilled redemption cards, not a claim that signed cards were physically inserted.",
+    "unsignedCards": "Sophomore Signatures SS26 Marvin Minnis, SS30 Nate Clements and SS39 Travis Henry are unsigned SN100 cards. Other AU and SP notes preserved per card.",
+    "odds": "Only Draft Picks, Inside the Numbers and League Leader Tandems use documented 1:18. All other hit odds remain null pending evidence; print runs are never converted into invented pack ratios.",
+    "sourceCorrections": "Connections C-7 team corrected to Carolina Panthers. Materials LL16 team order corrected to match Troy Brown / Keyshawn Johnson. Other TCDB team labels retained, including Colts franchise labeling for Raymond Berry.",
+    "releaseSafety": "Unreleased draft; pack odds, pricing and images must be reviewed before release."
+  },
+  "product": {
+    "id": "2002_Playoff_Prestige_Football",
+    "year": 2002,
+    "brand": "Playoff Prestige",
+    "sport": "Football",
+    "cardsPerPack": 5,
+    "packsPerBox": 20,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packOdds": "PARTIAL",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "2002-playoff-prestige-football.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2002_Playoff_Prestige_Football_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "expectedCards": 216,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4562/2002-Playoff-Prestige",
+      "notes": "Complete collector checklist."
+    },
+    {
+      "key": "banner-season",
+      "id": "2002_Playoff_Prestige_Football_Banner_Season",
+      "name": "Banner Season",
+      "kind": "INSERT",
+      "expectedCards": 40,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/37402/2002-Playoff-Prestige-Banner-Season",
+      "notes": "Complete collector checklist. Pack odds unverified; excluded from hit selection until configured."
+    },
+    {
+      "key": "banner-season-ink-autographs",
+      "id": "2002_Playoff_Prestige_Football_Banner_Season_Ink_Autographs",
+      "name": "Banner Season Ink Autographs",
+      "kind": "INSERT",
+      "expectedCards": 40,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/37403/2002-Playoff-Prestige-Banner-Season-Ink-Autographs",
+      "notes": "Complete collector checklist. Pack odds unverified; excluded from hit selection until configured."
+    },
+    {
+      "key": "connections-jerseys",
+      "id": "2002_Playoff_Prestige_Football_Connections_Jerseys",
+      "name": "Connections Jerseys",
+      "kind": "INSERT",
+      "expectedCards": 30,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/37404/2002-Playoff-Prestige-Connections-Jerseys",
+      "notes": "Complete collector checklist. Pack odds unverified; excluded from hit selection until configured."
+    },
+    {
+      "key": "draft-picks",
+      "id": "2002_Playoff_Prestige_Football_Draft_Picks",
+      "name": "Draft Picks",
+      "kind": "INSERT",
+      "expectedCards": 25,
+      "oddsPerPack": 18,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/37405/2002-Playoff-Prestige-Draft-Picks",
+      "notes": "Complete collector checklist."
+    },
+    {
+      "key": "draft-picks-autographs",
+      "id": "2002_Playoff_Prestige_Football_Draft_Picks_Autographs",
+      "name": "Draft Picks Autographs",
+      "kind": "INSERT",
+      "expectedCards": 25,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/37406/2002-Playoff-Prestige-Draft-Picks-Autographs",
+      "notes": "Complete collector checklist. Pack odds unverified; excluded from hit selection until configured."
+    },
+    {
+      "key": "gridiron-heritage-helmets",
+      "id": "2002_Playoff_Prestige_Football_Gridiron_Heritage_Helmets",
+      "name": "Gridiron Heritage Helmets",
+      "kind": "INSERT",
+      "expectedCards": 20,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/37407/2002-Playoff-Prestige-Gridiron-Heritage-Helmets",
+      "notes": "Complete collector checklist. Pack odds unverified; excluded from hit selection until configured."
+    },
+    {
+      "key": "inside-the-numbers",
+      "id": "2002_Playoff_Prestige_Football_Inside_the_Numbers",
+      "name": "Inside the Numbers",
+      "kind": "INSERT",
+      "expectedCards": 30,
+      "oddsPerPack": 18,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/37408/2002-Playoff-Prestige-Inside-the-Numbers",
+      "notes": "Complete collector checklist."
+    },
+    {
+      "key": "inside-the-numbers-gold",
+      "id": "2002_Playoff_Prestige_Football_Inside_the_Numbers_Gold",
+      "name": "Inside the Numbers Gold",
+      "kind": "INSERT",
+      "expectedCards": 30,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/37409/2002-Playoff-Prestige-Inside-the-Numbers-Gold",
+      "notes": "Complete collector checklist. Pack odds unverified; excluded from hit selection until configured."
+    },
+    {
+      "key": "league-leader-tandems",
+      "id": "2002_Playoff_Prestige_Football_League_Leader_Tandems",
+      "name": "League Leader Tandems",
+      "kind": "INSERT",
+      "expectedCards": 20,
+      "oddsPerPack": 18,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/37410/2002-Playoff-Prestige-League-Leader-Tandems",
+      "notes": "Complete collector checklist."
+    },
+    {
+      "key": "league-leader-tandems-materials",
+      "id": "2002_Playoff_Prestige_Football_League_Leader_Tandems_Materials",
+      "name": "League Leader Tandems Materials",
+      "kind": "INSERT",
+      "expectedCards": 20,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/37411/2002-Playoff-Prestige-League-Leader-Tandems-Materials",
+      "notes": "Complete collector checklist. Pack odds unverified; excluded from hit selection until configured."
+    },
+    {
+      "key": "sophomore-signatures",
+      "id": "2002_Playoff_Prestige_Football_Sophomore_Signatures",
+      "name": "Sophomore Signatures",
+      "kind": "INSERT",
+      "expectedCards": 40,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/37414/2002-Playoff-Prestige-Sophomore-Signatures",
+      "notes": "Complete collector checklist. Pack odds unverified; excluded from hit selection until configured."
+    },
+    {
+      "key": "stars-of-the-nfl-autographs",
+      "id": "2002_Playoff_Prestige_Football_Stars_of_the_NFL_Autographs",
+      "name": "Stars of the NFL Autographs",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/37415/2002-Playoff-Prestige-Stars-of-the-NFL-Autographs",
+      "notes": "Complete collector checklist. Pack odds unverified; excluded from hit selection until configured."
+    },
+    {
+      "key": "stars-of-the-nfl-jerseys",
+      "id": "2002_Playoff_Prestige_Football_Stars_of_the_NFL_Jerseys",
+      "name": "Stars of the NFL Jerseys",
+      "kind": "INSERT",
+      "expectedCards": 20,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/37416/2002-Playoff-Prestige-Stars-of-the-NFL-Jerseys",
+      "notes": "Complete collector checklist. Pack odds unverified; excluded from hit selection until configured."
+    },
+    {
+      "key": "xtra-points-green",
+      "id": "2002_Playoff_Prestige_Football_Xtra_Points_Green",
+      "name": "Xtra Points Green",
+      "kind": "PARALLEL",
+      "expectedCards": 216,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/37417/2002-Playoff-Prestige-Xtra-Points-Green",
+      "notes": "Complete collector checklist. Pack odds unverified; excluded from hit selection until configured."
+    },
+    {
+      "key": "xtra-points-purple",
+      "id": "2002_Playoff_Prestige_Football_Xtra_Points_Purple",
+      "name": "Xtra Points Purple",
+      "kind": "PARALLEL",
+      "expectedCards": 216,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/37418/2002-Playoff-Prestige-Xtra-Points-Purple",
+      "notes": "Complete collector checklist. Pack odds unverified; excluded from hit selection until configured."
+    }
+  ]
+}
