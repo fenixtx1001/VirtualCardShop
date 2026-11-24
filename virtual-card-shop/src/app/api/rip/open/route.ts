@@ -3,6 +3,11 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
 import { syncPrestigeProgressForProductSets } from "@/lib/prestige";
+import {
+  buildSetPrestigeSnapshot,
+  isNeededForNextPrestige,
+  type SetPrestigeSnapshot,
+} from "@/lib/prestige-pack-progress";
 import { openedPackCostBasisCents } from "@/lib/analytics-math";
 import { syncDailyPortfolioSnapshot, trySyncPackPortfolioDelta } from "@/lib/portfolio";
 import { bookValueToCents } from "@/lib/grading";
@@ -71,14 +76,6 @@ type EnrichedCard = {
   prestigeTargetLevel: number | null;
   isNeededForNextPrestige: boolean;
   hitNextPrestigeWithThisCard: boolean;
-};
-
-type SetPrestigeSnapshot = {
-  totalCards: number;
-  currentPrestigeLevel: number;
-  nextPrestigeLevel: number;
-  beforeQtyByCardId: Map<number, number>;
-  missingForNextPrestigeBefore: Set<number>;
 };
 
 export async function POST(req: Request) {
@@ -269,51 +266,33 @@ export async function POST(req: Request) {
           orderBy: { id: "asc" },
         });
 
-        const ownershipsInSet = await tx.cardOwnership.findMany({
-          where: {
-            userId: user.id,
-            quantity: { gt: 0 },
-            card: { productSetId },
-          },
-          select: {
-            cardId: true,
-            quantity: true,
-          },
-        });
+        // Snapshot every copy still owned BEFORE this pack, including ones
+        // in grading mailers. This is the same effective ownership used for
+        // award eligibility by computeProductSetLevel() and Prestige summary.
+        const [ownershipsInSet, unrevealedGradingInSet] = await Promise.all([
+          tx.cardOwnership.findMany({
+            where: {
+              userId: user.id,
+              quantity: { gt: 0 },
+              card: { productSetId },
+            },
+            select: { cardId: true, quantity: true },
+          }),
+          tx.gradingOrder.findMany({
+            where: {
+              userId: user.id,
+              quantity: { gt: 0 },
+              revealedAt: null,
+              card: { productSetId },
+            },
+            select: { cardId: true, quantity: true },
+          }),
+        ]);
 
-        const beforeQtyByCardId = new Map<number, number>();
-        for (const ownership of ownershipsInSet) {
-          addToQtyMap(beforeQtyByCardId, ownership.cardId, ownership.quantity);
-        }
-
-        let currentPrestigeLevel = Number.POSITIVE_INFINITY;
-        const missingForNextPrestigeBefore = new Set<number>();
-
-        for (const card of cardsInSet) {
-          const qty = beforeQtyByCardId.get(card.id) ?? 0;
-          if (qty < currentPrestigeLevel) currentPrestigeLevel = qty;
-        }
-
-        if (!Number.isFinite(currentPrestigeLevel)) {
-          currentPrestigeLevel = 0;
-        }
-
-        const nextPrestigeLevel = currentPrestigeLevel + 1;
-
-        for (const card of cardsInSet) {
-          const qty = beforeQtyByCardId.get(card.id) ?? 0;
-          if (qty < nextPrestigeLevel) {
-            missingForNextPrestigeBefore.add(card.id);
-          }
-        }
-
-        setSnapshots.set(productSetId, {
-          totalCards: cardsInSet.length,
-          currentPrestigeLevel,
-          nextPrestigeLevel,
-          beforeQtyByCardId,
-          missingForNextPrestigeBefore,
-        });
+        setSnapshots.set(
+          productSetId,
+          buildSetPrestigeSnapshot(cardsInSet, ownershipsInSet, unrevealedGradingInSet)
+        );
       }
 
       const enriched: EnrichedCard[] = [];
@@ -437,10 +416,12 @@ export async function POST(req: Request) {
           const afterQty = card.ownedAfter;
           const target = snapshot.nextPrestigeLevel;
 
-          const thisCardWasNeeded =
-            beforeQty < target &&
-            afterQty >= target &&
-            remainingMissing.has(card.id);
+          const thisCardWasNeeded = isNeededForNextPrestige(
+            beforeQty,
+            afterQty,
+            target,
+            remainingMissing.has(card.id)
+          );
 
           if (!thisCardWasNeeded) {
             continue;
