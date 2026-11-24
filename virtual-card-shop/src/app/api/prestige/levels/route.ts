@@ -66,9 +66,30 @@ export async function GET(req: Request) {
         })
       : [];
 
+    // Cards in an unrevealed grading mailer remain owned for Prestige.
+    // Match computeProductSetLevel(), Prestige summary and pack opening.
+    const pendingGrading = allCardIds.length
+      ? await prisma.gradingOrder.groupBy({
+          by: ["cardId"],
+          where: {
+            userId: user.id,
+            cardId: { in: allCardIds },
+            quantity: { gt: 0 },
+            revealedAt: null,
+          },
+          _sum: { quantity: true },
+        })
+      : [];
+
     const qtyByCardId = new Map<number, number>();
     for (const o of owns) {
-      qtyByCardId.set(o.cardId, o._sum.quantity ?? 0);
+      qtyByCardId.set(o.cardId, (qtyByCardId.get(o.cardId) ?? 0) + (o._sum.quantity ?? 0));
+    }
+    for (const order of pendingGrading) {
+      qtyByCardId.set(
+        order.cardId,
+        (qtyByCardId.get(order.cardId) ?? 0) + (order._sum.quantity ?? 0)
+      );
     }
 
     const levels: Record<
