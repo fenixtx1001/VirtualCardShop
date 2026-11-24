@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/1681/2004-Bowman",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/1681/2004-Bowman",
+    "relatedSetsUrl": "https://www.tcdb.com/Inserts.cfm/sid/1681/2004-Bowman",
+    "crossCheckUrl": "https://baseballcardpedia.com/index.php/2004_Bowman"
+  },
+  "decisions": {
+    "packFormat": "Standard hobby: 10 cards per pack, 24 packs per box. One Gold per pack.",
+    "groupedOdds": "Combine published group frequencies into one rounded family denominator. Cards draw equally within each family.",
+    "stagedChecklists": "1st Edition, Uncirculated Gold and Silver, and the two HTA-only Base of the Future cards are catalogued with null standard hobby pack odds.",
+    "rookies": "164 TCDB rookie-index labels. Bobby Madritsch #197 is First Year without RC in that index.",
+    "exclusions": "Unnumbered claim tickets are in the frozen source snapshot. Bowman Chrome and Bowman Draft are separate products."
+  },
+  "product": {
+    "id": "2004_Bowman_Baseball",
+    "year": 2004,
+    "brand": "Bowman",
+    "sport": "Baseball",
+    "cardsPerPack": 10,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packOdds": "MODELED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "2004-bowman-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "2004_Bowman_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 330,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/1681/2004-Bowman",
+      "notes": ""
+    },
+    {
+      "key": "gold",
+      "id": "2004_Bowman_Baseball_Gold",
+      "name": "Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": 1,
+      "expectedCards": 330,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/15552/2004-Bowman-Gold",
+      "notes": ""
+    },
+    {
+      "key": "first-edition",
+      "id": "2004_Bowman_Baseball_First_Edition",
+      "name": "1st Edition",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "expectedCards": 330,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/15546/2004-Bowman-1st-Edition",
+      "notes": "Separate 1st Edition packs contained only 1st Edition cards. Checklist staged without standard pack odds."
+    },
+    {
+      "key": "uncirculated-silver",
+      "id": "2004_Bowman_Baseball_Uncirculated_Silver",
+      "name": "Uncirculated Silver",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "expectedCards": 330,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/15557/2004-Bowman-Uncirculated-Silver",
+      "notes": "Encased box loader or complete-set redemption. Serial numbered to 245."
+    },
+    {
+      "key": "uncirculated-gold",
+      "id": "2004_Bowman_Baseball_Uncirculated_Gold",
+      "name": "Uncirculated Gold",
+      "kind": "PARALLEL",
+      "oddsPerPack": null,
+      "expectedCards": 165,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/15556/2004-Bowman-Uncirculated-Gold",
+      "notes": "Fulfilled redemption of #166–330, print run 210 per card. Physical exchange cards are outside the player checklist."
+    },
+    {
+      "key": "autographs",
+      "id": "2004_Bowman_Baseball_Autographs",
+      "name": "Autographs",
+      "kind": "INSERT",
+      "oddsPerPack": 72,
+      "expectedCards": 15,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/15547/2004-Bowman-Autographs",
+      "notes": ""
+    },
+    {
+      "key": "autographs-red-ink",
+      "id": "2004_Bowman_Baseball_Autographs_Red_Ink",
+      "name": "Autographs Red Ink",
+      "kind": "INSERT",
+      "oddsPerPack": 1466,
+      "expectedCards": 15,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/15548/2004-Bowman-Autographs-Red-Ink",
+      "notes": ""
+    },
+    {
+      "key": "base-of-the-future-autograph",
+      "id": "2004_Bowman_Baseball_Base_Of_The_Future_Autograph",
+      "name": "Base of the Future Autograph",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/15549/2004-Bowman-Base-of-the-Future-Autograph",
+      "notes": "HTA exclusive, 1:110 HTA packs."
+    },
+    {
+      "key": "base-of-the-future-autograph-red-ink",
+      "id": "2004_Bowman_Baseball_Base_Of_The_Future_Autograph_Red_Ink",
+      "name": "Base of the Future Autograph Red Ink",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/15550/2004-Bowman-Base-of-the-Future-Autograph-Red-Ink",
+      "notes": "HTA exclusive, 1:5112 HTA packs. Serial numbered to 25."
+    },
+    {
+      "key": "futures-game-gear-jerseys",
+      "id": "2004_Bowman_Baseball_Futures_Game_Gear_Jerseys",
+      "name": "Futures Game Gear Jerseys",
+      "kind": "INSERT",
+      "oddsPerPack": 26,
+      "expectedCards": 28,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/15551/2004-Bowman-Futures-Game-Gear-Jerseys",
+      "notes": "Hobby group rates: A 1:167, B 1:71, C 1:181, D 1:173, E 1:145. Combined VCS pool 1:26, equal draws within pool."
+    },
+    {
+      "key": "relics",
+      "id": "2004_Bowman_Baseball_Relics",
+      "name": "Relics",
+      "kind": "INSERT",
+      "oddsPerPack": 96,
+      "expectedCards": 10,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/15553/2004-Bowman-Relics",
+      "notes": "Hobby group rates: A 1:346, B 1:133. Combined VCS pool 1:96, equal draws within pool."
+    },
+    {
+      "key": "signs-of-the-future",
+      "id": "2004_Bowman_Baseball_Signs_Of_The_Future",
+      "name": "Signs of the Future",
+      "kind": "INSERT",
+      "oddsPerPack": 52,
+      "expectedCards": 19,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/15554/2004-Bowman-Signs-of-the-Future",
+      "notes": "Hobby group rates: A 1:75, B 1:847, C 1:582, D 1:315. Combined VCS pool 1:52, equal draws within pool."
+    },
+    {
+      "key": "signs-of-the-future-red-ink",
+      "id": "2004_Bowman_Baseball_Signs_Of_The_Future_Red_Ink",
+      "name": "Signs of the Future Red Ink",
+      "kind": "INSERT",
+      "oddsPerPack": 1466,
+      "expectedCards": 19,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/15555/2004-Bowman-Signs-of-the-Future-Red-Ink",
+      "notes": ""
+    },
+    {
+      "key": "roy-dual-relic",
+      "id": "2004_Bowman_Baseball_Roy_Dual_Relic",
+      "name": "2003 ROY Dual Relic",
+      "kind": "INSERT",
+      "oddsPerPack": 829,
+      "expectedCards": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/1681/2004-Bowman",
+      "notes": ""
+    }
+  ]
+}

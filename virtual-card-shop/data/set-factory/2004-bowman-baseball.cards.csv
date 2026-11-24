@@ -1,0 +1,1595 @@
+setKey,cardNumber,player,team,subset,variant
+base,1,Garret Anderson,Anaheim Angels,Veterans,
+base,2,Larry Walker,Colorado Rockies,Veterans,
+base,3,Derek Jeter,New York Yankees,Veterans,
+base,4,Curt Schilling,Boston Red Sox,Veterans,
+base,5,Carlos Zambrano,Chicago Cubs,Veterans,
+base,6,Shawn Green,Los Angeles Dodgers,Veterans,
+base,7,Manny Ramirez,Boston Red Sox,Veterans,
+base,8,Randy Johnson,Arizona Diamondbacks,Veterans,
+base,9,Jeremy Bonderman,Detroit Tigers,Veterans,
+base,10,Alfonso Soriano,Texas Rangers,Veterans,
+base,11,Scott Rolen,St. Louis Cardinals,Veterans,
+base,12,Kerry Wood,Chicago Cubs,Veterans,
+base,13,Eric Gagne,Los Angeles Dodgers,Veterans,
+base,14,Ryan Klesko,San Diego Padres,Veterans,
+base,15,Kevin Millar,Boston Red Sox,Veterans,
+base,16,Ty Wigginton,New York Mets,Veterans,
+base,17,David Ortiz,Boston Red Sox,Veterans,
+base,18,Luis Castillo,Florida Marlins,Veterans,
+base,19,Bernie Williams,New York Yankees,Veterans,
+base,20,Edgar Renteria,St. Louis Cardinals,Veterans,
+base,21,Matt Kata,Arizona Diamondbacks,Veterans,
+base,22,Bartolo Colon,Anaheim Angels,Veterans,
+base,23,Derrek Lee,Chicago Cubs,Veterans,
+base,24,Gary Sheffield,New York Yankees,Veterans,
+base,25,Nomar Garciaparra,Boston Red Sox,Veterans,
+base,26,Kevin Millwood,Philadelphia Phillies,Veterans,
+base,27,Corey Patterson,Chicago Cubs,Veterans,
+base,28,Carlos Beltran,Kansas City Royals,Veterans,
+base,29,Mike Lieberthal,Philadelphia Phillies,Veterans,
+base,30,Troy Glaus,Anaheim Angels,Veterans,
+base,31,Preston Wilson,Colorado Rockies,Veterans,
+base,32,Jorge Posada,New York Yankees,Veterans,
+base,33,Bo Hart,St. Louis Cardinals,Veterans,
+base,34,Mark Prior,Chicago Cubs,Veterans,
+base,35,Hideo Nomo,Los Angeles Dodgers,Veterans,
+base,36,Jason Kendall,Pittsburgh Pirates,Veterans,
+base,37,Roger Clemens,Houston Astros,Veterans,
+base,38,Dmitri Young,Detroit Tigers,Veterans,
+base,39,Jason Giambi,New York Yankees,Veterans,
+base,40,Jim Edmonds,St. Louis Cardinals,Veterans,
+base,41,Ryan Ludwick,Cleveland Indians,Veterans,
+base,42,Brandon Webb,Arizona Diamondbacks,Veterans,
+base,43,Todd Helton,Colorado Rockies,Veterans,
+base,44,Jacque Jones,Minnesota Twins,Veterans,
+base,45,Jamie Moyer,Seattle Mariners,Veterans,
+base,46,Tim Salmon,Anaheim Angels,Veterans,
+base,47,Kelvim Escobar,Anaheim Angels,Veterans,
+base,48,Tony Batista,Montreal Expos,Veterans,
+base,49,Nick Johnson,Montreal Expos,Veterans,
+base,50,Jim Thome,Philadelphia Phillies,Veterans,
+base,51,Casey Blake,Cleveland Indians,Veterans,
+base,52,Trot Nixon,Boston Red Sox,Veterans,
+base,53,Luis Gonzalez,Arizona Diamondbacks,Veterans,
+base,54,Dontrelle Willis,Florida Marlins,Veterans,
+base,55,Mike Mussina,New York Yankees,Veterans,
+base,56,Carl Crawford,Tampa Bay Devil Rays,Veterans,
+base,57,Mark Buehrle,Chicago White Sox,Veterans,
+base,58,Scott Podsednik,Milwaukee Brewers,Veterans,
+base,59,Brian Giles,San Diego Padres,Veterans,
+base,60,Rafael Furcal,Atlanta Braves,Veterans,
+base,61,Miguel Cabrera,Florida Marlins,Veterans,
+base,62,Rich Harden,Oakland Athletics,Veterans,
+base,63,Mark Teixeira,Texas Rangers,Veterans,
+base,64,Frank Thomas,Chicago White Sox,Veterans,
+base,65,Johan Santana,Minnesota Twins,Veterans,
+base,66,Jason Schmidt,San Francisco Giants,Veterans,
+base,67,Aramis Ramirez,Chicago Cubs,Veterans,
+base,68,Jose Reyes,New York Mets,Veterans,
+base,69,Magglio Ordonez,Chicago White Sox,Veterans,
+base,70,Mike Sweeney,Kansas City Royals,Veterans,
+base,71,Eric Chavez,Oakland Athletics,Veterans,
+base,72,Rocco Baldelli,Tampa Bay Devil Rays,Veterans,
+base,73,Sammy Sosa,Chicago Cubs,Veterans,
+base,74,Javy Lopez,Baltimore Orioles,Veterans,
+base,75,Roy Oswalt,Houston Astros,Veterans,
+base,76,Raul Ibanez,Seattle Mariners,Veterans,
+base,77,Ivan Rodriguez,Detroit Tigers,Veterans,
+base,78,Jerome Williams,San Francisco Giants,Veterans,
+base,79,Carlos Lee,Chicago White Sox,Veterans,
+base,80,Geoff Jenkins,Milwaukee Brewers,Veterans,
+base,81,Sean Burroughs,San Diego Padres,Veterans,
+base,82,Marcus Giles,Atlanta Braves,Veterans,
+base,83,Mike Lowell,Florida Marlins,Veterans,
+base,84,Barry Zito,Oakland Athletics,Veterans,
+base,85,Aubrey Huff,Tampa Bay Devil Rays,Veterans,
+base,86,Esteban Loaiza,Chicago White Sox,Veterans,
+base,87,Torii Hunter,Minnesota Twins,Veterans,
+base,88,Phil Nevin,San Diego Padres,Veterans,
+base,89,Andruw Jones,Atlanta Braves,Veterans,
+base,90,Josh Beckett,Florida Marlins,Veterans,
+base,91,Mark Mulder,Oakland Athletics,Veterans,
+base,92,Hank Blalock,Texas Rangers,Veterans,
+base,93,Jason Phillips,New York Mets,Veterans,
+base,94,Russ Ortiz,Atlanta Braves,Veterans,
+base,95,Juan Pierre,Florida Marlins,Veterans,
+base,96,Tom Glavine,New York Mets,Veterans,
+base,97,Gil Meche,Seattle Mariners,Veterans,
+base,98,Ramon Ortiz,Anaheim Angels,Veterans,
+base,99,Richie Sexson,Arizona Diamondbacks,Veterans,
+base,100,Albert Pujols,St. Louis Cardinals,Veterans,
+base,101,Javier Vazquez,New York Yankees,Veterans,
+base,102,Johnny Damon,Boston Red Sox,Veterans,
+base,103,Alex Rodriguez,New York Yankees,Veterans,
+base,104,Omar Vizquel,Cleveland Indians,Veterans,
+base,105,Chipper Jones,Atlanta Braves,Veterans,
+base,106,Lance Berkman,Houston Astros,Veterans,
+base,107,Tim Hudson,Oakland Athletics,Veterans,
+base,108,Carlos Delgado,Toronto Blue Jays,Veterans,
+base,109,Austin Kearns,Cincinnati Reds,Veterans,
+base,110,Orlando Cabrera,Montreal Expos,Veterans,
+base,111,Edgar Martinez,Seattle Mariners,Veterans,
+base,112,Melvin Mora,Baltimore Orioles,Veterans,
+base,113,Jeff Bagwell,Houston Astros,Veterans,
+base,114,Marlon Byrd,Philadelphia Phillies,Veterans,
+base,115,Vernon Wells,Toronto Blue Jays,Veterans,
+base,116,C.C. Sabathia,Cleveland Indians,Veterans,
+base,117,Cliff Floyd,New York Mets,Veterans,
+base,118,Ichiro,Seattle Mariners,Veterans,
+base,119,Miguel Olivo,Chicago White Sox,Veterans,
+base,120,Mike Piazza,New York Mets,Veterans,
+base,121,Adam Dunn,Cincinnati Reds,Veterans,
+base,122,Paul Lo Duca,Los Angeles Dodgers,Veterans,
+base,123,Brett Myers,Philadelphia Phillies,Veterans,
+base,124,Michael Young,Texas Rangers,Veterans,
+base,125,Sidney Ponson,Baltimore Orioles,Veterans,
+base,126,Greg Maddux,Chicago Cubs,Veterans,
+base,127,Vladimir Guerrero,Anaheim Angels,Veterans,
+base,128,Miguel Tejada,Baltimore Orioles,Veterans,
+base,129,Andy Pettitte,Houston Astros,Veterans,
+base,130,Rafael Palmeiro,Baltimore Orioles,Veterans,
+base,131,Ken Griffey Jr.,Cincinnati Reds,Veterans,
+base,132,Shannon Stewart,Minnesota Twins,Veterans,
+base,133,Joel Pineiro,Seattle Mariners,Veterans,
+base,134,Luis Matos,Baltimore Orioles,Veterans,
+base,135,Jeff Kent,Houston Astros,Veterans,
+base,136,Randy Wolf,Philadelphia Phillies,Veterans,
+base,137,Chris Woodward,Toronto Blue Jays,Veterans,
+base,138,Jody Gerut,Cleveland Indians,Veterans,
+base,139,Jose Vidro,Montreal Expos,Veterans,
+base,140,Bret Boone,Seattle Mariners,Veterans,
+base,141,Bill Mueller,Boston Red Sox,Veterans,
+base,142,Angel Berroa,Kansas City Royals,Veterans,
+base,143,Bobby Abreu,Philadelphia Phillies,Veterans,
+base,144,Roy Halladay,Toronto Blue Jays,Veterans,
+base,145,Delmon Young,Tampa Bay Devil Rays,Prospects,
+base,146,Jonny Gomes,Tampa Bay Devil Rays,Prospects,UER: Facsimile signature is of Joey Gomes
+base,147,Rickie Weeks,Milwaukee Brewers,Prospects,
+base,148,Edwin Jackson,Los Angeles Dodgers,Prospects,
+base,149,Neal Cotts,Chicago White Sox,Prospects,
+base,150,Jason Bay,Pittsburgh Pirates,Prospects,
+base,151,Khalil Greene,San Diego Padres,Prospects,
+base,152,Joe Mauer,Minnesota Twins,Prospects,UER: Photo on front actually Rob Bowen
+base,153,Bobby Jenks,Anaheim Angels,Prospects,
+base,154,Chin-Feng Chen,Los Angeles Dodgers,Prospects,
+base,155,Chien-Ming Wang,New York Yankees,Prospects,
+base,156,Mickey Hall,Boston Red Sox,Prospects,
+base,157,James Houser,Tampa Bay Devil Rays,Prospects,
+base,158,Jay Sborz,Detroit Tigers,Prospects,
+base,159,Jonathan Fulton,Florida Marlins,Prospects,
+base,160,Steven Lerud,Pittsburgh Pirates,Prospects,
+base,161,Grady Sizemore,Cleveland Indians,Prospects,
+base,162,Felix Pie,Chicago Cubs,Prospects,
+base,163,Dustin McGowan,Toronto Blue Jays,Prospects,
+base,164,Chris Lubanski,Kansas City Royals,Prospects,
+base,165,Tom Gorzelanny,Pittsburgh Pirates,Prospects,
+base,166,Rudy Guillen RC,New York Yankees,First Year,
+base,167,Bobby Brownlie RC,Chicago Cubs,First Year,
+base,168,Conor Jackson RC,Arizona Diamondbacks,First Year,
+base,169,Matt Moses RC,Minnesota Twins,First Year,
+base,170,Ervin Santana RC,Anaheim Angels,First Year,
+base,171,Merkin Valdez RC,San Francisco Giants,First Year,
+base,172,Erick Aybar RC,Anaheim Angels,First Year,
+base,173,Brad Sullivan RC,Oakland Athletics,First Year,
+base,174,David Aardsma RC,San Francisco Giants,First Year,
+base,175,Brad Snyder RC,Cleveland Indians,First Year,
+base,176,Alberto Callaspo RC,Anaheim Angels,First Year,
+base,177,Brandon Medders RC,Arizona Diamondbacks,First Year,
+base,178,Zach Miner RC,Atlanta Braves,First Year,
+base,179,Charlie Zink RC,Boston Red Sox,First Year,
+base,180,Adam Greenberg RC,Chicago Cubs,First Year,
+base,181,Kevin Howard RC,Cincinnati Reds,First Year,
+base,182,Wanell Severino RC,Pittsburgh Pirates,First Year,
+base,183,Kevin Kouzmanoff RC,Cleveland Indians,First Year,
+base,184,Joel Zumaya RC,Detroit Tigers,First Year,
+base,185,Skip Schumaker RC,St. Louis Cardinals,First Year,
+base,186,Nic Ungs RC,Florida Marlins,First Year,
+base,187,Todd Self RC,Houston Astros,First Year,
+base,188,Brian Steffek RC,Los Angeles Dodgers,First Year,
+base,189,Brock Peterson RC,Minnesota Twins,First Year,
+base,190,Greg Thissen RC,Montreal Expos,First Year,
+base,191,Frank Brooks RC,Boston Red Sox,First Year,
+base,192,Estee Harris RC,New York Yankees,First Year,
+base,193,Chris Mabeus RC,Texas Rangers,First Year,
+base,194,Dan Giese RC,Philadelphia Phillies,First Year,
+base,195,Jared Wells RC,San Diego Padres,First Year,
+base,196,Carlos Sosa RC,San Francisco Giants,First Year,
+base,197,Bobby Madritsch,Seattle Mariners,First Year,
+base,198,Calvin Hayes RC,St. Louis Cardinals,First Year,
+base,199,Omar Quintanilla RC,Oakland Athletics,First Year,
+base,200,Chris O'Riordan RC,Texas Rangers,First Year,
+base,201,Tim Hutting RC,San Francisco Giants,First Year,
+base,202,Carlos Quentin RC,Arizona Diamondbacks,First Year,
+base,203,Brayan Pena RC,Atlanta Braves,First Year,
+base,204,Jeff Salazar RC,Colorado Rockies,First Year,
+base,205,David Murphy RC,Boston Red Sox,First Year,
+base,206,Alberto Garcia RC,Chicago Cubs,First Year,
+base,207,Ramon Ramirez RC,New York Yankees,First Year,
+base,208,Luis Bolivar RC,Cincinnati Reds,First Year,
+base,209,Rodney Choy Foo RC,Cleveland Indians,First Year,
+base,210,Kyle Sleeth RC,Detroit Tigers,First Year,
+base,211,Anthony Acevedo RC,Houston Astros,First Year,
+base,212,Chad Santos RC,Kansas City Royals,First Year,
+base,213,Jason Frasor RC,Los Angeles Dodgers,First Year,
+base,214,Jesse Roman RC,San Diego Padres,First Year,
+base,215,James Tomlin RC,Minnesota Twins,First Year,
+base,216,Josh Labandeira RC,Montreal Expos,First Year,
+base,217,Joaquin Arias RC,Texas Rangers,First Year,
+base,218,Don Sutton RC,Oakland Athletics,First Year,UER: Player pictured is not Sutton.
+base,219,Danny Gonzalez RC,Philadelphia Phillies,First Year,
+base,220,Javier Guzman RC,Pittsburgh Pirates,First Year,
+base,221,Anthony Lerew RC,Atlanta Braves,First Year,
+base,222,Jon Knott RC,San Diego Padres,First Year,
+base,223,Jesse English RC,San Francisco Giants,First Year,
+base,224,Felix Hernandez RC,Seattle Mariners,First Year,
+base,225,Travis Hanson RC,St. Louis Cardinals,First Year,
+base,226,Jesse Floyd RC,Texas Rangers,First Year,
+base,227,Nick Gorneault RC,Anaheim Angels,First Year,
+base,228,Craig Ansman RC,Arizona Diamondbacks,First Year,
+base,229,Wardell Starling RC,Pittsburgh Pirates,First Year,
+base,230,Carl Loadenthal RC,Atlanta Braves,First Year,
+base,231,Dave Crouthers RC,Baltimore Orioles,First Year,
+base,232,Harvey Garcia RC,Boston Red Sox,First Year,
+base,233,Casey Kopitzke RC,Chicago Cubs,First Year,
+base,234,Ricky Nolasco RC,Chicago Cubs,First Year,
+base,235,Miguel Perez RC,Cincinnati Reds,First Year,
+base,236,Ryan Mulhern RC,Cleveland Indians,First Year,
+base,237,Chris Aguila RC,Florida Marlins,First Year,
+base,238,Brooks Conrad RC,Houston Astros,First Year,
+base,239,Damaso Espino RC,Kansas City Royals,First Year,
+base,240,Jereme Milons RC,Los Angeles Dodgers,First Year,
+base,241,Luke Hughes RC,Minnesota Twins,First Year,
+base,242,Kory Casto RC,Montreal Expos,First Year,
+base,243,Jose Valdez RC,New York Yankees,First Year,
+base,244,J.T. Stotts RC,New York Yankees,First Year,
+base,245,Lee Gwaltney RC,Philadelphia Phillies,First Year,
+base,246,Yoann Torrealba RC,Pittsburgh Pirates,First Year,
+base,247,Omar Falcon RC,Seattle Mariners,First Year,
+base,248,Jon Coutlangus RC,San Francisco Giants,First Year,
+base,249,George Sherrill RC,Seattle Mariners,First Year,
+base,250,John Santor RC,St. Louis Cardinals,First Year,
+base,251,Tony Richie RC,Chicago Cubs,First Year,
+base,252,Kevin Richardson RC,Texas Rangers,First Year,
+base,253,Tim Bittner RC,Anaheim Angels,First Year,
+base,254,Dustin Nippert RC,Arizona Diamondbacks,First Year,
+base,255,Jose Capellan RC,Atlanta Braves,First Year,
+base,256,Donald Levinski RC,Baltimore Orioles,First Year,
+base,257,Jerome Gamble RC,Boston Red Sox,First Year,
+base,258,Jeff Keppinger RC,Pittsburgh Pirates,First Year,
+base,259,Jason Szuminski RC,San Diego Padres,First Year,
+base,260,Akinori Otsuka RC,San Diego Padres,First Year,
+base,261,Ryan Budde RC,Anaheim Angels,First Year,
+base,262,Shingo Takatsu RC,Chicago White Sox,First Year,
+base,263,Jeff Allison RC,Florida Marlins,First Year,
+base,264,Hector Gimenez RC,Houston Astros,First Year,
+base,265,Tim Frend RC,Kansas City Royals,First Year,
+base,266,Tom Farmer RC,Los Angeles Dodgers,First Year,
+base,267,Shawn Hill RC,Montreal Expos,First Year,
+base,268,Lastings Milledge RC,New York Mets,First Year,
+base,269,Scott Proctor RC,New York Yankees,First Year,
+base,270,Jorge Mejia RC,Cincinnati Reds,First Year,
+base,271,Terry Jones RC,Philadelphia Phillies,First Year,
+base,272,Zach Duke RC,Pittsburgh Pirates,First Year,
+base,273,Tim Stauffer RC,San Diego Padres,First Year,
+base,274,Luke Anderson RC,San Francisco Giants,First Year,
+base,275,Hunter Brown RC,Seattle Mariners,First Year,
+base,276,Matt Lemanczyk RC,St. Louis Cardinals,First Year,
+base,277,Fernando Cortez RC,Tampa Bay Devil Rays,First Year,
+base,278,Vince Perkins RC,Toronto Blue Jays,First Year,
+base,279,Tommy Murphy RC,Anaheim Angels,First Year,
+base,280,Mike Gosling RC,Arizona Diamondbacks,First Year,
+base,281,Paul Bacot RC,Atlanta Braves,First Year,
+base,282,Matt Capps RC,Pittsburgh Pirates,First Year,
+base,283,Juan Gutierrez RC,Baltimore Orioles,First Year,
+base,284,Teodoro Encarnacion RC,Cleveland Indians,First Year,
+base,285,Juan Cedeno RC,Boston Red Sox,First Year,
+base,286,Matt Creighton RC,Chicago Cubs,First Year,
+base,287,Ryan Hankins RC,Chicago White Sox,First Year,
+base,288,Leo Nunez RC,Pittsburgh Pirates,First Year,
+base,289,Dave Wallace RC,Cleveland Indians,First Year,
+base,290,Rob Tejeda RC,Philadelphia Phillies,First Year,
+base,291,Lincoln Holdzkom RC,Florida Marlins,First Year,
+base,292,Jason Hirsh RC,Houston Astros,First Year,
+base,293,Tydus Meadows RC,Texas Rangers,First Year,
+base,294,Khalid Ballouli RC,Milwaukee Brewers,First Year,
+base,295,Benji DeQuin RC,Montreal Expos,First Year,
+base,296,Tyler Davidson RC,New York Mets,First Year,
+base,297,Brant Colamarino RC,Oakland Athletics,First Year,
+base,298,Marcus McBeth RC,Oakland Athletics,First Year,
+base,299,Brad Eldred RC,Pittsburgh Pirates,First Year,
+base,300,David Pauley RC,San Diego Padres,First Year,
+base,301,Yadier Molina RC,St. Louis Cardinals,First Year,
+base,302,Chris Shelton RC,Detroit Tigers,First Year,
+base,303,Travis Blackley RC,Seattle Mariners,First Year,
+base,304,Jon De Vries RC,Boston Red Sox,First Year,
+base,305,Sheldon Fulse RC,Boston Red Sox,First Year,
+base,306,Vito Chiaravalloti RC,Toronto Blue Jays,First Year,
+base,307,Warner Madrigal RC,Anaheim Angels,First Year,
+base,308,Reid Gorecki RC,St. Louis Cardinals,First Year,
+base,309,Sung Jung RC,Atlanta Braves,First Year,
+base,310,Pete Shier RC,Baltimore Orioles,First Year,
+base,311,Michael Mooney RC,San Francisco Giants,First Year,
+base,312,Kenny Perez RC,Boston Red Sox,First Year,
+base,313,Michael Mallory RC,Chicago Cubs,First Year,
+base,314,Ben Himes RC,Cincinnati Reds,First Year,
+base,315,Ivan Ochoa RC,Cleveland Indians,First Year,
+base,316,Donald Kelly RC,Detroit Tigers,First Year,
+base,317,Logan Kensing RC,Florida Marlins,First Year,
+base,318,Kevin Davidson RC,Houston Astros,First Year,
+base,319,Brian Pilkington RC,Los Angeles Dodgers,First Year,
+base,320,Alex Romero RC,Minnesota Twins,First Year,
+base,321,Chad Chop RC,Montreal Expos,First Year,
+base,322,Dioner Navarro RC,New York Yankees,First Year,
+base,323,Casey Myers RC,Oakland Athletics,First Year,
+base,324,Mike Rouse RC,Oakland Athletics,First Year,
+base,325,Sergio Silva RC,Pittsburgh Pirates,First Year,
+base,326,J.J. Furmaniak RC,San Diego Padres,First Year,
+base,327,Brad Vericker RC,San Francisco Giants,First Year,
+base,328,Blake Hawksworth RC,St. Louis Cardinals,First Year,
+base,329,Brock Jacobsen RC,Texas Rangers,First Year,
+base,330,Alec Zumwalt RC,Tampa Bay Devil Rays,First Year,
+gold,1,Garret Anderson,Anaheim Angels,Veterans,
+gold,2,Larry Walker,Colorado Rockies,Veterans,
+gold,3,Derek Jeter,New York Yankees,Veterans,
+gold,4,Curt Schilling,Boston Red Sox,Veterans,
+gold,5,Carlos Zambrano,Chicago Cubs,Veterans,
+gold,6,Shawn Green,Los Angeles Dodgers,Veterans,
+gold,7,Manny Ramirez,Boston Red Sox,Veterans,
+gold,8,Randy Johnson,Arizona Diamondbacks,Veterans,
+gold,9,Jeremy Bonderman,Detroit Tigers,Veterans,
+gold,10,Alfonso Soriano,Texas Rangers,Veterans,
+gold,11,Scott Rolen,St. Louis Cardinals,Veterans,
+gold,12,Kerry Wood,Chicago Cubs,Veterans,
+gold,13,Eric Gagne,Los Angeles Dodgers,Veterans,
+gold,14,Ryan Klesko,San Diego Padres,Veterans,
+gold,15,Kevin Millar,Boston Red Sox,Veterans,
+gold,16,Ty Wigginton,New York Mets,Veterans,
+gold,17,David Ortiz,Boston Red Sox,Veterans,
+gold,18,Luis Castillo,Florida Marlins,Veterans,
+gold,19,Bernie Williams,New York Yankees,Veterans,
+gold,20,Edgar Renteria,St. Louis Cardinals,Veterans,
+gold,21,Matt Kata,Arizona Diamondbacks,Veterans,
+gold,22,Bartolo Colon,Anaheim Angels,Veterans,
+gold,23,Derrek Lee,Chicago Cubs,Veterans,
+gold,24,Gary Sheffield,New York Yankees,Veterans,
+gold,25,Nomar Garciaparra,Boston Red Sox,Veterans,
+gold,26,Kevin Millwood,Philadelphia Phillies,Veterans,
+gold,27,Corey Patterson,Chicago Cubs,Veterans,
+gold,28,Carlos Beltran,Kansas City Royals,Veterans,
+gold,29,Mike Lieberthal,Philadelphia Phillies,Veterans,
+gold,30,Troy Glaus,Anaheim Angels,Veterans,
+gold,31,Preston Wilson,Colorado Rockies,Veterans,
+gold,32,Jorge Posada,New York Yankees,Veterans,
+gold,33,Bo Hart,St. Louis Cardinals,Veterans,
+gold,34,Mark Prior,Chicago Cubs,Veterans,
+gold,35,Hideo Nomo,Los Angeles Dodgers,Veterans,
+gold,36,Jason Kendall,Pittsburgh Pirates,Veterans,
+gold,37,Roger Clemens,Houston Astros,Veterans,
+gold,38,Dmitri Young,Detroit Tigers,Veterans,
+gold,39,Jason Giambi,New York Yankees,Veterans,
+gold,40,Jim Edmonds,St. Louis Cardinals,Veterans,
+gold,41,Ryan Ludwick,Cleveland Indians,Veterans,
+gold,42,Brandon Webb,Arizona Diamondbacks,Veterans,
+gold,43,Todd Helton,Colorado Rockies,Veterans,
+gold,44,Jacque Jones,Minnesota Twins,Veterans,
+gold,45,Jamie Moyer,Seattle Mariners,Veterans,
+gold,46,Tim Salmon,Anaheim Angels,Veterans,
+gold,47,Kelvim Escobar,Anaheim Angels,Veterans,
+gold,48,Tony Batista,Montreal Expos,Veterans,
+gold,49,Nick Johnson,Montreal Expos,Veterans,
+gold,50,Jim Thome,Philadelphia Phillies,Veterans,
+gold,51,Casey Blake,Cleveland Indians,Veterans,
+gold,52,Trot Nixon,Boston Red Sox,Veterans,
+gold,53,Luis Gonzalez,Arizona Diamondbacks,Veterans,
+gold,54,Dontrelle Willis,Florida Marlins,Veterans,
+gold,55,Mike Mussina,New York Yankees,Veterans,
+gold,56,Carl Crawford,Tampa Bay Devil Rays,Veterans,
+gold,57,Mark Buehrle,Chicago White Sox,Veterans,
+gold,58,Scott Podsednik,Milwaukee Brewers,Veterans,
+gold,59,Brian Giles,San Diego Padres,Veterans,
+gold,60,Rafael Furcal,Atlanta Braves,Veterans,
+gold,61,Miguel Cabrera,Florida Marlins,Veterans,
+gold,62,Rich Harden,Oakland Athletics,Veterans,
+gold,63,Mark Teixeira,Texas Rangers,Veterans,
+gold,64,Frank Thomas,Chicago White Sox,Veterans,
+gold,65,Johan Santana,Minnesota Twins,Veterans,
+gold,66,Jason Schmidt,San Francisco Giants,Veterans,
+gold,67,Aramis Ramirez,Chicago Cubs,Veterans,
+gold,68,Jose Reyes,New York Mets,Veterans,
+gold,69,Magglio Ordonez,Chicago White Sox,Veterans,
+gold,70,Mike Sweeney,Kansas City Royals,Veterans,
+gold,71,Eric Chavez,Oakland Athletics,Veterans,
+gold,72,Rocco Baldelli,Tampa Bay Devil Rays,Veterans,
+gold,73,Sammy Sosa,Chicago Cubs,Veterans,
+gold,74,Javy Lopez,Baltimore Orioles,Veterans,
+gold,75,Roy Oswalt,Houston Astros,Veterans,
+gold,76,Raul Ibanez,Seattle Mariners,Veterans,
+gold,77,Ivan Rodriguez,Detroit Tigers,Veterans,
+gold,78,Jerome Williams,San Francisco Giants,Veterans,
+gold,79,Carlos Lee,Chicago White Sox,Veterans,
+gold,80,Geoff Jenkins,Milwaukee Brewers,Veterans,
+gold,81,Sean Burroughs,San Diego Padres,Veterans,
+gold,82,Marcus Giles,Atlanta Braves,Veterans,
+gold,83,Mike Lowell,Florida Marlins,Veterans,
+gold,84,Barry Zito,Oakland Athletics,Veterans,
+gold,85,Aubrey Huff,Tampa Bay Devil Rays,Veterans,
+gold,86,Esteban Loaiza,Chicago White Sox,Veterans,
+gold,87,Torii Hunter,Minnesota Twins,Veterans,
+gold,88,Phil Nevin,San Diego Padres,Veterans,
+gold,89,Andruw Jones,Atlanta Braves,Veterans,
+gold,90,Josh Beckett,Florida Marlins,Veterans,
+gold,91,Mark Mulder,Oakland Athletics,Veterans,
+gold,92,Hank Blalock,Texas Rangers,Veterans,
+gold,93,Jason Phillips,New York Mets,Veterans,
+gold,94,Russ Ortiz,Atlanta Braves,Veterans,
+gold,95,Juan Pierre,Florida Marlins,Veterans,
+gold,96,Tom Glavine,New York Mets,Veterans,
+gold,97,Gil Meche,Seattle Mariners,Veterans,
+gold,98,Ramon Ortiz,Anaheim Angels,Veterans,
+gold,99,Richie Sexson,Arizona Diamondbacks,Veterans,
+gold,100,Albert Pujols,St. Louis Cardinals,Veterans,
+gold,101,Javier Vazquez,New York Yankees,Veterans,
+gold,102,Johnny Damon,Boston Red Sox,Veterans,
+gold,103,Alex Rodriguez,New York Yankees,Veterans,
+gold,104,Omar Vizquel,Cleveland Indians,Veterans,
+gold,105,Chipper Jones,Atlanta Braves,Veterans,
+gold,106,Lance Berkman,Houston Astros,Veterans,
+gold,107,Tim Hudson,Oakland Athletics,Veterans,
+gold,108,Carlos Delgado,Toronto Blue Jays,Veterans,
+gold,109,Austin Kearns,Cincinnati Reds,Veterans,
+gold,110,Orlando Cabrera,Montreal Expos,Veterans,
+gold,111,Edgar Martinez,Seattle Mariners,Veterans,
+gold,112,Melvin Mora,Baltimore Orioles,Veterans,
+gold,113,Jeff Bagwell,Houston Astros,Veterans,
+gold,114,Marlon Byrd,Philadelphia Phillies,Veterans,
+gold,115,Vernon Wells,Toronto Blue Jays,Veterans,
+gold,116,C.C. Sabathia,Cleveland Indians,Veterans,
+gold,117,Cliff Floyd,New York Mets,Veterans,
+gold,118,Ichiro,Seattle Mariners,Veterans,
+gold,119,Miguel Olivo,Chicago White Sox,Veterans,
+gold,120,Mike Piazza,New York Mets,Veterans,
+gold,121,Adam Dunn,Cincinnati Reds,Veterans,
+gold,122,Paul Lo Duca,Los Angeles Dodgers,Veterans,
+gold,123,Brett Myers,Philadelphia Phillies,Veterans,
+gold,124,Michael Young,Texas Rangers,Veterans,
+gold,125,Sidney Ponson,Baltimore Orioles,Veterans,
+gold,126,Greg Maddux,Chicago Cubs,Veterans,
+gold,127,Vladimir Guerrero,Anaheim Angels,Veterans,
+gold,128,Miguel Tejada,Baltimore Orioles,Veterans,
+gold,129,Andy Pettitte,Houston Astros,Veterans,
+gold,130,Rafael Palmeiro,Baltimore Orioles,Veterans,
+gold,131,Ken Griffey Jr.,Cincinnati Reds,Veterans,
+gold,132,Shannon Stewart,Minnesota Twins,Veterans,
+gold,133,Joel Pineiro,Seattle Mariners,Veterans,
+gold,134,Luis Matos,Baltimore Orioles,Veterans,
+gold,135,Jeff Kent,Houston Astros,Veterans,
+gold,136,Randy Wolf,Philadelphia Phillies,Veterans,
+gold,137,Chris Woodward,Toronto Blue Jays,Veterans,
+gold,138,Jody Gerut,Cleveland Indians,Veterans,
+gold,139,Jose Vidro,Montreal Expos,Veterans,
+gold,140,Bret Boone,Seattle Mariners,Veterans,
+gold,141,Bill Mueller,Boston Red Sox,Veterans,
+gold,142,Angel Berroa,Kansas City Royals,Veterans,
+gold,143,Bobby Abreu,Philadelphia Phillies,Veterans,
+gold,144,Roy Halladay,Toronto Blue Jays,Veterans,
+gold,145,Delmon Young,Tampa Bay Devil Rays,Prospects,
+gold,146,Jonny Gomes,Tampa Bay Devil Rays,Prospects,UER: Facsimile signature is of Joey Gomes
+gold,147,Rickie Weeks,Milwaukee Brewers,Prospects,
+gold,148,Edwin Jackson,Los Angeles Dodgers,Prospects,
+gold,149,Neal Cotts,Chicago White Sox,Prospects,
+gold,150,Jason Bay,Pittsburgh Pirates,Prospects,
+gold,151,Khalil Greene,San Diego Padres,Prospects,
+gold,152,Joe Mauer,Minnesota Twins,Prospects,UER: Photo on front actually Rob Bowen
+gold,153,Bobby Jenks,Anaheim Angels,Prospects,
+gold,154,Chin-Feng Chen,Los Angeles Dodgers,Prospects,
+gold,155,Chien-Ming Wang,New York Yankees,Prospects,
+gold,156,Mickey Hall,Boston Red Sox,Prospects,
+gold,157,James Houser,Tampa Bay Devil Rays,Prospects,
+gold,158,Jay Sborz,Detroit Tigers,Prospects,
+gold,159,Jonathan Fulton,Florida Marlins,Prospects,
+gold,160,Steven Lerud,Pittsburgh Pirates,Prospects,
+gold,161,Grady Sizemore,Cleveland Indians,Prospects,
+gold,162,Felix Pie,Chicago Cubs,Prospects,
+gold,163,Dustin McGowan,Toronto Blue Jays,Prospects,
+gold,164,Chris Lubanski,Kansas City Royals,Prospects,
+gold,165,Tom Gorzelanny,Pittsburgh Pirates,Prospects,
+gold,166,Rudy Guillen,New York Yankees,First Year,
+gold,167,Bobby Brownlie,Chicago Cubs,First Year,
+gold,168,Conor Jackson,Arizona Diamondbacks,First Year,
+gold,169,Matt Moses,Minnesota Twins,First Year,
+gold,170,Ervin Santana,Anaheim Angels,First Year,
+gold,171,Merkin Valdez,San Francisco Giants,First Year,
+gold,172,Erick Aybar,Anaheim Angels,First Year,
+gold,173,Brad Sullivan,Oakland Athletics,First Year,
+gold,174,David Aardsma,San Francisco Giants,First Year,
+gold,175,Brad Snyder,Cleveland Indians,First Year,
+gold,176,Alberto Callaspo,Anaheim Angels,First Year,
+gold,177,Brandon Medders,Arizona Diamondbacks,First Year,
+gold,178,Zach Miner,Atlanta Braves,First Year,
+gold,179,Charlie Zink,Boston Red Sox,First Year,
+gold,180,Adam Greenberg,Chicago Cubs,First Year,
+gold,181,Kevin Howard,Cincinnati Reds,First Year,
+gold,182,Wanell Severino,Pittsburgh Pirates,First Year,
+gold,183,Kevin Kouzmanoff,Cleveland Indians,First Year,
+gold,184,Joel Zumaya,Detroit Tigers,First Year,
+gold,185,Skip Schumaker,St. Louis Cardinals,First Year,
+gold,186,Nic Ungs,Florida Marlins,First Year,
+gold,187,Todd Self,Houston Astros,First Year,
+gold,188,Brian Steffek,Los Angeles Dodgers,First Year,
+gold,189,Brock Peterson,Minnesota Twins,First Year,
+gold,190,Greg Thissen,Montreal Expos,First Year,
+gold,191,Frank Brooks,Boston Red Sox,First Year,
+gold,192,Estee Harris,New York Yankees,First Year,
+gold,193,Chris Mabeus,Texas Rangers,First Year,
+gold,194,Dan Giese,Philadelphia Phillies,First Year,
+gold,195,Jared Wells,San Diego Padres,First Year,
+gold,196,Carlos Sosa,San Francisco Giants,First Year,
+gold,197,Bobby Madritsch,Seattle Mariners,First Year,
+gold,198,Calvin Hayes,St. Louis Cardinals,First Year,
+gold,199,Omar Quintanilla,Oakland Athletics,First Year,
+gold,200,Chris O'Riordan,Texas Rangers,First Year,
+gold,201,Tim Hutting,San Francisco Giants,First Year,
+gold,202,Carlos Quentin,Arizona Diamondbacks,First Year,
+gold,203,Brayan Pena,Atlanta Braves,First Year,
+gold,204,Jeff Salazar,Colorado Rockies,First Year,
+gold,205,David Murphy,Boston Red Sox,First Year,
+gold,206,Alberto Garcia,Chicago Cubs,First Year,
+gold,207,Ramon Ramirez,New York Yankees,First Year,
+gold,208,Luis Bolivar,Cincinnati Reds,First Year,
+gold,209,Rodney Choy Foo,Cleveland Indians,First Year,
+gold,210,Kyle Sleeth,Detroit Tigers,First Year,
+gold,211,Anthony Acevedo,Houston Astros,First Year,
+gold,212,Chad Santos,Kansas City Royals,First Year,
+gold,213,Jason Frasor,Los Angeles Dodgers,First Year,
+gold,214,Jesse Roman,San Diego Padres,First Year,
+gold,215,James Tomlin,Minnesota Twins,First Year,
+gold,216,Josh Labandeira,Montreal Expos,First Year,
+gold,217,Joaquin Arias,Texas Rangers,First Year,
+gold,218,Don Sutton,Oakland Athletics,First Year,UER
+gold,219,Danny Gonzalez,Philadelphia Phillies,First Year,
+gold,220,Javier Guzman,Pittsburgh Pirates,First Year,
+gold,221,Anthony Lerew,Atlanta Braves,First Year,
+gold,222,Jon Knott,San Diego Padres,First Year,
+gold,223,Jesse English,San Francisco Giants,First Year,
+gold,224,Felix Hernandez,Seattle Mariners,First Year,
+gold,225,Travis Hanson,St. Louis Cardinals,First Year,
+gold,226,Jesse Floyd,Texas Rangers,First Year,
+gold,227,Nick Gorneault,Anaheim Angels,First Year,
+gold,228,Craig Ansman,Arizona Diamondbacks,First Year,
+gold,229,Wardell Starling,Pittsburgh Pirates,First Year,
+gold,230,Carl Loadenthal,Atlanta Braves,First Year,
+gold,231,Dave Crouthers,Baltimore Orioles,First Year,
+gold,232,Harvey Garcia,Boston Red Sox,First Year,
+gold,233,Casey Kopitzke,Chicago Cubs,First Year,
+gold,234,Ricky Nolasco,Chicago Cubs,First Year,
+gold,235,Miguel Perez,Cincinnati Reds,First Year,
+gold,236,Ryan Mulhern,Cleveland Indians,First Year,
+gold,237,Chris Aguila,Florida Marlins,First Year,
+gold,238,Brooks Conrad,Houston Astros,First Year,
+gold,239,Damaso Espino,Kansas City Royals,First Year,
+gold,240,Jereme Milons,Los Angeles Dodgers,First Year,
+gold,241,Luke Hughes,Minnesota Twins,First Year,
+gold,242,Kory Casto,Montreal Expos,First Year,
+gold,243,Jose Valdez,New York Yankees,First Year,
+gold,244,J.T. Stotts,New York Yankees,First Year,
+gold,245,Lee Gwaltney,Philadelphia Phillies,First Year,
+gold,246,Yoann Torrealba,Pittsburgh Pirates,First Year,
+gold,247,Omar Falcon,Seattle Mariners,First Year,
+gold,248,Jon Coutlangus,San Francisco Giants,First Year,
+gold,249,George Sherrill,Seattle Mariners,First Year,
+gold,250,John Santor,St. Louis Cardinals,First Year,
+gold,251,Tony Richie,Chicago Cubs,First Year,
+gold,252,Kevin Richardson,Texas Rangers,First Year,
+gold,253,Tim Bittner,Anaheim Angels,First Year,
+gold,254,Dustin Nippert,Arizona Diamondbacks,First Year,
+gold,255,Jose Capellan,Atlanta Braves,First Year,
+gold,256,Donald Levinski,Baltimore Orioles,First Year,
+gold,257,Jerome Gamble,Boston Red Sox,First Year,
+gold,258,Jeff Keppinger,Pittsburgh Pirates,First Year,
+gold,259,Jason Szuminski,San Diego Padres,First Year,
+gold,260,Akinori Otsuka,San Diego Padres,First Year,
+gold,261,Ryan Budde,Anaheim Angels,First Year,
+gold,262,Shingo Takatsu,Chicago White Sox,First Year,
+gold,263,Jeff Allison,Florida Marlins,First Year,
+gold,264,Hector Gimenez,Houston Astros,First Year,
+gold,265,Tim Frend,Kansas City Royals,First Year,
+gold,266,Tom Farmer,Los Angeles Dodgers,First Year,
+gold,267,Shawn Hill,Montreal Expos,First Year,
+gold,268,Lastings Milledge,New York Mets,First Year,
+gold,269,Scott Proctor,New York Yankees,First Year,
+gold,270,Jorge Mejia,Cincinnati Reds,First Year,
+gold,271,Terry Jones,Philadelphia Phillies,First Year,
+gold,272,Zach Duke,Pittsburgh Pirates,First Year,
+gold,273,Tim Stauffer,San Diego Padres,First Year,
+gold,274,Luke Anderson,San Francisco Giants,First Year,
+gold,275,Hunter Brown,Seattle Mariners,First Year,
+gold,276,Matt Lemanczyk,St. Louis Cardinals,First Year,
+gold,277,Fernando Cortez,Tampa Bay Devil Rays,First Year,
+gold,278,Vince Perkins,Toronto Blue Jays,First Year,
+gold,279,Tommy Murphy,Anaheim Angels,First Year,
+gold,280,Mike Gosling,Arizona Diamondbacks,First Year,
+gold,281,Paul Bacot,Atlanta Braves,First Year,
+gold,282,Matt Capps,Pittsburgh Pirates,First Year,
+gold,283,Juan Gutierrez,Baltimore Orioles,First Year,
+gold,284,Teodoro Encarnacion,Cleveland Indians,First Year,
+gold,285,Juan Cedeno,Boston Red Sox,First Year,
+gold,286,Matt Creighton,Chicago Cubs,First Year,
+gold,287,Ryan Hankins,Chicago White Sox,First Year,
+gold,288,Leo Nunez,Pittsburgh Pirates,First Year,
+gold,289,Dave Wallace,Cleveland Indians,First Year,
+gold,290,Rob Tejeda,Philadelphia Phillies,First Year,
+gold,291,Lincoln Holdzkom,Florida Marlins,First Year,
+gold,292,Jason Hirsh,Houston Astros,First Year,
+gold,293,Tydus Meadows,Texas Rangers,First Year,
+gold,294,Khalid Ballouli,Milwaukee Brewers,First Year,
+gold,295,Benji DeQuin,Montreal Expos,First Year,
+gold,296,Tyler Davidson,New York Mets,First Year,
+gold,297,Brant Colamarino,Oakland Athletics,First Year,
+gold,298,Marcus McBeth,Oakland Athletics,First Year,
+gold,299,Brad Eldred,Pittsburgh Pirates,First Year,
+gold,300,David Pauley,San Diego Padres,First Year,
+gold,301,Yadier Molina,St. Louis Cardinals,First Year,
+gold,302,Chris Shelton,Detroit Tigers,First Year,
+gold,303,Travis Blackley,Seattle Mariners,First Year,
+gold,304,Jon De Vries,Boston Red Sox,First Year,
+gold,305,Sheldon Fulse,Boston Red Sox,First Year,
+gold,306,Vito Chiaravalloti,Toronto Blue Jays,First Year,
+gold,307,Warner Madrigal,Anaheim Angels,First Year,
+gold,308,Reid Gorecki,St. Louis Cardinals,First Year,
+gold,309,Sung Jung,Atlanta Braves,First Year,
+gold,310,Pete Shier,Baltimore Orioles,First Year,
+gold,311,Michael Mooney,San Francisco Giants,First Year,
+gold,312,Kenny Perez,Boston Red Sox,First Year,
+gold,313,Michael Mallory,Chicago Cubs,First Year,
+gold,314,Ben Himes,Cincinnati Reds,First Year,
+gold,315,Ivan Ochoa,Cleveland Indians,First Year,
+gold,316,Donald Kelly,Detroit Tigers,First Year,
+gold,317,Logan Kensing,Florida Marlins,First Year,
+gold,318,Kevin Davidson,Houston Astros,First Year,
+gold,319,Brian Pilkington,Los Angeles Dodgers,First Year,
+gold,320,Alex Romero,Minnesota Twins,First Year,
+gold,321,Chad Chop,Montreal Expos,First Year,
+gold,322,Dioner Navarro,New York Yankees,First Year,
+gold,323,Casey Myers,Oakland Athletics,First Year,
+gold,324,Mike Rouse,Oakland Athletics,First Year,
+gold,325,Sergio Silva,Pittsburgh Pirates,First Year,
+gold,326,J.J. Furmaniak,San Diego Padres,First Year,
+gold,327,Brad Vericker,San Francisco Giants,First Year,
+gold,328,Blake Hawksworth,St. Louis Cardinals,First Year,
+gold,329,Brock Jacobsen,Texas Rangers,First Year,
+gold,330,Alec Zumwalt,Tampa Bay Devil Rays,First Year,
+first-edition,1,Garret Anderson,Anaheim Angels,Veterans,
+first-edition,2,Larry Walker,Colorado Rockies,Veterans,
+first-edition,3,Derek Jeter,New York Yankees,Veterans,
+first-edition,4,Curt Schilling,Boston Red Sox,Veterans,
+first-edition,5,Carlos Zambrano,Chicago Cubs,Veterans,
+first-edition,6,Shawn Green,Los Angeles Dodgers,Veterans,
+first-edition,7,Manny Ramirez,Boston Red Sox,Veterans,
+first-edition,8,Randy Johnson,Arizona Diamondbacks,Veterans,
+first-edition,9,Jeremy Bonderman,Detroit Tigers,Veterans,
+first-edition,10,Alfonso Soriano,Texas Rangers,Veterans,
+first-edition,11,Scott Rolen,St. Louis Cardinals,Veterans,
+first-edition,12,Kerry Wood,Chicago Cubs,Veterans,
+first-edition,13,Eric Gagne,Los Angeles Dodgers,Veterans,
+first-edition,14,Ryan Klesko,San Diego Padres,Veterans,
+first-edition,15,Kevin Millar,Boston Red Sox,Veterans,
+first-edition,16,Ty Wigginton,New York Mets,Veterans,
+first-edition,17,David Ortiz,Boston Red Sox,Veterans,
+first-edition,18,Luis Castillo,Florida Marlins,Veterans,
+first-edition,19,Bernie Williams,New York Yankees,Veterans,
+first-edition,20,Edgar Renteria,St. Louis Cardinals,Veterans,
+first-edition,21,Matt Kata,Arizona Diamondbacks,Veterans,
+first-edition,22,Bartolo Colon,Anaheim Angels,Veterans,
+first-edition,23,Derrek Lee,Chicago Cubs,Veterans,
+first-edition,24,Gary Sheffield,New York Yankees,Veterans,
+first-edition,25,Nomar Garciaparra,Boston Red Sox,Veterans,
+first-edition,26,Kevin Millwood,Philadelphia Phillies,Veterans,
+first-edition,27,Corey Patterson,Chicago Cubs,Veterans,
+first-edition,28,Carlos Beltran,Kansas City Royals,Veterans,
+first-edition,29,Mike Lieberthal,Philadelphia Phillies,Veterans,
+first-edition,30,Troy Glaus,Anaheim Angels,Veterans,
+first-edition,31,Preston Wilson,Colorado Rockies,Veterans,
+first-edition,32,Jorge Posada,New York Yankees,Veterans,
+first-edition,33,Bo Hart,St. Louis Cardinals,Veterans,
+first-edition,34,Mark Prior,Chicago Cubs,Veterans,
+first-edition,35,Hideo Nomo,Los Angeles Dodgers,Veterans,
+first-edition,36,Jason Kendall,Pittsburgh Pirates,Veterans,
+first-edition,37,Roger Clemens,Houston Astros,Veterans,
+first-edition,38,Dmitri Young,Detroit Tigers,Veterans,
+first-edition,39,Jason Giambi,New York Yankees,Veterans,
+first-edition,40,Jim Edmonds,St. Louis Cardinals,Veterans,
+first-edition,41,Ryan Ludwick,Cleveland Indians,Veterans,
+first-edition,42,Brandon Webb,Arizona Diamondbacks,Veterans,
+first-edition,43,Todd Helton,Colorado Rockies,Veterans,
+first-edition,44,Jacque Jones,Minnesota Twins,Veterans,
+first-edition,45,Jamie Moyer,Seattle Mariners,Veterans,
+first-edition,46,Tim Salmon,Anaheim Angels,Veterans,
+first-edition,47,Kelvim Escobar,Anaheim Angels,Veterans,
+first-edition,48,Tony Batista,Montreal Expos,Veterans,
+first-edition,49,Nick Johnson,Montreal Expos,Veterans,
+first-edition,50,Jim Thome,Philadelphia Phillies,Veterans,
+first-edition,51,Casey Blake,Cleveland Indians,Veterans,
+first-edition,52,Trot Nixon,Boston Red Sox,Veterans,
+first-edition,53,Luis Gonzalez,Arizona Diamondbacks,Veterans,
+first-edition,54,Dontrelle Willis,Florida Marlins,Veterans,
+first-edition,55,Mike Mussina,New York Yankees,Veterans,
+first-edition,56,Carl Crawford,Tampa Bay Devil Rays,Veterans,
+first-edition,57,Mark Buehrle,Chicago White Sox,Veterans,
+first-edition,58,Scott Podsednik,Milwaukee Brewers,Veterans,
+first-edition,59,Brian Giles,San Diego Padres,Veterans,
+first-edition,60,Rafael Furcal,Atlanta Braves,Veterans,
+first-edition,61,Miguel Cabrera,Florida Marlins,Veterans,
+first-edition,62,Rich Harden,Oakland Athletics,Veterans,
+first-edition,63,Mark Teixeira,Texas Rangers,Veterans,
+first-edition,64,Frank Thomas,Chicago White Sox,Veterans,
+first-edition,65,Johan Santana,Minnesota Twins,Veterans,
+first-edition,66,Jason Schmidt,San Francisco Giants,Veterans,
+first-edition,67,Aramis Ramirez,Chicago Cubs,Veterans,
+first-edition,68,Jose Reyes,New York Mets,Veterans,
+first-edition,69,Magglio Ordonez,Chicago White Sox,Veterans,
+first-edition,70,Mike Sweeney,Kansas City Royals,Veterans,
+first-edition,71,Eric Chavez,Oakland Athletics,Veterans,
+first-edition,72,Rocco Baldelli,Tampa Bay Devil Rays,Veterans,
+first-edition,73,Sammy Sosa,Chicago Cubs,Veterans,
+first-edition,74,Javy Lopez,Baltimore Orioles,Veterans,
+first-edition,75,Roy Oswalt,Houston Astros,Veterans,
+first-edition,76,Raul Ibanez,Seattle Mariners,Veterans,
+first-edition,77,Ivan Rodriguez,Detroit Tigers,Veterans,
+first-edition,78,Jerome Williams,San Francisco Giants,Veterans,
+first-edition,79,Carlos Lee,Chicago White Sox,Veterans,
+first-edition,80,Geoff Jenkins,Milwaukee Brewers,Veterans,
+first-edition,81,Sean Burroughs,San Diego Padres,Veterans,
+first-edition,82,Marcus Giles,Atlanta Braves,Veterans,
+first-edition,83,Mike Lowell,Florida Marlins,Veterans,
+first-edition,84,Barry Zito,Oakland Athletics,Veterans,
+first-edition,85,Aubrey Huff,Tampa Bay Devil Rays,Veterans,
+first-edition,86,Esteban Loaiza,Chicago White Sox,Veterans,
+first-edition,87,Torii Hunter,Minnesota Twins,Veterans,
+first-edition,88,Phil Nevin,San Diego Padres,Veterans,
+first-edition,89,Andruw Jones,Atlanta Braves,Veterans,
+first-edition,90,Josh Beckett,Florida Marlins,Veterans,
+first-edition,91,Mark Mulder,Oakland Athletics,Veterans,
+first-edition,92,Hank Blalock,Texas Rangers,Veterans,
+first-edition,93,Jason Phillips,New York Mets,Veterans,
+first-edition,94,Russ Ortiz,Atlanta Braves,Veterans,
+first-edition,95,Juan Pierre,Florida Marlins,Veterans,
+first-edition,96,Tom Glavine,New York Mets,Veterans,
+first-edition,97,Gil Meche,Seattle Mariners,Veterans,
+first-edition,98,Ramon Ortiz,Anaheim Angels,Veterans,
+first-edition,99,Richie Sexson,Arizona Diamondbacks,Veterans,
+first-edition,100,Albert Pujols,St. Louis Cardinals,Veterans,
+first-edition,101,Javier Vazquez,New York Yankees,Veterans,
+first-edition,102,Johnny Damon,Boston Red Sox,Veterans,
+first-edition,103,Alex Rodriguez,New York Yankees,Veterans,
+first-edition,104,Omar Vizquel,Cleveland Indians,Veterans,
+first-edition,105,Chipper Jones,Atlanta Braves,Veterans,
+first-edition,106,Lance Berkman,Houston Astros,Veterans,
+first-edition,107,Tim Hudson,Oakland Athletics,Veterans,
+first-edition,108,Carlos Delgado,Toronto Blue Jays,Veterans,
+first-edition,109,Austin Kearns,Cincinnati Reds,Veterans,
+first-edition,110,Orlando Cabrera,Montreal Expos,Veterans,
+first-edition,111,Edgar Martinez,Seattle Mariners,Veterans,
+first-edition,112,Melvin Mora,Baltimore Orioles,Veterans,
+first-edition,113,Jeff Bagwell,Houston Astros,Veterans,
+first-edition,114,Marlon Byrd,Philadelphia Phillies,Veterans,
+first-edition,115,Vernon Wells,Toronto Blue Jays,Veterans,
+first-edition,116,C.C. Sabathia,Cleveland Indians,Veterans,
+first-edition,117,Cliff Floyd,New York Mets,Veterans,
+first-edition,118,Ichiro,Seattle Mariners,Veterans,
+first-edition,119,Miguel Olivo,Chicago White Sox,Veterans,
+first-edition,120,Mike Piazza,New York Mets,Veterans,
+first-edition,121,Adam Dunn,Cincinnati Reds,Veterans,
+first-edition,122,Paul Lo Duca,Los Angeles Dodgers,Veterans,
+first-edition,123,Brett Myers,Philadelphia Phillies,Veterans,
+first-edition,124,Michael Young,Texas Rangers,Veterans,
+first-edition,125,Sidney Ponson,Baltimore Orioles,Veterans,
+first-edition,126,Greg Maddux,Chicago Cubs,Veterans,
+first-edition,127,Vladimir Guerrero,Anaheim Angels,Veterans,
+first-edition,128,Miguel Tejada,Baltimore Orioles,Veterans,
+first-edition,129,Andy Pettitte,Houston Astros,Veterans,
+first-edition,130,Rafael Palmeiro,Baltimore Orioles,Veterans,
+first-edition,131,Ken Griffey Jr.,Cincinnati Reds,Veterans,
+first-edition,132,Shannon Stewart,Minnesota Twins,Veterans,
+first-edition,133,Joel Pineiro,Seattle Mariners,Veterans,
+first-edition,134,Luis Matos,Baltimore Orioles,Veterans,
+first-edition,135,Jeff Kent,Houston Astros,Veterans,
+first-edition,136,Randy Wolf,Philadelphia Phillies,Veterans,
+first-edition,137,Chris Woodward,Toronto Blue Jays,Veterans,
+first-edition,138,Jody Gerut,Cleveland Indians,Veterans,
+first-edition,139,Jose Vidro,Montreal Expos,Veterans,
+first-edition,140,Bret Boone,Seattle Mariners,Veterans,
+first-edition,141,Bill Mueller,Boston Red Sox,Veterans,
+first-edition,142,Angel Berroa,Kansas City Royals,Veterans,
+first-edition,143,Bobby Abreu,Philadelphia Phillies,Veterans,
+first-edition,144,Roy Halladay,Toronto Blue Jays,Veterans,
+first-edition,145,Delmon Young,Tampa Bay Devil Rays,Prospects,
+first-edition,146,Jonny Gomes,Tampa Bay Devil Rays,Prospects,UER: Facsimile signature is of Joey Gomes
+first-edition,147,Rickie Weeks,Milwaukee Brewers,Prospects,
+first-edition,148,Edwin Jackson,Los Angeles Dodgers,Prospects,
+first-edition,149,Neal Cotts,Chicago White Sox,Prospects,
+first-edition,150,Jason Bay,Pittsburgh Pirates,Prospects,
+first-edition,151,Khalil Greene,San Diego Padres,Prospects,
+first-edition,152,Joe Mauer,Minnesota Twins,Prospects,UER: Photo on front actually Rob Bowen
+first-edition,153,Bobby Jenks,Anaheim Angels,Prospects,
+first-edition,154,Chin-Feng Chen,Los Angeles Dodgers,Prospects,
+first-edition,155,Chien-Ming Wang,New York Yankees,Prospects,
+first-edition,156,Mickey Hall,Boston Red Sox,Prospects,
+first-edition,157,James Houser,Tampa Bay Devil Rays,Prospects,
+first-edition,158,Jay Sborz,Detroit Tigers,Prospects,
+first-edition,159,Jonathan Fulton,Florida Marlins,Prospects,
+first-edition,160,Steven Lerud,Pittsburgh Pirates,Prospects,
+first-edition,161,Grady Sizemore,Cleveland Indians,Prospects,
+first-edition,162,Felix Pie,Chicago Cubs,Prospects,
+first-edition,163,Dustin McGowan,Toronto Blue Jays,Prospects,
+first-edition,164,Chris Lubanski,Kansas City Royals,Prospects,
+first-edition,165,Tom Gorzelanny,Pittsburgh Pirates,Prospects,
+first-edition,166,Rudy Guillen,New York Yankees,First Year,
+first-edition,167,Bobby Brownlie,Chicago Cubs,First Year,
+first-edition,168,Conor Jackson,Arizona Diamondbacks,First Year,
+first-edition,169,Matt Moses,Minnesota Twins,First Year,
+first-edition,170,Ervin Santana,Anaheim Angels,First Year,
+first-edition,171,Merkin Valdez,San Francisco Giants,First Year,
+first-edition,172,Erick Aybar,Anaheim Angels,First Year,
+first-edition,173,Brad Sullivan,Oakland Athletics,First Year,
+first-edition,174,David Aardsma,San Francisco Giants,First Year,
+first-edition,175,Brad Snyder,Cleveland Indians,First Year,
+first-edition,176,Alberto Callaspo,Anaheim Angels,First Year,
+first-edition,177,Brandon Medders,Arizona Diamondbacks,First Year,
+first-edition,178,Zach Miner,Atlanta Braves,First Year,
+first-edition,179,Charlie Zink,Boston Red Sox,First Year,
+first-edition,180,Adam Greenberg,Chicago Cubs,First Year,
+first-edition,181,Kevin Howard,Cincinnati Reds,First Year,
+first-edition,182,Wanell Severino,Pittsburgh Pirates,First Year,
+first-edition,183,Kevin Kouzmanoff,Cleveland Indians,First Year,
+first-edition,184,Joel Zumaya,Detroit Tigers,First Year,
+first-edition,185,Skip Schumaker,St. Louis Cardinals,First Year,
+first-edition,186,Nic Ungs,Florida Marlins,First Year,
+first-edition,187,Todd Self,Houston Astros,First Year,
+first-edition,188,Brian Steffek,Los Angeles Dodgers,First Year,
+first-edition,189,Brock Peterson,Minnesota Twins,First Year,
+first-edition,190,Greg Thissen,Montreal Expos,First Year,
+first-edition,191,Frank Brooks,Boston Red Sox,First Year,
+first-edition,192,Estee Harris,New York Yankees,First Year,
+first-edition,193,Chris Mabeus,Texas Rangers,First Year,
+first-edition,194,Dan Giese,Philadelphia Phillies,First Year,
+first-edition,195,Jared Wells,San Diego Padres,First Year,
+first-edition,196,Carlos Sosa,San Francisco Giants,First Year,
+first-edition,197,Bobby Madritsch,Seattle Mariners,First Year,
+first-edition,198,Calvin Hayes,St. Louis Cardinals,First Year,
+first-edition,199,Omar Quintanilla,Oakland Athletics,First Year,
+first-edition,200,Chris O'Riordan,Texas Rangers,First Year,
+first-edition,201,Tim Hutting,San Francisco Giants,First Year,
+first-edition,202,Carlos Quentin,Arizona Diamondbacks,First Year,
+first-edition,203,Brayan Pena,Atlanta Braves,First Year,
+first-edition,204,Jeff Salazar,Colorado Rockies,First Year,
+first-edition,205,David Murphy,Boston Red Sox,First Year,
+first-edition,206,Alberto Garcia,Chicago Cubs,First Year,
+first-edition,207,Ramon Ramirez,New York Yankees,First Year,
+first-edition,208,Luis Bolivar,Cincinnati Reds,First Year,
+first-edition,209,Rodney Choy Foo,Cleveland Indians,First Year,
+first-edition,210,Kyle Sleeth,Detroit Tigers,First Year,
+first-edition,211,Anthony Acevedo,Houston Astros,First Year,
+first-edition,212,Chad Santos,Kansas City Royals,First Year,
+first-edition,213,Jason Frasor,Los Angeles Dodgers,First Year,
+first-edition,214,Jesse Roman,San Diego Padres,First Year,
+first-edition,215,James Tomlin,Minnesota Twins,First Year,
+first-edition,216,Josh Labandeira,Montreal Expos,First Year,
+first-edition,217,Joaquin Arias,Texas Rangers,First Year,
+first-edition,218,Don Sutton,Oakland Athletics,First Year,UER
+first-edition,219,Danny Gonzalez,Philadelphia Phillies,First Year,
+first-edition,220,Javier Guzman,Pittsburgh Pirates,First Year,
+first-edition,221,Anthony Lerew,Atlanta Braves,First Year,
+first-edition,222,Jon Knott,San Diego Padres,First Year,
+first-edition,223,Jesse English,San Francisco Giants,First Year,
+first-edition,224,Felix Hernandez,Seattle Mariners,First Year,
+first-edition,225,Travis Hanson,St. Louis Cardinals,First Year,
+first-edition,226,Jesse Floyd,Texas Rangers,First Year,
+first-edition,227,Nick Gorneault,Anaheim Angels,First Year,
+first-edition,228,Craig Ansman,Arizona Diamondbacks,First Year,
+first-edition,229,Wardell Starling,Pittsburgh Pirates,First Year,
+first-edition,230,Carl Loadenthal,Atlanta Braves,First Year,
+first-edition,231,Dave Crouthers,Baltimore Orioles,First Year,
+first-edition,232,Harvey Garcia,Boston Red Sox,First Year,
+first-edition,233,Casey Kopitzke,Chicago Cubs,First Year,
+first-edition,234,Ricky Nolasco,Chicago Cubs,First Year,
+first-edition,235,Miguel Perez,Cincinnati Reds,First Year,
+first-edition,236,Ryan Mulhern,Cleveland Indians,First Year,
+first-edition,237,Chris Aguila,Florida Marlins,First Year,
+first-edition,238,Brooks Conrad,Houston Astros,First Year,
+first-edition,239,Damaso Espino,Kansas City Royals,First Year,
+first-edition,240,Jereme Milons,Los Angeles Dodgers,First Year,
+first-edition,241,Luke Hughes,Minnesota Twins,First Year,
+first-edition,242,Kory Casto,Montreal Expos,First Year,
+first-edition,243,Jose Valdez,New York Yankees,First Year,
+first-edition,244,J.T. Stotts,New York Yankees,First Year,
+first-edition,245,Lee Gwaltney,Philadelphia Phillies,First Year,
+first-edition,246,Yoann Torrealba,Pittsburgh Pirates,First Year,
+first-edition,247,Omar Falcon,Seattle Mariners,First Year,
+first-edition,248,Jon Coutlangus,San Francisco Giants,First Year,
+first-edition,249,George Sherrill,Seattle Mariners,First Year,
+first-edition,250,John Santor,St. Louis Cardinals,First Year,
+first-edition,251,Tony Richie,Chicago Cubs,First Year,
+first-edition,252,Kevin Richardson,Texas Rangers,First Year,
+first-edition,253,Tim Bittner,Anaheim Angels,First Year,
+first-edition,254,Dustin Nippert,Arizona Diamondbacks,First Year,
+first-edition,255,Jose Capellan,Atlanta Braves,First Year,
+first-edition,256,Donald Levinski,Baltimore Orioles,First Year,
+first-edition,257,Jerome Gamble,Boston Red Sox,First Year,
+first-edition,258,Jeff Keppinger,Pittsburgh Pirates,First Year,
+first-edition,259,Jason Szuminski,San Diego Padres,First Year,
+first-edition,260,Akinori Otsuka,San Diego Padres,First Year,
+first-edition,261,Ryan Budde,Anaheim Angels,First Year,
+first-edition,262,Shingo Takatsu,Chicago White Sox,First Year,
+first-edition,263,Jeff Allison,Florida Marlins,First Year,
+first-edition,264,Hector Gimenez,Houston Astros,First Year,
+first-edition,265,Tim Frend,Kansas City Royals,First Year,
+first-edition,266,Tom Farmer,Los Angeles Dodgers,First Year,
+first-edition,267,Shawn Hill,Montreal Expos,First Year,
+first-edition,268,Lastings Milledge,New York Mets,First Year,
+first-edition,269,Scott Proctor,New York Yankees,First Year,
+first-edition,270,Jorge Mejia,Cincinnati Reds,First Year,
+first-edition,271,Terry Jones,Philadelphia Phillies,First Year,
+first-edition,272,Zach Duke,Pittsburgh Pirates,First Year,
+first-edition,273,Tim Stauffer,San Diego Padres,First Year,
+first-edition,274,Luke Anderson,San Francisco Giants,First Year,
+first-edition,275,Hunter Brown,Seattle Mariners,First Year,
+first-edition,276,Matt Lemanczyk,St. Louis Cardinals,First Year,
+first-edition,277,Fernando Cortez,Tampa Bay Devil Rays,First Year,
+first-edition,278,Vince Perkins,Toronto Blue Jays,First Year,
+first-edition,279,Tommy Murphy,Anaheim Angels,First Year,
+first-edition,280,Mike Gosling,Arizona Diamondbacks,First Year,
+first-edition,281,Paul Bacot,Atlanta Braves,First Year,
+first-edition,282,Matt Capps,Pittsburgh Pirates,First Year,
+first-edition,283,Juan Gutierrez,Baltimore Orioles,First Year,
+first-edition,284,Teodoro Encarnacion,Cleveland Indians,First Year,
+first-edition,285,Juan Cedeno,Boston Red Sox,First Year,
+first-edition,286,Matt Creighton,Chicago Cubs,First Year,
+first-edition,287,Ryan Hankins,Chicago White Sox,First Year,
+first-edition,288,Leo Nunez,Pittsburgh Pirates,First Year,
+first-edition,289,Dave Wallace,Cleveland Indians,First Year,
+first-edition,290,Rob Tejeda,Philadelphia Phillies,First Year,
+first-edition,291,Lincoln Holdzkom,Florida Marlins,First Year,
+first-edition,292,Jason Hirsh,Houston Astros,First Year,
+first-edition,293,Tydus Meadows,Texas Rangers,First Year,
+first-edition,294,Khalid Ballouli,Milwaukee Brewers,First Year,
+first-edition,295,Benji DeQuin,Montreal Expos,First Year,
+first-edition,296,Tyler Davidson,New York Mets,First Year,
+first-edition,297,Brant Colamarino,Oakland Athletics,First Year,
+first-edition,298,Marcus McBeth,Oakland Athletics,First Year,
+first-edition,299,Brad Eldred,Pittsburgh Pirates,First Year,
+first-edition,300,David Pauley,San Diego Padres,First Year,
+first-edition,301,Yadier Molina,St. Louis Cardinals,First Year,
+first-edition,302,Chris Shelton,Detroit Tigers,First Year,
+first-edition,303,Travis Blackley,Seattle Mariners,First Year,
+first-edition,304,Jon De Vries,Boston Red Sox,First Year,
+first-edition,305,Sheldon Fulse,Boston Red Sox,First Year,
+first-edition,306,Vito Chiaravalloti,Toronto Blue Jays,First Year,
+first-edition,307,Warner Madrigal,Anaheim Angels,First Year,
+first-edition,308,Reid Gorecki,St. Louis Cardinals,First Year,
+first-edition,309,Sung Jung,Atlanta Braves,First Year,
+first-edition,310,Pete Shier,Baltimore Orioles,First Year,
+first-edition,311,Michael Mooney,San Francisco Giants,First Year,
+first-edition,312,Kenny Perez,Boston Red Sox,First Year,
+first-edition,313,Michael Mallory,Chicago Cubs,First Year,
+first-edition,314,Ben Himes,Cincinnati Reds,First Year,
+first-edition,315,Ivan Ochoa,Cleveland Indians,First Year,
+first-edition,316,Donald Kelly,Detroit Tigers,First Year,
+first-edition,317,Logan Kensing,Florida Marlins,First Year,
+first-edition,318,Kevin Davidson,Houston Astros,First Year,
+first-edition,319,Brian Pilkington,Los Angeles Dodgers,First Year,
+first-edition,320,Alex Romero,Minnesota Twins,First Year,
+first-edition,321,Chad Chop,Montreal Expos,First Year,
+first-edition,322,Dioner Navarro,New York Yankees,First Year,
+first-edition,323,Casey Myers,Oakland Athletics,First Year,
+first-edition,324,Mike Rouse,Oakland Athletics,First Year,
+first-edition,325,Sergio Silva,Pittsburgh Pirates,First Year,
+first-edition,326,J.J. Furmaniak,San Diego Padres,First Year,
+first-edition,327,Brad Vericker,San Francisco Giants,First Year,
+first-edition,328,Blake Hawksworth,St. Louis Cardinals,First Year,
+first-edition,329,Brock Jacobsen,Texas Rangers,First Year,
+first-edition,330,Alec Zumwalt,Tampa Bay Devil Rays,First Year,
+uncirculated-silver,1,Garret Anderson,Anaheim Angels,Veterans,SN245
+uncirculated-silver,2,Larry Walker,Colorado Rockies,Veterans,SN245
+uncirculated-silver,3,Derek Jeter,New York Yankees,Veterans,SN245
+uncirculated-silver,4,Curt Schilling,Boston Red Sox,Veterans,SN245
+uncirculated-silver,5,Carlos Zambrano,Chicago Cubs,Veterans,SN245
+uncirculated-silver,6,Shawn Green,Los Angeles Dodgers,Veterans,SN245
+uncirculated-silver,7,Manny Ramirez,Boston Red Sox,Veterans,SN245
+uncirculated-silver,8,Randy Johnson,Arizona Diamondbacks,Veterans,SN245
+uncirculated-silver,9,Jeremy Bonderman,Detroit Tigers,Veterans,SN245
+uncirculated-silver,10,Alfonso Soriano,Texas Rangers,Veterans,SN245
+uncirculated-silver,11,Scott Rolen,St. Louis Cardinals,Veterans,SN245
+uncirculated-silver,12,Kerry Wood,Chicago Cubs,Veterans,SN245
+uncirculated-silver,13,Eric Gagne,Los Angeles Dodgers,Veterans,SN245
+uncirculated-silver,14,Ryan Klesko,San Diego Padres,Veterans,SN245
+uncirculated-silver,15,Kevin Millar,Boston Red Sox,Veterans,SN245
+uncirculated-silver,16,Ty Wigginton,New York Mets,Veterans,SN245
+uncirculated-silver,17,David Ortiz,Boston Red Sox,Veterans,SN245
+uncirculated-silver,18,Luis Castillo,Florida Marlins,Veterans,SN245
+uncirculated-silver,19,Bernie Williams,New York Yankees,Veterans,SN245
+uncirculated-silver,20,Edgar Renteria,St. Louis Cardinals,Veterans,SN245
+uncirculated-silver,21,Matt Kata,Arizona Diamondbacks,Veterans,SN245
+uncirculated-silver,22,Bartolo Colon,Anaheim Angels,Veterans,SN245
+uncirculated-silver,23,Derrek Lee,Chicago Cubs,Veterans,SN245
+uncirculated-silver,24,Gary Sheffield,New York Yankees,Veterans,SN245
+uncirculated-silver,25,Nomar Garciaparra,Boston Red Sox,Veterans,SN245
+uncirculated-silver,26,Kevin Millwood,Philadelphia Phillies,Veterans,SN245
+uncirculated-silver,27,Corey Patterson,Chicago Cubs,Veterans,SN245
+uncirculated-silver,28,Carlos Beltran,Kansas City Royals,Veterans,SN245
+uncirculated-silver,29,Mike Lieberthal,Philadelphia Phillies,Veterans,SN245
+uncirculated-silver,30,Troy Glaus,Anaheim Angels,Veterans,SN245
+uncirculated-silver,31,Preston Wilson,Colorado Rockies,Veterans,SN245
+uncirculated-silver,32,Jorge Posada,New York Yankees,Veterans,SN245
+uncirculated-silver,33,Bo Hart,St. Louis Cardinals,Veterans,SN245
+uncirculated-silver,34,Mark Prior,Chicago Cubs,Veterans,SN245
+uncirculated-silver,35,Hideo Nomo,Los Angeles Dodgers,Veterans,SN245
+uncirculated-silver,36,Jason Kendall,Pittsburgh Pirates,Veterans,SN245
+uncirculated-silver,37,Roger Clemens,Houston Astros,Veterans,SN245
+uncirculated-silver,38,Dmitri Young,Detroit Tigers,Veterans,SN245
+uncirculated-silver,39,Jason Giambi,New York Yankees,Veterans,SN245
+uncirculated-silver,40,Jim Edmonds,St. Louis Cardinals,Veterans,SN245
+uncirculated-silver,41,Ryan Ludwick,Cleveland Indians,Veterans,SN245
+uncirculated-silver,42,Brandon Webb,Arizona Diamondbacks,Veterans,SN245
+uncirculated-silver,43,Todd Helton,Colorado Rockies,Veterans,SN245
+uncirculated-silver,44,Jacque Jones,Minnesota Twins,Veterans,SN245
+uncirculated-silver,45,Jamie Moyer,Seattle Mariners,Veterans,SN245
+uncirculated-silver,46,Tim Salmon,Anaheim Angels,Veterans,SN245
+uncirculated-silver,47,Kelvim Escobar,Anaheim Angels,Veterans,SN245
+uncirculated-silver,48,Tony Batista,Montreal Expos,Veterans,SN245
+uncirculated-silver,49,Nick Johnson,Montreal Expos,Veterans,SN245
+uncirculated-silver,50,Jim Thome,Philadelphia Phillies,Veterans,SN245
+uncirculated-silver,51,Casey Blake,Cleveland Indians,Veterans,SN245
+uncirculated-silver,52,Trot Nixon,Boston Red Sox,Veterans,SN245
+uncirculated-silver,53,Luis Gonzalez,Arizona Diamondbacks,Veterans,SN245
+uncirculated-silver,54,Dontrelle Willis,Florida Marlins,Veterans,SN245
+uncirculated-silver,55,Mike Mussina,New York Yankees,Veterans,SN245
+uncirculated-silver,56,Carl Crawford,Tampa Bay Devil Rays,Veterans,SN245
+uncirculated-silver,57,Mark Buehrle,Chicago White Sox,Veterans,SN245
+uncirculated-silver,58,Scott Podsednik,Milwaukee Brewers,Veterans,SN245
+uncirculated-silver,59,Brian Giles,San Diego Padres,Veterans,SN245
+uncirculated-silver,60,Rafael Furcal,Atlanta Braves,Veterans,SN245
+uncirculated-silver,61,Miguel Cabrera,Florida Marlins,Veterans,SN245
+uncirculated-silver,62,Rich Harden,Oakland Athletics,Veterans,SN245
+uncirculated-silver,63,Mark Teixeira,Texas Rangers,Veterans,SN245
+uncirculated-silver,64,Frank Thomas,Chicago White Sox,Veterans,SN245
+uncirculated-silver,65,Johan Santana,Minnesota Twins,Veterans,SN245
+uncirculated-silver,66,Jason Schmidt,San Francisco Giants,Veterans,SN245
+uncirculated-silver,67,Aramis Ramirez,Chicago Cubs,Veterans,SN245
+uncirculated-silver,68,Jose Reyes,New York Mets,Veterans,SN245
+uncirculated-silver,69,Magglio Ordonez,Chicago White Sox,Veterans,SN245
+uncirculated-silver,70,Mike Sweeney,Kansas City Royals,Veterans,SN245
+uncirculated-silver,71,Eric Chavez,Oakland Athletics,Veterans,SN245
+uncirculated-silver,72,Rocco Baldelli,Tampa Bay Devil Rays,Veterans,SN245
+uncirculated-silver,73,Sammy Sosa,Chicago Cubs,Veterans,SN245
+uncirculated-silver,74,Javy Lopez,Baltimore Orioles,Veterans,SN245
+uncirculated-silver,75,Roy Oswalt,Houston Astros,Veterans,SN245
+uncirculated-silver,76,Raul Ibanez,Seattle Mariners,Veterans,SN245
+uncirculated-silver,77,Ivan Rodriguez,Detroit Tigers,Veterans,SN245
+uncirculated-silver,78,Jerome Williams,San Francisco Giants,Veterans,SN245
+uncirculated-silver,79,Carlos Lee,Chicago White Sox,Veterans,SN245
+uncirculated-silver,80,Geoff Jenkins,Milwaukee Brewers,Veterans,SN245
+uncirculated-silver,81,Sean Burroughs,San Diego Padres,Veterans,SN245
+uncirculated-silver,82,Marcus Giles,Atlanta Braves,Veterans,SN245
+uncirculated-silver,83,Mike Lowell,Florida Marlins,Veterans,SN245
+uncirculated-silver,84,Barry Zito,Oakland Athletics,Veterans,SN245
+uncirculated-silver,85,Aubrey Huff,Tampa Bay Devil Rays,Veterans,SN245
+uncirculated-silver,86,Esteban Loaiza,Chicago White Sox,Veterans,SN245
+uncirculated-silver,87,Torii Hunter,Minnesota Twins,Veterans,SN245
+uncirculated-silver,88,Phil Nevin,San Diego Padres,Veterans,SN245
+uncirculated-silver,89,Andruw Jones,Atlanta Braves,Veterans,SN245
+uncirculated-silver,90,Josh Beckett,Florida Marlins,Veterans,SN245
+uncirculated-silver,91,Mark Mulder,Oakland Athletics,Veterans,SN245
+uncirculated-silver,92,Hank Blalock,Texas Rangers,Veterans,SN245
+uncirculated-silver,93,Jason Phillips,New York Mets,Veterans,SN245
+uncirculated-silver,94,Russ Ortiz,Atlanta Braves,Veterans,SN245
+uncirculated-silver,95,Juan Pierre,Florida Marlins,Veterans,SN245
+uncirculated-silver,96,Tom Glavine,New York Mets,Veterans,SN245
+uncirculated-silver,97,Gil Meche,Seattle Mariners,Veterans,SN245
+uncirculated-silver,98,Ramon Ortiz,Anaheim Angels,Veterans,SN245
+uncirculated-silver,99,Richie Sexson,Arizona Diamondbacks,Veterans,SN245
+uncirculated-silver,100,Albert Pujols,St. Louis Cardinals,Veterans,SN245
+uncirculated-silver,101,Javier Vazquez,New York Yankees,Veterans,SN245
+uncirculated-silver,102,Johnny Damon,Boston Red Sox,Veterans,SN245
+uncirculated-silver,103,Alex Rodriguez,New York Yankees,Veterans,SN245
+uncirculated-silver,104,Omar Vizquel,Cleveland Indians,Veterans,SN245
+uncirculated-silver,105,Chipper Jones,Atlanta Braves,Veterans,SN245
+uncirculated-silver,106,Lance Berkman,Houston Astros,Veterans,SN245
+uncirculated-silver,107,Tim Hudson,Oakland Athletics,Veterans,SN245
+uncirculated-silver,108,Carlos Delgado,Toronto Blue Jays,Veterans,SN245
+uncirculated-silver,109,Austin Kearns,Cincinnati Reds,Veterans,SN245
+uncirculated-silver,110,Orlando Cabrera,Montreal Expos,Veterans,SN245
+uncirculated-silver,111,Edgar Martinez,Seattle Mariners,Veterans,SN245
+uncirculated-silver,112,Melvin Mora,Baltimore Orioles,Veterans,SN245
+uncirculated-silver,113,Jeff Bagwell,Houston Astros,Veterans,SN245
+uncirculated-silver,114,Marlon Byrd,Philadelphia Phillies,Veterans,SN245
+uncirculated-silver,115,Vernon Wells,Toronto Blue Jays,Veterans,SN245
+uncirculated-silver,116,C.C. Sabathia,Cleveland Indians,Veterans,SN245
+uncirculated-silver,117,Cliff Floyd,New York Mets,Veterans,SN245
+uncirculated-silver,118,Ichiro,Seattle Mariners,Veterans,SN245
+uncirculated-silver,119,Miguel Olivo,Chicago White Sox,Veterans,SN245
+uncirculated-silver,120,Mike Piazza,New York Mets,Veterans,SN245
+uncirculated-silver,121,Adam Dunn,Cincinnati Reds,Veterans,SN245
+uncirculated-silver,122,Paul Lo Duca,Los Angeles Dodgers,Veterans,SN245
+uncirculated-silver,123,Brett Myers,Philadelphia Phillies,Veterans,SN245
+uncirculated-silver,124,Michael Young,Texas Rangers,Veterans,SN245
+uncirculated-silver,125,Sidney Ponson,Baltimore Orioles,Veterans,SN245
+uncirculated-silver,126,Greg Maddux,Chicago Cubs,Veterans,SN245
+uncirculated-silver,127,Vladimir Guerrero,Anaheim Angels,Veterans,SN245
+uncirculated-silver,128,Miguel Tejada,Baltimore Orioles,Veterans,SN245
+uncirculated-silver,129,Andy Pettitte,Houston Astros,Veterans,SN245
+uncirculated-silver,130,Rafael Palmeiro,Baltimore Orioles,Veterans,SN245
+uncirculated-silver,131,Ken Griffey Jr.,Cincinnati Reds,Veterans,SN245
+uncirculated-silver,132,Shannon Stewart,Minnesota Twins,Veterans,SN245
+uncirculated-silver,133,Joel Pineiro,Seattle Mariners,Veterans,SN245
+uncirculated-silver,134,Luis Matos,Baltimore Orioles,Veterans,SN245
+uncirculated-silver,135,Jeff Kent,Houston Astros,Veterans,SN245
+uncirculated-silver,136,Randy Wolf,Philadelphia Phillies,Veterans,SN245
+uncirculated-silver,137,Chris Woodward,Toronto Blue Jays,Veterans,SN245
+uncirculated-silver,138,Jody Gerut,Cleveland Indians,Veterans,SN245
+uncirculated-silver,139,Jose Vidro,Montreal Expos,Veterans,SN245
+uncirculated-silver,140,Bret Boone,Seattle Mariners,Veterans,SN245
+uncirculated-silver,141,Bill Mueller,Boston Red Sox,Veterans,SN245
+uncirculated-silver,142,Angel Berroa,Kansas City Royals,Veterans,SN245
+uncirculated-silver,143,Bobby Abreu,Philadelphia Phillies,Veterans,SN245
+uncirculated-silver,144,Roy Halladay,Toronto Blue Jays,Veterans,SN245
+uncirculated-silver,145,Delmon Young,Tampa Bay Devil Rays,Prospects,SN245
+uncirculated-silver,146,Jonny Gomes,Tampa Bay Devil Rays,Prospects,UER: Facsimile signature is of Joey Gomes | SN245
+uncirculated-silver,147,Rickie Weeks,Milwaukee Brewers,Prospects,SN245
+uncirculated-silver,148,Edwin Jackson,Los Angeles Dodgers,Prospects,SN245
+uncirculated-silver,149,Neal Cotts,Chicago White Sox,Prospects,SN245
+uncirculated-silver,150,Jason Bay,Pittsburgh Pirates,Prospects,SN245
+uncirculated-silver,151,Khalil Greene,San Diego Padres,Prospects,SN245
+uncirculated-silver,152,Joe Mauer,Minnesota Twins,Prospects,UER: Photo on front actually Rob Bowen | SN245
+uncirculated-silver,153,Bobby Jenks,Anaheim Angels,Prospects,SN245
+uncirculated-silver,154,Chin-Feng Chen,Los Angeles Dodgers,Prospects,SN245
+uncirculated-silver,155,Chien-Ming Wang,New York Yankees,Prospects,SN245
+uncirculated-silver,156,Mickey Hall,Boston Red Sox,Prospects,SN245
+uncirculated-silver,157,James Houser,Tampa Bay Devil Rays,Prospects,SN245
+uncirculated-silver,158,Jay Sborz,Detroit Tigers,Prospects,SN245
+uncirculated-silver,159,Jonathan Fulton,Florida Marlins,Prospects,SN245
+uncirculated-silver,160,Steven Lerud,Pittsburgh Pirates,Prospects,SN245
+uncirculated-silver,161,Grady Sizemore,Cleveland Indians,Prospects,SN245
+uncirculated-silver,162,Felix Pie,Chicago Cubs,Prospects,SN245
+uncirculated-silver,163,Dustin McGowan,Toronto Blue Jays,Prospects,SN245
+uncirculated-silver,164,Chris Lubanski,Kansas City Royals,Prospects,SN245
+uncirculated-silver,165,Tom Gorzelanny,Pittsburgh Pirates,Prospects,SN245
+uncirculated-silver,166,Rudy Guillen,New York Yankees,First Year,SN245
+uncirculated-silver,167,Bobby Brownlie,Chicago Cubs,First Year,SN245
+uncirculated-silver,168,Conor Jackson,Arizona Diamondbacks,First Year,SN245
+uncirculated-silver,169,Matt Moses,Minnesota Twins,First Year,SN245
+uncirculated-silver,170,Ervin Santana,Anaheim Angels,First Year,SN245
+uncirculated-silver,171,Merkin Valdez,San Francisco Giants,First Year,SN245
+uncirculated-silver,172,Erick Aybar,Anaheim Angels,First Year,SN245
+uncirculated-silver,173,Brad Sullivan,Oakland Athletics,First Year,SN245
+uncirculated-silver,174,David Aardsma,San Francisco Giants,First Year,SN245
+uncirculated-silver,175,Brad Snyder,Cleveland Indians,First Year,SN245
+uncirculated-silver,176,Alberto Callaspo,Anaheim Angels,First Year,SN245
+uncirculated-silver,177,Brandon Medders,Arizona Diamondbacks,First Year,SN245
+uncirculated-silver,178,Zach Miner,Atlanta Braves,First Year,SN245
+uncirculated-silver,179,Charlie Zink,Boston Red Sox,First Year,SN245
+uncirculated-silver,180,Adam Greenberg,Chicago Cubs,First Year,SN245
+uncirculated-silver,181,Kevin Howard,Cincinnati Reds,First Year,SN245
+uncirculated-silver,182,Wanell Severino,Pittsburgh Pirates,First Year,SN245
+uncirculated-silver,183,Kevin Kouzmanoff,Cleveland Indians,First Year,SN245
+uncirculated-silver,184,Joel Zumaya,Detroit Tigers,First Year,SN245
+uncirculated-silver,185,Skip Schumaker,St. Louis Cardinals,First Year,SN245
+uncirculated-silver,186,Nic Ungs,Florida Marlins,First Year,SN245
+uncirculated-silver,187,Todd Self,Houston Astros,First Year,SN245
+uncirculated-silver,188,Brian Steffek,Los Angeles Dodgers,First Year,SN245
+uncirculated-silver,189,Brock Peterson,Minnesota Twins,First Year,SN245
+uncirculated-silver,190,Greg Thissen,Montreal Expos,First Year,SN245
+uncirculated-silver,191,Frank Brooks,Boston Red Sox,First Year,SN245
+uncirculated-silver,192,Estee Harris,New York Yankees,First Year,SN245
+uncirculated-silver,193,Chris Mabeus,Texas Rangers,First Year,SN245
+uncirculated-silver,194,Dan Giese,Philadelphia Phillies,First Year,SN245
+uncirculated-silver,195,Jared Wells,San Diego Padres,First Year,SN245
+uncirculated-silver,196,Carlos Sosa,San Francisco Giants,First Year,SN245
+uncirculated-silver,197,Bobby Madritsch,Seattle Mariners,First Year,SN245
+uncirculated-silver,198,Calvin Hayes,St. Louis Cardinals,First Year,SN245
+uncirculated-silver,199,Omar Quintanilla,Oakland Athletics,First Year,SN245
+uncirculated-silver,200,Chris O'Riordan,Texas Rangers,First Year,SN245
+uncirculated-silver,201,Tim Hutting,San Francisco Giants,First Year,SN245
+uncirculated-silver,202,Carlos Quentin,Arizona Diamondbacks,First Year,SN245
+uncirculated-silver,203,Brayan Pena,Atlanta Braves,First Year,SN245
+uncirculated-silver,204,Jeff Salazar,Colorado Rockies,First Year,SN245
+uncirculated-silver,205,David Murphy,Boston Red Sox,First Year,SN245
+uncirculated-silver,206,Alberto Garcia,Chicago Cubs,First Year,SN245
+uncirculated-silver,207,Ramon Ramirez,New York Yankees,First Year,SN245
+uncirculated-silver,208,Luis Bolivar,Cincinnati Reds,First Year,SN245
+uncirculated-silver,209,Rodney Choy Foo,Cleveland Indians,First Year,SN245
+uncirculated-silver,210,Kyle Sleeth,Detroit Tigers,First Year,SN245
+uncirculated-silver,211,Anthony Acevedo,Houston Astros,First Year,SN245
+uncirculated-silver,212,Chad Santos,Kansas City Royals,First Year,SN245
+uncirculated-silver,213,Jason Frasor,Los Angeles Dodgers,First Year,SN245
+uncirculated-silver,214,Jesse Roman,San Diego Padres,First Year,SN245
+uncirculated-silver,215,James Tomlin,Minnesota Twins,First Year,SN245
+uncirculated-silver,216,Josh Labandeira,Montreal Expos,First Year,SN245
+uncirculated-silver,217,Joaquin Arias,Texas Rangers,First Year,SN245
+uncirculated-silver,218,Don Sutton,Oakland Athletics,First Year,UER | SN245
+uncirculated-silver,219,Danny Gonzalez,Philadelphia Phillies,First Year,SN245
+uncirculated-silver,220,Javier Guzman,Pittsburgh Pirates,First Year,SN245
+uncirculated-silver,221,Anthony Lerew,Atlanta Braves,First Year,SN245
+uncirculated-silver,222,Jon Knott,San Diego Padres,First Year,SN245
+uncirculated-silver,223,Jesse English,San Francisco Giants,First Year,SN245
+uncirculated-silver,224,Felix Hernandez,Seattle Mariners,First Year,SN245
+uncirculated-silver,225,Travis Hanson,St. Louis Cardinals,First Year,SN245
+uncirculated-silver,226,Jesse Floyd,Texas Rangers,First Year,SN245
+uncirculated-silver,227,Nick Gorneault,Anaheim Angels,First Year,SN245
+uncirculated-silver,228,Craig Ansman,Arizona Diamondbacks,First Year,SN245
+uncirculated-silver,229,Wardell Starling,Pittsburgh Pirates,First Year,SN245
+uncirculated-silver,230,Carl Loadenthal,Atlanta Braves,First Year,SN245
+uncirculated-silver,231,Dave Crouthers,Baltimore Orioles,First Year,SN245
+uncirculated-silver,232,Harvey Garcia,Boston Red Sox,First Year,SN245
+uncirculated-silver,233,Casey Kopitzke,Chicago Cubs,First Year,SN245
+uncirculated-silver,234,Ricky Nolasco,Chicago Cubs,First Year,SN245
+uncirculated-silver,235,Miguel Perez,Cincinnati Reds,First Year,SN245
+uncirculated-silver,236,Ryan Mulhern,Cleveland Indians,First Year,SN245
+uncirculated-silver,237,Chris Aguila,Florida Marlins,First Year,SN245
+uncirculated-silver,238,Brooks Conrad,Houston Astros,First Year,SN245
+uncirculated-silver,239,Damaso Espino,Kansas City Royals,First Year,SN245
+uncirculated-silver,240,Jereme Milons,Los Angeles Dodgers,First Year,SN245
+uncirculated-silver,241,Luke Hughes,Minnesota Twins,First Year,SN245
+uncirculated-silver,242,Kory Casto,Montreal Expos,First Year,SN245
+uncirculated-silver,243,Jose Valdez,New York Yankees,First Year,SN245
+uncirculated-silver,244,J.T. Stotts,New York Yankees,First Year,SN245
+uncirculated-silver,245,Lee Gwaltney,Philadelphia Phillies,First Year,SN245
+uncirculated-silver,246,Yoann Torrealba,Pittsburgh Pirates,First Year,SN245
+uncirculated-silver,247,Omar Falcon,Seattle Mariners,First Year,SN245
+uncirculated-silver,248,Jon Coutlangus,San Francisco Giants,First Year,SN245
+uncirculated-silver,249,George Sherrill,Seattle Mariners,First Year,SN245
+uncirculated-silver,250,John Santor,St. Louis Cardinals,First Year,SN245
+uncirculated-silver,251,Tony Richie,Chicago Cubs,First Year,SN245
+uncirculated-silver,252,Kevin Richardson,Texas Rangers,First Year,SN245
+uncirculated-silver,253,Tim Bittner,Anaheim Angels,First Year,SN245
+uncirculated-silver,254,Dustin Nippert,Arizona Diamondbacks,First Year,SN245
+uncirculated-silver,255,Jose Capellan,Atlanta Braves,First Year,SN245
+uncirculated-silver,256,Donald Levinski,Baltimore Orioles,First Year,SN245
+uncirculated-silver,257,Jerome Gamble,Boston Red Sox,First Year,SN245
+uncirculated-silver,258,Jeff Keppinger,Pittsburgh Pirates,First Year,SN245
+uncirculated-silver,259,Jason Szuminski,San Diego Padres,First Year,SN245
+uncirculated-silver,260,Akinori Otsuka,San Diego Padres,First Year,SN245
+uncirculated-silver,261,Ryan Budde,Anaheim Angels,First Year,SN245
+uncirculated-silver,262,Shingo Takatsu,Chicago White Sox,First Year,SN245
+uncirculated-silver,263,Jeff Allison,Florida Marlins,First Year,SN245
+uncirculated-silver,264,Hector Gimenez,Houston Astros,First Year,SN245
+uncirculated-silver,265,Tim Frend,Kansas City Royals,First Year,SN245
+uncirculated-silver,266,Tom Farmer,Los Angeles Dodgers,First Year,SN245
+uncirculated-silver,267,Shawn Hill,Montreal Expos,First Year,SN245
+uncirculated-silver,268,Lastings Milledge,New York Mets,First Year,SN245
+uncirculated-silver,269,Scott Proctor,New York Yankees,First Year,SN245
+uncirculated-silver,270,Jorge Mejia,Cincinnati Reds,First Year,SN245
+uncirculated-silver,271,Terry Jones,Philadelphia Phillies,First Year,SN245
+uncirculated-silver,272,Zach Duke,Pittsburgh Pirates,First Year,SN245
+uncirculated-silver,273,Tim Stauffer,San Diego Padres,First Year,SN245
+uncirculated-silver,274,Luke Anderson,San Francisco Giants,First Year,SN245
+uncirculated-silver,275,Hunter Brown,Seattle Mariners,First Year,SN245
+uncirculated-silver,276,Matt Lemanczyk,St. Louis Cardinals,First Year,SN245
+uncirculated-silver,277,Fernando Cortez,Tampa Bay Devil Rays,First Year,SN245
+uncirculated-silver,278,Vince Perkins,Toronto Blue Jays,First Year,SN245
+uncirculated-silver,279,Tommy Murphy,Anaheim Angels,First Year,SN245
+uncirculated-silver,280,Mike Gosling,Arizona Diamondbacks,First Year,SN245
+uncirculated-silver,281,Paul Bacot,Atlanta Braves,First Year,SN245
+uncirculated-silver,282,Matt Capps,Pittsburgh Pirates,First Year,SN245
+uncirculated-silver,283,Juan Gutierrez,Baltimore Orioles,First Year,SN245
+uncirculated-silver,284,Teodoro Encarnacion,Cleveland Indians,First Year,SN245
+uncirculated-silver,285,Juan Cedeno,Boston Red Sox,First Year,SN245
+uncirculated-silver,286,Matt Creighton,Chicago Cubs,First Year,SN245
+uncirculated-silver,287,Ryan Hankins,Chicago White Sox,First Year,SN245
+uncirculated-silver,288,Leo Nunez,Pittsburgh Pirates,First Year,SN245
+uncirculated-silver,289,Dave Wallace,Cleveland Indians,First Year,SN245
+uncirculated-silver,290,Rob Tejeda,Philadelphia Phillies,First Year,SN245
+uncirculated-silver,291,Lincoln Holdzkom,Florida Marlins,First Year,SN245
+uncirculated-silver,292,Jason Hirsh,Houston Astros,First Year,SN245
+uncirculated-silver,293,Tydus Meadows,Texas Rangers,First Year,SN245
+uncirculated-silver,294,Khalid Ballouli,Milwaukee Brewers,First Year,SN245
+uncirculated-silver,295,Benji DeQuin,Montreal Expos,First Year,SN245
+uncirculated-silver,296,Tyler Davidson,New York Mets,First Year,SN245
+uncirculated-silver,297,Brant Colamarino,Oakland Athletics,First Year,SN245
+uncirculated-silver,298,Marcus McBeth,Oakland Athletics,First Year,SN245
+uncirculated-silver,299,Brad Eldred,Pittsburgh Pirates,First Year,SN245
+uncirculated-silver,300,David Pauley,San Diego Padres,First Year,SN245
+uncirculated-silver,301,Yadier Molina,St. Louis Cardinals,First Year,SN245
+uncirculated-silver,302,Chris Shelton,Detroit Tigers,First Year,SN245
+uncirculated-silver,303,Travis Blackley,Seattle Mariners,First Year,SN245
+uncirculated-silver,304,Jon De Vries,Boston Red Sox,First Year,SN245
+uncirculated-silver,305,Sheldon Fulse,Boston Red Sox,First Year,SN245
+uncirculated-silver,306,Vito Chiaravalloti,Toronto Blue Jays,First Year,SN245
+uncirculated-silver,307,Warner Madrigal,Anaheim Angels,First Year,SN245
+uncirculated-silver,308,Reid Gorecki,St. Louis Cardinals,First Year,SN245
+uncirculated-silver,309,Sung Jung,Atlanta Braves,First Year,SN245
+uncirculated-silver,310,Pete Shier,Baltimore Orioles,First Year,SN245
+uncirculated-silver,311,Michael Mooney,San Francisco Giants,First Year,SN245
+uncirculated-silver,312,Kenny Perez,Boston Red Sox,First Year,SN245
+uncirculated-silver,313,Michael Mallory,Chicago Cubs,First Year,SN245
+uncirculated-silver,314,Ben Himes,Cincinnati Reds,First Year,SN245
+uncirculated-silver,315,Ivan Ochoa,Cleveland Indians,First Year,SN245
+uncirculated-silver,316,Donald Kelly,Detroit Tigers,First Year,SN245
+uncirculated-silver,317,Logan Kensing,Florida Marlins,First Year,SN245
+uncirculated-silver,318,Kevin Davidson,Houston Astros,First Year,SN245
+uncirculated-silver,319,Brian Pilkington,Los Angeles Dodgers,First Year,SN245
+uncirculated-silver,320,Alex Romero,Minnesota Twins,First Year,SN245
+uncirculated-silver,321,Chad Chop,Montreal Expos,First Year,SN245
+uncirculated-silver,322,Dioner Navarro,New York Yankees,First Year,SN245
+uncirculated-silver,323,Casey Myers,Oakland Athletics,First Year,SN245
+uncirculated-silver,324,Mike Rouse,Oakland Athletics,First Year,SN245
+uncirculated-silver,325,Sergio Silva,Pittsburgh Pirates,First Year,SN245
+uncirculated-silver,326,J.J. Furmaniak,San Diego Padres,First Year,SN245
+uncirculated-silver,327,Brad Vericker,San Francisco Giants,First Year,SN245
+uncirculated-silver,328,Blake Hawksworth,St. Louis Cardinals,First Year,SN245
+uncirculated-silver,329,Brock Jacobsen,Texas Rangers,First Year,SN245
+uncirculated-silver,330,Alec Zumwalt,Tampa Bay Devil Rays,First Year,SN245
+uncirculated-gold,166,Rudy Guillen,New York Yankees,First Year,PR210
+uncirculated-gold,167,Bobby Brownlie,Chicago Cubs,First Year,PR210
+uncirculated-gold,168,Conor Jackson,Arizona Diamondbacks,First Year,PR210
+uncirculated-gold,169,Matt Moses,Minnesota Twins,First Year,PR210
+uncirculated-gold,170,Ervin Santana,Anaheim Angels,First Year,PR210
+uncirculated-gold,171,Merkin Valdez,San Francisco Giants,First Year,PR210
+uncirculated-gold,172,Erick Aybar,Anaheim Angels,First Year,PR210
+uncirculated-gold,173,Brad Sullivan,Oakland Athletics,First Year,PR210
+uncirculated-gold,174,David Aardsma,San Francisco Giants,First Year,PR210
+uncirculated-gold,175,Brad Snyder,Cleveland Indians,First Year,PR210
+uncirculated-gold,176,Alberto Callaspo,Anaheim Angels,First Year,PR210
+uncirculated-gold,177,Brandon Medders,Arizona Diamondbacks,First Year,PR210
+uncirculated-gold,178,Zach Miner,Atlanta Braves,First Year,PR210
+uncirculated-gold,179,Charlie Zink,Boston Red Sox,First Year,PR210
+uncirculated-gold,180,Adam Greenberg,Chicago Cubs,First Year,PR210
+uncirculated-gold,181,Kevin Howard,Cincinnati Reds,First Year,PR210
+uncirculated-gold,182,Wanell Severino,Pittsburgh Pirates,First Year,PR210
+uncirculated-gold,183,Kevin Kouzmanoff,Cleveland Indians,First Year,PR210
+uncirculated-gold,184,Joel Zumaya,Detroit Tigers,First Year,PR210
+uncirculated-gold,185,Skip Schumaker,St. Louis Cardinals,First Year,PR210
+uncirculated-gold,186,Nic Ungs,Florida Marlins,First Year,PR210
+uncirculated-gold,187,Todd Self,Houston Astros,First Year,PR210
+uncirculated-gold,188,Brian Steffek,Los Angeles Dodgers,First Year,PR210
+uncirculated-gold,189,Brock Peterson,Minnesota Twins,First Year,PR210
+uncirculated-gold,190,Greg Thissen,Montreal Expos,First Year,PR210
+uncirculated-gold,191,Frank Brooks,Boston Red Sox,First Year,PR210
+uncirculated-gold,192,Estee Harris,New York Yankees,First Year,PR210
+uncirculated-gold,193,Chris Mabeus,Texas Rangers,First Year,PR210
+uncirculated-gold,194,Dan Giese,Philadelphia Phillies,First Year,PR210
+uncirculated-gold,195,Jared Wells,San Diego Padres,First Year,PR210
+uncirculated-gold,196,Carlos Sosa,San Francisco Giants,First Year,PR210
+uncirculated-gold,197,Bobby Madritsch,Seattle Mariners,First Year,PR210
+uncirculated-gold,198,Calvin Hayes,St. Louis Cardinals,First Year,PR210
+uncirculated-gold,199,Omar Quintanilla,Oakland Athletics,First Year,PR210
+uncirculated-gold,200,Chris O'Riordan,Texas Rangers,First Year,PR210
+uncirculated-gold,201,Tim Hutting,San Francisco Giants,First Year,PR210
+uncirculated-gold,202,Carlos Quentin,Arizona Diamondbacks,First Year,PR210
+uncirculated-gold,203,Brayan Pena,Atlanta Braves,First Year,PR210
+uncirculated-gold,204,Jeff Salazar,Colorado Rockies,First Year,PR210
+uncirculated-gold,205,David Murphy,Boston Red Sox,First Year,PR210
+uncirculated-gold,206,Alberto Garcia,Chicago Cubs,First Year,PR210
+uncirculated-gold,207,Ramon Ramirez,New York Yankees,First Year,PR210
+uncirculated-gold,208,Luis Bolivar,Cincinnati Reds,First Year,PR210
+uncirculated-gold,209,Rodney Choy Foo,Cleveland Indians,First Year,PR210
+uncirculated-gold,210,Kyle Sleeth,Detroit Tigers,First Year,PR210
+uncirculated-gold,211,Anthony Acevedo,Houston Astros,First Year,PR210
+uncirculated-gold,212,Chad Santos,Kansas City Royals,First Year,PR210
+uncirculated-gold,213,Jason Frasor,Los Angeles Dodgers,First Year,PR210
+uncirculated-gold,214,Jesse Roman,San Diego Padres,First Year,PR210
+uncirculated-gold,215,James Tomlin,Minnesota Twins,First Year,PR210
+uncirculated-gold,216,Josh Labandeira,Montreal Expos,First Year,PR210
+uncirculated-gold,217,Joaquin Arias,Texas Rangers,First Year,PR210
+uncirculated-gold,218,Don Sutton,Oakland Athletics,First Year,UER | PR210
+uncirculated-gold,219,Danny Gonzalez,Philadelphia Phillies,First Year,PR210
+uncirculated-gold,220,Javier Guzman,Pittsburgh Pirates,First Year,PR210
+uncirculated-gold,221,Anthony Lerew,Atlanta Braves,First Year,PR210
+uncirculated-gold,222,Jon Knott,San Diego Padres,First Year,PR210
+uncirculated-gold,223,Jesse English,San Francisco Giants,First Year,PR210
+uncirculated-gold,224,Felix Hernandez,Seattle Mariners,First Year,PR210
+uncirculated-gold,225,Travis Hanson,St. Louis Cardinals,First Year,PR210
+uncirculated-gold,226,Jesse Floyd,Texas Rangers,First Year,PR210
+uncirculated-gold,227,Nick Gorneault,Anaheim Angels,First Year,PR210
+uncirculated-gold,228,Craig Ansman,Arizona Diamondbacks,First Year,PR210
+uncirculated-gold,229,Wardell Starling,Pittsburgh Pirates,First Year,PR210
+uncirculated-gold,230,Carl Loadenthal,Atlanta Braves,First Year,PR210
+uncirculated-gold,231,Dave Crouthers,Baltimore Orioles,First Year,PR210
+uncirculated-gold,232,Harvey Garcia,Boston Red Sox,First Year,PR210
+uncirculated-gold,233,Casey Kopitzke,Chicago Cubs,First Year,PR210
+uncirculated-gold,234,Ricky Nolasco,Chicago Cubs,First Year,PR210
+uncirculated-gold,235,Miguel Perez,Cincinnati Reds,First Year,PR210
+uncirculated-gold,236,Ryan Mulhern,Cleveland Indians,First Year,PR210
+uncirculated-gold,237,Chris Aguila,Florida Marlins,First Year,PR210
+uncirculated-gold,238,Brooks Conrad,Houston Astros,First Year,PR210
+uncirculated-gold,239,Damaso Espino,Kansas City Royals,First Year,PR210
+uncirculated-gold,240,Jereme Milons,Los Angeles Dodgers,First Year,PR210
+uncirculated-gold,241,Luke Hughes,Minnesota Twins,First Year,PR210
+uncirculated-gold,242,Kory Casto,Montreal Expos,First Year,PR210
+uncirculated-gold,243,Jose Valdez,New York Yankees,First Year,PR210
+uncirculated-gold,244,J.T. Stotts,New York Yankees,First Year,PR210
+uncirculated-gold,245,Lee Gwaltney,Philadelphia Phillies,First Year,PR210
+uncirculated-gold,246,Yoann Torrealba,Pittsburgh Pirates,First Year,PR210
+uncirculated-gold,247,Omar Falcon,Seattle Mariners,First Year,PR210
+uncirculated-gold,248,Jon Coutlangus,San Francisco Giants,First Year,PR210
+uncirculated-gold,249,George Sherrill,Seattle Mariners,First Year,PR210
+uncirculated-gold,250,John Santor,St. Louis Cardinals,First Year,PR210
+uncirculated-gold,251,Tony Richie,Chicago Cubs,First Year,PR210
+uncirculated-gold,252,Kevin Richardson,Texas Rangers,First Year,PR210
+uncirculated-gold,253,Tim Bittner,Anaheim Angels,First Year,PR210
+uncirculated-gold,254,Dustin Nippert,Arizona Diamondbacks,First Year,PR210
+uncirculated-gold,255,Jose Capellan,Atlanta Braves,First Year,PR210
+uncirculated-gold,256,Donald Levinski,Baltimore Orioles,First Year,PR210
+uncirculated-gold,257,Jerome Gamble,Boston Red Sox,First Year,PR210
+uncirculated-gold,258,Jeff Keppinger,Pittsburgh Pirates,First Year,PR210
+uncirculated-gold,259,Jason Szuminski,San Diego Padres,First Year,PR210
+uncirculated-gold,260,Akinori Otsuka,San Diego Padres,First Year,PR210
+uncirculated-gold,261,Ryan Budde,Anaheim Angels,First Year,PR210
+uncirculated-gold,262,Shingo Takatsu,Chicago White Sox,First Year,PR210
+uncirculated-gold,263,Jeff Allison,Florida Marlins,First Year,PR210
+uncirculated-gold,264,Hector Gimenez,Houston Astros,First Year,PR210
+uncirculated-gold,265,Tim Frend,Kansas City Royals,First Year,PR210
+uncirculated-gold,266,Tom Farmer,Los Angeles Dodgers,First Year,PR210
+uncirculated-gold,267,Shawn Hill,Montreal Expos,First Year,PR210
+uncirculated-gold,268,Lastings Milledge,New York Mets,First Year,PR210
+uncirculated-gold,269,Scott Proctor,New York Yankees,First Year,PR210
+uncirculated-gold,270,Jorge Mejia,Cincinnati Reds,First Year,PR210
+uncirculated-gold,271,Terry Jones,Philadelphia Phillies,First Year,PR210
+uncirculated-gold,272,Zach Duke,Pittsburgh Pirates,First Year,PR210
+uncirculated-gold,273,Tim Stauffer,San Diego Padres,First Year,PR210
+uncirculated-gold,274,Luke Anderson,San Francisco Giants,First Year,PR210
+uncirculated-gold,275,Hunter Brown,Seattle Mariners,First Year,PR210
+uncirculated-gold,276,Matt Lemanczyk,St. Louis Cardinals,First Year,PR210
+uncirculated-gold,277,Fernando Cortez,Tampa Bay Devil Rays,First Year,PR210
+uncirculated-gold,278,Vince Perkins,Toronto Blue Jays,First Year,PR210
+uncirculated-gold,279,Tommy Murphy,Anaheim Angels,First Year,PR210
+uncirculated-gold,280,Mike Gosling,Arizona Diamondbacks,First Year,PR210
+uncirculated-gold,281,Paul Bacot,Atlanta Braves,First Year,PR210
+uncirculated-gold,282,Matt Capps,Pittsburgh Pirates,First Year,PR210
+uncirculated-gold,283,Juan Gutierrez,Baltimore Orioles,First Year,PR210
+uncirculated-gold,284,Teodoro Encarnacion,Cleveland Indians,First Year,PR210
+uncirculated-gold,285,Juan Cedeno,Boston Red Sox,First Year,PR210
+uncirculated-gold,286,Matt Creighton,Chicago Cubs,First Year,PR210
+uncirculated-gold,287,Ryan Hankins,Chicago White Sox,First Year,PR210
+uncirculated-gold,288,Leo Nunez,Pittsburgh Pirates,First Year,PR210
+uncirculated-gold,289,Dave Wallace,Cleveland Indians,First Year,PR210
+uncirculated-gold,290,Rob Tejeda,Philadelphia Phillies,First Year,PR210
+uncirculated-gold,291,Lincoln Holdzkom,Florida Marlins,First Year,PR210
+uncirculated-gold,292,Jason Hirsh,Houston Astros,First Year,PR210
+uncirculated-gold,293,Tydus Meadows,Texas Rangers,First Year,PR210
+uncirculated-gold,294,Khalid Ballouli,Milwaukee Brewers,First Year,PR210
+uncirculated-gold,295,Benji DeQuin,Montreal Expos,First Year,PR210
+uncirculated-gold,296,Tyler Davidson,New York Mets,First Year,PR210
+uncirculated-gold,297,Brant Colamarino,Oakland Athletics,First Year,PR210
+uncirculated-gold,298,Marcus McBeth,Oakland Athletics,First Year,PR210
+uncirculated-gold,299,Brad Eldred,Pittsburgh Pirates,First Year,PR210
+uncirculated-gold,300,David Pauley,San Diego Padres,First Year,PR210
+uncirculated-gold,301,Yadier Molina,St. Louis Cardinals,First Year,PR210
+uncirculated-gold,302,Chris Shelton,Detroit Tigers,First Year,PR210
+uncirculated-gold,303,Travis Blackley,Seattle Mariners,First Year,PR210
+uncirculated-gold,304,Jon De Vries,Boston Red Sox,First Year,PR210
+uncirculated-gold,305,Sheldon Fulse,Boston Red Sox,First Year,PR210
+uncirculated-gold,306,Vito Chiaravalloti,Toronto Blue Jays,First Year,PR210
+uncirculated-gold,307,Warner Madrigal,Anaheim Angels,First Year,PR210
+uncirculated-gold,308,Reid Gorecki,St. Louis Cardinals,First Year,PR210
+uncirculated-gold,309,Sung Jung,Atlanta Braves,First Year,PR210
+uncirculated-gold,310,Pete Shier,Baltimore Orioles,First Year,PR210
+uncirculated-gold,311,Michael Mooney,San Francisco Giants,First Year,PR210
+uncirculated-gold,312,Kenny Perez,Boston Red Sox,First Year,PR210
+uncirculated-gold,313,Michael Mallory,Chicago Cubs,First Year,PR210
+uncirculated-gold,314,Ben Himes,Cincinnati Reds,First Year,PR210
+uncirculated-gold,315,Ivan Ochoa,Cleveland Indians,First Year,PR210
+uncirculated-gold,316,Donald Kelly,Detroit Tigers,First Year,PR210
+uncirculated-gold,317,Logan Kensing,Florida Marlins,First Year,PR210
+uncirculated-gold,318,Kevin Davidson,Houston Astros,First Year,PR210
+uncirculated-gold,319,Brian Pilkington,Los Angeles Dodgers,First Year,PR210
+uncirculated-gold,320,Alex Romero,Minnesota Twins,First Year,PR210
+uncirculated-gold,321,Chad Chop,Montreal Expos,First Year,PR210
+uncirculated-gold,322,Dioner Navarro,New York Yankees,First Year,PR210
+uncirculated-gold,323,Casey Myers,Oakland Athletics,First Year,PR210
+uncirculated-gold,324,Mike Rouse,Oakland Athletics,First Year,PR210
+uncirculated-gold,325,Sergio Silva,Pittsburgh Pirates,First Year,PR210
+uncirculated-gold,326,J.J. Furmaniak,San Diego Padres,First Year,PR210
+uncirculated-gold,327,Brad Vericker,San Francisco Giants,First Year,PR210
+uncirculated-gold,328,Blake Hawksworth,St. Louis Cardinals,First Year,PR210
+uncirculated-gold,329,Brock Jacobsen,Texas Rangers,First Year,PR210
+uncirculated-gold,330,Alec Zumwalt,Tampa Bay Devil Rays,First Year,PR210
+autographs,161,Grady Sizemore,Cleveland Indians,,Autograph
+autographs,162,Felix Pie,Chicago Cubs,,Autograph
+autographs,163,Dustin McGowan,Toronto Blue Jays,,Autograph
+autographs,164,Chris Lubanski,Kansas City Royals,,Autograph
+autographs,165,Tom Gorzelanny,Pittsburgh Pirates,,Autograph
+autographs,166,Rudy Guillen,New York Yankees,,Autograph
+autographs,167,Bobby Brownlie,Chicago Cubs,,Autograph
+autographs,168,Conor Jackson,Arizona Diamondbacks,,Autograph
+autographs,169,Matt Moses,Minnesota Twins,,Autograph
+autographs,170,Ervin Santana,Anaheim Angels,,Autograph
+autographs,171,Merkin Valdez,San Francisco Giants,,Autograph
+autographs,172,Erick Aybar,Anaheim Angels,,Autograph
+autographs,173,Brad Sullivan,Oakland Athletics,,Autograph
+autographs,174,David Aardsma,San Francisco Giants,,Autograph
+autographs,175,Brad Snyder,Cleveland Indians,,Autograph
+autographs-red-ink,161,Grady Sizemore,Cleveland Indians,,Autograph | SN25
+autographs-red-ink,162,Felix Pie,Chicago Cubs,,Autograph | SN25
+autographs-red-ink,163,Dustin McGowan,Toronto Blue Jays,,Autograph | SN25
+autographs-red-ink,164,Chris Lubanski,Kansas City Royals,,Autograph | SN25
+autographs-red-ink,165,Tom Gorzelanny,Pittsburgh Pirates,,Autograph | SN25
+autographs-red-ink,166,Rudy Guillen,New York Yankees,,Autograph | SN25
+autographs-red-ink,167,Bobby Brownlie,Chicago Cubs,,Autograph | SN25
+autographs-red-ink,168,Conor Jackson,Arizona Diamondbacks,,Autograph | SN25
+autographs-red-ink,169,Matt Moses,Minnesota Twins,,Autograph | SN25
+autographs-red-ink,170,Ervin Santana,Anaheim Angels,,Autograph | SN25
+autographs-red-ink,171,Merkin Valdez,San Francisco Giants,,Autograph | SN25
+autographs-red-ink,172,Erick Aybar,Anaheim Angels,,Autograph | SN25
+autographs-red-ink,173,Brad Sullivan,Oakland Athletics,,Autograph | SN25
+autographs-red-ink,174,David Aardsma,San Francisco Giants,,Autograph | SN25
+autographs-red-ink,175,Brad Snyder,Cleveland Indians,,Autograph | SN25
+base-of-the-future-autograph,FGAB-GS,Grady Sizemore,Cleveland Indians,,Autograph | Game-used base
+base-of-the-future-autograph-red-ink,GS,Grady Sizemore,Cleveland Indians,,Autograph | Game-used base | SN25
+futures-game-gear-jerseys,FG-AR,Alexis Rios,Toronto Blue Jays,,Game-worn jersey | Physical odds group A
+futures-game-gear-jerseys,FG-CB,Chris Burke,Houston Astros,,Game-worn jersey | Physical odds group B
+futures-game-gear-jerseys,FG-CN,Clint Nageotte,Seattle Mariners,,Game-worn jersey | Physical odds group B
+futures-game-gear-jerseys,FG-CT,Chad Tracy,Arizona Diamondbacks,,Game-worn jersey | Physical odds group B
+futures-game-gear-jerseys,FG-CW,Chien-Ming Wang,New York Yankees,,Game-worn jersey | Physical odds group C
+futures-game-gear-jerseys,FG-DB,Denny Bautista,Florida Marlins,,Game-worn jersey | Physical odds group D
+futures-game-gear-jerseys,FG-DBK,Dave Krynzel,Milwaukee Brewers,,Game-worn jersey | Physical odds group B
+futures-game-gear-jerseys,FG-DK,David Kelton,Chicago Cubs,,Game-worn jersey | Physical odds group E
+futures-game-gear-jerseys,FG-EE,Edwin Encarnacion,Cincinnati Reds,,Game-worn jersey | Physical odds group A
+futures-game-gear-jerseys,FG-EJ,Edwin Jackson,Los Angeles Dodgers,,Game-worn jersey | Physical odds group C
+futures-game-gear-jerseys,FG-ES,Ervin Santana,Anaheim Angels,,Game-worn jersey | Physical odds group D
+futures-game-gear-jerseys,FG-GQ,Guillermo Quiroz,Toronto Blue Jays,,Game-worn jersey | Physical odds group A
+futures-game-gear-jerseys,FG-JC,Jose Castillo,Pittsburgh Pirates,,Game-worn jersey | Physical odds group E
+futures-game-gear-jerseys,FG-JD,Jorge De La Rosa,Boston Red Sox,,Game-worn jersey | Physical odds group C
+futures-game-gear-jerseys,FG-JH,J.J. Hardy,Milwaukee Brewers,,Game-worn jersey | Physical odds group A
+futures-game-gear-jerseys,FG-JM,John Maine,Baltimore Orioles,,Game-worn jersey | Physical odds group B
+futures-game-gear-jerseys,FG-JV,John VanBenschoten,Pittsburgh Pirates,,Game-worn jersey | Physical odds group B
+futures-game-gear-jerseys,FG-KY,Kevin Youkilis,Boston Red Sox,,Game-worn jersey | Physical odds group E
+futures-game-gear-jerseys,FG-MV,Merkin Valdez,San Francisco Giants,,Game-worn jersey | Physical odds group E
+futures-game-gear-jerseys,FG-NC,Neal Cotts,Chicago White Sox,,Game-worn jersey | Physical odds group D
+futures-game-gear-jerseys,FG-PL,Pete LaForest,Tampa Bay Devil Rays,,Game-worn jersey | Physical odds group B
+futures-game-gear-jerseys,FG-PWL,Preston Larrison,Detroit Tigers,,Game-worn jersey | Physical odds group B
+futures-game-gear-jerseys,FG-RN,Ramon Nivar,Texas Rangers,,Game-worn jersey | Physical odds group A
+futures-game-gear-jerseys,FG-SH,Shawn Hill,Montreal Expos,,Game-worn jersey | Physical odds group D
+futures-game-gear-jerseys,FG-SJS,Seung Song,Montreal Expos,,Game-worn jersey | Physical odds group B
+futures-game-gear-jerseys,FG-SS,Stephen Smitherman,Cincinnati Reds,,Game-worn jersey | Physical odds group B
+futures-game-gear-jerseys,FG-ST,Scott Thorman,Atlanta Braves,,Game-worn jersey | Physical odds group C
+futures-game-gear-jerseys,FG-TB,Travis Blackley,Seattle Mariners,,Game-worn jersey | Physical odds group B
+relics,154,Chin-Feng Chen,Los Angeles Dodgers,,MEM: Game-worn jersey | Physical odds group B
+relics,155,Chien-Ming Wang,New York Yankees,,MEM: Game-worn uniform | Physical odds group B
+relics,156,Mickey Hall,Boston Red Sox,,MEM: Game-worn jersey (high school) | Physical odds group B
+relics,157,James Houser,Tampa Bay Devil Rays,,MEM: Game-worn jersey (high school) | Physical odds group A
+relics,158,Jay Sborz,Detroit Tigers,,MEM: Game-worn jersey (high school) | Physical odds group B
+relics,159,Jonathan Fulton,Florida Marlins,,MEM: Game-worn jersey (high school) | Physical odds group B
+relics,160,Steve Lerud,Pittsburgh Pirates,,MEM: Game-worn jersey (high school) | Physical odds group A
+relics,164,Chris Lubanski,Kansas City Royals,,MEM: Game-worn jersey (high school) | Physical odds group B
+relics,192,Estee Harris,New York Yankees,,MEM: Game-worn jersey (high school) | Physical odds group A
+relics,221,Anthony Lerew,Atlanta Braves,,MEM: Game-worn jersey | Physical odds group B
+signs-of-the-future,SOF-AH,Aaron Hill,Toronto Blue Jays,,Autograph | Physical odds group A
+signs-of-the-future,SOF-BC,Brent Clevlen,Detroit Tigers,,Autograph | Physical odds group A
+signs-of-the-future,SOF-BF,Brian Finch,Baltimore Orioles,,Autograph | Physical odds group D
+signs-of-the-future,SOF-BM,Brandon Medders,Arizona Diamondbacks,,Autograph | Physical odds group A
+signs-of-the-future,SOF-BS,Brian Snyder,Oakland Athletics,,Autograph | Physical odds group D
+signs-of-the-future,SOF-BW,Brandon Wood,Anaheim Angels,,Autograph | Physical odds group B
+signs-of-the-future,SOF-CS,Corey Shafer,Baltimore Orioles,,Autograph | Physical odds group A
+signs-of-the-future,SOF-DS,Denard Span,Minnesota Twins,,Autograph | Physical odds group A
+signs-of-the-future,SOF-ED,Eric Duncan,New York Yankees,,Autograph | Physical odds group D
+signs-of-the-future,SOF-GS,Grady Sizemore,Cleveland Indians,,Autograph | Physical odds group D
+signs-of-the-future,SOF-IC,Ismael Castro,Seattle Mariners,,Autograph | Physical odds group A
+signs-of-the-future,SOF-JB,Justin Backsmeyer,Milwaukee Brewers,,Autograph | Physical odds group D
+signs-of-the-future,SOF-JH,James Houser,Tampa Bay Devil Rays,,Autograph | Physical odds group A
+signs-of-the-future,SOF-JV,Joey Votto,Cincinnati Reds,,Autograph | Physical odds group A
+signs-of-the-future,SOF-MM,Matt Murton,Boston Red Sox,,Autograph | Physical odds group D
+signs-of-the-future,SOF-NM,Nick Markakis,Baltimore Orioles,,Autograph | Physical odds group C
+signs-of-the-future,SOF-RH,Ryan Harvey,Chicago Cubs,,Autograph | Physical odds group C
+signs-of-the-future,SOF-TJ,Tyler Johnson,St. Louis Cardinals,,Autograph | Physical odds group A
+signs-of-the-future,SOF-TL,Todd Linden,San Francisco Giants,,Autograph | Physical odds group A
+signs-of-the-future-red-ink,SOF-AH,Aaron Hill,Toronto Blue Jays,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-BC,Brent Clevlen,Detroit Tigers,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-BF,Brian Finch,Baltimore Orioles,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-BM,Brandon Medders,Arizona Diamondbacks,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-BS,Brian Snyder,Oakland Athletics,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-BW,Brandon Wood,Anaheim Angels,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-CS,Corey Shafer,Baltimore Orioles,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-DS,Denard Span,Minnesota Twins,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-ED,Eric Duncan,New York Yankees,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-GS,Grady Sizemore,Cleveland Indians,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-IC,Ismael Castro,Seattle Mariners,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-JB,Justin Backsmeyer,Milwaukee Brewers,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-JH,James Houser,Tampa Bay Devil Rays,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-JV,Joey Votto,Cincinnati Reds,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-MM,Matt Murton,Boston Red Sox,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-NM,Nick Markakis,Baltimore Orioles,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-RH,Ryan Harvey,Chicago Cubs,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-TJ,Tyler Johnson,St. Louis Cardinals,,Autograph | SN25
+signs-of-the-future-red-ink,SOF-TL,Todd Linden,San Francisco Giants,,Autograph | SN25
+roy-dual-relic,ROY-BW,Angel Berroa / Dontrelle Willis,Kansas City Royals / Florida Marlins,,MEM: Bat / Jersey
