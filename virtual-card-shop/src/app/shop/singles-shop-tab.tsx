@@ -1,6 +1,8 @@
 // src/app/shop/page.tsx
 "use client";
 
+import { imageDeliveryUrl } from "@/lib/images/r2-cdn";
+
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { YourCardsPicker } from "./your-cards-picker";
@@ -539,7 +541,7 @@ export default function SinglesShopTab() {
                   return <article key={row.cardId} className="single-merch-card">
                     <Link href={"/cards/" + row.cardId} className="single-merch-art"
                       aria-label={"View " + card.player + " card details"}>
-                      {img ? <img src={img} alt={card.player + " card front"} loading="lazy" decoding="async" /> :
+                      {img ? <img src={imageDeliveryUrl(img) ?? img} alt={card.player + " card front"} loading="lazy" decoding="async" /> :
                         <span className="single-art-placeholder"><b>VCS</b><small>NO IMAGE</small></span>}
                     </Link>
                     <div className="single-merch-info">
@@ -648,7 +650,7 @@ export default function SinglesShopTab() {
                     <div className="singles-offer-header">
                       <Link href={"/cards/" + offer.cardId} className="singles-offer-art">
                         {offer.card?.frontImageUrl ?
-                          <img src={offer.card.frontImageUrl} alt={(offer.card.player || "Card") + " front"} loading="lazy" /> :
+                          <img src={imageDeliveryUrl(offer.card.frontImageUrl) ?? offer.card.frontImageUrl} alt={(offer.card.player || "Card") + " front"} loading="lazy" /> :
                           <span>VCS</span>}
                       </Link>
                       <div className="singles-offer-identity">
@@ -716,7 +718,7 @@ export default function SinglesShopTab() {
           </div>
           <div className="singles-checkout-card">
             <div className="singles-checkout-art">
-              {checkout.card.frontImageUrl ? <img src={checkout.card.frontImageUrl} alt="Card front" /> : <span>VCS</span>}
+              {checkout.card.frontImageUrl ? <img src={imageDeliveryUrl(checkout.card.frontImageUrl) ?? checkout.card.frontImageUrl} alt="Card front" /> : <span>VCS</span>}
             </div>
             <div><h3 id="singles-checkout-title">{checkout.card.player}
               {checkout.card.cardNumber ? " #" + checkout.card.cardNumber : ""}</h3>

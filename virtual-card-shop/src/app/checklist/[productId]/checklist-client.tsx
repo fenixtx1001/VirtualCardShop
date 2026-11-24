@@ -1,5 +1,7 @@
 "use client";
 
+import { imageDeliveryUrl } from "@/lib/images/r2-cdn";
+
 import Link from "next/link";
 import SetViewToggle from "@/components/collection/SetViewToggle";
 import {
@@ -330,7 +332,7 @@ function CardThumb({
     <span className="checklist-thumb">
       {src && !failed ? (
         <img
-          src={src}
+          src={imageDeliveryUrl(src) ?? src}
           alt={alt}
           loading="lazy"
           decoding="async"
@@ -1402,7 +1404,7 @@ export default function ChecklistClient({
                               className="checklist-card-cell"
                             >
                               <CardThumb
-                                src={row.frontImageUrl}
+                                src={imageDeliveryUrl(row.frontImageUrl) ?? row.frontImageUrl}
                                 alt={`${row.player} #${row.cardNumber}`}
                               />
 
@@ -1554,7 +1556,7 @@ export default function ChecklistClient({
                         className="checklist-mobile-main"
                       >
                         <CardThumb
-                          src={row.frontImageUrl}
+                          src={imageDeliveryUrl(row.frontImageUrl) ?? row.frontImageUrl}
                           alt={`${row.player} #${row.cardNumber}`}
                         />
 

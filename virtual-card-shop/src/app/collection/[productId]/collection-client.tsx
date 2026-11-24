@@ -1,5 +1,7 @@
 "use client";
 
+import { imageDeliveryUrl } from "@/lib/images/r2-cdn";
+
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
@@ -363,7 +365,7 @@ export default function CollectionSetClient({ productId }: { productId: string }
               >
                 {imageUrl ? (
                   <img
-                    src={imageUrl}
+                    src={imageDeliveryUrl(imageUrl) ?? imageUrl}
                     alt="Card"
                     style={{
                       width: "100%",

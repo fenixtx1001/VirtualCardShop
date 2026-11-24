@@ -11,6 +11,7 @@ import {
 } from "react";
 
 import styles from "./VcsSlab.module.css";
+import { imageDeliveryUrl } from "@/lib/images/r2-cdn";
 
 type Gradeability = "COMMON" | "GREAT" | "ICONIC";
 
@@ -253,7 +254,7 @@ function CardImage({
   return (
     <div className={styles.cardViewport}>
       <img
-        src={clean}
+        src={imageDeliveryUrl(clean) ?? clean}
         alt={alt}
         loading="lazy"
         decoding="async"

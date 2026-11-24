@@ -1,5 +1,7 @@
 "use client";
 
+import { imageDeliveryUrl } from "@/lib/images/r2-cdn";
+
 import Link from "next/link";
 import { binderHref } from "@/lib/collection/set-view-links";
 import { useEffect, useMemo, useState } from "react";
@@ -146,7 +148,7 @@ export default function CollectionSetClient({ productId }: { productId: string }
                     #{c.cardNumber} • x{c.quantity}
                   </div>
                   {c.frontImageUrl ? (
-                    <img src={c.frontImageUrl} alt={c.player} style={{ width: "100%", height: "auto", border: "1px solid #eee" }} />
+                    <img src={imageDeliveryUrl(c.frontImageUrl) ?? c.frontImageUrl} alt={c.player} style={{ width: "100%", height: "auto", border: "1px solid #eee" }} />
                   ) : (
                     <div style={{ padding: 10, border: "1px solid #eee" }}>(No image)</div>
                   )}

@@ -1,5 +1,7 @@
 "use client";
 
+import { imageDeliveryUrl } from "@/lib/images/r2-cdn";
+
 import Link from "next/link";
 import { useCardBrowseSource, returnState, restoreScroll } from "@/lib/card-details/browsing";
 
@@ -275,7 +277,7 @@ export default function SearchClient() {
       >
         {img ? (
           <img
-            src={img}
+            src={imageDeliveryUrl(img) ?? img}
             alt={`${row.player} #${row.cardNumber}`}
             loading="lazy"
             style={{
@@ -536,7 +538,7 @@ export default function SearchClient() {
                       >
                         {img ? (
                           <img
-                            src={img}
+                            src={imageDeliveryUrl(img) ?? img}
                             alt={`${r.player} #${r.cardNumber}`}
                             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                             loading="lazy"

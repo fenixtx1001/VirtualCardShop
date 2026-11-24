@@ -1,6 +1,8 @@
 // src/app/collection/[productId]/collection-set-client.tsx
 "use client";
 
+import { imageDeliveryUrl } from "@/lib/images/r2-cdn";
+
 import Link from "next/link";
 import { checklistHref, binderHref } from "@/lib/collection/set-view-links";
 import { useCardBrowseSource, returnState, restoreScroll } from "@/lib/card-details/browsing";
@@ -439,7 +441,7 @@ export default function CollectionSetClient({ productId }: { productId: string }
               <div onClick={() => setShowBack((v) => !v)} style={{ cursor: "pointer", display: "grid", placeItems: "center" }}>
                 {imageUrl ? (
                   <img
-                    src={imageUrl}
+                    src={imageDeliveryUrl(imageUrl) ?? imageUrl}
                     alt="Card"
                     style={{
                       width: "100%",
