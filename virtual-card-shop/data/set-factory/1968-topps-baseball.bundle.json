@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/68/1968-Topps",
+    "gameChecklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/9503/1968-Topps---Game",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/68/1968-Topps",
+    "baseCrossCheck": "https://baseballcardpedia.com/index.php/1968_Topps",
+    "gameCrossCheck": "https://www.keymancollectibles.com/baseballcards/1968toppsgamecardinsert.htm"
+  },
+  "decisions": {
+    "series": "One Base checklist combines all seven series at equal card availability. Physical ranges: 1–109, 110–196, 197–283, 284–370, 371–457, 458–533, 534–598.",
+    "variants": "One standard card per printed number. Prefer corrected versions where identified and preserve source alternatives in the snapshot.",
+    "rookies": "47 unique TCDB rookie-index numbers. Apply player-specific exceptions from the source notes. Rookie Stars and All-Star Rookie are separate subset labels.",
+    "packFormat": "VCS uses a five-card pack and 24-pack box. A Game hit occupies one card slot.",
+    "gameOdds": "Model documented third-series Game distribution at one per eligible wax pack. Weight by the 87/598 third-series checklist share and round to 1:7 in the combined VCS pack. Later-series cello reports and occasional second inserts are outside this model.",
+    "excludedIssues": "Proofs, separately sold Posters and Milton Bradley Win-A-Card printings are outside the standard wax product."
+  },
+  "product": {
+    "id": "1968_Topps_Baseball",
+    "year": 1968,
+    "brand": "Topps",
+    "sport": "Baseball",
+    "cardsPerPack": 5,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packOdds": "MODELED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1968-topps-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1968_Topps_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "expectedCards": 598,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/68/1968-Topps",
+      "notes": "Complete seven-series checklist, one card per printed number."
+    },
+    {
+      "key": "game",
+      "id": "1968_Topps_Baseball_Game",
+      "name": "Game",
+      "kind": "INSERT",
+      "expectedCards": 33,
+      "oddsPerPack": 7,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/9503/1968-Topps---Game",
+      "notes": "Third-series wax baseline weighted to the combined pack. 1:7 is a VCS model."
+    }
+  ]
+}
