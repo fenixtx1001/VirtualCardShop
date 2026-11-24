@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "set": {
+    "year": 1998,
+    "manufacturer": "Fleer",
+    "product": "Ultra",
+    "sport": "Baseball"
+  },
+  "variation": "Platinum Medallion",
+  "status": "unverified",
+  "references": [],
+  "design": {
+    "invariantElements": [],
+    "variableElements": [],
+    "approved": false
+  },
+  "storage": {
+    "provider": "cloudflare-r2",
+    "prefix": "card-factory/1998-ultra-baseball/platinum-medallion/"
+  },
+  "qa": {
+    "checklistVerified": false,
+    "referenceCount": 0,
+    "approvedByUser": false
+  },
+  "notes": "Example only. No card details, scans, or rights verified."
+}
