@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/749/1996-Score",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/749/1996-Score",
+    "relatedSetsUrl": "https://www.tcdb.com/Inserts.cfm/sid/749/1996-Score",
+    "crossCheckUrl": "https://baseballcardpedia.com/index.php/1996_Score"
+  },
+  "decisions": {
+    "packFormat": "VCS four-card packs, 36 packs per box. Physical hobby packs had 10 cards.",
+    "collation": "One universal pack. Series odds are weighted by 275/517 and 242/517 and rounded to whole denominators. Channel-exclusive inserts stay available at their weighted channel odds.",
+    "baseStructure": "One 517-card Base checklist with equal base availability. Four independently numbered 110-card Dugout and Artist’s Proof checklists.",
+    "reflextions": "Use 20 numbered entries from both checklists. The 18 in the BaseballCardPedia odds table conflicts with its own checklist.",
+    "rookieLabels": "Use TCDB’s eight recognized true rookie cards, only on Base. Rookie-themed subset cards such as Derek Jeter #240 do not receive RC.",
+    "exclusions": "Exclude the two separately distributed Samples promotional checklists."
+  },
+  "product": {
+    "id": "1996_Score_Baseball",
+    "year": 1996,
+    "brand": "Score",
+    "sport": "Baseball",
+    "cardsPerPack": 4,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1996-score-baseball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1996_Score_Baseball_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/749/1996-Score",
+      "expectedCards": 517,
+      "notes": "Complete Series One #1–275 and Series Two #276–517."
+    },
+    {
+      "key": "dugout-collection-series-one",
+      "id": "1996_Score_Baseball_Dugout_Collection_Series_One",
+      "name": "Dugout Collection Series One",
+      "kind": "PARALLEL",
+      "oddsPerPack": 6,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10783/1996-Score-Dugout-Collection-96-Series-One-",
+      "expectedCards": 110,
+      "notes": "Physical Series 1 Hobby/Retail: 1:3. Combined VCS pack: 1:6."
+    },
+    {
+      "key": "dugout-collection-series-two",
+      "id": "1996_Score_Baseball_Dugout_Collection_Series_Two",
+      "name": "Dugout Collection Series Two",
+      "kind": "PARALLEL",
+      "oddsPerPack": 6,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/97124/1996-Score-Dugout-Collection-96-Series-Two-",
+      "expectedCards": 110,
+      "notes": "Physical Series 2 Hobby/Retail: 1:3. Combined VCS pack: 1:6."
+    },
+    {
+      "key": "dugout-collection-artists-proofs-series-one",
+      "id": "1996_Score_Baseball_Dugout_Collection_Artists_Proofs_Series_One",
+      "name": "Dugout Collection Artist's Proofs Series One",
+      "kind": "PARALLEL",
+      "oddsPerPack": 68,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/10784/1996-Score-Dugout-Collection-96-Artist-s-Proofs-Series-One-",
+      "expectedCards": 110,
+      "notes": "Physical Series 1 Hobby/Retail: 1:36. Combined VCS pack: 1:68."
+    },
+    {
+      "key": "dugout-collection-artists-proofs-series-two",
+      "id": "1996_Score_Baseball_Dugout_Collection_Artists_Proofs_Series_Two",
+      "name": "Dugout Collection Artist's Proofs Series Two",
+      "kind": "PARALLEL",
+      "oddsPerPack": 77,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/97125/1996-Score-Dugout-Collection-96-Artist-s-Proofs-Series-Two-",
+      "expectedCards": 110,
+      "notes": "Physical Series 2 Hobby/Retail: 1:36. Combined VCS pack: 1:77."
+    },
+    {
+      "key": "all-stars",
+      "id": "1996_Score_Baseball_All_Stars",
+      "name": "All Stars",
+      "kind": "INSERT",
+      "oddsPerPack": 19,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/750/1996-Score-All-Stars",
+      "expectedCards": 20,
+      "notes": "Physical Series 2 Jumbo: 1:9. Combined VCS pack: 1:19."
+    },
+    {
+      "key": "big-bats",
+      "id": "1996_Score_Baseball_Big_Bats",
+      "name": "Big Bats",
+      "kind": "INSERT",
+      "oddsPerPack": 58,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/751/1996-Score-Big-Bats",
+      "expectedCards": 20,
+      "notes": "Physical Series 1 Retail: 1:31. Combined VCS pack: 1:58."
+    },
+    {
+      "key": "diamond-aces",
+      "id": "1996_Score_Baseball_Diamond_Aces",
+      "name": "Diamond Aces",
+      "kind": "INSERT",
+      "oddsPerPack": 15,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/753/1996-Score-Diamond-Aces",
+      "expectedCards": 30,
+      "notes": "Physical Series 1 Jumbo: 1:8. Combined VCS pack: 1:15."
+    },
+    {
+      "key": "dream-team",
+      "id": "1996_Score_Baseball_Dream_Team",
+      "name": "Dream Team",
+      "kind": "INSERT",
+      "oddsPerPack": 135,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/754/1996-Score-Dream-Team",
+      "expectedCards": 9,
+      "notes": "Physical Series 1 Hobby/Retail: 1:72. Combined VCS pack: 1:135."
+    },
+    {
+      "key": "future-franchise",
+      "id": "1996_Score_Baseball_Future_Franchise",
+      "name": "Future Franchise",
+      "kind": "INSERT",
+      "oddsPerPack": 154,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/755/1996-Score-Future-Franchise",
+      "expectedCards": 16,
+      "notes": "Physical Series 2 Hobby/Retail: 1:72. Combined VCS pack: 1:154."
+    },
+    {
+      "key": "gold-stars",
+      "id": "1996_Score_Baseball_Gold_Stars",
+      "name": "Gold Stars",
+      "kind": "INSERT",
+      "oddsPerPack": 32,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/756/1996-Score-Gold-Stars",
+      "expectedCards": 30,
+      "notes": "Physical Series 2 Hobby/Retail: 1:15. Combined VCS pack: 1:32."
+    },
+    {
+      "key": "numbers-game",
+      "id": "1996_Score_Baseball_Numbers_Game",
+      "name": "Numbers Game",
+      "kind": "INSERT",
+      "oddsPerPack": 28,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/757/1996-Score-Numbers-Game",
+      "expectedCards": 30,
+      "notes": "Physical Series 1 Hobby/Retail: 1:15. Combined VCS pack: 1:28."
+    },
+    {
+      "key": "power-pace",
+      "id": "1996_Score_Baseball_Power_Pace",
+      "name": "Power Pace",
+      "kind": "INSERT",
+      "oddsPerPack": 66,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/758/1996-Score-Power-Pace",
+      "expectedCards": 18,
+      "notes": "Physical Series 2 Retail: 1:31. Combined VCS pack: 1:66."
+    },
+    {
+      "key": "reflextions",
+      "id": "1996_Score_Baseball_Reflextions",
+      "name": "Reflextions",
+      "kind": "INSERT",
+      "oddsPerPack": 28,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/759/1996-Score-Reflextions",
+      "expectedCards": 20,
+      "notes": "Physical Series 1 Hobby: 1:15. Combined VCS pack: 1:28."
+    },
+    {
+      "key": "titanic-taters",
+      "id": "1996_Score_Baseball_Titanic_Taters",
+      "name": "Titanic Taters",
+      "kind": "INSERT",
+      "oddsPerPack": 66,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/760/1996-Score-Titanic-Taters",
+      "expectedCards": 18,
+      "notes": "Physical Series 2 Hobby: 1:31. Combined VCS pack: 1:66."
+    },
+    {
+      "key": "cal-ripken-2131",
+      "id": "1996_Score_Baseball_Cal_Ripken_2131",
+      "name": "Cal Ripken 2131",
+      "kind": "INSERT",
+      "oddsPerPack": 564,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/ViewCard.cfm/sid/749/cid/145918/1996-Score-2131-Cal-Ripken-Jr.",
+      "expectedCards": 1,
+      "notes": "Physical Series 1 Hobby/Retail: 1:300. Combined VCS pack: 1:564. Physical Series One Jumbo: 1:150."
+    }
+  ]
+}
