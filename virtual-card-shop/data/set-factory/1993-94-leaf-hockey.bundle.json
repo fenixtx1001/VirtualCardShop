@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/4954/1993-94-Leaf",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/4954/1993-94-Leaf",
+    "relatedSetsUrl": "https://www.tcdb.com/Inserts.cfm/sid/4954/1993-94-Leaf",
+    "crossCheckUrl": "https://www.hobbyinsider.net/forum/threads/checklist-1993-94-leaf.436420/"
+  },
+  "decisions": {
+    "packFormat": "Combined VCS product uses verified U.S. Series One format of 14 cards and 36 packs per box. Other physical configurations exist.",
+    "base": "One base pool combines Series One #1–220 and Series Two #221–440.",
+    "packOdds": "Insert families are catalogued with null odds pending reliable per-pack frequencies.",
+    "rookies": "29 TCDB rookie labels on Base only. Rookie-themed inserts keep their checklist names.",
+    "exclusions": "The oversized pre-release Lemieux #1 promotion is outside the pack product."
+  },
+  "product": {
+    "id": "1993_94_Leaf_Hockey",
+    "year": 1993,
+    "brand": "Leaf",
+    "sport": "Hockey",
+    "cardsPerPack": 14,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packOdds": "PENDING",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1993-94-leaf-hockey.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1993_94_Leaf_Hockey_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "oddsPerPack": null,
+      "expectedCards": 440,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4954/1993-94-Leaf",
+      "notes": "Two 220-card series."
+    },
+    {
+      "key": "freshman-phenoms",
+      "id": "1993_94_Leaf_Hockey_Freshman_Phenoms",
+      "name": "Freshman Phenoms",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 10,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4955/1993-94-Leaf-Freshman-Phenoms",
+      "notes": "Series Two. Standard pack odds unverified."
+    },
+    {
+      "key": "gold-leaf-all-stars",
+      "id": "1993_94_Leaf_Hockey_Gold_Leaf_All_Stars",
+      "name": "Gold Leaf All-Stars",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 10,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4956/1993-94-Leaf-Gold-Leaf-All-Stars",
+      "notes": "Series One #1–5, Series Two #6–10. Standard pack odds unverified."
+    },
+    {
+      "key": "gold-leaf-rookie",
+      "id": "1993_94_Leaf_Hockey_Gold_Leaf_Rookie",
+      "name": "Gold Leaf Rookie",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 15,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4957/1993-94-Leaf-Gold-Leaf-Rookie",
+      "notes": "Series One. Standard pack odds unverified."
+    },
+    {
+      "key": "hat-trick-artists",
+      "id": "1993_94_Leaf_Hockey_Hat_Trick_Artists",
+      "name": "Hat Trick Artists",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 10,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4958/1993-94-Leaf-Hat-Trick-Artists",
+      "notes": "Series One #1–5, Series Two #6–10. Standard pack odds unverified."
+    },
+    {
+      "key": "mario-lemieux-collection",
+      "id": "1993_94_Leaf_Hockey_Mario_Lemieux_Collection",
+      "name": "Mario Lemieux Collection",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 10,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4959/1993-94-Leaf-Mario-Lemieux-Collection",
+      "notes": "Series One #1–5, Series Two #6–10. Standard pack odds unverified."
+    },
+    {
+      "key": "painted-warriors",
+      "id": "1993_94_Leaf_Hockey_Painted_Warriors",
+      "name": "Painted Warriors",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 10,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4960/1993-94-Leaf-Painted-Warriors",
+      "notes": "Series One #1–5, Series Two #6–10. Standard pack odds unverified."
+    },
+    {
+      "key": "studio-signature-series",
+      "id": "1993_94_Leaf_Hockey_Studio_Signature_Series",
+      "name": "Studio Signature Series",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 10,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4961/1993-94-Leaf-Studio-Signature-Series",
+      "notes": "Series One #1–5, Series Two #6–10. Facsimile signatures. Standard pack odds unverified."
+    },
+    {
+      "key": "authentic-autograph",
+      "id": "1993_94_Leaf_Hockey_Authentic_Autograph",
+      "name": "Authentic Autograph",
+      "kind": "INSERT",
+      "oddsPerPack": null,
+      "expectedCards": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/430048/1993-94-Leaf-Authentic-Autograph",
+      "notes": "Series Two Mario Lemieux autograph, SN2000. Standard pack odds unverified."
+    }
+  ]
+}
