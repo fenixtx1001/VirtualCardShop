@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "checklistUrl": "https://www.tcdb.com/Checklist.cfm/sid/4988/1993-94-Topps-Premier",
+    "rookiesUrl": "https://www.tcdb.com/Rookies.cfm/sid/4988/1993-94-Topps-Premier",
+    "insertsUrl": "https://www.tcdb.com/Inserts.cfm/sid/4988/1993-94-Topps-Premier---Black-Gold"
+  },
+  "decisions": {
+    "packFormat": "Standard hobby configuration: 12 cards per pack, 36 packs per box.",
+    "series": "One VCS product combines two equal 264-card base series.",
+    "gold": "One guaranteed Gold in VCS. The VCS rip engine supports one hit per ProductSet per pack. Physical bonus Gold (1:4) and jumbo collation are documented separately.",
+    "rookies": "24 TCDB-indexed true rookie labels appear on Base only. Super Rookies is a separate subset.",
+    "unknownOdds": "Finest and two original redemption families are staged without pack odds.",
+    "excludedIssues": "Pre-production samples, the promo sheet, Certified Winner replacements and the separate O-Pee-Chee product are outside this draft."
+  },
+  "product": {
+    "id": "1993_94_Topps_Premier_Hockey",
+    "year": 1993,
+    "brand": "Topps Premier",
+    "sport": "Hockey",
+    "cardsPerPack": 12,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "packImageUrl": null,
+    "boxImageUrl": null,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "rookieData": "VERIFIED",
+    "packOdds": "PARTIAL",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "BLOCKED"
+  },
+  "cardsFile": "1993-94-topps-premier-hockey.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1993_94_Topps_Premier_Hockey_Base",
+      "name": "Base",
+      "kind": "BASE",
+      "expectedCards": 528,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4988/1993-94-Topps-Premier",
+      "notes": "Two 264-card series in one base checklist."
+    },
+    {
+      "key": "gold",
+      "id": "1993_94_Topps_Premier_Hockey_Gold",
+      "name": "Gold",
+      "kind": "PARALLEL",
+      "expectedCards": 528,
+      "oddsPerPack": 1,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/48484/1993-94-Topps-Premier-Gold",
+      "notes": "One Gold slot per VCS pack. Physical standard packs sometimes had a second Gold."
+    },
+    {
+      "key": "black-gold",
+      "id": "1993_94_Topps_Premier_Hockey_Black_Gold",
+      "name": "Black Gold",
+      "kind": "INSERT",
+      "expectedCards": 24,
+      "oddsPerPack": 72,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4989/1993-94-Topps-Premier-Black-Gold",
+      "notes": "Numbered player cards across both series."
+    },
+    {
+      "key": "finest",
+      "id": "1993_94_Topps_Premier_Hockey_Finest",
+      "name": "Finest",
+      "kind": "INSERT",
+      "expectedCards": 12,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4990/1993-94-Topps-Premier-Finest",
+      "notes": "Shared Topps and O-Pee-Chee Series Two issue. Published insertion rate not verified."
+    },
+    {
+      "key": "team-usa",
+      "id": "1993_94_Topps_Premier_Hockey_Team_USA",
+      "name": "Team USA",
+      "kind": "INSERT",
+      "expectedCards": 23,
+      "oddsPerPack": 24,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/48485/1993-94-Topps-Premier-Team-USA",
+      "notes": "Physical Topps Series Two rate 1:12. Combined equal-series VCS rate 1:24."
+    },
+    {
+      "key": "black-gold-redemptions",
+      "id": "1993_94_Topps_Premier_Hockey_Black_Gold_Redemptions",
+      "name": "Black Gold Redemptions",
+      "kind": "INSERT",
+      "expectedCards": 3,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/4989/1993-94-Topps-Premier-Black-Gold",
+      "notes": "Original pack-issued exchange cards. Mail-in Certified Winners excluded."
+    },
+    {
+      "key": "finest-redemptions",
+      "id": "1993_94_Topps_Premier_Hockey_Finest_Redemptions",
+      "name": "Finest Redemptions",
+      "kind": "INSERT",
+      "expectedCards": 2,
+      "oddsPerPack": null,
+      "defaultGradeability": "COMMON",
+      "sourceUrl": "https://www.tcdb.com/Inserts.cfm/sid/4988/1993-94-Topps-Premier---Black-Gold",
+      "notes": "Two unnumbered exchange cards. VCS identifiers distinguish their prizes."
+    }
+  ]
+}
