@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { readDroppedImage, supportsImageDrop } from "@/lib/image-drop";
+import PasteImageButton from "@/components/PasteImageButton";
 
 type Gradeability = "COMMON" | "GREAT" | "ICONIC";
 
@@ -189,6 +190,7 @@ function DropImageBox({
             }}
           />
         </label>
+        <PasteImageButton onImage={onUpload} disabled={uploading} compact />
       </div>
 
       <input
