@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useMemo, useRef, useState } from "react";
+import { readDroppedImage, supportsImageDrop } from "@/lib/image-drop";
 
 type Props = {
   label: string;
@@ -59,29 +60,32 @@ export default function ImageUploader({ label, value, onUploaded, compact = fals
   }, [value]);
 
   const uploadFile = useCallback(
-    async (file: File) => {
+    async (image: File | string) => {
       setBusy(true);
       setErr(null);
-
       try {
-        // Basic guardrails
-        if (!file.type.startsWith("image/")) {
-          throw new Error("Please upload an image file (jpg/png/webp).");
+        let res: Response;
+        if (typeof image === "string") {
+          res = await fetch("/api/admin/import-image-url", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ url: image }),
+          });
+        } else {
+          if (!image.type.startsWith("image/")) {
+            throw new Error("Please upload an image file (jpg/png/webp/gif).");
+          }
+          const fd = new FormData();
+          fd.append("file", image);
+          res = await fetch("/api/upload", { method: "POST", body: fd });
         }
-
-        const fd = new FormData();
-        fd.append("file", file);
-
-        const res = await fetch("/api/upload", { method: "POST", body: fd });
-        const j = await res.json().catch(() => null);
-        if (!res.ok) throw new Error(j?.error ?? `Upload failed (${res.status})`);
-
-        const normalized = normalizeUploadedUrl(j?.url);
-        if (!normalized) throw new Error("Upload succeeded but no url returned");
-
+        const result = await res.json().catch(() => null);
+        if (!res.ok) throw new Error(result?.error ?? "Image upload failed (" + res.status + ")");
+        const normalized = normalizeUploadedUrl(result?.url);
+        if (!normalized) throw new Error("Image uploaded but no URL was returned.");
         onUploaded(normalized);
-      } catch (e: any) {
-        setErr(e?.message ?? "Upload failed");
+      } catch (error) {
+        setErr(error instanceof Error ? error.message : "Image import failed. Try saving the image first.");
       } finally {
         setBusy(false);
       }
@@ -100,7 +104,7 @@ export default function ImageUploader({ label, value, onUploaded, compact = fals
   );
 
   const handleDragEnter = useCallback((e: React.DragEvent<HTMLDivElement>) => {
-    if (!Array.from(e.dataTransfer.types).includes("Files")) return;
+    if (!supportsImageDrop(e.dataTransfer)) return;
     e.preventDefault();
     e.stopPropagation();
     dragDepthRef.current += 1;
@@ -115,7 +119,7 @@ export default function ImageUploader({ label, value, onUploaded, compact = fals
   }, []);
 
   const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
-    if (!Array.from(e.dataTransfer.types).includes("Files")) return;
+    if (!supportsImageDrop(e.dataTransfer)) return;
     e.preventDefault();
     e.stopPropagation();
     e.dataTransfer.dropEffect = "copy";
@@ -128,9 +132,12 @@ export default function ImageUploader({ label, value, onUploaded, compact = fals
       dragDepthRef.current = 0;
       setDragActive(false);
       if (busy) return;
-      const file = e.dataTransfer.files?.[0];
-      if (!file) return;
-      await uploadFile(file);
+      const image = await readDroppedImage(e.dataTransfer);
+      if (!image) {
+        setErr("No image was supplied. Drag the picture itself, or save it and choose the file.");
+        return;
+      }
+      await uploadFile(image);
     },
     [uploadFile, busy]
   );
@@ -148,7 +155,7 @@ export default function ImageUploader({ label, value, onUploaded, compact = fals
         onDragLeave={handleDragLeave}
         onDragOver={handleDragOver}
         onDrop={onDrop}
-        title={`Drop an image to update ${label.toLowerCase()}`}
+        title={`Drop an image file or web image to update ${label.toLowerCase()}`}
       >
         {dragActive ? <div className="vcs-admin-image-drop-overlay" aria-hidden="true">Drop image here</div> : null}
         <div className="vcs-admin-image-compact-main">
@@ -195,9 +202,9 @@ export default function ImageUploader({ label, value, onUploaded, compact = fals
             color: dragActive ? "#075e63" : "#444",
             fontSize: 12,
           }}
-          title="Drag & drop an image here"
+          title="Drag an image file or website image here"
         >
-          {busy ? "Uploading…" : dragActive ? "Drop image here" : "Drag & drop image here"}
+          {busy ? "Uploading…" : dragActive ? "Drop image here" : "Drop file or web image here"}
         </div>
 
         <button
