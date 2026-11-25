@@ -8,7 +8,7 @@ export type DroppedImage = File | string;
 export function supportsImageDrop(data: DataTransfer): boolean {
   const types = Array.from(data.types);
   return types.some((type) =>
-    ["Files", "text/uri-list", "text/html", "text/plain", "text/x-moz-url", "DownloadURL"].includes(type)
+    ["Files", "text/uri-list", "text/html", "text/plain", "text/x-moz-url", "text/x-moz-url-data", "DownloadURL"].includes(type) || type.startsWith("image/")
   );
 }
 
@@ -48,9 +48,10 @@ export async function readDroppedImage(data: DataTransfer): Promise<DroppedImage
   }
 
   const moz = data.getData("text/x-moz-url").split(/\r?\n/)[0];
+  const mozData = data.getData("text/x-moz-url-data");
   const uri = data.getData("text/uri-list").split(/\r?\n/).find((line) => line && !line.startsWith("#")) ?? "";
   const plain = data.getData("text/plain").split(/\r?\n/)[0];
-  const source = [htmlImage, downloadMatch?.[1], moz, uri, plain]
+  const source = [htmlImage, downloadMatch?.[1], mozData, moz, uri, plain]
     .map((item) => imageCandidate(item ?? ""))
     .find((item): item is string => Boolean(item));
 

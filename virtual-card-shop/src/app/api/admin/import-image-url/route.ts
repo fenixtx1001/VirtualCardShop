@@ -138,10 +138,12 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "R2 storage is not configured." }, { status: 503 });
   }
 
+  let sourceHost = "unknown";
   try {
     const payload = await req.json();
     if (typeof payload?.url !== "string") throw new Error("Missing image URL.");
     const url = checkedUrl(payload.url);
+    sourceHost = url.hostname;
     const { bytes, mime } = await readPublicImage(url);
     if (!imageIsValid(bytes, mime)) throw new Error("The source did not return a valid image file.");
     const hash = createHash("sha256").update(bytes).digest("hex").slice(0, 24);
@@ -150,6 +152,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true, url: storedUrl, bytes: bytes.length, mime, storageProvider: "r2" });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Image import failed.";
+    console.warn("[manual-image-import] rejected", { sourceHost, reason: message.slice(0, 180) });
     return NextResponse.json({ error: message }, { status: 400 });
   }
 }
