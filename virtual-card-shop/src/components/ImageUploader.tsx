@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo, useRef, useState } from "react";
 import { readDroppedImage, supportsImageDrop } from "@/lib/image-drop";
+import PasteImageButton from "@/components/PasteImageButton";
 
 type Props = {
   label: string;
@@ -172,6 +173,7 @@ export default function ImageUploader({ label, value, onUploaded, compact = fals
           >
             {busy ? "Uploading…" : previewHref ? "Replace" : "Upload"}
           </button>
+          <PasteImageButton onImage={uploadFile} disabled={busy} compact />
           <input ref={inputRef} type="file" accept="image/*" onChange={onPick} style={{ display: "none" }} />
         </div>
         {warning ? <span className="vcs-admin-image-warning" title={warning}>Legacy URL ⚠</span> : null}
@@ -222,6 +224,8 @@ export default function ImageUploader({ label, value, onUploaded, compact = fals
         >
           {busy ? "Uploading…" : "Choose file"}
         </button>
+
+        <PasteImageButton onImage={uploadFile} disabled={busy} />
 
         <input ref={inputRef} type="file" accept="image/*" onChange={onPick} style={{ display: "none" }} />
 
