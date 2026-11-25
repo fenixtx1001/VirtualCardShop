@@ -88,7 +88,7 @@ export default function PasteImageButton({ onImage, disabled = false, compact = 
           whiteSpace: "nowrap"
         }}
       >
-        {reading ? "Reading…" : "Paste image"}
+        {reading ? "Reading…" : compact ? "Paste" : "Paste image"}
       </button>
       {message ? (
         <span role="status" style={{ color: "#a32f28", maxWidth: compact ? 170 : 250, fontSize: 11 }}>
