@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { readDroppedImage, supportsImageDrop } from "@/lib/image-drop";
 
 type Gradeability = "COMMON" | "GREAT" | "ICONIC";
 
@@ -103,8 +104,9 @@ function DropImageBox({
   imageUrl: string;
   uploading: boolean;
   onUrlChange: (url: string) => void;
-  onUpload: (file: File) => void;
+  onUpload: (file: File | string) => void;
 }) {
+  const [dropError, setDropError] = useState<string | null>(null);
   return (
     <div style={{ display: "grid", gap: 6, minWidth: 210 }}>
       <b style={{ fontSize: 12 }}>{label}</b>
@@ -145,12 +147,21 @@ function DropImageBox({
 
         <label
           onDragOver={(e) => {
+            if (!supportsImageDrop(e.dataTransfer)) return;
             e.preventDefault();
+            e.dataTransfer.dropEffect = "copy";
           }}
           onDrop={(e) => {
             e.preventDefault();
-            const file = e.dataTransfer.files?.[0];
-            if (file) onUpload(file);
+            e.stopPropagation();
+            void readDroppedImage(e.dataTransfer).then((image) => {
+              if (image) {
+                setDropError(null);
+                onUpload(image);
+              } else {
+                setDropError("No image found in that drag. Save it first or drag the picture itself.");
+              }
+            });
           }}
           style={{
             width: 145,
@@ -192,6 +203,8 @@ function DropImageBox({
           fontSize: 11,
         }}
       />
+
+      {dropError ? <small role="alert" style={{ color: "#b42318" }}>{dropError}</small> : null}
 
       {imageUrl ? (
         <a href={imageUrl} target="_blank" rel="noreferrer" style={{ fontSize: 11 }}>
@@ -273,19 +286,24 @@ export default function AdminCardsPage() {
     }));
   }
 
-  async function uploadImage(cardId: number, side: "front" | "back", file: File) {
+  async function uploadImage(cardId: number, side: "front" | "back", image: File | string) {
     const key = `${cardId}-${side}`;
     setUploading((prev) => ({ ...prev, [key]: true }));
     setError("");
 
     try {
-      const form = new FormData();
-      form.append("file", file);
-
-      const res = await fetch("/api/upload", {
-        method: "POST",
-        body: form,
-      });
+      let res: Response;
+      if (typeof image === "string") {
+        res = await fetch("/api/admin/import-image-url", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url: image }),
+        });
+      } else {
+        const form = new FormData();
+        form.append("file", image);
+        res = await fetch("/api/upload", { method: "POST", body: form });
+      }
 
       const data = await res.json();
 
