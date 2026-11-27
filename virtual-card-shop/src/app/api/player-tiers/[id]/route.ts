@@ -3,6 +3,7 @@ import { PlayerTier } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { cleanCanonicalPlayerName, normalizePlayerName } from "@/lib/player-tiers";
 import { approvedAliasFor, protectedAliasTarget, protectedAliasTargetById } from "@/lib/player-tier-aliases";
+import { protectedContextKey, protectedContextId } from "@/lib/player-tier-c003";
 import { cleanupTarget, cleanupTargetById, isTeamAlias, isOverrideKey, isOverrideId } from "@/lib/player-tier-cleanup";
 
 type Ctx =
@@ -52,11 +53,11 @@ export async function PUT(req: Request, ctx: Ctx) {
       return NextResponse.json({ ok: false, error: "Invalid tier" }, { status: 400 });
     }
 
-    if (isOverrideId(id) || isOverrideKey(sport,normalizedName) || isTeamAlias(sport,normalizedName) || sport === "Basketbal") {
+    if (protectedContextId(id)||protectedContextKey(sport,normalizedName)||isOverrideId(id) || isOverrideKey(sport,normalizedName) || isTeamAlias(sport,normalizedName) || sport === "Basketbal") {
       return NextResponse.json({ok:false,error:"Reviewed identity or effective override requires explicit review."},{status:409});
     }
     const original = await prisma.playerTierProfile.findUnique({where:{id}});
-    if (original && (original.sport === "Basketbal" || await normalizePlayerName(original.canonicalName,original.sport) !== original.normalizedName)) {
+    if (original && (protectedContextKey(original.sport,original.normalizedName)||original.sport === "Basketbal" || await normalizePlayerName(original.canonicalName,original.sport) !== original.normalizedName)) {
       return NextResponse.json({ok:false,error:"Artifact or legacy profile requires explicit reconciliation."},{status:409});
     }
     const target = protectedAliasTargetById(id) ?? cleanupTargetById(id);
@@ -102,7 +103,8 @@ export async function DELETE(_req: Request, ctx: Ctx) {
       return NextResponse.json({ ok: false, error: "Invalid id" }, { status: 400 });
     }
 
-    if (protectedAliasTargetById(id) || cleanupTargetById(id) || isOverrideId(id)) {
+    const existing=await prisma.playerTierProfile.findUnique({where:{id}});
+    if (protectedContextId(id)||(existing&&protectedContextKey(existing.sport,existing.normalizedName))||protectedAliasTargetById(id) || cleanupTargetById(id) || isOverrideId(id)) {
       return NextResponse.json({ ok: false, error: "Remove approved alias mappings before deleting this canonical profile." }, { status: 409 });
     }
 
