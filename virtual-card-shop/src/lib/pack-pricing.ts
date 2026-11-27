@@ -1,4 +1,6 @@
 import { prisma } from "@/lib/prisma";
+import type { Prisma } from "@prisma/client";
+type PricingDb = Pick<Prisma.TransactionClient,"product"|"card">;
 
 export const PACK_EV_TARGET_RATIO = 2;
 export const PACK_PRICE_INCREMENT_CENTS = 5;
@@ -41,9 +43,9 @@ export function automaticPackPriceCents(evPerPack: number) {
 }
 
 export async function calculateProductPackPricing(
-  productId: string
+  productId: string, db:PricingDb=prisma
 ): Promise<ProductPackPricing | null> {
-  const product = await prisma.product.findUnique({
+  const product = await db.product.findUnique({
     where: { id: productId },
     select: {
       id: true,
@@ -67,7 +69,7 @@ export async function calculateProductPackPricing(
 
   const grouped =
     setIds.length > 0
-      ? await prisma.card.groupBy({
+      ? await db.card.groupBy({
           by: ["productSetId"],
           where: {
             productSetId: {
@@ -172,13 +174,13 @@ export async function calculateProductPackPricing(
   };
 }
 
-export async function repriceProduct(productId: string) {
-  const pricing = await calculateProductPackPricing(productId);
+export async function repriceProduct(productId: string, db:PricingDb=prisma) {
+  const pricing = await calculateProductPackPricing(productId,db);
 
   if (!pricing) return null;
 
   if (pricing.autoPackPricing) {
-    await prisma.product.update({
+    await db.product.update({
       where: {
         id: productId,
       },
