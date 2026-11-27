@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import {
   ensurePlayerTierProfile,
+  resolveCardTierIdentity,
   getDefaultPriceForPlayer,
   tierLabel,
 } from "@/lib/player-tiers";
@@ -89,6 +90,7 @@ export async function POST(
           product: {
             select: {
               sport: true,
+              year: true,
             },
           },
         },
@@ -120,6 +122,8 @@ export async function POST(
         select: {
           id: true,
           player: true,
+          cardNumber: true,
+          team: true,
           bookValue: true,
         },
 
@@ -134,8 +138,10 @@ export async function POST(
       new Set<string>();
 
     for (const card of cards) {
-      const key =
-        `${sport}::${card.player ?? ""}`;
+      const context={...card,productSetId,year:productSet.product?.year};
+      const identity=await resolveCardTierIdentity(sport,card.player,context);
+      if(identity.blocked)continue;
+      const key=`${sport}::${identity.normalizedName}`;
 
       if (seen.has(key)) {
         continue;
@@ -148,6 +154,7 @@ export async function POST(
           prisma,
           sport,
           player: card.player,
+          card: context,
         });
 
       if (
@@ -218,6 +225,7 @@ export async function POST(
           prisma,
           productSetId,
           player: card.player,
+          card: {...card,productSetId},
         });
 
       if (
@@ -225,7 +233,7 @@ export async function POST(
         result.defaultPrice === null
       ) {
         if (
-          result.reason ===
+          result.reason === "ambiguous-identity" || result.reason ===
             "unassigned-tier" ||
           result.reason ===
             "no-tier-profile"
