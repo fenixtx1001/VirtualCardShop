@@ -4,7 +4,7 @@ import Link from "next/link";
 import PricingAdvisor from "./pricing-advisor";
 import PricingVerification from "./pricing-verification";
 import { PRICE_FIELDS } from "@/lib/pricing-advisor";
-import type { ApplySummary } from "@/lib/apply-tier-prices";
+import type { ApplySummary, ApplyMode } from "@/lib/apply-tier-prices";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { formatPublishedOdds, getPublishedOdds } from "@/lib/published-product-set-odds";
@@ -422,16 +422,17 @@ export default function ProductSetsClient() {
     });
   }
 
-  async function applyAllCardPrices(row:ProductSetRow) {
+  async function applyAllCardPrices(row:ProductSetRow,mode:ApplyMode) {
     if(applyingRef.current||savingId)return;
     const draft=drafts[row.id]??createDraft(row);
     if(PRICE_FIELDS.some(k=>parseNullableNumberInput(draft[k])!==row[k]||row[k]===null||row[k]!<=0))return;
+    if(mode==="overwriteAllPrices"&&!window.confirm("Overwrite existing card values in "+row.id+" with saved tier defaults?\n\nThis replaces manual prices for eligible cards. Choose Fill blank prices instead to preserve existing values."))return;
     applyingRef.current=true;
     setApplyingId(row.id);
     setApplyResults(previous=>({...previous,[row.id]:{}}));
     try {
       const prices=Object.fromEntries(PRICE_FIELDS.map(k=>[k,row[k]]));
-      const res=await fetch("/api/product-sets/"+encodeURIComponent(row.id)+"/apply-tier-prices",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({prices})});
+      const res=await fetch("/api/product-sets/"+encodeURIComponent(row.id)+"/apply-tier-prices",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({prices,mode,confirmedOverwrite:mode==="overwriteAllPrices"})});
       const data=await res.json();
       if(!res.ok||!data.ok||!data.summary)throw new Error(data.error||"Unable to apply tier prices.");
       const summary:ApplySummary=data.summary;
@@ -1004,7 +1005,7 @@ export default function ProductSetsClient() {
       <div className="vcs-admin-pricing-toolbar">
         <div>
           <strong>Tier default pricing</strong>
-          <span>Initial estimates are unverified until you confirm. Price all cards overwrites eligible card values using the saved tier defaults, without leaving this list. Editing tier prices clears verification.</span>
+          <span>Initial estimates are unverified until you confirm. Fill blank prices preserves existing values. Overwrite all is a separate confirmed action. Editing tier prices clears verification.</span>
         </div>
         <button
           type="button"
@@ -1137,9 +1138,10 @@ export default function ProductSetsClient() {
                         >{expanded ? "Close prices" : "Edit prices"}</button>
                         <small className="vcs-admin-set-meta">{configuredPrices}/6 set</small>
                         <PricingVerification id={row.id} prices={row} verified={row.pricingVerified} disabled={saving||applying||priceDirty} onChange={value=>{setRows(current=>current.map(r=>r.id===row.id?{...r,pricingVerified:value}:r));if(pricingReview)void loadRows({preserveMessage:true,preserveOtherDraftsThan:"__pricing_advisor__"});}}/>
-                      <button type="button" className="vcs-admin-set-apply-prices" style={{display:"block",marginTop:5,width:"100%",fontSize:11,fontWeight:700,padding:"5px 3px",borderRadius:6,border:"1px solid #23824e",background:"#eaf7ef",color:"#166534",whiteSpace:"normal"}} disabled={!!applyingId||!!savingId||priceDirty||!completePrices||totalCards===0} aria-label={"Price all cards in "+row.id+" (overwrite existing values)"} title="Overwrite all eligible card values in this set with the six saved tier defaults. Cards without a resolved tier are skipped." onClick={()=>void applyAllCardPrices(row)}>{applying?"Pricing…":"Price all cards"}</button>
+                      <button type="button" className="vcs-admin-set-apply-prices" style={{display:"block",marginTop:5,width:"100%",fontSize:11,fontWeight:700,padding:"5px 3px",borderRadius:6,border:"1px solid #23824e",background:"#eaf7ef",color:"#166534",whiteSpace:"normal"}} disabled={!!applyingId||!!savingId||priceDirty||!completePrices||totalCards===0} aria-label={"Fill blank prices in "+row.id} title="Price only cards with a zero book value. Existing prices are preserved." onClick={()=>void applyAllCardPrices(row,"fillBlankPrices")}>{applying?"Pricing…":"Fill blank prices"}</button>
+                        <button type="button" className="vcs-admin-set-overwrite-prices" style={{display:"block",marginTop:3,width:"100%",fontSize:11,padding:"3px",borderRadius:6,border:"1px solid #d6b98b",background:"transparent",color:"#925b14",whiteSpace:"normal"}} disabled={!!applyingId||!!savingId||priceDirty||!completePrices||totalCards===0} aria-label={"Overwrite all prices in "+row.id} title="Replace existing eligible card prices only after confirmation." onClick={()=>void applyAllCardPrices(row,"overwriteAllPrices")}>Overwrite all</button>
                         <small className="vcs-admin-set-meta" style={{whiteSpace:"normal"}}>{priceDirty?"Save prices first":!completePrices?"Set all six prices":row.pricingVerified?"Uses saved defaults":"Uses unverified estimates"}</small>
-                        {applyResult?.summary&&<small role="status" style={{display:"block",color:"#166534",fontSize:11,whiteSpace:"normal"}}>{applyResult.summary.updatedCards} updated · {applyResult.summary.alreadyCorrect} unchanged · {applyResult.summary.skippedNoTier+applyResult.summary.skippedNoPrice} skipped</small>}
+                        {applyResult?.summary&&<small role="status" style={{display:"block",color:"#166534",fontSize:11,whiteSpace:"normal"}}>{applyResult.summary.updatedCards} updated · {applyResult.summary.alreadyCorrect+applyResult.summary.skippedAlreadyPriced} preserved · {applyResult.summary.skippedNoTier+applyResult.summary.skippedNoPrice} skipped</small>}
                         {applyResult?.error&&<small role="alert" style={{display:"block",color:"#b42318",fontSize:11,whiteSpace:"normal"}}>{applyResult.error}</small>}
                       </td>
                       <td style={td}>
