@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "tcdb": "https://www.tcdb.com/ViewSet.cfm/sid/2227/1994-95-Flair",
+    "checklist": "https://www.tcdb.com/Checklist.cfm/sid/2227/1994-95-Flair",
+    "secondary": "https://mycardbatch.com/checklists/flair-1994-basketball",
+    "rookies": "https://www.tcdb.com/Rookies.cfm/sid/2227/1994-95-Flair",
+    "odds": "https://www.tcdb.com/Inserts.cfm/sid/2227/1994-95-Flair",
+    "pack": "https://waxpackworld.com/1994-Flair-Basketball-Series-1-Pack_p_2550.html",
+    "box": "https://sports.ha.com/itm/basketball-cards/unopened-packs-display-boxes/1994-flair-basketball-series-1-and-series-2-unopened-box-pair-2-/a/152512-44124.s"
+  },
+  "decisions": {
+    "base": "One collector checklist #1–326, series 1 #1–175; series 2 #176–326. #326 late addition. Five checklist cards have no team. USA team is actual card subject affiliation.",
+    "odds": "All six original series-specific odds from TCDB. VCS single mixed-series pack assumes equal series pack frequency, so each denominator doubles; modeled, not published combined odds. Base availability flattened per Set Factory convention.",
+    "pack": "Six cards per pack, 24 packs per box per Wax Pack World and Heritage; some retailer listings disagree (8/10); choose corroborated six-card format.",
+    "rookies": "43 TCDB rookie-index cards flagged RC only in base; insert subjects not RC.",
+    "verification": "Full 388-row MyCardBatch checklist transcribed; TCDB structure, rookies, sample rows and original insert odds corroborated; full independent row-by-row secondary comparison pending.",
+    "pricing": "No prices set; images pending; unreleased."
+  },
+  "product": {
+    "id": "1994_Flair_Basketball",
+    "year": 1994,
+    "brand": "Flair",
+    "sport": "Basketball",
+    "cardsPerPack": 6,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "DRAFT"
+  },
+  "cardsFile": "1994-95-flair-basketball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1994_Flair_Basketball_Base",
+      "name": "Base Set",
+      "kind": "BASE",
+      "expectedCards": 326,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2227/1994-95-Flair"
+    },
+    {
+      "key": "center_spotlight",
+      "id": "1994_Flair_Basketball_center_spotlight",
+      "name": "Center Spotlight",
+      "kind": "INSERT",
+      "expectedCards": 6,
+      "oddsPerPack": 50,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2228/1994-95-Flair",
+      "notes": "Published Series 1 1:25; modeled 50/50 mixed-series pack 1:50."
+    },
+    {
+      "key": "hot_numbers",
+      "id": "1994_Flair_Basketball_hot_numbers",
+      "name": "Hot Numbers",
+      "kind": "INSERT",
+      "expectedCards": 20,
+      "oddsPerPack": 12,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2229/1994-95-Flair",
+      "notes": "Published Series 1 1:6; modeled 50/50 mixed-series pack 1:12."
+    },
+    {
+      "key": "play_maker",
+      "id": "1994_Flair_Basketball_play_maker",
+      "name": "Play Maker",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": 8,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2230/1994-95-Flair",
+      "notes": "Published Series 2 1:4; modeled 50/50 mixed-series pack 1:8."
+    },
+    {
+      "key": "rejectors",
+      "id": "1994_Flair_Basketball_rejectors",
+      "name": "Rejectors",
+      "kind": "INSERT",
+      "expectedCards": 6,
+      "oddsPerPack": 50,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2231/1994-95-Flair",
+      "notes": "Published Series 2 1:25; modeled 50/50 mixed-series pack 1:50."
+    },
+    {
+      "key": "scoring_power",
+      "id": "1994_Flair_Basketball_scoring_power",
+      "name": "Scoring Power",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": 16,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2232/1994-95-Flair",
+      "notes": "Published Series 1 1:8; modeled 50/50 mixed-series pack 1:16."
+    },
+    {
+      "key": "wave_of_the_future",
+      "id": "1994_Flair_Basketball_wave_of_the_future",
+      "name": "Wave of the Future",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": 14,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2233/1994-95-Flair",
+      "notes": "Published Series 2 1:7; modeled 50/50 mixed-series pack 1:14."
+    }
+  ]
+}
