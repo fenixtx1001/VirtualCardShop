@@ -2,10 +2,12 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/current-user";
 import { aggregateSummaryRows } from "@/lib/analytics/aggregate-summary";
+import { C003_CARDS, contextualKey } from "@/lib/player-tier-c003";
 import { serverTimingHeader } from "@/lib/performance-timing";
 import {
   cleanCanonicalPlayerName,
   normalizePlayerName,
+  resolveCardTierIdentity,
 } from "@/lib/player-tiers";
 
 export const runtime = "nodejs";
@@ -308,6 +310,7 @@ export async function GET(req: Request) {
     });
 
     const playerGroups = new Map<string, { key: string; label: string }>();
+    const contextualGroups=new Map<number,{key:string;label:string}>();
 
     if (groupBy === "player") {
       const uniquePlayers = Array.from(
@@ -341,6 +344,16 @@ export async function GET(req: Request) {
       }
     }
 
+    if(groupBy==="player"){
+      const ids=new Set<number>(C003_CARDS.map(c=>c.id));
+      for(const c of cards){
+        const sport=c.productSet?.product?.sport||"";
+        const raw=String(c.player??"").trim();
+        if(!ids.has(c.id)&&!contextualKey(sport,playerGroups.get(raw)?.key||""))continue;
+        const identity=await resolveCardTierIdentity(sport,c.player,{...c,year:c.productSet?.product?.year});
+        contextualGroups.set(c.id,identity.blocked?{key:sport+"::unresolved::"+c.id,label:raw+" (identity needs review)"}:{key:sport+"::"+identity.normalizedName,label:identity.canonicalName});
+      }
+    }
     const buckets = new Map<string, SummaryBucket>();
 
     for (const c of cards) {
@@ -365,7 +378,7 @@ export async function GET(req: Request) {
 
       if (groupBy === "player") {
         const rawPlayer = String(c.player ?? "").trim();
-        const playerGroup = playerGroups.get(rawPlayer) ?? {
+        const playerGroup = contextualGroups.get(c.id) ?? playerGroups.get(rawPlayer) ?? {
           key: rawPlayer ? norm(rawPlayer) : "—",
           label: rawPlayer || "—",
         };
