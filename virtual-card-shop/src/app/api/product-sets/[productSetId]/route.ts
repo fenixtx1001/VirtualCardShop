@@ -189,6 +189,7 @@ export async function GET(
           star1Price: true,
           star2Price: true,
           star3Price: true,
+          pricingVerified: true,
           defaultGradeability: true,
           product: true,
 
@@ -405,39 +406,25 @@ export async function PUT(
             isInsert ?? undefined,
 
           oddsPerPack:
-            numberOrNull(
-              body.oddsPerPack
-            ),
+            body.oddsPerPack === undefined ? undefined : numberOrNull(body.oddsPerPack),
 
           commonPrice:
-            numberOrNull(
-              body.commonPrice
-            ),
+            body.commonPrice === undefined ? undefined : numberOrNull(body.commonPrice),
 
           semiStarPrice:
-            numberOrNull(
-              body.semiStarPrice
-            ),
+            body.semiStarPrice === undefined ? undefined : numberOrNull(body.semiStarPrice),
 
           unlistedStarPrice:
-            numberOrNull(
-              body.unlistedStarPrice
-            ),
+            body.unlistedStarPrice === undefined ? undefined : numberOrNull(body.unlistedStarPrice),
 
           star1Price:
-            numberOrNull(
-              body.star1Price
-            ),
+            body.star1Price === undefined ? undefined : numberOrNull(body.star1Price),
 
           star2Price:
-            numberOrNull(
-              body.star2Price
-            ),
+            body.star2Price === undefined ? undefined : numberOrNull(body.star2Price),
 
           star3Price:
-            numberOrNull(
-              body.star3Price
-            ),
+            body.star3Price === undefined ? undefined : numberOrNull(body.star3Price),
 
           defaultGradeability,
         },

@@ -23,7 +23,7 @@ export async function GET(req:Request){
   if(!targets.length)return json({error:"No product sets found."},404);
   const sport=targets[0].product.sport;
   const sports=sport&&["basketbal","basketball"].includes(sport.toLowerCase())?["Basketbal","Basketball"]:sport?[sport]:[];
-  const history:PricingRow[]=sports.length?await prisma.productSet.findMany({where:{productId:{not:productId},product:{released:true,sport:{in:sports,mode:"insensitive"}},commonPrice:{gt:0},semiStarPrice:{gt:0},unlistedStarPrice:{gt:0},star1Price:{gt:0},star2Price:{gt:0},star3Price:{gt:0}},select}):[];
+  const history:PricingRow[]=sports.length?await prisma.productSet.findMany({where:{pricingVerified:true,productId:{not:productId},product:{released:true,sport:{in:sports,mode:"insensitive"}},commonPrice:{gt:0},semiStarPrice:{gt:0},unlistedStarPrice:{gt:0},star1Price:{gt:0},star2Price:{gt:0},star3Price:{gt:0}},select}):[];
   return json({productId,recommendations:targets.map(t=>recommendPrices(t,history))});
  }catch(e){console.error("Pricing Advisor preview",e);return json({error:"Unable to generate pricing recommendations."},500);}
 }

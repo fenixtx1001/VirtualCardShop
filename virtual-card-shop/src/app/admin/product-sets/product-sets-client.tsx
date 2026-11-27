@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import PricingAdvisor from "./pricing-advisor";
+import PricingVerification from "./pricing-verification";
+import { PRICE_FIELDS } from "@/lib/pricing-advisor";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { formatPublishedOdds, getPublishedOdds } from "@/lib/published-product-set-odds";
@@ -19,6 +21,7 @@ type ProductSetRow = {
   star1Price: number | null;
   star2Price: number | null;
   star3Price: number | null;
+  pricingVerified: boolean;
   _count?: { cards: number };
   stats?: {
     totalCards: number;
@@ -139,6 +142,7 @@ export default function ProductSetsClient() {
   const [onlyInsert, setOnlyInsert] = useState(false);
   const [sportFilter, setSportFilter] = useState("");
   const [yearFilter, setYearFilter] = useState("");
+  const [pricingReview, setPricingReview] = useState("");
 
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(50);
@@ -146,7 +150,7 @@ export default function ProductSetsClient() {
   const [totalPages, setTotalPages] = useState(1);
   // Only infer a product from a complete response for the current filters.
   const [advisorScope, setAdvisorScope] = useState<{key:string;id:string}>({key:"",id:""});
-  const advisorFilterKey = JSON.stringify([debouncedQ,productFilter,onlyBase,onlyInsert,sportFilter,yearFilter,page,pageSize]);
+  const advisorFilterKey = JSON.stringify([debouncedQ,productFilter,onlyBase,onlyInsert,sportFilter,yearFilter,pricingReview,page,pageSize]);
   const inferredProduct = q.trim() === debouncedQ && advisorScope.key === advisorFilterKey ? advisorScope.id : "";
   const advisorProductId = productFilter || inferredProduct;
 
@@ -278,6 +282,7 @@ export default function ProductSetsClient() {
       if (onlyInsert) params.set("onlyInsert", "true");
       if (sportFilter) params.set("sport", sportFilter);
       if (yearFilter) params.set("year", yearFilter);
+      if (pricingReview) params.set("pricingReview", pricingReview);
 
       const res = await fetch(`/api/product-sets?${params.toString()}`, {
         cache: "no-store",
@@ -363,6 +368,8 @@ export default function ProductSetsClient() {
 
   useEffect(() => {
     loadProductsForFilters();
+    const initialQuery = new URLSearchParams(window.location.search).get("q");
+    if(initialQuery){setQ(initialQuery);setDebouncedQ(initialQuery);}
   }, []);
 
   useEffect(() => {
@@ -376,6 +383,7 @@ export default function ProductSetsClient() {
     onlyInsert,
     sportFilter,
     yearFilter,
+    pricingReview,
   ]);
 
   function patchDraft(id: string, patch: Partial<ProductSetDraft>) {
@@ -524,6 +532,7 @@ export default function ProductSetsClient() {
     setOnlyInsert(false);
     setSportFilter("");
     setYearFilter("");
+    setPricingReview("");
     setPage(1);
   }
 
@@ -926,6 +935,11 @@ export default function ProductSetsClient() {
           </select>
         </div>
 
+        <label style={{display:"flex",flexDirection:"column",gap:4,fontSize:12,fontWeight:800}}>Pricing review
+          <select value={pricingReview} onChange={e=>{setPricingReview(e.target.value);setPage(1);}} style={{padding:8}}>
+            <option value="">All sets</option><option value="unverified">Needs verification</option><option value="verified">Verified</option>
+          </select>
+        </label>
         <button
           type="button"
           onClick={clearFilters}
@@ -966,7 +980,7 @@ export default function ProductSetsClient() {
       <div className="vcs-admin-pricing-toolbar">
         <div>
           <strong>Tier default pricing</strong>
-          <span>Compare sets using published pack odds. Saving one row preserves unsaved edits in the other rows.</span>
+          <span>Initial estimates are unverified until you confirm. Editing prices clears verification; filter to review outstanding sets.</span>
         </div>
         <button
           type="button"
@@ -1094,6 +1108,7 @@ export default function ProductSetsClient() {
                           title="Expand all six editable player-tier default prices"
                         >{expanded ? "Close prices" : "Edit prices"}</button>
                         <small className="vcs-admin-set-meta">{configuredPrices}/6 set</small>
+                        <PricingVerification id={row.id} prices={row} verified={row.pricingVerified} disabled={saving||PRICE_FIELDS.some(k=>parseNullableNumberInput(draft[k])!==row[k])} onChange={value=>{setRows(current=>current.map(r=>r.id===row.id?{...r,pricingVerified:value}:r));if(pricingReview)void loadRows({preserveMessage:true,preserveOtherDraftsThan:"__pricing_advisor__"});}}/>
                       </td>
                       <td style={td}>
                         <div className="vcs-admin-set-coverage" aria-label={"Setup completion for " + row.id}>
@@ -1137,7 +1152,7 @@ export default function ProductSetsClient() {
                               ))}
                             </div>
                             <div className="vcs-admin-set-price-footer">
-                              <span>Blank values remain unconfigured. Saving also applies edits in this set's main row.</span>
+                              <span>Save changes before verifying. Editing a tier price resets verification.</span>
                               <button type="button" onClick={() => saveRow(row)} disabled={saving}>{saving ? "Saving…" : "Save prices"}</button>
                             </div>
                           </div>

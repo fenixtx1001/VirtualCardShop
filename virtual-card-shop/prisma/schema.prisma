@@ -110,6 +110,7 @@ model ProductSet {
   star1Price          Float?
   star2Price          Float?
   star3Price          Float?
+  pricingVerified     Boolean              @default(false)
   defaultGradeability Gradeability         @default(COMMON)
   createdAt           DateTime             @default(now())
   updatedAt           DateTime             @updatedAt
