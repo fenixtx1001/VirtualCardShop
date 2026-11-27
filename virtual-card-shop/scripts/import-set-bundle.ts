@@ -100,12 +100,8 @@ function chunks<T>(values: T[], size: number) {
 
 function flagsForKind(kind: ProductSetKind) {
   if (kind === "BASE") return { isBase: true, isInsert: false };
-  if (kind === "INSERT") return { isBase: false, isInsert: true };
-
-  // ProductSet predates explicit parallel semantics. Pack ripping treats any
-  // non-base ProductSet with oddsPerPack as a hit pool, so PARALLEL can remain
-  // neither base nor insert while still behaving correctly in packs.
-  return { isBase: false, isInsert: false };
+  // Preserve PARALLEL in manifest metadata; VCS classifies pack parallels as inserts.
+  return { isBase: false, isInsert: true };
 }
 
 function validateBundle(input: unknown): SetBundle {
@@ -352,8 +348,12 @@ async function main() {
     const cards = cardsByKey.get(productSet.key) ?? [];
     const existingProductSet = await prisma.productSet.findUnique({
       where: { id: productSet.id },
-      select: { id: true },
+      select: { id: true, isBase: true, isInsert: true, oddsPerPack: true },
     });
+    if (!existingProductSet && productSet.kind !== "BASE" &&
+        !(Number.isInteger(productSet.oddsPerPack) && (productSet.oddsPerPack ?? 0) > 0)) {
+      throw new Error(`New ${productSet.kind} ${productSet.id} requires positive integer oddsPerPack. Research or document an estimate; exclude non-pack issues from the pack bundle.`);
+    }
     const existingCards = await prisma.card.findMany({
       where: { productSetId: productSet.id },
       select: { cardNumber: true },
@@ -467,9 +467,8 @@ async function main() {
       update: {
         productId: bundle.product.id,
         name: productSet.name ?? null,
-        isBase: flags.isBase,
-        isInsert: flags.isInsert,
-        oddsPerPack: productSet.oddsPerPack ?? null,
+        // Existing subsets keep their odds/checkboxes, including owner overrides.
+        // Retroactive changes require a separate explicit admin operation.
         defaultGradeability:
           productSet.defaultGradeability ?? Gradeability.COMMON,
       },
