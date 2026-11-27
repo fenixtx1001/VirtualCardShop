@@ -4,6 +4,7 @@ import Link from "next/link";
 import PricingAdvisor from "./pricing-advisor";
 import PricingVerification from "./pricing-verification";
 import { PRICE_FIELDS } from "@/lib/pricing-advisor";
+import type { ApplySummary } from "@/lib/apply-tier-prices";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { formatPublishedOdds, getPublishedOdds } from "@/lib/published-product-set-odds";
@@ -128,6 +129,9 @@ export default function ProductSetsClient() {
 
   const [error, setError] = useState<string | null>(null);
   const [savingId, setSavingId] = useState<string | null>(null);
+  const [applyingId, setApplyingId] = useState<string | null>(null);
+  const applyingRef = useRef(false);
+  const [applyResults, setApplyResults] = useState<Record<string, {summary?:ApplySummary;error?:string}>>({});
   const [expandAllPricing, setExpandAllPricing] = useState(false);
   const [expandedPricingOverrides, setExpandedPricingOverrides] = useState<Record<string, boolean>>({});
   const [saveOk, setSaveOk] = useState<string | null>(null);
@@ -416,6 +420,26 @@ export default function ProductSetsClient() {
       isInsert: value,
       isBase: value ? false : drafts[id]?.isBase ?? false,
     });
+  }
+
+  async function applyAllCardPrices(row:ProductSetRow) {
+    if(applyingRef.current||savingId)return;
+    const draft=drafts[row.id]??createDraft(row);
+    if(PRICE_FIELDS.some(k=>parseNullableNumberInput(draft[k])!==row[k]||row[k]===null||row[k]!<=0))return;
+    applyingRef.current=true;
+    setApplyingId(row.id);
+    setApplyResults(previous=>({...previous,[row.id]:{}}));
+    try {
+      const prices=Object.fromEntries(PRICE_FIELDS.map(k=>[k,row[k]]));
+      const res=await fetch("/api/product-sets/"+encodeURIComponent(row.id)+"/apply-tier-prices",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({prices})});
+      const data=await res.json();
+      if(!res.ok||!data.ok||!data.summary)throw new Error(data.error||"Unable to apply tier prices.");
+      const summary:ApplySummary=data.summary;
+      setApplyResults(previous=>({...previous,[row.id]:{summary}}));
+      // Update only the affected row. No refetch, navigation, filter reset or draft replacement.
+      setRows(previous=>previous.map(r=>r.id!==row.id||!r.stats?r:{...r,stats:{...r.stats,pricedCards:summary.pricedCards,pctPriced:summary.scannedCards?100*summary.pricedCards/summary.scannedCards:0}}));
+    }catch(e){setApplyResults(previous=>({...previous,[row.id]:{error:e instanceof Error?e.message:"Pricing failed."}}));}
+    finally{applyingRef.current=false;setApplyingId(null);}
   }
 
   async function saveRow(row: ProductSetRow) {
@@ -980,7 +1004,7 @@ export default function ProductSetsClient() {
       <div className="vcs-admin-pricing-toolbar">
         <div>
           <strong>Tier default pricing</strong>
-          <span>Initial estimates are unverified until you confirm. Editing prices clears verification; filter to review outstanding sets.</span>
+          <span>Initial estimates are unverified until you confirm. Price all cards overwrites eligible card values using the saved tier defaults, without leaving this list. Editing tier prices clears verification.</span>
         </div>
         <button
           type="button"
@@ -1049,6 +1073,10 @@ export default function ProductSetsClient() {
                 const shortId = row.id.startsWith(row.productId) ? row.id.slice(row.productId.length).replace(/^_+/, "") : row.id;
                 const setLabel = (shortId || row.id).replace(/_/g, " ");
                 const totalCards = row.stats?.totalCards ?? row._count?.cards ?? null;
+                const applying=applyingId===row.id;
+                const priceDirty=PRICE_FIELDS.some(k=>parseNullableNumberInput(draft[k])!==row[k]);
+                const completePrices=PRICE_FIELDS.every(k=>row[k]!==null&&Number.isFinite(row[k])&&row[k]!>0);
+                const applyResult=applyResults[row.id];
                 const configuredPrices = [
                   draft.commonPrice, draft.semiStarPrice, draft.unlistedStarPrice,
                   draft.star1Price, draft.star2Price, draft.star3Price,
@@ -1108,7 +1136,11 @@ export default function ProductSetsClient() {
                           title="Expand all six editable player-tier default prices"
                         >{expanded ? "Close prices" : "Edit prices"}</button>
                         <small className="vcs-admin-set-meta">{configuredPrices}/6 set</small>
-                        <PricingVerification id={row.id} prices={row} verified={row.pricingVerified} disabled={saving||PRICE_FIELDS.some(k=>parseNullableNumberInput(draft[k])!==row[k])} onChange={value=>{setRows(current=>current.map(r=>r.id===row.id?{...r,pricingVerified:value}:r));if(pricingReview)void loadRows({preserveMessage:true,preserveOtherDraftsThan:"__pricing_advisor__"});}}/>
+                        <PricingVerification id={row.id} prices={row} verified={row.pricingVerified} disabled={saving||applying||priceDirty} onChange={value=>{setRows(current=>current.map(r=>r.id===row.id?{...r,pricingVerified:value}:r));if(pricingReview)void loadRows({preserveMessage:true,preserveOtherDraftsThan:"__pricing_advisor__"});}}/>
+                      <button type="button" className="vcs-admin-set-apply-prices" style={{display:"block",marginTop:5,width:"100%",fontSize:11,fontWeight:700,padding:"5px 3px",borderRadius:6,border:"1px solid #23824e",background:"#eaf7ef",color:"#166534",whiteSpace:"normal"}} disabled={!!applyingId||!!savingId||priceDirty||!completePrices||totalCards===0} aria-label={"Price all cards in "+row.id+" (overwrite existing values)"} title="Overwrite all eligible card values in this set with the six saved tier defaults. Cards without a resolved tier are skipped." onClick={()=>void applyAllCardPrices(row)}>{applying?"Pricing…":"Price all cards"}</button>
+                        <small className="vcs-admin-set-meta" style={{whiteSpace:"normal"}}>{priceDirty?"Save prices first":!completePrices?"Set all six prices":row.pricingVerified?"Uses saved defaults":"Uses unverified estimates"}</small>
+                        {applyResult?.summary&&<small role="status" style={{display:"block",color:"#166534",fontSize:11,whiteSpace:"normal"}}>{applyResult.summary.updatedCards} updated · {applyResult.summary.alreadyCorrect} unchanged · {applyResult.summary.skippedNoTier+applyResult.summary.skippedNoPrice} skipped</small>}
+                        {applyResult?.error&&<small role="alert" style={{display:"block",color:"#b42318",fontSize:11,whiteSpace:"normal"}}>{applyResult.error}</small>}
                       </td>
                       <td style={td}>
                         <div className="vcs-admin-set-coverage" aria-label={"Setup completion for " + row.id}>
@@ -1124,8 +1156,8 @@ export default function ProductSetsClient() {
                       <td className="vcs-admin-set-card-count" style={td}>{totalCards ?? "—"}</td>
                       <td style={td}>
                         <div className="vcs-admin-set-row-actions">
-                          <button type="button" onClick={() => saveRow(row)} disabled={saving}>{saving ? "Saving…" : "Save"}</button>
-                          <button type="button" className="vcs-admin-danger-action" onClick={() => deleteRow(row)} disabled={saving}>Delete</button>
+                          <button type="button" onClick={() => saveRow(row)} disabled={saving||!!applyingId}>{saving ? "Saving…" : "Save"}</button>
+                          <button type="button" className="vcs-admin-danger-action" onClick={() => deleteRow(row)} disabled={saving||!!applyingId}>Delete</button>
                         </div>
                       </td>
                     </tr>
@@ -1153,7 +1185,7 @@ export default function ProductSetsClient() {
                             </div>
                             <div className="vcs-admin-set-price-footer">
                               <span>Save changes before verifying. Editing a tier price resets verification.</span>
-                              <button type="button" onClick={() => saveRow(row)} disabled={saving}>{saving ? "Saving…" : "Save prices"}</button>
+                              <button type="button" onClick={() => saveRow(row)} disabled={saving||!!applyingId}>{saving ? "Saving…" : "Save prices"}</button>
                             </div>
                           </div>
                         </td>
