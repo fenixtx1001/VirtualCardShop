@@ -29,6 +29,13 @@ export const PLAYER_TIER_ALIASES: readonly PlayerTierAlias[] = Object.freeze([
   { sport: "Baseball", alias: "ronald santo", canonicalName: "Ron Santo", normalizedName: "ron santo", targetId: 186136 },
   { sport: "Baseball", alias: "steve lerud", canonicalName: "Steven Lerud", normalizedName: "steven lerud", targetId: 310981 },
   { sport: "Football", alias: "snoop minnis", canonicalName: "Marvin Minnis", normalizedName: "marvin minnis", targetId: 102734 },
+  // C002 owner-approved exact aliases.
+  { sport: "Baseball", alias: "rod carew i", canonicalName: "Rod Carew", normalizedName: "rod carew", targetId: 4253 },
+  { sport: "Baseball", alias: "rod carew ii", canonicalName: "Rod Carew", normalizedName: "rod carew", targetId: 4253 },
+  { sport: "Baseball", alias: "rod carew iii", canonicalName: "Rod Carew", normalizedName: "rod carew", targetId: 4253 },
+  { sport: "Baseball", alias: "rod carew iv", canonicalName: "Rod Carew", normalizedName: "rod carew", targetId: 4253 },
+  { sport: "Baseball", alias: "rod carew v", canonicalName: "Rod Carew", normalizedName: "rod carew", targetId: 4253 },
+  { sport: "Basketball", alias: "jim rodgers", canonicalName: "Jimmy Rodgers", normalizedName: "jimmy rodgers", targetId: 143974 },
 ]);
 const key = (sport: string, name: string) => sport.trim() + "::" + name;
 
