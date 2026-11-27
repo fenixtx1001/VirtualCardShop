@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && npm run test:aliases && next build",
+    "build": "prisma generate && npm run test:aliases && npm run test:pricing && next build",
     "start": "next start",
     "lint": "eslint",
     "import:set": "tsx scripts/import-set-manifest.ts",
     "import:set-bundle": "tsx scripts/import-set-bundle-entry.ts",
     "import:set-images": "tsx scripts/import-set-images.ts",
-    "test:aliases": "tsx --test tests/player-tier-aliases.test.ts"
+    "test:aliases": "tsx --test tests/player-tier-aliases.test.ts",
+    "test:pricing": "tsx --test tests/initial-pricing.test.ts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.1",
