@@ -3,12 +3,12 @@ import { NextResponse } from "next/server";
 import { PlayerTier } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import {
-  resolvePlayerTierIdentity,
+  resolveCardTierIdentity,
+  resolvedProfileMatches,
   defaultPriceForTier,
   tierLabel,
 } from "@/lib/player-tiers";
-import { protectedAliasTarget, aliasTargetMatches } from "@/lib/player-tier-aliases";
-import { cleanupTarget, effectivePlayerTier } from "@/lib/player-tier-cleanup";
+import { effectivePlayerTier } from "@/lib/player-tier-cleanup";
 
 type RouteParams = {
   productSetId?: string;
@@ -24,6 +24,7 @@ type DefaultPriceReason =
   | "no-player"
   | "no-product-set"
   | "no-tier-profile"
+  | "ambiguous-identity"
   | "unassigned-tier"
   | "no-price-for-tier";
 
@@ -93,6 +94,7 @@ export async function GET(_req: Request, ctx: Ctx) {
         product: {
           select: {
             sport: true,
+            year: true,
           },
         },
       },
@@ -113,19 +115,21 @@ export async function GET(_req: Request, ctx: Ctx) {
       select: {
         id: true,
         player: true,
+        cardNumber: true,
+        team: true,
       },
       orderBy: [{ cardNumber: "asc" }, { id: "asc" }],
     });
 
-    const cardNameById = new Map<number, { canonicalName: string; normalizedName: string }>();
+    const cardNameById = new Map<number, { canonicalName: string; normalizedName: string; blocked:boolean }>();
     const uniqueNormalizedNames = new Set<string>();
 
     for (const card of cards) {
-      const { canonicalName, normalizedName } = await resolvePlayerTierIdentity(sport, card.player);
+      const { canonicalName, normalizedName, blocked } = await resolveCardTierIdentity(sport, card.player,{...card,productSetId,year:productSet.product?.year});
 
-      cardNameById.set(card.id, { canonicalName, normalizedName });
+      cardNameById.set(card.id, { canonicalName, normalizedName, blocked });
 
-      if (canonicalName && normalizedName) {
+      if (!blocked && canonicalName && normalizedName) {
         uniqueNormalizedNames.add(normalizedName);
       }
     }
@@ -156,13 +160,12 @@ export async function GET(_req: Request, ctx: Ctx) {
 
     for (const normalizedName of uniqueNormalizedNames) {
       const firstCardName = Array.from(cardNameById.values()).find(
-        (name) => name.normalizedName === normalizedName
+        (name) => !name.blocked && name.normalizedName === normalizedName
       );
       const canonicalName = firstCardName?.canonicalName ?? "";
       const profile = profileByNormalizedName.get(normalizedName);
 
-      const target = protectedAliasTarget(sport, normalizedName) ?? cleanupTarget(sport, normalizedName);
-      if (!profile || (target && !aliasTargetMatches(target, profile))) {
+      if (!profile || !resolvedProfileMatches(sport,normalizedName,profile)) {
         resultByNormalizedName.set(
           normalizedName,
           withTierLabel({
@@ -232,6 +235,7 @@ export async function GET(_req: Request, ctx: Ctx) {
     for (const card of cards) {
       const name = cardNameById.get(card.id);
 
+      if(name?.blocked){results[card.id]=withTierLabel({ok:false,normalizedName:name.normalizedName,canonicalName:name.canonicalName,sport:sport||null,tier:null,defaultPrice:null,reason:"ambiguous-identity"});continue;}
       if (!name?.canonicalName || !name.normalizedName) {
         results[card.id] = withTierLabel({
           ok: false,
