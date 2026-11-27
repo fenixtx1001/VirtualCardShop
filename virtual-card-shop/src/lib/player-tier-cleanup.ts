@@ -26,11 +26,14 @@ export function isTeamAlias(sport: string, norm: string) {
   return sport === team.sport && norm === team.alias;
 }
 export function isOverrideKey(sport: string, norm: string) {
-  return sport === "Baseball" && norm === "johnny bench";
+  return (sport === "Baseball" && norm === "johnny bench") || (sport === "Basketball" && norm === "scottie pippen");
 }
-export function isOverrideId(id: number) { return id === 4256; }
+export function isOverrideId(id: number) { return id === 4256 || id === 5007; }
 export type TierProfile = {id:number; sport:string; canonicalName:string; normalizedName:string; tier:PlayerTier | null};
 export function effectivePlayerTier(profile: TierProfile): PlayerTier | null {
+  if (profile.id===5007 || (profile.sport==="Basketball" && profile.normalizedName==="scottie pippen")) {
+    return profile.id===5007 && profile.sport==="Basketball" && profile.canonicalName==="Scottie Pippen" && profile.normalizedName==="scottie pippen" && profile.tier==="UNLISTED_STAR" ? "STAR_1" : null;
+  }
   if (isOverrideKey(profile.sport, profile.normalizedName) || isOverrideId(profile.id)) {
     return profile.id === 4256 && profile.sport === "Baseball" && profile.normalizedName === "johnny bench" &&
       profile.canonicalName === "Johnny Bench" && profile.tier === "COMMON" ? "STAR_2" : null;
@@ -47,8 +50,9 @@ const deferred = new Map<string,string>([
   ["Baseball::1983 leading firemen al holland dan quisenberry","Multi-player"],
   ["Baseball::alcs athletics vs blue jays","Game card"],
   ["Baseball::nlcs pirates vs braves","Game card"],
-  ["Baseball::alex sanchez","Ambiguous"],
-  ["Basketball::mike dunleavy","Ambiguous"],
+  ["Baseball::alex sanchez","Contextual history"],
+  ["Basketball::mike dunleavy","Contextual history"],
+  ["Basketball::mike dunleavy sr","Coach"],
   ["Basketball::rick adelman","Coach"],
   ["Basketball::jerry sloan","Coach"],
   ["Basketball::wes unseld","Coach"],

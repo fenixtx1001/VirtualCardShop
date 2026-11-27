@@ -30,6 +30,9 @@ type PlayerTierRow = {
   possibleOrphan?:boolean;
   legacyConflict?:{id:number;tier:string}|null;
   conflict?: boolean;
+  reviewed?:boolean;
+  reviewStale?:boolean;
+  authoritativeTier?:PlayerTierRow["tier"];
   locked?: boolean;
   resolvedName?: string;
   canonicalId?: number | null;
@@ -123,7 +126,7 @@ export default function PlayerTiersClient() {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(100);
   const [total, setTotal] = useState(0);
-  const [auditSummary,setAuditSummary] = useState<{rawProfiles:number;rawBlank:number;resolvedBlank:number;effectiveUnassigned:number;conflicts:number;legacyRows:number;auditSnapshot:{asOf:string;orphanGroups:number;nonPlayerGroups:number;legacyConflicts:number}}|null>(null);
+  const [auditSummary,setAuditSummary] = useState<{rawProfiles:number;rawBlank:number;resolvedBlank:number;effectiveUnassigned:number;conflicts:number;reviewedConflicts:number;unresolvedConflicts:number;unresolvedIdentityCards:number;legacyRows:number;auditSnapshot:{asOf:string;orphanGroups:number;nonPlayerGroups:number;legacyConflicts:number}}|null>(null);
   const [totalPages, setTotalPages] = useState(1);
 
   const [sportsSummary, setSportsSummary] = useState<SportsSummaryRow[]>([]);
@@ -634,7 +637,7 @@ export default function PlayerTiersClient() {
           </select>
         </div>
 
-        <label style={{display:"flex",flexDirection:"column",gap:4,fontWeight:700}}>Review category<select value={reviewFilter} onChange={e=>{setReviewFilter(e.target.value);if(e.target.value!=="all")setOnlyUnassigned(false);}} style={{padding:8}}><option value="all">All groups</option><option value="conflicts">Tier conflicts</option><option value="variants">Artifact variants</option><option value="deferred">Needs review</option><option value="legacy">Legacy sport</option><option value="orphans">Possible orphans (audit)</option></select></label>
+        <label style={{display:"flex",flexDirection:"column",gap:4,fontWeight:700}}>Review category<select value={reviewFilter} onChange={e=>{setReviewFilter(e.target.value);if(e.target.value!=="all")setOnlyUnassigned(false);}} style={{padding:8}}><option value="all">All groups</option><option value="conflicts">All historical tier conflicts</option><option value="unresolved-conflicts">Unresolved tier conflicts</option><option value="reviewed-conflicts">Reviewed tier conflicts</option><option value="variants">Artifact variants</option><option value="deferred">Needs review</option><option value="legacy">Legacy sport</option><option value="orphans">Possible orphans (audit)</option></select></label>
         <label style={{ display: "flex", alignItems: "center", gap: 8, paddingBottom: 8 }}>
           <input
             type="checkbox"
@@ -699,7 +702,7 @@ export default function PlayerTiersClient() {
         </div>
       </div>
 
-      {auditSummary && <div style={{padding:12,border:"1px solid #ddd",marginBottom:12,fontSize:13}}><strong>Repository reconciliation</strong><div>{auditSummary.rawProfiles.toLocaleString()} raw profiles · {auditSummary.rawBlank.toLocaleString()} stored blanks · {auditSummary.resolvedBlank.toLocaleString()} blanks in groups with an effective tier · {auditSummary.effectiveUnassigned} effectively unassigned groups · {auditSummary.conflicts} conflicts · {auditSummary.legacyRows} legacy sport rows</div><div>Audit snapshot {auditSummary.auditSnapshot.asOf}: {auditSummary.auditSnapshot.orphanGroups} possible orphan groups, {auditSummary.auditSnapshot.nonPlayerGroups} possible non-player groups, {auditSummary.auditSnapshot.legacyConflicts} legacy conflicts (review only; no deletion).</div></div>}
+      {auditSummary && <div style={{padding:12,border:"1px solid #ddd",marginBottom:12,fontSize:13}}><strong>Repository reconciliation</strong><div>{auditSummary.rawProfiles.toLocaleString()} raw profiles · {auditSummary.rawBlank.toLocaleString()} stored blanks · {auditSummary.resolvedBlank.toLocaleString()} blanks in groups with an effective tier · {auditSummary.effectiveUnassigned} effectively unassigned groups · {auditSummary.reviewedConflicts} reviewed conflicts · {auditSummary.unresolvedConflicts} unresolved conflicts · {auditSummary.unresolvedIdentityCards} unresolved contextual cards · {auditSummary.legacyRows} legacy sport rows</div><div>Audit snapshot {auditSummary.auditSnapshot.asOf}: {auditSummary.auditSnapshot.orphanGroups} possible orphan groups, {auditSummary.auditSnapshot.nonPlayerGroups} possible non-player groups, {auditSummary.auditSnapshot.legacyConflicts} legacy conflicts (review only; no deletion).</div></div>}
       {loading ? (
         <div>Loading…</div>
       ) : (
@@ -767,9 +770,9 @@ export default function PlayerTiersClient() {
                       </select>
                       <div style={{ marginTop: 6, fontSize: 12, color: "#666", fontWeight: 700 }}>
                         Stored: {prettyTier(row.tier)} · Effective: {prettyTier(row.effectiveTier ?? null)}
-                        <div>{row.status}{row.conflict ? " · review variants" : ""}</div>
+                        <div>{row.status}{row.conflict && !row.reviewed ? " · review variants" : ""}</div>
                         {row.possibleOrphan && <div>Possible orphan (audit snapshot)</div>}
-                        {row.legacyConflict && <div>Legacy conflict: Basketball #{row.legacyConflict.id} — {row.legacyConflict.tier}</div>}
+                        {row.legacyConflict && <div>Legacy conflict: Basketball #{row.legacyConflict.id} — {row.legacyConflict.tier}{row.reviewed ? " (historical)" : ""} · Authoritative effective: {prettyTier(row.authoritativeTier ?? null)}</div>}
                       </div>
                     </td>
 

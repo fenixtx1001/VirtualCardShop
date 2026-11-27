@@ -84,6 +84,7 @@ export async function GET(_req: Request, ctx: Ctx) {
         prisma,
         productSetId,
         player: card.player,
+        card,
       });
 
       return {

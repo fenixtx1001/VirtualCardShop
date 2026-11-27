@@ -2,6 +2,7 @@ import { PlayerTier, PrismaClient } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { approvedAliasFor, protectedAliasTarget, aliasTargetMatches } from "@/lib/player-tier-aliases";
 import { protectedLiteral, cleanupTarget, effectivePlayerTier } from "@/lib/player-tier-cleanup";
+import { contextualAssignment, contextProfileMatches, contextualTarget, type CardTierContext, type ProfilePreimage } from "@/lib/player-tier-c003";
 
 type ProductSetWithDefaults = {
   commonPrice: number | null;
@@ -24,6 +25,7 @@ export type DefaultPriceResult = {
     | "no-player"
     | "no-product-set"
     | "no-tier-profile"
+    | "ambiguous-identity"
     | "unassigned-tier"
     | "no-price-for-tier";
 };
@@ -218,6 +220,21 @@ export async function resolvePlayerTierIdentity(sport: string | null | undefined
     : { canonicalName, normalizedName, target: undefined };
 }
 
+export async function resolveCardTierIdentity(sport: string|null|undefined, player:string|null|undefined, card?:CardTierContext) {
+  const identity=await resolvePlayerTierIdentity(sport,player);
+  const contextual=contextualAssignment(sport?.trim()||"",player,identity.normalizedName,card);
+  if(contextual.blocked)return {...identity,blocked:true,contextual:undefined};
+  if(contextual.target)return {canonicalName:contextual.target.canonicalName,normalizedName:contextual.target.normalizedName,target:undefined,blocked:false,contextual:contextual.target};
+  return {...identity,blocked:false,contextual:undefined};
+}
+export function resolvedProfileMatches(sport:string,key:string,profile:ProfilePreimage|null|undefined) {
+  if(!profile)return false;
+  const context=contextualTarget(sport,key);
+  if(context && !contextProfileMatches(context,profile))return false;
+  const target=protectedAliasTarget(sport,key)??cleanupTarget(sport,key);
+  return !target||aliasTargetMatches(target,profile);
+}
+
 export function tierLabel(tier: PlayerTier | null | undefined) {
   switch (tier) {
     case "COMMON":
@@ -265,9 +282,15 @@ export async function ensurePlayerTierProfile(params: {
   prisma: PrismaClient;
   sport: string | null | undefined;
   player: string | null | undefined;
+  card?: CardTierContext;
 }) {
   const sport = params.sport?.trim() || "";
-  const { canonicalName, normalizedName, target } = await resolvePlayerTierIdentity(sport, params.player);
+  const { canonicalName, normalizedName, target, blocked, contextual } = await resolveCardTierIdentity(sport, params.player,params.card);
+  if(blocked)return null;
+  if(contextual){
+    const profile=await params.prisma.playerTierProfile.findUnique({where:{sport_normalizedName:{sport,normalizedName}}});
+    return contextProfileMatches(contextual,profile)?profile:null;
+  }
 
   if (!canonicalName || !normalizedName) {
     return null;
@@ -299,6 +322,7 @@ export async function getDefaultPriceForPlayer(params: {
   prisma: PrismaClient;
   productSetId: string;
   player: string | null | undefined;
+  card?: CardTierContext;
 }) {
   let canonicalName = await cleanCanonicalPlayerName(params.player);
   let normalizedName = await normalizePlayerName(canonicalName);
@@ -328,6 +352,7 @@ export async function getDefaultPriceForPlayer(params: {
       product: {
         select: {
           sport: true,
+          year: true,
         },
       },
     },
@@ -346,9 +371,10 @@ export async function getDefaultPriceForPlayer(params: {
   }
 
   const sport = productSet.product?.sport?.trim() || "";
-  const identity = await resolvePlayerTierIdentity(sport, params.player);
+  const identity = await resolveCardTierIdentity(sport, params.player,params.card?{...params.card,productSetId:params.productSetId,year:productSet.product?.year}:undefined);
   canonicalName = identity.canonicalName;
   normalizedName = identity.normalizedName;
+  if(identity.blocked)return {ok:false,normalizedName,canonicalName,sport:sport||null,tier:null,defaultPrice:null,reason:"ambiguous-identity"} satisfies DefaultPriceResult;
 
   const profile = await params.prisma.playerTierProfile.findUnique({
     where: {
@@ -366,7 +392,7 @@ export async function getDefaultPriceForPlayer(params: {
     },
   });
 
-  if (!profile || (identity.target && !aliasTargetMatches(identity.target, profile))) {
+  if (!profile || !resolvedProfileMatches(sport,normalizedName,profile)) {
     return {
       ok: false,
       normalizedName,

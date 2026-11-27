@@ -136,6 +136,7 @@ async function saveCard(
               product: {
                 select: {
                   sport: true,
+                year: true,
                 },
               },
             },
@@ -270,6 +271,7 @@ async function saveCard(
       prisma,
       sport,
       player: updated.player,
+      card: {...updated,year:existing.productSet?.product?.year},
     });
 
     /*

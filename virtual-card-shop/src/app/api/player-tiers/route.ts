@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 import { PlayerTier } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
-import { cleanCanonicalPlayerName, normalizePlayerName, resolvePlayerTierIdentity } from "@/lib/player-tiers";
+import { cleanCanonicalPlayerName, normalizePlayerName, resolvePlayerTierIdentity, resolveCardTierIdentity, resolvedProfileMatches } from "@/lib/player-tiers";
 import { cleanupTarget, isTeamAlias, isOverrideKey, effectivePlayerTier, reviewCategory, literalPlayerKey, auditFlags } from "@/lib/player-tier-cleanup";
 import { approvedAliasFor, protectedAliasTarget, aliasTargetMatches } from "@/lib/player-tier-aliases";
+import { C003_CARDS,C003_REVIEWS,contextualKey,protectedContextKey,reviewedConflict,reviewedDecision } from "@/lib/player-tier-c003";
 
 function parseBool(v: string | null) {
   if (!v) return false;
@@ -76,6 +77,28 @@ export async function GET(req: Request) {
       orderBy: [{ sport: "asc" }, { canonicalName: "asc" }, { id: "asc" }],
     })) as ProfileRow[];
 
+    const allProfiles=new Map(rawRows.map(r=>[r.id,r]));
+    if(sport==="Basketbal"){
+      const active=await prisma.playerTierProfile.findMany({where:{id:{in:C003_REVIEWS.filter(r=>r.sport==="Basketbal").map(r=>r.active.id)}}});
+      for(const row of active)allProfiles.set(row.id,row);
+    }
+    const profilesByKey=new Map(rawRows.map(r=>[r.sport+"::"+r.normalizedName,r]));
+    const unresolvedIdentityCards: Array<{id:number;player:string|null;reason:string}>=[];
+    const relevantAssignments=C003_CARDS.filter(c=>!sport||c.sport===sport);
+    if(relevantAssignments.length){
+      const relevantIds=new Set(relevantAssignments.map(c=>c.id as number));
+      const candidates=await prisma.card.findMany({where:{OR:[{id:{in:[...relevantIds]}},{player:{startsWith:"Alex Sanchez",mode:"insensitive"}},{player:{startsWith:"Mike Dunleavy",mode:"insensitive"}}]},select:{id:true,player:true,productSetId:true,cardNumber:true,team:true,productSet:{select:{product:{select:{sport:true,year:true}}}}}});
+      const seen=new Set<number>();
+      for(const c of candidates){
+        const cardSport=c.productSet?.product?.sport||"";
+        if(sport&&cardSport!==sport&&!relevantIds.has(c.id))continue;
+        const identity=await resolveCardTierIdentity(cardSport,c.player,{...c,year:c.productSet?.product?.year});
+        if(!relevantIds.has(c.id)&&!contextualKey(cardSport,identity.normalizedName))continue;
+        seen.add(c.id);
+        if(identity.blocked||!resolvedProfileMatches(cardSport,identity.normalizedName,profilesByKey.get(cardSport+"::"+identity.normalizedName)))unresolvedIdentityCards.push({id:c.id,player:c.player,reason:identity.blocked?"ambiguous-identity":"missing-contextual-profile"});
+      }
+      for(const c of relevantAssignments)if(!seen.has(c.id))unresolvedIdentityCards.push({id:c.id,player:c.player,reason:"approved-card-missing"});
+    }
     const grouped = new Map<string, {name:string; key:string; target:Awaited<ReturnType<typeof resolvePlayerTierIdentity>>["target"]; members:ProfileRow[]}>();
     for (const row of rawRows) {
       const identity = await resolvePlayerTierIdentity(row.sport, row.canonicalName);
@@ -94,15 +117,21 @@ export async function GET(req: Request) {
       const conflict = assigned.size > 1;
       const status = category ?? (conflict ? "Tier conflict" : effectiveTier ? (group.members.length > 1 ? "Resolved variants" : "Assigned") : canonical ? "Unassigned canonical" : "Missing canonical");
       const flags = auditFlags(row.sport,group.key);
-      const locked = !canonical || !!category || isOverrideKey(row.sport,group.key);
-      return {...row, ...flags, effectiveTier, resolvedName:group.name,resolvedKey:group.key, status, conflict, locked, canonicalId:canonical?.id ?? null,
+      const decision=reviewedDecision(row.sport,group.key);
+      const active=decision?allProfiles.get(decision.active.id):undefined;
+      const authoritativeTier=active?effectivePlayerTier(active):null;
+      const reviewed=reviewedConflict(row.sport,group.key,group.members,allProfiles,authoritativeTier);
+      const reviewStale=!!decision&&!reviewed;
+      const locked = !canonical || !!category || isOverrideKey(row.sport,group.key)||protectedContextKey(row.sport,group.key);
+      const reviewedStatus=reviewed?"Reviewed historical conflict":reviewStale?"Review reopened":status;
+      return {...row, ...flags, effectiveTier, authoritativeTier:decision?authoritativeTier:effectiveTier, reviewed,reviewStale,resolvedName:group.name,resolvedKey:group.key, status:reviewedStatus, conflict, locked, canonicalId:canonical?.id ?? null,
         variants:group.members.map(r=>({id:r.id,name:r.canonicalName,tier:r.tier,notes:r.notes})),
         rawBlankCount:group.members.filter(r=>r.tier===null).length};
     });
     const auditSummary = { rawProfiles:rawRows.length,rawBlank:rawRows.filter(r=>r.tier===null).length,
       resolvedBlank:allRows.filter(r=>r.effectiveTier!==null).reduce((n,r)=>n+r.rawBlankCount,0),
       effectiveUnassigned:allRows.filter(r=>r.effectiveTier===null&&!reviewCategory(r.sport,r.resolvedKey,r.variants.map(v=>v.name))).length,
-      conflicts:allRows.filter(r=>r.conflict).length,legacyRows:rawRows.filter(r=>r.sport==="Basketbal").length,
+      conflicts:allRows.filter(r=>r.conflict).length,reviewedConflicts:allRows.filter(r=>r.reviewed).length,unresolvedConflicts:allRows.filter(r=>(r.conflict||r.legacyConflict||r.reviewStale)&&!r.reviewed).length,unresolvedIdentityCards:unresolvedIdentityCards.length,legacyRows:rawRows.filter(r=>r.sport==="Basketbal").length,
       auditSnapshot:{asOf:"2026-11-27",orphanGroups:58,nonPlayerGroups:30,legacyConflicts:12} };
     let rows = allRows;
 
@@ -118,7 +147,9 @@ export async function GET(req: Request) {
       rows = rows.filter((row) => row.effectiveTier == null && !reviewCategory(row.sport,row.resolvedKey,row.variants.map(v=>v.name)));
     }
 
-    if(review==="conflicts") rows=rows.filter(r=>r.conflict||r.legacyConflict);
+    if(review==="conflicts") rows=rows.filter(r=>r.conflict||r.legacyConflict||r.reviewStale||r.reviewed);
+    else if(review==="unresolved-conflicts") rows=rows.filter(r=>(r.conflict||r.legacyConflict||r.reviewStale)&&!r.reviewed);
+    else if(review==="reviewed-conflicts") rows=rows.filter(r=>r.reviewed);
     else if(review==="orphans") rows=rows.filter(r=>r.possibleOrphan);
     else if(review==="variants") rows=rows.filter(r=>r.variants.length>1);
     else if(review==="deferred") rows=rows.filter(r=>r.locked&&!isOverrideKey(r.sport,r.resolvedKey));
@@ -169,6 +200,7 @@ export async function GET(req: Request) {
       },
       sports,
       auditSummary,
+      unresolvedIdentityCards,
     });
   } catch (e: any) {
     return NextResponse.json(
@@ -196,7 +228,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: "Invalid tier" }, { status: 400 });
     }
 
-    if (isOverrideKey(sport,normalizedName) || isTeamAlias(sport,normalizedName) || sport === "Basketbal") {
+    if (protectedContextKey(sport,normalizedName)||isOverrideKey(sport,normalizedName) || isTeamAlias(sport,normalizedName) || sport === "Basketbal") {
       return NextResponse.json({ok:false,error:"Reviewed identity or effective override requires an explicit review before editing."},{status:409});
     }
     if (approvedAliasFor(sport, normalizedName)) {
