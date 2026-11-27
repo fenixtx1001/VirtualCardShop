@@ -49,24 +49,45 @@ when the source issues are genuinely distinct collector checklists.
 
 This convention applies to all new Set Factory datasets moving forward.
 
-### Pack odds belong to the Product Set
+### Mandatory per-pack odds and parallel classification (November 27, 2026)
 
-Pack insertion odds are Product Set-level data in VCS. Store verified insert or
-parallel odds in the Product Set's `oddsPerPack` field and do not repeat those odds
-on individual cards.
+Every newly created pack-eligible INSERT or PARALLEL Product Set must have a
+positive integer `oddsPerPack` (1:N, probability 1/N per modeled VCS pack).
+Both kinds must map to `isBase: false, isInsert: true`. Keep the manifest kind
+PARALLEL and authentic checklist/variant metadata so pricing and collecting
+can still distinguish parallels from thematic inserts. BASE is not an insert.
 
-Do not put text such as `Inserted 1:17 packs`, `1:36 packs`, or other set-wide pack
-odds in a card's `variant` field. `variant` should contain card-specific collector
-metadata only, such as serial numbering, autograph/memorabilia attributes,
-error/correction status, print variations, or other details that actually vary by
-card.
+Research the published insertion rate first, matching the modeled pack format.
+If unavailable, provide the best defensible estimate rather than null:
+- Use known print runs, checklist size, total relevant pack production, and
+  comparable subsets from the same year, sport and product family.
+- For serial-numbered parallels, sum the actual eligible card print runs;
+  when relevant total packs are known, approximate N = packs / eligible copies.
+- Otherwise use comparable scarcity, product positioning and relative collector
+  value as secondary evidence; avoid assuming value alone establishes rarity.
+- Normalize channel-specific odds to the chosen VCS pack model and preserve
+  actual source/channel rates. Clearly label estimates (not published facts)
+  and record the rationale and sources in bundle notes or decisions.
+- Preserve complete collector-facing checklists; aggregate differing range odds
+  using the modeled pack probability where defensible, not by splitting cards.
+- Do not invent physical pack odds for factory-set-only issues, box bottoms,
+  redemptions outside packs or other non-pack issues. Exclude them from the
+  modeled pack or explicitly document a user-approved virtual distribution.
+  Genuine non-pack items must not accidentally enter pack pools.
 
-When odds genuinely differ card-by-card and cannot be represented by the Product Set
-model, preserve that historical information in bundle decisions or notes rather than
-cluttering every card's display metadata unless the user explicitly asks otherwise.
+Before import, audit every pack-eligible subset for a valid 1:N, insert checkbox,
+and documented published/estimated evidence; repair omissions before applying.
+Check pack collation and expected value against the existing pack engine,
+especially when multiple inserts are guaranteed or rare pools overlap.
+Do not automatically rewrite existing odds, release state, pricing, or card
+images during this forward-looking change. Existing legacy gaps are a separate
+review/backfill task. No automatic six-tier price writes are authorized by this
+rule; Pricing Advisor recommendations remain reviewable and overridable.
 
-This convention applies to all new Set Factory datasets moving forward. Existing
-sets are not retroactively rewritten unless explicitly requested.
+Odds belong to the Product Set, not individual card `variant` strings.
+Keep card-specific serial numbering, autograph/memorabilia attributes,
+error/correction status and print variations in card metadata. Keep source
+scarcity details in bundle decisions/notes when they cannot be modeled directly.
 
 ### Clean player/subject names
 
