@@ -26,6 +26,8 @@ export async function GET(_req: Request, ctx: Ctx) {
         id: true,
         player: true,
         productSetId: true,
+        cardNumber: true,
+        team: true,
       },
     });
 
@@ -37,6 +39,7 @@ export async function GET(_req: Request, ctx: Ctx) {
       prisma,
       productSetId: card.productSetId,
       player: card.player,
+      card,
     });
 
     return NextResponse.json({
@@ -67,6 +70,8 @@ export async function POST(_req: Request, ctx: Ctx) {
         id: true,
         player: true,
         productSetId: true,
+        cardNumber: true,
+        team: true,
       },
     });
 
@@ -78,6 +83,7 @@ export async function POST(_req: Request, ctx: Ctx) {
       prisma,
       productSetId: card.productSetId,
       player: card.player,
+      card,
     });
 
     if (!result.ok || result.defaultPrice === null) {
@@ -85,7 +91,7 @@ export async function POST(_req: Request, ctx: Ctx) {
         {
           ok: false,
           error:
-            result.reason === "unassigned-tier"
+            result.reason === "ambiguous-identity" ? "Player identity requires contextual review." : result.reason === "unassigned-tier"
               ? "Player exists in the repository but does not have a tier assigned yet."
               : result.reason === "no-tier-profile"
               ? "Player is not in the repository yet. Run a repository refresh first."
