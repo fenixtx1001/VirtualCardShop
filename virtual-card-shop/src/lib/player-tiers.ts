@@ -1,5 +1,6 @@
 import { PlayerTier, PrismaClient } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
+import { approvedAliasFor, protectedAliasTarget, aliasTargetMatches } from "@/lib/player-tier-aliases";
 
 type ProductSetWithDefaults = {
   commonPrice: number | null;
@@ -204,6 +205,17 @@ export async function normalizePlayerName(input: string | null | undefined) {
     .toLowerCase();
 }
 
+// Resolve only after existing name and trailing-token normalization. No fuzzy matching.
+export async function resolvePlayerTierIdentity(sport: string | null | undefined, player: string | null | undefined) {
+  const canonicalName = await cleanCanonicalPlayerName(player);
+  const normalizedName = await normalizePlayerName(canonicalName);
+  const sportKey = sport?.trim() || "";
+  const target = approvedAliasFor(sportKey, normalizedName) ?? protectedAliasTarget(sportKey, normalizedName);
+  return target
+    ? { canonicalName: target.canonicalName, normalizedName: target.normalizedName, target }
+    : { canonicalName, normalizedName, target: undefined };
+}
+
 export function tierLabel(tier: PlayerTier | null | undefined) {
   switch (tier) {
     case "COMMON":
@@ -252,12 +264,16 @@ export async function ensurePlayerTierProfile(params: {
   sport: string | null | undefined;
   player: string | null | undefined;
 }) {
-  const canonicalName = await cleanCanonicalPlayerName(params.player);
-  const normalizedName = await normalizePlayerName(canonicalName);
   const sport = params.sport?.trim() || "";
+  const { canonicalName, normalizedName, target } = await resolvePlayerTierIdentity(sport, params.player);
 
   if (!canonicalName || !normalizedName) {
     return null;
+  }
+  if (target) {
+    const profile = await params.prisma.playerTierProfile.findUnique({ where: { id: target.targetId } });
+    if (!aliasTargetMatches(target, profile)) throw new Error("Player tier alias target changed or missing");
+    return profile;
   }
 
   return params.prisma.playerTierProfile.upsert({
@@ -285,8 +301,8 @@ export async function getDefaultPriceForPlayer(params: {
   productSetId: string;
   player: string | null | undefined;
 }) {
-  const canonicalName = await cleanCanonicalPlayerName(params.player);
-  const normalizedName = await normalizePlayerName(canonicalName);
+  let canonicalName = await cleanCanonicalPlayerName(params.player);
+  let normalizedName = await normalizePlayerName(canonicalName);
 
   if (!canonicalName || !normalizedName) {
     return {
@@ -331,6 +347,9 @@ export async function getDefaultPriceForPlayer(params: {
   }
 
   const sport = productSet.product?.sport?.trim() || "";
+  const identity = await resolvePlayerTierIdentity(sport, params.player);
+  canonicalName = identity.canonicalName;
+  normalizedName = identity.normalizedName;
 
   const profile = await params.prisma.playerTierProfile.findUnique({
     where: {
@@ -340,6 +359,7 @@ export async function getDefaultPriceForPlayer(params: {
       },
     },
     select: {
+      id: true,
       canonicalName: true,
       normalizedName: true,
       sport: true,
@@ -347,7 +367,7 @@ export async function getDefaultPriceForPlayer(params: {
     },
   });
 
-  if (!profile) {
+  if (!profile || (identity.target && !aliasTargetMatches(identity.target, profile))) {
     return {
       ok: false,
       normalizedName,

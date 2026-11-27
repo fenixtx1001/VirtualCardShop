@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { PlayerTier } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { cleanCanonicalPlayerName, normalizePlayerName } from "@/lib/player-tiers";
+import { approvedAliasFor, protectedAliasTarget, aliasTargetMatches } from "@/lib/player-tier-aliases";
 
 function parseBool(v: string | null) {
   if (!v) return false;
@@ -125,7 +126,8 @@ export async function GET(req: Request) {
       rows = rows.filter((row) => {
         const canonicalMatch = row.canonicalName.toLowerCase().includes(q.toLowerCase());
         const normalizedMatch = row.normalizedName.includes(normalizedQ);
-        return canonicalMatch || normalizedMatch;
+        const alias = approvedAliasFor(row.sport, normalizedQ);
+        return canonicalMatch || normalizedMatch || alias?.targetId === row.id;
       });
     }
 
@@ -203,6 +205,21 @@ export async function POST(req: Request) {
 
     if (tier !== null && !validTier(tier)) {
       return NextResponse.json({ ok: false, error: "Invalid tier" }, { status: 400 });
+    }
+
+    if (approvedAliasFor(sport, normalizedName)) {
+      return NextResponse.json({ ok: false, error: "This name is an approved alias; edit the canonical profile instead." }, { status: 409 });
+    }
+    const target = protectedAliasTarget(sport, normalizedName);
+    if (target) {
+      const existing = await prisma.playerTierProfile.findUnique({ where: { id: target.targetId } });
+      if (!aliasTargetMatches(target, existing) || canonicalName !== target.canonicalName) {
+        return NextResponse.json({ ok: false, error: "Protected alias target changed or missing." }, { status: 409 });
+      }
+      const row = await prisma.playerTierProfile.update({
+        where: { id: target.targetId }, data: { tier, notes },
+      });
+      return NextResponse.json({ ok: true, row });
     }
 
     const row = await prisma.playerTierProfile.upsert({

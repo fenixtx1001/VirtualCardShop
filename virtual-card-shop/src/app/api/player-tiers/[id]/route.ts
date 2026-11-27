@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { PlayerTier } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { cleanCanonicalPlayerName, normalizePlayerName } from "@/lib/player-tiers";
+import { approvedAliasFor, protectedAliasTarget, protectedAliasTargetById } from "@/lib/player-tier-aliases";
 
 type Ctx =
   | { params: { id?: string } }
@@ -50,6 +51,14 @@ export async function PUT(req: Request, ctx: Ctx) {
       return NextResponse.json({ ok: false, error: "Invalid tier" }, { status: 400 });
     }
 
+    const target = protectedAliasTargetById(id);
+    const destination = protectedAliasTarget(sport, normalizedName);
+    if (approvedAliasFor(sport, normalizedName) ||
+        (destination && destination.targetId !== id) ||
+        (target && (sport !== target.sport || normalizedName !== target.normalizedName || canonicalName !== target.canonicalName))) {
+      return NextResponse.json({ ok: false, error: "Cannot rename or collide with a protected player alias/target." }, { status: 409 });
+    }
+
     const row = await prisma.playerTierProfile.update({
       where: { id },
       data: {
@@ -83,6 +92,10 @@ export async function DELETE(_req: Request, ctx: Ctx) {
 
     if (!Number.isInteger(id) || id <= 0) {
       return NextResponse.json({ ok: false, error: "Invalid id" }, { status: 400 });
+    }
+
+    if (protectedAliasTargetById(id)) {
+      return NextResponse.json({ ok: false, error: "Remove approved alias mappings before deleting this canonical profile." }, { status: 409 });
     }
 
     await prisma.playerTierProfile.delete({

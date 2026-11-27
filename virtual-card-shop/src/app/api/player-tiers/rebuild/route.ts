@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { cleanCanonicalPlayerName, normalizePlayerName } from "@/lib/player-tiers";
+import { cleanCanonicalPlayerName, normalizePlayerName, resolvePlayerTierIdentity } from "@/lib/player-tiers";
+import { PLAYER_TIER_ALIASES, approvedAliasFor, aliasTargetMatches, protectedAliasTarget } from "@/lib/player-tier-aliases";
 import { PlayerTierProfile } from "@prisma/client";
 
 function tierRank(tier: string | null | undefined) {
@@ -71,9 +72,8 @@ export async function POST() {
     >();
 
     for (const card of cards) {
-      const canonicalName = await cleanCanonicalPlayerName(card.player);
-      const normalizedName = await normalizePlayerName(canonicalName);
       const sport = card.productSet?.product?.sport?.trim() || "";
+      const { canonicalName, normalizedName } = await resolvePlayerTierIdentity(sport, card.player);
 
       if (!canonicalName || !normalizedName) continue;
 
@@ -91,6 +91,13 @@ export async function POST() {
       orderBy: [{ id: "asc" }],
     });
 
+    // Fail closed before the transaction if a protected target was renamed/deleted
+    // or an alias key now has its own profile. Never merge/delete these silently.
+    for (const alias of PLAYER_TIER_ALIASES) {
+      if (!aliasTargetMatches(alias, existingRows.find(row => row.id === alias.targetId))) {
+        throw new Error("Player tier alias target changed or missing: " + alias.canonicalName);
+      }
+    }
     const groupedExisting = new Map<string, PlayerTierProfile[]>();
 
     for (const row of existingRows) {
@@ -107,10 +114,20 @@ export async function POST() {
         normalizedName,
       };
 
+      if (approvedAliasFor(sport, normalizedName)) {
+        throw new Error("Conflicting alias profile; resolve explicitly: " + canonicalName);
+      }
       const key = `${sport}::${normalizedName}`;
       const list = groupedExisting.get(key) ?? [];
       list.push(normalizedRow);
       groupedExisting.set(key, list);
+    }
+
+    for (const rows of groupedExisting.values()) {
+      const target = protectedAliasTarget(rows[0].sport, rows[0].normalizedName);
+      if (target && (rows.length !== 1 || !aliasTargetMatches(target, rows[0]))) {
+        throw new Error("Conflicting protected alias target: " + target.canonicalName);
+      }
     }
 
     let deletedDuplicates = 0;

@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "prisma generate && npm run test:aliases && next build",
     "start": "next start",
     "lint": "eslint",
     "import:set": "tsx scripts/import-set-manifest.ts",
     "import:set-bundle": "tsx scripts/import-set-bundle-entry.ts",
-    "import:set-images": "tsx scripts/import-set-images.ts"
+    "import:set-images": "tsx scripts/import-set-images.ts",
+    "test:aliases": "tsx --test tests/player-tier-aliases.test.ts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.1",
