@@ -8,6 +8,7 @@ import {
   tierLabel,
 } from "@/lib/player-tiers";
 import { protectedAliasTarget, aliasTargetMatches } from "@/lib/player-tier-aliases";
+import { cleanupTarget, effectivePlayerTier } from "@/lib/player-tier-cleanup";
 
 type RouteParams = {
   productSetId?: string;
@@ -160,7 +161,7 @@ export async function GET(_req: Request, ctx: Ctx) {
       const canonicalName = firstCardName?.canonicalName ?? "";
       const profile = profileByNormalizedName.get(normalizedName);
 
-      const target = protectedAliasTarget(sport, normalizedName);
+      const target = protectedAliasTarget(sport, normalizedName) ?? cleanupTarget(sport, normalizedName);
       if (!profile || (target && !aliasTargetMatches(target, profile))) {
         resultByNormalizedName.set(
           normalizedName,
@@ -177,7 +178,8 @@ export async function GET(_req: Request, ctx: Ctx) {
         continue;
       }
 
-      if (!profile.tier) {
+      const effectiveTier = effectivePlayerTier(profile);
+      if (!effectiveTier) {
         resultByNormalizedName.set(
           normalizedName,
           withTierLabel({
@@ -193,7 +195,7 @@ export async function GET(_req: Request, ctx: Ctx) {
         continue;
       }
 
-      const defaultPrice = defaultPriceForTier(defaultPrices, profile.tier);
+      const defaultPrice = defaultPriceForTier(defaultPrices, effectiveTier);
 
       if (defaultPrice === null || !Number.isFinite(defaultPrice)) {
         resultByNormalizedName.set(
@@ -203,7 +205,7 @@ export async function GET(_req: Request, ctx: Ctx) {
             normalizedName,
             canonicalName: profile.canonicalName,
             sport: profile.sport || null,
-            tier: profile.tier,
+            tier: effectiveTier,
             defaultPrice: null,
             reason: "no-price-for-tier",
           })
@@ -218,7 +220,7 @@ export async function GET(_req: Request, ctx: Ctx) {
           normalizedName,
           canonicalName: profile.canonicalName,
           sport: profile.sport || null,
-          tier: profile.tier,
+          tier: effectiveTier,
           defaultPrice,
           reason: "ok",
         })
