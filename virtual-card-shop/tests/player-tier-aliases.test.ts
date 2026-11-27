@@ -296,3 +296,41 @@ test("C003 Pippen override exact canonical preimage, other identities unchanged"
   assert.equal((await resolvePlayerTierIdentity("Basketball","Scottie Pippen SMALL")).normalizedName,"scottie pippen small");
   assert.equal((await resolvePlayerTierIdentity("Basketball","Scottie Pippen / Mark Price / Jamal Mashburn")).normalizedName,"scottie pippen mark price jamal mashburn");
 });
+
+
+test("one-click pricing uses saved snapshot, scopes to resolved cards and groups changed values",async()=>{
+ const {validPriceSnapshot,matchesPriceSnapshot,planTierPriceApplication}=await import("../src/lib/apply-tier-prices");
+ const prices={commonPrice:1,semiStarPrice:2,unlistedStarPrice:3,star1Price:4,star2Price:5,star3Price:6};
+ assert.equal(validPriceSnapshot(prices),true);
+ assert.equal(validPriceSnapshot({...prices,star3Price:null}),false);
+ assert.equal(validPriceSnapshot({...prices,star3Price:0}),false);
+ assert.equal(validPriceSnapshot({...prices,star3Price:"6"}),false);
+ assert.equal(matchesPriceSnapshot(prices,{...prices,commonPrice:0.5}),false);
+ const set={id:"test",productId:"product",product:{sport:"Baseball",year:1990},...prices};
+ const cs=[
+  {id:1,player:"Catfish Hunter SM",team:null,cardNumber:"1",bookValue:99},
+  {id:2,player:"Jim Hunter",team:null,cardNumber:"2",bookValue:2},
+  {id:3,player:"Catfish Hunter",team:null,cardNumber:"3",bookValue:0},
+  {id:4,player:"Unknown athlete qqq",team:null,cardNumber:"4",bookValue:0},
+  {id:5,player:"Unknown athlete zzz",team:null,cardNumber:"5",bookValue:7},
+ ];
+ writes.length=0;
+ const r=await planTierPriceApplication(fake as any,set,cs);
+ assert.deepEqual([...r.groups],[[2,[1,3]]]);
+ assert.deepEqual(r.summary,{scannedCards:5,updatedCards:2,alreadyCorrect:1,skippedNoTier:2,skippedNoPrice:0,pricedCards:4});
+ assert.equal(writes.length,0);
+ assert.equal(cs[0].bookValue,99);
+ const missing=await planTierPriceApplication(fake as any,{...set,semiStarPrice:null},cs);
+ assert.equal(missing.summary.skippedNoPrice,3);assert.equal(missing.groups.size,0);
+});
+
+test("one-click pricing respects C003 overrides and ambiguous contexts",async()=>{
+ const {planTierPriceApplication}=await import("../src/lib/apply-tier-prices");
+ const p={id:5007,sport:"Basketball",canonicalName:"Scottie Pippen",normalizedName:"scottie pippen",tier:"UNLISTED_STAR",notes:null,createdAt:new Date(0),updatedAt:new Date(1)};
+ profiles.push(p);
+ try{
+  const set={id:"test",productId:"product",product:{sport:"Basketball",year:1996},commonPrice:1,semiStarPrice:2,unlistedStarPrice:3,star1Price:4,star2Price:5,star3Price:6};
+  const r=await planTierPriceApplication(fake as any,set,[{id:1,player:"Scottie Pippen",team:"Chicago Bulls",cardNumber:"1",bookValue:0},{id:2,player:"Mike Dunleavy",team:null,cardNumber:"2",bookValue:0}]);
+  assert.deepEqual([...r.groups],[[4,[1]]]);assert.equal(r.summary.skippedNoTier,1);
+ }finally{profiles.pop();}
+});
