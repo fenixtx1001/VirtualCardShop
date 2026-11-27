@@ -83,3 +83,7 @@ All new Set Factory generators MUST test both whole-token removal and preservati
 ## Standing rule
 
 These are forward-looking Set Factory rules. All new generators should include the checklist-card exception and player-field cleanup from the start rather than discovering them set-by-set.
+
+## Mandatory pack odds for inserts and parallels — November 27, 2026
+
+Before generating any new Set Factory bundle, assign every pack-eligible INSERT and PARALLEL a positive integer `oddsPerPack`. Prefer verified historical rates; otherwise estimate from print runs, checklist size, modeled pack production, comparable releases and relative value, and label the estimate with rationale in notes/decisions. Preserve `kind: PARALLEL` for collector metadata, but VCS imports must use `isInsert: true` and `isBase: false` for both. Do not leave pack-eligible odds null or represent non-pack distribution as published pack odds. Use the full policy in [set-factory.md](./set-factory.md), including channel normalization, non-pack exceptions, collation/EV review and existing-data protection. No automatic price changes are authorized.
