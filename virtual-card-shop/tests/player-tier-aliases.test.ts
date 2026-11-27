@@ -12,7 +12,7 @@ const cards = [{ id: 1, player: "Catfish Hunter", productSet: { product: { sport
   { id: 3, player: "Catfish Hunter SM", productSet: { product: { sport: "Baseball" } } }];
 const writes: string[] = [];
 const fake = {
-  playerTierIgnoreToken: { findMany: async () => ["sm","roy","dp","tc","cl","rr","fp","fut","co","hc","sv"].map(normalizedToken=>({normalizedToken})) },
+  playerTierIgnoreToken: { findMany: async () => ["sm","roy","dp","tc","cl","rr","fp","fut","co","hc","sv","trib","uer","ll","alcs","nlcs"].map(normalizedToken=>({normalizedToken})) },
   playerTierProfile: {
     findUnique: async ({ where }: any) => profiles.find(p => where.id === p.id || (where.sport_normalizedName?.sport === p.sport && where.sport_normalizedName?.normalizedName === p.normalizedName)) ?? null,
     findMany: async ({ where }: any = {}) => profiles.filter(p => !where?.sport || (where.sport === p.sport && (!where.normalizedName?.in || where.normalizedName.in.includes(p.normalizedName)))),
@@ -29,8 +29,9 @@ const fake = {
 };
 (globalThis as any).prisma = fake;
 
-test("A001 registry exact sport scope, 20 mappings, collision and chain protection", () => {
-  assert.equal(PLAYER_TIER_ALIASES.length, 20);
+test("A001 and C002 registry exact sport scope, 26 mappings, collision and chain protection", () => {
+  assert.equal(PLAYER_TIER_ALIASES.length, 26);
+  assert.equal(PLAYER_TIER_ALIASES.slice(0,20).length,20);
   const a = PLAYER_TIER_ALIASES[0];
   assert.throws(() => createAliasRegistry([a, a]));
   assert.throws(() => createAliasRegistry([{ ...a, alias: a.normalizedName }]));
@@ -188,4 +189,51 @@ test("C001 protected profiles resolve in single and bulk price paths, and canoni
     assert.equal(a.rows[0].id,702);assert.equal(a.rows[0].effectiveTier,"UNLISTED_STAR");
     assert.equal(a.rows[0].variants.length,2);assert.equal(writes.length,0);
   } finally {profiles.splice(-4);cards.pop();}
+});
+
+
+test("C002 six exact aliases and eight classifications, preserved genuine suffixes and sport scope", async () => {
+  const {resolvePlayerTierIdentity,normalizePlayerName}=await import("../src/lib/player-tiers");
+  const {reviewCategory}=await import("../src/lib/player-tier-cleanup");
+  for(const suffix of ["I","II","III","IV","V"]){
+    const x=await resolvePlayerTierIdentity("Baseball","Rod Carew - "+suffix+" TRIB");
+    assert.equal(x.target?.targetId,4253); assert.equal(x.normalizedName,"rod carew");
+  }
+  assert.equal((await resolvePlayerTierIdentity("Basketball","Jim Rodgers CO")).target?.targetId,143974);
+  assert.equal((await resolvePlayerTierIdentity("Football","Rod Carew - III TRIB")).target,undefined);
+  assert.equal((await resolvePlayerTierIdentity("Baseball","Jim Rodgers CO")).target,undefined);
+  assert.equal(await normalizePlayerName("Ken Griffey Jr."),"ken griffey jr");
+  assert.equal(await normalizePlayerName("John Smith III"),"john smith iii");
+  assert.equal((await resolvePlayerTierIdentity("Baseball","Austin Manahan UER")).normalizedName,"austin manahan");
+  for(const [sport,name,category] of [
+    ["Football","Tom Landry HC","Coach"],["Baseball","Jimmie Reese CO","Coach"],
+    ["Basketball","Rex Hughes CO","Coach"],["Basketball","Jim Rodgers CO","Coach"],
+    ["Basketball","Jimmy Rodgers","Coach"],["Basketball","Jimmy Rodgers CO","Coach"],
+    ["Basketball","Frank Hamblen CO","Coach"],
+    ["Baseball","1983 Leading Firemen (Al Holland / Dan Quisenberry) LL","Multi-player"],
+    ["Baseball","ALCS: Athletics vs Blue Jays ALCS","Game card"],
+    ["Baseball","NLCS: Pirates vs Braves NLCS","Game card"]
+  ]) {
+    const x=await resolvePlayerTierIdentity(sport,name);
+    assert.equal(reviewCategory(sport,x.normalizedName,[name]),category);
+    if(category==="Game card"||category==="Multi-player") assert.equal(x.target,undefined);
+  }
+});
+test("C002 canonical single pricing inherits without writes",async()=>{
+  const {getDefaultPriceForPlayer,ensurePlayerTierProfile}=await import("../src/lib/player-tiers");
+  const carews=profiles.filter(p=>p.id===4253), old=carews.map(p=>p.tier);
+  const manahan={id:999999,sport:"Baseball",canonicalName:"Austin Manahan",normalizedName:"austin manahan",tier:"COMMON",notes:null,createdAt:new Date(0),updatedAt:new Date(1)};
+  carews.forEach(p=>p.tier="UNLISTED_STAR"); profiles.push(manahan);
+  writes.length=0;
+  try {
+    for(const suffix of ["I","II","III","IV","V"]){
+      const player="Rod Carew - "+suffix+" TRIB";
+      assert.equal((await ensurePlayerTierProfile({prisma:fake as any,sport:"Baseball",player}))?.id,4253);
+      const result=await getDefaultPriceForPlayer({prisma:fake as any,productSetId:"test",player});
+      assert.equal(result.tier,"UNLISTED_STAR");assert.equal(result.defaultPrice,3);
+    }
+    const result=await getDefaultPriceForPlayer({prisma:fake as any,productSetId:"test",player:"Austin Manahan UER"});
+    assert.equal(result.tier,"COMMON");assert.equal(result.defaultPrice,1);
+    assert.equal(writes.length,0);
+  } finally {profiles.pop();carews.forEach((p,i)=>p.tier=old[i]);}
 });
