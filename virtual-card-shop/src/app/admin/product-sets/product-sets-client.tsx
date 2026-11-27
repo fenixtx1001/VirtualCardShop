@@ -320,9 +320,20 @@ export default function ProductSetsClient() {
           const pending = existing[nextRow.id];
           const dirty = oldRow && pending &&
             JSON.stringify(pending) !== JSON.stringify(createDraft(oldRow));
-          nextDrafts[nextRow.id] = options?.preserveOtherDraftsThan &&
-            nextRow.id !== options.preserveOtherDraftsThan && dirty
-              ? pending : createDraft(nextRow);
+          const fresh = createDraft(nextRow);
+          if (options?.preserveOtherDraftsThan === "__pricing_advisor__" && oldRow && pending) {
+            // Preserve unrelated unsaved edits, but never carry a stale draft over a
+            // newly approved (or concurrently edited) persisted field.
+            const previous = createDraft(oldRow);
+            nextDrafts[nextRow.id] = Object.fromEntries(
+              (Object.keys(fresh) as (keyof ProductSetDraft)[]).map(key => [
+                key, fresh[key] !== previous[key] ? fresh[key] : pending[key],
+              ])
+            ) as ProductSetDraft;
+          } else {
+            nextDrafts[nextRow.id] = options?.preserveOtherDraftsThan &&
+              nextRow.id !== options.preserveOtherDraftsThan && dirty ? pending : fresh;
+          }
         }
         return nextDrafts;
       });
