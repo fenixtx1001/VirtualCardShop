@@ -144,6 +144,11 @@ export default function ProductSetsClient() {
   const [pageSize, setPageSize] = useState(50);
   const [total, setTotal] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
+  // Only infer a product from a complete response for the current filters.
+  const [advisorScope, setAdvisorScope] = useState<{key:string;id:string}>({key:"",id:""});
+  const advisorFilterKey = JSON.stringify([debouncedQ,productFilter,onlyBase,onlyInsert,sportFilter,yearFilter,page,pageSize]);
+  const inferredProduct = q.trim() === debouncedQ && advisorScope.key === advisorFilterKey ? advisorScope.id : "";
+  const advisorProductId = productFilter || inferredProduct;
 
   const requestIdRef = useRef(0);
 
@@ -300,6 +305,12 @@ export default function ProductSetsClient() {
       const nextRows = Array.isArray(data?.rows) ? data.rows : [];
 
       setRows(nextRows);
+      const matchedProducts = new Set(nextRows.map(row=>row.productId));
+      const complete = typeof data?.total === "number" && data.total === nextRows.length;
+      setAdvisorScope({
+        key: advisorFilterKey,
+        id: complete && matchedProducts.size === 1 ? nextRows[0].productId : "",
+      });
       setPage(typeof data?.page === "number" ? data.page : page);
       setPageSize(
         typeof data?.pageSize === "number" ? data.pageSize : pageSize
@@ -729,7 +740,7 @@ export default function ProductSetsClient() {
 
       <hr style={{ margin: "16px 0" }} />
 
-      <PricingAdvisor key={productFilter || "none"} productId={productFilter} onSaved={() => { void loadRows({ preserveMessage: true, preserveOtherDraftsThan: "__pricing_advisor__" }); }} />
+      <PricingAdvisor key={advisorProductId || "none"} productId={advisorProductId} inferred={!!advisorProductId && !productFilter} onSaved={() => { void loadRows({ preserveMessage: true, preserveOtherDraftsThan: "__pricing_advisor__" }); }} />
 
       <div
         style={{
