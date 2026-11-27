@@ -1,6 +1,8 @@
 // @ts-nocheck -- isolated exploratory research script; typed integration is a later phase.
 // Read-only VCS six-tier pricing research. No writes, no deployment, no API calls to AI.
 // Run from virtual-card-shop: npx tsx scripts/pricing-advisor-shadow.ts
+// Optional argument: exact product ID for V2 candidate report, e.g. 2000_Ultra_Baseball.
+// Output is local; do not commit production pricing data or credentials.
 // Requires existing Prisma DB configuration. Never run with untrusted database credentials.
 import 'dotenv/config';
 import { PrismaClient } from '@prisma/client';
@@ -41,7 +43,7 @@ function pricingStudy(rows){
  const unpriced=data.filter(a=>tiers.every(t=>a[t]==null));const targets=unpriced.map(a=>({a,p:predict(a)})).filter(x=>x.p);
  return {inventory:{rows:data.length,training:examples.length,products:new Set(examples.map(x=>x.product_id)).size,untestable:examples.length-tested.length,unpriced:unpriced.length,predictable:targets.length,strongMatchCandidates:targets.filter(x=>x.p.confidence==="strong-match").length},baseline:score(tested,"baseline"),advisor:score(tested,"prices"),strongMatch:score(tested.filter(x=>x.p.confidence==="strong-match"),"prices"),base:score(tested.filter(x=>x.a.base),"prices"),insert:score(tested.filter(x=>x.a.insert),"prices"),samples,compareExamples:tested.filter(x=>x.a.brand==="Ultra"&&x.a.sport==="Baseball"&&x.a.year===1993).slice(0,5).map(({a,p})=>({name:a.name,odds:a.odds,actual:Object.fromEntries(tiers.map(t=>[t,a[t]])),prediction:p.prices,confidence:p.confidence}))};
 }
-function pricingStudyV2(rows){
+function pricingStudyV2(rows, selectedProduct){
  const tiers=["common","semi","s1","s2","s3","unlisted"];
  const norm=s=>String(s??"").toLowerCase().replace(/[^a-z0-9 ]/g," ").replace(/\s+/g," ").trim();
  const sport=s=>norm(s)==="basketbal"?"basketball":norm(s);
@@ -74,12 +76,14 @@ function pricingStudyV2(rows){
  const counts=items=>items.reduce((a,x)=>(a[x.p.status]=(a[x.p.status]||0)+1,a),{});
  const targets=data.filter(a=>tiers.every(t=>a[t]==null)).map(a=>({a,p:predict(a)}));
  const kindScores=[...new Set(examples.map(a=>a.kind))].map(kind=>({kind,eligible:examples.filter(x=>x.kind===kind).length,...score(predicted.filter(x=>x.a.kind===kind))}));
- const sample=targets.filter(x=>x.a.brand==="Ultra"&&x.a.sport==="Baseball"&&x.a.year===2000).map(({a,p})=>({name:a.name,kind:a.kind,odds:a.odds,status:p.status,prices:p.prices}));
+ const sample=targets.filter(x=>selectedProduct ? x.a.product_id===selectedProduct : x.a.brand==="Ultra"&&x.a.sport==="Baseball"&&x.a.year===2000).map(({a,p})=>({name:a.name,kind:a.kind,odds:a.odds,status:p.status,prices:p.prices,neighbors:p.neighbors??[]}));
  const ready=targets.filter(x=>x.p.status==="strong-match").map(({a,p})=>({id:a.subset_id,name:a.name,product:a.product_id,odds:a.odds,prices:p.prices,neighbors:p.neighbors.slice(0,2)}));
- return {inventory:{training:examples.length,products:new Set(examples.map(x=>x.product_id)).size,unpriced:targets.length},testStatuses:counts(tested),targetStatuses:counts(targets),advisor:score(predicted),strongMatch:score(predicted.filter(x=>x.p.status==="strong-match")),byKind:kindScores,sample,strongMatchExamples:ready.slice(0,5),strongMatchCount:ready.length};
+ return {inventory:{training:examples.length,products:new Set(examples.map(x=>x.product_id)).size,unpriced:targets.length},testStatuses:counts(tested),targetStatuses:counts(targets),advisor:score(predicted),strongMatch:score(predicted.filter(x=>x.p.status==="strong-match")),byKind:kindScores,sample,strongMatchExamples:ready,strongMatchCount:ready.length};
 }
 async function main() {
  const rows = await prisma.$queryRawUnsafe(query);
- console.log(JSON.stringify({v1:pricingStudy(rows),v2:pricingStudyV2(rows)}, null, 2));
+ const selectedProduct = process.argv[2];
+ if(selectedProduct && !rows.some(row=>row.product_id===selectedProduct)) throw new Error('Unknown product ID: '+selectedProduct);
+ console.log(JSON.stringify({v1:pricingStudy(rows),v2:pricingStudyV2(rows, selectedProduct)}, null, 2));
 }
 main().catch(e=>{console.error(e);process.exitCode=1;}).finally(()=>prisma.$disconnect());
