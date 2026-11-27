@@ -27,6 +27,8 @@ type PlayerTierRow = {
     | null;
   effectiveTier?: PlayerTierRow["tier"];
   status?: string;
+  possibleOrphan?:boolean;
+  legacyConflict?:{id:number;tier:string}|null;
   conflict?: boolean;
   locked?: boolean;
   resolvedName?: string;
@@ -116,6 +118,7 @@ export default function PlayerTiersClient() {
   const [query, setQuery] = useState("");
   const [sportFilter, setSportFilter] = useState("ALL");
   const [onlyUnassigned, setOnlyUnassigned] = useState(true);
+  const [reviewFilter,setReviewFilter]=useState("all");
 
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(100);
@@ -144,6 +147,7 @@ export default function PlayerTiersClient() {
       if (query.trim()) qs.set("q", query.trim());
       if (sportFilter !== "ALL") qs.set("sport", sportFilter);
       if (onlyUnassigned) qs.set("onlyUnassigned", "true");
+      if(reviewFilter!=="all")qs.set("review",reviewFilter);
       qs.set("page", String(nextPage));
       qs.set("pageSize", String(nextPageSize));
 
@@ -630,6 +634,7 @@ export default function PlayerTiersClient() {
           </select>
         </div>
 
+        <label style={{display:"flex",flexDirection:"column",gap:4,fontWeight:700}}>Review category<select value={reviewFilter} onChange={e=>{setReviewFilter(e.target.value);if(e.target.value!=="all")setOnlyUnassigned(false);}} style={{padding:8}}><option value="all">All groups</option><option value="conflicts">Tier conflicts</option><option value="variants">Artifact variants</option><option value="deferred">Needs review</option><option value="legacy">Legacy sport</option><option value="orphans">Possible orphans (audit)</option></select></label>
         <label style={{ display: "flex", alignItems: "center", gap: 8, paddingBottom: 8 }}>
           <input
             type="checkbox"
@@ -763,6 +768,8 @@ export default function PlayerTiersClient() {
                       <div style={{ marginTop: 6, fontSize: 12, color: "#666", fontWeight: 700 }}>
                         Stored: {prettyTier(row.tier)} · Effective: {prettyTier(row.effectiveTier ?? null)}
                         <div>{row.status}{row.conflict ? " · review variants" : ""}</div>
+                        {row.possibleOrphan && <div>Possible orphan (audit snapshot)</div>}
+                        {row.legacyConflict && <div>Legacy conflict: Basketball #{row.legacyConflict.id} — {row.legacyConflict.tier}</div>}
                       </div>
                     </td>
 

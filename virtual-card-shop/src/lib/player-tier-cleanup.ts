@@ -13,7 +13,9 @@ export function protectedLiteral(sport: string, input: string) {
   const n = literalPlayerKey(input);
   return (sport === "Hockey" && n === "patrick roy") || (sport === "Baseball" && n === "oakland as");
 }
+const bench: PlayerTierAlias = {sport:"Baseball",alias:"johnny bench",canonicalName:"Johnny Bench",normalizedName:"johnny bench",targetId:4256};
 export function cleanupTarget(sport: string, norm: string) {
+  if (sport === bench.sport && norm === bench.normalizedName) return bench;
   if (sport === team.sport && (norm === team.alias || norm === team.normalizedName)) return team;
   if (sport === roy.sport && norm === roy.normalizedName) return roy;
 }
@@ -101,6 +103,24 @@ export function reviewCategory(sport: string, key: string, labels: string[]) {
   if (sport === "Basketbal") return "Legacy sport";
   const marked = deferred.get(sport+"::"+key);
   if (marked) return marked;
-  if (labels.some(x => /checklist|leaders?|champions?|team card|mascot|logo|award|stadium|print code|coach|all.star|rookie of the year/i.test(x))) return "Potential non-player";
+  if (/\b(checklist|leaders?|champions?|team card|mascot|logo|award|stadium|print code|coach|all.star|rookie of the year)\b/i.test(key)) return "Potential non-player";
   return null;
 }
+
+// C001 audit flags are dated observations, not automatic deletion criteria.
+const orphanSnapshot = new Set(["Basketbal::alonzo mourning","Basketbal::anthony mason","Basketbal::b j armstrong","Basketbal::charles barkley","Basketbal::chris mills","Basketbal::chris morris","Basketbal::chris mullin","Basketbal::chris webber","Basketbal::christian laettner","Basketbal::clifford robinson","Basketbal::david wingate","Basketbal::derek harper","Basketbal::derrick coleman","Basketbal::dikembe mutombo","Basketbal::dominique wilkins","Basketbal::donyell marshall","Basketbal::elden campbell","Basketbal::eric montross","Basketbal::eric murdock","Basketbal::glen rice","Basketbal::glenn robinson","Basketbal::grant hill","Basketbal::hersey hawkins","Basketbal::horace grant","Basketbal::jalen rose","Basketbal::jamal mashburn","Basketbal::jay humphries","Basketbal::jim jackson","Basketbal::john salley","Basketbal::juwan howard","Basketbal::ken norman","Basketbal::kenny anderson","Basketbal::kenny smith","Basketbal::kevin willis","Basketbal::latrell sprewell","Basketbal::mahmoud abdul rauf","Basketbal::mario elie","Basketbal::mark jackson","Basketbal::mark price","Basketbal::muggsy bogues","Basketbal::nick anderson","Basketbal::olden polynice","Basketbal::otis thorpe","Basketbal::patrick ewing","Basketbal::reggie miller","Basketbal::reggie williams","Basketbal::robert horry","Basketbal::rod strickland","Basketbal::rony seikaly","Basketbal::sam cassell","Basketbal::shaquille oneal","Basketbal::sherman douglas","Basketbal::stacey augmon","Basketbal::terry cummings","Basketbal::terry mills","Basketbal::tim hardaway","Basketbal::tom gugliotta","Basketbal::wesley person"]);
+const legacyConflictSnapshot = new Map<string,{id:number;tier:string}>([
+  ["Basketbal::james worthy",{id:1365,tier:"UNLISTED_STAR"}],
+  ["Basketbal::derrick coleman",{id:7632,tier:"COMMON"}],
+  ["Basketbal::ervin johnson",{id:46604,tier:"COMMON"}],
+  ["Basketbal::scottie pippen",{id:5007,tier:"UNLISTED_STAR"}],
+  ["Basketbal::rod strickland",{id:1408,tier:"COMMON"}],
+  ["Basketbal::dominique wilkins",{id:1297,tier:"STAR_1"}],
+  ["Basketbal::charles oakley",{id:1395,tier:"COMMON"}],
+  ["Basketbal::robert parish",{id:1304,tier:"UNLISTED_STAR"}],
+  ["Basketbal::jalen rose",{id:5088,tier:"COMMON"}],
+  ["Basketbal::rick mahorn",{id:1270,tier:"SEMI_STAR"}],
+  ["Basketbal::alton lister",{id:5074,tier:"SEMI_STAR"}],
+  ["Basketbal::john starks",{id:5673,tier:"COMMON"}],
+]);
+export function auditFlags(sport:string,key:string) { return {possibleOrphan:orphanSnapshot.has(sport+"::"+key),legacyConflict:legacyConflictSnapshot.get(sport+"::"+key)??null}; }

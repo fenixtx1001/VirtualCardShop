@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { PlayerTier } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { cleanCanonicalPlayerName, normalizePlayerName, resolvePlayerTierIdentity } from "@/lib/player-tiers";
-import { cleanupTarget, isTeamAlias, isOverrideKey, effectivePlayerTier, reviewCategory, literalPlayerKey } from "@/lib/player-tier-cleanup";
+import { cleanupTarget, isTeamAlias, isOverrideKey, effectivePlayerTier, reviewCategory, literalPlayerKey, auditFlags } from "@/lib/player-tier-cleanup";
 import { approvedAliasFor, protectedAliasTarget, aliasTargetMatches } from "@/lib/player-tier-aliases";
 
 function parseBool(v: string | null) {
@@ -62,6 +62,7 @@ export async function GET(req: Request) {
     const q = (url.searchParams.get("q") ?? "").trim();
     const sport = (url.searchParams.get("sport") ?? "").trim() || undefined;
     const onlyUnassigned = parseBool(url.searchParams.get("onlyUnassigned"));
+    const review = url.searchParams.get("review") ?? "all";
 
     const page = clampInt(parseInt(url.searchParams.get("page") ?? "1", 10) || 1, 1, 100000);
     const pageSize = clampInt(parseInt(url.searchParams.get("pageSize") ?? "100", 10) || 100, 1, 500);
@@ -92,8 +93,9 @@ export async function GET(req: Request) {
       const category = reviewCategory(row.sport, group.key, group.members.map(r=>r.canonicalName));
       const conflict = assigned.size > 1;
       const status = category ?? (conflict ? "Tier conflict" : effectiveTier ? (group.members.length > 1 ? "Resolved variants" : "Assigned") : canonical ? "Unassigned canonical" : "Missing canonical");
+      const flags = auditFlags(row.sport,group.key);
       const locked = !canonical || !!category || isOverrideKey(row.sport,group.key);
-      return {...row, effectiveTier, resolvedName:group.name,resolvedKey:group.key, status, conflict, locked, canonicalId:canonical?.id ?? null,
+      return {...row, ...flags, effectiveTier, resolvedName:group.name,resolvedKey:group.key, status, conflict, locked, canonicalId:canonical?.id ?? null,
         variants:group.members.map(r=>({id:r.id,name:r.canonicalName,tier:r.tier,notes:r.notes})),
         rawBlankCount:group.members.filter(r=>r.tier===null).length};
     });
@@ -116,6 +118,11 @@ export async function GET(req: Request) {
       rows = rows.filter((row) => row.effectiveTier == null && !reviewCategory(row.sport,row.resolvedKey,row.variants.map(v=>v.name)));
     }
 
+    if(review==="conflicts") rows=rows.filter(r=>r.conflict||r.legacyConflict);
+    else if(review==="orphans") rows=rows.filter(r=>r.possibleOrphan);
+    else if(review==="variants") rows=rows.filter(r=>r.variants.length>1);
+    else if(review==="deferred") rows=rows.filter(r=>r.locked&&!isOverrideKey(r.sport,r.resolvedKey));
+    else if(review==="legacy") rows=rows.filter(r=>r.sport==="Basketbal");
     rows.sort((a, b) => {
       const sportA = a.sport || "Unknown";
       const sportB = b.sport || "Unknown";

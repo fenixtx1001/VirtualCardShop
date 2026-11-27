@@ -167,3 +167,25 @@ test("C001 admin shows stored and effective tiers and blocks override writes",as
     assert.equal(writes.length,0);
   } finally {profiles.pop();}
 });
+
+test("C001 protected profiles resolve in single and bulk price paths, and canonical conflict wins",async()=>{
+  const {getDefaultPriceForPlayer,ensurePlayerTierProfile}=await import("../src/lib/player-tiers");
+  const {GET}=await import("../src/app/api/product-sets/[productSetId]/default-prices/route");
+  const {GET:adminGet}=await import("../src/app/api/player-tiers/route");
+  const p=(id:number,sport:string,canonicalName:string,normalizedName:string,tier:string)=>({id,sport,canonicalName,normalizedName,tier,notes:null,createdAt:new Date(0),updatedAt:new Date(1)});
+  const roy=p(2550,"Hockey","Patrick Roy","patrick roy","STAR_2"),oak=p(40062,"Baseball","Oakland Athletics","oakland athletics","COMMON");
+  const murphy=p(702,"Baseball","Dale Murphy","dale murphy","UNLISTED_STAR"),variant=p(37048,"Baseball","Dale Murphy SV","dale murphy sv","STAR_3");
+  profiles.push(roy,oak,murphy,variant);
+  cards.push({id:5,player:"Oakland A's CL, TC",productSet:{product:{sport:"Baseball"}}});
+  writes.length=0;
+  try {
+    assert.equal((await ensurePlayerTierProfile({prisma:fake as any,sport:"Hockey",player:"Patrick Roy RC"}))?.id,2550);
+    const x=await getDefaultPriceForPlayer({prisma:fake as any,productSetId:"test",player:"Oakland A's CL, TC"});
+    assert.equal(x.canonicalName,"Oakland Athletics");assert.equal(x.tier,"COMMON");
+    const b=await (await GET(new Request("https://test"),{params:{productSetId:"test"}})).json();
+    assert.equal(b.results[5].canonicalName,"Oakland Athletics");
+    const a=await (await adminGet(new Request("https://test?q=Dale%20Murphy&review=conflicts"))).json();
+    assert.equal(a.rows[0].id,702);assert.equal(a.rows[0].effectiveTier,"UNLISTED_STAR");
+    assert.equal(a.rows[0].variants.length,2);assert.equal(writes.length,0);
+  } finally {profiles.splice(-4);cards.pop();}
+});
