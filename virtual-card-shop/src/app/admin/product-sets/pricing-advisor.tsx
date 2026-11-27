@@ -3,9 +3,9 @@ import {useState} from "react";
 import {PRICE_FIELDS} from "@/lib/pricing-advisor";
 import type {PriceField,Recommendation} from "@/lib/pricing-advisor";
 const labels:Record<PriceField,string>={commonPrice:"Common",semiStarPrice:"Semi-Star",unlistedStarPrice:"Unlisted Star",star1Price:"Star 1",star2Price:"Star 2",star3Price:"Star 3"};
-const statuses:Record<string,string>={"strong-match":"Strong match",review:"Review",configured:"Already configured","missing-odds":"Missing pack odds","weak-comparable":"Weak comparisons","no-comparable":"No comparisons","missing-metadata":"Missing product metadata"};
+const statuses:Record<string,string>={"strong-match":"Strong match",review:"Review","broader-match":"Broader match · review",configured:"Already configured","missing-odds":"Missing pack odds","weak-comparable":"Weak comparisons","no-comparable":"No comparisons","missing-metadata":"Missing product metadata"};
 type Draft=Record<string,Partial<Record<PriceField,string>>>;
-export default function PricingAdvisor({productId,onSaved}:{productId:string;onSaved:()=>void}){
+export default function PricingAdvisor({productId,inferred=false,onSaved}:{productId:string;inferred?:boolean;onSaved:()=>void}){
  const [rows,setRows]=useState<Recommendation[]>([]);
  const [drafts,setDrafts]=useState<Draft>({});
  const [selected,setSelected]=useState<Record<string,boolean>>({});
@@ -45,7 +45,8 @@ export default function PricingAdvisor({productId,onSaved}:{productId:string;onS
    <div><strong>Pricing Advisor</strong><div style={{fontSize:12,opacity:.8}}>Fill missing six-tier defaults using comparable released sets. Existing prices are locked.</div></div>
    <button type="button" disabled={!productId||busy} onClick={preview}>{busy?"Working…":"Suggest All Tier Prices"}</button>
   </div>
-  {!productId&&<p style={{fontSize:12}}>Select a product in the filter below to price every subset in that product.</p>}
+  {!productId&&<p style={{fontSize:12}}>Search until the results identify one product, or select a product in the dropdown below.</p>}
+  {productId&&<p style={{fontSize:12,margin:"8px 0"}}>{inferred?"Detected from your search: ":"Selected product: "}<strong>{productId.replace(/_/g," ")}</strong> · All subsets in this product.</p>}
   {error&&<p role="alert" style={{color:"#b91c1c"}}>{error}</p>}{message&&<p role="status">{message}</p>}
   {open&&rows.length>0&&<>
    <p style={{fontSize:13}}>{eligible.length} recommendations · {rows.length-eligible.length} configured or skipped. Strong matches are selected initially; review the others before selecting.</p>
@@ -60,6 +61,9 @@ export default function PricingAdvisor({productId,onSaved}:{productId:string;onS
      <input type="checkbox" aria-label={"Approve "+r.name} disabled={busy||!r.updatedPrices} checked={!!selected[r.id]&&!!r.updatedPrices} onChange={e=>setSelected(old=>({...old,[r.id]:e.target.checked}))}/>
      <strong>{r.name}</strong><small>{r.odds?"1:"+r.odds:r.category==="base"?"Base":"No odds"} · {statuses[r.status]??r.status}</small>
     </div>
+    {r.status==="broader-match"&&<p style={{fontSize:12,margin:"6px 0"}}>Nearby same-brand sets with similar pack odds; broader comparison, not an exact match. Review before approving.</p>}
+    {r.status==="weak-comparable"&&<p style={{fontSize:12,margin:"6px 0"}}>No sufficiently similar priced subset in this sport and category. No prices guessed.</p>}
+    {r.status==="missing-odds"&&<p style={{fontSize:12,margin:"6px 0"}}>Set pack odds in the main table, save, then run suggestions again.</p>}
     {r.updatedPrices&&<>
      <div className="vcs-admin-set-price-grid" style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(100px,1fr))",gap:8,marginTop:8}}>
       {PRICE_FIELDS.map(k=><label key={k} style={{minWidth:0}}><span>{labels[k]} ($)</span><input style={{width:"100%",boxSizing:"border-box"}} type="number" min=".01" step=".01" inputMode="decimal" disabled={busy||r.existing[k]!==null} value={r.existing[k]!==null?String(r.existing[k]):drafts[r.id]?.[k]??""} title={r.existing[k]!==null?"Existing value protected":"Editable suggested price"} onChange={e=>setDrafts(old=>({...old,[r.id]:{...old[r.id],[k]:e.target.value}}))}/></label>)}
