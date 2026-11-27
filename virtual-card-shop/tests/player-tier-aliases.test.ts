@@ -12,7 +12,7 @@ const cards = [{ id: 1, player: "Catfish Hunter", productSet: { product: { sport
   { id: 3, player: "Catfish Hunter SM", productSet: { product: { sport: "Baseball" } } }];
 const writes: string[] = [];
 const fake = {
-  playerTierIgnoreToken: { findMany: async () => ["sm","roy","dp","tc","cl","rr","fp","fut","co","hc","sv","trib","uer","ll","alcs","nlcs"].map(normalizedToken=>({normalizedToken})) },
+  playerTierIgnoreToken: { findMany: async () => ["sm","roy","dp","tc","cl","rr","fp","fut","co","hc","sv","trib","uer","ll","alcs","nlcs","rr","fbc","mvpr","skm"].map(normalizedToken=>({normalizedToken})) },
   playerTierProfile: {
     findUnique: async ({ where }: any) => profiles.find(p => where.id === p.id || (where.sport_normalizedName?.sport === p.sport && where.sport_normalizedName?.normalizedName === p.normalizedName)) ?? null,
     findMany: async ({ where }: any = {}) => profiles.filter(p => !where?.sport || (where.sport === p.sport && (!where.normalizedName?.in || where.normalizedName.in.includes(p.normalizedName)))),
@@ -133,7 +133,7 @@ test("C001 override stays separate from stored tier; stale identity fails closed
   assert.equal(effectivePlayerTier(p),"STAR_2"); assert.equal(p.tier,"COMMON");
   assert.equal(effectivePlayerTier({...p,id:99}),null);
   assert.equal(effectivePlayerTier({...p,tier:"SEMI_STAR"}),null);
-  assert.equal(reviewCategory("Baseball","alex sanchez",[]),"Ambiguous");
+  assert.equal(reviewCategory("Baseball","alex sanchez",[]),"Contextual history");
   assert.equal(reviewCategory("Basketball","rick adelman",[]),"Coach");
   assert.equal(reviewCategory("Baseball","orioles leaders",[]),"Non-player");
   assert.equal(reviewCategory("Basketbal","scottie pippen",[]),"Legacy sport");
@@ -236,4 +236,63 @@ test("C002 canonical single pricing inherits without writes",async()=>{
     assert.equal(result.tier,"COMMON");assert.equal(result.defaultPrice,1);
     assert.equal(writes.length,0);
   } finally {profiles.pop();carews.forEach((p,i)=>p.tier=old[i]);}
+});
+
+
+test("C003 all 40 approved card contexts resolve and changed or missing context fails closed",async()=>{
+  const {C003_CARDS,C003_TARGETS,contextProfileMatches}=await import("../src/lib/player-tier-c003");
+  const {resolveCardTierIdentity,ensurePlayerTierProfile,getDefaultPriceForPlayer}=await import("../src/lib/player-tiers");
+  const fixtures=C003_TARGETS.map((t,i)=>({...t,id:"id" in t?t.id:999990+i,notes:null,createdAt:new Date(0),updatedAt:new Date(1)}));
+  profiles.push(...fixtures); writes.length=0;
+  const originalSet=fake.productSet.findUnique;
+  try{
+    assert.equal(C003_CARDS.length,40);
+    for(const c of C003_CARDS){
+      const target=C003_TARGETS[c.target];
+      const r=await resolveCardTierIdentity(c.sport,c.player,c);
+      assert.equal(r.blocked,false);assert.equal(r.normalizedName,target.normalizedName);
+      assert.equal((await ensurePlayerTierProfile({prisma:fake as any,sport:c.sport,player:c.player,card:c}))?.id,fixtures[c.target].id);
+      (fake.productSet as any).findUnique=async()=>({...await originalSet(),id:c.productSetId,product:{sport:c.sport,year:c.year}});
+      const price=await getDefaultPriceForPlayer({prisma:fake as any,productSetId:c.productSetId,player:c.player,card:c});
+      assert.equal(price.tier,"COMMON");assert.equal(price.defaultPrice,1);
+      for(const bad of [{...c,team:"Wrong team"},{...c,year:1800},{...c,cardNumber:"bogus"},{...c,productSetId:"wrong"},{...c,player:"Unrelated player"}])assert.equal((await resolveCardTierIdentity(c.sport,bad.player,bad)).blocked,true);
+    }
+    for(const c of C003_CARDS.filter(c=>c.target!==3)){
+      assert.equal((await resolveCardTierIdentity(c.sport,c.player)).blocked,true);
+      assert.equal((await resolveCardTierIdentity(c.sport,c.player,{...c,id:99999999})).blocked,true);
+      assert.equal(await ensurePlayerTierProfile({prisma:fake as any,sport:c.sport,player:c.player}),null);
+    }
+    const c=C003_CARDS[0];
+    assert.equal(contextProfileMatches(C003_TARGETS[c.target],null),false);
+    const old=fixtures[c.target].canonicalName;
+    (fixtures[c.target] as any).canonicalName="Wrong";
+    assert.equal(await ensurePlayerTierProfile({prisma:fake as any,sport:c.sport,player:c.player,card:c}),null);
+    (fixtures[c.target] as any).canonicalName=old;
+    assert.equal(writes.length,0);
+  }finally{profiles.splice(-fixtures.length);fake.productSet.findUnique=originalSet;}
+});
+test("C003 all 21 historical decisions validate preimages and reopen for changes",async()=>{
+  const {C003_REVIEWS,reviewedConflict}=await import("../src/lib/player-tier-c003");
+  const {effectivePlayerTier}=await import("../src/lib/player-tier-cleanup");
+  assert.equal(C003_REVIEWS.length,21);
+  for(const r of C003_REVIEWS){
+    const all=new Map([...r.members,r.active].map(m=>[m.id,m]));
+    const tier=effectivePlayerTier(r.active);
+    assert.equal(reviewedConflict(r.sport,r.key,r.members,all,tier),true,r.key);
+    const altered=new Map(all);altered.set(r.active.id,{...r.active,canonicalName:"Changed"});
+    assert.equal(reviewedConflict(r.sport,r.key,r.members,altered,tier),false);
+    assert.equal(reviewedConflict(r.sport,r.key,[...r.members,{...r.members[0],id:9999999}],all,tier),false);
+  }
+});
+test("C003 Pippen override exact canonical preimage, other identities unchanged",async()=>{
+  const {effectivePlayerTier,isOverrideId}=await import("../src/lib/player-tier-cleanup");
+  const {resolvePlayerTierIdentity}=await import("../src/lib/player-tiers");
+  const p={id:5007,sport:"Basketball",canonicalName:"Scottie Pippen",normalizedName:"scottie pippen",tier:"UNLISTED_STAR" as const};
+  assert.equal(effectivePlayerTier(p),"STAR_1");assert.equal(p.tier,"UNLISTED_STAR");assert.equal(isOverrideId(5007),true);
+  assert.equal(effectivePlayerTier({...p,id:999}),null);
+  assert.equal(effectivePlayerTier({...p,tier:"COMMON"}),null);
+  assert.equal(effectivePlayerTier({...p,id:95441,sport:"Basketbal",tier:"STAR_1"}),"STAR_1");
+  assert.equal(effectivePlayerTier({...p,id:230225,canonicalName:"Scottie Pippen SMALL",normalizedName:"scottie pippen small"}),"UNLISTED_STAR");
+  assert.equal((await resolvePlayerTierIdentity("Basketball","Scottie Pippen SMALL")).normalizedName,"scottie pippen small");
+  assert.equal((await resolvePlayerTierIdentity("Basketball","Scottie Pippen / Mark Price / Jamal Mashburn")).normalizedName,"scottie pippen mark price jamal mashburn");
 });
