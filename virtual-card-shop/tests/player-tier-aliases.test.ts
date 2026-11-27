@@ -315,12 +315,12 @@ test("one-click pricing uses saved snapshot, scopes to resolved cards and groups
   {id:5,player:"Unknown athlete zzz",team:null,cardNumber:"5",bookValue:7},
  ];
  writes.length=0;
- const r=await planTierPriceApplication(fake as any,set,cs);
+ const r=await planTierPriceApplication(fake as any,set,cs,"overwriteAllPrices");
  assert.deepEqual([...r.groups],[[2,[1,3]]]);
- assert.deepEqual(r.summary,{scannedCards:5,updatedCards:2,alreadyCorrect:1,skippedNoTier:2,skippedNoPrice:0,pricedCards:4});
+ assert.deepEqual(r.summary,{scannedCards:5,updatedCards:2,alreadyCorrect:1,skippedAlreadyPriced:0,skippedNoTier:2,skippedNoPrice:0,pricedCards:4});
  assert.equal(writes.length,0);
  assert.equal(cs[0].bookValue,99);
- const missing=await planTierPriceApplication(fake as any,{...set,semiStarPrice:null},cs);
+ const missing=await planTierPriceApplication(fake as any,{...set,semiStarPrice:null},cs,"overwriteAllPrices");
  assert.equal(missing.summary.skippedNoPrice,3);assert.equal(missing.groups.size,0);
 });
 
@@ -333,4 +333,20 @@ test("one-click pricing respects C003 overrides and ambiguous contexts",async()=
   const r=await planTierPriceApplication(fake as any,set,[{id:1,player:"Scottie Pippen",team:"Chicago Bulls",cardNumber:"1",bookValue:0},{id:2,player:"Mike Dunleavy",team:null,cardNumber:"2",bookValue:0}]);
   assert.deepEqual([...r.groups],[[4,[1]]]);assert.equal(r.summary.skippedNoTier,1);
  }finally{profiles.pop();}
+});
+
+test("blank pricing is default, preserves every nonzero value, and overwrite requires explicit confirmation",async()=>{
+ const {parseApplyMode,planTierPriceApplication}=await import("../src/lib/apply-tier-prices");
+ assert.equal(parseApplyMode(undefined,undefined),"fillBlankPrices");
+ assert.equal(parseApplyMode("fillBlankPrices",false),"fillBlankPrices");
+ assert.equal(parseApplyMode("overwriteAllPrices",undefined),null);
+ assert.equal(parseApplyMode("overwriteAllPrices",false),null);
+ assert.equal(parseApplyMode("overwriteAllPrices",true),"overwriteAllPrices");
+ assert.equal(parseApplyMode("unexpected",true),null);
+ const set={id:"test",productId:"product",product:{sport:"Baseball",year:1990},commonPrice:1,semiStarPrice:2,unlistedStarPrice:3,star1Price:4,star2Price:5,star3Price:6};
+ const cs=[{id:1,player:"Catfish Hunter",team:null,cardNumber:"1",bookValue:99},{id:2,player:"Jim Hunter",team:null,cardNumber:"2",bookValue:0},{id:3,player:"Jim Hunter",team:null,cardNumber:"3",bookValue:2},{id:4,player:"Unknown athlete qqq",team:null,cardNumber:"4",bookValue:7},{id:5,player:"Unknown athlete zzz",team:null,cardNumber:"5",bookValue:0},{id:6,player:"Jim Hunter",team:null,cardNumber:"6",bookValue:-1}];
+ const r=await planTierPriceApplication(fake as any,set,cs);
+ assert.deepEqual([...r.groups],[[2,[2]]]);
+ assert.deepEqual(r.summary,{scannedCards:6,updatedCards:1,alreadyCorrect:0,skippedAlreadyPriced:4,skippedNoTier:1,skippedNoPrice:0,pricedCards:4});
+ assert.equal(cs[0].bookValue,99);
 });
