@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import PricingAdvisor from "./pricing-advisor";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { formatPublishedOdds, getPublishedOdds } from "@/lib/published-product-set-odds";
@@ -716,6 +717,8 @@ export default function ProductSetsClient() {
       </div>
 
       <hr style={{ margin: "16px 0" }} />
+
+      <PricingAdvisor key={productFilter || "none"} productId={productFilter} onSaved={() => { void loadRows({ preserveMessage: true, preserveOtherDraftsThan: "__pricing_advisor__" }); }} />
 
       <div
         style={{
