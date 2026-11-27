@@ -1,0 +1,7 @@
+# Player tier aliases
+
+A001 contains the 20 owner-approved mappings in `src/lib/player-tier-aliases.ts`. Exact sport + normalized alias maps to a protected canonical profile ID and identity; no fuzzy matching. Existing trailing-token normalization runs first. No schema migration and no automatic card price updates. The original Card.player remains unchanged. A canonical tier edit is reflected in future lookup results; previously saved Card.bookValue is not repriced automatically.
+
+Registry updates require review and deployment. Do not add a mapping if its alias key already has a profile or target ID/name/sport is missing or different; do not create chains/cycles. Admin tier create/edit/delete and rebuild guard protected names/IDs. A failed target check cannot create an independent alias profile. Bulk and single default pricing use shared resolver; card edits and sync use ensurePlayerTierProfile. Set Factory imports authentic card names unchanged; subsequent tier sync/rebuild resolves aliases. Analytics grouping is intentionally unchanged (not a tier lookup).
+
+Run `npm run test:aliases` after Prisma generation; build runs these tests before Next build. Tests mock the database and never change real cards, tiers or prices. Before deployment recheck the approved target IDs and alias-key collisions in production. To add future aliases, update the registry and review tests before deploying. No general-purpose alias admin UI in this initial release.

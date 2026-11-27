@@ -3,11 +3,11 @@ import { NextResponse } from "next/server";
 import { PlayerTier } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import {
-  cleanCanonicalPlayerName,
+  resolvePlayerTierIdentity,
   defaultPriceForTier,
-  normalizePlayerName,
   tierLabel,
 } from "@/lib/player-tiers";
+import { protectedAliasTarget, aliasTargetMatches } from "@/lib/player-tier-aliases";
 
 type RouteParams = {
   productSetId?: string;
@@ -120,8 +120,7 @@ export async function GET(_req: Request, ctx: Ctx) {
     const uniqueNormalizedNames = new Set<string>();
 
     for (const card of cards) {
-      const canonicalName = await cleanCanonicalPlayerName(card.player);
-      const normalizedName = await normalizePlayerName(canonicalName);
+      const { canonicalName, normalizedName } = await resolvePlayerTierIdentity(sport, card.player);
 
       cardNameById.set(card.id, { canonicalName, normalizedName });
 
@@ -139,6 +138,7 @@ export async function GET(_req: Request, ctx: Ctx) {
             },
           },
           select: {
+            id: true,
             canonicalName: true,
             normalizedName: true,
             sport: true,
@@ -160,7 +160,8 @@ export async function GET(_req: Request, ctx: Ctx) {
       const canonicalName = firstCardName?.canonicalName ?? "";
       const profile = profileByNormalizedName.get(normalizedName);
 
-      if (!profile) {
+      const target = protectedAliasTarget(sport, normalizedName);
+      if (!profile || (target && !aliasTargetMatches(target, profile))) {
         resultByNormalizedName.set(
           normalizedName,
           withTierLabel({
