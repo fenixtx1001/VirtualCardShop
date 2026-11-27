@@ -5,6 +5,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { Gradeability, Prisma } from "@prisma/client";
 import { prisma } from "../src/lib/prisma";
+import { seedMissingTierPrices } from "../src/lib/seed-tier-pricing";
 
 type ManifestCard = {
   cardNumber: string;
@@ -419,7 +420,9 @@ async function main() {
     await prisma.$transaction(operations);
   }
 
+  const initialPricing = await seedMissingTierPrices(existingProductSet?[]:[manifest.productSet.id]);
   console.log("[set-import] complete", {
+    initialPricing,
     productId: manifest.product.id,
     productSetId: manifest.productSet.id,
     cards: manifest.cards.length,
