@@ -38,6 +38,15 @@ export function effectivePlayerTier(profile: TierProfile): PlayerTier | null {
   return profile.tier;
 }
 const deferred = new Map<string,string>([
+  // C002 owner-approved classifications.
+  ["Football::tom landry","Coach"],
+  ["Baseball::jimmie reese","Coach"],
+  ["Basketball::rex hughes","Coach"],
+  ["Basketball::jimmy rodgers","Coach"],
+  ["Basketball::frank hamblen","Coach"],
+  ["Baseball::1983 leading firemen al holland dan quisenberry","Multi-player"],
+  ["Baseball::alcs athletics vs blue jays","Game card"],
+  ["Baseball::nlcs pirates vs braves","Game card"],
   ["Baseball::alex sanchez","Ambiguous"],
   ["Basketball::mike dunleavy","Ambiguous"],
   ["Basketball::rick adelman","Coach"],
