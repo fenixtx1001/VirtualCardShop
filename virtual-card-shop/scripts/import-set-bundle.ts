@@ -7,6 +7,7 @@ import path from "node:path";
 import { Gradeability, Prisma } from "@prisma/client";
 import { parse } from "csv-parse/sync";
 import { prisma } from "../src/lib/prisma";
+import { seedMissingTierPrices } from "../src/lib/seed-tier-pricing";
 
 type ProductSetKind = "BASE" | "INSERT" | "PARALLEL";
 
@@ -513,7 +514,9 @@ async function main() {
     }
   }
 
+  const initialPricing = await seedMissingTierPrices(plan.filter(p=>p.action==="create").map(p=>p.productSetId));
   console.log("[set-bundle] complete", {
+    initialPricing,
     productId: bundle.product.id,
     productSets: bundle.productSets.length,
     cards: totalCards,
