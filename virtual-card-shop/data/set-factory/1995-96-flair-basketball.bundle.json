@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "tcdb": "https://www.tcdb.com/ViewSet.cfm/sid/2336/1995-96-Flair",
+    "checklist": "https://www.tcdb.com/Checklist.cfm/sid/2336/1995-96-Flair",
+    "secondary": "https://mycardbatch.com/checklists/flair-1995-basketball",
+    "rookies": "https://www.tcdb.com/Rookies.cfm/sid/2336/1995-96-Flair",
+    "odds": "https://www.tcdb.com/Inserts.cfm/sid/2336/1995-96-Flair",
+    "classOf95": "https://www.beckett.com/basketball/1995-96/flair-class-of-95/",
+    "packSeries1": "https://bid.loveofthegameauctions.com/bids/bidplace?itemid=29013",
+    "packSeries2": "https://bbcexchange.com/products/1995-96-fleer-flair-basketball-series-2-box-h"
+  },
+  "decisions": {
+    "base": "Single collector-facing #1–250; S1 #1–150, S2 #151–250. Four checklist subjects have intentionally blank team. #199–228 verified true RC; #229–248 Style subset.",
+    "pack": "VCS reference Series 1 hobby 9 cards/36 packs, Series 2 hobby also documented at 7 cards/18 packs. Mixed-series virtual odds assume equal pack frequency, not historical overall production share.",
+    "odds": "Published series-specific rates doubled for 50/50 virtual mix; Class of '95 estimated from Beckett equal regular-card seeding. See each insert note.",
+    "verification": "Full MyCardBatch checklist transcribed, TCDB checklist pages sampled and insert checklists cross-checked; full independent base row-by-row reconciliation not established.",
+    "scope": "Hardwood Leader belongs to 1995-96 Fleer, not Flair flagship. Stackhouse Scrapbook includes only S-5/S-6. Images and pricing pending."
+  },
+  "product": {
+    "id": "1995_Flair_Basketball",
+    "year": 1995,
+    "brand": "Flair",
+    "sport": "Basketball",
+    "cardsPerPack": 9,
+    "packsPerBox": 36,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "DRAFT"
+  },
+  "cardsFile": "1995-96-flair-basketball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1995_Flair_Basketball_Base",
+      "name": "Base Set",
+      "kind": "BASE",
+      "expectedCards": 250,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2336/1995-96-Flair"
+    },
+    {
+      "key": "anticipation",
+      "id": "1995_Flair_Basketball_anticipation",
+      "name": "Anticipation",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": 72,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2337/1995-96-Flair",
+      "notes": "Published 1:36 Series 2"
+    },
+    {
+      "key": "center_spotlight",
+      "id": "1995_Flair_Basketball_center_spotlight",
+      "name": "Center Spotlight",
+      "kind": "INSERT",
+      "expectedCards": 6,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2338/1995-96-Flair",
+      "notes": "Published 1:18 Series 1"
+    },
+    {
+      "key": "class_of_95",
+      "id": "1995_Flair_Basketball_class_of_95",
+      "name": "Class of '95",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": 4,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2339/1995-96-Flair",
+      "notes": "Estimated 1:4 combined: 15 equally seeded cards in Series 1 regular-card pool of 165, about 9 draws per pack; half of virtual packs are Series 1. Probability approximately 0.29; 1:4 closest among integer rates by probability."
+    },
+    {
+      "key": "hot_numbers",
+      "id": "1995_Flair_Basketball_hot_numbers",
+      "name": "Hot Numbers",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": 72,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2340/1995-96-Flair",
+      "notes": "Published 1:36 Series 1"
+    },
+    {
+      "key": "new_heights",
+      "id": "1995_Flair_Basketball_new_heights",
+      "name": "New Heights",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": 36,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2341/1995-96-Flair",
+      "notes": "Published 1:18 Series 2 hobby"
+    },
+    {
+      "key": "perimeter_power",
+      "id": "1995_Flair_Basketball_perimeter_power",
+      "name": "Perimeter Power",
+      "kind": "INSERT",
+      "expectedCards": 15,
+      "oddsPerPack": 24,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2342/1995-96-Flair",
+      "notes": "Published 1:12 Series 1"
+    },
+    {
+      "key": "play_makers",
+      "id": "1995_Flair_Basketball_play_makers",
+      "name": "Play Makers",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": 108,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2343/1995-96-Flair",
+      "notes": "Published 1:54 Series 2"
+    },
+    {
+      "key": "stackhouse_scrapbook",
+      "id": "1995_Flair_Basketball_stackhouse_scrapbook",
+      "name": "Stackhouse's Scrapbook",
+      "kind": "INSERT",
+      "expectedCards": 2,
+      "oddsPerPack": 48,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2344/1995-96-Flair",
+      "notes": "Published 1:24 Series 2; only S-5 and S-6 belong to Flair"
+    },
+    {
+      "key": "wave_of_the_future",
+      "id": "1995_Flair_Basketball_wave_of_the_future",
+      "name": "Wave of the Future",
+      "kind": "INSERT",
+      "expectedCards": 10,
+      "oddsPerPack": 24,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2345/1995-96-Flair",
+      "notes": "Published 1:12 Series 2"
+    }
+  ]
+}
