@@ -5,6 +5,7 @@ import { Prisma } from "@prisma/client";
 import { NextResponse } from "next/server";
 
 import { prisma } from "@/lib/prisma";
+import { seedMissingTierPrices } from "@/lib/seed-tier-pricing";
 
 function numberOrNull(v: unknown): number | null {
   if (v === null || v === undefined) return null;
@@ -343,7 +344,9 @@ export async function POST(req: Request) {
       },
     });
 
-    return NextResponse.json(created, { status: 201 });
+    await seedMissingTierPrices([created.id]);
+    const priced = await prisma.productSet.findUniqueOrThrow({ where: { id: created.id } });
+    return NextResponse.json(priced, { status: 201 });
   } catch (e: unknown) {
     const message =
       e instanceof Error ? e.message : "Failed to create product set";
