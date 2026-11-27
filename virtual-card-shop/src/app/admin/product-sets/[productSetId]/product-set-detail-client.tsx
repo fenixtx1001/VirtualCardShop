@@ -3,6 +3,9 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import ImageUploader from "@/components/ImageUploader";
+import PricingVerification from "../pricing-verification";
+import { PRICE_FIELDS } from "@/lib/pricing-advisor";
+import type { PriceVector } from "@/lib/pricing-advisor";
 
 type Gradeability = "COMMON" | "GREAT" | "ICONIC";
 type GradeabilityOverride = Gradeability | null;
@@ -23,7 +26,8 @@ type CardRow = {
   gradeabilityOverride: GradeabilityOverride;
 };
 
-type ProductSetResponse = {
+type ProductSetResponse = PriceVector & {
+  pricingVerified: boolean;
   id: string;
   name: string | null;
   isBase: boolean;
@@ -1336,6 +1340,12 @@ export default function ProductSetDetailClient({ productSetId }: { productSetId:
             </div>
           </div>
 
+          <div style={{border:"1px solid #ddd",borderRadius:8,padding:10,marginBottom:12}}>
+            <strong>Tier default prices</strong>
+            <div style={{display:"flex",gap:12,flexWrap:"wrap",fontSize:12,marginTop:6}}>{PRICE_FIELDS.map((k,i)=><span key={k}>{["Common","Semi-Star","Unlisted Star","Star 1","Star 2","Star 3"][i]}: <b>{data[k]==null?"—":"$"+data[k]!.toFixed(2)}</b></span>)}</div>
+            <PricingVerification id={data.id} prices={data} verified={data.pricingVerified} onChange={value=>setData(prev=>prev?{...prev,pricingVerified:value}:prev)}/>
+            <Link href={"/admin/product-sets?q="+encodeURIComponent(data.id)}>Edit tier prices in Product Sets</Link>
+          </div>
           <div
             style={{
               display: "flex",
