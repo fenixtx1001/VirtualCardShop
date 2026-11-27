@@ -268,6 +268,12 @@ async function main() {
     where: { id: manifest.productSet.id },
     select: { id: true },
   });
+  if (!existingProductSet && !manifest.productSet.isBase &&
+      (!manifest.productSet.isInsert ||
+       !Number.isInteger(manifest.productSet.oddsPerPack) ||
+       (manifest.productSet.oddsPerPack ?? 0) <= 0)) {
+    throw new Error("New non-base Product Sets must be marked as inserts and have positive integer oddsPerPack. Research or document an estimate; exclude non-pack issues from the pack manifest.");
+  }
   const existingCards = await prisma.card.findMany({
     where: { productSetId: manifest.productSet.id },
     select: { cardNumber: true },
@@ -369,9 +375,7 @@ async function main() {
     update: {
       productId: manifest.product.id,
       name: manifest.productSet.name ?? null,
-      isBase: manifest.productSet.isBase,
-      isInsert: manifest.productSet.isInsert,
-      oddsPerPack: manifest.productSet.oddsPerPack ?? null,
+      // Preserve existing odds and classification; corrections require explicit admin review.
       defaultGradeability:
         manifest.productSet.defaultGradeability ?? Gradeability.COMMON,
     },
