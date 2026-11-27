@@ -368,6 +368,8 @@ export default function ProductSetsClient() {
 
   useEffect(() => {
     loadProductsForFilters();
+    const initialQuery = new URLSearchParams(window.location.search).get("q");
+    if(initialQuery){setQ(initialQuery);setDebouncedQ(initialQuery);}
   }, []);
 
   useEffect(() => {
