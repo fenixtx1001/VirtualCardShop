@@ -34,17 +34,25 @@ export function recommendPrices(target:PricingRow, history:PricingRow[]){
   const odds=category==="base"?0:Math.abs(Math.log2(target.oddsPerPack!/b.oddsPerPack!));
   return {b,brand,year,odds,d:(brand?0:1.8)+Math.min(year*.35,7)+odds*4+(u?1.5*(1-o/u):0)};
  }).sort((a,b)=>a.d-b.d||a.b.id.localeCompare(b.b.id));
+ const first=ranked[0];
+ if(!first)return empty("no-comparable");
+ // Keep the original strong-match path intact. If its distance cutoff
+ // rejects a non-base target, use nearby same-brand, same-category
+ // releases with similar rarity as an explicitly low-confidence fallback.
+ const fallback=first.d>5||first.odds>1.5||first.year>12;
+ const pool=fallback&&category!=="base"
+  ? ranked.filter(n=>n.brand&&n.year<=5&&n.odds<=Math.log2(2.5))
+  : fallback?[]:ranked;
  const neighbors:typeof ranked=[];const seen=new Set<string>();
- for(const n of ranked){if(seen.has(n.b.productId))continue;seen.add(n.b.productId);neighbors.push(n);if(neighbors.length===3)break;}
+ for(const n of pool){if(seen.has(n.b.productId))continue;seen.add(n.b.productId);neighbors.push(n);if(neighbors.length===3)break;}
  const nearest=neighbors[0];
- if(!nearest)return empty("no-comparable");
- if(nearest.d>5||nearest.odds>1.5||nearest.year>12)return empty("weak-comparable");
+ if(!nearest)return empty("weak-comparable");
  const priceFor=(k:PriceField)=>{const v=neighbors.map(n=>({p:n.b[k]!,w:1/Math.pow(.65+n.d,2)})).sort((a,b)=>a.p-b.p);let sum=0;const half=v.reduce((s,x)=>s+x.w,0)/2;for(const x of v){sum+=x.w;if(sum>=half)return x.p;}return v[v.length-1].p;};
  const prices=Object.fromEntries(PRICE_FIELDS.map(k=>[k,target[k]===null?priceFor(k):null])) as PriceVector;
  const close=neighbors.filter(n=>n.brand&&n.year<=3&&n.odds<=.25);
  const consistent=close.length>=2&&PRICE_FIELDS.every(k=>Math.max(...close.map(n=>n.b[k]!))/Math.min(...close.map(n=>n.b[k]!))<=1.25);
  const strong=nearest.brand&&nearest.year<=2&&nearest.odds<=.25&&consistent;
- return {...base,status:strong?"strong-match":"review",updatedPrices:prices,comparables:neighbors.map(n=>({id:n.b.id,name:n.b.name??n.b.id,productId:n.b.productId,odds:n.b.oddsPerPack,prices:vector(n.b)}))};
+ return {...base,status:fallback?"broader-match":strong?"strong-match":"review",updatedPrices:prices,comparables:neighbors.map(n=>({id:n.b.id,name:n.b.name??n.b.id,productId:n.b.productId,odds:n.b.oddsPerPack,prices:vector(n.b)}))};
 }
 export type Recommendation = ReturnType<typeof recommendPrices>;
 export function validateApprovalPrices(input:unknown):Partial<Record<PriceField,number>>|null {
