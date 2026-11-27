@@ -81,8 +81,7 @@ Check pack collation and expected value against the existing pack engine,
 especially when multiple inserts are guaranteed or rare pools overlap.
 Do not automatically rewrite existing odds, release state, pricing, or card
 images during this forward-looking change. Existing legacy gaps are a separate
-review/backfill task. No automatic six-tier price writes are authorized by this
-rule; Pricing Advisor recommendations remain reviewable and overridable.
+review/backfill task. Owner authorization (November 27, 2026): initial six-tier defaults are now seeded on newly created Product Sets using complete owner-verified reference vectors. Only null prices are filled; existing non-null defaults, individual card book values, pack prices and release state remain unchanged. Initial estimates remain unverified; only the signed-in owner may verify a displayed six-price snapshot. Any subsequent tier-price edit clears verification. For direct SQL Set Factory imports, run the same seed helper for newly inserted IDs or use the equivalent frozen-reference model before presenting the draft.
 
 Odds belong to the Product Set, not individual card `variant` strings.
 Keep card-specific serial numbering, autograph/memorabilia attributes,
@@ -159,7 +158,7 @@ npm run import:set -- data/set-factory/1990-topps-big.json --apply
 ```
 
 Then review the Product and Product Set in Admin. Team data, pack art, card images,
-and pricing remain explicitly pending in the pilot manifest. Do not release the
+and owner pricing verification remain explicitly pending in the pilot manifest. Do not release the
 Product until those review gates are complete.
 
 ## Image ingestion
