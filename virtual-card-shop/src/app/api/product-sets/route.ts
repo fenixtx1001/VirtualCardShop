@@ -46,6 +46,7 @@ export async function GET(req: Request) {
 
     const onlyBase = parseBooleanFilter(url.searchParams.get("onlyBase"));
     const onlyInsert = parseBooleanFilter(url.searchParams.get("onlyInsert"));
+    const pricingReview = url.searchParams.get("pricingReview");
 
     const year =
       yearText && Number.isFinite(Number(yearText))
@@ -65,6 +66,9 @@ export async function GET(req: Request) {
     if (onlyInsert) {
       conditions.push(Prisma.sql`ps."isInsert" = true`);
     }
+
+    if (pricingReview === "verified") conditions.push(Prisma.sql`ps."pricingVerified" = true`);
+    if (pricingReview === "unverified") conditions.push(Prisma.sql`ps."pricingVerified" = false`);
 
     if (sport) {
       conditions.push(
@@ -135,6 +139,7 @@ export async function GET(req: Request) {
         star1Price: number | null;
         star2Price: number | null;
         star3Price: number | null;
+        pricingVerified: boolean;
         totalCards: number;
         pricedCards: number;
         frontCards: number;
@@ -155,6 +160,7 @@ export async function GET(req: Request) {
           ps."star1Price"::float AS "star1Price",
           ps."star2Price"::float AS "star2Price",
           ps."star3Price"::float AS "star3Price",
+          ps."pricingVerified" AS "pricingVerified",
           COALESCE(stats."totalCards", 0)::int AS "totalCards",
           COALESCE(stats."pricedCards", 0)::int AS "pricedCards",
           COALESCE(stats."frontCards", 0)::int AS "frontCards",
@@ -237,6 +243,7 @@ export async function GET(req: Request) {
         star1Price: row.star1Price,
         star2Price: row.star2Price,
         star3Price: row.star3Price,
+        pricingVerified: row.pricingVerified,
         _count: {
           cards: totalCards,
         },
