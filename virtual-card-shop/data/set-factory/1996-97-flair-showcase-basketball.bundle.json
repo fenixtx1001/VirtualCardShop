@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 2,
+  "status": "DRAFT",
+  "source": {
+    "tcdb": "https://www.tcdb.com/ViewSet.cfm/sid/2477/1996-97-Flair-Showcase",
+    "checklist": "https://www.tcdb.com/Checklist.cfm/sid/2477/1996-97-Flair-Showcase",
+    "secondary": "https://mycardbatch.com/checklists/flair-showcase-1996-basketball",
+    "cardboard": "https://www.cardboardconnection.com/1996-97-flair-showcase-basketball-cards",
+    "psa": "https://www.psacard.com/cardfacts/basketball-cards/1996-flair-showcase/33458",
+    "legacy": "https://www.psacard.com/psasetregistry/basketball/company-sets/1996-97-flair-showcase-legacy-collection-row-0-1-2-complete-set/composition/25284",
+    "pack": "https://bbcexchange.com/products/1996-97-fleer-flair-showcase-basketball-box-h",
+    "rookies": "https://www.tcdb.com/Rookies.cfm/sid/2477/1996-97-Flair-Showcase"
+  },
+  "decisions": {
+    "identity": "Flair Showcase is the flagship successor to Flair. Single hobby series, 5 cards/pack, 24 packs/box.",
+    "checklist": "90 subjects in each of three normal rows and three Legacy rows; 20 Class of '96 and 20 Hot Shots; 580 pack-issued cards. All 90 base name/team pairs and 40 insert name/team pairs compared to Cardboard Connection and MyCardBatch. Parallel checklists mirror the 90-card sequence as documented by PSA/TCDB; distinct row designs must have their own authentic scans. Non-pack Jerry Stackhouse promo strip excluded.",
+    "rookies": "11 true RCs marked only in Row 2, consistent with TCDB base index; parallels and inserts omit RC designation.",
+    "odds": "Historical within-row rarity preserved as card subset and manifest notes. Flatten within each 90-card collector-facing set. Row 1 rate cap 1:1 due to VCS one-hit per ProductSet engine; Row 0 aggregate approximated 1:3. Each Legacy row modeled 1:90 (combined expected 1:30, independent rolls permit occasional multiple hits); all 270 /150. Theoretical average insert count 1+1/3+3/90+1/5+1/90=1.5778 of 5 slots before any cap. The existing rip engine does not truncate excess insert hits: extremely rare simultaneous hits can yield more than five cards (approximately 0.000037% of packs under independent rolls). Review pack capacity before release; no engine change in this import. No pack-engine changes or pricing writes.",
+    "pricing": "Unreleased. Images and prices pending."
+  },
+  "product": {
+    "id": "1996_Flair_Showcase_Basketball",
+    "year": 1996,
+    "brand": "Flair Showcase",
+    "sport": "Basketball",
+    "cardsPerPack": 5,
+    "packsPerBox": 24,
+    "packPriceCents": 0,
+    "autoPackPricing": true,
+    "released": false
+  },
+  "review": {
+    "teamData": "COMPLETE",
+    "packImage": "PENDING",
+    "cardImages": "PENDING",
+    "pricing": "PENDING",
+    "release": "DRAFT"
+  },
+  "cardsFile": "1996-97-flair-showcase-basketball.cards.csv",
+  "productSets": [
+    {
+      "key": "base",
+      "id": "1996_Flair_Showcase_Basketball_Base",
+      "name": "Row 2 (Style)",
+      "kind": "BASE",
+      "expectedCards": 90,
+      "oddsPerPack": null,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2477/1996-97-Flair-Showcase",
+      "notes": "Historical groups #1–30 3:2, #31–60 1:2, #61–90 2:3 packs; VCS flat base pool."
+    },
+    {
+      "key": "row_1",
+      "id": "1996_Flair_Showcase_Basketball_row_1",
+      "name": "Row 1 (Grace)",
+      "kind": "PARALLEL",
+      "expectedCards": 90,
+      "oddsPerPack": 1,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/25700/1996-97-Flair-Showcase",
+      "notes": "Historical groups 2:5, 1:2, 2:7 packs. Sum 1.1857 cards/pack; VCS max one hit per set per pack, capped at 1:1."
+    },
+    {
+      "key": "row_0",
+      "id": "1996_Flair_Showcase_Basketball_row_0",
+      "name": "Row 0 (Showcase)",
+      "kind": "PARALLEL",
+      "expectedCards": 90,
+      "oddsPerPack": 3,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/25699/1996-97-Flair-Showcase",
+      "notes": "Historical groups 1:24, 1:10, 1:5; combined expected 0.3417/pack, approximated 1:3; flat within row."
+    },
+    {
+      "key": "legacy_row_2",
+      "id": "1996_Flair_Showcase_Basketball_legacy_row_2",
+      "name": "Legacy Collection Row 2 (Style)",
+      "kind": "PARALLEL",
+      "expectedCards": 90,
+      "oddsPerPack": 90,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/25698/1996-97-Flair-Showcase",
+      "notes": "All three Legacy rows collectively 1:30; equal 90-card checklists /150 each; modeled 1:90 each."
+    },
+    {
+      "key": "legacy_row_1",
+      "id": "1996_Flair_Showcase_Basketball_legacy_row_1",
+      "name": "Legacy Collection Row 1 (Grace)",
+      "kind": "PARALLEL",
+      "expectedCards": 90,
+      "oddsPerPack": 90,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/25697/1996-97-Flair-Showcase",
+      "notes": "All three Legacy rows collectively 1:30; equal 90-card checklists /150 each; modeled 1:90 each."
+    },
+    {
+      "key": "legacy_row_0",
+      "id": "1996_Flair_Showcase_Basketball_legacy_row_0",
+      "name": "Legacy Collection Row 0 (Showcase)",
+      "kind": "PARALLEL",
+      "expectedCards": 90,
+      "oddsPerPack": 90,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/25696/1996-97-Flair-Showcase",
+      "notes": "All three Legacy rows collectively 1:30; equal 90-card checklists /150 each; modeled 1:90 each."
+    },
+    {
+      "key": "class_of_96",
+      "id": "1996_Flair_Showcase_Basketball_class_of_96",
+      "name": "Class of '96",
+      "kind": "INSERT",
+      "expectedCards": 20,
+      "oddsPerPack": 5,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2478/1996-97-Flair-Showcase-Class-of-96"
+    },
+    {
+      "key": "hot_shots",
+      "id": "1996_Flair_Showcase_Basketball_hot_shots",
+      "name": "Hot Shots",
+      "kind": "INSERT",
+      "expectedCards": 20,
+      "oddsPerPack": 90,
+      "sourceUrl": "https://www.tcdb.com/Checklist.cfm/sid/2479/1996-97-Flair-Showcase-Hot-Shots"
+    }
+  ]
+}
