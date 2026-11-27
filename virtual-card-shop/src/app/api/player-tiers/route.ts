@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { PlayerTier } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
-import { cleanCanonicalPlayerName, normalizePlayerName } from "@/lib/player-tiers";
+import { cleanCanonicalPlayerName, normalizePlayerName, resolvePlayerTierIdentity } from "@/lib/player-tiers";
+import { cleanupTarget, isTeamAlias, isOverrideKey, effectivePlayerTier, reviewCategory, literalPlayerKey } from "@/lib/player-tier-cleanup";
 import { approvedAliasFor, protectedAliasTarget, aliasTargetMatches } from "@/lib/player-tier-aliases";
 
 function parseBool(v: string | null) {
@@ -74,65 +75,45 @@ export async function GET(req: Request) {
       orderBy: [{ sport: "asc" }, { canonicalName: "asc" }, { id: "asc" }],
     })) as ProfileRow[];
 
-    const dedupedMap = new Map<string, ProfileRow>();
-
+    const grouped = new Map<string, {name:string; key:string; target:Awaited<ReturnType<typeof resolvePlayerTierIdentity>>["target"]; members:ProfileRow[]}>();
     for (const row of rawRows) {
-      const cleanedCanonicalName = await cleanCanonicalPlayerName(row.canonicalName);
-      const cleanedNormalizedName = await normalizePlayerName(cleanedCanonicalName);
-      const sportKey = row.sport ?? "";
-      const key = `${sportKey}::${cleanedNormalizedName}`;
-
-      const candidate: ProfileRow = {
-        ...row,
-        canonicalName: cleanedCanonicalName,
-        normalizedName: cleanedNormalizedName,
-      };
-
-      const existing = dedupedMap.get(key);
-      if (!existing) {
-        dedupedMap.set(key, candidate);
-        continue;
-      }
-
-      const existingTierRank = tierRank(existing.tier);
-      const candidateTierRank = tierRank(candidate.tier);
-
-      if (candidateTierRank > existingTierRank) {
-        dedupedMap.set(key, candidate);
-        continue;
-      }
-
-      const existingHasNotes = !!existing.notes?.trim();
-      const candidateHasNotes = !!candidate.notes?.trim();
-
-      if (!existingHasNotes && candidateHasNotes) {
-        dedupedMap.set(key, candidate);
-        continue;
-      }
-
-      if (
-        candidateTierRank === existingTierRank &&
-        existingHasNotes === candidateHasNotes &&
-        candidate.canonicalName.length < existing.canonicalName.length
-      ) {
-        dedupedMap.set(key, candidate);
-      }
+      const identity = await resolvePlayerTierIdentity(row.sport, row.canonicalName);
+      const key = row.sport+"::"+identity.normalizedName;
+      const group = grouped.get(key) ?? {name:identity.canonicalName,key:identity.normalizedName,target:identity.target,members:[]};
+      group.members.push(row);
+      grouped.set(key,group);
     }
-
-    let rows = Array.from(dedupedMap.values());
+    const allRows = Array.from(grouped.values()).map(group => {
+      const canonical = group.members.find(row => row.normalizedName === group.key &&
+        (!group.target || aliasTargetMatches(group.target,row)));
+      const row = canonical ?? group.members[0];
+      const effectiveTier = canonical ? effectivePlayerTier(canonical) : null;
+      const assigned = new Set(group.members.map(r=>r.tier).filter(Boolean));
+      const category = reviewCategory(row.sport, group.key, group.members.map(r=>r.canonicalName));
+      const conflict = assigned.size > 1;
+      const status = category ?? (conflict ? "Tier conflict" : effectiveTier ? (group.members.length > 1 ? "Resolved variants" : "Assigned") : canonical ? "Unassigned canonical" : "Missing canonical");
+      const locked = !canonical || !!category || isOverrideKey(row.sport,group.key);
+      return {...row, effectiveTier, resolvedName:group.name,resolvedKey:group.key, status, conflict, locked, canonicalId:canonical?.id ?? null,
+        variants:group.members.map(r=>({id:r.id,name:r.canonicalName,tier:r.tier,notes:r.notes})),
+        rawBlankCount:group.members.filter(r=>r.tier===null).length};
+    });
+    const auditSummary = { rawProfiles:rawRows.length,rawBlank:rawRows.filter(r=>r.tier===null).length,
+      resolvedBlank:allRows.filter(r=>r.effectiveTier!==null).reduce((n,r)=>n+r.rawBlankCount,0),
+      effectiveUnassigned:allRows.filter(r=>r.effectiveTier===null&&!reviewCategory(r.sport,r.resolvedKey,r.variants.map(v=>v.name))).length,
+      conflicts:allRows.filter(r=>r.conflict).length,legacyRows:rawRows.filter(r=>r.sport==="Basketbal").length,
+      auditSnapshot:{asOf:"2026-11-27",orphanGroups:58,nonPlayerGroups:30,legacyConflicts:12} };
+    let rows = allRows;
 
     if (q) {
-      const normalizedQ = await normalizePlayerName(q);
-      rows = rows.filter((row) => {
-        const canonicalMatch = row.canonicalName.toLowerCase().includes(q.toLowerCase());
-        const normalizedMatch = row.normalizedName.includes(normalizedQ);
-        const alias = approvedAliasFor(row.sport, normalizedQ);
-        return canonicalMatch || normalizedMatch || alias?.targetId === row.id;
-      });
+      const literalQ = literalPlayerKey(q);
+      const keys = new Map<string,string>();
+      for (const s of new Set(rows.map(r=>r.sport))) keys.set(s,(await resolvePlayerTierIdentity(s,q)).normalizedName);
+      rows = rows.filter(row => row.canonicalName.toLowerCase().includes(q.toLowerCase()) ||
+        row.resolvedKey.includes(keys.get(row.sport) || literalQ) || row.variants.some(v=>literalPlayerKey(v.name).includes(literalQ)));
     }
 
     if (onlyUnassigned) {
-      rows = rows.filter((row) => row.tier == null);
+      rows = rows.filter((row) => row.effectiveTier == null && !reviewCategory(row.sport,row.resolvedKey,row.variants.map(v=>v.name)));
     }
 
     rows.sort((a, b) => {
@@ -141,14 +122,14 @@ export async function GET(req: Request) {
       const sportCmp = sportA.localeCompare(sportB);
       if (sportCmp !== 0) return sportCmp;
 
-      const tierCmp = tierRank(a.tier) - tierRank(b.tier);
+      const tierCmp = tierRank(a.effectiveTier) - tierRank(b.effectiveTier);
       if (tierCmp !== 0) return tierCmp;
 
       return a.canonicalName.localeCompare(b.canonicalName);
     });
 
     const sportCountsMap = new Map<string, number>();
-    for (const row of Array.from(dedupedMap.values())) {
+    for (const row of allRows) {
       const key = row.sport ?? "";
       sportCountsMap.set(key, (sportCountsMap.get(key) ?? 0) + 1);
     }
@@ -180,6 +161,7 @@ export async function GET(req: Request) {
         totalPages: Math.max(1, Math.ceil(total / pageSize)),
       },
       sports,
+      auditSummary,
     });
   } catch (e: any) {
     return NextResponse.json(
@@ -193,9 +175,9 @@ export async function POST(req: Request) {
   try {
     const body = await req.json().catch(() => ({} as any));
 
-    const canonicalName = await cleanCanonicalPlayerName(body.canonicalName);
-    const normalizedName = await normalizePlayerName(canonicalName);
     const sport = String(body.sport ?? "").trim();
+    const canonicalName = await cleanCanonicalPlayerName(body.canonicalName,sport);
+    const normalizedName = await normalizePlayerName(canonicalName,sport);
     const tier = body.tier ?? null;
     const notes = typeof body.notes === "string" ? body.notes.trim() || null : null;
 
@@ -207,10 +189,13 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: "Invalid tier" }, { status: 400 });
     }
 
+    if (isOverrideKey(sport,normalizedName) || isTeamAlias(sport,normalizedName) || sport === "Basketbal") {
+      return NextResponse.json({ok:false,error:"Reviewed identity or effective override requires an explicit review before editing."},{status:409});
+    }
     if (approvedAliasFor(sport, normalizedName)) {
       return NextResponse.json({ ok: false, error: "This name is an approved alias; edit the canonical profile instead." }, { status: 409 });
     }
-    const target = protectedAliasTarget(sport, normalizedName);
+    const target = protectedAliasTarget(sport, normalizedName) ?? cleanupTarget(sport,normalizedName);
     if (target) {
       const existing = await prisma.playerTierProfile.findUnique({ where: { id: target.targetId } });
       if (!aliasTargetMatches(target, existing) || canonicalName !== target.canonicalName) {

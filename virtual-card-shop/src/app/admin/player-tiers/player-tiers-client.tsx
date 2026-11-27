@@ -25,6 +25,14 @@ type PlayerTierRow = {
     | "STAR_2"
     | "STAR_3"
     | null;
+  effectiveTier?: PlayerTierRow["tier"];
+  status?: string;
+  conflict?: boolean;
+  locked?: boolean;
+  resolvedName?: string;
+  canonicalId?: number | null;
+  rawBlankCount?: number;
+  variants?: {id:number;name:string;tier:PlayerTierRow["tier"];notes:string|null}[];
   notes: string | null;
   createdAt?: string;
   updatedAt?: string;
@@ -112,6 +120,7 @@ export default function PlayerTiersClient() {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(100);
   const [total, setTotal] = useState(0);
+  const [auditSummary,setAuditSummary] = useState<{rawProfiles:number;rawBlank:number;resolvedBlank:number;effectiveUnassigned:number;conflicts:number;legacyRows:number;auditSnapshot:{asOf:string;orphanGroups:number;nonPlayerGroups:number;legacyConflicts:number}}|null>(null);
   const [totalPages, setTotalPages] = useState(1);
 
   const [sportsSummary, setSportsSummary] = useState<SportsSummaryRow[]>([]);
@@ -154,6 +163,7 @@ export default function PlayerTiersClient() {
 
       const nextRows = Array.isArray(j?.rows) ? (j.rows as PlayerTierRow[]) : [];
       setRows(nextRows);
+      setAuditSummary(j.auditSummary ?? null);
 
       const nextDrafts: Record<number, DraftRow> = {};
       for (const r of nextRows) {
@@ -460,11 +470,11 @@ export default function PlayerTiersClient() {
         </div>
 
         <button
-          onClick={rebuildRepository}
-          disabled={rebuilding || loading}
+          onClick={() => {setOnlyUnassigned(false);setOkMsg("Global rebuild is disabled. Review raw variants and conflicts below, then apply filters.");}}
+          disabled={loading}
           style={{ padding: "10px 14px", fontWeight: 800 }}
         >
-          {rebuilding ? "Rebuilding…" : "Rebuild / Deduplicate Repository"}
+          Review repository (no rebuild)
         </button>
       </div>
 
@@ -626,7 +636,7 @@ export default function PlayerTiersClient() {
             checked={onlyUnassigned}
             onChange={(e) => setOnlyUnassigned(e.target.checked)}
           />
-          <span style={{ fontWeight: 700 }}>Unassigned only</span>
+          <span style={{ fontWeight: 700 }}>Effectively unassigned only</span>
         </label>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
@@ -684,6 +694,7 @@ export default function PlayerTiersClient() {
         </div>
       </div>
 
+      {auditSummary && <div style={{padding:12,border:"1px solid #ddd",marginBottom:12,fontSize:13}}><strong>Repository reconciliation</strong><div>{auditSummary.rawProfiles.toLocaleString()} raw profiles · {auditSummary.rawBlank.toLocaleString()} stored blanks · {auditSummary.resolvedBlank.toLocaleString()} blanks in groups with an effective tier · {auditSummary.effectiveUnassigned} effectively unassigned groups · {auditSummary.conflicts} conflicts · {auditSummary.legacyRows} legacy sport rows</div><div>Audit snapshot {auditSummary.auditSnapshot.asOf}: {auditSummary.auditSnapshot.orphanGroups} possible orphan groups, {auditSummary.auditSnapshot.nonPlayerGroups} possible non-player groups, {auditSummary.auditSnapshot.legacyConflicts} legacy conflicts (review only; no deletion).</div></div>}
       {loading ? (
         <div>Loading…</div>
       ) : (
@@ -719,6 +730,7 @@ export default function PlayerTiersClient() {
 
                     <td style={{ padding: 8, borderBottom: "1px solid #eee", minWidth: 240 }}>
                       <input
+                        disabled={row.locked}
                         value={d?.canonicalName ?? row.canonicalName}
                         onChange={(e) => patchDraft(row.id, { canonicalName: e.target.value })}
                         style={{ width: "100%", padding: 6 }}
@@ -727,6 +739,7 @@ export default function PlayerTiersClient() {
 
                     <td style={{ padding: 8, borderBottom: "1px solid #eee", minWidth: 140 }}>
                       <input
+                        disabled={row.locked}
                         value={d?.sport ?? row.sport ?? ""}
                         onChange={(e) => patchDraft(row.id, { sport: e.target.value })}
                         placeholder="Unknown"
@@ -736,6 +749,7 @@ export default function PlayerTiersClient() {
 
                     <td style={{ padding: 8, borderBottom: "1px solid #eee", minWidth: 180 }}>
                       <select
+                        disabled={row.locked}
                         value={d?.tier ?? (row.tier ?? "")}
                         onChange={(e) => patchDraft(row.id, { tier: e.target.value as TierValue })}
                         style={{ width: "100%", padding: 6 }}
@@ -747,12 +761,14 @@ export default function PlayerTiersClient() {
                         ))}
                       </select>
                       <div style={{ marginTop: 6, fontSize: 12, color: "#666", fontWeight: 700 }}>
-                        Current: {prettyTier(row.tier)}
+                        Stored: {prettyTier(row.tier)} · Effective: {prettyTier(row.effectiveTier ?? null)}
+                        <div>{row.status}{row.conflict ? " · review variants" : ""}</div>
                       </div>
                     </td>
 
                     <td style={{ padding: 8, borderBottom: "1px solid #eee", minWidth: 220 }}>
                       <input
+                        disabled={row.locked}
                         value={d?.notes ?? row.notes ?? ""}
                         onChange={(e) => patchDraft(row.id, { notes: e.target.value })}
                         placeholder="Optional notes"
@@ -762,15 +778,17 @@ export default function PlayerTiersClient() {
 
                     <td style={{ padding: 8, borderBottom: "1px solid #eee", minWidth: 220, fontSize: 12, color: "#666" }}>
                       {row.normalizedName}
+                      {row.resolvedName && <div>Resolves to: {row.resolvedName} · ID {row.canonicalId ?? "missing"}</div>}
+                      {!!row.variants?.length && <details><summary>{row.variants.length} stored records</summary>{row.variants.map(v=><div key={v.id}>#{v.id} {v.name} — {prettyTier(v.tier)} {v.notes ?? ""}</div>)}</details>}
                     </td>
 
                     <td style={{ padding: 8, borderBottom: "1px solid #eee", whiteSpace: "nowrap" }}>
                       <button
                         onClick={() => saveRow(row)}
-                        disabled={saving || rebuilding || loading}
+                        disabled={saving || rebuilding || loading || row.locked}
                         style={{ padding: "6px 10px", fontWeight: 800 }}
                       >
-                        {saving ? "Saving…" : "Save"}
+                        {row.locked ? "Review required" : saving ? "Saving…" : "Save"}
                       </button>
                     </td>
                   </tr>

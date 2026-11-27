@@ -3,6 +3,7 @@ import { PlayerTier } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { cleanCanonicalPlayerName, normalizePlayerName } from "@/lib/player-tiers";
 import { approvedAliasFor, protectedAliasTarget, protectedAliasTargetById } from "@/lib/player-tier-aliases";
+import { cleanupTarget, cleanupTargetById, isTeamAlias, isOverrideKey, isOverrideId } from "@/lib/player-tier-cleanup";
 
 type Ctx =
   | { params: { id?: string } }
@@ -37,9 +38,9 @@ export async function PUT(req: Request, ctx: Ctx) {
 
     const body = await req.json().catch(() => ({} as any));
 
-    const canonicalName = await cleanCanonicalPlayerName(body.canonicalName);
-    const normalizedName = await normalizePlayerName(canonicalName);
     const sport = String(body.sport ?? "").trim();
+    const canonicalName = await cleanCanonicalPlayerName(body.canonicalName,sport);
+    const normalizedName = await normalizePlayerName(canonicalName,sport);
     const tier = body.tier ?? null;
     const notes = typeof body.notes === "string" ? body.notes.trim() || null : null;
 
@@ -51,8 +52,15 @@ export async function PUT(req: Request, ctx: Ctx) {
       return NextResponse.json({ ok: false, error: "Invalid tier" }, { status: 400 });
     }
 
-    const target = protectedAliasTargetById(id);
-    const destination = protectedAliasTarget(sport, normalizedName);
+    if (isOverrideId(id) || isOverrideKey(sport,normalizedName) || isTeamAlias(sport,normalizedName) || sport === "Basketbal") {
+      return NextResponse.json({ok:false,error:"Reviewed identity or effective override requires explicit review."},{status:409});
+    }
+    const original = await prisma.playerTierProfile.findUnique({where:{id}});
+    if (original && (original.sport === "Basketbal" || await normalizePlayerName(original.canonicalName,original.sport) !== original.normalizedName)) {
+      return NextResponse.json({ok:false,error:"Artifact or legacy profile requires explicit reconciliation."},{status:409});
+    }
+    const target = protectedAliasTargetById(id) ?? cleanupTargetById(id);
+    const destination = protectedAliasTarget(sport, normalizedName) ?? cleanupTarget(sport,normalizedName);
     if (approvedAliasFor(sport, normalizedName) ||
         (destination && destination.targetId !== id) ||
         (target && (sport !== target.sport || normalizedName !== target.normalizedName || canonicalName !== target.canonicalName))) {
@@ -94,7 +102,7 @@ export async function DELETE(_req: Request, ctx: Ctx) {
       return NextResponse.json({ ok: false, error: "Invalid id" }, { status: 400 });
     }
 
-    if (protectedAliasTargetById(id)) {
+    if (protectedAliasTargetById(id) || cleanupTargetById(id) || isOverrideId(id)) {
       return NextResponse.json({ ok: false, error: "Remove approved alias mappings before deleting this canonical profile." }, { status: 409 });
     }
 

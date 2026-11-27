@@ -12,7 +12,7 @@ const cards = [{ id: 1, player: "Catfish Hunter", productSet: { product: { sport
   { id: 3, player: "Catfish Hunter SM", productSet: { product: { sport: "Baseball" } } }];
 const writes: string[] = [];
 const fake = {
-  playerTierIgnoreToken: { findMany: async () => [{ normalizedToken: "sm" }] },
+  playerTierIgnoreToken: { findMany: async () => ["sm","roy","dp","tc","cl","rr","fp","fut","co","hc","sv"].map(normalizedToken=>({normalizedToken})) },
   playerTierProfile: {
     findUnique: async ({ where }: any) => profiles.find(p => where.id === p.id || (where.sport_normalizedName?.sport === p.sport && where.sport_normalizedName?.normalizedName === p.normalizedName)) ?? null,
     findMany: async ({ where }: any = {}) => profiles.filter(p => !where?.sport || (where.sport === p.sport && (!where.normalizedName?.in || where.normalizedName.in.includes(p.normalizedName)))),
@@ -87,20 +87,11 @@ test("bulk default-price route resolves alias, canonical and trailing forms with
   assert.equal(writes.length, 0);
 });
 
-test("rebuild does not create an alias profile and refuses an existing alias collision", async () => {
+test("C001 blocks global rebuild without creating, merging or deleting profiles", async () => {
   const { POST } = await import("../src/app/api/player-tiers/rebuild/route");
   writes.length = 0;
-  const response = await POST();
-  assert.equal(response.status, 200);
-  const body = await response.json();
-  assert.equal(body.summary.scannedDistinctPlayers, 1);
-  assert.equal(body.summary.insertedProfiles, 0);
-  assert.equal(body.summary.deletedDuplicates, 0);
-  assert.ok(writes.every(w => w.startsWith("update:")));
-  profiles.push({ ...target, id: 999, canonicalName: "Catfish Hunter", normalizedName: "catfish hunter" });
-  writes.length = 0;
-  try { assert.equal((await POST()).status, 500); assert.equal(writes.length, 0); }
-  finally { profiles.pop(); }
+  assert.equal((await POST()).status, 409);
+  assert.equal(writes.length, 0);
 });
 
 test("admin create, rename and delete collision guards; canonical tier edits allowed", async () => {
@@ -119,4 +110,60 @@ test("admin create, rename and delete collision guards; canonical tier edits all
   const body = await result.json();
   assert.equal(body.rows.length, 1);
   assert.equal(body.rows[0].id, target.id);
+});
+
+test("C001 genuine names, sport scope and trailing codes", async () => {
+  const {resolvePlayerTierIdentity,normalizePlayerName}=await import("../src/lib/player-tiers");
+  for(const n of ["Patrick Roy","PATRICK ROY AS","Patrick Roy DP","Patrick Roy RC SN100"]) {
+    const x=await resolvePlayerTierIdentity("Hockey",n);
+    assert.equal(x.normalizedName,"patrick roy"); assert.equal(x.target?.targetId,2550);
+  }
+  for(const n of ["Oakland A's","OAKLAND A’S CL, TC","Oakland A's TC CL"]) {
+    const x=await resolvePlayerTierIdentity("Baseball",n);
+    assert.equal(x.normalizedName,"oakland athletics"); assert.equal(x.target?.targetId,40062);
+  }
+  assert.equal((await resolvePlayerTierIdentity("Football","Patrick Roy")).normalizedName,"patrick");
+  assert.equal((await resolvePlayerTierIdentity("Hockey","Bobby Smith ROY")).normalizedName,"bobby smith");
+  assert.equal(await normalizePlayerName("Ken Griffey Jr."),"ken griffey jr");
+});
+test("C001 override stays separate from stored tier; stale identity fails closed", async () => {
+  const {effectivePlayerTier,reviewCategory}=await import("../src/lib/player-tier-cleanup");
+  const p={id:4256,sport:"Baseball",canonicalName:"Johnny Bench",normalizedName:"johnny bench",tier:"COMMON" as const};
+  assert.equal(effectivePlayerTier(p),"STAR_2"); assert.equal(p.tier,"COMMON");
+  assert.equal(effectivePlayerTier({...p,id:99}),null);
+  assert.equal(effectivePlayerTier({...p,tier:"SEMI_STAR"}),null);
+  assert.equal(reviewCategory("Baseball","alex sanchez",[]),"Ambiguous");
+  assert.equal(reviewCategory("Basketball","rick adelman",[]),"Coach");
+  assert.equal(reviewCategory("Baseball","orioles leaders",[]),"Non-player");
+  assert.equal(reviewCategory("Basketbal","scottie pippen",[]),"Legacy sport");
+});
+test("C001 single and bulk price lookups inherit Bench override without modifying stored tier", async () => {
+  const {getDefaultPriceForPlayer}=await import("../src/lib/player-tiers");
+  const {GET}=await import("../src/app/api/product-sets/[productSetId]/default-prices/route");
+  const bench={id:4256,sport:"Baseball",canonicalName:"Johnny Bench",normalizedName:"johnny bench",tier:"COMMON",notes:null,createdAt:new Date(0),updatedAt:new Date(1)};
+  profiles.push(bench);
+  cards.push({id:4,player:"Johnny Bench SV",productSet:{product:{sport:"Baseball"}}});
+  writes.length=0;
+  try {
+    const single=await getDefaultPriceForPlayer({prisma:fake as any,productSetId:"test",player:"Johnny Bench SV"});
+    assert.equal(single.tier,"STAR_2"); assert.equal(single.defaultPrice,5);
+    const response=await GET(new Request("https://test"),{params:{productSetId:"test"}});
+    assert.equal((await response.json()).results[4].tier,"STAR_2");
+    assert.equal(bench.tier,"COMMON"); assert.equal(writes.length,0);
+  } finally {profiles.pop();cards.pop();}
+});
+test("C001 admin shows stored and effective tiers and blocks override writes",async()=>{
+  const {GET,POST}=await import("../src/app/api/player-tiers/route");
+  const {PUT,DELETE}=await import("../src/app/api/player-tiers/[id]/route");
+  profiles.push({id:4256,sport:"Baseball",canonicalName:"Johnny Bench",normalizedName:"johnny bench",tier:"COMMON",notes:null,createdAt:new Date(0),updatedAt:new Date(1)});
+  writes.length=0;
+  try {
+    const b=await (await GET(new Request("https://test?q=Johnny%20Bench"))).json();
+    assert.equal(b.rows[0].tier,"COMMON");assert.equal(b.rows[0].effectiveTier,"STAR_2");assert.equal(b.rows[0].locked,true);
+    const req=()=>new Request("https://test",{method:"POST",body:JSON.stringify({sport:"Baseball",canonicalName:"Johnny Bench",tier:"STAR_2"})});
+    assert.equal((await POST(req())).status,409);
+    assert.equal((await PUT(req(),{params:{id:"4256"}})).status,409);
+    assert.equal((await DELETE(new Request("https://test"),{params:{id:"4256"}})).status,409);
+    assert.equal(writes.length,0);
+  } finally {profiles.pop();}
 });

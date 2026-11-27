@@ -1,6 +1,7 @@
 import { PlayerTier, PrismaClient } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { approvedAliasFor, protectedAliasTarget, aliasTargetMatches } from "@/lib/player-tier-aliases";
+import { protectedLiteral, cleanupTarget, effectivePlayerTier } from "@/lib/player-tier-cleanup";
 
 type ProductSetWithDefaults = {
   commonPrice: number | null;
@@ -123,7 +124,7 @@ export function clearPlayerTierIgnoreTokenCache() {
   ignoreTokenCache = null;
 }
 
-async function stripTrailingIgnoredTokens(input: string) {
+async function stripTrailingIgnoredTokens(input: string, sport = "") {
   let current = collapseWhitespace(String(input ?? ""));
   if (!current) return "";
 
@@ -131,6 +132,7 @@ async function stripTrailingIgnoredTokens(input: string) {
 
   while (true) {
     let next = stripTrailingPunctuation(current);
+    if (protectedLiteral(sport, next)) return next;
     let changed = false;
 
     for (const pattern of TRAILING_REGEX_PATTERNS) {
@@ -186,14 +188,14 @@ async function stripTrailingIgnoredTokens(input: string) {
   return current;
 }
 
-export async function cleanCanonicalPlayerName(input: string | null | undefined) {
+export async function cleanCanonicalPlayerName(input: string | null | undefined, sport = "") {
   const collapsed = collapseWhitespace(String(input ?? ""));
   if (!collapsed) return "";
-  return stripTrailingIgnoredTokens(collapsed);
+  return stripTrailingIgnoredTokens(collapsed, sport);
 }
 
-export async function normalizePlayerName(input: string | null | undefined) {
-  const canonical = await cleanCanonicalPlayerName(input);
+export async function normalizePlayerName(input: string | null | undefined, sport = "") {
+  const canonical = await cleanCanonicalPlayerName(input, sport);
 
   return canonical
     .normalize("NFKD")
@@ -207,10 +209,10 @@ export async function normalizePlayerName(input: string | null | undefined) {
 
 // Resolve only after existing name and trailing-token normalization. No fuzzy matching.
 export async function resolvePlayerTierIdentity(sport: string | null | undefined, player: string | null | undefined) {
-  const canonicalName = await cleanCanonicalPlayerName(player);
-  const normalizedName = await normalizePlayerName(canonicalName);
   const sportKey = sport?.trim() || "";
-  const target = approvedAliasFor(sportKey, normalizedName) ?? protectedAliasTarget(sportKey, normalizedName);
+  const canonicalName = await cleanCanonicalPlayerName(player, sportKey);
+  const normalizedName = await normalizePlayerName(canonicalName, sportKey);
+  const target = approvedAliasFor(sportKey, normalizedName) ?? protectedAliasTarget(sportKey, normalizedName) ?? cleanupTarget(sportKey, normalizedName);
   return target
     ? { canonicalName: target.canonicalName, normalizedName: target.normalizedName, target }
     : { canonicalName, normalizedName, target: undefined };
@@ -289,10 +291,7 @@ export async function ensurePlayerTierProfile(params: {
       normalizedName,
       tier: null,
     },
-    update: {
-      canonicalName,
-      normalizedName,
-    },
+    update: {},
   });
 }
 
@@ -379,7 +378,8 @@ export async function getDefaultPriceForPlayer(params: {
     } satisfies DefaultPriceResult;
   }
 
-  if (!profile.tier) {
+  const effectiveTier = effectivePlayerTier(profile);
+  if (!effectiveTier) {
     return {
       ok: false,
       normalizedName,
@@ -391,14 +391,14 @@ export async function getDefaultPriceForPlayer(params: {
     } satisfies DefaultPriceResult;
   }
 
-  const defaultPrice = defaultPriceForTier(productSet, profile.tier);
+  const defaultPrice = defaultPriceForTier(productSet, effectiveTier);
   if (defaultPrice === null || !Number.isFinite(defaultPrice)) {
     return {
       ok: false,
       normalizedName,
       canonicalName: profile.canonicalName,
       sport: profile.sport || null,
-      tier: profile.tier,
+      tier: effectiveTier,
       defaultPrice: null,
       reason: "no-price-for-tier",
     } satisfies DefaultPriceResult;
@@ -409,7 +409,7 @@ export async function getDefaultPriceForPlayer(params: {
     normalizedName,
     canonicalName: profile.canonicalName,
     sport: profile.sport || null,
-    tier: profile.tier,
+    tier: effectiveTier,
     defaultPrice,
     reason: "ok",
   } satisfies DefaultPriceResult;
